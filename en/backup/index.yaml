@@ -6,7 +6,7 @@ description:
     href="/docs/baremetal">Yandex BareMetal</a> servers.
 links:
   - title: Getting started
-    description: Create a VM and attach it to a backup policy
+    description: Create a VM and link it to a backup policy
     href: quickstart
   - title: Step-by-step guides
     description: How to perform routine operations

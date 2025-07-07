@@ -40,7 +40,7 @@ To forward USB devices to a {{ baremetal-name }} server using USB over IP:
 1. [Get your cloud ready](#before-you-begin).
 1. [Set up a cloud network](#setup-vpc).
 1. [Create a virtual machine for a VPN server](#create-vpn-server).
-1. [Create a private {{ baremetal-name }} subnet](#create-subnet).
+1. [Create a {{ baremetal-name }} private subnet](#create-subnet).
 1. [Lease a {{ baremetal-name }} server](#rent-server).
 1. [Set up a VPN](#setup-vpn).
 1. [Configure USB over IP](#setup-usbip).
@@ -100,7 +100,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) named `vpn-sg` 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your cloud infrastructure.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}** and click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `vpn-sg`.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `sample-network` you created earlier.
@@ -121,8 +121,8 @@ Create a [security group](../../vpc/concepts/security-groups.md) named `vpn-sg` 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create the infrastructure in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
@@ -134,7 +134,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) named `vpn-sg` 
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify the username: `yc-user`.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `yc-user`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `wireguard-vpn-server`.
@@ -149,14 +149,14 @@ To keep the VPN connection alive if you stop and restart your VPN server, [make]
 {% endnote %}
 
 
-## Create a private {{ baremetal-name }} subnet {#create-subnet}
+## Create a {{ baremetal-name }} private subnet {#create-subnet}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your cloud infrastructure.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the subnet name: `subnet-m3`.
@@ -297,7 +297,7 @@ The server must have port `TCP 3240` open and accessible through the VPN connect
     [#] ip link set mtu 1420 up dev wg0
     [#] ip -4 route add 192.168.100.0/24 dev wg0
     ```
-1. Similarly, configure the WireGuard VPN client on the remote site computer; in the `PrivateKey` field of the `wg0.conf` WireGuard configuration file, specify the contents of the `remote_private.key` file created when configuring the VPN server with the private encryption key of the remote site VPN client.
+1. Similarly, configure the WireGuard VPN client on the remote computer; in the `PrivateKey` field of the `wg0.conf` WireGuard configuration file, specify the contents of the `remote_private.key` file created when configuring the VPN server with the private encryption key of the remote site VPN client.
 
 ### Test the VPN connection {#check-vpn}
 
@@ -418,7 +418,7 @@ A remote computer equipped with multiple USB ports will act as your `usbip` serv
     sudo usbipd -4 -D
     ```
 
-At this point, the selected USB devices are published and available for import over the network on the `usbip` client side.
+At this step, the selected USB devices are published and available for import over the network on the `usbip` client side.
 
 ### Configure the usbip client {#setup-usbip-client}
 

@@ -1,23 +1,23 @@
-# Connecting an existing {{ baremetal-full-name }} server to {{ backup-full-name }}
+# Connecting a {{ baremetal-full-name }} server to {{ backup-full-name }}
 
 You can connect an existing [{{ baremetal-name }} server](../../baremetal/concepts/servers.md) to {{ backup-name }} and configure backups of its data.
 
 For more information about connecting a {{ baremetal-name }} server to {{ backup-name }} when ordering it, see [{#T}](../../backup/operations/backup-baremetal/lease-server-with-backup.md).
 
-For more information on managing {{ baremetal-name }} servers, see [Step-by-step guides for {{ baremetal-full-name }}](../../baremetal/operations/index.md).
+For more information on managing servers, see [Step-by-step guides for {{ baremetal-full-name }}](../../baremetal/operations/index.md).
 
-Connecting to {{ backup-name }} is supported for servers running the following operating systems: {#os-support}
+The following server operating systems are supported: {#os-support}
 
 {% include [baremetal-os-list](../../_includes/backup/baremetal-os-list.md) %}
 
-To connect an existing server to {{ backup-name }}:
+To connect a server to {{ backup-name }}:
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a service account](#prepare-service-account).
 1. [Activate {{ backup-name }}](#activate-provider).
 1. [Lease a test server](#server-lease).
 1. [Connect to the server](#server-connect).
 1. [Install the {{ backup-name }} agent](#agent-install).
-1. [Link the server to a backup policy](#assign-policy).
+1. [Associate the server with a backup policy](#assign-policy).
 1. [Run the backup process](#execute-policy).
 1. [Restore your server from the backup](#server-recovery).
 
@@ -71,7 +71,7 @@ To activate {{ backup-name }}, you need _at least_ the `backup.editor` [role](..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to lease a server and connect it to {{ backup-name }}.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. If you have not activated {{ backup-name }} yet, click **{{ ui-key.yacloud.backup.button_action-activate }}**.
 
       If there is no **{{ ui-key.yacloud.backup.button_action-activate }}** button, {{ backup-name }} is already activated. Proceed to the next step.
@@ -89,7 +89,7 @@ After activation, the system automatically creates the following backup policies
 
 ## Lease a test server {#server-lease}
 
-If you are already leasing a server with an [appropriate OS](#os-support), go to [Connect to the server](#server-connect). Make sure to check the [network permissions](#ip-access) you need to configure on the server.
+If you are already leasing a server with an [appropriate OS](#os-support), proceed to [Connect to the server](#server-connect). Make sure to check the [network permissions](#ip-access) you need to configure on the server.
 
 {% list tabs group=instructions %}
 
@@ -119,9 +119,9 @@ If you are already leasing a server with an [appropriate OS](#os-support), go to
 
 {% endlist %}
 
-Save the server name and ID for use in the later steps.
+Save the server name and ID, as you will need them later.
 
-For more information on leasing a server, see the [{{ baremetal-name }} documentation](../../baremetal/operations/servers/server-lease.md).
+For more information on leasing a server, see [this {{ baremetal-name }} guide](../../baremetal/operations/servers/server-lease.md).
 
 ## Connect to the server {#server-connect}
 
@@ -129,14 +129,14 @@ For more information on leasing a server, see the [{{ baremetal-name }} document
 
 - KVM console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the server belongs to.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your server.
   1. In the list of services, select **{{ baremetal-name }}**.
-  1. In the row with the server, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Start KVM console**.
+  1. Find the server you need, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **Start KVM console**.
   1. In the window that opens, click **KVM console**.
 
 - Linux/macOS {#linux-macos}
 
-  To establish a server connection, specify its public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
+  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
 
   1. In the terminal, run this command:
 
@@ -144,7 +144,7 @@ For more information on leasing a server, see the [{{ baremetal-name }} document
       ssh root@<server_public_IP_address>
       ```
 
-      If this is your first time connecting to the server, you will get an unknown host warning:
+      If this is your first time connecting to the server, you will get this unknown host warning:
 
       ```text
       The authenticity of host '51.250.83.243 (51.250.83.243)' can't be established.
@@ -158,9 +158,9 @@ For more information on leasing a server, see the [{{ baremetal-name }} document
 
 - Windows 10/11 {#windows}
 
-  To establish a server connection, specify its public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
+  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
 
-  Make sure the Windows account has read permissions for the folder containing the keys.
+  Make sure the Windows account has read access to the key folder.
 
   1. To connect to the server, run the following command in the command line:
 
@@ -168,7 +168,7 @@ For more information on leasing a server, see the [{{ baremetal-name }} document
       ssh root@<server_public_IP_address>
       ```
 
-      If this is your first time connecting to the server, you will get an unknown host warning:
+      If this is your first time connecting to the server, you will get this unknown host warning:
 
       ```text
       The authenticity of host '89.169.132.223 (89.169.132.223)' can't be established.
@@ -183,14 +183,14 @@ For more information on leasing a server, see the [{{ baremetal-name }} document
 
 ## Install the {{ backup-name }} agent {#agent-install}
 
-1. Copy the file with the service account's authorized key [you created earlier](#prepare-service-account) to the server. To do this, run this command _on the local machine_:
+1. Copy the file with the service account's authorized key [you created earlier](#prepare-service-account) to the server. To do this, run the following command _on the local machine_:
 
     ```bash
     scp <path_to_authorized_key_file_on_local_machine> \
     root@<server_public_IP_address>:<absolute_path_to_folder_on_server>
     ```
 
-1. Install the [{{ yandex-cloud }} CLI](../../cli/). To do this, run this command _on the server_:
+1. Install the [{{ yandex-cloud }} CLI](../../cli/) by running this command _on the server_:
 
     ```bash
     curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
@@ -217,7 +217,7 @@ For more information on leasing a server, see the [{{ baremetal-name }} document
 
     {% endlist %}
 
-1. Authenticate in the {{ yandex-cloud }} CLI as a service account:
+1. Authenticate in the {{ yandex-cloud }} CLI using service account credentials:
 
     ```bash
     yc config set service-account-key <absolute_path_to_authorized_key>
@@ -229,7 +229,7 @@ For more information on leasing a server, see the [{{ baremetal-name }} document
     yc iam create-token
     ```
 
-1. Install the {{ backup-name }} agent specifying the service account IAM token you got earlier:
+1. Install the {{ backup-name }} agent, specifying the service account IAM token you got earlier:
 
     ```bash
     wget https://{{ s3-storage-host }}/backup-distributions/agent_installer_bms.sh && \
@@ -237,59 +237,59 @@ For more information on leasing a server, see the [{{ baremetal-name }} document
     -t=<IAM_token>
     ```
 
-    Wait for the message informing you the {{ backup-name }} agent is registered:
+    Wait until you see the message confirming {{ backup-name }} agent registration:
 
     ```text
     ...
     Agent registered with id D9CA44FC-716A-4B3B-A702-C6**********
     ```
 
-## Link the server to a backup policy {#assign-policy}
+## Associate the server with a backup policy {#assign-policy}
 
-You can create backups in {{ backup-name }} only as part of a [backup policy](../../backup/concepts/policy.md). By default, {{ baremetal-name }} servers are not linked to any policy.
+You can create backups in {{ backup-name }} only as part of a [backup policy](../../backup/concepts/policy.md). By default, {{ baremetal-name }} servers are not associated with any policy.
 
-To link a server to a backup policy:
+To associate a server with a backup policy:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder where you want to link a server to a backup policy.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to associate a server with a backup policy.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![policies](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud_billing.backup.label_policies }}**.
-  1. Select the policy to link the server to.
+  1. Select the policy to associate your server with.
   
-      [Create](../../backup/operations/policy-vm/create.md) a new backup policy if you need to.
+      [Create](../../backup/operations/policy-vm/create.md) a new backup policy as needed.
   1. Under **{{ ui-key.yacloud.backup.title_linked-recourses }}**, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**.
   1. In the window that opens, select the **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab and select the server from the list.
   1. Click **{{ ui-key.yacloud_billing.backup.button_attach-instance-submit }}**.
 
 - CLI {#cli}
 
-  1. View the description of the CLI command to link a {{ baremetal-name }} server to a backup policy: 
+  1. See the description of the CLI command for associating a {{ baremetal-name }} server with a backup policy: 
 
       ```bash
       yc backup policy apply --help
       ```
 
-  1. Get the ID of the policy to link the server to:
+  1. Get the ID of the policy you want to associate your server with:
 
       {% include [get-policy-id](../../_includes/backup/operations/get-policy-id.md) %}
 
-      [Create](../../backup/operations/policy-vm/create.md) a new backup policy if you need to.
+      [Create](../../backup/operations/policy-vm/create.md) a new backup policy as needed.
 
-  1. Get the ID of the server to link. To do this, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** from the list of services of the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}). The IDs are specified in the server list in the **{{ ui-key.yacloud.common.id }}** field.
+  1. Get the ID of the server to associate. To do this, go to the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in the [management console]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** from the list of services. The IDs are specified in the server list, the **{{ ui-key.yacloud.common.id }}** field.
 
-  1. Link the server to the backup policy by specifying its ID:
+  1. Associate the server with the backup policy, specifying the policy ID:
 
       ```bash
       yc backup policy apply <policy_ID> \
         --instance-ids <server_ID>
       ```
 
-      Where `--instance-ids` is the ID of the {{ baremetal-name }} server to link to the policy.
+      Where `--instance-ids` is the ID of the {{ baremetal-name }} server being associated with the policy.
 
-  For more information about the command, see the [CLI reference](../../cli/cli-ref/backup/cli-ref/policy/apply.md).
+  For more information about this command, see the [CLI reference](../../cli/cli-ref/backup/cli-ref/policy/apply.md).
 
 {% endlist %}
 
@@ -301,23 +301,23 @@ To link a server to a backup policy:
 
 {% endnote %}
 
-To start creating a {{ baremetal-name }} server backup outside of the backup policy schedule:
+To start a {{ baremetal-name }} server backup outside the backup policy schedule:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the backup policy.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your backup policy.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![bms](../../_assets/console-icons/objects-align-justify-horizontal.svg) **{{ ui-key.yacloud.backup.label_baremetal-instances }}**.
-  1. In the row with the server, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_start_backup }}**.
+  1. Find the server you need, click ![options](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.backup.action_start_backup }}**.
   1. In the window that opens, select the backup policy for creating the backup and click **{{ ui-key.yacloud.common.create }}**.
 
-  {{ backup-name }} will start to create a backup of the {{ baremetal-name }} server. You can see the progress in the relevant server row in the **{{ ui-key.yacloud.backup.column_baremetal-instance-status }}** field.
+  {{ backup-name }} will start creating a backup of the {{ baremetal-name }} server. You can see the progress in the relevant server row in the **{{ ui-key.yacloud.backup.column_baremetal-instance-status }}** field.
 
 - CLI {#cli}
 
-  Run this command specifying the backup policy and server IDs:
+  Run this command, specifying the backup policy and server IDs:
 
   ```bash
   yc backup policy execute \
@@ -327,11 +327,11 @@ To start creating a {{ baremetal-name }} server backup outside of the backup pol
 
   Wait for the operation to complete.
 
-  Also, you can run the command in asynchronous mode using the `--async` parameter and track the backup process using the [yc backup resource list-tasks](../../cli/cli-ref/backup/cli-ref/vm/list-tasks.md) command.
+  You can also run this command in asynchronous mode using the `--async` parameter and track the backup process using the [yc backup resource list-tasks](../../cli/cli-ref/backup/cli-ref/vm/list-tasks.md) command.
 
 {% endlist %}
 
-## Restore your server from backup {#server-recovery}
+## Restore your server from the backup {#server-recovery}
 
 {% include [vm-and-bms-backup-incompatibility](../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
 
@@ -341,7 +341,7 @@ If you need to restore one server's backup to another server, or if the OS has b
 
 {% note tip %}
 
-If the server had used a RAID array, we recommend that you restore the backup to a server with a similar partition configuration. We also recommend that you make the partitions at least as big as on the source server.
+If the server used a RAID array, we recommend restoring the backup to a server with a similar partition configuration. We also recommend that you make the partitions at least as large as on the source server.
 
 {% endnote %}
 
@@ -351,18 +351,18 @@ To restore your server from a backup:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the backup.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}** and open the **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
-  1. In the row with the backup to restore the {{ baremetal-name }} server from, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_bms-recovery }}**.
-  1. In the window that opens, select the server you created the selected backup from. This server will be marked in the list as `({{ ui-key.yacloud.backup.context_current-bms }})`.
+  1. Next to the backup you need to restore your {{ baremetal-name }} server from, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_bms-recovery }}**.
+  1. In the window that opens, select the server used to create the selected backup. This server will be marked in the list as `({{ ui-key.yacloud.backup.context_current-bms }})`.
   1. Click **{{ ui-key.yacloud.backup.action_recovery-start }}**.
 
-  The process of {{ baremetal-name }} server recovery from the backup will start. Wait until it is complete.
+  This will start the {{ baremetal-name }} server restoration from the backup. Wait for it to complete.
 
 - CLI {#cli}
 
-  1. Get a list of backups for the server by specifying its ID:
+  1. Get a list of backups for the server, specifying its ID:
 
       ```bash
       yc backup backup list \
@@ -371,7 +371,7 @@ To restore your server from a backup:
 
       Save the backup `ID`.
 
-  1. Restore your server from the backup by specifying their IDs:
+  1. Restore your server from the backup, specifying their IDs:
 
       ```bash
       yc backup backup recover \
@@ -379,9 +379,9 @@ To restore your server from a backup:
         --source-backup-id="<backup_ID>"
       ```
 
-      The recovery of your {{ baremetal-name }} server will start. Wait for it to complete.
+      This will start the {{ baremetal-name }} server restoration from the backup. Wait for it to complete.
 
-      Also, you can run the command in asynchronous mode using the `--async` parameter and track the backup process using the [yc backup resource list-tasks](../../cli/cli-ref/backup/cli-ref/vm/list-tasks.md) command.
+      You can also run this command in asynchronous mode using the `--async` parameter and track the backup process using the [yc backup resource list-tasks](../../cli/cli-ref/backup/cli-ref/vm/list-tasks.md) command.
 
       For more information about the `yc backup backup recover` command, see the [CLI reference](../../cli/cli-ref/backup/cli-ref/backup/recover.md).
 
@@ -391,7 +391,7 @@ To restore your server from a backup:
 
 ## How to cancel a lease and delete resources {#clear-out}
 
-1. [Cancel](../../baremetal/operations/servers/server-lease-cancel.md) a {{ baremetal-name }} server lease.
+1. [Cancel](../../baremetal/operations/servers/server-lease-cancel.md) your {{ baremetal-name }} server lease.
 1. [Delete](../../backup/operations/backup-vm/delete.md) the backup in {{ backup-name }} using the CLI.
 
 #### See also {#see-also}

@@ -1,6 +1,6 @@
 # {{ oslogin }}
 
-{{ oslogin }} упрощает процесс [SSH](../../glossary/ssh-keygen.md)-подключений к _виртуальным машинам_ в {{ yandex-cloud }}. Под виртуальными машинами (или ВМ) здесь и ниже подразумеваются как собственно [виртуальные машины сервиса {{ compute-full-name }}](../../compute/concepts/vm.md#project), так и [отдельные узлы в группах узлов](../../managed-kubernetes/concepts/index.md#node-group) в составе [кластеров {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), на которых запускаются пользовательские контейнеры.
+{{ oslogin }} упрощает процесс [SSH](../../glossary/ssh-keygen.md)-подключений к _виртуальным машинам_ в {{ yandex-cloud }}. Под виртуальными машинами (или ВМ) здесь и ниже подразумеваются собственно [виртуальные машины сервиса {{ compute-full-name }}](../../compute/concepts/vm.md#project), хосты [подкластеров {{ dataproc-full-name }}](../../data-proc/concepts/index.md#resources) и [отдельные узлы в группах узлов](../../managed-kubernetes/concepts/index.md#node-group) в составе [кластеров {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), на которых запускаются пользовательские контейнеры.
 
 С помощью {{ oslogin }} можно управлять SSH-доступом к ВМ, полагаясь только на механизмы [сервиса {{ iam-full-name }}](../../iam/concepts/index.md), без необходимости загружать SSH-ключи на каждую новую ВМ при ее создании. {{ oslogin }} связывает учетную запись пользователя ВМ с аккаунтом в {{ org-full-name }} — учетной записью [пользователя организации](../../organization/concepts/membership.md) или [сервисным аккаунтом](../../iam/concepts/users/service-accounts.md).
 
@@ -111,7 +111,7 @@ ssh -i ~/Downloads/cert/yc-organization-id-bpfdp4pdeg8d********-username usernam
 
 Подключиться к виртуальной машине с включенным доступом по {{ oslogin }} с помощью {{ yandex-cloud }} CLI можно как по SSH-ключу, [сохраненному](../../organization/operations/add-ssh.md) в профиле {{ oslogin }} пользователя или сервисного аккаунта, так и по SSH-сертификату этого пользователя или сервисного аккаунта.
 
-Подробнее о подключении к ВМ по {{ oslogin }} см. в инструкциях [{#T}](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) и [Подключиться к узлу {{ k8s }} по {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md#connect-via-cli).
+Подробнее о подключении к ВМ по {{ oslogin }} см. в инструкциях [{#T}](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli), [Подключиться к узлу {{ k8s }} по {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md#connect-via-cli) и [Подключение к кластеру {{ dataproc-name }}](../../data-proc/operations/connect.md#os-login-cli).
 
 ### Необходимые роли для подключения к ВМ по {{ oslogin }} {#necessary-roles}
 

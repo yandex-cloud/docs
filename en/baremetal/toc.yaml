@@ -89,23 +89,19 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: >-
-          Connecting an existing {{ baremetal-name }} server to {{ backup-name
-          }}
+      - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
         href: tutorials/backup-baremetal.md
       - name: Configuring VRRP for a cluster of {{ baremetal-name }} servers
         href: tutorials/bms-vrf-routing.md
-      - name: >-
-          Establishing network connectivity in a {{ baremetal-name }} private
-          subnet
+      - name: Setting up network connectivity in a {{ baremetal-name }} subnet
         href: tutorials/bms-simple-subnet.md
       - name: >-
-          Establishing network connectivity between {{ baremetal-name }} and {{
-          vpc-name }} private subnets
+          Setting up network connectivity between {{ baremetal-name }} and {{
+          vpc-name }} subnets
         href: tutorials/bm-vrf-and-vpc-interconnect.md
       - name: >-
-          Establishing network connectivity between a {{ baremetal-name }}
-          private subnet and on-prem resources
+          Setting up network connectivity between a {{ baremetal-name }} subnet
+          and on-prem resources
         href: tutorials/bms-cic-onprem.md
       - name: >-
           Delivering USB devices to a {{ baremetal-name }} server or virtual

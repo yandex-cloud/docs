@@ -1,21 +1,21 @@
 ---
-title: How to reset the root user password on a {{ baremetal-full-name }} server
-description: Follow this guide to reset the password on a {{ baremetal-name }} server with the help of a Rescue CD boot image.
+title: How to reset the root password on a {{ baremetal-full-name }} server
+description: In this tutorial, you will learn how to reset the root password on a {{ baremetal-name }} server using the Rescue CD boot image.
 ---
 
-# Resetting the root user password on a server
+# Resetting the server root password
 
-The root user password is generated when [leasing](./server-lease.md) a {{ baremetal-name }} server. You must save this password because you cannot view or restore it after the server starts.
+The system automatically generates a root password during {{ baremetal-name }} server [provisioning](./server-lease.md). You must save this password, as it will become inaccessible after server initialization.
 
-If you have lost your {{ baremetal-name }} server root user password, you can create a new one. Depending on the situation, you can do it in different ways.
+If you have lost your {{ baremetal-name }} server root password, you can create a new one. The recovery method depends on your access level.
 
 {% include [kvm-paste-tip](../../../_includes/baremetal/kvm-paste-tip.md) %}
 
 {% list tabs %}
 
-- If you still can access the server with your SSH key
+- If you still have SSH key access to the server
 
-  If you still can connect to the server as the root user using the SSH key specified when leasing the server, you can change the root user password without Rescue CD:
+  If you still have root SSH access via the key specified during server setup, you can reset the root password without using Rescue CD:
 
   1. Connect to the server over SSH:
 
@@ -24,11 +24,11 @@ If you have lost your {{ baremetal-name }} server root user password, you can cr
       ```
   1. {% include [reset-root-password](../../../_includes/baremetal/instruction-steps/reset-root-password.md) %}
 
-- If you have no access to the server
+- If you do not have access to the server
 
-  If you are unable to connect to the server using the SSH key specified when leasing the server, recover the root user password with the help of the Rescue CD boot image. Proceed in the [KVM console](./server-kvm.md).
+  If you do not have root SSH access to the server, reset the root password using the Rescue CD boot image: Proceed with the following steps in the [KVM console](./server-kvm.md).
 
-  To change the root user password or other {{ baremetal-name }} server settings:
+  To reset the root password or change other {{ baremetal-name }} server settings:
 
   1. {% include [rescue-chroot-to-server-fs1](../../../_includes/baremetal/instruction-steps/rescue-chroot-to-server-fs1.md) %}
   1. {% include [rescue-chroot-to-server-fs2](../../../_includes/baremetal/instruction-steps/rescue-chroot-to-server-fs2.md) %}

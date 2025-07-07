@@ -526,6 +526,66 @@ For more information, see [{#T}](../marketplace/security/index.md).
 
 {% include [organizationmanager-passportUserAdmin](../_roles/organization-manager/passportUserAdmin.md) %}
 
+#### organization-manager.oauthApplications.auditor {#organization-manager-oauthApplications-auditor}
+
+{% include [organizationmanager-oauthApplications-auditor](../_roles/organization-manager/oauthApplications/auditor.md) %}
+
+#### organization-manager.oauthApplications.viewer {#organization-manager-oauthApplications-viewer}
+
+{% include [organizationmanager-oauthApplications-viewer](../_roles/organization-manager/oauthApplications/viewer.md) %}
+
+#### organization-manager.oauthApplications.editor {#organization-manager-oauthApplications-editor}
+
+{% include [organizationmanager-oauthApplications-editor](../_roles/organization-manager/oauthApplications/editor.md) %}
+
+#### organization-manager.oauthApplications.usersAdmin {#organization-manager-oauthApplications-usersAdmin}
+
+{% include [organizationmanager-oauthApplications-usersAdmin](../_roles/organization-manager/oauthApplications/usersAdmin.md) %}
+
+#### organization-manager.oauthApplications.admin {#organization-manager-oauthApplications-admin}
+
+{% include [organizationmanager-oauthApplications-admin](../_roles/organization-manager/oauthApplications/admin.md) %}
+
+#### organization-manager.samlApplications.auditor {#organization-manager-samlApplications-auditor}
+
+{% include [organizationmanager-samlApplications-auditor](../_roles/organization-manager/samlApplications/auditor.md) %}
+
+#### organization-manager.samlApplications.viewer {#organization-manager-samlApplications-viewer}
+
+{% include [organizationmanager-samlApplications-viewer](../_roles/organization-manager/samlApplications/viewer.md) %}
+
+#### organization-manager.samlApplications.editor {#organization-manager-samlApplications-editor}
+
+{% include [organizationmanager-samlApplications-editor](../_roles/organization-manager/samlApplications/editor.md) %}
+
+#### organization-manager.samlApplications.usersAdmin {#organization-manager-samlApplications-usersAdmin}
+
+{% include [organizationmanager-samlApplications-usersAdmin](../_roles/organization-manager/samlApplications/usersAdmin.md) %}
+
+#### organization-manager.samlApplications.admin {#organization-manager-samlApplications-admin}
+
+{% include [organizationmanager-samlApplications-admin](../_roles/organization-manager/samlApplications/admin.md) %}
+
+#### organization-manager.userpools.auditor {#organization-manager-userpools-auditor}
+
+{% include [organizationmanager-userpools-auditor](../_roles/organization-manager/userpools/auditor.md) %}
+
+#### organization-manager.userpools.viewer {#organization-manager-userpools-viewer}
+
+{% include [organizationmanager-userpools-viewer](../_roles/organization-manager/userpools/viewer.md) %}
+
+#### organization-manager.userpools.editor {#organization-manager-userpools-editor}
+
+{% include [organizationmanager-userpools-editor](../_roles/organization-manager/userpools/editor.md) %}
+
+#### organization-manager.userpools.usersAdmin {#organization-manager-userpools-usersAdmin}
+
+{% include [organizationmanager-userpools-usersAdmin](../_roles/organization-manager/userpools/userAdmin.md) %}
+
+#### organization-manager.userpools.admin {#organization-manager-userpools-admin}
+
+{% include [organizationmanager-userpools-admin](../_roles/organization-manager/userpools/admin.md) %}
+
 For more information, see [{#T}](../organization/security/index.md).
 
 

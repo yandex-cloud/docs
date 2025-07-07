@@ -1,6 +1,6 @@
 ---
 title: How to lease a server in {{ baremetal-full-name }}
-description: Follow this guide to lease a server in {{ baremetal-full-name }}.
+description: In this tutorial, you will learn how to lease a server in {{ baremetal-full-name }}.
 ---
 
 # Leasing a server
@@ -33,4 +33,4 @@ description: Follow this guide to lease a server in {{ baremetal-full-name }}.
 
 {% endlist %}
 
-Once you lease a server, you can install or re-install an OS on it at any time from a public image in {{ marketplace-name }} or your own ISO image. For more information, see [{#T}](./reinstall-os-from-marketplace.md) and [{#T}](./reinstall-os-from-own-image.md).
+Once you lease a server, you can install or reinstall the OS at any time using either a {{ marketplace-name }} public image or your own custom ISO. For more information, see [{#T}](./reinstall-os-from-marketplace.md) and [{#T}](./reinstall-os-from-own-image.md).

@@ -1,9 +1,9 @@
 ---
-title: Как выполнять поиск в {{ search-api-full-name }} с помощью API v2 в синхронном режиме
+title: Как выполнять текстовый поиск в {{ search-api-full-name }} с помощью API v2 в синхронном режиме
 description: Следуя данной инструкции, вы научитесь использовать интерфейс API v2 сервиса {{ search-api-name }} для отправки поисковых запросов и получения поисковой выдачи в формате XML или HTML в синхронном режиме.
 ---
 
-# Выполнение поисковых запросов с помощью API v2 в синхронном режиме
+# Выполнение текстовых поисковых запросов с помощью API v2 в синхронном режиме
 
 [API v2](../concepts/index.md#api-v2) сервиса {{ search-api-name }} позволяет выполнять текстовый поиск в поисковой базе Яндекса и получать результат поиска в формате [XML](../concepts/response.md) или [HTML](../concepts/html-response.md) в синхронном режиме. Выполнять запросы можно с помощью [REST API](../api-ref/) и [gPRC API](../api-ref/grpc/). Поисковая выдача зависит от заданных в запросе параметров.
 
@@ -40,14 +40,14 @@ description: Следуя данной инструкции, вы научите
 
       1. Выполните HTTP-запрос, указав полученный ранее IAM-токен:
 
-      ```bash
-      curl \
-        --request POST \
-        --header "Authorization: Bearer <IAM-токен>" \
-        --data "@body.json" \
-        "https://searchapi.{{ api-host }}/v2/web/search" \
-        > result.json
-      ```
+          ```bash
+          curl \
+            --request POST \
+            --header "Authorization: Bearer <IAM-токен>" \
+            --data "@body.json" \
+            "https://searchapi.{{ api-host }}/v2/web/search" \
+            > result.json
+          ```
 
     - gRPC API {#grpc-api}
 
@@ -83,23 +83,23 @@ description: Следуя данной инструкции, вы научите
 
     - XML {#xml}
 
-      ```bash
-      echo "$(< result.json)" | \
-        jq -r .rawData | \
-        base64 --decode > result.xml
-      ```
+        ```bash
+        echo "$(< result.json)" | \
+          jq -r .rawData | \
+          base64 --decode > result.xml
+        ```
 
-      В результате в файл `result.xml` будет сохранен XML-ответ по запросу.
+        В результате в файл `result.xml` будет сохранен XML-ответ по запросу.
 
     - HTML {#html}
 
-      ```bash
-      echo "$(< result.json)" | \
-        jq -r .rawData | \
-        base64 --decode > result.html
-      ```
+        ```bash
+        echo "$(< result.json)" | \
+          jq -r .rawData | \
+          base64 --decode > result.html
+        ```
 
-      В результате в файл `result.html` будет сохранен HTML-ответ по запросу.
+        В результате в файл `result.html` будет сохранен HTML-ответ по запросу.
 
     {% endlist %}
 

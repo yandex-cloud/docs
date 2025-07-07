@@ -30,17 +30,17 @@ items:
             href: operations/refresh-connection-oslogin-linux.md
           - name: Updating or restoring a {{ backup-name }} agent
             href: operations/update-backup-agent.md
-          - name: Viewing VM connection status
+          - name: Viewing a VM connection status
             href: operations/get-connection-status.md
-          - name: Viewing backup log
+          - name: Viewing a backup log
             href: operations/get-journal.md
           - name: Deleting a VM from {{ backup-name }}
             href: operations/delete-vm.md
       - name: '{{ baremetal-name }} in {{ backup-name }}'
         items:
           - name: >-
-              Leasing a {{ baremetal-name }} server with a connection to {{
-              backup-name }}
+              Leasing a {{ baremetal-name }} server connected to {{ backup-name
+              }}
             href: operations/backup-baremetal/lease-server-with-backup.md
           - name: >-
               Connecting an existing {{ baremetal-name }} server to {{
@@ -48,7 +48,7 @@ items:
             href: operations/backup-baremetal/backup-baremetal.md
           - name: Reconnecting a {{ baremetal-name }} server to {{ backup-name }}
             href: operations/backup-baremetal/refresh-connection.md
-          - name: Restoring a {{ backup-name }} agent
+          - name: Restoring the {{ backup-name }} agent
             href: operations/backup-baremetal/restore-agent.md
       - name: Backup policies
         items:
@@ -104,9 +104,9 @@ items:
             href: tutorials/vm-with-backup-policy/terraform.md
   - name: Concepts
     items:
-      - name: Service overview
+      - name: Overview
         href: concepts/index.md
-      - name: Connecting a VM and {{ baremetal-name }} servers to the service
+      - name: Connecting a VM and {{ baremetal-name }} server to the service
         href: concepts/vm-connection.md
       - name: Backup policies
         href: concepts/policy.md

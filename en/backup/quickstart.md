@@ -64,7 +64,7 @@ You can use an existing [security group](../vpc/concepts/security-groups.md) or 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a VM connected to {{ backup-name }}.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Enter a name for the security group.
@@ -82,7 +82,7 @@ Add VM outgoing traffic [rules](../vpc/concepts/security-groups.md#security-grou
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a VM connected to {{ backup-name }}.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Next to the security group you want to add rules to, click ![image](../_assets/console-icons/ellipsis.svg) and select ![image](../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, navigate to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab and click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -126,7 +126,7 @@ To activate the service, you need _at least_ the `backup.editor` [role](security
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create a VM with a {{ backup-name }} connection in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM connected to {{ backup-name }}.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. If you have not activated {{ backup-name }} yet, click **{{ ui-key.yacloud.backup.button_action-activate }}**.
 
@@ -141,7 +141,7 @@ To activate the service, you need _at least_ the `backup.editor` [role](security
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a VM connected to {{ backup-name }}.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
@@ -188,7 +188,7 @@ For more information, see [{#T}](../compute/operations/index.md#vm-create).
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Select the VM.
       1. Check that the value of the **{{ ui-key.yacloud.backup.field_vm-instances }}** field in the **{{ ui-key.yacloud.backup.title_backup }}** section is `{{ ui-key.yacloud.backup.label_create }}`.
 
@@ -205,7 +205,7 @@ For more information, see [{#T}](../compute/operations/index.md#vm-create).
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
       1. Navigate to the ![policies](../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
       1. Select one of the policies created by default.
       1. Under **{{ ui-key.yacloud.backup.value_vm-recourses }}**, click ![plus-sign](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.backup.button_attach-instance }}**.
@@ -220,7 +220,7 @@ For more information, see [{#T}](../compute/operations/index.md#vm-create).
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Select the VM.
       1. Under **{{ ui-key.yacloud.backup.title_backup }}**, click ![image](../_assets/console-icons/pencil.svg) in the **{{ ui-key.yacloud.backup.label_policies }}** field.
       1. Select one of the policies created by default and click **{{ ui-key.yacloud.common.save }}**.

@@ -24,6 +24,7 @@ description: Пошаговые инструкции по управлению �
 ## Сервисные аккаунты {#sa}
 
 - [{#T}](sa/create.md)
+- [{#T}](sa/list-get.md)
 - [{#T}](sa/update.md)
 - [{#T}](sa/assign-role-for-sa.md)
 - [{#T}](sa/set-access-bindings.md)

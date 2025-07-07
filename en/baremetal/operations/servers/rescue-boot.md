@@ -1,28 +1,28 @@
 ---
-title: How to start a {{ baremetal-full-name }} server with Rescue CD
-description: Follow this guide to start using the diagnostics and recovery tools available in the standard bootable {{ baremetal-name }} Rescue CD image.
+title: How to boot a {{ baremetal-full-name }} server using a Rescue CD
+description: In this tutorial, you will learn how to use diagnostics and recovery tools available in the standard bootable {{ baremetal-name }} Rescue CD image.
 ---
 
-# Using the Rescue CD recovery and diagnostics disk
+# Using the Rescue CD diagnostics and recovery tools
 
-If you are unable to boot the main server OS, you can start the server from the dedicated Rescue CD by [SystemRescue](https://www.system-rescue.org/), which comes with a set of utilities and is available in the KVM console.
+If you cannot boot the main server OS, you can start the server using the [SystemRescue](https://www.system-rescue.org/) CD that includes essential utilities and is accessible via the KVM console.
 
-## Start the server with Rescue CD {#boot-up}
+## Boot the server from a Rescue CD {#boot-up}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the server belongs to.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. In the row with the server you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **KVM console**.
-  1. In the KVM console window, in the top menu, select **Media** → **Virtual Media Wizard...** or click the CD icon. In the window that opens:
+  1. In the [management console]({{ link-console-main }}), select the folder containing your server.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. Find the server you need in the list, click ![image](../../../_assets/console-icons/ellipsis.svg) in its row, and select **KVM console**.
+  1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens:
 
       1. In the **CD/DVD Media1** section, click **Browse** and select the `systemrescue<...>.iso` image in the `common-iso` directory.
       1. Click **Connect CD/DVD**.
-      1. Check the **Status** section for the **Virtual CD 1** device to make sure the **Connected To** field now indicates the path to the CD image you selected and click **Close**.
-  1. To start the server from the selected Rescue CD image, click **Reboot to cdrom** in the top-right corner of the KVM console.
-  1. Wait for the server to restart and the main SystemRescue menu to load. To select the required menu item, use the **up and down arrow** keys and press **Enter**.
+      1. Check the **Virtual CD 1** device **Status** section to make sure the **Connected To** field now shows your selected CD image path, then click **Close**.
+  1. To boot the server from the selected Rescue CD image, click **Reboot to CD-ROM** in the top-right corner of the KVM console.
+  1. Wait for the server to restart and for the main SystemRescue menu to load. Select the required menu item using the **up and down arrow** keys, then press **Enter**.
 
       {% cut "SystemRescue main menu elements" %}
 
@@ -31,28 +31,28 @@ If you are unable to boot the main server OS, you can start the server from the 
           Launches the SystemRescue recovery interface with default settings.
       * **Boot SystemRescue and copy system to RAM (copyram)**
 
-          Launches the SystemRescue recovery interface while copying the utilities and OS system files used by SystemRescue to RAM.
+          Launches the SystemRescue recovery interface, copying the essential utilities and OS system files to RAM for operation.
       * **Boot SystemRescue and verify integrity of the medium (checksum)**
 
-          Launches the SystemRescue recovery interface while checking the Rescue CD medium for corruption.
+          Launches the SystemRescue recovery interface with Rescue CD media integrity verification.
       * **Boot SystemRescue using basic display drivers (nomodeset)**
 
-          Launches the SystemRescue recovery interface using the basic video driver for the GUI.
+          Launches the SystemRescue recovery interface with basic video drivers for GUI mode.
       * **Boot SystemRescue with serial console (ttyS0,115200n8)**
 
-          Launches the SystemRescue recovery interface using the serial console.
+          Launches the SystemRescue recovery interface in text mode via serial console.
       * **Boot SystemRescue, do not activate md raid or lvm (nomdlvm)**
 
-          Launches the SystemRescue recovery interface without RAID management.
+          Launches the SystemRescue recovery interface with RAID support disabled.
       * **Boot a Linux operating system installed on the disk (findroot)**
 
-          Boots Linux installed on the server's boot disk.
+          Boots the Linux installation from the server’s primary boot disk.
       * **Stop during the boot process before mounting the root filesystem**
 
-          Boots the OS installed on the server's boot disk and stops the boot process before mounting the root file system.
+          Boots the OS installed on the server's primary boot disk, stopping the boot process before root filesystem mount.
       * **Boot existing OS**
 
-          Boots the OS installed on the server. You can use the **Tab** key to pre-select the disk and partition number the OS is installed in.
+          Boots the OS installed on the server. Use the **Tab** key to pre-select the disk and partition number containing the OS installation.
       * **Run Memtest86+ (RAM test)**
 
           Runs the Memtest86+ RAM testing utility.
@@ -67,31 +67,31 @@ If you are unable to boot the main server OS, you can start the server from the 
 
 {% endlist %}
 
-## Use SystemRescue tools {#use-tools}
+## Using SystemRescue toolkit {#use-tools}
 
-Use SystemRescue to restore or configure your server:
+Use SystemRescue tools to restore or configure your server:
 
 {% list tabs %}
 
 - SystemRescue documentation
 
-  1. [Start the server](#boot-up) with Rescue CD.
+  1. [Boot the server](#boot-up) using the Rescue CD.
   1. In the main SystemRescue menu, select **Boot SystemRescue using default options**.
-  1. After you run SystemRescue, the SystemRescue terminal will be launched in the KVM console. In this terminal, enter `Manual`.
+  1. Once you launch SystemRescue, a terminal session will open in the KVM console. In the terminal, enter `Manual`.
 
-      You will see the ELinks browser where you can learn about the SystemRescue features and explore its documentation.
+      You will access the ELinks browser allowing you to browse SystemRescue documentation and explore its features.
 
-      To exit ELinks, press **Esc**, use the **up and down arrow** keys to select **Exit** in the menu, and press **Enter**. Confirm the exit.
+      To exit ELinks, press **Esc**, use the **up and down arrow** keys to select **Exit** in the menu, then press **Enter**. Confirm the exit.
 
-  The [SystemRescue documentation](https://www.system-rescue.org/) is also available in the GUI.
+  You can also access [SystemRescue documentation](https://www.system-rescue.org/) using graphical user interface.
 
 - Mounting a disk
 
-  1. [Start the server](#boot-up) with Rescue CD.
+  1. [Boot the server](#boot-up) using the Rescue CD.
   1. In the main SystemRescue menu, select **Boot SystemRescue using default options**.
 
-      Running SystemRescue will launch the SystemRescue terminal in the KVM console. Use the terminal to run all the commands below.
-  1.  Get the label of the partition to mount connected to the server:
+      Once you launch SystemRescue, a terminal session will open in the KVM console. Run the following commands in the terminal.
+  1. Identify the label of the server partition you need to mount:
 
       ```bash
       blkid
@@ -110,27 +110,27 @@ Use SystemRescue to restore or configure your server:
       /dev/sda1: PARTLABEL="primary" PARTUUID="1a1c7c88-4cce-429f-984f-1626587626c3"
       ```
 
-      For example, the server OS partition has the `md127` label. Save this value as you will need it when mounting the disk.
+      For example, the server OS partition has the `md127` label. Save this value as it will be required for mounting the disk later.
 
-  1. Create a local directory to use as the partition mount point:
+  1. Create a local directory to serve as the mount point for the partition:
 
       ```bash
       mkdir /mnt/serverdisk
       ```
 
-  1. Mount the selected partition by specifying the previously saved label:
+  1. Mount the selected partition using the label you saved earlier:
 
       ```bash
       mount /dev/<partition_label> /mnt/serverdisk
       ```
 
-  1. Go to the mounted disk:
+  1. Navigate to the mounted disk:
 
       ```bash
       cd /mnt/serverdisk
       ```
 
-      It houses the directory tree of the server OS:
+      Here you can access the operating system directory tree:
 
       ```bash
       ls -l
@@ -167,21 +167,21 @@ Use SystemRescue to restore or configure your server:
 
 - GUI SystemRescue
 
-  1. [Start the server](#boot-up) with Rescue CD.
+  1. [Boot the server](#boot-up) using the Rescue CD.
   1. In the main SystemRescue menu, select **Boot SystemRescue using default options**.
 
-      Running SystemRescue will launch the SystemRescue terminal in the KVM console.
+      Once you launch SystemRescue, a terminal session will open in the KVM console.
   1. To launch the SystemRescue GUI, run the `startx` command in the terminal.
 
-      This will open the SystemRescue GUI with a browser, diagnostics and computer management tools, and internet access.
+      This command starts the SystemRescue graphical user interface, which includes a web browser with internet access, along with diagnostics and computer management tools.
 
 - RAM test
 
-  1. [Start the server](#boot-up) with Rescue CD.
-  1. In the SystemRescue main menu, select **Run Memtest86+ (RAM test)**.
-  1. In the Memtest86+ utility window that opens, wait until the RAM is tested for errors.
+  1. [Boot the server](#boot-up) using the Rescue CD.
+  1. In the main SystemRescue menu, select **Run Memtest86+ (RAM test)**.
+  1. Once the Memtest86+ window opens, wait for the RAM test to complete.
 
-      To cancel the test and reboot the server, press the **Esc** key.
+      To cancel the test and reboot the server, press **Esc**.
 
 {% endlist %}
 

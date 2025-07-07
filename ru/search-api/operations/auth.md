@@ -1,7 +1,6 @@
 ---
 title: Как аутентифицироваться в API v1 сервиса {{ search-api-full-name }}
 description: В данном разделе приведены способы аутентификации в API v1 сервиса {{ search-api-name }}.
-noIndex: true
 ---
 
 # Аутентификация в API v1
