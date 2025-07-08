@@ -6,6 +6,8 @@ description: Следуя данной инструкции, вы сможете
 # Сбросить пароль пользователя
 
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 {% list tabs group=instructions %}
 
 - Интерфейс {{ cloud-center }} {#cloud-center}

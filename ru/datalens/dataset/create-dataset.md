@@ -283,6 +283,8 @@ description: Следуя данной инструкции, вы узнаете
 
 ![screenshot](../../_assets/datalens/dataset/dataset-fields-bulk-changes-2.png)
 
+Чтобы выделить диапазон полей, зажмите клавишу **Shift** и отметьте начало и конец диапазона мышью.
+
 ## Добавить параметры {#add-parameters}
 
 В вычисляемых полях датасета можно использовать [параметры](../concepts/parameters.md).

@@ -6,6 +6,8 @@ description: Следуя данной инструкции, вы сможете
 # Удалить домен
 
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 Нельзя удалить [домен](../../concepts/domains.md) по умолчанию или домен, к которому привязаны пользователи.
 
 {% list tabs group=instructions %}

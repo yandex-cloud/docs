@@ -6,6 +6,8 @@ description: Следуя данной инструкции, вы сможете
 # Активировать пользователя
 
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 Активированные пользователи получат доступ к ресурсам организации.
 
 {% list tabs group=instructions %}
