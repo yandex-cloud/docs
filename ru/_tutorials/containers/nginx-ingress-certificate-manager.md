@@ -136,7 +136,14 @@
      --from-file=authorized-key=authorized-key.json
    ```
 
-1. Создайте [хранилище секретов (SecretStore)](https://external-secrets.io/v0.5.8/api-secretstore/) `secret-store`, содержащее секрет `yc-auth`:
+1. Узнайте поддерживаемые `apiVersion` для [хранилища секретов (SecretStore)](https://external-secrets.io/v0.5.8/api-secretstore/):
+
+   ```bash
+   kubectl get crd secretstores.external-secrets.io \
+     -o json | jq -r '.spec.versions[].name'
+   ```
+
+1. Создайте хранилище секретов с именем `secret-store`, содержащее секрет `yc-auth`, указав поддерживаемую `apiVersion`:
 
 
    ```bash
@@ -158,7 +165,14 @@
 
 ## Создайте ExternalSecret {#create-externalsecret}
 
-1. Создайте объект [ExternalSecret](https://external-secrets.io/v0.5.8/api-externalsecret/) `external-secret`, указывающий на сертификат из {{ certificate-manager-name }}:
+1. Узнайте поддерживаемые `apiVersion` для [ExternalSecret](https://external-secrets.io/v0.5.8/api-externalsecret/):
+
+   ```bash
+   kubectl get crd externalsecrets.external-secrets.io \
+     -o json | jq -r '.spec.versions[].name'
+   ```
+
+1. Создайте объект ExternalSecret с именем `external-secret`, указывающий на сертификат из {{ certificate-manager-name }}, указав поддерживаемую `apiVersion`:
 
    ```bash
    kubectl --namespace ns apply -f - <<< '
