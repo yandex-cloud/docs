@@ -213,20 +213,33 @@ description: Следуя данной инструкции, вы сможете
      }
 
      resource "yandex_alb_virtual_host" "my-virtual-host" {
-       name                    = "<имя_виртуального_хоста>"
-       http_router_id          = yandex_alb_http_router.tf-router.id
+       name           = "<имя_виртуального_хоста>"
+       http_router_id = yandex_alb_http_router.tf-router.id
+       
+       rate_limit {
+         all_requests {
+           per_second = <количество_запросов_в_секунду>
+           # или per_minute = <количество_запросов_в_минуту>
+         }
+         requests_per_ip {
+           per_second = <количество_запросов_в_секунду>
+           # или per_minute = <количество_запросов_в_минуту>
+         }
+       }
+       
        route {
-         name                  = "<имя_маршрута>"
+         name = "<имя_маршрута>"
          http_route {
            http_route_action {
-             backend_group_id  = "<идентификатор_группы_бэкендов>"
-             timeout           = "60s"
+             backend_group_id = "<идентификатор_группы_бэкендов>"
+             timeout          = "60s"
            }
          }
        }
-       authority               = "<домены>"
+       
+       authority             = "<домены>"
        route_options {
-         security_profile_id   = "<идентификатор_профиля_безопасности>"
+         security_profile_id = "<идентификатор_профиля_безопасности>"
        }
      }
      ```
@@ -244,6 +257,13 @@ description: Следуя данной инструкции, вы сможете
          {% include [name-format](../../_includes/name-format.md) %}
 
        * `http_router_id` — идентификатор HTTP-роутера.
+       * `rate_limit` — (опционально) ограничения скорости для всего виртуального хоста.
+         * `all_requests` — (опционально) ограничение всех запросов в секунду или в минуту:
+           * `per_second` — в секунду.
+           * `per_minute` — в минуту.
+         * `requests_per_ip` — (опционально) дополнительное ограничение запросов для каждого IP-адреса в секунду или в минуту:
+           * `per_second` — в секунду.
+           * `per_minute` — в минуту.
        * `route` — описание маршрута HTTP-роутера:
          * `name` — имя маршрута.
          * `http_route_action` — параметр для указания действия с HTTP-трафиком.

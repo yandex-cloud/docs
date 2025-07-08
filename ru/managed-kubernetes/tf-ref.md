@@ -15,6 +15,9 @@ description: На этой странице приведен справочни�
 | --- | --- |
 | [yandex_kubernetes_cluster]({{ tf-provider-resources-link }}/kubernetes_cluster) | [Кластер {{ k8s }}](./concepts/index.md#kubernetes-cluster) |
 | [yandex_kubernetes_node_group]({{ tf-provider-resources-link }}/kubernetes_node_group) | [Группа узлов](./concepts/index.md#node-group) |
+| [yandex_kubernetes_cluster_iam_binding]({{ tf-provider-resources-link }}/kubernetes_cluster_iam_binding) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к кластеру {{ k8s }}. <br>Вместо `yandex_kubernetes_cluster_iam_binding` рекомендуется использовать `yandex_kubernetes_cluster_iam_member` |
+| [yandex_kubernetes_cluster_iam_member]({{ tf-provider-resources-link }}/kubernetes_cluster_iam_member) | [Назначение](../iam/concepts/access-control/index.md#access-bindings) прав доступа к кластеру {{ k8s }} |
+
 
 ## Источники данных {#data-sources}
 

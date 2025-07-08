@@ -10,4 +10,5 @@ description: В этом разделе собраны практические 
 
 ## Отправка писем с помощью AWS SDK {#aws-sdk}
 
+* [{#T}](send-emails-aws-sdk-csharp.md)
 * [{#T}](send-emails-aws-sdk-go.md)

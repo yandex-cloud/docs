@@ -141,7 +141,8 @@ To get the application load balancer ID, make a [LoadBalancerService.List](/docs
         "zoneId": "string",
         "subnetId": "string",
         "disableTraffic": "boolean",
-        "zonalShiftActive": "boolean"
+        "zonalShiftActive": "boolean",
+        "zonalTrafficDisabled": "boolean"
       }
     ]
   },
@@ -574,7 +575,12 @@ They still may receive traffic from the load balancer nodes in other availabilit
 subject to [LoadBalancingConfig.localityAwareRoutingPercent](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) and [LoadBalancingConfig.strictLocality](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) settings. ||
 || zonalShiftActive | **boolean**
 
-Show zonal shift status for the location. ||
+Show zonal shift status for the location.
+Deprecated: use `zonalTrafficDisabled` below to track traffic status. ||
+|| zonalTrafficDisabled | **boolean**
+
+Computed field: will be set to true if all traffic in zone is disabled
+either manually by user or automatically by Cloud infrastructure. ||
 |#
 
 ## AutoScalePolicy {#yandex.cloud.apploadbalancer.v1.AutoScalePolicy}
@@ -908,7 +914,8 @@ Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all ||
           "zoneId": "string",
           "subnetId": "string",
           "disableTraffic": "boolean",
-          "zonalShiftActive": "boolean"
+          "zonalShiftActive": "boolean",
+          "zonalTrafficDisabled": "boolean"
         }
       ]
     },
@@ -1463,7 +1470,12 @@ They still may receive traffic from the load balancer nodes in other availabilit
 subject to [LoadBalancingConfig.localityAwareRoutingPercent](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) and [LoadBalancingConfig.strictLocality](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) settings. ||
 || zonalShiftActive | **boolean**
 
-Show zonal shift status for the location. ||
+Show zonal shift status for the location.
+Deprecated: use `zonalTrafficDisabled` below to track traffic status. ||
+|| zonalTrafficDisabled | **boolean**
+
+Computed field: will be set to true if all traffic in zone is disabled
+either manually by user or automatically by Cloud infrastructure. ||
 |#
 
 ## AutoScalePolicy {#yandex.cloud.apploadbalancer.v1.AutoScalePolicy2}

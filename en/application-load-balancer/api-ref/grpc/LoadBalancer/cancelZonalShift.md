@@ -168,7 +168,8 @@ Zone IDs to cancel zonal shift. ||
           "zone_id": "string",
           "subnet_id": "string",
           "disable_traffic": "bool",
-          "zonal_shift_active": "bool"
+          "zonal_shift_active": "bool",
+          "zonal_traffic_disabled": "bool"
         }
       ]
     },
@@ -688,7 +689,12 @@ They still may receive traffic from the load balancer nodes in other availabilit
 subject to [LoadBalancingConfig.locality_aware_routing_percent](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) and [LoadBalancingConfig.strict_locality](/docs/application-load-balancer/api-ref/grpc/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) settings. ||
 || zonal_shift_active | **bool**
 
-Show zonal shift status for the location. ||
+Show zonal shift status for the location.
+Deprecated: use `zonal_traffic_disabled` below to track traffic status. ||
+|| zonal_traffic_disabled | **bool**
+
+Computed field: will be set to true if all traffic in zone is disabled
+either manually by user or automatically by Cloud infrastructure. ||
 |#
 
 ## AutoScalePolicy {#yandex.cloud.apploadbalancer.v1.AutoScalePolicy}

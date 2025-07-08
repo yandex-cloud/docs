@@ -499,6 +499,10 @@ items:
                 href: api-ref/grpc/LoadBalancer/startZonalShift.md
               - name: CancelZonalShift
                 href: api-ref/grpc/LoadBalancer/cancelZonalShift.md
+              - name: DisableZones
+                href: api-ref/grpc/LoadBalancer/disableZones.md
+              - name: EnableZones
+                href: api-ref/grpc/LoadBalancer/enableZones.md
           - name: Operation
             items:
               - name: Overview
@@ -625,6 +629,10 @@ items:
                 href: api-ref/LoadBalancer/startZonalShift.md
               - name: CancelZonalShift
                 href: api-ref/LoadBalancer/cancelZonalShift.md
+              - name: DisableZones
+                href: api-ref/LoadBalancer/disableZones.md
+              - name: EnableZones
+                href: api-ref/LoadBalancer/enableZones.md
           - name: Operation
             items:
               - name: Overview

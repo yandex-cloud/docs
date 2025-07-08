@@ -6,6 +6,8 @@ description: Следуя данной инструкции, вы сможете
 # Подтвердить домен
 
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 Для добавления пользователей можно использовать только подтвержденные [домены](../../concepts/domains.md).
 
 {% list tabs group=instructions %}

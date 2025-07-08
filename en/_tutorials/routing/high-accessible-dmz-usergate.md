@@ -3,6 +3,9 @@
 
 Follow this tutorial to deploy a secure network infrastructure based on the [UserGate next-generation firewall](https://www.usergate.com/products/next-generation-firewall). The infrastructure is made up of segments, each containing single-purpose resources, isolated from other resources. For example, the [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment is reserved for public-facing applications, whereas the `mgmt` segment contains infrastructure management resources. Each segment will have its own cloud folder and a dedicated {{ vpc-short-name }} [cloud network](../../vpc/concepts/network#network). The segments communicate with each other via a [next-generation firewall (NGFW)](https://en.wikipedia.org/wiki/Next-generation_firewall) VM, which provides end-to-end protection and traffic control across the segments.
 
+You can see the solution architecture in the diagram below.
+
+![image](../../_assets/tutorials/high-accessible-dmz-usergate.png)
 
 Our solution uses the following folders:
 

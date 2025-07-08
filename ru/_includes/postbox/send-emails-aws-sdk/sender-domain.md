@@ -1,0 +1,1 @@
+Домен электронной почты отправителя должен совпадать с указанным в адресе {{ postbox-full-name }}, созданном при [подготовке к работе](#infrastructure). Например, если домен, на который вы подтвердили владение, — `yourdomain.com`, можно указать электронную почту `noreply@yourdomain.com` или `admin@yourdomain.com`, а `user@mail.yourdomain.com` — нельзя.
