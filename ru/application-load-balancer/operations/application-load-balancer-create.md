@@ -248,66 +248,157 @@ description: Следуя данной инструкции, вы сможете
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-     ```hcl
-     resource "yandex_alb_load_balancer" "test-balancer" {
-       name        = "<имя_L7-балансировщика>"
-       network_id  = "<идентификатор_сети>"
-       security_group_ids = ["<список_идентификаторов_групп_безопасности>"]
+      ```hcl
+      resource "yandex_alb_load_balancer" "test-balancer" {
+        name        = "<имя_L7-балансировщика>"
+        network_id  = "<идентификатор_сети>"
+        security_group_ids = ["<список_идентификаторов_групп_безопасности>"]
 
-       allocation_policy {
-         location {
-           zone_id   = "<зона_доступности>"
-           subnet_id = "<идентификатор_подсети>" 
-         }
-       }
+        allocation_policy {
+          location {
+            zone_id   = "<зона_доступности>"
+            subnet_id = "<идентификатор_подсети>" 
+          }
+        }
 
-       listener {
-         name = "<имя_обработчика>"
-         endpoint {
-           address {
-             external_ipv4_address {
-             }
-           }
-           ports = [ 9000 ]
-         }
-         http {
-           handler {
-             http_router_id = "<идентификатор_HTTP-роутера>"
-           }
-         }
-       }
+        # HTTP-обработчик
+        listener {
+          name = "<имя_HTTP-обработчика>"
+          endpoint {
+            address {
+              external_ipv4_address {
+              }
+            }
+            ports = [<порт>]
+          }
+          http {
+            handler {
+              http_router_id = "<идентификатор_HTTP-роутера>"
+            }
+          }
+        }
 
-       log_options {
-         log_group_id = "<идентификатор_лог-группы>"
-         discard_rule {
-           http_codes          = ["<HTTP-код>"]
-           http_code_intervals = ["<класс_HTTP-кодов>"]
-           grpc_codes          = ["<gRPC-код>"]
-           discard_percent     = <доля_отбрасываемых_логов>
-         }
-       }
-     }
-     ```
+        # Stream-обработчик
+        listener {
+          name = "<имя_Stream-обработчика>"
+          endpoint {
+            address {
+              external_ipv4_address {
+              }
+            }
+            ports = [<порт>]
+          }
+          stream {
+            handler {
+              backend_group_id = "<идентификатор_группы_бэкендов>"
+              idle_timeout     = "<время_ожидания>"
+            }
+          }
+        }
 
-     Где:
-     * `name` — имя L7-балансировщика. Формат имени:
+        # TLS-обработчик
+        listener {
+          name = "<имя_TLS-обработчика>"
+          endpoint {
+            address {
+              external_ipv4_address {
+              }
+            }
+            ports = [<порт>]
+          }
+          tls {
+            default_handler {
+              certificate_ids = ["<идентификаторы_сертификатов>"]
+              stream_handler {
+                backend_group_id = "<идентификатор_группы_бэкендов>"
+                idle_timeout     = "<время_ожидания>"
+              }
+            }
+            sni_handler {
+              name         = "имя_SNI-обработчика"
+              server_names = ["имена_серверов"]
+              handler {
+                certificate_ids = ["<идентификаторы_сертификатов>"]
+                stream_handler {
+                  backend_group_id = "<идентификатор_группы_бэкендов>"
+                  idle_timeout     = "<время_ожидания>"
+                }
+              }
+            }
+          }
+        }
 
-       {% include [name-format](../../_includes/name-format.md) %}
+        log_options {
+          log_group_id = "<идентификатор_лог-группы>"
+          discard_rule {
+            http_codes          = ["<HTTP-код>"]
+            http_code_intervals = ["<класс_HTTP-кодов>"]
+            grpc_codes          = ["<gRPC-код>"]
+            discard_percent     = <доля_отбрасываемых_логов>
+          }
+        }
+      }
+      ```
 
-     * `network_id` — идентификатор сети, в которой создается балансировщик.
-     * `security_group_ids` (опционально) — список от одного до пяти разделенных запятыми идентификаторов [групп безопасности](../concepts/application-load-balancer.md#security-groups).
-         Если не указать этот параметр, то для балансировщика будет разрешен любой трафик.
-     * `allocation_policy` — описание [расположения узлов](../../application-load-balancer/concepts/application-load-balancer.md#lb-location) L7-балансировщика. Укажите идентификаторы зоны доступности и подсети.
-     * `listener` — описание параметров [обработчика](../../application-load-balancer/concepts/application-load-balancer.md#listener) для L7-балансировщика:
-        * `name` — имя обработчика. Формат имени:
+      Где:
+
+       * `name` — имя L7-балансировщика. Формат имени:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-        * `endpoint` — описание адресов и портов обработчика. Укажите внешний IPv4-адрес и порт для приема трафика. Если параметр `external_ipv4_address` не задан, то публичный адрес будет выделен автоматически.
-        * `http` — описание HTTP-приемника для обработчика. Укажите идентификатор HTTP-роутера.
-        * `log_options` — (опционально) параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/):
+      * `network_id` — идентификатор сети, в которой создается балансировщик.
+      * `security_group_ids` (опционально) — список от одного до пяти разделенных запятыми идентификаторов [групп безопасности](../concepts/application-load-balancer.md#security-groups).
+
+          Если не указать этот параметр, то для балансировщика будет разрешен любой трафик.
+
+      * `allocation_policy` — описание [расположения узлов](../../application-load-balancer/concepts/application-load-balancer.md#lb-location) L7-балансировщика. Укажите идентификаторы зоны доступности и подсети.
+      * `listener` (опционально) — описание параметров [обработчика](../../application-load-balancer/concepts/application-load-balancer.md#listener) для L7-балансировщика. Вы можете указать один или несколько обработчиков.
+
+          * `name` — имя обработчика. Формат имени:
+
+              {% include [name-format](../../_includes/name-format.md) %}
+
+          * `endpoint` — описание адресов и портов обработчика. Укажите внешний IPv4-адрес и порт для приема трафика. Если параметр `external_ipv4_address` не задан, то публичный адрес будет выделен автоматически.
+          * `ports` — один или несколько портов. Порты обработчиков не должны совпадать.
+          * `http` — описание HTTP-приемника для обработчика:
+
+              * `http_router_id` — идентификатор HTTP-роутера.
+
+        * `stream` — описание Stream-приемника для обработчика.
+
+            * `backend_group_id` — идентификатор группы бэкендов с типом `Stream`, на которую будут направляться входящие TCP-соединения.
+            * `idle_timeout` (опционально) — время ожидания без активности, после которого соединение закрывается. Например: `"10s"`, `"5m"`, `"1h"`. Значение `"0"` отключает таймаут. По умолчанию — 1 час.
+
+        * `tls` — описание TLS-обработчика:
+
+            * `default_handler` — обработчик по умолчанию для TLS:
+
+                * `certificate_ids` — список идентификаторов [сертификатов](../../certificate-manager/concepts/index.md#types) {{ certificate-manager-full-name }}.
+                * `stream_handler` — параметры Stream-обработчика:
+
+                    * `backend_group_id` — идентификатор группы бэкендов с типом `Stream`.
+                    * `idle_timeout` (опционально) — время ожидания без активности, после которого соединение закрывается. Например: `"10s"`, `"5m"`, `"1h"`. Значение `"0"` отключает таймаут. По умолчанию — 1 час.
+
+            * `sni_handler` — описание SNI-обработчика:
+
+                * `name` — имя обработчика. Формат имени:
+
+                  {% include [name-format](../../_includes/name-format.md) %}
+
+                * `server_names` — имена серверов, которым соответствует SNI-обработчик.
+                * `handler` — параметры SNI-обработчика:
+
+                    * `certificate_ids` — список идентификаторов сертификатов {{ certificate-manager-full-name }}.
+                    * `stream_handler` — параметры Stream-обработчика:
+
+                        * `backend_group_id` — идентификатор группы бэкендов с типом `Stream`.
+                        * `idle_timeout` (опционально) — время ожидания без активности, после которого соединение закрывается. Например: `"10s"`, `"5m"`, `"1h"`. Значение `"0"` отключает таймаут. По умолчанию — 1 час.
+
+      * `log_options` — (опционально) параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/):
+
           * `log_group_id` — идентификатор [лог-группы](../../logging/concepts/log-group.md).
           * `discard_rule` — [правило отбрасывания логов](../concepts/application-load-balancer.md#discard-logs-rules):
+
             * `http_codes` — HTTP-коды.
             * `http_code_intervals` — классы HTTP-кодов.
             * `grpc_codes` — gRPC-коды.
@@ -315,30 +406,34 @@ description: Следуя данной инструкции, вы сможете
 
             Вы можете задать больше одного правила.
 
-     Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
+      Более подробную информацию о параметрах ресурса `yandex_alb_load_balancer` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_load_balancer).
+
   1. Проверьте корректность конфигурационных файлов.
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
 
-        ```bash
-        terraform plan
-        ```
+      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+      1. Выполните проверку с помощью команды:
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+          ```bash
+          terraform plan
+          ```
+
+      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+
   1. Разверните облачные ресурсы.
-     1. Если в конфигурации нет ошибок, выполните команду:
 
-        ```bash
-        terraform apply
-        ```
+      1. Если в конфигурации нет ошибок, выполните команду:
 
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+          ```bash
+          terraform apply
+          ```
 
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-        ```bash
-        yc alb load-balancer list
-        ```
+          После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+
+          ```bash
+          yc alb load-balancer list
+          ```
 
 - API {#api}
 

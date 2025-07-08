@@ -218,9 +218,15 @@ description: Следуя данной инструкции, вы сможете
            interval             = "2s"
            healthy_threshold    = 10
            unhealthy_threshold  = 15
+           keep_connections_on_host_health_failure = <true_или_false>
            stream_healthcheck {
              send               = "<данные_к_эндпоинту>"
              receive            = "<данные_от_эндпоинта>"
+           }
+           http_healthcheck {
+             path              = "<путь>"
+             host              = "<хост>"
+             expected_statuses = [<HTTP-коды>]
            }
          }
        }

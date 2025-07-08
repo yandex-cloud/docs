@@ -49,6 +49,8 @@ items:
         href: tutorials/domain-identity-creating.md
       - name: Отправка писем с помощью AWS SDK
         items:
+          - name: .NET Core
+            href: tutorials/send-emails-aws-sdk-csharp.md
           - name: Go
             href: tutorials/send-emails-aws-sdk-go.md
   - name: Инструменты

@@ -15,7 +15,9 @@ description: Следуя данной инструкции, вы сможете
 
 ## Перед началом работы {#before-you-begin}
 
+
 {% include [before-you-begin](../../../../_tutorials/_tutorials_includes/before-you-begin-datalens.md) %}
+
 
 ## Создайте воркбук {#create-workbook}
 

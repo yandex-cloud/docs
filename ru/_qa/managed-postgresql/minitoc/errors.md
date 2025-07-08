@@ -6,9 +6,11 @@
 
 * [Что делать, если при подключении я получаю ошибку `too many active clients for user`?](#connection-limit-error)
 
-* [Почему при попытке подключиться к базе данных возникает ошибка?](#database-error)
+* [Почему при подключении к пользовательской базе данных возникает ошибка?](#database-error)
 
-* [Почему соединение завершается ошибкой?](#connection-error)
+* [Почему при подключении к базе данных postgres возникает ошибка?](#database-postgres-error)
+
+* [Почему соединение завершается ошибкой `terminating connection due to administrator command`?](#connection-error)
 
 * [Почему не удается подключиться к хостам кластера?](#host-error)
 
@@ -21,3 +23,7 @@
 * [Что делать, если при выполнении логической репликации возникает ошибка `replication slot already exists`?](#repl-slot-exists)
 
 * [Почему при миграции БД в {{ mpg-short-name }} возникает ошибка `extension... is not available`?](#extension-is-not-available)
+
+* [Почему при настройке каскадной репликации возникает ошибка?](#cascade-errors)
+
+* [Почему возникает ошибка `cannot execute <SQL-команда> in a read-only transaction`?](#read-only-error)

@@ -40,7 +40,31 @@ Creates an HTTP router in the specified folder.
                 "prefix_match": "string",
                 "regex_match": "string"
                 // end of the list of possible fields
-              }
+              },
+              "headers": [
+                {
+                  "name": "string",
+                  "value": {
+                    // Includes only one of the fields `exact_match`, `prefix_match`, `regex_match`
+                    "exact_match": "string",
+                    "prefix_match": "string",
+                    "regex_match": "string"
+                    // end of the list of possible fields
+                  }
+                }
+              ],
+              "query_parameters": [
+                {
+                  "name": "string",
+                  "value": {
+                    // Includes only one of the fields `exact_match`, `prefix_match`, `regex_match`
+                    "exact_match": "string",
+                    "prefix_match": "string",
+                    "regex_match": "string"
+                    // end of the list of possible fields
+                  }
+                }
+              ]
             },
             // Includes only one of the fields `route`, `redirect`, `direct_response`
             "route": {
@@ -68,6 +92,10 @@ Creates an HTTP router in the specified folder.
                   "per_minute": "int64"
                   // end of the list of possible fields
                 }
+              },
+              "regex_rewrite": {
+                "regex": "string",
+                "substitute": "string"
               }
             },
             "redirect": {
@@ -472,6 +500,16 @@ HTTP method specified in the request. ||
 Match settings for the path specified in the request.
 
 If not specified, the route matches all paths. ||
+|| headers[] | **[HttpRouteHeaderMatch](#yandex.cloud.apploadbalancer.v1.HttpRouteHeaderMatch)**
+
+Headers specify HTTP request header matchers. Multiple match values are
+ANDed together, meaning, a request must match all the specified headers
+to select the route. Headers must be unique. ||
+|| query_parameters[] | **[HttpRouteQueryParamMatch](#yandex.cloud.apploadbalancer.v1.HttpRouteQueryParamMatch)**
+
+Query Parameters specify HTTP query parameter matchers. Multiple match
+values are ANDed together, meaning, a request must match all the
+specified query parameters to select the route. Query parameters must be unique. ||
 |#
 
 ## StringMatch {#yandex.cloud.apploadbalancer.v1.StringMatch}
@@ -501,6 +539,30 @@ Regular expression match string.
 Includes only one of the fields `exact_match`, `prefix_match`, `regex_match`.
 
 Match string for either exact or prefix match. ||
+|#
+
+## HttpRouteHeaderMatch {#yandex.cloud.apploadbalancer.v1.HttpRouteHeaderMatch}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the HTTP Header to be matched. ||
+|| value | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch)**
+
+Value of HTTP Header to be matched. ||
+|#
+
+## HttpRouteQueryParamMatch {#yandex.cloud.apploadbalancer.v1.HttpRouteQueryParamMatch}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the HTTP query parameter to be matched. ||
+|| value | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch)**
+
+Value of HTTP query parameter to be matched. ||
 |#
 
 ## HttpRouteAction {#yandex.cloud.apploadbalancer.v1.HttpRouteAction}
@@ -559,13 +621,32 @@ For instance, if [StringMatch.prefix_match](#yandex.cloud.apploadbalancer.v1.Str
 a request with `/foobaz` path is forwarded with `/barbaz` path.
 For [StringMatch.exact_match](#yandex.cloud.apploadbalancer.v1.StringMatch), the whole path is replaced.
 
-If not specified, the path is not changed. ||
+If not specified, the path is not changed.
+
+Only one of regex_rewrite, or prefix_rewrite may be specified. ||
 || upgrade_types[] | **string**
 
 Supported values for HTTP `Upgrade` header. E.g. `websocket`. ||
 || rate_limit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit)**
 
 RateLimit is a rate limit configuration applied for route. ||
+|| regex_rewrite | **[RegexMatchAndSubstitute](#yandex.cloud.apploadbalancer.v1.RegexMatchAndSubstitute)**
+
+Replacement for portions of the path that match the pattern should be rewritten,
+even allowing the substitution of capture groups from the pattern into the new path as specified
+by the rewrite substitution string.
+
+Only one of regex_rewrite, or prefix_rewrite may be specified.
+
+Examples of using:
+- The path pattern ^/service/([^/]+)(/.*)$ paired with a substitution string of \2/instance/\1 would transform
+/service/foo/v1/api into /v1/api/instance/foo.
+- The pattern one paired with a substitution string of two would transform /xxx/one/yyy/one/zzz
+into /xxx/two/yyy/two/zzz.
+- The pattern ^(.*?)one(.*)$ paired with a substitution string of \1two\2 would replace only the first
+occurrence of one, transforming path /xxx/one/yyy/one/zzz into /xxx/two/yyy/one/zzz.
+- The pattern (?i)/xxx/ paired with a substitution string of /yyy/ would do a case-insensitive match and transform
+path /aaa/XxX/bbb to /aaa/yyy/bbb. ||
 |#
 
 ## RateLimit {#yandex.cloud.apploadbalancer.v1.RateLimit}
@@ -599,6 +680,19 @@ Includes only one of the fields `per_second`, `per_minute`. ||
 PerMinute is a limit value specified with per minute time unit.
 
 Includes only one of the fields `per_second`, `per_minute`. ||
+|#
+
+## RegexMatchAndSubstitute {#yandex.cloud.apploadbalancer.v1.RegexMatchAndSubstitute}
+
+#|
+||Field | Description ||
+|| regex | **string**
+
+The regular expression used to find portions of a string that should be replaced. ||
+|| substitute | **string**
+
+The string that should be substituted into matching portions of the subject string during a substitution operation
+to produce a new string. ||
 |#
 
 ## RedirectAction {#yandex.cloud.apploadbalancer.v1.RedirectAction}
@@ -977,7 +1071,31 @@ regardless of the header's value. ||
                   "prefix_match": "string",
                   "regex_match": "string"
                   // end of the list of possible fields
-                }
+                },
+                "headers": [
+                  {
+                    "name": "string",
+                    "value": {
+                      // Includes only one of the fields `exact_match`, `prefix_match`, `regex_match`
+                      "exact_match": "string",
+                      "prefix_match": "string",
+                      "regex_match": "string"
+                      // end of the list of possible fields
+                    }
+                  }
+                ],
+                "query_parameters": [
+                  {
+                    "name": "string",
+                    "value": {
+                      // Includes only one of the fields `exact_match`, `prefix_match`, `regex_match`
+                      "exact_match": "string",
+                      "prefix_match": "string",
+                      "regex_match": "string"
+                      // end of the list of possible fields
+                    }
+                  }
+                ]
               },
               // Includes only one of the fields `route`, `redirect`, `direct_response`
               "route": {
@@ -1005,6 +1123,10 @@ regardless of the header's value. ||
                     "per_minute": "int64"
                     // end of the list of possible fields
                   }
+                },
+                "regex_rewrite": {
+                  "regex": "string",
+                  "substitute": "string"
                 }
               },
               "redirect": {
@@ -1482,6 +1604,16 @@ HTTP method specified in the request. ||
 Match settings for the path specified in the request.
 
 If not specified, the route matches all paths. ||
+|| headers[] | **[HttpRouteHeaderMatch](#yandex.cloud.apploadbalancer.v1.HttpRouteHeaderMatch2)**
+
+Headers specify HTTP request header matchers. Multiple match values are
+ANDed together, meaning, a request must match all the specified headers
+to select the route. Headers must be unique. ||
+|| query_parameters[] | **[HttpRouteQueryParamMatch](#yandex.cloud.apploadbalancer.v1.HttpRouteQueryParamMatch2)**
+
+Query Parameters specify HTTP query parameter matchers. Multiple match
+values are ANDed together, meaning, a request must match all the
+specified query parameters to select the route. Query parameters must be unique. ||
 |#
 
 ## StringMatch {#yandex.cloud.apploadbalancer.v1.StringMatch2}
@@ -1511,6 +1643,30 @@ Regular expression match string.
 Includes only one of the fields `exact_match`, `prefix_match`, `regex_match`.
 
 Match string for either exact or prefix match. ||
+|#
+
+## HttpRouteHeaderMatch {#yandex.cloud.apploadbalancer.v1.HttpRouteHeaderMatch2}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the HTTP Header to be matched. ||
+|| value | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch2)**
+
+Value of HTTP Header to be matched. ||
+|#
+
+## HttpRouteQueryParamMatch {#yandex.cloud.apploadbalancer.v1.HttpRouteQueryParamMatch2}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the HTTP query parameter to be matched. ||
+|| value | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch2)**
+
+Value of HTTP query parameter to be matched. ||
 |#
 
 ## HttpRouteAction {#yandex.cloud.apploadbalancer.v1.HttpRouteAction2}
@@ -1569,13 +1725,32 @@ For instance, if [StringMatch.prefix_match](#yandex.cloud.apploadbalancer.v1.Str
 a request with `/foobaz` path is forwarded with `/barbaz` path.
 For [StringMatch.exact_match](#yandex.cloud.apploadbalancer.v1.StringMatch2), the whole path is replaced.
 
-If not specified, the path is not changed. ||
+If not specified, the path is not changed.
+
+Only one of regex_rewrite, or prefix_rewrite may be specified. ||
 || upgrade_types[] | **string**
 
 Supported values for HTTP `Upgrade` header. E.g. `websocket`. ||
 || rate_limit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit2)**
 
 RateLimit is a rate limit configuration applied for route. ||
+|| regex_rewrite | **[RegexMatchAndSubstitute](#yandex.cloud.apploadbalancer.v1.RegexMatchAndSubstitute2)**
+
+Replacement for portions of the path that match the pattern should be rewritten,
+even allowing the substitution of capture groups from the pattern into the new path as specified
+by the rewrite substitution string.
+
+Only one of regex_rewrite, or prefix_rewrite may be specified.
+
+Examples of using:
+- The path pattern ^/service/([^/]+)(/.*)$ paired with a substitution string of \2/instance/\1 would transform
+/service/foo/v1/api into /v1/api/instance/foo.
+- The pattern one paired with a substitution string of two would transform /xxx/one/yyy/one/zzz
+into /xxx/two/yyy/two/zzz.
+- The pattern ^(.*?)one(.*)$ paired with a substitution string of \1two\2 would replace only the first
+occurrence of one, transforming path /xxx/one/yyy/one/zzz into /xxx/two/yyy/one/zzz.
+- The pattern (?i)/xxx/ paired with a substitution string of /yyy/ would do a case-insensitive match and transform
+path /aaa/XxX/bbb to /aaa/yyy/bbb. ||
 |#
 
 ## RateLimit {#yandex.cloud.apploadbalancer.v1.RateLimit2}
@@ -1609,6 +1784,19 @@ Includes only one of the fields `per_second`, `per_minute`. ||
 PerMinute is a limit value specified with per minute time unit.
 
 Includes only one of the fields `per_second`, `per_minute`. ||
+|#
+
+## RegexMatchAndSubstitute {#yandex.cloud.apploadbalancer.v1.RegexMatchAndSubstitute2}
+
+#|
+||Field | Description ||
+|| regex | **string**
+
+The regular expression used to find portions of a string that should be replaced. ||
+|| substitute | **string**
+
+The string that should be substituted into matching portions of the subject string during a substitution operation
+to produce a new string. ||
 |#
 
 ## RedirectAction {#yandex.cloud.apploadbalancer.v1.RedirectAction2}

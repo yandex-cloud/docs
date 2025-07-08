@@ -7,7 +7,7 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Connecting to a {{ cdn-name }} provider
+      - name: Connecting to the {{ cdn-name }} provider
         href: operations/enable-provider.md
       - name: Resources
         items:
@@ -21,7 +21,7 @@ items:
             href: operations/resources/configure-caching.md
           - name: Configuring log export
             href: operations/resources/configure-logs.md
-          - name: Pre-loading files to CDN servers
+          - name: Prefetching files to CDN servers
             href: operations/resources/prefetch-files.md
           - name: Purging resource cache
             href: operations/resources/purge-cache.md
@@ -87,8 +87,11 @@ items:
         href: tutorials/migrate-to-yc-cdn.md
   - name: Concepts
     items:
-      - name: Service overview
+      - name: Overview
         href: concepts/index.md
+      - name: Providers
+        href: concepts/providers.md
+        hidden: true
       - name: Resource
         href: concepts/resource.md
       - name: Origins and origin groups
@@ -413,6 +416,9 @@ items:
                 href: api-ref/Resource/getProviderCName.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
+  - name: '{{ monitoring-name }} metrics for the {{ cdn-full-name }} provider'
+    href: metrics-yc.md
+    hidden: true
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes
