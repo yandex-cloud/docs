@@ -19,7 +19,7 @@ To get started with {{ sd-name }} in {{ yandex-cloud }}:
 
 {{ sd-name }} includes the following modules: {{ atr-name }}, Data Security Posture Management (DSPM), Cloud Infrastructure Entitlement Management (CIEM), and Compliance Portal.
 
-To connect any of these modules, go to the [{{ sd-name }}]({{ link-sd-main }}) and click **Connect** next to the module description. You will then be able to learn more about the tool's features and terms of use.
+To connect any of these modules, go to the [{{ sd-name }}]({{ link-sd-main }}) interface and click **Connect** next to the module description. You will then be able to learn more about the tool's features and terms of use.
 
 ## Configuring {{ sd-name }} {#configure-sd}
 
@@ -58,6 +58,10 @@ To get started with the {{ dspm-name }} module, follow the guides on how to [cre
 {{ sd-name }} [Cloud Infrastructure Entitlement Management]({{ link-sd-main }}iam-diagnostics/) provides a centralized [view](./operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) available to [subjects](../iam/concepts/access-control/index.md#subject): [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/ciem/revoke-permissions.md) accesses from subjects. To learn more, see [{#T}](./concepts/ciem.md).
 
 To get started with the {{ ciem-name }} module, follow the guides for [viewing](./operations/ciem/view-permissions.md) and [revoking](./operations/ciem/revoke-permissions.md) accesses.
+
+## {{ ycdr-full-name }}
+
+{{ ycdr-full-name }} ({{ ycdr-name }}) is a module that monitors and responds to{{ yandex-cloud }} infrastructure incidents. {{ ycdr-name }} is built around {{ yandex-cloud }}'s in-house Security Operations Center (SOC). Our information security team will monitor the service for potential threats. {{ ycdr-name }} relies on a proprietary SIEM platform and Security Data Lake for big data analysis algorithms and tools.
 
 
 ## What's next {#whats-next}

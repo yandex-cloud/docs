@@ -1,22 +1,29 @@
 # Restarting a host
 
-You may need to restart hosts to promptly address such issues as the following:
+You may need to restart hosts to promptly address such issues as:
 
 * Resource overrun
 * Memory leak
 * Deadlock between requests
 * Unresponsive {{ CH }} operations and internal processes
 
-To restart a host:
-
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-  1. In the host's row, click ![icon](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
-  1. Confirm the host restart.
+  To restart a single host:
+
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+    1. In the host's row, click ![icon](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
+    1. In the window that opens, enable **I am restarting host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
+
+  To restart several hosts in one go:
+
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+    1. Select the hosts you want to restart and click **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}** at the bottom of the screen.
+    1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
 
 - CLI {#cli}
 
@@ -24,7 +31,9 @@ To restart a host:
 
   {% include [default-catalogue](../../default-catalogue.md) %}
 
-  To restart a host, run this command:
+  To restart one or more hosts, run the command below providing the hosts' names. Use the space character as a separator.
+
+  Here is the command to restart one host:
 
   ```bash
   {{ yc-mdb-ch }} host restart <host_name> \
@@ -54,9 +63,9 @@ To restart a host:
                     }'
         ```
 
-        Where `hostNames` is an array of strings. Each string is the name of a host to restart. You can request host names with a [list of hosts in the cluster](../../../managed-clickhouse/operations/hosts.md#list-hosts).
+        Where `hostNames` is an array of strings. Each string is the name of the host to restart. You can request it with the [list of hosts in the cluster](../../../managed-clickhouse/operations/hosts.md#list-hosts).
 
-        You can get the cluster ID with a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
     1. View the [server response](../../../managed-clickhouse/api-ref/Cluster/restartHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -87,9 +96,9 @@ To restart a host:
             yandex.cloud.mdb.clickhouse.v1.ClusterService.RestartHosts
         ```
 
-        Where `host_names` is an array of strings. Each string is the name of a host to restart. You can request host names with a [list of hosts in the cluster](../../../managed-clickhouse/operations/hosts.md#list-hosts).
+        Where `host_names` is an array of strings. Each string is the name of the host to restart. You can request it with the [list of hosts in the cluster](../../../managed-clickhouse/operations/hosts.md#list-hosts).
 
-        You can get the cluster ID with a [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
     1. View the [server response](../../../managed-clickhouse/api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

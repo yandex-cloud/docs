@@ -9,6 +9,7 @@ description: Follow this guide to migrate objects to workbooks.
 
 * If you do not see ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks** in the panel on the left, [enable workbooks and collections](../../datalens/workbooks-collections/index.md#enable-workbooks) in your organization.
 * To migrate objects, a user must have the `{{ roles-datalens-admin }}` role.
+* To transfer your workbook between installations or [organizations](../concepts/organizations.md), use the [export and import](./export-and-import.md) tool.
 
 {% endnote %}
 
@@ -61,7 +62,7 @@ To copy or transfer an object to a workbook:
 1. Find the object you want to transfer or copy to a workbook on the [navigation page]({{ link-datalens-main }}/navigation).
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the object and select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Migrate to workbook**.
 1. Select a migration method and click **Select**.
-1. In the window with a list of linked objects, click **Next**.
+1. In the window with the list of linked objects, click **Next**.
 1. In the window that opens, select the workbook to which you want to transfer or copy objects and click **Move**. To transfer or copy objects to a new workbook, click **Create a workbook**.
 1. In the **Manage access** window, configure [workbook permissions](./security.md) and click **Close**.
 

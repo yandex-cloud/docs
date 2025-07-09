@@ -1,3 +1,8 @@
+---
+title: ERR.DS_API.FILTER.MEASURE_UNSUPPORTED error
+description: This page describes the ERR.DS_API.FILTER.MEASURE_UNSUPPORTED error.
+---
+
 # Measure filter is unsupported for this type of query
 
 `ERR.DS_API.FILTER.MEASURE_UNSUPPORTED`

@@ -129,6 +129,8 @@ items:
         href: concepts/available-apis.md
       - name: Host classes
         href: concepts/instance-types.md
+      - name: High availability cluster
+        href: concepts/ha-cluster.md
       - name: Networking in {{ mkf-name }}
         href: concepts/network.md
       - name: Quotas and limits
@@ -243,7 +245,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

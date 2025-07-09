@@ -434,6 +434,7 @@ Create test applications and an Ingress resource:
 
        ```yaml
        ingress.alb.yc.io/modify-header-response-remove: <name_of_header_to_delete>=true
+       ```
 
      * `ingress.alb.yc.io/modify-header-request-append`: Adds a string to the request header value. The header and string should be specified in the following format:
 
@@ -795,7 +796,7 @@ If you specified a name for the Ingress resource group settings in the `ingress.
 
 ## Make sure the applications are accessible via the L7 load balancer {#verify-setup}
 
-1. If you have no {% if region == "ru" or region == "int" %}[ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns){% else %}ExternalDNS with a plugin for {{ dns-name }}{% endif %} installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **Value** field, specify the public IP address of the {{ alb-name }} L7 load balancer. If you are using ExternalDNS with a plugin for {{ dns-full-name }}, this record will be created automatically.
+1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **Value** field, specify the public IP address of the {{ alb-name }} L7 load balancer. If you are using ExternalDNS with a plugin for {{ dns-full-name }}, this record will be created automatically.
 
 1. Test the load balancer:
 

@@ -1,4 +1,10 @@
+---
+title: How to view backup statistics in {{ backup-full-name }}
+description: Follow this guide to view backup statistics in {{ backup-name }}.
+---
+
 # Viewing backup statistics
+
 
 {{ backup-name }} automatically delivers metrics on the number of protected VMs and {{ baremetal-full-name }} servers, as well as storage space used by backups, to [{{ monitoring-full-name }}](../../monitoring/).
 

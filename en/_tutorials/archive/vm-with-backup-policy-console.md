@@ -1,6 +1,5 @@
 # Associating a {{ backup-full-name }} policy with a VM automatically using the management console, CLI, or API
 
-
 To create a virtual machine automatically associated with a {{ backup-name }} policy:
 
 1. [Get your cloud ready](#before-begin).
@@ -484,7 +483,7 @@ You can create a new policy or use one of those automatically created upon servi
         - perl
         - jq
       runcmd:
-        - curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash
+        - curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash
       ```
 
   1. Save the `weekly-backup` policy ID in the `cloudbackup.json` file:
@@ -534,7 +533,7 @@ You can create a new policy or use one of those automatically created upon servi
       "cores": "2"
     },
     "metadata": {
-      "user-data": "#cloud-config\ndatasource:\nEc2:\n  strict_id: false\nssh_pwauth: no\nusers:\n- name: vm-user\n  shell: /bin/bash\n  sudo: ALL=(ALL) NOPASSWD:ALL\n  ssh_authorized_keys:\n  - <public_SSH_key>\npackages:\n  - curl\n  - perl\n  - jq\nruncmd:\n  - curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash",
+      "user-data": "#cloud-config\ndatasource:\nEc2:\n  strict_id: false\nssh_pwauth: no\nusers:\n- name: vm-user\n  shell: /bin/bash\n  sudo: ALL=(ALL) NOPASSWD:ALL\n  ssh_authorized_keys:\n  - <public_SSH_key>\npackages:\n  - curl\n  - perl\n  - jq\nruncmd:\n  - curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash",
       "cloudbackup": "{\"initialPolicies\": [\"<policy_ID>\"]}"
     },
     "bootDiskSpec": {

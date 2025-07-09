@@ -12,8 +12,8 @@ A heat map helps find dependencies that can be hidden due to overlapping map poi
 
 Wizard<br/> section| Description
 ----- | ----
-Heat map (Geopoints) | Measure of the [Geopoint](../dataset/data-types#geopoint) type
-Colors  | Dimension or measure. Affects the intensity of point fill.
+Heat map (Geopoints) | Measure of the [Geopoint](../dataset/data-types.md#geopoint) type
+Colors | Dimension or measure. Affects the intensity of point fill.
 Layer filters | Dimension or measure. Used as a filter for the current layer.
 Filters | Dimension or measure. Used as a filter for the entire chart.
 
@@ -31,6 +31,7 @@ Filters | Dimension or measure. Used as a filter for the entire chart.
 1. Select the **Heat map (Geopoints)** layer type.
 1. Drag a dimension of the [Geopoint](../dataset/data-types.md#geopoint) type from the dataset to the layer type selection section.
 1. Change the weight of the points on the heat map. To do this, drag the measure to the **Colors** section.
+1. Optionally, update the [color settings](#color-settings) for the measure.
 
 {% include [datalens-map-scale-note](../../_includes/datalens/datalens-map-scale-note.md) %}
 
@@ -38,6 +39,20 @@ You can also:
 
 * Add, rename, and delete a layer.
 * Apply a filter to the whole chart or one layer.
+
+### Color setting {#color-settings}
+
+To change the color settings:
+
+1. Click ![image](../../_assets/console-icons/gear.svg) in the **Colors** section (the icon appears when you hover over the section).
+1. In the color settings, specify:
+
+   * **Gradient type**: Select two or three colors.
+   * Gradient color: Select a color palette for the gradient from the list.
+   * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
+   * **Set threshold values**: Set numeric thresholds for each color.
+
+1. Click **Apply**.
 
 ## Recommendations {#recomendations}
 

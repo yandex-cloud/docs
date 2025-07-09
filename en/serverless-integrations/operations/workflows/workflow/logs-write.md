@@ -20,10 +20,8 @@ description: Follow this guide to configure workflow logging.
       1. Enable **{{ ui-key.yacloud.logging.field_logging }}**.
       1. In the **{{ ui-key.yacloud.logging.label_destination }}** field, select:
 
-          * `{{ ui-key.yacloud.common.folder }}`: To write logs to the default log group of the folder containing the workflow.
-          * `{{ ui-key.yacloud.logging.label_loggroup }}`: To write logs to a custom log group.
-
-              1. Select the log group to write logs to or [create](../../../../logging/operations/create-group.md) a new one.
+         * `{{ ui-key.yacloud.common.folder }}`: To write logs to the default log group of the folder containing the workflow.
+         * {% include [log-group](../../../../_includes/functions/log-group.md) %}
 
       1. (Optional) Select the minimum logging level.
 

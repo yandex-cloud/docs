@@ -90,7 +90,7 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
 
       For more information about the `yandex_resourcemanager_folder` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder).
 
-  1. In the command line, go to the folder with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
 
@@ -110,9 +110,9 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
       ```
       terraform apply
@@ -132,7 +132,7 @@ To delete a [folder](../../concepts/resources-hierarchy.md#folder), you must hav
 
 {% endlist %}
 
-The resources will be stopped, and the folder status will change to `PENDING_DELETION`. You can cancel the deletion of a folder that is `PENDING_DELETION`. To do this, click the ![***](../../../_assets/console-icons/ellipsis.svg) icon to the right of the folder name in the [management console]({{ link-console-cloud }}) and select **{{ ui-key.yacloud.iam.cloud.folders.button_cancel-deletion }}**.
+Deletion starts from stopping the resources. The folder enters the `PENDING_DELETION` status. Preparation for deletion starts. The exact time in this status depends on selected deletion delay period. You can cancel the deletion of the folder while it is `PENDING_DELETION`. To do this, click the ![***](../../../_assets/console-icons/ellipsis.svg) icon to the right of the folder name in the [management console]({{ link-console-cloud }}) and select **{{ ui-key.yacloud.iam.cloud.folders.button_cancel-deletion }}**.
 
 {% note alert %}
 
@@ -140,10 +140,10 @@ While a folder is `PENDING_DELETION`, your disks, reserved IPs, and other data a
 
 While a folder is `DELETION`, you are still charged for paid resources if metrics detect their consumption.
 
-The cost of such storage is charged at the previous rate. Track your resource costs in [{{ billing-name }}]({{ link-console-billing }}).
+The storage cost is calculated at the previous rate. Track how much the resources cost you in [{{ billing-name }}]({{ link-console-billing }}).
 
 {% endnote %}
 
-Once the waiting timeout expires, the folder status will change to `DELETING`. This status means it is being permanently deleted, which can take up to 72 hours. All the folder's resources will be deleted together with it.
+As soon as the deletion preparation and delay periods are over, the folder enters the `DELETING` status. This status means it is being permanently deleted, which can take up to 72 hours. All the folder's resources will be deleted together with it.
 
-Sometimes, the system may cancel the deletion of a folder if it contains resources that cannot be deleted. For more information, see [{#T}](../../concepts/resources-hierarchy.md#inability-to-delete). Once the deletion is canceled, the folder will regain its `ACTIVE` status, and the user will get a message stating why the folder could not be deleted.
+Sometimes, the system may cancel the deletion of a folder if it contains resources that cannot be deleted. For more information, see [{#T}](../../concepts/resources-hierarchy.md#inability-to-delete). Once the deletion is canceled, the folder will go back to `ACTIVE` with a message to the user stating the reasons why the folder could not be deleted.

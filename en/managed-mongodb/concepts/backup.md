@@ -6,9 +6,9 @@ keywords:
   - back up
   - backup
   - backups
-  - '{{ MG }} backups'
-  - backup {{ MG }}
-  - '{{ MG }}'
+  - MongoDB backups
+  - backup MongoDB
+  - MongoDB
 ---
 
 # Backups in {{ mmg-name }}
@@ -30,6 +30,12 @@ To restore a cluster from a backup, follow [this guide](../operations/cluster-ba
 ## Creating backups {#size}
 
 You can create backups either automatically or manually; in both cases, you get a full backup of all databases.
+
+For sharded clusters, two backups are created: a sharded one and a non-sharded one. The sharded backup displays a larger size which includes:
+* Backup size for `mongoinfra` or `mongocfg` type hosts.
+* Total size of all non-sharded backups. This total is counted towards the overall size of a sharded backup, but technically non-sharded backups do not take up extra storage space as part of a sharded backup.
+
+You can restore only a non-sharded cluster from a non-sharded backup. From a sharded backup, you can restore a cluster with standard or advanced sharding, no matter what sharding type was used in the original cluster. The restored cluster's shards must match the original cluster's shards at the time of creating the backup.
 
 All cluster data is automatically backed up every day. You cannot disable automatic backups. However, when [creating](../operations/cluster-create.md) or [editing](../operations/update.md#change-additional-settings) a cluster, you can set the following parameters for automatic backups:
 

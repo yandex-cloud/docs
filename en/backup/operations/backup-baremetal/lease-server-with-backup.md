@@ -5,6 +5,7 @@ description: Follow this guide to lease a {{ baremetal-name }} server with a con
 
 # Leasing a {{ baremetal-full-name }} server connected to {{ backup-name }}
 
+
 You can back up your {{ baremetal-name }} [servers](../../../baremetal/concepts/servers.md) with supported Linux-based operating systems: {#os-support}
 
 {% include [baremetal-os-list](../../../_includes/backup/baremetal-os-list.md) %}

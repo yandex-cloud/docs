@@ -104,6 +104,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
 * [{#T}](disk-create/nonreplicated.md)
+* [{#T}](disk-create/ssd-io.md)
 * [{#T}](disk-create/from-snapshot.md)
 * [{#T}](disk-create/from-image.md)
 
@@ -112,6 +113,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](disk-control/update.md)
 * [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
+* [{#T}](disk-control/disk-change-zone.md)
 * [{#T}](disk-control/disk-encrypt.md)
 * [{#T}](disk-control/get-info.md)
 * [{#T}](disk-control/disk-access.md)
@@ -151,9 +153,10 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 
 * [{#T}](image-control/get-list.md)
 * [{#T}](image-control/image-control-get-info.md)
-* [{#T}](image-control/delete.md)
 * [{#T}](image-control/import.md)
+* [{#T}](image-control/encrypt.md)
 * [{#T}](image-control/access.md)
+* [{#T}](image-control/delete.md)
 
 ## File storages {#filesystem}
 
@@ -219,7 +222,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](dedicated-host/running-host-vms.md)
 * [{#T}](dedicated-host/access.md)
 
-## Reserved instance pool {#reserved-pools}
+## Reserved VM pool {#reserved-pools}
 
 * [{#T}](reserved-pools/create-reserved-pool.md)
 * [{#T}](reserved-pools/update-reserved-pool.md)

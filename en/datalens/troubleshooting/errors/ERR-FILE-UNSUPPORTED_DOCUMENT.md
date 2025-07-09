@@ -1,3 +1,8 @@
+---
+title: ERR.FILE.UNSUPPORTED_DOCUMENT error
+description: This page describes the ERR.FILE.UNSUPPORTED_DOCUMENT error.
+---
+
 # File check failed
 
 `ERR.FILE.UNSUPPORTED_DOCUMENT`

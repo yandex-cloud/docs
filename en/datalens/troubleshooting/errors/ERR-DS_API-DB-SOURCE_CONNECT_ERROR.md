@@ -1,3 +1,8 @@
+---
+title: ERR.DS_API.DB.SOURCE_CONNECT_ERROR error
+description: This page describes the ERR.DS_API.DB.SOURCE_CONNECT_ERROR error.
+---
+
 # Data source refused connection
 
 `ERR.DS_API.DB.SOURCE_CONNECT_ERROR`

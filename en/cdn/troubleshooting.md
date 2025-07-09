@@ -7,7 +7,7 @@ Below is the list of common issues with {{ cdn-name }} and ways to fix them.
 Make sure to specify the following [resource](concepts/resource.md) settings:
 
 * Protocol used by the origins as the primary one (HTTP or HTTPS). If origins redirect requests from `http` URIs to `https` URIs, select HTTPS for the resource, and vice versa.
-* `Host` HTTP header value to which origins respond without redirects.
+* `Host` HTTP header value to which origins respond without redirects. 
   
   > For example, if the header value is set to `www.example.com`, and origins redirect requests with this value to `example.com`, change the value in the settings to `example.com`.
 
@@ -32,7 +32,7 @@ Make sure that:
 * Origins allow and correctly process requests that match the resource settings:
 
   * Over the specified protocol: HTTP or HTTPS.
-  * With the specified value of the `Host` HTTP header and other headers.
+  * With the specified value of the `Host` HTTP header and other headers. 
   
 Also, check the {{ cdn-name }} status [here](https://status.yandex.cloud/en/dashboard?service=cloud%20cdn).
 
@@ -55,3 +55,14 @@ Below is an example of a CLI error you receive when the certificate and the CDN 
 ```bash
 ERROR: operation (id=bcdb6qaiw8mb********) failed: rpc error: code = InvalidArgument desc = folder ids of user and certificate don't match; operation-id: bcdb6qaiw8mb********
 ```
+
+## The CDN sends compressed files to users who do not request compressed content {#compressed-files}
+
+{{ cdn-name }} may send compressed files even if a user does not request compressed content. This may happen in the following cases:
+
+1. First request from the client for the file not yet in the CDN cache had the `Accept-Encoding: gzip` header. The same header is provided to the [origin](./concepts/origins.md).
+1. The origin transfers the compressed file to the CDN cache but does not add the `Vary: Accept-Encoding` header. For example, this happens if you set an [{{ objstorage-name }} bucket](../storage/concepts/bucket.md) as the origin.
+
+In this case, the CDN cache saves the compressed file, which all clients will receive. Also, it is irrelevant whether their devices support compression or whether they add the `Accept-Encoding: gzip` header to their requests.
+
+To avoid this, [enable file compression](./operations/resources/enable-compression.md). This way, Cloud CDN will always request non-compressed content from the origin, and if the client request has the `Accept-Encoding: gzip` header, it will compress files on its own without sending the header to the origin.

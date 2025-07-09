@@ -1,16 +1,18 @@
-# Connecting a {{ baremetal-full-name }} server to {{ backup-full-name }}
+
+# Connecting an existing {{ baremetal-full-name }} server to {{ backup-full-name }}
+
 
 You can connect an existing [{{ baremetal-name }} server](../../baremetal/concepts/servers.md) to {{ backup-name }} and configure backups of its data.
 
 For more information about connecting a {{ baremetal-name }} server to {{ backup-name }} when ordering it, see [{#T}](../../backup/operations/backup-baremetal/lease-server-with-backup.md).
 
-For more information on managing servers, see [Step-by-step guides for {{ baremetal-full-name }}](../../baremetal/operations/index.md).
+For more information on managing {{ baremetal-name }} servers, see [Step-by-step guides for {{ baremetal-full-name }}](../../baremetal/operations/index.md).
 
-The following server operating systems are supported: {#os-support}
+Connecting to {{ backup-name }} is supported for servers running the following operating systems: {#os-support}
 
 {% include [baremetal-os-list](../../_includes/backup/baremetal-os-list.md) %}
 
-To connect a server to {{ backup-name }}:
+To connect an existing server to {{ backup-name }}:
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a service account](#prepare-service-account).
 1. [Activate {{ backup-name }}](#activate-provider).
@@ -136,7 +138,7 @@ For more information on leasing a server, see [this {{ baremetal-name }} guide](
 
 - Linux/macOS {#linux-macos}
 
-  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
+  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **Network settings** on the server page.
 
   1. In the terminal, run this command:
 
@@ -158,7 +160,7 @@ For more information on leasing a server, see [this {{ baremetal-name }} guide](
 
 - Windows 10/11 {#windows}
 
-  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** on the server page.
+  To establish a server connection, specify its public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **Network settings** on the server page.
 
   Make sure the Windows account has read access to the key folder.
 
@@ -379,7 +381,7 @@ To restore your server from a backup:
         --source-backup-id="<backup_ID>"
       ```
 
-      This will start the {{ baremetal-name }} server restoration from the backup. Wait for it to complete.
+      The recovery of your {{ baremetal-name }} server will start. Wait for it to complete.
 
       You can also run this command in asynchronous mode using the `--async` parameter and track the backup process using the [yc backup resource list-tasks](../../cli/cli-ref/backup/cli-ref/vm/list-tasks.md) command.
 

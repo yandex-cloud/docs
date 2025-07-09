@@ -59,7 +59,7 @@ You can obtain the {{ OS }} host FQDN by doing one of the following:
 
 An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the available {{ OS }} host with the `DASHBOARDS` role in the cluster. You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-The service does not provide special FQDNs for hosts with the `DATA` role.
+You can connect to hosts with the `DATA` role using a special FQDN with port `9200`. In which case the load balancer located on the host with the `DASHBOARDS` role will redirect the request to one of the hosts with the `DATA` role using the [Round-Robin](https://en.wikipedia.org/wiki/Round-robin_scheduling) balancing algorithm. To make such connection scheme work, the cluster must have at least one host with the `DASHBOARDS` role.
 
 ## Connecting to {{ OS }} Dashboards {#dashboards}
 

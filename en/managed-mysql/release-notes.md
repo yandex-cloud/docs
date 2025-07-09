@@ -5,6 +5,10 @@ description: This section contains {{ mmy-name }} release notes.
 
 # {{ mmy-full-name }} release notes
 
+## April 2025 {#apr-2025}
+
+Added [integration with {{ connection-manager-name }}](operations/update.md#conn-man). A {{ connection-manager-name }} connection is now created for all new clusters automatically.
+
 ## October 2024 {#oct-2024}
 
 Now you can [specify a retention period for your automatic backups](operations/cluster-backups.md#set-backup-retain).

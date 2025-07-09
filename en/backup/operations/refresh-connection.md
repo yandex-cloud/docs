@@ -30,7 +30,7 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
 
           {% note info %}
 
-          If you use a distribution other than Ubuntu, install the specified utilities using your package manager commands.
+          If you are using a distribution other than Ubuntu, install the specified tools using your package manager.
 
           {% endnote %}
 
@@ -50,7 +50,7 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
       1. Run this command:
 
           ```bash
-          curl 'https://storage.yandexcloud.net/backup-distributions/agent_reinit.sh' | sudo bash
+          curl 'https://{{ s3-storage-host }}/backup-distributions/agent_reinit.sh' | sudo bash
           ```
 
           Result:
@@ -72,7 +72,7 @@ To avoid conflicts between the two VMs when making backups, update the outdated 
       1. Run this command:
 
           ```powershell
-          . { iwr -useb https://storage.yandexcloud.net/backup-distributions/agent_reinit.ps1 } | iex
+          . { iwr -useb https://{{ s3-storage-host }}/backup-distributions/agent_reinit.ps1 } | iex
           ```
 
           Result:

@@ -8,13 +8,13 @@ description: Follow this guide to change {{ KF }} cluster settings.
 
 After creating a {{ mkf-name }} cluster, you can:
 
-* [Changing cluster name and description](#change-name-and-description)
-* [Changing the broker host class and number](#change-brokers)
-* [Changing the {{ ZK }} host class](#change-zookeeper)
-* [Changing security group and public access settings](#change-sg-set)
-* [Changing additional cluster settings](#change-additional-settings)
-* [Changing {{ KF }} settings](#change-kafka-settings)
-* [Moving a cluster to another folder](#move-cluster)
+* [Change the cluster name and description](#change-name-and-description)
+* [Change the class and number of broker hosts](#change-brokers)
+* [Change the {{ ZK }} host class](#change-zookeeper)
+* [Change security group and public access settings](#change-sg-set)
+* [Change additional cluster settings](#change-additional-settings)
+* [Change {{ KF }} settings](#change-kafka-settings)
+* [Move a cluster to another folder](#move-cluster)
 
 Learn more about other cluster updates:
 
@@ -187,7 +187,7 @@ You can increase the number of [broker hosts](../concepts/brokers.md) if the fol
 * The cluster uses {{ KF }} 3.5. Clusters running {{ KF }} 3.6 or higher use the [{{ kraft-name }}](../concepts/kraft.md) protocol; therefore, such clusters always have three {{ KF }} hosts.
 * The cluster contains at least two broker hosts in different availability zones.
 
-You cannot have fewer broker hosts. To meet the cluster [fault tolerance conditions](../concepts/index.md#fault-tolerance), you need at least three broker hosts.
+You cannot have fewer broker hosts. To comply with cluster [high availability conditions](../concepts/ha-cluster.md), at least three broker hosts are required.
 
 When changing the broker host class:
 
@@ -225,7 +225,7 @@ We recommend changing broker host class only when there is no active workload on
      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
      ```
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command for updating the cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster update --help
@@ -452,7 +452,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
      ```
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command for updating the cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster update --help

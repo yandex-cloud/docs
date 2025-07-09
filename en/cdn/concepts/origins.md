@@ -37,6 +37,7 @@ To make sure your website is displayed correctly, e.g., so that when entering `h
 ### Use cases {#examples-bwh}
 
 * [{#T}](../tutorials/protected-access-to-content/index.md)
+* [{#T}](../tutorials/cdn-hosting.md)
 
 
 ## Origin response time {#timeout}

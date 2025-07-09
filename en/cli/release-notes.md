@@ -7,6 +7,100 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+## Version 0.152.0 (25/06/25) {#version0.152.0}
+
+### Changes in {{ yandex-cloud }} services
+
+#### {{ alb-name }} {#version-0.152-alb}
+
+You can now specify a list of zones in the `yc application-load-balancer load-balancer start-zonal-shift` and `yc application-load-balancer load-balancer cancel-zonal-shift` commands for starting and cancelling a load balancer zonal shift.
+
+#### {{ cloud-desktop-name }} {#version-0.152-desktop}
+
+* Added the `yc desktops group update` command to update desktop group info.
+* Added the following parameters to the `yc desktops group create` command: `max-group-size`, `hot-standby`, and `user-account-id`.
+
+#### {{ network-load-balancer-name }} {#version-0.152-nlb}
+
+Added the following commands for starting and cancelling a load balancer zone lock:
+* `yc load-balancer network-load-balancer start-zonal-shift`
+* `yc load-balancer network-load-balancer cancel-zonal-shift`
+
+#### {{ metastore-full-name }} {#version-0.152-metastore}
+
+Added commands for {{ metastore-name }} cluster management:
+* `yc managed-metastore cluster get`
+* `yc managed-metastore cluster list`
+* `yc managed-metastore cluster create`
+* `yc managed-metastore cluster update`
+* `yc managed-metastore cluster delete`
+* `yc managed-metastore cluster start`
+* `yc managed-metastore cluster stop`
+* `yc managed-metastore cluster import-data`
+* `yc managed-metastore cluster export-data`
+* `yc managed-metastore cluster list-operations`
+
+##### Managed database services {#version-0.152-managed-db}
+
+**{{ mpg-name }}**
+
+The `postgresql database` command no longer includes the deprecated `version` argument of the `extension` parameter.
+
+## Previous releases {#previous-release}
+
+### Version 0.151.0 (19/06/25) {#version0.151.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ alb-name }}
+
+* Added the `regex_rewrite` field to modify HTTP request parameters by means of regular expressions on virtual hosts. The field is supported in these commands:
+  * `yc application-load-balancer virtual-host append-http-route`
+  * `yc application-load-balancer virtual-host prepend-http-route`
+  * `yc application-load-balancer virtual-host insert-http-route`
+  * `yc application-load-balancer virtual-host update-http-route`
+
+##### {{ cloud-desktop-name }}
+
+* Added the `yc desktops image update` command to update image info.
+* Added the `yc desktops desktop update-properties` command to update desktop info.
+* Added the `yc desktops desktop start` command to start a desktop.
+* Added the `yc desktops desktop stop` command to stop a desktop.
+* Added the `yc desktops desktop update` command to synchronize a desktop with the group configuration.
+* Added the `yc desktops group update` command to update a group of desktops.
+
+##### {{ managed-k8s-name }}
+
+* Added commands to manage {{ managed-k8s-name }} cluster access permissions:
+  * `yc managed-kubernetes cluster list-access-bindings`
+  * `yc managed-kubernetes cluster set-access-bindings`
+  * `yc managed-kubernetes cluster add-access-binding`
+  * `yc managed-kubernetes cluster remove-access-binding`
+
+##### Managed database services {#managed-db}
+
+**{{ mch-name }}**
+
+* Added the `yc managed-clickhouse cluster update-external-dictionary` command to edit dictionaries created in a cluster.
+* In the `yc managed-clickhouse cluster list-logs` command, the `--service-type` parameter now supports `clickhouse-keeper` as a new valid value.
+
+**{{ mkf-name }}**
+
+* In the `role` key, the `--permission` parameter now supports new valid values: `topic_producer`, `topic_consumer`, `schema_reader`, and `schema_writer`. This applies to the following commands:
+  * `yc managed-kafka user create`
+  * `yc managed-kafka user update`
+  * `yc managed-kafka user grant-permission`
+  * `yc managed-kafka user revoke-permission`
+
+**{{ mtr-name }}**
+
+* Added commands to work with {{ mtr-full-name }} catalogs:
+  * `yc managed-trino catalog create`
+  * `yc managed-trino catalog delete`
+  * `yc managed-trino catalog get`  
+  * `yc managed-trino catalog list`
+  * `yc managed-trino catalog update`
+
 ### Version 0.150.0 (02/06/25) {#version0.150.0}
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -53,7 +147,7 @@ description: This page presents a list of CLI releases and the updates of each.
 * Updated the `--permissions` parameter behavior in the `yc mysql users create` and `yc mysql users update` commands.
 
 **{{ mtr-name }}**
-* Added these {{ mgl-name }} cluster management commands:
+* Added commands for {{ mtr-name }} cluster management:
   * `yc managed-trino cluster get`
   * `yc managed-trino cluster list`
   * `yc managed-trino cluster create`
@@ -62,8 +156,6 @@ description: This page presents a list of CLI releases and the updates of each.
   * `yc managed-trino cluster start`
   * `yc managed-trino cluster stop`
   * `yc managed-trino cluster list-operations`
-
-## Previous releases {#previous-release}
 
 ### Version 0.149.0 (20/05/25) {#version0.149.0}
 
@@ -77,13 +169,13 @@ description: This page presents a list of CLI releases and the updates of each.
 ##### {{ mch-name }}
 
 Added these extension management commands:
-* `yc clickhouse extension list`
-* `yc clickhouse extension get`
-* `yc clickhouse cluster add-extension`
-* `yc clickhouse cluster update-extension`
-* `yc clickhouse cluster get-extension`
-* `yc clickhouse cluster list-extensions`
-* `yc clickhouse cluster remove-extension`
+* `yc managed-clickhouse extension list`
+* `yc managed-clickhouse extension get`
+* `yc managed-clickhouse cluster add-extension`
+* `yc managed-clickhouse cluster update-extension`
+* `yc managed-clickhouse cluster get-extension`
+* `yc managed-clickhouse cluster list-extensions`
+* `yc managed-clickhouse cluster remove-extension`
 
 ### Version 0.148.0 (30/04/25) {#version0.148.0}
 
@@ -138,7 +230,7 @@ Fixed the `--log-enabled` flag support for {{ cloud-logging-name }} in the `yc m
 
 ##### Managed database services {#managed-db}
 
-* Added the `--rest-api-enabled` parameter to the `yc managed-kafka user create` and `yc managed-kafka user update` commands to enable the REST API on the cluster.
+* Added the `--rest-api-enabled` parameter to the `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands to enable the REST API on the cluster.
 
 * Added support for the `--user generate-password` argument in the `yc managed-mysql cluster create` command to automatically generate a password using {{ connection-manager-full-name }}.
 
@@ -146,7 +238,7 @@ Fixed the `--log-enabled` flag support for {{ cloud-logging-name }} in the `yc m
 
 * Added support for the `--user generate-password` argument in the `yc managed-clickhouse cluster create` command to automatically generate a password using {{ connection-manager-full-name }}.
 
-* The `yc clickhouse cluster create` and `yc clickhouse cluster restore` commands now support the `--shard` parameter you can use to specify one or more shards. Example: `yc clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`
+* The `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster restore` commands now support the `--shard` parameter you can use to specify one or more shards. Example: `yc managed-clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`
 
 * Added support for the `--shard` repeatable composite parameter in the `yc managed-clickhouse shard add` command.
   * The command will create as many shards as there are `--shard` parameters.
@@ -155,7 +247,7 @@ Fixed the `--log-enabled` flag support for {{ cloud-logging-name }} in the `yc m
 
 * Deleting multiple shards via `yc managed-clickhouse shards delete` now takes less time.
 
-* Added the following parameters to the `yc clickhouse cluster add-external-dictionary` command:
+* Added the following parameters to the `yc managed-clickhouse cluster add-external-dictionary` command:
   * `--layout-allow-read-expired-keys `
   * `--layout-max-update-queue-size`
   * `--layout-update-queue-push-timeout-milliseconds`
@@ -369,8 +461,8 @@ Added commands to link instances to reserved VM pools.
   * `--log-enabled`: Enabling log delivery to {{ cloud-logging-name }}.
   * `--log-folder-id <folder_id>` and `--log-group-id <log_group_id>`: Specifying a folder or group for log delivery in {{ cloud-logging-name }}.
   * `--log-command-center-enabled`: Enabling log delivery from Command Center.
-  * `--log-command-center-enabled`: Enabling log delivery from Greenplum®.
-  * `--log-command-center-enabled`: Enabling log delivery from Odyssey®.
+  * `--log-greenplum-enabled`: Enabling log delivery from Greenplum®.
+  * `--log-pooler-enabled`: Enabling log delivery from Odyssey®.
 
 ##### {{ network-load-balancer-name }}
 
@@ -1242,11 +1334,11 @@ Added the `yc loadtesting` command tree to manage the load testing service:
 
 **{{ mch-name }}**
 
-* The `network-id` parameter for `yc clickhouse cluster restore` is now optional.
+* The `network-id` parameter for `yc managed-clickhouse cluster restore` is now optional.
 
 ##### {{ alb-name }} {#alb}
 
-* Added the `--security-profile-id` parameter to the `yc alb virtual-host create` and `yc alb virtual-host update` commands to specify a security profile from {{ sws-name }}.
+* Added the `--security-profile-id` parameter to the `yc alb virtual-host create` and `yc alb virtual-host update` commands to specify a {{ sws-name }} profile.
 
 ##### {{ compute-name }} {#compute}
 
@@ -1300,7 +1392,7 @@ Added the following parameters to the `yc cdn resource update` and `yc cdn resou
 
 * Extended the list of fields in the default list of shards and clusters.
 * Added backup type and size info to the list of backups.
-* Fixed a bug that occurred when attempting to restore a cluster with enabled hybrid storage or SQL Management using the `yc clickhouse cluster restore` command.
+* Fixed a bug that occurred when attempting to restore a cluster with enabled hybrid storage or SQL Management using the `yc managed-clickhouse cluster restore` command.
 
 ### Version 0.113.0 (31/10/23) {#version0.113.0}
 
@@ -1402,7 +1494,7 @@ Added the following asynchronous call parameters to the `yc serverless function 
 
 ##### {{ ig-name }} {#instance-groups}
 
-Fixed the `yc compute instance-group update` command issue where the VM group name failed to be processed if a YAML file was used for configuration.
+Fixed the `yc compute instance-group update` command issue where the instance group name failed to be processed if a YAML file was used for configuration.
 
 ##### {{ compute-name }} {#compute}
 
@@ -1457,7 +1549,7 @@ Fixed the `yc compute instance-group update` command issue where the VM group na
 
 ##### {{ compute-name }} {#compute}
 
-* Added the `--strategy` parameter to the `yc compute disk-placement-group create` command to specify a placement strategy. It can be either `SPREAD` or `PARTITION`.
+* Added the `--strategy` parameter to the `yc compute disk-placement-group create` command to specify a placement strategy. It can either be `SPREAD` or `PARTITION`.
 * Added the `--partition-count` parameter to the `yc compute disk-placement-group create` command. The flag sets the number of partitions for a group with the `PARTITION` strategy.
 * Added the `--disk-placement-group-partition` parameter to the `yc compute disk create` command to specify the partition number in a placement group.
 * Added the `PLACEMENT GROUP` column to the table with a list of disks you get using the `yc compute disk list` command.
@@ -2566,7 +2658,7 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
 
 ##### {{ ig-name }} {#instance-groups}
 
-* Added the following new parameters for the VM group update command (`yc compute instance-group update`):
+* Added the following new parameters for the instance group update command (`yc compute instance-group update`):
   * `--new-name`
   * `--description`
   * `--labels`
@@ -3147,7 +3239,7 @@ Added UI Proxy support:
 * `yc dataproc cluster create`, `yc dataproc subcluster create`, and `yc dataproc subcluster update` commands.
   Added the following parameters for auto-scalable subclusters: `--autoscaling-decommission-timeout`, `--cpu-utilization-target`, `--max-hosts-count`, `--measurement-duration`, `--preemptible`, `--stabilization-duration`, and `--warmup-duration`.
 * `yc dataproc subcluster list` command.
-  The response now contains the `instance group id` field with VM group IDs of auto-scalable subclusters.
+  The response now contains the `instance group id` field with auto-scalable subcluster instance group IDs.
 
 #### {{ certificate-manager-name }} {#certificate-manager}
 
@@ -3181,8 +3273,8 @@ Added UI Proxy support:
 
 * `yc compute instance-group` command
 
-  * Added the ability to set and view a list of roles for a VM group: `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
-  * Added commands for deleting and stopping VMs in a VM group: `stop-instances` and`delete-instances`.
+  * Added the ability to set and view the list of instance group roles: `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
+  * Added commands for deleting and stopping instance group VMs: `stop-instances` and`delete-instances`.
 
 
 #### Managed database services {#managed-db}
@@ -3875,7 +3967,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 #### {{ compute-name }} {#compute}
 
-* Added the `yc compute instance-group start` and `yc compute instance-group stop` commands to run and stop a VM group.
+* Added the `yc compute instance-group start` and `yc compute instance-group stop` commands to start and stop an instance group.
 
 #### {{ container-registry-name }} {#container-registry}
 
@@ -4003,7 +4095,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 #### {{ ig-name }} {#instance-groups}
 
-* Added commands to manage VM group metadata: `yc compute instance-group add-metadata` and `yc compute instance-group remove-metadata`.
+* Added commands to manage instance group metadata: `yc compute instance-group add-metadata` and `yc compute instance-group remove-metadata`.
 
 #### {{ managed-k8s-name }} {#k8s}
 

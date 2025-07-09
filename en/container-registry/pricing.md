@@ -12,6 +12,8 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ container-registry-name }} {#rules}
 
 The {{ container-registry-name }} usage cost includes:

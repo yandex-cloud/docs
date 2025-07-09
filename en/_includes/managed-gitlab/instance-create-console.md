@@ -1,9 +1,3 @@
-{% note warning %}
-
-Once you have created an instance, you cannot change its network configuration, i.e., availability zone and subnet.
-
-{% endnote %}
-
 1. In the management console, select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [{{ GL }} instance](../../managed-gitlab/concepts/index.md#instance).
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 1. Click **{{ ui-key.yacloud.gitlab.button_create-instance }}**.
@@ -28,11 +22,7 @@ Once you have created an instance, you cannot change its network configuration, 
    1. Select the [disk](../../compute/concepts/disk.md) size. After you create an instance, [you can increase](../../managed-gitlab/operations/instance/instance-update.md) its disk size.
    1. Specify the [instance domain name](../../compute/concepts/network.md#hostname): relevant DNS records will be automatically created for it in the `.gitlab.yandexcloud.net` domain.
 
-      The domain name must be unique throughout {{ yandex-cloud }}.
-
-      * Its length must be between 5 and 50 characters.
-      * It may contain lowercase Latin letters, numbers, and hyphens.
-      * It must not start or end with a dash character.
+      {% include [domain-name-format](domain-name-format.md) %}
 
    1. Set up the retention period for automatic backups (in days).
    1. (Optional) Enable [code approval rules](../../managed-gitlab/concepts/approval-rules.md). To do this, select the appropriate configuration for approval rules.
@@ -40,7 +30,7 @@ Once you have created an instance, you cannot change its network configuration, 
       {% include [note-approval-rules-pricing](note-approval-rules-pricing.md) %}
 
 1. Under **{{ ui-key.yacloud.gitlab.label_admin-section }}**, specify:
-   * **{{ ui-key.yacloud.gitlab.field_admin-email }}**: Email address of the {{ GL }} instance administrator. This mailbox will receive an email with a link for creating a password.
+   * **{{ ui-key.yacloud.gitlab.field_admin-email }}**: Email address of the {{ GL }} instance administrator. This is the address to receive the email with a link to create a password.
    * **{{ ui-key.yacloud.gitlab.field_admin-login }}**: Administrator login.
 1. (Optional) Under **{{ ui-key.yacloud.gitlab.label_additional-section }}**, enable deletion of untagged images. This setting affects the amount of free disk space on the instance.
 1. Click **{{ ui-key.yacloud.common.create }}**.

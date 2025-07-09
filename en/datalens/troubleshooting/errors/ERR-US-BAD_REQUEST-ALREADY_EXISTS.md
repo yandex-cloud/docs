@@ -1,3 +1,8 @@
+---
+title: ERR.US.BAD_REQUEST.ALREADY_EXISTS error
+description: This page describes the ERR.US.BAD_REQUEST.ALREADY_EXISTS error.
+---
+
 # Failed to create <object_type>
 
 `ERR.US.BAD_REQUEST.ALREADY_EXISTS`

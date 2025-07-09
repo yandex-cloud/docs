@@ -42,15 +42,15 @@ Output data:
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}
 
     ```text
-    <stream_name>,<segment_key>,<message_sequence_number>,<data_recording_date_and_time>,Text string
-    <stream_name>,<segment_key>,<message_sequence_number>,<data_recording_date_and_time>,"{""device_id"":""iv9"",""speed"":5}"
+    {"data":"Text string","partition":<segment_key>,"seq_no":<message_sequence_number>,"topic":"<stream_name>","write_time":"<data_recording_date_and_time>"}
+    {"data":"{\"device_id\":\"iv9\",\"speed\":5}","partition":<segment_key>,"seq_no":<message_sequence_number>,"topic":"<stream_name>","write_time":"<data_recording_date_and_time>"}
     ```
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}
 
     ```text
-    {"data":"Text string","partition":<segment_key>,"seq_no":<message_sequence_number>,"topic":"<stream_name>","write_time":"<data_recording_date_and_time>"}
-    {"data":"{\"device_id\":\"iv9\",\"speed\":5}","partition":<segment_key>,"seq_no":<message_sequence_number>,"topic":"<stream_name>","write_time":"<data_recording_date_and_time>"}
+    <stream_name>,<segment_key>,<message_sequence_number>,<data_recording_date_and_time>,Text string
+    <stream_name>,<segment_key>,<message_sequence_number>,<data_recording_date_and_time>,"{""device_id"":""iv9"",""speed"":5}"
     ```
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}

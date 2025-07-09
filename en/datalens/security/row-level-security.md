@@ -34,6 +34,8 @@ For example, to configure `user-login` access to all rows with the `first-compan
 'first-company': user-login@yandex.ru
 ```
 
+{% include [datalens-domain-federation-note](../../_includes/datalens/datalens-domain-federation-note.md) %}
+
 
 To configure access for multiple users, list their accounts in the access configuration separated by commas:
 
@@ -79,6 +81,8 @@ You can configure access for users and groups at the same time:
 ```yaml
 'first-company': user-login-1@yandex.ru, user-login-2@yandex.ru, @group:group-name-1, @group:group-name-2
 ```
+
+{% include [datalens-domain-federation-note](../../_includes/datalens/datalens-domain-federation-note.md) %}
 
 
 

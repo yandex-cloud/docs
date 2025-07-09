@@ -1,4 +1,10 @@
+---
+title: Connecting {{ compute-name }} VMs and {{ baremetal-full-name }} servers to {{ backup-name }}
+description: In this article, you will learn about the virtual machines and {{ baremetal-name }} servers that can be connected to {{ backup-name }}.
+---
+
 # Connecting {{ compute-name }} VMs and {{ baremetal-full-name }} servers to {{ backup-name }}
+
 
 If you want to back up your [{{ compute-full-name }}](../../compute/) [instances](../../compute/concepts/vm.md) or [{{ baremetal-name }} servers](../../baremetal/concepts/servers.md) in {{ backup-name }}, you need them connected VM to the service and properly set up.
 
@@ -21,7 +27,50 @@ You can also link a policy to a VM or {{ baremetal-name }} server when creating 
 
 {% include [vm-requirements](../../_includes/backup/vm-requirements.md) %}
 
+## Supported file systems {#file-systems}
+
+#|
+|| **File system** | **OS** | **Restrictions** ||
+||
+**FAT16/32**,
+**ext2/ext3/ext4**,
+**NTFS**
+| Linux, Windows | No limit ||
+||
+**JFS**,
+**ReiserFS3**
+| Linux 
+|
+* You cannot exclude files from a disk backup.
+* Fast incremental/differential backup is not supported.
+|| 
+|| 
+**ReiserFS4** | Linux 
+|
+* You cannot exclude files from a disk backup.
+* Fast incremental/differential backup is not supported.
+* You cannot resize volumes while restoring. 
+|| 
+||
+**ReFS**,
+**XFS**
+| Linux, Windows 
+|
+* You cannot exclude files from a disk backup.
+* Fast incremental/differential backup is not supported.
+* You cannot resize volumes while restoring. 
+||
+|| **Linux SWAP**     | Linux | No limit ||
+|| **exFAT**          | Linux, Windows 
+|
+* Only disk/volume backups are supported.
+* You cannot exclude files from a backup.
+* You cannot restore single files from a backup.
+||
+|# {wide-content}
+
 ## Supported {{ marketplace-name }} images with automatic installation of the {{ backup-name }} agent {#os}
+
 
 On VMs and {{ baremetal-name }} servers , the {{ backup-name }} agent is available for automatic installation when you create your VM/order a server using the following {{ marketplace-name }} images:
 
@@ -31,6 +80,8 @@ On VMs and {{ baremetal-name }} servers , the {{ backup-name }} agent is availab
 
 - VM {#vm}
 
+  * [Astra Linux SE 1.7 Voronezh](/marketplace/products/astralinux/alse)
+  * [Astra Linux SE 1.7 Orel](/marketplace/products/astralinux/alse-orel)
   * [CentOS 7](/marketplace/products/yc/centos-7)
   * [CentOS 7 OS Login](/marketplace/products/yc/centos-7-oslogin)
   * [CentOS Stream](/marketplace/products/yc/centos-stream-8)
@@ -165,7 +216,7 @@ To provide network access:
   You can view the server connection to {{ backup-name }} status info in the [management console]({{ link-console-main }}) on the server list page in **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**. The following statuses are available:
 
   * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-ok }}`: {{ backup-name }} is connected to the server, backups are being created as per the specified policies, the {{ backup-name }} agent is online.
-  * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-no-applications }}`: {{ backup-name }} is connected, but no policies are set up, and backups are not being created.
+  * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-no-applications }}`: {{ backup-name }} is connected, but there are no associated policies; no backups are being created.
   * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-failed }}`: Agent is offline, or agent registration failed.
   * `{{ ui-key.yacloud.compute.backup-integration.label_instance-backup-status-not-connected }}`: {{ backup-name }} is not connected to the server.
 

@@ -63,5 +63,4 @@ message msg2 {
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/managed-schema-registry.md)
 * [{#T}](../tutorials/schema-registry-cdc-debezium-kafka.md)

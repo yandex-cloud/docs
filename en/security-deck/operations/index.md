@@ -1,9 +1,9 @@
 ---
-title: Guides on using {{ sd-full-name }}
+title: How to work with {{ sd-full-name }}
 description: In this article, you will learn how to work with {{ sd-name }} in {{ yandex-cloud }}.
 ---
 
-# Guides on using {{ sd-full-name }}
+# How to work with {{ sd-full-name }}
 
 ## Data Security Posture Management ({{ dspm-name }}) {#dspm}
 
@@ -14,3 +14,4 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 
 * [{#T}](./ciem/view-permissions.md).
 * [{#T}](./ciem/revoke-permissions.md).
+

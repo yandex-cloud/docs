@@ -19,7 +19,7 @@ To get started with {{ marketplace-short-name }} Metering API:
 To use the examples, install the following:
 
 * [cURL](https://curl.haxx.se)
-* [gRPCurl](https://github.com/fullstorydev/grpcurl) (when using [gRPC API](../api-ref/ImageProductUsage/index))
+* [gRPCurl](https://github.com/fullstorydev/grpcurl) (when using [gRPC API](../metering/api-ref/ImageProductUsage/index.md))
 * [uuidgen](https://uuidgen.org/)
 
 

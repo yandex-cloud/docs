@@ -25,7 +25,7 @@ To unblock your new billing account, [upgrade to the paid version](../../billing
 
 #### I received no email with instructions on what to do after creating a billing account with the {{ ui-key.yacloud_billing_account.cloud-billing-account.payment-type_label_invoice }} payment method. Why? {#account-notification}
 
-During the activation of your billing account, your documents and data get checked. With that done, your billing account can be activated and you can start using {{ yandex-cloud }}.
+During the activation of your billing account, your documents and data get checked. Following that, your billing account can be activated and you can start using {{ yandex-cloud }}.
 If you still get no email, inquire at [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}).
 
 {% include [change-payment-docs](../../billing/_includes/change-payment-docs.md) %}
@@ -63,12 +63,17 @@ If you have not linked a bank card when creating your account, you will not be e
 #### How do I change the billing account linked to a cloud? {#cloud-transfer}
 
 To change the billing account of a cloud, you simply need to [link](../../billing/operations/pin-cloud.md) it to a different account. This automatically unlinks the cloud from its current account. To avoid running into arrears, top up your [personal account](../../billing/concepts/personal-account.md) in the billing account the cloud was linked to.
-``
 
 #### Why cannot I link a cloud to my billing account? {#cannot-pin-cloud}
 
 If your billing account is added to an organization, you can only link to it the resources that are in the same organization. You may not have [permissions to work](../../billing/operations/pin-cloud.md#bind-roles) with this cloud or billing account. Ask your [organization](../../billing/concepts/organization.md) administrator to [grant you the roles you need](../../billing/security/index.md#set-role).
 Roles can be issued either directly to the billing account and cloud, or to the organization they reside in.
+
+#### I deleted a cloud accidentally. Why cannot I restore it? {#cloud-delete-cancel}
+
+You cannot cancel the deletion of a cloud linked to a billing account with the `SUSPENDED` status.
+
+See [Canceling cloud deletion](../../resource-manager/operations/cloud/delete-cancel.md).
 
 #### How do I enable a billing threshold? {#credit}
 

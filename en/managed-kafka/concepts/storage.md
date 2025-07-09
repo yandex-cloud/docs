@@ -20,7 +20,7 @@ The number of broker hosts you can create together with an {{ KF }} cluster depe
     * Local SSDs (`local-ssd`)
     * Non-replicated SSDs (`network-ssd-nonreplicated`)
 
-    This cluster will be fault-tolerant only if all the [conditions](index.md#fault-tolerance) are met.
+    This cluster will be highly available only if all the [conditions](ha-cluster.md) are met.
 
 * You can add any number of broker hosts within the current quota when using the following disk types:
 

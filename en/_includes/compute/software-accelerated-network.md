@@ -4,9 +4,9 @@ In the {{ yandex-cloud }} infrastructure, all VMs run in the [QEMU-KVM](https://
 
 The computing load can be logically divided into three parts:
 
-* User load: OS processes and user processes run in the OS of a user VM.
+* User load, i.e., OS processes and user processes run in the OS of a user VM.
 * Processes maintaining the operation of [network disks](../../compute/concepts/disk.md).
-* Processes for handling the VM's network traffic.
+* Processes for handling network traffic of the VM.
 
 The load distribution across compute cores can be presented as follows:
 
@@ -39,7 +39,7 @@ You cannot enable SAN on a VM with [performance level](../../compute/concepts/pe
 
 {% endnote %}
 
-This way, SAN ensures that there is no competition between user and service loads for the VM's hardware resources, as all network traffic is processed separately. This minimizes lags and packet losses when transmitting traffic, while the VM's computing resources are freed up to serve the user load.
+This way, SAN ensures there is no contention between user and service loads for the VM's hardware resources as all network traffic is processed separately. This minimizes lags and packet losses when transmitting traffic, while the VM's computing resources are freed up to serve the user load.
 
 The [cost](../../compute/pricing.md#software-accelerated-network) of additional hardware resources depends on the [platform](../../compute/concepts/vm-platforms.md) and the number of VM cores.
 

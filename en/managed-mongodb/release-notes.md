@@ -5,6 +5,11 @@ description: This section contains {{ mmg-name }} release notes.
 
 # {{ mmg-full-name }} release notes
 
+## April 2025 {#apr-2025}
+
+* Added support for {{ MG }} 8.0. To learn how to update a cluster to the latest version, see [{#T}](operations/cluster-version-update.md).
+* You can now [restore a cluster with enabled sharding from a backup](operations/cluster-backups.md#restore).
+
 
 ## March 2025 {#mar-2025}
 

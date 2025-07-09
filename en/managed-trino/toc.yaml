@@ -46,6 +46,86 @@ items:
         href: concepts/network.md
       - name: Impersonation
         href: concepts/impersonation.md
+      - name: Fault-tolerant query execution
+        href: concepts/retry-policy.md
+  - name: CLI reference
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: catalog
+        items:
+          - name: Overview
+            href: cli-ref/catalog/index.md
+          - name: create
+            items:
+              - name: Overview
+                href: cli-ref/catalog/create/index.md
+              - name: clickhouse
+                href: cli-ref/catalog/create/clickhouse.md
+              - name: delta-lake
+                href: cli-ref/catalog/create/delta-lake.md
+              - name: hive
+                href: cli-ref/catalog/create/hive.md
+              - name: iceberg
+                href: cli-ref/catalog/create/iceberg.md
+              - name: oracle
+                href: cli-ref/catalog/create/oracle.md
+              - name: postgresql
+                href: cli-ref/catalog/create/postgresql.md
+              - name: sqlserver
+                href: cli-ref/catalog/create/sqlserver.md
+              - name: tpcds
+                href: cli-ref/catalog/create/tpcds.md
+              - name: tpch
+                href: cli-ref/catalog/create/tpch.md
+          - name: delete
+            href: cli-ref/catalog/delete.md
+          - name: get
+            href: cli-ref/catalog/get.md
+          - name: list
+            href: cli-ref/catalog/list.md
+          - name: update
+            items:
+              - name: Overview
+                href: cli-ref/catalog/update/index.md
+              - name: clickhouse
+                href: cli-ref/catalog/update/clickhouse.md
+              - name: delta-lake
+                href: cli-ref/catalog/update/delta-lake.md
+              - name: hive
+                href: cli-ref/catalog/update/hive.md
+              - name: iceberg
+                href: cli-ref/catalog/update/iceberg.md
+              - name: oracle
+                href: cli-ref/catalog/update/oracle.md
+              - name: postgresql
+                href: cli-ref/catalog/update/postgresql.md
+              - name: sqlserver
+                href: cli-ref/catalog/update/sqlserver.md
+              - name: tpcds
+                href: cli-ref/catalog/update/tpcds.md
+              - name: tpch
+                href: cli-ref/catalog/update/tpch.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-operations
+            href: cli-ref/cluster/list-operations.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: update
+            href: cli-ref/cluster/update.md
   - name: API reference
     items:
       - name: API authentication
@@ -148,5 +228,7 @@ items:
     href: security.md
   - name: Pricing policy
     href: pricing.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: Release notes
     href: release-notes.md

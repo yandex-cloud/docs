@@ -36,7 +36,7 @@ For information on how to identify and troubleshoot cluster performance problems
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -212,13 +212,13 @@ For information on how to identify and troubleshoot cluster performance problems
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** tab.
 
     To view session statistics:
 
     1. Specify the required time interval.
-    1. (Optional) Set filters.
+    1. Optionally, set filters.
     1. Select the required data segment.
 
     To show or hide individual categories, click the category name in the chart legend.
@@ -226,7 +226,7 @@ For information on how to identify and troubleshoot cluster performance problems
     To view the history of queries run during a session:
 
     1. Specify the required time interval.
-    1. (Optional) Set filters.
+    1. Optionally, set filters.
 
 - gRPC API {#grpc-api}
 
@@ -258,7 +258,7 @@ For information on how to identify and troubleshoot cluster performance problems
      * `from_time`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
      * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.md#yandex.cloud.mdb.postgresql.v1.ListRawSessionStatesResponse) to make sure the request was successful.
 
@@ -272,19 +272,19 @@ For more information about what statistics you can get, see the [{{ PG }} docume
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Click the cluster name and select the **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}** tab.
 
     To view the query statistics for a specific time interval:
 
     1. Select the time interval you need.
-    1. (Optional) Set filters.
+    1. Optionally, set filters.
 
     To get information about the relative change in the query statistics:
 
     1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-first }}** field, select the time interval to be used as a calculation basis for statistics.
     1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-second }}** field, select the time interval to compare the statistics for interval 1 with.
-    1. (Optional) Set filters.
+    1. Optionally, set filters.
 
     Let’s assume, 10 `SELECT * FROM cities` queries were made in the first interval and 20 in the second. When comparing statistics, the difference by the <q>number of queries</q> metric (the `Calls` column in the table) will be `+100%`.
 
@@ -318,13 +318,13 @@ For more information about what statistics you can get, see the [{{ PG }} docume
      * `from_time`: Left boundary of a time range in [RFC-3339](https://www.ietf.org/rfc/rfc3339.html) format, e.g., `2024-09-18T15:04:05Z`.
      * `to_time`: Right boundary of a time range, the format is the same as for `from_time`.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/PerformanceDiagnostics/listRawStatements.md#yandex.cloud.mdb.postgresql.v1.ListRawStatementsResponse) to make sure the request was successful.
 
 {% endlist %}
 
-You can learn more about what statistics you can get in the [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6) and [pg_stat_kcache](https://pgstats.dev/pg_stat_kcache) extensions documentation.
+You can learn more about what statistics you can get in the [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) and [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache/blob/master/README.rst) extensions documentation.
 
 ## Getting information about query execution plans {#auto-explain-enable}
 

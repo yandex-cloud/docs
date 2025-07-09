@@ -43,7 +43,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
   1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
   1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
      * `PRODUCTION`: For stable versions of your apps.
-     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
   1. Select the DBMS version.
   1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm.md) where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for a cluster, the characteristics of all the already created hosts change too.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
@@ -56,7 +56,17 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      * Select the storage size to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
-  1. (Optional) Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, specify the settings you need:
+     
+     * Optionally, select the **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** option to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md). 
+
+       * To [create](../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+
+       * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
+
+       To learn more about disk encryption, see [Storage](../../network-load-balancer/k8s-ref/networkpolicy.md).
+
+
+  1. Optionally, under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, specify the settings you need:
 
       * In the **{{ ui-key.yacloud.mdb.cluster.field_thresholds }}** field, set the conditions to:
 
@@ -243,10 +253,10 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To create a {{ mpg-name }} cluster:
-  1. In the configuration file, describe the resources you want to create:
-     * DB cluster: Description of the cluster and its hosts
-     * Database: Cluster DB description
-     * User: Cluster user description
+  1. In the configuration file, describe the parameters of resources you want to create:
+     * DB cluster: description of the cluster and its hosts.
+     * Database: cluster DB description.
+     * User: cluster user description.
 
      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -701,9 +711,9 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ PG }} cluster using the settings of another one created earlier. To do so, you need to import the configuration of the source {{ PG }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ PG }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ PG }} cluster using the settings of another one created earlier. To do so, import the source {{ PG }} cluster’s configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ PG }} cluster has a lot of settings and you need to create a similar one.
 
-To create an {{ PG }} cluster copy:
+To create a {{ PG }} cluster copy:
 
 {% list tabs group=instructions %}
 
@@ -720,15 +730,15 @@ To create an {{ PG }} cluster copy:
         resource "yandex_mdb_postgresql_cluster" "old" { }
         ```
 
-    1. Write the ID of the initial {{ PG }} cluster to the environment variable:
+    1. Write the initial {{ PG }} cluster’s ID to the environment variable:
 
         ```bash
         export POSTGRESQL_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with the [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list-clusters).
+        You can get the ID with the [list of clusters in the folder](../../managed-postgresql/operations/cluster-list.md#list-clusters).
 
-    1. Import the settings of the initial {{ PG }} cluster into the {{ TF }} configuration:
+    1. Import the initial {{ PG }} cluster’s settings into the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_postgresql_cluster.old ${POSTGRESQL_CLUSTER_ID}
@@ -753,7 +763,7 @@ To create an {{ PG }} cluster copy:
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
     1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 

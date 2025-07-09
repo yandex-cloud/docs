@@ -5,12 +5,14 @@ description: In this article, you will learn about Editor notifications, their l
 
 # Notifications
 
+
 {% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 Use the Editor's notification mechanism communicate information to the user viewing your chart.
 
 * [Adding a notification to a chart](#add-notification-to-chart)
-* [Limitations](#restrictions)
+* [Restrictions](#restrictions)
 
 ![notifications](../../../_assets/datalens/editor/notifications.png)
 

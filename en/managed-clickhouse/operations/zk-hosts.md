@@ -14,14 +14,14 @@ For more information about {{ ZK }} hosts, see [{#T}](../concepts/replication.md
 
 You can perform the following actions on {{ ZK }} hosts:
 
-* [Get a list of cluster hosts](#list-hosts).
+* [Get the list of cluster hosts](#list-hosts).
 * [Add {{ ZK }} hosts](#add-zk).
-* [Update {{ ZK}} host settings](#update-zk-settings).
+* [Update {{ ZK }} host settings](#update-zk-settings).
 * [Restart a host](#restart).
 * [Move {{ ZK }} hosts to a different availability zone](host-migration.md#zookeeper-hosts).
 * [Remove a host](#delete-zk-host).
 
-## Getting a list of cluster hosts {#list-hosts}
+## Getting the list of cluster hosts {#list-hosts}
 
 {% include notitle [get-hosts](../../_includes/mdb/mch/get-hosts.md) %}
 
@@ -38,7 +38,7 @@ Intel Broadwell is not available in the `{{ region-id }}-d` [availability zone](
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. At the top right, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-zookeeper }}**.
   1. Specify the [host class](../concepts/instance-types.md).
@@ -206,7 +206,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, select the platform, VM type, and required {{ ZK }} host class.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, set {{ ZK }} storage size.
@@ -220,7 +220,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   To update a {{ ZK }} host configuration:
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command for updating the cluster:
 
      ```bash
      {{ yc-mdb-ch }} cluster update --help
@@ -447,7 +447,7 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Hover over the host's row and click ![image](../../_assets/console-icons/xmark.svg).
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.

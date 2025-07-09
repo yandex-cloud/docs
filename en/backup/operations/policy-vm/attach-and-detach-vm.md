@@ -5,6 +5,7 @@ description: In this article, you will learn how to link a {{ compute-name }} VM
 
 # Linking a VM or {{ baremetal-full-name }} server to a backup policy
 
+
 You can only link a VM or {{ baremetal-name }} server to a backup policy if they are connected to {{ backup-full-name }}. For more information, see [{#T}](../index.md#connect-vm) and [{#T}](../index.md#connect-baremetal).
 
 {% list tabs group=instructions %}
@@ -53,7 +54,7 @@ You can only link a VM or {{ baremetal-name }} server to a backup policy if they
 
       Where `--instance-ids` are the IDs of the VMs or {{ baremetal-name }} servers connected to {{ backup-name }} you need to link to the backup policy. Multiple IDs should be comma-separated.
 
-  For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
+  For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
 
 - API {#api}
 

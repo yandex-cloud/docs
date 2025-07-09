@@ -1,3 +1,8 @@
+---
+title: ERR.DS_API.DB.CANNOT_PARSE.NUMBER error
+description: This page describes the ERR.DS_API.DB.CANNOT_PARSE.NUMBER error.
+---
+
 # Cannot parse number
 
 `ERR.DS_API.DB.CANNOT_PARSE.NUMBER`

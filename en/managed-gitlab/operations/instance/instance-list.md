@@ -42,6 +42,8 @@ You can get detailed information about each [{{ GL }} instance](../../concepts/i
     * `GITLAB VERSION`: {{ GL }} version.
     * `STATUS`: Instance status. Learn more about possible statuses [here](monitoring.md#statuses).
 
+    For more information about this command, see the [CLI reference](../../cli-ref/instance/list.md).
+
 {% endlist %}
 
 ## Getting instance details {#get}
@@ -115,6 +117,8 @@ Instance details include:
     * `gitlab_version`: {{ GL }} version.
 
     You can request the instance name and ID with the [list of instances in the folder](instance-list.md#list).  
+
+    For more information about this command, see the [CLI reference](../../cli-ref/instance/get.md).
 
 {% endlist %}
 

@@ -5,14 +5,16 @@ description: In this tutorial, you will learn what types of data sources are ava
 
 # Data sources
 
+
 {% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 ## Source types {#source-types}
 
 You can request the data using:
 
 * [Dataset](./tabs.md#sources-dataset)
-* [Database connection via an SQL query](./tabs.md#sources-database)
+* [Connection to databases via an SQL query](./tabs.md#sources-database)
 * [Connection via API Connector](./tabs.md#sources-api-connector)
 
 For more information, see [Sources](./tabs.md#sources).

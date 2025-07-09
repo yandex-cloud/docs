@@ -5,7 +5,9 @@ description: In this article, you will learn about methods available in Editor.
 
 # Methods available in Editor
 
+
 {% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 The supported methods include:
 
@@ -42,8 +44,10 @@ Generates secure HTML markup in a chart.
 * `code`
 * `dd`
 * `defs`
+* `details`
 * `div`
 * `dl`
+* `dl-tooltip`
 * `dt`
 * `ellipse`
 * `em`
@@ -80,12 +84,14 @@ Generates secure HTML markup in a chart.
 * `polyline`
 * `polygon`
 * `pre`
+* `radialGradient`
 * `rect`
 * `small`
 * `span`
 * `stop`
 * `strong`
 * `sub`
+* `summary`
 * `sup`
 * `svg`
 * `table`
@@ -106,6 +112,7 @@ Generates secure HTML markup in a chart.
 {% cut "Supported tag attributes" %}
 
 * `alt`
+* `alignment-baseline`
 * `aria-controls`
 * `aria-describedby`
 * `aria-expanded`
@@ -123,28 +130,48 @@ Generates secure HTML markup in a chart.
 * `clip-rule`
 * `color`
 * `colspan`
+* `cursor`
 * `cx`
 * `cy`
 * `d`
+* `data-id`
+* `data-tooltip-content`
+* `data-tooltip-placement`
+* `data-tooltip-anchor-id`
+* `data-tooltip-hide-delay`
+* `data-tooltip-open-delay`
+* `disabled`
 * `dominant-baseline`
 * `dx`
 * `dy`
-* `disabled`
 * `fill`
+* `fill-opacity`
 * `fill-rule`
-* `filterUnits`
+* `filter`
+* `filterunits`
 * `flood-color`
 * `flood-opacity`
+* `font-family`
+* `font-size`
+* `font-weight`
+* `fx`
+* `fy`
 * `height`
 * `href`
 * `id`
 * `in`
+* `letter-spacing`
 * `mask`
+* `name`
 * `offset`
 * `opacity`
 * `orient`
+* `overflow`
 * `padding`
+* `paint-order`
+* `pointer-events`
 * `points`
+* `preserveaspectratio`
 * `r`
 * `refX`
 * `refY`
@@ -154,9 +181,16 @@ Generates secure HTML markup in a chart.
 * `scope`
 * `slope`
 * `src`
+* `stddeviation`
+* `stop`
+* `stop-color`
+* `stop-opacity`
 * `stroke`
+* `stroke-dasharray`
+* `stroke-dashoffset`
 * `stroke-linecap`
 * `stroke-linejoin`
+* `stroke-opacity`
 * `stroke-width`
 * `result`
 * `rowspan`
@@ -165,23 +199,23 @@ Generates secure HTML markup in a chart.
 * `tabindex`
 * `text-align`
 * `text-anchor`
+* `text-decoration`
 * `title`
 * `transform`
 * `type`
 * `valign`
-* `viewBox`
+* `viewbox`
 * `width`
 * `x`
 * `x1`
 * `x2`
 * `xlink:href`
 * `xmlns`
+* `xmlns:xlink`
 * `y`
 * `y1`
 * `y2`
-* `zIndex`
-* `data-tooltip-content`
-* `data-tooltip-placement`
+* `zindex`
 
 ^1^ To avoid incompatibility in future updates, do not use service classes in the `class` attribute.
 
