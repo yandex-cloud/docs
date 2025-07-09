@@ -5,7 +5,9 @@ description: Follow this guide to build a table based on API Connector in Editor
 
 # Building a table based on API Connector
 
+
 {% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 Follow this guide to build a table in Editor based on an API Connector connection.
 
@@ -29,7 +31,7 @@ You will use a static JSON file located at `https://storage.yandexcloud.net/data
 
 1. Under **Files and services**, select **API Connector**.
 
-1. Specify the connection parameters:
+1. Configure the connection as follows:
 
    * **Host name**: `storage.yandexcloud.net`.
    * **Port**: `443`.
@@ -125,4 +127,4 @@ You will use a static JSON file located at `https://storage.yandexcloud.net/data
 
    ![image.png](../../../../_assets/datalens/editor/quick-start-3.png)
 
-1. To save the chart, click **Save** in the top-right corner and enter a name for the chart.
+1. To save a chart, click **Save** in the top-right corner and enter a name for the chart.

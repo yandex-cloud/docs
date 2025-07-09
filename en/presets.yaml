@@ -151,6 +151,7 @@ default:
   data-transfer-name: Data Transfer
   data-transfer-short-name: Data Transfer
   datalens-full-name: Yandex DataLens
+  datalens-gallery: DataLens Gallery
   datalens-name: DataLens
   datalens-short-name: DataLens
   dataproc-full-name: Yandex Data Processing
@@ -571,6 +572,7 @@ default:
   roles-datasphere-project-editor: datasphere.community-projects.editor
   roles-datasphere-user: datasphere.user
   roles-editor: editor
+  roles-functions-admin: functions.admin
   roles-functions-editor: functions.editor
   roles-functions-invoker: functions.functionInvoker
   roles-functions-mdbProxiesUser: functions.mdbProxiesUser
@@ -6144,21 +6146,8 @@ default:
         field_person-id: Payer
     yacloud_billing:
       alb:
-        button_add-route: Add route
-        button_backend-group-create: Create backend group
-        label_backend-group: Backend group
         label_backends: Backends
-        label_certificate: Certificates
-        label_http-router: HTTP router
-        label_listeners: Listeners
         label_max-timeout: Maximum timeout, sec.
-        label_new-backend: New backend
-        label_new-virtual-host: New virtual host
-        label_session-affinity: Session affinity
-        label_session-affinity-mode: Affinity mode
-        label_target-groups: Target groups
-        label_virtual-hosts: Virtual hosts
-        section_allocation-settings: Allocation
       backup:
         button_attach-instance-submit: Attach
         label_instances: Virtual machines
@@ -6770,12 +6759,8 @@ default:
             tab-idp: IdP group
         oslogin-settings:
           title_allow-edit-own-keys: Allow members to use their own SSH keys
-          title_hide-users-list: >-
-            Prevent users from viewing the list of organization members and
-            information about them
           title_ssh-certificate-settings: Access via OS Login using SSH certificates (recommended)
           title_user-ssh-key-settings: Access via OS Login using SSH keys
-          title_users-list-visibility: Confidentiality
         oslogin:
           field_home-directory: Home directory
           field_shell: Default shell
@@ -6807,6 +6792,12 @@ default:
       layout:
         organization: Identity Hub
       organization:
+        security-settings:
+          OtherSecuritySettingsForm:
+            title_hide-users-list_9eW2W: >-
+              Block users from viewing the list of organization members and
+              their details
+            title_users-list-visibility_ftTaP: Confidentiality
         userpool:
           action_delete-domain: Delete
         userpools:
@@ -7240,7 +7231,7 @@ default:
         field_server-count: Number of servers
         field_server-lease-duration: Lease duration
         field_server-pool: Pool
-        field_server-private-ip: Private IPv4
+        field_server-private-ip: Private IP address
         field_server-zone: Availability zone
         field_ssh-public-key: Public SSH key
         field_subnet-id: Private subnet
@@ -7261,7 +7252,7 @@ default:
         label_one-month-duration: 1 month
         label_password-lockbox: Lockbox secret
         label_password-plain: New password
-        label_public-ip-ephemeral: Automatic
+        label_public-ip-ephemeral: From ephemeral subnet
         label_public-ip-from-dedicated-subnet: From a dedicated subnet
         label_public-ip-no: No address
         label_public-subnets: Public addresses and subnets
@@ -7282,7 +7273,6 @@ default:
         title_section-server-config: Configuration
         title_section-server-info: Server information
         title_section-server-marketplace-app: Marketplace application
-        title_section-server-network-settings: Network settings
         title_section-server-private-network: Private network
         title_section-server-product: Image
         title_section-server-public-network: Public network
@@ -9708,7 +9698,7 @@ default:
           popup-action_label_cancel-msg: Cancel job
         label_history-server: History Server
       speechkit-common:
-        brand-voice_51nd8: Brand Voice
+        brand-voice_51nd8: Brand Voice Lite
         brand-voice_create-dataset_option_title_record-audio_jvUMz: Record audio files
         brand-voice_create-dataset_option_title_upload-zip_nFtBR: Download ZIP archive
         brand-voice_section_title_voice-usage_15pws: Use of voice

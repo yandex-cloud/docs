@@ -1,11 +1,11 @@
 ---
-title: Getting started with {{ mgl-full-name }}
-description: Follow this guide to create and set up a {{ GL }} cluster.
+title: How to get started with {{ mgl-full-name }}
+description: Follow this guide to create and set up an {{ GL }} cluster.
 ---
 
 # Getting started with {{ mgl-name }}
 
-To get started with the service:
+To get started:
 1. [Create an instance](#instance-create).
 1. [Set up a working environment](#configure-mgl).
 1. [Add SSH keys to {{ GL }}](#ssh).
@@ -46,11 +46,17 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
 
 ## Create an instance {#instance-create}
 
+{% include [warn-subnet](../_includes/managed-gitlab/warn-subnet.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   {% include [instance-create-console](../_includes/managed-gitlab/instance-create-console.md) %}
+
+- CLI {#cli}
+
+  {% include [instance-create-cli](../_includes/managed-gitlab/instance-create-cli.md) %}
 
 {% endlist %}
 
@@ -70,7 +76,7 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
    * View issues and merge requests by group.
    * View analytics on group's activities.
 
-   For more information, see the relevant [{{ GL }} documentation](https://docs.gitlab.com/ee/user/group/).
+   For more information, see the [{{ GL }} documentation](https://docs.gitlab.com/ee/user/group/).
 
 1. [Create an empty project](https://docs.gitlab.com/ee/user/project/) to host the repository.
 1. [Create users and add](operations/create-user.md) them to a group or project with the `Maintainer` or `Owner` role.
@@ -97,7 +103,7 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
    ssh -T git@<{{ GL }}_instance_domain>
    ```
 
-   Example:
+   Here is an example:
 
    ```bash
    ssh -T git@example.gitlab.yandexcloud.net

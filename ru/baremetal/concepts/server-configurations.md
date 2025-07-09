@@ -27,9 +27,9 @@
 | BA-i211-8S-2X25G ^*^ | Intel®&nbsp;Xeon®<br/>E5-2650V2</br>(2,6 ГГц) | 2                 | 16   | 256          |                           | 8&nbsp;×&nbsp;1,9&nbsp;ТБ  | 25                         | 25                         |
 | BA-i212-10S-10G | Intel®&nbsp;Xeon®<br/>E5-2650V2</br>(2,6 ГГц)  | 2                 | 16   | 256          |                           | 10&nbsp;×&nbsp;1,9&nbsp;ТБ | 10                         | 10                         |
 | BA-i407-S-10G   | Intel®&nbsp;Xeon®<br/>E5-2660V4</br>(2,0 ГГц)  | 2                 | 28   | 256          |                           | 4&nbsp;×&nbsp;3,8&nbsp;ТБ  | 10                         | 10                         |
-| BA-i501-H-25G   | Intel®&nbsp;Xeon®<br/>Gold 6338</br>(2,0 ГГц)  | 2                 | 32   | 384          | 2&nbsp;×&nbsp;4&nbsp;ТБ   |                            | 25                         | 25                         |
-| BA-i506-NH-25G  | Intel®&nbsp;Xeon®<br/>Gold 6338</br>(2,0 ГГц)  | 2                 | 32   | 384          | 2&nbsp;×&nbsp;4&nbsp;ТБ   | 2&nbsp;×&nbsp;3,2&nbsp;ТБ  | 25                         | 25                         |
-| BA-i511-NH-25G  | Intel®&nbsp;Xeon®<br/>Gold 6338</br>(2,0 ГГц)  | 2                 | 32   | 512          | 2&nbsp;×&nbsp;4&nbsp;ТБ + 2&nbsp;×&nbsp;16&nbsp;ТБ | 6&nbsp;×&nbsp;3,2&nbsp;ТБ | 25 | 25                         |
+| BA-i501-H-25G   | Intel®&nbsp;Xeon®<br/>Gold 6338</br>(2,0 ГГц)  | 2                 | 64   | 384          | 2&nbsp;×&nbsp;4&nbsp;ТБ   |                            | 25                         | 25                         |
+| BA-i506-NH-25G  | Intel®&nbsp;Xeon®<br/>Gold 6338</br>(2,0 ГГц)  | 2                 | 64   | 384          | 2&nbsp;×&nbsp;4&nbsp;ТБ   | 2&nbsp;×&nbsp;3,2&nbsp;ТБ  | 25                         | 25                         |
+| BA-i511-NH-25G  | Intel®&nbsp;Xeon®<br/>Gold 6338</br>(2,0 ГГц)  | 2                 | 64   | 512          | 2&nbsp;×&nbsp;4&nbsp;ТБ + 2&nbsp;×&nbsp;16&nbsp;ТБ | 6&nbsp;×&nbsp;3,2&nbsp;ТБ | 25 | 25                         |
 | HA-i302-S-10G   | Intel®&nbsp;Xeon®<br/>E5-2667V2</br>(3,3 ГГц)  | 2                 | 16   | 256          |                           | 4&nbsp;×&nbsp;3,8&nbsp;ТБ  | 10                         | 10                         |
 
 \* `2X25G` — в конфигурацию входят две сетевые карточки с двумя портами 25 Гбит/с.

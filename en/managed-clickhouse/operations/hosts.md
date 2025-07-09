@@ -1,13 +1,13 @@
 ---
 title: Managing {{ CH }} hosts
-description: 'Follow this guide to manage {{ CH }} cluster hosts: get a list of hosts in the cluster, create a host, change {{ CH }} settings for a host, restart a host, and delete a host.'
+description: 'Follow this guide to manage {{ CH }} cluster hosts: get the list of hosts in the cluster, create a host, change {{ CH }} settings for a host, restart a host, and delete a host.'
 ---
 
 # Managing {{ CH }} hosts
 
 You can perform the following actions on {{ CH }} hosts:
 
-* [Get a list of cluster hosts](#list-hosts).
+* [Get the list of cluster hosts](#list-hosts).
 * [Create a host](#add-host).
 * [Update {{ CH }} host settings](#update).
 * [Restart a host](#restart).
@@ -21,7 +21,7 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
 {% endnote %}
 
-## Getting a list of cluster hosts {#list-hosts}
+## Getting the list of cluster hosts {#list-hosts}
 
 {% include notitle [get-hosts](../../_includes/mdb/mch/get-hosts.md) %}
 
@@ -29,24 +29,32 @@ If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) 
 
 The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quotas available to DB clusters in your cloud. To check the resources currently in use, open the [Quotas]({{ link-console-quotas }}) page and find **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
 
-Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in one go.
+You can create several hosts in a cluster in one go.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-  1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
+  1. Click **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_add-clickhouse-hosts }}**.
 
-  
   1. Specify the host parameters:
-     * Availability zone.
-     * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
-     * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
-     * Shard name.
-     * Select the **{{ ui-key.yacloud.clickhouse.hosts.dialog.field_copy_schema }}** option to copy the schema from a random replica to the new host.
 
+      
+      * Availability zone.
+      * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
+      * Shard name.
+      * Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+
+
+  1. Optionally, click **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_add-host-item }}** to add more hosts and specify their parameters.
+     
+  1. Under **{{ ui-key.yacloud.clickhouse.hosts.dialog.title_additional-settings }}**:
+  
+     * **{{ ui-key.yacloud.clickhouse.hosts.dialog.field_copy_schema }}**: If the data schema is the same on all replica hosts in the cluster, enable this option to copy the schema from a random replica to the new hosts.
+
+  1. Click **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_submit }}** to create one or more hosts.
 
 - CLI {#cli}
 
@@ -115,7 +123,7 @@ Using the CLI, {{ TF }}, and API, you can create multiple hosts in a cluster in 
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
   1. Add one or more `host` blocks to the {{ mch-name }} cluster description, one for each new host.
@@ -269,10 +277,10 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 - Management console {#console}
 
   To change the parameters of the cluster host:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.edit }}**.
-  1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. In the window that opens, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host should be accessible from outside {{ yandex-cloud }}.
   1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
 - CLI {#cli}
@@ -295,7 +303,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -429,13 +437,13 @@ If you cannot [connect](connect/clients.md) to the host after you changed it, ch
 
 ## Removing a host {#remove-host}
 
-You can use the CLI, {{ TF }}, and API to delete multiple hosts from a cluster in one go.
-
 {% note warning %}
 
 You cannot delete a host from a cluster or shard if the [relevant limit for the minimum number of hosts](../concepts/limits.md#mch-limits) was reached.
 
 You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) placement if you enabled support of this replication mechanism when creating the cluster.
+
+You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same time.
 
 {% endnote %}
 
@@ -443,9 +451,19 @@ You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) place
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.delete }}**.
+  To delete a single host:
+
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+    1. In the window that opens, enable **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
+
+  To delete several hosts in one go:
+
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+    1. Select the hosts you want to delete and click **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** at the bottom of the screen.
+    1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.hosts.action_delete-host }}**.
 
 - CLI {#cli}
 
@@ -466,7 +484,7 @@ You cannot delete hosts used for [{{ CK }}](../concepts/replication.md#ck) place
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
   1. In the {{ mch-name }} cluster description, delete one or more `host` blocks of the `CLICKHOUSE` type.

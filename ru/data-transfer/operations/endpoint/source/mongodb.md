@@ -252,6 +252,8 @@ description: Из статьи вы узнаете, как задать наст
 * [Ошибка при переносе коллекций timeseries](#timeseries)
 * [Не распознается IP-адрес или FQDN внешнего кластера](#cluster-config-issue)
 * [Ошибка на стадии копирования](#history-lost)
+* [Данные в источнике не подходят для шардирования](#cannot-get-delimiters)
+* [Прерывание трансфера с ошибкой cursor.Decode returned error](#invalid-length)
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
@@ -270,3 +272,5 @@ description: Из статьи вы узнаете, как задать наст
 {% include [history lost](../../../../_includes/data-transfer/troubles/mongodb/history-lost.md) %}
 
 {% include [cannot-get-delimiters](../../../../_includes/data-transfer/troubles/mongodb/cannot-get-delimiters.md) %}
+
+{% include [invalid-length](../../../../_includes/data-transfer/troubles/mongodb/invalid-length.md) %}

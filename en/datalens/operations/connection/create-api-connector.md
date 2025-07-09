@@ -5,14 +5,17 @@ description: Follow this guide to create an API Connector in {{ datalens-full-na
 
 # Creating an API Connector connection
 
+
 {% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 With API Connector in {{ datalens-full-name }}, you can send HTTP requests to any API on the internet. You can use such a connection only in [Editor](../../charts/editor/index.md) as it is not supported in [QL charts](../../concepts/chart/ql-charts.md) or [dataset-based charts](../../concepts/chart/dataset-based-charts.md).
 
 To create an API Connector connection, follow these steps:
 
-1. Open the page you use to [create a new API Connector connection]({{ link-datalens-main }}/connections/new/json_api).
-1. Specify the connection parameters:
+1. Open the [new connection creation page]({{ link-datalens-main }}/connections/new).
+1. Under **Files and services**, select **API Connector**.
+1. Configure the connection as follows:
 
    * **Hostname**. Specify the path to the host you will send a request to.
    * **Port**. Specify the API connection port.

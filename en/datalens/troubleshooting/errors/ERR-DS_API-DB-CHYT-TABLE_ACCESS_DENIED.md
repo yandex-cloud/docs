@@ -1,3 +1,8 @@
+---
+title: ERR.DS_API.DB.CHYT.TABLE_ACCESS_DENIED error
+description: This page describes the ERR.DS_API.DB.CHYT.TABLE_ACCESS_DENIED error.
+---
+
 # Access to table was denied
 
 `ERR.DS_API.DB.CHYT.TABLE_ACCESS_DENIED`

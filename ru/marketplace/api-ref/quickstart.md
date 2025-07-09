@@ -19,7 +19,7 @@ description: Вы научитесь отправлять метрики пот�
 Чтобы воспользоваться примерами, установите:
 
 * [cURL](https://curl.haxx.se)
-* [gRPCurl](https://github.com/fullstorydev/grpcurl) (при использовании [gRPC API](../api-ref/ImageProductUsage/index))
+* [gRPCurl](https://github.com/fullstorydev/grpcurl) (при использовании [gRPC API](../metering/api-ref/ImageProductUsage/index.md))
 * [uuidgen](https://uuidgen.org/)
 
 

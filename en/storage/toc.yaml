@@ -310,6 +310,10 @@ items:
         href: tutorials/bigquery-to-clickhouse.md
       - name: '{{ objstorage-name }} integration with Nextcloud'
         href: tutorials/integrate-nextcloud.md
+      - name: >-
+          Setting up static website hosting in a {{ objstorage-full-name }}
+          bucket with {{ cdn-full-name }} access
+        href: tutorials/cdn-hosting.md
   - name: Concepts
     items:
       - name: Overview

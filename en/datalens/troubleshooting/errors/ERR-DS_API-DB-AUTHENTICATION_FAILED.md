@@ -1,3 +1,8 @@
+---
+title: ERR.DS_API.DB.AUTHENTICATION_FAILED error
+description: This page describes the ERR.DS_API.DB.AUTHENTICATION_FAILED error.
+---
+
 # Database authentication failed
 
 `ERR.DS_API.DB.AUTHENTICATION_FAILED`

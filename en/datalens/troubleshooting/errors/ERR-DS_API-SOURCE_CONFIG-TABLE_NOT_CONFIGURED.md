@@ -1,3 +1,8 @@
+---
+title: ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED error
+description: This page describes the ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED error.
+---
+
 # Table configuration is disrupted
 
 `ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED`

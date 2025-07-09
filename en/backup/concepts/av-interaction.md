@@ -3,8 +3,8 @@ title: '{{ backup-full-name }} interaction with an antivirus'
 description: In this tutorial, you will learn how an antivirus can affect incremental backups in {{ backup-name }}.
 ---
 
-
 # Interaction with an antivirus
+
 
 [Backup policies](policy.md) in {{ backup-full-name }} provide an [option](policy.md#specification) for quick backups: `fastBackupEnabled`. When creating an [incremental backup](backup.md#types) under such a policy, the {{ backup-name }} agent checks not all files but only those of them whose size or last accessing time changed. This allows creating incremental backups faster.
 
@@ -30,7 +30,7 @@ The antivirus affects quick backups in the following cases:
 
 * However, if backup time is crucial and exceeds the allocated period, we recommend changing the volume mounting settings in `fstab` and disabling the `access time` parameter. To do this, specify the `noatime` parameter for the mounting point of a disk volume or partition in the `/etc/fstab` file.
 
-For example:
+Here is an example:
 
 ```bash
 /dev/mapper/vg1-disk /storage auto rw,noatime 0 0

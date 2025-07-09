@@ -5,6 +5,7 @@ description: In this tutorial, you will learn how to create a backup policy in {
 
 # Creating a backup policy
 
+
 Creating a [policy](../../concepts/policy.md) becomes available after you [activate](../../concepts/index.md#providers) {{ backup-name }}.
 
 You can create or [update](update.md) a policy using the {{ yandex-cloud }} management console, {{ TF }}, or a [JSON](https://en.wikipedia.org/wiki/JSON) [specification](../../concepts/policy.md#specification) via the {{ yandex-cloud }} [CLI](../../../cli/quickstart.md) or API.
@@ -62,6 +63,12 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
      {% include [json-example](../../../_includes/backup/operations/json-example.md) %}
 
      {% endcut %}
+
+     {% note info %}
+
+     The `preserveFileSecuritySettings` and `quiesceSnapshottingEnabled` parameters are no longer supported.
+     
+     {% endnote %}
 
      Save the configuration to a `.json` file.
 
@@ -141,7 +148,7 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
      folder_id: d2q792qpemb4********
      ```
 
-     For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/create.md).
+     For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/create.md).
 
 - {{ TF }} {#tf}
 
@@ -162,6 +169,10 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
          multi_volume_snapshotting_enabled = true
          name                              = "<backup_policy_name>"
          performance_window_enabled        = true
+         sector_by_sector                  = true
+         run_later                         = true
+         validation_enabled                = true
+         lvm_snapshotting_enabled          = true
          silent_mode_enabled               = true
          splitting_bytes                   = "9223372036854775807"
          vss_provider                      = "NATIVE"
@@ -211,20 +222,20 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 
      Where:
 
-     * `archive_name`: Names of generated archives. This is an optional setting. The parameter variables include:
+     * `archive_name`: Names of generated archives. This is an optional parameter. The parameter variables include:
        * `Machine Name`: [VM](../../../compute/concepts/vm.md) or [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md) name.
        * `Plan ID`: Plan ID.
        * `Unique ID`: Unique ID.
 
        Make sure the last character in the generated archive name is not a variable.
-     * `cbt`: Configuration for tracking [backup](../../concepts/backup.md) contents. This is an optional setting. It can take either of these two values:
+     * `cbt`: Configuration for tracking [backup](../../concepts/backup.md) contents. This is an optional parameter. It can take either of these two values:
        * `CHANGED_BLOCK_TRACKING_UNSPECIFIED`: Not specified.
        * `USE_IF_ENABLED`: Use if enabled.
        * `ENABLE_AND_USE`: Enable and use.
        * `DO_NOT_USE`: Do not use.
 
        The default value is `DO_NOT_USE`.
-     * `compression`: Backup compression ratio. This is an optional setting. It can take either of these two values:
+     * `compression`: Backup compression ratio. This is an optional parameter. It can take either of these two values:
        * `NORMAL`: Standard compression ratio.
        * `HIGH`: High compression ratio.
        * `MAX`: Maximum compression ratio.
@@ -232,20 +243,24 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
 
        The default value is `NORMAL`.
      * `fast_backup_enabled`: Fast backup for tracking changes to files. When enabled, file changes are detected by the file size and its timestamp. When disabled, files are checked for changes by comparing their contents to backed up files. It can either be `true` or `false`.
-     * `format`: Backup format. This is an optional setting. It can take either of these two values:
+     * `format`: Backup format. This is an optional parameter. It can take either of these two values:
        * `VERSION_11`: Deprecated format, not recommended.
        * `VERSION_12`: Recommended format for high-speed backup and recovery.
        * `AUTO`: Automatic format selection. The default option is `VERSION_12`, unless you are creating [incremental](../../concepts/backup.md#types) backups for the images created in other versions.
-     * `multi_volume_snapshotting_enabled`: Creating backups for multiple volumes at the same time. This is an optional setting. It can either be `true` or `false`.
+     * `multi_volume_snapshotting_enabled`: Creating backups for multiple volumes at the same time. This is an optional parameter. It can either be `true` or `false`.
      * `name`: Name of the backup policy.
-     * `performance_window_enabled`: Time windows to limit backup performance. This is an optional setting. It can either be `true` or `false`. The default value is `false`.
-     * `silent_mode_enabled`: Silent mode that assumes minimum interaction with users. This is an optional setting. It can either be `true` or `false`. The default value is `true`.
-     * `splitting_bytes`: Defines the size for splitting backups. This is an optional setting. The default value is `9223372036854775807`.
-     * `vss_provider`: VSS settings. This is an optional setting. It can either be `NATIVE` or `TARGET_SYSTEM_DEFINED`. The default value is `NATIVE`.
+     * `performance_window_enabled`: Time windows to limit backup performance. This is an optional parameter. It can either be `true` or `false`. The default value is `false`.
+     * `sector_by_sector`: Sector-by-sector backup. Backs up all disk or volume sectors, including empty areas and unallocated space. If no compression level is selected, the backup size will be equal to the disk size. For disks with unsupported file systems, this mode applies automatically. You cannot recover app data from a backup like that. It can either be `true` or `false`. The default value is `false`.
+     * `run_later`: If the VM was `Stopped` during a scheduled backup, all skipped backup jobs will be executed after the VM starts. It can either be `true` or `false`. The default value is `false`.
+     * `validation_enabled`: Checks the possibility of recovering data from the new backup. During the check, a checksum is calculated for each section available for recovery. The check may take a long time because it scans all recoverable data. It can either be `true` or `false`. The default value is `false`.
+     * `lvm_snapshotting_enabled`: Uses LVM to create a volume snapshot. If the snapshot cannot be created using LVM, it will be created using the {{ backup-name }} agent. It can either be `true` or `false`. The default value is `false`.
+     * `silent_mode_enabled`: Silent mode that assumes minimum interaction with users. This is an optional parameter. It can either be `true` or `false`. The default value is `true`.
+     * `splitting_bytes`: Defines the size for splitting backups. This is an optional parameter. The default value is `9223372036854775807`.
+     * `vss_provider`: VSS settings. This is an optional parameter. It can either be `NATIVE` or `TARGET_SYSTEM_DEFINED`. The default value is `NATIVE`.
      * `reattempts`: Defines repeat attempts in case the backup operation fails:
-       * `enabled`: Retry creating a backup if non-critical errors occur (e.g., when failing to connect to a target [disk](../../../compute/concepts/disk.md)). This is an optional setting. It can either be `true` or `false`. The default value is `true`.
-       * `interval`: Interval between retries. This is an optional setting. The default value is `5m`.
-       * `max_attempts`: Maximum number of retry attempts. If reached, the operation is considered failed. This is an optional setting. The default value is `5`.
+       * `enabled`: Retry creating a backup if non-critical errors occur (e.g., when failing to connect to a target [disk](../../../compute/concepts/disk.md)). This is an optional parameter. It can either be `true` or `false`. The default value is `true`.
+       * `interval`: Interval between retries. This is an optional parameter. The default value is `5m`.
+       * `max_attempts`: Maximum number of retry attempts. If reached, the operation is considered failed. This is an optional parameter. The default value is `5`.
      * `retention`: Backup retention options:
        * `after_backup`: Apply backup retention rules after the backup is completed. It can either be `true` or `false`.
        * `rules`: Backup retention rules:
@@ -253,39 +268,46 @@ You cannot create backup policies with some advanced settings in the {{ yandex-c
           * `max_count`: Delete backups if their number exceeds `max_count`.
           * `repeat_period`: Period for applying the rules.
 
-          The `max_age` and `max_count` attributes are mutually exclusive. i.e., the use of one makes it impossible to use the other.
+          The `max_age` and `max_count` attributes are mutually exclusive, i.e., the use of one makes it impossible to use the other.
      * `scheduling`: Backup scheduling options:
-       * `enabled`: Enable backup scheduling. This is an optional setting. It can either be `true` or `false`. The default value is `true`.
-       * `max_parallel_backups`: Maximum number of concurrent backups. This is an optional setting. The default value is `0` (unlimited).
-       * `random_max_delay`: Sets a random delay between concurrent jobs. This is an optional setting. The default value is `30m`.
-       * `scheme`: Backup schedule scheme. This is an optional setting. It can take either of these two values:
+       * `enabled`: Enable backup scheduling. This is an optional parameter. It can either be `true` or `false`. The default value is `true`.
+       * `max_parallel_backups`: Maximum number of concurrent backups. This is an optional parameter. The default value is `0` (unlimited).
+       * `random_max_delay`: Sets a random delay between concurrent jobs. This is an optional parameter. The default value is `30m`.
+       * `scheme`: Backup schedule scheme. This is an optional parameter. It can take either of these two values:
          * `ALWAYS_INCREMENTAL`: Always incremental.
          * `ALWAYS_FULL`: Always full.
          * `WEEKLY_FULL_DAILY_INCREMENTAL`: Create an incremental backup every day and a full one weekly.
          * `WEEKLY_INCREMENTAL`: Create an incremental backup every week.
 
          The default value is `ALWAYS_INCREMENTAL`.
-       * `weekly_backup_day`: Day of the week when the weekly backup is run. This is an optional setting. The default value is `MONDAY`.
+       * `weekly_backup_day`: Day of the week when the weekly backup is run. This is an optional parameter. The default value is `MONDAY`.
        * `backup_sets`: List of schedules with backup sets:
           * `execute_by_time`: Settings for backups at a specific time:
-            * `include_last_day_of_month`: Running backups on the last day of each month. This is an optional setting. It can either be `true` or `false`. The default value is `false`.
-            * `monthdays`: List of days to to which the schedule applies. This is an optional setting. It can be used for the `MONTHLY` format.
-            * `months`: List of months to which the schedules applies. This is an optional setting.
-            * `repeat_at`: List of time values in `HH:MM` (24-hour) format to which the schedule applies. This is an optional setting.
-            * `repeat_every`: Frequency for repeat backups. This is an optional setting.
+            * `include_last_day_of_month`: Running backups on the last day of each month. This is an optional parameter. It can either be `true` or `false`. The default value is `false`.
+            * `monthdays`: List of days to to which the schedule applies. This is an optional parameter. It can be used for the `MONTHLY` format.
+            * `months`: List of months to which the schedules applies. This is an optional parameter.
+            * `repeat_at`: List of time values in `HH:MM` (24-hour) format to which the schedule applies. This is an optional parameter.
+            * `repeat_every`: Frequency for repeat backups. This is an optional parameter.
             * `type`: Schedule type. The possible values are `HOURLY`, `DAILY`, `WEEKLY`, and `MONTHLY`.
             * `weekdays`: List of days of the week to which the schedule applies. It can be used for the `WEEKLY` format.
      * `vm_snapshot_reattempts`: Backup retries in case of failures:
-       * `enabled`: Retry a backup if any errors occur. This is an optional setting. It can either be `true` or `false`. The default value is `true`.
-       * `interval`: Interval between retries. This is an optional setting. The default value is `5m`.
-       * `max_attempts`: Maximum number of retry attempts. If reached, the operation is considered failed. This is an optional setting. The default value is `5`.
+       * `enabled`: Retry a backup if any errors occur. This is an optional parameter. It can either be `true` or `false`. The default value is `true`.
+       * `interval`: Interval between retries. This is an optional parameter. The default value is `5m`.
+       * `max_attempts`: Maximum number of retry attempts. If reached, the operation is considered failed. This is an optional parameter. The default value is `5`.
+
+     {% note info %}
+
+     The `preserveFileSecuritySettings` and `quiesceSnapshottingEnabled` parameters are no longer supported.
+     
+     {% endnote %}
+
 
      For more information about `yandex_backup_policy` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/backup_policy).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
      ```bash
      yc backup policy list

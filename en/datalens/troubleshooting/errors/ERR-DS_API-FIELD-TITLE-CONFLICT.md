@@ -1,8 +1,13 @@
+---
+title: ERR.DS_API.FIELD.TITLE.CONFLICT error
+description: This page describes the ERR.DS_API.FIELD.TITLE.CONFLICT error.
+---
+
 # Field title conflicts with another field
 
 `ERR.DS_API.FIELD.TITLE.CONFLICT`
 
-Conflicting field names. The name of the added field must not coincide with any existing field in the dataset. 
+Conflicting field names. The name of the added field must not coincide with any existing field in the dataset.
 
 Check that the field has a unique name within the dataset.
 

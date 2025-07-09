@@ -1,6 +1,6 @@
 ---
 title: How to set up a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}
-description: In this tutorial, you will learn how to set up an {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}.
+description: In this tutorial, you will learn how to set up a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data to a {{ ydb-name }} target endpoint
 
@@ -83,7 +83,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     {% include [Managed YDB {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-ydb-target.md) %}
 
-    Here is an example of the configuration file structure (not all parameters are given):
+    Here is an example of the configuration file structure (this may include other parameters):
 
     ```hcl
     resource "yandex_datatransfer_endpoint" "ydb-target" {
@@ -137,6 +137,8 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.is_table_column_oriented.title }}**: Select this option to create column-oriented OLAP tables. By default, row-oriented OLTP tables are used. 
 
+    * {% include [alter-schema-change](../../../../_includes/data-transfer/fields/alter-schema-change.md) %}
+
 - {{ TF }} {#tf}
 
     * `path`: Subdirectory to host your tables.
@@ -144,6 +146,8 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     * `default_compression`: Compression setting for the default column group.
 
     * `is_table_column_oriented`: Set to `true` to create column-oriented OLAP tables. By default, row-oriented OLTP tables are used.
+
+    * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 
 {% endlist %}
 

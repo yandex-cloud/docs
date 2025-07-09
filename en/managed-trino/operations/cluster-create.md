@@ -11,7 +11,7 @@ keywords:
 
 {% include [preview](../../_includes/managed-trino/note-preview.md) %}
 
-Each {{ mtr-name }} cluster comprises a set of {{ TR }} components: coordinator and workers, which can be represented in multiple instances.
+Each {{ mtr-name }} cluster consists of a set of {{ TR }} components: a [coordinator](../concepts/index.md#coordinator) and workers – potentially several instances of these.
 
 ## Roles for creating a cluster {#roles}
 
@@ -49,6 +49,13 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             Make sure to assign the `managed-trino.integrationProvider` and `storage.editor` to the service account.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [network](../../vpc/operations/network-create.md), [subnet](../../vpc/operations/subnet-create.md), and [security group](../../vpc/concepts/security-groups.md) for the cluster.
+    1. Under **Retry policy**, specify the [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
+        1. Select an **Object type for retry**.
+           * **Task**: Retries the intermediate task within the query that caused worker failure.
+           * **Query**: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
+        1. Optionally, specify additional parameters in `key: value` format in the **Retry parameters** field. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+        1. Optionally, specify additional Exchange Manager storage parameters in `key: value` format in the **Storage parameters** field. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+
     1. Configure the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
     1. Under **{{ ui-key.yacloud.trino.title_catalogs }}**, add the required [{{ TR }} catalogs](../concepts/index.md#catalog). You can do this either when creating the cluster or later. For more information, see [Creating a {{ TR }} catalog](catalog-create.md).
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
@@ -102,6 +109,16 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
               }
             }
           },
+          "retryPolicy": {
+            "policy": "<object_type_for_retry>",
+            "exchangeManager": {
+              "storage": {
+                "serviceS3": {}
+              },
+              "additionalProperties": {<additional_storage_parameters>}
+            },
+            "additionalProperties": {<additional_retry_parameters>}
+          },
           "network": {
             "subnetIds": [ <list_of_subnet_IDs> ],
             "securityGroupIds": [ <list_of_security_group_IDs> ]
@@ -130,14 +147,14 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
                     * `c4-m16`: 4 vCPUs, 16 GB RAM
                     * `c8-m32`: 8 vCPUs, 32 GB RAM
-              
+
             * `workerConfig`: Worker configuration.
 
                * `resources.resourcePresetId`: ID of the worker’s computing resources. The possible values are:
 
                     * `c4-m16`: 4 vCPUs, 16 GB RAM
                     * `c8-m32`: 8 vCPUs, 32 GB RAM
-              
+
                * `scalePolicy`: Worker scaling policy:
 
                   * `fixedScale`: Fixed scaling policy.
@@ -150,6 +167,17 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                       * `maxCount`: Maximum number of workers.
 
                   Specify one of the two parameters: `fixedScale` or `autoScale`. 
+
+            * `retryPolicy`: [Fault-tolerant query execution](../concepts/retry-policy.md) parameters.
+
+               * `policy`: Query retry method. The possible values are:
+
+                  * `TASK`: Retries the intermediate task within the query that caused worker failure.
+                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
+
+               * `exchangeManager.additionalProperties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+
+               * `additionalProperties`: Additional parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
         * `network`: Network settings:
 
@@ -220,6 +248,16 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                   "max_count": "<maximum_number_of_instances>"
                 }
               }
+            },
+            "retry_policy": {
+              "policy": "<object_type_for_retry>",
+              "exchange_manager": {
+                "storage": {
+                  "service_s3": ""
+                },
+                "additional_properties": {<additional_storage_parameters>}
+              },
+              "additional_properties": {<additional_retry_parameters>}
             }
           },
           "network": {
@@ -250,14 +288,14 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
                     * `c4-m16`: 4 vCPUs, 16 GB RAM
                     * `c8-m32`: 8 vCPUs, 32 GB RAM
-              
+
             * `worker_config`: Worker configuration.
 
                * `resources.resource_preset_id`: ID of the worker’s computing resources. The possible values are:
 
                     * `c4-m16`: 4 vCPUs, 16 GB RAM
                     * `c8-m32`: 8 vCPUs, 32 GB RAM
-              
+
                * `scale_policy`: Worker scaling policy:
 
                     * `fixed_scale`: Fixed scaling policy.
@@ -269,7 +307,18 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                        * `min_count`: Minimum number of workers.
                        * `max_count`: Maximum number of workers.
 
-                    Specify one of the two parameters: `fixed_scale` or `auto_scale`. 
+                    Specify one of the two parameters: `fixed_scale` or `auto_scale`.
+
+            * `retry_policy`: [Fault-tolerant query execution](../concepts/retry-policy.md) parameters.
+
+               * `policy`: Query retry method. The possible values are:
+
+                  * `TASK`: Retries the intermediate task within the query that caused worker failure.
+                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
+
+               * `exchange_manager.additional_properties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+
+               * `additional_properties`: Additional parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
         * `network`: Network settings:
 

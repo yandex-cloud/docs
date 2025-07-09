@@ -5,6 +5,7 @@ description: In this tutorial, you will learn how to delete a VM or {{ baremetal
 
 # Delete backup
 
+
 {% note info %}
 
 To delete backups, make sure the folder contains at least one VM or {{ baremetal-name }} server connected to {{ backup-name }}. If there are no such VMs or servers, temporarily [create](../create-vm.md) a new VM with a connection to {{ backup-name }} and delete the backups.
@@ -17,8 +18,8 @@ To delete a backup:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the backup.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
   1. Depending on the resource you want to delete the backup for, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the backup you need to delete and select ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
@@ -59,7 +60,7 @@ To delete a backup:
       * `--backup-id`: ID of the backup to delete.
       * `--instance-id`: ID of the VM or {{ baremetal-name }} server whose backup you need to delete.
 
-  For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/backup/delete.md).
+  For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/backup/delete.md).
 
 - API {#api}
 

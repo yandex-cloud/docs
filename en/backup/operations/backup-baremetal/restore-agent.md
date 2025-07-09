@@ -5,6 +5,7 @@ description: Follow this guide to recover the {{ backup-name }} agent on a {{ ba
 
 # Recovering the {{ backup-name }} agent after a Linux kernel update
 
+
 {% include [update-kernel-headers-description](../../../_includes/backup/operations/update-kernel-headers-description.md) %}
 
 {% list tabs group=operating_system %}

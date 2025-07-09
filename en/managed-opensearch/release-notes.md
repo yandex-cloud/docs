@@ -5,6 +5,11 @@ description: This section contains {{ mos-name }} release notes.
 
 # {{ mos-full-name }} release notes
 
+## April 2025 {#apr-2025}
+
+* Implemented a new shard balancing algorithm. In addition to the number of shards and primary shards, it takes the amount of free space into consideration and can balance primary shards better than the standard algorithm.
+* Added the ability to specify a host group when reading or writing via the `X‑Yandex‑OpenSearch‑NodeGroup` parameter in the request header.
+
 ## October 2024 {#oct-2024}
 
 * Added support of the `yandex-lemmer` [plugin](concepts/plugins.md#yandex-lemmer) for accurate search in Russian.

@@ -22,6 +22,8 @@ To estimate your service costs, use [our calculator](https://yandex.cloud/en/pri
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 In {{ managed-k8s-name }}, you are charged for using [masters](concepts/index.md#master) and outgoing traffic.
 
 Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compute/pricing.md).

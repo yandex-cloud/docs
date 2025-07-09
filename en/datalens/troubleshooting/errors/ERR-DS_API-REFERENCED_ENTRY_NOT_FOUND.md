@@ -1,3 +1,8 @@
+---
+title: ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND error
+description: This page describes the ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND error.
+---
+
 # Accessing a nonexistent object
 
 `ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND`

@@ -1,6 +1,6 @@
 ---
-title: Encrypting a snapshot
-description: Follow this guide to encrypt a snapshot.
+title: Encrypting a snapshot in {{ compute-full-name }}
+description: Follow this guide to encrypt a disk snapshot in {{ compute-short-name }}.
 ---
 
 # Encrypting an image
@@ -14,7 +14,7 @@ description: Follow this guide to encrypt a snapshot.
   1. {% include [encryption-preparations](../../../_includes/compute/encryption-preparations.md) %}
   1. Create an encrypted disk from the snapshot you want to encrypt:
 
-      1. In the [management console]({{ link-console-main }}), select the folder where you want to create an encrypted disk.
+      1. In the [management console]({{ link-console-main }}), select the folder with your source snapshot.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks.label_title }}**.
       1. Click **{{ ui-key.yacloud.compute.disks.button_create }}**.
@@ -22,7 +22,6 @@ description: Follow this guide to encrypt a snapshot.
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      1. Select the same [availability zone](../../../overview/concepts/geo-scope.md) that contained the source disk.
       1. Set the disk parameters, such as [disk type](../../../compute/concepts/disk.md#disks_types), [block size](../../../compute/concepts/disk.md#maximum-disk-size), and [disk size](../../../compute/concepts/disk.md#maximum-disk-size).
       1. In the **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** field, select `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` and then select the snapshot you created earlier from the list below. Use the filter to find the snapshot.
       1. Under **{{ ui-key.yacloud.compute.disk-form.section_encryption }}**, enable **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** and select the [key](../../../kms/concepts/key.md) you created earlier in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
@@ -51,8 +50,7 @@ description: Follow this guide to encrypt a snapshot.
         --deletion-protection
       ```
 
-      Where:
-      * `--name`: Name of the new {{ kms-name }} key.
+      Where `--name` is the name of the new {{ kms-name }} key.
 
       Result:
 
@@ -106,12 +104,12 @@ description: Follow this guide to encrypt a snapshot.
 
       ```text
       done (53s)
-      id: fhmihpagi991amj4m7h3
+      id: fhmihpagi991********
       folder_id: b1geoelk7fld********
       created_at: "2025-05-20T17:39:01Z"
-      name: fromcliencrypte
+      name: fromcliencrypted
       type_id: network-hdd
-      zone_id: ru-central1-a
+      zone_id: {{ region-id }}-a
       size: "21474836480"
       block_size: "4096"
       status: READY
@@ -138,8 +136,8 @@ description: Follow this guide to encrypt a snapshot.
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       |          ID          |     NAME     |    SIZE     |     ZONE      | STATUS |     INSTANCE IDS     |       DESCRIPTION       |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
-      | a7lqgbt0bb9s******** | first-disk   | 20401094656 | ru-central1-a | READY  | a7lcvu28njbh******** |                         |
-      | a7lv5j5hm1p1******** | second-disk  | 21474836480 | ru-central1-a | READY  |                      |                         |
+      | a7lqgbt0bb9s******** | first-disk   | 20401094656 | {{ region-id }}-a | READY  | a7lcvu28njbh******** |                         |
+      | a7lv5j5hm1p1******** | second-disk  | 21474836480 | {{ region-id }}-a | READY  |                      |                         |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       ```
 
@@ -200,7 +198,7 @@ description: Follow this guide to encrypt a snapshot.
       # Creating a {{ kms-full-name }} key
 
       resource "yandex_kms_symmetric_key" "my-key" {
-        name                = "Encrypt key"
+        name                = "encrypt-key"
         default_algorithm   = "AES_256"
         rotation_period     = "8760h"
         deletion_protection = true
@@ -214,7 +212,7 @@ description: Follow this guide to encrypt a snapshot.
       resource "yandex_compute_disk" "encrypted-disk" {
         name        = "new-encrypted-disk"
         type        = "network-hdd"
-        zone        = "ru-central1-a"
+        zone        = "{{ region-id }}-a"
         size        = 20
         block_size  = 4096
         snapshot_id = "<unencrypted_snapshot_ID>"
@@ -231,7 +229,7 @@ description: Follow this guide to encrypt a snapshot.
       ```
 
       Where:
-      * `source_snapshot`: Unencrypted snapshot ID.
+      * `snapshot_id`: Unencrypted snapshot ID.
       * `name`: Name of the encrypted snapshot you are creating.
 
       For more information about `yandex_compute_snapshot` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_snapshot).
@@ -243,7 +241,7 @@ description: Follow this guide to encrypt a snapshot.
       {% include [disk-ready](../../../_includes/compute/disk-ready.md) %}
 
   1. [Delete](../disk-control/delete.md) the encrypted disk.
-  1. [Delete](../disk-control/delete.md) the source snapshot.
+  1. [Delete](../snapshot-control/delete.md) the source snapshot.
 
 
 - API {#api}
@@ -269,3 +267,4 @@ description: Follow this guide to encrypt a snapshot.
 
 * [{#T}](../../concepts/encryption.md)
 * [{#T}](../disk-control/disk-encrypt.md)
+* [{#T}](../image-control/encrypt.md)

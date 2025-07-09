@@ -5,6 +5,23 @@ description: В разделе представлена история изме�
 
 # История изменений в {{ objstorage-full-name }}
 
+## II квартал 2025 {#q2-2025}
+
+* В [консоли управления]({{ link-console-main }}) появилась возможность включить [шифрование](./concepts/encryption.md) и [версионирование](./concepts/versioning.md) при создании [бакета](./concepts/bucket.md).
+* В [{{ yandex-cloud }} CLI](../cli/quickstart.md) добавлены команды:
+  * [yc storage s3api get-bucket-acl](./cli-ref/s3api/get-bucket-acl.md) — для получения [ACL](./security/acl.md) бакета;
+  * [yc storage s3api put-bucket-acl](./cli-ref/s3api/put-bucket-acl.md) — для изменения ACL бакета;
+  * [yc storage s3api get-object-acl](./cli-ref/s3api/get-object-acl.md) — для получения ACL [объекта](./concepts/object.md);
+  * [yc storage s3api put-object-acl](./cli-ref/s3api/put-object-acl.md) — для изменения ACL объекта;
+  * [yc storage s3api list-objects](./cli-ref/s3api/list-objects.md) — для получения списка объектов;
+  * [yc storage s3 cp](./cli-ref/s3/cp.md) — для копирования объектов;
+  * [yc storage s3 mv](./cli-ref/s3/mv.md) — для перемещения объектов;
+  * [yc storage s3 rm](./cli-ref/s3/rm.md) — для удаления объектов.
+* В провайдер [{{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md) включены новые ресурсы:
+  * [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant) — для управления [ACL](./security/acl.md) бакета с помощью отдельного ресурса.
+  * [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding) — для назначения пользователям [ролей](./security/index.md) {{ iam-full-name }} на конкретный бакет.
+* Реализована возможность организации доступа к бакету только из [сервисных подключений {{ vpc-short-name }}](../vpc/concepts/private-endpoint.md).
+* Добавлена возможность просмотра [меток](./concepts/tags.md) бакета пользователями с [ролью](./security/index.md#storage-config-viewer) `storage.configViewer`.
 
 ## I квартал 2025 {#q1-2025}
 

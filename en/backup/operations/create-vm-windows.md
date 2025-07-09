@@ -19,7 +19,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [operating system supported in {{ backup-name }}](../concepts/vm-connection.md#windows).
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) your VM will reside in.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       1. Choose a subnet in the selected availability zone.
@@ -62,7 +62,7 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
   1. Select a [subnet](../../vpc/concepts/network.md#subnet):
 
       ```bash
-      yc vpc subnet list --folder-id <catalog_ID>
+      yc vpc subnet list --folder-id <folder_ID>
       ```
 
       Result:
@@ -82,14 +82,14 @@ You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with
       ```powershell
       #ps1_sysnative
       echo 'Starting to execute backup agent installation'
-      Invoke-WebRequest https://storage.yandexcloud.net/backup-distributions/agent_installer.ps1 -UseBasicParsing | Invoke-Expression
+      Invoke-WebRequest https://{{ s3-storage-host }}/backup-distributions/agent_installer.ps1 -UseBasicParsing | Invoke-Expression
       ```
 
   1. Create a VM:
 
       ```bash
       yc compute instance create \
-        --folder-id <catalog_ID> \
+        --folder-id <folder_ID> \
         --name <VM_name> \
         --zone <availability_zone> \
         --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4,security-group-ids=<security_group_ID> \

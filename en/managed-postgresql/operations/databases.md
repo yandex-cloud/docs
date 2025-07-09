@@ -105,7 +105,7 @@ You can add, rename, and remove databases, as well as view information about the
 
       * (Optional) Template: The name of one of the existing databases from which the data schema needs to be copied. All connections to the template database will be closed while the new database is being created.
 
-          For more information, see the relevant [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-createdatabase.html).
+          For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/sql-createdatabase.html).
 
       * Collation and character set locales.
 
@@ -154,7 +154,7 @@ You can add, rename, and remove databases, as well as view information about the
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -216,8 +216,7 @@ You can add, rename, and remove databases, as well as view information about the
                    "lcCtype": "<character_set_locale>",
                    "extensions": [
                      {
-                       "name": "<extension_name>",
-                       "version": "<extension_version>"
+                       "name": "<extension_name>"
                      }
                    ],
                    "deletionProtection": <deletion_protection>
@@ -237,9 +236,8 @@ You can add, rename, and remove databases, as well as view information about the
      * `extensions`: Array of DB extensions. One array element contains settings for a single extension and has the following structure:
 
        * `extensions.name`: Extension name.
-       * `extensions.version`: Extension version.
 
-       Specify the name and version from the [list of supported {{ PG }} extensions and utilities](extensions/cluster-extensions.md#postgresql).
+       Give a name according to the [list of supported {{ PG }} extensions and utilities](extensions/cluster-extensions.md#postgresql).
 
      * `deletionProtection`: DB deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
@@ -272,8 +270,7 @@ You can add, rename, and remove databases, as well as view information about the
                "lc_ctype": "<character_set_locale>",
                "extensions": [
                  {
-                   "name": "<extension_name>",
-                   "version": "<extension_version>"
+                   "name": "<extension_name>"
                  }
                ],
                "deletion_protection": <deletion_protection>
@@ -295,9 +292,8 @@ You can add, rename, and remove databases, as well as view information about the
      * `extensions`: Array of DB extensions. One array element contains settings for a single extension and has the following structure:
 
        * `extensions.name`: Extension name.
-       * `extensions.version`: Extension version.
 
-       Specify the name and version from the [list of supported {{ PG }} extensions and utilities](extensions/cluster-extensions.md#postgresql).
+       Give a name according to the [list of supported {{ PG }} extensions and utilities](extensions/cluster-extensions.md#postgresql).
 
      * `deletion_protection`: DB deletion protection, `true`, `false`, or `unspecified` (inherits the value from the cluster). The default value is `unspecified`.
 
@@ -313,7 +309,7 @@ You can add, rename, and remove databases, as well as view information about the
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -438,7 +434,7 @@ You can add, rename, and remove databases, as well as view information about the
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
   1. Find the `yandex_mdb_postgresql_database` resource of the DB you need.
 
@@ -577,7 +573,7 @@ A DB can be protected against deletion. To delete such a DB, [disable the protec
 - {{ TF }} {#tf}
 
   To delete a database:
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
 

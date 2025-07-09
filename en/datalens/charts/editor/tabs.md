@@ -5,7 +5,9 @@ description: In this article, you will learn about the Editor tabs.
 
 # Tabs
 
+
 {% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 Chart configuration is customized using JavaScript code you add on the editor tabs in the [interface](./index.md#interface).
 

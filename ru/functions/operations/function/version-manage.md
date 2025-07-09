@@ -173,9 +173,11 @@ description: Следуя данной инструкции, вы сможете
 
     Чтобы создать версию функции, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md).
 
-    **Пример запроса**
+    **Примеры запросов**
 
     Чтобы воспользоваться примерами, установите [cURL](https://curl.haxx.se) и [аутентифицируйтесь](../../api-ref/functions/authentication.md) в API.
+
+    {% cut "Пример с загрузкой кода из бакета {{ objstorage-name }}" %}
 
     1. [Загрузите](../../../storage/operations/objects/upload.md) в бакет {{ objstorage-name }} ZIP-архив с кодом версии функции `hello-js.zip`.
     1. Подготовьте файл `body.json` с телом запроса:
@@ -183,7 +185,7 @@ description: Следуя данной инструкции, вы сможете
         ```json
         {
           "functionId": "<идентификатор_функции>",
-          "runtime": "nodejs18",
+          "runtime": "nodejs22",
           "entrypoint": "index.handler",
           "resources": {
             "memory": "134217728"
@@ -198,6 +200,7 @@ description: Следуя данной инструкции, вы сможете
         ```
 
         Где:
+
         * `functionId` — идентификатор функции, версию которой вы хотите создать.
         * `runtime` — [среда выполнения](../../concepts/runtime/index.md#runtimes).
         * `entrypoint` — точка входа, указывается в формате `<имя_файла_без_расширения>.<имя_обработчика>`.
@@ -207,33 +210,96 @@ description: Следуя данной инструкции, вы сможете
         * `bucketName` — имя бакета, в который вы загрузили ZIP-архив c кодом функции и необходимыми зависимостями.
         * `objectName` — [ключ объекта](../../../storage/concepts/object.md#key) с кодом функции в бакете.
 
-    1. Выполните запрос:
+    {% endcut %}
+
+    {% cut "Пример с загрузкой кода в теле запроса" %}
+
+    1. Кодируйте ZIP-архив с кодом функции в формат Base64:
 
         ```bash
-        export IAM_TOKEN=<IAM-токен>
-        curl \
-            --request POST \
-            --header "Authorization: Bearer ${IAM_TOKEN}" \
-            --data "@<путь_к_файлу_body.json>" \
-            https://serverless-functions.{{ api-host }}/functions/v1/versions
+        base64 -i hello-js.zip > output.txt
         ```
-        
-        Результат:
-        
+
+    1. Подготовьте файл `body.json` с телом запроса:
+
         ```json
         {
-         "done": false,
-         "metadata": {
-          "@type": "type.googleapis.com/yandex.cloud.serverless.functions.v1.CreateFunctionVersionMetadata",
-          "functionVersionId": "d4e25m0gila4********"
-         },
-         "id": "d4edk0oobcc9********",
-         "description": "Create function version",
-         "createdAt": "2023-10-11T11:22:21.286786431Z",
-         "createdBy": "ajeol2afu1js********",
-         "modifiedAt": "2023-10-11T11:22:21.286786431Z"
+          "functionId": "<идентификатор_функции>",
+          "runtime": "nodejs22",
+          "entrypoint": "index.handler",
+          "resources": {
+            "memory": "134217728"
+          },
+          "executionTimeout": "5s",
+          "content": "<содержимое_ZIP-архива_в_кодировке_Base64>"
         }
         ```
+
+        Где:
+
+        * `functionId` — идентификатор функции, версию которой вы хотите создать.
+        * `runtime` — [среда выполнения](../../concepts/runtime/index.md#runtimes).
+        * `entrypoint` — точка входа, указывается в формате `<имя_файла_без_расширения>.<имя_обработчика>`.
+        * `memory` — объем RAM.
+        * `executionTimeout` — максимальное время выполнения функции до таймаута.
+        * `content` — код версии функции в кодировке Base64, содержимое файла `output.txt`.
+
+    {% endcut %}
+
+    {% cut "Пример с загрузкой кода из другой версии функции {{ sf-name }}" %}
+
+    Подготовьте файл `body.json` с телом запроса:
+
+    ```json
+    {
+      "functionId": "<идентификатор_функции>",
+      "runtime": "nodejs22",
+      "entrypoint": "index.handler",
+      "resources": {
+        "memory": "134217728"
+      },
+      "executionTimeout": "5s",
+      "versionId": "<идентификатор_предыдущей_версии_функции>"
+    }
+    ```
+
+    Где:
+
+    * `functionId` — идентификатор функции, версию которой вы хотите создать.
+    * `runtime` — [среда выполнения](../../concepts/runtime/index.md#runtimes).
+    * `entrypoint` — точка входа, указывается в формате `<имя_файла_без_расширения>.<имя_обработчика>`.
+    * `memory` — объем RAM.
+    * `executionTimeout` — максимальное время выполнения функции до таймаута.
+    * `versionId` — идентификатор одной из [предыдущих версий](./version-list.md) функции.
+
+    {% endcut %}
+
+    Выполните запрос, указав путь к подготовленному ранее файлу с телом запроса:
+
+    ```bash
+    export IAM_TOKEN=$(yc iam create-token)
+    curl -X POST \
+      -H "Authorization: Bearer ${IAM_TOKEN}" \
+      -d "@<путь_к_файлу_body.json>" \
+      https://serverless-functions.{{ api-host }}/functions/v1/versions
+    ```
+    
+    Результат:
+    
+    ```json
+    {
+      "done": false,
+      "metadata": {
+        "@type": "type.googleapis.com/yandex.cloud.serverless.functions.v1.CreateFunctionVersionMetadata",
+        "functionVersionId": "d4e25m0gila4********"
+      },
+      "id": "d4edk0oobcc9********",
+      "description": "Create function version",
+      "createdAt": "2023-10-11T11:22:21.286786431Z",
+      "createdBy": "ajeol2afu1js********",
+      "modifiedAt": "2023-10-11T11:22:21.286786431Z"
+    }
+    ```
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 

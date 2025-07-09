@@ -88,11 +88,8 @@ To create a {{ MY }} connection:
 
 ## Additional settings {#additional-settings}
 
-
 You can specify additional connection settings in the **Advanced connection settings** section:
 
 * **TLS**: Indicates whether TLS is required. When this option is enabled, the connection requires using SSL.
 * **CA Certificate**: To upload a certificate, click **Attach file** and specify the certificate file. When the certificate is uploaded, the field shows the file name.
 * {% include [datalens-db-connection-export-settings-item](../../../_includes/datalens/operations/datalens-db-connection-export-settings-item.md) %}
-
-

@@ -43,6 +43,10 @@ You can fix this error by doing one of the following:
 1. Link your subscription to an existing replication slot. To do this, add the `create_slot = false` parameter to the request to create a subscription.
 1. [Delete the existing replication slot](../../managed-postgresql/operations/replication-slots.md#delete) and try creating the subscription again.
 
+#### Can I recover a single database from a backup? {#restore-one-database}
+
+No, you cannot select specific databases. You can only restore the entire cluster with all its databases.
+
 #### Why do I get an `extension... is not available` error when migrating my DB to {{ mpg-short-name }}? {#extension-is-not-available}
 
 Error message:

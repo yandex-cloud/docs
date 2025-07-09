@@ -5,6 +5,14 @@ description: This section contains {{ mrd-name }} release notes.
 
 # {{ mrd-full-name }} release notes
 
+## May 2025 {#may-2025}
+
+A new version is out: {{ VLK }} 8.1. For more information about revisions, see the [{{ VLK }}](https://github.com/valkey-io/valkey/releases) documentation.
+
+## April 2025 {#apr-2025}
+
+A new version is out: {{ VLK }} 8.0. For more information about revisions, see the [{{ VLK }}](https://github.com/valkey-io/valkey/releases) documentation.
+
 ## December 2024 {#dec-2024}
 
 The service switched to [{{ VLK }}](https://valkey.io/) DBMS, an open source Redis project branch.

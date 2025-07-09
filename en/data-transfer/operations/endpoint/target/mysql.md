@@ -82,7 +82,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     {% include [Managed MySQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mysql-target.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -136,7 +136,7 @@ For OnPremise, all fields are filled in manually.
 
     {% include [On premise MySQL CLI](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mysql-target.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -207,6 +207,8 @@ You can configure **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTargetAdvancedSettings.service_database.title }}**: Specify the name of the schema where service tables needed for the transfer operation will be created.
 
+    * {% include [alter-schema-change](../../../../_includes/data-transfer/fields/alter-schema-change.md) %}
+
 - CLI {#cli}
 
     * `--sql-mode`: Specify settings to override [standard {{ MY }} behavior](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html).
@@ -228,6 +230,8 @@ You can configure **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.
     * `timezone`: Specify the [IANA Time Zone Database](https://www.iana.org/time-zones) identifier. Defaults to UTC+0.
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+
+    * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 
 - API {#api}
 

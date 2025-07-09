@@ -13,5 +13,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 #|
 ||Service | Description ||
+|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [QuotaLimit](QuotaLimit/index.md) | A set of methods for managing quota limits. ||
+|| [QuotaRequest](QuotaRequest/index.md) | A set of methods for managing quota requests. ||
 |#

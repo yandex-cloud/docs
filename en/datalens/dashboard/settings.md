@@ -19,7 +19,6 @@ The following limitations apply to auto update:
   * If the tab is not selected as the current tab, it is not considered active and the data is not updated.
   * If the tab is selected as the current tab, but the browser is running in the background, the tab is considered active and the data is updated.
 
-
 ## Description and message settings {#message-settings}
 
 You can [add a description](../operations/dashboard/add-description.md) to a dashboard. To view the description, click ![image](../../_assets/console-icons/circle-info.svg) in the top-right corner of the screen.
@@ -29,8 +28,8 @@ You can also set up additional information messages:
 * Displayed when [contacting support](../operations/dashboard/add-support-message.md). In this case, if the user clicks ![image](../../_assets/console-icons/circle-question.svg) in the bottom-left corner of the screen and selects **Create request**, they will see an additional message in the **Information** window.
 * Displayed if a [dashboard access error](../operations/dashboard/add-access-message.md) occurs. In this case, if the user has no dashboard view permission, they will see the saved message.
 
+  
   {% include [datalens-access-message-note](../../_includes/datalens/datalens-access-message-note.md) %}
-
 
 
 ## Widget loading settings {#load-settings}
@@ -50,7 +49,7 @@ By default, on the mobile version of the dashboard, {{ datalens-short-name }} di
 
 ## Pinning widgets {#widget-fixation}
 
-You can pin (i.e. lock the position of) a widget in dedicated lock areas at the top of the dashboard. These areas stay locked as you scroll the page, and the widgets pinned on them keep their position.
+You can pin (i.e., lock the position of) a widget in dedicated lock areas at the top of the dashboard. These areas stay locked as you scroll the page, and the widgets pinned on them keep their position.
 
 There are two lock areas available, one below the other. Their purposes are different:
 

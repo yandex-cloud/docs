@@ -1,3 +1,8 @@
+---
+title: ERR.FILE.CANNOT_UPDATE_DATA error
+description: This page describes the ERR.FILE.CANNOT_UPDATE_DATA error.
+---
+
 # Cannot update data
 
 `ERR.FILE.CANNOT_UPDATE_DATA`
@@ -7,6 +12,6 @@ You may get this error when trying to update table data from a connection to a [
 To fix this error:
 
 * Refresh the page in a few minutes and try again.
-* Re-upload the data: in the connection next to the table name, click ![image](../../../_assets/console-icons/ellipsis.svg) → **Replace** and select a file or provide a link to the table.
+* Re-upload the data: in the connection next to the table name, click ![image](../../../_assets/console-icons/ellipsis.svg) → **Replace** and select a file or provide a link to a table.
 
 If the error persists, contact {{ yandex-cloud }} [support]({{ link-console-support }}). In your message, specify the ID of the dataset and/or connection in which the error occurs.

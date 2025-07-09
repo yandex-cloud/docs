@@ -1,3 +1,8 @@
+---
+title: ERR.DS_API.US.BAD_REQUEST error
+description: This page describes the ERR.DS_API.US.BAD_REQUEST error.
+---
+
 # Object request error
 
 `ERR.DS_API.US.BAD_REQUEST`

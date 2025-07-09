@@ -6,7 +6,7 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   {% include [assign-role-to-user](../../_includes/organization/assign-role-to-user.md) %}
 
@@ -18,7 +18,7 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
 
   1. [Get the user ID](../operations/users-get.md).
 
-  1. Assign the role using the command:
+  1. To assign the role, run the following command:
 
       ```bash
       yc <service_name> <resource> add-access-binding <resource_name_or_ID> \
@@ -28,11 +28,11 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
 
       Where:
 
-      * `<service_name>`: Name of the service for whose resource you assign the role, e.g., `organization-manager`.
+      * `<service_name>`: Name of the service for whose resource you are assigning the role, e.g., `organization-manager`.
       * `<resource>`: Resource category. For an organization, it is always `organization`.
       * `<resource_name_or_ID>`: Resource name or ID. For an organization, use its [technical name](../operations/org-profile.md).
       * `--role`: Role ID.
-      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to.
 
       For example, this command assigns a user the administrator role for a directory with the `b1gmit33ngp3********` ID:
 
@@ -64,15 +64,15 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
       * `role`: Role you want to assign. For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource.
       * `members`: Array of the IDs of users to assign the role to:
 
-        * `userAccount:<user_ID>`: Yandex user account ID.
+        * `userAccount:<user_ID>`: ID of the user Yandex account or local user ID.
         * `federatedUser:<user_ID>`: Federated user ID.
 
-      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
+      For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-
+     
   The specified user will then get roles in the organization. You can check the new role in the [management console]({{ link-console-main }}).
 
 - API {#api}

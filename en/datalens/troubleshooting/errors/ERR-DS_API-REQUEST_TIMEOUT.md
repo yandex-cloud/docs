@@ -1,3 +1,8 @@
+---
+title: ERR.DS_API.REQUEST_TIMEOUT error
+description: This page describes the ERR.DS_API.REQUEST_TIMEOUT error.
+---
+
 # Backend app request timeout exceeded
 
 `ERR.DS_API.REQUEST_TIMEOUT`

@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Key security principles
     href: principles.md
-  - name: Division of responsibility
+  - name: Division of responsibility for security
     href: respons.md
   - name: Compliance
     href: conform.md
@@ -131,19 +131,16 @@ items:
             href: tutorials/virtualenv-safe-config/lockbox-and-airflow.md
           - name: Deploying a fault-tolerant architecture with preemptible VMs
             href: tutorials/virtualenv-safe-config/nodejs-cron-restart-vm.md
-          - name: >-
-              Migrating services from a NLB load balancer with target resources
-              from VMs to an L7 ALB load balancer
+          - name: Migrating services from an NLB with VMs as targets to an L7 ALB
             href: tutorials/virtualenv-safe-config/nlb-with-target-resource-vm.md
           - name: >-
-              Migrating services from a NLB load balancer with target resources
-              represented by an instance group to an L7 ALB load balancer
+              Migrating services from an NLB with an instance group as a target
+              to L7 ALB
             href: >-
               tutorials/virtualenv-safe-config/nlb-with-target-resource-group-vm.md
           - name: >-
-              Migrating services from an external NLB load balancer to an L7 ALB
-              load balancer with an internal NLB load balancer for a target
-              resource
+              Migrating services from an external NLB to L7 ALB with an internal
+              NLB as a target
             href: tutorials/virtualenv-safe-config/nlb-as-target-resource-alb.md
       - name: Data encryption and key management
         items:
@@ -195,7 +192,7 @@ items:
                   tutorials/data-encryption-and-key-management/static-key-in-lockbox/console.md
               - name: >-
                   Using a {{ lockbox-name }} secret to store a static access key
-                  using {{ TF }}
+                  with {{ TF }}
                 href: >-
                   tutorials/data-encryption-and-key-management/static-key-in-lockbox/terraform.md
           - name: Getting {{ lockbox-name }} secret value on the GitHub side
@@ -250,16 +247,14 @@ items:
       - name: Application security
         items:
           - name: >-
-              Installing an NGINX Ingress controller with a {{
+              Installing NGINX Ingress Controller with a {{
               certificate-manager-name }} certificate
             href: tutorials/app-security/nginx-ingress-certificate-manager.md
           - name: Building a CI/CD pipeline in {{ GL }} with serverless products
             href: tutorials/app-security/ci-cd-serverless.md
           - name: Creating an interactive serverless application using WebSocket
             href: tutorials/app-security/websocket-app.md
-          - name: >-
-              Creating an L7 load balancer in {{ alb-name }} with a {{ sws-name
-              }} profile
+          - name: Creating an L7 {{ alb-name }} with a {{ sws-name }} profile
             href: tutorials/app-security/balancer-with-sws-profile.md
           - name: '{{ api-gw-name }} protection with {{ sws-name }}'
             href: tutorials/app-security/api-gw-sws-integration.md
@@ -286,12 +281,12 @@ items:
           - name: Getting {{ lockbox-name }} secret value on the {{ k8s }} side
             href: tutorials/kubernetes-security/wlif-k8s-integration.md
           - name: >-
-              Creating an L7 load balancer with a {{ sws-name }} security
-              profile through an {{ alb-name }} Ingress controller
+              Creating an L7 load balancer with a {{ sws-name }} profile through
+              an {{ alb-name }} ingress controller
             href: tutorials/kubernetes-security/alb-ingress-with-sws-profile.md
           - name: >-
-              Migrating services from a NLB load balancer with target resources
-              from a {{ managed-k8s-name }} cluster to an L7 ALB load balancer
+              Migrating services from an NLB with a {{ managed-k8s-name }}
+              cluster as a target to an L7 ALB
             href: tutorials/kubernetes-security/nlb-with-target-resource-k8s.md
           - name: >-
               Transferring {{ managed-k8s-name }} cluster logs to {{

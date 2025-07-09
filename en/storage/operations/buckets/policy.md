@@ -114,12 +114,9 @@ To apply or update a bucket policy:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
        * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
 
-         
          You can get the IDs in the following ways:
-         * [User](../../../iam/operations/users/get.md).
-         * [Service account](../../../iam/operations/sa/get-id.md).
-         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
+         {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
        * `Resource`: Resource to apply the rule to.
@@ -195,12 +192,9 @@ To apply or update a bucket policy:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
        * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
 
-         
          You can get the IDs in the following ways:
-         * [User](../../../iam/operations/users/get.md).
-         * [Service account](../../../iam/operations/sa/get-id.md).
-         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
+         {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
        * `Resource`: Resource to apply the rule to.
@@ -230,7 +224,7 @@ To apply or update a bucket policy:
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, describe the parameters of resources you want to create:
 
      ```hcl
 
@@ -287,8 +281,8 @@ To apply or update a bucket policy:
 
      * `access_key`: Static access key ID.
      * `secret_key`: Secret access key value.
-     * `bucket`: Bucket name. This is a required setting.
-     * `policy`: Policy name. This is a required setting.
+     * `bucket`: Bucket name. This is a required parameter.
+     * `policy`: Policy name. This is a required parameter.
 
      Policy settings:
 
@@ -297,12 +291,9 @@ To apply or update a bucket policy:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
        * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
 
-         
          You can get the IDs in the following ways:
-         * [User](../../../iam/operations/users/get.md).
-         * [Service account](../../../iam/operations/sa/get-id.md).
-         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
 
+         {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
        * `Resource`: Resource to apply the rule to.
@@ -321,7 +312,7 @@ To apply or update a bucket policy:
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -331,7 +322,7 @@ To apply or update a bucket policy:
 
      1. Confirm creating the resources.
 
-     This will create all resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -399,7 +390,7 @@ To delete a bucket policy:
 
 - AWS CLI {#aws-cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   aws --endpoint https://{{ s3-storage-host }} s3api delete-bucket-policy \
@@ -453,7 +444,7 @@ To delete a bucket policy:
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of the resources to create and their parameters, without the description of the bucket policy you are deleting. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is correct, the terminal will display a list of the resources to create and their parameters, without the description of the bucket policy you are deleting. If the configuration contains any errors, {{ TF }} will show them.
   1. Delete the bucket policy.
      1. If the configuration does not contain any errors, run this command:
 

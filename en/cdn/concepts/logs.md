@@ -12,6 +12,8 @@ Do not configure an [access policy](../../storage/concepts/policy.md) that denie
 
 Log export is a paid feature. See [{#T}](../pricing.md) for billing information.
 
+{% include [logs-unload-delay](../../_includes/cdn/logs-unload-delay.md) %}
+
 
 ## Use cases {#examples}
 

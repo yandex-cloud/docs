@@ -64,26 +64,13 @@ VMs for cluster hosts can be hosted on:
 * {{ yandex-cloud }} *dedicated hosts*.
 
 
-  These are physical servers that only host your VMs. Such VMs ensure the operation of both the cluster and your other services that support dedicated hosts. The hosts are selected from *dedicated host groups* specified when creating a cluster.
+  These are physical servers reserved exclusively for your VMs. Such VMs ensure the operation of both the cluster and your other services that support dedicated hosts. The hosts are selected from *dedicated host groups* specified when creating a cluster.
 
   A cluster with multiple broker hosts needs at least three groups of dedicated hosts for its operation. This is required for the deployment of {{ ZK }} hosts.
 
   This placement option ensures physical isolation of the VMs. A {{ mkf-name }} cluster using dedicated hosts includes all features of a regular cluster.
 
-  To learn more, see [{#T}](../../compute/concepts/dedicated-host.md).
+  For more information, see [{#T}](../../compute/concepts/dedicated-host.md).
 
 
-For more information, see the [{{ KF }} documentation](https://kafka.apache.org/intro).
-
-## Cluster fault tolerance {#fault-tolerance}
-
-To make sure the cluster data is stored in a reliable way and continuously available:
-
-* Your cluster must have at least three broker hosts.
-* Each of the three availability zones must host at least one broker host.
-* Cluster topics must have the following parameters:
-
-    * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: `3`
-    * **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}**: `2`
-
-For more information, see the [Service Level Agreement (SLA)]({{ link-sla-kafka }}).
+For more information, see the [{{ KF }}](https://kafka.apache.org/intro) documentation.

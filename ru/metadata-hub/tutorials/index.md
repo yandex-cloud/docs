@@ -7,7 +7,6 @@ description: Различные сценарии использования {{ s
 
 ## {{ schema-registry-name }} {#schema-registry}
 
-* [{#T}](./managed-schema-registry.md)
 * [{#T}](./schema-registry-cdc-debezium-kafka.md)
 
 ## {{ metastore-full-name }} {#metastore}

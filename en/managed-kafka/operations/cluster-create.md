@@ -111,7 +111,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
         * If you selected `local-ssd` or `network-ssd-nonreplicated` under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, you need to add at least three hosts to the {{ mkf-name }} cluster.
 
-        * There are [conditions](../concepts/index.md#fault-tolerance) to be satisfied for a fault-tolerant {{ mkf-name }} cluster.
+        * There are [conditions](../concepts/ha-cluster.md) to satisfy to enable high availability of a {{ mkf-name }} cluster.
         * If you add more than one host to a cluster with {{ KF }} 3.5, three {{ ZK }} hosts will be automatically added as well.
 
      
@@ -753,7 +753,7 @@ To create a {{ KF }} cluster copy:
         export KAFKA_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with the [list of clusters in the folder](../../managed-kafka/operations/cluster-list.md#list-clusters).
+        You can get the ID with the [list of clusters in the folder](../../managed-kafka/operations/cluster-list.md#list-clusters).
 
     1. Import the settings of the initial {{ KF }} cluster into the {{ TF }} configuration:
 
@@ -779,7 +779,7 @@ To create a {{ KF }} cluster copy:
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
     1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
@@ -789,7 +789,7 @@ To create a {{ KF }} cluster copy:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -825,7 +825,7 @@ To create a {{ KF }} cluster copy:
   * Deletion protection: Enabled.
 
 
-  Run the following command:
+  Run this command:
 
   
   ```bash

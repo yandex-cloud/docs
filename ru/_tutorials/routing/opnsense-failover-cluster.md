@@ -120,14 +120,14 @@
       Для тестирования предлагаемого решения будет достаточно конфигурации с минимальными аппаратными характеристиками.
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите `{{ ui-key.yacloud.baremetal.field_choose-no-os }}`.
   1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
-  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
+  1. В блоке **Сетевые настройки**:
 
       1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `opnsense-private-subnet-m4`.
       1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** в поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя сервера: `opnsense-master`.
   1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
   1. Аналогичным способом арендуйте еще один сервер с именем `opnsense-backup` в пуле серверов `{{ region-id }}-m4`.
-  1. Аналогичным способом арендуйте еще два сервера в пуле серверов `{{ region-id }}-m4` – с именами `vmware-esxi` и `jump-server`. Но при заполнении формы аренды этих серверов в блоке **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
+  1. Аналогичным способом арендуйте еще два сервера в пуле серверов `{{ region-id }}-m4` – с именами `vmware-esxi` и `jump-server`. Но при заполнении формы аренды этих серверов в блоке **Сетевые настройки** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
 
 {% endlist %}
 

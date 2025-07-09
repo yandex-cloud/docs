@@ -5,6 +5,7 @@ description: Use this guide to restore a VM or {{ baremetal-full-name }} server 
 
 # Restoring a VM or {{ baremetal-name }} server from a backup of another VM or {{ baremetal-name }} server
 
+
 {% include [vm-and-bms-backup-incompatibility](../../../_includes/backup/vm-and-bms-backup-incompatibility.md) %}
 
 If a folder contains multiple VMs or {{ baremetal-name }} servers connected to {{ backup-name }}, you can restore a VM or {{ baremetal-name }} server from a backup of another VM or {{ baremetal-name }} server, respectively. You may need this, for example, if the source VM or {{ baremetal-name }} server is down.
@@ -23,7 +24,7 @@ To restore a VM or {{ baremetal-name }} server from a backup of another VM or {{
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where the backup is located.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the backup.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. In the left-hand panel, select ![backups](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.backup.label_backups }}**.
   1. Depending on the resource you want to recover from the backup, select the **{{ ui-key.yacloud.backup.value_vm-recourses }}** or **{{ ui-key.yacloud.backup.value_bms-recourses }}** tab.

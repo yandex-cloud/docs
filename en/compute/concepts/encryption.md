@@ -33,8 +33,8 @@ The table below lists the methods you can use to create encrypted {{ compute-nam
 | **Target resource** | **Source resource** | **Key** | **Note** |
 | --- | --- | --- | --- |
 | Empty encrypted disk | —                      | Any       | See [{#T}](../operations/disk-create/empty.md). |
-| Encrypted disk        | Unencrypted image  | Any       | See [{#T}](../operations/disk-create/from-image.md). </br>You can also use an image to</br>encrypt existing [disks](../operations/disk-control/disk-encrypt.md) and [snapshots](../operations/snapshot-control/snapshot-encrypt.md). |
-| Encrypted disk        | Encrypted image    | Image key | See [{#T}](../operations/disk-create/from-image.md).</br>You can also use an encrypted</br>image to create a copy of</br>an encrypted disk. |
+| Encrypted disk        | Unencrypted image  | Any       | See [{#T}](../operations/disk-create/from-image.md).</br>You can also use an image to</br>encrypt existing [disks](../operations/disk-control/disk-encrypt.md) and [snapshots](../operations/snapshot-control/snapshot-encrypt.md). |
+| Encrypted disk        | Encrypted image    | Image key | See [{#T}](../operations/disk-create/from-image.md).</br>You can also use an encrypted</br>image to make a copy of</br>an encrypted disk. |
 | Encrypted disk        | Unencrypted snapshot | Any       | See [{#T}](../operations/disk-create/from-snapshot.md). |
 | Encrypted disk        | Encrypted snapshot   | Snapshot key | See [{#T}](../operations/disk-create/from-snapshot.md). |
 | Encrypted image       | Encrypted disk     | Disk key  | See [{#T}](../operations/image-create/create-from-disk.md). |
@@ -59,3 +59,7 @@ For more information, see [Access management](../../kms/security/index.md).
 ### See also {#see-also}
 
 * [Data encryption and key and secret management](../../security/standard/encryption.md)
+* [{#T}](../operations/disk-control/disk-encrypt.md)
+* [{#T}](../operations/image-control/encrypt.md)
+* [{#T}](../operations/snapshot-control/snapshot-encrypt.md)
+

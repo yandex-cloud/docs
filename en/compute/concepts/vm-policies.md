@@ -13,7 +13,7 @@ A planned impact means the occurrence of one of the following VM maintenance eve
 * `TERMINATE_ON_HOST_MAINTENANCE`: User VM restart is scheduled.
 * `MIGRATE_ON_HOST_MAINTENANCE`: [Live migration](live-migration.md) of user VM to another host (server) is scheduled.
 
-Compute maintenance policy can be defined using:
+You can use these criteria to set the VM maintenance policy:
 
 * Maintenance policy type: `maintenance_policy`.
 * Maintenance grace period: `maintenance_grace_period`.

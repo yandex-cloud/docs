@@ -20,7 +20,7 @@ To create a {{ ydb-short-name }} connection:
 
 1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
 1. Under **Files and services**, select the **{{ ydb-short-name }}** connection.
-1. Specify the connection settings:
+1. Configure the connection as follows:
 
    
    * **Cloud and folder**. Select the folder where your service account will be located.

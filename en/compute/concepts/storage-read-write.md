@@ -11,8 +11,8 @@ The actual IOPS value depends on the disk or storage configuration, total bandwi
 ![image](../../_assets/compute/iops.svg)
 
 Where:
-* _Max IOPS_: [Maximum IOPS value](../concepts/limits.md#limits-disks) for the disk or storage.
-* _Max bandwidth_: [Maximum bandwidth value](../concepts/limits.md#limits-disks) for the disk or storage.
+* _Max. IOPS_: [Maximum IOPS value](../concepts/limits.md#limits-disks) for the disk or storage.
+* _Max. bandwidth_: [Maximum bandwidth value](../concepts/limits.md#limits-disks) for the disk or storage.
 
 Read and write operations utilize the same disk resource. The more read operations you do, the fewer write operations you can do, and vice versa. The total number of read and write operations per second is determined by this formula:
 
@@ -277,10 +277,10 @@ Result:
 
 If a VM exceeds [disk limits](limits.md#compute-limits-disks) at any time, this will trigger throttling.
 
-_Throttling_ is a feature that forcibly limits the performance. When throttled, disk operations are suspended, and the disk operation wait time (`iowait`) is increased. Since all write and read operations are processed in a single thread (vCPU), overloading system disks may cause network problems. This is true for both VMs and physical servers.
+_Throttling_ is a feature that forcibly limits the performance. When throttled, disk operations are suspended, and the disk operation wait time (`iowait`) is increased. The processes maintaining the operation of [network disks](disk.md) are separated from the user load and run on compute cores from a [separate pool](software-accelerated-network.md#reg-vm), the service cores. Overloading system disks may cause network problems. This is true for both VMs and physical servers.
 
 > For example, let's assume there is a write limit of 300 IPOS. The limit is split into 10 parts and applies once every 100 ms. 300 / 10 = 30 IOPS per write request will be allowed every 100 ms. If you send 30 requests once and then 30 more requests within 100 ms (evenly distributed across the 100 ms interval), this will trigger throttling and only the first 30 requests will be sent. The rest of them will be enqueued and processed within the next 100 ms. If write requests are executed sporadically, throttling may cause significant delays. At times, there will be up to N IOPS of requests within 100 ms.
 
-Disk performance depends on its [size](disk.md#maximum-disk-size). To improve the overall performance of the disk subsystem, use VMs with SSD network storage (`network-ssd`). Every increment of 32 GB increases the number of allocation units and, consequently, the performance.
+Disk performance depends on its [size](disk.md#maximum-disk-size). To improve the overall performance of the disk subsystem, use VMs with SSD network storage (`network-ssd`). Every increment of 32 GB increases the number of allocation units and, in turn, the performance.
 
 You can select the storage type only when creating a VM. However, you can [take a disk snapshot](../operations/disk-control/create-snapshot.md) and [create a new VM](../operations/vm-create/create-from-snapshots.md) from such a snapshot with a `network-ssd`.

@@ -20,21 +20,7 @@ description: Follow this guide to set up static website hosting in {{ objstorage
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket you want to configure hosting for.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
-  1. [Enable](../buckets/bucket-availability.md) public access to bucket operations.
-  1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
-  1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
-      * In the **{{ ui-key.yacloud.storage.bucket.website.field_index }}** field, specify the absolute path to the file in the bucket for the website home page, e.g., `index.html`.
-
-        {% include [static-site-index-restriction](../../../_includes/storage/static-site-index-restriction.md) %}
-
-      * Optionally, in the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file in the bucket to show for 4xx errors, e.g., `pages/error404.html`. By default, {{ objstorage-name }} returns its own page.
-  1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-
-  Use the link in **{{ ui-key.yacloud.storage.bucket.website.field_link }}** to check the hosting.
+  {% include [hosting-setup-console](../../../_includes/storage/hosting-setup-console.md) %}
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -113,7 +99,7 @@ description: Follow this guide to set up static website hosting in {{ objstorage
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, describe the parameters of resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -322,7 +308,7 @@ description: Follow this guide to set up static website hosting in {{ objstorage
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Apply the changes:
 
@@ -525,7 +511,7 @@ With routing rules, you can redirect requests based on the object name prefixes 
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Apply the changes:
 

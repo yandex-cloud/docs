@@ -5,7 +5,9 @@ description: In this tutorial, you will learn how to work with a dashboard selec
 
 # Selector
 
+
 {% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 Selector describes a set of [controls](#controls) to specify dashboard chart parameters.
 

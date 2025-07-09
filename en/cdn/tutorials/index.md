@@ -11,3 +11,4 @@ description: Various {{ cdn-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](blue-green-canary-deployment.md)
 * [{#T}](protected-access-to-content/index.md)
 * [{#T}](migrate-to-yc-cdn.md)
+* [{#T}](cdn-hosting.md)

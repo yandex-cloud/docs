@@ -22,6 +22,8 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ mgl-name }} {#rules}
 
 When using {{ mgl-name }}, you pay for:
@@ -83,10 +85,6 @@ Total instance cost calculation:
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-
-All prices below do not include VAT.
-
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 

@@ -27,7 +27,7 @@ To create an instance group with an L7 load balancer:
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
-     * Enter a name and description for your instance group. Follow these naming requirements:
+     * Enter a name and description for your instance group. The naming requirements are as follows:
 
        {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -121,7 +121,7 @@ To create an instance group with an L7 load balancer:
        ```
 
        Where:
-       * `name`: Instance group name. The name must be unique within the catalog. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
+       * `name`: Instance group name. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
        * `service_account_id`: [Service account](../../../iam/concepts/users/service-accounts.md) ID.
 
          To create, update, and delete VM instances in the group, as well as integrate the group with an {{ alb-name }} L7 load balancer, you will need to [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [compute.editor](../../security/index.md#compute-editor) and [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) roles to a service account. By default, all operations you perform with an instance group are run under a service account.
@@ -209,7 +209,7 @@ To create an instance group with an L7 load balancer:
 
        Where:
        * `target_group_spec`: Specification of the {{ alb-name }} target group linked to the instance group.
-       * `name`: Name for the {{ alb-name }} target group. The name must be unique within the catalog. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
+       * `name`: Name for the {{ alb-name }} target group. The name must be unique within the folder. It can only contain lowercase Latin letters, numbers, and hyphens. The first character must be a letter. The last character cannot be a hyphen. The name can be up to 63 characters long.
 
        For more information about target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
 
@@ -285,20 +285,20 @@ To create an instance group with an L7 load balancer:
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "compute_editor" {
-       folder_id = "<catalog_ID>"
+       folder_id = "<folder_ID>"
        role      = "compute.editor"
        member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
      }
 
      resource "yandex_resourcemanager_folder_iam_member" "load-balancer-editor" {
-       folder_id = "<catalog_ID>"
+       folder_id = "<folder_ID>"
        role      = "alb.editor"
        member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
      }
 
      resource "yandex_compute_instance_group" "ig-1" {
        name                = "fixed-ig-with-balancer"
-       folder_id           = "<catalog_ID>"
+       folder_id           = "<folder_ID>"
        service_account_id  = "${yandex_iam_service_account.ig-sa.id}"
        deletion_protection = "<deletion_protection>"
        instance_template {
@@ -360,13 +360,13 @@ To create an instance group with an L7 load balancer:
      ```
 
      Where:
-     * `yandex_iam_service_account`: [Service account](../../../iam/concepts/users/service-accounts.md) description. All operations in {{ ig-name }} are performed on behalf of the service account.
+     * `yandex_iam_service_account`: [Service account](../../../iam/concepts/users/service-accounts.md) description. In {{ ig-name }}, all operations are performed under a service account.
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-     * `yandex_resourcemanager_folder_iam_member`: Service account access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), where:
-       * `role = "compute.editor"`: Service account gets the [compute.editor](../../security/index.md#compute-editor) role to create, update, and delete VMs in the group.
-       * `role = "alb.editor"`: Service account gets the [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) role to integrate the VM group with an {{ alb-name }}.
+     * `yandex_resourcemanager_folder_iam_member`: Description of the service account's access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), where:
+       * `role = "compute.editor"`: Service account gets the [compute.editor](../../security/index.md#compute-editor) role to create, update, and delete the group's VMs.
+       * `role = "alb.editor"`: Service account gets the [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) role to integrate the instance group with an {{ alb-name }}.
      * `yandex_compute_instance_group`: Instance group description:
        * General information about the instance group:
          * `name`: Instance group name.
@@ -390,7 +390,7 @@ To create an instance group with an L7 load balancer:
          * `target_group_description`: Target group description.
          For more information about target group settings, see [{#T}](../../concepts/instance-groups/balancers.md#settings-alb).
      * `yandex_vpc_network`: Cloud network description.
-     * `yandex_vpc_subnet`: Description of the subnet the instance group will be connected to.
+     * `yandex_vpc_subnet`: Description of the subnet to which you connect the instance group.
 
      {% note info %}
 

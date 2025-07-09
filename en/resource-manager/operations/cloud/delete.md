@@ -35,7 +35,7 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
 
       Where:
 
-      * `--delete-after`: Cloud deletion delay in `HhMmSs` format. Cloud deletion process will start after the specified delay. For example, `--delete-after 22h30m50s`.
+      * `--delete-after`: Cloud deletion delay in `HhMmSs` format. Cloud deletion process will start after the specified delay, e.g., `--delete-after 22h30m50s`.
       
           Specify `0s` to delete the cloud now.
       * `--async`: Asynchronous deletion flag.
@@ -110,9 +110,9 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
 
       ```bash
       terraform apply
@@ -132,8 +132,8 @@ To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../..
 
 {% endlist %}
 
-The resources will be stopped, and the cloud status will change to `PENDING_DELETION`. You can [cancel](delete-cancel.md) the deletion of a cloud when it is `PENDING_DELETION`.
+Deletion starts from stopping the resources. The cloud enters the `PENDING_DELETION` status. Preparation for deletion starts. The exact time in this status depends on selected deletion delay period. You can [cancel](delete-cancel.md) the deletion of the cloud while it is `PENDING_DELETION`.
 
 {% include [alert-pending-deletion](../../../_includes/resource-manager/alert-pending-deletion.md) %}
 
-Once the waiting timeout expires, the cloud status switches to `DELETING`. This status means it is being permanently deleted, which can take up to 72 hours. All the cloud's resources will be deleted together with it.
+As soon as the deletion preparation and delay periods are over, the cloud enters the `DELETING` status. This status means it is being permanently deleted, which can take up to 72 hours. All the cloud's resources will be deleted together with it.

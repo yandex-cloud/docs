@@ -85,6 +85,10 @@ items:
             href: tutorials/protected-access-to-content/terraform.md
       - name: Migrating to {{ cdn-full-name }} from a third-party CDN provider
         href: tutorials/migrate-to-yc-cdn.md
+      - name: >-
+          Setting up static website hosting in a {{ objstorage-full-name }}
+          bucket with {{ cdn-full-name }} access
+        href: tutorials/cdn-hosting.md
   - name: Concepts
     items:
       - name: Overview

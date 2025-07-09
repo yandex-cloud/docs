@@ -14,6 +14,8 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ backup-name }} {#rules}
 
 The cost of {{ backup-name }} depends on the number of resources to back up, such as {{ compute-full-name }} VMs and {{ baremetal-full-name }} servers, and the total storage space used by backups.

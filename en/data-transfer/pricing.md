@@ -14,6 +14,8 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat.md](../_includes/vat.md) %}
+
 {{ data-transfer-name }} cost depends on the amount of computing resources you use and the number of data rows delivered by transfers that are at the [GA](../overview/concepts/launch-stages.md) stage: 
 
 * [{{ PG }}](operations/endpoint/source/postgresql.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ PG }}](operations/endpoint/target/postgresql.md)
@@ -40,8 +42,6 @@ Resource consumption fees are charged for transfers with {{ dt-status-repl }} (`
 Data delivery for transfers that are at the Preview stage is free of charge. For a list of available transfers and their release stages, see [Available transfers](transfer-matrix.md).
 
 ## Prices for the Russia region {#prices}
-
-{% include [vat.md](../_includes/vat.md) %}
 
 ### Number of transferred rows {#data}
 

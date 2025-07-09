@@ -74,7 +74,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
 
         * (Optional) **Disabled parameters**: Specify the names of unsigned parameters you want disabled when embedding a chart. Available in **Enable all** mode.
         * (Optional) **Enabled parameters**: Specify the names of unsigned parameters that can be provided in the embedding link. Any parameters not specified in the list will be ignored when attempting to provide them in the embedding link. Available in **Disable all** mode.
-        * (Optional) **Allow data export**: Enable the display of the menu that allows you to export the chart data. To export data, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** in the top-right corner of the chart and select the format: XSLX, CSV, or Markown.
+        * (Optional) **Allow data export**: Enable the display of the menu that allows you to export the chart data. To export data, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** in the top-right corner of the chart and select the format: `XLSX`, `CSV`, or `Markdown`.
 
       - For a dashboard {#dashboard}
 
@@ -88,7 +88,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
 
           {% endnote %}
 
-        * (Optional) **Allow data export**: Enable the display of the menu that allows you to export the chart data. To export data, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** in the top-right corner of the chart and select the format: XSLX, CSV, or Markown.
+        * (Optional) **Allow data export**: Enable the display of the menu that allows you to export the chart data. To export data, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** in the top-right corner of the chart and select the format: `XLSX`, `CSV`, or `Markdown`.
 
       {% endlist %}
 
@@ -305,6 +305,38 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
         * `frameborder`: Dashboard border (yes or no).
 
       {% endlist %}
+
+## Updating a token without losing your filter states {#token-update}
+
+Replacing a JWT in an embedding link resets filters on the embedded dashboard to their default values.
+
+To update the embedding link without losing filter states, use the [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) method.
+
+To update a JWT in a link, send an object of the following type to `iframe` using the `postMessage` method:
+
+```js
+{
+    type: 'SECURE_EMBEDDING_TOKEN_UPDATE',
+    token: <updated_token>
+}
+```
+
+Where `<updated_token>` is your updated JWT.
+
+As a result, queries from your dashboard or chart will be signed with the new token. The dashboard or chart will automatically get updated if you changed the signed parameters in your new token.
+
+Here is an example:
+
+```js
+const iframe = document.getElementById('ID_IFRAME');
+
+iframe.contentWindow.postMessage({
+    type: 'SECURE_EMBEDDING_TOKEN_UPDATE',
+    token: 'NEW_TOKEN'
+}, 'https://datalens.yandex.cloud/');
+```
+
+When updating a token, keep in mind its expiration time.
 
 ## Unsigned parameters {#unsigned-parameters}
 

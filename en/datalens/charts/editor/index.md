@@ -5,7 +5,9 @@ description: This page describes the Editor's chart-building features.
 
 # Charts in Editor
 
+
 {% include [business-note](../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 **Editor** is a JavaScript-based data and selector visualization tool. With Editor, you can upload data from one or more sources, manage chart parameters, and configure visualizations. You can use datasets and connections as data sources.
 

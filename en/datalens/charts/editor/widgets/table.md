@@ -5,7 +5,9 @@ description: In this tutorial, you will learn how to work with tables in Editor.
 
 # Table
 
+
 {% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 This type of chart supports the same functionality as the [table](../../../visualization-ref/table-chart.md) in the wizard: you can customize styles, set up cross-filtering, pagination, etc.
 
@@ -108,7 +110,7 @@ Where:
 * `pinned`: Whether the column is pinned when scrolling horizontally. Optional field; `boolean` value type. The default value is `false`.
 * `css`: Description of CSS styles for the table header cell. Optional field; value type: object from CSS properties.
 * `sub`: Array of table header cells for setting a two-tier head. The array elements must be objects with fields identical to the `head` field ones.
-* `custom`: Cell parameter configuration for cross-filtering. To learn more, see [{#T}](../cross-filtration.md).
+* `custom`: Cell parameter configuration for cross-filtering. For more information, see [{#T}](../cross-filtration.md).
 
 The `rows` field is a required one; it contains the configuration for table cell contents.
 
@@ -122,7 +124,7 @@ The field value is a JSON object in the following format:
     	type: "<string>",
     	align: "<string>",
     	min: <number>,
-    	max: <number>, 
+    	max: <number>,
     	showLabel: <boolean>,
     	barHeight: "<string>" | <number>,
         barColor: "<string>",
@@ -243,7 +245,7 @@ Where all fields are optional:
     {% endnote %}
 
 * `size`: Table size, including font size, line spacing, and indentation within cells. String value type from these possible values: `l`, `m`, or `s`.
-* `events`: Specifies a configuration for cross-filtering in the table. To override this configuration for a specific cell, use the `custom` field for the cell. To learn more, see [{#T}](../cross-filtration.md).
+* `events`: Specifies a configuration for cross-filtering in the table. To override this configuration for a specific cell, use the `custom` field for the cell. For more information, see [{#T}](../cross-filtration.md).
 
 ## Examples {#examples}
 

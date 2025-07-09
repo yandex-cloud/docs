@@ -7,13 +7,19 @@ description: In this tutorial, you will learn how to create a {{ mgl-name }} ins
 
 ## Creating a {{ GL }} instance {#create}
 
-To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../../vpc/security/index.md#vpc-user) role and the [{{ roles.gitlab.editor }} role or higher](../../security/index.md#roles-list). For information on assigning roles, see the [{{ iam-name }} documentation](../../../iam/operations/roles/grant.md).
+To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../../vpc/security/index.md#vpc-user) role and the [{{ roles.gitlab.editor }} role or higher](../../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../../iam/operations/roles/grant.md).
+
+{% include [warn-subnet](../../../_includes/managed-gitlab/warn-subnet.md) %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   {% include [instance-create-console](../../../_includes/managed-gitlab/instance-create-console.md) %}
+
+- CLI {#cli}
+
+  {% include [instance-create-cli](../../../_includes/managed-gitlab/instance-create-cli.md) %}
 
 {% endlist %}
 

@@ -53,3 +53,5 @@ meta:
     - cloud infrastructure entitlement management in {{ yandex-cloud }}
     - '{{ yandex-cloud }} vulnerabilities'
     - data protection in {{ yandex-cloud }}
+    - '{{ ycdr-name }}'
+    - '{{ ycdr-full-name }}'

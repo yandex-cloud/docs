@@ -9,6 +9,7 @@
 * [Developing a custom integration in {{ api-gw-full-name }}](api-gw-integration.md)
 * [Developing CRUD APIs for movie services](movies-database.md)
 * [Building a CI/CD pipeline in {{ GL }}](ci-cd-serverless.md)
+* [{#T}](ci-cd-sourcecraft-functions.md)
 * [{#T}](api-gw-websocket.md)
 * [Creating an interactive serverless application using WebSocket](websocket-app.md)
 * [Automatically copying objects from one {{ objstorage-full-name }} bucket to another](bucket-to-bucket-copying.md)
@@ -29,3 +30,5 @@
 * [{#T}](functions-framework-to-container.md)
 * [{#T}](forms-and-datalens-integration/index.md)
 * [{#T}](domain-identity-creating.md)
+* [{#T}](send-emails-aws-sdk-go.md)
+* [{#T}](create-ai-agent-function.md)

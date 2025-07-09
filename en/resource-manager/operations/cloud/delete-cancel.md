@@ -1,6 +1,6 @@
 # Canceling cloud deletion
 
-This section explains how to cancel cloud deletion if [initiated](delete.md) by mistake. For information about canceling deletion due to outstanding payments, see [Billing cycle for individuals](../../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../../billing/payment/billing-cycle-business.md).
+This section explains how to cancel cloud deletion if [initiated](delete.md) by mistake. You cannot cancel the deletion of a cloud linked to a billing account with the `SUSPENDED` status. For information about canceling deletion due to outstanding payments, see [Billing cycle for individuals](../../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../../billing/payment/billing-cycle-business.md).
 
 You can cancel deletion while the cloud status is `PENDING_DELETION`.
 

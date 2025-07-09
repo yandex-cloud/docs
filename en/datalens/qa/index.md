@@ -17,6 +17,8 @@ Sections:
 * [Calculated fields](calculation-fields.md)
 * [Dashboards](dashboards.md)
 * [Workbooks and collections](workbooks-collections.md)
+* [Reports](reports.md)
+* [Private embedding](embedded.md)
 * [Other](other.md)
 
 ## How to report a problem {#how-to-resolve-problem}
@@ -26,7 +28,7 @@ There are two ways to report a problem:
 
 * Via the {{ datalens-full-name }} interface:
   
-  1. Next to the error code, click **Report problem** and select ![image](../../_assets/console-icons/circle-question.svg) **Support center** → **Create request** on the left-hand panel. 
+  1. Next to the error code, click **Report problem** and select ![image](../../_assets/console-icons/circle-question.svg) **Support center** → **Create request** on the left-hand panel.
   1. Select a request type and specify a subject. If you select the `Question` or `Issue` type, the system will generate a suggested solution via the {{ search-api-full-name }} based on the subject you enter. If you did not find the information you need, click **Continue**.
   1. Provide relevant details about the issue in the description and click **Create request**. A {{ yandex-cloud }} support ticket will be created automatically.
 

@@ -36,7 +36,6 @@ description: Из статьи вы узнаете, что такое подкл
 
 ### Примеры использования {#examples-schema-registry}
 
-* [{#T}](../tutorials/managed-schema-registry.md)
 * [{#T}](../tutorials/schema-registry-cdc-debezium-kafka.md)
 
 ## Сбор и разметка метаданных {#data-catalog}

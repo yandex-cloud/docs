@@ -1,3 +1,8 @@
+---
+title: ERR.DS_API.ROW_COUNT_LIMIT error
+description: This page describes the ERR.DS_API.ROW_COUNT_LIMIT error.
+---
+
 # Received too many result data rows
 
 `ERR.DS_API.ROW_COUNT_LIMIT`

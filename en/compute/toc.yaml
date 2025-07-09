@@ -267,6 +267,8 @@ items:
             href: operations/image-control/image-control-get-info.md
           - name: Importing an image from another cloud or folder
             href: operations/image-control/import.md
+          - name: Encrypting an image
+            href: operations/image-control/encrypt.md
           - name: Configuring image access permissions
             href: operations/image-control/access.md
           - name: Deleting an image
@@ -307,7 +309,7 @@ items:
             href: operations/instance-groups/create-with-balancer.md
           - name: Creating a fixed-size instance group with an L7 load balancer
             href: operations/instance-groups/create-with-load-balancer.md
-          - name: Creating an autoscaling instance group
+          - name: Creating an instance group with autoscaling
             href: operations/instance-groups/create-autoscaled-group.md
           - name: Creating an instance group with Container Optimized Image
             href: operations/instance-groups/create-with-coi.md
@@ -421,7 +423,7 @@ items:
         href: tutorials/index.md
       - name: Configuring time synchronization using NTP
         href: tutorials/ntp.md
-      - name: Running an instance group with autoscaling
+      - name: Working with an instance group with autoscaling
         items:
           - name: Overview
             href: tutorials/vm-autoscale/index.md

@@ -25,9 +25,9 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
       {% include [acl-edit-console](../../../_includes/storage/acl-edit-console.md) %}
 
       {% note info %}
-
+  
       {% include [console-sa-acl-note](../../../_includes/storage/console-sa-acl-note.md) %}
-
+  
       {% endnote %}
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -35,6 +35,15 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+
+  {% include [acl-for-buckets](../../../_includes/storage/acl-for-buckets.md) %}
+
+  You can edit a bucket's ACL using the following commands:
+  * [yc storage bucket update](#yc-storage-bucket-update)
+  * [yc storage s3api put-bucket-acl](#yc-storage-s3api-put-bucket-acl)
+
+  **yc storage bucket update** {#yc-storage-bucket-update}
 
   Before configuring an ACL, see the description of the CLI command for editing a bucket:
 
@@ -48,72 +57,132 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
   yc storage bucket get <bucket_name> --with-acl
   ```
 
-  You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md), and [public groups](../../concepts/acl.md#public-groups), such as a group of all internet users or a group of all authenticated {{ yandex-cloud }} users. You cannot use these settings together: a bucket can have either a predefined ACL or individual permissions.
+  _Predefined ACL_
 
+  Run this command:
 
-  Predefined ACL
+  ```bash
+  yc storage bucket update \
+    --name <bucket_name> \
+    --acl <predefined_ACL>
+  ```
 
-  : Run this command:
+  Where:
+  * `--name`: Bucket name.
+  * `--acl`: Predefined ACL. To view a list of values, see [{#T}](../../concepts/acl.md#predefined-acls).
 
-    ```bash
-    yc storage bucket update --name <bucket_name> --acl <predefined_ACL>
-    ```
+  Result:
 
-    Where:
-    * `--name`: Bucket name.
-    * `--acl`: Predefined ACL. To view a list of values, see [{#T}](../../concepts/acl.md#predefined-acls).
+  ```text
+  name: my-bucket
+  folder_id: csgeoelk7fl1********
+  default_storage_class: STANDARD
+  versioning: VERSIONING_DISABLED
+  max_size: "1073741824"
+  acl:
+    grants:
+      - permission: PERMISSION_READ
+        grant_type: GRANT_TYPE_ALL_USERS
+  created_at: "2022-12-14T19:10:05.957940Z"
+  ```
 
-    Result:
+  _Setting up individual permissions_
 
-    ```text
-    name: my-bucket
-    folder_id: csgeoelk7fl1********
-    default_storage_class: STANDARD
-    versioning: VERSIONING_DISABLED
-    max_size: "1073741824"
-    acl:
-      grants:
-        - permission: PERMISSION_READ
-          grant_type: GRANT_TYPE_ALL_USERS
-    created_at: "2022-12-14T19:10:05.957940Z"
-    ```
+  1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their IDs:
 
-  Setting up individual permissions
+      {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
 
-  : 1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their IDs:
+  1. Run this command:
 
-        
-        * [User](../../../iam/operations/users/get.md).
-        * [Service account](../../../iam/operations/sa/get-id.md).
-        * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
+      ```bash
+      yc storage bucket update --name <bucket_name> \
+        --grants grant-type=<permission_grantee_type>,grantee-id=<grantee_ID>,permission=<permission_type>
+      ```
 
+      Where:
+      * `grant-type`: Permission grantee type. The possible values are as follows:
+        * `grant-type-account`: User, [service account](../../../iam/concepts/users/service-accounts.md), or [user group](../../../organization/concepts/groups.md).
+        * `grant-type-all-authenticated-users`: [Public group](../../concepts/acl.md#public-groups) that includes all authenticated {{ yandex-cloud }} users.
+        * `grant-type-all-users`: Public group that includes all internet users.
+      * `grantee-id`: ID of the user, service account, or user group you need to grant a permission to. It is specified only if `grant-type=grant-type-account`.
+      * `permission`: ACL permission type. The possible values are:
+        * `permission-read`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, and static hosting), and read all objects in the bucket.
+        * `permission-write`: Permission to write, overwrite, and delete objects in the bucket. It can only be used together with `permission-read`.
+        * `permission-full-control`: Full access to the bucket and objects in it.
+      
+        For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
 
-    1. Run this command:
+      To configure multiple permissions, specify the `--grants` parameter multiple times. For example, to grant a write permission for a bucket, run this command:
 
-       ```bash
-       yc storage bucket update --name <bucket_name> \
-         --grants grant-type=<permission_grantee_type>,grantee-id=<grantee_ID>,permission=<permission_type>
-       ```
+      ```bash
+      yc storage bucket update --name <bucket_name> \
+        --grants grant-type=<permission_grantee_type>,grantee-id=<grantee_ID>,permission=permission-read \
+        --grants grant-type=<permission_grantee_type>,grantee-id=<grantee_ID>,permission=permission-write
+      ```
 
-       Where:
-       * `grant-type`: Permission grantee type. The possible values are as follows:
-         * `grant-type-account`: User, [service account](../../../iam/concepts/users/service-accounts.md), or [user group](../../../organization/concepts/groups.md).
-         * `grant-type-all-authenticated-users`: [Public group](../../concepts/acl.md#public-groups) that includes all authenticated {{ yandex-cloud }} users.
-         * `grant-type-all-users`: Public group that includes all internet users.
-       * `grantee-id`: ID of the user, service account, or user group you need to grant a permission to. It is specified only if `grant-type=grant-type-account`.
-       * `permission`: ACL permission type. The possible values are:
-         * `permission-read`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, and static hosting), and read all objects in the bucket.
-         * `permission-write`: Permission to write, overwrite, and delete objects in the bucket. It can only be used together with `permission-read`.
-         * `permission-full-control`: Full access to the bucket and objects in it.
-         For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
+  **yc storage s3api put-bucket-acl** {#yc-storage-s3api-put-bucket-acl}
 
-       To configure multiple permissions, specify the `--grants` parameter multiple times. For example, to grant a write permission for a bucket, run this command:
+  View the bucket's current ACL:
 
-       ```bash
-       yc storage bucket update --name <bucket_name> \
-         --grants grant-type=<permission_grantee_type>,grantee-id=<grantee_ID>,permission=permission-read \
-         --grants grant-type=<permission_grantee_type>,grantee-id=<grantee_ID>,permission=permission-write
-       ```
+  ```bash
+  yc storage s3api get-bucket-acl \
+    --bucket <bucket_name>
+  ```
+
+  Where `--bucket` is the bucket name.
+
+  _Predefined ACL_
+
+  Run this command:
+
+  ```bash
+  yc storage s3api put-bucket-acl \
+    --bucket <bucket_name> \
+    --acl <predefined_ACL>
+  ```
+
+  Where:
+  * `--name`: Bucket name.
+  * `--acl`: Predefined ACL. For the list of values, see [{#T}](../../concepts/acl.md#predefined-acls).
+
+  _Setting up individual permissions_
+
+  1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their IDs:
+
+      {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
+
+  1. Run this command:
+
+      ```bash
+      yc storage s3api put-bucket-acl \
+        --bucket <bucket_name> \
+        <permission_type> <permission_grantee>
+      ```
+
+      Where:
+      * `--bucket`: Bucket name.
+      * The possible types of ACL permissions are as follows:
+
+        * `--grant-read`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, and static hosting), and read all objects in the bucket.
+        * `--grant-write`: Permission to write, overwrite, and delete objects in the bucket. It can only be used together with `--grant-read`.
+        * `--grant-full-control`: Full access to the bucket and objects in it.
+
+        For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
+
+      * The possible permission grantees are as follows:
+
+        * `id=<grantee_ID>`: ID of the user, service account, or user group you need to grant a permission to.
+        * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: [Public group](../../concepts/acl.md#public-groups) that includes all authenticated {{ yandex-cloud }} users.
+        * `uri=http://acs.amazonaws.com/groups/global/AllUsers`: Public group that includes all internet users.
+
+      To configure multiple permissions, specify the relevant settings, permission type, and permission grantee multiple times. For example, to grant a write permission for a bucket, run this command:
+
+      ```bash
+      yc storage s3api put-bucket-acl \
+        --bucket <bucket_name> \
+        --grant-read id=<grantee_ID> \
+        --grant-write id=<grantee_ID>
+      ```
 
 - AWS CLI {#aws-cli}
 
@@ -138,7 +207,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
   * `--bucket`: Bucket name.
   * `--endpoint`: {{ objstorage-name }} endpoint.
 
-  You can apply a [predefined ACL](../../concepts/acl.md#predefined-acls) to a bucket or configure permissions for individual users, [service accounts](../../../iam/concepts/users/service-accounts.md), [user groups](../../../organization/concepts/groups.md), and [public groups](../../concepts/acl.md#public-groups), such as a group of all internet users or a group of all authenticated {{ yandex-cloud }} users. You cannot use these settings together: a bucket can have either a predefined ACL or individual permissions.
+  {% include [acl-for-buckets](../../../_includes/storage/acl-for-buckets.md) %}
 
   Predefined ACL
 
@@ -161,11 +230,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   : 1. To grant ACL permissions to a {{ yandex-cloud }} user, service account, or user group, get their IDs:
 
-        
-        * [User](../../../iam/operations/users/get.md).
-        * [Service account](../../../iam/operations/sa/get-id.md).
-        * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
-
+        {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
 
     1. Run this command:
 
@@ -212,7 +277,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, describe the parameters of resources you want to create:
 
      ```hcl
      resource "yandex_storage_bucket" "test" {
@@ -249,14 +314,11 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
          For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
 
-       * `id`: ID of the user, service account, or user group. It is used with the `CanonicalUser` type of permission grantee.
+       * `id`: ID of the user, service account, or user group:
 
-         
-         You can get the IDs in the following ways:
-         * [User](../../../iam/operations/users/get.md).
-         * [Service account](../../../iam/operations/sa/get-id.md).
-         * User group: Navigate to the [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) tab in the {{ cloud-center }} interface.
+         {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
 
+         It is used with the `CanonicalUser` type of permission grantee.
 
        * `uri`: Public group ID. It is used with the `Group` type of permission grantee. The possible values are:
          * `http://acs.amazonaws.com/groups/global/AllUsers`: All internet users.
@@ -275,7 +337,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -287,7 +349,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
      1. Confirm creating the resources.
 
-     This will create all resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

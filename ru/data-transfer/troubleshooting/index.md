@@ -168,6 +168,8 @@
 
 {% include [cannot-get-delimiters](../../_includes/data-transfer/troubles/mongodb/cannot-get-delimiters.md) %}
 
+{% include [invalid-length](../../_includes/data-transfer/troubles/mongodb/invalid-length.md) %}
+
 ## {{ MY }} {#mysql}
 
 {% include [binlog-size](../../_includes/data-transfer/troubles/mysql/binlog-size.md) %}

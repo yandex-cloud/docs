@@ -431,6 +431,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL®
   mmy-name: Managed Service for MySQL®
   mmy-short-name: Managed Service for MySQL®
+  monitoring-doc-links: ../monitoring/concepts/index.md
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
   monitoring-short-name: Monitoring
@@ -6159,21 +6160,8 @@ default:
         field_person-id: Плательщик
     yacloud_billing:
       alb:
-        button_add-route: Добавить маршрут
-        button_backend-group-create: Создать группу бэкендов
-        label_backend-group: Группа бэкендов
         label_backends: Бэкенды
-        label_certificate: Сертификаты
-        label_http-router: HTTP-роутер
-        label_listeners: Обработчики
         label_max-timeout: Максимальный таймаут, с
-        label_new-backend: Новый бэкенд
-        label_new-virtual-host: Новый виртуальный хост
-        label_session-affinity: Привязка сессий
-        label_session-affinity-mode: Режим привязки
-        label_target-groups: Целевые группы
-        label_virtual-hosts: Виртуальные хосты
-        section_allocation-settings: Размещение
       backup:
         button_attach-instance-submit: Привязать
         label_instances: Виртуальные машины
@@ -6785,12 +6773,8 @@ default:
             tab-idp: IdP-группы
         oslogin-settings:
           title_allow-edit-own-keys: Разрешить членам организации управлять своими SSH-ключами
-          title_hide-users-list: >-
-            Запретить пользователям просматривать список членов организации и
-            информацию о них
           title_ssh-certificate-settings: Доступ по OS Login при помощи SSH-сертификатов (рекомендуется)
           title_user-ssh-key-settings: Доступ по OS Login при помощи SSH-ключей
-          title_users-list-visibility: Конфиденциальность
         oslogin:
           field_home-directory: Домашняя директория
           field_shell: Оболочка по умолчанию
@@ -6822,6 +6806,12 @@ default:
       layout:
         organization: Identity Hub
       organization:
+        security-settings:
+          OtherSecuritySettingsForm:
+            title_hide-users-list_9eW2W: >-
+              Запретить пользователям просматривать список членов организации и
+              информацию о них
+            title_users-list-visibility_ftTaP: Конфиденциальность
         userpool:
           action_delete-domain: Удалить
         userpools:
@@ -7259,7 +7249,7 @@ default:
         field_server-count: Число серверов
         field_server-lease-duration: Период аренды
         field_server-pool: Пул
-        field_server-private-ip: Приватный IPv4
+        field_server-private-ip: Приватный IP-адрес
         field_server-zone: Зона доступности
         field_ssh-public-key: Открытый SSH-ключ
         field_subnet-id: Приватная подсеть
@@ -7280,7 +7270,7 @@ default:
         label_one-month-duration: 1 месяц
         label_password-lockbox: Секрет Lockbox
         label_password-plain: Новый пароль
-        label_public-ip-ephemeral: Автоматически
+        label_public-ip-ephemeral: Из эфемерной подсети
         label_public-ip-from-dedicated-subnet: Из выделенной подсети
         label_public-ip-no: Без адреса
         label_public-subnets: Публичные адреса и подсети
@@ -7301,7 +7291,6 @@ default:
         title_section-server-config: Конфигурация
         title_section-server-info: Информация о сервере
         title_section-server-marketplace-app: Приложение Marketplace
-        title_section-server-network-settings: Сетевые настройки
         title_section-server-private-network: Приватная сеть
         title_section-server-product: Образ
         title_section-server-public-network: Публичная сеть
@@ -9729,7 +9718,7 @@ default:
           popup-action_label_cancel-msg: Отменить задание
         label_history-server: History Server
       speechkit-common:
-        brand-voice_51nd8: Brand Voice
+        brand-voice_51nd8: Brand Voice Lite
         brand-voice_create-dataset_option_title_record-audio_jvUMz: Записать аудиофайлы
         brand-voice_create-dataset_option_title_upload-zip_nFtBR: Загрузить ZIP-архив
         brand-voice_section_title_voice-usage_15pws: Использование голоса

@@ -622,5 +622,7 @@ items:
                 href: eventrouter/api-ref/Rule/listOperations.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
+  - name: Публичные материалы
+    href: public-talks.md
   - name: История изменений
     href: release-notes.md
