@@ -49,7 +49,7 @@ description: Следуя данной инструкции, вы сможете
       ...
       ubuntu-2204-lts
       ubuntu-2204-lts-oslogin
-      ubuntu-2204-lts-vgpu-v13
+      ubuntu-2004-lts-gpu
       ...
       ```
 

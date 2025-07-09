@@ -49,7 +49,7 @@ For information about available roles and permissions they offer, see [{#T}](rol
 
 Roles are assigned to subjects. There are the following subject types:
 
-* `userAccount`: [Yandex account](../users/accounts.md#passport) added to {{ yandex-cloud }}:
+* `userAccount`: [Yandex account](../users/accounts.md#passport) added to {{ yandex-cloud }} or an account from a [user pool](../../../organization/concepts/user-pools.md):
 
     Subject ID: `userAccount:<user_ID>`.
 
@@ -117,7 +117,7 @@ If a child resource is also assigned some roles, a list of permissions for this 
 
 _Impersonation_ occurs when a user performs certain actions with cloud resources on behalf of a service account with the appropriate permissions. Impersonation is mostly used to temporarily expand user permissions without generating static credentials for the user.
 
-For example, the user needs temporary permissions to view a folder they do not have view access to. To this end, the administrator may [assign](../../operations/sa/set-access-bindings.md#impersonation) a viewer role for the folder to the service account and the special `iam.serviceAccounts.tokenCreator` role to the user. This will enable the user to view the folder's resources on behalf of the service account or obtain an IAM token for the service account. The user will not be able to edit permissions or delete the service account.
+For example, the user needs temporary permissions to view a folder they do not have view access to. To this end, the administrator may [assign](../../operations/sa/set-access-bindings.md#impersonation) a viewer role for the folder to the service account and the special `iam.serviceAccounts.tokenCreator` role to the user. This will enable the user to view the folder's resources on behalf of the service account or obtain an IAM token for the service account. The user will not be able to edit permissions or delete the service account. 
 
 The administrator can revoke the role whenever needed.
 
@@ -127,9 +127,9 @@ Some restrictions apply to [assigning roles](../../operations/roles/grant.md) in
 
 * You cannot assign roles to multiple subjects at once, unlike in the API or CLI. In the management console, you should first select the subject (user or service account) and then assign roles to it.
 
-## Managing service access to a user’s cloud resources {#service-control}
+## Managing service access to user cloud resources {#service-control}
 
-{{ iam-full-name }} allows you to manage [service access](../service-control.md) to a user’s cloud resources by [enabling](../../operations/service-control/enable-disable.md#enable) or [disabling](../../operations/service-control/enable-disable.md#disable) the relevant services.
+{{ iam-full-name }} allows you to manage [service access](../service-control.md) to resources in a user cloud by [enabling](../../operations/service-control/enable-disable.md#enable) or [disabling](../../operations/service-control/enable-disable.md#disable) the relevant services.
 
 Service control is the whole of the access permissions needed to create and operate the service's resources in the user's cloud. Such access permissions are assigned to special service accounts, [service agents](../service-control.md#service-agent), which the service uses to access the user's resources in the cloud.
 

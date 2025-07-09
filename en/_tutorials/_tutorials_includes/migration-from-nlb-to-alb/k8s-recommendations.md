@@ -12,6 +12,10 @@
 
 1. When using an L7 load balancer, requests to backends come with the source IP address from the range of internal IP addresses of the subnets specified when creating the L7 load balancer. The original IP address of the request source (user) is specified in the `X-Forwarded-For` header. If you want to log public IP addresses of users on the web server, reconfigure it.
 
-1. For the L7 load balancer, two resource units will be created in each of the subnets specified when creating the `Ingress` resource. The `Ingress` resource annotations do not support specifying the minimum number of resource units for an L7 load balancer. A group of resource units is automatically scaled depending on the external load on load balancer nodes.
+1. For the L7 load balancer, two [resource units](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) will be created in each of the subnets specified when creating the `Ingress` resource. The `Ingress` resource annotations do not support specifying the minimum number of resource units for an L7 load balancer. The system automatically scales the resource unit group based on the load balancer node’s external workload.
 
-1. The features of the {{ alb-name }} load balancer may differ from those of your load balancer deployed in the {{ managed-k8s-name }} cluster. See the [{{ alb-name }}](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) Ingress controller description and [operating principles](../../../application-load-balancer/tools/k8s-ingress-controller/principles.md).
+1. The features of the {{ alb-name }} load balancer may differ from those of your load balancer deployed in the {{ managed-k8s-name }} cluster. See [{{ alb-name }}](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) ingress controller description and [operating principles](../../../application-load-balancer/tools/k8s-ingress-controller/principles.md).
+
+1. We recommend setting up backend health checks on your {{ alb-name }}. Health checks enable the load balancer to timely spot unavailable backends and reroute traffic to alternative backends. Once the application is updated, traffic will again be distributed across all backends.
+
+    For more information, see [{#T}](../../../application-load-balancer/concepts/best-practices.md) and [{#T}](../../../application-load-balancer/k8s-ref/service-for-ingress.md#annotations).

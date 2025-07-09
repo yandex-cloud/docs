@@ -119,5 +119,7 @@ items:
             href: aws-compatible-api/api-ref/request-headers.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: Публичные материалы
+    href: public-talks.md
   - name: История изменений
     href: release-notes.md

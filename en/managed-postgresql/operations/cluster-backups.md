@@ -16,6 +16,8 @@ Point-in-Time Recovery (PITR) technology allows you to restore the cluster state
 
 When you restore a cluster from a backup, you create a new cluster with the backup data. If the folder has insufficient [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup. The average backup recovery speed is 10 MBps per database core.
 
+The backup recovers the whole cluster with all its databases. You cannot select specific databases.
+
 When creating a new cluster, set all required parameters.
 
 When restored to the current state, the new cluster will match the state of:
@@ -117,7 +119,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
           * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -281,7 +283,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
      * `name`: Cluster name.
      * `environment`: Environment:
 
-       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
        * `PRODUCTION`: For stable versions of your apps.
 
      * `networkId`: [Network](../../vpc/concepts/network.md#network) ID.
@@ -356,7 +358,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
      * `name`: Cluster name.
      * `environment`: Environment:
 
-       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
        * `PRODUCTION`: For stable versions of your apps.
 
      * `network_id`: [Network](../../vpc/concepts/network.md#network) ID.
@@ -399,7 +401,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 {% list tabs group=instructions %}
 
 - Management console {#console}
-
+  
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}** tab.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
@@ -407,24 +409,24 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
   {% include [no-prompt](../../_includes/mdb/backups/no-prompt.md) %}
 
 - CLI {#cli}
-
+  
   {% include [cli-install](../../_includes/cli-install.md) %}
-
+  
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
+  
   To create a cluster backup:
-
+  
   1. View a description of the CLI create {{ PG }} backup command:
-
+  
       ```
       {{ yc-mdb-pg }} cluster backup --help
       ```
   1. Request the creation of a backup specifying the cluster name or ID:
-
+  
       ```
       {{ yc-mdb-pg }} cluster backup my-pg-cluster
       ```
-
+  
       The cluster name and ID can be retrieved with the [list of clusters](cluster-list.md#list-clusters).
 
 - REST API {#api}
@@ -491,18 +493,18 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
   To get a list of all backups in a folder:
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the **{{ ui-key.yacloud.postgresql.switch_backups }}** tab.
-
+  
 - CLI {#cli}
-
+  
   {% include [cli-install](../../_includes/cli-install.md) %}
-
+  
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
+  
   To get a list of {{ PG }} cluster backups available in the default folder, run this command:
-
+  
   ```
   {{ yc-mdb-pg }} backup list
-
+  
   +--------------------------+---------------------+----------------------+---------------------+
   |            ID            |      CREATED AT     |  SOURCE CLUSTER ID   |      STARTED AT     |
   +--------------------------+---------------------+----------------------+---------------------+
@@ -618,19 +620,19 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
   To get information about the backup of a previously deleted cluster:
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select the **{{ ui-key.yacloud.postgresql.switch_backups }}** tab.
-
+  
 - CLI {#cli}
-
+  
   {% include [cli-install](../../_includes/cli-install.md) %}
-
+  
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
+  
   To get information about a {{ PG }} cluster backup, run this command:
-
+  
   ```
   {{ yc-mdb-pg }} backup get <backup_ID>
   ```
-
+  
   You can get the backup ID together with the [list of backups](#list-backups).
 
 - REST API {#api}

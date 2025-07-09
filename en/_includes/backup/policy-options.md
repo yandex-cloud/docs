@@ -28,6 +28,11 @@
 
 * Under **{{ ui-key.yacloud.backup.policy-form.title_additional-section }}**:
 
+  * Optionally, enable **{{ ui-key.yacloud.backup.policy-form.field_run-later }}** to run all skipped backup jobs after the VM starts if the VM was `Stopped` during the scheduled backup.
   * Optionally, enable **{{ ui-key.yacloud.backup.policy-overview.field_fast-copy }}** to speed up creating incremental backups. Changes in the file will be determined by size, date, and last update time. If the option is disabled, {{ backup-name }} will compare the contents of all files with the backup contents. This option does not work for volumes with JFS, ReiserFS3, ReiserFS4, ReFS, or XFS file systems.
+  * Optionally, enable **{{ ui-key.yacloud.backup.policy-form.field_sector-by-sector }}** to create an exact copy of a disk or volume at the physical level. Backs up all disk or volume sectors, including empty areas and unallocated space. If no compression level is selected, the backup size will be equal to the disk size. For disks with unsupported file systems, this mode applies automatically. You cannot recover app data from a backup like that.
+  * Optionally, enable **{{ ui-key.yacloud.backup.policy-form.field_validation-enabled }}** to make sure you will be able to restore data from the created backup. During the check, a checksum is calculated for each section available for recovery. The check may take a long time because it scans all recoverable data.
+  * Optionally, enable **{{ ui-key.yacloud.backup.policy-overview.field_multivolume-snapshot }}** to create time-synchronized data backups spanning several volumes. This parameter decides whether snapshots of several volumes will be created simultaneously or one after another. Select your preferred method for creating snapshots:
 
-  * Optionally, enable **{{ ui-key.yacloud.backup.policy-overview.field_multivolume-snapshot }}** to create time-synchronized data backups spanning several volumes. This parameter decides whether snapshots of several volumes will be created simultaneously or one after another.
+      * `{{ ui-key.yacloud.backup.policy-form.field_lvm-snapshotting-disabled }}`: Snapshot volumes using the {{ backup-name }} agent managed by LVM.
+      * `{{ ui-key.yacloud.backup.policy-form.field_lvm-snapshotting-enabled }}`: Snapshot volumes using the built-in LVM tools. If the snapshot cannot be created using LVM, it will be created using the {{ backup-name }} agent.

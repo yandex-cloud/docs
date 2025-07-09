@@ -5,6 +5,7 @@ description: In this article, you will learn how to unlink a {{ compute-name }} 
 
 # Unlinking a VM or {{ baremetal-full-name }} server from a backup policy
 
+
 To unlink a VM or {{ baremetal-name }} server from a backup policy:
 
 {% list tabs group=instructions %}
@@ -50,7 +51,7 @@ To unlink a VM or {{ baremetal-name }} server from a backup policy:
 
       Where `--instance-ids` are the IDs of the VMs or {{ baremetal-name }} servers you need to unlink from the backup policy. Multiple IDs should be comma-separated.
 
-  For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/revoke.md).
+  For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/revoke.md).
 
 - API {#api}
 

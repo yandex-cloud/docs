@@ -23,7 +23,7 @@ The support cost includes:
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for the number of requests to {{ sws-name }} (see [{{ vpc-name }} pricing](../../smartwebsecurity/pricing.md)).
+* Fee for the number of requests to {{ sws-name }} (see [{{ sws-name }} pricing](../../smartwebsecurity/pricing.md)).
 
 
 ## Getting started {#before-you-begin}

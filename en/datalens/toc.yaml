@@ -807,7 +807,7 @@ items:
             href: operations/dashboard/add-support-message.md
           - name: Adding an access error message
             href: operations/dashboard/add-access-message.md
-          - name: Configuring links on a dashboard
+          - name: Configuring links on the dashboard
             href: operations/dashboard/dashboard-links.md
           - name: Creating an alias
             href: operations/dashboard/create-alias.md
@@ -957,6 +957,10 @@ items:
             href: qa/dashboards.md
           - name: Workbooks and collections
             href: qa/workbooks-collections.md
+          - name: Reports
+            href: qa/reports.md
+          - name: Private embedding
+            href: qa/embedded.md
           - name: Other
             href: qa/other.md
       - name: Access denied

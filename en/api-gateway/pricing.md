@@ -14,6 +14,8 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ api-gw-name }} {#rules}
 
 In {{ api-gw-name }}, you are charged for the number of requests to the created API gateways and outgoing traffic. 

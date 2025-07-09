@@ -45,7 +45,7 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 ## Configuring the {{ MG }} target endpoint {#endpoint-settings}
 
-{% include [MongodDB Verstion](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
+{% include [MongodDB Version](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
@@ -82,7 +82,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     {% include [Managed MongodDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -140,7 +140,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
     {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -219,7 +219,7 @@ By default, {{ data-transfer-name }} transfers collections without sharding. If 
 1. [Prepare the target cluster](../../prepare.md#target-mg) to shard the collections.
 1. Select `DISABLED` or `TRUNCATE` for cleanup policy.
 
-Selecting the `DROP` policy will cause the service to delete all the data, including sharded collections, from the target database and replace them with new unsharded ones when activating a transfer.
+Selecting the `DROP` policy will cause the service to delete all the data, including sharded collections, from the target database and replace them with new non-sharded ones when activating a transfer.
 
 {% endnote %}
 

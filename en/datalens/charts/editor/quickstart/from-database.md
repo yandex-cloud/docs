@@ -5,7 +5,9 @@ description: Follow this guide to build a table based on an SQL query to the dat
 
 # Building a table based on an SQL query to the data source
 
+
 {% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 Follow this guide to build a table based on an SQL query to the data source in Editor. For convenience, we will use the connection and dataset from the deployed demo workbook as the data source.
 
@@ -15,7 +17,10 @@ Follow this guide to build a table based on an SQL query to the data source in E
 
 ## Deploy a demo workbook {#create-template}
 
-1. Deploy the [Demo Dashboard](https://datalens.yandex.cloud/marketplace/f2eui5ar8omalpcg1j3r) demo workbook from the [marketplace](../../../operations/marketplace/add-marketplace-product.md).
+
+1. Deploy a demo workbook titled [Demo Dashboard](https://datalens.yandex.cloud/marketplace/f2eui5ar8omalpcg1j3r) from the [marketplace](../../../operations/marketplace/add-marketplace-product.md).
+
+
 
 1. Go to the deployed workbook and on the **Connections** tab, find the connection named `00: Demo Dashboard. Connection`.
 

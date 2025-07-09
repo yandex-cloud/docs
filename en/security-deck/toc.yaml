@@ -48,5 +48,7 @@ items:
         href: security/dspm-roles.md
       - name: '{{ ciem-name }} roles'
         href: security/ciem-roles.md
+      - name: '{{ ycdr-name }} roles'
+        href: security/ycdr-roles.md
   - name: Pricing policy
     href: pricing.md

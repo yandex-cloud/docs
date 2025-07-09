@@ -1,3 +1,8 @@
+---
+title: ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED error
+description: This page describes the ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED error.
+---
+
 # Referenced connection <connection_ID> cannot be loaded: access denied
 
 `ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED`
@@ -7,4 +12,4 @@ You do not have permissions to make the connection required to build the chart. 
 * To view the chart, request the **Execute** permission.
 * To view the chart and the source connection parameters, request the **Read** permission.
 
-Read more about access permission in [{#T}](../../security/index.md).
+Read more about access permissions in [{#T}](../../security/index.md).

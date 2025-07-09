@@ -1,3 +1,8 @@
+---
+title: ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED error
+description: This page describes the ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED error.
+---
+
 # Request size limit exceeded
 
 `ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED`
@@ -5,7 +10,6 @@
 Data amount limit exceeded.
 
 This error occurs when the amount of incoming data to be shown on a chart is too large.
-
 Each visualization type in {{ datalens-short-name }} has its own [limit](../../concepts/limits.md) on the number of rows.
 
 To correct the error, reduce the amount of data requested, for example:

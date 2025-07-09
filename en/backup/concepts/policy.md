@@ -1,4 +1,11 @@
+---
+title: Backup policies in {{ backup-full-name }}
+description: In this article, you will learn how backup policies in {{ backup-name }} work.
+---
+
+
 # Backup policies
+
 
 Backups of {{ yandex-cloud }} resources are created in {{ backup-name }} automatically according to _backup policies_.
 

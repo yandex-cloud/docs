@@ -1,4 +1,10 @@
+---
+title: How to view disk and partition parameters of a backup in {{ backup-full-name }}
+description: Follow this guide to view disk and partition parameters of a backup in {{ backup-name }}.
+---
+
 # Viewing the parameters of backup disks and partitions
+
 
 To avoid errors when recovering from a backup, start by comparing the parameters of the disks and partitions of the backup against those of the [VM](../../../compute/concepts/vm.md) or {{ baremetal-full-name }} [server](../../../baremetal/concepts/servers.md).
 
@@ -57,7 +63,7 @@ To avoid errors when recovering from a backup, start by comparing the parameters
 
       Before recovering a disk from the backup, make sure that the number, names, and sizes of the backup's volumes match those of the target disk.
 
-      For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/backup/get.md).
+      For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/backup/get.md).
 
 - API {#api}
 

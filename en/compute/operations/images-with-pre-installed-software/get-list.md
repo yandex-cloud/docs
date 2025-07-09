@@ -49,7 +49,7 @@ When creating a virtual machine, you need to select an [image](../../concepts/im
       ...
       ubuntu-2204-lts
       ubuntu-2204-lts-oslogin
-      ubuntu-2204-lts-vgpu-v13
+      ubuntu-2004-lts-gpu
       ...
       ```
 

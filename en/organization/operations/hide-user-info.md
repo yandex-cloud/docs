@@ -45,7 +45,7 @@ To block users from viewing information about other organization members:
 
   1. In the left-hand panel, select ![shield](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
 
-  1. Under **{{ ui-key.yacloud_org.form.oslogin-settings.title_users-list-visibility }}**, enable **{{ ui-key.yacloud_org.form.oslogin-settings.title_hide-users-list }}**.
+  1. Under **{{ ui-key.yacloud_org.organization.security-settings.OtherSecuritySettingsForm.title_users-list-visibility_ftTaP }}**, enable **{{ ui-key.yacloud_org.organization.security-settings.OtherSecuritySettingsForm.title_hide-users-list_9eW2W }}**.
 
       Disable this option to allow users to view information about other organization members.
 

@@ -7,7 +7,7 @@ description: Follow this guide to create a connection to a file.
 
 To create a connection to a file:
 
-1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Open the [new connection creation page]({{ link-datalens-main }}/connections/new).
 1. Under **Files and services**, select the **Files** connection.
 1. Click **Upload files** and select the file. The information about the added file and the uploaded data will be displayed at the center of the screen.
 
@@ -33,7 +33,7 @@ To create a connection to a file:
         * **Delimiter**: Specify the delimiter that is used in the file. The available values are `Comma`, `Semicolon`, and `Tabulation character`.
         * **Column header**: Select the title option. If you select **Yes**, {{ datalens-short-name }} will use the first row of data as a heading.
 
-     1. (Optional) Select the type of data for each column. To do this, click the icon to the left of the column.
+     1. Optionally, select the type of data for each column. To do this, click the icon to the left of the column.
 
    - Excel
 
@@ -42,7 +42,7 @@ To create a connection to a file:
 
    {% endlist %}
 
-1. Repeat steps 4 and 5 to add files.
+1. Repeat steps 3 and 4 to add files.
 1. Click **Create connection**.
 
 

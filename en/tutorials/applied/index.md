@@ -8,6 +8,7 @@ description: This page provides a list of tutorials on creating sites, using 1C 
 ## Creating a site {#web}
 
 * [Static website in {{ objstorage-full-name }}](../web/static/index.md)
+* [Static website in {{ objstorage-name }} with access via {{ cdn-name }}](cdn-hosting.md)
 * [Website based on LAMP or LEMP stack](../web/lamp-lemp/index.md)
 * [Joomla-based website with {{ PG }} database](../web/joomla-postgresql/index.md)
 * [Creating a WordPress website](../web/wordpress/index.md)

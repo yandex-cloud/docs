@@ -14,14 +14,17 @@ description: Follow this guide to configure container logging.
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your container.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container you want to configure logging for.
-    1. Go to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
-    1. Under **{{ ui-key.yacloud.logging.label_title }}**, select the following in the **{{ ui-key.yacloud.logging.label_destination }}** field:
-        * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}`: To disable logging.
-        * `{{ ui-key.yacloud.common.folder }}`: To write [logs](../concepts/logs.md) to the default [log group](../../logging/concepts/log-group.md) for the folder the container is in.
-            1. (Optional) In the **{{ ui-key.yacloud.logging.label_minlevel }}** field, select the minimum logging level.
-        * `{{ ui-key.yacloud.logging.label_loggroup }}`: To write logs to a custom log group.
-            1. (Optional) In the **{{ ui-key.yacloud.logging.label_minlevel }}** field, select the minimum logging level.
-            1. In the **{{ ui-key.yacloud.logging.label_loggroup }}** field, select the log group to write the logs to. If you do not have a log group, [create one](../../logging/operations/create-group.md).
+    1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
+    1. Under **{{ ui-key.yacloud.logging.label_title }}**:
+
+        1. Enable **{{ ui-key.yacloud.logging.field_logging }}**.
+        1. In the **{{ ui-key.yacloud.logging.label_destination }}** field, select:
+                  
+           * `{{ ui-key.yacloud.common.folder }}`: To write [logs](../concepts/logs.md) to the default [log group](../../logging/concepts/log-group.md) for the folder the container is in.
+           * {% include [log-group](../../_includes/functions/log-group.md) %}
+        
+        1. Optionally, select the minimum logging level.
+
     1. At the top of the page, click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. 
     
     {% include [min-log-level](../../_includes/serverless-containers/min-log-level.md) %}
@@ -145,7 +148,7 @@ description: Follow this guide to configure container logging.
 
         For more information about the `yandex_serverless_container` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
 
-    1. Create resources:
+    1. Create the resources:
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

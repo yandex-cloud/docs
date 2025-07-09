@@ -7,6 +7,53 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.154.0 (09.07.25) {#version0.154.0}
+
+#### {{ alb-name }}
+
+Добавлены команды для управления маршрутизацией трафика в зонах доступности балансировщиков:
+* `yc alb load-balancer disable-zones`
+* `yc alb load-balancer enable-zones`
+
+#### {{ cloud-desktop-name }}
+
+Флаг `--id` теперь не является обязательным для команды `yc desktop update-properties`.
+
+#### {{ mch-name }}
+
+Добавлены параметры для управления автоматическим расширения диска. Команды, в которых можно задавать новые параметры:
+* `yc clickhouse cluster create`
+* `yc clickhouse cluster update`
+* `yc clickhouse restore`
+* `yc clickhouse shards add`
+* `yc clickhouse shard update`
+
+#### {{ mgl-name }}
+
+Добавлена команда для изменения инстанса `yc managed-gitlab instance update`.
+
+#### {{ mgp-name }}
+
+Добавлена команда для подключения пользователей с IAM-аутентификацией `yc managed-greenplum connect`.
+
+#### {{ mmy-name }}
+
+Добавлен флаг `--disk-size-autoscaling` в команду `yc managed-mysql cluster update`.
+
+#### {{ mos-name }}
+
+Добавлены команды для включения и выключения кластера:
+* `yc managed-opensearch cluster start`
+* `yc managed-opensearch cluster stop`
+
+#### {{ network-load-balancer-name }}
+
+Переименованы команды для начала и отмены блокировки зон балансировщика:
+* `yc load-balancer network-load-balancer disable-zones`
+* `yc load-balancer network-load-balancer enable-zones`
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.153.0 (30.06.25) {#version0.153.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -14,8 +61,6 @@ description: На странице представлены релизы CLI, а
 ##### {{ cloud-desktop-name }}
 
 В команде `desktops update group` изменен тип флага `--disk-size` для загрузочного (boot) и рабочего (data) дисков на `byteSize`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.152.0 (25.06.25) {#version0.152.0}
 

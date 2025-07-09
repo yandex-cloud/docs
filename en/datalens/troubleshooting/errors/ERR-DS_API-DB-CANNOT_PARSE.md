@@ -1,3 +1,8 @@
+---
+title: ERR.DS_API.DB.CANNOT_PARSE error
+description: This page describes the ERR.DS_API.DB.CANNOT_PARSE error.
+---
+
 # Cannot parse
 
 `ERR.DS_API.DB.CANNOT_PARSE`

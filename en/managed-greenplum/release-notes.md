@@ -5,6 +5,16 @@ description: This section contains {{ mgp-name }} release notes.
 
 # {{ mgp-full-name }} release notes
 
+
+## May 2025 {#may-2025}
+
+Added integration with [{{ websql-full-name }}](operations/web-sql-query.md).
+
+
+## April 2025 {#apr-2025}
+
+You can now [manage resource groups](operations/resource-groups.md) using the {{ yandex-cloud }} CLI.
+
 ## October 2024 {#oct-2024}
 
 * The default [Log statement](concepts/settings-list.md#setting-log-statement) value is changed from `ALL` to `DDL`: {{ GP }} logs only SQL commands used to change data structure definitions (such as `CREATE`, `ALTER`, `DROP`, etc.).
@@ -52,8 +62,8 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 
 * You can now [expand a cluster](operations/cluster-expand.md) via the CLI and API by adding new segment hosts with data redistribution across all segments.
 * You can now view cluster backups, recover from backups, and modify public access to the cluster via the CLI. For more information, see [YC CLI releases](../cli/release-notes.md#version0.100.0).
-* Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see the relevant [{{ PG }} documentation]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
-* Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-gp_toolkit.html#topic34).
+* Added the `mdb_toolkit.table_privileges()` function that allows users with the `mdb_admin` role to view the history of granting and revoking privileges in the cluster. For more information, see the [{{ PG }} documentation]({{ pg.docs.org }}/current/infoschema-table-privileges.html).
+* Added the `mdb_toolkit.gp_workfile_usage_per_query()` function that allows users with the `mdb_admin` role to view information about active queries from all users. For more information, see the [{{ GP }} documentation]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-gp_toolkit.html#topic34).
 * Improved the algorithm for creating clusters via the wizard:
     * Cluster size cannot exceed `<maximum_number_of_hosts> × <maximum_disk_size_per_host>`.
     * You can select groups of dedicated hosts to deploy the cluster.
@@ -64,7 +74,7 @@ Added the ability to partially [restore a cluster](./operations/cluster-backups.
 * You can now change the administrator password.
 * You can now [configure the DBMS and the connection pooler in {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex/blob/master/CHANGELOG.md#0770-july-27-2022).
 * Added support for the [postgis]({{ gp.docs.broadcom }}/5/greenplum-database/ref_guide-extensions-postGIS.html) extension.
-* Added the ability to edit clusters and cluster settings via CLI as well as to grant access from {{ data-transfer-full-name }}. For more information, see [CLI releases](../cli/release-notes.md#version0.94.0).
+* Added the ability to edit clusters and cluster settings via CLI as well as to grant access from {{ data-transfer-full-name }}. For more information, see [YC CLI releases](../cli/release-notes.md#version0.94.0).
 * Updated the master failover mechanism: a former master is returned to a cluster as a replica and becomes available for another failover right after the first one completes.
 * Added the `gp_cancel_backend` function to forcibly stop user queries.
 * Added the `gp_terminate_backend` function to forcibly terminate user DB connections.

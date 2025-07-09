@@ -5,6 +5,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
 # Updating a backup policy
 
+
 {% include [policy-execute-time](../../../_includes/backup/policy-execute-time.md) %}
 
 ## Updating basic settings {#update-basic-parameters}
@@ -17,7 +18,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
   
   You cannot update backup policies with some advanced settings in the {{ yandex-cloud }} management console. To update the settings of such policies, use the {{ yandex-cloud }} CLI, {{ TF }}, or API.
 
-  If the changes in the backup policy settings have not taken effect on the VM or {{ baremetal-name }} server the policy was linked to, [detach](detach-vm.md) the policy from the VM and then [reattach](attach-and-detach-vm.md) it.
+  If the changes in the backup policy settings have not taken effect on the VM or {{ baremetal-name }} server the policy was associated with, [unlink](detach-vm.md) the policy from the VM and then [link](attach-and-detach-vm.md) it again.
 
   {% endnote %}
 
@@ -128,7 +129,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
      folder_id: d2q792qpemb4********
      ```
 
-     For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/update.md).
+     For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/update.md).
 
 - {{ TF }} {#tf}
 
@@ -200,7 +201,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
      {% endcut %}
 
-     For more information about `yandex_backup_policy` properties, see [this Terraform article]({{ tf-provider-resources-link }}/backup_policy).
+     For more information about `yandex_backup_policy` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/backup_policy).
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -223,7 +224,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the backup policy.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your backup policy.
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Select the backup policy where you want to edit the list of [VMs](../../../compute/concepts/vm.md) or {{ baremetal-name }} [servers](../../../baremetal/concepts/servers.md).
@@ -274,7 +275,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
        Where `--instance-ids` are the IDs of the VMs or {{ baremetal-name }} servers connected to {{ backup-name }} you need to link to the backup policy. Multiple IDs should be comma-separated.
 
-       For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
+       For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/apply.md).
      * To unlink VMs or {{ baremetal-name }} servers from a backup policy:
 
        View a description of the CLI command:
@@ -292,7 +293,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 
        Where `--instance-ids` are the IDs of the VMs or {{ baremetal-name }} servers you need to unlink from the backup policy. Multiple IDs should be comma-separated.
 
-       For more information about the command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/revoke.md).
+       For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/revoke.md).
 
 - API {#api}
 

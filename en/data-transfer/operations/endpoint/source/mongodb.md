@@ -32,7 +32,7 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 ## Configuring the {{ MG }} source endpoint {#endpoint-settings}
 
-{% include [MongodDB Verstion](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
+{% include [MongodDB Version](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
@@ -47,6 +47,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmg.viewer }}`](../../../../managed-mongodb/security/index.md#mmg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
+
 
 Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
@@ -68,7 +69,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     {% include [Managed MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-mongodb.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -103,7 +104,6 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 {% endlist %}
 
-
 ### Custom installation {#on-premise}
 
 The settings are given for the OnPremise use case when all fields are filled in manually.
@@ -126,7 +126,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
     {% include [On premise MongoDB Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-mongodb.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl

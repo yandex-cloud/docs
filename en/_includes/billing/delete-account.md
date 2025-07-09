@@ -18,6 +18,8 @@
 
 1. As soon as all the conditions are met, you billing account becomes inactive and can no longer be used to work with {{ yandex-cloud }} resources. To delete your inactive account, write us at [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
 
+   {% include [delete-cancel-note](delete-cancel-note.md) %}
+
 {% include [payment-refund](../../_includes/billing/payment-refund.md) %}
 
 {% note warning %}

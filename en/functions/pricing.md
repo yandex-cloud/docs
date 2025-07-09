@@ -14,6 +14,8 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ sf-name }} {#rules}
 
 In {{ sf-name }}, you pay for the number of function calls, computing resources allocated for the function, downtime of [provisioned instances](concepts/function.md#provisioned-instances), and outgoing traffic.

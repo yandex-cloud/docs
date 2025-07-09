@@ -129,14 +129,8 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
   ```bash
   {{ yc-mdb-pg }} database update <DB_name> \
      --cluster-name <cluster_name>
-     --extensions <extension_name>=<version>,<extension_name>=<version>...
+     --extensions <extension_name>,<extension_name>...
   ```
-
-  {% note info %}
-
-  The extension version is not considered when handling the command: you can pass any non-empty string as a version.
-
-  {% endnote %}
 
 - {{ TF }} {#tf}
 
@@ -153,7 +147,6 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
         ...
         extension {
           name    = "<extension_name>"
-          version = "<extension_version>"
         }
         ...
       }
@@ -187,8 +180,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
                  "updateMask": "extensions",
                  "extensions": [
                    {
-                     "name": "<extension_name>",
-                     "version": "<extension_version>"
+                     "name": "<extension_name>"
                    },
                    { <similar_configuration_for_extension_2> },
                    { ... },
@@ -206,9 +198,8 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
      * `extensions`: Array of DB extensions. Each object represents one extension and has the following structure:
 
        * `name`: Extension name.
-       * `version`: Extension version.
 
-       Specify the name and version from the [list of supported {{ PG }} extensions and utilities](#postgresql).
+       Specify the name from the [list of supported {{ PG }} extensions and utilities](#postgresql).
 
      You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](../databases.md#list-db).
 
@@ -242,8 +233,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
              },
              "extensions": [
                {
-                 "name": "<extension_name>",
-                 "version": "<extension_version>"
+                 "name": "<extension_name>"
                },
                { <similar_configuration_for_extension_2> },
                { ... },
@@ -263,9 +253,8 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
      * `extensions`: Array of DB extensions. One array element contains settings for a single extension and has the following structure:
 
        * `name`: Extension name.
-       * `version`: Extension version.
 
-       Specify the name and version from the [list of supported {{ PG }} extensions and utilities](#postgresql).
+       Specify the name from the [list of supported {{ PG }} extensions and utilities](#postgresql).
 
      You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](../databases.md#list-db).
 
@@ -311,7 +300,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 || <p>[pg_buffercache]({{ pg-docs }}/pgbuffercache.html)</p><p>Provides functions for monitoring the shared buffer cache.</p><p>To use this extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin) or the [`mdb_superuser` role](../../concepts/roles.md#mdb-superuser).</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.4 | 1.5 ||
 || <p>[pg_cron](https://github.com/citusdata/pg_cron)</p><p>Enables you to add scheduled jobs to a database and execute SQL commands directly from a job.</p><p>Requires [enabling the `pg_cron` shared library](#libraries-connection).</p><p>To use this extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin) or the [`mdb_superuser` role](../../concepts/roles.md#mdb-superuser).</p><p>Enabling the extension causes all hosts to restart. For more information, see [Using pg_cron](./pg_cron.md).</p> | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.4.1 | 1.5 | 1.6 ||
 || <p>[pg_hint_plan](http://pghintplan.osdn.jp/)</p><p>Provides functions for managing the {{ PG }} planner.</p><p>Requires [enabling the `pg_hint_plan` shared library](#libraries-connection).</p> | 1.3.4 | 1.3.5 | 1.3.7 | 1.4 | - | 1.6.0 | 1.7.0 ||
-|| <p>[pg_partman](https://github.com/pgpartman/pg_partman)</p><p>Extends support for table partitioning, including time-based and serial-based.</p> | 4.0.0 | 4.2.0 | 4.4.0 | 4.6.0 | 4.7.0 | 4.7.4 | 5.1.0 ||
+|| <p>[pg_partman](https://github.com/pgpartman/pg_partman)</p><p>Extends support for table partitioning, including time-based and serial-based.</p>  | 4.0.0 | 4.2.0 | 4.4.0 | 4.6.0 | 4.7.0 | 4.7.4 | 5.1.0 ||
 || <p>[pg_qualstats](https://github.com/powa-team/pg_qualstats)</p><p>Allows collecting statistics on predicates found in `WHERE` expressions and `JOIN` clauses.</p><p>Requires [enabling the `pg_qualstats` shared library](#libraries-connection).</p> | 2.0.3 | 2.0.3 | 2.0.3 | 2.0.3 | 2.0.4 | 2.1.0 | 2.1.1 ||
 || <p>[pg_prewarm]({{ pg-docs }}/pgprewarm.html)</p><p>Allows loading relation data into either the operating system buffer cache or the {{ PG }} buffer cache.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
 || <p>[pg_repack](http://reorg.github.io/pg_repack/)</p><p>Contains functions to remove bloat from tables and indexes. Unlike `CLUSTER` and `VACUUM FULL`, it does not require exclusive locking of tables.</p><p>To use this extension, you need the [`mdb_admin` role](../../concepts/roles.md#mdb-admin) or the [`mdb_superuser` role](../../concepts/roles.md#mdb-superuser).</p> | 1.4.6 | 1.4.6 | 1.4.6 | 1.4.7 | 1.4.8 | 1.4.8 | 1.4.8 ||
@@ -320,7 +309,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 || <p>[pg_stat_statements]({{ pg-docs }}/pgstatstatements.html)</p><p>Tracks planning and execution statistics of all SQL queries run in a cluster.</p><p>To use this extension, you need the [`mdb_monitor`](../../concepts/roles.md#mdb_monitor) role.</p> | 1.6 | 1.7 | 1.8 | 1.9 | 1.10 | 1.10 | 1.11 ||
 || <p>[pg_tm_aux](https://github.com/x4m/pg_tm_aux)</p><p>Enables you to create a logical replication slot in the past.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.1 | 1.1.1 | 1.1.1 ||
 || <p>[pg_trgm]({{ pg-docs }}/static/pgtrgm.html)</p><p>Provides tools for fast searching for similar strings based on trigram matching.</p> | 1.4 | 1.4 | 1.5 | 1.6 | 1.6 | 1.6 | 1.6 ||
-|| <p>[pgaudit](https://www.pgaudit.org/)</p><p>The extension provides additional logging tools and enhances the audit features.</p><p>Requires [enabling the `pgaudit` shared library](#libraries-connection).</p><p>For more information, see [Using pgaudit](./pgaudit.md).</p> | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.7 | 16.0 | 17.0 ||
+|| <p>[pgaudit](https://www.pgaudit.org/)</p><p>The extension provides additional logging tools and enhances the audit features.</p><p>Requires [enabling the `pgaudit` shared library](#libraries-connection).</p><p>For more information, see [Using pgaudit](./pgaudit.md).</p>  | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.7 | 16.0 | 17.0 ||
 || <p>[pgcrypto]({{ pg-docs }}/static/pgcrypto.html)</p><p>Provides cryptographic functions for {{ PG }}. For more information, see [Using pgcrypto](./pgcrypto.md).</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 ||
 || <p>[pglogical](https://github.com/2ndQuadrant/pglogical)</p><p>Adds support for logical streaming replication using the publish-subscribe mechanism.</p> | 2.4.1 | 2.4.1 | 2.4.1 | 2.4.1 | - | 2.4.3 | 2.4.5 ||
 || <p>[pgrouting](http://pgrouting.org/)</p><p>Extends the [PostGIS](https://www.postgis.net/) database to provide geospatial routing functionality.</p> | 2.6.2 | 2.6.2 | 3.0.2 | 3.3.0 | 3.4.1 | 3.5.0 | 3.6.2 ||

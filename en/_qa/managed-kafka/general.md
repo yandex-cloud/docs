@@ -1,6 +1,6 @@
-#### How do I ensure my cluster is fault tolerant? {#cluster-fault-tolerance}
+#### How do I achieve high cluster availability? {#cluster-fault-tolerance}
 
-Make sure it meets all [fault tolerance conditions](../../managed-kafka/concepts/index.md#fault-tolerance).
+Make sure it complies with all the [high availability conditions](../../managed-kafka/concepts/ha-cluster.md).
 
 #### What should do I do if I get this or similar error: "disk size must be at least ... according to topics partitions number and replication factor, but size is ..."? {#disk-size}
 

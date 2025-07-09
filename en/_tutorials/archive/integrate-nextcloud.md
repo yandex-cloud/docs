@@ -10,6 +10,16 @@ To implement a fault-tolerant Nextcloud configuration, you will need a domain fo
 
 {% endnote %}
 
+Fault-tolerant solution diagram:
+
+![integrate-nextcloud](../../_assets/tutorials/integrate-nextcloud/integrate-nextcloud.svg)
+
+Where:
+* `example.com`: Your domain for which a [certificate](../../certificate-manager/concepts/managed-certificate.md) is issued in {{ certificate-manager-full-name }}, connected to the [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md).
+* `nextcloud-alb`: L7 load balancer to evenly distribute incoming user traffic across instance group hosts.
+* `nextcloud-instance-group`: [Instance group](../../compute/concepts/instance-groups/index.md) with hosts the Nextcloud solution is deployed on.
+* `nextcloud-db-cluster`: {{ mmy-full-name }} [cluster](../../managed-mysql/concepts/index.md) with the Nextcloud service database.
+* `my-nextcloud-bucket`: {{ objstorage-full-name }} [bucket](../../storage/concepts/bucket.md) connected to the Nextcloud solution.
 
 To deploy Nextcloud in {{ yandex-cloud }} and connect an {{ objstorage-name }} bucket:
 
@@ -26,7 +36,7 @@ To deploy Nextcloud in {{ yandex-cloud }} and connect an {{ objstorage-name }} b
 1. [Deploy Nextcloud in a fault-tolerant configuration](#the-redundant-variant):
 
     1. [Scale the {{ mmy-name }} cluster](#expand-mysql-cluster).
-    1. [Complete the Nextcloud setup and create a VM disk snapshot](#create-snapshot).
+    1. [Complete Nextcloud setup and create a VM disk snapshot](#create-snapshot).
     1. [Add a TLS certificate to {{ certificate-manager-full-name }}](#issue-certificate).
     1. [Deploy an instance group](#create-instance-group).
     1. [Create an L7 load balancer](#setup-balancer).
@@ -88,9 +98,9 @@ You will deploy the basic Nextcloud configuration on a single VM with the Nextcl
           | --- | --- | --- | --- | --- | --- |
           | Ingress | `http`           | `80` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
           | Inbound | `https`           | `443` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-          | Inbound | `ssh`            | `22` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-          | Ingress | `self`            | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` |
-          | Inbound | `healthchecks`            | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | `–` |
+          | Inbound | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+          | Ingress | `self`            | `All`   | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` |
+          | Inbound | `healthchecks`            | `All`   | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | `–` |
           | Egress | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -170,7 +180,7 @@ To enable access from Nextcloud to the {{ objstorage-name }} bucket, create a [s
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account: `nextcloud-sa`.
-      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `editor` [role](../../iam/roles-reference.md#editor).
+      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select [`editor`](../../iam/roles-reference.md#editor).
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
     {% endlist %}
@@ -231,7 +241,7 @@ Create the VM to deploy Nextcloud on:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `nextcloud-network` and the subnet in the VM availability zone, `nextcloud-network-{{ region-id }}-a`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave the `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` value to assign the VM a random public IP address from the {{ yandex-cloud }} pool.
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select the `nextcloud-sg` security group.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select `nextcloud-sg`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
@@ -343,7 +353,7 @@ It may take a few minutes to create a cluster.
         ```
     1. Configure the default virtual host:
 
-        1. Open the default virtual host's configuration file:
+        1. Open the configuration file of the default virtual host:
 
             ```bash
             sudo nano /etc/apache2/sites-available/000-default.conf
@@ -471,7 +481,7 @@ The deployment of the Nextcloud basic configuration is now complete. If you used
 
 ## Deploy Nextcloud in a fault-tolerant configuration {#the-redundant-variant}
 
-You will deploy a fault-tolerant Nextcloud configuration in a three-VM group of three VMs, the load on Nextcloud hosts distributed with the help of an L7 {{ alb-full-name }}. The service database will reside in a three-host {{ MY }} cluster. Hosts of the instance group, load balancer, and {{ MY }} cluster will be evenly distributed across three [availability zones](../../overview/concepts/geo-scope.md). Nextcloud will be available via the domain name, for which a TLS certificate will be issued in {{ certificate-manager-name }}.
+You will deploy a fault-tolerant Nextcloud configuration in a group of three VMs, the load on Nextcloud hosts distributed with the help of an L7 {{ alb-full-name }}. The service database will reside in a three-host {{ MY }} cluster. Hosts of the instance group, load balancer, and {{ MY }} cluster will be evenly distributed across three [availability zones](../../overview/concepts/geo-scope.md). Nextcloud will be available via the domain name, for which a TLS certificate will be issued in {{ certificate-manager-name }}.
 
 ### Scale the {{ mmy-name }} cluster {#expand-mysql-cluster}
 
@@ -588,8 +598,8 @@ To enable access to Nextcloud over HTTPS, issue a TLS certificate for your domai
 
     {% endlist %}
 
-    A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain rights check](../../certificate-manager/operations/managed/cert-validate.md) for the request to be successfully processed.
-1. For the certificate to be issued successfully, pass a domain rights check:
+    A new certificate with the `Validating` status will appear in the certificate list. This status means that a Let's Encrypt® certificate was requested and you need to pass a [domain ownership check](../../certificate-manager/operations/managed/cert-validate.md) for the request to be successfully processed.
+1. For the certificate to be issued successfully, pass a domain ownership check:
 
     {% list tabs group=instructions %}
 
@@ -599,11 +609,11 @@ To enable access to Nextcloud over HTTPS, issue a TLS certificate for your domai
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. From the list of certificates, select `mymanagedcert`.
       1. In the window that opens, under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, select `CNAME record`.
-      1. Add a [CNAME record](../../dns/concepts/resource-record.md#cname) required for the domain rights check to your domain’s public DNS zone. This step's further actions will depend on whether your domain is managed by {{ dns-full-name }} or a third-party DNS provider:
+      1. Add a [CNAME record](../../dns/concepts/resource-record.md#cname) required for the domain ownership check to your domain’s public DNS zone. This step's further actions will depend on whether your domain is managed by {{ dns-full-name }} or a third-party DNS provider:
 
           {% include [creating-cname](../../_includes/certificate-manager/creating-cname.md) %}
 
-          The domain rights check may take from a few minutes to a few days. Wait until it is complete. As a result, the certificate will be issued and get the `Issued` status.
+          The domain ownership check may take from a few minutes to a few days. Wait until it is complete. As a result, the certificate will be issued and get the `Issued` status.
 
     {% endlist %}
 
@@ -660,13 +670,13 @@ Create an [application-level load balancer](../../application-load-balancer/conc
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-      1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** and click **{{ ui-key.yacloud_billing.alb.button_backend-group-create }}**.
+      1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** and click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
       1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the group: `nextcloud-bg`.
-      1. Enable **{{ ui-key.yacloud_billing.alb.label_session-affinity }}** and select `{{ ui-key.yacloud.alb.label_affinity-connection }}` in the **{{ ui-key.yacloud_billing.alb.label_session-affinity-mode }}** field that appears.
-      1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}** and do the following in the **{{ ui-key.yacloud_billing.alb.label_new-backend }}** form that opens:
+      1. Enable **{{ ui-key.yacloud.alb.label_session-affinity }}** and select `{{ ui-key.yacloud.alb.label_affinity-connection }}` in the **{{ ui-key.yacloud.alb.label_session-affinity-mode }}** field that appears.
+      1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}** and do the following in the **{{ ui-key.yacloud.alb.label_new-backend }}** form that opens:
 
           1. In the **{{ ui-key.yacloud.common.name }}** field, specify `nextcloud-backend`.
-          1. In the **{{ ui-key.yacloud_billing.alb.label_target-groups }}** field, select the `nextcloud-target-group` target group you created earlier.
+          1. In the **{{ ui-key.yacloud.alb.label_target-groups }}** field, select the `nextcloud-target-group` target group you created earlier.
           1. Expand the **{{ ui-key.yacloud.alb.label_lb-settings }}** section and select `MAGLEV_HASH` in the **{{ ui-key.yacloud.alb.label_load-balancing-mode }}** field.
           1. In the **HTTP health check**, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
       1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -683,12 +693,12 @@ Create an [application-level load balancer](../../application-load-balancer/conc
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
       1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the HTTP router: `nextcloud-router`.
-      1. Under **{{ ui-key.yacloud_billing.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}** and do the following in the **{{ ui-key.yacloud_billing.alb.label_new-virtual-host }}** form that opens:
+      1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}** and do the following in the **{{ ui-key.yacloud.alb.label_new-virtual-host }}** form that opens:
 
-          1. In the **{{ ui-key.yacloud.common.name }}** field, enter `nextcloud-vh` for the virtual host's name and click **{{ ui-key.yacloud_billing.alb.button_add-route }}**.
+          1. In the **{{ ui-key.yacloud.common.name }}** field, enter `nextcloud-vh` for the virtual host's name and click **{{ ui-key.yacloud.alb.button_add-route }}**.
           1. In the **{{ ui-key.yacloud.alb.label_new-route }}** form that opens, enter `nextcloud-route` as the route's name in the **{{ ui-key.yacloud.common.name }}** field.
-          1. In the **{{ ui-key.yacloud_billing.alb.label_backend-group }}** field, select the `nextcloud-bg` backend group created in the previous step.
-          1. Leave all other parameters as they are and click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}** at the bottom of the page.
+          1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** field, select the `nextcloud-bg` backend group created in the previous step.
+          1. Leave all other parameters as they are and click **{{ ui-key.yacloud.common.create }}** at the bottom of the page.
 
     {% endlist %}
 
@@ -704,15 +714,15 @@ Create an [application-level load balancer](../../application-load-balancer/conc
       1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the load balancer: `nextcloud-alb`.
       1. In the **{{ ui-key.yacloud.mdb.forms.label_network }}** field, select `nextcloud-network`.
       1. In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** field, select `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}` and then the `nextcloud-sg` security group from the list that opens.
-      1. Under **{{ ui-key.yacloud_billing.alb.section_allocation-settings }}**, make sure all availability zones are selected.
+      1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, make sure all availability zones are selected.
       1. If you do not want load balancer logs saved to a [log group](../../logging/concepts/log-group.md), disable **{{ ui-key.yacloud.alb.label_log-requests }}**.
-      1. In the **{{ ui-key.yacloud_billing.alb.label_listeners }}** section, click **{{ ui-key.yacloud.alb.button_add-listener }}** and in the form that opens:
+      1. In the **{{ ui-key.yacloud.alb.label_listeners }}** section, click **{{ ui-key.yacloud.alb.button_add-listener }}** and in the form that opens:
 
           1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the listener: `nextcloud-listener`.
           1. In the **{{ ui-key.yacloud.alb.label_protocol-type }}** field, select `HTTPS`.
-          1. In the **{{ ui-key.yacloud_billing.alb.label_certificate }}** field, select the `mymanagedcert` certificate you created earlier.
-          1. In the **{{ ui-key.yacloud_billing.alb.label_http-router }}** field, select the `nextcloud-router` HTTP router you created earlier.
-      1. Leave all other parameters as they are and click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}** at the bottom of the page.
+          1. In the **{{ ui-key.yacloud.alb.label_certificate }}** field, select the `mymanagedcert` certificate you created earlier.
+          1. In the **{{ ui-key.yacloud.alb.label_http-router }}** field, select the `nextcloud-router` HTTP router you created earlier.
+      1. Leave all other parameters as they are and click **{{ ui-key.yacloud.common.create }}** at the bottom of the page.
 
     {% endlist %}
 
@@ -735,7 +745,7 @@ To route your domain's incoming requests to an L7 load balancer, in your DNS zon
       1. In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
       1. In the **{{ ui-key.yacloud.common.type }}** field, select `A`.
       1. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the load balancer IP address you saved in the previous step.
-      1. Leave other parameters as they are and click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
+      1. Leave other parameters as they are and click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

@@ -106,7 +106,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     {% include [Managed ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse-target.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -164,7 +164,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
     {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse-target.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -226,6 +226,10 @@ Connecting to the database with explicitly specified network addresses and ports
 
     * {% include [flush_interval](../../../../_includes/data-transfer/fields/clickhouse/ui/flush-interval.md) %}
 
+    * {% include [retry-failed-toasts](../../../../_includes/data-transfer/fields/retry-failed-toasts.md) %}
+
+    * {% include [alter-schema-change](../../../../_includes/data-transfer/fields/alter-schema-change.md) %}
+
 - CLI {#cli}
 
     * {% include [alt-name](../../../../_includes/data-transfer/fields/clickhouse/cli/alt-name.md) %}
@@ -263,6 +267,8 @@ Connecting to the database with explicitly specified network addresses and ports
         * {% include [round_robin](../../../../_includes/data-transfer/fields/clickhouse/terraform/round-robin.md) %}
 
         You can only specify one of the sharding options: `sharding.column_value_hash.column_name`, `sharding.transfer_id`, `sharding.custom_mapping`, or `sharding.round_robin`. If no sharding option is specified, all data will be transferred to a single shard.
+    
+    * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 
 - API {#api}
 

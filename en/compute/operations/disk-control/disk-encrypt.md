@@ -1,6 +1,6 @@
 ---
 title: How to encrypt a disk in {{ compute-full-name }}
-description: Follow this guide to encrypt a disk.
+description: Follow this guide to encrypt a disk in {{ compute-short-name }}.
 ---
 
 # Encrypting a disk
@@ -40,8 +40,7 @@ description: Follow this guide to encrypt a disk.
         --deletion-protection
       ```
 
-      Where:
-      * `--name`: Name of the new {{ kms-name }} key.
+      Where `--name` is the name of the new {{ kms-name }} key.
 
       Result:
 
@@ -74,8 +73,8 @@ description: Follow this guide to encrypt a disk.
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       |          ID          |     NAME     |    SIZE     |     ZONE      | STATUS |     INSTANCE IDS     |       DESCRIPTION       |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
-      | a7lqgbt0bb9s******** | first-disk   | 20401094656 | ru-central1-a | READY  | a7lcvu28njbh******** |                         |
-      | a7lv5j5hm1p1******** | second-disk  | 21474836480 | ru-central1-a | READY  |                      |                         |
+      | a7lqgbt0bb9s******** | first-disk   | 20401094656 | {{ region-id }}-a | READY  | a7lcvu28njbh******** |                         |
+      | a7lv5j5hm1p1******** | second-disk  | 21474836480 | {{ region-id }}-a | READY  |                      |                         |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       ```
 
@@ -124,12 +123,12 @@ description: Follow this guide to encrypt a disk.
 
       ```text
       done (53s)
-      id: fhmihpagi991amj4m7h3
+      id: fhmihpagi991********
       folder_id: b1geoelk7fld********
       created_at: "2025-05-20T17:39:01Z"
-      name: fromcliencrypte
+      name: fromcliencrypted
       type_id: network-hdd
-      zone_id: ru-central1-a
+      zone_id: {{ region-id }}-a
       size: "21474836480"
       block_size: "4096"
       status: READY
@@ -249,4 +248,5 @@ description: Follow this guide to encrypt a disk.
 #### See also {#see-also}
 
 * [{#T}](../../concepts/encryption.md)
+* [{#T}](../image-control/encrypt.md)
 * [{#T}](../snapshot-control/snapshot-encrypt.md)

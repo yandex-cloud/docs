@@ -68,7 +68,7 @@ To fix the issue, delete the stuck resources manually.
 
 {% endlist %}
 
-#### I am using {{ network-load-balancer-full-name }} alongside an Ingress controller. Why are some of my cluster's nodes UNHEALTHY? {#nlb-ingress}
+#### I am using {{ network-load-balancer-full-name }} together with an ingress controller. Why are some of my cluster's nodes UNHEALTHY? {#nlb-ingress}
 
 This is normal behavior for a [load balancer](../../network-load-balancer/concepts/index.md) with `External Traffic Policy: Local` enabled. Only the [{{ managed-k8s-name }} nodes](../../managed-kubernetes/concepts/index.md#node-group) whose [pods](../../managed-kubernetes/concepts/index.md#pod) are ready to accept user traffic get the `HEALTHY` status. The rest of the nodes are labeled as `UNHEALTHY`.
 
@@ -116,7 +116,7 @@ Make sure the new configuration of {{ managed-k8s-name }} nodes is within the [q
      yc managed-kubernetes cluster list-nodes <cluster_ID>
      ```
 
-     A message saying that the allowed amount of {{ managed-k8s-name }} cluster resources has been exceeded is displayed in the first column of the command output. For example:
+     A message saying that the allowed amount of {{ managed-k8s-name }} cluster resources has been exceeded is displayed in the first column of the command output. Here is an example:
 
      ```text
      +--------------------------------+-----------------+------------------+-------------+--------------+
@@ -137,7 +137,7 @@ Make sure the new configuration of {{ managed-k8s-name }} nodes is within the [q
 
 To run your {{ managed-k8s-name }} cluster, [increase the quotas](../../managed-kubernetes/concepts/limits.md).
 
-#### An error occurs when renewing an Ingress controller certificate {#ingress-certificate}
+#### Error renewing ingress controller certificate {#ingress-certificate}
 
 Error message:
 
@@ -148,9 +148,9 @@ desc = Validation error:\nlistener_specs[1].tls.sni_handlers[2].handler.certific
 Number of elements must be less than or equal to 1"}
 ```
 
-The error occurs if different certificates are specified for the same Ingress controller listener.
+The error occurs if different certificates are specified for the same ingress controller listener.
 
-**Solution**: Edit and apply the Ingress controller specifications making sure that only one certificate is specified in each listener's description.
+**Solution**: Edit and apply the ingress controller specifications so that only one certificate is specified in each listener's description.
 
 #### Why is DNS name resolution not working in my cluster? {#not-resolve-dns}
 
@@ -231,7 +231,7 @@ Make sure you only provide one of the three parameters in a command. It is enoug
 
 {% include [assign-public-ip-addresses](../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
 
-#### Error connecting to a cluster using kubectl {#connect-to-cluster}
+#### Error connecting to a cluster using `kubectl` {#connect-to-cluster}
 
 Error message:
 
@@ -319,3 +319,13 @@ This error occurs if access to {{ GL }} over HTTP(S) is disabled.
   1. In the list, select the item which allows access over HTTP(S).
 
   [For more information, see the {{ GL }} documentation](https://docs.gitlab.com/administration/settings/visibility_and_access_controls/#configure-enabled-git-access-protocols).
+
+#### Traffic loss when deploying app updates in a cluster with a {{ alb-full-name }} {#alb-traffic-lost}
+
+When your app traffic is managed by an {{ alb-name }} and the load balancer's ingress controller [traffic policy](../../managed-kubernetes/nlb-ref/service.md#servicespec) is set to `externalTrafficPolicy: Local`, the app processes requests on the same node they were delivered to by the load balancer. There is no traffic flow between nodes.
+
+The [default health check](../../network-load-balancer/concepts/health-check.md) monitors the status of the node, not application. Therefore, {{ alb-name }} traffic may go to a node where there is no application running. When you deploy a new app version in a cluster, the [{{ alb-name }} ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) requests the load balancer to update the backend group configuration. It takes at least 30 seconds to process the request, during which time the app may not be getting any user traffic.
+
+To prevent this, we recommend setting up backend health checks on your {{ alb-name }}. Thanks to health checks, the load balancer spots unavailable backends in a timely manner and diverts traffic to other backends. Once the app update is over, traffic will once again be distributed between all backends.
+
+For more information, see [{#T}](../../application-load-balancer/concepts/best-practices.md) and [{#T}](../../application-load-balancer/k8s-ref/service-for-ingress.md#annotations).

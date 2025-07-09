@@ -7,7 +7,7 @@ keywords:
 
 # Connecting to a {{ TR }} cluster
 
-You can connect to a {{ mtr-name }} cluster.
+This section presents settings for connection to the {{ mtr-name }} cluster using [command line tools](#cli-tools), from [graphical IDEs](#connection-ide) and [WebSQL](#websql). To learn how to connect from your application code, see [Connection string examples](#connection-strings).
 
 ## Command line tools {#cli-tools}
 

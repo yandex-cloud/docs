@@ -5,6 +5,24 @@ description: This section contains {{ websql-name }} release notes.
 
 # {{ websql-full-name }} release notes: 2025
 
+## June {#june}
+
+### New features {#new-features-june}
+
+1. Added support for {{ GP }} connections.
+
+1. Added support for [pagination](../operations/query-executor.md#pagination) in the query editor.
+
+1. Added an option to share a query link from the editor.
+
+### Improvements {#improvements-june}
+
+1. Added support for materialized views and partitioned tables in {{ PG }} connections.
+
+1. Added info on table columns in the connection tree.
+
+1. Improved command autocompletion in {{ MG }} connections.
+
 ## May {#may}
 
 ### Improvements {#improvements-may}
@@ -97,7 +115,7 @@ Fixed an issue where certain authors were shown as unknown users in the query hi
 
 #### New features {#new-features-september}
 
-1. Now you can [connect](../quickstart.md) to unsharded {{ RD }} clusters.
+1. Now you can [connect](../quickstart.md) to non-sharded {{ RD }} clusters.
 
 1. Added the [`websql.auditor`](../security/index.md#websql-auditor), [`websql.executedQueries.auditor`](../security/index.md#websql-executedqueries-auditor), and [`websql.savedQueries.auditor`](../security/index.md#websql-savedqueries-auditor) roles to view query metadata and related access permissions.
 

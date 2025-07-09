@@ -1,3 +1,8 @@
+---
+title: ERR.DS_API.DB.CANNOT_PARSE.DATETIME error
+description: This page describes the ERR.DS_API.DB.CANNOT_PARSE.DATETIME error.
+---
+
 # Cannot parse datetime
 
 `ERR.DS_API.DB.CANNOT_PARSE.DATETIME`

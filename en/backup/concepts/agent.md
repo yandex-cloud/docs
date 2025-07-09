@@ -1,4 +1,10 @@
+---
+title: '{{ backup-full-name }} agent'
+description: The {{ backup-name }} agent interfaces the resources with {{ backup-name }} and the backup provider.
+---
+
 # {{ backup-name }} agent
+
 
 The {{ backup-name }} agent interfaces the resources with {{ backup-name }} and the backup provider. It is installed on [{{ compute-full-name }}](../../compute/index.yaml) VMs or [{{ baremetal-full-name }}](../../baremetal/index.yaml) servers.
 

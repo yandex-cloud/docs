@@ -5,6 +5,7 @@ description: Follow this guide to delete all backups of a VM or {{ baremetal-nam
 
 # Deleting all backups of a VM or {{ baremetal-name }} server
 
+
 If you need to delete all backups of a [VM](../../../compute/concepts/vm.md) or [{{ baremetal-name }} server](../../../baremetal/concepts/servers.md), the faster and more effective way to delete them as a whole [archive](../../concepts/backup.md#archives) rather than separately. This way, you can save time and avoid possible errors.
 
 To delete the backup archive of a VM or {{ baremetal-name }} server:

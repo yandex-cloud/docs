@@ -21,6 +21,7 @@ You can set up access to an organization's resources for individual users or use
 
 * [User groups](groups.md): Allow issuing identical access permissions to several users at the same time.
 * [Identity federation](add-federation.md): Implements a single sign-on system for users within an organization – even users without a Yandex account.
+* [User pools](user-pools.md): Allow grouping [local users](../../iam/concepts/users/accounts.md#local) into containers.
 * [{{ iam-full-name }}](../../iam/concepts/index.md): Provides users with roles they need to perform specific operations with a particular {{ yandex-cloud }} resource.
 
 ## Service management {#service-management}

@@ -1,0 +1,1 @@
+{% include [reports](../../_qa/datalens/reports.md) %}

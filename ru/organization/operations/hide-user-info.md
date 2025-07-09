@@ -45,7 +45,7 @@ description: Следуя данной инструкции, вы узнаете
 
   1. На панели слева выберите ![shield](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.oslogin.title }}**.
 
-  1. В блоке **{{ ui-key.yacloud_org.form.oslogin-settings.title_users-list-visibility }}** включите опцию **{{ ui-key.yacloud_org.form.oslogin-settings.title_hide-users-list }}**.
+  1. В блоке **{{ ui-key.yacloud_org.organization.security-settings.OtherSecuritySettingsForm.title_users-list-visibility_ftTaP }}** включите опцию **{{ ui-key.yacloud_org.organization.security-settings.OtherSecuritySettingsForm.title_hide-users-list_9eW2W }}**.
 
       Чтобы вернуть пользователям возможность просматривать информацию о других пользователях этой организации, отключите эту опцию.
 

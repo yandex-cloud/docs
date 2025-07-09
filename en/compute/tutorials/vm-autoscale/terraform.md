@@ -1,13 +1,13 @@
 ---
-title: Running anautoscaling instance group with {{ TF }}
-description: In this tutorial, we will configure an autoscaling instance group using {{ TF }}.
+title: Working with an instance group with autoscaling using {{ TF }}
+description: In this tutorial, we will configure an instance group with autoscaling using {{ TF }}.
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-autoscale/terraform'
 ---
 
-# Running anautoscaling instance group with {{ TF }}
+# Working with an instance group with autoscaling using {{ TF }}
 
 
-To create an infrastructure for an [autoscaling instance group](index.md) with {{ TF }}:
+To create an infrastructure for an [instance group with autoscaling](index.md) using {{ TF }}:
 
 {% include [vm-autoscale-terraform](../../../_tutorials/infrastructure/vm-autoscale-terraform.md) %}
 

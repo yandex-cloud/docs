@@ -1,4 +1,10 @@
+---
+title: How to get started with {{ backup-full-name }}
+description: This guide describes how you can get started with {{ backup-name }}.
+---
+
 # Getting started with {{ backup-full-name }}
+
 
 {{ backup-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data.
 
@@ -126,7 +132,7 @@ To activate the service, you need _at least_ the `backup.editor` [role](security
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM connected to {{ backup-name }}.
+  1. In the [management console]({{ link-console-main }}), select the folder you want to create a VM with a {{ backup-name }} connection in.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. If you have not activated {{ backup-name }} yet, click **{{ ui-key.yacloud.backup.button_action-activate }}**.
 
@@ -204,7 +210,7 @@ For more information, see [{#T}](../compute/operations/index.md#vm-create).
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder where the service is activated.
+      1. In the [management console]({{ link-console-main }}), select the folder where you activated {{ backup-name }}.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
       1. Navigate to the ![policies](../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
       1. Select one of the policies created by default.

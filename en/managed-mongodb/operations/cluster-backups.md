@@ -46,6 +46,8 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
+      To recover a sharded cluster, use a [sharded backup](../concepts/backup.md#size). Such backups are larger in size.
+
   1. Set up the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
 
   1. To restore the cluster to a particular point in time after creating this backup, configure **{{ ui-key.yacloud.mdb.forms.field_date }}** accordingly. You can enter the date manually or select it from the drop-down calendar.
@@ -61,6 +63,8 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
   1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_backups }}**.
 
   1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs formatted as `<cluster_ID>:<backup_ID>`.
+
+      If you want to recover a sharded cluster, find its [sharded backup](../concepts/backup.md#size). Such backups are larger in size.
 
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
@@ -107,10 +111,12 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
      The backup completion time is shown in the `CREATED AT` column of the list of available backups, in `yyyy-mm-dd hh:mm:ss` format (`2020-08-10 12:00:00` in the example above). You can restore a cluster to any point in time starting with the point when the backup is created.
 
-  1. Run the command to create a new cluster from a backup (the example shows only some parameters):
+  1. Run the command to create a new cluster from a backup. The examples below do not include all parameters.
 
-     
-     ```bash
+      
+      For a non-sharded cluster:
+
+      ```bash
       {{ yc-mdb-mg }} cluster restore \
          --backup-id <backup_ID> \
          --recovery-target-timestamp <time_point> \
@@ -126,8 +132,40 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
          --performance-diagnostics=<enable_diagnostics>
       ```
 
+      For a sharded cluster:
+
+      ```bash
+      {{ yc-mdb-mg }} cluster restore \
+         --backup-id <backup_ID> \
+         --recovery-target-timestamp <time_point> \
+         --mongodb-version <{{ MG }}_version> \
+         --name <new_cluster_name> \
+         --environment <environment> \
+         --network-name <network_name> \
+         --host zone-id=<availability_zone>,`
+               `subnet-id=<subnet_ID>,`
+               `type=mongod,`
+               `shard-name=<shard_name> \
+         --mongod-resource-preset <host_class> \
+         --mongod-disk-size <storage_size_in_GB> \
+         --mongod-disk-type <disk_type> \
+         --host zone-id=<availability_zone>,`
+               `subnet-id=<subnet_ID>,`
+               `type=<host_type> \
+         ...
+         --host zone-id=<availability_zone>,`
+               `subnet-id=<subnet_ID>,`
+               `type=<host_type> \
+         --<host_type>-resource-preset <host_class> \
+         --<host_type>-disk-size <storage_size_in_GB> \
+         --<host_type>-disk-type <disk_type> \
+         --performance-diagnostics=<enable_diagnostics>
+      ```
+
 
       Where:
+
+      * `--backup-id`: Backup ID. To recover a sharded cluster, specify the [sharded backup](../concepts/backup.md#size) ID. Such backups are larger in size. To find out the ID, [get a list of folder backups](#list-backups).
 
       * `--recovery-target-timestamp`: Time point to restore the {{ MG }} cluster to, in [UNIX time](https://en.wikipedia.org/wiki/Unix_time) format. If you omit this parameter, the cluster state will be restored to the backup completion time.
       * `--environment`: Environment, `PRESTABLE` or `PRODUCTION`.
@@ -135,6 +173,8 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
       
       * `--mongod-disk-type`: Disk type, `network-hdd`, `network-ssd`, or `network-ssd-io-m3`.
 
+
+      * `--<host_type>-resource-preset`, `--<host_type>-disk-size`, `--<host_type>-disk-type`: Host parameters that manage sharding in the cluster. The possible `<host_type>` values are `mongoinfra`, `mongocfg`, or `mongos`.
 
       * `--performance-diagnostics`: Enables cluster performance diagnostics, `true` or `false`.
 
@@ -165,6 +205,14 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
                   "diskSize": "<storage_size_in_bytes>",
                   "diskTypeId": "<disk_type>"
                 }
+              },
+              ...
+              "<{{ MG }}_host_type>": {
+                "resources": {
+                  "resourcePresetId": "<host_class>",
+                  "diskSize": "<storage_size_in_bytes>",
+                  "diskTypeId": "<disk_type>"
+                }
               }
             }
           },
@@ -187,7 +235,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
         Where:
 
         * `folderId`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
-        * `backupId`: Backup ID. To find out the ID, [get a list of folder backups](#list-backups).
+        * `backupId`: Backup ID. To recover a sharded cluster, specify the [sharded backup](../concepts/backup.md#size) ID. Such backups are larger in size. To find out the ID, [get a list of folder backups](#list-backups).
         * `name`: Name of the new cluster.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
         * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.
@@ -257,6 +305,14 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
                   "disk_size": "<storage_size_in_bytes>",
                   "disk_type_id": "<disk_type>"
                 }
+              },
+              ...
+              "<{{ MG }}_host_type>": {
+                "resources": {
+                  "resource_preset_id": "<host_class>",
+                  "disk_size": "<storage_size_in_bytes>",
+                  "disk_type_id": "<disk_type>"
+                }
               }
             }
           },
@@ -279,7 +335,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
         Where:
 
         * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
-        * `backup_id`: Backup ID. To find out the ID, [get a list of folder backups](#list-backups).
+        * `backup_id`: Backup ID. To recover a sharded cluster, specify the [sharded backup](../concepts/backup.md#size) ID. Such backups are larger in size. To find out the ID, [get a list of folder backups](#list-backups).
         * `name`: Name of the new cluster.
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
         * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) the cluster will be in.

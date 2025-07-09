@@ -5,6 +5,7 @@ description: Follow this guide to configure the backup agent to limit the use of
 
 # Limiting RAM usage by the {{ backup-name }} agent
 
+
 {% include [agent-ram-usage-paragraph](../../_includes/backup/operations/agent-ram-usage-paragraph.md) %}
 
 To prevent such issues, you can limit the amount of data the agent caches in RAM.

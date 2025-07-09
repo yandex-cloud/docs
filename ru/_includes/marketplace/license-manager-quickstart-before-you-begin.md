@@ -1,5 +1,5 @@
 1. [Станьте партнером](../../marketplace/quickstart.md#send-application) {{ marketplace-short-name }} и [зарегистрируйте](../../marketplace/operations/registration.md) аккаунт юридического лица.
-1. В [кабинете партнера](({{ link-cloud-partners }})) создайте [продукт](../../marketplace/operations/create-product.md) и [тариф](../../marketplace/operations/create-tariff.md) с типом [Subscription](../../marketplace/concepts/subscription.md).
+1. В [кабинете партнера]({{ link-cloud-partners }}) создайте [продукт](../../marketplace/operations/create-product.md) и [тариф](../../marketplace/operations/create-tariff.md) с типом [Subscription](../../marketplace/concepts/subscription.md).
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого вы будете аутентифицироваться в API.
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) сервисному аккаунту роль `license-manager.saasSubscriptionSupervisor` на [профиль партнера](../../marketplace/concepts/publisher.md) и на ваш [продукт](../../marketplace/concepts/product.md).
 1. [Получите](../../iam/concepts/authorization/iam-token) IAM-токен для сервисного аккаунта, от имени которого вы будете аутентифицироваться в License Manager API.

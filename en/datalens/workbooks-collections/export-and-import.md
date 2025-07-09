@@ -5,7 +5,7 @@ description: Follow this guide to export and import workbooks.
 
 # Exporting and importing workbooks
 
-In {{ datalens-short-name }}, you can move [workbooks](./index.md) between installations using export and import tools. For example, you can export a ready-made workbook with its settings and links from cloud {{ datalens-full-name }} to an [open source](https://datalens.tech) installation.
+In {{ datalens-short-name }}, you can move [workbooks](./index.md) between installations using export and import tools. For example, you can export a ready-made workbook with its settings and connections from the cloud {{ datalens-full-name }} to an [open source](https://datalens.tech) installation.
 
 
 {% note info %}
@@ -13,7 +13,7 @@ In {{ datalens-short-name }}, you can move [workbooks](./index.md) between insta
 * You can only export and import workbooks.
 * Some connection types [are not available](#restrictions) for export and import.
 * Export is available to users with the `{{ roles-datalens-admin }}` role.
-* Import is available to users who have permission to create a new workbook.
+* Import is available to users who have permissions to create a new workbook.
 
 {% endnote %}
 
@@ -32,9 +32,9 @@ To export a workbook:
 1. Click **Export**. You can see the progress in the indicator. Note the following:
 
    * Workbooks are exported to a JSON file.
-   * Export may take a few minutes.
-   * Sensitive [connection](../concepts/connection.md) data is not saved. During [import](#import-workbook), the user will have to set up connections again, e.g., specify a token or enter a password, and for connections to a [file](../operations/connection/create-file.md), [Yandex Documents](../operations/connection/create-yadocs.md), or [Google Sheets](../operations/connection/create-google-sheets.md), reupload the data.   
-   * Other {{ datalens-short-name }} versions may not support certain connection types. During import, such connections will not work.
+   * This may take a few minutes.
+   * Sensitive [connection](../concepts/connection.md) data is not saved. During [import](#import-workbook), the user will have to set up connections again, e.g., specify a token or enter a password, and for connections to a [file](../operations/connection/create-file.md), [Yandex Documents](../operations/connection/create-yadocs.md), or [Google Sheets](../operations/connection/create-google-sheets.md), reupload the data.
+   * Other {{ datalens-short-name }} versions may not support certain connection types. During import, such connection will not work.
    
    If you try to close the indicator window before the export is complete, you will get the cancel export warning. Select:
 

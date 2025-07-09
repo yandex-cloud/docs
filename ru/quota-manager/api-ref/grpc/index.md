@@ -13,5 +13,7 @@ Actions are performed by making RPC calls. For more information about API archit
 
 #|
 ||Service | Description ||
+|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [QuotaLimit](QuotaLimit/index.md) | A set of methods for managing quota limits. ||
+|| [QuotaRequest](QuotaRequest/index.md) | A set of methods for managing quota requests. ||
 |#

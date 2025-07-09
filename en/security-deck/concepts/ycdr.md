@@ -1,23 +1,23 @@
 ---
 title: '{{ ycdr-full-name }}'
-description: '{{ ycdr-name }} is a {{ sd-name }} module that collects data on your service settings within the {{ yandex-cloud }} infrastructure.'
+description: '{{ ycdr-name }} is a module within {{ sd-name }} that collects data on settings of your {{ yandex-cloud }} service infrastructure.'
 ---
 
-# {{ ycdr-full-name }}
+# About {{ ycdr-full-name }}
 
 {% include [preview-by-request](../../_includes/note-preview-by-request.md) %}
 
-{{ycdr-full-name }} is a {{sd-full-name }} module for monitoring and responding to incidents in {{yandex-cloud }}. {{ycdr-name }} is developed on the basis of the security operations center (SOC) of the {{yandex-cloud }} platform. The module collects data from the cloud infrastructure to detect anomalies. When anomalies are detected, {{ycdr-name }} creates alerts indicating a potential incident.
+{{ ycdr-full-name }} is a module that monitors and responds to{{ yandex-cloud }} infrastructure incidents. {{ ycdr-name }} is built around {{ yandex-cloud }}'s in-house Security Operations Center (SOC). The module collects data from the cloud infrastructure to detect anomalies. When {{ ycdr-name }} detects an anomaly, it creates alerts indicating a potential incident.
 
-The collected data is analyzed using the {{yandex-cloud}} SIEM system. Events are transmitted to the SIEM system through a collector. The collector is installed in the {{managed-k8s-name}} cluster, which ensures its scalability and fault tolerance.
+The {{ yandex-cloud }} SIEM system analyzes the collected data. Events are sent to the SIEM system via a _collector_. The collector is installed in a {{ managed-k8s-name }} cluster, which ensures its scalability and fault-tolerance.
 
-The collector must have access to an external network to send events to {{yandex-cloud}} SIEM. The events are sent over the TLS protocol, and since the SIEM is physically located within the {{yandex-cloud}} infrastructure, the data does not leave the data center.
+The collector must have access to the external network to send events to the {{ yandex-cloud }} SIEM. Yet, since events are sent over the TLS protocol and SIEM is physically located in the {{ yandex-cloud }} infrastructure, the data remains inside the data center.
 
-The collector operates at the [cloud](../../resource-manager/concepts/resources-hierarchy.md) level. Each cloud should have a separate collector.
+The collector works at the [cloud](../../resource-manager/concepts/resources-hierarchy.md) level. Each cloud must have a dedicated collector for sending events.
 
-The collector architecture includes two modules:
+The collector architecture comprises two modules:
 
-1.  A component for collecting and sending events based on `Vector`. Allows receiving events from `osquery` agents and custom events over the HTTP protocol.
-1. The `syslog` component collects events and sends them to the Vector-based component for further processing.
+1. `Vector`-based component for collecting and sending events. It enables receiving events from `osquery` agents and random events over HTTP.
+1. `syslog` event collection component which collects events and sends them to the `Vector`-based component for further processing.
 
-In {{ycdr-full-name}}, you can select a detected incident from the list and get additional context, classification, recommendations for its mitigation, and examine the incident details. Statistics on detected incidents are displayed on the dashboard on the module's main page.
+In {{ ycdr-full-name }}, you can acess a list of detected incidents and select one to get troubleshooting recommendations with additional context and view the incident details and category. To see the statistics for detected incidents, refer to the dashboard on the main page.

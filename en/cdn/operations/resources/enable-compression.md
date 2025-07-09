@@ -5,13 +5,15 @@ description: Follow this guide to enable file compression.
 
 # Enabling file compression
 
-To enable [compression](../../concepts/compression.md) of [resource](../../concepts/resource.md) files:
-
 {% note info %}
 
 Before delivery, CDN servers will compress the content using the GZIP algorithm. Clients receive content in the same format with the `Content-Encoding` HTTP header. Only uncompressed content is requested from origins.
 
 {% endnote %}
+
+Enabling file compression also helps avoid the situation where compressed files are delivered to users who had not requested compressed content. For more information, see [Troubleshooting in {{ cdn-name }}](../../troubleshooting.md#compressed-files).
+
+To enable [compression](../../concepts/compression.md) of [resource](../../concepts/resource.md) files:
 
 {% list tabs group=instructions %}
 
@@ -163,7 +165,7 @@ Before delivery, CDN servers will compress the content using the GZIP algorithm.
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Apply the changes:
      ```

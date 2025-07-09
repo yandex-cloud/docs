@@ -16,6 +16,8 @@ A resource group may include several [roles](cluster-users.md) that will share t
 
 {{ GP }} gets a transaction query from the user and matches its resource requirements with the unused quotas in the resource group. If the quotas are sufficient, the query execution begins immediately. If not, the query waits for other queries to be completed and to free up the resources. Queries are queued based on the _first in, first out_ (FIFO) principle.
 
+For information on how to manage resource groups, see [this guide](../operations/resource-groups.md).
+
 ## Resource group parameters {#parameters}
 
 Every resource group has the following parameters:
@@ -28,7 +30,7 @@ Every resource group has the following parameters:
 | `CPUSET`              | The numbers of allocated CPU cores. The numbers or intervals are enclosed in quotes, e.g., `'1,3-4'`. Use the numbers that exist in the system and are not allocated to other resource groups. The value is automatically reset to `-1` if the `CPU_RATE_LIMIT` parameter is specified. |
 | `MEMORY_LIMIT`        | The percentage of RAM reserved for the segment. The minimum value is `0` (default); the maximum value is `100`. When the value is `0`, the resource group can only use [non-allocated RAM](#ram) to run queries. The total `MEMORY_LIMIT` value for all resource groups may not exceed `100`. |
 | `MEMORY_SHARED_QUOTA` | The allocated memory percentage (`MEMORY_LIMIT`) that can be used by all the resource group transactions as needed. The minimum value is `1`; the maximum value is `100`. The default value is `80`. For more information, see [Memory allocation](#ram). |
-| `MEMORY_SPILL_RATIO` | The RAM usage threshold per transaction operator. When this threshold is reached, temporary files are created on the disk to process the operator. The minimum value is `0` (default); the maximum value is `100`. If `MEMORY_LIMIT` is `0`, this parameter must also equal `0`. |
+| `MEMORY_SPILL_RATIO`  | The RAM usage threshold per transaction operator. When this threshold is reached, temporary files are created on the disk to process the operator. The minimum value is `0` (default); the maximum value is `100`. If `MEMORY_LIMIT` is `0`, this parameter must also equal `0`. |
 
 ## Default resource groups {#default}
 

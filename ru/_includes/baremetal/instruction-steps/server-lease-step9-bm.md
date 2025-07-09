@@ -1,4 +1,4 @@
-В блоке **{{ ui-key.yacloud.baremetal.title_section-server-network-settings }}**:
+В блоке **Сетевые настройки**:
 
 1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите существующую [приватную подсеть](../../../baremetal/concepts/network.md#private-subnet) или нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать новую.
 1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите способ назначения публичного адреса:

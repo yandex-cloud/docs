@@ -1,3 +1,8 @@
+---
+title: ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED error
+description: This page describes the ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED error.
+---
+
 # Subquery source is disallowed in the connection settings
 
 `ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED`

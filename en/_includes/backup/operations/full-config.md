@@ -4,6 +4,18 @@
   "format": "string",
   "multiVolumeSnapshottingEnabled": bool,
   "preserveFileSecuritySettings": bool,
+  "runLater": bool,
+  "sectorBySector": bool,
+  "validationEnabled": bool,
+  "lvmSnapshottingEnabled": bool,
+  "fileFilters": {
+    "exclusionMasks": [
+      "string"
+    ],
+    "inclusionMasks": [
+      "string"
+    ]
+  },
   "reattempts": {
     "enabled": bool,
     "interval": {
@@ -113,10 +125,14 @@ Specification description:
 | `compression` | Backup compression ratio. | <ul><li>`COMPRESSION_UNSPECIFIED`: Not specified.</li><li>`NORMAL`: Standard compression ratio.</li><li>`HIGH`: High compression ratio.</li><li>`MAX`: Maximum compression ratio.</li><li>`OFF`: Disabled.</li></ul> |
 | `format` | Backup format. | <ul><li>`FORMAT_UNSPECIFIED`: Not specified.</li><li>`VERSION_11`: Deprecated format, not recommended.</li><li>`VERSION_12`: Recommended format for high-speed backup and recovery.</li><li>`AUTO`: Automatic format selection. Version 12 is used by default unless you are creating incremental backups for the images created in other versions.</li></ul> |
 | `multiVolumeSnapshottingEnabled` | Backing up multiple volumes at the same time. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
-| `preserveFileSecuritySettings` | Retaining file security settings. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
+| `preserveFileSecuritySettings` | Retaining file security settings. **The parameter is no longer supported.** | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
+| `runLater` | If the VM was `Stopped` during a scheduled backup, all skipped backup jobs will be executed after the VM starts. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
+| `sectorBySector` | Sector-by-sector backup. Backs up all disk or volume sectors, including empty areas and unallocated space. For disks with unsupported file systems, this mode applies automatically. You cannot recover app data from a backup like that. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
+| `validationEnabled` | Checks the possibility of recovering data from the new backup. During procedure, a checksum is calculated for each section available for recovery, so it can take a while. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
+| `lvmSnapshottingEnabled` | Uses LVM to create a volume snapshot. If the snapshot cannot be created using LVM, it will be created using the {{ backup-name }} agent. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
 | `cbt` | Changed Block Tracking (configuration for tracking backup contents). | <ul><li>`CHANGED_BLOCK_TRACKING_UNSPECIFIED`: Not specified.</li><li>`USE_IF_ENABLED`: Use if enabled.</li><li>`ENABLE_AND_USE`: Enable and use.</li><li>`DO_NOT_USE`: Do not use.</li></ul> |
 | `fastBackupEnabled` | Fast backup: setting for tracking changes to files. When enabled, file changes are detected by the file size and timestamp. When disabled, files are checked for changes by comparing their contents to backed up files. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
-| `quiesceSnapshottingEnabled` | Using `quiescing` when creating backups. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
+| `quiesceSnapshottingEnabled` | Using `quiescing` when creating backups. **The parameter is no longer supported.** | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
 
 Attribute sections with multiple nested values.
 
@@ -142,7 +158,7 @@ Attribute sections with multiple nested values.
   | Attribute | Description | Possible values |
   |---|---|---|
   | `vmSnapshotReattempts.enabled` | Retry creating a backup if errors occur. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
-  | `vmSnapshotReattempts.interval.type` | Unit of time used to set the reattempt interval. | <ul><li>`TYPE_UNSPECIFIED`: Not specified.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`</li></ul> |
+  | `vmSnapshotReattempts.interval.type` | Unit of time used to set the reattempt interval. | <ul><li>`TYPE_UNSPECIFIED`: Not specified.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`, months</li></ul> |
   | `vmSnapshotReattempts.interval.count` | Interval between reattempts. | Integer |
   | `vmSnapshotReattempts.maxAttempts` | Maximum number of reattempts. If reached, the operation is considered failed. | Integer |
 
@@ -164,7 +180,7 @@ Attribute sections with multiple nested values.
   | Attribute | Description | Possible values |
   |---|---|---|
   | `retention.rules.backupSet` | Set of backups for which the retention settings are specified. | String |
-  | `retention.rules.maxAge.type` | Setting a backup retention rule to delete outdated backups depending on their age in specified time units. | <ul><li>`TYPE_UNSPECIFIED`: Not specified.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`</li></ul> |
+  | `retention.rules.maxAge.type` | Setting a backup retention rule to delete outdated backups depending on their age in specified time units. | <ul><li>`TYPE_UNSPECIFIED`: Not specified.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`, months</li></ul> |
   | `retention.rules.maxAge.count` | Maximum backup retention period in time units set by the `maxAge.type` attribute. | Integer |
   | `retention.rules.maxCount` | Setting a backup retention rule to delete outdated backups depending on the specified maximum number of stored backups. | Integer |
   | `retention.beforeBackup` | Applying backup retention rules before the end of the backup. When creating a policy by default or via the management console, the `beforeBackup=false` rule is set. The backup retention rule settings will take effect as soon as another backup is created. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
@@ -178,7 +194,7 @@ Attribute sections with multiple nested values.
   | `scheduling.backupSets.time.weekdays` | Days of the week to create backups on. You can specify multiple values separated by commas. | <ul><li>`DAY_UNSPECIFIED`: Not specified.</li><li>`MONDAY`</li><li>`TUESDAY`</li><li>`WEDNESDAY`</li><li>`THURSDAY`</li><li>`FRIDAY`</li><li>`SATURDAY`</li><li>`SUNDAY`</li></ul> |
   | `scheduling.backupSets.time.repeatAt.hour` | Time to repeat backups at: hours. | Integer from 0 to 23 |
   | `scheduling.backupSets.time.repeatAt.minute` | Time to repeat backups at: minutes. | Integer from 0 to 59 |
-  | `scheduling.backupSets.time.repeatEvery.type` | Units of time used to set the repeat backup interval. | <ul><li>`TYPE_UNSPECIFIED`: Not specified.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`</li></ul> |
+  | `scheduling.backupSets.time.repeatEvery.type` | Units of time used to set the repeat backup interval. | <ul><li>`TYPE_UNSPECIFIED`: Not specified.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`, months</li></ul> |
   | `scheduling.backupSets.time.repeatEvery.count` | Backup reattempt interval in units set by the `repeatEvery.type` attribute. | Integer |
   | `scheduling.backupSets.time.timeFrom.hour` | Start time for the backup interval (from): hours. | Integer from 0 to 23 |
   | `scheduling.backupSets.time.timeFrom.minute` | Start time for the backup interval (from): minutes. | Integer from 0 to 59 |
@@ -188,13 +204,26 @@ Attribute sections with multiple nested values.
   | `scheduling.backupSets.time.includeLastDayOfMonth` | Making backups on the last day of each month. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
   | `scheduling.backupSets.time.months` | Months to create backups in. You can specify multiple values separated by commas. | Integer from 1 to 12 |
   | `scheduling.backupSets.time.type` | Backup frequency. | <ul><li>`REPEATE_PERIOD_UNSPECIFIED`: Not specified.</li><li>`HOURLY`</li><li>`DAILY`</li><li>`WEEKLY`</li><li>`MONTHLY`</li></ul> |
-  | `scheduling.backupSets.sinceLastExecTime.delay.type` | Units of time used to set the interval between backups. | <ul><li>`TYPE_UNSPECIFIED`: Not specified.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`</li></ul> |
+  | `scheduling.backupSets.sinceLastExecTime.delay.type` | Units of time used to set the interval between backups. | <ul><li>`TYPE_UNSPECIFIED`: Not specified.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`, months</li></ul> |
   | `scheduling.backupSets.sinceLastExecTime.delay.count` | Interval between backups in time units set by the `delay.type` attribute. | Integer |
   | `scheduling.enabled` | Scheduled backup. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
   | `scheduling.maxParallelBackups` | Maximum number of parallel backups; unlimited if no value is specified. | Integer |
-  | `scheduling.randMaxDelay.type` | Units of time used to set the maximum delay before running parallel jobs. | <ul><li>`TYPE_UNSPECIFIED`: Not specified.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`</li></ul> |
+  | `scheduling.randMaxDelay.type` | Units of time used to set the maximum delay before running parallel jobs. | <ul><li>`TYPE_UNSPECIFIED`: Not specified.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`, months</li></ul> |
   | `scheduling.randMaxDelay.count` | Maximum delay before running parallel jobs in time units set by the `randMaxDelay.type` attribute. The delay is determined randomly but it may not exceed the value set here. | Integer |
   | `scheduling.scheme` | Backup schedule scheme. | <ul><li>`SCHEME_UNSPECIFIED`: Not specified.</li><li>`SIMPLE`: Simple.</li><li>`ALWAYS_FULL`: Always full.</li><li>`ALWAYS_INCREMENTAL`: Always incremental.</li><li>`WEEKLY_INCREMENTAL`: Create an incremental backup every week.</li><li>`WEEKLY_FULL_DAILY_INCREMENTAL`: Create an incremental backup every day and a full one weekly.</li><li>`CUSTOM`: Custom.</li><li>`CDP`: Continuous Data Protection.</li></ul> |
   | `scheduling.weeklyBackupDay` | Day of the week for the weekly backup. | Integer from 1 to 7 |
+
+- fileFilters
+
+  Setting up filters. You can exclude files and folders from backups or, conversely, create backups of only specific elements of the file system.
+
+  To include or exclude files, add some criteria, e.g., file names, paths, or masks. `*` and `?` wildcards are supported. Use a new line for each criterion. Criteria are case-insensitive.
+
+  Exclusion filters take precedence over inclusion filters.
+
+  | Attribute | Description | Value (example) |
+  |---|---|---|
+  | `exclusionMasks` | Criterion for files to exclude from the backup. | `/tmp` |
+  | `inclusionMasks` | Criterion for files to include into the backup. | `/home/user*` |
 
 {% endlist %}

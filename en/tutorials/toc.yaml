@@ -16,11 +16,13 @@ items:
           - name: '{{ TF }}'
             href: security/alb-with-ddos-protection/terraform.md
       - name: >-
-          Creating an L7 load balancer with a {{ sws-name }} profile through the
+          Creating an L7 load balancer with a {{ sws-name }} profile through an
           {{ alb-name }} ingress controller
         href: security/alb-ingress-with-sws-profile.md
       - name: Centralized online publication and app protection against DDoS attacks
         href: security/different-folders-services.md
+      - name: Emergency DdoS protection in {{ alb-name }}, L7
+        href: security/sws-protection-ongoing-ddos.md
       - name: >-
           Migrating services from NLB to L7 ALB for DDoS protection using {{
           sws-name }}
@@ -241,7 +243,7 @@ items:
         href: archive/ha-regional-glusterfs.md
       - name: Deploying GlusterFS in high performance mode
         href: archive/ha-regional-glusterfs-high-performance.md
-      - name: Linking a {{ backup-name }} policy to a VM automatically
+      - name: Associating a {{ backup-name }} policy to a VM automatically
         items:
           - name: Overview
             href: archive/vm-with-backup-policy/index.md
@@ -327,7 +329,7 @@ items:
                 href: web/load-balancer-website/console.md
               - name: '{{ TF }}'
                 href: web/load-balancer-website/terraform.md
-          - name: Fault-tolerant website with load balancing via an {{ alb-name }}
+          - name: Fault-tolerant website with load balancing via a {{ alb-name }}
             items:
               - name: Overview
                 href: web/application-load-balancer-website/index.md
@@ -339,7 +341,7 @@ items:
               Integrating an L7 load balancer with {{ cdn-name }} and {{
               objstorage-name }}
             href: web/cdn-storage-integration.md
-          - name: Working with autoscaling instance groups
+          - name: Working with an instance group with autoscaling
             items:
               - name: Overview
                 href: infrastructure-management/vm-autoscale/index.md
@@ -519,12 +521,10 @@ items:
                 href: container-infrastructure/loadtesting-grpc-autoscaling.md
           - name: Installing NGINX
             items:
-              - name: >-
-                  Installing the NGINX Ingress Controller with {{ lets-encrypt
-                  }}
+              - name: Installing NGINX Ingress Controller with {{ lets-encrypt }}
                 href: container-infrastructure/ingress-cert-manager.md
               - name: >-
-                  Installing the NGINX Ingress Controller with a {{
+                  Installing NGINX Ingress Controller with a {{
                   certificate-manager-name }} certificate
                 href: container-infrastructure/nginx-ingress-certificate-manager.md
           - name: Usage {{ container-registry-name }}
@@ -613,6 +613,10 @@ items:
                 href: web/static/console.md
               - name: Terraform
                 href: web/static/terraform.md
+          - name: >-
+              Static website in {{ objstorage-name }} with access via {{
+              cdn-name }}
+            href: applied/cdn-hosting.md
           - name: Website based on LAMP or LEMP stack
             items:
               - name: Overview
@@ -739,6 +743,9 @@ items:
             href: infrastructure/gta-v-server.md
           - name: Converting a video to a GIF in Python
             href: serverless/video-converting-queue.md
+          - name: Integrating {{ speechsense-name }} with Bitrix24
+            href: speechsense/bitrix24.md
+            hidden: true
   - name: Building a data platform
     items:
       - name: All tutorials
@@ -1365,6 +1372,8 @@ items:
         href: serverless/movies-database.md
       - name: Building a CI/CD pipeline in {{ GL }}
         href: serverless/ci-cd-serverless.md
+      - name: Configuring CI/CD between {{ sf-name }} and {{ src-name }}
+        href: serverless/ci-cd-sourcecraft-functions.md
       - name: Working with an API gateway via WebSocket
         href: serverless/api-gw-websocket.md
       - name: Creating an interactive serverless application using WebSocket
@@ -1434,9 +1443,15 @@ items:
           - name: Terraform
             href: serverless/forms-and-datalens-integration/terraform.md
       - name: >-
-          Creating a {{ postbox-full-name }} address and verifying domain
+          Creating a {{ postbox-full-name }} address and checking domain
           ownership with {{ TF }}
         href: serverless/domain-identity-creating.md
+      - name: Sending emails in {{ postbox-full-name }} using AWS SDK
+        items:
+          - name: Go
+            href: serverless/send-emails-aws-sdk-go.md
+      - name: Creating an AI agent with {{ sf-full-name }}
+        href: serverless/create-ai-agent-function.md
   - name: Machine learning and artificial intelligence
     items:
       - name: All tutorials

@@ -1,6 +1,5 @@
 # Associating a {{ backup-full-name }} policy with a VM automatically using {{ TF }}
 
-
 To create a virtual machine automatically associated with a {{ backup-name }} policy:
 
 1. [Get your cloud ready](#before-begin).
@@ -102,7 +101,7 @@ To create an infrastructure using {{ TF }}:
     * [VM image](../../compute/concepts/image.md) data: [yandex_compute_image]({{ tf-provider-datasources-link }}/compute_image).
     * VM boot [disk](../../compute/concepts/disk.md): [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
     * [VM instance](../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
-    * [Backup policy](../../backup/concepts/policy.md): [yandex_backup_policy]({{ tf-provider-resources-link }}/backup_policy). You can create a new policy or use one of those automatically created upon service activation.
+    * [Backup policy](../../backup/concepts/policy.md): [yandex_backup_policy]({{ tf-provider-resources-link }}/backup_policy). You can create a new policy or use one of those generated automatically upon service activation.
     * Associating a backup policy with a VM: [yandex_backup_policy_bindings]({{ tf-provider-resources-link }}/backup_policy_bindings). To associate one of the backup policies created automatically upon service activation, [get](../../backup/operations/policy-vm/get-info.md) its ID.
 
 1. In the `cloud-init.yaml` file, set the following user-defined properties:

@@ -72,6 +72,32 @@ items:
             href: operations/federation-group-mapping.md
           - name: Renewing a {{ yandex-cloud }} SAML certificate
             href: operations/renew-yc-certificate.md
+      - name: Managing user pools
+        items:
+          - name: Creating a user pool
+            href: operations/user-pools/create-userpool.md
+          - name: Updating a user pool
+            href: operations/user-pools/edit-userpool.md
+          - name: Deleting a user pool
+            href: operations/user-pools/delete-userpool.md
+          - name: Adding a user
+            href: operations/user-pools/add-user.md
+          - name: Updating user data
+            href: operations/user-pools/edit-user.md
+          - name: Activating a user
+            href: operations/user-pools/activate-user.md
+          - name: Deactivating a user
+            href: operations/user-pools/deactivate-user.md
+          - name: Resetting a user password
+            href: operations/user-pools/reset-user-password.md
+          - name: Remove user
+            href: operations/user-pools/delete-user.md
+          - name: Adding a domain
+            href: operations/user-pools/add-domain.md
+          - name: Verifying a domain
+            href: operations/user-pools/validate-domain.md
+          - name: Deleting a domain
+            href: operations/user-pools/delete-domain.md
       - name: Authentication
         items:
           - name: Adding an SSH key
@@ -134,8 +160,12 @@ items:
         href: concepts/membership.md
       - name: User groups
         href: concepts/groups.md
+      - name: User pools
+        href: concepts/user-pools.md
       - name: Identity federations
         href: concepts/add-federation.md
+      - name: Domains
+        href: concepts/domains.md
       - name: '{{ oslogin }}'
         href: concepts/os-login.md
       - name: Controlled organizations

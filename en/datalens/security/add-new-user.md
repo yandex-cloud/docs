@@ -22,8 +22,8 @@ Users can be added or invited by the organization administrator (`organization-m
 You can add users in the service settings. To do this:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. Open the [settings]({{ link-datalens-settings }}) and click ![image](../../_assets/console-icons/sliders.svg) in the left-hand panel.
-1. Under **Manage users**, click **Invite users**.
+1. In the navigation panel on the left, click ![image](../../_assets/console-icons/sliders.svg) to open [settings]({{ link-datalens-settings }}).
+1. Under **User management**, click **Invite users**.
 1. Enter the email addresses of the users you want to invite, e.g., `{{login-example}}`.
 
     You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.

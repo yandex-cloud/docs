@@ -9,7 +9,7 @@ items:
         href: operations/index.md
       - name: Creating an address
         href: operations/create-address.md
-      - name: Domain rights check
+      - name: Domain ownership check
         href: operations/check-domain.md
       - name: Setting up a DMARC policy
         href: operations/setup-dmarc.md
@@ -37,14 +37,20 @@ items:
         href: concepts/limits.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
           analyzing them using {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
       - name: >-
-          Creating a {{ postbox-full-name }} address and verifying domain
+          Creating a {{ postbox-full-name }} address and checking domain
           ownership with {{ TF }}
         href: tutorials/domain-identity-creating.md
+      - name: Sending emails using AWS SDK
+        items:
+          - name: Go
+            href: tutorials/send-emails-aws-sdk-go.md
   - name: Tools
     items:
       - name: AWS CLI

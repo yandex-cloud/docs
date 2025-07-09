@@ -434,6 +434,7 @@
 
        ```yaml
        ingress.alb.yc.io/modify-header-response-remove: <имя_удаляемого_заголовка>=true
+       ```
 
      * `ingress.alb.yc.io/modify-header-request-append` — добавляет строку к значению заголовка запроса. Заголовок и строка указываются в формате:
 
@@ -706,7 +707,7 @@
        * `m` — минуты.
        * `h` — часы.
 
-     * `ingress.alb.yc.io/security-profile-id` — поддержка сервиса [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md), который позволяет защититься от {% if lang == "ru" %}[DDoS-атак](../../glossary/ddos.md){% else %}DDoS-атак{% endif %} и ботов, а также задействовать [WAF](../../smartwebsecurity/concepts/waf.md) и [ограничить нагрузку](../../smartwebsecurity/concepts/arl.md) на защищаемый ресурс.
+     * `ingress.alb.yc.io/security-profile-id` — поддержка сервиса [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md), который позволяет защититься от [DDoS-атак](../../glossary/ddos.md) и ботов, а также задействовать [WAF](../../smartwebsecurity/concepts/waf.md) и [ограничить нагрузку](../../smartwebsecurity/concepts/arl.md) на защищаемый ресурс.
 
        Чтобы включить поддержку сервиса, в аннотации Ingress укажите заранее созданный [профиль безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }}:
 
@@ -795,8 +796,7 @@
 
 ## Убедитесь в доступности приложений через L7-балансировщик {#verify-setup}
 
-1. Если вы не устанавливали {% if region == "ru" or region == "int" %}[ExternalDNS с плагином для {{ dns-name }}](/marketplace/products/yc/externaldns){% else %}ExternalDNS с плагином для {{ dns-name }}{% endif %}, [добавьте A-запись в зону](../../dns/operations/resource-record-create.md) вашего домена. В поле **Значение** укажите публичный IP-адрес L7-балансировщика {{ alb-name }}. При использовании ExternalDNS c плагином для {{ dns-full-name }} запись создастся автоматически.
-
+1. Если вы не устанавливали [ExternalDNS с плагином для {{ dns-name }}](/marketplace/products/yc/externaldns), [добавьте A-запись в зону](../../dns/operations/resource-record-create.md) вашего домена. В поле **Значение** укажите публичный IP-адрес L7-балансировщика {{ alb-name }}. При использовании ExternalDNS c плагином для {{ dns-full-name }} запись создастся автоматически.
 1. Проверьте работу балансировщика:
 
    {% list tabs %}

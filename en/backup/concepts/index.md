@@ -1,4 +1,10 @@
+---
+title: '{{ backup-full-name }} overview'
+description: '{{ backup-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data.'
+---
+
 # {{ backup-full-name }} overview
+
 
 {{ backup-full-name }} is a service for creating backups and restoring {{ yandex-cloud }} resources and their data. Backup and recovery are available for [{{ compute-name }} VMs](../../compute/concepts/vm.md) created from [supported {{ marketplace-name }} images](vm-connection.md#os) as well as for [{{ baremetal-full-name }} servers](../../baremetal/concepts/servers.md) with [supported operating systems](vm-connection.md#self-install).
 

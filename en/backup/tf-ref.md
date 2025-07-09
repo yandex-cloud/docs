@@ -5,6 +5,7 @@ description: This page provides reference information on the Terraform provider 
 
 # {{ TF }} reference for {{ backup-full-name }}
 
+
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
 ## Resources {#resources}
@@ -14,7 +15,7 @@ description: This page provides reference information on the Terraform provider 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_backup_policy]({{ tf-provider-resources-link }}/backup_policy) | [Backup policy](./concepts/policy.md) |
-| [yandex_backup_policy_bindings]({{ tf-provider-resources-link }}/backup_policy_bindings) | Linking a backup policy to a [VM](../compute/concepts/vm.md) or a [{{ baremetal-full-name }} server](../baremetal/concepts/servers.md) |
+| [yandex_backup_policy_bindings]({{ tf-provider-resources-link }}/backup_policy_bindings) | Associating a backup policy with a [VM](../compute/concepts/vm.md) or a [{{ baremetal-full-name }} server](../baremetal/concepts/servers.md) |
 
 ## Data sources {#data-sources}
 

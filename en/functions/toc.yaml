@@ -455,7 +455,7 @@ items:
           Regular asynchronous recognition of audio files from {{
           objstorage-name }}
         href: tutorials/batch-recognition-stt.md
-      - name: Canary release of a {{ sf-name }} function
+      - name: Canary release of {{ sf-name }}
         href: tutorials/canary-release.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
@@ -464,9 +464,9 @@ items:
           Telegram notification
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: >-
-          Loading data from {{ yandex-direct }} to a data mart enabled by {{
-          mch-full-name }} using {{ sf-full-name }}, {{ objstorage-full-name }},
-          and {{ data-transfer-full-name }}
+          Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data
+          mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
+          data-transfer-full-name }}
         href: tutorials/data-transfer-direct-to-mch.md
       - name: Scheduled instance group scaling
         items:
@@ -512,6 +512,10 @@ items:
             href: tutorials/forms-and-datalens-integration/console.md
           - name: '{{ TF }}'
             href: tutorials/forms-and-datalens-integration/terraform.md
+      - name: Configuring CI/CD with {{ src-name }}
+        href: tutorials/ci-cd-sourcecraft-functions.md
+      - name: Creating an AI agent with {{ sf-name }}
+        href: tutorials/create-ai-agent-function.md
   - name: Tools
     href: tools.md
   - name: Pricing policy

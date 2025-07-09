@@ -5,7 +5,9 @@ description: Follow this guide to build a table based on a dataset in Editor.
 
 # Building a table based on a dataset
 
+
 {% include [business-note](../../../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+
 
 Follow this guide to build a table in Editor based on a dataset. For convenience, we will use a connection and dataset from a deployed demo workbook as the data source.
 
@@ -15,7 +17,10 @@ Follow this guide to build a table in Editor based on a dataset. For convenience
 
 ## Deploy a demo workbook {#create-template}
 
-1. Deploy the [Demo Dashboard](https://datalens.yandex.cloud/marketplace/f2eui5ar8omalpcg1j3r) demo workbook from the [marketplace](../../../operations/marketplace/add-marketplace-product.md).
+
+1. Deploy a demo workbook titled [Demo Dashboard](https://datalens.yandex.cloud/marketplace/f2eui5ar8omalpcg1j3r) from the [marketplace](../../../operations/marketplace/add-marketplace-product.md).
+
+
 
 1. Go to the workbook you deployed and find a dataset named `00: Sales` on the **Datasets** tab.
 

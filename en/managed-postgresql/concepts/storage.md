@@ -33,6 +33,22 @@ The number of hosts you can create together with a {{ PG }} cluster depends on t
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 
 
+
+## Disk encryption {#disk-encryption}
+
+When creating or restoring a cluster from a backup, you can encrypt the storage disk with a [custom KMS key](../../kms/concepts/key.md). You can neither disable or change disk encryption nor encrypt a disk of an already created cluster.
+
+{% note warning %}
+
+Encryption is not available for network SSDs (`network-ssd`).
+
+{% endnote %}
+
+{% include [encryption-role](../../_includes/compute/encryption-role.md) %}
+
+{% include [encryption-keys-note](../../_includes/compute/encryption-keys-note.md) %}
+
+
 ## Disk space management {#manage-storage-space}
 
 When the storage is more than 97% full, the host automatically switches to read-only mode. All DBs get the `DEFAULT_TRANSACTION_READ_ONLY = TRUE` setting through the `ALTER DATABASE` query.

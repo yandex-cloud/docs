@@ -188,8 +188,6 @@ items:
             href: tutorials/metastore-import.md
       - name: '{{ schema-registry-name }}'
         items:
-          - name: Использование {{ schema-registry-name }} с {{ mkf-name }}
-            href: tutorials/managed-schema-registry.md
           - name: Поставка данных в формате Debezium CDC из {{ KF }}
             href: tutorials/schema-registry-cdc-debezium-kafka.md
   - name: Концепции

@@ -5,6 +5,10 @@ description: This section contains {{ mch-name }} release notes.
 
 # {{ mch-full-name }} release notes
 
+## April 2025 {#apr-2025}
+
+Added [integration with {{ connection-manager-name }}](operations/update.md#conn-man). Now, a connection in {{ connection-manager-name }} is automatically created for all new clusters.
+
 ## March 2025 {#mar-2025}
 
 A new version is out: {{ CH }} [25.2](https://clickhouse.com/blog/clickhouse-release-25-02).

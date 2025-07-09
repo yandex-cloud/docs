@@ -5,6 +5,16 @@ description: This section contains {{ mpg-name }} release notes.
 
 # {{ mpg-full-name }} release notes
 
+
+## May 2025 {#may-2025}
+
+Now you can [encrypt storage disks](concepts/storage.md#disk-encryption) with a custom KMS key when creating a cluster and restoring it from a backup.
+
+
+## April 2025 {#apr-2025}
+
+Added [integration with {{ connection-manager-name }}](operations/update.md#conn-man). A connection in {{ connection-manager-name }} is now automatically created for all new clusters.
+
 ## March 2025 {#mar-2025}
 
 * [Backup policies](operations/backup-retention-policies.md) can now be used.
