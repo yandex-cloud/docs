@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/load-balancer/cli-ref/network-load-balancer/start-zonal-shift.md
+sourcePath: en/_cli-ref/cli-ref/load-balancer/cli-ref/network-load-balancer/disable-zones.md
 ---
 
-# yc load-balancer network-load-balancer start-zonal-shift
+# yc load-balancer network-load-balancer disable-zones
 
-Start zonal shift the specified network load balancer
+Disable zones for the specified network load balancer
 
 #### Command Usage
 
 Syntax: 
 
-`yc load-balancer network-load-balancer start-zonal-shift <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
+`yc load-balancer network-load-balancer disable-zones <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -20,8 +20,8 @@ Syntax:
 |`--id`|<b>`string`</b><br/>Network load balancer id.|
 |`--name`|<b>`string`</b><br/>Network load balancer name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--zones`|<b>`value[,value]`</b><br/>Zones of the network load balancer to start zonal shift, --zones zone-id1,zone-id2.|
-|`--duration`|<b>`duration`</b><br/>The interval during which the zones will be shifted. Format 1m-72h, --duration 1h.|
+|`--zones`|<b>`value[,value]`</b><br/>Zones of the network load balancer to disable.|
+|`--duration`|<b>`duration`</b><br/>The interval during which the zones will be disabled. Format 1m-72h.|
 
 #### Global Flags
 

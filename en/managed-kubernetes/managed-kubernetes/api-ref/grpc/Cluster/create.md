@@ -101,10 +101,7 @@ Creates a Kubernetes cluster in the specified folder.
       "events_enabled": "bool"
     },
     "scale_policy": {
-      // Includes only one of the fields `fixed_scale`, `auto_scale`
-      "fixed_scale": {
-        "resource_preset_id": "string"
-      },
+      // Includes only one of the fields `auto_scale`
       "auto_scale": {
         "min_resource_preset_id": "string"
       }
@@ -453,23 +450,9 @@ Identifies whether Cloud Logging is enabled for events. ||
 
 #|
 ||Field | Description ||
-|| fixed_scale | **[FixedScale](#yandex.cloud.k8s.v1.MasterScalePolicySpec.FixedScale)**
-
-Includes only one of the fields `fixed_scale`, `auto_scale`. ||
 || auto_scale | **[AutoScale](#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale)**
 
-Includes only one of the fields `fixed_scale`, `auto_scale`. ||
-|#
-
-## FixedScale {#yandex.cloud.k8s.v1.MasterScalePolicySpec.FixedScale}
-
-Fixed master instance resources.
-
-#|
-||Field | Description ||
-|| resource_preset_id | **string**
-
-Required field. Preset of computing resources to be used by master. ||
+Includes only one of the fields `auto_scale`. ||
 |#
 
 ## AutoScale {#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale}

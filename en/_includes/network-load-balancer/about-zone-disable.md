@@ -1,0 +1,1 @@
+If an [availability zone](../../overview/concepts/geo-scope.md) is under testing or maintenance or has technical problems, you can block traffic distribution to that zone. This will ensure your services stay operational. When appropriate, you can run a command to resume traffic to the blocked zone or it will be restored automatically by timeout.

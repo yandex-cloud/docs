@@ -32,6 +32,6 @@ If there is free capacity in the pools of interest, you can lease servers of the
 | BA-i511-NH-25G  | Intel®&nbsp;Xeon®<br/>Gold 6338</br>(2,0 GHz)  | 2                 | 64   | 512          | 2&nbsp;×&nbsp;4&nbsp;TB + 2&nbsp;×&nbsp;16&nbsp;TB | 6&nbsp;×&nbsp;3,2&nbsp;TB | 25 | 25                         |
 | HA-i302-S-10G   | Intel®&nbsp;Xeon®<br/>E5-2667V2</br>(3.3 GHz)  | 2                 | 16   | 256          |                           | 4&nbsp;×&nbsp;3,8&nbsp;TB  | 10                         | 10                         |
 
-\* `2X25G` —  the configuration includes two network interface cards, each featuring two 25 Gbps ports.
+\* `2X25G`: Configuration includes two network adapters with two 25 Gbps ports.
 
 You can view the configurations available for lease in each pool when ordering a server in the management console.

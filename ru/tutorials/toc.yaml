@@ -21,6 +21,8 @@ items:
         href: security/alb-ingress-with-sws-profile.md
       - name: Централизованная публикация в интернете и защита приложений от DDoS
         href: security/different-folders-services.md
+      - name: Базовая настройка SWS
+        href: security/sws-basic-protection.md
       - name: Экстренная защита сервисов в {{ alb-name }} от DDoS на уровне L7
         href: security/sws-protection-ongoing-ddos.md
       - name: >-
@@ -1564,3 +1566,7 @@ items:
               Реализация AI-ассистента с поиском по PDF-файлам со сложным
               форматированием
             href: ml-ai/pdf-searchindex-ai-assistant.md
+          - name: >-
+              Интеграция Qwen3 в Visual Studio Code в качестве ассистента для
+              написания кода
+            href: ml-ai/qwen-vsc-integration.md

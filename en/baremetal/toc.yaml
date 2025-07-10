@@ -89,19 +89,23 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
+      - name: >-
+          Connecting an existing {{ baremetal-name }} server to {{ backup-name
+          }}
         href: tutorials/backup-baremetal.md
       - name: Configuring VRRP for a cluster of {{ baremetal-name }} servers
         href: tutorials/bms-vrf-routing.md
-      - name: Setting up network connectivity in a {{ baremetal-name }} subnet
+      - name: >-
+          Establishing network connectivity in a {{ baremetal-name }} private
+          subnet
         href: tutorials/bms-simple-subnet.md
       - name: >-
-          Setting up network connectivity between {{ baremetal-name }} and {{
-          vpc-name }} subnets
+          Establishing network connectivity between {{ baremetal-name }} and {{
+          vpc-name }} private subnets
         href: tutorials/bm-vrf-and-vpc-interconnect.md
       - name: >-
-          Setting up network connectivity between a {{ baremetal-name }} subnet
-          and on-prem resources
+          Establishing network connectivity between a {{ baremetal-name }}
+          private subnet and on-prem resources
         href: tutorials/bms-cic-onprem.md
       - name: >-
           Delivering USB devices to a {{ baremetal-name }} server or virtual
@@ -109,6 +113,10 @@ items:
         href: tutorials/usb-over-ip.md
       - name: Configuring an OPNsense firewall in high availability cluster mode
         href: tutorials/opnsense-failover-cluster.md
+      - name: >-
+          Deploying a web app on {{ baremetal-name }} servers with an L7 load
+          balancer and {{ sws-name }} protection
+        href: tutorials/webapp-on-bms-behind-sws.md
   - name: API reference
     items:
       - name: API authentication

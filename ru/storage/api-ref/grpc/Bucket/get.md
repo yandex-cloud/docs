@@ -197,7 +197,8 @@ bucket [ACL](/docs/storage/concepts/acl) and [policies](/docs/storage/concepts/p
     "private_endpoints": [
       "string"
     ]
-  }
+  },
+  "resource_id": "string"
 }
 ```
 
@@ -291,6 +292,9 @@ For details, see [documentation](/docs/storage/concepts/encryption) ||
 || allowed_private_endpoints | **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
 
 Bucket allowed private endpoints. ||
+|| resource_id | **string**
+
+ID of the Yandex.Cloud entity that owns the bucket. ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}

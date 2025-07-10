@@ -17,6 +17,11 @@ description: Step-by-step guides on using a network load balancer in {{ yandex-c
 - [{#T}](listener-add.md)
 - [{#T}](listener-remove.md)
 
+## Availability zone management
+
+- [{#T}](manage-zone/allow-and-deny-shift.md)
+- [{#T}](manage-zone/disable-enable-zone.md)
+
 ## Target group {#target-group}
 
 - [{#T}](target-group-list.md)

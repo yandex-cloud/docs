@@ -26,9 +26,13 @@ description: На странице представлены вопросы и о
 
 {% include [cluster-backups-minitoc](../../_qa/managed-postgresql/minitoc/backup.md) %}
 
+### Пользователи и роли {#toc-users}
+
+{% include [users-minitoc](../../_qa/managed-postgresql/minitoc/users.md) %}
+
 ### Высокая доступность и балансировка {#toc-ha}
 
-{% include [cluster-backups-minitoc](../../_qa/managed-postgresql/minitoc/ha.md) %}
+{% include [ha-minitoc](../../_qa/managed-postgresql/minitoc/ha.md) %}
 
 ### Мониторинг и логи {#toc-monitoring}
 
@@ -58,9 +62,13 @@ description: На странице представлены вопросы и о
 
 {% include [backup](../../_qa/managed-postgresql/backup.md) %}
 
+## Пользователи и роли {#users}
+
+{% include [users](../../_qa/managed-postgresql/users.md) %}
+
 ## Высокая доступность и балансировка {#ha}
 
-{% include [backup](../../_qa/managed-postgresql/ha.md) %}
+{% include [ha](../../_qa/managed-postgresql/ha.md) %}
 
 ## Мониторинг и логи {#monitoring}
 

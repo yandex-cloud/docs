@@ -20,7 +20,8 @@ sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/ImageSearch/searchByImage
   "data": "bytes",
   "id": "string",
   // end of the list of possible fields
-  "page": "int64"
+  "page": "int64",
+  "family_mode": "FamilyMode"
 }
 ```
 
@@ -50,6 +51,16 @@ Includes only one of the fields `url`, `data`, `id`. ||
 || page | **int64**
 
 The number of a requested page with search results. ||
+|| family_mode | enum **FamilyMode**
+
+Rule for filtering search results and determines whether any documents should be excluded.
+
+- `FAMILY_MODE_UNSPECIFIED`
+- `FAMILY_MODE_NONE`: Filtering is disabled. Search results include any documents regardless of their contents.
+- `FAMILY_MODE_MODERATE`: Moderate filter (default value). Documents of the Adult category are excluded from search results
+unless a query is explicitly made for searching resources of this category.
+- `FAMILY_MODE_STRICT`: Regardless of a search query, documents of the Adult category
+and those with profanity are excluded from search results. ||
 |#
 
 ## ImageSearchByImageResponse {#yandex.cloud.searchapi.v2.ImageSearchByImageResponse}

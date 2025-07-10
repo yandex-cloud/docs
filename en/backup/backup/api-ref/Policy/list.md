@@ -166,7 +166,18 @@ Compute Cloud instance ID. Either Folder ID or Compute Cloud instance ID should 
         },
         "sectorBySector": "boolean",
         "validationEnabled": "boolean",
-        "lvmSnapshottingEnabled": "boolean"
+        "lvmSnapshottingEnabled": "boolean",
+        "prePostCommands": [
+          {
+            "cmd": "string",
+            "args": "string",
+            "enabled": "boolean",
+            "stopOnError": "boolean",
+            "type": "string",
+            "wait": "boolean",
+            "workdir": "string"
+          }
+        ]
       },
       "folderId": "string"
     }
@@ -310,6 +321,9 @@ This option requires access to previously created backup copies. ||
 LVM will be used to create the volume snapshot.
 If LVM fails to create a snapshot (for example, because there is not enough free space),
 the software will create the snapshot itself. ||
+|| prePostCommands[] | **[PrePostCommand](#yandex.cloud.backup.v1.PolicySettings.PrePostCommand)**
+
+Commands to launch before or after backup execution ||
 |#
 
 ## RetriesConfiguration {#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration}
@@ -581,4 +595,35 @@ Do not backup files that match the following criteria ||
 || inclusionMasks[] | **string**
 
 Backup only files that match the following criteria ||
+|#
+
+## PrePostCommand {#yandex.cloud.backup.v1.PolicySettings.PrePostCommand}
+
+#|
+||Field | Description ||
+|| cmd | **string**
+
+Command to execute ||
+|| args | **string**
+
+Command args ||
+|| enabled | **boolean**
+
+Is command enabled ||
+|| stopOnError | **boolean**
+
+Stop backup execution on error ||
+|| type | **enum** (CommandType)
+
+Type of command: pre or post
+
+- `COMMAND_TYPE_UNSPECIFIED`
+- `PRE_COMMAND`: Launch command before backup execution
+- `POST_COMMAND`: Launch command after backup execution ||
+|| wait | **boolean**
+
+Wait command finish before launching backup ||
+|| workdir | **string**
+
+Workdir for command execution ||
 |#

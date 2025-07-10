@@ -16,7 +16,7 @@ items:
         href: operations/ri-create.md
       - name: Updating parameters of a routing instance
         href: operations/ri-update.md
-      - name: Updating a list of IP prefixes in a routing instance
+      - name: Updating the list of IP prefixes in a routing instance
         href: operations/ri-prefixes-upsert.md
       - name: Deleting IP prefixes from a routing instance
         href: operations/ri-prefixes-remove.md
@@ -37,9 +37,9 @@ items:
         href: operations/cr-cic-ops.md
       - name: Terminology
         href: concepts/terms.md
-      - name: Routing Instance
+      - name: Routing instance
         href: concepts/routing-instance.md
-      - name: IP prefix announces
+      - name: IP prefix announcements
         href: concepts/announces.md
       - name: Aggregated prefixes
         href: concepts/aggregates.md
@@ -72,9 +72,9 @@ items:
         href: scenarios/prc-ha-with-default-active-active.md
       - name: Prioritizing traffic by direction for route 0.0.0.0/0
         href: scenarios/prc-ha-with-default-active-standby.md
-      - name: VPC Stitching. Connectivity for two cloud networks
+      - name: Connectivity for two cloud networks
         href: scenarios/vpc-st-with-two-vpc.md
-      - name: VPC Stitching. Connectivity for two cloud networks and on-prem
+      - name: Connectivity for two cloud networks and on-prem
         href: scenarios/vpc-st-with-two-vpc-and-onprem.md
   - name: Tutorials
     items:

@@ -1227,6 +1227,10 @@ items:
           dedicated DMZ based on the UserGate NGFW
         href: routing/high-accessible-dmz-usergate.md
       - name: >-
+          Implementing a secure high-availability network infrastructure with a
+          dedicated DMZ based on Smart-Soft NGFW
+        href: routing/high-accessible-dmz-ting.md
+      - name: >-
           Configuring {{ interconnect-name }} access to cloud networks behind
           NGFWs
         href: routing/cic-with-ngfw.md
@@ -1279,6 +1283,10 @@ items:
           Configuring an OPNsense firewall in high availability cluster mode on
           {{ baremetal-name }} servers
         href: routing/opnsense-failover-cluster.md
+      - name: >-
+          Deploying a web app on {{ baremetal-name }} servers with an L7 load
+          balancer and {{ sws-name }} protection
+        href: routing/webapp-on-bms-behind-sws.md
   - name: Data analysis and visualization
     items:
       - name: All tutorials

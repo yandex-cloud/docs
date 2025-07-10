@@ -52,6 +52,7 @@ description: Пошаговые инструкции по работе с {{ met
   * [{#T}](data-catalog/catalog-list.md)
   * [{#T}](data-catalog/create-catalog.md)
   * [{#T}](data-catalog/update-catalog.md)
+  * [{#T}](data-catalog/catalog-operations.md)
   * [{#T}](data-catalog/delete-catalog.md)
 * Загрузки:
   * [{#T}](data-catalog/list-ingestions.md)

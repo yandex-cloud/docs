@@ -1,6 +1,6 @@
-## Establishing network connectivity between two (or more) cloud networks
+# Establishing network connectivity between two or more cloud networks (VPC Stitching)
 
-{% include [cic-cr-access](../../_includes/interconnect/cic-cr-access.md) %}
+{% include [cic-only-warning](../../_includes/interconnect/cic-only-warning.md) %}
 
 ![ri-topology-6](../../_assets/cloud-router/ri-topology-6.svg)
 

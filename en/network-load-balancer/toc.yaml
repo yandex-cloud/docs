@@ -29,6 +29,12 @@ items:
             href: operations/listener-add.md
           - name: Deleting a listener
             href: operations/listener-remove.md
+          - name: Managing availability zones
+            items:
+              - name: Allowing and denying zonal shift
+                href: operations/manage-zone/allow-and-deny-shift.md
+              - name: Enabling and disabling availability zones
+                href: operations/manage-zone/disable-enable-zone.md
       - name: Target groups
         items:
           - name: Information about current target groups
@@ -63,7 +69,7 @@ items:
             href: tutorials/load-balancer-website/console.md
           - name: '{{ TF }}'
             href: tutorials/load-balancer-website/terraform.md
-      - name: Working with autoscaling instance groups
+      - name: Working with an instance group with autoscaling
         items:
           - name: Overview
             href: tutorials/vm-autoscale/index.md
@@ -175,14 +181,16 @@ items:
             href: cli-ref/network-load-balancer/add-listener.md
           - name: attach-target-group
             href: cli-ref/network-load-balancer/attach-target-group.md
-          - name: cancel-zonal-shift
-            href: cli-ref/network-load-balancer/cancel-zonal-shift.md
           - name: create
             href: cli-ref/network-load-balancer/create.md
           - name: delete
             href: cli-ref/network-load-balancer/delete.md
           - name: detach-target-group
             href: cli-ref/network-load-balancer/detach-target-group.md
+          - name: disable-zones
+            href: cli-ref/network-load-balancer/disable-zones.md
+          - name: enable-zones
+            href: cli-ref/network-load-balancer/enable-zones.md
           - name: get
             href: cli-ref/network-load-balancer/get.md
           - name: list
@@ -193,8 +201,6 @@ items:
             href: cli-ref/network-load-balancer/remove-listener.md
           - name: start
             href: cli-ref/network-load-balancer/start.md
-          - name: start-zonal-shift
-            href: cli-ref/network-load-balancer/start-zonal-shift.md
           - name: stop
             href: cli-ref/network-load-balancer/stop.md
           - name: target-states

@@ -1,17 +1,17 @@
 ---
 editable: false
-sourcePath: en/_cli-ref/cli-ref/load-balancer/cli-ref/network-load-balancer/cancel-zonal-shift.md
+sourcePath: en/_cli-ref/cli-ref/load-balancer/cli-ref/network-load-balancer/enable-zones.md
 ---
 
-# yc load-balancer network-load-balancer cancel-zonal-shift
+# yc load-balancer network-load-balancer enable-zones
 
-Cancel zonal shift the specified network load balancer
+Enable zones for the specified network load balancer
 
 #### Command Usage
 
 Syntax: 
 
-`yc load-balancer network-load-balancer cancel-zonal-shift <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
+`yc load-balancer network-load-balancer enable-zones <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -20,7 +20,7 @@ Syntax:
 |`--id`|<b>`string`</b><br/>Network load balancer id.|
 |`--name`|<b>`string`</b><br/>Network load balancer name.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--zones`|<b>`value[,value]`</b><br/>Zones of the network load balancer to cancel zonal shift, --zones zone-id1,zone-id2.|
+|`--zones`|<b>`value[,value]`</b><br/>Zones of the network load balancer to enable.|
 
 #### Global Flags
 

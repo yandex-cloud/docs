@@ -11,7 +11,7 @@ Manage Greenplum clusters and hosts.
 
 Syntax: 
 
-`yc managed-greenplum <group>`
+`yc managed-greenplum <group|command>`
 
 Aliases: 
 
@@ -20,6 +20,7 @@ Aliases:
 
 #### Command Tree
 
+- [yc managed-greenplum connect](connect.md) — Connect to Greenplum cluster with iam-auth
 - [yc managed-greenplum backup](backup/index.md) — Manage Greenplum cluster backups
 	- [yc managed-greenplum backup delete](backup/delete.md) — Delete the specified Greenplum backup
 	- [yc managed-greenplum backup get](backup/get.md) — Show information about the specified Greenplum backup

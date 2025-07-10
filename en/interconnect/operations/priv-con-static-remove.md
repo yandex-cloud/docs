@@ -3,7 +3,7 @@ title: How to remove static routes from a private connection in {{ interconnect-
 description: Follow this guide to remove static routes from a private connection in {{ interconnect-name }}.
 ---
 
-# Removing static routes from a private connection
+# Removing static routes from a private connection (VPC stitching)
 
 {% include [cic-cr-access](../../_includes/interconnect/cic-cr-access.md) %}
 

@@ -26,6 +26,12 @@
 
     Используйте этот способ только в том случае, если перенос данных с помощью любого из предыдущих способов по каким-либо причинам невозможен.
 
+{% note warning %}
+
+Пользователи автоматически не переносятся в кластер {{ mpg-name }}. Их нужно [создать](../../managed-postgresql/operations/cluster-users.md#adduser) в новом кластере заново.
+
+{% endnote %}
+
 ## Перенос данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
 {% include notitle [PostgreSQL migration with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-postgresql.md) %}

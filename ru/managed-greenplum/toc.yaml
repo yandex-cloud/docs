@@ -223,6 +223,8 @@ items:
             href: cli-ref/cluster/update.md
           - name: update-config
             href: cli-ref/cluster/update-config.md
+      - name: connect
+        href: cli-ref/connect.md
       - name: hba-rules
         items:
           - name: Overview
