@@ -49,7 +49,8 @@ POST https://searchapi.{{ api-host }}/v2/gen/search
       "format": "string"
       // end of the list of possible fields
     }
-  ]
+  ],
+  "searchType": "string"
 }
 ```
 
@@ -63,21 +64,15 @@ Single search query or a search query with context in the form of chat with the 
 Required field. ID of the folder. ||
 || site | **[SiteOption](#yandex.cloud.searchapi.v2.GenSearchRequest.SiteOption)**
 
-Required field. 
-
 Includes only one of the fields `site`, `host`, `url`.
 
 Restricts the search to the specific websites, hosts or pages. ||
 || host | **[HostOption](#yandex.cloud.searchapi.v2.GenSearchRequest.HostOption)**
 
-Required field. 
-
 Includes only one of the fields `site`, `host`, `url`.
 
 Restricts the search to the specific websites, hosts or pages. ||
 || url | **[UrlOption](#yandex.cloud.searchapi.v2.GenSearchRequest.UrlOption)**
-
-Required field. 
 
 Includes only one of the fields `site`, `host`, `url`.
 
@@ -91,6 +86,17 @@ Use the documents inaccessible from the site's front page. ||
 || searchFilters[] | **[SearchFilter](#yandex.cloud.searchapi.v2.GenSearchRequest.SearchFilter)**
 
 Restricts the search by date, document formats or language. ||
+|| searchType | **enum** (SearchType)
+
+Search type that determines the domain name that will be used for the search queries.
+
+- `SEARCH_TYPE_UNSPECIFIED`
+- `SEARCH_TYPE_RU`: Russian search type (default), yandex.ru search domain name will be used.
+- `SEARCH_TYPE_TR`: Turkish search type, yandex.tr search domain name will be used.
+- `SEARCH_TYPE_COM`: International search type, yandex.com search domain name will be used.
+- `SEARCH_TYPE_KK`: Kazakh search type, yandex.kz search domain name will be used.
+- `SEARCH_TYPE_BE`: Belarusian search type, yandex.by search domain name will be used.
+- `SEARCH_TYPE_UZ`: Uzbek search type, yandex.uz search domain name will be used. ||
 |#
 
 ## GenSearchMessage {#yandex.cloud.searchapi.v2.GenSearchMessage}

@@ -22,7 +22,8 @@ POST https://searchapi.{{ api-host }}/v2/image/search_by_image
   "data": "string",
   "id": "string",
   // end of the list of possible fields
-  "page": "string"
+  "page": "string",
+  "familyMode": "string"
 }
 ```
 
@@ -52,6 +53,16 @@ Includes only one of the fields `url`, `data`, `id`. ||
 || page | **string** (int64)
 
 The number of a requested page with search results. ||
+|| familyMode | **enum** (FamilyMode)
+
+Rule for filtering search results and determines whether any documents should be excluded.
+
+- `FAMILY_MODE_UNSPECIFIED`
+- `FAMILY_MODE_NONE`: Filtering is disabled. Search results include any documents regardless of their contents.
+- `FAMILY_MODE_MODERATE`: Moderate filter (default value). Documents of the Adult category are excluded from search results
+unless a query is explicitly made for searching resources of this category.
+- `FAMILY_MODE_STRICT`: Regardless of a search query, documents of the Adult category
+and those with profanity are excluded from search results. ||
 |#
 
 ## Response {#yandex.cloud.searchapi.v2.ImageSearchByImageResponse}

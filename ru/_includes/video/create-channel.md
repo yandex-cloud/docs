@@ -7,4 +7,5 @@
 
 После создания канала вы окажетесь внутри этого канала во вкладке ![image](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}**.
 
-[Подробнее о каналах](../../video/concepts/index.md#channels)
+* [Подробнее о каналах](../../video/concepts/index.md#channels)
+* [Настроить показ рекламы](../../video/operations/channels/settings.md#ad-settings)

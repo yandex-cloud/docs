@@ -27,6 +27,8 @@ Aliases:
 - [yc managed-opensearch cluster list-backups](list-backups.md) — List available backups for an OpenSearch cluster.
 - [yc managed-opensearch cluster restart-opensearch](restart-opensearch.md) — Restart OpenSearch on host.
 - [yc managed-opensearch cluster restore](restore.md) — Restore a managed OpenSearch cluster from a backup.
+- [yc managed-opensearch cluster start](start.md) — Start a managed OpenSearch cluster.
+- [yc managed-opensearch cluster stop](stop.md) — Stop a managed OpenSearch cluster.
 - [yc managed-opensearch cluster switch-master](switch-master.md) — Switch current master or ensure that it is not on specified hosts.
 - [yc managed-opensearch cluster update](update.md) — Update a managed OpenSearchCluster.
 

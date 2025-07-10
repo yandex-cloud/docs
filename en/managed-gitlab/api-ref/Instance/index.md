@@ -14,6 +14,7 @@ InstanceService provides methods for managing GitLab instances.
 || [Get](get.md) | Returns the specified GitLab instance. ||
 || [List](list.md) | Retrieves the list of GitLab instances in the specified folder. ||
 || [Create](create.md) | Creates a new GitLab instance in the specified folder. ||
+|| [Update](update.md) | Updates GitLab instance. ||
 || [Delete](delete.md) | Deletes the specified GitLab instance. ||
 || [Start](start.md) | Starts the specified GitLab instance. ||
 || [Stop](stop.md) | Stops the specified GitLab instance. ||

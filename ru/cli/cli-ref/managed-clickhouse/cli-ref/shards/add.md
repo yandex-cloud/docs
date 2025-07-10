@@ -20,7 +20,7 @@ Syntax:
 |`--cluster-id`|<b>`string`</b><br/>ID of the ClickHouse cluster.|
 |`--cluster-name`|<b>`string`</b><br/>Name of the ClickHouse cluster.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
-|`--shard`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configurations for ClickHouse shards that should be added to the cluster.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Shard name.</li> <li><code>weight</code>:     Weight of the shard in the cluster; an integer.</li> </ul>|
+|`--shard`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configurations for ClickHouse shards that should be added to the cluster.<br/><br/>Possible property names:<br/><ul> <li><code>name</code>:     Shard name.</li> <li><code>disk-size-limit</code>:     Disk size limit of the shard in the cluster (GB).</li> <li><code>planned-usage-threshold</code>:     Planned usage threshold of the shard in the cluster.</li> <li><code>emergency-usage-threshold</code>:     Emergency usage threshold of the shard in the cluster.</li> <li><code>weight</code>:     Weight of the shard in the cluster; an integer.</li> </ul>|
 |`--host`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Configurations for ClickHouse hosts of the new shard(s).<br/><br/>Possible property names:<br/><ul> <li><code>zone-id</code>:     ID of the availability zone where the new host should reside.</li> <li><code>subnet-id</code>:     ID of the subnet that the host should be created in.</li> <li><code>subnet-name</code>:     Name of the subnet that the host should be created in.</li> <li><code>assign-public-ip</code>:     Assign a public IP address to the host being added.</li> <li><code>shard-name</code>:     Host shard name.</li> </ul>|
 |`--copy-schema`|Copy schema from an existing shard.|
 |`--clickhouse-resource-preset`|<b>`string`</b><br/>Resource preset for computational resources available to a ClickHouse host (CPU, RAM etc.).|
@@ -28,6 +28,9 @@ Syntax:
 |`--clickhouse-disk-type`|<b>`string`</b><br/>Storage type for a ClickHouse host.|
 |`--name`|<b>`string`</b><br/>Shard name. Incompatible with --shard flags.|
 |`--weight`|<b>`int`</b><br/>Weight of the shard in the cluster; an integer. Incompatible with --shard flags.|
+|`--disk-size-limit`|<b>`byteSize`</b><br/>Disk size limit of the shard in the cluster (GB). Incompatible with --shard flags.|
+|`--planned-usage-threshold`|<b>`int`</b><br/>Planned usage threshold of the shard in the cluster. Incompatible with --shard flags.|
+|`--emergency-usage-threshold`|<b>`int`</b><br/>Emergency usage threshold of the shard in the cluster. Incompatible with --shard flags.|
 
 #### Global Flags
 

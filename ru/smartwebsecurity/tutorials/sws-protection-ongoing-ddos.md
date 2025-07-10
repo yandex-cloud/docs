@@ -1,5 +1,5 @@
 ---
-canonical: '{{ link-docs }}/tutorials/security/sws-protection-ongoing-ddos'
+canonical: '{{ link-docs }}/tutorials/security/sws-basic-settings'
 ---
 
 # Экстренная защита сервисов в {{ alb-name }} от DDoS на уровне L7

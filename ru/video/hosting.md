@@ -75,4 +75,5 @@ description: Следуя данной инструкции, вы сможете
 
 * [{#T}](streaming.md)
 * [Обзор сервиса {{ video-full-name }}](./concepts/index.md)
+* [Настроить показ рекламы](operations/channels/settings.md#ad-settings)
 * [{#T}](troubleshooting.md)

@@ -7496,6 +7496,9 @@ default:
         switch_operations: Операции
         title_clickhouse: ClickHouse
         title_zookeeper: ZooKeeper
+      cloud-registry:
+        action_registry-create: Создать реестр
+        title_registries: Реестры
       cloud-shell:
         label_service: Cloud Shell
       cloud-tree-list:
@@ -7622,6 +7625,7 @@ default:
         section-base: Общая информация
         select: Выбрать
         start: Запустить
+        started-at: Дата начала
         status: Статус
         stop: Остановить
         type: Тип
@@ -7634,6 +7638,7 @@ default:
           label_time-sec_many: секунд
         unspecified: Не задано
         update: Обновить
+        updated-at: Дата изменения
         value: Значение
       component:
         acl-dialog:
@@ -8118,6 +8123,7 @@ default:
       data-catalog:
         action_create-catalog: Cоздать каталог
         label_create-catalog: Создание каталога
+        label_ingestion-tab-operations: Операции
       data-streams:
         button_connect: Подключиться
         button_create-stream: Создать поток
@@ -8367,6 +8373,7 @@ default:
             label_cdn: Cloud CDN
             label_certificate-manager: Certificate Manager
             label_cloud-desktop: Cloud Desktop
+            label_cloud-registry: Cloud Registry
             label_cns: Cloud Notification Service
             label_compute: Compute Cloud
             label_connection-manager: Connection manager
@@ -9631,6 +9638,9 @@ default:
         label_domain-protection-domains: Домены
         label_search-rule-type: 'Тип правила:'
         match-lists:
+          ip-list_add-addresses: Добавить адреса
+          label_create-list: Создать список
+          label_create-match-list: Создать список
           label_match-lists: Списки
         overview:
           action_attach-to-host: Подключить к хосту
@@ -9681,6 +9691,7 @@ default:
           label_create-profile: Создать профиль WAF
           label_exclusion-rules: Правила-исключения
           label_paranoia-level: Уровень паранойи
+          label_paranoia-option-1: Только 1
           label_paranoia-option-2: 2 и ниже
           label_profiles: Профили WAF
           label_save-settings: Сохранить настройки
@@ -9720,6 +9731,7 @@ default:
       speechkit-common:
         brand-voice_51nd8: Brand Voice Lite
         brand-voice_create-dataset_option_title_record-audio_jvUMz: Записать аудиофайлы
+        brand-voice_create-dataset_option_title_upload-audio_4D15S: Добавить аудиофайлы
         brand-voice_create-dataset_option_title_upload-zip_nFtBR: Загрузить ZIP-архив
         brand-voice_section_title_voice-usage_15pws: Использование голоса
         button_create-dataset_nLanW: Создать датасет

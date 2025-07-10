@@ -114,7 +114,7 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
-  1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m4` server pool.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, click the `{{ ui-key.yacloud.baremetal.servers.ConfigurationField.poolFilter_frWLA }}` filter and select the `{{ region-id }}-m4` server pool.
   1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
   
       To test the solution, a configuration with minimum hardware specifications will be enough.
@@ -469,7 +469,7 @@ To make the configuration process easier for you, this tutorial uses a previousl
 
         {% endlist %}
 
-    1. On the authentication page, enter `root` for username and use the password you set when installing the server. If you have not set any custom password for the `root` user, the default one is `opnsense`.
+    1. On the authentication page, enter `root` for username and use the password you set when installing the server. If you had not set a password for the `root` user, the default one is `opnsense`.
     1. Configure your high availability cluster:
 
         1. In the main menu, go to the high availability cluster settings: `System` → `High Availability` → `Settings`.
@@ -689,14 +689,14 @@ To make the configuration process easier for you, this tutorial uses a previousl
 
         1. In the **CPU** field, select the number of vCPUs to allocate to your VM, e.g., `4`.
         1. In the **Memory** field, select the amount of RAM to allocate to your VM, e.g., `8 GB`.
-        1. In the **Hard disk 1** field, select the amount of disk space to allocate to your VM, e.g. `50 GB`.
+        1. In the **Hard disk 1** field, select the amount of disk space to allocate to your VM, e.g., `50 GB`.
         1. In the **CD/DVD Drive 1** field, select `Datastore ISO file`. In the window that opens, select the image you downloaded earlier.
         1. Leave other settings as they are and click **Next**.
     1. In the **Ready to complete** window, check the settings of the new VM and click **Finish** to create it.
     1. In the left-hand main menu, click **Virtual Machines** and select `opnsense-tester-vm`.
     1. In the window that opens, click ![TriangleRightFill](../../_assets/console-icons/triangle-right-fill.svg) **Power on** or ![TriangleRightFill](../../_assets/console-icons/triangle-right-fill.svg) in the VM preview window.
     1. Click the VM preview window and maximize it.
-    1. Follow through the OS installation procedure after selecting the preferred language, keyboard layout, installation type, etc. You can leave all settings at their defaults: this will be enough to test the solution within the scope of this tutorial.
+    1. Go through the operating system installation procedure by selecting the preferred language, keyboard layout, installation type, etc. You can leave all settings at their defaults: this will be enough to test the solution within the scope of this guide.
 
         On the network settings screen, make sure the VM got a private IP address on the `opnsense-private-subnet-m4` subnet from the range specified in the OPNsense DHCP server settings.
         
@@ -821,7 +821,7 @@ The successful test criteria are as follows:
 1. In the bottom-right corner of the GUI screen, click the **Firefox** icon to open the web browser.
 1. In the address bar, enter the hypervisor address, e.g., `https://192.168.1.50/`.
 1. On the authentication page, enter `root` for username and use the password you set when installing ESXi.
-1. In the left-hand main menu, click **Virtual Machines** and select `opnsense-tester-vm`.
+1. In the left-hand main menu, select **Virtual Machines**. Select the `opnsense-tester-vm` VM.
 1. In the window that opens, click ![TriangleRightFill](../../_assets/console-icons/triangle-right-fill.svg) in the VM preview box and maximize it. In the VM terminal window:
 
     1. To log in, enter the username and password you set when creating the VM.

@@ -98,10 +98,7 @@ To get the Kubernetes cluster ID use a [ClusterService.List](/docs/managed-kuber
       "address": "string"
     },
     "scalePolicy": {
-      // Includes only one of the fields `fixedScale`, `autoScale`
-      "fixedScale": {
-        "resourcePresetId": "string"
-      },
+      // Includes only one of the fields `autoScale`
       "autoScale": {
         "minResourcePresetId": "string"
       }
@@ -382,23 +379,9 @@ IP address. ||
 
 #|
 ||Field | Description ||
-|| fixedScale | **[FixedScale](#yandex.cloud.k8s.v1.MasterScalePolicySpec.FixedScale)**
-
-Includes only one of the fields `fixedScale`, `autoScale`. ||
 || autoScale | **[AutoScale](#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale)**
 
-Includes only one of the fields `fixedScale`, `autoScale`. ||
-|#
-
-## FixedScale {#yandex.cloud.k8s.v1.MasterScalePolicySpec.FixedScale}
-
-Fixed master instance resources.
-
-#|
-||Field | Description ||
-|| resourcePresetId | **string**
-
-Required field. Preset of computing resources to be used by master. ||
+Includes only one of the fields `autoScale`. ||
 |#
 
 ## AutoScale {#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale}

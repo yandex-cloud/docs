@@ -144,7 +144,18 @@ Update specific policy.
     },
     "sector_by_sector": "bool",
     "validation_enabled": "bool",
-    "lvm_snapshotting_enabled": "bool"
+    "lvm_snapshotting_enabled": "bool",
+    "pre_post_commands": [
+      {
+        "cmd": "string",
+        "args": "string",
+        "enabled": "bool",
+        "stop_on_error": "bool",
+        "type": "CommandType",
+        "wait": "bool",
+        "workdir": "string"
+      }
+    ]
   }
 }
 ```
@@ -253,6 +264,9 @@ This option requires access to previously created backup copies. ||
 LVM will be used to create the volume snapshot.
 If LVM fails to create a snapshot (for example, because there is not enough free space),
 the software will create the snapshot itself. ||
+|| pre_post_commands[] | **[PrePostCommand](#yandex.cloud.backup.v1.PolicySettings.PrePostCommand)**
+
+Commands to launch before or after backup execution ||
 |#
 
 ## RetriesConfiguration {#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration}
@@ -526,6 +540,37 @@ Do not backup files that match the following criteria ||
 Backup only files that match the following criteria ||
 |#
 
+## PrePostCommand {#yandex.cloud.backup.v1.PolicySettings.PrePostCommand}
+
+#|
+||Field | Description ||
+|| cmd | **string**
+
+Command to execute ||
+|| args | **string**
+
+Command args ||
+|| enabled | **bool**
+
+Is command enabled ||
+|| stop_on_error | **bool**
+
+Stop backup execution on error ||
+|| type | enum **CommandType**
+
+Type of command: pre or post
+
+- `COMMAND_TYPE_UNSPECIFIED`
+- `PRE_COMMAND`: Launch command before backup execution
+- `POST_COMMAND`: Launch command after backup execution ||
+|| wait | **bool**
+
+Wait command finish before launching backup ||
+|| workdir | **string**
+
+Workdir for command execution ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -675,7 +720,18 @@ Backup only files that match the following criteria ||
       },
       "sector_by_sector": "bool",
       "validation_enabled": "bool",
-      "lvm_snapshotting_enabled": "bool"
+      "lvm_snapshotting_enabled": "bool",
+      "pre_post_commands": [
+        {
+          "cmd": "string",
+          "args": "string",
+          "enabled": "bool",
+          "stop_on_error": "bool",
+          "type": "CommandType",
+          "wait": "bool",
+          "workdir": "string"
+        }
+      ]
     },
     "folder_id": "string"
   }
@@ -864,6 +920,9 @@ This option requires access to previously created backup copies. ||
 LVM will be used to create the volume snapshot.
 If LVM fails to create a snapshot (for example, because there is not enough free space),
 the software will create the snapshot itself. ||
+|| pre_post_commands[] | **[PrePostCommand](#yandex.cloud.backup.v1.PolicySettings.PrePostCommand2)**
+
+Commands to launch before or after backup execution ||
 |#
 
 ## RetriesConfiguration {#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration2}
@@ -1135,4 +1194,35 @@ Do not backup files that match the following criteria ||
 || inclusion_masks[] | **string**
 
 Backup only files that match the following criteria ||
+|#
+
+## PrePostCommand {#yandex.cloud.backup.v1.PolicySettings.PrePostCommand2}
+
+#|
+||Field | Description ||
+|| cmd | **string**
+
+Command to execute ||
+|| args | **string**
+
+Command args ||
+|| enabled | **bool**
+
+Is command enabled ||
+|| stop_on_error | **bool**
+
+Stop backup execution on error ||
+|| type | enum **CommandType**
+
+Type of command: pre or post
+
+- `COMMAND_TYPE_UNSPECIFIED`
+- `PRE_COMMAND`: Launch command before backup execution
+- `POST_COMMAND`: Launch command after backup execution ||
+|| wait | **bool**
+
+Wait command finish before launching backup ||
+|| workdir | **string**
+
+Workdir for command execution ||
 |#

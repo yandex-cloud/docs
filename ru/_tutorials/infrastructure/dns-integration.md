@@ -330,7 +330,7 @@ sudo netplan apply
 Чтобы перестать платить за ресурсы:
 
 * [удалите ВМ](../../compute/operations/vm-control/vm-delete);
-* [удалите статические публичные IP-адреса](../../vpc/operations/address-delete), если вы зарезервировали их специально для своих ВМ;
+* [удалите статические публичные IP-адреса](../../vpc/operations/address-delete.md), если вы зарезервировали их специально для своих ВМ;
 * [удалите целевые группы](../../network-load-balancer/operations/target-group-delete.md);
 * [удалите обработчики](../../network-load-balancer/operations/listener-remove.md);
 * [удалите сетевой балансировщик](../../network-load-balancer/operations/load-balancer-delete.md);

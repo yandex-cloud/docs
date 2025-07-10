@@ -27,8 +27,7 @@ To set up network connectivity between {{ baremetal-name }} private subnets and 
 1. [Create a cloud infrastructure](#setup-infrastructure).
 1. [Create a routing instance](#create-routing-instance).
 1. [Create a private connection](#create-private-connection).
-1. [Configure the routing instance](#config-routing-instance).
-1. [Test network connectivity](#check-connectivity).
+1. [Check network connectivity](#check-connectivity).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -91,10 +90,10 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
-  1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, click the `{{ ui-key.yacloud.baremetal.servers.ConfigurationField.poolFilter_frWLA }}` filter and select the `{{ region-id }}-m3` server pool.
   1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
   1. {% include [server-lease-step6](../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
-  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select an image, e.g. `Ubuntu 24.04`.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select an image, e.g., `Ubuntu 24.04`.
   1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
   1. Under **Network settings**:
 
@@ -128,29 +127,7 @@ If your folder already has [{{ interconnect-name }}](../../interconnect/index.ya
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. Make sure you have a routing instance in your default folder:
-
-    {% list tabs group=instructions %}
-
-    - CLI {#cli}
-
-        Run this command:
-
-        ```bash
-        yc cloudrouter routing-instance list
-        ```
-
-        If your folder already includes a routing instance, the command will output the following:
-
-        ```text
-        +----------------------+------------------+--------+-----------------------+
-        |          ID          |       NAME       | STATUS | PRIVATE CONNECTION ID |
-        +----------------------+------------------+--------+-----------------------+
-        | cf35oot8f0eu******** | routing-instance | ACTIVE | cf395uf8dg7h********  |
-        +----------------------+------------------+--------+-----------------------+
-        ```
-
-    {% endlist %}
+1. {% include [check-for-routing-instance](../../_includes/baremetal/check-for-routing-instance.md) %}
 
 1. If you already have a routing instance, you may skip the next step and [proceed](#create-private-connection) to creating a private connection.
 
@@ -158,38 +135,7 @@ If your folder already has [{{ interconnect-name }}](../../interconnect/index.ya
 
 ### Request a new routing instance {#request-ri}
 
-[Contact]({{ link-console-support }}/tickets/create) support to create a routing instance in your folder.
-
-Fill out your request as follows:
-
-```text
-Subject: [CIC for BareMetal] Creating a routing instance.
-
-Request text:
-Please create a routing instance in the specified cloud folder with the following parameters:
-
-folder_id: <folder_ID>
-
-vpc:
-  vpc_net_id: <network_ID>
-    vpc_subnets: 
-      {{ region-id }}-a: [CIDR_a1, CIDR_a2, ..., CIDR_an]
-      {{ region-id }}-b: [CIDR_b1, CIDR_b2, ..., CIDR_bn]
-      {{ region-id }}-d: [CIDR_d1, CIDR_d2, ..., CIDR_dn]
-```
-
-Where:
-* `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-* `vpc_net_id`: Cloud network [ID](../../vpc/operations/network-get-info.md).
-* `vpc_subnets`: List of [announced](../../interconnect/concepts/priv-con.md#prc-announce) address prefixes for each [availability zone](../../overview/concepts/geo-scope.md). For example, for the {{ vpc-short-name }} subnet you created earlier, you will specify `{{ region-id }}-b: [192.168.11.0/24]`.
-
-    You may announce [aggregated](../../interconnect/concepts/priv-con.md#agg-subnets) address prefixes.
-
-{% note info %}
-
-It may take up to 24 hours for the support to create a routing instance. After that, you will be able to get the ID of the new routing instance by running the `yc cloudrouter routing-instance list` [{{ yandex-cloud }} CLI](../../cli/index.yaml) command.
-
-{% endnote %}
+{% include [request-routing-instance](../../_includes/baremetal/request-routing-instance.md) %}
 
 ## Create a private connection {#create-private-connection}
 
@@ -309,7 +255,7 @@ To stop paying for the resources you created:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the infrastructure.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
       1. In the left-hand panel, click ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and select `my-vrf`.
-      1. Under **Private connection to cloud networks**, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **Disable connection**.
+      1. Under **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}**, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **{{ ui-key.yacloud.baremetal.action_delete-external-connection }}**.
       1. In the window that opens, confirm the deletion.
 
       The connection status will change to `Deleting`. Once all links are deleted, the connection will disappear from the list.

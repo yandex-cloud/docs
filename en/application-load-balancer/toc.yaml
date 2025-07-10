@@ -327,8 +327,12 @@ items:
             href: cli-ref/load-balancer/delete.md
           - name: disable-traffic
             href: cli-ref/load-balancer/disable-traffic.md
+          - name: disable-zones
+            href: cli-ref/load-balancer/disable-zones.md
           - name: enable-traffic
             href: cli-ref/load-balancer/enable-traffic.md
+          - name: enable-zones
+            href: cli-ref/load-balancer/enable-zones.md
           - name: get
             href: cli-ref/load-balancer/get.md
           - name: list

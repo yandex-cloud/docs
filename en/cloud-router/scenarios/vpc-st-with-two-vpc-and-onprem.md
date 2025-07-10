@@ -1,6 +1,6 @@
-## Establishing network connectivity between two (or more) cloud networks and on-prem resources
+# Establishing network connectivity between two or more cloud networks and on-prem resources (VPC Stitching)
 
-{% include [cic-cr-access](../../_includes/interconnect/cic-cr-access.md) %}
+{% include [cic-only-warning](../../_includes/interconnect/cic-only-warning.md) %}
 
 Reserved on-prem connection via two private Cloud Interconnect connections to one RI with two *or more* cloud networks and network connectivity between the cloud networks. This fully-connected topology is called `Full Mesh`.
 
@@ -23,7 +23,7 @@ The scenario uses the following components:
 
 {% note warning "Important note" %}
 
-Virtual network subnets' own prefixes cannot be used as stitching announcements.
+Using the actual subnet prefixes of the virtual networks as stitching announcements is not permitted.
 
 {% endnote %}
 

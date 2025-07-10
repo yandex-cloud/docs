@@ -24,6 +24,9 @@ Syntax:
 |`--clickhouse-resource-preset`|<b>`string`</b><br/>New resource preset for computational resources (CPU, RAM etc.) available to a ClickHouse host in the shard.|
 |`--clickhouse-disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to ClickHouse hosts in the shard in GB.|
 |`--clickhouse-disk-type`|<b>`string`</b><br/>Storage type for ClickHouse hosts in the shard.|
+|`--disk-size-limit`|<b>`byteSize`</b><br/>Disk size limit of the shard in the cluster (GB).|
+|`--planned-usage-threshold`|<b>`int`</b><br/>Planned usage threshold of the shard in the cluster.|
+|`--emergency-usage-threshold`|<b>`int`</b><br/>Emergency usage threshold of the shard in the cluster.|
 |`--weight`|<b>`int`</b><br/>New weight of a ClickHouse host in the shard.|
 
 #### Global Flags

@@ -730,6 +730,8 @@ items:
                     href: api-ref/grpc/Bucket/setHTTPSConfig.md
                   - name: DeleteHTTPSConfig
                     href: api-ref/grpc/Bucket/deleteHTTPSConfig.md
+                  - name: SetAccessBindings
+                    href: api-ref/grpc/Bucket/setAccessBindings.md
                   - name: UpdateAccessBindings
                     href: api-ref/grpc/Bucket/updateAccessBindings.md
                   - name: ListAccessBindings
@@ -768,6 +770,8 @@ items:
                     href: api-ref/Bucket/setHTTPSConfig.md
                   - name: DeleteHTTPSConfig
                     href: api-ref/Bucket/deleteHTTPSConfig.md
+                  - name: SetAccessBindings
+                    href: api-ref/Bucket/setAccessBindings.md
                   - name: UpdateAccessBindings
                     href: api-ref/Bucket/updateAccessBindings.md
                   - name: ListAccessBindings

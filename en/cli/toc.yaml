@@ -145,9 +145,15 @@ items:
               - name: disable-traffic
                 href: >-
                   cli-ref/application-load-balancer/cli-ref/load-balancer/disable-traffic.md
+              - name: disable-zones
+                href: >-
+                  cli-ref/application-load-balancer/cli-ref/load-balancer/disable-zones.md
               - name: enable-traffic
                 href: >-
                   cli-ref/application-load-balancer/cli-ref/load-balancer/enable-traffic.md
+              - name: enable-zones
+                href: >-
+                  cli-ref/application-load-balancer/cli-ref/load-balancer/enable-zones.md
               - name: get
                 href: cli-ref/application-load-balancer/cli-ref/load-balancer/get.md
               - name: list
@@ -2220,9 +2226,6 @@ items:
               - name: attach-target-group
                 href: >-
                   cli-ref/load-balancer/cli-ref/network-load-balancer/attach-target-group.md
-              - name: cancel-zonal-shift
-                href: >-
-                  cli-ref/load-balancer/cli-ref/network-load-balancer/cancel-zonal-shift.md
               - name: create
                 href: cli-ref/load-balancer/cli-ref/network-load-balancer/create.md
               - name: delete
@@ -2230,6 +2233,12 @@ items:
               - name: detach-target-group
                 href: >-
                   cli-ref/load-balancer/cli-ref/network-load-balancer/detach-target-group.md
+              - name: disable-zones
+                href: >-
+                  cli-ref/load-balancer/cli-ref/network-load-balancer/disable-zones.md
+              - name: enable-zones
+                href: >-
+                  cli-ref/load-balancer/cli-ref/network-load-balancer/enable-zones.md
               - name: get
                 href: cli-ref/load-balancer/cli-ref/network-load-balancer/get.md
               - name: list
@@ -2242,9 +2251,6 @@ items:
                   cli-ref/load-balancer/cli-ref/network-load-balancer/remove-listener.md
               - name: start
                 href: cli-ref/load-balancer/cli-ref/network-load-balancer/start.md
-              - name: start-zonal-shift
-                href: >-
-                  cli-ref/load-balancer/cli-ref/network-load-balancer/start-zonal-shift.md
               - name: stop
                 href: cli-ref/load-balancer/cli-ref/network-load-balancer/stop.md
               - name: target-states
@@ -2774,6 +2780,8 @@ items:
                 href: cli-ref/managed-gitlab/cli-ref/instance/start.md
               - name: stop
                 href: cli-ref/managed-gitlab/cli-ref/instance/stop.md
+              - name: update
+                href: cli-ref/managed-gitlab/cli-ref/instance/update.md
       - name: managed-greenplum
         items:
           - name: Overview
@@ -2829,6 +2837,8 @@ items:
                 href: cli-ref/managed-greenplum/cli-ref/cluster/update.md
               - name: update-config
                 href: cli-ref/managed-greenplum/cli-ref/cluster/update-config.md
+          - name: connect
+            href: cli-ref/managed-greenplum/cli-ref/connect.md
           - name: hba-rules
             items:
               - name: Overview
@@ -3442,6 +3452,10 @@ items:
                   cli-ref/managed-opensearch/cli-ref/cluster/restart-opensearch.md
               - name: restore
                 href: cli-ref/managed-opensearch/cli-ref/cluster/restore.md
+              - name: start
+                href: cli-ref/managed-opensearch/cli-ref/cluster/start.md
+              - name: stop
+                href: cli-ref/managed-opensearch/cli-ref/cluster/stop.md
               - name: switch-master
                 href: cli-ref/managed-opensearch/cli-ref/cluster/switch-master.md
               - name: update

@@ -851,6 +851,8 @@ items:
         href: tutorials/models-fine-tuning.md
       - name: Создание AI-агента с помощью {{ sf-full-name }}
         href: tutorials/create-ai-agent-function.md
+      - name: Интеграция модели Qwen3 в Visual Studio Code
+        href: tutorials/qwen-vsc-integration.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

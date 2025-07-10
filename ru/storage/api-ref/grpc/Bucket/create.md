@@ -411,7 +411,8 @@ white list of private endpoints bucket accessible from ||
       "private_endpoints": [
         "string"
       ]
-    }
+    },
+    "resource_id": "string"
   }
   // end of the list of possible fields
 }
@@ -573,6 +574,9 @@ For details, see [documentation](/docs/storage/concepts/encryption) ||
 || allowed_private_endpoints | **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints2)**
 
 Bucket allowed private endpoints. ||
+|| resource_id | **string**
+
+ID of the Yandex.Cloud entity that owns the bucket. ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags2}
