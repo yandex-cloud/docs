@@ -1,4 +1,4 @@
-# Setting up network connectivity in a {{ baremetal-full-name }} subnet
+# Establishing network connectivity in a {{ baremetal-full-name }} private subnet
 
 If you set up routing for a [private subnet](../../baremetal/concepts/network.md#private-subnet) and assigned it a [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing), the network interfaces of [{{ baremetal-name }} servers](../../baremetal/concepts/servers.md) connected to this subnet will get IP addresses from the range specified in the subnet’s CIDR settings via [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol).
 
@@ -35,7 +35,7 @@ See also [How to cancel server lease](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of this solution includes the {{ baremetal-name }} server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
+The cost of the proposed solution includes the {{ baremetal-name }} server lease fee (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 
 ## Create a private subnet {#create-subnet}
 
@@ -50,7 +50,7 @@ Create a private subnet in the `{{ region-id }}-m3` [server pool](../../baremeta
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the subnet name: `subnet-m3`.
-  1. Without enabling **{{ ui-key.yacloud.baremetal.title_routing-settings }}**, click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
+  1. Without enabling the **{{ ui-key.yacloud.baremetal.title_routing-settings }}** option, click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 
 {% endlist %}
 
@@ -63,7 +63,7 @@ Create a private subnet in the `{{ region-id }}-m3` [server pool](../../baremeta
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
-  1. In the **{{ ui-key.yacloud.baremetal.field_server-pool }}** field, select the `{{ region-id }}-m3` server pool.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, click the `{{ ui-key.yacloud.baremetal.servers.ConfigurationField.poolFilter_frWLA }}` filter and select the `{{ region-id }}-m3` server pool.
   1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
   1. {% include [server-lease-step6](../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Ubuntu 24.04` image.
@@ -277,7 +277,7 @@ To enable the DHCP server in the private subnet, create a virtual network segmen
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks }}**.
-  1. In the `subnet-m3` row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
+  1. Next to `subnet-m3`, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
   
       1. Enable **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
       1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select the previously created segment, `my-vrf`.
@@ -306,7 +306,7 @@ The DHCP server that serves VRF-enabled private subnets can only assign IP addre
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. In the row with the `server-m3-1` server, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
+  1. Next to `server-m3-1`, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
   1. Authenticate as the `root` user in the KVM console terminal with the password you saved when leasing the server. Perform all further actions described in this step in the KVM console terminal:
   
       1. Open the server network interface configuration file:
@@ -370,7 +370,7 @@ Make sure the servers retained network connectivity after obtaining IP addresses
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. In the row with the `server-m3-1` server, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
+  1. Next to `server-m3-1`, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.baremetal.label_kvm-console }}**.
   1. Authenticate as the `root` user in the KVM console terminal with the password you saved when leasing the server.
   1. In the KVM console terminal, run the `ping` command to make sure you can access `server-m3-2` by the IP address you saved in the previous step (`192.168.1.3` in our example):
 
@@ -399,6 +399,6 @@ Make sure the servers retained network connectivity after obtaining IP addresses
 
 ## How to cancel server lease {#clear-out}
 
-You cannot delete {{ baremetal-name }} servers. Instead, you can cancel their lease.
+You cannot delete {{ baremetal-name }} servers. Instead, you can choose not to renew their lease.
 
 To stop paying for the resources you created, [cancel](../../baremetal/operations/servers/server-lease-cancel.md) the lease of the {{ baremetal-name }} servers you created earlier.

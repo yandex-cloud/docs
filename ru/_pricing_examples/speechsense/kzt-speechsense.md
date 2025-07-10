@@ -8,7 +8,7 @@
   
   Где:
   * {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|number }} × 60 %} — стоимость распознавания минуты аудио для первых 100 000 минут.
-  * {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 %} — стоимость распознавания минуты аудио для последующих 15 000 минуты.
+  * {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.audio|pricingRate.6000000|number }} × 60 %} — стоимость распознавания минуты аудио для последующих 15 000 минут.
 
 **Стоимость аналитики**
 
@@ -18,7 +18,7 @@
   
   Где:
   * {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|number }} × 60 %} — стоимость анализа минуты аудио для первых 100 000 минут.
-  * {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 %} — стоимость анализа минуты аудио для последующих 15 000 минуты.
+  * {% calc [currency=KZT] {{ sku|KZT|speechsense.analysis.v1|pricingRate.6000000|number }} × 60 %} — стоимость анализа минуты аудио для последующих 15 000 минут.
 
 **Расчет итоговой стоимости** 
 

@@ -15,7 +15,7 @@
 
 {% endnote %}
 
-Как минимум 30% обучающих данных должны содержать вопросы, чтобы обученный голос мог синтезировать вопросительную интонацию в тексте. Вы можете использовать уже готовый [шаблон](https://storage.yandexcloud.net/doc-files/ml/brand_voice_lite_text_example.tsv) от команды {{ speechkit-name }} или самостоятельно подготовить тексты для озвучивания. Рекомендации по созданию и оформлению текстов для обучения см. в разделе [Требования к текстам](#text-technical-requirements).
+Как минимум 30% обучающих данных должны содержать вопросы, чтобы обученный голос мог синтезировать вопросительную интонацию в тексте. Вы можете использовать уже готовый [набор фраз](https://storage.yandexcloud.net/doc-files/ml/brand_voice_lite_text_example.txt) от команды {{ speechkit-name }} или самостоятельно подготовить тексты для озвучивания. Рекомендации по созданию и оформлению текстов для обучения см. в разделе [Требования к текстам](#text-technical-requirements).
 
 Вы можете загрузить датасет со всеми аудиозаписями и расшифровками [в виде одного архива](#zip) или записать аудио для каждой фразы [в консоли управления](#console-record) через браузер. В любом случае обязательно следуйте [рекомендациям для записи аудио](#audiotips) и прослушайте все аудио, чтобы убедиться в качестве исходных данных для обучения голосовой модели. После запуска обучения исправить датасет не получится. 
 
@@ -50,7 +50,7 @@
 
 ### Требования к аудиозаписям {#requirements-audio}
 
-Если вы записываете аудио с помощью специальных программ, а не в консоли управления через браузер, убедитесь, что они соответствуют следующим требованиям: 
+Если вы записываете аудио с помощью специальных программ, а не в консоли управления через браузер, убедитесь, что они соответствуют следующим требованиям:
 
 | Требование | Значение |
 | --- | --- |
@@ -60,55 +60,6 @@
 | Формат | [WAV](https://ru.wikipedia.org/wiki/WAV) |
 | Продолжительность | ≤ 15 секунд |
 | Тишина в начале и в конце | 100–200 миллисекунд |
-
-## Как записать аудио через браузер {#console-record}
-
-1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать с сервисом.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
-1. На панели слева нажмите **{{ ui-key.yacloud.speechkit-common.brand-voice_51nd8 }}**.
-1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**.
-1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-dataset_nLanW }}** ⟶ **{{ ui-key.yacloud.speechkit-common.brand-voice_create-dataset_option_title_record-audio_jvUMz }}**.
-1. Выберите данные для записи: нажмите **Использовать готовый шаблон** или **Загрузить собственные тексты**.
-1. В строке с нужным текстом нажмите **Записать аудио** ⟶ **Записать**, а затем прочитайте текст вслух.
-1. Нажмите кнопку ![circle-play](../../../_assets/console-icons/circle-play.svg), чтобы прослушать результат.
-1. Если запись не содержит посторонних звуков, фраза записана полностью, и ее хорошо слышно, нажмите ![floppy-disk](../../../_assets/console-icons/floppy-disk.svg) **Сохранить**. Чтобы повторить запись, нажмите ![floppy-disk](../../../_assets/console-icons/arrow-rotate-left.svg) **Записать заново**.
-1. Запишите аудио для остальных текстов.
-1. В блоке **{{ ui-key.yacloud.speechkit-common.brand-voice_section_title_voice-usage_15pws }}** ознакомьтесь с [условиями использования сервиса {{ speechkit-name }}](https://yandex.ru/legal/cloud_terms_speechkit) и подтвердите, что ознакомлены.
-1. Подтвердите, что имеете письменное согласие лица, чей голос используется на аудиозаписи, на использование данной аудиозаписи для создания и использования синтеза речи.
-1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**, чтобы запустить создание голоса.
-
-## Как загрузить готовый датасет {#zip}
-
-1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать с сервисом.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
-1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**.
-1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-dataset_nLanW }}** и выберите **{{ ui-key.yacloud.speechkit-common.brand-voice_create-dataset_option_title_upload-zip_nFtBR }}**.
-1. Перетащите ZIP-архив в область загрузки.
-
-   ZIP-архив с датасетом для дообучения должен содержать:
-   
-   * Аудиозаписи в формате WAV.
-   * Таблицу в формате [TSV](https://ru.wikipedia.org/wiki/TSV) в кодировке UTF-8, содержащей текстовые расшифровки аудиозаписей из архива. Таблица должна состоять из двух колонок без заголовков:
-      * имя файла с аудиозаписью, на которой диктор произносит текст;
-      * строка, содержащая дословную расшифровку аудиозаписи.
-
-1. В блоке **{{ ui-key.yacloud.speechkit-common.brand-voice_section_title_voice-usage_15pws }}** ознакомьтесь с [условиями использования сервиса {{ speechkit-name }}](https://yandex.ru/legal/cloud_terms_speechkit) и подтвердите, что ознакомлены.
-1. Подтвердите, что имеете письменное согласие лица, чей голос используется на аудиозаписи, на использование данной аудиозаписи для создания и использования синтеза речи.
-1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**, чтобы запустить создание голоса.
-
-Если вы используете [тексты](https://storage.yandexcloud.net/doc-files/ml/brand_voice_lite_text_example.tsv) от команды {{ speechkit-name }}, в начало каждой строки добавьте название файла с соответствующей аудиозаписью и удалите строку с заголовком таблицы.
-
-### Пример подготовленных данных {#example}
-
-Все тексты в расшифровках должны полностью совпадать с озвученными в аудио.
-
-Заголовок таблицы приведен для наглядности, в файле для загрузки он должен отсутствовать.
-
-| recordings | text |
-|---|---|
-| 1.wav | Книги собирают жемчужины человеческой мысли и передают их потомству. |
-| 2.wav | Мы предлагаем вам замечательную книгу! |
-| 3.wav | Книга рекомендована школьникам от пяти лет. |
 
 {% note warning %}
 
@@ -127,3 +78,68 @@
 ![bad-audio](../../../_assets/speechkit/bad-audio.png)
 
 Такие аудиозаписи будут иметь искажения и не подойдут для обучения модели.
+
+## Как создать голос {#create-voice}
+
+{% list tabs group=instructions %}
+
+- Записать аудио через браузер {#record}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать с сервисом.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
+  1. На панели слева нажмите **{{ ui-key.yacloud.speechkit-common.brand-voice_51nd8 }}**.
+  1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**.
+  1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-dataset_nLanW }}** и выберите **{{ ui-key.yacloud.speechkit-common.brand-voice_create-dataset_option_title_record-audio_jvUMz }}**.
+  1. Выберите данные для записи: нажмите **Использовать готовый шаблон** или **Загрузить собственные тексты**.
+  1. В строке с нужным текстом нажмите **Записать аудио** ⟶ **Записать**, а затем прочитайте текст вслух.
+  1. Нажмите кнопку ![circle-play](../../../_assets/console-icons/circle-play.svg), чтобы прослушать результат.
+  1. Если запись не содержит посторонних звуков, фраза записана полностью, и ее хорошо слышно, нажмите ![floppy-disk](../../../_assets/console-icons/floppy-disk.svg) **Сохранить**. Чтобы повторить запись, нажмите ![arrow-rotate-left](../../../_assets/console-icons/arrow-rotate-left.svg) **Записать заново**.
+  1. Запишите аудио для остальных текстов.  
+  1. {% include [voice-usage-policy-2](../../../_includes/speechkit/voice-usage-policy.md) %}
+  1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**, чтобы запустить создание голоса.
+
+- Загрузить аудиофайлы {#audio}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать с сервисом.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
+  1. На панели слева нажмите **{{ ui-key.yacloud.speechkit-common.brand-voice_51nd8 }}**.
+  1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**.
+  1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-dataset_nLanW }}** и выберите **{{ ui-key.yacloud.speechkit-common.brand-voice_create-dataset_option_title_upload-audio_4D15S }}**.
+  1. Выберите тексты, по которым записывались аудиофайлы: нажмите **Использовать готовый шаблон** или **Загрузить собственные тексты**.
+  1. В строке с нужным текстом нажмите **Добавить аудиофайл**.
+  1. Добавьте аудиофайлы для остальных текстов.
+  1. {% include [voice-usage-policy-1](../../../_includes/speechkit/voice-usage-policy.md) %}
+  1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**, чтобы запустить создание голоса.
+
+- Загрузить ZIP-архив {#zip}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать с сервисом.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
+  1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**.
+  1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-dataset_nLanW }}** и выберите **{{ ui-key.yacloud.speechkit-common.brand-voice_create-dataset_option_title_upload-zip_nFtBR }}**.
+  1. Перетащите ZIP-архив в область загрузки.
+  
+     ZIP-архив с датасетом для дообучения должен содержать:
+     
+     * Аудиозаписи в формате WAV.
+     * Таблицу в формате [TSV](https://ru.wikipedia.org/wiki/TSV) в кодировке UTF-8, содержащей текстовые расшифровки аудиозаписей из архива. Таблица должна состоять из двух колонок без заголовков:
+        * имя файла с аудиозаписью, на которой диктор произносит текст;
+        * строка, содержащая дословную расшифровку аудиозаписи.
+  
+  1. {% include [voice-usage-policy](../../../_includes/speechkit/voice-usage-policy.md) %}
+
+  1. Нажмите **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}**, чтобы запустить создание голоса.
+  
+  Если вы используете [тексты](https://storage.yandexcloud.net/doc-files/ml/brand_voice_lite_text_example.tsv) от команды {{ speechkit-name }}, в начало каждой строки добавьте название файла с соответствующей аудиозаписью и удалите строку с заголовком таблицы.
+
+  **Пример подготовленных данных**
+
+  Заголовок таблицы приведен для наглядности, в файле для загрузки он должен отсутствовать.
+
+  | recordings | text |
+  |---|---|
+  | 1.wav | Книги собирают жемчужины человеческой мысли и передают их потомству. |
+  | 2.wav | Мы предлагаем вам замечательную книгу! |
+  | 3.wav | Книга рекомендована школьникам от пяти лет. |
+
+{% endlist %}

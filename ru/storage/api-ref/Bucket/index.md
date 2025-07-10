@@ -20,6 +20,7 @@ A set of methods for managing buckets.
 || [GetHTTPSConfig](getHTTPSConfig.md) | Returns the HTTPS configuration for the specified bucket. ||
 || [SetHTTPSConfig](setHTTPSConfig.md) | Updates the HTTPS configuration for the specified bucket. ||
 || [DeleteHTTPSConfig](deleteHTTPSConfig.md) | Deletes the HTTPS configuration for the specified bucket. ||
+|| [SetAccessBindings](setAccessBindings.md) |  ||
 || [UpdateAccessBindings](updateAccessBindings.md) |  ||
 || [ListAccessBindings](listAccessBindings.md) |  ||
 |#

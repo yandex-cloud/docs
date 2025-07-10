@@ -1,6 +1,6 @@
 # Профили безопасности
 
-_Профиль безопасности_ — основной элемент сервиса {{ sws-name }}. Профиль состоит из набора [правил](rules.md), каждое из которых содержит [условия](conditions.md) для применения определенных [действий](rules.md#rule-action) к HTTP-запросам, приходящим к защищаемому ресурсу через [виртуальный хост](../../application-load-balancer/concepts/http-router.md#virtual-host) L7-балансировщика [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md).
+_Профиль безопасности_ — основной элемент сервиса {{ sws-name }}. Профиль состоит из набора [правил](rules.md) для обработки HTTP-трафика. Правила содержат [условия](conditions.md) фильтрации и [действия](rules.md#rule-action), которые применяются к трафику, поступающему к вашему веб-ресурсу. Также в профиле безопасности можно настроить [CAPTCHA](https://ru.wikipedia.org/wiki/Капча) и лимит запросов по различным условиям. 
 
 {% include [user-data-to-ml](../../_includes/smartwebsecurity/user-data-to-ml.md)%}
 
@@ -10,7 +10,11 @@ _Профиль безопасности_ — основной элемент с
     * [правило Smart Protection](rules.md#smart-protection-rules), включенное для всего трафика, с типом действия — _{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}_.
   * _{{ ui-key.yacloud.smart-web-security.title_no-template }}_. Профиль содержит только базовое правило по умолчанию, включенное для всего трафика.
 
-Чтобы задействовать {{ sws-name }}, [подключите профиль безопасности](../operations/host-connect.md) к виртуальному хосту L7-балансировщика, трафик с которого распределяется на защищаемые ресурсы. Если балансировщик управляется [Ingress-контроллером](../../application-load-balancer/tools/k8s-ingress-controller/index.md) {{ alb-name }}, то подключать профиль безопасности следует с помощью [аннотации ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md).
+{% include [setting-by-expert](../../_includes/smartwebsecurity/setting-by-expert.md) %}
+
+Чтобы включить защиту {{ sws-name }}, [подключите профиль безопасности](../operations/host-connect.md) к своему ресурсу.
+
+{% include [sws-type-resources](../../_includes/smartwebsecurity/sws-type-resources.md) %}
 
 ## Анализ тела запроса {#analyze-request-body}
 

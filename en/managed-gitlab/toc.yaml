@@ -105,6 +105,8 @@ items:
             href: cli-ref/instance/start.md
           - name: stop
             href: cli-ref/instance/stop.md
+          - name: update
+            href: cli-ref/instance/update.md
   - name: API reference
     items:
       - name: API authentication
@@ -123,6 +125,8 @@ items:
                 href: api-ref/grpc/Instance/list.md
               - name: Create
                 href: api-ref/grpc/Instance/create.md
+              - name: Update
+                href: api-ref/grpc/Instance/update.md
               - name: Delete
                 href: api-ref/grpc/Instance/delete.md
               - name: Start
@@ -151,6 +155,8 @@ items:
                 href: api-ref/Instance/list.md
               - name: Create
                 href: api-ref/Instance/create.md
+              - name: Update
+                href: api-ref/Instance/update.md
               - name: Delete
                 href: api-ref/Instance/delete.md
               - name: Start

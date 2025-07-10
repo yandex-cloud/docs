@@ -180,7 +180,8 @@ To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List
         "privateEndpoints": [
           "string"
         ]
-      }
+      },
+      "resourceId": "string"
     }
   ]
 }
@@ -292,6 +293,9 @@ For details, see [documentation](/docs/storage/concepts/encryption) ||
 || allowedPrivateEndpoints | **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
 
 Bucket allowed private endpoints. ||
+|| resourceId | **string**
+
+ID of the Yandex.Cloud entity that owns the bucket. ||
 |#
 
 ## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}

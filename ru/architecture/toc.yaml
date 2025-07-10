@@ -8,3 +8,5 @@ items:
       Развертывание веб-приложения в отказоустойчивой конфигурации в {{
       yandex-cloud }}
     href: app-in-k8s.md
+  - name: Тестирование отказоустойчивости в {{ yandex-cloud }}
+    href: testing-zone-failure.md

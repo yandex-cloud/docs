@@ -51,7 +51,9 @@ Aliases:
 	- [yc application-load-balancer load-balancer create](load-balancer/create.md) — Create an application load balancer
 	- [yc application-load-balancer load-balancer delete](load-balancer/delete.md) — Delete the specified application load balancer
 	- [yc application-load-balancer load-balancer disable-traffic](load-balancer/disable-traffic.md) — Disables traffic in specified zones for application load balancer.
+	- [yc application-load-balancer load-balancer disable-zones](load-balancer/disable-zones.md) — Disable traffic routing in zones for the specified load balancer
 	- [yc application-load-balancer load-balancer enable-traffic](load-balancer/enable-traffic.md) — Enables traffic in specified zones for application load balancer.
+	- [yc application-load-balancer load-balancer enable-zones](load-balancer/enable-zones.md) — Enable traffic routing in zones for the specified load balancer
 	- [yc application-load-balancer load-balancer get](load-balancer/get.md) — Show information about the specified load balancer
 	- [yc application-load-balancer load-balancer list](load-balancer/list.md) — List application load balancers
 	- [yc application-load-balancer load-balancer list-operations](load-balancer/list-operations.md) — List operations for the specified application load balancer

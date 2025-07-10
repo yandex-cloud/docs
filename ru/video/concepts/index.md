@@ -1,5 +1,9 @@
 # Обзор сервиса {{ video-full-name }}
 
+{% include [preview-stage](../../_includes/video/preview-stage.md) %}
+
+{% include [ask-for-turning-on](../../_includes/video/ask-for-turning-on.md) %}
+
 {% include [about-service](../../_includes/video/about-service.md) %}
 
 Необработанный оригинальный видеоконтент (файл с видео или трансляция) в высоком качестве плохо подходит для встраивания на сайте или в приложении, поскольку для его воспроизведения на стороне клиента требуется стабильное интернет-соединение с высокой скоростью.
@@ -10,9 +14,11 @@
 * Распространяет контент с помощью технологии [CDN](../../glossary/cdn.md).
 * Обеспечивает отказоустойчивую инфраструктуру для транскодирования, хранения и трансляции видеоконтента.
 
-{% include [preview-stage](../../_includes/video/preview-stage.md) %}
+Также можно монетизировать свой видеоконтент с помощью [рекламной сети Яндекса](https://yandex.ru/support2/partner/ru/yan-rules/video).
 
-{% include [ask-for-turning-on](../../_includes/video/ask-for-turning-on.md) %}
+Подробнее о рекламе см. раздел [{#T}](../operations/channels/settings.md).
+
+Дополнительно в {{ video-name }} можно воспользоваться технологиями Яндекса по суммаризации, нейропереводу и генерации субтитров.
 
 ## Каналы {#channels}
 

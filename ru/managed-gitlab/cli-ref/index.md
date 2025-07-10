@@ -26,6 +26,7 @@ Aliases:
 	- [yc managed-gitlab instance list](instance/list.md) — List Gitlab instances
 	- [yc managed-gitlab instance start](instance/start.md) — Start the specified Gitlab instance
 	- [yc managed-gitlab instance stop](instance/stop.md) — Stop the specified Gitlab instance
+	- [yc managed-gitlab instance update](instance/update.md) — Update the specified Gitlab instance
 
 #### Global Flags
 

@@ -92,6 +92,8 @@ items:
                 href: operations/data-catalog/create-catalog.md
               - name: Изменение каталога
                 href: operations/data-catalog/update-catalog.md
+              - name: Получение списка операций
+                href: operations/data-catalog/catalog-operations.md
               - name: Удаление каталога
                 href: operations/data-catalog/delete-catalog.md
           - name: Загрузки

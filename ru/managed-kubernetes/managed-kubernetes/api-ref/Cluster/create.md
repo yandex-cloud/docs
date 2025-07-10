@@ -113,10 +113,7 @@ POST https://mks.{{ api-host }}/managed-kubernetes/v1/clusters
       "eventsEnabled": "boolean"
     },
     "scalePolicy": {
-      // Includes only one of the fields `fixedScale`, `autoScale`
-      "fixedScale": {
-        "resourcePresetId": "string"
-      },
+      // Includes only one of the fields `autoScale`
       "autoScale": {
         "minResourcePresetId": "string"
       }
@@ -482,23 +479,9 @@ Identifies whether Cloud Logging is enabled for events. ||
 
 #|
 ||Field | Description ||
-|| fixedScale | **[FixedScale](#yandex.cloud.k8s.v1.MasterScalePolicySpec.FixedScale)**
-
-Includes only one of the fields `fixedScale`, `autoScale`. ||
 || autoScale | **[AutoScale](#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale)**
 
-Includes only one of the fields `fixedScale`, `autoScale`. ||
-|#
-
-## FixedScale {#yandex.cloud.k8s.v1.MasterScalePolicySpec.FixedScale}
-
-Fixed master instance resources.
-
-#|
-||Field | Description ||
-|| resourcePresetId | **string**
-
-Required field. Preset of computing resources to be used by master. ||
+Includes only one of the fields `autoScale`. ||
 |#
 
 ## AutoScale {#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale}

@@ -154,6 +154,10 @@ items:
             href: cli-ref/cluster/restart-opensearch.md
           - name: restore
             href: cli-ref/cluster/restore.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
           - name: switch-master
             href: cli-ref/cluster/switch-master.md
           - name: update

@@ -22,6 +22,8 @@ items:
             href: operations/channels/update.md
           - name: Удалить канал
             href: operations/channels/delete.md
+          - name: Настроить канал и рекламу
+            href: operations/channels/settings.md
       - name: Видео
         items:
           - name: Загрузить видео

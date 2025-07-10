@@ -10,6 +10,8 @@ links:
       Развертывание веб-приложения в отказоустойчивой конфигурации в {{
       yandex-cloud }}
     href: app-in-k8s
+  - title: Тестирование отказоустойчивости в {{ yandex-cloud }}
+    href: testing-zone-failure.md
 meta:
   title: Архитектурные решения
   description: >-

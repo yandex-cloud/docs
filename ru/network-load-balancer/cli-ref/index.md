@@ -23,16 +23,16 @@ Aliases:
 - [yc load-balancer network-load-balancer](network-load-balancer/index.md) — Manage network load balancer
 	- [yc load-balancer network-load-balancer add-listener](network-load-balancer/add-listener.md) — Adds a listener to the specified network load balancer.
 	- [yc load-balancer network-load-balancer attach-target-group](network-load-balancer/attach-target-group.md) — Attaches a target group to the specified network load balancer.
-	- [yc load-balancer network-load-balancer cancel-zonal-shift](network-load-balancer/cancel-zonal-shift.md) — Cancel zonal shift the specified network load balancer
 	- [yc load-balancer network-load-balancer create](network-load-balancer/create.md) — Create a network load balancer
 	- [yc load-balancer network-load-balancer delete](network-load-balancer/delete.md) — Delete the specified load balancer
 	- [yc load-balancer network-load-balancer detach-target-group](network-load-balancer/detach-target-group.md) — Detaches the target group from the specified network load balancer.
+	- [yc load-balancer network-load-balancer disable-zones](network-load-balancer/disable-zones.md) — Disable zones for the specified network load balancer
+	- [yc load-balancer network-load-balancer enable-zones](network-load-balancer/enable-zones.md) — Enable zones for the specified network load balancer
 	- [yc load-balancer network-load-balancer get](network-load-balancer/get.md) — Show information about the specified load balancer
 	- [yc load-balancer network-load-balancer list](network-load-balancer/list.md) — List load balancers
 	- [yc load-balancer network-load-balancer list-operations](network-load-balancer/list-operations.md) — List operations for the specified load balancer
 	- [yc load-balancer network-load-balancer remove-listener](network-load-balancer/remove-listener.md) — Removes the listener from the specified network load balancer.
 	- [yc load-balancer network-load-balancer start](network-load-balancer/start.md) — Starts load balancing and health checking with the specified network load balancer.
-	- [yc load-balancer network-load-balancer start-zonal-shift](network-load-balancer/start-zonal-shift.md) — Start zonal shift the specified network load balancer
 	- [yc load-balancer network-load-balancer stop](network-load-balancer/stop.md) — Stops load balancing and health checking with the specified network load balancer.
 	- [yc load-balancer network-load-balancer target-states](network-load-balancer/target-states.md) — Show states of target resources in the attached target group
 	- [yc load-balancer network-load-balancer update](network-load-balancer/update.md) — Update the specified load balancer

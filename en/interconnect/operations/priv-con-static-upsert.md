@@ -3,7 +3,7 @@ title: How to add static routes to a private connection in {{ interconnect-name 
 description: Follow this guide to add static routes to a private connection in {{ interconnect-name }}.
 ---
 
-# Adding static routes to a private connection
+# Adding static routes to a private connection (VPC stitching)
 
 {% include [cic-cr-access](../../_includes/interconnect/cic-cr-access.md) %}
 
