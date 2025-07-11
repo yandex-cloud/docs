@@ -63,9 +63,9 @@ items:
             href: operations/application-load-balancer-relocate.md
           - name: Availability zone management
             items:
-              - name: Allowing and denying traffic transfer
+              - name: Allowing and denying zonal shift
                 href: operations/manage-zone/allow-and-deny-shift.md
-              - name: Enabling and disabling traffic transfer
+              - name: Enabling and disabling availability zones
                 href: operations/manage-zone/start-and-cancel-shift.md
           - name: Deleting an L7 load balancer
             href: operations/application-load-balancer-delete.md
@@ -183,6 +183,10 @@ items:
         href: tutorials/balancer-with-sws-profile.md
       - name: '{{ objstorage-full-name }} integration with Nextcloud'
         href: tutorials/integrate-nextcloud.md
+      - name: >-
+          Deploying a web app on {{ baremetal-name }} servers with an L7 load
+          balancer and {{ sws-name }} protection
+        href: tutorials/webapp-on-bms-behind-sws.md
   - name: Concepts
     items:
       - name: Overview

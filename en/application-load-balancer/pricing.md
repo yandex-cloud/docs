@@ -12,6 +12,8 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ alb-name }} {#rules}
 
 When using the {{ alb-name }} service, you only pay for the actual compute resources consumed by active load balancers.
@@ -50,7 +52,7 @@ Calculating cost per hour:
 
 
 {% include [usd-alb-month](../_pricing_examples/application-load-balancer/usd-month.md) %}
- 
+
 
 
 ## Prices for the Russia region {#prices}
@@ -61,5 +63,5 @@ Calculating cost per hour:
 
 {% include [usd-lcu.md](../_pricing/application-load-balancer/usd-lcu.md) %}
 
- 
+
 

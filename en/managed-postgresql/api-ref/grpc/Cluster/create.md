@@ -183,7 +183,8 @@ Creates a PostgreSQL cluster in the specified folder.
       "retain_for_days": "int64",
       "description": "string"
     }
-  ]
+  ],
+  "disk_encryption_key_id": "google.protobuf.StringValue"
 }
 ```
 
@@ -241,6 +242,9 @@ Window of maintenance operations. ||
 || retention_policies[] | **[BackupRetentionPolicySpec](#yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicySpec)**
 
 Backup long-term retention policies setting. ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.postgresql.v1.ConfigSpec}
@@ -529,7 +533,7 @@ Name of the extension, e.g. `pg_trgm` or `pg_btree`.
 Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/extensions/cluster-extensions). ||
 || version | **string**
 
-Version of the extension. ||
+Version of the extension. The setting is deprecated and has no effect. ||
 |#
 
 ## UserSpec {#yandex.cloud.mdb.postgresql.v1.UserSpec}
@@ -979,7 +983,23 @@ Message to describe a crontab schedule.
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "cluster_id": "string"
+    "cluster_id": "string",
+    "operation_log": {
+      "entities": [
+        {
+          "cluster_id": "string",
+          "action": "string",
+          "started_at": "google.protobuf.Timestamp",
+          "hosts": [
+            {
+              "fqdn": "string",
+              "action": "string",
+              "started_at": "google.protobuf.Timestamp"
+            }
+          ]
+        }
+      ]
+    }
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -1071,7 +1091,8 @@ Message to describe a crontab schedule.
     "deletion_protection": "bool",
     "host_group_ids": [
       "string"
-    ]
+    ],
+    "disk_encryption_key_id": "google.protobuf.StringValue"
   }
   // end of the list of possible fields
 }
@@ -1139,6 +1160,35 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 || cluster_id | **string**
 
 ID of the PostgreSQL cluster that is being created. ||
+|| operation_log | **[OperationLog](#yandex.cloud.mdb.operationlog.v1.OperationLog)**
+
+Log of actions during operation ||
+|#
+
+## OperationLog {#yandex.cloud.mdb.operationlog.v1.OperationLog}
+
+#|
+||Field | Description ||
+|| entities[] | **[ClusterEntity](#yandex.cloud.mdb.operationlog.v1.ClusterEntity)** ||
+|#
+
+## ClusterEntity {#yandex.cloud.mdb.operationlog.v1.ClusterEntity}
+
+#|
+||Field | Description ||
+|| cluster_id | **string** ||
+|| action | **string** ||
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| hosts[] | **[HostEntity](#yandex.cloud.mdb.operationlog.v1.HostEntity)** ||
+|#
+
+## HostEntity {#yandex.cloud.mdb.operationlog.v1.HostEntity}
+
+#|
+||Field | Description ||
+|| fqdn | **string** ||
+|| action | **string** ||
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#
 
 ## Cluster {#yandex.cloud.mdb.postgresql.v1.Cluster}
@@ -1222,6 +1272,9 @@ Deletion Protection inhibits deletion of the cluster ||
 || host_group_ids[] | **string**
 
 Host groups hosting VMs of the cluster. ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.postgresql.v1.Monitoring}

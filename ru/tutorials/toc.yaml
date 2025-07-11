@@ -1490,6 +1490,8 @@ items:
             href: serverless/send-emails-aws-sdk-csharp.md
           - name: Go
             href: serverless/send-emails-aws-sdk-go.md
+          - name: JavaScript
+            href: serverless/send-emails-aws-sdk-js.md
       - name: Создание AI-агента с помощью {{ sf-full-name }}
         href: serverless/create-ai-agent-function.md
   - name: Машинное обучение и искусственный интеллект

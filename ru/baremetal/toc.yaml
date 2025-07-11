@@ -105,6 +105,7 @@ items:
           Организация сетевой связности между приватной подсетью {{
           baremetal-name }} и On-Prem
         href: tutorials/bms-cic-onprem.md
+        hidden: true
       - name: >-
           Доставка USB-устройств на сервер {{ baremetal-name }} или виртуальную
           машину

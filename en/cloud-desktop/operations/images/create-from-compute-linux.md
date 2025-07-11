@@ -20,6 +20,13 @@ To add a custom Linux image to {{ cloud-desktop-name }}:
 1. Configure the instance to create the image you need.
 1. Configure remote [RDP](https://ru.wikipedia.org/wiki/Remote_Desktop_Protocol) access:
    1. Install `xrdp` and `xorgxrdp` or other relevant software.
+   
+        {% note info %}
+        
+        {{ cloud-desktop-name }} connects to a remote desktop over IPv6 using port `3389`. Make sure `xrdp` supports IPv6. To do it, after you install `xrdp`, check that it listens IPv6 addresses, e.g., by running `netstat -tulpn | grep xrdp`. The command output should contain IPv6 addresses, e.g., `::1` or `:::3389`. If there are none, set up IPv6 in the `/etc/xrdp/xrdp.ini` configuration file.
+
+        {% endnote %}
+
    1. Install system audio management packages to enable audio and a microphone. For example, install `pipewire-module-xrdp` or `pulseaudio-module-xrdp` for `xrdp`.
    
     Example of RDP and audio configuration for Debian 12:

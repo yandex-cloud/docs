@@ -120,7 +120,8 @@ To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-r
   "deletion_protection": "bool",
   "host_group_ids": [
     "string"
-  ]
+  ],
+  "disk_encryption_key_id": "google.protobuf.StringValue"
 }
 ```
 
@@ -203,6 +204,9 @@ Deletion Protection inhibits deletion of the cluster ||
 || host_group_ids[] | **string**
 
 Host groups hosting VMs of the cluster. ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.postgresql.v1.Monitoring}

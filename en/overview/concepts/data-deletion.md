@@ -33,7 +33,7 @@ When a contract is terminated, all user's clouds and resources are immediately m
 
 ### Deleting a user’s suspended cloud {#automatic-deletion}
 
-When a cloud is suspended due to your being in arrears or due to the end of the trial period, resources are deleted in the following order:
+When a cloud is suspended due to unpaid charges or after the trial period ends, resources are deleted in the following order:
 
 1. Active VMs and other cloud resources are stopped, but the data is not deleted. Following that, you have 60 days to restore the cloud and resources.
 1. If the cloud is not restored within 60 days after suspension, resources from every service are marked for deletion and then deleted within 72 hours.
@@ -42,6 +42,8 @@ If a cloud is suspended due to your violation of the {{ yandex-cloud }} terms of
 
 1. Active VMs and other cloud resources are stopped, but the data is not deleted. Following that, you have 7 days to correct the violations and restore access to your resources.
 1. If the cloud is not restored within 7 days after suspension, {{ yandex-cloud }} _may_ mark its resources for deletion and delete them within 72 hours.
+
+You cannot cancel cloud deletion after it starts.
 
 ### Deleting clouds and folders on user request {#deletion-on-request}
 

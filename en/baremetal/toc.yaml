@@ -107,6 +107,7 @@ items:
           Establishing network connectivity between a {{ baremetal-name }}
           private subnet and on-prem resources
         href: tutorials/bms-cic-onprem.md
+        hidden: true
       - name: >-
           Delivering USB devices to a {{ baremetal-name }} server or virtual
           machine

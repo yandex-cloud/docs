@@ -1,11 +1,5 @@
 # Configuring VRRP for a {{ baremetal-name }} server cluster using Keepalived 
 
-{% note info %}
-
-{{ baremetal-full-name }} is at the [Preview](../../overview/concepts/launch-stages.md) stage.
-
-{% endnote %}
-
 [VRRP](https://en.wikipedia.org/wiki/Virtual_Router_Redundancy_Protocol) (Virtual Router Redundancy Protocol) is a network protocol that increases fault tolerance of routers used as a default gateway. 
 
 To implement fault tolerance, two or more routers are grouped into a single virtual router acting as the default gateway for the associated network segments. VRRP enables creating a virtual IP address which is shared among the grouped routers to increase the gateway availability.

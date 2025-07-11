@@ -12,6 +12,8 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 Delivered [data events](./concepts/events-data-plane.md) are billed.
 
 [Management events](./concepts/events.md) are currently not billed.

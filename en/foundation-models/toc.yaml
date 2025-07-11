@@ -723,10 +723,14 @@ items:
         href: tutorials/pdf-searchindex-ai-assistant.md
       - name: Model tuning in {{ ml-platform-name }}
         href: tutorials/models-fine-tuning.md
+      - name: Creating an AI agent with {{ sf-full-name }}
+        href: tutorials/create-ai-agent-function.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: Public materials
     href: public-talks.md
   - name: Release notes

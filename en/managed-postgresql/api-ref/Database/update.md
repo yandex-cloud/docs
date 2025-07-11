@@ -81,7 +81,7 @@ Name of the extension, e.g. `pg_trgm` or `pg_btree`.
 Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/extensions/cluster-extensions). ||
 || version | **string**
 
-Version of the extension. ||
+Version of the extension. The setting is deprecated and has no effect. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -272,5 +272,5 @@ Name of the extension, e.g. `pg_trgm` or `pg_btree`.
 Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/extensions/cluster-extensions). ||
 || version | **string**
 
-Version of the extension. ||
+Version of the extension. The setting is deprecated and has no effect. ||
 |#

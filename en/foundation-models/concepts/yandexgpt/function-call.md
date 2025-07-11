@@ -82,3 +82,6 @@ You can use function calling when working with {{ gpt-pro }} and {{ llama }} 70B
 ## Use cases {#examples}
 
 [{#T}](../../operations/yandexgpt/function-call.md)
+
+
+^1^ {{ meta-disclaimer }}

@@ -1,3 +1,9 @@
+{% note info %}
+
+To connect, use the desktop user password. This password is not the same as your Yandex account password. If you do not know your password, [get a new one](../../cloud-desktop/operations/desktops/password-reset.md).
+
+{% endnote %}
+
 {% list tabs group=operating_system %}
 
 - Windows {#windows}
@@ -6,7 +12,7 @@
   1. In the **Remote Desktop Connection** window, open the **General** tab, select **Allow me to save credentials**, and click **Connect**.
   1. In the security window that opens, select **Don't ask me again for connections to this computer** and click **Yes**.
   1. Enter the password you saved previously, select **Remember me**, and click **OK**.
-  
+
   To reconnect to the desktop, run the RDP file you saved.
 
 - macOS {#macos}
