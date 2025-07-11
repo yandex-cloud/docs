@@ -24,7 +24,7 @@
 
 ### Подготовьте ресурсы {#infrastructure}
 
-{% include [clone-yc-postbox-examples](../../_includes/postbox/send-emails-aws-sdk/send-emails-infrastructure.md) %}
+{% include [clone-yc-postbox-examples](../../_includes/postbox/send-emails-aws-sdk/infrastructure.md) %}
 
 
 ## Настройте директорию для аутентификационных данных {#auth}
@@ -240,7 +240,4 @@
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы:
-
-* Удалите [адрес](../../postbox/operations/).
-* Удалите [зону DNS](../../dns/operations/zone-delete.md), если создавали в ней ресурсную запись.
+{% include [clear-out](../../_includes/postbox/send-emails-aws-sdk/clear-out.md) %}

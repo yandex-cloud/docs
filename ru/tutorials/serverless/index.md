@@ -36,3 +36,4 @@
 
 * [{#T}](send-emails-aws-sdk-csharp.md)
 * [{#T}](send-emails-aws-sdk-go.md)
+* [{#T}](send-emails-aws-sdk-js.md)

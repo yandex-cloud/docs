@@ -212,3 +212,5 @@ items:
     href: release-notes/index.md
   - name: Вопросы и ответы
     href: qa/index.md
+  - name: Обучающие курсы
+    href: training.md

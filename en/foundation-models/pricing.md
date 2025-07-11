@@ -14,6 +14,8 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 {% include [not-charged-foundation-models](../_includes/pricing/price-formula/not-charged-foundation-models.md) %}
 
 ## What goes into the cost of using {{ foundation-models-full-name }} {#rules}
@@ -43,7 +45,9 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune
 
 * The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
 * The use of a fine-tuned {{ gpt-lite }} model is charged according to the {{ gpt-lite }} policy.
-* The use of a fine-tuned {{ llama }} 8B model is charged according to the {{ llama }} 8B policy.
+* The use of a fine-tuned {{ llama }} 8B model is charged according to the {{ llama }} 8B policy^1^.
+
+^1^ {{ meta-disclaimer }}
 
 ### Text classification {#rules-text-classifier}
 

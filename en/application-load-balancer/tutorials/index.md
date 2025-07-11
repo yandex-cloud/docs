@@ -22,3 +22,4 @@ description: Various {{ alb-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](custom-health-checks.md)
 * [{#T}](balancer-with-sws-profile.md)
 * [{#T}](./integrate-nextcloud.md)
+* [{#T}](./webapp-on-bms-behind-sws.md)

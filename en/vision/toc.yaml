@@ -170,6 +170,8 @@ items:
                     href: classifier/api-ref/grpc/ImageClassifier/index.md
                   - name: Annotate
                     href: classifier/api-ref/grpc/ImageClassifier/annotate.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: Release notes
     href: release-notes.md
   - name: Troubleshooting

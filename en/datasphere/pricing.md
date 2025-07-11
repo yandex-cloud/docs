@@ -14,6 +14,8 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ ml-platform-name }} {#rules}
 
 When using {{ ml-platform-name }}, you pay for the use of computing resources: the computation and instance running time is charged per second.

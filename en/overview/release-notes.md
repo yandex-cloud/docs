@@ -67,6 +67,7 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 * [{{ org-full-name }}](../organization/release-notes.md)
 * [{{ iam-full-name }}](../iam/release-notes.md)
 * [{{ monitoring-full-name }}](../monitoring/release-notes.md)
+* [{{ cloud-logging-full-name }}](../logging/release-notes.md)
 * [{{ resmgr-full-name }}](../resource-manager/release-notes.md)
 
 ## Machine learning {#ml-ai}

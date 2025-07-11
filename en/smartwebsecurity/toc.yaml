@@ -23,9 +23,9 @@ items:
             href: operations/rule-update.md
           - name: Deleting a rule
             href: operations/rule-delete.md
-          - name: Associating a profile with a host
+          - name: Connecting a profile to a resource
             href: operations/host-connect.md
-          - name: Disassociating a profile from a host
+          - name: Disconnecting a profile from a resource
             href: operations/host-delete.md
       - name: WAF profiles
         items:
@@ -108,6 +108,8 @@ items:
             href: tutorials/alb-with-ddos-protection/terraform.md
       - name: '{{ api-gw-name }} protection with {{ sws-name }}'
         href: tutorials/api-gw-sws-integration.md
+      - name: Emergency DdoS protection in {{ alb-name }}, L7
+        href: tutorials/sws-protection-ongoing-ddos.md
       - name: Centralized online publication and DDoS protection of applications
         href: tutorials/different-folders-services.md
       - name: >-
@@ -160,6 +162,10 @@ items:
               - name: '{{ TF }}'
                 href: >-
                   tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
+      - name: >-
+          Deploying a web app on {{ baremetal-name }} servers with an L7 load
+          balancer and {{ sws-name }} protection
+        href: tutorials/webapp-on-bms-behind-sws.md
   - name: Concepts
     expanded: true
     items:

@@ -24,5 +24,3 @@
 ## Сценарии интеграции с {{ baremetal-full-name }} {#cr-bms}
 
 - [{#T}](../tutorials/bm-vrf-and-vpc-interconnect.md)
-- [{#T}](../tutorials/bms-cic-onprem.md)
-

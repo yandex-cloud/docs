@@ -10,7 +10,7 @@ Event name | Description
 `CreateOsLoginProfile` | Creating a profile {{ oslogin }}
 `CreateUserSshKey` | Creating an SSH user key
 `DeleteFederatedUserAccounts` | Deleting a user from a federation
-`DeleteInvitation` | Deleting an invitation
+`DeleteInvitation` | Deleting an invite
 `DeleteGroup` | Deleting a user group
 `DeleteGroupMapping` | Deleting a federated user group mapping
 `DeleteMembership` | Deleting a user from an organization
@@ -18,10 +18,13 @@ Event name | Description
 `DeleteOsLoginProfile` | Deleting an {{ oslogin }} profile
 `DeleteUserSshKey` | Deleting an SSH user key
 `RejectInvitation` | Rejecting an invitation
-`ResendInvitation` | Resending an invitation
+`ResendInvitation` | Resending an invite
 `SetDefaultProfile` | Setting the default profile
 `SetGroupAccessBindings` | Assigning access permissions for a user group
 `SetOrganizationAccessBindings` | Assigning access permissions for an organization
+`saml.AddFederationDomain` | Adding a [domain](../../../organization/concepts/domains.md)
+`saml.DeleteFederationDomain` | Deleting a domain
+`saml.ValidateFederationDomain` | Domain validation
 `UpdateGroup` | Updating a user group
 `UpdateGroupAccessBindings` | Updating access permissions for a user group
 `UpdateGroupMapping` | Updating a federated user group mapping

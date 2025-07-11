@@ -1,9 +1,9 @@
 ---
-title: Удаление инстанса
-description: Следуя данной инструкции, вы сможете удалить инстанс.
+title: Удаление инстанса {{ mgl-full-name }}
+description: Следуя данной инструкции, вы сможете удалить инстанс {{ mgl-name }}.
 ---
 
-# Удаление инстанса
+# Удаление инстанса {{ GL }}
 
 Если для инстанса включена защита от удаления, сначала [снимите](instance-update.md) ее, а затем удалите инстанс.
 
@@ -38,10 +38,47 @@ description: Следуя данной инструкции, вы сможете
 
   Подробнее о команде читайте в [справочнике CLI](../../cli-ref/instance/delete.md).
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  Чтобы удалить инстанс {{ GL }}, созданный с помощью {{ TF }}:
+
+  1. Откройте файл конфигураций {{ TF }} и удалите фрагмент с описанием ресурса `yandex_gitlab_instance`.
+
+     Пример описания инстанса {{ GL }} в конфигурации {{ TF }}:
+
+     ```hcl
+     resource "yandex_gitlab_instance" "my_gitlab_instance" {
+       name                      = "gl-instance"
+       resource_preset_id        = "s2.micro"
+       disk_size                 = 100
+       admin_login               = "gitlab-user"
+       admin_email               = "gitlab-user@example.com"
+       domain                    = "gitlab-terraform.gitlab.yandexcloud.net"
+       subnet_id                 = "e9bsdv4iunrv********"
+       approval_rules_id         = "BASIC"
+       backup_retain_period_days = 7
+       deletion_protection       = true
+     }
+     ```
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+
+  ```bash
+  {{ yc-mdb-gl }} instance list
+  ```
+
 - API {#api}
 
   Воспользуйтесь методом REST API [Delete](../../api-ref/Instance/delete.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Delete](../../api-ref/grpc/Instance/delete.md).
 
 {% endlist %}
 
-Если вы удалили инстанс, но хотите его восстановить, обратитесь в [техническую поддержку]({{ link-console-support }}). Для удаленного инстанса автоматически создается [резервная копия](../../concepts/backup.md), которая хранится в течение двух недель.
+Если вы удалили инстанс {{ GL }}, но хотите его восстановить, обратитесь в [техническую поддержку]({{ link-console-support }}). Для удаленного инстанса автоматически создается [резервная копия](../../concepts/backup.md), которая хранится в течение двух недель.

@@ -47,6 +47,12 @@ description: В данном разделе приведены описания 
 
 {% include [foundation-models-dp](../../_includes/audit-trails/events/foundation-models-dp.md) %}
 
+## {{ org-full-name }} {#organization}
+
+Имя сервиса — `organizationmanager`.
+
+{% include [org-events-dp](../../_includes/audit-trails/events/org-events-dp.md) %}
+
 ## {{ iam-full-name }} {#iam}
 
 Имя сервиса — `iam`.

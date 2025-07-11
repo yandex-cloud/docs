@@ -10,6 +10,8 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ sws-name }} {#rules}
 
 The cost depends on the billing mode:
@@ -24,7 +26,7 @@ Only [legitimate requests](concepts/rules.md#rule-action) are counted for billin
 
 At the same time, there are things to consider about billing in the dry run mode.
 
-* If a rule has blocked a request, in the dry run mode, requests are not blocked and reach their destination. Such requests will be counted for billing. 
+* If a rule has blocked a request, in the dry run mode, requests are not blocked and reach their destination. Such requests will be counted for billing.
 
 * If dry run was enabled only for one rule type, e.g., security profile rules, and the request was blocked by a WAF or ARL rule without dry run on, such a request will not be counted for billing.
 

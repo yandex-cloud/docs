@@ -1,5 +1,5 @@
 ---
-title: Data event reference {{ at-full-name }}
+title: Data plane event reference {{ at-full-name }}
 description: This section provides descriptions of the data events collected in {{ yandex-cloud }} services.
 ---
 
@@ -16,6 +16,12 @@ The general value format is as follows:
 On this page, you will find events for the following services:
 
 {% include [dp-events-service-list](../../_includes/audit-trails/dp-events-service-list.md) %}
+
+## {{ alb-full-name }} {#alb}
+
+Service name: `apploadbalancer`.
+
+{% include [alb-events-dp](../../_includes/audit-trails/events/alb-events-dp.md) %}
 
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
@@ -34,6 +40,12 @@ Service name: `dns`.
 Service name: `compute`.
 
 {% include [compute-events-dp](../../_includes/audit-trails/events/compute-events-dp.md) %}
+
+## {{ foundation-models-full-name }} {#foundation-models}
+
+Service name: `ai.foundationmodels`.
+
+{% include [foundation-models-dp](../../_includes/audit-trails/events/foundation-models-dp.md) %}
 
 ## {{ iam-full-name }} {#iam}
 
@@ -103,6 +115,12 @@ Service name: `accesstransparency`.
 
 {% include [sd-events-dp](../../_includes/audit-trails/events/sd-events-dp.md) %}
 
+## {{ speechkit-full-name }} {#speechkit}
+
+Service name: `ai.speechkit`.
+
+{% include [speechkit-events-dp](../../_includes/audit-trails/events/speechkit-events-dp.md) %}
+
 ## {{ speechsense-full-name }} {#speechsense}
 
 Service name: `speechsense`.
@@ -115,6 +133,18 @@ Service name: `smartwebsecurity`.
 
 {% include [sws-events-dp](../../_includes/audit-trails/events/sws-events-dp.md) %}
 
+## {{ translate-full-name }} {#translate}
+
+Service name: `ai.translate`.
+
+{% include [translate-events-dp](../../_includes/audit-trails/events/translate-events-dp.md) %}
+
+
+## {{ vision-full-name }} {#vision}
+
+Service name: `ai.ocr`.
+
+{% include [vision-events-dp](../../_includes/audit-trails/events/vision-events-dp.md) %}
 
 ## {{ wiki-full-name }} {#wiki}
 

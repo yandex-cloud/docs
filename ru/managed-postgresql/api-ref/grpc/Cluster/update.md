@@ -434,7 +434,23 @@ Hour of the day in UTC (in `HH` format). ||
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "cluster_id": "string"
+    "cluster_id": "string",
+    "operation_log": {
+      "entities": [
+        {
+          "cluster_id": "string",
+          "action": "string",
+          "started_at": "google.protobuf.Timestamp",
+          "hosts": [
+            {
+              "fqdn": "string",
+              "action": "string",
+              "started_at": "google.protobuf.Timestamp"
+            }
+          ]
+        }
+      ]
+    }
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -526,7 +542,8 @@ Hour of the day in UTC (in `HH` format). ||
     "deletion_protection": "bool",
     "host_group_ids": [
       "string"
-    ]
+    ],
+    "disk_encryption_key_id": "google.protobuf.StringValue"
   }
   // end of the list of possible fields
 }
@@ -594,6 +611,35 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 || cluster_id | **string**
 
 ID of the PostgreSQL Cluster resource that is being updated. ||
+|| operation_log | **[OperationLog](#yandex.cloud.mdb.operationlog.v1.OperationLog)**
+
+Log of actions during operation ||
+|#
+
+## OperationLog {#yandex.cloud.mdb.operationlog.v1.OperationLog}
+
+#|
+||Field | Description ||
+|| entities[] | **[ClusterEntity](#yandex.cloud.mdb.operationlog.v1.ClusterEntity)** ||
+|#
+
+## ClusterEntity {#yandex.cloud.mdb.operationlog.v1.ClusterEntity}
+
+#|
+||Field | Description ||
+|| cluster_id | **string** ||
+|| action | **string** ||
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| hosts[] | **[HostEntity](#yandex.cloud.mdb.operationlog.v1.HostEntity)** ||
+|#
+
+## HostEntity {#yandex.cloud.mdb.operationlog.v1.HostEntity}
+
+#|
+||Field | Description ||
+|| fqdn | **string** ||
+|| action | **string** ||
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#
 
 ## Cluster {#yandex.cloud.mdb.postgresql.v1.Cluster}
@@ -677,6 +723,9 @@ Deletion Protection inhibits deletion of the cluster ||
 || host_group_ids[] | **string**
 
 Host groups hosting VMs of the cluster. ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.postgresql.v1.Monitoring}

@@ -258,6 +258,12 @@ Service name: `mdb.postgresql`.
 
 {% include [mpg-events](../../_includes/audit-trails/events/managed-postgresql-events.md) %}
 
+## {{ mtr-full-name }} {#managed-service-for-trino}
+
+Service name: `trino`.
+
+{% include [mtr-events](../../_includes/audit-trails/events/managed-trino-events.md) %}
+
 ## {{ mrd-full-name }} {#managed-service-for-redis}
 
 Service name: `mdb.redis`.

@@ -265,7 +265,7 @@ items:
     items:
       - name: Коды ошибок
         href: concepts/response.md
-      - name: Заголовки запросов
+      - name: Заголовки для диагностики ошибок
         href: concepts/support-headers.md
       - name: Общие вопросы
         href: qa/general.md
