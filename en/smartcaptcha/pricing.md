@@ -22,6 +22,8 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ captcha-full-name }} {#rules}
 
 You pay for [requests to the {{ captcha-name }} API](./quickstart.md#check-answer) made at `https://smartcaptcha.yandexcloud.net/validate`. You only pay for [correct requests](concepts/validation.md#service-response) to which the API returns the `ok` status. Correct requests satisfy the following conditions:

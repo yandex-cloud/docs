@@ -10,7 +10,7 @@ description:
   - >-
     Use this service to: <ul><li>Quickly create virtual workspaces for new
     employees.</li> <li>Safely connect remote employees to your corporate
-    network.</li>  <li>Allow your employees to work from any modern
+    network.</li> <li>Allow your employees to work from any modern
     internet-enabled device, including a privately owned one (<a
     href="https://en.wikipedia.org/wiki/Bring_your_own_device">BYOD</a>).</li>
     <li>Manage desktop computing resources.</li> <li>Administer desktops
@@ -36,6 +36,9 @@ links:
   - title: Access management
     description: Configure access permissions to use the service
     href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/

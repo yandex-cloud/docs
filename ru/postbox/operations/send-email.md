@@ -61,3 +61,4 @@ description: Следуя данной инструкции, вы сможете
 
 * [{#T}](../../postbox/tutorials/send-emails-aws-sdk-csharp.md)
 * [{#T}](../../postbox/tutorials/send-emails-aws-sdk-go.md)
+* [{#T}](../../postbox/tutorials/send-emails-aws-sdk-js.md)

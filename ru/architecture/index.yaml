@@ -11,7 +11,7 @@ links:
       yandex-cloud }}
     href: app-in-k8s
   - title: Тестирование отказоустойчивости в {{ yandex-cloud }}
-    href: testing-zone-failure.md
+    href: testing-zone-failure
 meta:
   title: Архитектурные решения
   description: >-

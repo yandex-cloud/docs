@@ -8,7 +8,6 @@ editable: false
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-
 В сервисе {{ msp-name }} действуют следующие ограничения:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}

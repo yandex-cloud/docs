@@ -133,7 +133,8 @@ New master host. Switch to the most up-to-date replica if not provided. ||
     "deletion_protection": "bool",
     "host_group_ids": [
       "string"
-    ]
+    ],
+    "disk_encryption_key_id": "google.protobuf.StringValue"
   }
   // end of the list of possible fields
 }
@@ -284,6 +285,9 @@ Deletion Protection inhibits deletion of the cluster ||
 || host_group_ids[] | **string**
 
 Host groups hosting VMs of the cluster. ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.postgresql.v1.Monitoring}

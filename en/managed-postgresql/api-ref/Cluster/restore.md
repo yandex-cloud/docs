@@ -1440,7 +1440,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "sessionDurationTimeout": "string",
       "logReplicationCommands": "boolean",
       "logAutovacuumMinDuration": "string",
-      "passwordEncryption": "string"
+      "passwordEncryption": "string",
+      "autoExplainLogFormat": "string"
     },
     "postgresqlConfig_14_1c": {
       "maxConnections": "string",
@@ -1604,7 +1605,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "sessionDurationTimeout": "string",
       "logReplicationCommands": "boolean",
       "logAutovacuumMinDuration": "string",
-      "passwordEncryption": "string"
+      "passwordEncryption": "string",
+      "autoExplainLogFormat": "string"
     },
     "postgresqlConfig_15": {
       "maxConnections": "string",
@@ -1768,7 +1770,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "sessionDurationTimeout": "string",
       "logReplicationCommands": "boolean",
       "logAutovacuumMinDuration": "string",
-      "passwordEncryption": "string"
+      "passwordEncryption": "string",
+      "autoExplainLogFormat": "string"
     },
     "postgresqlConfig_15_1c": {
       "maxConnections": "string",
@@ -1934,7 +1937,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "sessionDurationTimeout": "string",
       "logReplicationCommands": "boolean",
       "logAutovacuumMinDuration": "string",
-      "passwordEncryption": "string"
+      "passwordEncryption": "string",
+      "autoExplainLogFormat": "string"
     },
     "postgresqlConfig_16": {
       "maxConnections": "string",
@@ -2098,7 +2102,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "sessionDurationTimeout": "string",
       "logReplicationCommands": "boolean",
       "logAutovacuumMinDuration": "string",
-      "passwordEncryption": "string"
+      "passwordEncryption": "string",
+      "autoExplainLogFormat": "string"
     },
     "postgresqlConfig_16_1c": {
       "maxConnections": "string",
@@ -2264,7 +2269,8 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
       "sessionDurationTimeout": "string",
       "logReplicationCommands": "boolean",
       "logAutovacuumMinDuration": "string",
-      "passwordEncryption": "string"
+      "passwordEncryption": "string",
+      "autoExplainLogFormat": "string"
     },
     "postgresqlConfig_17": {
       "maxConnections": "string",
@@ -3814,7 +3820,17 @@ POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
   "deletionProtection": "boolean",
   "hostGroupIds": [
     "string"
-  ]
+  ],
+  "maintenanceWindow": {
+    // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+    "anytime": "object",
+    "weeklyMaintenanceWindow": {
+      "day": "string",
+      "hour": "string"
+    }
+    // end of the list of possible fields
+  },
+  "diskEncryptionKeyId": "string"
 }
 ```
 
@@ -3883,6 +3899,12 @@ Deletion Protection inhibits deletion of the cluster ||
 || hostGroupIds[] | **string**
 
 Host groups hosting VMs of the cluster. ||
+|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow)**
+
+Window of maintenance operations. ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.postgresql.v1.ConfigSpec}
@@ -7525,6 +7547,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfig14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig14_1C}
@@ -7918,6 +7949,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfig15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15}
@@ -8314,6 +8354,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfig15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig15_1C}
@@ -8712,6 +8761,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfig16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16}
@@ -9112,6 +9170,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfig16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig16_1C}
@@ -9514,6 +9581,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfig17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig17}
@@ -13732,6 +13808,51 @@ in milliseconds. ||
 || effectiveCacheSize | **string** (int64) ||
 |#
 
+## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow}
+
+A maintenance window settings.
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Maintenance operation can be scheduled anytime.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+
+The maintenance policy in effect. ||
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow)**
+
+Maintenance operation can be scheduled on a weekly basis.
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+
+The maintenance policy in effect. ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow}
+
+Weelky maintenance window settings.
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+Day of the week (in `DDD` format).
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **string** (int64)
+
+Hour of the day in UTC (in `HH` format). ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -17710,7 +17831,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -17873,7 +17995,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -18036,7 +18159,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         }
       },
       "postgresqlConfig_14_1c": {
@@ -18202,7 +18326,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -18366,7 +18491,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -18530,7 +18656,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         }
       },
       "postgresqlConfig_15": {
@@ -18696,7 +18823,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -18860,7 +18988,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -19024,7 +19153,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         }
       },
       "postgresqlConfig_15_1c": {
@@ -19192,7 +19322,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -19358,7 +19489,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -19524,7 +19656,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         }
       },
       "postgresqlConfig_16": {
@@ -19690,7 +19823,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -19854,7 +19988,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -20018,7 +20153,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         }
       },
       "postgresqlConfig_16_1c": {
@@ -20186,7 +20322,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -20352,7 +20489,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -20518,7 +20656,8 @@ in milliseconds. ||
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         }
       },
       "postgresqlConfig_17": {
@@ -21597,7 +21736,8 @@ in milliseconds. ||
     "deletionProtection": "boolean",
     "hostGroupIds": [
       "string"
-    ]
+    ],
+    "diskEncryptionKeyId": "string"
   }
   // end of the list of possible fields
 }
@@ -21774,7 +21914,7 @@ Current state of the cluster.
 - `STOPPING`: Cluster is stopping.
 - `STOPPED`: Cluster stopped.
 - `STARTING`: Cluster is starting. ||
-|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow)**
+|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow2)**
 
 Maintenance window for the cluster. ||
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.postgresql.v1.MaintenanceOperation)**
@@ -21789,6 +21929,9 @@ Deletion Protection inhibits deletion of the cluster ||
 || hostGroupIds[] | **string**
 
 Host groups hosting VMs of the cluster. ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.postgresql.v1.Monitoring}
@@ -25607,6 +25750,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfigSet14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14_1C}
@@ -26016,6 +26168,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfigSet15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15}
@@ -26428,6 +26589,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfigSet15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15_1C}
@@ -26842,6 +27012,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfigSet16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16}
@@ -27258,6 +27437,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfigSet16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16_1C}
@@ -27676,6 +27864,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfigSet17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17}
@@ -28651,7 +28848,7 @@ Threshold of storage usage (in percent) that triggers immediate automatic scalin
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
 |#
 
-## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow}
+## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow2}
 
 A maintenance window settings.
 
@@ -28664,7 +28861,7 @@ Maintenance operation can be scheduled anytime.
 Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
 
 The maintenance policy in effect. ||
-|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow)**
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow2)**
 
 Maintenance operation can be scheduled on a weekly basis.
 
@@ -28673,7 +28870,7 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
 The maintenance policy in effect. ||
 |#
 
-## WeeklyMaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow}
+## WeeklyMaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.WeeklyMaintenanceWindow2}
 
 Weelky maintenance window settings.
 

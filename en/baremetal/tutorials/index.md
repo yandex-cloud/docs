@@ -9,7 +9,6 @@ description: Various {{ baremetal-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](./bms-vrf-routing.md)
 * [{#T}](./bms-simple-subnet.md)
 * [{#T}](./bm-vrf-and-vpc-interconnect.md)
-* [{#T}](./bms-cic-onprem.md)
 * [{#T}](./usb-over-ip.md)
 * [{#T}](./opnsense-failover-cluster.md)
 * [{#T}](./webapp-on-bms-behind-sws.md)

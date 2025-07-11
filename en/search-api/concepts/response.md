@@ -210,7 +210,7 @@ The possible values are:
 
 * `Misspell`: Typo.
 * `KeyboardLayout`: Incorrect keyboard layout.
-* `Volapyuk`: Query is made in Russian but transliterated into English. It is used if **{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}** (`yandex.ru`) search type is selected.
+* `Volapyuk`: Query is made in Russian but transliterated into English. It is used if **{{ ui-key.yacloud.search-api.test-query.label_search_type-russian }}** (`yandex.ru`) is selected as the search type.
 | None
 ||
 || source-text | 

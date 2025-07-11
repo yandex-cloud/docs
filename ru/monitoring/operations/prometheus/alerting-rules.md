@@ -5,8 +5,6 @@ description: Следуя данному руководству, вы сможе
 
 # Правила алертинга
 
-{% include [alerting-rules-preview](../../../_includes/monitoring/alerting-rules-preview.md) %}
-
 {{ managed-prometheus-name }} позволяет добавить правила вычисления алертов и отправлять уведомления об их срабатывании. 
 
 Для использования алертинга:

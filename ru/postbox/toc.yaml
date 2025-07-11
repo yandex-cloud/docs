@@ -53,6 +53,8 @@ items:
             href: tutorials/send-emails-aws-sdk-csharp.md
           - name: Go
             href: tutorials/send-emails-aws-sdk-go.md
+          - name: JavaScript
+            href: tutorials/send-emails-aws-sdk-js.md
   - name: Инструменты
     items:
       - name: AWS CLI

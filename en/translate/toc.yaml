@@ -69,6 +69,8 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: Troubleshooting
     items:
       - name: Handling errors

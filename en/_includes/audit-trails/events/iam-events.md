@@ -17,6 +17,11 @@ Event name | Description
 `DetectLeakedCredential` | Detecting a secret in a public source
 `DisableService` | Revoking service access to resources of other cloud services
 `EnableService` | Granting service access to resources of other cloud services
+`oauthclient.CreateOAuthClient` | Creating an OAuth client
+`oauthclient.CreateOAuthClientSecret` | Creating a secret for an OAuth client
+`oauthclient.DeleteOAuthClient` | Deleting an OAuth client
+`oauthclient.DeleteOAuthClientSecret` | Deleting a secret for an OAuth client
+`oauthclient.UpdateOAuthClient` | Updating an OAuth client
 `RevokeLeakedCredential` | Revoking a compromised secret
 `SetServiceAccountAccessBindings` | Assigning access permissions for a service account
 `UpdateAccessKey` | Updating a static key

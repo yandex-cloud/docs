@@ -1,3 +1,8 @@
+---
+title: Как получить информацию об инстансах {{ mgl-full-name }}
+description: Из статьи вы узнаете, как получить список инстансов {{ mgl-name }} и информацию о них.
+---
+
 # Получение информации об инстансах
 
 Вы можете получить детальную информацию о каждом созданном [инстансе {{ GL }}](../../concepts/index.md#instance) в {{ yandex-cloud }}.
@@ -123,6 +128,51 @@
     Имя и идентификатор инстанса можно запросить со [списком инстансов в каталоге](instance-list.md#list).  
 
     Подробнее о команде читайте в [справочнике CLI](../../cli-ref/instance/get.md).
+
+- {{ TF }}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  Чтобы получить информацию об инстансе {{ GL }} с помощью {{ TF }}:
+
+  1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
+
+      ```hcl
+      data "yandex_gitlab_instance" "gitlab_instance_by_id" {
+        id = "<идентификатор_инстанса>"
+      }
+
+      output "instance_domain" {
+        value = data.yandex_gitlab_instance.gitlab_instance_by_id.domain
+      }
+      ```
+
+      Где:
+
+      * `data "yandex_gitlab_instance"` — описание инстанса {{ GL }} в качестве источника данных:
+         * `id` — идентификатор инстанса {{ GL }}.
+      * `output "instance_domain"` — выходная переменная, которая содержит информацию о домене:
+         * `value` — возвращаемое значение.
+
+     Вместо `domain` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `gitlab_instance` см. в [документации провайдера]({{ tf-provider-datasources-link }}/gitlab_instance).
+
+  1. Примените конфигурацию:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} применит конфигурацию и отобразит значения выходных переменных в терминале. Чтобы проверить результат, выполните команду:
+
+      ```bash
+      terraform output
+      ```
+
+      Результат:
+
+      ```text
+      instance_domain = example.gitlab.yandexcloud.net
+      ```
 
 - API {#api}
 

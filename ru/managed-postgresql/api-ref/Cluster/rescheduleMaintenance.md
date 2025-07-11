@@ -4031,7 +4031,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -4194,7 +4195,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -4357,7 +4359,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         }
       },
       "postgresqlConfig_14_1c": {
@@ -4523,7 +4526,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -4687,7 +4691,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -4851,7 +4856,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         }
       },
       "postgresqlConfig_15": {
@@ -5017,7 +5023,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -5181,7 +5188,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -5345,7 +5353,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         }
       },
       "postgresqlConfig_15_1c": {
@@ -5513,7 +5522,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -5679,7 +5689,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -5845,7 +5856,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         }
       },
       "postgresqlConfig_16": {
@@ -6011,7 +6023,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -6175,7 +6188,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -6339,7 +6353,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         }
       },
       "postgresqlConfig_16_1c": {
@@ -6507,7 +6522,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "userConfig": {
           "maxConnections": "string",
@@ -6673,7 +6689,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         },
         "defaultConfig": {
           "maxConnections": "string",
@@ -6839,7 +6856,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
           "sessionDurationTimeout": "string",
           "logReplicationCommands": "boolean",
           "logAutovacuumMinDuration": "string",
-          "passwordEncryption": "string"
+          "passwordEncryption": "string",
+          "autoExplainLogFormat": "string"
         }
       },
       "postgresqlConfig_17": {
@@ -7918,7 +7936,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
     "deletionProtection": "boolean",
     "hostGroupIds": [
       "string"
-    ]
+    ],
+    "diskEncryptionKeyId": "string"
   }
   // end of the list of possible fields
 }
@@ -8119,6 +8138,9 @@ Deletion Protection inhibits deletion of the cluster ||
 || hostGroupIds[] | **string**
 
 Host groups hosting VMs of the cluster. ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.postgresql.v1.Monitoring}
@@ -11937,6 +11959,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfigSet14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14_1C}
@@ -12346,6 +12377,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfigSet15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15}
@@ -12758,6 +12798,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfigSet15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15_1C}
@@ -13172,6 +13221,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfigSet16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16}
@@ -13588,6 +13646,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfigSet16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16_1C}
@@ -14006,6 +14073,15 @@ A default value for `` user_password_encryption `` user-level setting, if it not
 - `PASSWORD_ENCRYPTION_UNSPECIFIED`
 - `PASSWORD_ENCRYPTION_MD5`
 - `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+|| autoExplainLogFormat | **enum** (AutoExplainLogFormat)
+
+Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
+
+- `AUTO_EXPLAIN_LOG_FORMAT_UNSPECIFIED`
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
 |#
 
 ## PostgresqlConfigSet17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17}
