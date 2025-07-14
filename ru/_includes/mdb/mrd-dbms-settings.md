@@ -1,4 +1,12 @@
-* **Client output buffer limit normal**{#settings-limit-normal}{{ tag-all }}
+* **Activedefrag**{#settings-activedefrag} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    Включает активную дефрагментацию памяти в кластере. Это помогает уменьшить фрагментацию памяти, которая может приводить к проблемам с нехваткой памяти. Не рекомендуется включать настройку, если проблем с фрагментацией памяти нет.
+
+    По умолчанию настройка выключена.
+
+    Подробнее см. в [документации {{ VLK }}](https://redis.io/docs/latest/operate/rs/references/rest-api/objects/bdb).
+
+* **Client output buffer limit normal**{#settings-limit-normal} {{ tag-all }}
 
     Ограничение объема выходного буфера для обычных клиентов.
 
@@ -12,7 +20,7 @@
 
     Подробную информацию о настройке см. в [документации {{ VLK }}](https://redis.io/docs/reference/clients/#output-buffer-limits).
 
-* **Client output buffer limit pubsub**{#settings-limit-pubsub}{{ tag-all }}
+* **Client output buffer limit pubsub**{#settings-limit-pubsub} {{ tag-all }}
 
     Ограничение объема выходного буфера для клиентов, работающих в парадигме [Pub/Sub](https://redis.io/docs/manual/pubsub/).
 

@@ -184,7 +184,7 @@ If the network load balancer’s listener uses a public IP address without DDoS 
 
 1. Wait until the [health checks](../../network-load-balancer/operations/check-resource-health.md) for the VMs in the network load balancer’s target group return `Healthy`. This will make your service once again available through the network load balancer.
 
-1. To migrate user traffic from a network load balancer to an L7 load balancer, in your domain's public zone DNS service, update the A record for the service domain name to point to the L7 load balancer public IP address. If the public domain zone was created in [{{ dns-full-name }}](../../dns/), update the record using [this guide](../../dns/operations/resource-record-update.md).
+1. To migrate user traffic from a network load balancer to an L7 load balancer, in the DNS service of your domain's public zone, update the `A` record value for the service domain name to point to the public IP address of the L7 load balancer. If the public domain zone was created in [{{ dns-full-name }}](../../dns/), update the record using [this guide](../../dns/operations/resource-record-update.md).
 
     {% note info %}
 

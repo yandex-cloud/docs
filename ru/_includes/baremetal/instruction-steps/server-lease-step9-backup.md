@@ -7,6 +7,6 @@
 
     {% include [server-lease-step9-ss2](./server-lease-step9-ss2.md) %}
 
-    Чтобы [агент {{ backup-name }}](../../../backup/concepts/agent.md) мог обмениваться данными с серверами [провайдера резервного копирования](../../../backup/concepts/index.md#providers), на сервере должен быть обеспечен сетевой доступ к IP-адресам ресурсов сервиса {{ backup-name }} согласно таблице: {#ip-access}
+    {% include [server-lease-cli-backup-network](./server-lease-cli-backup-network.md) %}
 
     {% include [outgoing traffic](../../backup/outgoing-rules.md) %}

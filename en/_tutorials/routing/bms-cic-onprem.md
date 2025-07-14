@@ -1,4 +1,4 @@
-# Establishing network connectivity between {{ baremetal-full-name }} subnets and on-prem with the help of {{ interconnect-name }}
+# Establishing network connectivity between {{ baremetal-full-name }} subnets and on-premise with the help of {{ interconnect-name }}
 
 In this tutorial, you will set up network connectivity between a {{ baremetal-name }} [server](../../baremetal/concepts/servers.md) located in a [private {{ baremetal-full-name }} subnet](../../baremetal/concepts/network.md#private-network) and your on-prem resources. Network connectivity will be established using [{{ interconnect-name }}](../../interconnect/index.yaml) and [{{ cr-name }}](../../cloud-router/index.yaml).
 The diagram above shows network connectivity between the {{ baremetal-full-name }} segment resources and remote on-prem resources on the customer's site connected to {{ yandex-cloud }} via {{ interconnect-name }}.
@@ -10,16 +10,6 @@ To establish network connectivity between these resources and the customer's VPC
 It is assumed that the connectivity between on-prem and the VPC network via {{ interconnect-name }} has already been established and is operational. 
 
 {% endnote %}
-
-> AK: Preparatory step. Breaking the previous BMS-VPC connectivity document down into parts and recompiling it via include. Using the resulting parts to compile this document (items 1, 2 of the plan for sure). 
-
-> AK: In effect, you need to do the following:
-
-> 1. Create a cloud infrastructure on the BMS side (servers, VRF, private network).
-> 2. Connect VRF to an existing RI.
-> 3. Add aggregating routes (one for the on-prem segment and one for the BMS segment).
-> 4. Wait for the changes to apply in Interconnect.
-> 5. Test connectivity between BMS and on-prem resources:
 
 To set up network connectivity between {{ baremetal-name }} private subnets and on-prem using {{ interconnect-name }}, do the following:
 
@@ -34,7 +24,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 ### Required paid resources {#paid-resources}
 

@@ -5,7 +5,7 @@ With serverless technology, you can create your own integration with {{ yandex-c
 
 Custom integration is a [function](../../functions/concepts/function.md) in {{ sf-full-name }} or a [container](../../serverless-containers/concepts/container.md) in {{ serverless-containers-full-name }} designed for a specific use case.
 
-You can configure a function or container in the [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification)-based [{{ api-gw-name }}](../../api-gateway/concepts/) specification to handle specific HTTP requests.
+You can configure a function or container in the [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification)-based [{{ api-gw-name }}](../../api-gateway/concepts/) specification to handle certain HTTP requests.
 
 Develop a {{ ydb-full-name }} integration function for [{{ ydb-short-name }}](../../ydb/concepts/#ydb) operations. The function will communicate with {{ ydb-name }} and handle external HTTP requests via an API gateway using the [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)-compatible [HTTP API](https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html). The function is written in TypeScript and runs on Node.js 16.
 
@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete](#clear-out) them.
 The cost of integration resources includes:
 * Fee for the amount of stored data, number of data operations, and outbound traffic (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-name }} pricing for serverless mode](../../ydb/pricing/serverless.md)).
-* Fee for function invocation count, computing resources allocated to run the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to a function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
 ## Set up your environment {#setup-environment}
@@ -52,7 +52,7 @@ The cost of integration resources includes:
 
   {% endnote %}
 
-  1. Install the following tools in the specified order by running the relevant commands in your terminal:
+  1. Install these utilities in the specified order using commands in the terminal:
      * [Curl](https://curl.se/) and [Git](https://git-scm.com/):
 
        ```bash
@@ -109,12 +109,12 @@ The cost of integration resources includes:
 
 
 
-  1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a {{ yandex-cloud }} CLI profile with basic settings.
+  1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a {{ yandex-cloud }} CLI profile with a basic configuration.
   1. [Set up](../../ydb/docapi/tools/aws-setup.md) the AWS CLI.
 
 - macOS {#macos}
 
-  1. Install the following tools in the specified order by running the relevant commands in your terminal:
+  1. Install the following utilities in the specified order using commands in the terminal:
      * [Homebrew](https://brew.sh):
 
        ```bash
@@ -173,7 +173,7 @@ The cost of integration resources includes:
 
 
 
-  1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a profile with basic settings.
+  1. [Create](../../cli/operations/profile/profile-create.md#interactive-create) a profile with a basic configuration.
   1. [Set up](../../ydb/docapi/tools/aws-setup.md) the AWS CLI.
 
 {% endlist %}
@@ -201,7 +201,7 @@ In case of [container](../../serverless-containers/concepts/container.md)-based 
 
 {% endnote %}
 
-[event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/event.ts) defines interfaces for basic Amazon DynamoDB commands and command parameters to implement in this integration. This helps specify the format of the operation context and how the function handles it.
+[event.ts](https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-connector/blob/main/src/event.ts) defines interfaces for basic Amazon DynamoDB commands and command parameters to implement in this integration. This helps specify the operation context’s format and how the function handles it.
 
 ## Compile a function {#compile-function}
 
@@ -224,7 +224,7 @@ In case of [container](../../serverless-containers/concepts/container.md)-based 
    ```
 
 1. Package it into a ZIP archive:
-  
+
    ```bash
    npm run package
    ```
@@ -238,7 +238,7 @@ In case of [container](../../serverless-containers/concepts/container.md)-based 
 
 To deploy the CRUD API via the integration function, use [{{ TF }}](https://www.terraform.io).
 
-With a special [{{ TF }} module](https://github.com/yandex-cloud-examples/yc-serverless-ydb-api) developed for this integration scenario, you will easily configure your {{ yandex-cloud }} resources. You will use {{ TF }} to create the following resources:
+A special [{{ TF }} module](https://github.com/yandex-cloud-examples/yc-serverless-ydb-api) developed for this integration scenario will help you easily configure your {{ yandex-cloud }} resources. You will use {{ TF }} to create the following resources:
 * Serverless {{ ydb-short-name }}-enabled database.
 * Integration function.
 * Service account the function will use to access the database.
@@ -273,7 +273,7 @@ To set up configuration files for {{ TF }}:
    * `cloud_id`: Cloud ID.
    * `folder_id`: Folder ID.
    * `oauth_token`: OAuth token.
-   * `database_connector_bucket`: Name of the bucket with the integration function.
+   * `database_connector_bucket`: Name of the integration function bucket.
 
    ```hcl
    locals {
@@ -293,7 +293,7 @@ To set up configuration files for {{ TF }}:
      region                    = "region-id"
      openapi_spec              = "api.yaml"
      table_specs               = ["file://table.json"]
-     database_connector_bucket = "<name_of_bucket_with_integration_function>"
+     database_connector_bucket = "<name_of_integration_function_bucket>"
      database_connector_object = "apigw-dynamodb-connector-0.0.1.zip"
    }
 
@@ -562,7 +562,7 @@ To set up configuration files for {{ TF }}:
 
    In the command output, the `crud_api_domain` variable will show the domain address of the new CRUD API. Save the address, as you will need it later.
 
-   You can use the [management console]({{ link-console-main }}) to check the created resources.
+   You can use the [management console]({{ link-console-main }}) to check the resources you created.
 
 ## Test the new CRUD API {#test-api}
 
@@ -641,5 +641,5 @@ To stop paying for the resources you created:
   terraform destroy
   ```
 
-  Confirm the resource deletion by typing `yes` in the terminal and pressing **Enter**.
-* [Delete](../../storage/operations/buckets/delete.md) the bucket with the function file.
+  Confirm deleting the resources by typing `yes` in the terminal and pressing **Enter**.
+* [Delete](../../storage/operations/buckets/delete.md) the function file bucket.

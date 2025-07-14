@@ -1,15 +1,15 @@
 ---
-title: Creating a trigger that sends messages to {{ api-gw-full-name }} WebSocket connections from an {{ iot-full-name }} registry or device topic
-description: Create a trigger for an {{ iot-name }} registry or device topic to send message copies to {{ api-gw-full-name }} WebSocket connections.
+title: Creating a trigger that sends messages to {{ api-gw-full-name }} WebSocket connections from a {{ iot-full-name }} registry or device topic
+description: Create a trigger for a {{ iot-name }} registry or device topic to send message copies to {{ api-gw-full-name }} WebSocket connections.
 ---
 
-# Creating a trigger that sends messages to WebSocket connections from an {{ iot-full-name }} registry or device topic
+# Creating a trigger that sends messages to WebSocket connections from a {{ iot-full-name }} registry or device topic
 
-Create a [trigger](../../concepts/trigger/iot-core-trigger.md) for an {{ iot-name }} registry or device topic and send message copies to [WebSocket connections](../../concepts/extensions/websocket.md).
+Create a [trigger](../../concepts/trigger/iot-core-trigger.md) for a {{ iot-name }} registry or device topic and send message copies to [WebSocket connections](../../concepts/extensions/websocket.md).
 
 {% note warning %}
 
-The trigger must be in the same cloud as the registry or device whose topic it reads messages from.
+The trigger must be in the same cloud as the registry or device from the topic of which it reads messages.
 
 {% endnote %}
 
@@ -44,14 +44,14 @@ The trigger must be in the same cloud as the registry or device whose topic it r
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_iot }}`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry, device, and MQTT topic to create a trigger for. When creating a trigger for a registry topic, you do not need to specify a device or an MQTT topic. If no MQTT topic is set, the trigger fires for all registry or device topics.
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**, specify the registry, device, and MQTT topic to create a trigger for. When creating a trigger for a registry topic, you do not need to specify a device or an MQTT topic. If no MQTT topic is set, the trigger will fire for all registry or device topics.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
         * Batch size. The values may range from 1 to 1,000. The default value is 1.
         * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
 
-       The trigger groups messages for a period not exceeding the specified wait time and sends them to WebSocket connections. The number of messages cannot exceed the specified batch size.
+       The trigger groups messages within the specified wait time period and sends them to WebSocket connections. The number of messages cannot exceed the specified batch size.
 
     1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
 
@@ -71,8 +71,8 @@ The trigger must be in the same cloud as the registry or device whose topic it r
       --registry-id <registry_ID> \
       --device-id <device_ID> \
       --mqtt-topic '$devices/<device_ID>/events' \
-      --batch-size <message_group_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-size <message_batch_size> \
+      --batch-cutoff <maximum_wait_time> \
       --gateway-id <API_gateway_ID> \
       --gateway-websocket-broadcast-path <path> \
       --gateway-websocket-broadcast-service-account-id <service_account_ID>
@@ -83,7 +83,7 @@ The trigger must be in the same cloud as the registry or device whose topic it r
     * `--name`: Trigger name.
     * `--registry-id`: [Registry ID](../../../iot-core/operations/registry/registry-list.md).
     * `--device-id`: [Device ID](../../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can omit this parameter.
-    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger fires for all registry or device topics.
+    * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger will fire for all registry or device topics.
 
     {% include [batch-settings-messages](../../../_includes/api-gateway/batch-settings-messages.md) %}
 

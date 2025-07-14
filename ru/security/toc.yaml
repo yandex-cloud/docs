@@ -302,7 +302,16 @@ items:
           - name: >-
               Миграция сервисов с балансировщика NLB с целевыми ресурсами из
               кластера {{ managed-k8s-name }} на L7-балансировщик ALB
-            href: tutorials/kubernetes-security/nlb-with-target-resource-k8s.md
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/kubernetes-security/nlb-with-target-resource-k8s/index.md
+              - name: Консоль управления
+                href: >-
+                  tutorials/kubernetes-security/nlb-with-target-resource-k8s/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/kubernetes-security/nlb-with-target-resource-k8s/terraform.md
           - name: >-
               Передача логов кластера {{ managed-k8s-name }} в {{
               cloud-logging-name }}

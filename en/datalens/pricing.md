@@ -25,41 +25,35 @@ editable: false
 
 The plan you choose covers your organization and can only be [changed](./settings/service-plan.md#change-service-plan) by its owner or administrator. You pay for all [active users](#active-users).
 
-Service plans offer different feature sets and [cost](#prices) differently.
-
-**Service plan**  | **Community** | **Business**
------------------- |---------------|---------------
-Creating [charts in wizard](./concepts/chart/dataset-based-charts.md), [QL charts](./concepts/chart/ql-charts.md), and [dashboards](./concepts/dashboard.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-JavaScript customizations in [Editor](./charts/editor/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
-[Connecting to external APIs via Editor](./operations/connection/create-api-connector.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
-[Data model description](./dataset/data-model.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-[Analytic calculations and SQL](./concepts/calculations/index.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-[Role-based access management](./security/roles.md) | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg)   
-[Authentication](./security/add-new-user.md) | Yandex ID, Yandex 360 | Yandex ID, Yandex 360, corporate accounts / SSO
-[Reports for export and presentations](./reports/index.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)
-[Prohibiting export of workbooks](./workbooks-collections/export-and-import.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)
-[{{ datalens-name }} UI customization](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
-[Secure chart and dashboard embedding](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) 
-[Published content management](./concepts/datalens-public.md#publication-disable) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)   
-{{ datalens-name }} usage statistics | General ([Light](./concepts/datalens-usage-analytics.md#light-dash)) | Advanced ([Detailed](./concepts/datalens-usage-analytics.md#detailed-dash)) 
-[SLA](https://yandex.com/legal/cloud_sla_datalens) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg)  
-Support | [Basic plan](../support/pricing.md#base) (if the user does not have [Business](../support/pricing.md#business) or [Premium](../support/pricing.md#premium) enabled) | [Business plan](../support/pricing.md#business) (only applies to {{ datalens-name }}) and priority over the Community plan when processing support requests
+Service plans differ in [features](./concepts/service-plans-comparison.md) they offer and pricing.
 
 ## Prices for the Russia region {#prices}
 
-The cost of using {{ datalens-name }} depends on the service plan you select.
-
-{% note info %}
-
-If you change to the _Business_ plan, the price for the first month will be proportional to the remaining portion of the month as of the change date.
-
-{% endnote %}
+The cost of using {{ datalens-name }} depends on the service plan you select and is calculated per active user per month.
 
 **Active user** {#active-users}
 
 A user is active and subject to billing if their actions have resulted in a query to a data source, e.g., they opened or edited a dashboard, chart, or dataset.
 
 The number of billable users is calculated on a monthly basis: each month, the active users are counted anew. Public URLs to dashboards and charts work without authentication and do not contribute to active user count. You can look up user count in [{{ datalens-name }}](./operations/connection/create-usage-tracking.md) usage statistics.
+
+**Business trial period** {#business-trial}
+
+{{ datalens-name }} users can activate a 30-day trial of the _Business_ plan to test all its [features](./concepts/service-plans-comparison.md) for free. 
+
+Rules of the _Business_ trial period:
+* You can activate the trial period only once per {{ datalens-name }} instance.
+* You cannot use the trial period if you previously activated the {{ datalens-name }} _Business_ plan.
+
+To activate the _Business_ plan trial period, switch to the _Business_ service plan by following [this guide](./settings/service-plan.md##change-service-plan). Once the trial period ends, the second month of use will be charged to you proportionally to the remaining number of days.
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+
+
+{% include notitle [usd.md](../_pricing/datalens/usd.md) %}
+
+
 
 {% cut "Cost calculation example" %}
 
@@ -88,14 +82,8 @@ Let’s assume an organization has 5 Business plan users of {{ datalens-name }} 
 
 {% endcut %}
 
-{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-
-
-{% include notitle [usd.md](../_pricing/datalens/usd.md) %}
-
-
-
 #### See also {#see-also}
 
+* [Configuring a {{ datalens-name }} service plan](./settings/service-plan.md)
+* [Service plan features](./concepts/service-plans-comparison.md)
 * [Pricing and payment questions](./qa/pricing.md)

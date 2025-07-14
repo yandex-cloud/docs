@@ -9,7 +9,7 @@ description: Follow this guide to delete an API gateway label.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go the folder containing the API gateway.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the API gateway.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the appropriate label and click ![cross](../../_assets/console-icons/xmark.svg) next to its name.
@@ -21,7 +21,7 @@ description: Follow this guide to delete an API gateway label.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To delete an API gateway label, update its current labels by removing the labels you do not need. Run this command:
+  To delete an API gateway label, update its current labels by removing the ones you do not need. Run this command:
 
   {% include [labels-rewrite-warning](../../_includes/labels-rewrite-warning.md) %}
 
@@ -47,7 +47,7 @@ description: Follow this guide to delete an API gateway label.
 
       {% include [labels-terraform](../../_includes/api-gateway/labels-terraform.md) %}
 
-  1. Update resources:
+  1. Update the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

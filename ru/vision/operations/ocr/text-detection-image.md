@@ -16,11 +16,7 @@
 
     {% include [file-restrictions](../../../_includes/vision/ocr-file-restrictions.md) %}
 
-    {% note info %}
-
-    Нужен пример изображения? Скачайте изображение дорожного знака, [предупреждающего о пингвинах](https://{{ s3-storage-host }}/vision/penguins_sample.jpg).
-
-    {% endnote %}
+    {% include [file-restrictions](../../../_includes/vision/example-image.md) %}
 
 1. Кодируйте файл с изображением в формат Base64:
 
