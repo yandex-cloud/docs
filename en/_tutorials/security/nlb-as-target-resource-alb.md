@@ -1,9 +1,9 @@
 # Migrating services from an external NLB to L7 ALB with an internal NLB as a target
 
 
-[{{ network-load-balancer-full-name }}](../../network-load-balancer/) can distribute traffic across your load balancer pods deployed in a [{{ managed-k8s-full-name }}](../../managed-kubernetes/) cluster. If [{{ alb-full-name }}](../../application-load-balancer/) does not support your load balancer configuration, you can add an [internal network load balancer](../../network-load-balancer/concepts/nlb-types.md) for distributing traffic to your load balancer pods and use it as a target for the L7 {{ alb-name }} with a [{{ sws-full-name }}](../../smartwebsecurity/) profile.
+A [{{ network-load-balancer-full-name }}](../../network-load-balancer/) can distribute traffic across your load balancer pods deployed in a [{{ managed-k8s-full-name }}](../../managed-kubernetes/) cluster. If [{{ alb-full-name }}](../../application-load-balancer/) does not support your load balancer configuration, you can add an [internal network load balancer](../../network-load-balancer/concepts/nlb-types.md) for distributing traffic to your load balancer pods and use it as a target for an L7 {{ alb-name }} with a [{{ sws-full-name }}](../../smartwebsecurity/) profile.
 
-In this tutorial, we describe the scenario where you create an internal network load balancer to distribute traffic across the [NGINX Ingress controller](../../managed-kubernetes/operations/applications/ingress-nginx.md) pods deployed in a {{ managed-k8s-name }} cluster and specify the internal network load balancer’s IP address in the L7 load balancer target group.
+This tutorial features a scenario where you create an internal network load balancer to distribute traffic across [NGINX Ingress Controller](../../managed-kubernetes/operations/applications/ingress-nginx.md) pods deployed in a {{ managed-k8s-name }} cluster and specify the internal network load balancer’s IP address in the L7 load balancer’s target group.
 
 Here is how an L7 load balancer with a {{ sws-name }} profile works:
 

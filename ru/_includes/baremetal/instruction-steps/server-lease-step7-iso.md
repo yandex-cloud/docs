@@ -1,0 +1,1 @@
+[Установить](../../../baremetal/operations/servers/reinstall-os-from-own-image.md) операционную систему из собственного ISO-образа вы сможете позднее.

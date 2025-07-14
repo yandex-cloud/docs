@@ -889,6 +889,8 @@ items:
     items:
       - name: Current pricing policy
         href: pricing.md
+      - name: Service plans
+        href: concepts/service-plans-comparison.md
       - name: Configuring a service plan
         href: settings/service-plan.md
   - name: '{{ at-name }} events'

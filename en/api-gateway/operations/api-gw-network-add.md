@@ -1,6 +1,6 @@
 ---
 title: How to specify a cloud network to host an API gateway
-description: This guide describes how you can specify a cloud network that will host an API gateway.
+description: Follow this guide to specify a cloud network that will host your API gateway.
 ---
 
 # Specifying a cloud network to host an API gateway
@@ -13,7 +13,7 @@ You can specify a [cloud network](../../vpc/concepts/network.md#network) to host
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the API gateway.
+    1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the API gateway.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select the API gateway.
     1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.
@@ -28,4 +28,4 @@ You can specify a [cloud network](../../vpc/concepts/network.md#network) to host
 
 ## See also
 
-* [Networking in {{ api-gw-name }}](../concepts/networking.md).
+* [Networking in {{ api-gw-name }}](../concepts/networking.md)

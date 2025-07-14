@@ -35,7 +35,7 @@ description: Follow this guide to update an API gateway label.
 
       {% include [labels-terraform](../../_includes/api-gateway/labels-terraform.md) %}
 
-  1. Update resources:
+  1. Update the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

@@ -13,7 +13,7 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
-          - name: Creating a cluster with autoscaling in another folder's network
+          - name: Creating an autoscaling cluster in another folder's network
             href: operations/cluster-create-autoscale.md
           - name: Connecting to a cluster
             href: operations/connect.md
@@ -35,15 +35,15 @@ items:
             href: operations/connect-interfaces.md
           - name: Using Sqoop
             href: operations/sqoop-usage.md
-          - name: Configuration {{ IBRG }}
+          - name: '{{ IBRG }} configuration'
             href: operations/apache-iceberg.md
           - name: Delta Lake
             items:
-              - name: Setting up Delta Lake in single-cluster mode
+              - name: Configuring Delta Lake in single-cluster mode
                 href: operations/deltalake/one-cluster-mode.md
-              - name: Setting up Delta Lake in multi-cluster mode
+              - name: Configuring Delta Lake in multi-cluster mode
                 href: operations/deltalake/multi-cluster-mode.md
-              - name: Tips for setting up and using Delta Lake
+              - name: Tips for configuring and using Delta Lake
                 href: operations/deltalake/tips.md
       - name: Jobs
         items:
@@ -63,29 +63,29 @@ items:
         items:
           - name: Working with logs
             href: operations/logging.md
-          - name: Monitoring the state of clusters and hosts
+          - name: Cluster and host status monitoring
             href: operations/monitoring.md
-          - name: Monitoring the state of Spark applications
+          - name: Spark application status monitoring
             href: operations/spark-monitoring.md
           - name: >-
-              Diagnostics and troubleshooting of Spark application performance
+              Diagnosing and troubleshooting Spark application performance
               issues
             href: operations/spark-diagnostics.md
-      - name: Setting up and using Python virtual environments
+      - name: Creating and using Python virtual environments
         href: operations/python-env.md
   - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Network settings and cluster maintenance
+      - name: Cluster network settings and maintenance
         items:
           - name: Configuring a network for {{ dataproc-name }}
             href: tutorials/configure-network.md
           - name: Migrating an HDFS cluster to a different availability zone
             href: tutorials/hdfs-cluster-migration.md
           - name: >-
-              Reconfiguring a network connection when recreating a {{
-              dataproc-name }} cluster
+              Network connection switching during {{ dataproc-name }} cluster
+              recreation
             href: tutorials/reconnect-network.md
       - name: Working with jobs
         items:
@@ -112,36 +112,34 @@ items:
               - name: Using {{ objstorage-name }} in {{ dataproc-name }}
                 href: tutorials/copy-files-from-object-storage.md
               - name: >-
-                  Importing data from {{ objstorage-name }}, processing and
+                  Importing data from {{ objstorage-name }}, processing, and
                   exporting to {{ mch-name }}
                 href: tutorials/s3-data-processing-ch.md
-              - name: >-
-                  Mounting buckets to the file system of {{ dataproc-name }}
-                  hosts
+              - name: Mounting buckets to {{ dataproc-name }} host filesystems
                 href: tutorials/geesefs-init-actions.md
           - name: '{{ metastore-full-name }}'
             items:
-              - name: Shared use of tables through {{ metastore-name }}
+              - name: Collaborative table management using {{ metastore-name }}
                 href: tutorials/data-processing-to-data-processing.md
               - name: >-
-                  Transferring metadata between {{ dataproc-name }} clusters
+                  Transferring metadata across {{ dataproc-name }} clusters
                   using {{ metastore-name }}
                 href: tutorials/metastore-import.md
           - name: Exchanging data with {{ mch-name }}
             href: tutorials/exchange-data-with-mch.md
-          - name: Importing data from {{ mmy-name }} clusters using Sqoop
+          - name: Importing data from a {{ mmy-name }} cluster using Sqoop
             href: tutorials/sqoop-mmy.md
-          - name: Importing data from {{ mpg-name }} clusters using Sqoop
+          - name: Importing data from a {{ mpg-name }} cluster using Sqoop
             href: tutorials/sqoop-mpg.md
           - name: Integration with {{ ml-platform-name }}
             href: tutorials/datasphere-integration.md
-          - name: Working with {{ KF }} topics using PySpark jobs
+          - name: Processing {{ KF }} topics with PySpark jobs
             href: tutorials/kafka.md
           - name: Automating operations using {{ maf-name }}
             href: tutorials/airflow-automation.md
   - name: Concepts
     items:
-      - name: Resource relationships
+      - name: Service resource interdependencies
         href: concepts/index.md
       - name: Host classes
         items:
@@ -155,29 +153,29 @@ items:
         href: concepts/environment.md
       - name: '{{ dataproc-name }} component interfaces and ports'
         href: concepts/interfaces.md
-      - name: Jobs in {{ dataproc-name }}
+      - name: '{{ dataproc-name }} jobs'
         href: concepts/jobs.md
       - name: Spark jobs
         href: concepts/spark-sql.md
-      - name: Automatic scaling
+      - name: Autoscaling
         href: concepts/autoscaling.md
-      - name: Decommissioning subclusters and hosts
+      - name: Decommissioning of subclusters and hosts
         href: concepts/decommission.md
-      - name: Networking in {{ dataproc-name }}
+      - name: '{{ dataproc-name }} network'
         href: concepts/network.md
       - name: Maintenance
         href: concepts/maintenance.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Storage in {{ dataproc-name }}
+      - name: '{{ dataproc-name }} storage'
         href: concepts/storage.md
-      - name: Component properties
+      - name: Component settings
         href: concepts/settings-list.md
       - name: '{{ IBRG }} in {{ dataproc-name }}'
         href: concepts/apache-iceberg.md
       - name: Delta Lake in {{ dataproc-name }}
         href: concepts/deltalake.md
-      - name: Logs in {{ dataproc-name }}
+      - name: '{{ dataproc-name }} logs'
         href: concepts/logs.md
       - name: Initialization scripts
         href: concepts/init-action.md
@@ -263,7 +261,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

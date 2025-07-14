@@ -488,6 +488,9 @@ keywords:
 
             * `version` — версия {{ OS }}.
             * `adminPassword` — пароль пользователя `admin`.
+
+                {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
             * `opensearchSpec` — настройки групп хостов `{{ OS }}`. Содержат массив элементов `nodeGroups`. Каждый элемент соответствует отдельной группе хостов и имеет следующую структуру:
 
                 * `name` — имя группы хостов.
@@ -598,6 +601,9 @@ keywords:
 
             * `version` — версия {{ OS }}.
             * `admin_password` — пароль пользователя `admin`.
+
+                {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
             * `opensearch_spec` — настройки групп хостов `{{ OS }}`. Содержат массив элементов `nodeGroups`. Каждый элемент соответствует отдельной группе хостов и имеет следующую структуру:
 
                 * `name` — имя группы хостов.

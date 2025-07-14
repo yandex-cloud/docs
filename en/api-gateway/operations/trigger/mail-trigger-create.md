@@ -39,7 +39,7 @@ Create an [email trigger](../../concepts/trigger/mail-trigger.md) to send messag
         * Batch size. The values may range from 1 to 1,000. The default value is 1.
         * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
 
-       The trigger groups messages for a period not exceeding the specified wait time and sends them to WebSocket connections. The number of messages cannot exceed the specified batch size.
+       The trigger groups messages within the specified wait time period and sends them to WebSocket connections. The number of messages cannot exceed the specified batch size.
 
     1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
 
@@ -56,7 +56,7 @@ Create an [email trigger](../../concepts/trigger/mail-trigger.md) to send messag
     yc serverless trigger create mail \
       --name <trigger_name> \
       --batch-size <batch_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-cutoff <maximum_wait_time> \
       --attachements-bucket <bucket_name> \
       --attachements-service-account-id <service_account_ID> \
       --gateway-id <API_gateway_ID> \
@@ -72,7 +72,7 @@ Create an [email trigger](../../concepts/trigger/mail-trigger.md) to send messag
 
     * `--attachements-bucket`: Name of the bucket to save email attachments to. This is an optional parameter.
     
-    * `--attachements-service-account-id`: ID of the service account authorized to upload objects to the Object Storage bucket. This is an optional parameter.
+    * `--attachements-service-account-id`: ID of the service account authorized to upload objects to an Object Storage bucket. This is an optional parameter.
 
     {% include [trigger-cli-param](../../../_includes/api-gateway/trigger-cli-param.md) %}
 
@@ -102,7 +102,7 @@ Create an [email trigger](../../concepts/trigger/mail-trigger.md) to send messag
 
 {% endlist %}
 
-{{ api-gw-full-name }} will automatically generate an email address that will cause the trigger to fire when messages are sent to it. To see it, [retrieve detailed trigger information](trigger-list.md#trigger-get).
+{{ api-gw-full-name }} will automatically generate an email address for which the trigger will fire when messages are sent to it. To see it, [retrieve detailed trigger information](trigger-list.md#trigger-get).
 
 ## Checking the result {#check-result}
 

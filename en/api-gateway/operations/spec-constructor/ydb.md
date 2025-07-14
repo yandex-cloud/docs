@@ -22,7 +22,7 @@ description: Follow this guide to add the {{ ydb-full-name }} extension using th
         * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_table_name_name }}**: Name of the table the operation will be performed on.
         * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_action_title }}**: [Operation type](../../concepts/extensions/ydb.md#podderzhivaemye-operacii) and its relevant parameters:
 
-            * `PutItem`
+            * `PutItem`.
             * `GetItem`:
 
                 * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_key_name }}**: Primary key of the element the operation will be performed on.

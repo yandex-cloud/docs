@@ -103,9 +103,8 @@ items:
         href: tutorials/bm-vrf-and-vpc-interconnect.md
       - name: >-
           Организация сетевой связности между приватной подсетью {{
-          baremetal-name }} и On-Prem
+          baremetal-name }} и on-premise-ресурсами
         href: tutorials/bms-cic-onprem.md
-        hidden: true
       - name: >-
           Доставка USB-устройств на сервер {{ baremetal-name }} или виртуальную
           машину

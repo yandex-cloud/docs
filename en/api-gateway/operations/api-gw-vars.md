@@ -5,9 +5,9 @@ description: Follow this guide to set up variables for API gateway specification
 
 # Setting up variables
 
-{{ api-gw-name }} supports [variables in an OpenAPI specification](../concepts/extensions/parametrization.md).
+{{ api-gw-name }} supports [variables in the OpenAPI specification](../concepts/extensions/parametrization.md).
 
-{% cut "Sample specification file with a variable" %}
+{% cut "Example of a specification file with a variable" %}
 
 ```yaml
 openapi: 3.0.0
@@ -58,8 +58,8 @@ By default, variables take the values specified in the `default` field of the [O
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To set up your variables:
-  1. If necessary, edit the OpenAPI specification file or create a new one.
-  1. View a description of the CLI command for updating an API gateway:
+  1. Edit the OpenAPI specification file or create a new one, if required.
+  1. View the description of the CLI command for updating an API gateway:
 
      ```bash
      {{ yc-serverless }} api-gateway update --help
@@ -122,14 +122,14 @@ By default, variables take the values specified in the `default` field of the [O
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     The terminal will display a list of resources with their properties. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
      You can check the API gateway update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
@@ -145,5 +145,5 @@ By default, variables take the values specified in the `default` field of the [O
 
 ## See also
 
-* [How specification parameterization works](../concepts/extensions/parametrization.md).
-* [How to update an API gateway specification](../operations/api-gw-update.md).
+* [How specification parameterization works](../concepts/extensions/parametrization.md)
+* [How to update an API gateway specification](../operations/api-gw-update.md)

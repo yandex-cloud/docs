@@ -31,7 +31,7 @@ keywords:
 
    {% note info %}
 
-   Нужно изображение? [Скачайте пример](https://{{ s3-storage-host }}/vision/face-detection-sample.jpg).
+   Нужен пример? [Скачайте изображение](https://{{ s3-storage-host }}/doc-files/ml/vision/face-detection-sample.jpg).
 
    {% endnote %}
 

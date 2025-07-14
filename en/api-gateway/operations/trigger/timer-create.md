@@ -31,7 +31,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger to send messa
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**:
 
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** field, specify a schedule for sending messages to WebSocket connections as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
-        * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** field, specify the message that will be sent to WebSocket connections if the timer fires in the `payload` field. The data type is a string up to 4,096 characters long.
+        * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-payload }}** field, specify the message to send to WebSocket connections if the timer fires in the `payload` field. The data type is a string up to 4,096 characters long.
 
     1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
 
@@ -59,7 +59,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger to send messa
 
     * `--name`: Timer name.
     * `--cron-expression`: Schedule for sending messages to WebSocket connections as a [cron expression](../../concepts/trigger/timer.md#cron-expression).
-    * `--payload`: Message that will be sent to WebSocket connections if the timer fires. The string length must not exceed 4,096 characters.
+    * `--payload`: Message to send to WebSocket connections if the timer fires. The string length must not exceed 4,096 characters.
 
     {% include [trigger-cli-param](../../../_includes/api-gateway/trigger-cli-param.md) %}
 

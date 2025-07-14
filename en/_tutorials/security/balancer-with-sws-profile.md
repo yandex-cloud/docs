@@ -2,6 +2,6 @@
 
 With {{ sws-full-name }}, you can protect your infrastructure against DDoS attacks and bots at the application layer (L7).
 
-You will create a test web server, deploy an {{ alb-name }} [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) for distributing traffic to the test web server, and protect the created infrastructure using a {{ sws-name }} [security profile](../../smartwebsecurity/concepts/profiles.md).
+You will create a test web server, deploy an [L7 {{ alb-name }}](../../application-load-balancer/concepts/application-load-balancer.md) for distributing traffic to the test web server, and protect this new infrastructure using a [security profile](../../smartwebsecurity/concepts/profiles.md) in {{ sws-name }}.
 
-Use the following tools to create an infrastructure for your {{ alb-name }} L7 load balancer with a security profile:
+Use the following tools to create an infrastructure for your L7 {{ alb-name }} with a security profile:

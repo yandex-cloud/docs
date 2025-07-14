@@ -6,7 +6,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) to send
 
 {% include [trigger-before-you-begin](../../../_includes/api-gateway/trigger-before-you-begin.md) %}
 
-* A budget which, when exceeded, fires a trigger. If you do not have a budget, [create one](../../../billing/operations/budgets.md).
+* Budget for which a trigger will fire in case it is exceeded. If you do not have a budget, [create one](../../../billing/operations/budgets.md).
 
 ## Creating a trigger {#trigger-create}
 

@@ -1,9 +1,9 @@
 ---
-title: How to disconnect a domain from an API gateway in {{ api-gw-full-name }}
-description: In this tutorial, you will learn how to disconnect a domain from an API gateway in {{ api-gw-full-name }}.
+title: How to remove a domain from an API gateway in {{ api-gw-full-name }}
+description: In this tutorial, you will learn how to remove a domain from an API gateway in {{ api-gw-full-name }}.
 ---
 
-# Disconnecting a domain
+# Removing a domain
 
 {% list tabs group=instructions %}
 
@@ -15,7 +15,7 @@ description: In this tutorial, you will learn how to disconnect a domain from an
   1. Go to ![image](../../_assets/api-gateway/domain-icon.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
   1. Click ![image](../../_assets/options.svg) in the domain row and select **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_acton-delete }}**.
   1. Confirm your action.
-  1. Delete the resource record created when connecting the domain to the API gateway:
+  1. Delete the resource record created when adding the domain to the API gateway:
       
       * If your domain is delegated to {{ dns-name }}:
 
@@ -32,19 +32,19 @@ description: In this tutorial, you will learn how to disconnect a domain from an
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command for disconnecting a domain:
+  1. View the description of the CLI command for removing a domain:
 
       ```bash
       yc serverless api-gateway remove-domain --help
       ```
 
-  1. Run the following command:
+  1. Run this command:
 
       ```bash
       yc serverless api-gateway remove-domain <API_gateway_ID> --domain-id <domain_ID>
       ```
 
-  1. Delete the resource record created when connecting the domain to the API gateway:
+  1. Delete the resource record created when adding the domain to the API gateway:
       
       * If your domain is delegated to {{ dns-name }}:
 
@@ -56,7 +56,7 @@ description: In this tutorial, you will learn how to disconnect a domain from an
         
             The record in question is of the `ANAME` type and has a value in `{{ api-host-apigw }}` format.
 
-        1. Delete a record:
+        1. Delete the record:
 
             ```
             yc dns zone delete-records <DNS_zone_ID> \
@@ -67,9 +67,9 @@ description: In this tutorial, you will learn how to disconnect a domain from an
 
 - API {#api}
 
-  To disconnect a domain from an API gateway, use the [removeDomain](../apigateway/api-ref/ApiGateway/removeDomain.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/RemoveDomain](../apigateway/api-ref/grpc/ApiGateway/removeDomain.md) gRPC API call.
+  To remove a domain from an API gateway, use the [removeDomain](../apigateway/api-ref/ApiGateway/removeDomain.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/RemoveDomain](../apigateway/api-ref/grpc/ApiGateway/removeDomain.md) gRPC API call.
 
-  Delete the resource record created when connecting the domain to the API gateway:
+  Delete the resource record created when adding the domain to the API gateway:
       
   * If your domain is delegated to {{ dns-name }}, use the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../../dns/api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call.
 

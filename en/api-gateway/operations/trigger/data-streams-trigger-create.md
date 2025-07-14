@@ -17,7 +17,7 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
 
 {% include [trigger-before-you-begin](../../../_includes/api-gateway/trigger-before-you-begin.md) %}
 
-* A stream that will activate the trigger as soon as it receives data. If you do not have a stream, [create one](../../../data-streams/quickstart/create-stream.md).
+* Stream for which the trigger will fire as soon as it receives data. If you do not have a stream, [create one](../../../data-streams/quickstart/create-stream.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -41,14 +41,14 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with permissions to read data from the stream and write data to it.
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with read and write permissions to the stream.
 
-    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
         * Message batch size in bytes. The values may range from 1 B to 64 KB. The default value is 1 B.
         * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
 
-        The trigger groups messages for a period not exceeding the specified wait time and sends them to WebSocket connections. The total amount of data transmitted to connections may exceed the specified batch size if the data is transmitted as a single message. In all other cases, the amount of data does not exceed the batch size.
+        The trigger groups messages within the specified wait time period and sends them to WebSocket connections. The total amount of data transmitted to connections may exceed the specified batch size if the data is transmitted as a single message. In all other cases, the amount of data does not exceed the batch size.
 
     1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
 
@@ -86,9 +86,9 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
 
     * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
 
-    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to WebSocket connections. The total amount of data transmitted to connections may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
+    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages within the `batch-cutoff` period and sends them to WebSocket connections. The total amount of data transmitted to connections may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
 
-    * `--stream-service-account-id`: ID of the service account with permissions to read from the stream and write to it.
+    * `--stream-service-account-id`: ID of the service account with write and read permissions to the stream.
 
     {% include [trigger-cli-param](../../../_includes/api-gateway/trigger-cli-param.md) %}
 

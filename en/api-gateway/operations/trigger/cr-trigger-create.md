@@ -34,15 +34,15 @@ Create a [trigger for {{ container-registry-name }}](../../concepts/trigger/cr-t
 
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_container-registry }}** field, select the registry where you want to create a trigger for image events.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the [events](../../concepts/trigger/cr-trigger.md#event) that will fire the trigger.
-        * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** field, enter an image name for [filtering](../../concepts/trigger/cr-trigger.md#filter). To find out the Docker image name, [get a list of Docker images in the registry](../../../container-registry/operations/docker-image/docker-image-list.md).
-        * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_tag }}** field, enter the image tag for filtering.
+        * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** field, enter the image name for [filtering](../../concepts/trigger/cr-trigger.md#filter). To find out the Docker image name, [get a list of Docker images in the registry](../../../container-registry/operations/docker-image/docker-image-list.md).
+        * Optionaly, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_tag }}** field, enter the image tag for filtering.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
         * Event batch size. The values may range from 1 to 1,000. The default value is 1.
         * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
 
-       The trigger groups events for a period not exceeding the specified wait time and sends them to WebSocket connections. The number of events cannot exceed the specified batch size.
+       The trigger groups events within the specified wait time period and sends them to WebSocket connections. The number of events cannot exceed the specified batch size.
 
     1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
 
@@ -61,8 +61,8 @@ Create a [trigger for {{ container-registry-name }}](../../concepts/trigger/cr-t
       --name <trigger_name> \
       --registry-id <registry_ID> \
       --events 'create-image','delete-image','create-image-tag','delete-image-tag' \
-      --batch-size <group_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-size <batch_size> \
+      --batch-cutoff <maximum_wait_time> \
       --gateway-id <API_gateway_ID> \
       --gateway-websocket-broadcast-path <path> \
       --gateway-websocket-broadcast-service-account-id <service_account_ID>
@@ -72,7 +72,7 @@ Create a [trigger for {{ container-registry-name }}](../../concepts/trigger/cr-t
 
     * `--name`: Trigger name.
     * `--registry-id`: [Registry ID](../../../container-registry/operations/registry/registry-list.md).
-    * `--events`: [Events](../../concepts/trigger/cr-trigger.md#event) activating the trigger.
+    * `--events`: [Events](../../concepts/trigger/cr-trigger.md#event) for which the trigger fires.
 
     {% include [batch-settings-events](../../../_includes/api-gateway/batch-settings-events.md) %}
 

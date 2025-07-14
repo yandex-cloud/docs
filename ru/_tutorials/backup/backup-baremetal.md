@@ -119,6 +119,43 @@
   1. {% include [server-lease-step11](../../_includes/baremetal/instruction-steps/server-lease-step11.md) %}
   1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
 
+- CLI {#cli}
+
+  1. {% include [server-lease-cli-step1](../../_includes/baremetal/instruction-steps/server-lease-cli-step1.md) %}
+
+  1. {% include [server-lease-cli-step2](../../_includes/baremetal/instruction-steps/server-lease-cli-step2.md) %}
+
+  1. {% include [server-lease-cli-step3](../../_includes/baremetal/instruction-steps/server-lease-cli-step3.md) %}
+
+      Где:
+      * {% include [server-lease-cli-pool-id](../../_includes/baremetal/instruction-steps/server-lease-cli-pool-id.md) %}
+      * {% include [server-lease-cli-configuration](../../_includes/baremetal/instruction-steps/server-lease-cli-configuration.md) %}
+      * {% include [server-lease-cli-storage](../../_includes/baremetal/instruction-steps/server-lease-cli-storage.md) %}
+
+        {% include [server-lease-backup-partitioning-notice](../../_includes/baremetal/instruction-steps/server-lease-backup-partitioning-notice.md) %}
+
+      * {% include [server-lease-cli-os](../../_includes/baremetal/instruction-steps/server-lease-cli-os.md) %}
+
+        {% include [server-lease-step7-iso](../../_includes/baremetal/instruction-steps/server-lease-step7-iso.md) %}
+
+      * {% include [server-lease-cli-rental-period](../../_includes/baremetal/instruction-steps/server-lease-cli-rental-period.md) %}
+
+        {% include [server-lease-step6-period](../../_includes/baremetal/instruction-steps/server-lease-step6-period.md) %}
+
+      * {% include [server-lease-cli-network](../../_includes/baremetal/instruction-steps/server-lease-cli-network.md) %}
+
+          {% note warning %}
+
+          {% include [public-subnet-no-dhcp](../../_includes/baremetal/public-subnet-no-dhcp.md) %}
+
+          {% endnote %}
+
+          {% include [server-lease-cli-backup-network](../../_includes/baremetal/instruction-steps/server-lease-cli-backup-network.md) %}
+
+          {% include [outgoing traffic](../../_includes/backup/outgoing-rules.md) %}
+
+      {% include [server-lease-cli-general](../../_includes/baremetal/instruction-steps/server-lease-cli-general.md) %}
+
 {% endlist %}
 
 Сохраните имя и идентификатор сервера, они понадобятся в дальнейшем.

@@ -118,91 +118,170 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Архитектура и защита базового интернет-сервиса
-        href: tutorials/web-service.md
-      - name: Настройки DHCP для работы с корпоративным DNS-сервером
-        href: tutorials/dhcp-options.md
-      - name: Маршрутизация через NAT-инстанс
+      - name: Организация VPN-подключений
         items:
-          - name: Обзор
-            href: tutorials/nat-instance/index.md
-          - name: Консоль управления
-            href: tutorials/nat-instance/console.md
-          - name: '{{ TF }}'
-            href: tutorials/nat-instance/terraform.md
-      - name: Организация сетевой связности с помощью IPsec-шлюзов
+          - name: Соединение с облачной сетью при помощи OpenVPN
+            href: tutorials/openvpn.md
+          - name: Создание бастионного хоста
+            href: tutorials/bastion.md
+          - name: >-
+              Защищенный доступ пользователей к облачным ресурсам на основе
+              WireGuard VPN
+            href: tutorials/remote-wireguard-vpn.md
+          - name: >-
+              Создание туннеля между двумя подсетями при помощи OpenVPN Access
+              Server
+            href: tutorials/site-to-site-openvpn.md
+          - name: Настройка защищенного туннеля GRE поверх IPsec
+            href: tutorials/gre-over-ipsec.md
+          - name: Организация сетевой связности с помощью IPsec-шлюзов
+            items:
+              - name: Схема решения
+                href: tutorials/ipsec/index.md
+              - name: Самостоятельная реализация средствами {{ yandex-cloud }}
+                href: tutorials/ipsec/ipsec-vpn.md
+              - name: Решение SGW от команды архитекторов {{ yandex-cloud }}
+                href: tutorials/ipsec/sgw.md
+          - name: ViPNet Coordinator в {{ yandex-cloud }}
+            href: tutorials/vipnet-to-yc.md
+            hidden: true
+      - name: Сетевая облачная инфраструктура на основе NGFW
         items:
-          - name: Схема решения
-            href: tutorials/ipsec/index.md
-          - name: Самостоятельная реализация средствами {{ yandex-cloud }}
-            href: tutorials/ipsec/ipsec-vpn.md
-          - name: Решение SGW от команды архитекторов {{ yandex-cloud }}
-            href: tutorials/ipsec/sgw.md
-      - name: Установка виртуального роутера Cisco CSR 1000v
-        href: tutorials/cisco.md
-      - name: Установка виртуального роутера Mikrotik CHR
-        href: tutorials/mikrotik.md
-      - name: Соединение с облачной сетью при помощи OpenVPN
-        href: tutorials/openvpn.md
-      - name: >-
-          Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
-          других облачных сетей
-        href: tutorials/clickhouse-dns-peering.md
-      - name: >-
-          Защищенный доступ пользователей к облачным ресурсам на основе
-          WireGuard VPN
-        href: tutorials/remote-wireguard-vpn.md
-      - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
-        href: tutorials/usergate-proxy.md
-      - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
-        href: tutorials/usergate-firewall.md
-      - name: Реализация отказоустойчивых сценариев для сетевых виртуальных машин
-        href: tutorials/route-switcher.md
-      - name: >-
-          Создание туннеля между двумя подсетями при помощи OpenVPN Access
-          Server
-        href: tutorials/site-to-site-openvpn.md
-      - name: Создание бастионного хоста
-        href: tutorials/bastion.md
-      - name: >-
-          Миграция кластера {{ dataproc-full-name }} с файловой системой HDFS в
-          другую зону доступности
-        href: tutorials/hdfs-cluster-migration.md
-      - name: Настройка сети для {{ dataproc-full-name }}
-        href: tutorials/data-processing-nat-instance.md
-      - name: Сеть между каталогами
-        href: tutorials/multi-folder-vpc.md
-      - name: >-
-          Реализация защищенной высокодоступной сетевой инфраструктуры с
-          выделением DMZ на основе Check Point NGFW
-        href: tutorials/high-accessible-dmz.md
-      - name: >-
-          Сегментация облачной инфраструктуры с помощью решения Check Point
-          Next-Generation Firewall
-        href: tutorials/network-segmentation-checkpoint.md
-      - name: Подключение к {{ objstorage-name }} из {{ vpc-name }}
-        href: tutorials/storage-vpc-access.md
-      - name: Подключение к {{ container-registry-name }} из {{ vpc-name }}
-        href: tutorials/vpc-cr-access.md
-      - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
-        href: tutorials/terraform-modules.md
-      - name: >-
-          Развертывание группы доступности Always On с внутренним сетевым
-          балансировщиком
-        href: tutorials/mssql-alwayson-lb.md
-      - name: >-
-          Организация доступа через {{ interconnect-name }} к облачным сетям,
-          размещенным за NGFW
-        href: tutorials/cic-with-ngfw.md
-      - name: Автоматизация задач с помощью {{ maf-short-name }}
-        href: tutorials/airflow-auto-tasks.md
-      - name: ViPNet Coordinator в {{ yandex-cloud }}
-        href: tutorials/vipnet-to-yc.md
-        hidden: true
-      - name: >-
-          Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
-          vpc-name }}
-        href: tutorials/bm-vrf-and-vpc-interconnect.md
+          - name: >-
+              Реализация защищенной высокодоступной сетевой инфраструктуры с
+              выделением DMZ на основе Check Point NGFW
+            href: tutorials/high-accessible-dmz.md
+          - name: >-
+              Сегментация облачной инфраструктуры с помощью решения Check Point
+              Next-Generation Firewall
+            href: tutorials/network-segmentation-checkpoint.md
+          - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
+            href: tutorials/usergate-proxy.md
+          - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
+            href: tutorials/usergate-firewall.md
+          - name: >-
+              Реализация защищенной высокодоступной сетевой инфраструктуры с
+              выделением DMZ на основе Смарт-Софт NGFW
+            href: tutorials/high-accessible-dmz-ting.md
+      - name: '{{ baremetal-name }}'
+        items:
+          - name: >-
+              Настройка VRRP для кластера серверов {{ baremetal-name }} с
+              использованием Keepalived
+            href: tutorials/bms-vrf-routing.md
+          - name: >-
+              Организация сетевой связности в приватной подсети {{
+              baremetal-full-name }}
+            href: tutorials/bms-simple-subnet.md
+          - name: >-
+              Организация сетевой связности между подсетями {{
+              baremetal-full-name }} и {{ vpc-full-name }} с помощью {{
+              interconnect-full-name }}
+            href: tutorials/bm-vrf-and-vpc-interconnect.md
+          - name: >-
+              Доставка USB-устройств на сервер {{ baremetal-name }} или
+              виртуальную машину {{ compute-name }}
+            href: tutorials/usb-over-ip.md
+          - name: >-
+              Настройка межсетевого экрана OPNsense в режиме кластера высокой
+              доступности на серверах {{ baremetal-full-name }}
+            href: tutorials/opnsense-failover-cluster.md
+          - name: >-
+              Развертывание веб-приложения на серверах {{ baremetal-full-name }}
+              с L7-балансировщиком и защитой {{ sws-full-name }}
+            href: tutorials/webapp-on-bms-behind-sws.md
+      - name: '{{ interconnect-name }}'
+        items:
+          - name: >-
+              Организация доступа через {{ interconnect-name }} к облачным
+              сетям, размещенным за NGFW
+            href: tutorials/cic-with-ngfw.md
+          - name: >-
+              Создание прямого транкового подключения и приватного соединения в
+              нем
+            href: tutorials/trunk-priv-add.md
+          - name: >-
+              Создание прямого транкового подключения и публичного соединения в
+              нем
+            href: tutorials/trunk-pub-add.md
+          - name: >-
+              Создание нового партнерского транкового подключения и приватного
+              соединения в нем
+            href: tutorials/partner-trunk-priv-add.md
+          - name: >-
+              Создание нового партнерского транкового подключения и публичного
+              соединения в нем
+            href: tutorials/partner-trunk-pub-add.md
+          - name: >-
+              Добавление приватного соединения в прямое или партнерское
+              транковое подключение
+            href: tutorials/priv-add.md
+          - name: >-
+              Добавление публичного соединения в прямое или партнерское
+              транковое подключение
+            href: tutorials/pub-add.md
+          - name: Изменение емкости транкового подключения
+            href: tutorials/trunk-capacity-change.md
+          - name: Удаление приватного соединения
+            href: tutorials/priv-del.md
+          - name: Удаление публичного соединения
+            href: tutorials/pub-del.md
+          - name: Удаление транкового подключения
+            href: tutorials/trunk-del.md
+      - name: Настройка сетевых ресурсов и взаимодействие между ними
+        items:
+          - name: Архитектура и защита базового интернет-сервиса
+            href: tutorials/web-service.md
+          - name: Настройки DHCP для работы с корпоративным DNS-сервером
+            href: tutorials/dhcp-options.md
+          - name: Маршрутизация через NAT-инстанс
+            items:
+              - name: Обзор
+                href: tutorials/nat-instance/index.md
+              - name: Консоль управления
+                href: tutorials/nat-instance/console.md
+              - name: '{{ TF }}'
+                href: tutorials/nat-instance/terraform.md
+          - name: Настройка сетевого взаимодействия ресурсов из разных каталогов
+            href: tutorials/multi-folder-vpc.md
+          - name: >-
+              Реализация отказоустойчивых сценариев для сетевых виртуальных
+              машин
+            href: tutorials/route-switcher.md
+          - name: Настройка сети для {{ dataproc-full-name }}
+            href: tutorials/data-processing-nat-instance.md
+          - name: >-
+              Переключение сетевого соединения при пересоздании кластера {{
+              dataproc-full-name }}
+            href: tutorials/data-processing-dns-reconnect.md
+          - name: >-
+              Миграция кластера {{ dataproc-full-name }} с файловой системой
+              HDFS в другую зону доступности
+            href: tutorials/hdfs-cluster-migration.md
+          - name: >-
+              Развертывание группы доступности Always On с внутренним сетевым
+              балансировщиком
+            href: tutorials/mssql-alwayson-lb.md
+      - name: Подключение к сервисам
+        items:
+          - name: Подключение к {{ objstorage-name }} из {{ vpc-name }}
+            href: tutorials/storage-vpc-access.md
+          - name: Подключение к {{ container-registry-name }} из {{ vpc-name }}
+            href: tutorials/vpc-cr-access.md
+      - name: Дополнительные настройки и инструменты
+        items:
+          - name: Установка виртуального роутера Cisco CSR 1000v
+            href: tutorials/cisco.md
+          - name: Установка виртуального роутера Mikrotik CHR
+            href: tutorials/mikrotik.md
+          - name: >-
+              Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
+              других облачных сетей
+            href: tutorials/clickhouse-dns-peering.md
+          - name: Автоматизация задач {{ yq-name }} с помощью {{ maf-name }}
+            href: tutorials/airflow-auto-tasks.md
+          - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
+            href: tutorials/terraform-modules.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

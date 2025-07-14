@@ -146,7 +146,7 @@ description: Follow this guide to configure API gateway logging.
         terraform plan
         ```
 
-        You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+        The terminal will display a list of resources with their properties. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
     
     1. Apply the changes:
 

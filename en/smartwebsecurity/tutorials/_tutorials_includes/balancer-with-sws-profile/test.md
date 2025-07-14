@@ -1,5 +1,5 @@
 1. Open the terminal on the device whose IP address you specified in the allow rule.
-1. Send a request to the backend of the test application:
+1. Send a request to the test application backend:
 
     ```bash
     curl --verbose <public_IP_address_of_L7_load_balancer>
@@ -11,6 +11,6 @@
 
 {% note info %}
 
-Smart Protection rules are usually not tested. Such tests would add the parameters of suspicious requests, e.g., IP addresses, to a blacklist.
+Smart protection rules are usually not tested. Such tests would add the properties of suspicious requests, e.g., IP addresses, to a blacklist.
 
 {% endnote %}

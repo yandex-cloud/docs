@@ -65,7 +65,7 @@ To create a network:
 
      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Create [subnets](../../vpc/concepts/network.md#subnet) in each [availability zone](../../overview/concepts/geo-scope.md) by specifying the cloud network ID using the `--network-name` parameter:
+  1. Create [subnets](../../vpc/concepts/network.md#subnet) in each [availability zone](../../overview/concepts/geo-scope.md) by specifying the cloud network ID using the `--network-name` flag:
 
      ```bash
      yc vpc subnet create \
@@ -198,15 +198,15 @@ To create an instance group:
      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
      * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify:
 
-       * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `HDD`.
-       * Disk **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+       * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `HDD`
+       * Disk **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
      * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify:
 
-       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`.
-       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
-       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `5%`.
-       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
+       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `5%`
+       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
      * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
@@ -216,7 +216,7 @@ To create an instance group:
 
      * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the VM access credentials:
 
-       * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
+       * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
        * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
         To establish an SSH connection, you need to create a key pair. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
