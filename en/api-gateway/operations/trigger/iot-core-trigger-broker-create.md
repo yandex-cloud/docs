@@ -1,15 +1,15 @@
 ---
-title: Creating a trigger that sends messages to {{ api-gw-full-name }} WebSocket connections from an {{ iot-full-name }} broker topic
-description: Create a trigger for an {{ iot-name }} broker topic to send message copies to {{ api-gw-full-name }} WebSocket connections.
+title: Creating a trigger that sends messages to {{ api-gw-full-name }} WebSocket connections from a {{ iot-full-name }} broker topic
+description: Create a trigger for a {{ iot-name }} broker topic to send message copies to {{ api-gw-full-name }} WebSocket connections.
 ---
 
-# Creating a trigger that sends messages to WebSocket connections from an {{ iot-full-name }} broker
+# Creating a trigger that sends messages to WebSocket connections from a {{ iot-full-name }} broker topic
 
-Create a [trigger](../../concepts/trigger/iot-core-trigger.md) for an {{ iot-name }} broker topic and send message copies to {{ api-gw-full-name }} [WebSocket connections](../../concepts/extensions/websocket.md).
+Create a [trigger](../../concepts/trigger/iot-core-trigger.md) for a {{ iot-name }} broker topic and send message copies to {{ api-gw-full-name }} [WebSocket connections](../../concepts/extensions/websocket.md).
 
 {% note warning %}
 
-The trigger must be in the same cloud as the broker whose topic it reads messages from.
+The trigger must be in the same cloud as the broker from topic of which it reads messages.
 
 {% endnote %}
 
@@ -44,14 +44,14 @@ The trigger must be in the same cloud as the broker whose topic it reads message
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_iot }}**:
       
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_broker }}** field, specify the broker.
-        * (Optional) In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** field, specify an MQTT topic. If no MQTT topic is set, the trigger will fire for all broker topics.
+        * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_mqtt-topic }}** field, specify an MQTT topic. If no MQTT topic is set, the trigger will fire for all broker topics.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
         * Batch size. The values may range from 1 to 1,000. The default value is 1.
         * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
 
-       The trigger groups messages for a period not exceeding the specified wait time and sends them to WebSocket connections. The number of messages cannot exceed the specified batch size.
+       The trigger groups messages within the specified wait time period and sends them to WebSocket connections. The number of messages cannot exceed the specified batch size.
 
     1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
 
@@ -70,8 +70,8 @@ The trigger must be in the same cloud as the broker whose topic it reads message
       --name <trigger_name> \
       --broker-id <broker_ID> \
       --mqtt-topic '<broker_MQTT_topic>' \
-      --batch-size <message_group_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-size <message_batch_size> \
+      --batch-cutoff <maximum_wait_time> \
       --gateway-id <API_gateway_ID> \
       --gateway-websocket-broadcast-path <path> \
       --gateway-websocket-broadcast-service-account-id <service_account_ID>

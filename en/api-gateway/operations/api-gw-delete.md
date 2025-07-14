@@ -38,7 +38,7 @@ description: Follow this guide to delete an API gateway.
   To delete an [API gateway](../concepts/index.md) created using {{ TF }}:
   1. Open the {{ TF }} configuration file and delete the fragment with the API gateway description.
 
-     Example API gateway description in the {{ TF }} configuration:
+     Example of an API gateway description in the {{ TF }} configuration:
 
      ```hcl
      ...
@@ -105,16 +105,16 @@ description: Follow this guide to delete an API gateway.
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     The terminal will display a list of resources with their properties. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
-     You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+     You can check the update using the [management console]({{ link-console-main }}) or these [CLI](../../cli/) commands:
 
      ```bash
      yc serverless api-gateway list

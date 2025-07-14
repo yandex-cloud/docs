@@ -1,6 +1,6 @@
 # Creating a trigger for {{ message-queue-name }} that sends messages to WebSocket connections
 
-Create a [trigger for {{ message-queue-short-name }} message queue](../../concepts/trigger/ymq-trigger.md) to send messages to [WebSocket connections](../../concepts/extensions/websocket.md).
+Create a [trigger for a {{ message-queue-short-name }} message queue](../../concepts/trigger/ymq-trigger.md) to send messages to [WebSocket connections](../../concepts/extensions/websocket.md).
 
 {% include [ymq-trigger-note.md](../../../_includes/functions/ymq-trigger-note.md) %}
 
@@ -8,7 +8,7 @@ Create a [trigger for {{ message-queue-short-name }} message queue](../../concep
 
 {% include [trigger-before-you-begin](../../../_includes/api-gateway/trigger-before-you-begin.md) %}
 
-* Message queue the trigger will collect messages from. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
+* Message queue the trigger will pick up messages from. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -32,14 +32,14 @@ Create a [trigger for {{ message-queue-short-name }} message queue](../../concep
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a message queue and a service account with permissions to read messages from this queue.
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}**, select a message queue and a service account with the permission to read messages from it.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
         * Batch size. The values may range from 1 to 1,000. The default value is 1.
         * Maximum wait time. The values may range from 0 to 20 seconds. The default value is 10 seconds.
 
-        The trigger groups messages for a period not exceeding the specified wait time and sends them to WebSocket connections. The number of messages cannot exceed the specified batch size.
+        The trigger groups messages within the specified wait time period and sends them to WebSocket connections. The number of messages cannot exceed the specified batch size.
 
     1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
 
@@ -61,8 +61,8 @@ Create a [trigger for {{ message-queue-short-name }} message queue](../../concep
       --gateway-id <API_gateway_ID> \
       --gateway-websocket-broadcast-path <path> \
       --gateway-websocket-broadcast-service-account-id <service_account_ID> \
-      --batch-size <message_group_size>
-      --batch-cutoff <maximum_timeout>
+      --batch-size <message_batch_size>
+      --batch-cutoff <maximum_wait_time>
     ```
 
     Where:
@@ -77,7 +77,7 @@ Create a [trigger for {{ message-queue-short-name }} message queue](../../concep
     {% include [trigger-cli-param](../../../_includes/api-gateway/trigger-cli-param.md) %}
 
     * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
-    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to WebSocket connections. The number of messages cannot exceed `batch-size`.
+    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages within the `batch-cutoff` period and sends them to WebSocket connections. The number of messages cannot exceed `batch-size`.
 
     Result:
 
@@ -119,7 +119,7 @@ Create a [trigger for {{ message-queue-short-name }} message queue](../../concep
     Check that the number of enqueued messages is decreasing. To do this, view the queue statistics:
 
    1. In the [management console]({{ link-console-main }}), open **{{ ui-key.yacloud.iam.folder.dashboard.label_ymq }}**.
-   1. Select the queue that you created the trigger for.
+   1. Select the queue for which you created the trigger.
    1. Go to **{{ ui-key.yacloud.common.monitoring }}**. Check the **{{ ui-key.yacloud.ymq.queue.overview.label_msg-count }}** chart.
 
 {% endlist %}

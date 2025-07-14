@@ -20,6 +20,24 @@
 
 Воспользуйтесь инструкцией в разделе [Миграция базы данных](../../managed-postgresql/tutorials/data-migration.md).
 
+#### Как перенести БД или таблицу из одного кластера в другой? {#transfer-db-table}
+
+Перенести БД или таблицу можно с помощью сервиса {{ data-transfer-name }} или утилиты [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
+
+Подробнее о миграции с помощью {{ data-transfer-name }} см. в руководстве [Миграция базы данных](../../managed-postgresql/tutorials/outbound-replication.md).
+
+#### Как перенести данные между кластерами в разных каталогах или облаках? {#transfer-data}
+
+Перенести данные можно с помощью сервиса {{ data-transfer-name }} или утилиты [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
+
+Подробнее о миграции с помощью {{ data-transfer-name }} см. в руководстве [Миграция базы данных](../../managed-postgresql/tutorials/outbound-replication.md).
+
+#### Как перенести кластер в другое облако? {#transfer-cluster}
+
+Перенести кластер можно с помощью сервиса {{ data-transfer-name }} или утилиты [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html).
+
+Подробнее о миграции с помощью {{ data-transfer-name }} см. в руководстве [Миграция базы данных](../../managed-postgresql/tutorials/outbound-replication.md).
+
 #### Можно ли восстановить из резервной копии одну базу данных? {#restore-one-database}
 
 Нет, выбрать желаемые базы данных нельзя. Из резервной копии кластер восстанавливается целиком со всеми базами данных.

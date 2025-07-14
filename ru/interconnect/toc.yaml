@@ -79,6 +79,10 @@ items:
           Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
           vpc-name }}
         href: tutorials/bm-vrf-and-vpc-interconnect.md
+      - name: >-
+          Организация сетевой связности между приватной подсетью {{
+          baremetal-name }} и on-premise-ресурсами
+        href: tutorials/bms-cic-onprem.md
   - name: Концепции
     expanded: true
     items:

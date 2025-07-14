@@ -6,7 +6,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
 {% include [trigger-before-you-begin](../../../_includes/api-gateway/trigger-before-you-begin.md) %}
 
-* A log group that activates the trigger when entries are added there. If you do not have a log group, [create one](../../../logging/operations/create-group.md).
+* Log group for which a trigger will fire when entries are added to it. If you do not have a log group, [create one](../../../logging/operations/create-group.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -39,7 +39,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
         * Batch size. The values may range from 1 to 1,000. The default value is 1.
         * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
 
-       The trigger groups messages for a period not exceeding the specified wait time and sends them to WebSocket connections. The number of messages cannot exceed the specified batch size.
+       The trigger groups messages within the specified wait time period and sends them to WebSocket connections. The number of messages cannot exceed the specified batch size.
 
     1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
 

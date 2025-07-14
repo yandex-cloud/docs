@@ -4,4 +4,6 @@ description: В этом сценарии вы создадите в {{ yandex-c
 canonical: '{{ link-docs }}/tutorials/windows/mssql-alwayson-lb'
 ---
 
+# Развертывание группы доступности Always On с внутренним сетевым балансировщиком
+
 {% include [mssql-alwayson-lb](../../_tutorials/windows/mssql-alwayson-lb.md) %}

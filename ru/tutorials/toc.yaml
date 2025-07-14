@@ -1218,107 +1218,125 @@ items:
     items:
       - name: Все руководства
         href: routing/index.md
-      - name: Настройка сетевого взаимодействия ресурсов из разных каталогов
-        href: routing/multi-folder-vpc.md
-      - name: Создание бастионного хоста
-        href: routing/bastion.md
-      - name: >-
-          Создание туннеля между двумя подсетями при помощи OpenVPN Access
-          Server
-        href: routing/site-to-site-openvpn.md
-      - name: >-
-          Защищенный доступ пользователей к облачным ресурсам на основе
-          WireGuard VPN
-        href: routing/remote-wireguard-vpn.md
-      - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
-        href: routing/usergate-firewall.md
-      - name: Реализация отказоустойчивых сценариев для сетевых ВМ
-        href: routing/route-switcher.md
-      - name: >-
-          Реализация защищенной высокодоступной сетевой инфраструктуры с
-          выделением DMZ на основе Check Point NGFW
-        href: routing/high-accessible-dmz.md
-      - name: >-
-          Сегментация облачной инфраструктуры с помощью решения Check Point
-          Next-Generation Firewall
-        href: routing/network-segmentation-checkpoint.md
-      - name: >-
-          Реализация защищенной высокодоступной сетевой инфраструктуры с
-          выделением DMZ на основе UserGate NGFW
-        href: routing/high-accessible-dmz-usergate.md
-      - name: >-
-          Реализация защищенной высокодоступной сетевой инфраструктуры с
-          выделением DMZ на основе Смарт-Софт NGFW
-        href: routing/high-accessible-dmz-ting.md
-      - name: >-
-          Организация доступа через {{ interconnect-name }} к облачным сетям,
-          размещенным за NGFW
-        href: routing/cic-with-ngfw.md
-      - name: Настройка защищенного туннеля GRE поверх IPsec
-        href: routing/gre-over-ipsec.md
-      - name: Настройка сети для {{ dataproc-name }}
-        href: routing/data-processing-nat-instance.md
-      - name: >-
-          Переключение сетевого соединения при пересоздании кластера {{
-          dataproc-name }}
-        href: routing/data-processing-dns-reconnect.md
-      - name: Подключение к {{ objstorage-name }} из {{ vpc-short-name }}
-        href: routing/storage-vpc-access.md
-      - name: Подключение к {{ container-registry-name }} из {{ vpc-short-name }}
-        href: routing/vpc-cr-access.md
-      - name: Создание прямого транкового подключения и приватного соединения в нем
-        href: routing/trunk-priv-add.md
-      - name: Создание прямого транкового подключения и публичного соединения в нем
-        href: routing/trunk-pub-add.md
-      - name: >-
-          Создание нового партнерского транкового подключения и приватного
-          соединения в нем
-        href: routing/partner-trunk-priv-add.md
-      - name: >-
-          Создание нового партнерского транкового подключения и публичного
-          соединения в нем
-        href: routing/partner-trunk-pub-add.md
-      - name: >-
-          Добавление приватного соединения в прямое или партнерское транковое
-          подключение
-        href: routing/priv-add.md
-      - name: >-
-          Добавление публичного соединения в прямое или партнерское транковое
-          подключение
-        href: routing/pub-add.md
-      - name: Изменить емкость транкового подключения
-        href: routing/trunk-capacity-change.md
-      - name: Удалить приватное соединение
-        href: routing/priv-del.md
-      - name: Удалить публичное соединение
-        href: routing/pub-del.md
-      - name: Удалить транковое подключение
-        href: routing/trunk-del.md
-      - name: Настройка VRRP для кластера серверов {{ baremetal-name }}
-        href: routing/bms-vrf-routing.md
-      - name: Настройка сетевой связности в подсети {{ baremetal-name }}
-        href: routing/bms-simple-subnet.md
-      - name: >-
-          Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
-          vpc-name }}
-        href: routing/bm-vrf-and-vpc-interconnect.md
-      - name: >-
-          Организация сетевой связности между подсетями {{ baremetal-name }} и
-          On-Prem с помощью {{ interconnect-name }}
-        href: routing/bms-cic-onprem.md
-        hidden: true
-      - name: >-
-          Доставка USB-устройств на сервер {{ baremetal-name }} или виртуальную
-          машину
-        href: routing/usb-over-ip.md
-      - name: >-
-          Настройка межсетевого экрана OPNsense в режиме кластера высокой
-          доступности на серверах {{ baremetal-name }}
-        href: routing/opnsense-failover-cluster.md
-      - name: >-
-          Развертывание веб-приложения на серверах {{ baremetal-name }} с
-          L7-балансировщиком и защитой {{ sws-name }}
-        href: routing/webapp-on-bms-behind-sws.md
+      - name: Организация VPN-подключений
+        items:
+          - name: Создание бастионного хоста
+            href: routing/bastion.md
+          - name: >-
+              Создание туннеля между двумя подсетями при помощи OpenVPN Access
+              Server
+            href: routing/site-to-site-openvpn.md
+          - name: >-
+              Защищенный доступ пользователей к облачным ресурсам на основе
+              WireGuard VPN
+            href: routing/remote-wireguard-vpn.md
+          - name: Настройка защищенного туннеля GRE поверх IPsec
+            href: routing/gre-over-ipsec.md
+      - name: Сетевая облачная инфраструктура на основе NGFW
+        items:
+          - name: >-
+              Сегментация облачной инфраструктуры с помощью решения Check Point
+              Next-Generation Firewall
+            href: routing/network-segmentation-checkpoint.md
+          - name: >-
+              Реализация защищенной высокодоступной сетевой инфраструктуры с
+              выделением DMZ на основе Check Point NGFW
+            href: routing/high-accessible-dmz.md
+          - name: >-
+              Реализация защищенной высокодоступной сетевой инфраструктуры с
+              выделением DMZ на основе UserGate NGFW
+            href: routing/high-accessible-dmz-usergate.md
+          - name: >-
+              Реализация защищенной высокодоступной сетевой инфраструктуры с
+              выделением DMZ на основе Смарт-Софт NGFW
+            href: routing/high-accessible-dmz-ting.md
+      - name: '{{ baremetal-name }}'
+        items:
+          - name: Настройка VRRP для кластера серверов {{ baremetal-name }}
+            href: routing/bms-vrf-routing.md
+          - name: Настройка сетевой связности в подсети {{ baremetal-name }}
+            href: routing/bms-simple-subnet.md
+          - name: >-
+              Настройка сетевой связности между подсетями {{ baremetal-name }} и
+              {{ vpc-name }}
+            href: routing/bm-vrf-and-vpc-interconnect.md
+          - name: >-
+              Доставка USB-устройств на сервер {{ baremetal-name }} или
+              виртуальную машину
+            href: routing/usb-over-ip.md
+          - name: >-
+              Настройка межсетевого экрана OPNsense в режиме кластера высокой
+              доступности на серверах {{ baremetal-name }}
+            href: routing/opnsense-failover-cluster.md
+          - name: >-
+              Развертывание веб-приложения на серверах {{ baremetal-name }} с
+              L7-балансировщиком и защитой {{ sws-name }}
+            href: routing/webapp-on-bms-behind-sws.md
+          - name: >-
+              Организация сетевой связности между подсетями {{ baremetal-name }}
+              и On-Prem с помощью {{ interconnect-name }}
+            href: routing/bms-cic-onprem.md
+            hidden: true
+      - name: '{{ interconnect-name }}'
+        items:
+          - name: >-
+              Организация доступа через {{ interconnect-name }} к облачным
+              сетям, размещенным за NGFW
+            href: routing/cic-with-ngfw.md
+          - name: >-
+              Создание прямого транкового подключения и приватного соединения в
+              нем
+            href: routing/trunk-priv-add.md
+          - name: >-
+              Создание прямого транкового подключения и публичного соединения в
+              нем
+            href: routing/trunk-pub-add.md
+          - name: >-
+              Создание нового партнерского транкового подключения и приватного
+              соединения в нем
+            href: routing/partner-trunk-priv-add.md
+          - name: >-
+              Создание нового партнерского транкового подключения и публичного
+              соединения в нем
+            href: routing/partner-trunk-pub-add.md
+          - name: >-
+              Добавление приватного соединения в прямое или партнерское
+              транковое подключение
+            href: routing/priv-add.md
+          - name: >-
+              Добавление публичного соединения в прямое или партнерское
+              транковое подключение
+            href: routing/pub-add.md
+          - name: Изменить емкость транкового подключения
+            href: routing/trunk-capacity-change.md
+          - name: Удалить приватное соединение
+            href: routing/priv-del.md
+          - name: Удалить публичное соединение
+            href: routing/pub-del.md
+          - name: Удалить транковое подключение
+            href: routing/trunk-del.md
+      - name: Настройка сетевых ресурсов и взаимодействие между ними
+        items:
+          - name: Настройка сетевого взаимодействия ресурсов из разных каталогов
+            href: routing/multi-folder-vpc.md
+          - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
+            href: routing/usergate-firewall.md
+          - name: Реализация отказоустойчивых сценариев для сетевых ВМ
+            href: routing/route-switcher.md
+          - name: Настройка сети для {{ dataproc-name }}
+            href: routing/data-processing-nat-instance.md
+          - name: >-
+              Переключение сетевого соединения при пересоздании кластера {{
+              dataproc-name }}
+            href: routing/data-processing-dns-reconnect.md
+      - name: Подключение к сервисам
+        items:
+          - name: Подключение к {{ objstorage-name }} из {{ vpc-short-name }}
+            href: routing/storage-vpc-access.md
+          - name: >-
+              Подключение к {{ container-registry-name }} из {{ vpc-short-name
+              }}
+            href: routing/vpc-cr-access.md
   - name: Анализ и визуализация данных
     items:
       - name: Все руководства

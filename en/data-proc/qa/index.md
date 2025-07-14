@@ -1,6 +1,6 @@
 ---
 title: '{{ dataproc-full-name }}. FAQ'
-description: How do I get the logs of my actions in {{ dataproc-full-name }}? Find the answer to this and other questions in this article.
+description: How to get my activity logs in {{ dataproc-full-name }}? Find the answer to this and other common questions below.
 ---
 
 # General questions about {{ dataproc-name }}

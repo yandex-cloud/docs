@@ -178,6 +178,9 @@ keywords:
     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В поле **{{ ui-key.yacloud.mdb.forms.database_field_admin-password }}** укажите новый пароль.
+
+        {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -194,6 +197,8 @@ keywords:
         {{ yc-mdb-os }} cluster update <имя_или_идентификатор_кластера> \
            --admin-password <новый_пароль>
         ```
+
+        {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
 
     * Автоматическая генерация пароля. Сгенерированный пароль будет выведен в консоль.
 
@@ -220,6 +225,8 @@ keywords:
             }
         }
         ```
+
+        {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
 
     1. Проверьте корректность настроек.
 
@@ -260,6 +267,8 @@ keywords:
             В данном случае передается только один параметр.
 
         * `configSpec.adminPassword` — новый пароль пользователя `admin`.
+
+            {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -305,6 +314,8 @@ keywords:
             В данном случае передается только один параметр.
 
         * `config_spec.admin_password` — новый пароль пользователя `admin`.
+
+            {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

@@ -287,7 +287,16 @@ items:
           - name: >-
               Migrating services from an NLB with a {{ managed-k8s-name }}
               cluster as a target to an L7 ALB
-            href: tutorials/kubernetes-security/nlb-with-target-resource-k8s.md
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/kubernetes-security/nlb-with-target-resource-k8s/index.md
+              - name: Management console
+                href: >-
+                  tutorials/kubernetes-security/nlb-with-target-resource-k8s/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/kubernetes-security/nlb-with-target-resource-k8s/terraform.md
           - name: >-
               Transferring {{ managed-k8s-name }} cluster logs to {{
               cloud-logging-name }}

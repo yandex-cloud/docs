@@ -24,7 +24,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get the list of operations for the {{ api-gw-name }} resource, run this command:
+  To get a list of operations for the {{ api-gw-name }} resource, run this command:
 
   ```bash
   yc serverless <resource_type> list-operations <resource_name_or_ID>
@@ -49,7 +49,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
   +----------------------+---------------------+----------------------+---------------------+--------+------------------+
   ```
 
-  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is output as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
 
   ```bash
   yc serverless api-gateway list-operations <API_gateway_name_or_ID> --format yaml
@@ -82,7 +82,7 @@ All actions with {{ api-gw-name }} resources are logged as a list of operations.
 
 1. [Get a list of operations](#get-operations) for the API gateway.
 1. Copy the operation ID.
-1. Get operation details:
+1. Get detailed information about the operation:
 
     {% list tabs group=instructions %}
 

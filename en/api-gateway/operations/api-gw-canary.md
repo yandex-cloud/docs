@@ -11,12 +11,12 @@ You can only set up a canary release for [OpenAPI specifications](https://en.wik
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [API gateway](../concepts/index.md).
+  1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [API gateway](../concepts/index.md).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the API gateway row, click ![image](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.label_section-variables }}**, enable [canary release](../concepts/extensions/canary.md).
-  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-share }}** field, specify the percentage of requests to be processed by the canary release.
-  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-variables }}** field, list the variables and their values to be used in the canary release.
+  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-share }}** field, specify the percentage of requests for the canary release to process.
+  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_canary-variables }}** field, list the variables and their values to use in the canary release.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
 
 - CLI {#cli}
@@ -26,8 +26,8 @@ You can only set up a canary release for [OpenAPI specifications](https://en.wik
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To set up a [canary release](../concepts/extensions/canary.md):
-  1. If necessary, edit the OpenAPI specification file or create a new one.
-  1. View a description of the CLI command for updating an [API gateway](../concepts/index.md):
+  1. Edit the OpenAPI specification file or create a new one, if required.
+  1. View the description of the CLI command for updating an [API gateway](../concepts/index.md):
 
      ```bash
      {{ yc-serverless }} api-gateway update --help
@@ -43,7 +43,7 @@ You can only set up a canary release for [OpenAPI specifications](https://en.wik
      ```
 
      Where:
-     * `--canary-weight`: Percentage of requests to be processed by the canary release.
+     * `--canary-weight`: Percentage of requests for the canary release to process.
      * `--canary-variables`: Variables for the canary release, listed as `key=value`.
 
 - {{ TF }} {#tf}
@@ -67,10 +67,10 @@ You can only set up a canary release for [OpenAPI specifications](https://en.wik
      ```
 
      Where:
-     * `weight`: Percentage of requests to be processed by the canary release.
+     * `weight`: Percentage of requests for the canary release to process.
      * `variables`: Variables for the canary release, listed as `key=value`.
 
-     For more information about the `yandex_api_gateway` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/api_gateway).
+     For more information about `yandex_api_gateway` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
   1. Check the configuration using this command:
 
      ```bash
@@ -89,14 +89,14 @@ You can only set up a canary release for [OpenAPI specifications](https://en.wik
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     The terminal will display a list of resources with their properties. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
   You can check the [API gateway](../concepts/index.md) update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
@@ -113,4 +113,4 @@ You can only set up a canary release for [OpenAPI specifications](https://en.wik
 ## See also
 
 * [What is a canary release?](../concepts/extensions/canary.md)
-* [Canary release of a {{ sf-name }} function](../tutorials/canary-release.md).
+* [Canary release of a {{ sf-name }} function](../tutorials/canary-release.md)

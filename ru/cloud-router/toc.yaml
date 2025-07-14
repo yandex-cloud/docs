@@ -50,21 +50,21 @@ items:
     items:
       - name: Все сценарии использования
         href: scenarios/index.md
-      - name: On-Prem без резервирования и 1 VPC
+      - name: On-premises без резервирования и одна облачная сеть
         href: scenarios/ri-1_prc-1noha_vpc-1.md
-      - name: On-Prem без резервирования и несколько VPC
+      - name: On-premises без резервирования и несколько облачных сетей
         href: scenarios/ri-1_prc-1noha_vpc-few.md
-      - name: On-Prem с резервированием и 1 VPC
+      - name: On-premises с резервированием и одна облачная сеть
         href: scenarios/ri-1_prc-2ha_vpc-1.md
-      - name: On-Prem с резервированием и несколько VPC
+      - name: On-premises с резервированием и несколько облачных сетей
         href: scenarios/ri-1_prc-2ha_vpc-few.md
-      - name: Два отдельных RI без резервирования On-Prem
+      - name: Два отдельных Route Instance без резервирования on-premises
         href: scenarios/ri-2_prc-1noha_vpc-1.md
-      - name: Равномерное распределение трафика из On-Prem (Active-Active)
+      - name: Равномерное распределение трафика из on-premises (Active-Active)
         href: scenarios/prc-ha-with-active-active.md
-      - name: Приоритизация трафика из On-Prem по направлению (Active-Standby)
+      - name: Приоритизация трафика из on-premises по направлению (Active-Standby)
         href: scenarios/prc-ha-with-active-standby.md
-      - name: Резервирование подключения On-Prem (PRC) через VPN-шлюз
+      - name: Резервирование подключения on-premises через VPN-шлюз (PRC)
         href: scenarios/prc-ha-via-vpn-gw.md
       - name: Приоритет статического маршрута VPC перед маршрутами из PRC
         href: scenarios/static-priority-via-vpn-gw.md
@@ -74,7 +74,7 @@ items:
         href: scenarios/prc-ha-with-default-active-standby.md
       - name: Связность для двух облачных сетей
         href: scenarios/vpc-st-with-two-vpc.md
-      - name: Связность для двух облачных сетей и On-Prem
+      - name: Связность для двух облачных сетей и on-premises
         href: scenarios/vpc-st-with-two-vpc-and-onprem.md
   - name: Практические руководства
     items:
@@ -84,9 +84,8 @@ items:
         href: tutorials/bm-vrf-and-vpc-interconnect.md
       - name: >-
           Организация сетевой связности между приватной подсетью {{
-          baremetal-name }} и On-Prem с помощью {{ interconnect-name }}
+          baremetal-name }} и on-premise-ресурсами
         href: tutorials/bms-cic-onprem.md
-        hidden: true
       - name: Изменение набора IP-префиксов VPC в Routing Instance
         href: tutorials/ri-prefixes-upsert.md
   - name: Управление доступом

@@ -20,31 +20,31 @@ editable: false
 
 The total cost of using {{ dataproc-name }} includes:
 
-* The cost of using the computing resources of {{ compute-full-name }} VMs to deploy hosts.
-* Markup on computing resources for using the {{ dataproc-name }} managed service.
-* Using the {{ compute-name }} network drives.
-* Using {{ cloud-logging-full-name }} to collect and store logs.
-* Amount of outgoing traffic.
+* The cost of deploying hosts using {{ compute-full-name }} VM computing resources.
+* Markup on computing resources for using the {{ dataproc-name }} service.
+* The cost of using the {{ compute-name }} network drives.
+* The cost of using {{ cloud-logging-full-name }} to collect and store logs.
+* The cost of outgoing traffic.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 ### Using computing resources {#rules-compute}
 
-The cost is charged per hour of host virtual machine time as part of {{ compute-name }} based on the [{{ compute-full-name }}](../compute/pricing.md#prices) computing resource pricing policy with a surcharge for using managed {{ dataproc-name }}.
+The cost is calculated for each hour of the virtual machine’s operation within {{ compute-name }} according to the [{{ compute-full-name }}](../compute/pricing.md#prices) resource pricing, with an additional markup for using the {{ dataproc-name }} service.
 
-For information about external IP pricing, see [{#T}](../vpc/pricing.md) in the {{ vpc-full-name }} documentation.
+For public IP address pricing, refer to the [{#T}](../vpc/pricing.md) section in the {{ vpc-full-name }} documentation.
 
 ### Disk space usage {#rules-storage}
 
-The amount of storage requested for each cluster host is charged under {{ compute-name }} based on [disk space pricing](../compute/pricing.md#prices-storage).
+The storage capacity allocated to each host in the cluster is billed as part of the {{ compute-name }} service according to [disk space pricing](../compute/pricing.md#prices-storage).
 
 ### Using {{ cloud-logging-full-name }} {#rules-logs}
 
-You pay for receiving and storing your logs based on the {{ cloud-logging-full-name }} [pricing policy](../logging/pricing.md).
+Log collection and storage are billed according to the {{ cloud-logging-full-name }} [pricing policy](../logging/pricing.md).
 
-### Example of calculating the cost of standard hosts {#price-example}
+### Example cost calculation for standard hosts {#price-example}
 
-Per-hour cost of using a cluster of two subclusters with the following parameters:
+Hourly cost for a cluster consisting of two subclusters with the following specifications:
 
 * First subcluster:
   * **Master host**: `m2.micro` class, Intel Cascade Lake, 2 × 100% vCPU, 16 GB RAM.
@@ -62,7 +62,7 @@ The cost is calculated as follows:
 
 - Standard hosts
 
-  Per-hour cost of using a cluster of two subclusters with the following parameters:
+  Hourly cost for a cluster consisting of two subclusters with the following specifications:
 
   * First subcluster:
     * **Master host**: `m2.micro` class, Intel Cascade Lake, 2 × 100% vCPU, 16 GB RAM.
@@ -85,7 +85,7 @@ The cost is calculated as follows:
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Host computing resources {#prices-hosts}
+### Host compute resources {#prices-hosts}
 
 #### Standard hosts {#standard-hosts}
 

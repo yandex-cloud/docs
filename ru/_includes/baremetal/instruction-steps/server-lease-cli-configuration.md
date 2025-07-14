@@ -1,0 +1,1 @@
+`--configuration-id` — идентификатор [конфигурации сервера](../../../baremetal/concepts/server-configurations.md).

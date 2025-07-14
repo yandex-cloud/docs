@@ -1,10 +1,10 @@
-# Migrating services from an NLB with VMs as targets to an L7 ALB using {{ TF }}
+# Migrating services from an NLB with VMs as targets to L7 ALB using {{ TF }}
 
 
 To migrate a service from a network load balancer to an L7 load balancer using {{ TF }}:
 
-1. [See the recommendations for service migration](#recommendations).
-1. [Create your infrastructure](#deploy). At this step, you will associate your {{ sws-name }} profile with a virtual host of the L7 load balancer.
+1. [See the service migration recommendations](#recommendations).
+1. [Create your infrastructure](#deploy). At this step, you will associate the {{ sws-name }} profile with a virtual host of the L7 load balancer.
 1. [Test the L7 load balancer](#test).
 1. [Migrate user traffic from the network load balancer to the L7 load balancer](#migration-nlb-to-alb).
 
@@ -20,15 +20,15 @@ To migrate a service from a network load balancer to an L7 load balancer using {
 1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
 1. Download the configuration file to the same working directory based on the protocol you are using:
-    * `HTTP`: [alb-vm-http.tf](https://github.com/yandex-cloud-examples/yc-nlb-alb-vm-migration/blob/main/alb-vm-http.tf) configuration file.
-    * `HTTPS`: [alb-vm-https.tf](https://github.com/yandex-cloud-examples/yc-nlb-alb-vm-migration/blob/main/alb-vm-https.tf) configuration file.
+    * `HTTP`: [alb-vm-http.tf](https://github.com/yandex-cloud-examples/yc-nlb-alb-vm-migration/blob/main/alb-vm-http.tf) configuration file
+    * `HTTPS`: [alb-vm-https.tf](https://github.com/yandex-cloud-examples/yc-nlb-alb-vm-migration/blob/main/alb-vm-https.tf) configuration file
 
     These files describe:
 
     * [Subnets](../../vpc/concepts/network.md#subnet) for the L7 load balancer.
     * [Security group](../../vpc/concepts/security-groups.md) for the L7 load balancer.
     * Static address for the L7 load balancer.
-    * Importing a TLS certificate to {{ certificate-manager-name }} (if `HTTPS` is used).
+    * Importing a TLS certificate to {{ certificate-manager-name }} (if using `HTTPS`).
     * {{ sws-name }} profile.
     * Target group, backend group, and HTTP router for the L7 load balancer.
     * L7 load balancer.
@@ -66,9 +66,9 @@ To migrate a service from a network load balancer to an L7 load balancer using {
         Where:
 
         * `subnet_id`: ID of the subnet hosting the VM.
-        * `ip_address`: Internal IP address of the VM specified in the target group of your network load balancer.
+        * `ip_address`: Internal IP address of the VM specified in your network load balancer’s target group.
 
-    1. If your service needs one and the same backend resource processing requests within a single user session, enable [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) for the backend group by uncommenting the section for the `yandex_alb_backend_group` resource:
+    1. If your service needs one and the same backend resource processing requests within a single user session, enable [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity) for the backend group by uncommenting this section for the `yandex_alb_backend_group` resource:
 
         ```hcl
         session_affinity {
@@ -96,7 +96,7 @@ To migrate a service from a network load balancer to an L7 load balancer using {
 
     1. In the [management console]({{ link-console-main }}), select the folder where you created the L7 load balancer.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-    1. Click the name of your load balancer.
+    1. Click your load balancer’s name.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
     1. Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, set the [resource unit](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) limit.
 
@@ -104,7 +104,7 @@ To migrate a service from a network load balancer to an L7 load balancer using {
 
 1. Wait until the L7 load balancer goes `Active`.
 
-1. Go to the new L7 load balancer and select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left. Make sure you get `HEALTHY` for all the L7 load balancer's health checks.
+1. Navigate to the new L7 load balancer and select **{{ ui-key.yacloud.alb.label_healthchecks }}** on the left. Make sure you get `HEALTHY` for all the L7 load balancer's health checks.
 
 1. {% include [test](../_tutorials_includes/migration-from-nlb-to-alb/test.md) %}
 
@@ -113,11 +113,11 @@ To migrate a service from a network load balancer to an L7 load balancer using {
 Select one of these migration options:
 
 * [Keep the public IP address for your service](#save-public-ip).
-* [Do not keep the public IP address for your service.](#not-save-public-ip)
+* [Do not keep the public IP address for your service](#not-save-public-ip).
 
 ### Keep the public IP address for your service {#save-public-ip}
 
-1. If your external network load balancer is using a dynamic public IP address, [convert it to a static one](../../vpc/operations/set-static-ip.md).
+1. If your external network load balancer uses a dynamic public IP address, [convert it to a static one](../../vpc/operations/set-static-ip.md).
 
 1. [Delete the listener](../../network-load-balancer/operations/listener-remove.md) in the network load balancer to release the static public IP address. This will make your service unavailable through the network load balancer.
 
@@ -144,7 +144,7 @@ Select one of these migration options:
         }
         ```
 
-        Where `address` is the public IP address previously used by the network load balancer.
+        Where `address` is the public IP address the network load balancer used previously.
 
     1. Apply the changes:
 
@@ -173,7 +173,7 @@ Select one of these migration options:
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-1. Optionally, once migration is complete, [delete the network load balancer](../../network-load-balancer/operations/load-balancer-delete.md).
+1. Optionally, [delete the network load balancer](../../network-load-balancer/operations/load-balancer-delete.md) after migrating user traffic to the L7 load balancer.
 
 ### Do not keep the public IP address for your service {#not-save-public-ip}
 

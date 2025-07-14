@@ -1,4 +1,4 @@
-# Migrating services from an NLB to L7 ALB for DDoS protection using {{ sws-full-name }}
+# Migrating services from NLB to L7 ALB for DDoS protection using {{ sws-full-name }}
 
 Distributed denial of service, or [DDoS](https://en.wikipedia.org/wiki/Denial-of-service_attack), is a type of cyberattack that involves sending massive numbers of requests to a server or network to overwhelm it or make it inoperable.
 

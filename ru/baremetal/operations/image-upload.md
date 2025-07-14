@@ -41,6 +41,37 @@ description: Следуя данной инструкции, вы сможете
   1. Вставьте ссылку на образ, полученную в {{ objstorage-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-image }}**.
 
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   1. Посмотрите описание команды для загрузки образа:
+
+      ```bash
+      yc baremetal boot-image create --help
+      ```
+
+   1. Загрузите образ:
+
+      ```bash
+      yc baremetal boot-image create \
+        --name demo-boot-image \
+        --description "Boot image for BareMetal" \
+        --uri "<ссылка_на_образ>" \
+        --labels <ключ_метки>=<значение_метки>
+      ```
+
+      Где:
+      * `--name` — имя образа. Требования к имени:
+        
+        {% include [name-format](../../_includes/name-format.md) %}
+
+      * `--description` — описание образа. Необязательный параметр.
+      * `--uri` — ссылка на образ, полученная в {{ objstorage-name }}.
+      * `--labels` — метки образа. Необязательный параметр.
+
 {% endlist %}
 
 ## Удалите образ из {{ objstorage-name }} {#delete-image}

@@ -1,15 +1,15 @@
 ---
 title: Access management in {{ dataproc-full-name }}
-description: Access management in the service for creation and management of Apache Hadoop® and Apache Spark™ clusters. To allow access to {{ dataproc-name }} resources (clusters and subclusters), assign the user the required roles from the list below.
+description: Access management for Apache Hadoop® and Apache Spark™ cluster creation and management services. To grant a user access to {{ dataproc-name }} resources, i.e., clusters and subclusters, assign them the roles from the list below.
 ---
 
 # Access management in {{ dataproc-name }}
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. As long as a user has no roles assigned, almost all operations are forbidden.
+{{ yandex-cloud }} users can only perform operations on resources according to their assigned roles. Without assigned roles, a user cannot perform most operations.
 
-To enable access to {{ dataproc-name }} resources (clusters and subclusters), assign the required roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can only be assigned for a parent resource (folder or cloud). Roles are inherited by nested resources.
+To allow a user or group, e.g., Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated user](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md), access to {{ dataproc-name }} resources, i.e., clusters and subclusters, assign them the roles from the list below. Currently, a role can only be assigned for a parent resource, such as a folder or cloud. Roles are inherited by nested resources.
 
-Roles for a resource can be assigned by users who have the `mdb.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user should have either the `mdb.admin` role, or `dataproc.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -21,13 +21,13 @@ For more information about role inheritance, see [{#T}](../../resource-manager/c
 
 ## Assigning roles {#grant-role}
 
-To assign a user a role:
+To assign a role to a user:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Which roles exist in the service {#roles-list}
+## What roles exist in this service {#roles-list}
 
-The list below shows all roles considered when verifying access permissions in {{ dataproc-name }}.
+The list below shows all roles used for access control in {{ dataproc-name }}.
 
 ### Service roles {#service-roles}
 

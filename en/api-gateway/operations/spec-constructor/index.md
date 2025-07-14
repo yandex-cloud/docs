@@ -5,7 +5,7 @@ description: In this article, you will learn how to work with the {{ api-gw-full
 
 # Specification constructor overview
 
-You can use the specification constructor to work with {{ api-gw-name }} [integrations](../../concepts/extensions/index.md#integration). To add the `x-yc-apigateway-integration` extension to the OpenAPI specification using the constructor, fill out a form in the management console when [creating](../api-gw-create.md) or [updating](../api-gw-update.md) an API gateway.
+You can use the specification constructor to work with {{ api-gw-name }} [integrations](../../concepts/extensions/index.md#integration). To add the `x-yc-apigateway-integration` extension to an OpenAPI specification using the constructor, fill out a form in the management console when [creating](../api-gw-create.md) or [updating](../api-gw-update.md) an API gateway.
 
 Available integrations:
 

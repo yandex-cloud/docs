@@ -26,7 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 To create an infrastructure with {{ TF }}:
 
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the {{ yandex-cloud }} provider source (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the {{ yandex-cloud }} provider source (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
 1. Prepare the infrastructure description file:
 
    {% list tabs group=infrastructure_description %}
@@ -39,7 +39,7 @@ To create an infrastructure with {{ TF }}:
         git clone https://github.com/yandex-cloud-examples/yc-alb-ddos-protection.git
         ```
 
-     1. Go to the directory that contains the repository. Make sure it contains the following files:
+     1. Navigate to the repository directory. Make sure it contains the following files:
         * `alb-with-ddos-protection.tf`: New infrastructure configuration.
         * `alb-with-ddos-protection.auto.tfvars`: User data.
 
@@ -64,7 +64,7 @@ To create an infrastructure with {{ TF }}:
 
    {% endlist %}
 
-   Learn more about the properties of {{ TF }} resources in the relevant Terraform guides:
+   Learn more about the properties of {{ TF }} resources in the relevant {{ TF }} guides:
 
    * [Service account](../../iam/concepts/users/service-accounts.md): [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
    * [Role](../../iam/concepts/access-control/roles.md): [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
@@ -100,7 +100,7 @@ After creating the infrastructure, [test](#test) it.
 
 To stop paying for the resources you created:
 
-1. Open the `alb-with-ddos-protection.tf` configuration file and delete your infrastructure description from it.
+1. Open the `alb-with-ddos-protection.tf` file and delete your infrastructure description from it.
 1. Apply the changes:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

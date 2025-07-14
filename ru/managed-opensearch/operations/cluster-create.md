@@ -114,6 +114,8 @@ keywords:
 
       1. Укажите пароль для пользователя `admin`.
 
+          {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
           {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
       1. При необходимости измените дополнительные настройки кластера:
@@ -198,6 +200,10 @@ keywords:
           Операции по обслуживанию проводятся для включенных и выключенных кластеров. Во время обслуживания могут, например, применяться патчи или обновляться СУБД.
 
       * `--read-admin-password` — пароль пользователя `admin`. Если указать параметр в команде, после ее ввода будет предложено ввести пароль.
+
+          {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
+          {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
 
       * `--serverless-access` — доступ из [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml): `true` или `false`.
@@ -300,6 +306,12 @@ keywords:
       * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
         Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
+
+      * `admin_password`— пароль пользователя `admin`.
+
+        {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
+        {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
       * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
       * `roles` — роли хостов: `DATA` и `MANAGER`.
@@ -441,6 +453,11 @@ keywords:
 
           * `version` — версия {{ OS }}.
           * `adminPassword` — пароль пользователя `admin`.
+
+            {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
+            {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
+
           * `opensearchSpec` — настройки групп хостов `{{ OS }}`:
 
               * `plugins` — список [плагинов {{ OS }}](../concepts/plugins.md), которые надо установить в кластер дополнительно.
@@ -623,6 +640,11 @@ keywords:
 
           * `version` — версия {{ OS }}.
           * `admin_password` — пароль пользователя `admin`.
+
+            {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
+            {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
+
           * `opensearch_spec` — настройки групп хостов `{{ OS }}`:
 
               * `plugins` — список [плагинов {{ OS }}](../concepts/plugins.md), которые надо установить в кластер дополнительно.

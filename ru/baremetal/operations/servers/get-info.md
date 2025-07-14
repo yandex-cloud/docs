@@ -22,4 +22,38 @@ description: 'Следуя данной инструкции, вы сможет�
       * В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}** — информация об условиях аренды сервера, в т.ч. о периоде и сроке аренды, и ее автопродлении.
       * В блоках **{{ ui-key.yacloud.baremetal.title_section-backup }}** и **{{ ui-key.yacloud.baremetal.title_section-accesses }}** — информация о подключении сервера к [{{ backup-full-name }}](../../../backup/index.yaml) и публичный [SSH-ключ](../../../glossary/ssh-keygen.md) root-пользователя соответственно.
 
+- CLI {#cli}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. Посмотрите описание команды для получения информации о сервере:
+
+      ```bash
+      yc baremetal server get --help
+      ```
+
+   1. Получите информацию о сервере:
+
+      ```bash
+      yc baremetal server get <имя_или_идентификатор_сервера>
+      ```
+
+{% endlist %}
+
+## Пример {#example}
+
+Получите информацию о сервере:
+
+ {% list tabs group=instructions %}
+
+ - CLI {#cli}
+
+   ```bash
+   yc baremetal server get demo-baremetal-server
+   ```
+
+   {% include [server-lease-cli-result](../../../_includes/baremetal/instruction-steps/server-lease-cli-result.md) %}
+
 {% endlist %}

@@ -18,12 +18,13 @@ To view details on your current service plan and billing account:
 
 ## Changing your service plan {#change-service-plan}
 
-{% note info %}
+When switching between service plans, the following rules apply:
 
 * You can switch to the _Business_ plan at any time. The price for the first month is calculated in proportion to the remaining number of days of the month.
+
 * You can only switch to the _Community_ plan starting the next month. Until then, you can [cancel](#cancel-change-service-plan) the scheduled switch.
 
-{% endnote %}
+* If you are in your Business trial period, once this period ends, you will pay for the second month of use in proportion to the remaining number of days. If you switch to the Community plan during the trial period, you will continue with Business until the end of the trial period, after which Business will change to Community.
 
 To switch to a different service plan:
 
