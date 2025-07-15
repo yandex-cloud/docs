@@ -23,9 +23,9 @@ You cannot change your billing account [type](../../billing/concepts/billing-acc
 Most likely, you had previously created a business billing account for which a trial period was activated. Your billing account gets the initial grant as part of the trial period. As the initial grant can only be issued to one billing account, you cannot use the trial period after you register a new account. As a result, your new billing account gets `SUSPENDED`.
 To unblock your new billing account, [upgrade to the paid version](../../billing/operations/activate-commercial.md) and [top up your personal account](../../billing/operations/pay-the-bill.md) to the minimum amount. You can check the minimum amount in the **{{ ui-key.yacloud_billing.billing.account.dashboard.button_refill }}** window.
 
-#### I received no email with instructions on what to do after creating a billing account with the {{ ui-key.yacloud_billing_account.cloud-billing-account.payment-type_label_invoice }} payment method. Why? {#account-notification}
+#### I received no email with instructions on what to do after creating a billing account. Why? {#account-notification}
 
-During the activation of your billing account, your documents and data get checked. Following that, your billing account can be activated and you can start using {{ yandex-cloud }}.
+If you select the **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** payment method or if the payer is a non-resident of Russia and Kazakhstan, further instructions will be emailed to you at the address specified in your Yandex or Yandex 360 account. You can also get that email after you select **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}** for payment method if your new billing account requires verification. Once your documents and credentials are verified, you can activate your billing account and start using {{ yandex-cloud }}.
 If you still get no email, inquire at [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}).
 
 {% include [change-payment-docs](../../billing/_includes/change-payment-docs.md) %}

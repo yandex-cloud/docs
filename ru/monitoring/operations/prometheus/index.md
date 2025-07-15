@@ -46,6 +46,8 @@ description: '{{ managed-prometheus-full-name }} — система монито
 Алертинг | Поддерживается с помощью правил алертинга ([alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)). | Поддерживаются существующие файлы с [правилами алертинга](alerting-rules.md) (`alerting rules`) в формате YAML. Загрузка файлов и управление ими доступны через пользовательский интерфейс {{ monitoring-name }} и API.
 Интеграции | Клиентские [библиотеки](https://prometheus.io/docs/instrumenting/clientlibs/) и [экспортеры](https://prometheus.io/docs/instrumenting/exporters/). | Можно использовать существующие библиотеки и экспортеры.
 
+{% include [alerting-rules-preview](../../../_includes/monitoring/alerting-rules-preview.md) %}
+
 ## Текущие ограничения {#restrictions}
 
 * Значение `NaN` не поддерживается и воспринимается как отсутствие точки.

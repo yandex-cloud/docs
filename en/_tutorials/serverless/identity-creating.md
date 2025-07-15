@@ -1,3 +1,5 @@
+
+
 In this tutorial, you will use {{ TF }} to create an [address](../../postbox/concepts/glossary.md#adress) in [{{ postbox-full-name }}](../../postbox/) and add [resource records](../../dns/concepts/resource-record.md#txt) to your domain’s [DNS zone](../../dns/concepts/dns-zone.md) to verify domain ownership and send emails.
 
 You can add a resource record for domain ownership verification to [{{ dns-full-name }}](../../dns/), if you have [delegated](#delegate) the domain, or with your domain registrar.
@@ -34,7 +36,7 @@ If you have a registered domain name, you can use {{ dns-full-name }} to manage 
 
 ## Prepare keys for signing emails {#generate-keys}
 
-To sign emails, create an [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) key. Use the key creation script, as the AWS provider expects the key not in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) format but as a string where line breaks and the first and last lines are removed. 
+To sign emails, create an [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) key. Use the key creation script, as the AWS provider expects the key not in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) format but as a string where line breaks and the first and last lines are removed.
 
 1. Create a `generate-key.sh` script with the following contents:
 
@@ -81,7 +83,7 @@ The script will create:
 
 To create an infrastructure using {{ TF }}:
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing {{ yandex-cloud }} (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
-1. Prepare your infrastructure description files:
+1. Set up your infrastructure description files:
 
      1. Clone the repository with configuration files.
 

@@ -21,7 +21,7 @@ keywords:
 
 - Management console {#console}
 
-    1. Go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+    1. Go to the folder dashboard and select **Managed Service for Elasticsearch**.
     1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}** tab.
     1. Specify the time period you want the log info for: enter it manually or select in the calendar using the date input field.
     1. Select `ELASTICSEARCH` from the drop-down list next to the date input field.
@@ -48,7 +48,7 @@ keywords:
         {{ yc-mdb-es }} cluster list-logs <cluster_name_or_ID> \
            --limit <entry_number_limit> \
            --service-type <service_type> \
-           --columns <list_of_columns_for_data_output> \
+           --columns <list_of_data_columns> \
            --filter <entry_filtration_settings> \
            --since <time_range_left_boundary> \
            --until <time_range_right_boundary>
@@ -58,18 +58,18 @@ keywords:
 
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
         * `--service-type`: Type of the service for which you want to output entries (`elasticsearch` or `kibana`).
-        * `--columns`: List of columns for data output:
+        * `--columns`: List of data columns:
             * `component`: Type of component to log, e.g., `o.e.n.Node`.
             * `hostname`: [Host name](cluster-hosts.md#list-hosts).
             * `level`: Logging level, e.g., `INFO`.
             * `message`: Message output by the component.
             * `stacktrace`: Additional debugging information.
             * `query_id`: Request ID.
-            * `type`: Entry type, such as `log`.
+            * `type`: Entry type, e.g., `log`.
 
             {% note info %}
 
-            A list of columns to output depends on the selected `--service-type`.
+            The list of data columns depends on the selected `--service-type`.
 
             {% endnote %}
 
@@ -77,7 +77,7 @@ keywords:
         * {% include [logs since time](../../_includes/cli/logs/since.md) %}
         * {% include [logs until time](../../_includes/cli/logs/until.md) %}
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API {#api}
 
@@ -105,7 +105,7 @@ This method allows you to get cluster logs in real time.
     {{ yc-mdb-es }} cluster list-logs <cluster_name_or_ID> --follow
     ```
 
-    You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - API {#api}
 

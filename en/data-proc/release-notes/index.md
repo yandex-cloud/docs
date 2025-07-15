@@ -5,6 +5,10 @@ description: This section contains {{ dataproc-name }} release notes.
 
 # {{ dataproc-full-name }} release notes
 
+## June 2025 {#jun-2025}
+
+Added the {{ oslogin }} option to use when creating a cluster. This option enables [{{ oslogin }}](../../organization/concepts/os-login.md) access to all hosts you create in the cluster.
+
 ## December 2024 {#dec-2024}
 
 Added [environment](../concepts/environment.md#environment) selection (`PRODUCTION` / `PRESTABLE`) during cluster creation and modification.
@@ -31,12 +35,12 @@ Added support for creating [{{ metastore-name }}](../../metadata-hub/concepts/me
 
 * Image version 2.1 is now available.
 * Added support for public internet access across all subcluster types.
-* Lightweight Spark support is now available starting with image version 2.0.39. You can now create clusters without data storage subclusters, as YARN and SPARK services no longer depend on HDFS.
+* Lightweight Spark support is now available starting with image version 2.0.39. You can now create a cluster without data storage subclusters because YARN and SPARK services are no longer dependent on HDFS.
 * Added support for [initialization scripts](../concepts/init-action.md) in the CLI.
 
 ## Q1 2022 {#q1-2022}
 
 * You can now create clusters using non-replicated network drives up to 8 TB in size. Non-replicated drives have a simpler architecture than network SSD storage, resulting in significantly higher performance.
 * Added support for [job cancellation](../operations/jobs-spark#cancel).
-* Build numbers have been added to [{{ dataproc-name }} image versions](../concepts/environment.md).
+* Added the build number in [{{ dataproc-name }} image version](../concepts/environment.md).
 * Spark and PySpark jobs now accept `packages`, `repositories`, and `exclude_packages` parameters. You can use these parameters to download additional dependencies and packages from third-party repositories.

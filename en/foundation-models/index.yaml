@@ -27,7 +27,7 @@ links:
     description: Read about basic concepts
     href: concepts/
   - title: Quotas and limits
-    description: Technical and management-related limitations
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: API references
     description: Learn about authorization when working with API
@@ -36,7 +36,7 @@ links:
     description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
 meta:
   title: Yandex Foundation Models

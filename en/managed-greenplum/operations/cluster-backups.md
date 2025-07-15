@@ -353,7 +353,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
 
     To restore a cluster from a backup:
 
-    1. View a description of the CLI restore {{ GP }} cluster command:
+    1. View the description of the CLI command to restore a {{ GP }} cluster:
 
         ```bash
         {{ yc-mdb-gp }} cluster restore --help
@@ -380,9 +380,10 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
            --restore-only=<list_of_DBs_and_tables_to_restore> \
            --zone-id=<availability_zone> \
            --subnet-id=<subnet_ID> \
-           --assign-public-ip=<public_access_to_cluster> \
+           --assign-public-ip=<enable_public_access_to_cluster> \
            --master-host-group-ids=<IDs_of_dedicated_host_groups_for_master_hosts> \
-           --segment-host-group-ids=<IDs_of_dedicated_host_groups_for_segment_hosts>
+           --segment-host-group-ids=<IDs_of_dedicated_host_groups_for_segment_hosts> \
+           --service-account <service_account_ID>
         ```
 
 
@@ -393,7 +394,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         * `--name`: Cluster name.
         * `--environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
             * `PRODUCTION`: For stable versions of your apps.
 
         * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -412,7 +413,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         * `--zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
 
         
-        * `--master-host-group-ids` and `--segment-host-group-ids`: (Optional) IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master hosts and segment hosts.
+        * `--master-host-group-ids` and `--segment-host-group-ids`: IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts. This is an optional parameter.
 
             You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -420,6 +421,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
 
         * `--subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
         * `--assign-public-ip`: Flag you set if the cluster needs access from the internet.
+        * `--service-account`: Service account ID.
 
 
 - REST API {#api}
@@ -442,7 +444,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
           "config": {
             "zoneId": "<availability_zone>",
             "subnetId": "<subnet_ID>",
-            "assignPublicIp": <public_access_to_cluster_hosts>
+            "assignPublicIp": "<allow_public_access_to_cluster_hosts>"
           },
           "masterResources": {
             "resourcePresetId": "<host_class>",
@@ -467,7 +469,15 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
           ],
           "segmentHostGroupIds": [
             "string"
-          ]
+          ],
+          "serviceAccountId": "<service_account_ID>",
+          "logging": {
+            "enabled": "<enable_transferring_logs>",
+            "commandCenterEnabled": "<transfer_Yandex_Command_Center_logs>",
+            "greenplumEnabled": "<transfer_{{ GP }}_logs>",
+            "poolerEnabled": "<transfer_connection_pooler_logs>",
+            "folderId": "<folder_ID>"
+          }
         }
         ```
 
@@ -480,7 +490,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         * `name`: Name of the new cluster.
         * `environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
             * `PRODUCTION`: For stable versions of your apps.
 
         * `networkId`: [Network](../../vpc/concepts/network.md#network) ID.
@@ -504,11 +514,23 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         * `restoreOnly`: (Optional) List of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
 
         
-        * `masterHostGroupIds` and `segmentHostGroupIds`: (Optional) IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master hosts and segment hosts.
+        * `masterHostGroupIds` and `segmentHostGroupIds`: IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts. This is an optional parameter.
 
             You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
             {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
+        * `serviceAccountId`: Service account ID.
+        * `logging`: Settings for [transferring logs to {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
+
+            * `enabled`: Enables transferring logs: `true` or `false`.
+            * `commandCenterEnabled`: Transferring Yandex Command Center logs: `true` or `false`.
+            * `greenplumEnabled`: Transferring {{ GP }} logs: `true` or `false`.
+            * `poolerEnabled`: Transferring [connection pooler](../concepts/pooling.md) logs: `true` or `false`.
+            * `folderId`: Specify the ID of the folder whose log group you want to use.
+            * `logGroupId`: ID of the log group to write logs to.
+
+                Specify either `folderId` or `logGroupId`.
 
 
     1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
@@ -546,7 +568,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
           "config": {
             "zone_id": "<availability_zone>",
             "subnet_id": "<subnet_ID>",
-            "assign_public_ip": <public_access_to_cluster_hosts>
+            "assign_public_ip": "<allow_public_access_to_cluster_hosts>"
           },
           "master_resources": {
             "resource_preset_id": "<host_class>",
@@ -571,7 +593,8 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
           ],
           "segment_host_group_ids": [
             "string"
-          ]
+          ],
+          "service_account_id": "<service_account_ID>"
         }
         ```
 
@@ -584,7 +607,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         * `name`: Name of the new cluster.
         * `environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
             * `PRODUCTION`: For stable versions of your apps.
 
         * `network_id`: [Network](../../vpc/concepts/network.md#network) ID.
@@ -608,11 +631,14 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mg
         * `restore_only`: (Optional) List of DBs and tables to restore from the backup. Supported formats: `<DB>/<schema>/<table>`, `<DB>/<table>`, and `<DB>`. You may use the `*` wildcard symbol as well. If you omit this parameter, the whole cluster will be restored.
 
         
-        * `master_host_group_ids` and `segment_host_group_ids`: (Optional) IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master hosts and segment hosts.
+        * `master_host_group_ids` and `segment_host_group_ids`: IDs of [dedicated host](../../compute/concepts/dedicated-host.md) groups for master and segment hosts. This is an optional parameter.
 
             You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
             {% include [Dedicated hosts note](../../_includes/mdb/mgp/note-dedicated-hosts.md) %}
+
+        * `service_account_id`: Service account ID.
+
 
 
     1. Use the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:

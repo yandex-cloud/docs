@@ -120,7 +120,7 @@ This tutorial will use a gRPC service as a test target.
 
    {% note info %}
 
-   For the `example.com` domain, the zone must be named `example.com.` (with a dot at the end).
+   For the `example.com` domain, the zone must be named `example.com.` (with a trailing dot).
 
    {% endnote %}
 
@@ -330,7 +330,7 @@ This tutorial will use a gRPC service as a test target.
      api_address: loadtesting.{{ api-host }}:443
    ```
 
-1. [Run a test](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
+1. [Run the test](../../load-testing/tutorials/loadtesting-grpc.md#run-test):
 
    * Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, click **{{ ui-key.yacloud_portal.component.file-input.button_choose-multiple }}** and select the previously saved `ammo.json` file.
    * Under **{{ ui-key.yacloud.load-testing.label_test-settings }}**:

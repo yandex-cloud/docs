@@ -17,6 +17,8 @@ description: Пошаговые инструкции по работе с сер
 * [{#T}](video/update.md)
 * [{#T}](video/add-thumbnail.md)
 * [{#T}](video/subtitles.md)
+* [{#T}](video/translation.md)
+* [{#T}](video/summarization.md)
 * [{#T}](video/download.md)
 * [{#T}](video/publish.md)
 * [{#T}](video/unpublish.md)

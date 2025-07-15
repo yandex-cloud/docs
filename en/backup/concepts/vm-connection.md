@@ -42,7 +42,7 @@ You can also link a policy to a VM or {{ baremetal-name }} server when creating 
 | Linux 
 |
 * You cannot exclude files from a disk backup.
-* Fast incremental/differential backup is not supported.
+* Fast incremental or differential backup is not supported.
 || 
 || 
 **ReiserFS4** | Linux 
@@ -80,8 +80,6 @@ On VMs and {{ baremetal-name }} servers , the {{ backup-name }} agent is availab
 
 - VM {#vm}
 
-  * [Astra Linux SE 1.7 Voronezh](/marketplace/products/astralinux/alse)
-  * [Astra Linux SE 1.7 Orel](/marketplace/products/astralinux/alse-orel)
   * [CentOS 7](/marketplace/products/yc/centos-7)
   * [CentOS 7 OS Login](/marketplace/products/yc/centos-7-oslogin)
   * [CentOS Stream](/marketplace/products/yc/centos-stream-8)

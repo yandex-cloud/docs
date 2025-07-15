@@ -155,8 +155,9 @@ The service account's static access key is now saved inside the {{ lockbox-name 
     - {{ yandex-cloud }} CLI {#cli}
 
       ```bash
-      SECRET=$(yc lockbox payload get static-key)
+      SECRET=$(yc lockbox payload get <secret_name_or_ID>)
       ```
+      Use either the `--id` or `--name` parameter.
 
       For more information about the `yc lockbox payload get` command, see the [CLI reference](../../cli/cli-ref/lockbox/cli-ref/payload/get.md).
 

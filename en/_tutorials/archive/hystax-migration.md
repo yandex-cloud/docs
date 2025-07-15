@@ -80,7 +80,7 @@ Create a VM with a boot disk from the [Hystax Acura Migration in {{ yandex-cloud
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
@@ -89,7 +89,7 @@ Create a VM with a boot disk from the [Hystax Acura Migration in {{ yandex-cloud
       * Click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
       * In the list of public images, select [Hystax Acura Migration in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-live-cloud-migration) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) your VM will reside in.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` as the boot [disk](../../compute/concepts/disk.md) size.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select the `8 vCPU` and `16 {{ ui-key.yacloud.common.units.label_gigabyte }}` configuration.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**: 
@@ -155,7 +155,7 @@ Create a VM with a boot disk from the [Hystax Acura Migration in {{ yandex-cloud
 
         For this example, use `image_id` from the [product description](/marketplace/products/hystax/hystax-acura-live-cloud-migration) in {{ marketplace-name }}.
 
-   * `service-account-id`: ID of the [previously created](#create-sa) service account.
+   * `service-account-id`: ID of the service account you [created previously](#create-sa).
 
      You can get the list of accounts using the `yc vpc security-group list` command.
    * `ssh-key`: Path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
@@ -203,7 +203,7 @@ Hystax Acura will automatically check whether it can access your cloud. If every
 ## Prepare and install migration agents {#prepare-agent}
 
 You need to install migration agents on the VMs you will be migrating to {{ yandex-cloud }}. To download and install the agent, do the following:
-1. If you are migrating from VMware ESXi, Microsoft Hyper-V, or any other hypervisor different from KVM, [install virtio drivers](../../compute/operations/image-create/custom-image#virtio) on the VM before the migration.
+1. If you are migrating from VMware ESXi, Microsoft Hyper-V, or any other hypervisor different from KVM, [install virtio drivers](../../compute/operations/image-create/custom-image.md#virtio) on the VM before the migration.
 1. In the Hystax Acura control panel, select the **Download agent** tab.
 1. Select one of the agent types depending on your OS:
    * VMware

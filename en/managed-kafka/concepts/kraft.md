@@ -2,7 +2,9 @@
 
 _[{{ kraft-name }}](https://docs.confluent.io/platform/current/kafka-metadata/kraft.html)_ (short name: {{ kraft-short-name }}) is an approval protocol allowing you to store metadata and manage it in {{ KF }}. {{ kraft-short-name }} makes {{ KF }} independent of the external metadata synchronization service, {{ ZK }}.
 
-{{ kraft-short-name }} is supported by {{ mkf-name }} clusters with {{ KF }} 3.6 or higher. [{{ ZK }} is used](index.md#zookeeper) only in older versions.
+{{ kraft-short-name }} is supported by {{ mkf-name }} clusters with {{ KF }} 3.6 or higher.
+
+[{{ ZK }} is supported](index.md#zookeeper) by clusters with {{ KF }} 3.5 or lower. An update up to {{ KF }} 3.9 is available for such clusters.
 
 Reasons for replacing {{ ZK }} with {{ kraft-short-name }}:
 
@@ -27,5 +29,5 @@ For more information, see the Confluent [website](https://developer.confluent.io
 
 {{ kraft-short-name }} cons arise from the [cluster topology specifics](#cluster-topology):
 
-* In the combined mode, {{ kraft-short-name }} metadata controllers are not isolated from {{ KF }} as effectively as {{ ZK }} hosts. Therefore, [{{ KF }} does not recommend]({{ kf.docs }}#kraft_role) using {{ kraft-short-name }} in critical development environments. {{ kraft-short-name }} is more suitable for local development and testing.
+* In the combined mode, {{ kraft-short-name }} metadata controllers are not isolated from {{ KF }} as effectively as {{ ZK }} hosts. Therefore, [{{ KF }} does not recommend]({{ kf.docs }}#kraft_role) using the combined mode in critical development environments. The combined mode is more suitable for local development and testing.
 * In a cluster with {{ kraft-short-name }}, you cannot flexibly manage the number of hosts: you can have exactly three hosts.

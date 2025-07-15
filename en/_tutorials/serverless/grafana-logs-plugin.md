@@ -143,8 +143,8 @@ The cost of resources includes a fee for logging operations and log storage in a
 
      Where:
 
-     * `name`: Service account name. This is a required parameter.
-     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. It defaults to the value specified in the provider settings.
+     * `name`: Service account name. This is a required setting.
+     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value specified in the provider settings.
      * `role`: Role being assigned.
 
      For more information about `yandex_iam_service_account` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account).
@@ -158,7 +158,7 @@ The cost of resources includes a fee for logging operations and log storage in a
          terraform plan
          ```
 
-     If the configuration description is correct, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will point them out.
+     If you described the configuration correctly, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Deploy the cloud resources.
 
@@ -168,9 +168,9 @@ The cost of resources includes a fee for logging operations and log storage in a
      terraform apply
      ```
 
-  1. Confirm creating the service account: type `yes` in the terminal and press **Enter**.
+  1. Confirm creating the service account by typing `yes` in the terminal and pressing **Enter**.
 
-     This will create the service account. You can check the new service account using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     This will create the service account. You can check it using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc iam service-account list

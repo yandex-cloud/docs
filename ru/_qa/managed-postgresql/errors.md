@@ -195,7 +195,7 @@ ERROR: cannot execute INSERT in a read-only transaction
 
 Избежать таких ошибок можно любым из способов:
 
-* Подключитесь к кластеру с помощью [особого FQDN](../../managed-postgresql/operations/connect.md/special-fqdns), который всегда указывает на текущий мастер.
+* Подключитесь к кластеру с помощью [особого FQDN](../../managed-postgresql/operations/connect.md#special-fqdns), который всегда указывает на текущий мастер.
 
   {% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 

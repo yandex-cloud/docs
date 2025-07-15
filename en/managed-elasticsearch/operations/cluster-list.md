@@ -19,7 +19,7 @@ You can request detailed information about each {{ mes-name }} cluster you creat
 
 - Management console {#console}
 
-  In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+  In the [management console]({{ link-console-main }}), go to the folder dashboard and select **Managed Service for Elasticsearch**.
 
 - CLI {#cli}
 
@@ -45,7 +45,7 @@ You can request detailed information about each {{ mes-name }} cluster you creat
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+  1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **Managed Service for Elasticsearch**.
   1. Click the cluster name.
 
 - CLI {#cli}
@@ -60,7 +60,7 @@ You can request detailed information about each {{ mes-name }} cluster you creat
     {{ yc-mdb-es }} cluster get <cluster_name_or_ID>
     ```
 
-    You can request the cluster name and ID with a [list of clusters in the folder](#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](#list-clusters).
 
 - API {#api}
 
@@ -78,9 +78,9 @@ The operation list shows operations with clusters and related resources (for exa
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+  1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **Managed Service for Elasticsearch**.
   1. Click the cluster name.
-  1. Go to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
 - CLI {#cli}
 
@@ -94,7 +94,7 @@ The operation list shows operations with clusters and related resources (for exa
     {{ yc-mdb-es }} cluster list-operations <cluster_name_or_ID>
     ```
 
-    You can request the cluster name and ID with a [list of clusters in the folder](#list-clusters).
+    You can request the cluster name and ID with the [list of clusters in the folder](#list-clusters).
 
 - API {#api}
 

@@ -3,7 +3,7 @@
 ## 7. {{ k8s }} security {#kubernetes-security}
 
 
-[{{ managed-k8s-full-name }}](../../../managed-kubernetes/index.yaml) provides an environment for managing containerized applications in {{ yandex-cloud }} infrastructure. Deploy, scale, and manage applications in containers using {{ k8s }}.
+[{{ managed-k8s-full-name }}](../../../managed-kubernetes/index.yaml) provides an environment for managing containerized applications in the {{ yandex-cloud }} infrastructure. Deploy, scale, and manage applications in containers using {{ k8s }}.
 
 The user is responsible for all actions made inside the {{ k8s }} node. The user is responsible for the security of the nodes and their proper setup in accordance with PCI DSS requirements and other security standards.
 
@@ -165,13 +165,13 @@ For {{ k8s }}, both automatic and manual updates are available for [clusters](..
 - Performing a check in the management console {#console}
 
   To get a list of available versions for a {{ k8s }} cluster:
-  1. Go to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ k8s }} cluster.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. View the list of available versions in the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**.
 
   To get a list of available versions for a {{ k8s }} node group:
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ k8s }} cluster you need and go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ k8s }} node group from the list and click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. Get a list of available versions in the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field.
@@ -201,7 +201,7 @@ For {{ k8s }}, both automatic and manual updates are available for [clusters](..
 
 #### 7.9 Backup is configured {#backup}
 
-To ensure continuous operation and data protection, we recommend using backups in {{ managed-k8s-name }}. With backups, you can quickly recover the service without experiencing any data or time loss in the wake of a malfunction or accident. Data in [{{ k8s }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) clusters is securely stored and replicated within the {{ yandex-cloud }} infrastructure. However, you can back up data from [{{ k8s }} cluster node groups](../../../managed-kubernetes/concepts/index.md#node-group) at any time and store them in [{{ objstorage-full-name }}](../../../storage/index.yaml) or other types of storage.
+To ensure continuous operation and data protection, we recommend using backups in {{ managed-k8s-name }}. With backups, you can quickly recover the service without experiencing any data or time loss in the wake of a malfunction or accident. The {{ yandex-cloud }} infrastructure provides secure storage and replication for data in [{{ k8s }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) clusters. However, you can back up data from [{{ k8s }} cluster node groups](../../../managed-kubernetes/concepts/index.md#node-group) at any time and store them in [{{ objstorage-full-name }}](../../../storage/index.yaml) or other types of storage.
 
 {% list tabs group=instructions %}
 
@@ -213,9 +213,9 @@ To ensure continuous operation and data protection, we recommend using backups i
 
 **Guides and solutions to use:**
 
-You can create backups of {{ k8s }} cluster node group data using the [Velero](https://velero.io/) tool. It supports working with {{ yandex-cloud }} [disks](../../../compute/concepts/disk.md) using the {{ k8s }} CSI driver and helps create [snapshots of disks and volumes](../../../compute/concepts/snapshot.md).
+You can create backups of {{ k8s }} cluster node group data using [Velero](https://velero.io/). It supports {{ yandex-cloud }} [disks](../../../compute/concepts/disk.md) through the {{ k8s }} CSI driver and helps create [disk and volume snapshots](../../../compute/concepts/snapshot.md).
 
-When working with Velero that is installed manually, you can use [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [local](https://kubernetes.io/docs/concepts/storage/volumes/#local), or any other type of volumes without built-in support for snapshots. To use such a volume type, install Velero with the [restic plugin](https://velero.io/docs/v1.8/restic/). Velero installed from [{{ marketplace-name }}](/marketplace/products/yc/velero-yc-csi) does not include the restic plugin.
+If installed manually, Velero allows you to use [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [local](https://kubernetes.io/docs/concepts/storage/volumes/#local), or any other volume type without built-in support for snapshots. To use one of these volume types, install Velero with the [restic plugin](https://velero.io/docs/v1.8/restic/). Velero installed from [{{ marketplace-name }}](/marketplace/products/yc/velero-yc-csi) does not include the `restic` plugin.
 
 * [Guide on {{ k8s }} cluster backup in {{ objstorage-name }}](../../../managed-kubernetes/tutorials/kubernetes-backup.md#backup).
 

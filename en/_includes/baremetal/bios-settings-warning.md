@@ -1,5 +1,5 @@
 {% note warning %}
 
-The default BIOS settings are optimized for {{ baremetal-name }} server operation. We do not recommend changing them.
+{{ baremetal-name }} servers use optimal BIOS settings by default. We do not recommend changing them.
 
 {% endnote %}

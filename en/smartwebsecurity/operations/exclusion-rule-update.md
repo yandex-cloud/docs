@@ -1,25 +1,25 @@
 ---
-title: Updating a WAF exclusion rule
-description: Follow this guide to update a WAF exclusion rule.
+title: Editing a WAF exclusion rule
+description: Follow this guide to edit a WAF exclusion rule.
 ---
 
-# Updating a WAF exclusion rule
+# Editing a WAF exclusion rule
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the [WAF profile](../concepts/waf.md) is in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [WAF profile](../concepts/waf.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
-  1. Select the profile you want to update an [exclusion rule](../concepts/waf.md#exclusion-rules) in.
+  1. Select the profile where you want to edit an [exclusion rule](../concepts/waf.md#exclusion-rules).
   1. In the left-hand menu, go to the ![image](../../_assets/console-icons/file-xmark.svg) **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rules }}** tab.
-  1. In the rule row, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
-      1. Edit the exclusion rule name and description.
-      1. (Optional) Enable **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}** to log exception rule triggering.
-      1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-rules-section }}**, update rules from the basic set for which the exclusion will be valid:
-          * `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}`: Exclusion will be valid for all rules.
-          * `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-no }}`: Exclusion will be valid for the selected rules.
+  1. Next to the rule in question, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**. In the window that opens:
+      1. Edit the exclusion rule name and description as needed.
+      1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.waf.field_logging }}** to log exception rule triggering.
+      1. Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-rules-section }}**, edit rules from the basic set to which the exclusion will apply:
+          * `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-yes }}`: Exclusion will apply to all rules.
+          * `{{ ui-key.yacloud.smart-web-security.waf.value_exclude-all-no }}`: Exclusion will apply to the selected rules.
 
              Click **{{ ui-key.yacloud.smart-web-security.waf.action_exclusion-rule-add-rules }}** to select rules from the basic set.
 
@@ -33,7 +33,7 @@ description: Follow this guide to update a WAF exclusion rule.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and edit the `exclusion_rule` section with the exclusion rule in `yandex_sws_waf_profile` description.
+  1. Open the {{ TF }} configuration file and edit the `exclusion_rule` section in the `yandex_sws_waf_profile` description.
 
       ```hcl
       # WAF profile
@@ -61,13 +61,13 @@ description: Follow this guide to update a WAF exclusion rule.
       }
       ```
 
-      For more information about the `sws_waf_profile` parameters in {{ TF }}, see the [relevant {{ TF }} article]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more information about `sws_waf_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Apply the changes:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the resources’ updates in the [management console]({{ link-console-main }}).
+  You can check the resource updates in the [management console]({{ link-console-main }}).
 
 - API {#api}
 

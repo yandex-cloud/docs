@@ -60,7 +60,7 @@ psql "host=c-<идентификатор_кластера>.ro.{{ dns-zone }} \
 
 Это значит, что произошло [переключение](../../architecture/fault-tolerance.md#mdb-ha) роли мастера на хост-реплику. Переключение обеспечивает доступность кластера во время технического обслуживания и при выходе из строя хоста-мастера.
 
-Чтобы всегда подключаться к текущему мастеру, используйте [особый FQDN](../../managed-postgresql/operations/connect.md/special-fqdns).
+Чтобы всегда подключаться к текущему мастеру, используйте [особый FQDN](../../managed-postgresql/operations/connect.md#special-fqdns).
 
 {% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 

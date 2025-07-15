@@ -20,6 +20,7 @@ All basic models are subject to the update rules described in [Model lifecycle](
 || **{{ gpt-pro }} 32k**^1^ </br>`gpt://<folder_ID>/yandexgpt-32k`| Deprecated 4 | 32,000 | Synchronous ||
 || **{{ llama }} 8B**^2^ </br>`gpt://<folder_ID>/llama-lite` | Deprecated 3.1</br>Latest 3.1</br>RC 3.1 | 8,192 | Asynchronous, synchronous ||
 || **{{ llama }} 70B**^2^ </br>`gpt://<folder_ID>/llama` | Deprecated 3.3</br>Latest 3.3</br>RC 3.3 | 8,192 | Asynchronous, synchronous ||
+|| **Qwen3 235B** </br>`gpt://<folder ID>/qwen3-235b-a22b-fp8/latest` | — | 128 000 | [{{ openai }} API](../openai-compatibility.md) only ||
 || [**Fine-tuned models**](../tuning/index.md) </br>`gpt://<basic_model_URI>/<version>@<tuning_suffix>` | Depends on the basic model | Depends on the basic model | Asynchronous, synchronous ||
 |#
 

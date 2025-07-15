@@ -241,6 +241,6 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
 ## Check the result {#check-result}
 
-After you save the `.gitlab-ci.yml` configuration file, the build script will start. To check its results, select **Build** on the left-hand panel in the `gitlab-test` project, and then **Pipelines** from the drop-down menu. Vulnerability scanning is performed at the second stage (`test`).
+After you save the `.gitlab-ci.yml` configuration file, the build scenario will start. To check its results, select **Build** on the left-hand panel in the `gitlab-test` project, and then **Pipelines** from the drop-down menu. Vulnerability scanning is performed at the second stage (`test`).
 
 {% include [clear-out](../../_includes/managed-gitlab/clear-out.md) %}

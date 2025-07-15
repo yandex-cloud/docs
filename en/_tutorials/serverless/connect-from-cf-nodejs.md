@@ -1,3 +1,5 @@
+
+
 {% note info %}
 
 This guide is intended for Linux users. On Windows, you can follow it in [WSL](https://docs.microsoft.com/en-us/windows/wsl/about).
@@ -29,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost for this scenario includes:
 * Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Fee for running queries to the database (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
+* Fee for running queries against the database (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
 
 ## Set up your environment {#prepare-environment}
 
@@ -47,7 +49,7 @@ The infrastructure support cost for this scenario includes:
    ```
 
    Make sure to run all further commands in this directory.
-1. Install the [jq](https://stedolan.github.io/jq/download/) utility:
+1. Install [jq](https://stedolan.github.io/jq/download/):
 
    ```bash
    sudo apt-get install jq
@@ -86,7 +88,7 @@ The infrastructure support cost for this scenario includes:
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account: `sa-function`.
+  1. Enter the service account name: `sa-function`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `{{ roles-editor }}`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -134,7 +136,7 @@ The infrastructure support cost for this scenario includes:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the service account parameters:
+  1. In the configuration file, define the service account properties:
 
      ```hcl
      resource "yandex_iam_service_account" "sa" {
@@ -151,7 +153,7 @@ The infrastructure support cost for this scenario includes:
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -174,7 +176,7 @@ The infrastructure support cost for this scenario includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account belongs to.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `sa-function` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -224,7 +226,7 @@ The infrastructure support cost for this scenario includes:
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -247,16 +249,16 @@ The infrastructure support cost for this scenario includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Name the database. Follow these naming requirements:
+  1. Name the database. The naming requirements are as follows:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
-     Wait for the DB to start. While being created, the database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
+     Wait for the database to start. While being created, the database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
   1. Click the name of the database you created.
   1. Save the value of the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field from the **{{ ui-key.yacloud.ydb.overview.section_connection }}** section. You will need it at the next step.
 
@@ -343,7 +345,7 @@ Before creating a function, make sure the `.env` file and the `create-func.sh` a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Select the `func-test-ydb` function.
   1. Navigate to the **{{ ui-key.yacloud.common.overview }}** tab.
   1. In the **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** field, click the link.

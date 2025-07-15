@@ -1,2 +1,2 @@
 * [_Quotas_]({{ link-console-quotas }}) are organizational constraints that can be changed by support on request.
-* _Limits_ are technical constraints due to the {{ yandex-cloud }} architecture. You cannot change the limits.
+* _Limits_ are technical constraints of the {{ yandex-cloud }} architecture. You cannot change the limits.

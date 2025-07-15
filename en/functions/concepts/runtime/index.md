@@ -48,7 +48,8 @@ Runtime environments available in {{ sf-name }}.
 | Go 1.17 | `golang117` | No | No |
 | Go 1.18 | `golang118` | No | No |
 | Go 1.19 | `golang119` | No | No |
-| Go 1.21 | `golang121` | No | Yes |
+| Go 1.21 | `golang121` | No | No |
+| Go 1.23 | `golang123` | No | Yes |
 | **Java** |  |  |
 | Java 11 | `java11` | No | No |
 | Java 17 | `java17` | No | No |

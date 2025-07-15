@@ -1,5 +1,6 @@
 # Creating a Node.js function using TypeScript
 
+
 By default, Node.js does not support [TypeScript](https://www.typescriptlang.org/). Before uploading TypeScript code to {{ sf-name }}, you need to compile it in JavaScript.
 
 1. Install [Node.js](https://nodejs.org/en/).

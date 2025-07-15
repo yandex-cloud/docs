@@ -11,7 +11,7 @@ description: Follow this guide to get information about a security profile in {{
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Select the required security profile.
+  1. Select the security profile in question.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the profile details.
 
 - CLI {#cli}
@@ -20,13 +20,13 @@ description: Follow this guide to get information about a security profile in {{
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to get [security profile](../concepts/profiles.md) information:
+  1. See the description of the CLI command for getting [security profile](../concepts/profiles.md) information:
 
       ```bash
       yc smartwebsecurity security-profile --help
       ```
 
-  1. Get information about a security profile by specifying its name or ID:
+  1. Get information about your security profile by running this command with its name or ID specified:
 
       ```bash
       yc smartwebsecurity security-profile get <security_profile_name>
@@ -83,15 +83,15 @@ description: Follow this guide to get information about a security profile in {{
      * `data "yandex_sws_security_profile"`: Description of the security profile as a data source:
        * `security_profile_id`: Security profile ID.
      * `output "profile-created"`: Output variable that contains information about the security profile creation timestamp:
-       * `value`: Returned value.
+       * `value`: Return value.
 
-     You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_sws_security_profile` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/sws_security_profile).
+     You can replace `created_at` with any other parameter to get the information you need. For more information about `yandex_sws_security_profile` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/sws_security_profile).
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output
@@ -105,7 +105,7 @@ description: Follow this guide to get information about a security profile in {{
 
 - API {#api}
 
-  To get detailed information about a [security profile](../concepts/profiles.md), use the [get](../api-ref/SecurityProfile/get.md) REST API method for the [SecurityProfile](../api-ref/SecurityProfile/index.md) resource or the [SecurityProfile/Get](../api-ref/grpc/SecurityProfile/get.md) gRPC API call and provide the security profile's ID in the `securityProfileId` request parameter.
+  To get detailed information about a [security profile](../concepts/profiles.md), use the [get](../api-ref/SecurityProfile/get.md) REST API method for the [SecurityProfile](../api-ref/SecurityProfile/index.md) resource or the [SecurityProfile/Get](../api-ref/grpc/SecurityProfile/get.md) gRPC API call and provide the security profile ID in the `securityProfileId` parameter of your request.
 
 {% endlist %}
 

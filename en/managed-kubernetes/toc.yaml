@@ -65,9 +65,9 @@ items:
             href: operations/applications/hashicorp-vault.md
           - name: Installing Ingress NGINX
             href: operations/applications/ingress-nginx.md
-          - name: Installing an {{ alb-name }} Ingress Controller
+          - name: Installing an {{ alb-name }} ingress controller
             href: operations/applications/alb-ingress-controller.md
-          - name: Upgrading an {{ alb-name }} Ingress Controller
+          - name: Upgrading an {{ alb-name }} ingress controller
             href: operations/applications/upgrade-alb-ingress-controller.md
           - name: Installing Istio
             href: operations/applications/istio.md
@@ -272,13 +272,11 @@ items:
               Configuring an L7 {{ alb-name }} with the help of an ingress
               controller
             href: tutorials/alb-ingress-controller.md
-          - name: >-
-              Configuring an L7 {{ alb-name }} logging with the help of an
-              ingress controller
+          - name: Configuring L7 {{ alb-name }} logging via an ingress controller
             href: tutorials/alb-ingress-controller-log-options.md
           - name: >-
-              Creating an L7 load balancer with a {{ sws-name }} security
-              profile through an {{ alb-name }} Ingress controller
+              Creating an L7 load balancer with a {{ sws-name }} profile through
+              an {{ alb-name }} ingress controller
             href: tutorials/alb-ingress-with-sws-profile.md
           - name: >-
               Performing health checks on {{ managed-k8s-name }} cluster
@@ -324,7 +322,7 @@ items:
         href: concepts/network.md
       - name: Network settings and cluster policies
         href: concepts/network-policy.md
-      - name: Automatic scaling
+      - name: Autoscaling
         href: concepts/autoscale.md
       - name: Audit policy
         href: concepts/audit-policy.md
@@ -662,8 +660,16 @@ items:
         items:
           - name: Gateway
             href: alb-ref/gateway.md
+          - name: GatewayPolicy
+            href: alb-ref/gateway-policy.md
+          - name: YCCertificate
+            href: alb-ref/yc-certificate.md
           - name: HTTPRoute
             href: alb-ref/http-route.md
+          - name: RoutePolicy
+            href: alb-ref/route-policy.md
+          - name: YCStorageBucket
+            href: alb-ref/yc-storage-bucket.md
           - name: TLSRoute
             href: alb-ref/tls-route.md
           - name: Gateway API service
@@ -686,7 +692,7 @@ items:
         href: qa/volumes.md
       - name: Configuring and updating
         href: qa/settings.md
-      - name: Automatic scaling
+      - name: Autoscaling
         href: qa/cluster-autoscaler.md
       - name: Resources
         href: qa/resources.md

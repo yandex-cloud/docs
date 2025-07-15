@@ -61,13 +61,14 @@ The scope of available operations depends on the roles assigned to the [{{ KF }}
     * `ACCESS_ROLE_CONSUMER` role: User can perform read operations with [subjects](./managed-schema-registry.md#subjects) associated with the topic the role was assigned for.
     * `ACCESS_ROLE_PRODUCER` role: User can perform any operations with subjects associated with the topic the role was assigned for.
     * `ACCESS_ROLE_ADMIN` role: User can perform any operations with subjects associated with any topic (this role applies to all topics).
+    * `ACCESS_ROLE_TOPIC_ADMIN` role: User can perform any operations with subjects associated with the topic the role was assigned for.
 
     Also, a user’s role determines which subjects this user can manage. For more information about the {{ mkf-msr }} role model, see [{#T}](./managed-schema-registry.md).
 
 * REST API for {{ KF }}:
 
     * `ACCESS_ROLE_CONSUMER` role: User can get information about {{ KF }} objects and work with consumers.
-    * `ACCESS_ROLE_PRODUCER` or `ACCESS_ROLE_ADMIN` role: User can perform the full range of operations with {{ KF }} objects.
+    * `ACCESS_ROLE_TOPIC_ADMIN`, `ACCESS_ROLE_PRODUCER`, or `ACCESS_ROLE_ADMIN` role: User can perform the full range of operations with {{ KF }} objects.
 
 For descriptions of the [REST API methods for {{ mkf-msr }}](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/schema-registry/develop/api.html) and [REST API methods for {{ KF }}](https://docs.confluent.io/platform/{{ mkf.kp-api-version }}/kafka-rest/api.html), see the Confluent documentation. For examples of working with these APIs, see [{#T}](../tutorials/managed-schema-registry-rest.md).
 

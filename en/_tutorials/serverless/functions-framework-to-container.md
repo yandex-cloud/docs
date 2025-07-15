@@ -1,5 +1,6 @@
 # Developing functions in Functions Framework and deploying them in {{ serverless-containers-full-name }}
 
+
 The Google Cloud [Functions Framework](https://cloud.google.com/functions/docs/functions-framework) is an open contract implemented as [open-source](https://en.wikipedia.org/wiki/Open-source_software) libraries for multiple programming languages. The framework allows you to develop [functions](../../functions/concepts/function.md) under the [FaaS](https://en.wikipedia.org/wiki/Function_as_a_service) (Funciton as a service) model, capable of processing HTTP requests or [CloudEvents](https://cloudevents.io/).
 
 With the Functions Framework, you can write and run functions in {{ serverless-containers-full-name }} [containers](../../serverless-containers/concepts/container.md) without using [{{ sf-full-name }}](../../functions/index.yaml). Functions written this way can be migrated across different platforms, such as [Cloud Run](https://cloud.google.com/run), [Cloud Run functions](https://cloud.google.com/functions), [Knative](https://knative.dev/docs/), and [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml), as well as between these platforms and your local development machine.
@@ -31,7 +32,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of the web service infrastructure support includes:
+The cost of support for the new infrastructure includes:
 
 * Fee for using the storage, amount of outgoing traffic, and using the {{ container-registry-name }} vulnerability scanner (see the [{{ container-registry-full-name }} pricing](../../container-registry/pricing.md)).
 * Fee for using {{ serverless-containers-name }} (see [{{ serverless-containers-full-name }} pricing](../../serverless-containers/pricing.md)).
@@ -58,10 +59,10 @@ The cost of the web service infrastructure support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**, and in the window that opens:
-      1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md): `serverless-containers-sa`.
-      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `container-registry.images.puller` [role](../../container-registry/security/index.md#container-registry-images-puller).
+      1. Name the [service account](../../iam/concepts/users/service-accounts.md): `serverless-containers-sa`.
+      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select [`container-registry.images.puller`](../../container-registry/security/index.md#container-registry-images-puller).
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 
@@ -128,7 +129,7 @@ The cost of the web service infrastructure support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you used to create the service account in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. In the **{{ ui-key.yacloud.cr.overview.popup-create_field_name }}** field, enter the registry name: `functions-framework-registry`.
   1. Click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
@@ -136,7 +137,7 @@ The cost of the web service infrastructure support includes:
 
 - CLI {#cli}
 
-  Create the `functions-framework-registry` registry:
+  Create a registry named `functions-framework-registry`:
 
   ```bash
   yc container registry create \
@@ -454,7 +455,7 @@ The function is built using [Buildpacks](https://buildpacks.io) and [builders](h
     Successfully built image my-first-function
     ```
 
-    You can use the above build command for functions written in different programming languages. The builder will automatically detect the project's language and runtime environment and then build the application into an OCI-compatible Docker image. This way, developers do not need to create a Dockerfile manually. 
+    You can use the above build command for functions written in different programming languages. The builder will automatically detect the project's language and runtime environment and then build the application into an OCI-compatible Docker image. This way, developers do not need to create a Dockerfile manually.
 
 1. Run the container locally from the Docker image to make sure everything works correctly:
 
@@ -505,7 +506,7 @@ Use the Docker image uploaded to {{ container-registry-name }} to create a {{ se
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the resources you created previously.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Click **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the container name: `my-first-function`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -519,7 +520,7 @@ Use the Docker image uploaded to {{ container-registry-name }} to create a {{ se
 
 - CLI {#cli}
 
-  1. Create a `my-first-function` container:
+  1. Create a container in `my-first-function`:
 
       ```bash
       yc serverless container create \
@@ -615,6 +616,6 @@ By invoking the container, you ran the code of `my-first-function` you created e
 
 To stop paying for the resources you created:
 
-1. [Delete](../../serverless-containers/operations/delete.md) the {{ serverless-containers-name }} container.
+1. [Delete](../../serverless-containers/operations/delete.md) {{ serverless-containers-name }}.
 1. [Delete](../../container-registry/operations/docker-image/docker-image-delete.md) the Docker image from the registry in {{ container-registry-name }} and then [delete](../../container-registry/operations/registry/registry-delete.md) the registry.
 1. If you did not disable writing container execution logs, [delete](../../logging/operations/delete-group.md) the log group.

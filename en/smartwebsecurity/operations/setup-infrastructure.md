@@ -16,7 +16,7 @@ To set up your infrastructure to use a proxy server:
   1. Find out the proxy server's public IPv4 address:
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your proxy server.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
       1. In the left-hand panel, select ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}** and select the proxy server of interest.
 
           Save the proxy server’s IPv4 address under **{{ ui-key.yacloud.common.overview }}** in the **{{ ui-key.yacloud.smart-web-security.proxy-servers.publicIpColumn_dPwQF }}** field: you will need it to create a resource DNS record.

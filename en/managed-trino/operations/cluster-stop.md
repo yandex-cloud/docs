@@ -18,6 +18,20 @@ You can stop and restart a {{ TR }} cluster as needed. When stopped, a cluster r
     1. Find the cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
     1. In the dialog box that opens, confirm that you want to stop the cluster and click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To stop a {{ TR }} cluster, run the command:
+
+    ```bash
+    {{ yc-mdb-tr }} cluster stop <cluster_name_or_ID>
+    ```
+
+    You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
 - REST API {#api}
 
     1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
@@ -79,6 +93,20 @@ You can restart clusters with the `Stopped` status.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Find the stopped cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
+
+* CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To start a {{ TR }} cluster, run this command:
+
+    ```bash
+    {{ yc-mdb-tr }} cluster start <cluster_name_or_ID>
+    ```
+
+    You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 * REST API {#api}
 

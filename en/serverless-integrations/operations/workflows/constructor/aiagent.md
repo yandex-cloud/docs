@@ -23,7 +23,16 @@ description: Follow this guide to add integration with an AI agent to a {{ sw-fu
           1. In the **Role** field, describe the role that defines the AI agent's functions and experience, e.g., `car parts consultant`.
           1. In the **Goal** section, describe an individual goal that guides the AI agent's decision-making, e.g., `help with the choice of parts for the specified vehicle`.
           1. In the **Backstory** field, specify a backstory defining the AI agent's personality and enriching the context, e.g., `you find the best value for money car parts and briefly explain your choice`.
-      1. In the **Tasks** section, use the ![plus](../../../../_assets/console-icons/plus.svg) button to set the tasks the AI agent has to complete:
+          1. Optionally, under **Knowledge sources**, click ![plus](../../../../_assets/console-icons/plus.svg) to specify knowledge sources for the AI agent. Select:
+              * `Text`: For a text-based knowledge source.
+              * `File `: For a file-based knowledge source:
+
+                  1. Select the type of the knowledge source file.
+                  1. Select a data source:
+                      * `Public URL`: Add a public URL to the file.
+                      * `{{ objstorage-name }}`: Specify names of the [bucket](../../../../storage/concepts/bucket.md) and [object](../../../../storage/concepts/object.md) containing your file, e.g., `prefix/subprefix/data.json`.
+
+      1. Optionally, under **Tasks**, use ![plus](../../../../_assets/console-icons/plus.svg) to set the tasks the AI agent has to complete:
 
           * In the **Task description** field, describe the essence of the task you want the AI agent to perform, e.g., `find an oil filter for a BMW 320i`.
           * In the **Expected result** field, describe the format you expect to get the result in, e.g., `a list of addresses of stores selling the car parts you need`.

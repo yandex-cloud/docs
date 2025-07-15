@@ -48,6 +48,7 @@ To create or edit an endpoint of a managed database, you need to have the [`{{ r
 
 {% endnote %}
 
+
 Connection with the cluster ID specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
@@ -57,7 +58,6 @@ Connection with the cluster ID specified in {{ yandex-cloud }}.
     {% include [Managed OpenSearch](../../../../_includes/data-transfer/necessary-settings/ui/managed-opensearch.md) %}
 
 {% endlist %}
-
 
 ### Custom installation {#on-premise}
 

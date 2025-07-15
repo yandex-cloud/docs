@@ -32,7 +32,7 @@ items:
             href: operations/servers/rescue-boot.md
           - name: Reinstalling the server OS
             items:
-              - name: Reinstalling the OS from a Marketplace image
+              - name: Reinstalling the OS from a {{ marketplace-short-name }} image
                 href: operations/servers/reinstall-os-from-marketplace.md
               - name: Reinstalling the OS from your ISO image
                 href: operations/servers/reinstall-os-from-own-image.md
@@ -105,7 +105,7 @@ items:
         href: tutorials/bm-vrf-and-vpc-interconnect.md
       - name: >-
           Establishing network connectivity between a {{ baremetal-name }}
-          private subnet and on-premise resources
+          private subnet and on-prem resources
         href: tutorials/bms-cic-onprem.md
       - name: >-
           Delivering USB devices to a {{ baremetal-name }} server or virtual

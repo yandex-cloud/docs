@@ -47,6 +47,8 @@
 
 * [Which data center stores {{ PG }} cluster backups?](#data-center)
 
+* [Does the service comply with the Russian Federal Law 152-FZ on personal data?](#fz-152)
+
 * [Can I get superuser privileges in {{ PG }}?](#superuser)
 
 * [Can I copy data from a {{ mpg-name }} table to a local file? Can I populate a table with data from a local file?](#copy-write-data)
@@ -54,5 +56,3 @@
 * [Are there any special aspects or restrictions on the use of a garbage collector in {{ mpg-name }} clusters?](#vacuum)
 
 * [Why is the cluster slow even though the computing resources are not used fully?](#throttling)
-
-* [Why do I get an error when using the TimescaleDB extension?](#timescale)

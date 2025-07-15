@@ -12,6 +12,12 @@ items:
         href: quickstart/metastore.md
       - name: Schema Registry
         href: quickstart/schema-registry.md
+      - name: Data Catalog
+        items:
+          - name: Getting started as a metadata steward
+            href: quickstart/data-steward-quickstart.md
+          - name: Getting started as a metadata analyst
+            href: quickstart/data-analyst-quickstart.md
   - name: Step-by-step guides
     items:
       - name: All guides
@@ -78,6 +84,96 @@ items:
                 href: operations/update-subject.md
               - name: Deleting a subject
                 href: operations/delete-subject.md
+      - name: '{{ data-catalog-name }}'
+        items:
+          - name: Folder
+            items:
+              - name: Getting a list of metadata catalogs
+                href: operations/data-catalog/catalog-list.md
+              - name: Creating a metadata catalog
+                href: operations/data-catalog/create-catalog.md
+              - name: Updating a metadata catalog
+                href: operations/data-catalog/update-catalog.md
+              - name: Deleting a folder
+                href: operations/data-catalog/delete-catalog.md
+          - name: Ingestions
+            items:
+              - name: Getting a list of ingestions
+                href: operations/data-catalog/list-ingestions.md
+              - name: Creating an ingestion
+                href: operations/data-catalog/create-ingestion.md
+              - name: Starting an ingestion
+                href: operations/data-catalog/start-ingestion.md
+              - name: Updating an ingestion
+                href: operations/data-catalog/update-ingestion.md
+              - name: Deleting an ingestion
+                href: operations/data-catalog/delete-ingestion.md
+          - name: Classifications
+            items:
+              - name: Getting a list of classifications
+                href: operations/data-catalog/list-classifications.md
+              - name: Creating a classification
+                href: operations/data-catalog/create-classification.md
+              - name: Updating a classification
+                href: operations/data-catalog/update-classification.md
+              - name: Deleting a classification
+                href: operations/data-catalog/delete-classification.md
+          - name: Tags
+            items:
+              - name: Getting a list of tags
+                href: operations/data-catalog/list-tags.md
+              - name: Creating a tag
+                href: operations/data-catalog/create-tag.md
+              - name: Updating a tag
+                href: operations/data-catalog/update-tag.md
+              - name: Deleting a tag
+                href: operations/data-catalog/delete-tag.md
+          - name: Glossaries
+            items:
+              - name: Getting a list of glossaries
+                href: operations/data-catalog/list-glossaries.md
+              - name: Creating a glossary
+                href: operations/data-catalog/create-glossary.md
+              - name: Updating a glossary
+                href: operations/data-catalog/update-glossary.md
+              - name: Deleting a glossary
+                href: operations/data-catalog/delete-glossary.md
+          - name: Terms
+            items:
+              - name: Getting a list of terms
+                href: operations/data-catalog/list-terms.md
+              - name: Getting a list of child terms
+                href: operations/data-catalog/list-terms-child.md
+              - name: Creating a term
+                href: operations/data-catalog/create-term.md
+              - name: Creating a child term
+                href: operations/data-catalog/create-term-child.md
+              - name: Updating a term
+                href: operations/data-catalog/update-term.md
+              - name: Deleting a term
+                href: operations/data-catalog/delete-term.md
+              - name: Deleting a child term
+                href: operations/data-catalog/delete-term-child.md
+          - name: Domains
+            items:
+              - name: Getting a list of domains and subdomains
+                href: operations/data-catalog/list-domains.md
+              - name: Creating a domain
+                href: operations/data-catalog/create-domain.md
+              - name: Updating a domain
+                href: operations/data-catalog/update-domain.md
+              - name: Deleting a domain
+                href: operations/data-catalog/delete-domain.md
+          - name: Sources
+            items:
+              - name: Getting a list of sources
+                href: operations/data-catalog/source-list.md
+              - name: Creating a source
+                href: operations/data-catalog/create-source.md
+              - name: Edit origin
+                href: operations/data-catalog/update-source.md
+              - name: Deleting an origin
+                href: operations/data-catalog/delete-source.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -122,6 +218,8 @@ items:
             href: concepts/schema-registry-content-model.md
           - name: Compatibility policies
             href: concepts/compatibility-check-policy.md
+      - name: '{{ data-catalog-full-name }}'
+        href: concepts/data-catalog.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -134,6 +232,8 @@ items:
         href: security/metastore-roles.md
       - name: '{{ schema-registry-name }} roles'
         href: security/schema-registry-roles.md
+      - name: '{{ data-catalog-full-name }} roles'
+        href: security/data-catalog-roles.md
   - name: API reference
     items:
       - name: API authentication

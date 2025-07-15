@@ -42,6 +42,7 @@ description: Из статьи вы узнаете, как работать с {
 * [Яндекс Диск](workflows/constructor/yadisk.md)
 * [{{ sw-name }}](workflows/constructor/workflow.md)
 * [AI-агент](workflows/constructor/aiagent.md)
+* [Telegram-бот](workflows/constructor/telegrambot.md)
 * [Switch](workflows/constructor/switch.md)
 * [Foreach](workflows/constructor/foreach.md)
 * [While](workflows/constructor/while.md)

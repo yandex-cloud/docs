@@ -47,7 +47,7 @@ The infrastructure support cost includes:
 ## Add a certificate to {{ certificate-manager-name }}
 
 1. Issue a Let's Encrypt® certificate and [add](../../certificate-manager/operations/managed/cert-create.md) it to {{ certificate-manager-name }} or [upload](../../certificate-manager/operations/import/cert-create.md) your own certificate.
-1. For a Let's Encrypt® certificate, have your [rights checked](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
+1. For a Let's Encrypt® certificate, pass an [ownership check](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
 1. Assign the `certificate-manager.certificates.downloader` [role](../../iam/concepts/access-control/roles.md) to the [service account](../../iam/concepts/users/service-accounts.md) named `eso-service-account` to enable it to read the content of the certificate:
 
    ```bash
@@ -80,7 +80,7 @@ The infrastructure support cost includes:
 
 - {{ marketplace-full-name }} {#marketplace}
 
-    Follow this [guide](../../managed-kubernetes/operations/applications/external-secrets-operator.md#marketplace-install) to install the [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets) from {{ marketplace-name }} with the following parameters:
+    Follow [this guide](../../managed-kubernetes/operations/applications/external-secrets-operator.md#marketplace-install) to install [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets) from {{ marketplace-name }} with the following parameters:
 
     * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace), `external-secrets`.
     * **Service account key**: Paste the contents of the `authorized-key.json` file created [earlier](#before-you-begin).
@@ -250,7 +250,7 @@ The infrastructure support cost includes:
 
 - {{ marketplace-full-name }} {#marketplace}
 
-  Install the [Ingress NGINX](/marketplace/products/yc/ingress-nginx) application from {{ marketplace-name }} [using this guide](../../managed-kubernetes/operations/applications/ingress-nginx.md).
+  Install [Ingress NGINX](/marketplace/products/yc/ingress-nginx) from {{ marketplace-name }} by following [this guide](../../managed-kubernetes/operations/applications/ingress-nginx.md).
 
   The SSL certificate will only be available in the `ns` namespace, where the secret with this certificate was created. To allow ingress to use this certificate in any namespace, add the `--default-ssl-certificate` parameter to the controller configuration:
 
@@ -411,7 +411,7 @@ Registering the Let's Encrypt® certificate and an A record may take a few minut
 
 {% endnote %}
 
-## Create an Ingress resource {#create-ingress}
+## Create an ingress resource {#create-ingress}
 
 Create an [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource that uses the `k8s-secret` certificate for HTTPS:
 

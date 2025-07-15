@@ -7,26 +7,36 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
-## Version 0.152.0 (25/06/25) {#version0.152.0}
+### Version 0.153.0 (30/06/25) {#version0.153.0}
 
-### Changes in {{ yandex-cloud }} services
+#### Changes in {{ yandex-cloud }} services
 
-#### {{ alb-name }} {#version-0.152-alb}
+##### {{ cloud-desktop-name }}
+
+In the `desktops update group` command, changed the `--disk-size` flag type to `byteSize` for boot and data disks.
+
+## Previous releases {#previous-release}
+
+### Version 0.152.0 (25/06/25) {#version0.152.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ alb-name }} {#version-0.152-alb}
 
 You can now specify a list of zones in the `yc application-load-balancer load-balancer start-zonal-shift` and `yc application-load-balancer load-balancer cancel-zonal-shift` commands for starting and cancelling a load balancer zonal shift.
 
-#### {{ cloud-desktop-name }} {#version-0.152-desktop}
+##### {{ cloud-desktop-name }} {#version-0.152-desktop}
 
 * Added the `yc desktops group update` command to update desktop group info.
 * Added the following parameters to the `yc desktops group create` command: `max-group-size`, `hot-standby`, and `user-account-id`.
 
-#### {{ network-load-balancer-name }} {#version-0.152-nlb}
+##### {{ network-load-balancer-name }} {#version-0.152-nlb}
 
 Added the following commands for starting and cancelling a load balancer zone lock:
 * `yc load-balancer network-load-balancer start-zonal-shift`
 * `yc load-balancer network-load-balancer cancel-zonal-shift`
 
-#### {{ metastore-full-name }} {#version-0.152-metastore}
+##### {{ metastore-full-name }} {#version-0.152-metastore}
 
 Added commands for {{ metastore-name }} cluster management:
 * `yc managed-metastore cluster get`
@@ -45,8 +55,6 @@ Added commands for {{ metastore-name }} cluster management:
 **{{ mpg-name }}**
 
 The `postgresql database` command no longer includes the deprecated `version` argument of the `extension` parameter.
-
-## Previous releases {#previous-release}
 
 ### Version 0.151.0 (19/06/25) {#version0.151.0}
 
@@ -97,7 +105,7 @@ The `postgresql database` command no longer includes the deprecated `version` ar
 * Added commands to work with {{ mtr-full-name }} catalogs:
   * `yc managed-trino catalog create`
   * `yc managed-trino catalog delete`
-  * `yc managed-trino catalog get`  
+  * `yc managed-trino catalog get`
   * `yc managed-trino catalog list`
   * `yc managed-trino catalog update`
 
@@ -515,7 +523,7 @@ Added commands to link instances to reserved VM pools.
 
 ##### {{ sf-name }} {#serverless-functions}
 
-Added the `--metadata-options` parameter to the `yc serverless function version create` command to specify options to obtain metadata in a function. Here is a possible use case: 
+Added the `--metadata-options` parameter to the `yc serverless function version create` command to specify options to obtain metadata in a function. Here is a possible use case:
 
 ```bash
 yc serverless function version create --metadata-options aws-v1-http-endpoint=disabled,gce-http-endpoint=enabled
@@ -523,8 +531,7 @@ yc serverless function version create --metadata-options aws-v1-http-endpoint=di
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
 
-Added the `--metadata-options` parameter to the `yc serverless container revision deploy` command to specify the options to get metadata in
-a container. Here is a possible use case: 
+Added the `--metadata-options` parameter to the `yc serverless container revision deploy` command to specify the options to get metadata in a container. Here is a possible use case:
 
 ```bash
 yc serverless container revision deploy --metadata-options aws-v1-http-endpoint=disabled,gce-http-endpoint=enabled
@@ -532,7 +539,7 @@ yc serverless container revision deploy --metadata-options aws-v1-http-endpoint=
 
 ##### {{ iam-name }}
 
-Added the `--scopes` parameter to the `yc iam api-key create` command to specify the scope of the API key. If the parameter is not specified, no restrictions will apply to the new key. 
+Added the `--scopes` parameter to the `yc iam api-key create` command to specify the scope of the API key. If the parameter is not specified, no restrictions will apply to the new key.
 
 The `--scope` parameter will be removed in the next YC CLI version.
 
@@ -545,7 +552,7 @@ The `--scope` parameter will be removed in the next YC CLI version.
 
 **{{ mgp-name }}**
 
-Added the `--cloud-storage` parameter to the `yc managed-greenplum cluster create` command to specify the cloud storage management parameters. Example command to enable cloud storage: 
+Added the `--cloud-storage` parameter to the `yc managed-greenplum cluster create` command to specify the cloud storage management parameters. Example command to enable cloud storage:
 
 ```bash 
 yc managed-greenplum cluster create --cloud-storage enabled=true
@@ -648,7 +655,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ alb-name }} {#alb}
 
-* The `yc application-load-balancer load-balancer add-stream-listener`, `yc application-load-balancer load-balancer update-stream-listener`, `yc application-load-balancer load-balancer add-stream-sni`, `yc application-load-balancer load-balancer update-stream-sni` commands have been updated with the `--idle-timeout` parameter allowing you to specify the connection idle timeout. 
+* The `yc application-load-balancer load-balancer add-stream-listener`, `yc application-load-balancer load-balancer update-stream-listener`, `yc application-load-balancer load-balancer add-stream-sni`, `yc application-load-balancer load-balancer update-stream-sni` commands have been updated with the `--idle-timeout` parameter allowing you to specify the connection idle timeout.
 
 ##### {{ er-name }} {#eventrouter}
 
@@ -684,14 +691,14 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ managed-k8s-name }} {#k8s}
 
-* Added commands for working with {{ marketplace-name }} products in a {{ managed-k8s-name }} cluster: 
+* Added commands for working with {{ marketplace-name }} products in a {{ managed-k8s-name }} cluster:
    * `yc managed-kubernetes marketplace helm-release install`: Installs the Helm chart of a {{ marketplace-name }} product to the specified {{ managed-k8s-name }} cluster.
    * `yc managed-kubernetes marketplace helm-release update`: Upgrades the Helm chart version for a {{ marketplace-name }} product.
    * `yc managed-kubernetes marketplace helm-release uninstall`: Deletes a Helm chart version of a {{ marketplace-name }} product.
    * `yc managed-kubernetes marketplace helm-release get`: Returns information about the Helm chart of a {{ marketplace-name }} product.
    * `yc managed-kubernetes marketplace helm-release list`: Returns a list of {{ marketplace-name }} Helm charts installed in a {{ managed-k8s-name }} cluster.
 
-##### {{load-testing-name}}
+##### {{ load-testing-name }}
 
 * Added the `log-group-id` and `log-group-name` parameters to the `yc loadtesting agent create` command to specify a target log group for load testing agent logs.
 
@@ -735,7 +742,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ cloud-desktop-name }} {#cloud-desktop}
 
-* Added the `--image-id` parameter to the `yc desktops group create` command to provide an image ID to a desktop group. 
+* Added the `--image-id` parameter to the `yc desktops group create` command to provide an image ID to a desktop group.
 
 ##### {{ backup-name }} {#backup}
 
@@ -755,7 +762,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Changed the header in the `yc iam service accounts list` table output.
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * Added the last user authentication time to the `yc organization-manager user list --organization-id` command output.
 
@@ -1001,7 +1008,7 @@ Added the `--execution-timeout` parameter to the `yc serverless api-gateway crea
 * Added the `yc iam service-account add-labels` and `yc iam service-account remove-labels` label management commands.
 * The `yc iam service-account create` and `yc iam service-account update` commands now have the `--labels` parameter, which specifies a set of DB labels.
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * Added the following label management commands:
   * `yc organization-manager organization add-labels`
@@ -1092,7 +1099,7 @@ Added the `--execution-timeout` parameter to the `yc serverless api-gateway crea
 
   The `--gateway-name`, `--gateway-id`, and `--gateway-websocket-broadcast-path` parameters allow you to specify parameters for the trigger to send messages to the {{ api-gw-name }} websocket connections.
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * Added the `yc organization-manager oslogin profile` group of commands for managing {{ oslogin }} user profiles.
 * Fixed the `--expires-at` parameter for interval values in the `yc organization-manager oslogin user-ssh-key create` and `yc organization-manager oslogin user-ssh-key update` commands. For example, `5h` now refers to a value in the future.
@@ -1176,7 +1183,7 @@ Added the `--deletion-protection` parameter to the following commands to protect
 * Added the `yc managed-greenplum pxf-datasource s3` and `yc managed-greenplum pxf-datasource jdbc` command trees with the `create` and `update` commands.
 * Added the `--pxf-connection-timeout`, `--pxf-upload-timeout`, `--pxf-max-threads`, `--pxf-pool-allow-core-thread-timeout`, `--pxf-poll-core-size`, `--pxf-pool-queue-capacity`, `--pxf-pool-max-size`, `--pxf-xmx`, `--pxf-xms` parameters to the `yc managed-greenplum cluster update` command.
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * Added the `yc organization-manager oslogin` group of commands for managing {{ oslogin }} settings and custom SSH keys.
 
@@ -1244,7 +1251,7 @@ Added the `--deletion-protection` parameter to the following commands to protect
   * `yc datatransfer endpoint create`
   * `yc datatransfer endpoint update`
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * Added the `yc organization-manager federation saml delete-user-accounts` command to delete federated users.
 
@@ -1865,7 +1872,7 @@ Added the following parameters to the `yc serverless container revision deploy` 
 
 ##### {{ sf-name }} {#serverless-functions}
 
-Added the following parameters to the `yc serverless function version create` command: 
+Added the following parameters to the `yc serverless function version create` command:
 * `--no-logging`: Disables logging for a function.
 * `--log-group-id` and `--log-group-name`: Sends the logs to the specified log group.
 * `--log-folder-id` and `--log-folder-name`: Sends the logs to the default log group of the specified folder.
@@ -2036,7 +2043,7 @@ Added the following parameters to the `yc serverless container revision deploy` 
 * {{ RD }} 5.0 and 6.0 are no longer supported.
 
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * Added the `--organization-id` parameter to the `yc organization-manager federation saml` group commands to specify the organization ID. Fixed an error that occurred in these commands when specifying the name of a SAML-compatible identity federation as a positional argument.
 * Added the `yc organization-manager group` command group to manage [user groups](../organization/operations/manage-groups.md).
@@ -2162,7 +2169,7 @@ Added the following parameters to the `yc serverless container revision deploy` 
 
 **Managed Service for Redis**
 
-* Added the `--client-output-buffer-limit-normal` and `--client-output-buffer-limit-pubsub` flags to the `yc managed-redis cluster` command group for `create`, `restore`, `update` (see redis.conf for a description). 
+* Added the `--client-output-buffer-limit-normal` and `--client-output-buffer-limit-pubsub` flags to the `yc managed-redis cluster` command group for `create`, `restore`, `update` (see redis.conf for a description).
 
 **{{ mgp-name }}**
 
@@ -2750,7 +2757,7 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
 
   Added the display of an organization linked to a cloud.
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 Added support for {{ org-full-name }}.
 

@@ -28,7 +28,7 @@ JSON-схему рабочего процесса см. в [репозитори
 --- | --- | --- | ---
 `title` | `string` | Нет | Название шага.
 `description` | `string` | Нет | Описание шага.
-`<step_type>` | string([FunctionCall](integration/functioncall.md)\|<br/>[ContainerCall](integration/containercall.md)\|<br/>[HTTPCall](integration/httpcall.md)\|<br/>[GRPCCall](integration/grpccall.md)\|<br/>[YDBDocument](integration/ydbdocument.md)\|<br/>[YDS](integration/yds.md)\|<br/>[YMQ](integration/ymq.md)\|<br/>[FoundationModelsCall](integration/foundationmodelscall.md)\|<br/>[ObjectStorage](integration/objectstorage.md)\|<br/>[Disk](integration/disk.md)\|<br/>[Tracker](integration/tracker.md)\|<br/>[Postbox](integration/postbox.md)<br/>[Workflow](integration/workflow.md)\|<br/>[AIAgent](integration/aiagent.md)\|<br/>[Switch](management/switch.md)\|<br/>[Foreach](management/foreach.md)\|<br/>[Parallel](management/parallel.md)\|<br/>[Success](management/success.md)\|<br/>[Fail](management/fail.md)\|<br/>[NoOp](management/noop.md)\|<br/>[Wait](management/wait.md)\|<br/>[While](management/while.md)) | Да | Спецификация шага. Набор возможных параметров зависит от выбранного `<step_type>`.
+`<step_type>` | string([FunctionCall](integration/functioncall.md)\|<br/>[ContainerCall](integration/containercall.md)\|<br/>[HTTPCall](integration/httpcall.md)\|<br/>[GRPCCall](integration/grpccall.md)\|<br/>[YDBDocument](integration/ydbdocument.md)\|<br/>[YDS](integration/yds.md)\|<br/>[YMQ](integration/ymq.md)\|<br/>[FoundationModelsCall](integration/foundationmodelscall.md)\|<br/>[ObjectStorage](integration/objectstorage.md)\|<br/>[Disk](integration/disk.md)\|<br/>[Tracker](integration/tracker.md)\|<br/>[Postbox](integration/postbox.md)<br/>[Workflow](integration/workflow.md)\|<br/>[AIAgent](integration/aiagent.md)\|<br/>[TelegramBot](integration/telegrambot.md)\|<br/>[Switch](management/switch.md)\|<br/>[Foreach](management/foreach.md)\|<br/>[Parallel](management/parallel.md)\|<br/>[Success](management/success.md)\|<br/>[Fail](management/fail.md)\|<br/>[NoOp](management/noop.md)\|<br/>[Wait](management/wait.md)\|<br/>[While](management/while.md)) | Да | Спецификация шага. Набор возможных параметров зависит от выбранного `<step_type>`.
 
 ## Интеграционные шаги {#integration-steps}
 
@@ -46,6 +46,7 @@ JSON-схему рабочего процесса см. в [репозитори
 * [Workflow](integration/workflow.md)
 * [Disk](integration/disk.md)
 * [AIAgent](integration/aiagent.md)
+* [TelegramBot](integration/telegrambot.md)
 
 ### Общие поля {#common}
 

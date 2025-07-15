@@ -86,6 +86,8 @@ Use the `Drop` or `Truncate` cleanup policy.
 
 ## API errors {#api}
 
+### "code": 13 {#code13}
+
 Error example:
 
 ```text
@@ -93,6 +95,7 @@ Error example:
 ```
 
 **Solution:** Contact [support]({{ link-console-support }}) or your account manager and provide the `request_id`. If you are using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
+
 
 ## Network {#network}
 

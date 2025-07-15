@@ -11,7 +11,7 @@ keywords:
 
 {% include [preview](../../_includes/managed-trino/note-preview.md) %}
 
-Each {{ mtr-name }} cluster consists of a set of {{ TR }} components: a [coordinator](../concepts/index.md#coordinator) and workers – potentially several instances of these.
+Each cluster {{ mtr-name }} comprises a set of {{ TR }} components: a [coordinator](../concepts/index.md#coordinator) and workers, which can be represented in multiple instances.
 
 ## Roles for creating a cluster {#roles}
 
@@ -71,6 +71,143 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To create a {{ mtr-name }} cluster:
+
+    
+    1. Check whether the folder has any subnets for the cluster hosts:
+
+        ```bash
+        yc vpc subnet list
+        ```
+
+        If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+
+
+    1. View the description of the CLI command to create a cluster:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster create --help
+        ```
+
+    1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
+
+        ```bash
+        {{ yc-mdb-tr }} cluster create \
+           --name <cluster_name> \
+           --service-account-id <service_account_ID> \
+           --subnet-ids <list_of_subnet_IDs> \
+           --security-group-ids <list_of_security_group_IDs> \
+           --coordinator resource-preset-id=<class_of_computing_resources> \
+           --worker resource-preset-id=<class_of_computing_resources>,count=<number_of_workers> \
+           --deletion-protection
+        ```
+
+        Where:
+
+        * `--name`: Cluster name. It must be unique within the folder.
+        * `--service-account-id`: Service account ID.
+        * `--subnet-ids`: Subnet IDs list.
+        * `--security-group-ids`: List of security group IDs.
+        * `--coordinator`: [Coordinator](../concepts/index.md#coordinator) configuration.
+
+            * `resource-preset-id`: Class of coordinator’s computing resources. The possible values are:
+
+                * `c4-m16`: 4 vCPUs, 16 GB RAM
+                * `c4-m32`: 4 vCPUs, 32 GB RAM
+                * `c8-m32`: 8 vCPUs, 32 GB RAM
+                * `c8-m64`: 8 vCPUs, 64 GB RAM
+                * `c16-m64`: 16 vCPUs, 64 GB RAM
+                * `c16-m128`: 16 vCPUs, 128 GB RAM
+                * `c32-m128`: 32 vCPUs, 128 GB RAM
+                * `c32-m256`: 32 vCPUs, 256 GB RAM
+
+        * `--worker`: [Worker](../concepts/index.md#workers) configuration:
+
+            * `resource-preset-id`: Class of worker’s computing resources. The possible values are:
+
+                * `c4-m16`: 4 vCPUs, 16 GB RAM
+                * `c4-m32`: 4 vCPUs, 32 GB RAM
+                * `c8-m32`: 8 vCPUs, 32 GB RAM
+                * `c8-m64`: 8 vCPUs, 64 GB RAM
+                * `c16-m64`: 16 vCPUs, 64 GB RAM
+                * `c16-m128`: 16 vCPUs, 128 GB RAM
+                * `c32-m128`: 32 vCPUs, 128 GB RAM
+                * `c32-m256`: 32 vCPUs, 256 GB RAM
+
+            * `count`: Fixed number of workers.
+            * `min_count`: Minimum number of workers for autoscaling.
+            * `maxCount`: Maximum number of workers for autoscaling.
+
+            Specify either a fixed number of workers (`count`), or minimum and maximum number of workers (`minCount`, `maxCount`) for autoscaling.
+
+        * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+            Even if it is enabled, one can still connect to the cluster manually and delete it.
+
+    1. Set these logging parameters to activate sending {{ TR }} logs to [{{ cloud-logging-full-name }}](../../logging/):
+
+        ```bash
+        {{ yc-mdb-tr }} cluster create <cluster_name> \
+           ...
+           --log-enabled \
+           --log-folder-id <folder_ID> \
+           --log-min-level <logging_level>
+        ```
+
+        Where:
+
+        * `--log-enabled`: Enables logging.
+        * `--log-folder-id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
+        * `--log-group-id`: Custom log group ID. Logs will be written to this group.
+
+            You can specify only one of the parameters: `--log-folder-id` or `--log-group-id`.
+
+        * `--log-min-level`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO` (default), `WARN`, `ERROR`, and `FATAL`.
+
+    1. Set these parameters to activate the [fault-tolerant query execution](../concepts/retry-policy.md) policy:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster create <cluster_name> \
+           ...
+           --retry-policy-enabled \
+           --retry-policy \
+           --retry-policy-additional-properties <list_of_additional_retry_policy_parameters> \
+           --retry-policy-exchange-manager-service-s3 \
+           --retry-policy-exchange-manager-additional-properties <list_of_additional_storage_parameters>
+        ```
+
+        Where:
+
+        * `--retry-policy-enabled`: Enables the retry policy.
+        * `--retry-policy`: Query retry method. The possible values are:
+
+            * `task`: Retries the intermediate task within the query that caused worker failure.
+            * `query`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
+
+        * `--retry-policy-additional-properties`: Additional query retry parameters in `<key>=<value>` format. For more information about parameters, see the [{{ TR }} documentation]({{ tr.docs}}/admin/fault-tolerant-execution.html#advanced-configuration).
+        * `--retry-policy-exchange-manager-service-s3`: Use of S3 storage for data when retrying queries.
+        * `--retry-policy-exchange-manager-additional-properties`: Additional storage parameters in `<key>=<value>` format. For more information about parameters, see the [{{ TR }} documentation]({{ tr.docs}}/admin/fault-tolerant-execution.html#id1).
+
+    1. To set up a maintenance window (including for disabled clusters), provide the required value in the `--maintenance-window` parameter:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster create <cluster_name> \
+           ...
+           --maintenance-window type=<maintenance_type>,`
+                               `day=<day_of_week>,`
+                               `hour=<hour> \
+        ```
+
+        Where `type` is the maintenance type:
+
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
 - REST API {#api}
 
     1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
@@ -94,12 +231,12 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
           "trino": {
             "coordinatorConfig": {
               "resources": {
-                "resourcePresetId": "<resource_ID>"
+                "resourcePresetId": "<class_of_computing_resources>"
               }
             },
             "workerConfig": {
               "resources": {
-                "resourcePresetId": "<resource_ID>"
+                "resourcePresetId": "<class_of_computing_resources>"
               },
               "scalePolicy": {
                 "autoScale": {
@@ -110,7 +247,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             }
           },
           "retryPolicy": {
-            "policy": "<object_type_for_retry>",
+            "policy": "<retry_object_type>",
             "exchangeManager": {
               "storage": {
                 "serviceS3": {}
@@ -143,17 +280,29 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * `coordinatorConfig`: Coordinator configuration.
 
-               * `resources.resourcePresetId`: ID of the coordinator’s computing resources. The possible values are:
+               * `resources.resourcePresetId`: Class of coordinator’s computing resources. The possible values are:
 
-                    * `c4-m16`: 4 vCPUs, 16 GB RAM
-                    * `c8-m32`: 8 vCPUs, 32 GB RAM
+                  * `c4-m16`: 4 vCPUs, 16 GB RAM
+                  * `c4-m32`: 4 vCPUs, 32 GB RAM
+                  * `c8-m32`: 8 vCPUs, 32 GB RAM
+                  * `c8-m64`: 8 vCPUs, 64 GB RAM
+                  * `c16-m64`: 16 vCPUs, 64 GB RAM
+                  * `c16-m128`: 16 vCPUs, 128 GB RAM
+                  * `c32-m128`: 32 vCPUs, 128 GB RAM
+                  * `c32-m256`: 32 vCPUs, 256 GB RAM
 
             * `workerConfig`: Worker configuration.
 
-               * `resources.resourcePresetId`: ID of the worker’s computing resources. The possible values are:
+               * `resources.resourcePresetId`: Class of worker’s computing resources. The possible values are:
 
-                    * `c4-m16`: 4 vCPUs, 16 GB RAM
-                    * `c8-m32`: 8 vCPUs, 32 GB RAM
+                  * `c4-m16`: 4 vCPUs, 16 GB RAM
+                  * `c4-m32`: 4 vCPUs, 32 GB RAM
+                  * `c8-m32`: 8 vCPUs, 32 GB RAM
+                  * `c8-m64`: 8 vCPUs, 64 GB RAM
+                  * `c16-m64`: 16 vCPUs, 64 GB RAM
+                  * `c16-m128`: 16 vCPUs, 128 GB RAM
+                  * `c32-m128`: 32 vCPUs, 128 GB RAM
+                  * `c32-m256`: 32 vCPUs, 256 GB RAM
 
                * `scalePolicy`: Worker scaling policy:
 
@@ -161,7 +310,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
                      * `count`: Number of workers.
 
-                  * `autoScale`: Automatic scaling policy.
+                  * `autoScale`: Autoscaling policy.
 
                       * `minCount`: Minimum number of workers.
                       * `maxCount`: Maximum number of workers.
@@ -173,7 +322,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                * `policy`: Query retry method. The possible values are:
 
                   * `TASK`: Retries the intermediate task within the query that caused worker failure.
-                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
+                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
 
                * `exchangeManager.additionalProperties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
@@ -235,12 +384,12 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
           "trino": {
             "coordinator_config": {
               "resources": {
-                "resource_preset_id": "<resource_ID>"
+                "resource_preset_id": "<class_of_computing_resources>"
               }
             },
             "worker_config": {
               "resources": {
-                "resource_preset_id": "<resource_ID>"
+                "resource_preset_id": "<class_of_computing_resources>"
               },
               "scale_policy": {
                 "auto_scale": {
@@ -250,7 +399,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
               }
             },
             "retry_policy": {
-              "policy": "<object_type_for_retry>",
+              "policy": "<retry_object_type>",
               "exchange_manager": {
                 "storage": {
                   "service_s3": ""
@@ -284,28 +433,40 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * `coordinator_config`: Coordinator configuration.
 
-               * `resources.resource_preset_id`: ID of the coordinator’s computing resources. The possible values are:
+               * `resources.resource_preset_id`: Class of coordinator’s computing resources. The possible values are:
 
-                    * `c4-m16`: 4 vCPUs, 16 GB RAM
-                    * `c8-m32`: 8 vCPUs, 32 GB RAM
+                   * `c4-m16`: 4 vCPUs, 16 GB RAM
+                   * `c4-m32`: 4 vCPUs, 32 GB RAM
+                   * `c8-m32`: 8 vCPUs, 32 GB RAM
+                   * `c8-m64`: 8 vCPUs, 64 GB RAM
+                   * `c16-m64`: 16 vCPUs, 64 GB RAM
+                   * `c16-m128`: 16 vCPUs, 128 GB RAM
+                   * `c32-m128`: 32 vCPUs, 128 GB RAM
+                   * `c32-m256`: 32 vCPUs, 256 GB RAM
 
             * `worker_config`: Worker configuration.
 
-               * `resources.resource_preset_id`: ID of the worker’s computing resources. The possible values are:
+               * `resources.resource_preset_id`: Class of worker’s computing resources. The possible values are:
 
-                    * `c4-m16`: 4 vCPUs, 16 GB RAM
-                    * `c8-m32`: 8 vCPUs, 32 GB RAM
+                   * `c4-m16`: 4 vCPUs, 16 GB RAM
+                   * `c4-m32`: 4 vCPUs, 32 GB RAM
+                   * `c8-m32`: 8 vCPUs, 32 GB RAM
+                   * `c8-m64`: 8 vCPUs, 64 GB RAM
+                   * `c16-m64`: 16 vCPUs, 64 GB RAM
+                   * `c16-m128`: 16 vCPUs, 128 GB RAM
+                   * `c32-m128`: 32 vCPUs, 128 GB RAM
+                   * `c32-m256`: 32 vCPUs, 256 GB RAM
 
                * `scale_policy`: Worker scaling policy:
 
-                    * `fixed_scale`: Fixed scaling policy.
+                   * `fixed_scale`: Fixed scaling policy.
 
-                       * `count`: Number of workers.
+                      * `count`: Number of workers.
 
-                    * `auto_scale`: Automatic scaling policy.
+                   * `auto_scale`: Autoscaling policy.
 
-                       * `min_count`: Minimum number of workers.
-                       * `max_count`: Maximum number of workers.
+                      * `min_count`: Minimum number of workers.
+                      * `max_count`: Maximum number of workers.
 
                     Specify one of the two parameters: `fixed_scale` or `auto_scale`.
 
@@ -314,7 +475,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                * `policy`: Query retry method. The possible values are:
 
                   * `TASK`: Retries the intermediate task within the query that caused worker failure.
-                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
+                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
 
                * `exchange_manager.additional_properties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
@@ -355,5 +516,36 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         ```
 
     1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+{% endlist %}
+
+## Examples {#examples}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    Create a {{ mtr-name }} cluster with the following test specifications:
+
+    * Name: `mytr`.
+    * Service account: `trino-sa`.
+    * Subnet: `{{ subnet-id }}`.
+    * Security group: `{{ security-group }}`.
+    * Coordinator with computing resource class `c4-m16`.
+    * Four workers with computing resource class `c4-m16`.
+    * Cluster protection from accidental deletion.
+
+    Run this command:
+
+    ```bash
+    {{ yc-mdb-tr }} cluster create \
+       --name mytr \
+       --service-account-id ajev56jp96ji******** \
+       --subnet-ids {{ subnet-id }} \
+       --security-group-ids {{ security-group }} \
+       --coordinator resource-preset-id=c4-m16 \
+       --worker resource-preset-id=c4-m16,count=4 \
+       --deletion-protection
+    ```
 
 {% endlist %}

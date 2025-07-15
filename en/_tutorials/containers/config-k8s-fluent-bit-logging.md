@@ -1,6 +1,6 @@
 # Configuring Fluent Bit for {{ cloud-logging-name }}
 
-To configure transfer of [{{ managed-k8s-full-name }}](../../managed-kubernetes/) [pod](../../managed-kubernetes/concepts/index.md#pod), [service](../../managed-kubernetes/concepts/index.md#service) logs and [node](../../managed-kubernetes/concepts/index.md#node-group) system logs to [{{ cloud-logging-full-name }}](../../logging/):
+To configure transferring [pod](../../managed-kubernetes/concepts/index.md#pod) and [service](../../managed-kubernetes/concepts/index.md#service) logs, as well as [node](../../managed-kubernetes/concepts/index.md#node-group) system logs in [{{ managed-k8s-full-name }}](../../managed-kubernetes/) to [{{ cloud-logging-full-name }}](../../logging/):
 1. [Install and configure Fluent Bit](#fluent-bit-install).
 1. [Check the result](#check-result).
 
@@ -11,10 +11,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for {{ cloud-logging-name }}: Writing and storing data (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
+* {{ cloud-logging-name }} fee for data logging and storage (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -71,14 +71,14 @@ Set up your infrastructure:
      * Name of the service account for {{ managed-k8s-name }} resources and nodes.
      * Name of the service account for {{ cloud-logging-name }}.
      * {{ cloud-logging-name }} log group name.
-  1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-  1. Check that the {{ TF }} configuration files are correct using this command:
+  1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate
      ```
 
-     If there are any errors in the configuration files, {{ TF }} will point them out.
+     {{ TF }} will show any errors found in your configuration files.
   1. Create the required infrastructure:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -312,11 +312,11 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
      terraform validate
      ```
 
-     If there are any errors in the configuration files, {{ TF }} will point them out.
+     {{ TF }} will show any errors found in your configuration files.
   1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-     All the resources described in the `k8s-cluster-with-log-group.tf` configuration file will be deleted.
+     This will delete all resources described in the `k8s-cluster-with-log-group.tf` configuration file.
 
 {% endlist %}

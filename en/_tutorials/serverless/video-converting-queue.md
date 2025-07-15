@@ -1,5 +1,6 @@
 # Converting a video to a GIF in Python
 
+
 You will create a video converter using [FFmpeg](https://ffmpeg.org/) and {{ message-queue-full-name }}. This tutorial is intended for Linux and macOS users.
 
 
@@ -56,7 +57,7 @@ The infrastructure support cost includes:
     * **{{ ui-key.yacloud.ydb.table.form.field_type }}**:  [{{ ui-key.yacloud.ydb.table.form.label_document-table }}](../../ydb/operations/schema.md#create-table). 
     * **{{ ui-key.yacloud.ydb.table.form.label_columns }}**: One column named `task_id` of the `String` type.  Set the [{{ ui-key.yacloud.ydb.table.form.column_shard }}](../../ydb/operations/schema.md#create-table) attribute. 
 
-1. [Create a bucket](../../storage/operations/buckets/create) with restricted access in {{ objstorage-full-name }}.
+1. [Create a bucket](../../storage/operations/buckets/create.md) with restricted access in {{ objstorage-full-name }}.
 
 ## Create an API function {#create-api-function}
 

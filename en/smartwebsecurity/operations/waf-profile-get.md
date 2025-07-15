@@ -1,6 +1,6 @@
 ---
-title: How to get information about a {{ sws-full-name }} WAF security profile
-description: Follow this guide to get information about a {{ sws-full-name }} WAF security profile.
+title: How to get information about a {{ sws-full-name }} WAF profile
+description: Follow this guide to get information about a {{ sws-full-name }} WAF profile.
 ---
 
 # Getting information about a WAF profile
@@ -9,10 +9,10 @@ description: Follow this guide to get information about a {{ sws-full-name }} WA
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [WAF security profile](../concepts/waf.md).
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [WAF profile](../concepts/waf.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
-  1. Select the required profile.
+  1. Select the profile in question.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the profile details.
 
 - {{ TF }} {#tf}
@@ -21,7 +21,7 @@ description: Follow this guide to get information about a {{ sws-full-name }} WA
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To get information about a {{ sws-full-name }} [WAF profile](../concepts/waf.md) created using {{ TF }}:
+  To get information about a {{ sws-full-name }} [WAF profile](../concepts/waf.md) created with {{ TF }}:
 
   1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
@@ -39,15 +39,15 @@ description: Follow this guide to get information about a {{ sws-full-name }} WA
      * `data "yandex_sws_waf_profile"`: Description of the WAF profile as a data source:
        * `name`: WAF profile name.
      * `output "profile-created"`: Output variable that contains information about the WAF profile creation timestamp:
-       * `value`: Returned value.
+       * `value`: Return value.
 
-     You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_sws_waf_profile` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/sws_waf_profile).
+     You can replace `created_at` with any other parameter to get the information you need. For more information about `yandex_sws_waf_profile` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/sws_waf_profile).
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output

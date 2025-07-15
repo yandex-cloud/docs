@@ -37,7 +37,9 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [image-characteristic](../../../_includes/video/image-characteristic.md) %}
 
+  1. {% include [add-summarization-optional](../../../_includes/video/add-summarization-optional.md) %}
   1. {% include [add-subtitles-optional](../../../_includes/video/add-subtitles-optional.md) %}
+  1. {% include [add-translation-optional](../../../_includes/video/add-translation-optional.md) %}
   1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
   Откроется страница управления созданным видео. После завершения обработки видео станет доступно для просмотра.

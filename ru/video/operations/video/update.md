@@ -30,6 +30,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [image-characteristic](../../../_includes/video/image-characteristic.md) %}
 
+  1. Включите или выключите [суммаризацию](../../concepts/videos.md#summarization).
   1. Чтобы изменить [субтитры](../../concepts/videos.md#subtitles), удалите лишние и добавьте нужные:
 
       1. Нажмите значок ![image](../../../_assets/console-icons/xmark.svg) справа от названия файла субтитров, который нужно заменить.
@@ -39,6 +40,15 @@ description: Следуя данной инструкции, вы сможете
       1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_create }}**.
 
           Дождитесь загрузки файла.
+
+  1. Чтобы изменить [нейроперевод](../../concepts/videos.md#translation), удалите старые языки и добавьте новые:
+      
+      1. В блоке **{{ ui-key.yacloud_video.videos.label_neuro-translation }}** нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) справа от языка нейроперевода.
+      1. Нажмите кнопку ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_video.common.action_delete }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_add }}**.
+      1. В открывшемся окне выберите язык видео.
+      1. Выберите языки для перевода. 
+      1. Нажмите **{{ ui-key.yacloud_video.common.action_create }}**.
 
   1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 

@@ -9,6 +9,10 @@ description: Видеозаписи конференций и вебинаров
 
 ### 2025 год {#2025}
 
+* От AI-ассистента к многоагентным системам. [Видео](https://www.youtube.com/watch?v=yYMoc6RTxls).
+
+* Как оценивать и улучшать ответы генеративных моделей. [Видео](https://www.youtube.com/watch?v=sNWmI28FKTw).
+
 * Создание Telegram-бота на базе LLM с RAG и Function Calling. [Видео](https://www.youtube.com/live/gQEpthYWN38).
 
 * Как дообучить LLM с помощью LoRA Fine-tuning. [Видео](https://www.youtube.com/watch?v=PVeuQu1j6Y4).

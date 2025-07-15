@@ -261,6 +261,7 @@ items:
         href: release-notes-tts.md
       - name: Архив релизов
         href: release-notes.md
+        hidden: true
   - name: Решение проблем
     items:
       - name: Коды ошибок

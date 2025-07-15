@@ -33,7 +33,7 @@
       * **Группировать по** — `token`;
       * **Лимит запросов на группу** — `1` за `1 минуту`.
 
-  1. [Создайте профиль безопасности](../../smartwebsecurity/operations/profile-create.md) `sws-profile` по преднастроенному шаблону. При создании выберите в поле **{{ ui-key.yacloud.smart-web-security.arl.title_profile }}** созданный ранее профиль `arl-profile`.
+  1. [Создайте профиль безопасности](../../smartwebsecurity/operations/profile-create.md) `sws-profile` по преднастроенному шаблону. При создании выберите в поле **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}** созданный ранее профиль `arl-profile`.
 
   1. Чтобы настроить блокировку по IP-адресу пользователя, [добавьте правило](../../smartwebsecurity/operations/rule-add.md) к профилю безопасности {{ sws-name }} со следующими параметрами:
 
