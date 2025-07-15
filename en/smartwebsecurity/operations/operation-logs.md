@@ -12,7 +12,7 @@ Brief information about actions with {{ sws-name }} objects (e.g., security prof
 
 {% endlist %}
 
-## Getting information about an operation {#get-operations}
+## Getting operation details {#get-operations-info}
 
 To get detailed information about an operation, provide its ID via the API:
 

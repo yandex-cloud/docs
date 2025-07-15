@@ -30,7 +30,7 @@ For a cluster of two or more hosts to remain available for reading during a mast
 
 Single-host cluster is both the cheapest and easiest to operate. We recommend to use it for test clusters or production apps where high cluster availability is not critical.
 
-Benefits:
+Advantages:
 
 * Price: Such a cluster is cheaper than a multi-host one within the same [host class](./instance-types.md).
 * Ease of operation: Its master host is always the same, so your app does not need to support [master failover](../operations/connect.md#automatic-master-host-selection).
@@ -55,6 +55,8 @@ Compared to a single-host cluster, a cluster with two hosts offers the following
 * Balancing load between two hosts when reading data for faster cluster performance.
 * Automatic master failover when the current master host is unavailable if the **Autofailover** option is enabled. Until the failover is complete, your cluster will be unavailable for writes for a short time but still readable.
 
+{% include [balancing](../../_includes/mdb/mpg/note-warn-balancing.md) %}
+
 #### Use cases {#examples-two-hosts-cluster}
 
 * [{#T}](../tutorials/data-migration.md)
@@ -72,6 +74,8 @@ Compared to two-host clusters, a cluster with three or more hosts offers the fol
 
 * You can load-balance read requests between the master and at least two replicas. In addition to speeding up the cluster, this allows your app to send data read requests to specific hosts in that cluster. This way, you can get data faster if your application resides in the same [availability zone](../../overview/concepts/geo-scope.md) as the cluster host.
 * Your cluster will be readable even during major {{ PG }} version upgrades.
+
+{% include [balancing](../../_includes/mdb/mpg/note-warn-balancing.md) %}
 
 #### Use cases {#examples-three-or-more-hosts-cluster}
 

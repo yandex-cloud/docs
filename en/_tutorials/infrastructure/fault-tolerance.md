@@ -33,8 +33,8 @@ How a test environment works:
 
   Docker images are deployed on four [{{ coi }}](../../cos/)-based VMs. The VMs form an instance group and reside in two [availability zones](../../overview/concepts/geo-scope.md).
 
-* A DB cluster managed by {{ mpg-name }} consists of two hosts residing in different availability zones.
-* [{{ load-testing-name }} Tool](/marketplace/products/yc/load-testing) (you can find it on {{ marketplace-full-name }}) generates the workload applied to [{{ network-load-balancer-full-name }}](../../network-load-balancer/) that distributes traffic across VMs.
+* The DB cluster is managed by {{ mpg-name }} and consists of two hosts residing in different availability zones.
+* [{{ load-testing-name }} Tool](/marketplace/products/yc/load-testing) (you can find it in {{ marketplace-full-name }}) generates the load forwarded to [{{ network-load-balancer-full-name }}](../../network-load-balancer/) that distributes traffic across VMs.
 
 ### Create TodoList application containers {#create-app}
 
@@ -98,7 +98,7 @@ To prepare your {{ yandex-cloud }} application environment:
 1. Save the folder ID to the `YC_FOLDER` variable and the [IAM token](../../iam/concepts/authorization/iam-token.md) to the `YC_TOKEN` variable:
 
    ```bash
-   export YC_FOLDER=<catalog_ID>
+   export YC_FOLDER=<folder_ID>
    export YC_TOKEN=$(yc iam create-token)
    ```
 
@@ -203,7 +203,7 @@ To simulate this failure, delete one of the VM instances from the group:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select your instance group folder.
-  1. From the list of services, select **{{ compute-name }}**.
+  1. In the list of services, select **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select `todo-ig`.
   1. Navigate to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** panel.
@@ -273,7 +273,7 @@ To move your resources to another data center:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select your instance group folder.
-  1. From the list of services, select **{{ compute-name }}**.
+  1. In the list of services, select **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select `todo-ig`.
   1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.
@@ -303,7 +303,7 @@ To update your application:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select your instance group folder.
-  1. From the list of services, select **{{ compute-name }}**.
+  1. In the list of services, select **{{ compute-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select `todo-ig`.
   1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.

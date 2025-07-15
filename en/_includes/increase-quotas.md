@@ -5,4 +5,4 @@ If you need more resources, you can increase your quotas in one of the following
 
 To have your request processed, you must have the `quota-manager.requestOperator` [role](../iam/roles-reference.md#quota-manager-requestoperator) or higher, e.g., `editor` or `admin`.
 
-You can manage quotas with [{{ quota-manager-name }}](../quota-manager/quickstart.md).
+You can manage your quotas with [{{ quota-manager-name }}](../quota-manager/quickstart.md).

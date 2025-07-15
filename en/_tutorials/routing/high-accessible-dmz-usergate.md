@@ -1,16 +1,16 @@
 # Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the UserGate NGFW
 
 
-Follow this tutorial to deploy a secure network infrastructure based on the [UserGate next-generation firewall](https://www.usergate.com/products/next-generation-firewall). The infrastructure is made up of segments, each containing single-purpose resources, isolated from other resources. For example, the [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment is reserved for public-facing applications, whereas the `mgmt` segment contains infrastructure management resources. Each segment will have its own cloud folder and a dedicated {{ vpc-short-name }} [cloud network](../../vpc/concepts/network#network). The segments communicate with each other via a [next-generation firewall (NGFW)](https://en.wikipedia.org/wiki/Next-generation_firewall) VM, which provides end-to-end protection and traffic control across the segments.
+Follow this tutorial to deploy a secure network infrastructure based on the [UserGate next-generation firewall](https://www.usergate.com/products/next-generation-firewall). The infrastructure is made up of segments, each containing single-purpose resources, isolated from other resources. For example, the [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment is reserved for public-facing applications, whereas the `mgmt` segment contains infrastructure management resources. Each segment will have its own cloud folder and a dedicated {{ vpc-short-name }} [cloud network](../../vpc/concepts/network.md#network). The segments communicate with each other via a [next-generation firewall (NGFW)](https://en.wikipedia.org/wiki/Next-generation_firewall) VM, which provides end-to-end protection and traffic control across the segments.
 
 You can see the solution architecture in the diagram below.
 
 ![image](../../_assets/tutorials/high-accessible-dmz-usergate.png)
 
-Our solution uses the following folders:
+The solution comprises these main segments (folders):
 
 * The **public** folder contains the internet-facing resources.
-* The `mgmt` folder manages the cloud infrastructure and hosts internal resources. It includes two VMs for infrastructure protection and network segmentation into security zones (`fw-a` and `fw-b`) and a VM with [WireGuard VPN](https://www.wireguard.com/) configured for secure access to the management segment (jump-vm).
+* The **mgmt** folder for cloud infrastructure management and internal resources. It includes two VMs for infrastructure protection and network segmentation into security zones (`fw-a` and `fw-b`) and a VM with [WireGuard VPN](https://www.wireguard.com/) configured for secure access to the management segment (jump-vm).
 * **dmz** that enables you to publish open-access applications.
 
 For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-usergate-ngfw).
@@ -31,7 +31,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 An NGFW is used for cloud network protection and segmentation with a dedicated DMZ for public-facing applications.
 
-[{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) offers multiple NGFW solutions. This scenario uses the [UserGate NGFW]({{ link-cloud-marketplace }}/products/usergate/ngfw). Its features include:
+[{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) offers multiple NGFW solutions. This scenario uses [UserGate NGFW]({{ link-cloud-marketplace }}/products/usergate/ngfw). Its features include:
 * Firewalling.
 * Intrusion detection and prevention.
 * Traffic management and internet access control.
@@ -42,7 +42,7 @@ An NGFW is used for cloud network protection and segmentation with a dedicated D
 
 In this tutorial, we use the UserGate NGFW configuration with basic firewall and NAT rules.
 
-Learn more about the UserGate NGFW features in the [official documentation](https://www.usergate.com/ru/products/usergate-vm).
+Learn more about what UserGate NGFW can do in the [vendor’s documentation](https://www.usergate.com/ru/products/usergate-vm).
 
 ## Get your cloud ready {#prepare-cloud}
 
@@ -57,7 +57,7 @@ The infrastructure support cost includes:
 * Fee for using {{ network-load-balancer-name }} (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 * Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Fee for using the [UserGate NGFW](/marketplace/products/usergate/ngfw).
+* Fee for using [UserGate NGFW](/marketplace/products/usergate/ngfw).
 
 ### Required quotas {#required-quotes}
 
@@ -142,7 +142,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
          yc iam service-account create --name sa-terraform
          ```
 
-         Where `name` is the service account name. Follow these naming requirements:
+         Where `name` is the service account name. The naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -313,7 +313,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
          ```bash
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
-         yc config set folder-id <catalog_ID>  
+         yc config set folder-id <folder_ID>  
          ```
 
          Where:
@@ -362,14 +362,14 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    | ----------- | ----------- | ----------- | ----------- | ----------- |
    | `cloud_id` | Yes | Your Yandex Cloud ID | `string` | `b1g8dn6s3v2e********` |
    | `az_name_list` | - | List of two Yandex Cloud <a href="../../overview/concepts/geo-scope">availability zones</a> to host your resources | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
-   | `security_segment_names` | - | Segment names specify three segments: for management resources, public-facing resources, and DMZ. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify the subnet prefixes in `zone1_subnet_prefix_list` and `zone2_subnet_prefix_list`. | `list(string)` |  `["mgmt", "public", "dmz"]` |
-   | `zone1_subnet_prefix_list` | - | List of subnet prefixes in the first availability zone as indicated in the `security_segment_names` list. Specify one prefix for each segment. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
-   | `zone2_subnet_prefix_list` | - | List of subnet prefixes in the second availability zone as indicated in the `security_segment_names` list. Specify one prefix for each segment. | `list(string)` | `["192.168.2.0/24", "172.16.2.0/24", "10.160.2.0/24"]` |
+   | `security_segment_names` | - | Segment names. The first segment is for management resources, the second, for internet-facing resources, and the third, for DMZ. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify the subnet prefixes in `zone1_subnet_prefix_list` and `zone2_subnet_prefix_list`. | `list(string)` |  `["mgmt", "public", "dmz"]` |
+   | `zone1_subnet_prefix_list` | - | List of network prefixes in the first availability zone for subnets mapped to the `security_segment_names` list. Specify one prefix for each segment from the `security_segment_names` list. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
+   | `zone2_subnet_prefix_list` | - | List of network prefixes in the second availability zone for subnets mapped to the `security_segment_names` list. Specify one prefix for each segment from the `security_segment_names` list. | `list(string)` | `["192.168.2.0/24", "172.16.2.0/24", "10.160.2.0/24"]` |
    | `public_app_port` | - | TCP port for a DMZ application open for internet connection | `number` | `80` |
    | `internal_app_port` | - | DMZ application internal TCP port receiving traffic from NGFW. You may specify the same port as `public_app_port` or a different one. | `number` | `8080` |
-   | `trusted_ip_for_access_jump-vm` | Yes | List of public IP addresses/subnets allowed to access the jump VM. It is used in the security group's incoming rule for the jump VM. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
-   | `jump_vm_admin_username` | - | `jump` VM username for SSH connections | `string` | `admin` |
-   | `wg_port` | - | `jump` VM WireGuard inbound UDP port | `number` | `51820` |
+   | `trusted_ip_for_access_jump-vm` | Yes | List of public IP addresses/subnets allowed to access the jump VM. It is used in the incoming rule of the jump VM security group. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
+   | `jump_vm_admin_username` | - | Jump VM username for SSH connections | `string` | `admin` |
+   | `wg_port` | - | UDP port for inbound traffic as per the jump VM WireGuard settings | `number` | `51820` |
    | `wg_client_dns` | - | List of DNS server addresses in the management cloud network the admin workstation will use after establishing a WireGuard tunnel to the jump VM. | `string` | `192.168.1.2, 192.168.2.2` |
 
    {% endcut %}
@@ -447,11 +447,11 @@ To set up a VPN tunnel:
 
 ### Configure the FW-A firewall {#configure-fw-a}
 
-Connect to the FW-A management web interface at `https://192.168.1.10:8001`. Use the admin credentials: `Admin` for the username and `utm` for the password. After connecting, the system will prompt you to change your password.
+Connect to the FW-A management web interface at `https://192.168.1.10:8001`. Use the default admin credentials: `Admin` for both username and password. After connecting, the system will prompt you to change your password.
 
 #### Configure your network {#configure-fw-a-network}
 
-1. In the top menu, go to **Settings**, and in the left-hand menu, under **UserGate**, select **Settings**. Click the **Time zone** field value. Select your time zone and click **Save**. In the **Primary NTP server** and **Backup NTP server** fields, enter the addresses of the NTP servers (see the list of recommended NTP servers [here](../../tutorials/infrastructure-management/ntp)).
+1. In the top menu, go to **Settings**, and in the left-hand menu, under **UserGate**, select **Settings**. Click the **Time zone** field value. Select your time zone and click **Save**. In the **Primary NTP server** and **Backup NTP server** fields, enter the addresses of the NTP servers (see the list of recommended NTP servers [here](../../tutorials/infrastructure-management/ntp.md)).
 
 1. In the left-hand menu, in the **Network** section, select **Interfaces**. Click `port0`. In the **Network** tab, select `Mode: Static`. Make sure the interface IP address is `192.168.1.10`. Click **Save**.
 
@@ -599,11 +599,11 @@ Optionally, you can update your UserGate version.
 
 ### Configure the FW-B firewall {#configure-fw-b}
 
-Connect to the FW-B management web interface at `https://192.168.2.10:8001`. Use the admin credentials: `Admin` for the username and `utm` for the password. After connecting, the system will prompt you to change your password.
+Connect to the FW-B management web interface at `https://192.168.2.10:8001`. Use the default admin credentials: `Admin` for both username and password. After connecting, the system will prompt you to change your password.
 
 #### Configure your network {#configure-fw-b-network}
 
-1. In the top menu, go to **Settings**, and in the left-hand menu, under **UserGate**, select **Settings**. Click the **Time zone** field value. Select your time zone and click **Save**. In the **Primary NTP server** and **Backup NTP server** fields, enter the addresses of the NTP servers (see the list of recommended NTP servers [here](../../tutorials/infrastructure-management/ntp)).
+1. In the top menu, go to **Settings**, and in the left-hand menu, under **UserGate**, select **Settings**. Click the **Time zone** field value. Select your time zone and click **Save**. In the **Primary NTP server** and **Backup NTP server** fields, enter the addresses of the NTP servers (see the list of recommended NTP servers [here](../../tutorials/infrastructure-management/ntp.md)).
 
 1. In the left-hand menu, in the **Network** section, select **Interfaces**. Click `port0`. In the **Network** tab, select `Mode: Static`. Make sure the interface IP address is `192.168.2.10`. Click **Save**.
 
@@ -698,11 +698,11 @@ Connect to the FW-B management web interface at `https://192.168.2.10:8001`. Use
    | 3 | `Ping from dmz to internet` | Allow | Log session start | `DMZ` | `dmz` | `Untrusted` | Any | `Any ICMP` |
    | 4 | `Block all` | Deny | No | Any | Any | Any | Any | Any |
 
-## Enable the route-switcher module {#enable-route-switcher}
+## Enable the route switcher {#enable-route-switcher}
 
-After completing the NGFW setup, make sure `FW-A` and `FW-B` health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), navigate to the `mgmt` folder, select **{{ network-load-balancer-name }}**, and go to the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and [configured](#configure-gateways).
+After you complete the NGFW setup, make sure FW-A and FW-B health checks return `Healthy`. To do this, in the {{ yandex-cloud }} [management console]({{ link-console-main }}), navigate to the `mgmt` folder, select **{{ network-load-balancer-name }}**, and go to the `route-switcher-lb-...` page. Expand the target group and make sure the targets are `Healthy`. If they are `Unhealthy`, check that FW-A and FW-B are up and running and properly [configured](#configure-gateways).
 
-Once the `FW-A` and `FW-B` status changes to `Healthy`, open the `route-switcher.tf` file and change the `route-switcher` `start_module` value to `true`. To enable the module, run this command:
+Once FW-A and FW-B get the `Healthy` status, change the `route-switcher` module's `start_module` value to `true` in the `route-switcher.tf` file. To enable the module, run this command:
 
 ```bash
 terraform plan
@@ -790,7 +790,7 @@ Within five minutes, the `route-switcher` module will start operating to ensure 
 
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the settings of this VM:
 
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the VM you need and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. In the window that opens, under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable **{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}**.
@@ -805,10 +805,10 @@ Within five minutes, the `route-switcher` module will start operating to ensure 
    ```
 
 1. Emulate the main firewall failure by [stopping](../../compute/operations/vm-control/vm-stop-and-start.md#stop) the `FW-A` VM in the `mgmt` folder of the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-1. Monitor the loss of `httping` and `ping` packets. After `FW-A` fails, you may see a traffic loss for about one minute with the subsequent traffic recovery.
+1. Monitor the loss of `httping` and `ping` packets. After FW-A fails, you may experience traffic loss for about one minute, then traffic should resume.
 1. Make sure the `dmz-rt` route table in the `dmz` folder uses the `FW-B` address as `next hop`.
 1. Emulate the main firewall recovery by [running](../../compute/operations/vm-control/vm-stop-and-start.md#start) the `FW-A` VM in the {{ yandex-cloud }} [management console]({{ link-console-main }}). 
-1. Monitor the loss of `httping` and `ping` packets. After `FW-A` recovers, you may see a traffic loss for about one minute with the subsequent traffic recovery.
+1. Monitor the loss of `httping` and `ping` packets. After FW-A recovers, you may experience traffic loss for about one minute, then traffic should resume.
 1. Make sure the FW-A address is used in the `dmz-rt` route table in the `dmz` folder for `next hop`.
 
 ## Production deployment requirements {#deployment-requirements}
@@ -817,7 +817,7 @@ Within five minutes, the `route-switcher` module will start operating to ensure 
 * Delete the public IP address of the jump VM if you are not going to use it.
 * If your plan is to use it for connection to the management segment via WireGuard VPN, change the WireGuard keys both on the jump VM and admin workstation.
 * Configure the UserGate NGFW to meet your specific needs in line with the corporate security policy.
-* Do not assign public IP addresses to the VMs in those segments where the UserGate NGFW routing tables with a default route of `0.0.0.0/0` are used (learn more [here](../../vpc/concepts/routing#restrictions)). The only exception is the `mgmt` segment where routing tables do not use the `0.0.0.0/0` default route. 
+* Do not assign public IP addresses to the VMs in those segments where the UserGate NGFW routing tables with a default route of `0.0.0.0/0` are used (learn more [here](../../vpc/concepts/routing.md#restrictions)). The only exception is the `mgmt` segment where routing tables do not use the `0.0.0.0/0` default route. 
 
 ## How to delete the resources you created {#clear-out}
 

@@ -32,7 +32,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click **{{ ui-key.yacloud.kafka.button_create-topic }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, set the basic parameters of the topic:
@@ -54,7 +54,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To create a topic:
-  1. View a description of the CLI create topic command:
+  1. View the description of the CLI command to create topics:
 
      ```bash
      {{ yc-mdb-kf }} topic create --help
@@ -199,7 +199,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic you need and select **{{ ui-key.yacloud.common.edit }}**.
   1. Change the basic parameters of the topic:
@@ -217,7 +217,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To update topic settings:
-  1. View a description of the CLI update topic command:
+  1. View the description of the CLI command to update topics:
 
      ```bash
      {{ yc-mdb-kf }} topic update --help
@@ -384,7 +384,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
 
 - CLI {#cli}
@@ -454,7 +454,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click the topic name.
 
@@ -704,7 +704,7 @@ When switching to a new Terraform provider version, there may be discrepancies b
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the relevant folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic and select **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -716,7 +716,7 @@ When switching to a new Terraform provider version, there may be discrepancies b
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To delete a topic:
-  1. View a description of the CLI update topic command:
+  1. View the description of the CLI command to update topics:
 
      ```bash
      {{ yc-mdb-kf }} topic delete --help
@@ -796,7 +796,7 @@ When switching to a new Terraform provider version, there may be discrepancies b
 ## Managing topics via the {{ KF }} Admin API {#admin-api}
 
 To manage topics via the {{ KF }} Admin API:
-1. [Create](cluster-accounts.md#create-account) an admin user with the `ACCESS_ROLE_ADMIN` role in the cluster.
+1. [Create](cluster-accounts.md#create-account) in the cluster an admin user with either the `ACCESS_ROLE_ADMIN` or `ACCESS_ROLE_TOPIC_ADMIN` role. [Learn more](../concepts/account-roles.md) about the permissions you get with each role.
 1. Manage topics on behalf of this user by making requests to the {{ KF }} Admin API. Review your favorite programming language manual for information on working with the Admin API.
 
 For more information about working with the Admin API and the existing limitations, see [{#T}](../concepts/topics.md#management) and the [{{ KF }} documentation](https://kafka.apache.org/documentation/#adminapi).

@@ -1,4 +1,4 @@
-* [Why did the cluster change its status to `Updating` during an unscheduled backup?](#updating-while-backup)
+* [Why did the cluster change its status to _Updating_ during an unscheduled backup?](#updating-while-backup)
 
 * [Can I create two {{ PG }} databases at the same time?](#multi-db)
 
@@ -9,7 +9,3 @@
 * [Can I change the disk type in an existing cluster?](#disk-type)
 
 * [Can I manage a cluster using SQL commands?](#sql-control)
-
-* [Why cannot I stop a cluster?](#stop-cluster)
-
-* [Why do I get the `max_connections is less than sum of users connection limit` error when changing a cluster?](#max-connections-error)

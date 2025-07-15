@@ -4,7 +4,15 @@ stage: preview
 items:
   - name: Getting started
     href: quickstart.md
-  - name: Quotas and limits
-    href: concepts/limits.md
+  - name: Step-by-step guides
+    items:
+      - name: Managing shards
+        href: operations/shards.md
+  - name: Concepts
+    items:
+      - name: Resource relationships
+        href: concepts/index.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: Pricing policy
     href: pricing.md

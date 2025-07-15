@@ -4,11 +4,14 @@ description:
     <em>Yandex MetaData Hub is currently at the <a
     href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
   - >-
-    Yandex MetaData Hub is a Yandex Cloud service that enables managing database
-    connections, storing data exchange workflows, and describing datasets.
+    Yandex MetaData Hub is a Yandex Cloud service clients can use to manage
+    database connections, store data exchange schemas and dataset descriptions,
+    as well as manage metadata.
 links:
   - title: Getting started
-    description: Create your first connection or data schema registry
+    description: >-
+      Create your first connection, data schema registry, {{ metastore-name }}
+      cluster, or metadata catalog
     href: quickstart/
   - title: Step-by-step guides
     description: How to perform routine operations
@@ -20,10 +23,10 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configuring access permissions for using MetaData Hub
+    description: Configuring access permissions for the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
   - title: Release notes
     description: Releases and updates
@@ -41,4 +44,4 @@ meta:
     - data cluster in {{ yandex-cloud }}
     - data management in {{ yandex-cloud }}
     - managing database connections
-    - data exchange schemas
+    - metadata catalog in {{ yandex-cloud }}

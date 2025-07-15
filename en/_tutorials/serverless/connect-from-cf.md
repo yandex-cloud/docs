@@ -1,3 +1,5 @@
+
+
 Create a [function](../../functions/concepts/function.md) with a [Python](https://python.org/) application that runs a simple query against a [{{ ydb-full-name }}](../../ydb/) database.
 
 A function with an associated [service account](../../iam/concepts/users/service-accounts.md) is authorized in {{ ydb-short-name }} via the metadata service.
@@ -21,7 +23,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support cost for this scenario includes:
 * Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Fee for running queries to the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
+* Fee for running queries against the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
 
 ## Create a service account {#create-sa}
 
@@ -57,8 +59,8 @@ The infrastructure support cost for this scenario includes:
   1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
   1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
-     Wait for the DB to start. While being created, the database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
-  1. Click the name of the database you created.
+     Wait for the database to start. While being created, the database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
+  1. Click the database name.
   1. Under **{{ ui-key.yacloud.ydb.overview.section_connection }}**, find the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field and save its value. You will need it at the next step.
 
 {% endlist %}

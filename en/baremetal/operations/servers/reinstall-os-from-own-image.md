@@ -1,6 +1,6 @@
 ---
 title: How to reinstall an OS on a {{ baremetal-name }} server using a custom ISO image
-description: In this tutorial, you will learn how to install and reinstall a {{ baremetal-full-name }} server OS using a custom ISO image.
+description: Follow this guide to install and reinstall a {{ baremetal-full-name }} server OS using a custom ISO image.
 ---
 
 # Reinstalling an OS from a custom ISO image
@@ -9,9 +9,9 @@ description: In this tutorial, you will learn how to install and reinstall a {{ 
 
 When installing or reinstalling an OS from your ISO image, you can freely redistribute the available disk space on the server.
 
-Creating fault-tolerant disk configurations requires experience and understanding of [RAID](https://en.wikipedia.org/wiki/RAID) and/or [LVM](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)) technologies. We recommend using [{{ marketplace-full-name }}](/marketplace) public OS images instead, resorting to this installation method only if you need customizations beyond {{ marketplace-name }} options.
+Creating fault-tolerant disk configurations requires experience and understanding of [RAID](https://en.wikipedia.org/wiki/RAID) and/or [LVM](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)) technologies. We recommend using {{ marketplace-short-name }} public OS images instead, resorting to this installation method only if you need customizations beyond {{ marketplace-short-name }} options.
 
-For example, you might need to install from your own ISO image if the required OS is not available in {{ marketplace-name }}, or you need a custom disk partitioning layout, [UEFI](https://en.wikipedia.org/wiki/UEFI)/SecureBoot mode, root encryption, or other options unavailable through {{ marketplace-name }} image deployment.
+For example, you might need to install from your own ISO image if the required OS is not available in {{ marketplace-short-name }}, or you need a custom disk partitioning layout, [UEFI](https://en.wikipedia.org/wiki/UEFI)/SecureBoot mode, root encryption, or other options unavailable through {{ marketplace-short-name }} image deployment.
 
 {% note warning %}
 
@@ -91,7 +91,7 @@ During disk partitioning, the created partitions will be automatically formatted
 
 Proper disk partitioning is critical for OS installation, affecting disk subsystem performance, data storage reliability, server fault tolerance, and recovery speed in failure scenarios.
 
-At this step, you can create any disk configuration, from basic {{ marketplace-name }} OS installer defaults to advanced LVM with encryption.
+At this step, you can create any disk configuration, from basic {{ marketplace-short-name }} OS installer defaults to advanced LVM with encryption.
 
 Before proceeding with OS installation, create the following partitions:
 
@@ -126,7 +126,7 @@ To create a `RAID10` fault-tolerant disk array, you need at least four disks or 
         ![05](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/05.png)
 1. Select your boot disks:
 
-    1. Using the **↑** and **↓** keys, select the disk you want to boot from, then press **Enter**.
+    1. Using the **↑** and **↓** keys, select any disk and press **Enter**.
     1. In the menu that appears on the right, select `Use As Boot Device` and press **Enter**.
 
         ![06](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/06.png)
@@ -210,13 +210,13 @@ Let’s consider some other disk partitioning configurations:
 
 - Option 1
 
-  Disk layout identical to that created by the {{ marketplace-name }} {{ baremetal-name }} installer in `Legacy` boot mode:
+  Disk layout identical to that created by the {{ marketplace-short-name }} {{ baremetal-name }} installer in `Legacy` boot mode:
 
   ![13](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/13.png)
 
 - Option 2
 
-  Disk layout identical to that created by the {{ marketplace-name }} {{ baremetal-name }} installer in `UEFI` boot mode:
+  Disk layout identical to that created by the {{ marketplace-short-name }} {{ baremetal-name }} installer in `UEFI` boot mode:
 
   ![14](../../../_assets/baremetal/reinstall-os-from-own-image-screenshots/14.png)
 

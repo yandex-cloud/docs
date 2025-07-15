@@ -12,8 +12,8 @@ Follow these steps when using [Cloud Interconnect](../../interconnect/concepts/i
 1. Create a [private connection](../../interconnect/concepts/priv-con.md) in your trunk to establish IP and BGP connectivity between the on-prem infrastructure and the cloud. This resource is created in the same folder as the trunk.
 1. Create a [routing instance](../../cloud-router/concepts/routing-instance.md) in the specified folder to build the required network topology, which typically includes [virtual networks (VPCs)](../../vpc/concepts/network.md) and private connections.
 1. Add a private connection to the routing instance.
-1. Add a list of defined subnet IP prefixes from virtual networks (VPCs) to the routing instance.
-1. *Optionally*, add a list of defined static routes to the private connection to build the `VPC Stitching` network topology. 
+1. Add a list of specified subnet IP prefixes from virtual networks (VPCs) to the routing instance.
+1. Optionally, add a list of specified static routes to the private connection to form a `VPC Stitching` network topology. 
 
 Currently, to manage [Cloud Interconnect](../../interconnect/concepts/index.md) and [Cloud Router](../../cloud-router/concepts/index.md) resources, you can do one of the following:
 * Contact support.
@@ -52,10 +52,10 @@ Deleting a private connection | [Description](../../interconnect/tutorials/priv-
 Action | Support | YC CLI
 --- | --- | ---
 Getting information about a routing instance | — | [Description](../../cloud-router/operations/ri-get-info.md)
-Getting a list of operations in a routing instance | — | [Description](../../cloud-router/operations/ri-operations.md)
+Getting a list of routing instance operations | — | [Description](../../cloud-router/operations/ri-operations.md)
 Creating a routing instance | Yes | [Description](../../cloud-router/operations/ri-create.md)
 Updating routing instance parameters | Yes | [Description](../../cloud-router/operations/ri-update.md)
-Updating the list of IP prefixes in a routing instance | [Description](../../cloud-router/tutorials/ri-prefixes-upsert.md) | [Description](../../cloud-router/operations/ri-prefixes-upsert.md)
+Updating a list of IP prefixes in a routing instance | [Description](../../cloud-router/tutorials/ri-prefixes-upsert.md) | [Description](../../cloud-router/operations/ri-prefixes-upsert.md)
 Deleting IP prefixes from a routing instance | Yes | [Description](../../cloud-router/operations/ri-prefixes-remove.md)
 Adding a private connection to a routing instance | Yes | [Description](../../cloud-router/operations/ri-priv-con-add.md)
 Deleting a private connection from a routing instance | Yes | [Description](../../cloud-router/operations/ri-priv-con-del.md)

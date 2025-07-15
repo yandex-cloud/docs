@@ -123,13 +123,15 @@ items:
         href: concepts/kraft.md
       - name: Producers and consumers
         href: concepts/producers-consumers.md
+      - name: User roles
+        href: concepts/account-roles.md
       - name: Managing data schemas
         href: concepts/managed-schema-registry.md
       - name: APIs in {{ mkf-name }}
         href: concepts/available-apis.md
       - name: Host classes
         href: concepts/instance-types.md
-      - name: High availability cluster
+      - name: Cluster high availability
         href: concepts/ha-cluster.md
       - name: Networking in {{ mkf-name }}
         href: concepts/network.md

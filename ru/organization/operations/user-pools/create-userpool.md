@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
-  1. В поле **{{ ui-key.yacloud_org.form.userpool.caption.domain }}** добавьте [домен](../../concepts/domains.md), который будет использоваться для всех пользователей пула по умолчанию.
+  1. В поле **{{ ui-key.yacloud_org.form.userpool.caption.domain }}** добавьте [домен](../../concepts/domains.md), который будет использоваться, если к пулу не привязаны другие домены.
   1. (Опционально) Добавьте метки:
      1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
      1. Введите метку в формате `ключ: значение`.

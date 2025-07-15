@@ -32,6 +32,7 @@ Here is an example of setting up {{ monitoring-name }} metric collection in {{ p
    - `message-queue`: {{ message-queue-name }}.
    - `monitoring`: {{ monitoring-name }}.
    - `network-load-balancer`: {{ network-load-balancer-name }}.
+   - `postbox`: {{ postbox-name }}.
    - `serverless-apigateway`: {{ api-gw-name }}.
    - `serverless-containers`: {{ serverless-containers-name }}.
    - `serverless-functions`: {{ sf-name }}.

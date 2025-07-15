@@ -192,19 +192,3 @@ Yes, you can both copy data from a table to a local file and populate a table wi
 To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../../managed-postgresql/operations/update.md#change-disk-size).
 
 If you are using the `network-hdd` storage type, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../../managed-postgresql/operations/cluster-backups.md#restore) from a backup.
-
-
-#### Why do I get an error when using the TimescaleDB extension? {#timescale}
-
-Error message:
-
-```text
-SQL Error [0A000]: ERROR: functionality not supported under the current "apache" license
-Hint: Upgrade your license to 'timescale' to use this free community feature.
-```
-
-This error occurs when you attempt to use a function available only in TimescaleDB Community Edition.
-
-The community edition is distributed under the [Timescale license (TSL)](https://www.timescale.com/legal/licenses). Clause 2.2 of the license prohibits using TimescaleDB Community Edition to provide DbaaS (Database as a Service) services, so this version is not available in {{ yandex-cloud }}.
-
-The version installed in a {{ mpg-name }} cluster is TimescaleDB Apache 2 Edition, and its features are limited compared to the community version.

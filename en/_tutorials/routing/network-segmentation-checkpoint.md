@@ -1,19 +1,20 @@
 # Cloud infrastructure segmentation with the Check Point next-generation firewall
 
-In this tutorial, we will deploy a secure network infrastructure based on the Check Point next-generation firewall. It will include three segments hosting resources grouped by function and isolated from other resources. We will host public-facing applications in the [`dmz`](https://en.wikipedia.org/wiki/DMZ_(computing)) segment and cloud management resources in the `mgmt` segment. The segments will communicate through a [Check Point](https://www.checkpoint.com/quantum/next-generation-firewall/) [next-generation firewall](https://en.wikipedia.org/wiki/Next-generation_firewall) VM providing complex protection and traffic management.
+In this tutorial, we will deploy a secure network infrastructure based on the Check Point next-generation firewall. It will include three segments hosting resources grouped by function and isolated from other resources. We will host public-facing applications in the [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment and cloud management resources in the `mgmt` segment. The segments will communicate through a [Check Point](https://www.checkpoint.com/quantum/next-generation-firewall/) [next-generation firewall](https://en.wikipedia.org/wiki/Next-generation_firewall) VM providing end-to-end protection and traffic management between the segments.
 
-To ensure NGFW fault tolerance and application high availability, use [this recommended solution](../../tutorials/routing/high-accessible-dmz.md).
+If you need to ensure the NGFW’s fault tolerance and the deployed applications’ high availability, use [this recommended solution](../../tutorials/routing/high-accessible-dmz.md).
+We will use the following folders:
 
-* **public** folder with internet-facing resources.
-* **mgmt** folder with cloud management resources including `FW`: protection and network segmentation VM, `mgmt-server`: firewall management VM, and `jump`: [WireGuard VPN](https://www.wireguard.com/) VM providing secure access to the management segment.
-* **dmz** folder with public-facing applications.
+* The **public** folder contains internet-facing resources.
+* The **mgmt** folder is for cloud infrastructure management and internal resources. It includes VMs for infrastructure protection and network segmentation into security zones (`fw`), a VM of the centralized firewall management server (`mgmt-server`), and a [WireGuard VPN](https://www.wireguard.com/) VM for secure management segment access (`jump-vm`).
+* The **`dmz`** folder enables you to publish open-access applications .
 
 For more information, see the [project repository](https://github.com/yandex-cloud-examples/yc-network-segmentation-with-checkpoint). 
 
 To deploy a secure Check Point NGFW-based network infrastructure:
 
 1. [Get your cloud ready](#prepare-cloud).
-1. [Prepare your environment](#prepare-environment).
+1. [Set up your environment](#prepare-environment).
 1. [Deploy your resources](#create-resources).
 1. [Set up your firewall gateway](#configure-gateway).
 1. [Test the solution](#test-functionality).
@@ -23,15 +24,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Next-Generation Firewall {#next-generation-firewall}
 
-Among various [{{ marketplace-full-name }}](/marketplace?categories=security) NGFW solutions we will choose [Check Point CloudGuard IaaS](/marketplace?publishers=f2evobrhpbdrcue7s9l5&tab=software). Its features include:
-* Firewall, NAT, IPS, antivirus and anti-bot protection.
+[{{ marketplace-full-name }}](/marketplace?categories=security) offers multiple NGFW solutions. This scenario uses [Check Point CloudGuard IaaS](/marketplace?publishers=f2evobrhpbdrcue7s9l5&tab=software). Its features include:
+* Firewall, NAT, IPS, antivirus, and anti-bot protection.
 * Application layer granular traffic management, session logging.
 * Centralized Check Point security management.
 * In our example, we will configure Check Point firewall with basic access control and NAT policies.
 
 Yandex Cloud Marketplace offers PAYG and BYOL licensing for Check Point CloudGuard IaaS. We will use BYOL with a 15-day trial:
-* NGFW VM [Check Point CloudGuard IaaS - Firewall & Threat Prevention BYOL](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-byol-m).
-* Management server VM [Check Point CloudGuard IaaS - Security Management BYOL](/marketplace/products/checkpoint/cloudguard-iaas-security-management-byol-m).
+* NGFW VM: [Check Point CloudGuard IaaS - Firewall & Threat Prevention BYOL](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-byol-m).
+* Management server VM: [Check Point CloudGuard IaaS: Security Management BYOL](/marketplace/products/checkpoint/cloudguard-iaas-security-management-byol-m) for NGFW management tasks.
 
 For production deployment, we recommend to use the following options:
 * NGFW [Check Point CloudGuard IaaS - Firewall & Threat Prevention PAYG](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m)
@@ -52,15 +53,15 @@ The infrastructure support cost includes:
 
 {% note warning %}
 
-In this tutorial, you will have to deploy a resource-intensive infrastructure.
+In this tutorial, you will deploy a resource-intensive infrastructure.
 
 {% endnote %}
 
-Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limits.md) that are not used by other projects.
+Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limits.md) not used by other projects.
 
 {% cut "Resources used by this tutorial" %}
 
-| Resource | Amount |
+| Resource | Quantity |
 | ----------- | ----------- |
 | Folders | 3 |
 | Virtual machines | 4 |
@@ -80,18 +81,18 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 ## Set up your environment {#prepare-environment}
 
-In this tutorial, we will use Windows software and [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) (WSL).
-Also, we will use [{{ TF }}](https://www.terraform.io/) to deploy the infrastructure. 
+This tutorial uses Windows software and [Windows Subsystem for Linux](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux) (WSL).
+To deploy the infrastructure, we will use [{{ TF }}](https://www.terraform.io/). 
 
 ### Configure WSL {#setup-wsl}
 
-1. Check whether WSL is installed on your PC by running this command in the CLI terminal:
+1. Check whether you have WSL installed on your PC. To do this, run this command in the CLI terminal:
   
    ```bash
    wsl -l
    ```
 
-   If WSL is installed, the terminal will display the list of available distributions, for example:
+   If WSL is installed, the terminal will return a list of available distributions, such as the following:
    
    ```bash
    Windows Subsystem for Linux Distributions:
@@ -117,7 +118,7 @@ Also, we will use [{{ TF }}](https://www.terraform.io/) to deploy the infrastruc
 
 {% note info %}
 
-To perform the following steps, we use Linux terminal.
+We use the Linux terminal to perform the following steps.
 
 {% endnote %}
 
@@ -132,7 +133,7 @@ To perform the following steps, we use Linux terminal.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Specify the service account name, e.g., `sa-terraform`.
 
-      The name should meet the following requirements:
+      The naming requirements are as follows:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -158,7 +159,7 @@ To perform the following steps, we use Linux terminal.
          yc iam service-account create --name sa-terraform
          ```
 
-         Where `name` is the service account name. The name should meet the following requirements:
+         Where `name` is the service account name. The naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -229,7 +230,7 @@ To perform the following steps, we use Linux terminal.
       unzip terraform_1.3.9_linux_amd64.zip
       ```
 
-   1. Add the executable directory to your `PATH`: 
+   1. Add the path to the directory with the executable to the `PATH` variable: 
       
       ```bash
       export PATH=$PATH:~/terraform
@@ -275,7 +276,7 @@ To perform the following steps, we use Linux terminal.
    cd yc-network-segmentation-with-checkpoint
    ```
 
-1. Set up a CLI profile to run operations on behalf of the service account:
+1. Set up the CLI profile to run operations under the service account:
 
    {% list tabs group=instructions %}
 
@@ -309,7 +310,7 @@ To perform the following steps, we use Linux terminal.
          key_algorithm: RSA_2048
          ```
 
-      1. Create a CLI profile to run operations on behalf of the service account:
+      1. Create a CLI profile to run operations under the service account:
         
          ```bash
          yc config profile create sa-terraform
@@ -335,7 +336,7 @@ To perform the following steps, we use Linux terminal.
          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-      1. Export your credentials to environment variables:
+      1. Add your credentials to the environment variables:
          
          ```bash
          export YC_TOKEN=$(yc iam create-token)
@@ -359,7 +360,7 @@ To perform the following steps, we use Linux terminal.
 
 1. Open the `terraform.tfvars` file in `nano` and edit it as follows:
 
-   1. The cloud ID line:
+   1. Cloud ID line:
       
       ```text
       cloud_id = "<cloud_ID>"
@@ -371,19 +372,19 @@ To perform the following steps, we use Linux terminal.
       trusted_ip_for_access_jump-vm = ["<PC_external_IP>/32"]
       ```
 
-   {% cut "terraform.tfvars variable description" %}
+   {% cut "`terraform.tfvars` variable description" %}
 
-   | Name<br>of parameter | Needs<br>editing | Description | Type | Example |
+   | Parameter<br>name | Change<br>required | Description | Type | Example |
    | ----------- | ----------- | ----------- | ----------- | ----------- |
    | `cloud_id` | Yes | Your Yandex Cloud ID | `string` | `b1g8dn6s3v2e********` |
    | `az_name` | - | Your Yandex Cloud resources<a href="https://yandex.cloud/ru/docs/overview/concepts/geo-scope">availability zone</a> | `string` | `{{ region-id }}-d` |
-   | `security_segment_names` | - | Segment names Specify three segments: for management resources, public-facing resources, and DMZ.. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify its subnet prefix in `subnet_prefix_list`. | `list(string)` |  `["mgmt", "public", "dmz"]` |
+   | `security_segment_names` | - | Segment names. The first segment is for management resources, the second, for internet-facing resources, and the third, for DMZ. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify its subnet prefix in `subnet_prefix_list`. | `list(string)` |  `["mgmt", "public", "dmz"]` |
    | `subnet_prefix_list` | - | Segment subnet prefixes. Specify one prefix for each segment from the `security_segment_names` list. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
    | `public_app_port` | - | DMZ application external TCP port | `number` | `80` |
    | `internal_app_port` | - | DMZ application internal TCP port receiving traffic from NGFW. Internal and external `public_app_port` TCP ports may be the same. | `number` | `8080` |
-   | `trusted_ip_for_access_jump-vm` | Yes | List of IP addresses allowed to access the `jump` VM according to its inbound traffic rules | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
-   | `jump_vm_admin_username` | - | `jump` VM username for SSH connections | `string` | `admin` |
-   | `wg_port` | - | ‘jump` VM WireGuard inbound UDP port | `number` | `51820` |
+   | `trusted_ip_for_access_jump-vm` | Yes | List of public IPs or subnets trusted to access the jump VM. It is used in the incoming rule of the jump VM security group. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
+   | `jump_vm_admin_username` | - | Jump VM username for SSH connections | `string` | `admin` |
+   | `wg_port` | - | Jump VM WireGuard inbound UDP port | `number` | `51820` |
 
    {% endcut %}
 
@@ -401,19 +402,19 @@ To perform the following steps, we use Linux terminal.
       terraform init
       ```
 
-   1. Check the {{ TF }} configuration:
+   1. Check the {{ TF }} file configuration:
        
       ```bash
       terraform validate
       ```
 
-   1. Preview the list of new cloud resources:
+   1. Check the list of new cloud resources:
        
       ```bash
       terraform plan
       ```
 
-   1. Create resources:
+   1. Create the resources:
        
       ```bash
       terraform apply
@@ -421,7 +422,7 @@ To perform the following steps, we use Linux terminal.
 
 1. Once the process is completed, you will see the list of created resources. You can also display this list with the `terraform output` command:
 
-   {% cut "Expand to see the list of deployed resources" %}
+   {% cut "Expand to view the deployed resource details" %}
 
    | Name | Description | Value (example) |
    | ----------- | ----------- | ----------- |
@@ -444,9 +445,9 @@ In this guide, you will configure a firewall with basic access control and NAT p
 
 Learn more about Check Point features and configuration options with our free course, [A Deep Dive into Network Security](https://yandex.cloud/ru/training/network-security).
 
-### Connect to the control segment through a VPN {#connect-via-vpn}
+### Connect to the management segment via a VPN {#connect-via-vpn}
 
-Once you deployed the infrastructure, the `mgmt` folder will contain an Ubuntu `jump-vm` instance with a configured [WireGuard VPN](https://www.wireguard.com/). Set up a VPN tunnel between your PC and `jump-vm` so you can access the `mgmt`, `dmz`, and `public` segment subnets.
+After deploying the infrastructure, the `mgmt` folder will contain the `jump-vm` Ubuntu instance with the configured [WireGuard VPN](https://www.wireguard.com/) providing secure connection. Set up a VPN tunnel between your PC and `jump-vm` so you can access the `mgmt`, `dmz`, and `public` segment subnets.
 
 To set up a VPN tunnel:
 
@@ -485,7 +486,7 @@ To set up a VPN tunnel:
 To set up and manage [Check Point](https://en.wikipedia.org/wiki/Check_Point), install and run the SmartConsole GUI client: 
 
 1. Connect to the NGFW management server by opening `https://192.168.1.100` in your browser. 
-1. Sign in using `admin` as both username and password. 
+1. Sign in using `admin` as both the username and password. 
 1. You will enter Gaia Portal where you can download the SmartConsole GUI client by clicking **Manage Software Blades using SmartConsole. Download Now!**.
 1. Install SmartConsole on your PC.
 1. Get the SmartConsole password:
@@ -521,7 +522,7 @@ Use the wizard to add the `FW` firewall gateway to the management server:
 Configure the `eth0` network interface:
 
 1. In the **Gateways & Servers** tab, open the firewall gateway setup dialog. by double-clicking `FW`.
-1. In the **Topology** table on the **Network Management** tab, select the `eth0` interface, click **Edit**, and then in the window that opens, click **Modify...**.
+1. In the **Network Management** tab of the **Topology** table, select the `eth0` interface, click **Edit**, and then click **Modify...** in the window that opens.
 1. Under **Security Zone**, activate **Specify Security Zone** and select **InternalZone**.
 
 In the same way, configure the `eth1` and `eth2` network interfaces:
@@ -619,7 +620,7 @@ To set up the firewall gateway NAT table:
    | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | 
    | 1 | Any | FW-public-IP | http | Original | dmz-web-server | TCP_8080 | Policy Targets (All gateways) |
 
-###  Apply the security policy rules {#apply-policies}
+### Apply the security policy rules {#apply-policies}
 
 1. Click **Install Policy** at the top left of the screen.
 1. In the dialog that opens, click **Publish & Install**.

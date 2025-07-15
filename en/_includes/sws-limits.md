@@ -1,7 +1,7 @@
 #### Quotas {#quotas}
 
 #|
-|| Type of limitation | Value ||
+|| Type of limit | Value ||
 || Maximum number of [security profiles](../smartwebsecurity/concepts/profiles.md) per [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud)
 `smart-web-security.securityProfiles.count` | 5 ||
 || Maximum number of [ARL profiles](../smartwebsecurity/concepts/arl.md) per cloud

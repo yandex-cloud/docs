@@ -1,8 +1,8 @@
 # HTTPRoute resource fields
 
-The `HTTPRoute` resource contains traffic routing and redirection rules for {{ k8s }} service backends, i.e., [Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resources. `HTTPRoute` receives incoming traffic from [`Gateway` resources](../../../application-load-balancer/k8s-ref/gateway.md) whose requirements it meets.
+The `HTTPRoute` resource sets traffic routing rules for {{ k8s }} service backends ([Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resources) or redirection rules. `HTTPRoute` receives incoming traffic from the [Gateway resources](../../../application-load-balancer/k8s-ref/gateway.md) whose requirements it satisfies.
 
-The `HTTPRoute` resource is designed for application developers. Cluster operators should use the `Gateway` resource.
+`HTTPRoute` is designed for application developers. Cluster operators should use the `Gateway` resource.
 
 `HTTPRoute` is a [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project resource. Below, we describe its fields and annotations used by {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRoute).
 
@@ -14,6 +14,43 @@ kind: HTTPRoute
 metadata:
   name: <string>
   namespace: <string>
+  annotations:
+    gateway.alb.yc.io/rules.backends.http.useHTTP2: <bool>
+    gateway.alb.yc.io/rules.backends.balancing.mode: <string>
+    gateway.alb.yc.io/rules.backends.balancing.localityAwareRouting: <string>
+    gateway.alb.yc.io/rules.backends.balancing.strictLocality: <bool>
+    gateway.alb.yc.io/rules.backends.balancing.panicThreshold: <string>
+    gateway.alb.yc.io/rule.<rule_name>.backends.balancing.mode: <string>
+    gateway.alb.yc.io/rules.backends.hc.timeout: <string>
+    gateway.alb.yc.io/rules.backends.hc.interval: <string>
+    gateway.alb.yc.io/rules.backends.hc.healthyThreshold: <string>
+    gateway.alb.yc.io/rules.backends.hc.unhealthyThreshold: <string>
+    gateway.alb.yc.io/rules.backends.hc.port: <string>
+    gateway.alb.yc.io/rules.backends.hc.http.path: <string>
+    gateway.alb.yc.io/rules.backends.hc.http.useHTTP2: <bool>
+    gateway.alb.yc.io/rules.backends.hc.http.host: <string>
+    gateway.alb.yc.io/rules.backends.hc.grpc.serviceName: "Check"
+    gateway.alb.yc.io/rules.backends.hc.stream.send: <string>
+    gateway.alb.yc.io/rules.backends.hc.stream.receive: <string>
+    gateway.alb.yc.io/rules.sessionAffinity.header.name: <string>
+    gateway.alb.yc.io/rules.sessionAffinity.cookie.name: <string>
+    gateway.alb.yc.io/rules.sessionAffinity.cookie.ttl: <string>
+    gateway.alb.yc.io/rules.sessionAffinity.sourceIP: <bool>
+    gateway.alb.yc.io/rules.timeout: <string>
+    gateway.alb.yc.io/rules.idleTimeout: <string>
+    gateway.alb.yc.io/rule.<rule_name>.timeout: <string>
+    gateway.alb.yc.io/rule.<rule_name>.idleTimeout: <string>
+    gateway.alb.yc.io/rules.httpUpgradeTypes: <string>
+    gateway.alb.yc.io/rules.securityProfileId: <string>
+    gateway.alb.yc.io/rules.rbac.action: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.name: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.regex: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.exact: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.prefix: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.ip.remoteIp: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.any: <bool>
+    gateway.alb.yc.io/hosts.securityProfileId: <string>
+    gateway.alb.yc.io/hosts.rbac.action: <string>
 spec: <HTTPRouteSpec>
 ```
 
@@ -35,10 +72,175 @@ Where:
 
     Resource [namespace](../../../managed-kubernetes/concepts/index.md#namespace). The default value is `default`.
 
+  * `annotations` (`map[string]string`)
+
+    Resource annotations.
+
+    {% note info %}
+
+    You can define the [RoutePolicy](../../../application-load-balancer/k8s-ref/route-policy.md) resource instead of annotations. The `RoutePolicy` resource parameters and `HTTPRoute` annotations are equivalent.
+
+    {% endnote %}
+
+    * `gateway.alb.yc.io/rules.timeout` (`string`)
+
+      Timeout for HTTP connection between load balancer and backend. The connection is maintained until the specified time expires, whether or not the transfer is ongoing. When the timeout is reached, the resource returns the `UNAVAILABLE` status.
+
+    * `gateway.alb.yc.io/rules.idleTimeout` (`string`)
+
+      Inactive HTTP connection timeout during which no data transfer is taking place. After the timeout expires, returns the `504 Gateway Timeout` status.
+    
+    * `gateway.alb.yc.io/rules.securityProfileId` (`string`)
+    
+      {{ sws-name }} [security profile](../../../smartwebsecurity/concepts/profiles.md) ID for route.
+
+    * `gateway.alb.yc.io/hosts.securityProfileId` (`string`)
+    
+      Security profile ID for host.
+
+    * `gateway.alb.yc.io/rules.backends.http.useHTTP2`
+
+      Use HTTP/2 for connection between load balancer and backend.
+
+    * `gateway.alb.yc.io/rules.sessionAffinity.header.name`
+
+      HTTP header name for session affinity.
+
+    * `gateway.alb.yc.io/rules.sessionAffinity.cookie.name` 
+
+      Cookie name for session affinity.
+
+    * `gateway.alb.yc.io/rules.sessionAffinity.cookie.ttl`
+
+      Cookie lifetime for session affinity.
+
+    * `gateway.alb.yc.io/rules.sessionAffinity.sourceIP`
+
+      Indicator of using client IP address for session affinity.
+
+    * `gateway.alb.yc.io/rules.backends.balancing.mode`
+
+      Load balancing mode. The possible values are `RANDOM`, `ROUND_ROBIN`, and `LEAST_REQUEST`.
+
+    * `gateway.alb.yc.io/rules.backends.balancing.localityAwareRouting`
+
+      Percentage of traffic that goes to the `HTTPRoute` resource's availability zone with `healthy` backends. The remaining traffic is distributed between other availability zones. The parameter is not applied if `strictLocality=true` (see below).
+
+    * `gateway.alb.yc.io/rules.backends.balancing.strictLocality`
+
+      Strictly local routing of traffic to backends (only in the `HTTPRoute` resource's availability zone).
+
+    * `gateway.alb.yc.io/rules.backends.balancing.panicThreshold`
+
+      Panic mode threshold for load balancing in %.
+
+    * `gateway.alb.yc.io/rules.backends.hc.timeout`
+
+      Health check response timeout.
+
+    * `gateway.alb.yc.io/rules.backends.hc.interval`
+
+      Health check interval.
+
+    * `gateway.alb.yc.io/rules.backends.hc.healthyThreshold`
+
+      Number of successful health checks for resource to get the `healthy` status.
+
+    * `gateway.alb.yc.io/rules.backends.hc.unhealthyThreshold`
+
+      Number of failed health checks for resource to get the `unhealthy` status.
+
+    * `gateway.alb.yc.io/rules.backends.hc.port`
+
+      Health check port.
+
+    * `gateway.alb.yc.io/rules.backends.hc.http.path`
+
+      Path for HTTP health checks. Example: `/health`. Used for HTTP(S) backends.
+
+    * `gateway.alb.yc.io/rules.backends.hc.http.useHTTP2`
+
+      Use HTTP/2 for health checks. HTTP/1.1 is used by default. Used for HTTP(S) backends.
+
+    * `gateway.alb.yc.io/rules.backends.hc.http.host`
+
+      Host address for HTTP health checks.
+
+    * `gateway.alb.yc.io/rules.backends.hc.grpc.serviceName`
+
+      gRPC service name for gRPC backend health checks.
+
+    * `gateway.alb.yc.io/rules.backends.hc.stream.send`
+
+      Data to send for a TCP health check. Used for backends with a TCP interface.
+
+    * `gateway.alb.yc.io/rules.backends.hc.stream.receive`
+
+      Expected response in a TCP health check. Used for backends with a TCP interface.
+
+    * `gateway.alb.yc.io/rules.timeout`
+
+      Total HTTP connection timeout between load balancer and backend.
+
+    * `gateway.alb.yc.io/rules.idleTimeout`
+
+      Inactive HTTP connection timeout.
+
+    * `gateway.alb.yc.io/rules.httpUpgradeTypes`
+
+      Supported `HTTP Upgrade` values, e.g., websocket.
+
+    * `gateway.alb.yc.io/rules.securityProfileId`
+
+      {{ sws-name }} security profile ID for route.
+
+    * `gateway.alb.yc.io/rules.rbac.action`
+    
+      Action when specified conditions (`ALLOW`/`DENY`) match for backend access control.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.name`
+
+      Header name for RBAC condition checks.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.regex`
+
+      Regular expression for checking header value to manage access to host over RBAC.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.exact`
+
+      Exact header value to manage access to host over RBAC.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.prefix`
+
+      Header value prefix to manage access to host over RBAC.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.ip.remoteIp`
+
+      IP address or CIDR block to manage access to host over RBAC.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.any`
+
+      Any match of specified conditions to manage access to host over RBAC (`true`/`false`).
+
+    * `gateway.alb.yc.io/hosts.rbac.action`
+
+      Action when specified conditions match (`ALLOW`/`DENY`) to manage access to host over RBAC.
+
+    * `gateway.alb.yc.io/rule.<rule_name>.backends.balancing.mode`
+
+      Load balancing mode for a given rule. The possible values are `RANDOM`, `ROUND_ROBIN`, and `LEAST_REQUEST`.
+
+    * `gateway.alb.yc.io/rule.<rule_name>.timeout`
+
+      Timeout for a given load balancing rule.
+
+    * `gateway.alb.yc.io/rule.<rule_name>.idleTimeout`
+
+      Inactivity timeout for a given load balancing rule.
+
 * `spec` (`HTTPRouteSpec`, required)
 
   Resource specification. For more information, see [below](#spec).
-
 
 ## HTTPRouteSpec {#spec}
 
@@ -157,19 +359,29 @@ Where:
 
     [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service) backends for processing requests.
 
-    The referred `Service` resource must be described per the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
+    You can specify either the [YCStorageBucket](../../../application-load-balancer/k8s-ref/yc-storage-bucket.md) resource ({{ objstorage-name }} bucket) or the [Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resource.
 
      * `name` (`string`)
 
-       {{ k8s }} service name.
+       Name of {{ k8s }} service or bucket resource.
 
      * `namespace` (`string`)
+  
+       Namespace comprising the service or bucket resource.
 
-       Service namespace.
+     * `group` (`string`)
+
+       Name of the {{ k8s }} API group the bucket resource belongs to, e.g., `gwin.yandex.cloud`. Only for the `YCStorageBucket` resource.
+
+       The default value is empty, indicating the root API group.
+
+     * `kind` (`string`)
+
+       Type of the {{ k8s }} resource with bucket. Only for the `YCStorageBucket` resource. The `YCStorageBucket` value is used.
 
      * `port` (`int32`)
 
-       Service port number.
+       Service port number. Only for the `Service` resource.
 
        This number must match one of the port numbers specified in the `spec.ports.port` fields of the `Service` resource. For more information, see the [resource configuration](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
 

@@ -51,7 +51,7 @@ To create a billing account:
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   If you select the **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** payment method or if the payer is a non-resident of Russia and Kazakhstan, further instructions will be emailed to you at the address specified in your Yandex or Yandex 360 account. Once your documents have been verified, you can activate your billing account and start using {{ yandex-cloud }}.
+   If you select the **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** payment method or if the payer is a non-resident of Russia and Kazakhstan, further instructions will be emailed to you at the address specified in your Yandex or Yandex 360 account. You can also get that email after you select **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}** for payment method if your new billing account requires verification. Once your documents have been verified, you can activate your billing account and start using {{ yandex-cloud }}.
 
    Email the following documents to [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}):
    * Copy in English of the legal entity's or individual entrepreneur's certificate of incorporation or registration

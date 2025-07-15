@@ -44,6 +44,10 @@ You can get detailed information about each [{{ GL }} instance](../../concepts/i
 
     For more information about this command, see the [CLI reference](../../cli-ref/instance/list.md).
 
+- API {#api}
+
+  Use the [List](../../api-ref/Instance/list.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/List](../../api-ref/grpc/Instance/list.md) gRPC API call.
+
 {% endlist %}
 
 ## Getting instance details {#get}
@@ -116,9 +120,13 @@ Instance details include:
     * `approval_rules_id`: Approval rules. [Learn more about supported rule configurations](../../concepts/approval-rules.md#packages).
     * `gitlab_version`: {{ GL }} version.
 
-    You can request the instance name and ID with the [list of instances in the folder](instance-list.md#list).  
+    You can request the instance name and ID with the [list of instances in the folder](instance-list.md#list).
 
     For more information about this command, see the [CLI reference](../../cli-ref/instance/get.md).
+
+- API {#api}
+
+  Use the [Get](../../api-ref/Instance/get.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Get](../../api-ref/grpc/Instance/get.md) gRPC API call.
 
 {% endlist %}
 

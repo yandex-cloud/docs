@@ -393,6 +393,8 @@ items:
                 href: triggers/api-ref/Trigger/resume.md
               - name: ListOperations
                 href: triggers/api-ref/Trigger/listOperations.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

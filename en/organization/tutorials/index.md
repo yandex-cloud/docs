@@ -3,7 +3,7 @@ title: '{{ org-full-name }} use cases'
 description: Various {{ org-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
-# {{ org-name }} tutorials
+# {{ org-full-name }} tutorials
 
 * [{#T}](user-group-access-control.md)
 * [Managing identity federations](./federations/index.md)

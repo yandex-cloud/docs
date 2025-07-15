@@ -1,5 +1,5 @@
 * `security_group_ids`: List of [security group](../../../../managed-airflow/concepts/network.md#security-groups) IDs.
-* `webserver`, `scheduler`, `worker`, `triggerer`: {{ maf-name }} [component](../../../../managed-airflow//concepts/index.md#components) configuration:
+* `webserver`, `scheduler`, `worker`, `triggerer`: {{ maf-name }} [component](../../../../managed-airflow/concepts/index.md#components) configuration:
 
     * `count`: Number of instances in the cluster for the web server, scheduler, and Triggerer.
     * `min_count`, `max_count`: Minimum and maximum number of instances in the cluster for the worker.
@@ -40,5 +40,3 @@
       Specify one of the two parameters: `folder_id` or `log_group_id`.
 
     * `min_level`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO` (default), `WARN`, `ERROR`, and `FATAL`.
-
-    You can specify only one of the parameters: `folder_id` or `log_group_id`.

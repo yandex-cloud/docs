@@ -1,6 +1,6 @@
 ---
-title: How to delete a {{ sws-full-name }} security profile
-description: Follow this guide to delete a {{ sws-full-name }} security profile.
+title: How to delete a {{ sws-full-name }} profile
+description: Follow this guide to delete a {{ sws-full-name }} profile.
 ---
 
 # Deleting a security profile
@@ -11,7 +11,7 @@ description: Follow this guide to delete a {{ sws-full-name }} security profile.
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. In the row with the profile you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Next to the profile in question, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
 - CLI {#cli}
@@ -20,7 +20,7 @@ description: Follow this guide to delete a {{ sws-full-name }} security profile.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../cli/quickstart.md) command for deleting a [security profile](../concepts/profiles.md):
+  1. See the description of the [CLI](../../cli/quickstart.md) command for deleting a [security profile](../concepts/profiles.md):
 
      ```bash
      yc smartwebsecurity security-profile delete --help
@@ -52,19 +52,21 @@ description: Follow this guide to delete a {{ sws-full-name }} security profile.
 
 - {{ TF }} {#tf}
 
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To delete a {{ sws-full-name }} security profile created with {{ TF }}:
+  To delete a {{ sws-full-name }} profile created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the fragment with the profile description.
+  1. Open the {{ TF }} configuration file and delete the section describing the profile.
 
-     {% cut "Example of security profile description in the {{ TF }} configuration" %}
+     {% cut "Example of a security profile description in the {{ TF }} configuration" %}
      
      ```hcl
      resource "yandex_sws_security_profile" "demo-profile-simple" {
        name                             = "<security_profile_name>"
        default_action                   = "DENY"
-       captcha_id                       = "<captcha_ID>"
+       captcha_id                       = "<CAPTCHA_ID>"
        advanced_rate_limiter_profile_id = "<ARL_profile_ID>"
 
        # Smart Protection rule
@@ -77,7 +79,7 @@ description: Follow this guide to delete a {{ sws-full-name }} security profile.
          }
        }
 
-       #Basic rule
+       # Basic rule
        security_rule {
          name = "base-rule-geo"
          priority = 100000
@@ -120,6 +122,6 @@ description: Follow this guide to delete a {{ sws-full-name }} security profile.
 
 - API {#api}
 
-   Use the [delete](../api-ref/SecurityProfile/delete.md) REST API method for the [SecurityProfile](../api-ref/SecurityProfile/) resource or the [SecurityProfileService/Delete](../api-ref/grpc/SecurityProfile/delete.md) gRPC API call.
+  Use the [delete](../api-ref/SecurityProfile/delete.md) REST API method for the [SecurityProfile](../api-ref/SecurityProfile/) resource or the [SecurityProfileService/Delete](../api-ref/grpc/SecurityProfile/delete.md) gRPC API call.
 
 {% endlist %}

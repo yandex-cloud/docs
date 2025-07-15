@@ -21,7 +21,7 @@ The support cost includes:
 * Fee for each {{ managed-k8s-name }} cluster: Using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * VM fee (two node groups and a VM for managing a cluster with no public access): Using computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for public IP addresses for the cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and operations with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -81,14 +81,14 @@ The support cost includes:
      * `sa_name_velero`: Name of the service account to work with Velero.
      * `storage_sa_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) with the `storage.admin` role. It will be used to create a bucket in {{ objstorage-name }} with `READ and WRITE` permissions in the [ACL](../../storage/concepts/acl.md) for the `sa_name_velero` service account.
      * `bucket_name`: Bucket name in {{ objstorage-name }}.
-  1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
-  1. Check that the {{ TF }} configuration files are correct using this command:
+  1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate
      ```
 
-     If there are any errors in the configuration files, {{ TF }} will point them out.
+     {{ TF }} will show any errors found in your configuration files.
   1. Create the required infrastructure:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}

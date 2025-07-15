@@ -701,12 +701,12 @@ Within five minutes, the `route-switcher` module will start operating to ensure 
 1. Set a password for the user specified in the `vm_admin_username` variable:
 
    ```bash
-   sudo passwd <username>
+   sudo passwd <user_name>
    ```
 
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the settings of this VM:
 
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.group.switch_instances }}**.
    1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the VM you need and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
    1. In the window that opens, under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable **{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}**.
@@ -733,7 +733,7 @@ Within five minutes, the `route-switcher` module will start operating to ensure 
 * Delete the public IP address of the jump VM if you are not going to use it.
 * If your plan is to use it for connection to the management segment via WireGuard VPN, change the WireGuard keys both on the jump VM and admin workstation.
 * Configure Smart-Soft TING for your specific needs in line with the corporate security policy.
-* Do not assign public IP addresses to the VMs in segments where Smart-Soft TING routing tables with a default route of `0.0.0.0/0` are used (more on it [here](../../vpc/concepts/routing.md#restrictions)). The exception is the `mgmt` segment, where routing tables do not use the `0.0.0.0/0` default route.
+* Do not assign public IP addresses to the VMs in segments where Smart-Soft TING routing tables with a default route of `0.0.0.0/0` are used (more on it [here](../../vpc/concepts/routing.md#restrictions)). The only exception is the `mgmt` segment where routing tables do not use the `0.0.0.0/0` default route.
 
 ## How to delete the resources you created {#clear-out}
 

@@ -10,12 +10,12 @@ Let's use {{ TF }} data sources to get an [Ubuntu 22.04 LTS](/marketplace/produc
 
 To get an `Ubuntu 22.04 LTS` image ID using {{ TF }}:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Install and configure {{ TF }}](#prepare-terraform).
 1. [Describe the data source](#prepare-plan).
 1. [Check the result](#check).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -48,19 +48,19 @@ In the {{ TF }} code, data sources are defined using the `data` block.
     * `data "yandex_compute_image"`: Disk image description as a data source:
         * `family`: [Image family](../../compute/concepts/image.md#family).
     * `output "resource_active"`: Output variable with information about the current image ID for the specified family:
-        * `value`: Returned value.
+        * `value`: Return value.
 
-    For more information about the `yandex_compute_image` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/compute_image).
+    For more information about the `yandex_compute_image` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_image).
 
-1. Create resources:
+1. Create the resources:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-    {{ TF }} will create the required resources and display the output variable values in the terminal.
+    {{ TF }} will create the required resources and display their output variables.
 
 ## Check the result {#check}
 
-To check the results, run:
+To check the results, run this command:
 
 ```bash
 terraform output

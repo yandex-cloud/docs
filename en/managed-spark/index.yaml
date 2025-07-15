@@ -6,9 +6,9 @@ description:
   - >-
     The {{ yandex-cloud }} infrastructure is <a
     href="/docs/security/conform">protected</a> pursuant to the following
-    standards: <ul> <li>Russian Federal Law No. 152-FZ on Personal Data</li>
-    <li>PCI DSS</li> <li>ISO 27001</li> <li>ISO 27017</li> <li>ISO 27018</li>
-    <li>GOST 57580.1-2017</li> </ul>
+    standards: <ul> <li>Russian Federal Law 152-FZ</li> <li>Payment Card
+    Industry Data Security Standard (PCI DSS).</li> <li>ISO 27001.</li> <li>ISO
+    27017.</li> <li>ISO 27018.</li> <li>GOST 57580.1-2017.</li> </ul>
   - >-
     <em>Apache<sup>®</sup> and Apache Spark<sup>™</sup> are registered
     trademarks or trademarks of Apache Software Foundation in the United States
@@ -27,13 +27,13 @@ links:
     description: HTTP API method descriptions
     href: api-ref/grpc/
   - title: Quotas and limits
-    description: Technical and management-related limitations
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
     description: Configure access permissions to use the service
     href: security
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
   - title: Release notes
     description: Releases and updates

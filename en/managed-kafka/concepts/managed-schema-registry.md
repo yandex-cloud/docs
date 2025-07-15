@@ -53,8 +53,10 @@ Subject access depends on permissions [granted](../operations/cluster-accounts.m
 
 * The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a specific topic allows the user to manage these subjects: `<topic_name>-key`, `<topic_name>-value`, and `<topic_name>`.
 * The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a topic formatted as `<prefix>*` allows the user to manage subjects with the same `<prefix>*` format. Topic and subject names start with the same prefix.
+* The `ACCESS_ROLE_TOPIC_ADMIN` role for a topic formatted as `<prefix>*` allows the user to manage subjects with the same `<prefix>*` format. Topic and subject names start with the same prefix.
 * The `ACCESS_ROLE_ADMIN` role allows the user to manage all subjects in a {{ mkf-name }} cluster.
 
+[Learn more](account-roles.md) about the permissions you get with each role.
 
 ### Authorization in {{ mkf-msr }} {#msr-auth}
 

@@ -1,6 +1,6 @@
 ---
 title: How to add a controlled organization in {{ org-full-name }}
-description: In this tutorial, you will learn how to link a new region to your organization.
+description: In this tutorial, you will learn how to link a new region to an organization in {{ org-name }}.
 ---
 
 # Connecting a controlled organization

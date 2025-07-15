@@ -222,8 +222,6 @@ items:
           mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
           data-transfer-full-name }}
         href: tutorials/data-transfer-direct-to-mch.md
-      - name: Migrating data from {{ ES }} to {{ mos-full-name }}
-        href: tutorials/elasticsearch-to-opensearch.md
       - name: Uploading {{ TF }} states to {{ objstorage-name }}
         href: tutorials/terraform-state-storage.md
       - name: Locking {{ TF }} states using {{ ydb-name }}

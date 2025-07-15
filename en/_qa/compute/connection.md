@@ -2,7 +2,7 @@
 
 #### How do I connect to a Linux VM? {#conn-vm-linux}
 
-Use this guide: [{#T}](../../compute/operations/vm-connect/ssh.md). If the computer you are connecting from runs Windows 7, 8, or early releases of Windows 10 without a built-in console SSH client, use [PuTTY](https://www.putty.org/).
+Use [{#T}](../../compute/operations/vm-connect/ssh.md) this guide. If the computer you are connecting from runs Windows 7, 8, or early releases of Windows 10 without a built-in console SSH client, use [PuTTY](https://www.putty.org/).
 
 Linux images provided by {{ yandex-cloud }} come without a GUI shell by default. SSH authentication with a username and password is disabled by default, as this method is outdated and poses security risks.
 
@@ -38,13 +38,13 @@ If you cannot access the VM you created from the snapshot either, see [How do I 
 
 #### What should I do if I cannot connect to a VM created from a {{ marketplace-name }} image? {#fail-connection-marketplace}
 
-Some {{ marketplace-name }} images have service usernames reserved, e.g., `bitrix` in the [1C-Bitrix](/marketplace/products/yc/bitrix-1c-centos-7) image. When creating a VM and connecting to it, use a username not reserved in the system, such as `user`. Do not use `root`, `admin`, or other system usernames.
+Some {{ marketplace-name }} images have service usernames reserved, e.g., `bitrix` in the [1C-Bitrix](/marketplace/products/yc/bitrix-1c-centos-7) image. When creating a VM and connecting to it, use a username not reserved in the system, e.g., `user`. Do not use `root`, `admin`, or other system usernames.
 
 Later on, you will be able to change the `bitrix` user password by running the `sudo passwd bitrix` command.
 
 #### What do I do if the _Permission denied_ error occurs? {#permission-denied}
 
-When [connecting](../../compute/operations/vm-connect/ssh.md#vm-connect) to a VM via SSH, you may get the following errors:
+When [connecting](../../compute/operations/vm-connect/ssh.md#vm-connect) to a VM over SSH, you may get the following errors:
 
 ```bash
 Permission denied (publickey)

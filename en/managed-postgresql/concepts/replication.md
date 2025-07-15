@@ -46,12 +46,16 @@ In this case, you can:
 
 For example, this way, you can configure cascading replication when some of the cluster replicas use other hosts in the cluster as the source of the replication stream. The replication thread for such source hosts can be managed both automatically (with the {{ mpg-name }} tools) and manually.
 
+{% note warning %}
+
 Replicas, for which the replication source is specified manually, cannot:
 
 * Become a master host when the previous one is changed automatically or [manually](../operations/update.md#start-manual-failover).
 * Automatically switch to a new replication source when the current replication source fails.
 * Be part of quorum replication.
 * Be selected as most recent replicas when using a [special FQDN](../operations/connect.md#fqdn-replica).
+
+{% endnote %}
 
 ## Write sync and read consistency {#write-sync-and-read-consistency}
 

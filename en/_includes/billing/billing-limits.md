@@ -1,7 +1,7 @@
 #### Quotas {#billing-quotas}
 
 #|
-|| Type of limitation | Value ||
+|| Type of limit | Value ||
 || Number of budgets per [billing account](../../billing/concepts/billing-account.md) 
 `billing.budgets.count` | 20 ||
 || Number of clouds [linked to a single billing account](../../billing/operations/pin-cloud.md) 

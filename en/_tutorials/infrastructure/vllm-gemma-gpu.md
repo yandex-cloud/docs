@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-Make sure the cloud has enough [quotas](../../compute/concepts/limits#compute-quotas) for the total number of `AMD EPYC™ 9474F with Gen2` GPUs, amount of RAM, number of vCPUs, and SSD size to create the VM. To do this, use [{{ quota-manager-full-name }}](../../quota-manager/).
+Make sure the cloud has enough [quotas](../../compute/concepts/limits.md#compute-quotas) for the total number of `AMD EPYC™ 9474F with Gen2` GPUs, amount of RAM, number of vCPUs, and SSD size to create the VM. To do this, use [{{ quota-manager-full-name }}](../../quota-manager/).
 
 ### Required paid resources {#paid-resources}
 
@@ -47,7 +47,7 @@ The infrastructure support cost includes a fee for continuously running VMs and 
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
    1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 20.04 LTS Secure Boot CUDA 12.2](/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2) public image.
@@ -59,7 +59,7 @@ The infrastructure support cost includes a fee for continuously running VMs and 
          * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}**: `1`.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-         * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+         * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
          * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.

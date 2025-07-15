@@ -7,10 +7,10 @@
 * [Get your cloud ready](#before-you-begin).
 * [Create and configure a protected resource](#resource-create).
 * [Create and check a security profile](#security-profile).
-* [Associate the security profile with the virtual host](#profile-connect).
+* [Connect a security profile to the protected resource](#profile-connect).
 * [Test the security profile](#monitoring).
-* (Optional) [Create and connect a WAF profile](#waf).
-* (Optional) [Create and connect an ARL profile](#arl).
+* Optionally, [create and connect a WAF profile](#waf).
+* Optionally, [create and connect an ARL profile](#arl).
 
 
 ## Get your cloud ready {#before-you-begin}
@@ -33,13 +33,13 @@
 - Domain {#domain}
 
   Domain is a server, website, or application that processes external requests to a web address. To protect a domain, {{ sws-name }} provides a proxy server with load balancing, request analysis and routing. And basic [DDoS protection](../vpc/ddos-protection/) as well.
-
+  
   The proxy server has an MTU limit of 1,450 bytes for all packets.
 
   {% include [preview-domain](../_includes/smartwebsecurity/preview-domain.md)%}
 
   ### Prepare data about the resource {#domain-info}
-
+  
     * Address of the domain the web application is running on. You need access to the domain management interface to update the A record.
     * Server IP address, port and protocol used by the web application.
     * Valid private key and TLS certificate for this domain in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded format. Certificates with RSA-2048 and RSA-4096 keys are supported.
@@ -51,7 +51,7 @@
   - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select your folder.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
     1. In the left-hand panel, select ![domain-protection-icon](../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
     1. Click **{{ ui-key.yacloud.smart-web-security.ProxyServers.createProxyServer_jatYQ }}**.
     1. Enter a name for the proxy server, e.g., `test-proxy`.
@@ -115,7 +115,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the protected resources are in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
 
       A preset profile includes:
@@ -155,7 +155,7 @@
 {% endlist %}
 
 
-## Associate the security profile with the virtual host {#profile-connect}
+## Connect a security profile to the resource {#profile-connect}
 
 {% list tabs group=instructions %}
 
@@ -169,7 +169,7 @@
   
   * To connect a virtual host in {{ alb-name }}:
 
-    1. If the load balancer is managed by an {{ alb-name }} [ingress controller](../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [Ingress resource annotation](../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+    1. If the load balancer is managed by an {{ alb-name }} [ingress controller](../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [ingress resource annotation](../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
     1. If the load balancer is managed by you, select the created profile under ![shield-check](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
     1. At the top right, click ![plug](../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
     1. In the window that opens, select:
@@ -186,7 +186,7 @@
 
   * To connect an API gateway:
     1. Under ![shield-check](../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**, copy the ID of the profile you need.
-    1. When creating an API gateway or in the existing API gateway specification, set this extension: [x-yc-apigateway:smartWebSecurity](../api-gateway/concepts/extensions/sws.md).
+    1. Specify the [x-yc-apigateway:smartWebSecurity](../api-gateway/concepts/extensions/sws.md) extension when creating an API gateway or in the existing API gateway specification.
     1. Specify the copied ID in the extension.
 
 
@@ -215,7 +215,7 @@ WAF allows using rule sets to protect web applications against various cyber att
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a WAF profile.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `test-waf-profile-1`.
   1. By default, the WAF profile uses the [OWASP Core Rule Set](https://coreruleset.org/). To view the rules it includes, click the row with its description.
@@ -296,7 +296,7 @@ ARL allows limiting the number of requests to the protected resource to prevent 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an ARL profile.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `test-arl-profile-1`.
   1. Add a profile description and labels if needed.

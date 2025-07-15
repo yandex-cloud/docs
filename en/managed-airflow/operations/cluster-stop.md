@@ -36,7 +36,7 @@ You can stop and restart an {{ AF }} cluster as needed. When stopped, a cluster 
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.stop](../api-ref/Cluster/stop.md) method to make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Stop](../api-ref/Cluster/stop.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -57,7 +57,7 @@ You can stop and restart an {{ AF }} cluster as needed. When stopped, a cluster 
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/Stop](../api-ref/grpc/Cluster/stop.md) call to make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Stop](../api-ref/grpc/Cluster/stop.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -110,7 +110,7 @@ You can restart clusters with the `Stopped` status.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.start](../api-ref/Cluster/start.md) method to make a request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Start](../api-ref/Cluster/start.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -131,7 +131,7 @@ You can restart clusters with the `Stopped` status.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService/Start](../api-ref/grpc/Cluster/start.md) call to make a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Start](../api-ref/grpc/Cluster/start.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

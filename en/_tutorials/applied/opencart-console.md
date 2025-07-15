@@ -25,7 +25,7 @@ To create a VM:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create your VM in.
-  1. From the list of services, select **{{ compute-short-name }}**.
+  1. In the list of services, select **{{ compute-short-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **VMs**.
   1. Click **Create VM**.
   1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
@@ -84,7 +84,7 @@ To create a DB cluster:
 
 - Management console
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **{{ MY }} cluster**.
+  1. On the folder dashboard in the [management console]({{ link-console-main }}), click **Create resource** and select **{{ MY }} cluster**.
   1. Specify a name for the cluster, e.g., `opencart`.
   1. Under **Host class**, select `s2.micro`. This configuration is sufficient for the system to run under a normal workload.
   1. Under **Database**, enter:

@@ -2,9 +2,11 @@
 
 * [Are logs stored on the same disk as {{ PG }} data? How are they charged?](#logs-storage)
 
+* [What is the retention period for logs?](#log-keeping)
+
 * [What are WALs and what are they used for?](#wal)
 
-* [What does the `Cached` parameter mean for {{ PG }} cluster host RAM monitoring?](#cached)
+* [What does the `Cached` parameter mean in {{ PG }} cluster host RAM monitoring?](#cached)
 
 * [How do I get alerts on critical {{ PG }} cluster parameters?](#notifications)
 

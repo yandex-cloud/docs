@@ -22,7 +22,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Check the description of the CLI command for creating a {{ managed-k8s-name }} node group:
+  1. View the description of the CLI command to create a {{ managed-k8s-name }} node group:
 
      ```bash
      {{ yc-k8s }} node-group create --help
@@ -213,7 +213,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        * `container_runtime`, `type`: [containerd](https://containerd.io/) runtime environment.
        * `labels`: Node group [cloud labels](../../concepts/index.md#node-labels). You can specify multiple labels separated by commas.
        * `node_labels`: Node group [{{ k8s }} labels](../../concepts/index.md#node-labels).
-       * `scale_policy`: Scaling settings. 
+       * `scale_policy`: Scaling settings.
 
          You cannot change the scaling type after you create a node group.
 

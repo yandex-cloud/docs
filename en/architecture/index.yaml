@@ -6,6 +6,10 @@ description:
 links:
   - title: Recommendations on fault tolerance in {{ yandex-cloud }}
     href: fault-tolerance
+  - title: >-
+      Deploying a web app in a fault-tolerant configuration in {{ yandex-cloud
+      }}
+    href: app-in-k8s
 meta:
   title: Architecture solutions
   description: >-

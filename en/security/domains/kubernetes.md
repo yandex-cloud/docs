@@ -100,7 +100,7 @@ The access of {{ iam-short-name }} accounts to {{ managed-k8s-name }} resources 
 * [{{ managed-k8s-name }} service roles](../../managed-kubernetes/security/#yc-api) (access to the {{ yandex-cloud }} API): These enable you to control clusters and node groups (for example, create a cluster, create/edit/delete a node group, and so on).
 * Service roles to access the {{ k8s }} API: These let you control cluster resources via the {{ k8s }} API (for example, perform standard actions with {{ k8s }}: create, delete, view namespaces, work with pods, deployments, create roles, and so on). Only the basic global roles are available at cluster level: `k8s.cluster-api.cluster-admin`, `k8s.cluster-api.editor`, and `k8s.cluster-api.viewer`.
 * Primitive roles: These are global primitive {{ iam-short-name }} roles that include service roles (for example, the primitive role admin includes both the service administration role and the administrative role to access the {{ k8s }} API).
-* Standard {{ k8s }} roles: Inside the {{ k8s }} cluster itself, you can use {{ k8s }} tools to create both regular roles and cluster roles. Thus you can control {{ iam-short-name }} accounts in terms of access at the namespace level. To assign {{ iam-short-name }} roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace stating the cloud user's {{ iam-short-name }} ID in the **subjects name** field. Example:
+* Standard {{ k8s }} roles: Inside the {{ k8s }} cluster itself, you can use {{ k8s }} tools to create both regular roles and cluster roles. Thus you can control {{ iam-short-name }} accounts in terms of access at the namespace level. To assign {{ iam-short-name }} roles at the namespace level, you can manually create RoleBinding objects in a relevant namespace stating the cloud user's {{ iam-short-name }} ID in the **subjects name** field. Here is an example:
 
     ```
     apiVersion: rbac.authorization.k8s.io/v1
@@ -195,7 +195,7 @@ For in-transit encryption, use TLS interaction between pods. If TLS cannot be us
 * [Istio](https://istio.io/)
 * [Linkerd](https://linkerd.io/)
 
-### Encryption at rest {#encryption-at-rest}
+### At-rest encryption {#encryption-at-rest}
 
 If you need to encrypt your stored data, you can use:
 

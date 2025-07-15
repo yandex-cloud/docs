@@ -1,5 +1,6 @@
 # {{ api-gw-name }} protection with {{ sws-name }}
 
+
 {{ api-gw-full-name }} supports integration with [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md). This allows you to set up DDoS and bot protection for an API gateway at [OSI](https://en.wikipedia.org/wiki/OSI_model) application level (L7).
 
 With {{ sws-name }} profiles, you can configure protection using various conditions. For example, you can set a [request limit](../../smartwebsecurity/concepts/arl.md) with parameter-based request grouping or configure IP-based request blocking. To do this:
@@ -32,7 +33,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * **Group by**: `token`
       * **Request limit per group**: `1` per `1 minute`
 
-  1. [Create a security profile](../../smartwebsecurity/operations/profile-create.md) named `sws-profile` using a preset template. When creating it, select the previously created `arl-profile` in the **{{ ui-key.yacloud.smart-web-security.arl.title_profile }}** field.
+  1. [Create a security profile](../../smartwebsecurity/operations/profile-create.md) named `sws-profile` using a preset template. When creating it, select the previously created `arl-profile` in the **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}** field.
 
   1. To set up IP-based blocking, [add a rule](../../smartwebsecurity/operations/rule-add.md) with the following settings to the {{ sws-name }} profile:
 

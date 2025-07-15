@@ -34,6 +34,10 @@ description: This page covers FAQ about {{ mpg-short-name }}.
 
 {% include [monitoring-minitoc](../../_qa/managed-postgresql/minitoc/monitoring.md) %}
 
+### Error messages {#toc-errors}
+
+{% include [errors-minitoc](../../_qa/managed-postgresql/minitoc/errors.md) %}
+
 ## General questions about {#general}
 
 {% include [general](../../_qa/managed-postgresql/general.md) %}
@@ -61,3 +65,7 @@ description: This page covers FAQ about {{ mpg-short-name }}.
 ## Monitoring and logs {#monitoring}
 
 {% include [monitoring](../../_qa/managed-postgresql/monitoring.md) %}
+
+## Error messages {#errors}
+
+{% include [errors](../../_qa/managed-postgresql/errors.md) %}

@@ -5,7 +5,7 @@ You can migrate data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-
 
 1. [Prepare the test data](#prepare-data).
 1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -21,9 +21,9 @@ The support cost includes:
 	
     Learn more about the [{{ ydb-name }} pricing](../../../ydb/pricing/index.md) plans.
 
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and operations with data (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 
-* Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -70,7 +70,7 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -82,7 +82,7 @@ Set up your infrastructure:
 
 ## Prepare the test data {#prepare-data}
 
-1. [Create](../../../ydb/operations/crud.md#web-sql) the `seasons` table in the {{ ydb-name }} database:
+1. [Create](../../../ydb/operations/crud.md#web-sql) a table named `seasons` in the {{ ydb-name }} database:
 
     ```sql
     CREATE TABLE seasons
@@ -152,7 +152,7 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -167,7 +167,7 @@ Set up your infrastructure:
 Make sure the data has been migrated from {{ ydb-name }} to the {{ objstorage-name }} bucket:
 
 1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Select the bucket from the list.
 1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
 1. Make sure the {{ objstorage-name }} bucket contains the `from_YDB` directory with the `<seasons.csv>` test data object.

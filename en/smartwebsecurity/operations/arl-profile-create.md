@@ -9,11 +9,11 @@ description: Follow this guide to create a {{ sws-full-name }} ARL profile.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create your [ARL profile](../concepts/arl.md) in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an [ARL profile](../concepts/arl.md).
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}** and click **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
-  1. Enter the profile name.
-  1. Optionally, enter a description.
+  1. Name the profile.
+  1. Optionally, provide a description.
   1. Optionally, add [labels](../../resource-manager/concepts/labels.md) to your profile.
   1. [Add](arl-rule-add.md) ARL rules.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -26,7 +26,7 @@ description: Follow this guide to create a {{ sws-full-name }} ARL profile.
 
   To create an [ARL profile](../concepts/arl.md):
 
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
       ```hcl
       # ARL profile
@@ -61,15 +61,15 @@ description: Follow this guide to create a {{ sws-full-name }} ARL profile.
 
       {% include [arl-profile-parameters](../../_includes/smartwebsecurity/arl-profile-parameters.md) %}
 
-      For more information about the `yandex_sws_advanced_rate_limiter_profile` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
+      For more information about the `yandex_sws_advanced_rate_limiter_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_advanced_rate_limiter_profile).
 
   1. Create the resources:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-       {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}).
+       {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}).
 
-  Once your ARL profile is created, you can [add a rule to the profile](arl-rule-add.md).
+  Once your ARL profile is created, you can [add rules](arl-rule-add.md).
 
 - API {#api}
 

@@ -57,7 +57,7 @@ The infrastructure support cost includes:
 * Fee for using {{ network-load-balancer-name }} (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 * Fee for public IP addresses and outbound traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Fee for using the [CheckPoint NGFWS]({{ link-cloud-marketplace }}/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m).
+* Fee for using the [CheckPoint NGFW]({{ link-cloud-marketplace }}/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m).
 
 ### Required quotas {#required-quotes}
 
@@ -182,7 +182,7 @@ We use the Linux terminal to perform the following steps.
          yc iam service-account create --name sa-terraform
          ```
 
-         Where `name` is the service account name. Follow these naming requirements:
+         Where `name` is the service account name. The naming requirements are as follows:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
@@ -353,7 +353,7 @@ We use the Linux terminal to perform the following steps.
          ```bash
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
-         yc config set folder-id <catalog_ID>
+         yc config set folder-id <folder_ID>
          ```
 
          Where:
@@ -645,7 +645,7 @@ terraform plan
 terraform apply
 ```
 
-Within five minutes, the `route-switcher` module will start operating to ensure fault tolerance of outbound traffic in segments.
+Within five minutes, the `route-switcher` module will start working, providing outbound traffic fault tolerance.
 
 ## Test the solution for performance and fault tolerance {#test-accessibility}
 
@@ -723,7 +723,7 @@ Within five minutes, the `route-switcher` module will start operating to ensure 
 
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), change the settings of this VM:
 
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to the VM you need and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. In the window that opens, under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable **{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}**.
@@ -738,10 +738,10 @@ Within five minutes, the `route-switcher` module will start operating to ensure 
     ```
 
 1. Emulate the main firewall failure by [stopping](../../compute/operations/vm-control/vm-stop-and-start.md#stop) the `FW-A` VM in the `mgmt` folder of the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-1. Monitor the loss of `httping` and `ping` packets. After `FW-A` fails, you may see a traffic loss for about one minute with the subsequent traffic recovery.
+1. Monitor the loss of `httping` and `ping` packets. After FW-A fails, you may experience traffic loss for about one minute, then traffic should resume.
 1. Make sure the `dmz-rt` route table in the `dmz` folder uses the `FW-B` address as `next hop`.
 1. Emulate the main firewall recovery by [running](../../compute/operations/vm-control/vm-stop-and-start.md#start) the `FW-A` VM in the {{ yandex-cloud }} [management console]({{ link-console-main }}).
-1. Monitor the loss of `httping` and `ping` packets. After `FW-A` recovers, you may see a traffic loss for about one minute with the subsequent traffic recovery.
+1. Monitor the loss of `httping` and `ping` packets. After FW-A recovers, you may experience traffic loss for about one minute, then traffic should resume.
 1. Make sure the `dmz-rt` route table in the `dmz` folder uses the `FW-A` address as `next hop`.
 
 ## How to delete the resources you created {#clear-out}

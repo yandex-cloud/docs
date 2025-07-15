@@ -23,7 +23,7 @@ To view detailed information about the {{ mes-name }} cluster state:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **Managed Service for Elasticsearch**.
     1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
 
     1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
@@ -37,9 +37,9 @@ To view detailed information about the {{ mes-name }} cluster state:
 
     * **Health status**: Cluster health and technical condition:
 
-        * 0 (<q>red</q>): Cluster is unhealthy or partially functional. At least one of the primary shards is unavailable. If the cluster responds to queries, the search results will be incomplete.
-        * 1 (<q>yellow</q>): Cluster is functional. There is no access to at least one of the replica shards. The search results in the cluster responses are complete; however, if there are more unavailable shards, cluster performance will be disrupted.
-        * 2 (<q>green</q>): Cluster is healthy. All cluster shards are available.
+        * 0 — <q>red</q>: Cluster is unhealthy or partially functional. At least one of the primary shards is unavailable. If the cluster responds to queries, the search results will be incomplete.
+        * 1 — <q>yellow</q>: Cluster is functional. One or more shard replicas are inaccessible. The search results in the cluster responses are complete; however, if there are more unavailable shards, cluster performance will be disrupted.
+        * 2 — <q>green</q>: Cluster is healthy. All cluster shards are available.
 
     * **Indexing rate**: Number of indexing operations per second, per host.
     * **JVM heap**: The use of JVM heap memory per host (in bytes).
@@ -83,7 +83,7 @@ To view detailed information about the state of individual {{ mes-name }} hosts:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **Managed Service for Elasticsearch**.
     1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Select the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
     1. Select the host from the drop-down list.
@@ -138,8 +138,8 @@ The recommended thresholds are as follows:
 
 For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}` and `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`: `96,636,764,160` bytes (90%)
-* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`: `85,899,345,920` bytes (80%)
+* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`: `96636764160` bytes (90%).
+* `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}`: `85899345920` bytes (80%).
 
 You can view the current storage size and RAM of the hosts in the [detailed information about the cluster](cluster-list.md#get-cluster).
 
@@ -154,7 +154,7 @@ To view a cluster's state and status:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **Managed Service for Elasticsearch**.
     1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the required cluster row.
 
 - API {#api}

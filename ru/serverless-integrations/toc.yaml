@@ -86,6 +86,8 @@ items:
                     href: operations/workflows/constructor/workflow.md
                   - name: AI-агент
                     href: operations/workflows/constructor/aiagent.md
+                  - name: Telegram-бот
+                    href: operations/workflows/constructor/telegrambot.md
               - name: Управляющие шаги
                 items:
                   - name: Switch
@@ -300,6 +302,8 @@ items:
                     href: concepts/workflows/yawl/integration/disk.md
                   - name: AIAgent
                     href: concepts/workflows/yawl/integration/aiagent.md
+                  - name: TelegramBot
+                    href: concepts/workflows/yawl/integration/telegrambot.md
               - name: Управляющие шаги
                 items:
                   - name: Switch

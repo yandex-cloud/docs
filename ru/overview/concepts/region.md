@@ -8,7 +8,7 @@
 
 Регион | Россия | Казахстан
 --- | --- | ---
-Зоны доступности | `{{ region-id }}-a`<br/>`{{ region-id }}-b`<br/>`{{ region-id }}-d` | `kz1-a`
+Зоны доступности | `ru-central1-a`<br/>`ru-central1-b`<br/>`ru-central1-d` | `kz1-a`
 Консоль управления | [https://console.yandex.cloud](https://console.yandex.cloud) | [https://kz.console.yandex.cloud](https://kz.console.yandex.cloud)
 Оплата ресурсов | [Тарифы для региона Россия](https://yandex.cloud/ru/prices) | [Тарифы для региона Казахстан](https://yandex.cloud/ru-kz/prices)
 Сервис {{ billing-name }} | [https://center.yandex.cloud/billing](https://center.yandex.cloud/billing) | [https://kz.center.yandex.cloud/billing](https://kz.center.yandex.cloud/billing)

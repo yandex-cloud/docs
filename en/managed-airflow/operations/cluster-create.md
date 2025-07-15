@@ -38,8 +38,8 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
         1. Enter a name for the cluster. The name must be unique within the folder.
-        1. (Optional) Enter a cluster description.
-        1. (Optional) Create [labels](../../resource-manager/concepts/labels.md):
+        1. Optionally, enter a description for the cluster.
+        1. Optionally, create [labels](../../resource-manager/concepts/labels.md):
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Enter a label in `key: value` format.
             1. Press **Enter**.
@@ -388,7 +388,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             {% endnote %}
 
-    1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -566,7 +566,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             {% endnote %}
 
-    1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

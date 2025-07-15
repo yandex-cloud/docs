@@ -11,11 +11,11 @@ Basic rules, as well as Smart Protection and WAF rules, are [deleted from a secu
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the [ARL profile](../concepts/arl.md) resides in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the [ARL profile](../concepts/arl.md).
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
-  1. Select the profile to delete a rule from.
-  1. Under **{{ ui-key.yacloud.smart-web-security.arl.section_rules }}**, in the rule row, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Select the profile where you want to delete a rule.
+  1. Under **{{ ui-key.yacloud.smart-web-security.arl.section_rules }}**, next the rule in question, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
 - {{ TF }} {#tf}
@@ -26,7 +26,7 @@ Basic rules, as well as Smart Protection and WAF rules, are [deleted from a secu
 
   To delete an [ARL profile](../concepts/arl.md) rule created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and remove the `advanced_rate_limiter_rule` section with the security rule from the `yandex_sws_advanced_rate_limiter_profile` ARL profile description.
+  1. Open the {{ TF }} configuration file and remove the `advanced_rate_limiter_rule` section from the `yandex_sws_advanced_rate_limiter_profile` description.
 
       {% cut "Example of an ARL profile description in the {{ TF }} configuration" %}
       
@@ -70,7 +70,7 @@ Basic rules, as well as Smart Protection and WAF rules, are [deleted from a secu
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-       You can check the deletion of the resources using the [management console]({{ link-console-main }}).
+       You can check the deletion of the resources in the [management console]({{ link-console-main }}).
 
 - API {#api}
 

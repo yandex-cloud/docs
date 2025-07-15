@@ -28,7 +28,7 @@ items:
           - name: Connecting a controlled organization
             href: operations/add-region.md
             hidden: true
-      - name: User management
+      - name: Managing users
         items:
           - name: Overview
             href: operations/manage-users.md
@@ -114,7 +114,7 @@ items:
         items:
           - name: Overview
             href: operations/security.md
-          - name: Assigning a user as organization administrator
+          - name: Assigning a user as an organization administrator
             href: operations/add-org-admin.md
           - name: Assigning a role to a user
             href: operations/add-role.md
@@ -179,6 +179,8 @@ items:
         href: diagnostics.md
       - name: Errors in SAML 2.0 federations
         href: saml-diagnostics.md
+      - name: Errors when working with user pools
+        href: userpool-diagnostics.md
       - name: Authentication errors when using a Yandex account
         href: yandex-id-diagnostics.md
   - name: Access management

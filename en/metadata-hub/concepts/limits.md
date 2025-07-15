@@ -23,4 +23,8 @@ description: '{{ metadata-hub-full-name }} applies quotas on the number of conne
 
 {% include [schema-registry-quotas](../../_includes/metadata-hub/schema-registry-quotas.md) %}
 
+## {{ data-catalog-name }} quotas {#data-catalog-quota}
+
+{% include [schema-registry-quotas](../../_includes/metadata-hub/data-catalog-quotas.md) %}
+
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}

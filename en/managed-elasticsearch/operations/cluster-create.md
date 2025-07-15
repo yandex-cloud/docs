@@ -1,13 +1,13 @@
 ---
-title: Creating an {{ ES }} cluster
+title: Creating a {{ ES }} cluster
 description: A cluster in Yandex Managed Service for {{ ES }} is a group of multiple interlinked {{ ES }} hosts. When creating an {{ ES }} cluster, specify parameters separately for the hosts with the Master node and the Data node roles.
 keywords:
-  - Creating an {{ ES }} cluster
+  - creating an {{ ES }} cluster
   - '{{ ES }} cluster'
   - '{{ ES }}'
 ---
 
-# Creating an {{ ES }} cluster
+# Creating a {{ ES }} cluster
 
 {% include [Elasticsearch-end-of-service](../../_includes/mdb/mes/note-end-of-service.md) %}
 
@@ -40,13 +40,13 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
   To create a {{ mes-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a {{ mes-name }} cluster.
-  1. Select **Managed Service for&nbsp;Elasticsearch**.
+  1. Select **Managed Service for Elasticsearch**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
      1. Enter a name and description for the {{ mes-name }} cluster. The {{ mes-name }} cluster name must be unique within the folder.
      1. Select the environment where you want to create the {{ mes-name }} cluster (you cannot change the environment once the cluster is created):
         * `PRODUCTION`: For stable versions of your apps.
-        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
      1. Select the {{ ES }} version from the list.
      1. Select the [{{ ES }} edition](../concepts/es-editions.md).
 
@@ -129,7 +129,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
-  1. View the description of the create {{ mes-name }} cluster CLI command:
+  1. View the description of the CLI command to create a {{ mes-name }} cluster:
 
      ```bash
      {{ yc-mdb-es }} cluster create --help
@@ -196,7 +196,7 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
 
 
   To create a {{ mes-name }} cluster:
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the parameters of resources you want to create:
      * Database cluster: Description of the {{ mes-name }} cluster and its hosts.
 
      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
@@ -274,11 +274,11 @@ You can use hosts only with the _Data node_ role, without creating dedicated hos
         * `assign_public_ip`: Public access to the host, `true` or `false`.
         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
 
-     If the {{ mes-name }} cluster deletion protection is activated, this does not protect the DB contents.
+     Active {{ mes-name }} cluster deletion protection does not protect the DB contents.
 
      1. {% include [Maintenance window](../../_includes/mdb/mes/terraform/maintenance-window.md) %}
 
-     For more information about the resources you can create with {{ TF }}, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
+     For more information about the resources you can create with {{ TF }}, see the [provider documentation {{ TF }}]({{ tf-provider-mes }}).
   1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -343,10 +343,10 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
 
   * With a single publicly available `{{ host-class }}` class host with the _Data node_ role in the `{{ subnet-id }}` subnet, in the `{{ region-id }}-a` availability zone.
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
-  * User: `admin`; password: `esadminpwd`.
+  * Password: `esadminpwd`; user: `admin`.
   * Protection against accidental {{ mes-name }} cluster deletion: Enabled.
 
-  Run the following command:
+  Run this command:
 
   
   ```bash
@@ -454,6 +454,6 @@ If you specified security group IDs when creating a {{ mes-name }} cluster, you 
 
   * Hosts: One publicly available `{{ host-class }}` host with the _Data node_ role, subnet: `mysubnet`, availability zone: `{{ region-id }}-a`. Range for `mysubnet`: `10.5.0.0/24`.
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
-  * `esadminpwd` password for the `admin` user.
+  * User: `admin`; password: `esadminpwd`.
 
 {% endlist %}

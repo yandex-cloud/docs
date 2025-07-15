@@ -1,6 +1,6 @@
 ---
 title: How to assign permissions to a user group in {{ org-full-name }}
-description: In this article, you will learn how to configure access for a {{ org-name }} user group to {{ yandex-cloud }}.
+description: In this article, you will learn how to configure access for a user group in {{ org-name }}.
 ---
 
 ## Assigning a role for an entire organization {#access-organization}

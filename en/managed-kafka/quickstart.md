@@ -1,6 +1,6 @@
 ---
-title: Getting started with {{ mkf-full-name }}
-description: Follow this guide to create and set up an {{ KF }} cluster.
+title: How to get started with {{ mkf-full-name }}
+description: Follow this guide to set up and configure an {{ KF }} cluster.
 ---
 
 # Getting started with {{ mkf-name }}
@@ -30,7 +30,7 @@ To get started:
 
    * To connect to a cluster from the internet, enable public access to the cluster when [creating](operations/cluster-create.md) it.
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to your VM over SSH.
 
    {% note info %}
 
@@ -44,7 +44,7 @@ To get started:
    sudo apt-get install kafkacat
    ```
 
-   Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../managed-kafka/operations/connect/clients.md#bash-zsh).
+   Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 
 ## Create a cluster {#cluster-create}
@@ -53,7 +53,7 @@ To create a cluster:
 1. In the management console, select the folder where you want to create a cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Set the cluster parameters and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
+1. Specify your cluster settings and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running`, and its state, to `Alive`. This may take some time.
 
 Then create a topic in the cluster.
@@ -73,7 +73,9 @@ Then create users for producers and consumers.
 
 ## Create a user {#account-create}
 
-User settings let you manage [producer and consumer](./concepts/producers-consumers.md) permissions to cluster topics.
+User settings let you manage [producer and consumer](concepts/producers-consumers.md) permissions to cluster topics.
+
+[Learn more](concepts/account-roles.md) about the permissions you get with each role.
 
 To create a user:
 1. In the management console, select the folder where the cluster is located.
@@ -91,7 +93,7 @@ Then connect to the cluster using this username.
 
 You can connect the producer and consumer to the cluster on behalf of one user. Both the producer and consumer will only be able to work with the topics that this user is allowed to access.
 
-To connect to a cluster:
+To connect to your cluster:
 
 
 1. If you are using security groups for a cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.

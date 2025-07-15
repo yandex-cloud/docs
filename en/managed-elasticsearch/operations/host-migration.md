@@ -14,7 +14,7 @@ description: Follow this guide to relocate hosts in a {{ ES }} cluster to a diff
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+      1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **Managed Service for Elasticsearch**.
       1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the host parameters:
@@ -31,7 +31,7 @@ description: Follow this guide to relocate hosts in a {{ ES }} cluster to a diff
 
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-      Run the following command:
+      Run this command:
 
       ```bash
       {{ yc-mdb-es }} host add \
@@ -42,7 +42,7 @@ description: Follow this guide to relocate hosts in a {{ ES }} cluster to a diff
                `assign-public-ip=<public_access_to_host:_true_or_false>
       ```
 
-      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
+      You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
 
    - {{ TF }} {#tf}
 
@@ -74,7 +74,7 @@ description: Follow this guide to relocate hosts in a {{ ES }} cluster to a diff
 
       To add a host to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
 
-      * Cluster ID in the `clusterId` parameter. You can get the ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      * Cluster ID in the `clusterId` parameter. You can get the ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
       * New host settings in the `hostSpecs` parameters.
 
    {% endlist %}
@@ -95,7 +95,7 @@ description: Follow this guide to relocate hosts in a {{ ES }} cluster to a diff
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+      1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **Managed Service for Elasticsearch**.
       1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
@@ -127,7 +127,7 @@ description: Follow this guide to relocate hosts in a {{ ES }} cluster to a diff
 
    {% endlist %}
 
-1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder page and select **Managed Service for&nbsp;Elasticsearch**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder dashboard and select **Managed Service for Elasticsearch**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
 

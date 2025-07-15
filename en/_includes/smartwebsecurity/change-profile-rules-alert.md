@@ -1,5 +1,5 @@
 {% note alert %}
 
-If you change the rules in the security profile, all existing rules will be deleted. This is why the YAML file with the changes must contain the full set of rules that will be in effect in the security profile.
+When you change the rules in the security profile, all the existing rules will be deleted. Make sure the updated YAML file includes the full set of rules that the security profile should use.
 
 {% endnote %}

@@ -1,6 +1,6 @@
 ---
 title: How to lease a server in {{ baremetal-full-name }}
-description: In this tutorial, you will learn how to lease a server in {{ baremetal-full-name }}.
+description: Follow this guide to lease a server in {{ baremetal-full-name }}.
 ---
 
 # Leasing a server
@@ -18,7 +18,7 @@ description: In this tutorial, you will learn how to lease a server in {{ bareme
   1. {% include [server-lease-step7-bm](../../../_includes/baremetal/instruction-steps/server-lease-step7-bm.md) %}
   1. {% include [server-lease-step8](../../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
   1. {% include [server-lease-step9-bm](../../../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
-  1. If you are installing an OS on the server from a public image in {{ marketplace-name }}, set the server access settings under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+  1. If you are installing an OS from a {{ marketplace-short-name }} public image, specify server access settings under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
       {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}
 
@@ -33,4 +33,4 @@ description: In this tutorial, you will learn how to lease a server in {{ bareme
 
 {% endlist %}
 
-Once you lease a server, you can install or reinstall the OS at any time using either a {{ marketplace-name }} public image or your own custom ISO. For more information, see [{#T}](./reinstall-os-from-marketplace.md) and [{#T}](./reinstall-os-from-own-image.md).
+Once you lease a server, you can install or reinstall the OS at any time using either a {{ marketplace-short-name }} public image or your own custom ISO. For more information, see [{#T}](./reinstall-os-from-marketplace.md) and [{#T}](./reinstall-os-from-own-image.md).

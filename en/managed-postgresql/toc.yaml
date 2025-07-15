@@ -43,7 +43,7 @@ items:
             href: operations/web-sql-query.md
           - name: Copying and populating a table
             href: operations/copy-write-data.md
-          - name: Managing databases
+          - name: Database management
             href: operations/databases.md
       - name: '{{ PG }} users'
         items:
@@ -137,7 +137,7 @@ items:
         href: tutorials/yq-postgre.md
       - name: Federated data queries using {{ yq-name }}
         href: tutorials/yq-federative-queries.md
-      - name: Fixing string sorting issues after upgrading _glibc_
+      - name: Fixing string sorting issues after upgrading glibc
         href: tutorials/glibc-collation-issues.md
       - name: Writing data from a device into a database
         href: tutorials/data-recording.md
@@ -195,6 +195,8 @@ items:
             href: concepts/using-deprecated-instances.md
       - name: Planning a cluster topology
         href: concepts/planning-cluster-topology.md
+      - name: Cluster high availability
+        href: concepts/high-availability.md
       - name: Networking in {{ mpg-name }}
         href: concepts/network.md
       - name: Quotas and limits
@@ -611,5 +613,7 @@ items:
         href: qa/ha.md
       - name: Monitoring and logs
         href: qa/monitoring.md
+      - name: Error messages
+        href: qa/errors.md
       - name: All questions on a single page
         href: qa/all.md

@@ -11,7 +11,7 @@ Before deleting a WAF profile, delete all WAF rules from the associated security
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the [WAF profile](../concepts/waf.md) is in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [WAF profile](../concepts/waf.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
   1. Save or memorize the ID of the profile you want to delete.
@@ -19,11 +19,11 @@ Before deleting a WAF profile, delete all WAF rules from the associated security
   1. In the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab, delete the WAF profile rules:
 
      1. In the **{{ ui-key.yacloud.smart-web-security.label_search-rule-type }}** filter, select `{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}`.
-     1. In the row with the rule associated with the WAF profile with the relevant ID, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+     1. Next to the rule associated with the WAF profile with the relevant ID, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
      1. Confirm the deletion.
   1. Similarly, delete the WAF rules from all associated security profiles.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
-  1. In the row with the profile you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Next to the profile in question, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 
 - {{ TF }} {#tf}
@@ -34,12 +34,12 @@ Before deleting a WAF profile, delete all WAF rules from the associated security
 
   To delete a {{ sws-full-name }} WAF profile created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the fragment with the WAF profile description.
+  1. Open the {{ TF }} configuration file and delete the section describing the WAF profile.
 
-     {% cut "Below is an example of a WAF profile description in the {{ TF }} configuration" %}
+     {% cut "Example of a WAF profile description in the {{ TF }} configuration" %}
 
      ```hcl
-      # In the basic set, rules of this paranoia level and below will be active
+      # In the basic set, rules of this paranoia level and below will be enabled
       locals {
         waf_paranoia_level = 1
       }
@@ -64,7 +64,7 @@ Before deleting a WAF profile, delete all WAF rules from the associated security
           }
         }
 
-        # Activating rules from the basic set if their paranoia level is not higher than specified in the waf_paranoia_level variable
+        # Enabling rules from the basic set if their paranoia level is not higher than the value defined in the waf_paranoia_level variable
         dynamic "rule" {
           for_each = [
             for rule in data.yandex_sws_waf_rule_set_descriptor.owasp4.rules : rule
@@ -91,7 +91,7 @@ Before deleting a WAF profile, delete all WAF rules from the associated security
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the deletion of the resources using the [management console]({{ link-console-main }}).
+  You can check the deletion of the resources in the [management console]({{ link-console-main }}).
 
 - API {#api}
 

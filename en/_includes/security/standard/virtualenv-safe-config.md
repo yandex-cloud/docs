@@ -252,7 +252,7 @@ With ACLs, you can grant access to an object bypassing {{ iam-short-name }} veri
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. From the list of services, select **{{ objstorage-name }}**.
+  1. In the list of services, select **{{ objstorage-name }}**.
   1. Click the three dots next to each bucket and check its ACL for `allUsers` and `allAuthenticatedUsers`.
   1. Open the bucket and check the ACL of each of its objects for `allUsers` and `allAuthenticatedUsers`.
   1. Check that the object **Read access** section has the **Public** parameter enabled. Otherwise, proceed to "Guides and solutions to use".
@@ -330,7 +330,7 @@ The storage period of critical data in a bucket is determined by the customer's 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. From the list of services, select **{{ objstorage-name }}**.
+  1. In the list of services, select **{{ objstorage-name }}**.
   1. Open the settings of all buckets.
   1. Go to the **Versioning** tab and make sure it is enabled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -382,7 +382,7 @@ If you need [cross-domain requests](https://en.wikipedia.org/wiki/Cross-origin_r
 - Performing a check in the management console {#console}
 
   1. In the management console, select the cloud or folder to check the buckets in.
-  1. From the list of services, select **{{ objstorage-name }}**.
+  1. In the list of services, select **{{ objstorage-name }}**.
   1. Open the settings of all buckets.
   1. Go to the **CORS** tab and make sure that the configuration is set up. Otherwise, proceed to "Guides and solutions to use".
 
@@ -1235,7 +1235,7 @@ An API gateway is an interface for working with services in {{ yandex-cloud }} o
 
 #### 3.40 Access management in {{ api-gw-name }} is configured {#api-gateway-access-managment}
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. With no roles assigned, a user cannot perform most operations.
+{{ yandex-cloud }} users can only perform operations on resources according to their assigned roles. Without assigned roles, a user cannot perform most operations.
 
 [{{ iam-full-name }}](../../../iam/) checks all operations in {{ yandex-cloud }}. If an entity does not have required permissions, {{ iam-short-name }} returns an error.
 
@@ -1275,7 +1275,7 @@ If you specify a network in the API gateway settings, this will create an auxili
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. From the list of services, select **{{ api-gw-name }}**.
+  1. In the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Make sure the cloud network is specified in the **Overview** section.
 
@@ -1283,7 +1283,7 @@ If you specify a network in the API gateway settings, this will create an auxili
 
 **Guides and solutions to use:** 
 
-If the API gateway does not require access to resources from the specified cloud network, delete it from the gateway settings. To learn more, see [{#T}](../../../api-gateway/operations/api-gw-update.md).
+If the API gateway does not require access to resources from the specified cloud network, delete it from the gateway settings. For more information, see [{#T}](../../../api-gateway/operations/api-gw-update.md).
 
 #### 3.42 Recommendations for using custom domains are followed {#using-own-domain}
 
@@ -1321,7 +1321,7 @@ We recommend that you use the following when connecting to the API gateway via W
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. From the list of services, select **{{ api-gw-name }}**.
+  1. In the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Set up integrations in the OpenAPI specification using the following operations: `x-yc-apigateway-websocket-message`, `x-yc-apigateway-websocket-connect`, or `x-yc-apigateway-websocket-disconnect`.
 
@@ -1338,7 +1338,7 @@ Make sure that security enhancement extensions were added to the {{ api-gw-name 
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. From the list of services, select **{{ api-gw-name }}**.
+  1. In the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. OpenAPI 3.0 is used in the **Specification** section.
 
@@ -1357,7 +1357,7 @@ The `x-yc-apigateway:smartWebSecurity` extension uses [{{ sws-full-name }} profi
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. From the list of services, select **{{ api-gw-name }}**.
+  1. In the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Make sure the **Specification** section uses the `x-yc-apigateway:smartWebSecurity` extension, which protects the API gateway as well as your application, function, or container from DDoS attacks based on the {{ sws-full-name }} profile rules.
 
@@ -1375,7 +1375,7 @@ We recommend using the OpenAPI 3.0 authentication and authorization mechanisms t
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. From the list of services, select **{{ api-gw-name }}**.
+  1. In the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Make sure that the **Specification** section has the `x-yc-apigateway-authorizer:jwt` or `x-yc-apigateway-authorizer:function` extension configured.
 
@@ -1402,7 +1402,7 @@ We recommend to keep logging enabled when creating an API gateway. For more info
 - Performing a check in the management console {#console}
 
   1. In the management console, select the folder containing the API gateway.
-  1. From the list of services, select **{{ api-gw-name }}**.
+  1. In the list of services, select **{{ api-gw-name }}**.
   1. Select the API gateway you need from the list.
   1. Make sure that the **Write logs** option is enabled in the **Logging** section and that the gateway logging level and destination are set up.
 

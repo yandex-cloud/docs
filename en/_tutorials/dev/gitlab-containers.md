@@ -38,7 +38,6 @@ Infrastructure support costs include fees for the following resources:
 * Storage of created Docker images (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * Usage of a [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 
-
 {% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
 
 {% include [prepare](../../_includes/managed-gitlab/prepare.md) %}
@@ -286,7 +285,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
 ## Check the result {#check-result}
 
-1. After you save the `.gitlab-ci.yml` configuration file, the build script will start. To check its results, select **Build** on the left-hand panel in the `gitlab-test` project, then select **Pipelines** from the drop-down menu, and wait for both build stages to complete successfully.
+1. After you save the `.gitlab-ci.yml` configuration file, the build scenario will start. To check its results, select **Build** on the left-hand panel in the `gitlab-test` project, then select **Pipelines** from the drop-down menu, and wait for both build stages to complete successfully.
 1. To check how the created application is running in your {{ managed-k8s-name }} cluster, view its container logs:
 
    ```bash

@@ -15,7 +15,7 @@ You can delete an {{ TR }} cluster if you no longer need it.
 
 ## Deleting a cluster {#delete}
 
-Before deleting a cluster, disable its deletion protection if it is enabled.
+Before deleting a cluster, disable its deletion protection if active.
 
 {% list tabs group=instructions %}
 
@@ -25,6 +25,20 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
   1. Select **{{ mtr-name }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   1. In the window that opens, confirm the deletion and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To delete a {{ mtr-name }} cluster, run this command:
+
+    ```bash
+    {{ yc-mdb-tr }} cluster delete <cluster_name_or_ID>
+    ```
+
+    You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 

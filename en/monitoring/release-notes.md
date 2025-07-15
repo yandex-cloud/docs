@@ -22,7 +22,7 @@ description: This section contains {{ monitoring-name }} release notes.
   * Added [color coding](concepts/alerting/alert.md#alert-statuses) to Telegram alert notifications for you to identify the alert status faster.
   * Telegram and email alert notifications now include [annotation](concepts/alerting/annotation.md) info.
 
-* The [Dashboards](concepts/visualization/dashboard.md) section updates:
+* Updated the [Dashboards](concepts/visualization/dashboard.md) section:
   * You can now copy widgets using the `Ctrl+C` and `Ctrl+V` shortcuts within a single or different dashboards.
   * You can add [sections by parameter](operations/dashboard/add-widget.md#group) to a dashboard, which give you more [chart repetition](operations/metric/metric-explorer.md#repeated-graphs) options. For each parameter value, the system automatically creates a separate section with the same set of widgets. This is convenient, e.g., when displaying similar charts for different application capabilities.
   * You can add [links](operations/dashboard/add-widget.md#graph) to another dashboard or external resources to a chart.
@@ -41,7 +41,7 @@ description: This section contains {{ monitoring-name }} release notes.
 
 * When creating a VM, you can [install an agent](operations/prometheus/ingestion/prometheus-agent.md) for collecting metrics in {{ prometheus-name }} format. By default, Linux system metrics are sent to {{ managed-prometheus-full-name }}. You can also configure delivering your application metrics when creating a VM or at a later time.
 
-* The [Dashboards](concepts/visualization/dashboard.md) section updates:
+* Updated the [Dashboards](concepts/visualization/dashboard.md) section:
   
   * Added sharing a chart screenshot: you can now copy the screenshot itself or a link to it.
   * Added expandable sections in which you can group any number of widgets. This allows you to pack more information into your dashboard, hide the charts you do not currently need, group them by purpose, service, or metric type.

@@ -1,6 +1,6 @@
 ---
 title: Deleting a stream in the AWS SDK
-description: This guide describes how you can delete a stream in the AWS SDK.
+description: Follow this guide to delete a stream in the AWS SDK.
 ---
 
 # Deleting a stream in the AWS SDK
@@ -9,16 +9,16 @@ description: This guide describes how you can delete a stream in the AWS SDK.
 
 - Python {#python}
 
-  To delete a [stream](../../concepts/glossary.md#stream-concepts), use the `delete_stream` method. When you invoke this method, you should specify the following parameters:
+  To delete a [stream](../../concepts/glossary.md#stream-concepts), use the `delete_stream` method. When you invoke this method, specify the following parameters:
   * Name of the stream to delete, e.g., `example-stream`.
   * [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md) in which to delete a stream, e.g., `b1gi1kuj2dht********`.
-  * {{ ydb-short-name }} database ID with the stream, e.g., `cc8028jgtuab********`.
+  * ID of the {{ ydb-short-name }} database containing the stream, e.g., `cc8028jgtuab********`.
 
   You also need to [configure](prepare.md) the AWS SDK and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the service account the `yds.editor` role.
 
-  To delete a stream with the parameters specified above:
+  To delete a stream with the above parameters:
 
-  1. Create a file named `stream_delete.py` and copy the following code into it:
+  1. Create the `stream_delete.py` file and paste the following code to it:
 
      ```python
      import boto3

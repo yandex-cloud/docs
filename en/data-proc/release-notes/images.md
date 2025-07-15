@@ -4,6 +4,15 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 
 ## 2.2.x images (beta) {#2-2-x}
 
+### 2.2.8 (beta) {#2-2-8}
+
+* Added support for environment variables:
+
+    * `HADOOP_HEAPSIZE_MIN` and `HADOOP_HEAPSIZE_MAX` for the `hadoop` service.
+    * `HADOOP_HEAPSIZE` for the `hive` service.
+
+* Supported {{ oslogin }} for cluster hosts. This option enables [{{ oslogin }}](../../organization/concepts/os-login.md) access to all hosts you create in the cluster.
+
 ### 2.2.7 (beta) {#2-2-7}
 * Updated Java version to 11.
 
@@ -31,10 +40,14 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 ## 2.1.x images {#2-1-x}
 
 ### 2.1.21 {#2-1-21}
-* Added support for environment  variables:
+* Added support for environment variables:
 
     * `HADOOP_HEAPSIZE_MIN` and `HADOOP_HEAPSIZE_MAX` for the `hadoop` service.
     * `HADOOP_HEAPSIZE` for the `hive` service.
+
+### 2.1.20 {#2-1-20}
+
+* Supported {{ oslogin }} for cluster hosts. This option enables [{{ oslogin }}](../../organization/concepts/os-login.md) access to all hosts you create in the cluster.
 
 ### 2.1.19 {#2-1-19}
 * Resolved an issue where the `dataproc:nodemanager_available_memory_ratio` property was ignored when reserving memory for YARN NodeManager.
@@ -53,7 +66,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 ### 2.1.15 {#2-1-15}
 * Stabilized the 2.1 image version line.
 * Configuration file properties are now automatically removed when deleted in cluster settings.
-* Updated component versions:
+* The following components were updated:
 
     * Hadoop updated to version 3.3.2.
     * Livy updated to version 0.8.0.
@@ -70,7 +83,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 
 * Python updated to version [3.8.13](https://docs.python.org/3.8/whatsnew/changelog.html#python-3-8-13-final "Change log").
 
-* Updated library versions:
+* The following libraries were updated:
 
     * IPython updated to version 7.22.0.
     * ipykernel updated to version 5.3.4.
@@ -87,12 +100,16 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
     * `HADOOP_HEAPSIZE_MIN` and `HADOOP_HEAPSIZE_MAX` for the `hadoop` service.
     * `HADOOP_HEAPSIZE` for the `hive` service.
 
+### 2.0.79 {#2-0-79}
+
+* Supported {{ oslogin }} for cluster hosts. This option enables [{{ oslogin }}](../../organization/concepts/os-login.md) access to all hosts you create in the cluster.
+
 ### 2.0.78 {#2-0-78}
 * Resolved an issue where the `dataproc:nodemanager_available_memory_ratio` property was ignored when reserving memory for YARN NodeManager.
 
 ### 2.0.77 {#2-0-77}
-* Added logging for Conda package installation.
-* Removed `[ERROR] can't parse line` messages from cluster startup logs.
+* Added logging during Conda package installation.
+* Deleted `[ERROR] can't parse line` lines from cluster startup logs.
 
 ### 2.0.76 {#2-0-76}
 * Added log rotation for Yarn TimelineServer.
@@ -163,7 +180,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 ### 2.0.48 {#2-0-48}
 
 * Added support for [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html). For more information, see [{#T}](../concepts/settings-list.md#spark-thrift-server).
-* Fixed the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error that could occured on lightweight Apache Spark configurations.
+* Fixed the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error that could occur on lightweight Apache Spark configurations.
 
 ### 2.0.47 {#2-0-47}
 
@@ -232,7 +249,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
     * Tez updated to version 0.10.0.
     * Zeppelin updated to version 0.9.0.
 
-* Removed deprecated components:
+* Deprecated components have been removed:
 
     * Flume
     * Sqoop

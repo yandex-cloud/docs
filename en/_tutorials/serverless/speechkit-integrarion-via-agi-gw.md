@@ -1,5 +1,6 @@
 # Using {{ api-gw-full-name }} to set up speech synthesis in {{ speechkit-full-name }}
 
+
 With serverless technology, you can create your own integration with {{ yandex-cloud }} services.
 
 In this tutorial, you will create a custom setup with an [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification)-based [API gateway](../../api-gateway/concepts/index.md) with [HTTP integration](../../api-gateway/concepts/extensions/http.md). 

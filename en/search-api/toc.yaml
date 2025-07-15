@@ -157,5 +157,7 @@ items:
     items:
       - name: Error codes
         href: reference/error-codes.md
+      - name: Request headers for troubleshooting
+        href: api-ref/support-headers.md
       - name: Search regions
         href: reference/regions.md

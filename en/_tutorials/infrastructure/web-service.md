@@ -1,7 +1,7 @@
-# Architecture and protection of a basic internet service
+# Architecture and protection of a basic web service
 
 
-In this tutorial, you will set up a basic web service infrastructure consisting of multiple VMs and accessible from the internet. You will use [security groups](../../vpc/concepts/security-groups.md) to restrict access to the VMs and a [network load balancer](../../network-load-balancer/concepts/index.md) to distribute traffic across web servers. 
+In this tutorial, you will deploy and set up a basic web service infrastructure consisting of multiple VMs and accessible from a remote site. You will use [security groups](../../vpc/concepts/security-groups.md) to restrict access to the VMs and a [network load balancer](../../network-load-balancer/concepts/index.md) to distribute traffic across web servers. 
 
 The diagram below shows how a remote site communicates with your web service:
 
@@ -10,7 +10,7 @@ The diagram below shows how a remote site communicates with your web service:
 Remote site:
 
 * `remote-net` network with `subnet-1` (`10.129.0.0/24`).
-* `vm-1` Ubuntu VM residing in `subnet-1` and used to test your cloud infrastructure.
+* `vm-1` Ubuntu VM residing in `subnet-1` and used to test your cloud site infrastructure.
 
 {% note info %}
 
@@ -24,10 +24,10 @@ Cloud site:
 * `vpn` IPsec gateway residing in `subnet-a` to provide an IPsec connection to a remote site and network connectivity between cloud VMs.
 * Route table containing static `vpn-route` directing `subnet-1` traffic through the IPsec gateway to the cloud VMs.
 * `web-node-a`, `web-node-b`, and `web-node-d` Drupal internet service VMs residing in `subnet-a`, `subnet-b`, and `subnet-d`, respectively.
-* `vpn-sg` security group managing traffic between `vpn` and the remote site and `web-service-sg` security group managing traffic between `web-node-a`, `web-node-b`, and `web-node-d`. 
+* `vpn-sg` security group managing IPSec tunnel traffic for `vpn` and `web-service-sg` security group managing traffic between `web-node-a`, `web-node-b`, and `web-node-d`. 
 * `web-service-lb` load balancer distributing incoming traffic across `web-node-a`, `web-node-b`, and `web-node-d`.
 
-To create a web service infrastructure:
+To create the web service infrastructure:
 
 1. [Get your cloud ready](#before-begin).
 1. [Set up your remote site](#remote-setup).
@@ -42,9 +42,9 @@ If you no longer need the resources you created, [delete](#clear-out) them.
 
 ### Required paid resources {#paid-resources}
 
-The cost of the web service infrastructure support includes:
+The cost of support for the new infrastructure includes:
 
-* Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for public static IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 
@@ -60,7 +60,7 @@ If you are going to use your PC as the remote site, you can skip this section an
 
 {% endnote %}
 
-### Create a network with a subnet {#remote-net}
+### Create a network and a subnet {#remote-net}
 
 1. Create the `remote-net` [network](../../vpc/operations/network-create.md) with the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option disabled.
 1. [Create a subnet](../../vpc/operations/subnet-create.md) for your remote site test VM, configuring it as follows:
@@ -72,7 +72,7 @@ If you are going to use your PC as the remote site, you can skip this section an
 
 ### Create a test VM {#remote-test-vm}
 
-Create a VM you will use to test whether your web service is accessible from the internet.
+Create a VM you to test whether your web service is accessible from the internet.
 
 {% list tabs group=instructions %}
 
@@ -98,7 +98,7 @@ Create a VM you will use to test whether your web service is accessible from the
     1. Get the new VM public IP address:
 
         1. Once the `vm-1` status changes to `Running`, click its name.
-        1. In the VM overview page that opens, copy **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**.
+        1. On the VM overview page that opens, copy **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** under **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}**.
 
             Save the copied IP address as you will need it later when [creating a security group](#create-vpn-sg).
 
@@ -117,7 +117,7 @@ Create a VM you will use to test whether your web service is accessible from the
   1. [Create a cloud network](../../vpc/operations/network-create.md) named `network` with the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option disabled.
   1. In `network`, [create subnets](../../vpc/operations/subnet-create.md) with the following settings:
   
-      1. Subnet hosting the `web-node-a` VM and the `vpn` IPSec gateway:
+      1. Subnet hosting the `web-node-a` VM and the `vpn` IPSec instance:
           * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-a`.
           * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`.
           * **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}**: `network`.
@@ -156,9 +156,9 @@ You will need two static public IP addresses: one for your VPN gateway and anoth
 
 ### Create and configure security groups {#create-security-group}
 
-To isolate traffic between network segments, create security groups with rules for inbound and outbound traffic.
+To split traffic between network segments, create security groups with rules for inbound and outbound traffic.
 
-#### Create a VPN gateway security group {#create-vpn-sg}
+#### Create a security group for the VPN gateway {#create-vpn-sg}
 
 You need to allow inbound and outbound internet traffic on UDP ports `500` and `4500` used by the IPsec VPN. You also need to allow traffic between the subnets of your virtual network and the remote site network.
 
@@ -192,7 +192,7 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
          * `10.129.0.0/24` ^1^ ||
        |#
 
-       ^1^ If you are using your local PC as the test VM, specify your home subnet CIDR here.
+       ^1^ If you are using your local PC as the test VM, specify your subnet CIDR here.
 
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -214,7 +214,7 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
    
        #|
        || **Traffic<br/>direction** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** /<br/>**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** ||
-       || Ingress | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` ||
+       || Inbound | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` ||
        || Inbound | `anyself` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` ||
        || Inbound | `healthchecks` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — ||
        || Outbound | `self` | `0-65535` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` ||
@@ -251,7 +251,7 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
 
             {% note alert %}
 
-            Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+            Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
 
             {% endnote %}
 
@@ -260,13 +260,13 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
             If there are no SSH keys in your profile or you want to add a new key:
             * Click **Add key**.
             * Enter a name for the SSH key.
-            * Upload or paste the contents of the public key file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection to a VM on your own.
-            * Select an expiration date for the key.
+            * Upload or paste the contents of the public key file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection to the VM on your own.
+            * Select the key expiration date.
             * Click **{{ ui-key.yacloud.common.add }}**.
 
             The system will add the SSH key to your organization user profile.
 
-            If, due to organization restrictions, you cannot add SSH keys to your organization user profile, the system will only save it to the new VM user profile.
+            If, due to organization restrictions, you cannot add SSH keys to your user profile, the system will save the key to the VM user profile.
        
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `web-node-a`.
     1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -274,9 +274,9 @@ You need to allow inbound and outbound internet traffic on UDP ports `500` and `
 
 {% endlist %}
 
-#### Create an IPSec remote access gateway {#create-ipsec-instance}
+#### Create an IPSec instance for remote access {#create-ipsec-instance}
 
-Create an IPSec gateway to provide secure access to your cloud resources.
+To provide secure access to your resources, create an IPSec instance.
 
 {% list tabs group=instructions %}
 
@@ -287,7 +287,7 @@ Create an IPSec gateway to provide secure access to your cloud resources.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
     1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
     1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
-    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu).
+    1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and select the [IPSec instance](/marketplace/products/yc/ipsec-instance-ubuntu) image.
     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` availability zone.
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
@@ -297,20 +297,20 @@ Create an IPSec gateway to provide secure access to your cloud resources.
 
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved for the OS purposes. For operations requiring root privileges, use the `sudo` command.
         * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
     1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `vpn`.
     1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-    1. Once the `vpn` VM status changes to `Running`, click its name. In the VM overview page that opens, copy **{{ ui-key.yacloud.compute.instances.column_internal-ip }}** of your VM.
+    1. Once the `vpn` VM status changes to `Running`, copy its **{{ ui-key.yacloud.compute.instances.column_internal-ip }}**.
     
-        Save the copied internal gateway address as you will need it when configuring a static route.
+        You will need the internal gateway address to configure a static route.
 
 {% endlist %}
 
 ### Configure VPN routing {#vpn-routing}
 
-Configure routing between your remote site subnet and IPSec gateway.
+Configure routing between your remote site subnet and IPSec instance.
 
 #### Create a route table {#create-route-table}
 
@@ -320,7 +320,7 @@ Create a [route table](../../vpc/concepts/routing.md#rt-vpc) and add [static rou
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to your cloud network folder.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to configure routing.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
     1. Select `network`.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
@@ -330,16 +330,16 @@ Create a [route table](../../vpc/concepts/routing.md#rt-vpc) and add [static rou
     1. In the window that opens:
        * In the **{{ ui-key.yacloud.vpc.add-static-route.field_destination-prefix }}** field, enter `10.129.0.0/24`.
 
-           If you are using your local PC as the test VM, specify your home subnet CIDR.
-       * In the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** field, specify the IPSec gateway internal IP address you saved previously.
+           If you are using your local PC as the test VM, specify your subnet CIDR.
+       * In the **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** field, specify the IPSec gateway internal IP address.
        * Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
     1. Click **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
 {% endlist %}
 
-#### Link the route table to all subnets {#associate-route-table}
+#### Associate the route table with all subnets {#associate-route-table}
 
-To make static routes available in your cloud `network`, link the route table to all its subnets.
+To use static routes, associate the route table with all subnets in your cloud `network`.
 
 {% list tabs group=instructions %}
 
@@ -351,7 +351,7 @@ To make static routes available in your cloud `network`, link the route table to
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to `subnet-a` and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
     1. In the window that opens, select the `vpn-route` table in the **{{ ui-key.yacloud.vpc.subnet.add-route-table.field_route-table-id }}** field.
     1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
-    1. Repeat steps 4 through 6 to link the `vpn-route` route table to `subnet-b` and `subnet-d`.
+    1. Repeat steps 4 through 6 to associate the `vpn-route` table with `subnet-b` and `subnet-d`.
 
 {% endlist %}
 
@@ -369,7 +369,7 @@ To create a network load balancer:
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Specify the load balancer name: `web-service-lb`.
-  1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, select `{{ ui-key.yacloud.common.label_list }}` and then select the previously reserved public IP address from the list that opens.
+  1. In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** field, select `{{ ui-key.yacloud.common.label_list }}` and specify the public static IP address.
   1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**. In the window that opens:
 
       1. Specify the listener name: `web-service-lb-listener`.
@@ -394,15 +394,15 @@ To create a network load balancer:
 
 ## Test the solution {#test}
 
-Check that your infrastructure works properly and your internet service VMs do not receive any external traffic:
+Check that your infrastructure works properly and your web service VMs do not receive any external traffic:
 
-1. Run the following command on your remote site VM:
+1. Run the following command on your remote computer:
 
     ```bash
     curl <public_IP_address_of_network_load_balancer>
     ```
     
-    You should get no response because the system blocks traffic to your Drupal servers.
+    You should get no response because the system will block traffic to your Drupal servers.
 1. [Add](../../vpc/operations/security-group-add-rule.md) two new inbound traffic rules to the `web-service-sg` security group:
 
    #|
@@ -411,15 +411,15 @@ Check that your infrastructure works properly and your internet service VMs do n
    || https-external-vm | 443 | TCP | CIDR | `<remote_VM_public_IP_address>/32` ||
    |#
 
-   These rules allow access to the network load balancer’s target group instances from your remote VM public IP address.
+   These rules allow access to the network load balancer’s target group VMs from your remote VM public IP address.
 
-1. Run this command on your remote VM again:
+1. Run this command on your remote computer again:
 
     ```bash
     curl <public_IP_address_of_network_load_balancer>
     ```
 
-    You should see the Drupal home page HTML code, which means the system successfully applied the rules allowing network access to the Drupal VMs from your remote VM.
+    You should get the Drupal home page HTML code, which means the rules you added to the security group allowed network access to the Drupal VMs from your remote computer IP address.
 
 ## How to delete the resources you created {#clear-out}
 

@@ -25,9 +25,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mch-name }} cluster fee: using computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and operations with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for using {{ datalens-full-name }} (see [{{ datalens-name }} pricing](../../datalens/pricing.md)).
 
 
@@ -57,7 +57,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
     * `term`
     * `refresh_date`
 
-### Create the {{ yandex-cloud }} resources {#create-yandex-res}
+### Create {{ yandex-cloud }} resources {#create-yandex-res}
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the `storage.uploader` role to access the {{ objstorage-name }} bucket.
 
@@ -93,7 +93,7 @@ To migrate your database, create Google Cloud and {{ yandex-cloud }} resources.
 
     Where:
 
-    * `gs_service_client_id`: [Google Cloud service account](https://cloud.google.com/iam/docs/service-account-overview) name in `service-account-name@project-id.iam.gserviceaccount.com` format.
+    * `gs_service_client_id`: [Google Cloud service account name](https://cloud.google.com/iam/docs/service-account-overview) in `service-account-name@project-id.iam.gserviceaccount.com` format.
     * `gs_service_key_file`: Absolute path to the JSON file of the access key of the Google Cloud service account.
     * `aws_access_key_id`: {{ yandex-cloud }} service account key ID.
     * `aws_secret_access_key`: {{ yandex-cloud }} service account Secret key.

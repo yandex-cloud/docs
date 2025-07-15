@@ -147,6 +147,8 @@ default:
   crt-web-path-int: https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem
   crt-web-path-root: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
   CSI: Container Storage Interface
+  data-catalog-full-name: Yandex Data Catalog
+  data-catalog-name: Data Catalog
   data-transfer-full-name: Yandex Data Transfer
   data-transfer-name: Data Transfer
   data-transfer-short-name: Data Transfer
@@ -612,6 +614,12 @@ default:
   roles-yaart-user: ai.imageGeneration.user
   roles-yagpt-user: ai.languageModels.user
   roles:
+    data-catalog:
+      catalog:
+        admin: data-catalog.catalogs.admin
+        auditor: data-catalog.catalogs.auditor
+        editor: data-catalog.catalogs.editor
+        viewer: data-catalog.catalogs.viewer
     gitlab:
       admin: gitlab.admin
       editor: gitlab.editor
@@ -784,6 +792,8 @@ default:
   tf-provider-resources-link: https://terraform-provider.yandexcloud.net/resources
   TF-version: '0.90'
   TR: Trino
+  tr:
+    docs: https://trino.io/docs/current
   tracker-full-name: Yandex Tracker
   tracker-name: Tracker
   tracker-short-name: Tracker
@@ -834,6 +844,7 @@ default:
   yc-mdb-af: yc managed-airflow
   yc-mdb-ch: yc managed-clickhouse
   yc-mdb-es: yc managed-elasticsearch
+  yc-mdb-gl: yc managed-gitlab
   yc-mdb-gp: yc managed-greenplum
   yc-mdb-kf: yc managed-kafka
   yc-mdb-mg: yc managed-mongodb
@@ -842,6 +853,7 @@ default:
   yc-mdb-os: yc managed-opensearch
   yc-mdb-pg: yc managed-postgresql
   yc-mdb-rd: yc managed-redis
+  yc-mdb-tr: yc managed-trino
   yc-serverless: yc serverless
   yc-windows-path: /yandexcloud-yc/install.ps1
   yc-ydb: yc ydb
@@ -6084,7 +6096,7 @@ default:
         title_navigation-repository-settings: Repository settings
       ui_modules_repoCreate:
         button_create-repo: Create repository
-        title_create-blank: Create blank repository
+        title_create-blank: Blank repository
         title_new-repo-details: Your new repository details
         title_owner-field: Owner
         title_repo-field: Name
@@ -6138,7 +6150,6 @@ default:
         base_label_payer: Payer
         label_card-add: Add card
         label_wizard-next: Next
-        payment-type_label_invoice: Bank transfer
         section_person-type: Payer type
         section_persons: Payers
       create-account-wizard:
@@ -6359,10 +6370,13 @@ default:
       services:
         service_compute: Compute Cloud
       settings:
+        button_add-empty: Add
         button_add-empty-telegram: Set up
+        button_send-code: Get code
         button_submit: Confirm
         field_email: Address
         field_phone: Phone
+        label_add-empty-webhookOutgoing: Add webhook URL
         label_alerting-name: Monitoring
         label_billing-name: Billing
         label_event-name: Events
@@ -6942,11 +6956,13 @@ default:
         label_thumbnail: Thumbnail
       videos:
         action_create-video: Upload video
+        field_summarization: Summary
         label_access_rights-public: All users
         label_access_rights-sign-url-access: By temporary link
         label_accessRights: Access
         label_allow-access: Grant access
         label_description: Description
+        label_neuro-translation: Neural translation
         label_subtitles: Subtitles
         label_title: Name
         label_visibility-status: Public access
@@ -9575,7 +9591,6 @@ default:
           label_rule-without-grouping: No grouping
           label_save-rule: Save rule
           section_rules: Rules
-          title_profile: ARL profile
         attach-dialog:
           action_add-balancer: Add load balancer
           action_connect: Connect
