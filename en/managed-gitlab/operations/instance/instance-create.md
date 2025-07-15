@@ -15,11 +15,15 @@ To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../.
 
 - Management console {#console}
 
-  {% include [instance-create-console](../../../_includes/managed-gitlab/instance-create-console.md) %}
+   {% include [instance-create-console](../../../_includes/managed-gitlab/instance-create-console.md) %}
 
 - CLI {#cli}
 
   {% include [instance-create-cli](../../../_includes/managed-gitlab/instance-create-cli.md) %}
+
+- API {#api}
+
+  Use the [Create](../../api-ref/Instance/create.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Create](../../api-ref/grpc/Instance/create.md) gRPC API call.
 
 {% endlist %}
 

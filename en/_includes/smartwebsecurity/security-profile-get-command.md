@@ -2,7 +2,7 @@
 yc smartwebsecurity security-profile get <security_profile_name_or_ID>
 ```
 
-{% cut "Result" %}
+{% cut "Result:" %}
 
 ```yaml
 id: fev450d61ucv********

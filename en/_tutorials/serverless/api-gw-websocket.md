@@ -1,5 +1,6 @@
 # Working with an API gateway via WebSocket
 
+
 To establish a WebSocket connection to an API gateway:
 
 1. [Create an API gateway](#create).
@@ -27,7 +28,7 @@ The cost of the resources includes the fee for the number of API gateway request
     1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
     1. In the **{{ ui-key.yacloud.common.name }}** field, enter `websocket`.
     1. Optionally, in the **{{ ui-key.yacloud.common.description }}** field, provide a description.
-    1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification:
+    1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** section, add the specification:
 
         ```yaml
         openapi: 3.0.0

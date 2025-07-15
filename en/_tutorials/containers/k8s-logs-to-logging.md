@@ -66,7 +66,7 @@ Set up the infrastructure:
      terraform validate
      ```
 
-     If there are any errors in the configuration files, {{ TF }} will point them out.
+     {{ TF }} will show any errors found in your configuration files.
   1. Create the required infrastructure:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}

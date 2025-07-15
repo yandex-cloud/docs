@@ -1,6 +1,6 @@
 ---
 title: Creating a stream in the AWS CLI
-description: This guide describes how you can create a stream in the AWS CLI.
+description: Follow this guide to create a stream in the AWS CLI.
 ---
 
 # Creating a stream in the AWS CLI
@@ -9,7 +9,7 @@ description: This guide describes how you can create a stream in the AWS CLI.
 
 - CLI {#cli}
 
-  To create a [stream](../../concepts/glossary.md#stream-concepts), run the command:
+  To create a [stream](../../concepts/glossary.md#stream-concepts), run this command:
 
   ```bash
   aws kinesis create-stream \
@@ -21,12 +21,12 @@ description: This guide describes how you can create a stream in the AWS CLI.
   * `--endpoint`: Specify the `https://yds.serverless.yandexcloud.net` endpoint to create a stream that will receive data over the AWS Kinesis Data Streams protocol.
   * `--stream-name`: Consists of the availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
-     > For example, your stream ID will appear as `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream` if:
-     > * `aws_stream`: Stream name
-     > * `{{ region-id }}`: Region
-     > * `aoeu1kuk2dht********`: Folder ID
-    > * `cc8029jgtuab********`: {{ ydb-short-name }} database ID
-  * `--shard-count`: Number of [stream shards](../../concepts/glossary.md#shard)
+     >For example, your stream ID will appear as `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream` if:
+     >* `aws_stream`: Stream name.
+     >* `{{ region-id }}`: Region.
+     >* `aoeu1kuk2dht********`: Folder ID.
+     >* `cc8029jgtuab********`: {{ ydb-short-name }} database ID.
+  * `--shard-count`: Number of [stream shards](../../concepts/glossary.md#shard).
 
   {% note info %}
 

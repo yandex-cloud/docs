@@ -60,7 +60,7 @@
 
 Чтобы настроить способы получения уведомлений:
 
-1. В левом нижнем углу [Консоли управления]({{ link-console-main }}) нажмите ![image](../../_assets/console-icons/gear.svg) **Настройки** и перейдите на вкладку **{{ ui-key.yacloud_components.settings.label_title_communications }}**.
+1. В левом нижнем углу [консоли управления]({{ link-console-main }}) или [{{ support-center-name }}]({{ link-console-support }}) нажмите ![image](../../_assets/console-icons/gear.svg) **Настройки** и перейдите на вкладку **{{ ui-key.yacloud_components.settings.label_title_communications }}**.
 1. В блоке **{{ ui-key.yacloud_components.settings.section_transports }}** настройте каналы уведомления.
 
     Вы можете получать уведомления по электронной почте, в SMS или через Telegram-бота.
@@ -68,4 +68,17 @@
     * ![image](../../_assets/console-icons/at.svg) — письмом на электронную почту;
     * ![image](../../_assets/console-icons/smartphone.svg) — SMS-сообщением;
     * ![image](../../_assets/console-icons/logo-telegram.svg) — сообщением в Telegram-бот;
-    * ![image](../../_assets/console-icons/handset.svg) — прозвоном на указанный номер телефона (работает только для эскалаций сервиса {{ monitoring-name }}).
+    * ![image](../../_assets/console-icons/handset.svg) — прозвоном на указанный номер телефона (работает только для эскалаций сервиса {{ monitoring-name }});
+    * ![image](../../_assets/console-icons/antenna-signal.svg) — отправкой сообщений на заданные URL-адреса.
+
+## Вебхуки {#webhook}
+
+Вы можете настроить автоматическую отправку сообщений на заданные URL-адреса при возникновении определенных событий в ваших облачных сервисах. В настоящий момент поддержаны вебхуки для событий типа **{{ ui-key.yacloud_components.settings.label_tech-name }}** и **{{ ui-key.yacloud_components.settings.label_monitoring-name }}**. Обработчиками сообщений могут быть ваши On-premise мессенджеры, такие как Rocket.Chat, Mattermost, Jabber и Slack. Интеграция вебхуков поможет настроить систему уведомлений под действующие бизнес-процессы и более гибко интегрировать вашу инфраструктуру в {{ yandex-cloud }} с уже существующими системами мониторинга и управления.
+
+Чтобы настроить вебхуки:
+
+1. В левом нижнем углу [консоли управления]({{ link-console-main }}) или [{{ support-center-name }}]({{ link-console-support }}) нажмите ![image](../../_assets/console-icons/gear.svg) **Настройки** и перейдите на вкладку **{{ ui-key.yacloud_components.settings.label_title_communications }}**.
+1. В блоке **{{ ui-key.yacloud_components.settings.section_transports }}** в секции **{{ ui-key.yacloud_components.settings.label_add-empty-webhookOutgoing }}** нажмите **{{ ui-key.yacloud_components.settings.button_add-empty }}**.
+1. В открывшемся окне укажите имя и URL вебхука и нажмите **{{ ui-key.yacloud_components.settings.button_send-code }}**.
+1. После того как на вебхук придет код в формате `Ваш код подтверждения <код>`, введите его в окне подтверждения в [консоли управления]({{ link-console-main }}) или [{{ support-center-name }}]({{ link-console-support }}). 
+После подтверждения URL и указанное имя вебхука отобразятся в секции **{{ ui-key.yacloud_components.settings.section_transports }}**.

@@ -1,5 +1,6 @@
 # Deploying a web app with JWT authorization in {{ api-gw-full-name }} and authentication in Firebase
 
+
 In this tutorial, you will learn how to implement authentication and authorization with [OAuth 2.0](https://oauth.net/2/) and [OpenID Connect](https://openid.net/connect/) in your web app. For authentication, you will use [Google OAuth](https://developers.google.com/identity/protocols/oauth2) and [Firebase](https://firebase.google.com/docs). [{{ api-gw-name }}](../../api-gateway/) will manage authorization using a JWT authorizer. Your web app will consist of:
 * Firebase external authentication service.
 * Simple REST API deployed as an {{ api-gw-name }}.
@@ -488,8 +489,8 @@ Deploy a static website.
 
         Where:
         * `website`: Website settings:
-          * `index_document`: Absolute path to the website home page file. This is a required setting.
-          * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional setting.
+          * `index_document`: Absolute path to the website home page file. This is a required parameter.
+          * `error_document`: Absolute path to the file the user will see in case of `4xx` errors. This is an optional parameter.
 
         For more information about `yandex_storage_bucket` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
      1. Create the resources:

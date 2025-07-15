@@ -25,7 +25,7 @@ Get your account data for authentication:
 
           ```
           Authorization: Bearer <IAM_token>
-          x-folder-id <folder_ID>
+          x-folder-id: <folder_ID>
           ```
 
 - Service account {#service-account}

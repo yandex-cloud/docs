@@ -1,6 +1,6 @@
 ---
-title: How to add users to organizations in {{ org-full-name }}
-description: In this tutorial, you will learn how to add a user to an organization.
+title: How to add a user to an organization in {{ org-full-name }}
+description: In this tutorial, you will learn how to add a user to an organization in {{ org-name }}.
 ---
 
 # Adding a user

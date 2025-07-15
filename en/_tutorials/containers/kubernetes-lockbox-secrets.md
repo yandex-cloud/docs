@@ -1,8 +1,8 @@
 
 
-[External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) enables you to set up syncing of [{{ lockbox-name }}](../../lockbox/) [secrets](../../lockbox/concepts/secret.md) with [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) [secrets](../../managed-kubernetes/concepts/encryption.md).
+[External Secrets Operator](https://external-secrets.io/latest/provider/yandex-lockbox/) enables you to set up syncing [secrets](../../lockbox/concepts/secret.md) in [{{ lockbox-name }}](../../lockbox/) with [those](../../managed-kubernetes/concepts/encryption.md) in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
-There are [several schemas for integrating](https://external-secrets.io/latest/guides/multi-tenancy/) {{ lockbox-name }} with {{ managed-k8s-name }}. The example below describes [ESO as a Service](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service):
+There are [various options for integrating](https://external-secrets.io/latest/guides/multi-tenancy/) {{ lockbox-name }} with {{ managed-k8s-name }}. As an example, we will use [ESO as a Service](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service):
 
 ![image](../../_assets/managed-kubernetes/mks-lockbox-eso.svg)
 
@@ -25,16 +25,16 @@ The cost of resources for syncing secrets includes:
 * Fee for using the [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for a [{{ managed-k8s-name }} node group's](../../managed-kubernetes/concepts/index.md#node-group) [computing resources](../../compute/concepts/vm-platforms.md) and [disks](../../compute/concepts/disk.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
-### Create an infrastructure {#deploy-infrastructure}
+### Create your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
   1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-  1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your {{ managed-k8s-name }} cluster and node group will be created.
+  1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where you will create your {{ managed-k8s-name }} cluster and node group.
   1. [Create service accounts](../../iam/operations/sa/create.md):
-     * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ k8s }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
+     * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ k8s }} resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ managed-k8s-name }} cluster is created.
      * Service account for {{ managed-k8s-name }} nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../../container-registry/concepts/docker-image.md) [registry](../../container-registry/concepts/registry.md). {{ managed-k8s-name }} nodes will pull the required Docker images from the registry on behalf of this account.
 
      {% note tip %}
@@ -84,7 +84,7 @@ The cost of resources for syncing secrets includes:
      terraform validate
      ```
 
-     If there are any errors in the configuration files, {{ TF }} will point them out.
+     {{ TF }} will show any errors found in your configuration files.
   1. Create the required infrastructure:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -111,7 +111,7 @@ The cost of resources for syncing secrets includes:
 
 ## Install the External Secrets Operator and set up {{ lockbox-name }} {#install-eso-lockbox}
 
-1. Follow [this guide](../../managed-kubernetes/operations/applications/external-secrets-operator.md) to install the [External Secrets Operator](/marketplace/products/yc/external-secrets).
+1. Install [External Secrets Operator](/marketplace/products/yc/external-secrets) by following [this guide](../../managed-kubernetes/operations/applications/external-secrets-operator.md).
 1. [Assign the service account](../../lockbox/operations/secret-access.md) you created when installing the External Secrets Operator the `lockbox.payloadViewer` role for the [previously created](#deploy-infrastructure) `lockbox-secret`.
 
 ## Configure the {{ managed-k8s-name }} cluster {#configure-k8s}

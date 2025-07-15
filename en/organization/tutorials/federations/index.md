@@ -3,7 +3,7 @@ title: Use cases for managing identity federations in {{ org-full-name }}
 description: Various use cases for managing {{ org-full-name }} identity federations in {{ yandex-cloud }}.
 ---
 
-# Managing identity federations in {{ org-name }}
+# Managing identity federations in {{ org-full-name }}
 
 * [{#T}](integration-adfs.md)
 * [{#T}](integration-gworkspace.md)

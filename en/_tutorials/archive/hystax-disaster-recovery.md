@@ -94,7 +94,7 @@ Create a VM with a boot disk from the `Hystax Acura Disaster Recovery in {{ yand
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
@@ -103,7 +103,7 @@ Create a VM with a boot disk from the `Hystax Acura Disaster Recovery in {{ yand
       * Click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
       * In the list of public images, select [Hystax Acura Disaster Recovery in {{ yandex-cloud }}](/marketplace/products/hystax/hystax-acura-disaster-recovery) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) your VM will reside in.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `200 {{ ui-key.yacloud.common.units.label_gigabyte }}` as the boot [disk](../../compute/concepts/disk.md) size.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select the `8 vCPU` and `16 {{ ui-key.yacloud.common.units.label_gigabyte }}` configuration.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**: 
@@ -169,7 +169,7 @@ Create a VM with a boot disk from the `Hystax Acura Disaster Recovery in {{ yand
 
         For this example, use `image_id` from the [product description](/marketplace/products/hystax/hystax-acura-disaster-recovery) in {{ marketplace-name }}.
 
-   * `service-account-id`: ID of the [previously created](#create-sa) service account.
+   * `service-account-id`: ID of the service account you [created previously](#create-sa).
 
      You can get the list of accounts using the `yc vpc security-group list` command.
    * `ssh-key`: Path to the [public SSH key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file.
@@ -479,7 +479,7 @@ To run a test without shutting down the primary infrastructure:
 1. Under **Final DR plan**, make sure the plan is up-to-date and correct.
 1. Click **Run Recover**.
 
-You will see the **Cloud Sites** section in the Hystax Acura control panel. Wait until the `Cloud-Site-from-Plan-1` status switches to `Running`.
+You will see the **Cloud Sites** section in the Hystax Acura control panel. Wait for `Cloud-Site-from-Plan-1` to change its status to `Running`.
 
 Open the [management console]({{ link-console-main }}) and make sure these actions moved the required resources and your applications are ready to run.
 

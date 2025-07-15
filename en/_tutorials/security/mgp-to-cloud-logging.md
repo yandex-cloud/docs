@@ -43,7 +43,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
       Where:
 
-      * `--service_account_id`: ID of the service account you [created earlier](#before-you-begin).
+      * `--service-account`: ID of the service account you [created earlier](#before-you-begin).
 
       * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
 
@@ -127,7 +127,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
           terraform validate
           ```
 
-          If there are any errors in the configuration files, {{ TF }} will point them out.
+          {{ TF }} will show any errors found in your configuration files.
 
       1. Create the required infrastructure:
 
@@ -253,13 +253,12 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
          --log-enabled \
          --log-greenplum-enabled \
          --log-command-center-enabled \
-         --log-folder-id <folder_ID>
          --log-group-id <log_group_ID>
       ```
 
       Where:
 
-      * `--service_account_id`: ID of the service account you [created earlier](#before-you-begin).
+      * `--service-account`: ID of the service account you [created earlier](#before-you-begin).
 
       * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
 
@@ -343,7 +342,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
           terraform validate
           ```
 
-          If there are any errors in the configuration files, {{ TF }} will point them out.
+          {{ TF }} will show any errors found in your configuration files.
 
       1. Create the required infrastructure:
 

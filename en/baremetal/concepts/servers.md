@@ -1,6 +1,6 @@
 # Servers
 
-A {{ baremetal-name }} server is a fully [configured](./server-configurations.md) physical server connected to the [network](./network.md) via two 1 Gbps or 10 Gbps network interfaces. Its hardware and network resources are physically isolated and can be accessed only by the user leasing the server.
+A {{ baremetal-name }} server is a fully [configured](./server-configurations.md) physical server connected to the [network](./network.md) via two 1 Gbps, 10 Gbps, or 25 Gbps network interfaces. Its hardware and network resources are physically isolated and can be accessed only by their leaser.
 
 {% include [bios-settings-warning](../../_includes/baremetal/bios-settings-warning.md) %}
 
@@ -19,6 +19,14 @@ Pools are infrastructurally separate data center modules servers physically resi
 | Region        | Availability zone | Pools                               |
 |---------------|------------------|------------------------------------|
 | `{{ region-id }}` | `{{ region-id }}-m` | `{{ region-id }}-m3`<br>`{{ region-id }}-m4` |
+
+## Reserving power for servers {#server-power-supply}
+
+When leasing a sever, you can select your configurations based on power reservation scheme type:
+
+* Servers with one power supply unit (`1 PSU`).
+* Servers with two or more power supply units (`2+ PSU`).
+* [Open Compute Project (OCP)](https://en.wikipedia.org/wiki/Open_Compute_Project) servers. These servers share a redundant power bus between all servers in the same rack instead of using individual power supply units. 
 
 ## Server statuses {#server-status}
 

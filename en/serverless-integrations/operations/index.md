@@ -84,6 +84,11 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 * [Deleting a label](eventrouter/bus/label-delete.md)
 * [{#T}](eventrouter/bus/delete.md)
 
+### Sending events to a bus {#bus-deliver-data}
+
+* [{#T}](eventrouter/bus/data-put.md)
+* [{#T}](eventrouter/bus/data-send.md)
+
 ### Getting information about a connector {#connector-get-info}
 
 * [{#T}](eventrouter/connector/get-list.md)
@@ -91,9 +96,10 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 
 ### Managing a connector {#connector-control}
 
+* [{#T}](eventrouter/connector/create-timer.md)
+* [{#T}](eventrouter/connector/create-api-eventrouter.md)
 * [{#T}](eventrouter/connector/create-yds.md)
 * [{#T}](eventrouter/connector/create-message-queue.md)
-* [{#T}](eventrouter/connector/create-timer.md)
 * [{#T}](eventrouter/connector/update.md)
 * [Adding a label](eventrouter/connector/label-add.md)
 * [Updating a label](eventrouter/connector/label-update.md)

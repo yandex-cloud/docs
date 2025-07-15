@@ -37,7 +37,7 @@ To set up SAML authentication:
     https://c-<{{ ES }}_cluster_ID>.rw.{{ dns-zone }}/api/security/saml/callback
     ```
 
-    You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     **Example:** `https://c-e4ut2....rw.{{ dns-zone }}/api/security/saml/callback`
 
@@ -70,11 +70,11 @@ Incorrect settings may cause the cluster to fail.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
-    1. Click the cluster name and open the **Access control** tab.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **Managed Service for Elasticsearch**.
+    1. Click on the name of the cluster you need and select the **Access control** tab.
     1. Click **{{ ui-key.yacloud.common.create }}**.
     1. Create an authentication provider:
-        * **Provider type**: `SAML`.
+        * **Provider type**: `Saml`.
 
         * **{{ ui-key.yacloud.common.name }}**: Provider name.
 
@@ -84,7 +84,7 @@ Incorrect settings may cause the cluster to fail.
 
         * **Icon**: Provider icon.
 
-        * Select **Enabled**.
+        * Select the **Activated** option.
 
         * **SAML settings**:
         
@@ -92,11 +92,11 @@ Incorrect settings may cause the cluster to fail.
 
             * **idp_metadata_file**: Provider's metadata file in XML format obtained when [configuring the IdP](#configuration-idp).
 
-            * **sp_entity_id**: Application-defined SP Entity ID (Audience URI). Make sure it is the same as the ID specified when [configuring the IdP](#configuration-idp).
+            * **sp_entity_id**: SP Entity ID (Audience URI). Make sure it is the same as the ID specified when [configuring the IdP](#configuration-idp).
 
-            * **kibana_url**: URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection), same as the **sp_entity_id**.
+            * **kibana_url**: URL with a [special cluster FQDN](cluster-connect.md#automatic-host-selection). Same as the **sp_entity_id**.
 
-            * **attribute_principal**: Format of the `nameid` parameter, e.g, `nameid:persistent`. Same as the **Name ID Format** of the IdP.
+            * **attribute_principal**: `nameid` parameter format, e.g, `nameid:persistent`. Same as the **Name ID Format** of the IdP.
 
             * **attribute_groups**: User privileges groups (recommended).
 
@@ -140,8 +140,8 @@ For more information about SAML attributes, see the [Elasticsearch documentation
 To access the cluster via SSO, associate the cluster roles with the SSO users on the IdP side. To do this:
 
 1. [Map the roles](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-roles.html) of the {{ ES }} users on the IdP side to the roles in the cluster. Perform this operation as an [`admin` user](../concepts/index.md) in one of the following ways:
-   * Using [Kibana](https://www.elastic.co/guide/en/kibana/current/role-mappings.html).
-   * Using the [{{ ES }} Security API](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-put-role-mapping.html).
+    * Using [Kibana](https://www.elastic.co/guide/en/kibana/current/role-mappings.html).
+    * Using the [{{ ES }} Security API](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-put-role-mapping.html).
 1. On the IdP side, create a user that meets the role mappings defined in {{ ES }}.
 1. Grant this user access to the [previously created application](#configuration-idp).
 
@@ -196,11 +196,11 @@ For more information about other parameters, see the [Okta documentation](https:
 
 #### Set up SSO for the cluster {#example-configuration-sso}
 
-Let's assume we have this **idp_entity_id** provided after the IdP setup: `http://www.okta.com/exkv2pzpvigX********`. 
+Let's assume that after the IdP setup we have this **idp_entity_id** provided: `http://www.okta.com/exkv2pzpvigX********`. 
 
 [Set up SSO for the cluster](#configuration-sso). When setting it up, specify:
 * **idp_entity_id**: `http://www.okta.com/exkv2pzpvigX********`.
-* **idp_metadata_file**: Metadata file provided by Okta.
+* **idp_metadata_file**: The metadata file provided by Okta.
 * **sp_entity_id**: `https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}`.
 * **kibana_url**: `https://c-c9qmc1lmo2k0********.rw.{{ dns-zone }}`.
 * **attribute_principal**: `nameid:persistent`.
@@ -215,8 +215,8 @@ To access the cluster via SSO, associate the cluster roles with the SSO users on
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
-    1. Click the cluster name and open the **Kibana** tab.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **Managed Service for Elasticsearch**.
+    1. Click on the name of the cluster you need and select the **Kibana** tab.
     1. In the authorization window, specify the `admin` user and the password you set when configuring the cluster.
     1. Open **Management → Stack Management → Security → Role Mappings**.
         
@@ -263,8 +263,8 @@ To log in to the {{ mes-name }} cluster using the new user's credentials:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
-    1. Click the cluster name and open the **Kibana** tab.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **Managed Service for Elasticsearch**.
+    1. Click on the name of the cluster you need and select the **Kibana** tab.
     1. In the authorization window, select the option that you specified when [setting up SSO](#configuration-sso) in the **Provider description**.
     1. Specify **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** and **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**.
 

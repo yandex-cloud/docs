@@ -15,19 +15,19 @@ links:
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Basic concepts and how the service works
+    description: Service concepts and architecture overview
     href: concepts/
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Tutorials
-    description: Use ready-made scenarios to manage your BareMetal servers
+    description: Use ready-made scenarios to manage your {{ baremetal-name }} servers
     href: tutorials/
   - title: Access management
     description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
 meta:
   title: Yandex BareMetal

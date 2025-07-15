@@ -19,13 +19,13 @@ You can only add or delete hosts with the [_Data node_](../concepts/index.md) ro
 
 {% endnote %}
 
-## Getting a list of cluster hosts {#list-hosts}
+## Getting the list of cluster hosts {#list-hosts}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+  1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **Managed Service for Elasticsearch**.
   1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
 - CLI {#cli}
@@ -62,7 +62,7 @@ You cannot enable public access to a host once it is created.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **Managed Service for Elasticsearch**.
     1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
     1. Specify the host parameters:
@@ -99,13 +99,13 @@ You cannot enable public access to a host once it is created.
 
     To add a host to the cluster:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
         For a complete list of available {{ mes-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mes }}).
 
-    1. Add a `host` section to the {{ mes-name }} cluster description:
+    1. Add a `host` block to the {{ mes-name }} cluster description:
 
         ```hcl
         resource "yandex_mdb_elasticsearch_cluster" "<cluster_name>" {
@@ -165,7 +165,7 @@ The following restrictions apply when deleting hosts:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **Managed Service for&nbsp;Elasticsearch**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **Managed Service for Elasticsearch**.
     1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.delete }}**.
 
@@ -181,13 +181,13 @@ The following restrictions apply when deleting hosts:
     {{ yc-mdb-es }} host delete <host_name> --cluster-name <cluster_name>
     ```
 
-    You can request the host name with a [list of cluster hosts](#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the host name with the [list of cluster hosts](#list-hosts), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
   To remove a host from a cluster:
   
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
   
       For more information about creating this file, see [Creating clusters](cluster-create.md).
 

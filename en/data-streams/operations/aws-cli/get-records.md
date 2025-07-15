@@ -9,7 +9,7 @@ description: Follow this guide to get data from a stream in the AWS CLI.
 
 - CLI {#cli}
 
-  To get data from a [stream's](../../concepts/glossary.md#stream-concepts) _first_ shard, run the command:
+  To get data from a [stream's](../../concepts/glossary.md#stream-concepts) _first_ shard, run this command:
 
   ```bash
   SHARD_ITERATOR=$(aws kinesis get-shard-iterator \
@@ -25,14 +25,14 @@ description: Follow this guide to get data from a stream in the AWS CLI.
 
   Where:
 
-  * `--endpoint`: To get stream data over the AWS Kinesis Data Streams protocol, specify `https://yds.serverless.yandexcloud.net`.
+  * `--endpoint`: Specify the `https://yds.serverless.yandexcloud.net` endpoint to read stream data over the AWS Kinesis Data Streams protocol.
   * `--stream-name`: Consists of the availability zone, folder ID, {{ ydb-full-name }} database ID, and stream name.
 
-     > For example, your stream ID will appear as `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream` if:
-     > * `aws_stream`: Stream name
-     > * `{{ region-id }}`: Region
-     > * `aoeu1kuk2dht********`: Folder ID
-     > * `cc8029jgtuab********`: {{ ydb-short-name }} database ID
+     >For example, your stream ID will appear as `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream` if:
+     >* `aws_stream`: Stream name.
+     >* `{{ region-id }}`: Region.
+     >* `aoeu1kuk2dht********`: Folder ID.
+     >* `cc8029jgtuab********`: {{ ydb-short-name }} database ID.
 
   Command example:
 

@@ -1,5 +1,6 @@
 # Configuring a {{ sw-name }} workflow integrated with {{ tracker-full-name }}, {{ foundation-models-full-name }}, and {{ postbox-full-name }}
 
+
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
 In this tutorial, you will create {{ sw-full-name }} [workflows](../../serverless-integrations/concepts/workflows/workflow.md) and configure their integration with [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ foundation-models-full-name }}](../../foundation-models/concepts/yandexgpt/index.md), and [{{ postbox-full-name }}](../../postbox/index.yaml).
@@ -21,13 +22,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ## Getting started {#before-you-begin}
 
 1. [Log in]({{ link-passport-login }}) to your Yandex account. If you do not have an account, [create]({{ support-passport-create }}) one.
-1. Sign up in {{ yandex-cloud }} and create a [billing account](../../billing/concepts/billing-account.md):
-    1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or register a new account.
-    1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, make sure you have a linked billing account and its [status](../../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../../billing/quickstart/index.md) and [link](../../billing/operations/pin-cloud.md) a cloud to it.
+1. Sign up for {{ yandex-cloud }} and create a [billing account](../../billing/concepts/billing-account.md):
+    1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create a new account.
+    1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, make sure you have a billing account linked and it has the `ACTIVE` or `TRIAL_ACTIVE` [status](../../billing/concepts/billing-account-statuses.md). If you do not have a billing account, [create one](../../billing/quickstart/index.md) and [link](../../billing/operations/pin-cloud.md) a cloud to it.
 
-    If you have an active billing account, you can navigate to the [cloud page]({{ link-console-cloud }}) to create or select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for your infrastructure to operate in.
+    If you have an active billing account, you can navigate to the [cloud page]({{ link-console-cloud }}) to create or select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for your infrastructure.
 
-    [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md). 
+    [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
 1. Install [cURL](https://curl.haxx.se): you will need it to send a request for an OAuth token for the Yandex ID application.
 
 ### Required paid resources {#paid-resources}
@@ -46,10 +47,10 @@ The cost of support for the new infrastructure includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you will be creating your workflows in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**, and in the window that opens:
-      1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md): `workflow-sa`.
-      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `serverless.workflows.executor` [role](../../iam/concepts/access-control/roles.md).
+      1. Name the [service account](../../iam/concepts/users/service-accounts.md): `workflow-sa`.
+      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select [`serverless.workflows.executor`](../../iam/concepts/access-control/roles.md).
       1. Repeat the previous step to add the [`postbox.sender`](../../postbox/security/index.md#postbox-sender) and [`ai.languageModels.user`](../../foundation-models/security/index.md#languageModels-user) roles.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -139,7 +140,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you created the service account in earlier.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**, and in the window that opens:
 
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `tracker-oauth-token`.
@@ -153,7 +154,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
       1. Copy and save the **{{ ui-key.yacloud.lockbox.label_secret-id }}** field value. You will need it later when creating the workflow specification.
       1. Go to the ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
       1. In the search bar, enter the name of the service account created earlier (`workflow-sa`) and select the service account you found.
-      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer).
+      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select [`lockbox.payloadViewer`](../../lockbox/security/index.md#lockbox-payloadViewer).
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
@@ -179,11 +180,11 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder you used to create the service account and secret in.
-        1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
         1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
-        1. In the **{{ ui-key.yacloud.postbox.label_address }}** field, specify the domain to send emails from. e.g., `example.com`.
+        1. In the **{{ ui-key.yacloud.postbox.label_address }}** field, specify the domain you will use to send emails, e.g., `example.com`.
 
-            The domain can be of any level. You must have permissions to add [resource records](../../dns/concepts/resource-record.md) to the public [DNS zone](../../dns/concepts/dns-zone.md) of the specified domain. This is required to confirm your right to use it.
+            You can use a domain of any level. You must have permissions to add [resource records](../../dns/concepts/resource-record.md) to the public [DNS zone](../../dns/concepts/dns-zone.md) of the specified domain. This is required to confirm your right to use it.
         1. In the **{{ ui-key.yacloud.postbox.label_selector }}** field, specify a selector, e.g., `tracker_workflow`. 
 
             The name of the selector will be used to create a TXT resource record, so each selector you create must be unique within your domain.
@@ -193,7 +194,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
 
     {% endlist %}
 
-### Pass a domain rights check {#validate-domain}
+### Pass a domain ownership check {#validate-domain}
 
 1. In the public DNS zone of your domain, create a [TXT resource record](../../dns/concepts/resource-record.md#txt) using the following values:
 
@@ -362,7 +363,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
       * `<queue_key_in_{{ tracker-name }}>`: [Key]({{ link-tracker-cloudless }}glossary#rus-k) of the {{ tracker-name }} queue you created the test issues in.
       * `<folder_ID>`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder you are creating a workflow in.
       * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}glossary#rus-z) in the comment to which the summary of the analyzed test issues will be uploaded.
-      * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain. Example: `tracker-robot@example.com` or `noreply@example.com`.
+      * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
       * `<recipient_address>`: Email address the workflow will send an email to with a summary of the analyzed {{ tracker-name }} test issues.
 
       A workflow comprises the following steps: `fetch_tickets`, `summarize_texts`, `send_report_via_postbox`, and `write_report_to_tracker`.
@@ -494,7 +495,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
       * `<secret_ID>`: Previously saved [secret](../../lockbox/concepts/secret.md) ID with the application's OAuth token.
       * `<folder_ID>`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder you are creating a workflow in.
       * `<issue_key_with_report>`: Key of the {{ tracker-name }} [issue]({{ link-tracker-cloudless }}glossary#rus-z) in the comment to which the summary of the analyzed test issues will be uploaded.
-      * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain. Example: `tracker-robot@example.com` or `noreply@example.com`.
+      * `<your_domain>`: Domain you specified when creating the {{ postbox-name }} address. For the sender address (`fromAddress`) you can specify any address on this domain, e.g., `tracker-robot@example.com` or `noreply@example.com`.
       * `<recipient_address>`: Email address to which the workflow will send a summary of the analyzed {{ tracker-name }} test issues.
 
       A workflow comprises the following steps: `fetch_tickets`, `fetch_comments`, `summarize_texts`, `send_report_via_postbox`, and `write_report_to_tracker`.
@@ -508,7 +509,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing the previously created resources: service account, secret, and {{ postbox-name }} address.
-        1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
         1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
         1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}** and do the following in the window that opens:
 
@@ -529,7 +530,7 @@ Make sure the {{ sw-name }} workflow is being executed.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the new {{ sw-name }} workflow is in.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to `my-tracker-workflow` and select ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.serverless-workflows.label_run-workflow }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.start }}**. The previously created workflow will be executed; it may take a few minutes to complete.
@@ -553,7 +554,7 @@ To stop paying for the resources you created:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder the created resources are located in.
-        1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
         1. In the left-hand panel, select ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
         1. Click ![ellipsis](../../_assets/console-icons/ellipsis.svg) next to `my-tracker-workflow` and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
         1. Confirm the deletion.
@@ -568,7 +569,7 @@ To stop paying for the resources you created:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder the {{ postbox-name }} address is in.
-        1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
         1. In the row with the {{ postbox-name }} address, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
         1. Confirm the deletion.
 

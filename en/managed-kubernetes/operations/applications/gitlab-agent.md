@@ -6,7 +6,7 @@ description: Follow this guide to install {{ GL }}.
 # Installing the {{ GL }} Agent
 
 
-The [{{ GLA }}](/marketplace/products/yc/gitlab-agent) is used to connect a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) to {{ GL }}. You can deploy the application in a [{{ mgl-full-name }}](../../../managed-gitlab/) [instance](../../../managed-gitlab/concepts/index.md#instance) or in a standalone {{ GL }} instance.
+[{{ GLA }}](/marketplace/products/yc/gitlab-agent) is used to connect [{{ managed-k8s-name }} clusters](../../concepts/index.md#kubernetes-cluster) to {{ GL }}. You can deploy the application in a [{{ mgl-full-name }}](../../../managed-gitlab/) [instance](../../../managed-gitlab/concepts/index.md#instance) or standalone {{ GL }} instance.
 
 The {{ GL }} Agent enables you to:
 * Work with {{ managed-k8s-name }} clusters behind NAT.

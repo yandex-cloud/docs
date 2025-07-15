@@ -283,6 +283,8 @@ items:
         href: metrics-ref/storage-ref.md
       - name: '{{ si-name }}'
         href: metrics-ref/serverless-integrations-ref.md
+      - name: '{{ serverless-containers-name }}'
+        href: metrics-ref/serverless-containers-ref.md
       - name: '{{ captcha-name }}'
         href: metrics-ref/captcha-ref.md
       - name: '{{ sws-name }}'

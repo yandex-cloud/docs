@@ -30,7 +30,7 @@ The infrastructure support cost includes fees for function invocation count, com
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** from the list of services.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter the service account name: `functions-cicd-sa`.
-  1. Click ![image](../../_assets/console-icons/plus.svg) {{ ui-key.yacloud.iam.folder.service-account.label_add-role }} and select the {{ roles-functions-admin }} [role](../../functions/security/index.md#functions-admin).
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-functions-admin }}` [role](../../functions/security/index.md#functions-admin).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
@@ -203,7 +203,7 @@ Create the following files in the repository:
             - name: deploy-latest
               env:
                 TMP_PATH: ./tmp
-                YC_AUTHORIZED_KEY_JSON: $not_var{{ secrets.authorized-key }}
+                YC_AUTHORIZED_KEY_JSON: ${{ secrets.<secret_name> }}
                 YC_FOLDER_ID: <folder_ID>
                 YC_FUNCTION_NAME: cicd-test
                 YC_FUNCTION_RUNTIME: nodejs22
@@ -290,7 +290,7 @@ Make sure {{ sf-name }} now features a function named `cicd-test`.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder you specified in the `.sourcecraft/ci.yaml` file.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. The list should now contain `cicd-test`. Select it.
   1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, you should now see the function's version with the same timestamp as the [CI/CD process execution](#check-ci-cd).
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.

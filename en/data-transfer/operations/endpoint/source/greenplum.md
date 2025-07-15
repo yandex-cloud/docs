@@ -74,7 +74,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 {% endlist %}
 
-### Table filter {#additional-settings}
+### Table filter {#filter-settings}
 
 {% list tabs group=instructions %}
 
@@ -100,11 +100,19 @@ Connecting to the database with explicitly specified network addresses and ports
 
       Included and excluded table names must meet the ID naming rules in {{ GP }}. Double quotes within a table name are not supported. Outer quotes are only used as delimiters and will be deleted when processing paths.
 
+{% endlist %}
+
+### Advanced settings {#additional-settings}
+
+- Management console {#console}
+
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.strong_consistency.title }}**: When enabled, {{ data-transfer-name }} will apply additional steps to the source to assure [snapshot consistency](#snapshot-consistency).
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.service_schema.title }}**: Schema for placing auxiliary objects of the transfer.
 
-    The schema name must meet the ID naming rules in {{ GP }}. Double quotes are not supported in schema names.
+      The schema name must meet the ID naming rules in {{ GP }}. Double quotes are not supported in schema names.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.disable_gpfdist.title }}**: Disables [`gpfdist`](../../../../managed-greenplum/operations/gpfdist/connect.md) for transfers from {{ GP }} to {{ GP }}.
 
 {% endlist %}
 

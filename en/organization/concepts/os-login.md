@@ -19,7 +19,7 @@ The _{{ oslogin }} agent_ is based on the [guest agent for Google Compute Engine
 
 The {{ oslogin }} agent is integrated into [a number of Linux images]({{ link-cloud-marketplace }}?search=oslogin) available when creating a VM.
 
-### {{ oslogin }} operating mode settings at the {{ org-name }} level {#modes}
+### {{ oslogin }} operating mode settings at the {{ org-full-name }} level {#modes}
 
 {{ oslogin }} supports the following _operation modes_ used both individually and in combination:
 
@@ -34,7 +34,7 @@ The {{ oslogin }} agent is integrated into [a number of Linux images]({{ link-cl
 _{{ oslogin }} profile_ defines the parameters to apply when creating a user account within a VM.
 
 [Enabling](../operations/os-login-access.md) {{ oslogin }} access for an organization automatically creates _default {{ oslogin }} profiles_ for all user and service accounts in that organization.
-
+  
 The username (login) an account gets in the {{ oslogin }} profile by default depends on the account type:
 * A user account's login is derived from the user's name in the organization. Any characters except Latin letters, numbers, hyphens, and underscores, as well as a hyphen prepending the name are ignored. Uppercase Latin letters are converted to lowercase.
 * For a service account, the login will be its name prefixed by `yc-sa-`, e.g., `yc-sa-my-robot` will be the default login for `my-robot`.

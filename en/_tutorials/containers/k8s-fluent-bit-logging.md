@@ -78,7 +78,7 @@ Set up the infrastructure:
      terraform validate
      ```
 
-     If there are any errors in the configuration files, {{ TF }} will point them out.
+     {{ TF }} will show any errors found in your configuration files.
   1. Create the required infrastructure:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
@@ -129,7 +129,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
   1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   1. If you reserved a static [public IP address](../../vpc/concepts/address.md#public-addresses) for your {{ managed-k8s-name }} cluster, release and [delete it](../../vpc/operations/address-delete.md).
   1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
-  1. [Delete the service accounts you created](../../iam/operations/sa/delete.md).
+  1. [Delete service accounts you created](../../iam/operations/sa/delete.md).
   1. [Delete the log group](../../logging/operations/delete-group.md).
 
 - {{ TF }} {#tf}

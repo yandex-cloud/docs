@@ -1,4 +1,4 @@
-The `name` label contains the metric name.
+The metric name goes into the `name` label.
 
 All {{ sf-name }} metrics share the `service=serverless-functions` label.
 
@@ -23,7 +23,7 @@ Label | Value
 ----|----
 resource_id | Function ID
 version_id | Function version ID
-resource_type | Resource type, which is always `function`.
+resource_type | Resource type. Always equals `function`.
 
 Metric name<br/>Type, unit | Description
 --- | ---
@@ -76,15 +76,15 @@ Labels shared by all [trigger](../../../functions/concepts/trigger/index.md) met
 Label | Value
 ----|----
 trigger | Trigger ID
-type | Trigger activation type, `incoming` or `request`
+type | Entity type.
 
-Metric name<br/>Type, unit | Description<br/>Labels
---- | ---
-`serverless.triggers.access_error_per_second`<br/>`DGAUGE`, errors per second | Rate of access errors when processing function invocations
-`serverless.triggers.error_per_second`<br/>`DGAUGE`, errors per second | Function invocation error rate
-`serverless.triggers.execution_time_milliseconds`<br/>`IGAUGE`, invocations per millisecond | Histogram of function invocation rate distribution by request processing time.<br/>Processing time buckets for the request are stored in the `bin` label.
-`serverless.triggers.inflight`<br/>`DGAUGE`, invocations | Number of concurrent function invocations
-`serverless.triggers.read_events_per_second`<br/>`DGAUGE`, units per second | Frequency of events causing a trigger to fire.
+Metric name<br/>Type, unit | Entity type. | Description<br/>Labels
+--- | --- | ---
+`serverless.triggers.access_error_per_second`<br/>`DGAUGE`, errors per second | <ul><li>`request`: Function calls.</li><li>`message_queue`: Accesses to {{ message-queue-full-name }}.</li><li>`dlq`: Accesses the dead letter queue.</li></ul> | Rate of access errors when processing function invocations
+`serverless.triggers.error_per_second`<br/>`DGAUGE`, errors per second | <ul><li>`request`: Function calls.</li><li>`message_queue`: Accesses to {{ message-queue-full-name }}.</li><li>`dlq`: Accesses the dead letter queue.</li></ul> | Function invocation error rate
+`serverless.triggers.execution_time_milliseconds`<br/>`IGAUGE`, invocations per millisecond | <ul><li>`request`: Function calls.</li></ul> | Histogram of function invocation rate distribution by request processing time.<br/>Processing time buckets for the request are stored in the `bin` label.
+`serverless.triggers.inflight`<br/>`DGAUGE`, invocations | <ul><li>`request`: Function calls.</li></ul> | Number of concurrent function invocations
+`serverless.triggers.read_events_per_second`<br/>`DGAUGE`, units per second | <ul><li>`incoming`: Events causing any trigger to fire other than a trigger for {{ message-queue-full-name }}.</li><li>`message_queue`: Events causing a trigger for {{ message-queue-full-name }} to fire.</li></ul> | Frequency of events causing a trigger to fire.
 
 ## DB connection metrics {#db-connections}
 

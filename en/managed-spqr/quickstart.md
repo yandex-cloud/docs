@@ -81,3 +81,7 @@ To get started:
 
     {% include [default-connstring](../_includes/mdb/mpg/default-connstring.md) %}
 
+## What's next {#whats-next}
+
+Read about [service concepts](concepts/index.md).
+

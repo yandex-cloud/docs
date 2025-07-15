@@ -205,7 +205,7 @@ Your gateway will need a static [public IP address](../../vpc/concepts/address.m
   1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `UserGate NGFW` and select the [UserGate NGFW](/marketplace/products/usergate/ngfw) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
@@ -440,7 +440,7 @@ Create a [static route](../../vpc/concepts/routing.md):
 
      {% include [name-format](../../_includes/name-format.md) %}
 
-  1. Optionally, specify the route table description.
+  1. Optionally, describe the route table.
   1. Select `usergate-network`.
   1. Click **Add route**.
   1. In the window that opens, specify the destination subnet prefix (`0.0.0.0`) and select `0` from the drop-down list.
@@ -459,7 +459,7 @@ Create a [static route](../../vpc/concepts/routing.md):
 - CLI {#cli}
 
   To create a route table with [static routes](../../vpc/concepts/routing.md): 
-  1. Read the `route-table create` command description:
+  1. View the description of the CLI command to create route tables:
 
      ```bash
      yc vpc route-table create --help

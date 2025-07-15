@@ -1,3 +1,5 @@
+
+
 Learn how to use a [function](../../functions/concepts/function.md) from {{ sf-name }} with the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to create an [AI agent](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf), i.e., a personalized assistant integrated with {{ foundation-models-full-name }} [text generation models](../../foundation-models/concepts/yandexgpt/models.md) to provide generative responses.
 
 Follow this guide to create a simple AI agent that uses a function from {{ sf-name }} to get weather information, interact with the {{ foundation-models-full-name }} [language model](../../foundation-models/concepts/yandexgpt/models.md), and, to add a touch of fun, respond to the user in [haiku](https://en.wikipedia.org/wiki/Haiku) form.
@@ -24,8 +26,8 @@ You can create these resources [automatically](#automatic-setup) or [manually](#
 
 An AI agent is an AI-powered software assistant which can follow instructions, give answers to questions, and interact with users or other systems within a given context. Unlike standard generative models, AI agents can:
 
-* Support personalized instructions and have a personality.
-* Use external sources and third-party tools to gather information.
+* Have personalized instructions and a "personality".
+* Use external sources and third-party tools to gather additional information.
 * Maintain conversation context.
 * Perform multi-step actions to solve complex tasks.
 
@@ -33,7 +35,7 @@ An AI agent is an AI-powered software assistant which can follow instructions, g
 
 Functions offered by {{ sf-name }} provide multiple benefits when deploying AI agents:
 
-* Scalability: Automatic scaling to accommodate the load.
+* Scalability: Autoscaling to accommodate the load.
 * Cost-effectiveness: You only pay for the actual execution time.
 * No infrastructure management required: You do not need to configure or maintain servers.
 * Fast deployment: AI agents are easy to create and update.
@@ -150,7 +152,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter the service account name: `function-sa`.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `ai.languageModels.user` [role](../../foundation-models/security/index.md#languageModels-user).
@@ -412,7 +414,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
      1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. In the window that opens, enter `ai-agent-function` as the function name.
@@ -426,7 +428,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Select the `function-sa` service account.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-             * `MODEL_NAME`: URI of the {{ foundation-models-full-name }} text generation [model](/foundation-models/concepts/yandexgpt/models#generation).
+             * `MODEL_NAME`: URI of the {{ foundation-models-full-name }} text generation [model](../../foundation-models/concepts/yandexgpt/models.md#generation).
 
                  Example: `gpt://<folder_ID>/yandexgpt/latest`.
                 

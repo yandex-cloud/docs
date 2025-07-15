@@ -5,6 +5,10 @@ description: This page presents {{ foundation-models-full-name }} release notes.
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 03/07/2025 {#030725}
+
+Qwen3 235B is now available in synchronous mode. The model works only through the {{ openai }} API.
+
 ## Release as of 15/05/2025 {#150525}
 
 According to the lifecycle, updated the [text generation model](../concepts/yandexgpt/models.md#generation) versions available in synchronous and asynchronous mode. Discontinued support of {{ yagpt-name }} version 3 models and models fine-tuned in {{ ml-platform-full-name }}.
@@ -74,7 +78,7 @@ The [{{ assistant-api }}](../concepts/assistant/index.md) functionality is now a
 1. Increased the {{ yagpt-name }} quota for the number of concurrent generations. For information on the restrictions in place, refer to [{#T}](../concepts/limits.md).
 1. Starting December 2, 2024, the {{ yagpt-name }} model's test version (`RC` branch) will become the main version (`Latest` branch). The current version will remain available in the `Deprecated` branch as per the models' [lifecycle](../concepts/yandexgpt/models.md#model-lifecycle).
 
-## Release as of 24/10/24 {#241024}
+## Release as of 24/10/2024 {#241024}
 
 1. The {{ yagpt-name }} 4th generation model is available for testing (`RC` branch). Compared to the previous generation, the model's response speed has increased by an average of 2.5 times. The maximum context the model operates has also been increased. In asynchronous mode, 4th generation models can process up to 32,000 tokens. And now there is the {{ gpt-pro }} 32k model added to process large contexts in synchronous mode. For more information on model limitations, see [{#T}](../concepts/limits.md).
 1. Increased the maximum number of tokens per response in the management console.

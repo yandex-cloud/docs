@@ -30,8 +30,12 @@ items:
         href: tutorials/index.md
       - name: Automating operations using {{ maf-full-name }}
         href: tutorials/airflow-automation.md
-  - name: Quotas and limits
-    href: concepts/limits.md
+  - name: Concepts
+    items:
+      - name: Quotas and limits
+        href: concepts/limits.md
+      - name: Host classes
+        href: concepts/instance-types.md
   - name: Access management
     href: security.md
   - name: Pricing policy

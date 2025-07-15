@@ -25,20 +25,3 @@ Yes, you can. To do this, [restore the cluster from a backup](../../managed-post
 #### Can I manage a cluster using SQL commands? {#sql-control}
 
 There are some restrictions for cluster management using SQL commands. For more information, see [{#T}](../../managed-postgresql/concepts/sql-limits.md).
-
-#### Why cannot I stop a cluster? {#stop-cluster}
-
-Error message:
-
-```text
-ERROR: rpc error: code = FailedPrecondition desc = Cluster has no backups
-```
-
-A cluster that has no backups cannot be [stopped](../../managed-postgresql/operations/cluster-stop.md#stop-cluster). To fix the error and stop the cluster, [create its backup](../../managed-postgresql/operations/cluster-backups.md#create-backup).
-
-
-#### Why do I get the `max_connections is less than sum of users connection limit` error when modifying a cluster? {#max-connections-error}
-
-This error may occur when downgrading a host class in a cluster if the sum of connection limits for all users is less then the total cluster connection limit ([Max connections](../../managed-postgresql/concepts/settings-list.md#setting-max-connections)).
-
-Solution: First reduce the limits set for users so their sum is less than `<Max_connections_value> — 15` and then proceed with host class downgrade.

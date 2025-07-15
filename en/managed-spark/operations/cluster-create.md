@@ -38,9 +38,9 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
-        1. Specify a name for the cluster. The name must be unique within the folder.
-        1. (Optional) Enter a cluster description.
-        1. (Optional) Create [labels](../../resource-manager/concepts/labels.md):
+        1. Give the cluster a name. The name must be unique within the folder.
+        1. Optionally, enter a description for the cluster.
+        1. Optionally, create [labels](../../resource-manager/concepts/labels.md):
 
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Enter a label in `key: value` format.
@@ -54,8 +54,8 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
     1. Specify the computing resources to run Spark applications on:
 
-       * Driver configuration: Number of driver hosts. It can be either fixed or autoscalable.
-       * Executor configuration: Number of executor hosts. It can be either fixed or autoscalable.
+       * Driver configuration: Number of driver hosts and [their class](../concepts/instance-types.md). It can be either fixed or autoscalable.
+       * Executor configuration: Number of executor hosts and [their class](../concepts/instance-types.md). It can be either fixed or autoscalable.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
         
@@ -183,14 +183,14 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
                * `driver`: Host configuration to run {{ SPRK }} drivers.
 
-                   * `resource_preset_id`: Driver resource ID.
+                   * `resource_preset_id`: Driver [host class](../concepts/instance-types.md).
                    * `scale_policy`: Host group scaling policy for the driver:
 
                        * `fixed_scale`: Fixed scaling policy.
 
                            * `size`: Number of driver hosts.
 
-                       * `auto_scale`: Automatic scaling policy.
+                       * `auto_scale`: Autoscaling policy.
 
                            * `min_size`: Minimum number of driver hosts.
                            * `max_size`: Maximum number of driver hosts.
@@ -199,14 +199,14 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
                * `executor`: Host configuration to run {{ SPRK }} executors.
 
-                   * `resource_preset_id`: Executor resource ID.
+                   * `resource_preset_id`: Executor [host class](../concepts/instance-types.md).
                    * `scale_policy`: Host group scaling policy for the executor:
 
                        * `fixed_scale`: Fixed scaling policy.
 
                            * `size`: Number of executor hosts.
 
-                       * `auto_scale`: Automatic scaling policy.
+                       * `auto_scale`: Autoscaling policy.
 
                            * `min_size`: Minimum number of executor hosts.
                            * `max_size`: Maximum number of executor hosts.

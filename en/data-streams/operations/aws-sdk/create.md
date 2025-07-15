@@ -1,6 +1,6 @@
 ---
 title: Creating a stream in the AWS SDK
-description: This guide describes how you can create a stream in the AWS SDK.
+description: Follow this guide to create a stream in the AWS SDK.
 ---
 
 # Creating a stream in the AWS SDK
@@ -9,17 +9,17 @@ description: This guide describes how you can create a stream in the AWS SDK.
 
 - Python {#python}
 
-   Use the `create_stream` method to create a stream. When you invoke this method, you should specify the following parameters:
-   * Name of a stream being created, e.g., `example-stream`.
-   * [ID of a cloud](../../../resource-manager/operations/cloud/get-id.md) to host the stream, e.g., `b1gi1kuj2dht********`.
-   * ID of an existing [serverless](../../../ydb/pricing/serverless.md) {{ ydb-short-name }} database, e.g., `cc8028jgtuab********`. For information about how to create a database, see the [{{ ydb-short-name }} documentation](../../../ydb/quickstart.md#create-db).
-   * Number of shards, e.g., `1`.
+  Use the `create_stream` method to create a stream. When you invoke this method, specify the following parameters:
+  * Name of a stream being created, e.g., `example-stream`.
+  * [ID of the cloud](../../../resource-manager/operations/cloud/get-id.md) to host the stream, e.g., `b1gi1kuj2dht********`.
+  * ID of an existing {{ ydb-short-name }} [serverless](../../../ydb/pricing/serverless.md) database, e.g., `cc8028jgtuab********`. Learn how to create a new database in the [{{ ydb-short-name }} documentation](../../../ydb/quickstart.md#create-db).
+  * Number of shards, e.g., `1`.
 
-   You also need to [configure](prepare.md) the AWS SDK and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the service account the `yds.editor` role.
+  You also need to [configure](prepare.md) the AWS SDK and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the service account the `yds.editor` role.
 
-   To create a stream with the parameters specified above:
+  To create a stream with the above parameters:
 
-   1. Create a file named `stream_create.py` and copy the following code into it:
+  1. Create the `stream_create.py` file and paste the following code to it:
 
       ```python
       import boto3
@@ -45,30 +45,30 @@ description: This guide describes how you can create a stream in the AWS SDK.
         pprint(create_stream_response)
       ```
 
-   1. Run the program:
+  1. Run the program:
 
-      ```bash
-      python3 stream_create.py
-      ```
+     ```bash
+     python3 stream_create.py
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      The stream has been created successfully
-      {
-        'ResponseMetadata': {
-          'HTTPHeaders': {
-            'connection': 'keep-alive',
-            'content-length': '3',
-            'content-type': 'application/json',
-            'date': ''
-            'GMT',
-            'server': 'nginx/1.19.5',
-            'HTTPStatusCode': 200,
-            'RetryAttempts': 0
-          }
-        }
-      }
-      ```
+     ```text
+     The stream has been created successfully
+     {
+       'ResponseMetadata': {
+         'HTTPHeaders': {
+           'connection': 'keep-alive',
+           'content-length': '3',
+           'content-type': 'application/json',
+           'date': ''
+           'GMT',
+           'server': 'nginx/1.19.5',
+           'HTTPStatusCode': 200,
+           'RetryAttempts': 0
+         }
+       }
+     }
+     ```
 
 {% endlist %}

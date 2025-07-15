@@ -15,6 +15,8 @@ After creating a cluster, you can:
 * [Change {{ GP }} settings](#change-gp-settings) according to the {{ GP }} documentation.
 * [Change PXF protocol settings to optimize external data operations](./pxf/settings.md).
 * [Change authentication settings in the pg_hba.conf file](user-auth-rules.md).
+* [Change service account settings](#change-service-account).
+* [Change logging settings](#change-logging).
 
 ## Changing cluster name and description {#change-name-and-description}
 
@@ -188,10 +190,10 @@ After creating a cluster, you can:
 
       ```bash
       {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
-         --assign-public-ip=<public_access_to_cluster>
+         --assign-public-ip=<enable_public_access_to_cluster>
       ```
 
-      Where `assign-public-ip` is public access to the cluster, true or false.
+      Where `assign-public-ip` is public access to the cluster, `true` or `false`.
 
 - REST API {#api}
 
@@ -212,7 +214,7 @@ After creating a cluster, you can:
             --data '{
                       "updateMask": "config.assignPublicIp",
                       "config": {
-                        "assignPublicIp": <public_access_to_cluster_hosts>
+                        "assignPublicIp": <allow_public_access_to_cluster_hosts>
                       }
                     }'
         ```
@@ -254,7 +256,7 @@ After creating a cluster, you can:
                     "paths": [ "config.assign_public_ip" ]
                   },
                   "config": {
-                    "assign_public_ip": <public_access_to_cluster_hosts> 
+                    "assign_public_ip": <allow_public_access_to_cluster_hosts> 
                   }
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
@@ -334,7 +336,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
   To change additional cluster settings:
 
-    1. View the description of the CLI command to update the cluster:
+    1. View the description of the CLI command to update a cluster:
 
         ```bash
         {{ yc-mdb-gp }} cluster update --help
@@ -346,12 +348,12 @@ If you enabled public access to the cluster but cannot access it from the inter
         ```bash
         {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
             --backup-window-start <backup_start_time> \
-            --datalens-access=<access_from_{{ datalens-name }}> \
-            --yandexquery-access=<access_from_Yandex_Query> \
+            --datalens-access=<allow_access_from_{{ datalens-name }}> \
+            --yandexquery-access=<allow_access_from_Yandex_Query> \
             --maintenance-window type=<maintenance_type>,`
                                 `day=<day_of_week>,`
                                 `hour=<hour> \
-            --websql-access=<true_or_false> \
+            --websql-access=<allow_access_from_{{ websql-name }}> \
             --deletion-protection
         ```
 
@@ -406,14 +408,14 @@ If you enabled public access to the cluster but cannot access it from the inter
           }
 
           access {
-            data_lens    = <access_from_{{ datalens-name }}>
-            yandex_query = <access_from_Yandex_Query>
+            data_lens    = <allow_access_from_{{ datalens-name }}>
+            yandex_query = <allow_access_from_Yandex_Query>
           }
 
-          deletion_protection = <cluster_deletion_protection>
+          deletion_protection = <protect_cluster_from_deletion>
 
           cloud_storage {
-            enable = <hybrid_storage_use>
+            enable = <use_hybrid_storage>
           }
 
           pooler_config {
@@ -498,8 +500,8 @@ If you enabled public access to the cluster but cannot access it from the inter
               "nanos": "<nanoseconds>"
             },
             "access": {
-              "dataLens": <access_from_{{ datalens-name }}>,
-              "yandexQuery": <access_from_Yandex_Query>
+              "dataLens": <allow_access_from_{{ datalens-name }}>,
+              "yandexQuery": <allow_access_from_Yandex_Query>
             }
           },
           "maintenanceWindow": {
@@ -508,7 +510,7 @@ If you enabled public access to the cluster but cannot access it from the inter
               "hour": "<hour>"
             }
           },
-          "deletionProtection": <cluster_deletion_protection>,
+          "deletionProtection": <protect_cluster_from_deletion>,
           "configSpec": {
             "pool": {
               "mode": "<operation_mode>",
@@ -517,7 +519,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             }
           },
           "cloudStorage": {
-            "enable": <hybrid_storage_use>
+            "enable": <use_hybrid_storage>
           }
         }
         ```
@@ -626,8 +628,8 @@ If you enabled public access to the cluster but cannot access it from the inter
               "nanos": "<nanoseconds>"
             },
             "access": {
-              "data_lens": <access_from_{{ datalens-name }}>,
-              "yandex_query": <access_from_Yandex_Query>
+              "data_lens": <allow_access_from_{{ datalens-name }}>,
+              "yandex_query": <allow_access_from_Yandex_Query>
             }
           },
           "maintenance_window": {
@@ -636,7 +638,7 @@ If you enabled public access to the cluster but cannot access it from the inter
               "hour": "<hour>"
             }
           },
-          "deletion_protection": <cluster_deletion_protection>,
+          "deletion_protection": <protect_cluster_from_deletion>,
           "config_spec": {
             "pool": {
               "mode": "<operation_mode>",
@@ -645,7 +647,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             }
           },
           "cloud_storage": {
-            "enable": <hybrid_storage_use>
+            "enable": <use_hybrid_storage>
           }
         }
         ```
@@ -1071,7 +1073,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command to update a cluster:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
@@ -1257,7 +1259,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Select the cluster.
+  1. Select the appropriate cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
 
@@ -1274,7 +1276,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To increase the cluster storage size:
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command to update a cluster:
 
       ```bash
       {{ yc-mdb-gp }} cluster update --help
@@ -1429,10 +1431,337 @@ We recommend changing the host class only when the cluster has no active workloa
             * `disk_type_id`: [Disk type](../concepts/storage.md).
             * `disk_size`: New storage size in bytes.
 
+        You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+{% endlist %}
+
+
+## Changing service account settings {#change-service-account}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To change the ID of the cluster service account:
+
+    1. View the description of the CLI command to update the cluster configuration:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster update --help
+        ```
+
+    1. Specify the service account ID:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
+           --service-account <service_account_ID>
+        ```
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
+
+        For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+
+    1. In the {{ mgp-name }} cluster description, change the `service_account_id` attribute value:
+
+        ```hcl
+        resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
+          service_account_id = "<service_account_ID>"
+          ...
+        }
+        ```
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "serviceAccountId",
+                      "serviceAccountId": "<service_account_ID>"
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Only one parameter is provided in this case.
+
+        * `serviceAccountId`: Service account ID.
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [ "service_account_id" ]
+                  },
+                  "service_account_id": "<service_account_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Only one parameter is provided in this case.
+
+        * `service_account_id`: Service account ID.
+
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
 {% endlist %}
+
+## Changing logging settings {#change-logging}
+
+You can change the settings for [transferring cluster logs to {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md).
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To change logging settings:
+
+    1. View the description of the CLI command to update the cluster configuration:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster update --help
+        ```
+
+    1. Specify the logging settings to update in the update cluster command:
+
+        ```bash
+        {{ yc-mdb-gp }} cluster update <cluster_name_or_ID> \
+           --log-enabled \
+           --log-command-center-enabled \
+           --log-greenplum-enabled \
+           --log-pooler-enabled \
+           --log-folder-id <folder_ID>
+        ```
+
+        Where:
+
+        * `--log-enabled`: Enables transferring logs.
+        * `--log-command-center-enabled`: Transferring Yandex Command Center logs.
+        * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
+        * `--log-pooler-enabled`: Transferring [connection pooler](../concepts/pooling.md) logs.
+        * `--log-folder-id`: Specify the ID of the folder whose log group you want to use.
+        * `--log-group-id`: ID of the log group to write logs to.
+
+            Specify either `--log-folder-id` or `--log-group-id`.
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
+
+        For a complete list of available {{ mgp-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mgp }}).
+
+    1. In the {{ mpg-name }} cluster description, update the attribute values in the `logging` section:
+
+        ```hcl
+        resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
+          ...
+          logging {
+            enabled                = <enable_transferring_logs>
+            command_center_enabled = <transfer_Yandex_Command_Center_logs>
+            greenplum_enabled      = <transfer_{{ GP }}_logs>
+            pooler_enabled         = <transfer_connection_pooler_logs>
+            folder_id              = "<folder_ID>"
+          }
+        }
+        ```
+
+        Where:
+
+        * `enabled`: Enables transferring logs: `true` or `false`.
+        * `command_center_enabled`: Transferring Yandex Command Center logs: `true` or `false`.
+        * `greenplum_enabled`: Transferring {{ GP }} logs: `true` or `false`.
+        * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs: `true` or `false`.
+        * `folder_id`: Specify the ID of the folder whose log group you want to use.
+        * `log_group_id`: ID of the log group to write logs to.
+
+            Specify either `folder_id` or `log_group_id`.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mgp/terraform-timeouts.md) %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "logging.enabled,logging.commandCenterEnabled,logging.greenplumEnabled,logging.poolerEnabled,logging.folderId",
+                      "logging": {
+                        "enabled": "<enable_transferring_logs>",
+                        "commandCenterEnabled": "<transfer_Yandex_Command_Center_logs>",
+                        "greenplumEnabled": "<transfer_{{ GP }}_logs>",
+                        "poolerEnabled": "<transfer_connection_pooler_logs>",
+                        "folderId": "<folder_ID>"
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+        * `logging`: Logging settings:
+
+            * `enabled`: Enables transferring logs: `true` or `false`.
+            * `commandCenterEnabled`: Transferring Yandex Command Center logs: `true` or `false`.
+            * `greenplumEnabled`: Transferring {{ GP }} logs: `true` or `false`.
+            * `poolerEnabled`: Transferring [connection pooler](../concepts/pooling.md) logs: `true` or `false`.
+            * `folderId`: Specify the ID of the folder whose log group you want to use.
+            * `logGroupId`: ID of the log group to write logs to.
+
+                Specify either `folderId` or `logGroupId`.
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [ 
+                      "logging.enabled",
+                      "logging.command_center_enabled",
+                      "logging.greenplum_enabled",
+                      "logging.pooler_enabled",
+                      "logging.folder_id"
+                    ]
+                  },
+                  "logging": {
+                    "enabled": "<enable_transferring_logs>",
+                    "command_center_enabled": "<transfer_Yandex_Command_Center_logs>",
+                    "greenplum_enabled": "<transfer_{{ GP }}_logs>",
+                    "pooler_enabled": "<transfer_connection_pooler_logs>",
+                    "folder_id": "<folder_ID>"
+                  } 
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+        * `logging`: Logging settings:
+
+            * `enabled`: Enables transferring logs: `true` or `false`.
+            * `command_center_enabled`: Transferring Yandex Command Center logs: `true` or `false`.
+            * `greenplum_enabled`: Transferring {{ GP }} logs: `true` or `false`.
+            * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs: `true` or `false`.
+            * `folder_id`: Specify the ID of the folder whose log group you want to use.
+            * `log_group_id`: ID of the log group to write logs to.
+
+                Specify either `folder_id` or `log_group_id`.
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+{% endlist %}
+
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

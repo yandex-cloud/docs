@@ -1,11 +1,13 @@
 ---
-title: How to reinstall an OS on a {{ baremetal-name }} server using a {{ marketplace-name }} image
-description: In this tutorial, you will learn how to reinstall a {{ baremetal-full-name }} server OS from a {{ marketplace-full-name }} image.
+title: How to reinstall an OS on a {{ baremetal-name }} server using a {{ marketplace-short-name }} image
+description: Follow this guide to reinstall a {{ baremetal-full-name }} server OS from a {{ marketplace-short-name }} image.
 ---
 
-# Reinstalling an OS from a {{ marketplace-full-name }} image
+# Reinstalling an OS from a {{ marketplace-short-name }} image
 
-{{ baremetal-full-name }} allows you to reinstall a server OS from a [{{ marketplace-full-name }}](/marketplace) public image. During reinstallation, you can select any {{ baremetal-name }} server OS available in {{ marketplace-name }}, redistribute disk space, rebuild RAID arrays, and reconfigure root user access settings.
+{{ marketplace-short-name }} is a catalog of preconfigured images of operating systems available for installation on {{ baremetal-name }} servers.
+
+{{ baremetal-full-name }} allows you to reinstall a server OS from a {{ marketplace-short-name }} public image. During reinstallation, you can select any {{ baremetal-name }} server OS available in {{ marketplace-short-name }}, redistribute disk space, rebuild RAID arrays, and reconfigure root user access settings.
 
 To reinstall a {{ baremetal-name }} server OS:
 
@@ -21,7 +23,7 @@ To reinstall a {{ baremetal-name }} server OS:
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select one of the available OS images.
       1. {% include [server-lease-step6](../../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
 
-          If you do not make any changes to the disk partitioning, the server will retain the previous RAID and disk space allocation settings.
+          If you do not modify the disk partitioning, the server will maintain its existing RAID configuration and disk allocation settings.
       1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
           {% include [server-lease-access](../../../_includes/baremetal/server-lease-access.md) %}

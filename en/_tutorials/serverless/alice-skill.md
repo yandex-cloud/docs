@@ -1,5 +1,6 @@
 # Creating a skill for Alice
 
+
 As an example, we will create a skill called <q>Parrot</q>, which repeats everything a user writes or says. The example is available in two programming languages: Python and Node.js.
 
 To add an Alice skill based on a [function](../../functions/concepts/function.md):
@@ -103,7 +104,7 @@ Once created, the function will contain only information about itself: name, des
 ## Test the skill {#test}
 
 1. Open the **Testing** tab on the skill page in your [dashboard](https://dialogs.yandex.ru/developer/).
-1. If everything is set up correctly, the **Chat** section will display a message inviting you to start a conversation: `Hello! I'll repeat anything you say to me.`. 
+1. If everything is set up correctly, the **Chat** section will display a message inviting you to start a conversation: `Hello! I'll repeat anything you say to me.`.
 1. Send a message and make sure the response is the same.
 
 ## How to delete the resources you created {#clear-out}

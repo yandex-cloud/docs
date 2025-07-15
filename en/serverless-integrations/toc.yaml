@@ -146,6 +146,12 @@ items:
                     href: operations/eventrouter/bus/label-delete.md
               - name: Deleting a bus
                 href: operations/eventrouter/bus/delete.md
+          - name: Sending events to the bus
+            items:
+              - name: Sending events directly
+                href: operations/eventrouter/bus/data-put.md
+              - name: Sending events using a connector
+                href: operations/eventrouter/bus/data-send.md
           - name: Getting information about a connector
             items:
               - name: Getting a list of connectors
@@ -156,12 +162,14 @@ items:
             items:
               - name: Creating a connector
                 items:
+                  - name: Timer
+                    href: operations/eventrouter/connector/create-timer.md
+                  - name: API {{ er-name }}
+                    href: operations/eventrouter/connector/create-api-eventrouter.md
                   - name: '{{ yds-name }}'
                     href: operations/eventrouter/connector/create-yds.md
                   - name: '{{ message-queue-name }}'
                     href: operations/eventrouter/connector/create-message-queue.md
-                  - name: Timer
-                    href: operations/eventrouter/connector/create-timer.md
               - name: Editing a connector
                 href: operations/eventrouter/connector/update.md
               - name: Managing labels
@@ -320,6 +328,8 @@ items:
             href: concepts/eventrouter/connector.md
           - name: Rule
             href: concepts/eventrouter/rule.md
+          - name: Sending events to the bus
+            href: concepts/eventrouter/sending-events.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Pricing policy

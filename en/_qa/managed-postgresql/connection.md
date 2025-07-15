@@ -25,25 +25,6 @@ The certificate will be saved to the `$HOME\.postgresql\root.crt` file.
 
 For more information about obtaining a certificate and connecting to a database, see the [service documentation](../../managed-postgresql/operations/connect.md).
 
-#### What should I do if I get the revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
-
-Here is the full text of the error:
-
-```text
-curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
-The revocation function was unable to check revocation for the certificate
-```
-This means, when connecting to the website, the service was unable to check whether or not its certificate was listed among revoked ones.
-
-To fix this error:
-
-* Make sure the corporate network settings do not block the check.
-* Run the command with the `--ssl-no-revoke` parameter.
-
-  ```powershell
-  mkdir $HOME\.postgresql; curl.exe --ssl-no-revoke -o $HOME\.postgresql\root.crt {{ crt-web-path }}
-  ```
-
 #### How do I install an SSL certificate to connect Power BI to {{ mpg-name }} via psql? {#power-bi}
 
 1. Install [Windows Subsystem for Linux]({{ ms.docs }}/windows/wsl/) (WSL) and run the following command in the terminal:
@@ -57,13 +38,6 @@ To fix this error:
    The certificate will be available at `C:\temp\CA.pfx`.
 
 1. [Place the obtained certificate in the Windows certificate store](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
-
-#### What should I do if I get the _SSL is required_ error when connecting? {#ssl-req}
-
-The error occurs because you are trying to connect to the cluster with a [public host](../../managed-postgresql/concepts/network.md#public-access-to-a-host). These hosts only support connections with an SSL certificate. You can:
-
-* [Obtain an SSL certificate](../../managed-postgresql/operations/connect.md#get-ssl-cert) and add it to the application you are using to connect to the cluster.
-* [Disable public access to hosts](../../managed-postgresql/operations/hosts.md#update) and connect to the cluster from a VM located in the same cloud network.
 
 #### Can I connect to cluster hosts over SSH? {#connect-ssh}
 
@@ -86,31 +60,11 @@ By default, a cluster reserves 50 connections to each host per user. You can cha
 If the connection limit per user is reached, any attempt to establish a new connection will fail with the following error:
 
 ```text
-too many active clients for user (pool_size for user <username> reached <limit_value>)
+too many active clients for user (pool_size for user <user_name> reached <limit_value>)
 ```
 
-To learn how to update the {{ PG }} settings at the user level, see our [documentation](../../managed-postgresql/operations/cluster-users.md#update-settings).
-
-#### Why do I get an error when trying to connect to a database? {#database-error}
-
-Connecting to a database may fail with an error like:
-
-```text
-ERROR: odyssey: ce3ea075f4ffa: route for 'dbname.username' is not found
-```
-
-The error means that the connection parameters contain an invalid database name.
+To learn how to update {{ PG }} settings at the user level, see [this tutorial](../../managed-postgresql/operations/cluster-users.md#update-settings).
 
 #### Why do I get an error when trying to connect to a database from {{ google-looker }}? {#google-looker}
 
 To connect from {{ google-looker }}, be sure to generate a client certificate file and a private key and specify them in the connection settings. For more information about how to do this, see [Connecting from {{ google-looker }}](../../managed-postgresql/operations/connect.md#connection-google-looker).
-
-#### Why does a connection terminate with an error? {#connection-error}
-
-A {{ mpg-name }} cluster connection may be terminated with the following message:
-
-```text
-FATAL: terminating connection due to administrator command
-```
-
-This message does not indicate an error, it means that the session/transaction duration has exceeded the [Session duration timeout](../../managed-postgresql/concepts/settings-list.md#setting-session-duration-timeout) setting value (default value: 12 hours).

@@ -6,7 +6,7 @@ description: Learn how to install Ingress NGINX in a {{ managed-k8s-name }} clus
 # Installing Ingress NGINX
 
 
-[Ingress NGINX](https://docs.nginx.com/nginx-ingress-controller/overview/about/) is an Ingress controller for NGINX that balances the load between the WebSocket, gRPC, TCP, or UDP applications. Ingress NGINX is installed in a {{ managed-k8s-name }} cluster and is set up using the {{ k8s }} [ConfigMap](https://docs.nginx.com/nginx-ingress-controller/configuration/global-configuration/configmap-resource/) and [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) objects, including the [annotations](https://docs.nginx.com/nginx-ingress-controller/configuration/ingress-resources/advanced-configuration-with-annotations/).
+[Ingress NGINX](https://docs.nginx.com/nginx-ingress-controller/overview/about/) is an ingress controller for NGINX that balances the load between the WebSocket, gRPC, TCP, or UDP applications. Ingress NGINX is installed in a {{ managed-k8s-name }} cluster and is set up using the {{ k8s }} [ConfigMap](https://docs.nginx.com/nginx-ingress-controller/configuration/global-configuration/configmap-resource/) and [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) objects, including the [annotations](https://docs.nginx.com/nginx-ingress-controller/configuration/ingress-resources/advanced-configuration-with-annotations/).
 
 ## Getting started {#before-you-begin}
 
@@ -27,13 +27,13 @@ description: Learn how to install Ingress NGINX in a {{ managed-k8s-name }} clus
 
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `ingress-nginx-space`. If you leave the default namespace, Ingress NGINX may work incorrectly.
    * **Application name**: Specify the application name.
-   * **Number of controller replicas**: Set the number of Ingress controller replicas to improve fault tolerance. If only one replica is used, then, in case of its failure, the applications deployed using the Ingress controller will be unavailable.
+   * **Number of controller replicas**: Set the number of ingress controller replicas to improve fault tolerance. If only one replica is used, then, in case of its failure, the applications deployed using the ingress controller will be unavailable.
 
       The default value is `1`.
 
    * **Controller IP address**: Specify a reserved IP address. You can [reserve it](../../../vpc/operations/get-static-ip.md) using {{ vpc-full-name }}.
 
-      If you do not fill in the field, the Ingress controller will be assigned a dynamic IP address.
+      If you do not fill in the field, the ingress controller will get a dynamic IP address.
 
    * **Traffic management policy**: Select a policy for external traffic management. It matches the `externalTrafficPolicy` parameter in the {{ k8s }} specifications. The possible values are:
 

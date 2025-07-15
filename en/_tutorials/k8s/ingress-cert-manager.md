@@ -17,8 +17,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master and outbound traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for an NLB (see [{{ network-load-balancer-name }} pricing](../../network-load-balancer/pricing.md)).
 * Fee for public IP addresses, if assigned to cluster nodes, and a public IP address for an NLB (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
@@ -38,14 +38,14 @@ The support cost includes:
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
 
 
-## Install the NGINX Ingress controller {#install-controller}
+## Install the NGINX Ingress Controller {#install-controller}
 
 {% list tabs group=instructions %}
 
 
 - {{ marketplace-full-name }} {#marketplace}
 
-  Install the [Ingress NGINX](/marketplace/products/yc/ingress-nginx) application from {{ marketplace-name }} [using this guide](../../managed-kubernetes/operations/applications/ingress-nginx.md).
+  Install [Ingress NGINX](/marketplace/products/yc/ingress-nginx) from {{ marketplace-name }} by following [this guide](../../managed-kubernetes/operations/applications/ingress-nginx.md).
 
 
 - Manually {#manual}
@@ -65,9 +65,9 @@ The support cost includes:
 
 {% endlist %}
 
-For specific port forwarding at NGINX Ingress controller installation, follow [this guide](../../managed-kubernetes/operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
+For configure specific port forwarding during NGINX Ingress Controller installation, follow [this guide](../../managed-kubernetes/operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
 
-## Configure a DNS record for the Ingress controller {#connecting-certs-manager}
+## Configure a DNS record for the ingress controller {#connecting-certs-manager}
 
 If you are using [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns), you do not need to configure a DNS record: it is created automatically. Otherwise:
 1. Find out the [IP address](../../vpc/concepts/address.md) of the Ingress controller (the value in the `EXTERNAL-IP` column):
@@ -85,7 +85,7 @@ If you are using [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/pro
    ...
    ```
 
-1. Add an [A record](../../dns/concepts/resource-record.md#a) pointing to the Ingress controller's public IP to your DNS provider or to your own DNS server:
+1. Add an [A record](../../dns/concepts/resource-record.md#a) pointing to the ingress controller's public IP to your DNS provider or to your own DNS server:
 
    ```text
    <your_domain> IN A <Ingress_controller_IP_address>
@@ -121,7 +121,7 @@ You can install the certificate manager in one of the following ways:
      kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.1/cert-manager.yaml
      ```
 
-  1. Make sure that the `cert-manager` [namespace](../../managed-kubernetes/concepts/index.md#namespace) has three [pods](../../managed-kubernetes/concepts/index.md#pod), all of them being `1/1` ready and with the `Running` status:
+  1. Make sure the `cert-manager` [namespace](../../managed-kubernetes/concepts/index.md#namespace) has three [pods](../../managed-kubernetes/concepts/index.md#pod), all of them being `1/1` ready and with the `Running` status:
 
      ```bash
      kubectl get pods -n cert-manager --watch

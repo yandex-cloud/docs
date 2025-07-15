@@ -1,13 +1,13 @@
-When accessing {{ speechkit-name }} via the API, provide the received parameters in each request:
+When accessing {{ speechkit-name }} via the API, provide the received parameters in each request: 
 
 * For API v1 and API v2:
 
-   Specify the IAM token in the `Authorization` header in the following format:
+   Specify the IAM token in the `Authorization` header as follows:
 
    ```
-   Authorization: Bearer <IAM token>
+   Authorization: Bearer <IAM_token>
    ```
-
+  
    Specify the folder ID in the request body in the `folderId` parameter.
 
 * For API v3:
@@ -16,6 +16,6 @@ When accessing {{ speechkit-name }} via the API, provide the received parameters
    * Specify the folder ID in the `x-folder-id` header.
 
    ```
-   Authorization: Bearer <IAM_token>
-   x-folder-id <folder_ID>
+   Authorization: Bearer <IAM_token> 
+   x-folder-id: <folder_ID>
    ```

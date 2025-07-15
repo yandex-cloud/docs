@@ -1,0 +1,1 @@
+(Опционально) Чтобы добавить [суммаризацию](../../video/concepts/videos.md#summarization), включите опцию **{{ ui-key.yacloud_video.videos.field_summarization }}**.

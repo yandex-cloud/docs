@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ metadata-hub-full-name }}
-description: Access management in {{ metadata-hub-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ metadata-hub-full-name }}. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
 ---
 
 # Access management in {{ metadata-hub-name }}
@@ -16,7 +16,7 @@ To assign a role for a resource, a user needs the `connection-manager.admin` rol
 
 ## Resources you can assign a role for {#resources}
 
-You can assign a role for an [organization](../../organization/quickstart.md), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [connection](../concepts/connection-manager.md). The roles assigned for organizations, clouds, or folders also apply to nested resources.
+You can assign a role for an [organization](../../organization/quickstart.md), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or [connection](../concepts/connection-manager.md). The roles assigned to organizations, clouds, and folders also apply to their nested resources.
 
 You can assign a role for a connection in the [management console]({{ link-console-main }}).
 
@@ -31,6 +31,7 @@ You can use {{ metadata-hub-name }} roles (_service roles_) and {{ yandex-cloud 
 * [Roles to manage connections using {{ connection-manager-name }}](connection-manager-roles.md).
 * [Roles to work with with metadata in a {{ metastore-full-name }} cluster](metastore-roles.md).
 * [Roles to work with {{ schema-registry-name }}](schema-registry-roles.md).
+* [Roles to work with {{ data-catalog-full-name }}](data-catalog-roles.md).
 
 ### Primitive roles {#primitive-roles}
 
@@ -41,5 +42,5 @@ You can use {{ metadata-hub-name }} roles (_service roles_) and {{ yandex-cloud 
 ## What's next {what-is-next}
 
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

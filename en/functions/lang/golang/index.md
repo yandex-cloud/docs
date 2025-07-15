@@ -15,7 +15,8 @@ With {{ sf-name }}, you can run applications written in [Go](https://go.dev/doc/
 | golang117 | 1.17.8 | Ubuntu 18.04 | No | No
 | golang118 | 1.18.5 | Ubuntu 18.04 | No | No
 | golang119 | 1.19.3 | Ubuntu 18.04 | No | No
-| golang121 | 1.21.9 | Ubuntu 22.04 LTS | No | Yes
+| golang121 | 1.21.9 | Ubuntu 22.04 LTS | No | No
+| golang123 | 1.23.9 | Ubuntu 22.04 LTS | No | Yes
 
 You can connect the [SDK library](https://github.com/yandex-cloud/go-sdk) to the runtime to work with the {{ yandex-cloud }} API. For more information about how to use the SDK, see [Using the SDK](sdk.md).
 

@@ -43,6 +43,8 @@ items:
             href: operations/space/create.md
           - name: Привязать платежный аккаунт
             href: operations/space/link-ba.md
+          - name: Изменить платежный аккаунт
+            href: operations/space/change-ba.md
           - name: Добавить пользователя в пространство
             href: operations/space/add-user-to-space.md
           - name: Удалить пространство

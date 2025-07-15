@@ -7,6 +7,18 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 ## 2025 {#2025}
 
+### June {#june25}
+
+#### New features {#new-features-june25}
+
+
+* {{ metadata-hub-name }} now features [{{ data-catalog-name }}](../concepts/data-catalog.md), a tool for collecting, analyzing, and marking up metadata from various sources. {{ data-catalog-name }} is at the [Technical preview](../../overview/concepts/launch-stages.md) stage and is available upon request to [support]({{ link-console-support }}).
+
+* When creating new [{{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) and [{{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) clusters, connections to [{{ connection-manager-name }}](../concepts/connection-manager.md) are now automatically created. Migration is available for old clusters.
+
+
+* Expanded the list of endpoints in {{ data-transfer-full-name }} with support for {{ connection-manager-name }} integration.
+
 ### April {#april25}
 
 #### New features {#new-features-april25}

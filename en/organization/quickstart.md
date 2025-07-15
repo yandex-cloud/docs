@@ -1,4 +1,4 @@
-# Getting started with {{ org-name }}
+# Getting started with {{ org-full-name }}
 
 An _organization_ is the highest resource in the {{ yandex-cloud }} resource model hierarchy that consolidates the resources of all other services. Organizations are also used to manage users and their authentication and authorization settings.
 
@@ -166,7 +166,7 @@ To assign a role to a user:
 
 If your company has a user and access management system (e.g., Active Directory or Google Workspace), you can use it to authenticate employees in {{ org-full-name }}. This way, employees will access {{ yandex-cloud }} services using their corporate accounts.
 
-To learn more, see [Identity federation](./concepts/add-federation.md).
+For more information, see [Identity federation](./concepts/add-federation.md).
 
 ### Enable access via {{ oslogin }} {#os-login-access}
 

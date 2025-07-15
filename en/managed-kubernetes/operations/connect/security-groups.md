@@ -79,6 +79,12 @@ For the cluster to work correctly, create rules for incoming and outgoing traffi
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
 
+{% note info %}
+
+If using a [highly available master](../../concepts/index.md#master), allow traffic to the CIDRs of the subnets where the master hosts are located or to the cluster CIDR for node groups. This is required for transmitting service traffic between the master and nodes.
+
+{% endnote %}
+
 ### Allowing traffic for node groups {#rules-internal-nodegroup}
 
 For node groups to run properly, create rules for incoming and outgoing traffic and [apply them to node groups](#apply):
@@ -94,6 +100,30 @@ For node groups to run properly, create rules for incoming and outgoing traffic 
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+
+    {% note info %}
+
+    If you are using a [highly available master](../../concepts/index.md#master) and do not want to allow nodes to connect to any addresses (CIDR: `0.0.0.0/0`), allow outgoing traffic to the CIDRs of the subnets where the master hosts are located or to the cluster CIDR. This ensures node access to the master.
+
+      {% cut "Examples" %}
+
+      * Access to the cluster CIDR:
+
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `10.131.0.32/32`.
+
+      * Access to the CIDRs of subnets with master hosts:
+
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `10.128.0.0/24`, `10.129.0.0/24`, `10.131.0.0/24`.
+
+      {% endcut %}
+
+    {% endnote %}
 
 ### Allowing traffic for cluster {#rules-master}
 

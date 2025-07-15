@@ -98,7 +98,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    * CLI {#cli}
 
-      To see the messages in JSON format, run this command:
+      To view the records in JSON format, run this command:
 
       ```bash
       yc logging read --group-name=default --format=json
@@ -134,11 +134,11 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    * API {#api}
 
-      To view log group messages, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
+      To view log group records, use the [LogReadingService.Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
    {% endlist %}
 
-   To learn more, see [{#T}](../../logging/operations/read-logs.md).
+   For more information, see [{#T}](../../logging/operations/read-logs.md).
 
 ## Sending data to a custom log group {#custom}
 
@@ -223,7 +223,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    * CLI {#cli}
 
-      To see the messages in JSON format, run this command:
+      To view the records in JSON format, run this command:
 
       ```bash
       yc logging read --group-name=airflow-log-group --format=json
@@ -259,8 +259,8 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    * API {#api}
 
-      To view log group messages, use the [LogReadingService/Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
+      To view log group records, use the [LogReadingService.Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
    {% endlist %}
 
-   To learn more, see [{#T}](../../logging/operations/read-logs.md).
+   For more information, see [{#T}](../../logging/operations/read-logs.md).

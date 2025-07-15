@@ -1,5 +1,5 @@
 ---
-title: Getting started with {{ mes-name }}
+title: How to get started with {{ mes-name }}
 description: This guide describes how you can get started with {{ mes-name }}.
 ---
 
@@ -7,7 +7,7 @@ description: This guide describes how you can get started with {{ mes-name }}.
 
 {% include [Elasticsearch-end-of-service](../_includes/mdb/mes/note-end-of-service.md) %}
 
-To get started with the service:
+To get started:
 
 1. [Create a cluster](#cluster-create).
 1. [Configure security groups](#configuring-security-groups).
@@ -25,7 +25,7 @@ To get started with the service:
 
 1. You can connect to an {{ ES }} cluster from both inside and outside {{ yandex-cloud }}:
 
-   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)-based VM in the same network as the cluster.
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md) VM in the same network as the cluster.
 
    * To connect to a cluster from the internet, [request public access](operations/cluster-create.md#change-data-node-settings) to hosts with the [_Data node_](concepts/hosts-roles.md#data-node) role when creating the cluster.
 
@@ -39,7 +39,7 @@ These instructions assume that you are connecting to the cluster from the intern
 ## Create a cluster {#cluster-create}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-1. Select **Managed Service for&nbsp;Elasticsearch**.
+1. Select **Managed Service for Elasticsearch**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
 1. Set the cluster parameters.
 
@@ -65,7 +65,7 @@ These instructions assume that you are connecting to the cluster from the intern
 
 It is assumed that all the steps below are performed on Linux.
 
-To connect to a cluster:
+To connect to your cluster:
 
 1. Install an SSL certificate:
 

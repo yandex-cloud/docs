@@ -2,17 +2,17 @@
 
 [Cluster-api-provider-yandex](https://github.com/yandex-cloud/cluster-api-provider-yandex) is a provider for deploying a self-managed {{ k8s }} cluster in {{ yandex-cloud }} infrastructure using the [{{ k8s }} Cluster API](https://cluster-api.sigs.k8s.io/).
 
-The cluster is deployed based on {{ compute-full-name }} [virtual machines](../../compute/concepts/vm.md) and an [L7](../../application-load-balancer/concepts/application-load-balancer.md) {{ alb-full-name }}.
+The cluster is deployed on [virtual machines](../../compute/concepts/vm.md) {{ compute-full-name }} and an [L7](../../application-load-balancer/concepts/application-load-balancer.md) {{ alb-full-name }}.
 
-**Advantages of using a {{ yandex-cloud }} provider for creating clusters:** {#advantages}
+**Advantages of using {{ yandex-cloud }} provider for creating clusters:** {#advantages}
 
 * Integration with the [{{ yandex-cloud }} API](../../api-design-guide/concepts/general.md).
 * Declarative approach to cluster creation and management.
-* Describing the cluster as a custom resource [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
+* Ability to describe the cluster as a custom resource [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
 * Wide range of parameters for configuring cluster compute resources.
 * [Custom OS images](#prepare-os-image) for master and nodes.
 * Custom Control Plane.
-* Alternative to [{{ TF }}](https://www.terraform.io/) for CI processes.
+* Alternative to [{{ TF }}](https://www.terraform.io/) in CI processes.
 
 **Provider compatibility with the {{ k8s }} Cluster API** {#compatibility}
 
@@ -44,7 +44,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The infrastructure support costs include:
 * Fee for computing resources and disks of VMs used for {{ k8s }} cluster deployment, auxiliary VM, and {{ managed-k8s-name }} managing cluster nodes (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using the computing resources of the L7 load balancer (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for using an L7 load balancer’s computing resources (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for using {{ managed-k8s-name }} managing cluster master and outbound traffic (see [{{ managed-k8s-full-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for [public IP addresses](../../vpc/concepts/address.md#public-addresses) for auxiliary VMs and {{ managed-k8s-name }} managing cluster (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using the [NAT gateway](../../vpc/concepts/gateways.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#nat-gateways)).
@@ -335,7 +335,7 @@ If you want to use the Kubernetes Cloud Controller Manager for {{ yandex-cloud }
 
 To provide network functionality for pods in the new cluster, install to it a [container network interface](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/), e.g., [Cilium](https://github.com/cilium/cilium) or [Calico](https://github.com/projectcalico/calico).
 
-To learn more, see this documentation:
+For more information, see this documentation:
 * [Cilium Quick Installation](https://docs.cilium.io/en/stable/gettingstarted/k8s-install-default/).
 * [Quickstart for Calico on Kubernetes](https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart).
 

@@ -379,7 +379,7 @@ Use this service to:
   1. In the [management console]({{ link-console-main }}), select the folder you want to check for the presence of [desktops](../../../cloud-desktop/concepts/desktops-and-groups.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/display.svg) **{{ ui-key.yacloud.vdi.label_desktops }}**.
-  1. If the list contains at least one created desktop, the recommendation is fulfilled; otherwise, proceed to "Guides and solutions to use".
+  1. If the list contains at least one created desktop, the recommendation is fulfilled; Otherwise, proceed to "Guides and solutions to use".
 
 {% endlist %}
 

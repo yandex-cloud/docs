@@ -11,9 +11,9 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the security profile you need.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the security profile.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Select the profile to add a rule to.
+  1. Select the profile where you want to add a rule.
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** and in the window that opens:
 
       {% include [add-rule](../../_includes/smartwebsecurity/add-rule.md) %}
@@ -28,13 +28,13 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
 
      {% include [security-profile-list-command](../../_includes/smartwebsecurity/security-profile-list-command.md) %}
 
-  1. Update the security profile by applying the [YAML](https://en.wikipedia.org/wiki/YAML) configuration with both current and new security rules required for the profile:
+  1. Update the security profile by applying the [YAML](https://en.wikipedia.org/wiki/YAML) configuration with both the current and new security rules required for the profile:
   
      1. To get the YAML configuration for the current security rules in the profile, run this command, specifying the security profile name or ID:
 
          {% include [security-profile-get-command](../../_includes/smartwebsecurity/security-profile-get-command.md) %}
 
-     1. Copy the current rule configuration from the `security_rules` section, paste it into any text editor, and save it to a file after adding new rules, such as the following:
+     1. Copy the current rule configuration (`security_rules` section contents) to any text editor and save it to a file after adding new rules to it. Here is an example:
 
          {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
 
@@ -59,13 +59,13 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and edit the fragment with `yandex_sws_security_profile` description: add a section named `security_rule` with a security rule.
+  1. Open the {{ TF }} configuration file and edit the `yandex_sws_security_profile` description: add the `security_rule` section defining your security rule.
 
       ```hcl
       resource "yandex_sws_security_profile" "demo-profile-simple" {
         name                             = "<security_profile_name>"
         default_action                   = "DENY"
-        captcha_id                       = "<captcha_ID>"
+        captcha_id                       = "<CAPTCHA_ID>"
         advanced_rate_limiter_profile_id = "<ARL_profile_ID>"
 
         # Smart Protection rule
@@ -78,7 +78,7 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
           }
         }
 
-        #Basic rule
+        # Basic rule
         security_rule {
           name = "base-rule-geo"
           priority = 100000
@@ -107,13 +107,13 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
       }
       ```
 
-      For more information about the `yandex_sws_security_profile` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/sws_security_profile).
+      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_security_profile).
 
-  1. Create resources:
+  1. Create the resources:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the resources' updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  You can check the resource updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
   ```bash
   yc smartwebsecurity security-profile get <security_profile_ID>

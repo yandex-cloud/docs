@@ -9,11 +9,11 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a [WAF profile](../concepts/waf.md) in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [WAF profile](../concepts/waf.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
-  1. Enter the profile name.
-  1. Optionally, enter a description.
+  1. Name the profile.
+  1. Optionally, provide a description.
   1. Optionally, add [labels](../../resource-manager/concepts/labels.md) to your profile.
   1. By default, the WAF profile uses the [OWASP Core Rule Set](https://coreruleset.org/). Click the row with the rule set to view the rules it includes.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -27,7 +27,7 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
   1. In the configuration file, describe the resources you want to create:
 
       ```hcl
-      # In the basic set, rules of this paranoia level and below will be active
+      # In the basic set, rules of this paranoia level and below will be enabled
       locals {
         waf_paranoia_level = <paranoia_level>
       }
@@ -52,7 +52,7 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
           }
         }
 
-        # Activating rules from the basic set if their paranoia level is not higher than specified in the waf_paranoia_level variable
+        # Enabling rules from the basic set if their paranoia level is not higher than the value defined in the waf_paranoia_level variable
         dynamic "rule" {
           for_each = [
             for rule in data.yandex_sws_waf_rule_set_descriptor.owasp4.rules : rule
@@ -67,36 +67,36 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
       ```
 
       Where:
-      * `waf_paranoia_level`: [Paranoia level](../concepts/waf.md#paranoia) which classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the higher the probability of WAF false positives.
-      * `data "yandex_sws_waf_rule_set_descriptor"`: {{ TF }} data source for a basic rule set. From the data source, you can get a list of rules and their IDs.
+      * `waf_paranoia_level`: [Paranoia level](../concepts/waf.md#paranoia) classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the greater the risk of WAF false positives.
+      * `data "yandex_sws_waf_rule_set_descriptor"`: {{ TF }} data source for the basic rule set. From the data source, you can get a list of rules and their IDs.
       * `resource "yandex_sws_waf_profile"`: {{ TF }} resource to manage the WAF profile.
          * `name`: WAF profile name.
          * `core_rule_set`: Basic rule set:
-            * `inbound_anomaly_score`: Anomaly threshold. This is the sum of [anomaly](../concepts/waf.md#anomaly) values of the triggered rules that will block the request. Possible values: from 2 to 10,000. The higher the value, the more likely it is that the request satisfying the rules is in fact an attack.
-            * `paranoia_level`: [Paranoia level](../concepts/waf.md#paranoia) which classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the higher the probability of false positives. Possible values: from 1 to 4.
+            * `inbound_anomaly_score`: Anomaly threshold, which is the total [anomaly](../concepts/waf.md#anomaly) score of triggered rules that results in blocking the request. The possible values range from 2 to 10,000. The higher the value, the more likely it is that the request matching the rules is in fact an attack.
+            * `paranoia_level`: [Paranoia level](../concepts/waf.md#paranoia) which classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the greater the risk of false positives. The possible values range from 1 to 4.
 
               {% note info %}
 
-              The paranoia level has no effect on enabling or disabling rules, it only serves as a recommendation for the user to enable all rules with `paranoia_level` less than or equal to the specified value.
+              The paranoia level itself has no effect on enabling or disabling rules but serves as a recommendation for users to enable all rules with `paranoia_level` less than or equal to the specified value.
 
               {% endnote %}
 
-            * `rule_set`: Rule set. Specify name (`name`) and version (`version`) of the rule set.
+            * `rule_set`: Rule set. Specify its `name` and `version`.
 
-         * `dynamic "rule"`: Dynamic activation of rules from the basic set if their paranoia level is not higher than set in the `waf_paranoia_level` variable. For dynamically configured rules, you can [change the parameters](configure-set-rules.md) manually. For example, you can turn a rule into a blocking one or activate a rule with the paranoia level higher than specified in the variable.
+         * `dynamic "rule"`: Dynamically enabling the rules in the basic set if their paranoia level is not higher than the value defined in the `waf_paranoia_level` variable. You can manually [edit the settings](configure-set-rules.md) of dynamically configured rules. For example, you can turn a rule into a blocking one or enable a rule with the paranoia level higher than the one defined in the variable.
             * `rule_id`: Rule ID.
             * `is_enabled`: Flag to enable or disable a rule.
             * `is_blocking`: [Blocking](../concepts/waf.md#anomaly) rule flag.
 
-      For more information about `yandex_sws_waf_profile` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more information about `yandex_sws_waf_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Create the resources:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}).
+  {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}).
 
-  After creating a WAF profile, you can [customize a set of basic rules](configure-set-rules.md) and [exception rules](exclusion-rule-add).
+  After creating a WAF profile, you can [configure a set of basic rules](configure-set-rules.md) and [exclusion rules](exclusion-rule-add).
 
 - API {#api}
 

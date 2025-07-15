@@ -5,19 +5,19 @@ description: Follow this guide to create a new cloud.
 
 # Creating a new cloud
 
-[At sign-up](../../../billing/quickstart/index.md#create_billing_account), a [cloud](../../concepts/resources-hierarchy.md#cloud) named `cloud-<Yandex_ID>` will be automatically created for you. After you link a billing account, you can create an additional cloud.
+[After you sign up](../../../billing/quickstart/index.md#create_billing_account) with {{ yandex-cloud }} and create an [organization](../../../organization/concepts/organization.md), you will create your first [cloud](../../concepts/resources-hierarchy.md#cloud). If you need an additional cloud, follow the same guide to create it.
 
-To create an additional cloud:
+To create a cloud:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure your [billing account](../../../billing/concepts/billing-account.md) is in `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
-  1. Go to the [management console]({{ link-console-main }}).
+  1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure your [billing account](../../../billing/concepts/billing-account.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
+  1. Navigate to the [management console]({{ link-console-main }}).
   1. In the upper left corner next to the **{{ ui-key.yacloud.cloud-tree-list.value_search-placeholder }}** field, click ![plus](../../../_assets/console-icons/plus.svg). In the window that opens:
   
-      1. Enter a name for the cloud. The name should match the following format:
+      1. Enter a name for the cloud. The naming requirements are as follows:
 
           {% include [name-format.md](../../../_includes/name-format.md) %}
       1. If you have multiple organizations, select the one you need.
@@ -57,7 +57,7 @@ To create an additional cloud:
 
       Where:
 
-      * `--name`: Name of the cloud you are creating. The name should match the following format:
+      * `--name`: Name of the cloud you are creating. The naming requirements are as follows:
 
           {% include [name-format.md](../../../_includes/name-format.md) %}
       * `--billing-account-id`: ID of the [billing account](../../../billing/concepts/billing-account.md) to link the new cloud to.
@@ -84,7 +84,7 @@ To create an additional cloud:
 
   {% endnote %}
 
-  1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
       ```hcl
       # Creating a cloud
@@ -104,7 +104,7 @@ To create an additional cloud:
 
       Where:
 
-      * `name`: Cloud name. The name should match the following format:
+      * `name`: Cloud name. The naming requirements are as follows:
       
         {% include [name-format.md](../../../_includes/name-format.md) %}
         
@@ -116,7 +116,7 @@ To create an additional cloud:
 
       For more information about the `yandex_resourcemanager_cloud` and `yandex_billing_cloud_binding` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-docs-link }}).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

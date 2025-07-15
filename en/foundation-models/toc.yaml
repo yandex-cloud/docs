@@ -735,9 +735,15 @@ items:
     href: public-talks.md
   - name: Release notes
     href: release-notes/index.md
+  - name: FAQ
+    items:
+      - name: General questions about models
+        href: qa/index.md
+      - name: AI assistants
+        href: qa/ai-assistant.md
   - name: Troubleshooting
     items:
-      - name: FAQ
-        href: qa/index.md
       - name: Error codes
         href: troubleshooting/error-codes.md
+      - name: Request headers for troubleshooting
+        href: api-ref/support-headers.md

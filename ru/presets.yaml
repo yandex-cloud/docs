@@ -6098,7 +6098,7 @@ default:
         title_navigation-repository-settings: Настройки репозитория
       ui_modules_repoCreate:
         button_create-repo: Создать репозиторий
-        title_create-blank: Создать пустой репозиторий
+        title_create-blank: Пустой репозиторий
         title_new-repo-details: Сведения о новом репозитории
         title_owner-field: Владелец
         title_repo-field: Название
@@ -6152,7 +6152,6 @@ default:
         base_label_payer: Плательщик
         label_card-add: Добавить карту
         label_wizard-next: Вперед
-        payment-type_label_invoice: Банковский перевод
         section_person-type: Тип плательщика
         section_persons: Плательщики
       create-account-wizard:
@@ -6373,10 +6372,13 @@ default:
       services:
         service_compute: Compute Cloud
       settings:
+        button_add-empty: Добавить
         button_add-empty-telegram: Настроить
+        button_send-code: Получить код
         button_submit: Подтвердить
         field_email: Адрес
         field_phone: Номер телефона
+        label_add-empty-webhookOutgoing: Добавить URL вебхука
         label_alerting-name: Мониторинг
         label_billing-name: Биллинг
         label_event-name: Мероприятия
@@ -6956,11 +6958,13 @@ default:
         label_thumbnail: Обложка
       videos:
         action_create-video: Загрузить видео
+        field_summarization: Суммаризация
         label_access_rights-public: Для всех пользователей
         label_access_rights-sign-url-access: По временной ссылке
         label_accessRights: Доступ
         label_allow-access: Разрешить доступ
         label_description: Описание
+        label_neuro-translation: Нейроперевод
         label_subtitles: Субтитры
         label_title: Название
         label_visibility-status: Публичный доступ
@@ -9595,7 +9599,6 @@ default:
           label_rule-without-grouping: Без группировки
           label_save-rule: Сохранить правило
           section_rules: Правила
-          title_profile: Профиль ARL
         attach-dialog:
           action_add-balancer: Добавить балансировщик
           action_connect: Подключить

@@ -45,5 +45,3 @@
         Specify one of the two parameters: `--log-folder-id` or `--log-group-id`.
 
     * `--log-min-level`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO` (default), `WARN`, `ERROR`, and `FATAL`.
-
-    You can specify only one of the parameters: `--log-folder-id` or `--log-group-id`.

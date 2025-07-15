@@ -66,7 +66,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. View the description of the CLI command to update the cluster:
+    1. View the description of the CLI command to update a cluster:
 
         ```bash
         {{ yc-mdb-af }} cluster update --help
@@ -298,7 +298,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
                 Specify one of the two parameters: `folderId` or `logGroupId`.
 
-    1. Use the [Cluster.update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -483,9 +483,9 @@ After creating a cluster, you can edit its basic and advanced settings.
             * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
             * `log_group_id`: Custom log group ID. Logs will be written to this group.
 
-                Specify either `folder_id` or `log_group_id`.
+                Specify one of the two parameters: `folder_id` or `log_group_id`.
 
-    1. Use the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
