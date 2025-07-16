@@ -4,6 +4,4 @@ description: Из статьи вы узнаете, как настроить з
 canonical: '{{ link-docs }}/tutorials/routing/sgre-over-ipsec'
 ---
 
-# Настройка защищенного туннеля GRE поверх IPsec
-
 {% include [gre-over-ipsec](../../_tutorials/routing/gre-over-ipsec.md) %}

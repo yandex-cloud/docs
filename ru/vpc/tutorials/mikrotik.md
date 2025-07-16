@@ -4,6 +4,4 @@ description: Из статьи вы узнаете, как установить 
 canonical: '{{ link-docs }}/tutorials/routing/mikrotik'
 ---
 
-# Установка виртуального роутера Mikrotik CHR
-
 {% include [mikrotik](../../_tutorials/infrastructure/mikrotik.md) %}

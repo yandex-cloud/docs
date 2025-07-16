@@ -4,6 +4,4 @@ description: Из статьи вы узнаете, как создать и н�
 canonical: '{{ link-docs }}/tutorials/routing/usergate-proxy'
 ---
 
-# Создание и настройка шлюза UserGate в режиме прокси-сервера
-
 {% include [usergate-setup](../../_tutorials/infrastructure/usergate-proxy.md) %}

@@ -4,7 +4,5 @@ description: Следуя данной инструкции, вы сможете
 canonical: '{{ link-docs }}/tutorials/routing/pub-del'
 ---
 
-# Удаление публичного соединения
-
 {% include [cic-pub-del](../../_tutorials/routing/pub-del.md) %}
 

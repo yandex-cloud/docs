@@ -4,6 +4,4 @@ description: Из статьи вы узнаете, как установить 
 canonical: '{{ link-docs }}/tutorials/routing/cisco'
 ---
 
-# Установка виртуального роутера Cisco CSR 1000v
-
 {% include [cisco](../../_tutorials/infrastructure/cisco.md) %}

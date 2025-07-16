@@ -94,21 +94,21 @@ API сервиса {{ foundation-models-name }} частично совмест�
     json_schema = {
         "type": "object",
         "properties": {
-            "name": {"type": "string"},
-            "size": {"type": "integer"},
+            "skyscraper_name": {"type": "string", "description": "Название небоскрёба."},
+            "skyscraper_height": {"type": "integer", "description": "Высота небоскрёба в метрах."},
         },
-        "required": ["name", "size"]
+        "required": ["skyscraper_name", "skyscraper_height"]
     }
 
     response = client.chat.completions.create(
         model=f"gpt://{YANDEX_CLOUD_FOLDER}/yandexgpt/rc",
         messages=[
-            {"role": "user", "content": "Название - диван, размер - 150 сантиметров"}
+            {"role": "user", "content": "Шанхайская башня (Шанхай, Китай) — 632 метра, 127 этажей.}
         ],
         max_tokens=200,
         temperature=0.3,
         stream=False,
-        response_format={"type": "json_schema", "json_schema": {"schema": json_schema, "name": "divan"}}
+        response_format={"type": "json_schema", "json_schema": json_schema}}
     )
     print(response)
     ```

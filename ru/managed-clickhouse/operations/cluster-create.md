@@ -78,12 +78,18 @@ description: Следуя данной инструкции, вы сможете
 
       * Выберите размер диска, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [Резервные копии](../concepts/backup.md).
 
+      
+      * (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
+        {% include [preview-note](../../_includes/note-preview-by-request.md) %}
 
-      * Если вы хотите создать дополнительные хосты базы данных, нажмите **{{ ui-key.yacloud.mdb.forms.button_add-host }}**. После добавления второго хоста появится кнопка **Настроить ZooKeeper**. Измените настройки {{ ZK }} в блоках **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** и **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}** при необходимости.
-      * Укажите параметры хостов базы, создаваемых вместе с кластером. Чтобы изменить добавленный хост, наведите курсор на строку хоста и нажмите на значок ![image](../../_assets/console-icons/pencil.svg).
-      * Чтобы к хосту можно было подключаться из интернета, включите настройку **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+        * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+
+        * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
+
+        Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
+
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 

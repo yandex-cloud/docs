@@ -4,7 +4,5 @@ description: Следуя данной инструкции, вы сможете
 canonical: '{{ link-docs }}/tutorials/routing/trunk-del'
 ---
 
-# Удаление транкового подключения
-
 {% include [cic-trunk-del](../../_tutorials/routing/trunk-del.md) %}
 

@@ -62,7 +62,9 @@ description: Следуя данной инструкции, вы сможете
      * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [Резервные копии](../concepts/backup.md).
 
      
-     * (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md). 
+     * (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
+
+       {% include [preview-note](../../_includes/note-preview-by-request.md) %}
 
        * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 

@@ -5,4 +5,4 @@ Users with this role can:
 * [Remove](../../organization/operations/edit-account.md#remove-user) users from the organization.
 * View the list of the organization users.
 * View the [attributes](../../organization/operations/setup-federation.md#claims-mapping) of the organization federated users.
-* View the attributes of the organization users that are user pool members.
+* View the attributes of the organization users that are [user pool](../../organization/concepts/user-pools.md) members.

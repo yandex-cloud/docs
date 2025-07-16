@@ -4,6 +4,4 @@ description: Следуя данной инструкции, вы сможете
 canonical: '{{ link-docs }}/tutorials/routing/bms-simple-subnet'
 ---
 
-# Организация сетевой связности в приватной подсети {{ baremetal-full-name }}
-
 {% include [bms-simple-subnet](../../_tutorials/routing/bms-simple-subnet.md) %}

@@ -26,6 +26,12 @@ description: Из статьи вы узнаете, какие типы диск
 Подробнее об ограничениях на количество хостов в кластере или шарде см. в разделе [Квоты и лимиты](./limits.md).
 
 
+
+## Шифрование диска {#disk-encryption}
+
+{% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
+
+
 ## Примеры использования {#examples}
 
 * [{#T}](../tutorials/redis-as-php-sessions-storage.md)

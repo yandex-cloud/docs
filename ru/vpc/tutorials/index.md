@@ -19,8 +19,8 @@ description: Различные сценарии использования {{ v
 * [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Check Point NGFW](high-accessible-dmz.md)
 * [Сегментация облачной инфраструктуры с помощью решения Check Point Next-Generation Firewall](network-segmentation-checkpoint.md)
 * [Создание и настройка шлюза UserGate в режиме прокси-сервера](usergate-proxy.md)
-* [Создание и настройка шлюза UserGate в режиме межсетевого экрана](usergate-firewall.md)
 * [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Смарт-Софт NGFW](high-accessible-dmz-ting.md)
+* [Создание и настройка шлюза UserGate в режиме межсетевого экрана](usergate-firewall.md)
 
 ## {{ baremetal-name }} {#sec-baremetal}
 

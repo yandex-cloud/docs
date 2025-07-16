@@ -4,7 +4,5 @@ description: Следуя данной инструкции, вы сможете
 canonical: '{{ link-docs }}/tutorials/routing/priv-del'
 ---
 
-# Удаление приватного соединения
-
 {% include [cic-priv-del](../../_tutorials/routing/priv-del.md) %}
 
