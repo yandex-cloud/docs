@@ -4,6 +4,4 @@ description: Следуя данной инструкции, вы сможете
 canonical: '{{ link-docs }}/tutorials/routing/webapp-on-bms-behind-sws'
 ---
 
-# Развертывание веб-приложения на серверах {{ baremetal-full-name }} с L7-балансировщиком и защитой {{ sws-full-name }}
-
 {% include [webapp-on-bms-behind-sws](../../_tutorials/routing/webapp-on-bms-behind-sws.md) %}

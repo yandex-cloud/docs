@@ -4,6 +4,4 @@ description: Из данной инструкции вы узнаете, как 
 canonical: '{{ link-docs }}/tutorials/routing/cic-with-ngfw'
 ---
 
-# Организация доступа через {{ interconnect-name }} к облачным сетям, размещенным за NGFW
-
 {% include [cic-with-ngfw](../../_tutorials/routing/cic-with-ngfw.md) %}

@@ -36,17 +36,7 @@ description: Из статьи вы узнаете, что такое храни
 
 ## Шифрование диска {#disk-encryption}
 
-При создании или восстановлении кластера из резервной копии можно зашифровать диск хранилища [пользовательским ключом KMS](../../kms/concepts/key.md). Шифрование диска нельзя отключить или изменить. Также невозможно зашифровать диск уже созданного кластера.
-
-{% note warning %}
-
-Функция шифрования недоступна для сетевых SSD-дисков (`network-ssd`).
-
-{% endnote %}
-
-{% include [encryption-role](../../_includes/compute/encryption-role.md) %}
-
-{% include [encryption-keys-note](../../_includes/compute/encryption-keys-note.md) %}
+{% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
 
 
 ## Управление дисковым пространством {#manage-storage-space}

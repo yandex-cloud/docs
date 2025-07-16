@@ -4,6 +4,4 @@ description: Следуя данной инструкции, вы сможете
 canonical: '{{ link-docs }}/tutorials/routing/bms-vrf-routing'
 ---
 
-# Настройка VRRP для кластера серверов {{ baremetal-name }} с использованием Keepalived
-
 {% include [bms-vrf-routing](../../_tutorials/routing/bms-vrf-routing.md) %}

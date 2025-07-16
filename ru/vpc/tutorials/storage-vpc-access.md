@@ -4,6 +4,4 @@ description: Из статьи вы узнаете, как подключить�
 canonical: '{{ link-docs }}/tutorials/routing/storage-vpc-access'
 ---
 
-# Подключение к {{ objstorage-name }} из {{ vpc-name }}
-
 {% include [storage-vpc-access](../../_tutorials/routing/storage-vpc-access.md) %}

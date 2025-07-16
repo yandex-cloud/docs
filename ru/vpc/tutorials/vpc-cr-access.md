@@ -4,6 +4,4 @@ description: Из статьи вы узнаете, как подключить�
 canonical: '{{ link-docs }}/tutorials/routing/vpc-cr-access'
 ---
 
-# Подключение к {{ container-registry-name }} из {{ vpc-name }}
-
 {% include [vpc-cr-access](../../_tutorials/routing/vpc-cr-access.md) %}

@@ -4,6 +4,4 @@ description: Из статьи вы узнаете, как реализоват�
 canonical: '{{ link-docs }}/tutorials/routing/route-switcher'
 ---
 
-# Реализация отказоустойчивых сценариев для сетевых виртуальных машин
-
 {% include [route-switcher](../../_tutorials/routing/route-switcher.md) %}

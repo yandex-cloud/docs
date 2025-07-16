@@ -4,6 +4,4 @@ description: Из статьи вы узнаете, как настроить Vi
 canonical: '{{ link-docs }}/tutorials/security/vipnet-to-yc'
 ---
 
-# ViPNet Coordinator VA в {{ yandex-cloud }}
-
 {% include [vipnet-to-yc](../../_tutorials/security/vipnet-to-yc.md) %}

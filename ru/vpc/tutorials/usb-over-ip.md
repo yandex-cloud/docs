@@ -4,6 +4,4 @@ description: Настройте доставку USB-устройств на в�
 canonical: '{{ link-docs }}/tutorials/routing/usb-over-ip'
 ---
 
-# Доставка USB-устройств на сервер {{ baremetal-name }} или виртуальную машину {{ compute-name }}
-
-{% include notitle [usb-over-ip](../../_tutorials/routing/usb-over-ip.md) %}
+{% include [usb-over-ip](../../_tutorials/routing/usb-over-ip.md) %}

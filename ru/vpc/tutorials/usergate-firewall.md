@@ -4,6 +4,4 @@ description: Из статьи вы узнаете, как создать и н�
 canonical: '{{ link-docs }}/tutorials/routing/usergate-firewall'
 ---
 
-# Создание и настройка шлюза UserGate в режиме межсетевого экрана
-
 {% include [usergate-setup](../../_tutorials/routing/usergate-firewall.md) %}

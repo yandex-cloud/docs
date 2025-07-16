@@ -8,25 +8,13 @@
   1. [Получите идентификатор каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-vision-user }}` или выше.
   1. При обращении к {{ vision-name }} через API в каждом запросе передавайте полученные параметры:
 
-      * Для Vision API и Classifier API:
+    * в заголовке `Authorization` указывайте IAM-токен;
+    * в заголовке `x-folder-id` указывайте идентификатор каталога.
 
-          Указывайте IAM-токен в заголовке `Authorization` в следующем формате:
-
-          ```
-          Authorization: Bearer <IAM-токен>
-          ```
-
-          Идентификатор каталога указывайте в теле запроса в параметре `folderId`.
-
-      * Для [OCR API](../../vision/ocr/api-ref/index.md):
-
-          * в заголовке `Authorization` указывайте IAM-токен;
-          * в заголовке `x-folder-id` указывайте идентификатор каталога.
-
-          ```
-          Authorization: Bearer <IAM-токен>
-          x-folder-id: <идентификатор_каталога>
-          ```
+    ```bash
+    Authorization: Bearer <IAM-токен>
+    x-folder-id: <идентификатор_каталога>
+    ```
 
 - Сервисный аккаунт {#service-account}
 
@@ -37,7 +25,7 @@
       1. [Получите IAM-токен](../../iam/operations/iam-token/create-for-sa.md).
       1. Полученный IAM-токен передавайте в заголовке `Authorization` в следующем формате:
 
-          ```
+          ```bash
           Authorization: Bearer <IAM-токен>
           ```
 
@@ -48,7 +36,7 @@
       1. [Получите API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key).
       1. Полученный API-ключ передавайте в заголовке `Authorization` в следующем формате:
 
-          ```
+          ```bash
           Authorization: Api-Key <API-ключ>
           ```
 

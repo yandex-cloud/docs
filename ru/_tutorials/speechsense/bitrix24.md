@@ -74,11 +74,7 @@
   1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
   1. К пространству [привяжите платежный аккаунт](../../speechsense/operations/space/link-ba.md), с которого будет оплачиваться использование {{ speechsense-name }}.
 
-     {% note tip %}
-
-     Управлять платежным аккаунтом могут только пользователи с [аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport). Если вы работаете с {{ yandex-cloud }} через [федерацию удостоверений](../../organization/concepts/add-federation.md), [обратитесь]({{ link-console-support }}) в техническую поддержку.
-
-     {% endnote %}
+     {% include [manage-ba-note](../../_includes/speechsense/manage-ba-note.md) %}
 
 {% endlist %}
 

@@ -157,12 +157,12 @@ items:
             href: tutorials/network-segmentation-checkpoint.md
           - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
             href: tutorials/usergate-proxy.md
-          - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
-            href: tutorials/usergate-firewall.md
           - name: >-
               Реализация защищенной высокодоступной сетевой инфраструктуры с
               выделением DMZ на основе Смарт-Софт NGFW
             href: tutorials/high-accessible-dmz-ting.md
+          - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
+            href: tutorials/usergate-firewall.md
       - name: '{{ baremetal-name }}'
         items:
           - name: >-

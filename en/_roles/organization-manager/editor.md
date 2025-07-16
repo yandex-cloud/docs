@@ -11,9 +11,9 @@ The `organization-manager.admin` role enables managing organization settings, id
 * View info on the identity federation [certificates](../../organization/concepts/add-federation.md#build-trust) and add, modify, and delete them.
 * View the lists of [federated user](../../iam/concepts/users/accounts.md#saml-federation) group [mappings](../../organization/concepts/add-federation.md#group-mapping) and info on them, as well as create, edit, and delete such lists.
 * View info on the federated user attributes, as well as create, modify, and delete them.
-* View info on user pools and the access permissions granted for them.
+* View info on [user pools](../../organization/concepts/user-pools.md) and the access permissions granted for them.
 * Create, modify, and delete user pools.
-* View info on the domains linked to the user pools, as well as add, confirm, and remove domains.
+* View info on the [domains](../../organization/concepts/domains.md) linked to the user pools, as well as add, confirm, and remove domains.
 * Create, delete, activate and deactivate users belonging to user pools.
 * View the attributes of users belonging to user pools.
 * View the factors of [multi-factor authentication (MFA)](https://en.wikipedia.org/wiki/Multi-factor_authentication).

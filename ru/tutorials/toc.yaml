@@ -1250,6 +1250,8 @@ items:
               Реализация защищенной высокодоступной сетевой инфраструктуры с
               выделением DMZ на основе Смарт-Софт NGFW
             href: routing/high-accessible-dmz-ting.md
+          - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
+            href: routing/usergate-firewall.md
       - name: '{{ baremetal-name }}'
         items:
           - name: Настройка VRRP для кластера серверов {{ baremetal-name }}
@@ -1319,8 +1321,6 @@ items:
         items:
           - name: Настройка сетевого взаимодействия ресурсов из разных каталогов
             href: routing/multi-folder-vpc.md
-          - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
-            href: routing/usergate-firewall.md
           - name: Реализация отказоустойчивых сценариев для сетевых ВМ
             href: routing/route-switcher.md
           - name: Настройка сети для {{ dataproc-name }}

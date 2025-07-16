@@ -4,8 +4,6 @@ description: Из статьи вы узнаете, как настроить м
 canonical: '{{ link-docs }}/tutorials/routing/nat-instance/'
 ---
 
-# Маршрутизация через NAT-инстанс
-
 {% include [nat-instance](../../../_tutorials/routing/nat-instance.md) %}
 
 * [Консоль управления](console.md) — используйте этот способ, чтобы пошагово создать инфраструктуру в консоли управления {{ yandex-cloud }}.

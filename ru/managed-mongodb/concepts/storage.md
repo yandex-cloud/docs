@@ -32,6 +32,12 @@ description: Из статьи вы узнаете, что такое храни
 Подробнее об ограничениях на количество хостов в кластере или [шарде](./sharding.md) см. в разделе [Квоты и лимиты](./limits.md).
 
 
+
+## Шифрование диска {#disk-encryption}
+
+{% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
+
+
 ## Управление дисковым пространством {#manage-storage-space}
 
 {% include [mmg-readonly-safeguard.md](../../_includes/mdb/mmg-readonly-safeguard.md) %}

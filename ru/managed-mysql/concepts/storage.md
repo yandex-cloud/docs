@@ -11,7 +11,6 @@ description: Из статьи вы узнаете, какие типы диск
 
 {% include [storage-type](../../_includes/mdb/mmy/storage-type.md) %}
 
-
 ## Выбор типа дисков при создании кластера {#storage-type-selection}
 
 Количество хостов, которые можно создать вместе с кластером {{ MY }}, зависит от выбранного типа диска:
@@ -34,9 +33,17 @@ description: Из статьи вы узнаете, какие типы диск
 Подробнее об ограничениях на количество хостов в кластере см. в разделе [Квоты и лимиты](./limits.md).
 
 
+
+## Шифрование диска {#disk-encryption}
+
+{% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
+
+
+
 ## Примеры использования {#examples}
 
 * [{#T}](../tutorials/sync-mysql.md)
 * [{#T}](../tutorials/bitrix-shop/index.md)
 * [{#T}](../tutorials/bitrix-website/index.md)
 * [{#T}](../tutorials/opencart/index.md)
+

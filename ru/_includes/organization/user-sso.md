@@ -8,6 +8,8 @@
 
 Федеративных пользователей не нужно отдельно приглашать в организацию, они добавляются автоматически после логина.
 
+Добавлять в организацию федеративных пользователей и удалять их могут пользователи с любой из следующих [ролей](../../organization/security/index.md): `organization-manager.federations.userAdmin`, `organization-manager.federations.admin`, `organization-manager.admin` или `organization-manager.organizations.owner`.
+
 ### Добавьте федеративных пользователей {#add-user-sso}
 
 {% include notitle [user-sso](add-user-sso.md) %}

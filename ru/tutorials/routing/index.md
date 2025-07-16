@@ -18,6 +18,7 @@ description: Различные сценарии использования се
 * [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Check Point NGFW](high-accessible-dmz.md)
 * [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе UserGate NGFW](high-accessible-dmz-usergate.md)
 * [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Смарт-Софт NGFW](high-accessible-dmz-ting.md)
+* [Создание и настройка шлюза UserGate в режиме межсетевого экрана](usergate-firewall.md)
 
 ## {{ baremetal-name }} {#sec-baremetal}
 
@@ -45,7 +46,6 @@ description: Различные сценарии использования се
 ## Настройка сетевых ресурсов и взаимодействие между ними {#sec-network-resources}
 
 * [Настройка сетевого взаимодействия ресурсов из разных каталогов](multi-folder-vpc.md)
-* [Создание и настройка шлюза UserGate в режиме межсетевого экрана](usergate-firewall.md)
 * [Реализация отказоустойчивых сценариев для сетевых виртуальных машин](route-switcher.md)
 * [Настройка сети для {{ dataproc-full-name }}](data-processing-nat-instance.md)
 * [Переключение сетевого соединения при пересоздании кластера {{ dataproc-full-name }}](data-processing-dns-reconnect.md)

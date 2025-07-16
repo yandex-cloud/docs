@@ -4,6 +4,8 @@
 
 Пользователя можно пригласить в организацию через консоль управления или интерфейс {{ cloud-center }}. Приглашение присоединиться к организации направляется пользователю на электронную почту.
 
+Приглашать в организацию новых пользователей с аккаунтом на Яндексе и удалять такие приглашения могут пользователи с любой из следующих [ролей](../../organization/security/index.md): `organization-manager.passportUserAdmin`, `organization-manager.admin` или `organization-manager.organizations.owner`.
+
 ### Отправьте приглашение {#send-invitation}
 
 {% list tabs group=instructions %}
