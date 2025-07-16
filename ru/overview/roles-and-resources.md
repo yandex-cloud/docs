@@ -20,7 +20,9 @@
 
 Любой пользователь состоит как минимум в одной организации. При первом входе в {{ yandex-cloud }} с Яндекс ID появится приглашение зарегистрировать свою организацию. После создания организации можно подключать и отключать сервисы {{ yandex-cloud }}, создавать облака, каталоги и другие ресурсы.
 
-В организацию можно приглашать других участников с аккаунтами на Яндексе, чтобы они имели доступ к сервисам и ресурсам организации. Если в компании уже используется другая система управления учетными данными, например, [Active Directory](https://learn.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) или [Keycloak](https://www.keycloak.org/), можно [настроить федерацию удостоверений](../organization/concepts/add-federation.md). Тогда сотрудники смогут использовать свои рабочие аккаунты для доступа к сервисам {{ yandex-cloud }}. Для массового управления доступом пользователей можно объединять в [группы](../organization/operations/manage-groups.md).
+В организацию можно приглашать других участников с аккаунтами на Яндексе, чтобы они имели доступ к сервисам и ресурсам организации. Если в компании уже используется другая система управления учетными данными, например, [Active Directory](https://learn.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) или [Keycloak](https://www.keycloak.org/), можно [настроить федерацию удостоверений](../organization/concepts/add-federation.md). Тогда сотрудники смогут использовать свои рабочие аккаунты для доступа к сервисам {{ yandex-cloud }}. Кроме того, в организации можно [создать пул пользователей](../organization/operations/user-pools/create-userpool.md) и, добавив в него [домен](../organization/concepts/domains.md), создавать в организации [локальные пользовательские аккаунты](../iam/concepts/users/accounts.md#local).
+
+Для массового управления доступом пользователей можно объединять в [группы](../organization/operations/manage-groups.md).
 
 ## Управление доступом {#access}
 

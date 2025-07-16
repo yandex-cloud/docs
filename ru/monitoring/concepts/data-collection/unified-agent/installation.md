@@ -52,6 +52,8 @@ description: Из статьи вы узнаете, как установить 
 
 - Docker-образ {#docker}
 
+  Установите Docker Engine. Воспользуйтесь [инструкцией](https://docs.docker.com/engine/install/#supported-platforms) по установке и запуску Docker для вашей операционной системы.
+
   {{ unified-agent-short-name }} распространяется в виде Docker-образа. Образ опубликован в репозитории `{{ registry }}/yc` с названием `unified_agent` и тегом `latest`. Образ содержит бинарный файл с агентом и конфигурационный файл, настраивающий агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md) в {{ monitoring-full-name }}.
 
   Чтобы загрузить Docker-образ, выполните команду:

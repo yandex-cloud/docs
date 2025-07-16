@@ -4,6 +4,4 @@ description: Из статьи вы узнаете, как использова�
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/terraform-modules'
 ---
 
-# Использование модулей {{ yandex-cloud }} в {{ TF }}
-
 {% include [terraform-modules](../../_tutorials/infrastructure/terraform-modules.md) %}

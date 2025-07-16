@@ -23,11 +23,7 @@
 1. Создайте [пространство](concepts/resources-hierarchy.md#space), в котором будут находиться все ваши [проекты](concepts/resources-hierarchy.md#project): выберите **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**, введите название, (опционально) добавьте описание и нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
 1. К пространству [привяжите платежный аккаунт](operations/space/link-ba.md), с которого будет оплачиваться использование {{ speechsense-name }}.
 
-   {% note tip %}
-
-   Управлять платежным аккаунтом могут только пользователи с [аккаунтом на Яндексе](../iam/concepts/users/accounts.md#passport). Если вы работаете с {{ yandex-cloud }} через [федерацию удостоверений](../organization/concepts/add-federation.md), [обратитесь]({{ link-console-support }}) в техническую поддержку.
-
-   {% endnote %}
+   {% include [manage-ba-note](../_includes/speechsense/manage-ba-note.md) %}
 
 1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** и создайте [подключение](concepts/resources-hierarchy.md#connection) на основе метаинформации ваших аудиозаписей или переписок из чатов:
 

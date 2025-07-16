@@ -28,15 +28,15 @@ description: Следуя данной инструкции, вы сможете
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
   1. На панели слева нажмите ![image](../../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.tuning.tunings }}**.
   1. Нажмите **{{ ui-key.yacloud.tuning.train-model }}**.
-  1. Введите имя и описания датасета. Требования к имени:
+  1. Введите имя и описание дообученной модели. Требования к имени:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. (Опционально) Добавьте или удалите [метки](../../../resource-manager/concepts/labels.md) дообучения. Они позволяют разделить и сгруппировать ресурсы на логические группы.
-  1. В поле **{{ ui-key.yacloud.tuning.task }}** выберите **{{ ui-key.yacloud.tuning.embedding }}**.
+  1. В поле **{{ ui-key.yacloud.tuning.task }}** выберите `{{ ui-key.yacloud.tuning.embedding }}`.
   1. Выберите **{{ ui-key.yacloud.tuning.embedding-type}}**, соответствующий подготовленному датасету. 
   1. В поле **{{ ui-key.yacloud.yagpt.model }}** выберите нужную модель.
-  1. В поле **{{ ui-key.yacloud.dataset.dataset }}** нажмите **{{ ui-key.yacloud.common.add }}**.
+  1. В поле **{{ ui-key.yacloud.dataset.dataset }}** нажмите ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.common.add }}**.
   1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud.dataset.select-from-created }}** и выберите созданный ранее датасет.
   1. Нажмите **{{ ui-key.yacloud.tuning.addition-params }}**, чтобы провести тонкую настройку дообучения.
   1. Нажмите **{{ ui-key.yacloud.tuning.start-tuning }}**.
@@ -53,7 +53,8 @@ description: Следуя данной инструкции, вы сможете
      * `<API-ключ>` — [API-ключ](../../../iam/concepts/authorization/api-key.md) сервисного аккаунта, полученный ранее и необходимый для [аутентификации в API](../../../foundation-models/api-ref/authentication.md).
 
          {% include [sdk-auth-details-paragraph](../../../_includes/foundation-models/sdk-auth-details-paragraph.md) %}
-     * `<идентификатор_датасета>` — идентификатор датасета для обучения.
+     * `<тип_датасета>` — тип созданного ранее [датасета](../../concepts/resources/dataset.md#embeddings). Возможные значения: `pair` (пара) и `triplet` (триплет).
+     * `<идентификатор_датасета>` — идентификатор созданного ранее датасета для обучения.
 
   1. Выполните созданный файл:
 
@@ -72,7 +73,6 @@ description: Следуя данной инструкции, вы сможете
      download_tensorboard(metrics_url)
      ```
 
-
 - cURL {#curl}
 
   1. Запустите дообучение.
@@ -85,7 +85,7 @@ description: Следуя данной инструкции, вы сможете
          -d @ \
          {{ api-host-llm }}:443 yandex.cloud.ai.tuning.v1.TuningService/Tune <<EOM
          {
-           "base_model_uri": "emb://<идентификатор_каталога>/yandexgpt-lite/latest",
+           "base_model_uri": "emb://<идентификатор_каталога>/text-embeddings/latest",
            "train_datasets": [{"dataset_id": "<идентификатор_датасета>", "weight": 1.0}],
            "name": "train-embeddings",
            "text_embedding_pair_params": {}
@@ -101,7 +101,7 @@ description: Следуя данной инструкции, вы сможете
          -d @ \
          {{ api-host-llm }}:443 yandex.cloud.ai.tuning.v1.TuningService/Tune <<EOM
          {
-           "base_model_uri": "emb://<идентификатор_каталога>/yandexgpt-lite/latest",
+           "base_model_uri": "emb://<идентификатор_каталога>/text-embeddings/latest",
            "train_datasets": [{"dataset_id": "<идентификатор_датасета>", "weight": 1.0}],
            "name": "train-embeddings",
            "text_embedding_triplet_params": {}
@@ -119,11 +119,13 @@ description: Следуя данной инструкции, вы сможете
 
      ```text
      {
-       "id": "ftnlljf53kil********",
-       "createdAt": "2025-04-20T11:17:33Z",
-       "modifiedAt": "2025-04-20T11:17:33Z",
+       "id": "ftna7bps63gh********",
+       "createdAt": "2025-07-16T10:44:57Z",
+       "modifiedAt": "2025-07-16T10:44:57Z",
        "metadata": {
-         "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningMetadata"
+         "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningMetadata",
+         "status": "CREATED",
+         "tuningTaskId": "ftna7bps63gh********"
        }
      }
      ```
@@ -147,20 +149,20 @@ description: Следуя данной инструкции, вы сможете
 
      ```json
      {
-       "id": "ftnlljf53kil********",
-       "createdAt": "2025-04-20T11:17:33Z",
-       "modifiedAt": "2025-04-20T11:25:40Z",
+       "id": "ftna7bps63gh********",
+       "createdAt": "2025-07-16T10:44:57Z",
+       "modifiedAt": "2025-07-16T10:48:07Z",
        "done": true,
        "metadata": {
          "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningMetadata",
          "status": "COMPLETED",
-         "tuningTaskId": "ftnlljf53kil********"
+         "tuningTaskId": "ftna7bps63gh********"
        },
        "response": {
          "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningResponse",
          "status": "COMPLETED",
-         "targetModelUri": "emb://b1gt6g8ht345********/yandexgpt-lite/latest@tamr2nc6pev5e********",
-         "tuningTaskId": "ftnlljf53kil********"
+         "targetModelUri": "emb://b1gt6g8ht345********/text-embeddings/latest@tamr0j6m2crpi********",
+         "tuningTaskId": "ftna7bps63gh********"
        }
      }
      ```
@@ -182,7 +184,7 @@ description: Следуя данной инструкции, вы сможете
 
 ### Обращение к дообученной модели {#model-call}
 
-После завершения операции дообучения сохраните URI дообученной модели вида `emb://<URI_базовой_модели>/@<суффикс_дообучения>`. Используйте его в качестве пользовательской модели эмбеддингов, если это необходимо. Например, можно указать `model_uri` при [построении поискового индекса](../../concepts/assistant/search-index.md).
+После завершения операции дообучения сохраните URI дообученной модели вида `emb://<идентификатор_каталога>/text-embeddings/latest@<суффикс_дообучения>`. Используйте его в качестве пользовательской модели эмбеддингов, если это необходимо. Например, можно указать `model_uri` при [построении поискового индекса](../../concepts/assistant/search-index.md).
 
 #### См. также {#see-also}
 

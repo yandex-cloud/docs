@@ -6823,6 +6823,7 @@ default:
           action:
             add_domain: Добавить домен
           caption_domains: Домены
+          field_active: Учётная запись активна
           field_full-name: Полное имя
           field_password: Пароль
           title_personal-info: Персональная информация

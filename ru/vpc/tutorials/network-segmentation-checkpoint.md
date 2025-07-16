@@ -4,6 +4,4 @@ description: Из статьи вы узнаете, как настроить с
 canonical: '{{ link-docs }}/tutorials/routing/network-segmentation-checkpoint'
 ---
 
-# Сегментация облачной инфраструктуры с помощью решения Check Point Next-Generation Firewall
-
 {% include [network-segmentation-checkpoint](../../_tutorials/routing/network-segmentation-checkpoint.md) %}

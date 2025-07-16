@@ -86,7 +86,7 @@ description: Следуя данной инструкции, вы сможете
      * Укажите **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** виртуальной машины, на которой будут развернуты хосты.
      * Выберите **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
 
-  
+     
      * Выберите [тип диска](../concepts/storage.md):
        * либо более гибкое хранилище — на сетевых SSD-дисках (`network-ssd`) или на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`);
        * либо более быстрое хранилище — на локальных SSD-дисках (`local-ssd`).
@@ -95,6 +95,18 @@ description: Следуя данной инструкции, вы сможете
 
 
      * Выберите размер хранилища. Доступный размер хранилища ограничен [квотами и лимитами](../concepts/limits.md#mrd-limits).
+
+     
+     * (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
+
+       {% include [preview-note](../../_includes/note-preview-by-request.md) %}
+
+       * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+
+       * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
+
+       Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
 
   
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:

@@ -4,6 +4,4 @@ description: В этом руководстве вы узнаете, как ис
 canonical: '{{ link-docs }}/tutorials/dataplatform/airflow-auto-tasks'
 ---
 
-# Автоматизация задач {{ yq-full-name }} с помощью {{ maf-full-name }}
-
 {% include [airflow-auto-tasks](../../_tutorials/dataplatform/airflow-auto-tasks.md) %}

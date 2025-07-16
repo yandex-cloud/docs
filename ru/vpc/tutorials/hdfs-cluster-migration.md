@@ -5,6 +5,4 @@ canonical: '{{ link-docs }}/tutorials/dataplatform/kafka/hdfs-cluster-migration'
 noIndex: true
 ---
 
-# Миграция кластера {{ dataproc-full-name }} с файловой системой HDFS в другую зону доступности
-
-{% include notitle [tutorial](../../_tutorials/dataplatform/kafka/hdfs-cluster-migration.md) %}
+{% include [tutorial](../../_tutorials/dataplatform/kafka/hdfs-cluster-migration.md) %}

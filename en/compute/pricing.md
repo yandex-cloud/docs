@@ -7,15 +7,6 @@ editable: false
 
 # {{ compute-name }} pricing policy
 
-
-
-{% note warning %}
-
-AMD Zen 3 prices will apply starting June 24, 2025.
-
-{% endnote %}
-
-
 {% note tip %}
 
 

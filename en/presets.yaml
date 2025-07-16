@@ -6821,6 +6821,7 @@ default:
           action:
             add_domain: Add domain
           caption_domains: Domains
+          field_active: Account is active
           field_full-name: Full name
           field_password: Password
           title_personal-info: Personal information

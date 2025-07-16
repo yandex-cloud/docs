@@ -9,10 +9,10 @@ The `organization-manager.auditor` role enables viewing info on the organization
 * View info on the identity federation [certificates](../../organization/concepts/add-federation.md#build-trust).
 * View the list of [federated user](../../iam/concepts/users/accounts.md#saml-federation) group [mappings](../../organization/concepts/add-federation.md#group-mapping) and info on them.
 * View info on the attributes of the federated users.
-* View info on user pools and the access permissions granted for them.
+* View info on [user pools](../../organization/concepts/user-pools.md) and the access permissions granted for them.
 * View the attributes of users belonging to user pools.
 * View the factors of [multi-factor authentication (MFA)](https://en.wikipedia.org/wiki/Multi-factor_authentication).
-* View info on the domains linked to the user pools.
+* View info on the [domains](../../organization/concepts/domains.md) linked to the user pools.
 * View info on SAML and OIDC applications, as well as the access permissions granted for them.
 * View the list of the users added to SAML and OIDC applications.
 * Get the certificates of SAML applications.
