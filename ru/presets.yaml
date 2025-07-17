@@ -7255,6 +7255,7 @@ default:
         field_server-lease-duration: Период аренды
         field_server-pool: Пул
         field_server-private-ip: Приватный IP-адрес
+        field_server-public-ip: Публичный IP-адрес
         field_server-zone: Зона доступности
         field_ssh-public-key: Открытый SSH-ключ
         field_subnet-id: Приватная подсеть
@@ -7278,6 +7279,7 @@ default:
         label_public-ip-ephemeral: Из эфемерной подсети
         label_public-ip-from-dedicated-subnet: Из выделенной подсети
         label_public-ip-no: Без адреса
+        label_public-ip-via-dhcp: Назначить по DHCP
         label_public-subnets: Публичные адреса и подсети
         label_subnetworks: Приватные подсети
         label_vrf-interconnect-direct-type: Идентификатор соединения

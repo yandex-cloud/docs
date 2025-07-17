@@ -221,17 +221,14 @@
   1. В поле **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** выберите период, на который вы заказываете аренду — `1 день`.
   
       По окончании указанного периода аренда сервера будет автоматически продлена на такой же период. Прервать аренду в течение указанного периода аренды нельзя, но можно [отказаться](../../baremetal/operations/servers/server-lease-cancel.md) от дальнейшего продления аренды сервера.
-  1. В блоке **Сетевые настройки**:
-
-     1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m4`.
-     1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
-
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** в поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m4`.
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
   1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
       {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** в поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя сервера: `alb-back-0`.
-  1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
+  1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
   1. Аналогичным способом арендуйте в пуле серверов `{{ region-id }}-m4` еще один сервер `alb-back-1`.
 
 {% endlist %}

@@ -55,7 +55,7 @@ description: Следуя данной инструкции, вы сможете
 1. {% include [add-translation-optional](../_includes/video/add-translation-optional.md) %}
 1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
-[Подробнее о видео](./concepts/videos.md)
+Подробнее о видео см. в разделе [{#T}](./concepts/videos.md).
 
 ## Опубликуйте видео {#publish-video}
 

@@ -1,3 +1,0 @@
-1. Включите опцию **{{ ui-key.yacloud.baremetal.title_section-server-backups }}**.
-1. Выберите [политику резервного копирования](../../../backup/concepts/policy.md) или [создайте](../../../backup/operations/policy-vm/create.md) новую.
-1. Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с назначенными ролями [`baremetal.editor`](../../../baremetal/security/index.md#baremetal-editor) и [`backup.editor`](../../../backup/security/index.md#backup-editor) или [создайте](../../../iam/operations/sa/create.md) новый.
