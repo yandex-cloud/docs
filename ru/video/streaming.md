@@ -38,7 +38,7 @@ description: Чтобы запустить видеотрансляцию {{ vid
 
 1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_create }}**.
 
-[Подробнее о линиях](./concepts/index.md#lines)
+Подробнее о линиях см. в разделе [{#T}](./concepts/streams.md#lines).
 
 ## Создайте трансляцию {#create-stream}
 
@@ -55,7 +55,7 @@ description: Чтобы запустить видеотрансляцию {{ vid
     * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**;
     * **{{ ui-key.yacloud_video.stream-lines.label_server-address }}**.
 
-[Подробнее о трансляциях](./concepts/index.md#streams)
+Подробнее о трансляциях см. в разделе [{#T}](./concepts/streams.md#streams).
 
 ## Настройте OBS Studio {#configure-obs}
 
@@ -111,7 +111,7 @@ description: Чтобы запустить видеотрансляцию {{ vid
     1. В центральной части окна можете настроить размер и положение транслируемого видепотока.
     1. Чтобы начать трансляцию, на панели справа снизу **Управление** нажмите **Начать трансляцию**.
 
-Подробнее см. [Рекомендации по настройке OBS Studio](operations/streams/obs-config-help.md).
+Подробнее см. в разделе [{#T}](operations/streams/obs-config-help.md).
 
 ## Запустите трансляцию {#start-stream}
 

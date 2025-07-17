@@ -1,5 +1,3 @@
-В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}**:
-
-  1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** введите имя сервера.
-  1. (Опционально) В поле **{{ ui-key.yacloud.baremetal.field_description }}** добавьте описание сервера.
-  1. (Опционально) В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** задайте [метки](../../../resource-manager/concepts/labels.md).
+1. Включите опцию **{{ ui-key.yacloud.baremetal.title_section-server-backups }}**.
+1. Выберите [политику резервного копирования](../../../backup/concepts/policy.md) или [создайте](../../../backup/operations/policy-vm/create.md) новую.
+1. Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с назначенными ролями [`baremetal.editor`](../../../baremetal/security/index.md#baremetal-editor) и [`backup.editor`](../../../backup/security/index.md#backup-editor) или [создайте](../../../iam/operations/sa/create.md) новый.

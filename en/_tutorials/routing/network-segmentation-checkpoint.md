@@ -3,6 +3,11 @@
 In this tutorial, we will deploy a secure network infrastructure based on the Check Point next-generation firewall. It will include three segments hosting resources grouped by function and isolated from other resources. We will host public-facing applications in the [DMZ](https://en.wikipedia.org/wiki/DMZ_(computing)) segment and cloud management resources in the `mgmt` segment. The segments will communicate through a [Check Point](https://www.checkpoint.com/quantum/next-generation-firewall/) [next-generation firewall](https://en.wikipedia.org/wiki/Next-generation_firewall) VM providing end-to-end protection and traffic management between the segments.
 
 If you need to ensure the NGFW’s fault tolerance and the deployed applications’ high availability, use [this recommended solution](../../tutorials/routing/high-accessible-dmz.md).
+
+You can see the structure we described on the diagram below.
+
+![image](../../_assets/tutorials/network-segmentation-checkpoint.svg)
+
 We will use the following folders:
 
 * The **public** folder contains internet-facing resources.

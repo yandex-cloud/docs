@@ -7249,6 +7249,7 @@ default:
         field_server-lease-duration: Lease duration
         field_server-pool: Pool
         field_server-private-ip: Private IP address
+        field_server-public-ip: Public IP address
         field_server-zone: Availability zone
         field_ssh-public-key: Public SSH key
         field_subnet-id: Private subnet
@@ -7272,6 +7273,7 @@ default:
         label_public-ip-ephemeral: From ephemeral subnet
         label_public-ip-from-dedicated-subnet: From a dedicated subnet
         label_public-ip-no: No address
+        label_public-ip-via-dhcp: Assign via DHCP
         label_public-subnets: Public addresses and subnets
         label_subnetworks: Private subnets
         label_vrf-interconnect-direct-type: Connection ID

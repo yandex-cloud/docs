@@ -34,10 +34,10 @@ description: Следуя данной инструкции, вы сможете
 
   1. Включите резервное копирование сервера в {{ backup-name }}:
 
-      {% include [server-lease-step10](../../../_includes/baremetal/instruction-steps/server-lease-step10.md) %}
+      {% include [server-lease-step11](../../../_includes/baremetal/instruction-steps/server-lease-step11.md) %}
 
-  1. {% include [server-lease-step11](../../../_includes/baremetal/instruction-steps/server-lease-step11.md) %}
   1. {% include [server-lease-step12](../../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
+  1. {% include [server-lease-step13](../../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
 
 {% endlist %}
 
