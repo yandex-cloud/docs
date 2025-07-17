@@ -172,7 +172,6 @@ With secret version management, you can:
             choose '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
         done
     } | sort -R | tr -d '\n'
-    echo ""
     ```
    
     {% endcut %}

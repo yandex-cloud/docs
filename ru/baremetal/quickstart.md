@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите арендовать сервер.
   1. В списке сервисов выберите **{{ baremetal-name }}**.
-  1. Нажмите кнопку **Заказать сервер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
   1. Выберите [зону доступности](../overview/concepts/geo-scope.md) `{{ region-id }}-m`.
   1. Выберите пул `{{ region-id }}-m3`.
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
@@ -36,18 +36,16 @@ description: Следуя данной инструкции, вы сможете
      1. **{{ ui-key.yacloud.baremetal.field_server-count }}** — `1`.
      1. **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** — `{{ ui-key.yacloud.baremetal.label_one-month-duration }}`.
 
-  1. В блоке **Сетевые настройки**:
-
-     1. В поле **Приватная подсеть** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-     1. Введите имя подсети `bm-subnetwork` и нажмите кнопку **Создать подсеть**.
-     1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** в поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. В открывшемся окне в блоке **{{ ui-key.yacloud.baremetal.title_common-info }}** в поле **{{ ui-key.yacloud.baremetal.field_subnetwork-name }}** введите имя подсети `bm-subnetwork` и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
 
   1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
       {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}
 
   1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** введите **{{ ui-key.yacloud.baremetal.field_name }}** сервера — `bm-server`.
-  1. Нажмите кнопку **Заказать сервер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
 
 {% endlist %}
 
@@ -62,8 +60,8 @@ description: Следуя данной инструкции, вы сможете
   1. В строке с нужным сервером нажмите значок ![image](../_assets/console-icons/ellipsis.svg) и выберите **KVM-консоль**.
 
 - Linux/macOS {#linux-macos}
-   
-  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** блока **Сетевые настройки** на странице сервера.
+
+  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** блока **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** на странице сервера.
 
   В терминале выполните команду:
 
@@ -84,7 +82,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Windows 10/11 {#windows}
 
-  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** блока **Сетевые настройки** на странице сервера.
+  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** блока **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** на странице сервера.
 
   Убедитесь, что учетная запись Windows обладает правами на чтение файлов в папке с ключами.
 
@@ -106,7 +104,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Windows 7/8 {#windows7-8}
 
-  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** блока **Сетевые настройки** на странице сервера.
+  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** блока **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** на странице сервера.
 
   Установите соединение с помощью приложения PuTTY:
 

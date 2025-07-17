@@ -1,0 +1,23 @@
+title: Terraform в Yandex Cloud
+description:
+  - >-
+    {{ TF }} — инструмент для управления вашей облачной инфраструктурой как
+    кодом (Infrastructure as a Code, IaC) с помощью файлов конфигурации.
+  - >-
+    {{ yandex-cloud }} предоставляет провайдер, набор модулей и ряд готовых
+    решений, которые  вы можете адаптировать под свои задачи.
+links:
+  - title: Начало работы
+    description: Разверните тестовую инфраструктуру с помощью {{ TF }}
+    href: quickstart
+  - title: Концепции
+    description: Узнайте про основные концепции {{ TF }}
+    href: concepts/
+  - title: Практические руководства
+    description: Настройте права доступа для работы с сервисом
+    href: tutorials/
+meta:
+  title: Terraform в Yandex Cloud
+  description: >-
+    Используйте провайдер {{ yandex-cloud }} для {{ TF }}, чтобы управлять вашей
+    облачной инфраструктурой

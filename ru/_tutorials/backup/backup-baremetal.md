@@ -111,13 +111,14 @@
 
       1. В поле **{{ ui-key.yacloud.baremetal.field_server-count }}** укажите `1`.
       1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
-  1. {% include [server-lease-step9-backup](../../_includes/baremetal/instruction-steps/server-lease-step9-backup.md) %}
+  1. {% include [server-lease-step9-bm](../../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
+  1. {% include [server-lease-step10-backup](../../_includes/baremetal/instruction-steps/server-lease-step10-backup.md) %}
   1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
       {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
-  1. {% include [server-lease-step11](../../_includes/baremetal/instruction-steps/server-lease-step11.md) %}
   1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
+  1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
 
 - CLI {#cli}
 
