@@ -2,7 +2,7 @@
 subcategory: Managed Service for Elasticsearch
 page_title: 'Yandex: yandex_mdb_elasticsearch_cluster'
 description: Manages a Elasticsearch cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/mdb_elasticsearch_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_elasticsearch_cluster.md
 ---
 
 # yandex_mdb_elasticsearch_cluster (Resource)

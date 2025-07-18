@@ -2,7 +2,7 @@
 subcategory: Managed Service for Apache Spark
 page_title: 'Yandex: yandex_spark_cluster'
 description: Manages an Apache Spark cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/spark_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/spark_cluster.md
 ---
 
 # yandex_spark_cluster (Resource)

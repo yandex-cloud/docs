@@ -2,7 +2,7 @@
 subcategory: Managed Service for YDB
 page_title: 'Yandex: yandex_ydb_topic'
 description: Manage a YDB Topic.
-sourcePath: ru/terraform/tf-ref/resources/ydb_topic.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/ydb_topic.md
 ---
 
 # yandex_ydb_topic (Resource)

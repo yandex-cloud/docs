@@ -2,7 +2,7 @@
 subcategory: Object Storage (S3)
 page_title: 'Yandex: yandex_storage_bucket_policy'
 description: Allows management of a policy on an existing Yandex Cloud Storage Bucket.
-sourcePath: ru/terraform/tf-ref/resources/storage_bucket_policy.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/storage_bucket_policy.md
 ---
 
 # yandex_storage_bucket_policy (Resource)

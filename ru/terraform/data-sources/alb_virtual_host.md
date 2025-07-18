@@ -2,7 +2,7 @@
 subcategory: Application Load Balancer (ALB)
 page_title: 'Yandex: yandex_alb_virtual_host'
 description: Get information about a Yandex ALB Virtual Host.
-sourcePath: ru/terraform/tf-ref/data-sources/alb_virtual_host.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/alb_virtual_host.md
 ---
 
 # yandex_alb_virtual_host (Data Source)

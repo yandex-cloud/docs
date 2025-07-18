@@ -2,7 +2,7 @@
 subcategory: Managed Service for Trino
 page_title: 'Yandex: yandex_trino_cluster'
 description: Manages Trino cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/trino_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/trino_cluster.md
 ---
 
 # yandex_trino_cluster (Resource)

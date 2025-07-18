@@ -2,7 +2,7 @@
 subcategory: Network Load Balancer (NLB)
 page_title: 'Yandex: yandex_lb_target_group'
 description: A load balancer distributes the load across cloud resources that are combined into a target group.
-sourcePath: ru/terraform/tf-ref/resources/lb_target_group.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/lb_target_group.md
 ---
 
 # yandex_lb_target_group (Resource)

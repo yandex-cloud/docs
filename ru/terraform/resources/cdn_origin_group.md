@@ -2,7 +2,7 @@
 subcategory: Cloud Content Delivery Network (CDN)
 page_title: 'Yandex: yandex_cdn_origin_group'
 description: Allows management of a Yandex Cloud CDN Origin Groups.
-sourcePath: ru/terraform/tf-ref/resources/cdn_origin_group.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/cdn_origin_group.md
 ---
 
 # yandex_cdn_origin_group (Resource)

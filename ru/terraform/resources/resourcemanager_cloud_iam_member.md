@@ -2,7 +2,7 @@
 subcategory: Resource Manager
 page_title: 'Yandex: yandex_resourcemanager_cloud_iam_member'
 description: Allows management of a single member for a single IAM binding on a Yandex Resource Manager cloud.
-sourcePath: ru/terraform/tf-ref/resources/resourcemanager_cloud_iam_member.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/resourcemanager_cloud_iam_member.md
 ---
 
 # yandex_resourcemanager_cloud_iam_member (Resource)

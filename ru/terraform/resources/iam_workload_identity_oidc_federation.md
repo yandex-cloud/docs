@@ -2,7 +2,7 @@
 subcategory: Identity and Access Management (IAM)
 page_title: 'Yandex: yandex_iam_workload_identity_oidc_federation'
 description: Allows management of a Yandex Cloud IAM workload identity OIDC federations.
-sourcePath: ru/terraform/tf-ref/resources/iam_workload_identity_oidc_federation.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/iam_workload_identity_oidc_federation.md
 ---
 
 # yandex_iam_workload_identity_oidc_federation (Resource)

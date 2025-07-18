@@ -2,7 +2,7 @@
 subcategory: Key Management Service (KMS)
 page_title: 'Yandex: yandex_kms_asymmetric_encryption_key_iam_binding'
 description: Allows management of a single IAM binding for a Key Management Service.
-sourcePath: ru/terraform/tf-ref/resources/kms_asymmetric_encryption_key_iam_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/kms_asymmetric_encryption_key_iam_binding.md
 ---
 
 # yandex_kms_asymmetric_encryption_key_iam_binding (Resource)

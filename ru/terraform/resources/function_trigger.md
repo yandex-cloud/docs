@@ -2,7 +2,7 @@
 subcategory: Serverless Cloud Functions
 page_title: 'Yandex: yandex_function_trigger'
 description: Allows management of a Yandex Cloud Functions Trigger.
-sourcePath: ru/terraform/tf-ref/resources/function_trigger.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/function_trigger.md
 ---
 
 # yandex_function_trigger (Resource)

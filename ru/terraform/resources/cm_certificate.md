@@ -2,7 +2,7 @@
 subcategory: Certificate Manager
 page_title: 'Yandex: yandex_cm_certificate'
 description: A TLS certificate signed by a certification authority confirming that it belongs to the owner of the domain name.
-sourcePath: ru/terraform/tf-ref/resources/cm_certificate.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/cm_certificate.md
 ---
 
 # yandex_cm_certificate (Resource)

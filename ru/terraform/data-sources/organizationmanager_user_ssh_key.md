@@ -2,7 +2,7 @@
 subcategory: Cloud Organization
 page_title: 'Yandex: yandex_organizationmanager_user_ssh_key'
 description: Get information about a Yandex Cloud User SSH Key.
-sourcePath: ru/terraform/tf-ref/data-sources/organizationmanager_user_ssh_key.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_user_ssh_key.md
 ---
 
 # yandex_organizationmanager_user_ssh_key (Data Source)

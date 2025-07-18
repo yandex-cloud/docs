@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_image'
 description: Get information about a Yandex Compute image.
-sourcePath: ru/terraform/tf-ref/data-sources/compute_image.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/compute_image.md
 ---
 
 # yandex_compute_image (Data Source)

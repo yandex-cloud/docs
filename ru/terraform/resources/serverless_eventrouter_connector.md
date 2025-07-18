@@ -2,7 +2,7 @@
 subcategory: Serverless Integrations
 page_title: 'Yandex: yandex_serverless_eventrouter_connector'
 description: Allows management of a Yandex Cloud Serverless Event Router Connector.
-sourcePath: ru/terraform/tf-ref/resources/serverless_eventrouter_connector.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/serverless_eventrouter_connector.md
 ---
 
 # yandex_serverless_eventrouter_connector (Resource)

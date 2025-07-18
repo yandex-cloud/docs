@@ -2,7 +2,7 @@
 subcategory: Yandex API Gateway
 page_title: 'Yandex: yandex_api_gateway'
 description: Allows management of a Yandex API Gateway.
-sourcePath: ru/terraform/tf-ref/resources/api_gateway.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/api_gateway.md
 ---
 
 # yandex_api_gateway (Resource)

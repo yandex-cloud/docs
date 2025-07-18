@@ -2,7 +2,7 @@
 subcategory: Audit Trails
 page_title: 'Yandex: yandex_audit_trails_trail'
 description: Get information about a trail.
-sourcePath: ru/terraform/tf-ref/data-sources/audit_trails_trail.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/audit_trails_trail.md
 ---
 
 # yandex_audit_trails_trail (Data Source)

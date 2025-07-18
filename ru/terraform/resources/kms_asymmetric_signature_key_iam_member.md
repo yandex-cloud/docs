@@ -2,7 +2,7 @@
 subcategory: Key Management Service (KMS)
 page_title: 'Yandex: yandex_kms_asymmetric_signature_key_iam_member'
 description: Allows management of a single member for a single IAM binding for a Key Management Service.
-sourcePath: ru/terraform/tf-ref/resources/kms_asymmetric_signature_key_iam_member.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/kms_asymmetric_signature_key_iam_member.md
 ---
 
 # yandex_kms_asymmetric_signature_key_iam_member (Resource)

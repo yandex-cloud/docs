@@ -2,7 +2,7 @@
 subcategory: Managed Service for Redis
 page_title: 'Yandex: yandex_mdb_redis_user'
 description: Manages a Redis user within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/mdb_redis_user.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_redis_user.md
 ---
 
 # yandex_mdb_redis_user (Resource)

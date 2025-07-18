@@ -13,6 +13,8 @@ editable: false
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
+{% include [vat](../_includes/vat.md) %}
+
 В {{ yq-full-name }} тарифицируется объем считанных из источников данных при исполнении запросов. Если данные считываются из нескольких источников, их объем суммируется.
 
 ## Цены для региона Россия {#prices}

@@ -2,7 +2,7 @@
 subcategory: Serverless Cloud Functions
 page_title: 'Yandex: yandex_function_iam_binding'
 description: Allows management of a single IAM binding for a Yandex Cloud Function.
-sourcePath: ru/terraform/tf-ref/resources/function_iam_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/function_iam_binding.md
 ---
 
 # yandex_function_iam_binding (Resource)

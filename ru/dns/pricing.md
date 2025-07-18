@@ -11,6 +11,8 @@ editable: false
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
+{% include [vat](../_includes/vat.md) %}
+
 
 ## Цены для региона Россия {#prices}
 

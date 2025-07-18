@@ -2,7 +2,7 @@
 subcategory: Client Config
 page_title: 'Yandex: yandex_client_config'
 description: Get attributes used by provider to configure client connection.
-sourcePath: ru/terraform/tf-ref/data-sources/client_config.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/client_config.md
 ---
 
 # yandex_client_config (Data Source)

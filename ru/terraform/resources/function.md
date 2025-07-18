@@ -2,7 +2,7 @@
 subcategory: Serverless Cloud Functions
 page_title: 'Yandex: yandex_function'
 description: Allows management of a Yandex Cloud Function.
-sourcePath: ru/terraform/tf-ref/resources/function.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/function.md
 ---
 
 # yandex_function (Resource)

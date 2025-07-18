@@ -2,7 +2,7 @@
 subcategory: Object Storage (S3)
 page_title: 'Yandex: yandex_storage_bucket_grant'
 description: Allows management of grants on an existing Yandex Cloud Storage Bucket.
-sourcePath: ru/terraform/tf-ref/resources/storage_bucket_grant.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/storage_bucket_grant.md
 ---
 
 # yandex_storage_bucket_grant (Resource)

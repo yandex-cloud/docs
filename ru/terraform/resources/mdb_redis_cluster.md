@@ -2,7 +2,7 @@
 subcategory: Managed Service for Redis
 page_title: 'Yandex: yandex_mdb_redis_cluster'
 description: Manages a Redis cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/mdb_redis_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_redis_cluster.md
 ---
 
 # yandex_mdb_redis_cluster (Resource)

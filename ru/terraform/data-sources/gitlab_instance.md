@@ -2,7 +2,7 @@
 subcategory: Managed Service for GitLab
 page_title: 'Yandex: yandex_gitlab_instance'
 description: Get information about GitLab instance.
-sourcePath: ru/terraform/tf-ref/data-sources/gitlab_instance.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/gitlab_instance.md
 ---
 
 # yandex_gitlab_instance (Data Source)

@@ -2,7 +2,7 @@
 subcategory: Managed Service for Hive Metastore
 page_title: 'Yandex: yandex_metastore_cluster'
 description: Manages Hive Metastore cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/metastore_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/metastore_cluster.md
 ---
 
 # yandex_metastore_cluster (Resource)

@@ -2,7 +2,7 @@
 subcategory: Cloud Billing
 page_title: 'Yandex: yandex_billing_cloud_binding'
 description: Retrieve Yandex Billing cloud to billing account bind details.
-sourcePath: ru/terraform/tf-ref/data-sources/billing_cloud_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/billing_cloud_binding.md
 ---
 
 # yandex_billing_cloud_binding (Data Source)

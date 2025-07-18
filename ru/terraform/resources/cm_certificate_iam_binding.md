@@ -2,7 +2,7 @@
 subcategory: Certificate Manager
 page_title: 'Yandex: yandex_cm_certificate_iam_binding'
 description: Allows management of a single IAM binding for a Certificate Manager.
-sourcePath: ru/terraform/tf-ref/resources/cm_certificate_iam_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/cm_certificate_iam_binding.md
 ---
 
 # yandex_cm_certificate_iam_binding (Resource)

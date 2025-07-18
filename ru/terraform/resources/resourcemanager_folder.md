@@ -2,7 +2,7 @@
 subcategory: Resource Manager
 page_title: 'Yandex: yandex_resourcemanager_folder'
 description: Allows management of the Cloud Folder.
-sourcePath: ru/terraform/tf-ref/resources/resourcemanager_folder.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/resourcemanager_folder.md
 ---
 
 # yandex_resourcemanager_folder (Resource)

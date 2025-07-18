@@ -2,7 +2,7 @@
 subcategory: Resource Manager
 page_title: 'Yandex: yandex_resourcemanager_folder'
 description: Get information about a Yandex RM Folder.
-sourcePath: ru/terraform/tf-ref/data-sources/resourcemanager_folder.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/resourcemanager_folder.md
 ---
 
 # yandex_resourcemanager_folder (Data Source)

@@ -2,7 +2,7 @@
 subcategory: Key Management Service (KMS)
 page_title: 'Yandex: yandex_kms_secret_ciphertext'
 description: Encrypts given plaintext with the specified Yandex KMS key and provides access to the ciphertext.
-sourcePath: ru/terraform/tf-ref/resources/kms_secret_ciphertext.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/kms_secret_ciphertext.md
 ---
 
 # yandex_kms_secret_ciphertext (Resource)

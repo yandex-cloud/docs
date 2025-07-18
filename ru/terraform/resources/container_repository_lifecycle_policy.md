@@ -2,7 +2,7 @@
 subcategory: Container Registry
 page_title: 'Yandex: yandex_container_repository_lifecycle_policy'
 description: Creates a new container repository lifecycle policy.
-sourcePath: ru/terraform/tf-ref/resources/container_repository_lifecycle_policy.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/container_repository_lifecycle_policy.md
 ---
 
 # yandex_container_repository_lifecycle_policy (Resource)

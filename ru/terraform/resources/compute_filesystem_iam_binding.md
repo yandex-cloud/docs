@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_filesystem_iam_binding'
 description: Allows management of a single IAM binding for the compute Filesystem.
-sourcePath: ru/terraform/tf-ref/resources/compute_filesystem_iam_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/compute_filesystem_iam_binding.md
 ---
 
 # yandex_compute_filesystem_iam_binding (Resource)

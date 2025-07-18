@@ -2,7 +2,7 @@
 subcategory: Managed Service for Trino
 page_title: 'Yandex: yandex_trino_catalog'
 description: Manages Trino catalog within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/trino_catalog.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/trino_catalog.md
 ---
 
 # yandex_trino_catalog (Resource)

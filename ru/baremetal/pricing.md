@@ -9,6 +9,8 @@ editable: false
 
 
 
+{% include [vat](../_includes/vat.md) %}
+
 В сервисе {{ baremetal-name }} оплачивается срок аренды сервера [определенной конфигурации](concepts/server-configurations.md). Арендованный сервер тарифицируется в течение всего периода аренды, независимо от того, включен он или выключен.
 
 Цены за месяц использования формируются из расчета 720 часов в месяц.
@@ -18,7 +20,7 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-Все цены указаны за 1 месяц с включением НДС.
+Все цены указаны за 1 месяц.
 
 {% list tabs group=pricing %}
 
@@ -48,8 +50,6 @@ editable: false
 
 {% endnote %}
 
-
-Все цены указаны с включением НДС.
 
 {% list tabs group=pricing %}
 

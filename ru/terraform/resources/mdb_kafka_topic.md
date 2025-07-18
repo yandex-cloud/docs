@@ -2,7 +2,7 @@
 subcategory: Managed Service for Apache Kafka
 page_title: 'Yandex: yandex_mdb_kafka_topic'
 description: Manages a topic of a Kafka cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/mdb_kafka_topic.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_kafka_topic.md
 ---
 
 # yandex_mdb_kafka_topic (Resource)

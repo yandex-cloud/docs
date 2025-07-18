@@ -2,7 +2,7 @@
 subcategory: Managed Service for Redis
 page_title: 'Yandex: yandex_mdb_redis_user'
 description: Get information about a Yandex Managed Redis user.
-sourcePath: ru/terraform/tf-ref/data-sources/mdb_redis_user.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_redis_user.md
 ---
 
 # yandex_mdb_redis_user (Data Source)

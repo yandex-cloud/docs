@@ -2,7 +2,7 @@
 subcategory: Key Management Service (KMS)
 page_title: 'Yandex: yandex_kms_asymmetric_signature_key'
 description: Get data from Yandex KMS asymmetric signature key.
-sourcePath: ru/terraform/tf-ref/data-sources/kms_asymmetric_signature_key.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/kms_asymmetric_signature_key.md
 ---
 
 # yandex_kms_asymmetric_signature_key (Data Source)

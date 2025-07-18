@@ -2,7 +2,7 @@
 subcategory: Managed Service for Greenplum
 page_title: 'Yandex: yandex_mdb_greenplum_cluster'
 description: Manages a Greenplum cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/mdb_greenplum_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_greenplum_cluster.md
 ---
 
 # yandex_mdb_greenplum_cluster (Resource)

@@ -2,7 +2,7 @@
 subcategory: Managed Service for ClickHouse
 page_title: 'Yandex: yandex_mdb_clickhouse_database'
 description: Manages a Database in Clickhouse cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/mdb_clickhouse_database.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_clickhouse_database.md
 ---
 
 # yandex_mdb_clickhouse_database (Resource)

@@ -23,6 +23,8 @@ editable: false
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
+{% include [vat](../_includes/vat.md) %}
+
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
@@ -110,10 +112,6 @@ editable: false
 ## Цены для региона Россия {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-
-Все цены включают НДС.
-
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 

@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_snapshot'
 description: Get information about a Yandex Compute Snapshot.
-sourcePath: ru/terraform/tf-ref/data-sources/compute_snapshot.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/compute_snapshot.md
 ---
 
 # yandex_compute_snapshot (Data Source)

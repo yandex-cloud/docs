@@ -2,7 +2,7 @@
 subcategory: Lockbox (Secret Management)
 page_title: 'Yandex: yandex_lockbox_secret_version_hashed'
 description: Manages Yandex Cloud Lockbox secret version (with values hashed in state).
-sourcePath: ru/terraform/tf-ref/resources/lockbox_secret_version_hashed.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/lockbox_secret_version_hashed.md
 ---
 
 # yandex_lockbox_secret_version_hashed (Resource)

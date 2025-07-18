@@ -2,7 +2,7 @@
 subcategory: Container Registry
 page_title: 'Yandex: yandex_container_registry_ip_permission'
 description: Creates a new Container Registry IP Permission.
-sourcePath: ru/terraform/tf-ref/resources/container_registry_ip_permission.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/container_registry_ip_permission.md
 ---
 
 # yandex_container_registry_ip_permission (Resource)

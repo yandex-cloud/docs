@@ -2,7 +2,7 @@
 subcategory: Managed Service for YDB
 page_title: 'Yandex: yandex_ydb_table_changefeed'
 description: Manages Yandex Database dedicated cluster.
-sourcePath: ru/terraform/tf-ref/resources/ydb_table_changefeed.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/ydb_table_changefeed.md
 ---
 
 # yandex_ydb_table_changefeed (Resource)

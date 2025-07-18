@@ -2,7 +2,7 @@
 subcategory: Managed Service for YDB
 page_title: 'Yandex: yandex_ydb_database_iam_binding'
 description: Allows management of a single IAM binding for a Managed service for YDB.
-sourcePath: ru/terraform/tf-ref/resources/ydb_database_iam_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/ydb_database_iam_binding.md
 ---
 
 # yandex_ydb_database_iam_binding (Resource)

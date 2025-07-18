@@ -2,7 +2,7 @@
 subcategory: Cloud Content Delivery Network (CDN)
 page_title: 'Yandex: yandex_cdn_resource'
 description: Get information about a Yandex CDN Resource.
-sourcePath: ru/terraform/tf-ref/data-sources/cdn_resource.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/cdn_resource.md
 ---
 
 # yandex_cdn_resource (Data Source)

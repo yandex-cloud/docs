@@ -2,7 +2,7 @@
 subcategory: Datasphere
 page_title: 'Yandex: yandex_datasphere_project'
 description: Allows management of a Yandex Cloud Datasphere Project.
-sourcePath: ru/terraform/tf-ref/resources/datasphere_project.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/datasphere_project.md
 ---
 
 # yandex_datasphere_project (Resource)

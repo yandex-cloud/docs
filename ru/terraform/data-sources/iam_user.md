@@ -2,7 +2,7 @@
 subcategory: Identity and Access Management (IAM)
 page_title: 'Yandex: yandex_iam_user'
 description: Get information about a Yandex IAM user account.
-sourcePath: ru/terraform/tf-ref/data-sources/iam_user.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/iam_user.md
 ---
 
 # yandex_iam_user (Data Source)

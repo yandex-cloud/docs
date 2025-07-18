@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_instance_group'
 description: Get information about a Yandex Compute Instance Group.
-sourcePath: ru/terraform/tf-ref/data-sources/compute_instance_group.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/compute_instance_group.md
 ---
 
 # yandex_compute_instance_group (Data Source)

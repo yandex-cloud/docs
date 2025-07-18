@@ -2,7 +2,7 @@
 subcategory: Virtual Private Cloud (VPC)
 page_title: 'Yandex: yandex_vpc_private_endpoint'
 description: Manages a VPC Private Endpoint within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/vpc_private_endpoint.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/vpc_private_endpoint.md
 ---
 
 # yandex_vpc_private_endpoint (Resource)

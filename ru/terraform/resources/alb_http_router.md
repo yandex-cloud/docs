@@ -2,7 +2,7 @@
 subcategory: Application Load Balancer (ALB)
 page_title: 'Yandex: yandex_alb_http_router'
 description: The HTTP router defines the routing rules for HTTP requests to backend groups.
-sourcePath: ru/terraform/tf-ref/resources/alb_http_router.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/alb_http_router.md
 ---
 
 # yandex_alb_http_router (Resource)

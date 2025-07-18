@@ -2,7 +2,7 @@
 subcategory: Managed Service for Greenplum
 page_title: 'Yandex: yandex_mdb_greenplum_cluster'
 description: Get information about a Yandex Managed Greenplum cluster.
-sourcePath: ru/terraform/tf-ref/data-sources/mdb_greenplum_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_greenplum_cluster.md
 ---
 
 # yandex_mdb_greenplum_cluster (Data Source)

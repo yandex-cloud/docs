@@ -2,7 +2,7 @@
 subcategory: Resource Manager
 page_title: 'Yandex: yandex_resourcemanager_cloud'
 description: Retrieve Yandex RM Cloud details.
-sourcePath: ru/terraform/tf-ref/data-sources/resourcemanager_cloud.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/resourcemanager_cloud.md
 ---
 
 # yandex_resourcemanager_cloud (Data Source)

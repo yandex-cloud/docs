@@ -20,7 +20,7 @@ description: Чтобы запустить видеотрансляцию {{ vid
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-{% include [before-you-begin](../_includes/video/before-you-begin.md) %}
+{% include [before-you-begin](../_includes/video/before-you-begin-variants.md) %}
 
 ## Создайте канал {#create-channel}
 

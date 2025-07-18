@@ -2,7 +2,7 @@
 subcategory: Object Storage (S3)
 page_title: 'Yandex: yandex_storage_bucket'
 description: Allows management of a Yandex Cloud Storage Bucket.
-sourcePath: ru/terraform/tf-ref/resources/storage_bucket.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/storage_bucket.md
 ---
 
 # yandex_storage_bucket (Resource)

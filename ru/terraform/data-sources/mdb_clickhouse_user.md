@@ -2,7 +2,7 @@
 subcategory: Managed Service for ClickHouse
 page_title: 'Yandex: yandex_mdb_clickhouse_user'
 description: Get information about User at Yandex Managed ClickHouse cluster.
-sourcePath: ru/terraform/tf-ref/data-sources/mdb_clickhouse_user.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_clickhouse_user.md
 ---
 
 # yandex_mdb_clickhouse_user (Data Source)

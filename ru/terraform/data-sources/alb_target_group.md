@@ -2,7 +2,7 @@
 subcategory: Application Load Balancer (ALB)
 page_title: 'Yandex: yandex_alb_target_group'
 description: Get information about a Yandex Application Load Balancer target group.
-sourcePath: ru/terraform/tf-ref/data-sources/alb_target_group.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/alb_target_group.md
 ---
 
 # yandex_alb_target_group (Data Source)
