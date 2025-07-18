@@ -68,83 +68,149 @@
 ## Установите кеширующий прокси trickster {#install-trickster}
 
 Кеширующий прокси trickster [ускоряет чтение](https://github.com/trickstercache/trickster#time-series-database-accelerator) из БД {{ prometheus-name }}, что позволяет отображать метрики {{ grafana-name }} практически в реальном времени, а также снизить нагрузку на {{ prometheus-name }}.
-1. Добавьте репозиторий, содержащий дистрибутив trickster:
-
-   ```bash
-   helm repo add tricksterproxy https://helm.tricksterproxy.io && \
-   helm repo update
-   ```
 
 1. Создайте конфигурационный файл `trickster.yaml`, содержащий настройки trickster:
 
    {% cut "trickster.yaml" %}
 
    ```yaml
-   frontend:
-     listenAddress: ""
-     tlsListenAddress: ""
-     tlsListenPort: ""
-     connectionsLimit: "0"
-   origins:
-     - name: default
-       originType: prometheus
-       originURL: http://my-prom-prometheus-server:80
-   profiler:
-     enabled: false
-     port: 6060
-   prometheusScrape: false
-   prometheus:
-     serviceMonitor:
-       enabled: false
-       interval: 30s
-       labels: {}
-   replicaCount: 1
-   image:
-     repository: tricksterproxy/trickster
-     tag: "1.1"
-     pullPolicy: IfNotPresent
-   service:
-     annotations: {}
-     labels: {}
-     clusterIP: ""
-     externalIPs: []
-     loadBalancerIP: ""
-     loadBalancerSourceRanges: []
-     metricsPort: 8481
-     servicePort: 8480
-     type: ClusterIP
-   ingress:
-     enabled: false
-     annotations: {}
-     extraLabels: {}
-     hosts: []
-     tls: []
-   volumes:
-     persistent:
-       type: "persistentVolume"
-       enabled: false
-       mountPath: "/tmp/trickster"
-       accessModes:
-         - ReadWriteOnce
-       annotations: {}
-       existingClaim: ""
-       size: 15Gi
-     generic:
-       type: "generic"
-       enabled: true
-       mountPath: "/tmp/trickster"
-   podAnnotations: {}
-   resources: {}
-   securityContext: {}
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: trickster-pvc
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      storageClassName: yc-network-hdd
+      resources:
+        requests:
+          storage: 15Gi
+    
+    ---
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: trickster-conf
+      labels:
+        name: trickster-conf
+    
+    data:
+      trickster.conf: |-
+        [frontend]
+        listen_port = 8480
+        tls_listener = false
+        connections_limit = 0
+        [logging]
+        log_level = "info"
+    
+        [caching]
+        cache_type = "filesystem"
+        filesystem_path = "/tmp/trickster"
+    
+        [proxy]
+        origin = "default"
+    
+        [origins.default]
+        origin_type = "prometheus"
+        origin_url = "http://my-prom-prometheus-server:80"
+        is_default = true
+    
+        [metrics]
+        listen_port = 8481
+        listen_address = ""
+    
+        [health]
+        listen_port = 8481
+        listen_address = ""
+    
+        [telemetry]
+        prometheus_metrics = false
+    
+        [logging.profiler]
+        enabled = false
+        port = 6060
+    
+    ---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: trickster
+      labels:
+        app: trickster
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: trickster
+      template:
+        metadata:
+          labels:
+            app: trickster
+        spec:
+          containers:
+            - name: trickster
+              image: tricksterproxy/trickster:1.1
+              imagePullPolicy: IfNotPresent
+              args:
+                - -config
+                - /etc/trickster/trickster.conf
+              ports:
+                - name: http
+                  containerPort: 8480
+                  protocol: TCP
+                - name: metrics
+                  containerPort: 8481
+                  protocol: TCP
+              volumeMounts:
+                - name: config-volume
+                  mountPath: /etc/trickster
+                  readOnly: true
+                - name: cache-volume
+                  mountPath: /tmp/trickster
+              env:
+                - name: NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.namespace
+          volumes:
+            - name: config-volume
+              configMap:
+                name: trickster-conf
+                items:
+                  - key: trickster.conf
+                    path: trickster.conf
+            - name: cache-volume
+              persistentVolumeClaim:
+                claimName: trickster-pvc
+    
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8481"
+        prometheus.io/path: "/metrics"
+      name: trickster
+    spec:
+      ports:
+        - name: http
+          port: 8480
+          targetPort: http
+        - name: metrics
+          port: 8481
+          targetPort: metrics
+      selector:
+        app: trickster
    ```
 
    {% endcut %}
 
-   Вы можете изменить размер хранилища, отведенного для работы кеширующего прокси. Укажите нужное значение размера хранилища в параметре `volumes.persistent.size`.
+   Вы можете изменить размер хранилища, отведенного для работы кеширующего прокси. Укажите нужное значение размера хранилища в параметре `PersistentVolumeClaim.spec.resources.requests.storage`.
 1. Установите trickster:
 
    ```bash
-   helm install trickster tricksterproxy/trickster --namespace default -f trickster.yaml
+   kubectl apply -f trickster.yaml
    ```
 
 1. Убедитесь, что под trickster перешел в состояние `Running`:
@@ -301,3 +367,4 @@
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. Если вы зарезервировали для кластера {{ managed-k8s-name }} [публичный статический IP-адрес](../../vpc/concepts/address.md#public-addresses), [удалите его](../../vpc/operations/address-delete.md).
+1. [Удалите диск](https://yandex.cloud/ru/docs/compute/operations/disk-control/delete), который был создан для хранилища `trickster`, определить его можно по метке в описании диска, метку можно узнать через `kubectl describe pvc trickster-pvc` она будет соответсвовать значению в поле `Volume:`
