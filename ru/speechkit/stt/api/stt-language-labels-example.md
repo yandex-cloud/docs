@@ -9,10 +9,6 @@
 * [количество аудиоканалов](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RawAudio) — 1 (значение по умолчанию);
 * остальные параметры оставлены по умолчанию.
 
-## Автоматическое определение языка {#language-labels}
-
-{% include [stt-language-labels](../../../_includes/speechkit/stt-language-labels.md) %}
-
 ## Подготовьте необходимые ресурсы {#preparations}
 
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роль `{{ roles-speechkit-stt }}`.

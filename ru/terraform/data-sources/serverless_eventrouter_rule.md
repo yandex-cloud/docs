@@ -2,7 +2,7 @@
 subcategory: Serverless Integrations
 page_title: 'Yandex: yandex_serverless_eventrouter_rule'
 description: Get information about Serverless Event Router Rule.
-sourcePath: ru/terraform/tf-ref/data-sources/serverless_eventrouter_rule.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/serverless_eventrouter_rule.md
 ---
 
 # yandex_serverless_eventrouter_rule (Data Source)

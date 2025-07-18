@@ -2,7 +2,7 @@
 subcategory: Cloud Domain Name System (DNS)
 page_title: 'Yandex: yandex_dns_zone'
 description: Manages a DNS Zone within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/dns_zone.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/dns_zone.md
 ---
 
 # yandex_dns_zone (Resource)

@@ -4,7 +4,7 @@ subcategory: ''
 description: |-
   Allows creation and management of a single member for a single binding within the IAM policy for an existing Yandex Managed Service for Kubernetes cluster.
   ~> Roles controlled by yandex_kubernetes_cluster_iam_binding should not be assigned using yandex_kubernetes_cluster_iam_member.
-sourcePath: ru/terraform/tf-ref/resources/kubernetes_cluster_iam_member.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/kubernetes_cluster_iam_member.md
 ---
 
 # yandex_kubernetes_cluster_iam_member (Resource)

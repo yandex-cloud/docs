@@ -2,7 +2,7 @@
 subcategory: Managed Kubernetes (MK8S) Marketplace
 page_title: 'Yandex: yandex_kubernetes_marketplace_helm_release'
 description: Allows management of Kubernetes product installed from Yandex Cloud Marketplace.
-sourcePath: ru/terraform/tf-ref/resources/kubernetes_marketplace_helm_release.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/kubernetes_marketplace_helm_release.md
 ---
 
 # yandex_kubernetes_marketplace_helm_release (Resource)

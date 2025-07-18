@@ -2,7 +2,7 @@
 subcategory: Cloud Backup
 page_title: 'Yandex: yandex_backup_policy'
 description: Get information about Yandex Cloud Backup Policy.
-sourcePath: ru/terraform/tf-ref/data-sources/backup_policy.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/backup_policy.md
 ---
 
 # yandex_backup_policy (Data Source)

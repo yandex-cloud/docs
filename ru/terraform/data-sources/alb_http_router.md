@@ -2,7 +2,7 @@
 subcategory: Application Load Balancer (ALB)
 page_title: 'Yandex: yandex_alb_http_router'
 description: Get information about a Yandex Application Load Balancer HTTP Router.
-sourcePath: ru/terraform/tf-ref/data-sources/alb_http_router.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/alb_http_router.md
 ---
 
 # yandex_alb_http_router (Data Source)

@@ -2,7 +2,7 @@
 subcategory: Certificate Manager
 page_title: 'Yandex: yandex_cm_certificate'
 description: Get information about a Yandex Certificate Manager Certificate.
-sourcePath: ru/terraform/tf-ref/data-sources/cm_certificate.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/cm_certificate.md
 ---
 
 # yandex_cm_certificate (Data Source)

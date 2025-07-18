@@ -2,7 +2,7 @@
 subcategory: Smart Web Security (SWS)
 page_title: 'Yandex: yandex_sws_security_profile'
 description: With security profiles you can protect your infrastructure from DDoS attacks at the application level (L7).
-sourcePath: ru/terraform/tf-ref/resources/sws_security_profile.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/sws_security_profile.md
 ---
 
 # yandex_sws_security_profile (Resource)

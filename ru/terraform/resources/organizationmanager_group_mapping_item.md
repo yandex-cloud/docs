@@ -2,7 +2,7 @@
 subcategory: Cloud Organization
 page_title: 'Yandex: yandex_organizationmanager_group_mapping_item'
 description: Allows management of a Yandex Cloud Organization Manager Group Mapping Items.
-sourcePath: ru/terraform/tf-ref/resources/organizationmanager_group_mapping_item.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/organizationmanager_group_mapping_item.md
 ---
 
 # yandex_organizationmanager_group_mapping_item (Resource)

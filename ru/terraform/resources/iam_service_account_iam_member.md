@@ -2,7 +2,7 @@
 subcategory: Identity and Access Management (IAM)
 page_title: 'Yandex: yandex_iam_service_account_iam_member'
 description: Allows management of a single member for a single IAM binding for a Yandex IAM service account.
-sourcePath: ru/terraform/tf-ref/resources/iam_service_account_iam_member.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/iam_service_account_iam_member.md
 ---
 
 # yandex_iam_service_account_iam_member (Resource)

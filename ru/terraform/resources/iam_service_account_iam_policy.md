@@ -2,7 +2,7 @@
 subcategory: Identity and Access Management (IAM)
 page_title: 'Yandex: yandex_iam_service_account_iam_policy'
 description: Allows management of the IAM policy for a Yandex IAM service account.
-sourcePath: ru/terraform/tf-ref/resources/iam_service_account_iam_policy.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/iam_service_account_iam_policy.md
 ---
 
 # yandex_iam_service_account_iam_policy (Resource)

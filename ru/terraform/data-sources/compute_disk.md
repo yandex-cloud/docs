@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_disk'
 description: Get information about a Yandex Compute disk.
-sourcePath: ru/terraform/tf-ref/data-sources/compute_disk.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/compute_disk.md
 ---
 
 # yandex_compute_disk (Data Source)

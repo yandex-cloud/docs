@@ -2,7 +2,7 @@
 subcategory: Virtual Private Cloud (VPC)
 page_title: 'Yandex: yandex_vpc_address'
 description: Get information about a Yandex VPC address.
-sourcePath: ru/terraform/tf-ref/data-sources/vpc_address.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/vpc_address.md
 ---
 
 # yandex_vpc_address (Data Source)

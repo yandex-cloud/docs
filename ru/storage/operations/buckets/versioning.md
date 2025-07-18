@@ -7,13 +7,11 @@ description: Следуя данной инструкции, вы научите
 
 [Версионирование](../../concepts/versioning.md) бакета — это возможность хранить историю объекта с помощью версий.
 
-{% note info %}
+{% include [versioning-irreversible](../../../_includes/storage/versioning-irreversible.md) %}
 
-Операция включения необратима: отключить версионирование нельзя, можно только приостановить создание новых версий. После приостановки версионирования новые объекты будут сохраняться с версией `null`.
+{% include [versioning-suspend-rule](../../../_includes/storage/versioning-suspend-rule.md) %}
 
-{% endnote %}
-
-Включить версионирование бакета:
+Чтобы включить версионирование бакета:
 
 {% list tabs group=instructions %}
 
@@ -23,7 +21,7 @@ description: Следуя данной инструкции, вы научите
   1. Нажмите на имя нужного бакета.
   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_versioning }}**.
-  1. Чтобы включить или выключить версионирование, используйте опцию **{{ ui-key.yacloud.storage.bucket.versioning.field_status }}**.
+  1. Чтобы включить или приостановить версионирование, используйте опцию **{{ ui-key.yacloud.storage.bucket.versioning.field_status }}**.
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}

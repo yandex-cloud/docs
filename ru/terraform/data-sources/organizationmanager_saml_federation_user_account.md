@@ -2,7 +2,7 @@
 subcategory: Cloud Organization
 page_title: 'Yandex: yandex_organizationmanager_saml_federation_user_account'
 description: Get information about a user of a Yandex SAML Federation.
-sourcePath: ru/terraform/tf-ref/data-sources/organizationmanager_saml_federation_user_account.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_saml_federation_user_account.md
 ---
 
 # yandex_organizationmanager_saml_federation_user_account (Data Source)

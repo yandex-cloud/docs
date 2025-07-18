@@ -2,7 +2,7 @@
 subcategory: Managed Service for PostgreSQL
 page_title: 'Yandex: yandex_mdb_postgresql_cluster'
 description: Manages a PostgreSQL cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/mdb_postgresql_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_postgresql_cluster.md
 ---
 
 # yandex_mdb_postgresql_cluster (Resource)

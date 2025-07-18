@@ -2,7 +2,7 @@
 subcategory: Smart Web Security (SWS)
 page_title: 'Yandex: yandex_sws_advanced_rate_limiter_profile'
 description: Get information about SmartWebSecurity ARL Profile.
-sourcePath: ru/terraform/tf-ref/data-sources/sws_advanced_rate_limiter_profile.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/sws_advanced_rate_limiter_profile.md
 ---
 
 # yandex_sws_advanced_rate_limiter_profile (Data Source)

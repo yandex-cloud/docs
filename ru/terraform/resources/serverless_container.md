@@ -2,7 +2,7 @@
 subcategory: Serverless Containers
 page_title: 'Yandex: yandex_serverless_container'
 description: Allows management of a Yandex Cloud Serverless Container.
-sourcePath: ru/terraform/tf-ref/resources/serverless_container.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/serverless_container.md
 ---
 
 # yandex_serverless_container (Resource)

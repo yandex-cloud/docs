@@ -5,7 +5,7 @@ description: |-
   Allows creation and management of a single binding within IAM policy for an existing Yandex Managed Service for Kubernetes cluster.
   ~> Roles controlled by yandex_kubernetes_cluster_iam_binding should not be assigned using yandex_kubernetes_cluster_iam_member.
   ~> When you delete yandex_kubernetes_cluster_iam_binding resource, the roles can be deleted from other users within the folder as well. Be careful!
-sourcePath: ru/terraform/tf-ref/resources/kubernetes_cluster_iam_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/kubernetes_cluster_iam_binding.md
 ---
 
 # yandex_kubernetes_cluster_iam_binding (Resource)

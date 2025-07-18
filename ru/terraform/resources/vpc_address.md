@@ -2,7 +2,7 @@
 subcategory: Virtual Private Cloud (VPC)
 page_title: 'Yandex: yandex_vpc_address'
 description: Manages a VPC address within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/vpc_address.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/vpc_address.md
 ---
 
 # yandex_vpc_address (Resource)

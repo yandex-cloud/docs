@@ -2,7 +2,7 @@
 subcategory: Virtual Private Cloud (VPC)
 page_title: 'Yandex: yandex_vpc_gateway'
 description: Manages a gateway within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/vpc_gateway.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/vpc_gateway.md
 ---
 
 # yandex_vpc_gateway (Resource)

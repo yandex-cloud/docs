@@ -2,7 +2,7 @@
 subcategory: Managed Service for MySQL
 page_title: 'Yandex: yandex_mdb_mysql_cluster'
 description: Manages a MySQL cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/mdb_mysql_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_mysql_cluster.md
 ---
 
 # yandex_mdb_mysql_cluster (Resource)

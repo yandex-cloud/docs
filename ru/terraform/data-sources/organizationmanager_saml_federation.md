@@ -2,7 +2,7 @@
 subcategory: Cloud Organization
 page_title: 'Yandex: yandex_organizationmanager_saml_federation'
 description: Get information about a Yandex Cloud SAML Federation.
-sourcePath: ru/terraform/tf-ref/data-sources/organizationmanager_saml_federation.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_saml_federation.md
 ---
 
 # yandex_organizationmanager_saml_federation (Data Source)

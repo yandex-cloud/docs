@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_gpu_cluster'
 description: Get information about a Yandex Compute GPU cluster.
-sourcePath: ru/terraform/tf-ref/data-sources/compute_gpu_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/compute_gpu_cluster.md
 ---
 
 # yandex_compute_gpu_cluster (Data Source)

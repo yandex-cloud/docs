@@ -2,7 +2,7 @@
 subcategory: Virtual Private Cloud (VPC)
 page_title: 'Yandex: yandex_vpc_network'
 description: Get information about a Yandex VPC network.
-sourcePath: ru/terraform/tf-ref/data-sources/vpc_network.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/vpc_network.md
 ---
 
 # yandex_vpc_network (Data Source)

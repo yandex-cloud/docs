@@ -50,13 +50,13 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc load-balancer network-load-balancer disable-zones \
         <имя_или_идентификатор_балансировщика> \
-        --zone-ids=<идентификатор_зоны_1>,[<идентификатор_зоны_2>] \
+        --zones=<идентификатор_зоны_1>,[<идентификатор_зоны_2>] \
         --duration=<продолжительность> 
       ```
 
       Где
       
-      * `--zone-ids` — идентификаторы зон доступности.
+      * `--zones` — идентификаторы зон доступности.
       * `--duration` — продолжительность блокировки. Значения от 1m до 72h. Если не задано, продолжительность не ограничена. Если зоны указаны списком, все они отключатся на заданный период.
 
 {% endlist %}
@@ -80,7 +80,7 @@ description: Следуя данной инструкции, вы сможете
 
   ```bash
   yc load-balancer network-load-balancer disable-zones ds70q425egoe******** \
-    --zone-ids=ru-central1-b,ru-central1-d
+    --zones=ru-central1-b,ru-central1-d
   ```
 
   Результат:
@@ -105,7 +105,7 @@ description: Следуя данной инструкции, вы сможете
 
   ```bash
   yc load-balancer network-load-balancer disable-zones ds70q425egoe******** \
-    --zone-ids=ru-central1-b \
+    --zones=ru-central1-b \
     --duration=30m
   ```
 
@@ -163,7 +163,7 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc load-balancer network-load-balancer enable-zones \
         <имя_или_идентификатор_балансировщика> \
-        --zone-ids=<идентификатор_зоны_1>,[<идентификатор_зоны_2>]
+        --zones=<идентификатор_зоны_1>,[<идентификатор_зоны_2>]
       ```
 
      Результат:

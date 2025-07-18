@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_disk_placement_group'
 description: Get information about a Yandex Compute Disk Placement Group.
-sourcePath: ru/terraform/tf-ref/data-sources/compute_disk_placement_group.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/compute_disk_placement_group.md
 ---
 
 # yandex_compute_disk_placement_group (Data Source)

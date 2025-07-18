@@ -7,6 +7,7 @@ description: Различные сценарии использования по
 
 * [{#T}](user-group-access-control.md)
 * [Создание L7-балансировщика с защитой от DDoS](alb-with-ddos-protection/index.md)
+* [{#T}](sws-basic-protection.md)
 * [{#T}](alb-ingress-with-sws-profile.md)
 * [{#T}](migration-from-nlb-to-alb/index.md)
 * [Терминирование TLS-соединений](tls-termination/index.md)

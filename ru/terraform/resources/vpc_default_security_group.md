@@ -2,7 +2,7 @@
 subcategory: Virtual Private Cloud (VPC)
 page_title: 'Yandex: yandex_vpc_default_security_group'
 description: Yandex VPC Default Security Group.
-sourcePath: ru/terraform/tf-ref/resources/vpc_default_security_group.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/vpc_default_security_group.md
 ---
 
 # yandex_vpc_default_security_group (Resource)

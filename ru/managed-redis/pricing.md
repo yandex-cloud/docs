@@ -22,6 +22,8 @@ editable: false
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
+{% include [vat](../_includes/vat.md) %}
+
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
 ## Из чего складывается стоимость использования {{ mrd-short-name }} {#rules}
@@ -120,11 +122,6 @@ editable: false
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-
-Все цены указаны с включением НДС.
-
-
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 

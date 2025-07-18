@@ -2,7 +2,7 @@
 subcategory: Serverless Containers
 page_title: 'Yandex: yandex_serverless_container'
 description: Get information about a Yandex Cloud Serverless Container.
-sourcePath: ru/terraform/tf-ref/data-sources/serverless_container.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/serverless_container.md
 ---
 
 # yandex_serverless_container (Data Source)

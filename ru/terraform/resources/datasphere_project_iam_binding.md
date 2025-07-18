@@ -2,7 +2,7 @@
 subcategory: Datasphere
 page_title: 'Yandex: yandex_datasphere_project_iam_binding'
 description: Allows management of a single IAM binding for a Yandex Datasphere Project.
-sourcePath: ru/terraform/tf-ref/resources/datasphere_project_iam_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/datasphere_project_iam_binding.md
 ---
 
 # yandex_datasphere_project_iam_binding (Resource)

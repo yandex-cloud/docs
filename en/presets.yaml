@@ -1121,6 +1121,7 @@ default:
     api:
       network:
         inet:
+          egress|number: 5.184
           egress|string: ₸5.1840
     logs:
       raw|string: ₸27000.00
@@ -2831,6 +2832,7 @@ default:
     api:
       network:
         inet:
+          egress|number: 1.0368
           egress|string: ₽1.0368
     logs:
       raw|string: ₽5400.00
@@ -4536,6 +4538,7 @@ default:
     api:
       network:
         inet:
+          egress|number: 0.00864
           egress|string: $0.008640
     logs:
       raw|string: $44.999982
@@ -9162,6 +9165,7 @@ default:
             button_choose: Save
             field_public_ip: Public access
             field_subnetworks: Subnet
+            label_title: Add host
         maintenance:
           action_change-task-time: Postpone
           action_exec-task-now: Carry out now
@@ -9754,6 +9758,15 @@ default:
           label_button_copy-text: Copy text
           label_button_start-recognition: Start recognition
           label_language-auto: Automatic
+      spqr:
+        console_password: Password from Sharded PostgreSQL console
+        field_coordinator: Coordinator
+        section_coordinator: Coordinator
+        section_hosts: Hosts
+        section_infra: Infrastructure
+        section_router: Router
+        section_sharding-type-advanced: Advanced
+        section_sharding-type-standard: Standard
       storage:
         bucket:
           button_action-permissions: Object ACL

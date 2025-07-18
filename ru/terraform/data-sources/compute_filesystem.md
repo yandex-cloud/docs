@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_filesystem'
 description: Get information about a Yandex Compute filesystem.
-sourcePath: ru/terraform/tf-ref/data-sources/compute_filesystem.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/compute_filesystem.md
 ---
 
 # yandex_compute_filesystem (Data Source)

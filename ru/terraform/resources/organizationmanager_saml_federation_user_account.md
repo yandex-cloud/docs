@@ -2,7 +2,7 @@
 subcategory: Cloud Organization
 page_title: 'Yandex: yandex_organizationmanager_saml_federation_user_account'
 description: Allows management of a single SAML Federation user account within an existing Yandex Cloud Organization.
-sourcePath: ru/terraform/tf-ref/resources/organizationmanager_saml_federation_user_account.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/organizationmanager_saml_federation_user_account.md
 ---
 
 # yandex_organizationmanager_saml_federation_user_account (Resource)

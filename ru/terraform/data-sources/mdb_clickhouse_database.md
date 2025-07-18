@@ -2,7 +2,7 @@
 subcategory: Managed Service for ClickHouse
 page_title: 'Yandex: yandex_mdb_clickhouse_database'
 description: Get information about Database at Yandex Managed ClickHouse cluster.
-sourcePath: ru/terraform/tf-ref/data-sources/mdb_clickhouse_database.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_clickhouse_database.md
 ---
 
 # yandex_mdb_clickhouse_database (Data Source)

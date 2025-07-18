@@ -2,7 +2,7 @@
 subcategory: Managed Service for Apache Spark
 page_title: 'Yandex: yandex_spark_cluster'
 description: Get information about Apache Spark cluster.
-sourcePath: ru/terraform/tf-ref/data-sources/spark_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/spark_cluster.md
 ---
 
 # yandex_spark_cluster (Data Source)

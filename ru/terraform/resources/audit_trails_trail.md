@@ -2,7 +2,7 @@
 subcategory: Audit Trails
 page_title: 'Yandex: yandex_audit_trails_trail'
 description: Manages a trail resource.
-sourcePath: ru/terraform/tf-ref/resources/audit_trails_trail.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/audit_trails_trail.md
 ---
 
 # yandex_audit_trails_trail (Resource)
