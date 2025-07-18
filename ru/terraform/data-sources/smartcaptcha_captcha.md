@@ -2,7 +2,7 @@
 subcategory: Smart Captcha
 page_title: 'Yandex: yandex_smartcaptcha_captcha'
 description: Get information about Yandex SmartCaptcha.
-sourcePath: ru/terraform/tf-ref/data-sources/smartcaptcha_captcha.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/smartcaptcha_captcha.md
 ---
 
 # yandex_smartcaptcha_captcha (Data Source)

@@ -2,7 +2,7 @@
 subcategory: Container Registry
 page_title: 'Yandex: yandex_container_registry_iam_binding'
 description: Allows management of a single IAM binding for a Yandex Container Registry.
-sourcePath: ru/terraform/tf-ref/resources/container_registry_iam_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/container_registry_iam_binding.md
 ---
 
 # yandex_container_registry_iam_binding (Resource)

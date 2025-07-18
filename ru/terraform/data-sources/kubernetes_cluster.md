@@ -2,7 +2,7 @@
 subcategory: Managed Service for Kubernetes (MK8S)
 page_title: 'Yandex: yandex_kubernetes_cluster'
 description: Get information about a Yandex Kubernetes Cluster.
-sourcePath: ru/terraform/tf-ref/data-sources/kubernetes_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/kubernetes_cluster.md
 ---
 
 # yandex_kubernetes_cluster (Data Source)

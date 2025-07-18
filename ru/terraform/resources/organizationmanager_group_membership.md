@@ -2,7 +2,7 @@
 subcategory: Cloud Organization
 page_title: 'Yandex: yandex_organizationmanager_group_membership'
 description: Allows management of members of Yandex Cloud Organization Manager Group.
-sourcePath: ru/terraform/tf-ref/resources/organizationmanager_group_membership.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/organizationmanager_group_membership.md
 ---
 
 # yandex_organizationmanager_group_membership (Resource)

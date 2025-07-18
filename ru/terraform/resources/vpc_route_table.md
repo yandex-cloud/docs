@@ -2,7 +2,7 @@
 subcategory: Virtual Private Cloud (VPC)
 page_title: 'Yandex: yandex_vpc_route_table'
 description: A VPC route table is a virtual version of the traditional route table on router device.
-sourcePath: ru/terraform/tf-ref/resources/vpc_route_table.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/vpc_route_table.md
 ---
 
 # yandex_vpc_route_table (Resource)

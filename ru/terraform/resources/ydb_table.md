@@ -2,7 +2,7 @@
 subcategory: Managed Service for YDB
 page_title: 'Yandex: yandex_ydb_table'
 description: Manages Yandex Database dedicated cluster.
-sourcePath: ru/terraform/tf-ref/resources/ydb_table.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/ydb_table.md
 ---
 
 # yandex_ydb_table (Resource)

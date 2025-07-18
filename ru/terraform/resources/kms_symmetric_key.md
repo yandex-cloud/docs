@@ -2,7 +2,7 @@
 subcategory: Key Management Service (KMS)
 page_title: 'Yandex: yandex_kms_symmetric_key'
 description: Creates a Yandex KMS symmetric key that can be used for cryptographic operation.
-sourcePath: ru/terraform/tf-ref/resources/kms_symmetric_key.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/kms_symmetric_key.md
 ---
 
 # yandex_kms_symmetric_key (Resource)

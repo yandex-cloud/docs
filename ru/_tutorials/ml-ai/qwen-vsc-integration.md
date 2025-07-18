@@ -68,7 +68,7 @@
 1. В открывшемся окне в поле **API Provider** выберите **OpenAI Compatible**.
 1. В поле **Base URL** укажите `https://{{ api-host-llm }}/v1`.
 1. В поле **API-key** вставьте секретное значение ключа, полученное на предыдущем [шаге](#create-key).
-1. В поле **Model** укажите `gpt://<идентификатор_каталога>/Qwen3-235b-a22b-fp8/latest`, где `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) `aistudio`.
+1. В поле **Model** укажите `gpt://<идентификатор_каталога>/qwen3-235b-a22b-fp8/latest`, где `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) `aistudio`.
 1. Нажмите **Go!**.
 
 ## Протестируйте модель {#test}

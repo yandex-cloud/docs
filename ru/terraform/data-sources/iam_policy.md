@@ -2,7 +2,7 @@
 subcategory: Identity and Access Management (IAM)
 page_title: 'Yandex: yandex_iam_policy'
 description: Generates an IAM policy that can be referenced by other resources and applied to them.
-sourcePath: ru/terraform/tf-ref/data-sources/iam_policy.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/iam_policy.md
 ---
 
 # yandex_iam_policy (Data Source)

@@ -2,7 +2,7 @@
 subcategory: Application Load Balancer (ALB)
 page_title: 'Yandex: yandex_alb_virtual_host'
 description: Virtual hosts combine routes belonging to the same set of domains.
-sourcePath: ru/terraform/tf-ref/resources/alb_virtual_host.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/alb_virtual_host.md
 ---
 
 # yandex_alb_virtual_host (Resource)

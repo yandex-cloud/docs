@@ -2,7 +2,7 @@
 subcategory: Lockbox (Secret Management)
 page_title: 'Yandex: yandex_lockbox_secret_iam_binding'
 description: Allows management of a single IAM binding for a Lockbox Secret.
-sourcePath: ru/terraform/tf-ref/resources/lockbox_secret_iam_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/lockbox_secret_iam_binding.md
 ---
 
 # yandex_lockbox_secret_iam_binding (Resource)

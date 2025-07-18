@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_snapshot_schedule'
 description: Get information about a Yandex Compute SnapshotSchedule.
-sourcePath: ru/terraform/tf-ref/data-sources/compute_snapshot_schedule.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/compute_snapshot_schedule.md
 ---
 
 # yandex_compute_snapshot_schedule (Data Source)

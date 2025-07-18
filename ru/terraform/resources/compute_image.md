@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_image'
 description: Creates a VM image for the Yandex Compute service from an existing tarball.
-sourcePath: ru/terraform/tf-ref/resources/compute_image.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/compute_image.md
 ---
 
 # yandex_compute_image (Resource)

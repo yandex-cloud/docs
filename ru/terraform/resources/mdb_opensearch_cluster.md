@@ -2,7 +2,7 @@
 subcategory: Managed Service for OpenSearch
 page_title: 'Yandex: yandex_mdb_opensearch_cluster'
 description: Manages a OpenSearch cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/mdb_opensearch_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_opensearch_cluster.md
 ---
 
 # yandex_mdb_opensearch_cluster (Resource)

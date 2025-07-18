@@ -2,7 +2,7 @@
 subcategory: Network Load Balancer (NLB)
 page_title: 'Yandex: yandex_lb_target_group'
 description: Get information about a Yandex Load Balancer target group.
-sourcePath: ru/terraform/tf-ref/data-sources/lb_target_group.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/lb_target_group.md
 ---
 
 # yandex_lb_target_group (Data Source)

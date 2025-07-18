@@ -2,7 +2,7 @@
 subcategory: Certificate Manager
 page_title: 'Yandex: yandex_cm_certificate_iam_member'
 description: Allows management of a single member for a single IAM member.
-sourcePath: ru/terraform/tf-ref/resources/cm_certificate_iam_member.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/cm_certificate_iam_member.md
 ---
 
 # yandex_cm_certificate_iam_member (Resource)

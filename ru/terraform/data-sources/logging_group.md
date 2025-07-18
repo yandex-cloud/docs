@@ -2,7 +2,7 @@
 subcategory: Cloud Logging
 page_title: 'Yandex: yandex_logging_group'
 description: Get information about a Yandex Cloud Logging group.
-sourcePath: ru/terraform/tf-ref/data-sources/logging_group.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/logging_group.md
 ---
 
 # yandex_logging_group (Data Source)

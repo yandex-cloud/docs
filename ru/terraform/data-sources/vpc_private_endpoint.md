@@ -2,7 +2,7 @@
 subcategory: Virtual Private Cloud (VPC)
 page_title: 'Yandex: yandex_vpc_private_endpoint'
 description: Get information about a Yandex VPC Private Endpoint.
-sourcePath: ru/terraform/tf-ref/data-sources/vpc_private_endpoint.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/vpc_private_endpoint.md
 ---
 
 # yandex_vpc_private_endpoint (Data Source)

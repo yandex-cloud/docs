@@ -2,7 +2,7 @@
 subcategory: Managed Service for MySQL
 page_title: 'Yandex: yandex_mdb_mysql_user'
 description: Get information about a Yandex Managed MySQL user.
-sourcePath: ru/terraform/tf-ref/data-sources/mdb_mysql_user.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_mysql_user.md
 ---
 
 # yandex_mdb_mysql_user (Data Source)

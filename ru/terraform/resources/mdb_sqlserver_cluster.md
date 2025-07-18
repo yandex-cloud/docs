@@ -2,7 +2,7 @@
 subcategory: Managed Service for SQLServer
 page_title: 'Yandex: yandex_mdb_sqlserver_cluster'
 description: Manages a Microsoft SQLServer cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/mdb_sqlserver_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_sqlserver_cluster.md
 ---
 
 # yandex_mdb_sqlserver_cluster (Resource)

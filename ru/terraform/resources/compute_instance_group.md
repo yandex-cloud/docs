@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_instance_group'
 description: Manages an Instance group resource.
-sourcePath: ru/terraform/tf-ref/resources/compute_instance_group.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/compute_instance_group.md
 ---
 
 # yandex_compute_instance_group (Resource)

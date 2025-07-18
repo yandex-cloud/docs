@@ -2,7 +2,7 @@
 subcategory: Managed Service for Apache Kafka
 page_title: 'Yandex: yandex_mdb_kafka_cluster'
 description: Get information about a Yandex Managed Kafka cluster.
-sourcePath: ru/terraform/tf-ref/data-sources/mdb_kafka_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_kafka_cluster.md
 ---
 
 # yandex_mdb_kafka_cluster (Data Source)

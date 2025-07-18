@@ -2,7 +2,7 @@
 subcategory: Identity and Access Management (IAM)
 page_title: 'Yandex: yandex_iam_workload_identity_oidc_federation_iam_binding'
 description: Allows management of a single IAM binding for a Yandex IAM workload identity OIDC federation.
-sourcePath: ru/terraform/tf-ref/resources/iam_workload_identity_oidc_federation_iam_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/iam_workload_identity_oidc_federation_iam_binding.md
 ---
 
 # yandex_iam_workload_identity_oidc_federation_iam_binding (Resource)

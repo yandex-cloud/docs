@@ -2,7 +2,7 @@
 subcategory: Container Registry
 page_title: 'Yandex: yandex_container_repository'
 description: Get information about a Yandex Container Repository.
-sourcePath: ru/terraform/tf-ref/data-sources/container_repository.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/container_repository.md
 ---
 
 # yandex_container_repository (Data Source)

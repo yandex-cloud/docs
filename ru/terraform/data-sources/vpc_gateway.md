@@ -2,7 +2,7 @@
 subcategory: Virtual Private Cloud (VPC)
 page_title: 'Yandex: yandex_vpc_gateway'
 description: Get information about a Yandex VPC gateway.
-sourcePath: ru/terraform/tf-ref/data-sources/vpc_gateway.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/vpc_gateway.md
 ---
 
 # yandex_vpc_gateway (Data Source)

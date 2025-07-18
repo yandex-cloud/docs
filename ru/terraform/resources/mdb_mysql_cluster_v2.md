@@ -2,7 +2,7 @@
 subcategory: Managed Service for MySQL
 page_title: 'Yandex: yandex_mdb_mysql_cluster_v2'
 description: Manages a MySQL cluster within the Yandex Cloud. For more information, see the official documentation https://cloud.yandex.com/docs/managed-mysql/. How to connect to the DB https://yandex.cloud/docs/managed-mysql/quickstart#connect. To connect, use port 6432. The port number is not configurable.
-sourcePath: ru/terraform/tf-ref/resources/mdb_mysql_cluster_v2.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_mysql_cluster_v2.md
 ---
 
 # yandex_mdb_mysql_cluster_v2 (Resource)

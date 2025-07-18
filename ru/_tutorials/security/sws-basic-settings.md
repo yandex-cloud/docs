@@ -1,7 +1,15 @@
 
 # Базовая настройка защиты в {{ sws-name }}
 
-[{{ sws-name }}](../../smartwebsecurity/concepts/index.md) (SWS) защищает веб-ресурсы от интернет-угроз, фильтруя вредоносный трафик. Для индивидуальной настройки можно подключить несколько инструментов {{ sws-name }}: базовые правила для простой фильтрации, правила Smart Protection для защиты от DDoS, [{{ captcha-name }}](../../smartcaptcha/) для защиты от ботов, Web Application Firewall (WAF) — от эксплуатации уязвимостей, а также Advanced Rate Limiter (ARL) для ограничения трафика.
+[{{ sws-name }}](../../smartwebsecurity/concepts/index.md) (SWS) защищает веб-ресурсы от интернет-угроз, фильтруя вредоносный трафик.
+
+Для индивидуальной настройки можно подключить несколько инструментов {{ sws-name }}:
+
+* базовые правила для простой фильтрации;
+* правила Smart Protection для защиты от DDoS;
+* [{{ captcha-name }}](../../smartcaptcha/) для защиты от ботов;
+* Web Application Firewall (WAF) — от эксплуатации уязвимостей;
+* Advanced Rate Limiter (ARL) для ограничения трафика.
 
 Каждый инструмент настраивается по этапам: добавление правил, проверка в реальных условиях и корректировка. Рекомендуется настраивать инструменты последовательно, начиная с базовых правил и Smart Protection. Это позволит быстро включить защиту и облегчить отслеживание и корректировку правил.
 
@@ -356,43 +364,27 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- L7-балансировщик {#balancer}
 
-  1. Если вы используете L7-балансировщик:
-     1. Убедитесь, что настроено [логирование](../../smartwebsecurity/operations/configure-logging.md).
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-     1. Выберите балансировщик, к которому привязан профиль безопасности.
-  1. Если вы используете API-шлюз:
-     1. Убедитесь, что настроено [логирование](../../api-gateway/operations/api-gw-logs-write.md).
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-     1. Выберите API-шлюз, к которому привязан профиль безопасности.
-  1. Если вы используете домен:
-     1. Убедитесь, что настроено [логирование](../../smartwebsecurity/operations/proxy-create.md).
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-     1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
-     1. Выберите прокси-сервер, к которому привязан профиль безопасности.
-  1. Выберите раздел **{{ ui-key.yacloud.common.logs }}**.
-  1. Выберите количество сообщений на одной странице и период, например, `1 час`.
-  1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите кнопку **Выполнить**.
+  1. Убедитесь, что настроено [логирование](../../smartwebsecurity/operations/configure-logging.md).
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Выберите балансировщик, к которому привязан профиль безопасности.
+  1. {% include [log-requests](../../_includes/smartwebsecurity/log-requests.md) %}
 
-      Примеры запросов:
+- API-шлюз {#api-gateway}
+  
+  1. Убедитесь, что настроено [логирование](../../api-gateway/operations/api-gw-logs-write.md).
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Выберите API-шлюз, к которому привязан профиль безопасности.
+  1. {% include [log-requests](../../_includes/smartwebsecurity/log-requests.md) %}
 
-      * Показать запросы, для которых сработало правило Smart Protection с отправкой на капчу (в режиме логирования):
-        ```
-        json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
-        ```
-      * Аналогичный запрос без режима логирования:
-        ```
-        json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.matched_rule.verdict = CAPTCHA
-        ```
-      * Показать запросы, заблокированные базовыми правилами с любыми условиями (в режиме логирования):
-        ```
-        json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-        ```
-      * Аналогичный запрос без режима логирования:
-        ```
-        json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-        ```
+- Домен {#domain}
+
+  1. Убедитесь, что настроено [логирование](../../smartwebsecurity/operations/proxy-create.md).
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. На панели слева выберите ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
+  1. Выберите прокси-сервер, к которому привязан профиль безопасности.
+  1. {% include [log-requests](../../_includes/smartwebsecurity/log-requests.md) %}
 
 {% endlist %}
 

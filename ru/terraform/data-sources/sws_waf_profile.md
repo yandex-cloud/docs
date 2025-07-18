@@ -2,7 +2,7 @@
 subcategory: Smart Web Security (SWS)
 page_title: 'Yandex: yandex_sws_waf_profile'
 description: Get information about SmartWebSecurity WAF Profile.
-sourcePath: ru/terraform/tf-ref/data-sources/sws_waf_profile.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/sws_waf_profile.md
 ---
 
 # yandex_sws_waf_profile (Data Source)

@@ -2,7 +2,7 @@
 subcategory: IoT Core
 page_title: 'Yandex: yandex_iot_core_device'
 description: Get information about a Yandex Cloud IoT Core Device.
-sourcePath: ru/terraform/tf-ref/data-sources/iot_core_device.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/iot_core_device.md
 ---
 
 # yandex_iot_core_device (Data Source)

@@ -11,6 +11,8 @@ editable: false
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
+{% include [vat](../_includes/vat.md) %}
+
 ## Из чего складывается стоимость использования {{ vpc-short-name }} {#rules}
 
 В рамках {{ vpc-short-name }} оплачивается почасовое использование публичных IP-адресов.
@@ -36,10 +38,6 @@ editable: false
 
 1. **Активном** — когда _динамический_ или _статический_ публичный IP-адрес привязан к запущенному облачному ресурсу.
 1. **Неактивном** — когда _статический_ публичный IP-адрес не привязан к облачному ресурсу или привязан к остановленному ресурсу.
-
-
-Все цены указаны с учетом НДС.
-
 
 
 {% list tabs group=pricing %}
@@ -144,8 +142,6 @@ editable: false
 ### {{ ddos-protection-full-name }} {#prices-ddos-protection}
 
 
-Все цены указаны с учетом НДС.
-
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}
@@ -183,8 +179,6 @@ editable: false
 Расчет превышения производится путем умножения 1 Мбит/с трафика на полосу превалирующего трафика.
 
 
-Все цены указаны с учетом НДС.
-
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}
@@ -217,8 +211,6 @@ editable: false
 К тарифу {{ adv-ddos-protection }} можно дополнительно подключить следующие услуги:
 
 
-Все цены указаны с учетом НДС.
-
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}
@@ -235,8 +227,6 @@ editable: false
 
 ### Managed Web Application Firewall {#prices-waf}
 
-
-Все цены указаны с учетом НДС.
 
 {% list tabs group=pricing %}
 

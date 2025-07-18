@@ -2,7 +2,7 @@
 subcategory: Managed Service for MongoDB
 page_title: 'Yandex: yandex_mdb_mongodb_database'
 description: Manages a MongoDB Database within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/mdb_mongodb_database.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_mongodb_database.md
 ---
 
 # yandex_mdb_mongodb_database (Resource)

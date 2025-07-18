@@ -2,7 +2,7 @@
 subcategory: Data Processing
 page_title: 'Yandex: yandex_dataproc_cluster'
 description: Manages a Data Processing cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/resources/dataproc_cluster.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/dataproc_cluster.md
 ---
 
 # yandex_dataproc_cluster (Resource)

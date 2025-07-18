@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_disk_placement_group'
 description: Manages a Disk Placement Group resource.
-sourcePath: ru/terraform/tf-ref/resources/compute_disk_placement_group.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/compute_disk_placement_group.md
 ---
 
 # yandex_compute_disk_placement_group (Resource)

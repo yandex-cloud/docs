@@ -2,7 +2,7 @@
 subcategory: Serverless Containers
 page_title: 'Yandex: yandex_serverless_container_iam_binding'
 description: Allows management of a single IAM binding for a Yandex Serverless Container.
-sourcePath: ru/terraform/tf-ref/resources/serverless_container_iam_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/serverless_container_iam_binding.md
 ---
 
 # yandex_serverless_container_iam_binding (Resource)

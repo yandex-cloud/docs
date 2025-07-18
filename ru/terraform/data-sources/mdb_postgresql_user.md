@@ -2,7 +2,7 @@
 subcategory: Managed Service for PostgreSQL
 page_title: 'Yandex: yandex_mdb_postgresql_user'
 description: Get information about a Yandex Managed PostgreSQL user.
-sourcePath: ru/terraform/tf-ref/data-sources/mdb_postgresql_user.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_postgresql_user.md
 ---
 
 # yandex_mdb_postgresql_user (Data Source)

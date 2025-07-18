@@ -2,7 +2,7 @@
 subcategory: Managed Service for Apache Kafka
 page_title: 'Yandex: yandex_mdb_kafka_user'
 description: Get information about a user of the Yandex Managed Kafka cluster.
-sourcePath: ru/terraform/tf-ref/data-sources/mdb_kafka_user.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_kafka_user.md
 ---
 
 # yandex_mdb_kafka_user (Data Source)

@@ -2,7 +2,7 @@
 subcategory: Load Testing
 page_title: 'Yandex: yandex_loadtesting_agent'
 description: Get information about a Yandex Load Testing Agent.
-sourcePath: ru/terraform/tf-ref/data-sources/loadtesting_agent.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/loadtesting_agent.md
 ---
 
 # yandex_loadtesting_agent (Data Source)

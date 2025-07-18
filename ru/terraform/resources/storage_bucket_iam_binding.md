@@ -2,7 +2,7 @@
 subcategory: Object Storage (S3)
 page_title: 'Yandex: yandex_storage_bucket_iam_binding'
 description: Allows management of a single IAM binding for a Object Storage (S3) bucket.
-sourcePath: ru/terraform/tf-ref/resources/storage_bucket_iam_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/storage_bucket_iam_binding.md
 ---
 
 # yandex_storage_bucket_iam_binding (Resource)

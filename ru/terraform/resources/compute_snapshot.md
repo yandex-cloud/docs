@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_snapshot'
 description: Creates a new snapshot of a disk.
-sourcePath: ru/terraform/tf-ref/resources/compute_snapshot.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/compute_snapshot.md
 ---
 
 # yandex_compute_snapshot (Resource)

@@ -29,7 +29,7 @@ If a sentence contains words in different languages, the language may be detecte
 
   ```python
   ...
-        language_code=['auto', 'en-US', 'es-ES', 'fr-FR']
+        language_code=['en-US', 'es-ES', 'fr-FR']
   ...
   ```
 

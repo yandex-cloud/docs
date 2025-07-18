@@ -2,7 +2,7 @@
 subcategory: Smart Web Security (SWS)
 page_title: 'Yandex: yandex_sws_advanced_rate_limiter_profile'
 description: Manage a SWS Advanced Rate Limiter.
-sourcePath: ru/terraform/tf-ref/resources/sws_advanced_rate_limiter_profile.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/sws_advanced_rate_limiter_profile.md
 ---
 
 # yandex_sws_advanced_rate_limiter_profile (Resource)

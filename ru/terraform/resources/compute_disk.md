@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_disk'
 description: Persistent disks are durable storage devices that function similarly to the physical disks in a desktop or a server.
-sourcePath: ru/terraform/tf-ref/resources/compute_disk.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/compute_disk.md
 ---
 
 # yandex_compute_disk (Resource)

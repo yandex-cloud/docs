@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_gpu_cluster_iam_binding'
 description: Allows management of a single IAM binding for the GPU Cluster.
-sourcePath: ru/terraform/tf-ref/resources/compute_gpu_cluster_iam_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/compute_gpu_cluster_iam_binding.md
 ---
 
 # yandex_compute_gpu_cluster_iam_binding (Resource)

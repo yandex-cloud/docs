@@ -2,7 +2,7 @@
 subcategory: IoT Core
 page_title: 'Yandex: yandex_iot_core_broker'
 description: Get information about a Yandex Cloud IoT Core Broker.
-sourcePath: ru/terraform/tf-ref/data-sources/iot_core_broker.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/iot_core_broker.md
 ---
 
 # yandex_iot_core_broker (Data Source)

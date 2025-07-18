@@ -2,7 +2,7 @@
 subcategory: Container Registry
 page_title: 'Yandex: yandex_container_registry_ip_permission'
 description: Get information about a Yandex Container Registry IP Permission.
-sourcePath: ru/terraform/tf-ref/data-sources/container_registry_ip_permission.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/container_registry_ip_permission.md
 ---
 
 # yandex_container_registry_ip_permission (Data Source)

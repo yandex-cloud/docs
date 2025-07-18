@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_instance'
 description: Manages a VM instance resource.
-sourcePath: ru/terraform/tf-ref/resources/compute_instance.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/compute_instance.md
 ---
 
 # yandex_compute_instance (Resource)

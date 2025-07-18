@@ -2,7 +2,7 @@
 subcategory: Application Load Balancer (ALB)
 page_title: 'Yandex: yandex_alb_backend_group'
 description: An application load balancer distributes the load across cloud resources that are combined into a backend group.
-sourcePath: ru/terraform/tf-ref/resources/alb_backend_group.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/alb_backend_group.md
 ---
 
 # yandex_alb_backend_group (Resource)

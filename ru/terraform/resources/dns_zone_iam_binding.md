@@ -2,7 +2,7 @@
 subcategory: Cloud Domain Name System (DNS)
 page_title: 'Yandex: yandex_dns_zone_iam_binding'
 description: Allows management of a single IAM binding for a Cloud DNS Zone.
-sourcePath: ru/terraform/tf-ref/resources/dns_zone_iam_binding.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/dns_zone_iam_binding.md
 ---
 
 # yandex_dns_zone_iam_binding (Resource)

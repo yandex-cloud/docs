@@ -2,7 +2,7 @@
 subcategory: Managed Service for YDB
 page_title: 'Yandex: yandex_ydb_database_serverless'
 description: Get information about a Yandex Database serverless cluster.
-sourcePath: ru/terraform/tf-ref/data-sources/ydb_database_serverless.md
+sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/ydb_database_serverless.md
 ---
 
 # yandex_ydb_database_serverless (Data Source)

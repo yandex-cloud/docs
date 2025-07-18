@@ -4,7 +4,7 @@ items:
   - name: Начало работы
     href: quickstart.md
   - name: Концепции
-    expanded: true
+    expanded: false
     items:
       - name: Обзор
         href: concepts/index.md
@@ -19,7 +19,7 @@ items:
       - name: Состояния
         href: concepts/states.md
   - name: Практические руководства
-    expanded: true
+    expanded: false
     items:
       - name: Все практические руководства
         href: tutorials/index.md
@@ -31,1331 +31,1335 @@ items:
         href: tutorials/terraform-state-storage.md
       - name: Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}
         href: tutorials/terraform-state-lock.md
-  - name: Справочник {{ TF }}
-    items:
-      - name: ''
-        items:
-          - name: Resources
-            items:
-              - name: kubernetes_cluster_iam_binding
-                href: resources/kubernetes_cluster_iam_binding.md
-                title: ''
-              - name: kubernetes_cluster_iam_member
-                href: resources/kubernetes_cluster_iam_member.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Application Load Balancer (ALB)
-        items:
-          - name: Data Sources
-            items:
-              - name: alb_backend_group
-                href: data-sources/alb_backend_group.md
-                title: ''
-              - name: alb_http_router
-                href: data-sources/alb_http_router.md
-                title: ''
-              - name: alb_load_balancer
-                href: data-sources/alb_load_balancer.md
-                title: ''
-              - name: alb_target_group
-                href: data-sources/alb_target_group.md
-                title: ''
-              - name: alb_virtual_host
-                href: data-sources/alb_virtual_host.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: alb_backend_group
-                href: resources/alb_backend_group.md
-                title: ''
-              - name: alb_http_router
-                href: resources/alb_http_router.md
-                title: ''
-              - name: alb_load_balancer
-                href: resources/alb_load_balancer.md
-                title: ''
-              - name: alb_target_group
-                href: resources/alb_target_group.md
-                title: ''
-              - name: alb_virtual_host
-                href: resources/alb_virtual_host.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Audit Trails
-        items:
-          - name: Data Sources
-            items:
-              - name: audit_trails_trail
-                href: data-sources/audit_trails_trail.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: audit_trails_trail
-                href: resources/audit_trails_trail.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Certificate Manager
-        items:
-          - name: Data Sources
-            items:
-              - name: cm_certificate
-                href: data-sources/cm_certificate.md
-                title: ''
-              - name: cm_certificate_content
-                href: data-sources/cm_certificate_content.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: cm_certificate
-                href: resources/cm_certificate.md
-                title: ''
-              - name: cm_certificate_iam_binding
-                href: resources/cm_certificate_iam_binding.md
-                title: ''
-              - name: cm_certificate_iam_member
-                href: resources/cm_certificate_iam_member.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Client Config
-        items:
-          - name: Data Sources
-            items:
-              - name: client_config
-                href: data-sources/client_config.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Cloud Backup
-        items:
-          - name: Data Sources
-            items:
-              - name: backup_policy
-                href: data-sources/backup_policy.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: backup_policy
-                href: resources/backup_policy.md
-                title: ''
-              - name: backup_policy_bindings
-                href: resources/backup_policy_bindings.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Cloud Billing
-        items:
-          - name: Data Sources
-            items:
-              - name: billing_cloud_binding
-                href: data-sources/billing_cloud_binding.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: billing_cloud_binding
-                href: resources/billing_cloud_binding.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Cloud Content Delivery Network (CDN)
-        items:
-          - name: Data Sources
-            items:
-              - name: cdn_origin_group
-                href: data-sources/cdn_origin_group.md
-                title: ''
-              - name: cdn_resource
-                href: data-sources/cdn_resource.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: cdn_origin_group
-                href: resources/cdn_origin_group.md
-                title: ''
-              - name: cdn_resource
-                href: resources/cdn_resource.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Cloud Domain Name System (DNS)
-        items:
-          - name: Data Sources
-            items:
-              - name: dns_zone
-                href: data-sources/dns_zone.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: dns_recordset
-                href: resources/dns_recordset.md
-                title: ''
-              - name: dns_zone
-                href: resources/dns_zone.md
-                title: ''
-              - name: dns_zone_iam_binding
-                href: resources/dns_zone_iam_binding.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Cloud Logging
-        items:
-          - name: Data Sources
-            items:
-              - name: logging_group
-                href: data-sources/logging_group.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: logging_group
-                href: resources/logging_group.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Cloud Organization
-        items:
-          - name: Data Sources
-            items:
-              - name: organizationmanager_group
-                href: data-sources/organizationmanager_group.md
-                title: ''
-              - name: organizationmanager_os_login_settings
-                href: data-sources/organizationmanager_os_login_settings.md
-                title: ''
-              - name: organizationmanager_saml_federation
-                href: data-sources/organizationmanager_saml_federation.md
-                title: ''
-              - name: organizationmanager_saml_federation_user_account
-                href: >-
-                  data-sources/organizationmanager_saml_federation_user_account.md
-                title: ''
-              - name: organizationmanager_user_ssh_key
-                href: data-sources/organizationmanager_user_ssh_key.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: organizationmanager_group
-                href: resources/organizationmanager_group.md
-                title: ''
-              - name: organizationmanager_group_iam_member
-                href: resources/organizationmanager_group_iam_member.md
-                title: ''
-              - name: organizationmanager_group_mapping
-                href: resources/organizationmanager_group_mapping.md
-                title: ''
-              - name: organizationmanager_group_mapping_item
-                href: resources/organizationmanager_group_mapping_item.md
-                title: ''
-              - name: organizationmanager_group_membership
-                href: resources/organizationmanager_group_membership.md
-                title: ''
-              - name: organizationmanager_organization_iam_binding
-                href: resources/organizationmanager_organization_iam_binding.md
-                title: ''
-              - name: organizationmanager_organization_iam_member
-                href: resources/organizationmanager_organization_iam_member.md
-                title: ''
-              - name: organizationmanager_os_login_settings
-                href: resources/organizationmanager_os_login_settings.md
-                title: ''
-              - name: organizationmanager_saml_federation
-                href: resources/organizationmanager_saml_federation.md
-                title: ''
-              - name: organizationmanager_saml_federation_user_account
-                href: resources/organizationmanager_saml_federation_user_account.md
-                title: ''
-              - name: organizationmanager_user_ssh_key
-                href: resources/organizationmanager_user_ssh_key.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Compute Cloud
-        items:
-          - name: Data Sources
-            items:
-              - name: compute_disk
-                href: data-sources/compute_disk.md
-                title: ''
-              - name: compute_disk_placement_group
-                href: data-sources/compute_disk_placement_group.md
-                title: ''
-              - name: compute_filesystem
-                href: data-sources/compute_filesystem.md
-                title: ''
-              - name: compute_gpu_cluster
-                href: data-sources/compute_gpu_cluster.md
-                title: ''
-              - name: compute_image
-                href: data-sources/compute_image.md
-                title: ''
-              - name: compute_instance
-                href: data-sources/compute_instance.md
-                title: ''
-              - name: compute_instance_group
-                href: data-sources/compute_instance_group.md
-                title: ''
-              - name: compute_placement_group
-                href: data-sources/compute_placement_group.md
-                title: ''
-              - name: compute_snapshot
-                href: data-sources/compute_snapshot.md
-                title: ''
-              - name: compute_snapshot_schedule
-                href: data-sources/compute_snapshot_schedule.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: compute_disk
-                href: resources/compute_disk.md
-                title: ''
-              - name: compute_disk_iam_binding
-                href: resources/compute_disk_iam_binding.md
-                title: ''
-              - name: compute_disk_placement_group
-                href: resources/compute_disk_placement_group.md
-                title: ''
-              - name: compute_disk_placement_group_iam_binding
-                href: resources/compute_disk_placement_group_iam_binding.md
-                title: ''
-              - name: compute_filesystem
-                href: resources/compute_filesystem.md
-                title: ''
-              - name: compute_filesystem_iam_binding
-                href: resources/compute_filesystem_iam_binding.md
-                title: ''
-              - name: compute_gpu_cluster
-                href: resources/compute_gpu_cluster.md
-                title: ''
-              - name: compute_gpu_cluster_iam_binding
-                href: resources/compute_gpu_cluster_iam_binding.md
-                title: ''
-              - name: compute_image
-                href: resources/compute_image.md
-                title: ''
-              - name: compute_image_iam_binding
-                href: resources/compute_image_iam_binding.md
-                title: ''
-              - name: compute_instance
-                href: resources/compute_instance.md
-                title: ''
-              - name: compute_instance_group
-                href: resources/compute_instance_group.md
-                title: ''
-              - name: compute_instance_iam_binding
-                href: resources/compute_instance_iam_binding.md
-                title: ''
-              - name: compute_placement_group
-                href: resources/compute_placement_group.md
-                title: ''
-              - name: compute_placement_group_iam_binding
-                href: resources/compute_placement_group_iam_binding.md
-                title: ''
-              - name: compute_snapshot
-                href: resources/compute_snapshot.md
-                title: ''
-              - name: compute_snapshot_iam_binding
-                href: resources/compute_snapshot_iam_binding.md
-                title: ''
-              - name: compute_snapshot_schedule
-                href: resources/compute_snapshot_schedule.md
-                title: ''
-              - name: compute_snapshot_schedule_iam_binding
-                href: resources/compute_snapshot_schedule_iam_binding.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Container Registry
-        items:
-          - name: Data Sources
-            items:
-              - name: container_registry
-                href: data-sources/container_registry.md
-                title: ''
-              - name: container_registry_ip_permission
-                href: data-sources/container_registry_ip_permission.md
-                title: ''
-              - name: container_repository
-                href: data-sources/container_repository.md
-                title: ''
-              - name: container_repository_lifecycle_policy
-                href: data-sources/container_repository_lifecycle_policy.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: container_registry
-                href: resources/container_registry.md
-                title: ''
-              - name: container_registry_iam_binding
-                href: resources/container_registry_iam_binding.md
-                title: ''
-              - name: container_registry_ip_permission
-                href: resources/container_registry_ip_permission.md
-                title: ''
-              - name: container_repository
-                href: resources/container_repository.md
-                title: ''
-              - name: container_repository_iam_binding
-                href: resources/container_repository_iam_binding.md
-                title: ''
-              - name: container_repository_lifecycle_policy
-                href: resources/container_repository_lifecycle_policy.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Data Processing
-        items:
-          - name: Data Sources
-            items:
-              - name: dataproc_cluster
-                href: data-sources/dataproc_cluster.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: dataproc_cluster
-                href: resources/dataproc_cluster.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Data Transfer
-        items:
-          - name: Resources
-            items:
-              - name: datatransfer_endpoint
-                href: resources/datatransfer_endpoint.md
-                title: ''
-              - name: datatransfer_transfer
-                href: resources/datatransfer_transfer.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Datasphere
-        items:
-          - name: Data Sources
-            items:
-              - name: datasphere_community
-                href: data-sources/datasphere_community.md
-                title: ''
-              - name: datasphere_project
-                href: data-sources/datasphere_project.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: datasphere_community
-                href: resources/datasphere_community.md
-                title: ''
-              - name: datasphere_community_iam_binding
-                href: resources/datasphere_community_iam_binding.md
-                title: ''
-              - name: datasphere_project
-                href: resources/datasphere_project.md
-                title: ''
-              - name: datasphere_project_iam_binding
-                href: resources/datasphere_project_iam_binding.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Identity and Access Management (IAM)
-        items:
-          - name: Data Sources
-            items:
-              - name: iam_policy
-                href: data-sources/iam_policy.md
-                title: ''
-              - name: iam_role
-                href: data-sources/iam_role.md
-                title: ''
-              - name: iam_service_account
-                href: data-sources/iam_service_account.md
-                title: ''
-              - name: iam_service_agent
-                href: data-sources/iam_service_agent.md
-                title: ''
-              - name: iam_user
-                href: data-sources/iam_user.md
-                title: ''
-              - name: iam_workload_identity_federated_credential
-                href: data-sources/iam_workload_identity_federated_credential.md
-                title: ''
-              - name: iam_workload_identity_oidc_federation
-                href: data-sources/iam_workload_identity_oidc_federation.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: iam_service_account
-                href: resources/iam_service_account.md
-                title: ''
-              - name: iam_service_account_api_key
-                href: resources/iam_service_account_api_key.md
-                title: ''
-              - name: iam_service_account_iam_binding
-                href: resources/iam_service_account_iam_binding.md
-                title: ''
-              - name: iam_service_account_iam_member
-                href: resources/iam_service_account_iam_member.md
-                title: ''
-              - name: iam_service_account_iam_policy
-                href: resources/iam_service_account_iam_policy.md
-                title: ''
-              - name: iam_service_account_key
-                href: resources/iam_service_account_key.md
-                title: ''
-              - name: iam_service_account_static_access_key
-                href: resources/iam_service_account_static_access_key.md
-                title: ''
-              - name: iam_workload_identity_federated_credential
-                href: resources/iam_workload_identity_federated_credential.md
-                title: ''
-              - name: iam_workload_identity_oidc_federation
-                href: resources/iam_workload_identity_oidc_federation.md
-                title: ''
-              - name: iam_workload_identity_oidc_federation_iam_binding
-                href: resources/iam_workload_identity_oidc_federation_iam_binding.md
-                title: ''
-            title: ''
-        title: ''
-      - name: IoT Core
-        items:
-          - name: Data Sources
-            items:
-              - name: iot_core_broker
-                href: data-sources/iot_core_broker.md
-                title: ''
-              - name: iot_core_device
-                href: data-sources/iot_core_device.md
-                title: ''
-              - name: iot_core_registry
-                href: data-sources/iot_core_registry.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: iot_core_broker
-                href: resources/iot_core_broker.md
-                title: ''
-              - name: iot_core_device
-                href: resources/iot_core_device.md
-                title: ''
-              - name: iot_core_registry
-                href: resources/iot_core_registry.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Key Management Service (KMS)
-        items:
-          - name: Data Sources
-            items:
-              - name: kms_asymmetric_encryption_key
-                href: data-sources/kms_asymmetric_encryption_key.md
-                title: ''
-              - name: kms_asymmetric_signature_key
-                href: data-sources/kms_asymmetric_signature_key.md
-                title: ''
-              - name: kms_symmetric_key
-                href: data-sources/kms_symmetric_key.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: kms_asymmetric_encryption_key
-                href: resources/kms_asymmetric_encryption_key.md
-                title: ''
-              - name: kms_asymmetric_encryption_key_iam_binding
-                href: resources/kms_asymmetric_encryption_key_iam_binding.md
-                title: ''
-              - name: kms_asymmetric_encryption_key_iam_member
-                href: resources/kms_asymmetric_encryption_key_iam_member.md
-                title: ''
-              - name: kms_asymmetric_signature_key
-                href: resources/kms_asymmetric_signature_key.md
-                title: ''
-              - name: kms_asymmetric_signature_key_iam_binding
-                href: resources/kms_asymmetric_signature_key_iam_binding.md
-                title: ''
-              - name: kms_asymmetric_signature_key_iam_member
-                href: resources/kms_asymmetric_signature_key_iam_member.md
-                title: ''
-              - name: kms_secret_ciphertext
-                href: resources/kms_secret_ciphertext.md
-                title: ''
-              - name: kms_symmetric_key
-                href: resources/kms_symmetric_key.md
-                title: ''
-              - name: kms_symmetric_key_iam_binding
-                href: resources/kms_symmetric_key_iam_binding.md
-                title: ''
-              - name: kms_symmetric_key_iam_member
-                href: resources/kms_symmetric_key_iam_member.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Load Testing
-        items:
-          - name: Data Sources
-            items:
-              - name: loadtesting_agent
-                href: data-sources/loadtesting_agent.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: loadtesting_agent
-                href: resources/loadtesting_agent.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Lockbox (Secret Management)
-        items:
-          - name: Data Sources
-            items:
-              - name: lockbox_secret
-                href: data-sources/lockbox_secret.md
-                title: ''
-              - name: lockbox_secret_version
-                href: data-sources/lockbox_secret_version.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: lockbox_secret
-                href: resources/lockbox_secret.md
-                title: ''
-              - name: lockbox_secret_iam_binding
-                href: resources/lockbox_secret_iam_binding.md
-                title: ''
-              - name: lockbox_secret_iam_member
-                href: resources/lockbox_secret_iam_member.md
-                title: ''
-              - name: lockbox_secret_version
-                href: resources/lockbox_secret_version.md
-                title: ''
-              - name: lockbox_secret_version_hashed
-                href: resources/lockbox_secret_version_hashed.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Kubernetes (MK8S) Marketplace
-        items:
-          - name: Resources
-            items:
-              - name: kubernetes_marketplace_helm_release
-                href: resources/kubernetes_marketplace_helm_release.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for Apache Airflow
-        items:
-          - name: Data Sources
-            items:
-              - name: airflow_cluster
-                href: data-sources/airflow_cluster.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: airflow_cluster
-                href: resources/airflow_cluster.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for Apache Kafka
-        items:
-          - name: Data Sources
-            items:
-              - name: mdb_kafka_cluster
-                href: data-sources/mdb_kafka_cluster.md
-                title: ''
-              - name: mdb_kafka_connector
-                href: data-sources/mdb_kafka_connector.md
-                title: ''
-              - name: mdb_kafka_topic
-                href: data-sources/mdb_kafka_topic.md
-                title: ''
-              - name: mdb_kafka_user
-                href: data-sources/mdb_kafka_user.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: mdb_kafka_cluster
-                href: resources/mdb_kafka_cluster.md
-                title: ''
-              - name: mdb_kafka_connector
-                href: resources/mdb_kafka_connector.md
-                title: ''
-              - name: mdb_kafka_topic
-                href: resources/mdb_kafka_topic.md
-                title: ''
-              - name: mdb_kafka_user
-                href: resources/mdb_kafka_user.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for Apache Spark
-        items:
-          - name: Data Sources
-            items:
-              - name: spark_cluster
-                href: data-sources/spark_cluster.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: spark_cluster
-                href: resources/spark_cluster.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for ClickHouse
-        items:
-          - name: Data Sources
-            items:
-              - name: mdb_clickhouse_cluster
-                href: data-sources/mdb_clickhouse_cluster.md
-                title: ''
-              - name: mdb_clickhouse_database
-                href: data-sources/mdb_clickhouse_database.md
-                title: ''
-              - name: mdb_clickhouse_user
-                href: data-sources/mdb_clickhouse_user.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: mdb_clickhouse_cluster
-                href: resources/mdb_clickhouse_cluster.md
-                title: ''
-              - name: mdb_clickhouse_database
-                href: resources/mdb_clickhouse_database.md
-                title: ''
-              - name: mdb_clickhouse_user
-                href: resources/mdb_clickhouse_user.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for Elasticsearch
-        items:
-          - name: Data Sources
-            items:
-              - name: mdb_elasticsearch_cluster
-                href: data-sources/mdb_elasticsearch_cluster.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: mdb_elasticsearch_cluster
-                href: resources/mdb_elasticsearch_cluster.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for GitLab
-        items:
-          - name: Data Sources
-            items:
-              - name: gitlab_instance
-                href: data-sources/gitlab_instance.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: gitlab_instance
-                href: resources/gitlab_instance.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for Greenplum
-        items:
-          - name: Data Sources
-            items:
-              - name: mdb_greenplum_cluster
-                href: data-sources/mdb_greenplum_cluster.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: mdb_greenplum_cluster
-                href: resources/mdb_greenplum_cluster.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for Hive Metastore
-        items:
-          - name: Data Sources
-            items:
-              - name: metastore_cluster
-                href: data-sources/metastore_cluster.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: metastore_cluster
-                href: resources/metastore_cluster.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for Kubernetes (MK8S)
-        items:
-          - name: Data Sources
-            items:
-              - name: kubernetes_cluster
-                href: data-sources/kubernetes_cluster.md
-                title: ''
-              - name: kubernetes_node_group
-                href: data-sources/kubernetes_node_group.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: kubernetes_cluster
-                href: resources/kubernetes_cluster.md
-                title: ''
-              - name: kubernetes_node_group
-                href: resources/kubernetes_node_group.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for MongoDB
-        items:
-          - name: Data Sources
-            items:
-              - name: mdb_mongodb_cluster
-                href: data-sources/mdb_mongodb_cluster.md
-                title: ''
-              - name: mdb_mongodb_database
-                href: data-sources/mdb_mongodb_database.md
-                title: ''
-              - name: mdb_mongodb_user
-                href: data-sources/mdb_mongodb_user.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: mdb_mongodb_cluster
-                href: resources/mdb_mongodb_cluster.md
-                title: ''
-              - name: mdb_mongodb_database
-                href: resources/mdb_mongodb_database.md
-                title: ''
-              - name: mdb_mongodb_user
-                href: resources/mdb_mongodb_user.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for MySQL
-        items:
-          - name: Data Sources
-            items:
-              - name: mdb_mysql_cluster
-                href: data-sources/mdb_mysql_cluster.md
-                title: ''
-              - name: mdb_mysql_database
-                href: data-sources/mdb_mysql_database.md
-                title: ''
-              - name: mdb_mysql_user
-                href: data-sources/mdb_mysql_user.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: mdb_mysql_cluster
-                href: resources/mdb_mysql_cluster.md
-                title: ''
-              - name: mdb_mysql_cluster_v2
-                href: resources/mdb_mysql_cluster_v2.md
-                title: ''
-              - name: mdb_mysql_database
-                href: resources/mdb_mysql_database.md
-                title: ''
-              - name: mdb_mysql_user
-                href: resources/mdb_mysql_user.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for OpenSearch
-        items:
-          - name: Data Sources
-            items:
-              - name: mdb_opensearch_cluster
-                href: data-sources/mdb_opensearch_cluster.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: mdb_opensearch_cluster
-                href: resources/mdb_opensearch_cluster.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for PostgreSQL
-        items:
-          - name: Data Sources
-            items:
-              - name: mdb_postgresql_cluster
-                href: data-sources/mdb_postgresql_cluster.md
-                title: ''
-              - name: mdb_postgresql_database
-                href: data-sources/mdb_postgresql_database.md
-                title: ''
-              - name: mdb_postgresql_user
-                href: data-sources/mdb_postgresql_user.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: mdb_postgresql_cluster
-                href: resources/mdb_postgresql_cluster.md
-                title: ''
-              - name: mdb_postgresql_cluster_v2
-                href: resources/mdb_postgresql_cluster_v2.md
-                title: ''
-              - name: mdb_postgresql_database
-                href: resources/mdb_postgresql_database.md
-                title: ''
-              - name: mdb_postgresql_user
-                href: resources/mdb_postgresql_user.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for Redis
-        items:
-          - name: Data Sources
-            items:
-              - name: mdb_redis_cluster
-                href: data-sources/mdb_redis_cluster.md
-                title: ''
-              - name: mdb_redis_cluster_v2
-                href: data-sources/mdb_redis_cluster_v2.md
-                title: ''
-              - name: mdb_redis_user
-                href: data-sources/mdb_redis_user.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: mdb_redis_cluster
-                href: resources/mdb_redis_cluster.md
-                title: ''
-              - name: mdb_redis_cluster_v2
-                href: resources/mdb_redis_cluster_v2.md
-                title: ''
-              - name: mdb_redis_user
-                href: resources/mdb_redis_user.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for SQLServer
-        items:
-          - name: Data Sources
-            items:
-              - name: mdb_sqlserver_cluster
-                href: data-sources/mdb_sqlserver_cluster.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: mdb_sqlserver_cluster
-                href: resources/mdb_sqlserver_cluster.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for Trino
-        items:
-          - name: Data Sources
-            items:
-              - name: trino_catalog
-                href: data-sources/trino_catalog.md
-                title: ''
-              - name: trino_cluster
-                href: data-sources/trino_cluster.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: trino_catalog
-                href: resources/trino_catalog.md
-                title: ''
-              - name: trino_cluster
-                href: resources/trino_cluster.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Managed Service for YDB
-        items:
-          - name: Data Sources
-            items:
-              - name: ydb_database_dedicated
-                href: data-sources/ydb_database_dedicated.md
-                title: ''
-              - name: ydb_database_serverless
-                href: data-sources/ydb_database_serverless.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: ydb_database_dedicated
-                href: resources/ydb_database_dedicated.md
-                title: ''
-              - name: ydb_database_iam_binding
-                href: resources/ydb_database_iam_binding.md
-                title: ''
-              - name: ydb_database_serverless
-                href: resources/ydb_database_serverless.md
-                title: ''
-              - name: ydb_table
-                href: resources/ydb_table.md
-                title: ''
-              - name: ydb_table_changefeed
-                href: resources/ydb_table_changefeed.md
-                title: ''
-              - name: ydb_table_index
-                href: resources/ydb_table_index.md
-                title: ''
-              - name: ydb_topic
-                href: resources/ydb_topic.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Message Queue
-        items:
-          - name: Data Sources
-            items:
-              - name: message_queue
-                href: data-sources/message_queue.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: message_queue
-                href: resources/message_queue.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Monitoring
-        items:
-          - name: Data Sources
-            items:
-              - name: monitoring_dashboard
-                href: data-sources/monitoring_dashboard.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: monitoring_dashboard
-                href: resources/monitoring_dashboard.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Network Load Balancer (NLB)
-        items:
-          - name: Data Sources
-            items:
-              - name: lb_network_load_balancer
-                href: data-sources/lb_network_load_balancer.md
-                title: ''
-              - name: lb_target_group
-                href: data-sources/lb_target_group.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: lb_network_load_balancer
-                href: resources/lb_network_load_balancer.md
-                title: ''
-              - name: lb_target_group
-                href: resources/lb_target_group.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Object Storage (S3)
-        items:
-          - name: Resources
-            items:
-              - name: storage_bucket
-                href: resources/storage_bucket.md
-                title: ''
-              - name: storage_bucket_grant
-                href: resources/storage_bucket_grant.md
-                title: ''
-              - name: storage_bucket_iam_binding
-                href: resources/storage_bucket_iam_binding.md
-                title: ''
-              - name: storage_bucket_policy
-                href: resources/storage_bucket_policy.md
-                title: ''
-              - name: storage_object
-                href: resources/storage_object.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Resource Manager
-        items:
-          - name: Data Sources
-            items:
-              - name: resourcemanager_cloud
-                href: data-sources/resourcemanager_cloud.md
-                title: ''
-              - name: resourcemanager_folder
-                href: data-sources/resourcemanager_folder.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: resourcemanager_cloud
-                href: resources/resourcemanager_cloud.md
-                title: ''
-              - name: resourcemanager_cloud_iam_binding
-                href: resources/resourcemanager_cloud_iam_binding.md
-                title: ''
-              - name: resourcemanager_cloud_iam_member
-                href: resources/resourcemanager_cloud_iam_member.md
-                title: ''
-              - name: resourcemanager_folder
-                href: resources/resourcemanager_folder.md
-                title: ''
-              - name: resourcemanager_folder_iam_binding
-                href: resources/resourcemanager_folder_iam_binding.md
-                title: ''
-              - name: resourcemanager_folder_iam_member
-                href: resources/resourcemanager_folder_iam_member.md
-                title: ''
-              - name: resourcemanager_folder_iam_policy
-                href: resources/resourcemanager_folder_iam_policy.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Serverless Cloud Functions
-        items:
-          - name: Data Sources
-            items:
-              - name: function
-                href: data-sources/function.md
-                title: ''
-              - name: function_scaling_policy
-                href: data-sources/function_scaling_policy.md
-                title: ''
-              - name: function_trigger
-                href: data-sources/function_trigger.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: function
-                href: resources/function.md
-                title: ''
-              - name: function_iam_binding
-                href: resources/function_iam_binding.md
-                title: ''
-              - name: function_scaling_policy
-                href: resources/function_scaling_policy.md
-                title: ''
-              - name: function_trigger
-                href: resources/function_trigger.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Serverless Containers
-        items:
-          - name: Data Sources
-            items:
-              - name: serverless_container
-                href: data-sources/serverless_container.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: serverless_container
-                href: resources/serverless_container.md
-                title: ''
-              - name: serverless_container_iam_binding
-                href: resources/serverless_container_iam_binding.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Serverless Integrations
-        items:
-          - name: Data Sources
-            items:
-              - name: serverless_eventrouter_bus
-                href: data-sources/serverless_eventrouter_bus.md
-                title: ''
-              - name: serverless_eventrouter_connector
-                href: data-sources/serverless_eventrouter_connector.md
-                title: ''
-              - name: serverless_eventrouter_rule
-                href: data-sources/serverless_eventrouter_rule.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: serverless_eventrouter_bus
-                href: resources/serverless_eventrouter_bus.md
-                title: ''
-              - name: serverless_eventrouter_connector
-                href: resources/serverless_eventrouter_connector.md
-                title: ''
-              - name: serverless_eventrouter_rule
-                href: resources/serverless_eventrouter_rule.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Smart Captcha
-        items:
-          - name: Data Sources
-            items:
-              - name: smartcaptcha_captcha
-                href: data-sources/smartcaptcha_captcha.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: smartcaptcha_captcha
-                href: resources/smartcaptcha_captcha.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Smart Web Security (SWS)
-        items:
-          - name: Data Sources
-            items:
-              - name: sws_advanced_rate_limiter_profile
-                href: data-sources/sws_advanced_rate_limiter_profile.md
-                title: ''
-              - name: sws_security_profile
-                href: data-sources/sws_security_profile.md
-                title: ''
-              - name: sws_waf_profile
-                href: data-sources/sws_waf_profile.md
-                title: ''
-              - name: sws_waf_rule_set_descriptor
-                href: data-sources/sws_waf_rule_set_descriptor.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: sws_advanced_rate_limiter_profile
-                href: resources/sws_advanced_rate_limiter_profile.md
-                title: ''
-              - name: sws_security_profile
-                href: resources/sws_security_profile.md
-                title: ''
-              - name: sws_waf_profile
-                href: resources/sws_waf_profile.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Virtual Private Cloud (VPC)
-        items:
-          - name: Data Sources
-            items:
-              - name: vpc_address
-                href: data-sources/vpc_address.md
-                title: ''
-              - name: vpc_gateway
-                href: data-sources/vpc_gateway.md
-                title: ''
-              - name: vpc_network
-                href: data-sources/vpc_network.md
-                title: ''
-              - name: vpc_private_endpoint
-                href: data-sources/vpc_private_endpoint.md
-                title: ''
-              - name: vpc_route_table
-                href: data-sources/vpc_route_table.md
-                title: ''
-              - name: vpc_security_group
-                href: data-sources/vpc_security_group.md
-                title: ''
-              - name: vpc_security_group_rule
-                href: data-sources/vpc_security_group_rule.md
-                title: ''
-              - name: vpc_subnet
-                href: data-sources/vpc_subnet.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: vpc_address
-                href: resources/vpc_address.md
-                title: ''
-              - name: vpc_default_security_group
-                href: resources/vpc_default_security_group.md
-                title: ''
-              - name: vpc_gateway
-                href: resources/vpc_gateway.md
-                title: ''
-              - name: vpc_network
-                href: resources/vpc_network.md
-                title: ''
-              - name: vpc_private_endpoint
-                href: resources/vpc_private_endpoint.md
-                title: ''
-              - name: vpc_route_table
-                href: resources/vpc_route_table.md
-                title: ''
-              - name: vpc_security_group
-                href: resources/vpc_security_group.md
-                title: ''
-              - name: vpc_security_group_rule
-                href: resources/vpc_security_group_rule.md
-                title: ''
-              - name: vpc_subnet
-                href: resources/vpc_subnet.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Yandex API Gateway
-        items:
-          - name: Data Sources
-            items:
-              - name: api_gateway
-                href: data-sources/api_gateway.md
-                title: ''
-            title: ''
-          - name: Resources
-            items:
-              - name: api_gateway
-                href: resources/api_gateway.md
-                title: ''
-            title: ''
-        title: ''
-      - name: Yandex Query
-        items:
-          - name: Resources
-            items:
-              - name: yq_monitoring_connection
-                href: resources/yq_monitoring_connection.md
-                title: ''
-              - name: yq_object_storage_binding
-                href: resources/yq_object_storage_binding.md
-                title: ''
-              - name: yq_object_storage_connection
-                href: resources/yq_object_storage_connection.md
-                title: ''
-              - name: yq_ydb_connection
-                href: resources/yq_ydb_connection.md
-                title: ''
-              - name: yq_yds_binding
-                href: resources/yq_yds_binding.md
-                title: ''
-              - name: yq_yds_connection
-                href: resources/yq_yds_connection.md
-                title: ''
-            title: ''
-        title: ''
   - name: Библиотека решений
     href: solution-library.md
+  - name: Справочник {{ TF }}
+    expanded: true
+    items:
+      - name: Обзор
+        href: tf-ref/yandex-cloud/index.md
+      - name: История изменений
+        href: release-notes.md
+      - name: Ресурсы
+        expanded: true
+        items:
+          - name: Application Load Balancer (ALB)
+            items:
+              - name: Data Sources
+                items:
+                  - name: alb_backend_group
+                    href: data-sources/alb_backend_group.md
+                    title: ''
+                  - name: alb_http_router
+                    href: data-sources/alb_http_router.md
+                    title: ''
+                  - name: alb_load_balancer
+                    href: data-sources/alb_load_balancer.md
+                    title: ''
+                  - name: alb_target_group
+                    href: data-sources/alb_target_group.md
+                    title: ''
+                  - name: alb_virtual_host
+                    href: data-sources/alb_virtual_host.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: alb_backend_group
+                    href: resources/alb_backend_group.md
+                    title: ''
+                  - name: alb_http_router
+                    href: resources/alb_http_router.md
+                    title: ''
+                  - name: alb_load_balancer
+                    href: resources/alb_load_balancer.md
+                    title: ''
+                  - name: alb_target_group
+                    href: resources/alb_target_group.md
+                    title: ''
+                  - name: alb_virtual_host
+                    href: resources/alb_virtual_host.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Audit Trails
+            items:
+              - name: Data Sources
+                items:
+                  - name: audit_trails_trail
+                    href: data-sources/audit_trails_trail.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: audit_trails_trail
+                    href: resources/audit_trails_trail.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Certificate Manager
+            items:
+              - name: Data Sources
+                items:
+                  - name: cm_certificate
+                    href: data-sources/cm_certificate.md
+                    title: ''
+                  - name: cm_certificate_content
+                    href: data-sources/cm_certificate_content.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: cm_certificate
+                    href: resources/cm_certificate.md
+                    title: ''
+                  - name: cm_certificate_iam_binding
+                    href: resources/cm_certificate_iam_binding.md
+                    title: ''
+                  - name: cm_certificate_iam_member
+                    href: resources/cm_certificate_iam_member.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Client Config
+            items:
+              - name: Data Sources
+                items:
+                  - name: client_config
+                    href: data-sources/client_config.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Cloud Backup
+            items:
+              - name: Data Sources
+                items:
+                  - name: backup_policy
+                    href: data-sources/backup_policy.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: backup_policy
+                    href: resources/backup_policy.md
+                    title: ''
+                  - name: backup_policy_bindings
+                    href: resources/backup_policy_bindings.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Cloud Billing
+            items:
+              - name: Data Sources
+                items:
+                  - name: billing_cloud_binding
+                    href: data-sources/billing_cloud_binding.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: billing_cloud_binding
+                    href: resources/billing_cloud_binding.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Cloud Content Delivery Network (CDN)
+            items:
+              - name: Data Sources
+                items:
+                  - name: cdn_origin_group
+                    href: data-sources/cdn_origin_group.md
+                    title: ''
+                  - name: cdn_resource
+                    href: data-sources/cdn_resource.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: cdn_origin_group
+                    href: resources/cdn_origin_group.md
+                    title: ''
+                  - name: cdn_resource
+                    href: resources/cdn_resource.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Cloud Domain Name System (DNS)
+            items:
+              - name: Data Sources
+                items:
+                  - name: dns_zone
+                    href: data-sources/dns_zone.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: dns_recordset
+                    href: resources/dns_recordset.md
+                    title: ''
+                  - name: dns_zone
+                    href: resources/dns_zone.md
+                    title: ''
+                  - name: dns_zone_iam_binding
+                    href: resources/dns_zone_iam_binding.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Cloud Logging
+            items:
+              - name: Data Sources
+                items:
+                  - name: logging_group
+                    href: data-sources/logging_group.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: logging_group
+                    href: resources/logging_group.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Cloud Organization
+            items:
+              - name: Data Sources
+                items:
+                  - name: organizationmanager_group
+                    href: data-sources/organizationmanager_group.md
+                    title: ''
+                  - name: organizationmanager_os_login_settings
+                    href: data-sources/organizationmanager_os_login_settings.md
+                    title: ''
+                  - name: organizationmanager_saml_federation
+                    href: data-sources/organizationmanager_saml_federation.md
+                    title: ''
+                  - name: organizationmanager_saml_federation_user_account
+                    href: >-
+                      data-sources/organizationmanager_saml_federation_user_account.md
+                    title: ''
+                  - name: organizationmanager_user_ssh_key
+                    href: data-sources/organizationmanager_user_ssh_key.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: organizationmanager_group
+                    href: resources/organizationmanager_group.md
+                    title: ''
+                  - name: organizationmanager_group_iam_member
+                    href: resources/organizationmanager_group_iam_member.md
+                    title: ''
+                  - name: organizationmanager_group_mapping
+                    href: resources/organizationmanager_group_mapping.md
+                    title: ''
+                  - name: organizationmanager_group_mapping_item
+                    href: resources/organizationmanager_group_mapping_item.md
+                    title: ''
+                  - name: organizationmanager_group_membership
+                    href: resources/organizationmanager_group_membership.md
+                    title: ''
+                  - name: organizationmanager_organization_iam_binding
+                    href: resources/organizationmanager_organization_iam_binding.md
+                    title: ''
+                  - name: organizationmanager_organization_iam_member
+                    href: resources/organizationmanager_organization_iam_member.md
+                    title: ''
+                  - name: organizationmanager_os_login_settings
+                    href: resources/organizationmanager_os_login_settings.md
+                    title: ''
+                  - name: organizationmanager_saml_federation
+                    href: resources/organizationmanager_saml_federation.md
+                    title: ''
+                  - name: organizationmanager_saml_federation_user_account
+                    href: >-
+                      resources/organizationmanager_saml_federation_user_account.md
+                    title: ''
+                  - name: organizationmanager_user_ssh_key
+                    href: resources/organizationmanager_user_ssh_key.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Compute Cloud
+            items:
+              - name: Data Sources
+                items:
+                  - name: compute_disk
+                    href: data-sources/compute_disk.md
+                    title: ''
+                  - name: compute_disk_placement_group
+                    href: data-sources/compute_disk_placement_group.md
+                    title: ''
+                  - name: compute_filesystem
+                    href: data-sources/compute_filesystem.md
+                    title: ''
+                  - name: compute_gpu_cluster
+                    href: data-sources/compute_gpu_cluster.md
+                    title: ''
+                  - name: compute_image
+                    href: data-sources/compute_image.md
+                    title: ''
+                  - name: compute_instance
+                    href: data-sources/compute_instance.md
+                    title: ''
+                  - name: compute_instance_group
+                    href: data-sources/compute_instance_group.md
+                    title: ''
+                  - name: compute_placement_group
+                    href: data-sources/compute_placement_group.md
+                    title: ''
+                  - name: compute_snapshot
+                    href: data-sources/compute_snapshot.md
+                    title: ''
+                  - name: compute_snapshot_schedule
+                    href: data-sources/compute_snapshot_schedule.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: compute_disk
+                    href: resources/compute_disk.md
+                    title: ''
+                  - name: compute_disk_iam_binding
+                    href: resources/compute_disk_iam_binding.md
+                    title: ''
+                  - name: compute_disk_placement_group
+                    href: resources/compute_disk_placement_group.md
+                    title: ''
+                  - name: compute_disk_placement_group_iam_binding
+                    href: resources/compute_disk_placement_group_iam_binding.md
+                    title: ''
+                  - name: compute_filesystem
+                    href: resources/compute_filesystem.md
+                    title: ''
+                  - name: compute_filesystem_iam_binding
+                    href: resources/compute_filesystem_iam_binding.md
+                    title: ''
+                  - name: compute_gpu_cluster
+                    href: resources/compute_gpu_cluster.md
+                    title: ''
+                  - name: compute_gpu_cluster_iam_binding
+                    href: resources/compute_gpu_cluster_iam_binding.md
+                    title: ''
+                  - name: compute_image
+                    href: resources/compute_image.md
+                    title: ''
+                  - name: compute_image_iam_binding
+                    href: resources/compute_image_iam_binding.md
+                    title: ''
+                  - name: compute_instance
+                    href: resources/compute_instance.md
+                    title: ''
+                  - name: compute_instance_group
+                    href: resources/compute_instance_group.md
+                    title: ''
+                  - name: compute_instance_iam_binding
+                    href: resources/compute_instance_iam_binding.md
+                    title: ''
+                  - name: compute_placement_group
+                    href: resources/compute_placement_group.md
+                    title: ''
+                  - name: compute_placement_group_iam_binding
+                    href: resources/compute_placement_group_iam_binding.md
+                    title: ''
+                  - name: compute_snapshot
+                    href: resources/compute_snapshot.md
+                    title: ''
+                  - name: compute_snapshot_iam_binding
+                    href: resources/compute_snapshot_iam_binding.md
+                    title: ''
+                  - name: compute_snapshot_schedule
+                    href: resources/compute_snapshot_schedule.md
+                    title: ''
+                  - name: compute_snapshot_schedule_iam_binding
+                    href: resources/compute_snapshot_schedule_iam_binding.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Container Registry
+            items:
+              - name: Data Sources
+                items:
+                  - name: container_registry
+                    href: data-sources/container_registry.md
+                    title: ''
+                  - name: container_registry_ip_permission
+                    href: data-sources/container_registry_ip_permission.md
+                    title: ''
+                  - name: container_repository
+                    href: data-sources/container_repository.md
+                    title: ''
+                  - name: container_repository_lifecycle_policy
+                    href: data-sources/container_repository_lifecycle_policy.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: container_registry
+                    href: resources/container_registry.md
+                    title: ''
+                  - name: container_registry_iam_binding
+                    href: resources/container_registry_iam_binding.md
+                    title: ''
+                  - name: container_registry_ip_permission
+                    href: resources/container_registry_ip_permission.md
+                    title: ''
+                  - name: container_repository
+                    href: resources/container_repository.md
+                    title: ''
+                  - name: container_repository_iam_binding
+                    href: resources/container_repository_iam_binding.md
+                    title: ''
+                  - name: container_repository_lifecycle_policy
+                    href: resources/container_repository_lifecycle_policy.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Data Processing
+            items:
+              - name: Data Sources
+                items:
+                  - name: dataproc_cluster
+                    href: data-sources/dataproc_cluster.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: dataproc_cluster
+                    href: resources/dataproc_cluster.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Data Transfer
+            items:
+              - name: Resources
+                items:
+                  - name: datatransfer_endpoint
+                    href: resources/datatransfer_endpoint.md
+                    title: ''
+                  - name: datatransfer_transfer
+                    href: resources/datatransfer_transfer.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Datasphere
+            items:
+              - name: Data Sources
+                items:
+                  - name: datasphere_community
+                    href: data-sources/datasphere_community.md
+                    title: ''
+                  - name: datasphere_project
+                    href: data-sources/datasphere_project.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: datasphere_community
+                    href: resources/datasphere_community.md
+                    title: ''
+                  - name: datasphere_community_iam_binding
+                    href: resources/datasphere_community_iam_binding.md
+                    title: ''
+                  - name: datasphere_project
+                    href: resources/datasphere_project.md
+                    title: ''
+                  - name: datasphere_project_iam_binding
+                    href: resources/datasphere_project_iam_binding.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Identity and Access Management (IAM)
+            items:
+              - name: Data Sources
+                items:
+                  - name: iam_policy
+                    href: data-sources/iam_policy.md
+                    title: ''
+                  - name: iam_role
+                    href: data-sources/iam_role.md
+                    title: ''
+                  - name: iam_service_account
+                    href: data-sources/iam_service_account.md
+                    title: ''
+                  - name: iam_service_agent
+                    href: data-sources/iam_service_agent.md
+                    title: ''
+                  - name: iam_user
+                    href: data-sources/iam_user.md
+                    title: ''
+                  - name: iam_workload_identity_federated_credential
+                    href: data-sources/iam_workload_identity_federated_credential.md
+                    title: ''
+                  - name: iam_workload_identity_oidc_federation
+                    href: data-sources/iam_workload_identity_oidc_federation.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: iam_service_account
+                    href: resources/iam_service_account.md
+                    title: ''
+                  - name: iam_service_account_api_key
+                    href: resources/iam_service_account_api_key.md
+                    title: ''
+                  - name: iam_service_account_iam_binding
+                    href: resources/iam_service_account_iam_binding.md
+                    title: ''
+                  - name: iam_service_account_iam_member
+                    href: resources/iam_service_account_iam_member.md
+                    title: ''
+                  - name: iam_service_account_iam_policy
+                    href: resources/iam_service_account_iam_policy.md
+                    title: ''
+                  - name: iam_service_account_key
+                    href: resources/iam_service_account_key.md
+                    title: ''
+                  - name: iam_service_account_static_access_key
+                    href: resources/iam_service_account_static_access_key.md
+                    title: ''
+                  - name: iam_workload_identity_federated_credential
+                    href: resources/iam_workload_identity_federated_credential.md
+                    title: ''
+                  - name: iam_workload_identity_oidc_federation
+                    href: resources/iam_workload_identity_oidc_federation.md
+                    title: ''
+                  - name: iam_workload_identity_oidc_federation_iam_binding
+                    href: >-
+                      resources/iam_workload_identity_oidc_federation_iam_binding.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: IoT Core
+            items:
+              - name: Data Sources
+                items:
+                  - name: iot_core_broker
+                    href: data-sources/iot_core_broker.md
+                    title: ''
+                  - name: iot_core_device
+                    href: data-sources/iot_core_device.md
+                    title: ''
+                  - name: iot_core_registry
+                    href: data-sources/iot_core_registry.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: iot_core_broker
+                    href: resources/iot_core_broker.md
+                    title: ''
+                  - name: iot_core_device
+                    href: resources/iot_core_device.md
+                    title: ''
+                  - name: iot_core_registry
+                    href: resources/iot_core_registry.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Key Management Service (KMS)
+            items:
+              - name: Data Sources
+                items:
+                  - name: kms_asymmetric_encryption_key
+                    href: data-sources/kms_asymmetric_encryption_key.md
+                    title: ''
+                  - name: kms_asymmetric_signature_key
+                    href: data-sources/kms_asymmetric_signature_key.md
+                    title: ''
+                  - name: kms_symmetric_key
+                    href: data-sources/kms_symmetric_key.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: kms_asymmetric_encryption_key
+                    href: resources/kms_asymmetric_encryption_key.md
+                    title: ''
+                  - name: kms_asymmetric_encryption_key_iam_binding
+                    href: resources/kms_asymmetric_encryption_key_iam_binding.md
+                    title: ''
+                  - name: kms_asymmetric_encryption_key_iam_member
+                    href: resources/kms_asymmetric_encryption_key_iam_member.md
+                    title: ''
+                  - name: kms_asymmetric_signature_key
+                    href: resources/kms_asymmetric_signature_key.md
+                    title: ''
+                  - name: kms_asymmetric_signature_key_iam_binding
+                    href: resources/kms_asymmetric_signature_key_iam_binding.md
+                    title: ''
+                  - name: kms_asymmetric_signature_key_iam_member
+                    href: resources/kms_asymmetric_signature_key_iam_member.md
+                    title: ''
+                  - name: kms_secret_ciphertext
+                    href: resources/kms_secret_ciphertext.md
+                    title: ''
+                  - name: kms_symmetric_key
+                    href: resources/kms_symmetric_key.md
+                    title: ''
+                  - name: kms_symmetric_key_iam_binding
+                    href: resources/kms_symmetric_key_iam_binding.md
+                    title: ''
+                  - name: kms_symmetric_key_iam_member
+                    href: resources/kms_symmetric_key_iam_member.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Load Testing
+            items:
+              - name: Data Sources
+                items:
+                  - name: loadtesting_agent
+                    href: data-sources/loadtesting_agent.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: loadtesting_agent
+                    href: resources/loadtesting_agent.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Lockbox (Secret Management)
+            items:
+              - name: Data Sources
+                items:
+                  - name: lockbox_secret
+                    href: data-sources/lockbox_secret.md
+                    title: ''
+                  - name: lockbox_secret_version
+                    href: data-sources/lockbox_secret_version.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: lockbox_secret
+                    href: resources/lockbox_secret.md
+                    title: ''
+                  - name: lockbox_secret_iam_binding
+                    href: resources/lockbox_secret_iam_binding.md
+                    title: ''
+                  - name: lockbox_secret_iam_member
+                    href: resources/lockbox_secret_iam_member.md
+                    title: ''
+                  - name: lockbox_secret_version
+                    href: resources/lockbox_secret_version.md
+                    title: ''
+                  - name: lockbox_secret_version_hashed
+                    href: resources/lockbox_secret_version_hashed.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Kubernetes (MK8S) Marketplace
+            items:
+              - name: Resources
+                items:
+                  - name: kubernetes_marketplace_helm_release
+                    href: resources/kubernetes_marketplace_helm_release.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for Apache Airflow
+            items:
+              - name: Data Sources
+                items:
+                  - name: airflow_cluster
+                    href: data-sources/airflow_cluster.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: airflow_cluster
+                    href: resources/airflow_cluster.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for Apache Kafka
+            items:
+              - name: Data Sources
+                items:
+                  - name: mdb_kafka_cluster
+                    href: data-sources/mdb_kafka_cluster.md
+                    title: ''
+                  - name: mdb_kafka_connector
+                    href: data-sources/mdb_kafka_connector.md
+                    title: ''
+                  - name: mdb_kafka_topic
+                    href: data-sources/mdb_kafka_topic.md
+                    title: ''
+                  - name: mdb_kafka_user
+                    href: data-sources/mdb_kafka_user.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: mdb_kafka_cluster
+                    href: resources/mdb_kafka_cluster.md
+                    title: ''
+                  - name: mdb_kafka_connector
+                    href: resources/mdb_kafka_connector.md
+                    title: ''
+                  - name: mdb_kafka_topic
+                    href: resources/mdb_kafka_topic.md
+                    title: ''
+                  - name: mdb_kafka_user
+                    href: resources/mdb_kafka_user.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for Apache Spark
+            items:
+              - name: Data Sources
+                items:
+                  - name: spark_cluster
+                    href: data-sources/spark_cluster.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: spark_cluster
+                    href: resources/spark_cluster.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for ClickHouse
+            items:
+              - name: Data Sources
+                items:
+                  - name: mdb_clickhouse_cluster
+                    href: data-sources/mdb_clickhouse_cluster.md
+                    title: ''
+                  - name: mdb_clickhouse_database
+                    href: data-sources/mdb_clickhouse_database.md
+                    title: ''
+                  - name: mdb_clickhouse_user
+                    href: data-sources/mdb_clickhouse_user.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: mdb_clickhouse_cluster
+                    href: resources/mdb_clickhouse_cluster.md
+                    title: ''
+                  - name: mdb_clickhouse_database
+                    href: resources/mdb_clickhouse_database.md
+                    title: ''
+                  - name: mdb_clickhouse_user
+                    href: resources/mdb_clickhouse_user.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for Elasticsearch
+            items:
+              - name: Data Sources
+                items:
+                  - name: mdb_elasticsearch_cluster
+                    href: data-sources/mdb_elasticsearch_cluster.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: mdb_elasticsearch_cluster
+                    href: resources/mdb_elasticsearch_cluster.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for GitLab
+            items:
+              - name: Data Sources
+                items:
+                  - name: gitlab_instance
+                    href: data-sources/gitlab_instance.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: gitlab_instance
+                    href: resources/gitlab_instance.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for Greenplum
+            items:
+              - name: Data Sources
+                items:
+                  - name: mdb_greenplum_cluster
+                    href: data-sources/mdb_greenplum_cluster.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: mdb_greenplum_cluster
+                    href: resources/mdb_greenplum_cluster.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for Hive Metastore
+            items:
+              - name: Data Sources
+                items:
+                  - name: metastore_cluster
+                    href: data-sources/metastore_cluster.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: metastore_cluster
+                    href: resources/metastore_cluster.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for Kubernetes (MK8S)
+            items:
+              - name: Data Sources
+                items:
+                  - name: kubernetes_cluster
+                    href: data-sources/kubernetes_cluster.md
+                    title: ''
+                  - name: kubernetes_node_group
+                    href: data-sources/kubernetes_node_group.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: kubernetes_cluster
+                    href: resources/kubernetes_cluster.md
+                    title: ''
+                  - name: kubernetes_node_group
+                    href: resources/kubernetes_node_group.md
+                    title: ''
+                  - name: kubernetes_cluster_iam_binding
+                    href: resources/kubernetes_cluster_iam_binding.md
+                    title: ''
+                  - name: kubernetes_cluster_iam_member
+                    href: resources/kubernetes_cluster_iam_member.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for MongoDB
+            items:
+              - name: Data Sources
+                items:
+                  - name: mdb_mongodb_cluster
+                    href: data-sources/mdb_mongodb_cluster.md
+                    title: ''
+                  - name: mdb_mongodb_database
+                    href: data-sources/mdb_mongodb_database.md
+                    title: ''
+                  - name: mdb_mongodb_user
+                    href: data-sources/mdb_mongodb_user.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: mdb_mongodb_cluster
+                    href: resources/mdb_mongodb_cluster.md
+                    title: ''
+                  - name: mdb_mongodb_database
+                    href: resources/mdb_mongodb_database.md
+                    title: ''
+                  - name: mdb_mongodb_user
+                    href: resources/mdb_mongodb_user.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for MySQL
+            items:
+              - name: Data Sources
+                items:
+                  - name: mdb_mysql_cluster
+                    href: data-sources/mdb_mysql_cluster.md
+                    title: ''
+                  - name: mdb_mysql_database
+                    href: data-sources/mdb_mysql_database.md
+                    title: ''
+                  - name: mdb_mysql_user
+                    href: data-sources/mdb_mysql_user.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: mdb_mysql_cluster
+                    href: resources/mdb_mysql_cluster.md
+                    title: ''
+                  - name: mdb_mysql_cluster_v2
+                    href: resources/mdb_mysql_cluster_v2.md
+                    title: ''
+                  - name: mdb_mysql_database
+                    href: resources/mdb_mysql_database.md
+                    title: ''
+                  - name: mdb_mysql_user
+                    href: resources/mdb_mysql_user.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for OpenSearch
+            items:
+              - name: Data Sources
+                items:
+                  - name: mdb_opensearch_cluster
+                    href: data-sources/mdb_opensearch_cluster.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: mdb_opensearch_cluster
+                    href: resources/mdb_opensearch_cluster.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for PostgreSQL
+            items:
+              - name: Data Sources
+                items:
+                  - name: mdb_postgresql_cluster
+                    href: data-sources/mdb_postgresql_cluster.md
+                    title: ''
+                  - name: mdb_postgresql_database
+                    href: data-sources/mdb_postgresql_database.md
+                    title: ''
+                  - name: mdb_postgresql_user
+                    href: data-sources/mdb_postgresql_user.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: mdb_postgresql_cluster
+                    href: resources/mdb_postgresql_cluster.md
+                    title: ''
+                  - name: mdb_postgresql_cluster_v2
+                    href: resources/mdb_postgresql_cluster_v2.md
+                    title: ''
+                  - name: mdb_postgresql_database
+                    href: resources/mdb_postgresql_database.md
+                    title: ''
+                  - name: mdb_postgresql_user
+                    href: resources/mdb_postgresql_user.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for Redis
+            items:
+              - name: Data Sources
+                items:
+                  - name: mdb_redis_cluster
+                    href: data-sources/mdb_redis_cluster.md
+                    title: ''
+                  - name: mdb_redis_cluster_v2
+                    href: data-sources/mdb_redis_cluster_v2.md
+                    title: ''
+                  - name: mdb_redis_user
+                    href: data-sources/mdb_redis_user.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: mdb_redis_cluster
+                    href: resources/mdb_redis_cluster.md
+                    title: ''
+                  - name: mdb_redis_cluster_v2
+                    href: resources/mdb_redis_cluster_v2.md
+                    title: ''
+                  - name: mdb_redis_user
+                    href: resources/mdb_redis_user.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for SQLServer
+            items:
+              - name: Data Sources
+                items:
+                  - name: mdb_sqlserver_cluster
+                    href: data-sources/mdb_sqlserver_cluster.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: mdb_sqlserver_cluster
+                    href: resources/mdb_sqlserver_cluster.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for Trino
+            items:
+              - name: Data Sources
+                items:
+                  - name: trino_catalog
+                    href: data-sources/trino_catalog.md
+                    title: ''
+                  - name: trino_cluster
+                    href: data-sources/trino_cluster.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: trino_catalog
+                    href: resources/trino_catalog.md
+                    title: ''
+                  - name: trino_cluster
+                    href: resources/trino_cluster.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed Service for YDB
+            items:
+              - name: Data Sources
+                items:
+                  - name: ydb_database_dedicated
+                    href: data-sources/ydb_database_dedicated.md
+                    title: ''
+                  - name: ydb_database_serverless
+                    href: data-sources/ydb_database_serverless.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: ydb_database_dedicated
+                    href: resources/ydb_database_dedicated.md
+                    title: ''
+                  - name: ydb_database_iam_binding
+                    href: resources/ydb_database_iam_binding.md
+                    title: ''
+                  - name: ydb_database_serverless
+                    href: resources/ydb_database_serverless.md
+                    title: ''
+                  - name: ydb_table
+                    href: resources/ydb_table.md
+                    title: ''
+                  - name: ydb_table_changefeed
+                    href: resources/ydb_table_changefeed.md
+                    title: ''
+                  - name: ydb_table_index
+                    href: resources/ydb_table_index.md
+                    title: ''
+                  - name: ydb_topic
+                    href: resources/ydb_topic.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Message Queue
+            items:
+              - name: Data Sources
+                items:
+                  - name: message_queue
+                    href: data-sources/message_queue.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: message_queue
+                    href: resources/message_queue.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Monitoring
+            items:
+              - name: Data Sources
+                items:
+                  - name: monitoring_dashboard
+                    href: data-sources/monitoring_dashboard.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: monitoring_dashboard
+                    href: resources/monitoring_dashboard.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Network Load Balancer (NLB)
+            items:
+              - name: Data Sources
+                items:
+                  - name: lb_network_load_balancer
+                    href: data-sources/lb_network_load_balancer.md
+                    title: ''
+                  - name: lb_target_group
+                    href: data-sources/lb_target_group.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: lb_network_load_balancer
+                    href: resources/lb_network_load_balancer.md
+                    title: ''
+                  - name: lb_target_group
+                    href: resources/lb_target_group.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Object Storage (S3)
+            items:
+              - name: Resources
+                items:
+                  - name: storage_bucket
+                    href: resources/storage_bucket.md
+                    title: ''
+                  - name: storage_bucket_grant
+                    href: resources/storage_bucket_grant.md
+                    title: ''
+                  - name: storage_bucket_iam_binding
+                    href: resources/storage_bucket_iam_binding.md
+                    title: ''
+                  - name: storage_bucket_policy
+                    href: resources/storage_bucket_policy.md
+                    title: ''
+                  - name: storage_object
+                    href: resources/storage_object.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Resource Manager
+            items:
+              - name: Data Sources
+                items:
+                  - name: resourcemanager_cloud
+                    href: data-sources/resourcemanager_cloud.md
+                    title: ''
+                  - name: resourcemanager_folder
+                    href: data-sources/resourcemanager_folder.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: resourcemanager_cloud
+                    href: resources/resourcemanager_cloud.md
+                    title: ''
+                  - name: resourcemanager_cloud_iam_binding
+                    href: resources/resourcemanager_cloud_iam_binding.md
+                    title: ''
+                  - name: resourcemanager_cloud_iam_member
+                    href: resources/resourcemanager_cloud_iam_member.md
+                    title: ''
+                  - name: resourcemanager_folder
+                    href: resources/resourcemanager_folder.md
+                    title: ''
+                  - name: resourcemanager_folder_iam_binding
+                    href: resources/resourcemanager_folder_iam_binding.md
+                    title: ''
+                  - name: resourcemanager_folder_iam_member
+                    href: resources/resourcemanager_folder_iam_member.md
+                    title: ''
+                  - name: resourcemanager_folder_iam_policy
+                    href: resources/resourcemanager_folder_iam_policy.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Serverless Cloud Functions
+            items:
+              - name: Data Sources
+                items:
+                  - name: function
+                    href: data-sources/function.md
+                    title: ''
+                  - name: function_scaling_policy
+                    href: data-sources/function_scaling_policy.md
+                    title: ''
+                  - name: function_trigger
+                    href: data-sources/function_trigger.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: function
+                    href: resources/function.md
+                    title: ''
+                  - name: function_iam_binding
+                    href: resources/function_iam_binding.md
+                    title: ''
+                  - name: function_scaling_policy
+                    href: resources/function_scaling_policy.md
+                    title: ''
+                  - name: function_trigger
+                    href: resources/function_trigger.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Serverless Containers
+            items:
+              - name: Data Sources
+                items:
+                  - name: serverless_container
+                    href: data-sources/serverless_container.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: serverless_container
+                    href: resources/serverless_container.md
+                    title: ''
+                  - name: serverless_container_iam_binding
+                    href: resources/serverless_container_iam_binding.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Serverless Integrations
+            items:
+              - name: Data Sources
+                items:
+                  - name: serverless_eventrouter_bus
+                    href: data-sources/serverless_eventrouter_bus.md
+                    title: ''
+                  - name: serverless_eventrouter_connector
+                    href: data-sources/serverless_eventrouter_connector.md
+                    title: ''
+                  - name: serverless_eventrouter_rule
+                    href: data-sources/serverless_eventrouter_rule.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: serverless_eventrouter_bus
+                    href: resources/serverless_eventrouter_bus.md
+                    title: ''
+                  - name: serverless_eventrouter_connector
+                    href: resources/serverless_eventrouter_connector.md
+                    title: ''
+                  - name: serverless_eventrouter_rule
+                    href: resources/serverless_eventrouter_rule.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Smart Captcha
+            items:
+              - name: Data Sources
+                items:
+                  - name: smartcaptcha_captcha
+                    href: data-sources/smartcaptcha_captcha.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: smartcaptcha_captcha
+                    href: resources/smartcaptcha_captcha.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Smart Web Security (SWS)
+            items:
+              - name: Data Sources
+                items:
+                  - name: sws_advanced_rate_limiter_profile
+                    href: data-sources/sws_advanced_rate_limiter_profile.md
+                    title: ''
+                  - name: sws_security_profile
+                    href: data-sources/sws_security_profile.md
+                    title: ''
+                  - name: sws_waf_profile
+                    href: data-sources/sws_waf_profile.md
+                    title: ''
+                  - name: sws_waf_rule_set_descriptor
+                    href: data-sources/sws_waf_rule_set_descriptor.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: sws_advanced_rate_limiter_profile
+                    href: resources/sws_advanced_rate_limiter_profile.md
+                    title: ''
+                  - name: sws_security_profile
+                    href: resources/sws_security_profile.md
+                    title: ''
+                  - name: sws_waf_profile
+                    href: resources/sws_waf_profile.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Virtual Private Cloud (VPC)
+            items:
+              - name: Data Sources
+                items:
+                  - name: vpc_address
+                    href: data-sources/vpc_address.md
+                    title: ''
+                  - name: vpc_gateway
+                    href: data-sources/vpc_gateway.md
+                    title: ''
+                  - name: vpc_network
+                    href: data-sources/vpc_network.md
+                    title: ''
+                  - name: vpc_private_endpoint
+                    href: data-sources/vpc_private_endpoint.md
+                    title: ''
+                  - name: vpc_route_table
+                    href: data-sources/vpc_route_table.md
+                    title: ''
+                  - name: vpc_security_group
+                    href: data-sources/vpc_security_group.md
+                    title: ''
+                  - name: vpc_security_group_rule
+                    href: data-sources/vpc_security_group_rule.md
+                    title: ''
+                  - name: vpc_subnet
+                    href: data-sources/vpc_subnet.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: vpc_address
+                    href: resources/vpc_address.md
+                    title: ''
+                  - name: vpc_default_security_group
+                    href: resources/vpc_default_security_group.md
+                    title: ''
+                  - name: vpc_gateway
+                    href: resources/vpc_gateway.md
+                    title: ''
+                  - name: vpc_network
+                    href: resources/vpc_network.md
+                    title: ''
+                  - name: vpc_private_endpoint
+                    href: resources/vpc_private_endpoint.md
+                    title: ''
+                  - name: vpc_route_table
+                    href: resources/vpc_route_table.md
+                    title: ''
+                  - name: vpc_security_group
+                    href: resources/vpc_security_group.md
+                    title: ''
+                  - name: vpc_security_group_rule
+                    href: resources/vpc_security_group_rule.md
+                    title: ''
+                  - name: vpc_subnet
+                    href: resources/vpc_subnet.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Yandex API Gateway
+            items:
+              - name: Data Sources
+                items:
+                  - name: api_gateway
+                    href: data-sources/api_gateway.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: api_gateway
+                    href: resources/api_gateway.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Yandex Query
+            items:
+              - name: Resources
+                items:
+                  - name: yq_monitoring_connection
+                    href: resources/yq_monitoring_connection.md
+                    title: ''
+                  - name: yq_object_storage_binding
+                    href: resources/yq_object_storage_binding.md
+                    title: ''
+                  - name: yq_object_storage_connection
+                    href: resources/yq_object_storage_connection.md
+                    title: ''
+                  - name: yq_ydb_connection
+                    href: resources/yq_ydb_connection.md
+                    title: ''
+                  - name: yq_yds_binding
+                    href: resources/yq_yds_binding.md
+                    title: ''
+                  - name: yq_yds_connection
+                    href: resources/yq_yds_connection.md
+                    title: ''
+                title: ''
+            title: ''
