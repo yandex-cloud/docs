@@ -61,7 +61,7 @@ resource "yandex_mdb_kafka_connector" "connector" {
     s3_connection {
       bucket_name = "somebucket"
       external_s3 {
-        endpoint          = "storage.yandexcloud.net"
+        endpoint          = "https://storage.yandexcloud.net"
         access_key_id     = "some_access_key_id"
         secret_access_key = "some_secret_access_key"
       }
