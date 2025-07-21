@@ -5,6 +5,10 @@ description: This section contains {{ mtr-name }} release notes.
 
 # {{ mtr-full-name }} release notes
 
+## July 2025 {#july-2025}
+
+* On July 21, 2025, {{ mtr-name }} entered the [General Availability](../overview/concepts/launch-stages.md) stage and is now charged according to the [pricing policy](pricing.md).
+
 ## May 2025 {#may-2025}
 
 * [A new connector is now available](concepts/index.md#connector): MS SQL Server.

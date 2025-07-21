@@ -9,8 +9,6 @@ keywords:
 
 # Creating a {{ TR }} cluster
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 Each cluster {{ mtr-name }} comprises a set of {{ TR }} components: a [coordinator](../concepts/index.md#coordinator) and workers, which can be represented in multiple instances.
 
 ## Roles for creating a cluster {#roles}

@@ -8,14 +8,10 @@ editable: false
 
 
 
-{% note info %}
-
-{{ mtr-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage and can be used free of charge.
-
-{% endnote %}
-
 In this section, you can find the {{ mtr-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using the service are charged based on their pricing plans.
 
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -58,12 +54,6 @@ This is an example of calculating the cost of using a cluster with the following
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 ### Cluster computing resources {#prices-computing-resources}
-
-{% note info %}
-
-The prices listed below will take effect on July 21, 2025.
-
-{% endnote %}
 
 
 

@@ -9,8 +9,6 @@ keywords:
 
 # Изменение кластера {{ TR }}
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 После создания кластера вы можете изменить его основные и дополнительные настройки.
 
 {% list tabs group=instructions %}

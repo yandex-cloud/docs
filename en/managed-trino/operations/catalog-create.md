@@ -5,8 +5,6 @@ description: Follow this guide to create a catalog in a {{ mtr-name }} cluster.
 
 # Creating a {{ TR }} catalog
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 ## Roles for creating a {{ TR }} catalog {#roles}
 
 To create a [{{ TR }} catalog](../concepts/index.md#catalog) with the [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) connection type, your {{ yandex-cloud }} account needs an additional role, [{{ roles-connection-manager-user }}](../../metadata-hub/security/connection-manager-roles.md#connection-manager-user), to use connections from {{ connection-manager-name }}.

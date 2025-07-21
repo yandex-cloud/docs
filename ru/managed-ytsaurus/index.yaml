@@ -16,6 +16,18 @@ description:
     по <a
     href="https://yandex.cloud/ru/services/managed-ytsaurus#preview-form">запросу</a>.
 links:
+  - title: Начало работы
+    description: Создайте первый кластер {{ ytsaurus-name }}
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing

@@ -1,5 +1,7 @@
 Стоимость зависит от [периода аренды](../../baremetal/concepts/servers.md#server-lease).
 
+Списание средств происходит **ежемесячно**, независимо от периода аренды.
+
 Тип сервера        | Цена за месяц<br/>при аренде<br/>на 1 день,<br/>вкл. НДС | Цена за месяц<br/>при аренде<br/>на 1 месяц,<br/>вкл. НДС | Цена за месяц<br/>при аренде<br/>на 3 месяца,<br/>вкл. НДС | Цена за месяц<br/>при аренде<br/>на 6 месяцев,<br/>вкл. НДС | Цена за месяц<br/>при аренде<br/>на 1 год,<br/>вкл. НДС
 ------------------ | ------------ | ------------ | ------------ | ------------ | ---
 **BA-i100-H**      | {{ sku|KZT|baremetal.server.ba_i100_h.1_day|string }} | {{ sku|KZT|baremetal.server.ba_i100_h.1_month|string }} | {{ sku|KZT|baremetal.server.ba_i100_h.3_month|string }} | {{ sku|KZT|baremetal.server.ba_i100_h.6_month|string }} | {{ sku|KZT|baremetal.server.ba_i100_h.12_month|string }}

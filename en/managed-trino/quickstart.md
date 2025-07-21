@@ -5,8 +5,6 @@ description: Follow this guide to create a {{ TR }} cluster and connect to it.
 
 # Getting started with {{ mtr-full-name }}
 
-{% include [preview](../_includes/managed-trino/note-preview.md) %}
-
 To get started:
 1. [Create a {{ mtr-name }} cluster](#cluster-create).
 1. [Connect to the {{ mtr-name }} cluster](#connect).

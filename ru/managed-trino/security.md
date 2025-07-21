@@ -5,8 +5,6 @@ description: Управление доступом в сервисе по соз
 
 # Управление доступом к {{ mtr-name }}
 
-{% include [preview](../_includes/managed-trino/note-preview.md) %}
-
 
 В этом разделе вы узнаете:
 

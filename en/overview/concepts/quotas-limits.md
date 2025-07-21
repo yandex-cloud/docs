@@ -198,6 +198,11 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 {% include [mkf-limits.md](../../_includes/mdb/mkf-limits.md) %}
 
 
+### {{ msp-full-name }} {#msp}
+
+{% include [msp-limits.md](../../_includes/managed-spark/limits.md) %}
+
+
 ### {{ mch-full-name }} {#mch}
 
 {% include [mch-limits.md](../../_includes/mdb/mch-limits.md) %}

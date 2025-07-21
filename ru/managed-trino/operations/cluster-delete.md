@@ -9,8 +9,6 @@ keywords:
 
 # Удаление кластера {{ TR }}
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 Вы можете удалить кластер {{ TR }}, если он вам больше не нужен.
 
 ## Удалить кластер {#delete}

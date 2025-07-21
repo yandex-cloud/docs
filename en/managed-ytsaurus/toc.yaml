@@ -1,5 +1,9 @@
 title: '{{ myt-full-name }}'
 href: index.yaml
 items:
+  - name: Concepts
+    items:
+      - name: Configuration options for cluster components
+        href: concepts/component-types.md
   - name: Pricing policy
     href: pricing.md
