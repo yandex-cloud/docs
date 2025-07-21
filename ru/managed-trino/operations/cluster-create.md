@@ -116,27 +116,13 @@ keywords:
 
             * `resource-preset-id` — класс вычислительных ресурсов координатора. Возможные значения:
 
-                * `c4-m16` — 4 vCPU, 16 ГБ RAM.
-                * `c4-m32` — 4 vCPU, 32 ГБ RAM.
-                * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-                * `c8-m64` — 8 vCPU, 64 ГБ RAM.
-                * `c16-m64` — 16 vCPU, 64 ГБ RAM.
-                * `c16-m128` — 16 vCPU, 128 ГБ RAM.
-                * `c32-m128` — 32 vCPU, 128 ГБ RAM.
-                * `c32-m256` — 32 vCPU, 256 ГБ RAM.
+                {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
         * `--worker` — конфигурация [воркера](../concepts/index.md#workers):
 
             * `resource-preset-id` — класс вычислительных ресурсов воркера. Возможные значения:
 
-                * `c4-m16` — 4 vCPU, 16 ГБ RAM.
-                * `c4-m32` — 4 vCPU, 32 ГБ RAM.
-                * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-                * `c8-m64` — 8 vCPU, 64 ГБ RAM.
-                * `c16-m64` — 16 vCPU, 64 ГБ RAM.
-                * `c16-m128` — 16 vCPU, 128 ГБ RAM.
-                * `c32-m128` — 32 vCPU, 128 ГБ RAM.
-                * `c32-m256` — 32 vCPU, 256 ГБ RAM.
+                {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
             * `count` — фиксированное количество воркеров.
             * `minCount` — минимальное количество воркеров для автоматического масштабирования.
@@ -205,6 +191,42 @@ keywords:
         Где `type` — тип технического обслуживания:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
+- {{ TF }} {#tf}
+
+    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+    Чтобы создать кластер {{ mtr-name }}:
+
+    1. Опишите в конфигурационном файле создаваемые ресурсы:
+
+        * Кластер {{ mtr-name }} — описание кластера.
+
+        * Каталог {{ mtr-name }} — описание каталога.
+
+        * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+
+        * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
+
+        {% include [Terraform cluster parameters description](../../_includes/managed-trino/terraform/cluster-parameters.md) %}
+
+    1. Чтобы создать в кластере [каталоги {{ TR }}](../concepts/index.md#catalog), добавьте в конфигурационный файл нужное количество ресурсов `yandex_trino_catalog`. Вы можете сделать это как при создании кластера, так и позже. Подробнее см. в разделе [Создание каталога {{ TR }}](catalog-create.md).
+
+    1. Чтобы включить отправку логов {{ TR }} в сервис [{{ cloud-logging-full-name }}](../../logging/), добавьте к описанию кластера блок `logging`:
+
+        {% include [Terraform logging parameters description](../../_includes/managed-trino/terraform/logging-parameters.md) %}
+
+    1. Чтобы включить политику [отказоустойчивого выполнения запросов](../concepts/retry-policy.md), добавьте к описанию кластера блок `retry_policy`:
+
+        {% include [Terraform retry policy parameters description](../../_includes/managed-trino/terraform/retry-policy-parameters.md) %}
+
+    1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
+
+        {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
+
+    Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mtr }}).
 
 - REST API {#api}
 
@@ -280,27 +302,13 @@ keywords:
 
                * `resources.resourcePresetId` — класс вычислительных ресурсов координатора. Возможные значения:
 
-                  * `c4-m16` — 4 vCPU, 16 ГБ RAM.
-                  * `c4-m32` — 4 vCPU, 32 ГБ RAM.
-                  * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-                  * `c8-m64` — 8 vCPU, 64 ГБ RAM.
-                  * `c16-m64` — 16 vCPU, 64 ГБ RAM.
-                  * `c16-m128` — 16 vCPU, 128 ГБ RAM.
-                  * `c32-m128` — 32 vCPU, 128 ГБ RAM.
-                  * `c32-m256` — 32 vCPU, 256 ГБ RAM.
+                  {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
             * `workerConfig` — конфигурация воркера.
 
                * `resources.resourcePresetId` — класс вычислительных ресурсов воркера. Возможные значения:
 
-                  * `c4-m16` — 4 vCPU, 16 ГБ RAM.
-                  * `c4-m32` — 4 vCPU, 32 ГБ RAM.
-                  * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-                  * `c8-m64` — 8 vCPU, 64 ГБ RAM.
-                  * `c16-m64` — 16 vCPU, 64 ГБ RAM.
-                  * `c16-m128` — 16 vCPU, 128 ГБ RAM.
-                  * `c32-m128` — 32 vCPU, 128 ГБ RAM.
-                  * `c32-m256` — 32 vCPU, 256 ГБ RAM.
+                  {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
                * `scalePolicy` — политика масштабирования воркеров:
 
@@ -433,27 +441,13 @@ keywords:
 
                * `resources.resource_preset_id` — класс вычислительных ресурсов координатора. Возможные значения:
 
-                   * `c4-m16` — 4 vCPU, 16 ГБ RAM.
-                   * `c4-m32` — 4 vCPU, 32 ГБ RAM.
-                   * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-                   * `c8-m64` — 8 vCPU, 64 ГБ RAM.
-                   * `c16-m64` — 16 vCPU, 64 ГБ RAM.
-                   * `c16-m128` — 16 vCPU, 128 ГБ RAM.
-                   * `c32-m128` — 32 vCPU, 128 ГБ RAM.
-                   * `c32-m256` — 32 vCPU, 256 ГБ RAM.
+                   {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
             * `worker_config` — конфигурация воркера.
 
                * `resources.resource_preset_id` — класс вычислительных ресурсов воркера. Возможные значения:
 
-                   * `c4-m16` — 4 vCPU, 16 ГБ RAM.
-                   * `c4-m32` — 4 vCPU, 32 ГБ RAM.
-                   * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-                   * `c8-m64` — 8 vCPU, 64 ГБ RAM.
-                   * `c16-m64` — 16 vCPU, 64 ГБ RAM.
-                   * `c16-m128` — 16 vCPU, 128 ГБ RAM.
-                   * `c32-m128` — 32 vCPU, 128 ГБ RAM.
-                   * `c32-m256` — 32 vCPU, 256 ГБ RAM.
+                   {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
                * `scale_policy` — политика масштабирования воркеров:
 
@@ -526,7 +520,7 @@ keywords:
     Создайте кластер {{ mtr-name }} с тестовыми характеристиками:
 
     * Имя — `mytr`.
-    * Сервисный аккаунт — `trino-sa`.
+    * Сервисный аккаунт — `ajev56jp96ji********`.
     * Подсеть — `{{ subnet-id }}`.
     * Группа безопасности — `{{ security-group }}`.
     * Координатор с классом вычислительных ресурсов — `c4-m16`.
@@ -544,6 +538,51 @@ keywords:
        --coordinator resource-preset-id=c4-m16 \
        --worker resource-preset-id=c4-m16,count=4 \
        --deletion-protection
+    ```
+
+- {{ TF }} {#tf}
+
+    Создайте кластер {{ mtr-name }} и сеть для него с тестовыми характеристиками:
+
+    * Имя — `mytr`.
+    * Сервисный аккаунт — `ajev56jp96ji********`.
+    * Сеть — `mtr-network`.
+    * Подсеть — `mtr-subnet`. Зона доступности подсети — `ru-central1-a`, диапазон — `10.1.0.0/16`.
+    * Координатор с классом вычислительных ресурсов — `c4-m16`.
+    * 4 воркера с классом вычислительных ресурсов — `c4-m16`.
+    * Защита от непреднамеренного удаления.
+
+    Конфигурационный файл для такого кластера выглядит так:
+
+    ```hcl
+    resource "yandex_trino_cluster" "mytr" {
+      name                = "mytr"
+      service_account_id  = "ajev56jp96ji********"
+      deletion_protection = true
+      subnet_ids          = [yandex_vpc_subnet.mtr-subnet.id]
+
+      coordinator = {
+        resource_preset_id = "c4-m16"
+      }
+
+      worker = {
+        fixed_scale = {
+          count = 4
+        }
+        resource_preset_id = "c4-m16"
+      }
+    }
+
+    resource "yandex_vpc_network" "mtr-network" {
+      name = "mtr-network"
+    }
+
+    resource "yandex_vpc_subnet" "mtr-subnet" {
+      name           = "mtr-subnet"
+      zone           = "ru-central1-a"
+      network_id     = yandex_vpc_network.mtr-network.id
+      v4_cidr_blocks = ["10.1.0.0/16"]
+    }
     ```
 
 {% endlist %}

@@ -105,14 +105,8 @@ keywords:
         * `--coordinator`, `--worker` — конфигурация [компонентов](../concepts/index.md) кластера {{ TR }}.
 
           * `resource-preset-id` — класс хостов [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers). Возможные значения:
-            * `c4-m16` — 4 vCPU, 16 ГБ RAM.
-            * `c4-m32` — 4 vCPU, 32 ГБ RAM.
-            * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-            * `c8-m64` — 8 vCPU, 64 ГБ RAM.
-            * `c16-m64` — 16 vCPU, 64 ГБ RAM.
-            * `c16-m128` — 16 vCPU, 128 ГБ RAM.
-            * `c32-m128` — 32 vCPU, 128 ГБ RAM.
-            * `c32-m256` — 32 vCPU, 256 ГБ RAM.
+
+            {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
           * `min-count`, `max-count` — задайте минимальное и максимальное количество воркеров, чтобы количество воркеров автоматически изменялось в зависимости от нагрузки.
           * `count` — задайте фиксированное количество воркеров.
@@ -135,6 +129,46 @@ keywords:
           * `--log-min-level` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO` (значение по умолчанию), `WARN`, `ERROR` и `FATAL`.
 
         Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).   
+
+- {{ TF }} {#tf}
+
+    Чтобы изменить настройки кластера:
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mtr-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mtr }}).
+
+    1. Чтобы изменить настройки кластера, измените значения нужных полей в конфигурационном файле.
+
+        {% note alert %}
+
+        Не изменяйте имя кластера с помощью {{ TF }}. Это приведет к удалению существующего кластера и созданию нового.
+
+        {% endnote %}
+
+        {% include [Terraform cluster parameters description](../../_includes/managed-trino/terraform/cluster-parameters.md) %}
+
+    1. Чтобы включить отправку логов {{ TR }} в сервис [{{ cloud-logging-full-name }}](../../logging/), добавьте к описанию кластера блок `logging`:
+
+        {% include [Terraform logging parameters description](../../_includes/managed-trino/terraform/logging-parameters.md) %}
+
+    1. Чтобы включить политику [отказоустойчивого выполнения запросов](../concepts/retry-policy.md), добавьте к описанию кластера блок `retry_policy`:
+
+        {% include [Terraform retry policy parameters description](../../_includes/managed-trino/terraform/retry-policy-parameters.md) %}
+
+    1. Чтобы изменить время технического обслуживания (в т. ч. для выключенных кластеров), укажите настройки в блоке `maintenance_window`:
+
+        {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
@@ -218,27 +252,13 @@ keywords:
 
                * `resources.resourcePresetId` — класс хостов координатора. Возможные значения:
 
-                    * `c4-m16` — 4 vCPU, 16 ГБ RAM.
-                    * `c4-m32` — 4 vCPU, 32 ГБ RAM.
-                    * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-                    * `c8-m64` — 8 vCPU, 64 ГБ RAM.
-                    * `c16-m64` — 16 vCPU, 64 ГБ RAM.
-                    * `c16-m128` — 16 vCPU, 128 ГБ RAM.
-                    * `c32-m128` — 32 vCPU, 128 ГБ RAM.
-                    * `c32-m256` — 32 vCPU, 256 ГБ RAM.
+                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
               
             * `workerConfig` — конфигурация воркера.
 
                * `resources.resourcePresetId` — класс хостов воркера. Возможные значения:
 
-                    * `c4-m16` — 4 vCPU, 16 ГБ RAM.
-                    * `c4-m32` — 4 vCPU, 32 ГБ RAM.
-                    * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-                    * `c8-m64` — 8 vCPU, 64 ГБ RAM.
-                    * `c16-m64` — 16 vCPU, 64 ГБ RAM.
-                    * `c16-m128` — 16 vCPU, 128 ГБ RAM.
-                    * `c32-m128` — 32 vCPU, 128 ГБ RAM.
-                    * `c32-m256` — 32 vCPU, 256 ГБ RAM.
+                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
                * `scalePolicy` — политика масштабирования воркеров:
 
@@ -397,27 +417,13 @@ keywords:
 
                * `resources.resource_preset_id` — класс хостов координатора. Возможные значения:
 
-                    * `c4-m16` — 4 vCPU, 16 ГБ RAM.
-                    * `c4-m32` — 4 vCPU, 32 ГБ RAM.
-                    * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-                    * `c8-m64` — 8 vCPU, 64 ГБ RAM.
-                    * `c16-m64` — 16 vCPU, 64 ГБ RAM.
-                    * `c16-m128` — 16 vCPU, 128 ГБ RAM.
-                    * `c32-m128` — 32 vCPU, 128 ГБ RAM.
-                    * `c32-m256` — 32 vCPU, 256 ГБ RAM.
+                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
               
             * `worker_config` — конфигурация воркера.
 
                * `resources.resource_preset_id` — класс хостов воркера. Возможные значения:
 
-                    * `c4-m16` — 4 vCPU, 16 ГБ RAM.
-                    * `c4-m32` — 4 vCPU, 32 ГБ RAM.
-                    * `c8-m32` — 8 vCPU, 32 ГБ RAM.
-                    * `c8-m64` — 8 vCPU, 64 ГБ RAM.
-                    * `c16-m64` — 16 vCPU, 64 ГБ RAM.
-                    * `c16-m128` — 16 vCPU, 128 ГБ RAM.
-                    * `c32-m128` — 32 vCPU, 128 ГБ RAM.
-                    * `c32-m256` — 32 vCPU, 256 ГБ RAM.
+                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
                * `scale_policy` — политика масштабирования воркеров:
 

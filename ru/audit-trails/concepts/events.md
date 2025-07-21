@@ -342,7 +342,7 @@ description: В данном разделе приведены описания 
 
 Имя сервиса — `speechsense`.
 
-{% include [org-events](../../_includes/audit-trails/events/speechsense-events.md) %}
+{% include [speechsense-events](../../_includes/audit-trails/events/speechsense-events.md) %}
 
 ## {{ vpc-full-name }} {#vpc}
 

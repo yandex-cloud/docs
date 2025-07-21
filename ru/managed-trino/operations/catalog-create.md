@@ -28,6 +28,34 @@ description: Следуя этой инструкции, вы создадите
   1. Задайте [настройки каталога {{ TR }}](#catalog-settings).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+    1. Добавьте ресурс `yandex_trino_catalog`:
+
+        ```hcl
+        resource "yandex_trino_catalog" "<имя_каталога>" {
+          name        = "<имя_каталога>"
+          cluster_id  = yandex_trino_cluster.mytr.id
+          <тип_коннектора> = {
+            <настройки_каталога_{{ TR }}>
+          }
+        }
+        ```
+
+        [Подробнее о настройках каталога {{ TR }}](#catalog-settings) для разных типов коннекторов.
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 {% endlist %}
 
 ## Настройки каталога {{ TR }} {#catalog-settings}
@@ -42,168 +70,475 @@ description: Следуя этой инструкции, вы создадите
 
 ### Коннектор {{ CH }} {#ch}
 
-Чтобы задать настройки, выберите тип подключения — [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) или On-premise (пользовательская инсталляция).
+Задайте настройки для нужного типа подключения — [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) или On-premise (пользовательская инсталляция).
 
-{% list tabs %}
+#### Подключение {{ connection-manager-name }} {#ch-connection-manager}
 
-- Connection Manager
+{% list tabs group=instructions %}
 
-  * **Идентификатор подключения** — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ CH }}.
-    
-    Чтобы узнать идентификатор подключения:
-      1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-      1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+- Консоль управления {#console}
 
-  * **База данных** — имя БД в кластере {{ CH }}.
-  * **Параметры клиента** — параметры клиента {{ CH }} в формате `ключ: значение`.
+    * **Идентификатор подключения** — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ CH }}.
 
-    {% cut "Доступные параметры" %}
+        Чтобы узнать идентификатор подключения:
+        1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
-    * `async` — использовать ли асинхронный режим. Значение: `true` или `false`.
+    * **База данных** — имя БД в кластере {{ CH }}.
+    * **Параметры клиента** — параметры клиента {{ CH }} в формате `ключ: значение`.
 
-    * `buffer_queue_variation` — сколько раз может заполниться буфер, прежде чем его размер будет увеличен.
+        {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `buffer_size` — размер буфера. При переполнении увеличивается до `max_buffer_size`.
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/clickhouse.html).
 
-    * `client_name` — имя клиента.
+- {{ TF }} {#tf}
 
-    * `compress` — сжимать ли данные в ответе сервера. Значение: `true` или `false`.
+    Пример конфигурации:
 
-    * `compress_algorithm` — какой алгоритм использовать для сжатия данных. Возможные значения: [BROTLI](https://ru.wikipedia.org/wiki/Brotli), [BZ2](https://ru.wikipedia.org/wiki/Bzip2), [DEFLATE](https://ru.wikipedia.org/wiki/Deflate), [GZIP](https://ru.wikipedia.org/wiki/Gzip), [LZ4](https://ru.wikipedia.org/wiki/LZ4), [SNAPPY](https://ru.wikipedia.org/wiki/Snappy_(библиотека)), [XZ](https://ru.wikipedia.org/wiki/XZ), [ZSTD](https://ru.wikipedia.org/wiki/Zstandard) или `NONE`.
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога>" {
+      ...
+      clickhouse = {
+        connection_manager = {
+          connection_id = "<идентификатор_подключения>"
+          database      = "<имя_БД>"
+          connection_properties = {
+            <список_настроек_клиента_{{ CH }}>
+          }
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
 
-    * `compress_level` — уровень сжатия данных.
+    Где:
 
-    * `connect_timeout` — максимальное время ожидания подключения к серверу (в миллисекундах).
+    * `connection_manager` — настройки {{ connection-manager-name }}:
 
-    * `decompress` — распаковывать ли данные в запросе клиента. Значение: `true` или `false`.
+        * `connection_id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ CH }}.
 
-    * `decompress_algorithm` — какой алгоритм использовать для распаковки данных. Возможные значения: [BROTLI](https://ru.wikipedia.org/wiki/Brotli), [BZ2](https://ru.wikipedia.org/wiki/Bzip2), [DEFLATE](https://ru.wikipedia.org/wiki/Deflate), [GZIP](https://ru.wikipedia.org/wiki/Gzip), [LZ4](https://ru.wikipedia.org/wiki/LZ4), [SNAPPY](https://ru.wikipedia.org/wiki/Snappy_(библиотека)), [XZ](https://ru.wikipedia.org/wiki/XZ), [ZSTD](https://ru.wikipedia.org/wiki/Zstandard) или `NONE`.
+            Чтобы узнать идентификатор подключения:
+            1. В консоли управления перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
-    * `decompress_level` — уровень сжатия данных при распаковке.
+        * `database` — имя БД в кластере {{ CH }}.
+        * `connection_properties` — список настроек клиента {{ CH }} в формате `"ключ" = "значение"`.
 
-    * `failover` — максимальное число попыток подключения к репликам, если сервер недоступен.
+            {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `load_balancing_policy` — алгоритм выбора реплик для подключения.
-        
-        * `firstAlive` — запрос отправляется на первую доступную реплику.
-        * `random` — запрос отправляется на любую реплику случайным образом.
-        * `roundRobin` — запрос отправляется в соответствии с политикой [Round-robin](https://ru.wikipedia.org/wiki/Round-robin_(алгоритм)).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/clickhouse.html).
 
-    * `max_buffer_size` — максимальный размер буфера.
+{% endlist %}
 
-    * `max_threads_per_client` — максимальное число потоков на одного клиента.
+#### Подключение On-premise {#ch-on-premise}
 
-    * `product_name` — имя продукта в `User-Agent`.
+{% list tabs group=instructions %}
 
-    * `read_buffer_size` — размер буфера для чтения данных (в байтах). По умолчанию значение равно `buffer_size`. При заполнении буфера размер увеличивается до значения `max_buffer_size`.
+- Консоль управления {#console}
 
-    * `request_buffering` — режим буферизации запросов.
+    * **URL** — URL для подключения к БД {{ CH }} в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`.
+    * **Имя пользователя** — имя пользователя для подключения к БД {{ CH }}.
+    * **Пароль** — пароль пользователя для подключения к БД {{ CH }}.
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/clickhouse.html).
 
-        * `RESOURCE_EFFICIENT` — обеспечивает умеренную производительность при минимальном использовании CPU и памяти. В этом режиме учитывается только размер буфера, очередь не используется.
-        * `PERFORMANCE` — обеспечивает лучшую производительность за счет активного использования CPU и памяти.
-        * `CUSTOM` — позволяет вручную настроить параметры буферизации, чтобы сбалансировать использование ресурсов и желаемую производительность.
+- {{ TF }} {#tf}
 
-    * `request_chunk_size` — размер куска данных в запросе (в байтах).
+    Пример конфигурации:
 
-    * `response_buffering` — режим буферизации ответов.
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога>" {
+      ...
+      clickhouse = {
+        on_premise = {
+          connection_url = "<URL_для_подключения>"
+          user_name      = "<имя_пользователя>"
+          password       = "<пароль_пользователя>"
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
 
-        * `RESOURCE_EFFICIENT` — обеспечивает умеренную производительность при минимальном использовании CPU и памяти. В этом режиме учитывается только размер буфера, очередь не используется.
-        * `PERFORMANCE` — обеспечивает лучшую производительность за счет активного использования CPU и памяти.
-        * `CUSTOM` — позволяет вручную настроить параметры буферизации, чтобы сбалансировать использование ресурсов и желаемую производительность.
+    Где:
 
-    * `server_time_zone` — часовой пояс.
+    * `on_premise` — настройки для подключения к пользовательской инсталляции:
 
-    * `use_server_time_zone` — использовать ли часовой пояс сервера. Значение: `true` или `false`.
+        * `connection_url` — URL для подключения к БД {{ CH }} в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `user_name` — имя пользователя для подключения к БД {{ CH }}.
+        * `password` — пароль пользователя для подключения к БД {{ CH }}.
 
-    * `use_server_time_zone_for_dates` — использовать ли часовой пояс сервера при обработке значений `Date`. Значение: `true` или `false`.
-
-    * `use_time_zone` — какой часовой пояс использовать. Пример значения: `Europe/Amsterdam`. Работает, если значение `use_server_time_zone` равно `false`.
-
-    * `write_buffer_size` — размер буфера для записи данных (в байтах). По умолчанию значение равно `buffer_size`. При заполнении буфера размер увеличивается до значения `max_buffer_size`.
-
-    {% endcut %}
-
-  * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации](https://trino.io/docs/current/connector/clickhouse.html).
-
-- On-premise
-
-  * **URL** — URL для подключения к БД {{ CH }} в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`.
-  * **Имя пользователя** — имя пользователя для подключения к БД {{ CH }}.
-  * **Пароль** — пароль пользователя для подключения к БД {{ CH }}.
-  * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации](https://trino.io/docs/current/connector/clickhouse.html).
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/clickhouse.html).
 
 {% endlist %}
 
 ### Коннектор Delta Lake {#delta-lake}
 
-  {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
+{% list tabs group=instructions %}
 
-  * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации](https://trino.io/docs/current/connector/delta-lake.html).
+- Консоль управления {#console}
+
+    {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
+
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/delta-lake.html).
+
+- {{ TF }} {#tf}
+
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога>" {
+      ...
+      delta_lake = {
+        file_system = {
+          s3 = {}
+        }
+        metastore = {
+          uri = "<URI_для_подключения>"
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где:
+
+    {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/delta-lake.html).
+
+{% endlist %}
 
 ### Коннектор Hive {#hive}
 
-  {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
+{% list tabs group=instructions %}
 
-  * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации](https://trino.io/docs/current/connector/hive.html).
+- Консоль управления {#console}
+
+    {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
+
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/hive.html).
+
+- {{ TF }} {#tf}
+
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога>" {
+      ...
+      hive = {
+        file_system = {
+          s3 = {}
+        }
+        metastore = {
+          uri = "<URI_для_подключения>"
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где:
+
+    {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/hive.html).
+
+{% endlist %}
 
 ### Коннектор Iceberg {#iceberg}
 
-  {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
+{% list tabs group=instructions %}
 
-  * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации](https://trino.io/docs/current/connector/iceberg.html).
+- Консоль управления {#console}
+
+    {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
+
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/iceberg.html).
+
+- {{ TF }} {#tf}
+
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога>" {
+      ...
+      iceberg = {
+        file_system = {
+          s3 = {}
+        }
+        metastore = {
+          uri = "<URI_для_подключения>"
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где:
+
+    {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/iceberg.html).
+
+{% endlist %}
 
 ### Коннектор Oracle {{ preview-stage }} {#oracle}
 
-  * **Тип подключения** — On-premise.
-  * **URL** — URL для подключения к БД Oracle в формате `jdbc:oracle:thin:@<адрес_хоста>:<порт>:<SID>`. `SID` — системный идентификатор Oracle.
-  * **Имя пользователя** — имя пользователя для подключения к БД Oracle.
-  * **Пароль** — пароль пользователя для подключения к БД Oracle.
-  * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации](https://trino.io/docs/current/connector/oracle.html).
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    * **Тип подключения** — On-premise.
+    * **URL** — URL для подключения к БД Oracle в формате `jdbc:oracle:thin:@<адрес_хоста>:<порт>:<SID>`. `SID` — системный идентификатор Oracle.
+    * **Имя пользователя** — имя пользователя для подключения к БД Oracle.
+    * **Пароль** — пароль пользователя для подключения к БД Oracle.
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/oracle.html).
+
+- {{ TF }} {#tf}
+
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога>" {
+      ...
+      oracle = {
+        on_premise = {
+          connection_url = "<URL_для_подключения>"
+          user_name      = "<имя_пользователя>"
+          password       = "<пароль_пользователя>"
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где:
+
+    * `on_premise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connection_url` — URL для подключения к БД Oracle в формате `jdbc:oracle:thin:@<адрес_хоста>:<порт>:<SID>`. `SID` — системный идентификатор Oracle.
+        * `user_name` — имя пользователя для подключения к БД Oracle.
+        * `password` — пароль пользователя для подключения к БД Oracle.
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/oracle.html).
+
+{% endlist %}
 
 ### Коннектор {{ PG }} {#pg}
 
-Чтобы задать настройки, выберите тип подключения — [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) или On-premise (пользовательская инсталляция).
+Задайте настройки для нужного типа подключения — [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) или On-premise (пользовательская инсталляция).
 
-{% list tabs %}
+#### Подключение {{ connection-manager-name }} {#pg-connection-manager}
 
-- Connection Manager
+{% list tabs group=instructions %}
 
-  * **Идентификатор подключения** — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ PG }}.
-    
-    Чтобы узнать идентификатор подключения:
-      1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-      1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+- Консоль управления {#console}
 
-  * **База данных** — имя БД в кластере {{ PG }}.
-  * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации](https://trino.io/docs/current/connector/postgresql.html).
+    * **Идентификатор подключения** — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ PG }}.
 
-- On-premise
+        Чтобы узнать идентификатор подключения:
+        1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
-  * **URL** — URL для подключения к БД {{ PG }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
-  * **Имя пользователя** — имя пользователя для подключения к БД {{ PG }}.
-  * **Пароль** — пароль пользователя для подключения к БД {{ PG }}.
-  * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации](https://trino.io/docs/current/connector/postgresql.html).
+    * **База данных** — имя БД в кластере {{ PG }}.
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/postgresql.html).
+
+- {{ TF }} {#tf}
+
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога>" {
+      ...
+      postgresql = {
+        connection_manager = {
+          connection_id = "<идентификатор_подключения>"
+          database      = "<имя_БД>"
+          connection_properties = {
+            <список_настроек_клиента_{{ PG }}>
+          }
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где:
+
+    * `connection_manager` — настройки {{ connection-manager-name }}:
+
+        * `connection_id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ PG }}.
+
+            Чтобы узнать идентификатор подключения:
+            1. В консоли управления перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+
+        * `database` — имя БД в кластере {{ PG }}.
+        * `connection_properties` — список настроек клиента {{ PG }} в формате `"ключ" = "значение"`.
+
+            {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/postgresql.html).
+
+{% endlist %}
+
+#### Подключение On-premise {#pg-on-premise}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    * **URL** — URL для подключения к БД {{ PG }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+    * **Имя пользователя** — имя пользователя для подключения к БД {{ PG }}.
+    * **Пароль** — пароль пользователя для подключения к БД {{ PG }}.
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/postgresql.html).
+
+- {{ TF }} {#tf}
+
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога>" {
+      ...
+      postgresql = {
+        on_premise = {
+          connection_url = "<URL_для_подключения>"
+          user_name      = "<имя_пользователя>"
+          password       = "<пароль_пользователя>"
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где:
+
+    * `on_premise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connection_url` — URL для подключения к БД {{ PG }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `user_name` — имя пользователя для подключения к БД {{ PG }}.
+        * `password` — пароль пользователя для подключения к БД {{ PG }}.
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/postgresql.html).
 
 {% endlist %}
 
 ### Коннектор MS SQL Server {{ preview-stage }} {#ms-sql}
 
-  * **Тип подключения** — On-premise.
-  * **URL** — URL для подключения к БД Microsoft SQL Server в формате `jdbc:sqlserver://<адрес_хоста>:<порт>;databaseName=<имя_БД>`.
-  * **Имя пользователя** — имя пользователя для подключения к БД Microsoft SQL Server.
-  * **Пароль** — пароль пользователя для подключения к БД Microsoft SQL Server.
-  * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации](https://trino.io/docs/current/connector/sqlserver.html).
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    * **Тип подключения** — On-premise.
+    * **URL** — URL для подключения к БД Microsoft SQL Server в формате `jdbc:sqlserver://<адрес_хоста>:<порт>;databaseName=<имя_БД>`.
+    * **Имя пользователя** — имя пользователя для подключения к БД Microsoft SQL Server.
+    * **Пароль** — пароль пользователя для подключения к БД Microsoft SQL Server.
+    * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/sqlserver.html).
+
+- {{ TF }} {#tf}
+
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога>" {
+      ...
+      sqlserver = {
+        on_premise = {
+          connection_url = "<URL_для_подключения>"
+          user_name      = "<имя_пользователя>"
+          password       = "<пароль_пользователя>"
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где:
+
+    * `on_premise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connection_url` — URL для подключения к БД Microsoft SQL Server в формате `jdbc:sqlserver://<адрес_хоста>:<порт>;databaseName=<имя_БД>`.
+        * `user_name` — имя пользователя для подключения к БД Microsoft SQL Server.
+        * `password` — пароль пользователя для подключения к БД Microsoft SQL Server.
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/sqlserver.html).
+
+{% endlist %}
 
 ### Коннектор TPC-DS {#tpc-ds}
 
-Коннектор TPC-DS не требует обязательных настроек.
+Коннектор TPC-DS не требует обязательных настроек. Опционально можно задать дополнительные настройки.
 
-Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек см. в [официальной документации](https://trino.io/docs/current/connector/tpcds.html).
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/tpcds.html).
+
+- {{ TF }} {#tf}
+
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога>" {
+      ...
+      tpcds = {
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/tpcds.html).
+
+{% endlist %}
 
 ### Коннектор TPC-H {#tpc-h}
 
-Коннектор TPC-H не требует обязательных настроек.
+Коннектор TPC-H не требует обязательных настроек. Опционально можно задать дополнительные настройки.
 
-Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек см. в [официальной документации](https://trino.io/docs/current/connector/tpch.html).
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/tpch.html).
+
+- {{ TF }} {#tf}
+
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога>" {
+      ...
+      tpch = {
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/tpch.html).
+
+{% endlist %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

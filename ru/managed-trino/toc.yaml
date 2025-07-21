@@ -125,6 +125,8 @@ items:
             href: cli-ref/cluster/stop.md
           - name: update
             href: cli-ref/cluster/update.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

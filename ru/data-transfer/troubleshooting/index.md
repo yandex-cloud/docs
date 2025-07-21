@@ -149,6 +149,8 @@
 
 {% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
 
+{% include [elastic-version](../../_includes/data-transfer/troubles/elastic-opensearch/elastic-version.md) %}
+
 
 ## {{ MG }} {#mongodb}
 

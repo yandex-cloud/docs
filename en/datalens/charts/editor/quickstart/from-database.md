@@ -13,7 +13,9 @@ Follow this guide to build a table based on an SQL query to the data source in E
 
 ## Getting started {#before-you-begin}
 
+
 {% include [before-you-begin](../../../../_tutorials/_tutorials_includes/before-you-begin-datalens.md) %}
+
 
 ## Deploy a demo workbook {#create-template}
 

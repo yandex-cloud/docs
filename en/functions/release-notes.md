@@ -45,7 +45,7 @@ description: This section contains {{ sf-name }} release notes.
 ### Fixes and improvements {#fixes-improvements}
 
 * Fixed the `yandex_function_scaling_policy` import error in {{ TF }}.
-* Removed the [user network](concepts/networking#user-network) requirement to have a subnet in the `ru-central1-c` availability zone because [this zone is discontinued](../overview/concepts/ru-central1-c-deprecation).
+* Removed the [user network](concepts/networking#user-network) requirement to have a subnet in the `ru-central1-c` availability zone because [this zone is discontinued](../overview/concepts/region.md).
 
 ## March 2024 {#march-2024}
 
