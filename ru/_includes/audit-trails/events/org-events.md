@@ -51,8 +51,10 @@
 `saml.DeleteFederationDomain` | Удаление домена
 `saml.DeleteSignatureCertificate` | Удаление сертификата для подписи
 `saml.ReactivateApplication` | Активация SAML-приложения
+`saml.ReactivateFederatedUserAccounts` | Активация федеративного пользователя
 `saml.SetApplicationAccessBindings` | Назначение прав доступа к SAML-приложению
 `saml.SuspendApplication` | Приостановка SAML-приложения
+`saml.SuspendFederatedUserAccounts` | Деактивация федеративного пользователя
 `saml.UpdateApplication` | Изменение SAML-приложения
 `saml.UpdateApplicationAccessBindings` | Изменение прав доступа к SAML-приложению
 `saml.UpdateApplicationAssignments` | Изменение списка пользователей SAML-приложения

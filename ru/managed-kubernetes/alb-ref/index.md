@@ -21,8 +21,9 @@ noIndex: true
 * [Gateway](gateway.md) — правила приема входящего трафика и выбора маршрутов (`HTTPRoute` и `TLSRoute`) для этого трафика.
 * [GatewayPolicy](gateway-policy.md) — политика применения правил ресурса `Gateway`, конфигурация обработки входящего трафика.
 * [YCCertificate](./yc-certificate.md) — параметры сертификата {{ certificate-manager-name }} для настройки TLS-соединений в ресурсе `Gateway`.
-* [HTTPRoute](http-route.md) — правила для перенаправления или маршрутизации HTTP-, HTTPS- и gRPC-трафика по бэкендам.
+* [HTTPRoute](http-route.md) — правила для перенаправления или маршрутизации HTTP- и HTTPS-трафика по бэкендам.
 * [RoutePolicy](route-policy.md) — политика применения правил ресурса `HTTPRoute` и настройка правил доступа к бэкендам.
+* [GRPCRoute](grpc-route.md) — правила для перенаправления или маршрутизации gRPC-трафика по бэкендам.
 * [YCStorageBucket](./yc-storage-bucket.md) — параметры бакета {{ objstorage-name }} для настроек бэкенда в ресурсе `HTTPRoute`.
 * [TLSRoute](./tls-route.md) — правила для маршрутизации TLS-трафика по бэкендам.
 * [Service](service-for-gateway.md) — описание сервисов {{ k8s }}, используемых в качестве бэкендов.

@@ -1,9 +1,9 @@
 ---
-title: '{{ datalens-full-name }} release notes: May 2025'
-description: Check out {{ datalens-full-name }} release notes for May 2025.
+title: '{{ datalens-full-name }} release notes: June 2025'
+description: Check out {{ datalens-full-name }} release notes for June 2025.
 ---
 
-# {{ datalens-full-name }} release notes: May 2025
+# {{ datalens-full-name }} release notes: June 2025
 
 
 * [Changes in basic features](#base)
@@ -11,56 +11,55 @@ description: Check out {{ datalens-full-name }} release notes for May 2025.
 
 ## Changes in basic features {#base}
 
+### {{ datalens-gallery }} {#gallery-changes}
+
+Updated the [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery) section:
+
+* Corrected the layout.
+* Made cards look better on narrow screens.
+* Improved public dashboard preview from the gallery card for non-logged in users.
+
 ### Exporting and importing workbooks {#workbooks-export-import}
 
-Added [exporting and importing workbooks](../workbooks-collections/export-and-import.md) in {{ datalens-short-name }}. Now you can transfer [workbooks](../workbooks-collections/index.md) between installations using export and import tools. For example, you can export a ready-made workbook with its settings and connections from cloud {{ datalens-full-name }} to an [open source](https://datalens.tech) installation.
+Added a **Retry** button to [workbook export and import](../workbooks-collections/export-and-import.md) error window.
 
-### {{ datalens-short-name }} Gallery {#gallery}
+### Linking a card to a billing account {#ba-card-link}
 
-We added a [section]({{ link-datalens-main }}/gallery) with ready-made dashboards for your inspiration and business needs. You are free to deploy the ones you like for yourselves – not only in cloud but in any other environment, even within your corporate perimeter.
+You can now optionally link a card when [creating a billing account](../../billing/operations/create-new-account.md).
 
+### Update in notifications {#notifications-changes}
 
-
-
-### Changes in charts {#charts-changes}
-
-In [wizard](../concepts/chart/dataset-based-charts.md) and [QL charts](../concepts/chart/ql-charts.md), we added a [setting](../concepts/chart/settings.md#common-settings) to preserve [spaces and line breaks](../visualization-ref/table-chart.md#spaces-and-line-breaks) in tables.
-
-### Changes in the interface {#interface-changes}
-
-Updated the appearance of the [service plan selection](../settings/service-plan.md#change-service-plan) page with feature description.
-
-### Starting out with {{ datalens-short-name }} {#start-video}
-
-Fixed the issue with viewing the introductory video available when clicking ![image](../../_assets/console-icons/circle-question.svg) → **Starting out with {{ datalens-short-name }}** in the left-hand panel.
-
-
-### Fixes in charts {#charts-fixes}
+Updated the notification component that opens when you click ![image](../../_assets/console-icons/bell.svg) **Notifications**. Now it displays [{{ cloud-center }}]({{ cloud-center-link }}) updates as well.
 
 
 
-Fixed line breaks for headers and values in [table](../visualization-ref/table-chart.md) columns for some browsers.
+### Fixes in connections {#connections-fixes}
+
+Fixed the problem of replacing tables in a connection to [Yandex Documents](../operations/connection/create-yadocs.md), where only the last element could be replaced correctly.
 
 
-### Changes in widgets {#widget-changes}
+### Fixes in dashboards {#dashboard-fixes}
 
-* Added autofocus to the text input field for [Header](../dashboard/widget.md#title) and [Text](../dashboard/widget.md#text) widgets when adding or editing widgets on a [dashboard](../concepts/dashboard.md).
-* In the visual editor, added a _copy to clipboard_ button for [code block](../dashboard/markdown.md#code) content to dashboard text widgets and [Markdown](../charts/editor/widgets/markdown.md) charts in Editor.
+* Fixed the problem of copying links when pasting a selector into another widget using the **Paste** button. Now selectors are copied together with their links, same as when added to the dashboard via the **Insert** button on the bottom panel of the dashboard page.
+* Fixed copying in the dashboard access link settings window: now it is enough to click ![icon](../../_assets/console-icons/copy.svg) in the **Link** field. We also added the **Open current tab by default** option.
+* Fixed issues:
+  
+  * [Header](../dashboard/widget.md#title) background used to mismatch the [widget pinning](../dashboard/settings.md#widget-fixation) area background.
+  * Switching to edit mode was changing the indent between the widget pinning area and the dashboard's main content.
+  * On dashboards without tabs or widget pinning areas, the main content area was pinning itself to the dashboard title.
 
-### Undoing and redoing changes to dashboards {#undo-redo}
+### Fixes in charts {#chart-fixes}
 
-When editing a [dashboard](../concepts/dashboard.md), you can now undo/redo any change introduced within the current version:
+Fixed a bug when opening chart preview via the **Open in new tab** menu item. Previously, the preview page would be loading indefinitely unless you had relevant data viewing permissions. Now you get an access restriction message instead.
 
-* To undo changes, click ![image](../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top-right corner of the screen or press **Ctrl** (**Cmd**) + **Z**.
-* To redo changes, click ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) or press **Ctrl** (**Cmd**) + **Shift** + **Z**.
+Also fixed a bug causing the address bar parameters to disappear when redirected to a new address.
 
 
 ## Changes available with the _Business_ service plan {#business}
 
-### Changes in Editor {#editor-changes}
+### Token update for non-public embeddings {#private-embedded-token-update}
 
-* Added the [Editor.updateParams](../charts/editor/widgets/advanced.md) method to [advanced chart](../charts/editor/methods.md#update-params).
-* Added additional attributes and tags for the [Editor.generateHtml](../charts/editor/methods.md#gen-html) method.
-* Controls are now available in [Markdown](../charts/editor/widgets/markdown.md) charts in Editor.
-* Fixed the revision comparison dialogue for charts in Editor.
+For non-public embeddings you can now use the [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) method to [update the JWT link](../security/private-embedded-objects.md#token-update) without losing the filter states.
+
+Thanks to the token update, embedded dashboards can now operate in the background long-term without losing their previously selected tab states and selector values.
 

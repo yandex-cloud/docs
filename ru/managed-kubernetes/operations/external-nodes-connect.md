@@ -282,3 +282,9 @@ journalctl -u kubelet
 ```
 
 Учитывайте [требования](../concepts/external-nodes.md#requirements) для подключения внешних узлов {{ managed-k8s-name }}.
+
+
+## См. также {#see-also}
+
+* [Настройка WireGuard-шлюзов для подключения внешних узлов](external-nodes-connect-wireguard.md)
+* [Настройка IPSec-шлюзов для подключения внешних узлов](external-nodes-connect-ipsec.md)

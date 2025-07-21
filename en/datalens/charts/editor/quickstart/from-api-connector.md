@@ -15,7 +15,9 @@ You will use a static JSON file located at `https://storage.yandexcloud.net/data
 
 ## Getting started {#before-you-begin}
 
+
 {% include [before-you-begin](../../../../_tutorials/_tutorials_includes/before-you-begin-datalens.md) %}
+
 
 ## Create a workbook {#create-workbook}
 

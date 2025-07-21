@@ -26,6 +26,8 @@ description: Из статьи вы узнаете, как задать наст
 
 ## Подготовка базы данных источника {#prepare}
 
+{% include [elastic-version](../../../../_includes/data-transfer/elastic-version-note.md) %}
+
 {% include [prepare elasticsearch db](../../../../_includes/data-transfer/endpoints/sources/elasticsearch-prepare.md) %}
 
 ## Настройка эндпоинта-источника {{ ES }} {#endpoint-settings}
@@ -81,9 +83,12 @@ description: Из статьи вы узнаете, как задать наст
 
 * [Прерывание трансфера с ошибкой](#ambiguous-resolution-es)
 * [Дублирование документов на приемнике](#duplication)
+* [Версия {{ ES }} не поддерживается](#elastic-version)
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [ambiguous-object-resolution-es](../../../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-es.md) %}
 
 {% include [duplication](../../../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
+
+{% include [elastic-version](../../../../_includes/data-transfer/troubles/elastic-opensearch/elastic-version.md) %}

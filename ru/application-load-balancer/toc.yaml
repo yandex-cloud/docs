@@ -253,6 +253,8 @@ items:
                 href: k8s-ref/gateway-policy.md
               - name: HTTPRoute
                 href: k8s-ref/http-route.md
+              - name: GRPCRoute
+                href: k8s-ref/grpc-route.md
               - name: RoutePolicy
                 href: k8s-ref/route-policy.md
               - name: TLSRoute

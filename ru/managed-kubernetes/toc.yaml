@@ -158,6 +158,10 @@ items:
             href: operations/node-group/node-group-delete.md
       - name: Подключение внешних узлов к кластеру
         href: operations/external-nodes-connect.md
+      - name: Настройка WireGuard-шлюзов для подключения внешних узлов к кластеру
+        href: operations/external-nodes-connect-wireguard.md
+      - name: Настройка IPSec-шлюзов для подключения внешних узлов к кластеру
+        href: operations/external-nodes-connect-ipsec.md
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -674,6 +678,8 @@ items:
             href: alb-ref/yc-certificate.md
           - name: HTTPRoute
             href: alb-ref/http-route.md
+          - name: GRPCRoute
+            href: alb-ref/grpc-route.md
           - name: RoutePolicy
             href: alb-ref/route-policy.md
           - name: YCStorageBucket
