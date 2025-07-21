@@ -1681,6 +1681,31 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../managed-trino/security.md).
 
 
+## {{ myt-full-name }} {#myt-roles}
+
+#### managed-ytsaurus.auditor {#managed-ytsaurus-auditor}
+
+{% include [managed-ytsaurus.auditor](../_roles/managed-ytsaurus/auditor.md) %}
+
+#### managed-ytsaurus.viewer {#managed-ytsaurus-viewer}
+
+{% include [managed-ytsaurus.viewer](../_roles/managed-ytsaurus/viewer.md) %}
+
+#### managed-ytsaurus.user {#managed-ytsaurus-user}
+
+{% include [managed-ytsaurus.user](../_roles/managed-ytsaurus/user.md) %}
+
+#### managed-ytsaurus.editor {#managed-ytsaurus-editor}
+
+{% include [managed-ytsaurus.editor](../_roles/managed-ytsaurus/editor.md) %}
+
+#### managed-ytsaurus.admin {#managed-ytsaurus-admin}
+
+{% include [managed-ytsaurus.admin](../_roles/managed-ytsaurus/admin.md) %}
+
+Подробнее см. [{#T}](../managed-ytsaurus/security/index.md).
+
+
 ## {{ ydb-full-name }} {#ydb-roles}
 
 #### ydb.auditor {#ydb-auditor}

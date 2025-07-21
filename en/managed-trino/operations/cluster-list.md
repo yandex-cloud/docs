@@ -5,8 +5,6 @@ description: You can request detailed information about each {{ mtr-name }} clus
 
 # Information about existing clusters in {{ mtr-name }}
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 You can request detailed information about each {{ mtr-name }} cluster you created.
 
 ## Getting a list of clusters in a folder {#list-clusters}

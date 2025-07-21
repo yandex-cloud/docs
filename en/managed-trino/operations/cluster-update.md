@@ -9,8 +9,6 @@ keywords:
 
 # Updating a {{ TR }} cluster
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 After creating a cluster, you can edit its basic and advanced settings.
 
 {% list tabs group=instructions %}

@@ -5,8 +5,6 @@ description: Follow this guide to get a list of catalogs in a {{ mtr-name }} clu
 
 # Getting a list of {{ TR }} catalogs in a cluster
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}

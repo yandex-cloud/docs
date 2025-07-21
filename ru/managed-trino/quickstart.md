@@ -5,8 +5,6 @@ description: В этой инструкции вы научитесь созда
 
 # Как начать работать с {{ mtr-full-name }}
 
-{% include [preview](../_includes/managed-trino/note-preview.md) %}
-
 Чтобы начать работу с сервисом:
 1. [Создайте кластер {{ mtr-name }}](#cluster-create).
 1. [Подключитесь к кластеру {{ mtr-name }}](#connect).

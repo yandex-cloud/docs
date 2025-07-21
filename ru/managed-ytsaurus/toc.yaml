@@ -1,5 +1,30 @@
 title: '{{ myt-full-name }}'
 href: index.yaml
+stage: preview
 items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Информация об имеющихся кластерах
+        href: operations/cluster-list.md
+      - name: Создание кластера
+        href: operations/cluster-create.md
+      - name: Изменение кластера
+        href: operations/cluster-update.md
+      - name: Остановка и запуск кластера
+        href: operations/cluster-stop.md
+      - name: Удаление кластера
+        href: operations/cluster-delete.md
+  - name: Концепции
+    items:
+      - name: Квоты и лимиты
+        href: concepts/limits.md
+      - name: Конфигурации компонентов кластера
+        href: concepts/component-types.md
+  - name: Управление доступом
+    href: security/index.md
   - name: Правила тарификации
     href: pricing.md

@@ -5,8 +5,6 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
 
 # Updating a {{ TR }} catalog
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}

@@ -47,7 +47,7 @@
 | {{ mmy-full-name }}                     | [gRPC](../managed-mysql/api-ref/grpc/)<br>[REST](../managed-mysql/api-ref/) |
 | {{ mos-full-name }}                     | [gRPC](../managed-opensearch/api-ref/grpc/)<br>[REST](../managed-opensearch/api-ref/) |
 | {{ mpg-full-name }}                     | [gRPC](../managed-postgresql/api-ref/grpc/)<br>[REST](../managed-postgresql/api-ref/) |
-| {{ mtr-full-name }} {{ preview-stage }} | [gRPC](../managed-trino/api-ref/grpc/)<br>[REST](../managed-trino/api-ref/) |
+| {{ mtr-full-name }}                     | [gRPC](../managed-trino/api-ref/grpc/)<br>[REST](../managed-trino/api-ref/) |
 | {{ mrd-full-name }}                     | [gRPC](../managed-redis/api-ref/grpc/)<br>[REST](../managed-redis/api-ref/) |
 | {{ ydb-full-name }}                     | [gRPC](../ydb/api-ref/grpc/)<br>[REST](../ydb/api-ref/)<br>[Document API](../ydb/docapi/api-ref/) |
 | {{ message-queue-full-name }}           | [REST](../message-queue/api-ref/) |

@@ -8409,6 +8409,7 @@ default:
             label_managed-spark: Managed Service for Apache Spark™
             label_managed-spqr: Yandex Managed Service for Sharded&nbsp;PostgreSQL
             label_managed-trino: Managed Service for&nbsp;Trino
+            label_managed-ytsaurus: Managed Service for YTsaurus
             label_mdb: Managed Databases
             label_message-queue: Message Queue
             label_metadata-hub: Yandex MetaData Hub
@@ -8859,6 +8860,19 @@ default:
         label_sinks: Sinks
         label_stream: Stream
         label_title: Logging
+      managed-ytsaurus:
+        clusters:
+          YTSaurusClusterCreatePage:
+            base-params-section_title_nfKo2: Basic parameters
+            cluster-config-section_title_fPkN8: Cluster configuration
+            cluster-kind-card_demo_title_4B7zu: Demo cluster
+            cluster-kind-card_production_title_dVEmq: Production cluster
+            exec-node-configuration-section_title_mfa54: Exec node configuration
+            filestore-section_title_tYMR7: Storage
+            http-config-section_title_kMdci: HTTP configuration
+            net-settings-section_title_wo42X: Network settings
+            rpc-config-section_title_tGACF: RPC configuration
+            tablet-node-configuration-section_title_fHZeX: Tablet node configuration
       marketplace-v2:
         action_attach-license-compute: Link to a virtual machine
         action_attach-to-service: Link to a service
@@ -12217,7 +12231,7 @@ default:
     yc_prometheus-operator:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack
-        tag: 57.2.0-1
+        tag: 72.6.2-1
     yc_thumbor:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/thumbor/thumbor/chart/thumbor
