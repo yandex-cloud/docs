@@ -111,7 +111,13 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
       * `dlEmbedService`: Service ID string constant, `YC_DATALENS_EMBEDDING_SERVICE_MARK`.
       * (Optional) `params`: Signed chart parameters provided as part of the token. They cannot be changed without regenerating the token.
 
-        Example:
+        {% note warning %}
+
+        The generated token is transmitted as part of the network request header, so its maximum size is limited to 30 KB. Keep this in mind when using signed parameters.
+
+        {% endnote %}
+
+        Here is an example:
 
         ```json
         {
@@ -215,7 +221,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
         Run the following code:
 
         ```golang
-
+        
         package main
 
         import (
@@ -416,7 +422,7 @@ When embedding private objects, follow these guidelines:
 
 When embedding dashboards, consider the following:
 
-* Embedded dashboards can only be opened in view mode. Their navigation bar and, by default, the ![image](../../_assets/console-icons/ellipsis.svg) menu for charts are hidden. Enable the **Allow data export** option in the embedding settings for your charts to display the ![image](../../_assets/console-icons/ellipsis.svg) menu, allowing you to export the chart data.
+* Embedded dashboards can only be opened in view mode. Their navigation bar and, by default, the ![image](../../_assets/console-icons/ellipsis.svg) menu for charts are hidden. Enable **Allow data export** in embedding settings for your charts to display the ![image](../../_assets/console-icons/ellipsis.svg) menu, which allows exporting the chart data.
 * When you open a dashboard, its [settings](../dashboard/settings.md) apply.
 * For any embedded dashboard, only the parameters [specified in the dashboard settings](../operations/dashboard/add-parameters.md) are enabled.
 * You cannot provide the state of filtered charts in the `state` parameter.

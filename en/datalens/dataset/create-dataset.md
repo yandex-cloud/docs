@@ -116,7 +116,7 @@ To replace a connection in a dataset:
    ![screenshot](../../_assets/datalens/dataset/dataset-replace-connection.png)
 
 1. Select another connection.
-1. Drag the tables to be used as a data source for the dataset to the workspace.
+1. Drag to the workspace the tables that will serve as sources of data for the dataset.
 1. Edit or delete the [calculated fields](../concepts/calculations/index.md) which use fields not present in the new table.
 1. In the top-right corner, click **Save**.
 
@@ -209,7 +209,7 @@ You can add fields to a dataset from data source tables or create [calculated fi
 
    {% endlist %}
 
-### Duplicating fields {#duplicate-fields}
+### Duplicating fields {#dublicate-fields}
 
 You can duplicate any dataset field, including the calculated field you previously created. To do this:
 
@@ -282,6 +282,8 @@ To perform operations with fields, click ![image](../../_assets/console-icons/el
 You can select multiple dataset fields at once to delete, hide, or display them, change their type or aggregation.
 
 ![screenshot](../../_assets/datalens/dataset/dataset-fields-bulk-changes-2.png)
+
+To select the field range, hold the **Shift** key and set the beginning and end of the range with your mouse.
 
 ## Adding parameters {#add-parameters}
 

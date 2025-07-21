@@ -20,7 +20,7 @@ description: В данной статье описаны особенности 
 
   Установить приватное выделенное соединение между вашей локальной сетевой инфраструктурой и {{ yandex-cloud }} можно следующими способами:
   * С помощью сервиса [{{ interconnect-full-name }}](../../interconnect/index.yaml).
-  * Самостоятельно с помощью [VPN](../../glossary/vpn.md).
+  * Самостоятельно с помощью [VPN](../../glossary/vpn.md) — например, [IPSec](../operations/external-nodes-connect-ipsec.md) или [WireGuard](../operations/external-nodes-connect-wireguard.md).
 
 * Кластер {{ managed-k8s-name }} использует [туннельный режим](../concepts/network-policy.md#cilium) сети.
 * Подключаемые серверы должны иметь доступ в интернет.
