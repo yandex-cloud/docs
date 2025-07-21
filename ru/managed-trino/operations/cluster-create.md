@@ -9,8 +9,6 @@ keywords:
 
 # Создание кластера {{ TR }}
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 Каждый [кластер](../../glossary/cluster.md) {{ mtr-name }} состоит из набора компонентов {{ TR }}: [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers), которые могут быть представлены в нескольких экземплярах.
 
 ## Роли для создания кластера {#roles}
@@ -188,7 +186,7 @@ keywords:
         * `--retry-policy` — способ повторного выполнения запросов. Возможные значения:
 
             * `task` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
-            * `query` — повторно выполняются все [этапы запроса](../concepts/index.md#вquery-execution), в котором произошел сбой воркера.
+            * `query` — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
 
         * `--retry-policy-additional-properties` — дополнительные параметры повторного выполнения запросов в формате `<ключ>=<значение>`. Подробнее о параметрах см. в [документации {{ TR }}]({{ tr.docs}}/admin/fault-tolerant-execution.html#advanced-configuration).
         * `--retry-policy-exchange-manager-service-s3` — использование S3-хранилища для записи данных при перезапросах.

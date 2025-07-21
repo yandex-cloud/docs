@@ -9,8 +9,6 @@ keywords:
 
 # Deleting a {{ TR }} cluster
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 You can delete an {{ TR }} cluster if you no longer need it.
 
 ## Deleting a cluster {#delete}

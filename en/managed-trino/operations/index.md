@@ -5,8 +5,6 @@ description: In this article, you will learn how to work with {{ mtr-full-name }
 
 # Step-by-step guides for {{ mtr-name }}
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 ## Clusters {#clusters}
 
 * [Information about existing clusters](cluster-list.md)

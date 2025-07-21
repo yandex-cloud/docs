@@ -5,6 +5,4 @@ description: Для выполнения операций через API в се
 
 # Аутентификация в API {{ mtr-name }}
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 {% include notitle [auth](../../_includes/authentication.md) %}

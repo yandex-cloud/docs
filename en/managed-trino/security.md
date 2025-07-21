@@ -5,8 +5,6 @@ description: Access management in {{ TR }}, a cluster creation and management se
 
 # Managing access to {{ mtr-name }}
 
-{% include [preview](../_includes/managed-trino/note-preview.md) %}
-
 
 In this section, you will learn:
 

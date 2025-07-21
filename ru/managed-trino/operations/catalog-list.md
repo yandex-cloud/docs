@@ -5,8 +5,6 @@ description: Следуя этой инструкции, вы получите �
 
 # Получение списка каталогов Trino в кластере
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

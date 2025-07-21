@@ -5,8 +5,6 @@ description: Follow this guide to delete a catalog from a {{ mtr-name }} cluster
 
 # Deleting a {{ TR }} catalog
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}

@@ -5,8 +5,6 @@ description: Следуя этой инструкции, вы создадите
 
 # Создание каталога {{ TR }}
 
-{% include [preview](../../_includes/managed-trino/note-preview.md) %}
-
 ## Роли для создания каталога {{ TR }} {#roles}
 
 Для создания [каталога {{ TR }}](../concepts/index.md#catalog) с типом подключения [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) вашему аккаунту в {{ yandex-cloud }} нужна дополнительная роль [{{ roles-connection-manager-user }}](../../metadata-hub/security/connection-manager-roles.md#connection-manager-user), чтобы использовать подключения из {{ connection-manager-name }}.
