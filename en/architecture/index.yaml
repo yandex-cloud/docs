@@ -10,6 +10,8 @@ links:
       Deploying a web app in a fault-tolerant configuration in {{ yandex-cloud
       }}
     href: app-in-k8s
+  - title: Testing fault tolerance in {{ yandex-cloud }}
+    href: testing-zone-failure
 meta:
   title: Architecture solutions
   description: >-

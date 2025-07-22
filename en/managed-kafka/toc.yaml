@@ -45,7 +45,7 @@ items:
         items:
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
-          - name: Monitoring the state of clusters and hosts
+          - name: Cluster and host status monitoring
             href: operations/monitoring.md
   - name: Tutorials
     items:
@@ -113,7 +113,7 @@ items:
         href: tutorials/data-processing.md
   - name: Concepts
     items:
-      - name: Resource relationships
+      - name: Service resource interdependencies
         href: concepts/index.md
       - name: Topics and partitions
         href: concepts/topics.md
@@ -131,13 +131,13 @@ items:
         href: concepts/available-apis.md
       - name: Host classes
         href: concepts/instance-types.md
-      - name: Cluster high availability
+      - name: High availability cluster
         href: concepts/ha-cluster.md
-      - name: Networking in {{ mkf-name }}
+      - name: '{{ mkf-name }} network'
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Storage in {{ mkf-name }}
+      - name: '{{ mkf-name }} storage'
         href: concepts/storage.md
       - name: Connectors
         href: concepts/connectors.md

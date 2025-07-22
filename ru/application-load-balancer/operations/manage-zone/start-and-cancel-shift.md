@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
   1. Посмотрите описание команды для включения переноса трафика из зоны доступности:
 
       ```bash
-      yc application-load-balancer load-balancer start-zonal-shift --help
+      yc application-load-balancer load-balancer disable-zones --help
       ```
 
   1. Получите список всех L7-балансировщиков в каталоге по умолчанию:
@@ -43,9 +43,9 @@ description: Следуя данной инструкции, вы сможете
   1. Включите перенос трафика:
 
       ```bash
-      yc application-load-balancer load-balancer start-zonal-shift \
+      yc application-load-balancer load-balancer disable-zones \
         <имя_или_идентификатор_балансировщика> \
-        --zone <зона_доступности>
+        --zones <зоны_доступности>
       ```
 
       Результат:
@@ -84,7 +84,7 @@ description: Следуя данной инструкции, вы сможете
   1. Посмотрите описание команды для отключения переноса трафика из зоны доступности:
 
       ```bash
-      yc application-load-balancer load-balancer cancel-zonal-shift --help
+      yc application-load-balancer load-balancer enable-zones --help
       ```
 
   1. Получите список всех L7-балансировщиков в каталоге по умолчанию:
@@ -107,9 +107,9 @@ description: Следуя данной инструкции, вы сможете
   1. Отключите перенос трафика:
 
       ```bash
-      yc application-load-balancer load-balancer cancel-zonal-shift \
+      yc application-load-balancer load-balancer enable-zones \
         <имя_или_идентификатор_балансировщика> \
-        --zone <зона_доступности>
+        --zones <зоны_доступности>
       ```
 
       Результат:

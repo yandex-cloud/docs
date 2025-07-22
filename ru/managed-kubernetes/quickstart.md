@@ -119,7 +119,7 @@ description: В этой инструкции вы создадите класт
 
      {% include [note-connect-button](../_includes/managed-kubernetes/note-connect-button.md) %}
 
-     {% endnote %}        
+     {% endnote %}
 
      * По умолчанию учетные данные добавляются в директорию `$HOME/.kube/config`.
      * Если необходимо изменить расположение конфигураций, используйте параметр `--kubeconfig <путь_к_файлу>`.

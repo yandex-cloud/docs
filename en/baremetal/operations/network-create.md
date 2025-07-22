@@ -21,4 +21,63 @@ description: In this tutorial, you will learn how to create a virtual routing an
   1. Optionally, you can add labels.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. View the description of the command to create a [virtual network segment (VRF)](../concepts/network.md#vrf-segment):
+
+     ```bash
+     yc baremetal vrf create --help
+     ```
+  
+  1. Create a VRF:
+     
+     ```bash
+     yc baremetal vrf create \
+       --name <VRF_name> \
+       --description "<VRF_description>" \
+       --labels <key>=<value>
+     ```
+
+     Where:
+     * `--name`: VRF name. The naming requirements are as follows:
+       
+       {% include [name-format](../../_includes/name-format.md) %}
+
+     * `--description`: VRF description. This is an optional parameter.
+     * `--labels`: VRF labels. This is an optional parameter.
+
+{% endlist %}
+
+## Example {#examples}
+
+Create a virtual routing and forwarding segment with a name, description, and label:
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  ```bash
+  yc baremetal vrf create \
+    --name demo-vrf \
+    --description "My first VRF" \
+    --labels env=test
+  ```
+
+  Result:  
+  
+  ```text
+  id: ly52l2lzaq5uw********
+  cloud_id: b1gia87mbaom********
+  folder_id: b1g0ijbfaqsn********
+  name: demo-vrf
+  description: My first VRF
+  created_at: "2025-07-01T21:37:08.740581Z"
+  labels:
+    env: test
+  ```
+
 {% endlist %}

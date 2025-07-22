@@ -52,6 +52,7 @@ description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yan
   * [{#T}](data-catalog/catalog-list.md)
   * [{#T}](data-catalog/create-catalog.md)
   * [{#T}](data-catalog/update-catalog.md)
+  * [{#T}](data-catalog/catalog-operations.md)
   * [{#T}](data-catalog/delete-catalog.md)
 * Ingestions:
   * [{#T}](data-catalog/list-ingestions.md)

@@ -84,7 +84,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
              | jq -r .master.endpoints.external_v4_endpoint
           ```
 
-        * `KUBE_TOKEN`: Token that {{ GL }} will use to apply the configuration. Use the token obtained earlier.
+        * `KUBE_TOKEN`: Token that {{ GL }} will use to apply the configuration. Use the token you got earlier.
 
       - {{ GLA }} {#gla}
 
@@ -263,7 +263,9 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
               - docker push "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
 
           deploy:
-            image: bitnami/kubectl:latest
+            image:
+              name: bitnami/kubectl:latest
+              entrypoint: [""]
             stage: deploy
             script:
               - kubectl config use-context ${CI_PROJECT_PATH}:<GitLab_agent_name>

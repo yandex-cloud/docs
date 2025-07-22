@@ -313,7 +313,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
          ```bash
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
-         yc config set folder-id <folder_ID>  
+         yc config set folder-id <folder_ID>
          ```
 
          Where:
@@ -363,13 +363,13 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    | `cloud_id` | Yes | Your Yandex Cloud ID | `string` | `b1g8dn6s3v2e********` |
    | `az_name_list` | - | List of two Yandex Cloud <a href="../../overview/concepts/geo-scope">availability zones</a> to host your resources | `list(string)` | `["{{ region-id }}-a", "{{ region-id }}-b"]` |
    | `security_segment_names` | - | Segment names. The first segment is for management resources, the second, for internet-facing resources, and the third, for DMZ. If you need more segments, add them at the end of the list. When adding a segment, make sure to specify the subnet prefixes in `zone1_subnet_prefix_list` and `zone2_subnet_prefix_list`. | `list(string)` |  `["mgmt", "public", "dmz"]` |
-   | `zone1_subnet_prefix_list` | - | List of network prefixes in the first availability zone for subnets mapped to the `security_segment_names` list. Specify one prefix for each segment from the `security_segment_names` list. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
-   | `zone2_subnet_prefix_list` | - | List of network prefixes in the second availability zone for subnets mapped to the `security_segment_names` list. Specify one prefix for each segment from the `security_segment_names` list. | `list(string)` | `["192.168.2.0/24", "172.16.2.0/24", "10.160.2.0/24"]` |
+   | `zone1_subnet_prefix_list` | - | List of network prefixes in the first availability zone for subnets as per the `security_segment_names` list. Specify one prefix for each segment from the `security_segment_names` list. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |
+   | `zone2_subnet_prefix_list` | - | List of network prefixes in the second availability zone for subnets as per the `security_segment_names` list. Specify one prefix for each segment from the `security_segment_names` list. | `list(string)` | `["192.168.2.0/24", "172.16.2.0/24", "10.160.2.0/24"]` |
    | `public_app_port` | - | TCP port for a DMZ application open for internet connection | `number` | `80` |
    | `internal_app_port` | - | DMZ application internal TCP port receiving traffic from NGFW. You may specify the same port as `public_app_port` or a different one. | `number` | `8080` |
-   | `trusted_ip_for_access_jump-vm` | Yes | List of public IP addresses/subnets allowed to access the jump VM. It is used in the incoming rule of the jump VM security group. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
-   | `jump_vm_admin_username` | - | Jump VM username for SSH connections | `string` | `admin` |
-   | `wg_port` | - | UDP port for inbound traffic as per the jump VM WireGuard settings | `number` | `51820` |
+   | `trusted_ip_for_access_jump-vm` | Yes | List of public IP addresses/subnets allowed to access the jump VM. Used in the incoming rule of the jump VM security group. | `list(string)` | `["A.A.A.A/32", "B.B.B.0/24"]` |
+   | `jump_vm_admin_username` | - | Jump VM username for SSH connections. | `string` | `admin` |
+   | `wg_port` | - | UDP port for inbound traffic as per the jump VM WireGuard settings. | `number` | `51820` |
    | `wg_client_dns` | - | List of DNS server addresses in the management cloud network the admin workstation will use after establishing a WireGuard tunnel to the jump VM. | `string` | `192.168.1.2, 192.168.2.2` |
 
    {% endcut %}
@@ -735,7 +735,7 @@ Within five minutes, the `route-switcher` module will start operating to ensure 
    ssh -i pt_key.pem admin@<VM_internal_IP_address_in_DMZ_segment>
    ```
 
-1. To check whether the DMZ-hosted VM has internet access, run this command:    
+1. To check whether the DMZ-hosted VM has internet access, run this command:
    
    ```bash
    ping ya.ru

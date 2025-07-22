@@ -69,6 +69,8 @@ description: В подключения {{ speechsense-name }} можно заг�
       * **По фразам** — диалог разбивается на отрезки по ключевым фразам.
 
          * **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.start-key-value }}**, **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.finish-key-value }}** — перечислите ключевые фразы, по которым будут определяться начало и конец диалога.
+           
+            {% include [key-phrases-restrictions](../../../_includes/speechsense/data/key-phrases-restrictions.md) %}
 
 1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
 

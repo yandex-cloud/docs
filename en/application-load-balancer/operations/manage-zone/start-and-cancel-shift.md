@@ -20,7 +20,7 @@ description: Follow this guide to enable and disable traffic transfer from an av
   1. See the description of the command to enable traffic transfer from an availability zone:
 
       ```bash
-      yc application-load-balancer load-balancer start-zonal-shift --help
+      yc application-load-balancer load-balancer disable-zones --help
       ```
 
   1. Get a list of all L7 load balancers in the default folder:
@@ -43,9 +43,9 @@ description: Follow this guide to enable and disable traffic transfer from an av
   1. Enable traffic transfer:
 
       ```bash
-      yc application-load-balancer load-balancer start-zonal-shift \
+      yc application-load-balancer load-balancer disable-zones \
         <load_balancer_name_or_ID> \
-        --zone <availability_zone>
+        --zones <availability_zones>
       ```
 
       Result:
@@ -84,7 +84,7 @@ description: Follow this guide to enable and disable traffic transfer from an av
   1. See the description of the command to disable traffic transfer from an availability zone:
 
       ```bash
-      yc application-load-balancer load-balancer cancel-zonal-shift --help
+      yc application-load-balancer load-balancer enable-zones --help
       ```
 
   1. Get a list of all L7 load balancers in the default folder:
@@ -107,9 +107,9 @@ description: Follow this guide to enable and disable traffic transfer from an av
   1. Disable traffic transfer:
 
       ```bash
-      yc application-load-balancer load-balancer cancel-zonal-shift \
+      yc application-load-balancer load-balancer enable-zones \
         <load_balancer_name_or_ID> \
-        --zone <availability_zone>
+        --zones <availability_zones>
       ```
 
       Result:

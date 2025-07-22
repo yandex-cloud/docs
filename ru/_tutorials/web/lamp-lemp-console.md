@@ -107,9 +107,7 @@
           * Загрузите или вставьте содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к ВМ по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
           * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
-          SSH-ключ будет добавлен в ваш профиль пользователя организации.
-
-          Если в организации отключена возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя создаваемой виртуальной машины.
+          {% include [ssh-add-to-org-profile](../../_includes/compute/create/ssh-add-to-org-profile.md) %}
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `lamp-vm` или `lemp-vm`. Требования к имени:
 

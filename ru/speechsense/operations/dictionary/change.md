@@ -26,4 +26,6 @@ description: Следуя данной инструкции, вы сможете
    * Название и описание словаря.
    * **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** — укажите каждую фразу-триггер на отдельной строке. {{ speechsense-name }} ищет ключевые слова в диалоге и, если находит, назначает записи [словарный тег](../../concepts/tags.md#dictionary-tags), содержащий словарь.
 
+      {% include [key-phrases-restrictions](../../../_includes/speechsense/data/key-phrases-restrictions.md) %}
+
 1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.save }}**.

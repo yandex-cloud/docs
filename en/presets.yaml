@@ -430,6 +430,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL®
   mmy-name: Managed Service for MySQL®
   mmy-short-name: Managed Service for MySQL®
+  monitoring-doc-links: ../monitoring/concepts/index.md
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
   monitoring-short-name: Monitoring
@@ -615,11 +616,18 @@ default:
   roles-yagpt-user: ai.languageModels.user
   roles:
     data-catalog:
+      admin: data-catalog.admin
+      auditor: data-catalog.auditor
       catalog:
         admin: data-catalog.catalogs.admin
         auditor: data-catalog.catalogs.auditor
         editor: data-catalog.catalogs.editor
         viewer: data-catalog.catalogs.viewer
+      dataConsumer: data-catalog.dataConsumer
+      dataSteward: data-catalog.dataSteward
+      editor: data-catalog.editor
+      user: data-catalog.user
+      viewer: data-catalog.viewer
     gitlab:
       admin: gitlab.admin
       editor: gitlab.editor
@@ -6397,6 +6405,10 @@ default:
         section_settings: Notification settings
         section_transports: Notification methods
         value_theme-system: System
+      ssh-key-add-dialog:
+        value_radio-generate: Generate key
+        value_radio-manual: Enter manually
+        value_radio-upload: Load from file
       usermenu:
         label_login: Log in
     yacloud_monitoring:
@@ -6811,10 +6823,16 @@ default:
       organization:
         security-settings:
           OtherSecuritySettingsForm:
+            auth_settings_1RoAM: Authentication settings
+            required_mfa_6P4xN: >-
+              Require a second authentication factor for users with a Yandex
+              account.
             title_hide-users-list_9eW2W: >-
               Block users from viewing the list of organization members and
               their details
             title_users-list-visibility_ftTaP: Confidentiality
+          SecuritySettingsPageLayout:
+            tab_other_kJgk8: Other parameters
         userpool:
           action_delete-domain: Delete
         userpools:
@@ -8432,10 +8450,10 @@ default:
             label_ymq: Message Queue
             label_yq: Query
             label_yq_ru: Yandex Query
-            value_audit-trails: Audit trail
+            value_audit-trails: Trail
             value_compute: Virtual machine instance
             value_data-proc: Yandex Data Processing cluster
-            value_data-streams: Data Streams
+            value_data-streams: Data stream
             value_data-transfer: Data Transfer
             value_managed-mysql: MySQL cluster
             value_managed-postgresql: PostgreSQL cluster
@@ -8506,6 +8524,9 @@ default:
       k8s:
         access:
           label_title: Access management
+        Cluster:
+          CommonInfo:
+            access-section-title_fW4Au: Access
         cluster:
           marketplace:
             button_install: Install
@@ -8520,6 +8541,7 @@ default:
             label_master-title: Master
             label_status: Status
             label_title: Overview
+            section_master: Master configuration
           switch_custom-resources: Custom resources
           switch_events: Events
           switch_marketplace: Marketplace
@@ -8529,7 +8551,6 @@ default:
           switch_storage: Storage
           switch_workloads: Workload
         clusters:
-          button_action-connect: Get started
           button_create: Create cluster
           create:
             button_add-day-of-week: Add day and time

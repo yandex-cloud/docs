@@ -39,8 +39,8 @@ Cluster operation cost is charged per hour. The minimum billing unit is one hour
 
 This is an example of calculating the cost of using a cluster with the following properties for 30 days:
 
-* **Coordinator**:  One `standard` configuration instance: 4 × 100% vCPU, 16 GB RAM.
-* **Workers**:  One `standard` configuration instance, fixed number of instances: 4 × 100% vCPU, 16 GB RAM.
+* **Coordinator**: One `standard` configuration instance: 4 × 100% vCPU, 16 GB RAM.
+* **Workers**: One `standard` configuration instance, fixed number: 4 × 100% vCPU, 16 GB RAM.
 
 
 

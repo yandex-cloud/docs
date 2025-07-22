@@ -13,6 +13,7 @@
 1. [Подготовьте инфраструктуру для {{ managed-k8s-name }}](#infra).
 1. [Подготовьте виртуальную машину](#vm).
 1. [Проверьте доступность кластера](#check).
+1. (Опционально) [Настройте подключение к NTP-серверам](#ntp).
 1. (Опционально) [Подключите приватный реестр Docker-образов](#cert).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -204,6 +205,72 @@ CoreDNS is running at https://<адрес_кластера>/api/v1/namespaces/ku
 
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
+
+## (Опционально) Настройте синхронизацию времени кластера {{ managed-k8s-name }} с собственным NTP-сервером {#ntp}
+
+Чтобы время кластера {{ managed-k8s-name }} не расходилось со временем другого ресурса (в данном случае виртуальной машины), разместите в подсети `my-subnet` собственный NTP-сервер и настройте с ним синхронизацию кластера и ВМ.
+
+1. Укажите адрес NTP-сервера в [настройках DHCP](../../vpc/concepts/dhcp-options.md) подсети `my-subnet`.
+
+   {% list tabs group=instructions %}
+
+   - Вручную {#manual}
+
+     [Измените подсеть `my-subnet`](../../vpc/operations/subnet-update.md), добавив IP-адрес NTP-сервера.
+
+   - {{ TF }} {#tf}
+
+     1. В файле конфигурации {{ TF }} измените описание подсети `my-subnet`. Добавьте блок `dhcp_options` (если он отсутствует) с параметром `ntp_servers` и укажите IP-адрес NTP-сервера:
+
+        ```hcl
+        ...
+        resource "yandex_vpc_subnet" "lab-subnet-a" {
+          name           = "subnet-1"
+          ...
+          v4_cidr_blocks = ["<IPv4-адрес>"]
+          network_id     = "<идентификатор_сети>"
+          ...
+          dhcp_options {
+            ntp_servers = ["<IPv4-адрес>"]
+            ...
+          }
+        }
+        ...
+        ```
+
+        Подробную информацию о параметрах ресурса `yandex_vpc_subnet` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_subnet).
+
+     1. Примените изменения:
+
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+        
+        {{ TF }} изменит все требуемые ресурсы. Проверить изменение подсети можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+        ```
+        yc vpc subnet get <имя_подсети>
+        ```
+     
+   {% endlist %}
+
+1. Разрешите подключение кластера и ВМ к NTP-серверу.
+   
+   [Создайте](../../vpc/operations/security-group-add-rule.md) правила в [группе безопасности кластера и групп узлов](../../managed-kubernetes/operations/connect/security-groups#rules-internal-cluster) и группе безопасности `vm-security-group`:
+
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `123`. Если вместо порта `123` вы используете на NTP-сервере другой порт, укажите его.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_udp }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `<IP-адрес_NTP-сервера>/32`.
+
+1. Обновите сетевые параметры в группе узлов кластера и на ВМ одним из следующих способов:
+
+   * Подключитесь к каждому узлу группы и к ВМ [по SSH](../../managed-kubernetes/operations/node-connect-ssh.md) или [через OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md) и выполните команду `sudo dhclient -v -r && sudo dhclient`.
+   * Перезагрузите узлы группы и ВМ в удобное для вас время.
+
+   {% note warning %}
+
+   Обновление сетевых параметров может привести к недоступности сервисов внутри кластера на несколько минут.
+
+   {% endnote %}
 
 ## (Опционально) Подключите приватный реестр Docker-образов {#cert}
 
