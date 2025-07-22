@@ -83,7 +83,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
             connection_options {
               mdb_cluster_id = "<cluster_ID>"
               auth_source    = "<DB_name>"
-              user           = "<username>"
+              user           = "<user_name>"
               password {
                 raw = "<user_password>"
               }
@@ -149,7 +149,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
                 }
               }
               auth_source = "<DB_name>"
-              user        = "<username>"
+              user        = "<user_name>"
               password {
                 raw = "<user_password>"
               }
@@ -252,6 +252,8 @@ Known issues when using a {{ MG }} endpoint:
 * [Error when transferring timeseries collections](#timeseries).
 * [Unable to recognize an external cluster IP address or FQDN](#cluster-config-issue).
 * [Error at the copying stage](#history-lost)
+* [Source data cannot be sharded](#cannot-get-delimiters)
+* [Transfer failure with the `cursor.Decode` error](#invalid-length)
 
 For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
@@ -270,3 +272,5 @@ For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/in
 {% include [history lost](../../../../_includes/data-transfer/troubles/mongodb/history-lost.md) %}
 
 {% include [cannot-get-delimiters](../../../../_includes/data-transfer/troubles/mongodb/cannot-get-delimiters.md) %}
+
+{% include [invalid-length](../../../../_includes/data-transfer/troubles/mongodb/invalid-length.md) %}

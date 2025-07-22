@@ -13,17 +13,19 @@ description: '{{ data-catalog-name }} allows you to collect, analyze, and mark u
 
 {% include [data-catalog](../../_includes/metadata-hub/data-catalog-definition.md) %}
 
-The main entity in {{ data-catalog-name }} is a _metadata catalog_. A catalog serves as:
+The main entity in {{ data-catalog-name }} is a _metadata catalog_. The catalog is simultaneously:
 
-* Hub for collecting and storing metadata from various sources.
+* Space for collecting and storing metadata from various sources.
 * Workspace for marking up metadata. 
 
 You can upload metadata into a catalog using [sources and ingestions](#metadata-upload). Metadata resides in internal storage.
 
-At the very basic level, you can use [domains and subdomains](#domains-and-subdomains), e.g., to arrange metadata by company departments. For a more complex markup, use these resources:
+For initial distribution of metadata, e.g., by company departments, use [domains and subdomains](#domains-and-subdomains). For more detailed metadata markup, you can use:
 
 * [Classifications and tags](#classifications-and-tags)
 * [Glossaries and terms](#glossaries-and-terms)
+
+![data-catalog](../../_assets/metadata-hub/data-catalog.svg)
 
 ## Uploading metadata {#metadata-upload}
 
@@ -33,26 +35,24 @@ A source is a connection through which the metadata is uploaded. This connection
 
 A source can connect to both clusters of managed databases in {{ yandex-cloud }} and to custom installations of these databases. It can also fetch object links based on ongoing data delivery in {{ data-transfer-full-name }}.
 
-Each source can only connect to one instance of the selected database or a single transfer in {{ data-transfer-name }}. However, you can create multiple data sources in a single metadata catalog. 
-
-If you create multiple sources for the same DB instance or transfer in one catalog, {{ data-catalog-name }} will automatically create a `data store` object associated with this DB instance or transfer. This object aggregates all uploaded metadata across all sources of this DB instance or cluster.
+If you create multiple sources for the same DB instance or transfer in one catalog, the single `data store` object associated with this DB instance will be automatically created. This object aggregates all uploaded metadata across all sources of this DB instance or cluster.
 
 An ingestion is a process that connects to the data storage or service specified in the source and uploads its metadata into the catalog. In an ingestion, you can configure:
 
 * Filters to get only relevant metadata.
 * Profiling to export the statistical data you need.
 
-An ingestion is exclusively associated with a specific source. You can change the associated source in the ingestion settings, but you cannot link the ingestion to multiple sources. However, a source can have multiple associated ingestions. This means you can create multiple ingestions for one source, each with its own filters.
+An ingestion is exclusively associated with a specific source. However, a source can have multiple associated ingestions. This means you can create multiple ingestions for one source, each with its own filters.
 
 You can run an ingestion manually or configure it to run on a schedule. A scheduled ingestion always runs only once, even if the schedule specifies a period and not a specific hour.
 
 {{ data-catalog-name }} has quotas for the maximum number of sources and ingestions in a catalog.
 
-## Metadata markup {#metadata-upload}
+## Metadata markup {#metadata-markup}
 
 ### Domains and subdomains {#domains-and-subdomains}
 
-A _domain_ represents a group of metadata. You can use domains to arrange metadata to meet your business process needs, e.g., by departments or business units. For each domain, you can create a subdomain for more granular grouping.
+A _domain_ is a group of metadata. Domains allow you to group metadata to meet your workflow needs, e.g., aggregate metadata by departments or business units. For each domain, you can create a subdomain for more granular grouping.
 
 You can only assign one domain or subdomain to each metadata set or its individual element. At the same time, you can assign different domains or subdomains to separate elements within a single metadata set.
 
@@ -64,7 +64,7 @@ A _classification_ comprises tags used to mark up metadata.
 
 {{ data-catalog-name }} has quotas for the maximum number of classifications in a catalog.
 
-_Tags_ are labels used to mark up data based on its type, e.g., sensitive data, table specifications, etc. You can assign multiple tags from a single or different classifications to the same set of metadata or its individual element. If **Mutual exclusion** is enabled in a classification, you can only assign one tag from this classification to a metadata set or its element.
+_Tags_ are labels used to mark up data based on its type, e.g., sensitive data, table specifications, etc. You can assign multiple tags from a single or different classifications to the same set of metadata or its individual element. If **Mutually exclusive** is enabled in a classification, you can only assign one tag from this classification to a metadata set or its element.
 
 In addition to metadata sets and their elements, you can assign tags to:
 

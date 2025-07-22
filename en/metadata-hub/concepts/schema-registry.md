@@ -63,5 +63,4 @@ To link these schemas, add a reference with the following parameters when loadin
 
 ## Use cases {#examples}
 
-* [{#T}](../tutorials/managed-schema-registry.md)
 * [{#T}](../tutorials/schema-registry-cdc-debezium-kafka.md)

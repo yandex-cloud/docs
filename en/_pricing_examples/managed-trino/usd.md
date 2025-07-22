@@ -3,7 +3,7 @@
 > Total: {% calc [currency=USD] 720 × (8 × (2,042 / 120) + 32 × (0,545 / 120)) %}, cost of using the cluster for 30 days.
 
 Where:
-* 720: Number of hours in 30 days.
+* 720: Hours in 30 days.
 * 8: Total number of 100% vCPUs.
 * {% calc [currency=USD] 2,042 / 120 %}: Cost of using 100% vCPU per hour.
 * 32: Total amount of RAM (in GB).

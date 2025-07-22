@@ -56,7 +56,7 @@ To create a [service connection](../concepts/private-endpoint.md):
 
              {% include [private-endpoint-create-dns](../../_includes/vpc/private-endpoint-create-dns.md) %}
 
-     * `endpoint_address`: Section with parameters of the service connection internal IP address:
+     * `endpoint_address`: Section with parameters of the service connection's internal IP address:
          * `subnet_id`: ID of the subnet to provide an IP address for the service connection. If no subnet ID is provided, a random internal IP address will be assigned from the range of one of the subnets in the cloud network. This is an optional parameter.
 
         {% note info %}

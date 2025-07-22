@@ -1,5 +1,3 @@
-# Решение проблем в {{ managed-k8s-name }}
-
 В этом разделе описаны типичные проблемы, которые могут возникать при работе {{ managed-k8s-name }}, и методы их решения.
 
 #### Ошибка при создании кластера в облачной сети другого каталога {#neighbour-catalog-permission-denied}
@@ -333,3 +331,111 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
 Чтобы исключить такую ситуацию, рекомендуется настраивать проверки состояния бэкендов на балансировщике {{ alb-name }}. Благодаря проверкам состояния балансировщик своевременно отслеживает недоступные бэкенды и направляет трафик на другие бэкенды. После обновления приложения трафик будет снова распределен на все бэкенды.
 
 Подробнее см. в разделах [{#T}](../../application-load-balancer/concepts/best-practices.md) и [{#T}](../../application-load-balancer/k8s-ref/service-for-ingress.md#annotations).
+
+#### Некорректно отображается системное время на узлах, а также в журналах контейнеров и подов кластера {{ managed-k8s-name }} {#time}
+
+Время кластера {{ managed-k8s-name }} может расходиться со временем других ресурсов, например виртуальной машины, если они используют для синхронизации часов разные источники. Например, кластер {{ managed-k8s-name }} синхронизируется со служебным сервером времени (по умолчанию), а ВМ синхронизируется с собственным или публичным NTP-сервером.
+
+**Решение**: настройте синхронизацию времени кластера {{ managed-k8s-name }} с собственным NTP-сервером. Для этого:
+
+1. Укажите адреса NTP-серверов в [настройках DHCP](../../vpc/concepts/dhcp-options.md) подсетей мастера.
+
+   {% list tabs group=instructions %}
+
+   - Консоль управления {#console}
+
+     1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. Нажмите на имя нужного кластера {{ k8s }}.
+     1. В блоке **{{ ui-key.yacloud.k8s.cluster.overview.section_master }}** нажмите на имя подсети.
+     1. Нажмите кнопку ![subnets](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+     1. В открывшемся окне раскройте блок **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-ntp-server }}** и укажите IP-адрес NTP-сервера.
+     1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.update.button_update }}**.
+
+   - CLI {#cli}
+
+     {% include [include](../../_includes/cli-install.md) %}
+
+     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+     1. Посмотрите описание команды CLI для обновления параметров подсети:
+
+         ```bash
+         yc vpc subnet update --help
+         ```
+
+     1. Выполните команду `subnet` с параметром `--ntp-server`, указав IP-адрес NTP-сервера: 
+
+         ```bash
+         yc vpc subnet update <идентификатор_подсети> --ntp-server <адрес_сервера>
+         ```
+
+     {% include [note-get-cluster-subnet-id](../../_includes/managed-kubernetes/note-get-cluster-subnet-id.md) %}
+
+   - {{ TF }} {#tf}
+
+     1. В файле конфигурации {{ TF }} измените описание подсети кластера. Добавьте блок `dhcp_options` (если он отсутствует) с параметром `ntp_servers` и укажите IP-адрес NTP-сервера:
+
+        ```hcl
+        ...
+        resource "yandex_vpc_subnet" "lab-subnet-a" {
+          ...
+          v4_cidr_blocks = ["<IPv4-адрес>"]
+          network_id     = "<идентификатор_сети>"
+          ...
+          dhcp_options {
+            ntp_servers = ["<IPv4-адрес>"]
+            ...
+          }
+        }
+        ...
+        ```
+
+        Подробную информацию о параметрах ресурса `yandex_vpc_subnet` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_subnet).
+
+     1. Примените изменения:
+
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+        
+        {{ TF }} изменит все требуемые ресурсы. Проверить изменение подсети можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+        ```bash
+        yc vpc subnet get <имя_подсети>
+        ```
+     
+   - API {#api}
+   
+     Воспользуйтесь методом [update](../../vpc/api-ref/Subnet/update.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) и передайте в запросе:
+
+     * IP-адрес NTP-сервера в параметре `dhcpOptions.ntpServers`.
+     * Обновляемый параметр `dhcpOptions.ntpServers` в параметре `updateMask`.
+     
+     {% include [note-get-cluster-subnet-id](../../_includes/managed-kubernetes/note-get-cluster-subnet-id.md) %}
+
+   {% endlist %}
+
+   {% note warning %}
+
+   Для высокодоступного мастера, который размещается в трех зонах доступности, изменения необходимо внести в каждую из трех подсетей.
+
+   {% endnote %}
+
+1. Разрешите подключение из кластера к NTP-серверам.
+   
+   [Создайте правило](../../vpc/operations/security-group-add-rule.md) в [группе безопасности кластера и групп узлов](../../managed-kubernetes/operations/connect/security-groups#rules-internal-cluster):
+
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `123`. Если вместо порта `123` вы используете на NTP-сервере другой порт, укажите его.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_udp }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `<IP-адрес_NTP-сервера>/32`. Для мастера, который размещается в трех зонах доступности, укажите три блока: `<IP-адрес_NTP-сервера_в_подсети1>/32`, `<IP-адрес_NTP-сервера_в_подсети2>/32`, `<IP-адрес_NTP-сервера_в_подсети3>/32`.
+
+1. Обновите сетевые параметры в группе узлов кластера одним из следующих способов:
+
+   * Подключитесь к каждому узлу группы [по SSH](../../managed-kubernetes/operations/node-connect-ssh.md) или [через OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md) и выполните команду `sudo dhclient -v -r && sudo dhclient`.
+   * Перезагрузите узлы группы в удобное для вас время.
+
+   {% note warning %}
+
+   Обновление сетевых параметров может привести к недоступности сервисов внутри кластера на несколько минут.
+
+   {% endnote %}

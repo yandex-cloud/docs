@@ -36,7 +36,6 @@
       --domain-prefix <доменное_имя_инстанса> \
       --deletion-protection \
       --approval-rules <конфигурация_правил_ревью_кода> \
-      --zone <зона_доступности> \
       --subnet-id <идентификатор_подсети>
     ```
 
@@ -65,7 +64,6 @@
 
       {% include [note-approval-rules-pricing](note-approval-rules-pricing.md) %}
 
-    * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
     * `--subnet-id` — идентификатор выбранной подсети.
 
     Результат:
@@ -73,8 +71,8 @@
     ```text
     id: c17c60tpadua********
     folder_id: b1g2slt7p9ug********
-    created_at: "2025-06-16T13:07:57.729Z"
-    updated_at: "2025-06-16T13:07:57.729Z"
+    created_at: "2025-07-20T18:34:16.078Z"
+    updated_at: "2025-07-20T18:34:16.078Z"
     name: test-cli
     resource_preset_id: s2.small
     disk_size: "107374182400"
@@ -86,7 +84,7 @@
     backup_retain_period_days: "7"
     deletion_protection: true
     approval_rules_id: BASIC
-    gitlab_version: 17.11.2
+    gitlab_version: 17.11.6
     ```
 
     Подробнее о команде читайте в [справочнике CLI](../../managed-gitlab/cli-ref/instance/create.md).

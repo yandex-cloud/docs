@@ -1,5 +1,3 @@
-# Ресурсы
-
 #### Какие ресурсы требуются для обслуживания кластера {{ k8s }}, в который входит группа, например, из трех узлов? {#required-resources}
 
 Для каждого [узла](../../managed-kubernetes/concepts/index.md#node-group) необходимы ресурсы для запуска компонентов, которые отвечают за функционирование узла как части [кластера {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Подробнее читайте в разделе [{#T}](../../managed-kubernetes/concepts/node-group/allocatable-resources.md).

@@ -24,7 +24,21 @@
 
 Чтобы создать пару ключей:
 
-{% include [vm-ssh-prepare-key](../../../_includes/vm-ssh-prepare-key.md) %}
+{% list tabs group=operating_system %}
+
+- Linux/macOS {#linux-macos}
+
+  {% include [vm-ssh-prepare-key-linux-macos](../../../_includes/vm-ssh-prepare-key-linux-macos.md) %}
+
+- Windows 10/11 {#windows}
+
+  {% include [vm-ssh-prepare-key-win-10-11](../../../_includes/vm-ssh-prepare-key-win-10-11.md) %}
+
+- Windows 7/8 {#windows7-8}
+
+  {% include [vm-ssh-prepare-key-win-7-8](../../../_includes/vm-ssh-prepare-key-win-7-8.md) %}
+
+{% endlist %}
 
 ## Настройте облачную площадку {#cloud-setup}
 
@@ -124,9 +138,7 @@
         * Загрузите или вставьте содержимое [созданного ранее](#create-ssh-keys) публичного SSH-ключа для доступа к ВМ.
         * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
-        SSH-ключ будет добавлен в ваш профиль пользователя организации.
-
-        Если в организации отключена возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя создаваемой виртуальной машины.
+        {% include [ssh-add-to-org-profile](../../../_includes/compute/create/ssh-add-to-org-profile.md) %}
 
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `cloud-gw`.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -373,9 +385,7 @@
         * Загрузите или вставьте содержимое [созданного ранее](#create-ssh-keys) публичного SSH-ключа для доступа к ВМ.
         * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
-        SSH-ключ будет добавлен в ваш профиль пользователя организации.
-
-        Если в организации отключена возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя создаваемой виртуальной машины.
+        {% include [ssh-add-to-org-profile](../../../_includes/compute/create/ssh-add-to-org-profile.md) %}
 
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `remote-gw`. Требования к имени:
 

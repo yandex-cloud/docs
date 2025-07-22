@@ -66,6 +66,7 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](./add-ssh.md)
 * [{#T}](./enable-refresh-tokens.md)
+* [{#T}](./enable-2fa-access.md)
 
 ## Работа с {{ oslogin }} {#os-login}
 

@@ -56,6 +56,9 @@
 1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}**.
 1. В выпадающем списке над поисковой строкой выберите ![image](../../../_assets/console-icons/square-dashed-letter-t.svg) **{{ ui-key.yc-ui-talkanalytics.dialogs.search.dictionary.title }}**.
 1. Введите в поисковой строке ключевую фразу или фразы. Каждая фраза вводится с новой строки.
+
+   {% include [key-phrases-restrictions](../../../_includes/speechsense/data/key-phrases-restrictions.md) %}
+
 1. (Опционально) Чтобы уточнить результаты поиска:
 
    * Выберите из выпадающего списка канал, в котором нужно выполнить поиск: **{{ ui-key.yc-ui-talkanalytics.dialogs.all-participants }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}** или **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**.

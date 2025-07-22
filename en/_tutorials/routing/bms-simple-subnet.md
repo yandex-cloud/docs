@@ -130,7 +130,7 @@ No public IP addresses were assigned to the servers, so you cannot connect to th
           ```
 
           If you did not save the server administrator password, you can create a new password following [this guide](../../baremetal/operations/servers/reset-password.md) or [reinstall](../../baremetal/operations/servers/reinstall-os-from-marketplace.md) the server OS.
-      1. View a list of the server's network interfaces and find the interface connected to the private subnet:
+      1. View a list of the server’s network interfaces and find the interface connected to the private subnet:
 
           ```bash
           ip a

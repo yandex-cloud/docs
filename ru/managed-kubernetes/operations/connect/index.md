@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
          get-credentials <имя_или_идентификатор_кластера> \
          --external
       ```
- 
+
       {% include [note-connect-button](../../../_includes/managed-kubernetes/note-connect-button.md) %}
 
       Если вы [создали кластер](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) без публичного адреса, к кластеру можно подключиться только по внутреннему IP-адресу.
@@ -58,7 +58,7 @@ description: Следуя данной инструкции, вы сможете
          get-credentials <имя_или_идентификатор_кластера> \
          --internal
       ```
-      
+
       {% include [note-connect-button](../../../_includes/managed-kubernetes/note-connect-button.md) %}
 
    {% endlist %}

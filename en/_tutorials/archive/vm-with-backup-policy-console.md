@@ -514,8 +514,7 @@ You can create a new policy or use one of those automatically created upon servi
 
   In the body of your request, provide the following:
 
-  * In the `metadata` field, the `user-data` object containing the custom metadata configuration with a script to install the {{ backup-name }} agent.
-  
+  * In the `metadata` field, the `user-data` object containing the custom metadata configuration with the {{ backup-name }} agent installation script.
   * In the `cloudbackup` field, the backup policy ID. To learn more about getting a policy ID, see [this guide](../../backup/operations/policy-vm/get-info.md).
 
   Use `\n` as a line separator.

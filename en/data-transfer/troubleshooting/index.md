@@ -56,6 +56,12 @@ After solving the problem, depending on the status of the transfer, activate it 
 
 {% include [failed-to-connect](../../_includes/data-transfer/troubles/failed-to-connect.md) %}
 
+{% include [no-alive-hosts](../../_includes/data-transfer/troubles/no-alive-hosts.md) %}
+
+{% include [operation-canceled](../../_includes/data-transfer/troubles/operation-canceled.md) %}
+
+{% include [unknown-user](../../_includes/data-transfer/troubles/unknown-user.md) %}
+
 ### Decrease in transfer speed {#speed-degrade}
 
 **Issue**:
@@ -99,6 +105,10 @@ Error example:
 
 ## Network {#network}
 
+{% include [connection-refused](../../_includes/data-transfer/troubles/network/connection-refused.md) %}
+
+{% include [failed-to-connect-to](../../_includes/data-transfer/troubles/network/failed-to-connect-to.md) %}
+
 {% include [common-network](../../_includes/data-transfer/troubles/network/common-network.md) %}
 
 {% include [ip-collision](../../_includes/data-transfer/troubles/network/ip-collision.md) %}
@@ -113,9 +123,13 @@ Error example:
 {% include [vpc-user](../../_includes/data-transfer/troubles/network/vpc-user.md) %}
 
 
+{% include [connection-timed-out](../../_includes/data-transfer/troubles/network/connection-timed-out.md) %}
+
 ## {{ CH }} {#clickhouse}
 
 {% include [no-new-tables](../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
+
+{% include [ssl-is-required](../../_includes/data-transfer/troubles/clickhouse/ssl-is-required.md) %}
 
 {% include [table-names](../../_includes/data-transfer/troubles/clickhouse/table-names.md) %}
 
@@ -124,6 +138,8 @@ Error example:
 {% include [pod-restarted](../../_includes/data-transfer/troubles/clickhouse/pod-restarted.md) %}
 
 {% include [max-partitions](../../_includes/data-transfer/troubles/clickhouse/max-partitions.md) %}
+
+{% include [no-tables-found](../../_includes/data-transfer/troubles/clickhouse/no-tables.md) %}
 
 ## {{ ES }} {#elasticsearch}
 
@@ -152,6 +168,8 @@ Error example:
 
 {% include [cannot-get-delimiters](../../_includes/data-transfer/troubles/mongodb/cannot-get-delimiters.md) %}
 
+{% include [invalid-length](../../_includes/data-transfer/troubles/mongodb/invalid-length.md) %}
+
 ## {{ MY }} {#mysql}
 
 {% include [binlog-size](../../_includes/data-transfer/troubles/mysql/binlog-size.md) %}
@@ -170,6 +188,8 @@ Error example:
 
 {% include [timezone-shift](../../_includes/data-transfer/troubles/mysql/timezone-shift.md) %}
 
+{% include [no-tables-found](../../_includes/data-transfer/troubles/mysql/no-tables.md) %}
+
 ## {{ objstorage-name }} {#object-storage}
 
 {% include [update-not-supported](../../_includes/data-transfer/troubles/object-storage/update-not-supported.md) %}
@@ -186,7 +206,13 @@ Error example:
 
 {% include [mapper-parsing-exception](../../_includes/data-transfer/troubles/elastic-opensearch/mapper-parsing-exception.md) %}
 
+{% include [ssl-is-required](../../_includes/data-transfer/troubles/elastic-opensearch/ssl-is-required.md) %}
+
+{% include [no-tables](../../_includes/data-transfer/troubles/elastic-opensearch/no-tables.md) %}
+
 ## {{ PG }} {#postgresql}
+
+{% include [no-tables](../../_includes/data-transfer/troubles/postgresql/no-tables.md) %}
 
 {% include [master-trans-stop](../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
 

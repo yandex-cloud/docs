@@ -132,9 +132,9 @@ Here is an [example](../tutorials/web/application-load-balancer-website/index.md
 
 Placement of platform service hosts in different availability zones is the key method of achieving fault tolerance.
 
-### Fault tolerance of managed databases (MDBs) {#mdb-ha}
+### High availability managed databases (MDB) {#mdb-ha}
 
-Under the [SLA](https://yandex.ru/legal/cloud_sla_mdb/), a fault-tolerant configuration is a configuration of a `DB cluster consisting of two or more DB hosts located in different availability zones`. The best practice is to place DB cluster nodes in three availability zones, since it is systems based on quorum algorithms that are used for ensuring fault tolerance.
+According to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/), a high availability configuration is one with a `DB cluster consisting of two or more DB hosts located in different availability zones`. It is optimal to put DB cluster nodes in three availability zones, because high availability is ensured by systems based on quorum algorithms.
 
 {% note warning %}
 
@@ -188,7 +188,7 @@ Here is an [example](../tutorials/infrastructure-management/vm-autoscale/) of de
 For autoscaling, you can use any {{ yandex-cloud }} {{ monitoring-name }} parameter in addition to the basic parameter (CPU load).
 
 Recommendations on ensuring tolerance against zone faults:
-   1. Use a separate instance group for each availability zone. Avoid using the same instance group to create instances in different availability zones: it can complicate their management should one of the zones fail.
+   1. Use a separate instance group for each availability zone. Avoid using the same instance group to create instances in different availability zones: it may complicate their management if one of the zones fails.
    1. {{ k8s }} cluster node group autoscaling is also based on the instance group mechanics.
 
 {% note warning %}
@@ -199,7 +199,7 @@ Recommendations on ensuring tolerance against zone faults:
 
 {% note info %}
 
-When designing a fault-tolerant cloud infrastructure, note that in case one of the availability zones fails, the available resources in other zones will be depleted much faster.
+When designing a fault-tolerant cloud infrastructure, keep in mind that if one of the availability zones fails, vacant resources in other zones will be depleted much faster.
 
 {% endnote %}
 
@@ -211,33 +211,32 @@ To ensure fault tolerance and quick fault handling in {{ managed-k8s-name }} app
    1. Minimize or eliminate resubscription of resources on the worker nodes of a {{ managed-k8s-name }} cluster, especially of RAM.
    1. Set up correct health checks.
    1. Apply a retry policy to the provider’s services.
-   1. Set up autoscaling of cluster worker nodes for automatic resource redistribution in case of an unexpected load increase or fault in one of the availability zones.
+   1. Configure autoscaling of cluster worker nodes for automatic redistribution of resources in case of an unexpected load spike or failure of one of the availability zones.
 
-## How to shift load from an availability zone {#traffic-shifting}
+## How to shift load away from an availability zone {#traffic-shifting}
 
-{{ alb-name }} supports manual [disabling of traffic in a specific zone](../application-load-balancer/concepts/application-load-balancer.md#lb-location). 
-For {{ network-load-balancer-name }}, you can only remove traffic from an availability zone by disabling health checks for targets in the faulty zone. There are several ways to do this:
+You can manually disable traffic balancing for a selected availability zone for [{{ network-load-balancer-name }}](../network-load-balancer/operations/manage-zone/disable-enable-zone.md) and [{{ alb-name }}](../application-load-balancer/operations/manage-zone/start-and-cancel-shift.md). 
+
+Apart from the suggested methods, if {{ yandex-cloud }} API goes unavailable,
+you can shift traffic from an availability zone by disabling health checks for targets in the affected zone. There are several ways to do this:
 
    * At the infrastructure level, block checks at the network security group level.
    * Disable instances that handle requests in the faulty zone.
    * At the operating system level, restrict access to checks using a firewall.
    * At the application level, configure the application in such a way that it would not respond to health checks.
 
-We recommend using network security groups. To do this, you need to configure separate rules allowing availability checks up to the targets in each availability zone. Deleting a rule allows you to disable traffic in a certain zone. This type of configuration enables you to use network security groups for fault tolerance testing.
+When using network security groups, you have to configure separate rules to allow availability checks up to the targets in each availability zone. Deleting a rule allows you to disable traffic in a certain zone. This type of configuration enables you to use network security groups for fault tolerance testing.
 
-You should consider the other methods in case the {{ yandex-cloud }} API is unavailable.
 
 ### Application high availability testing {#app-ha-test}
 
-To analyze an application for fault tolerance, i.e., its ability to process traffic if one of its availability zones fails, you can use this ready-made [scenario](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb), where the web app is deployed behind an NLB, and the [fault tolerance test method](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb?tab=readme-ov-file#sg), in which a portion of the app is disconnected from the load balancer.
+You can test your application for fault tolerance (ability to process traffic if one of the availability zones fails) using our [Cloud zone failure exercise guide](testing-zone-faiure). We have prepared this [infrastructure deployment scenario](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb?tab=readme-ov-file) for the availability zone failure test.
 
-You can test your web applications using this technique, if required.
+### NLB tagging for zone shifting {#nlb-zone-shift}
 
-### NLB tagging to disconnect an availability zone {#nlb-zone-shift}
+We are introducing the `NLB Zonal Shift` mechanism to better respond to partial failure incidents.
 
-We are introducing the `NLB Zone Shift` mechanism to better respond to partial failure incidents.
-
-After an application is successfully tested for fault tolerance, you can tag the relevant NLB with a special flag. This flag will enable {{ yandex-cloud }} support to cut traffic from the load balancer in response to partial failures in one of its availability zones not captured by regular [target health checks](../network-load-balancer/concepts/health-check.md), e.g., in the event of external communication circuit issues.
+After an application is successfully tested for fault tolerance, you can tag the relevant NLB with a special flag. This flag will enable {{ yandex-cloud }} support to shift traffic away from the load balancer in response to partial failures in one of its availability zones not captured by regular [target health checks](../network-load-balancer/concepts/health-check.md), e.g., due to external communication circuit issues.
 
 To tag an NLB with a zone shift flag, run this YC CLI command:
 ```bash
@@ -254,7 +253,7 @@ For quick issue reporting, in addition to monitoring, you should configure an [e
 
 To quickly restore a service and address faults, you need to have action plans ready in advance, such as switching the DB master manually or disabling an availability zone.
 
-## Testing fault tolerance {#ha-testing}
+## Fault tolerance testing {#ha-testing}
 
 Any fault tolerance solutions require regular testing in various fault scenarios. Learn more about testing fault tolerance in a cloud from this webinar: [Disabling a data center, or How to test fault tolerance in a cloud](https://yandex.cloud/ru/events/841).
 

@@ -5,9 +5,9 @@ description: Follow this guide to collect user requests and use this data as pay
 
 # Getting payload ready with Dispatcher
 
-`Dispatcher` is designed for collecting user requests and saving them to payload files which are then used for load testing.
+The `dispatcher` tool collects user requests and saves them to payload files which are then used in load testing.
 
-This tool works as a proxy, redirecting HTTP requests to the target server and returning the server's responses back to the client. If a proxied request completes successfully with a 2xx HTTP status code, it is written to [payload](../concepts/payload.md) files which are then used for load testing.`dispatcher` enables configuring rules and size of payload to save using special flags.
+It operates as a proxy, redirecting HTTP requests to the target server and returning the server's responses back to the client. If a proxied request completes successfully with a 2xx HTTP status code, it is written to [payload](../concepts/payload.md) files which are then used for load testing. `dispatcher` allows configuring the rules and size of payload data using special flags.
 
 ## Getting started {#before-you-begin}
 
@@ -28,7 +28,7 @@ This tool works as a proxy, redirecting HTTP requests to the target server and r
 ## Collecting requests {#collecting-payload}
 
 1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-load-testing-dispatcher) and go to the `yc-load-testing-dispatcher` directory:
-
+   
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-load-testing-dispatcher.git
    cd yc-load-testing-dispatcher
@@ -48,7 +48,7 @@ This tool works as a proxy, redirecting HTTP requests to the target server and r
    * `saveall`: Enables saving all requests regardless of the HTTP status code of the response to the proxied request.
    * `nostatic`: Enables filtering out requests for static content, such as CSS, JS, JPEG, JPG, PNG, GIF, ICO, SVG, WOFF, and WOFF2, from being saved.
 
-   Example of running `dispatcher`:
+   Example of running:
 
    ```bash
    go run dispatcher.go -target 'yandex.ru' -port 8080 -nostatic
@@ -72,7 +72,7 @@ This tool works as a proxy, redirecting HTTP requests to the target server and r
    ```
 
    After completing all the requests you need, press **Ctrl + C** to close `dispatcher`.
-
+   
       {% note warning %}
 
       You should avoid closing it before you get all the responses, as the payload may not be written yet.

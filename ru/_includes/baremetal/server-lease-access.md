@@ -14,12 +14,4 @@
 
 1. В поле **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
 
-    Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
-    * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
-    * Задайте имя SSH-ключа.
-    * Загрузите или вставьте содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к серверу по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-    * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-
-    SSH-ключ будет добавлен в ваш профиль пользователя организации.
-
-    Если в организации отключена возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя операционной системы создаваемого сервера {{ baremetal-name }}.
+    {% include [ssh-key-variants](../../_includes/compute/create/ssh-key-variants.md) %}

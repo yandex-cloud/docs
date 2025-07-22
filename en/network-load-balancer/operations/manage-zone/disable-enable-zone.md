@@ -50,13 +50,13 @@ You can enable and disable availability zones one by one or as a comma-separated
       ```bash
       yc load-balancer network-load-balancer disable-zones \
         <load_balancer_name_or_ID> \
-        --zone-ids=<zone_1_ID>,[<zone_2_ID>] \
+        --zones=<zone_1_ID>,[<zone_2_ID>] \
         --duration=<duration>
       ```
 
       Where:
 
-      * `--zone-ids`: Availability zone IDs.
+      * `--zones`: Availability zone IDs.
       * `--duration`: Duration, from `1m` to `72h`. No value stands for unlimited duration. If zones are provided as a list, they all will be disabled for the specified period.
 
 {% endlist %}
@@ -80,7 +80,7 @@ You cannot run the zone disable command more often than once every two minutes.
 
   ```bash
   yc load-balancer network-load-balancer disable-zones ds70q425egoe******** \
-    --zone-ids=ru-central1-b,ru-central1-d
+    --zones=ru-central1-b,ru-central1-d
   ```
 
   Result:
@@ -105,7 +105,7 @@ You cannot run the zone disable command more often than once every two minutes.
 
   ```bash
   yc load-balancer network-load-balancer disable-zones ds70q425egoe******** \
-    --zone-ids=ru-central1-b \
+    --zones=ru-central1-b \
     --duration=30m
   ```
 
@@ -163,7 +163,7 @@ You cannot run the zone disable command more often than once every two minutes.
       ```bash
       yc load-balancer network-load-balancer enable-zones \
         <load_balancer_name_or_ID> \
-        --zone-ids=<zone_1_ID>,[<zone_2_ID>]
+        --zones=<zone_1_ID>,[<zone_2_ID>]
       ```
 
      Result:

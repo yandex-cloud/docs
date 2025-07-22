@@ -1,0 +1,1 @@
+By default, the assigned range matches the subnet’s CIDR block.
