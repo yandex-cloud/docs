@@ -5,19 +5,26 @@ description: This section contains {{ dataproc-name }} release notes.
 
 # {{ dataproc-full-name }} release notes
 
-## June 2025 {#jun-2025}
+## Q2 2025 {#q2-2025}
 
-Added the {{ oslogin }} option to use when creating a cluster. This option enables [{{ oslogin }}](../../organization/concepts/os-login.md) access to all hosts you create in the cluster.
+* Added the {{ oslogin }} option to use when creating a cluster. This option enables [{{ oslogin }}](../../organization/concepts/os-login.md) access to all hosts you create in the cluster.
+* Added the option to set environment variables via cluster properties.
 
-## December 2024 {#dec-2024}
+## Q1 2025 {#q1-2025}
 
-Added [environment](../concepts/environment.md#environment) selection (`PRODUCTION` / `PRESTABLE`) during cluster creation and modification.
+In 2.2.X images, Java version updated to 11.
 
-## September 2024 {#sep-2024}
+## Q4 2024 {#q4-2024}
 
-{{ metastore-name }} cluster functionality has been integrated in {{ metadata-hub-full-name }}. For more information about {{ metastore-name }} clusters, see the [{{ metadata-hub-name }} documentation](../../metadata-hub/concepts/metastore.md).
+* Added [environment](../concepts/environment.md#environment) selection (`PRODUCTION` / `PRESTABLE`) during cluster creation and modification.
+* In 2.2.X images, Python version updated to 3.1.
 
-## April 2024 {#apr-2024}
+## Q3 2024 {#q3-2024}
+
+* {{ metastore-name }} cluster functionality has been integrated in {{ metadata-hub-full-name }}. For more information about {{ metastore-name }} clusters, see the [{{ metadata-hub-name }} documentation](../../metadata-hub/concepts/metastore.md).
+* In 2.1.X and 2.2.X images, Conda now uses [Mamba](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community) as its default solver.
+
+## Q2 2024 {#q2-2024}
 
 A stable image version line 2.1 is now available. This update enables cluster creation with newer runtime versions: [Spark 3.3.2](https://spark.apache.org/releases/spark-release-3-3-2.html) and [Hadoop 3.3.2](https://hadoop.apache.org/docs/r3.3.2/hadoop-project-dist/hadoop-common/release/3.3.2/RELEASENOTES.3.3.2.html).
 

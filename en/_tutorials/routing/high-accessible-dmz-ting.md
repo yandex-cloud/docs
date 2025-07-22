@@ -100,7 +100,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
 ## Set up your environment {#prepare-environment}
 
 ### Create a cloud administrator service account {#create-account}
-
+   
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -151,7 +151,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
          created_at: "2024-01-04T09:03:11.665153755Z"
          name: sa-terraform
          ```
-
+      
    1. Assign the admin [role](../../iam/concepts/access-control/roles.md) to the account:
 
          ```bash
@@ -191,7 +191,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
       ```
 
    1. Create the `terraform` directory and open it:
-
+   
       ```bash
       mkdir terraform
       cd terraform
@@ -207,20 +207,20 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
       ```
 
    1. Install `zip` and unpack the ZIP archive:
-
+      
       ```bash
       apt install zip
       unzip terraform_1.12.1_linux_arm64.zip
       ```
 
-   1. Add the path to the directory with the executable to the `PATH` variable:
-
+   1. Add the path to the directory with the executable to the `PATH` variable: 
+      
       ```bash
       export PATH=$PATH:~/terraform
       ```
 
    1. Make sure {{ TF }} is installed by running this command:
-
+   
       ```bash
       terraform -help
       ```
@@ -253,7 +253,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
 ## Deploy your resources {#create-resources}
 
 1. Clone the GitHub [repository](https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ting-ngfw) and navigate to the `yc-dmz-with-high-available-ting-ngfw` script directory:
-
+   
    ```bash
    git clone https://github.com/yandex-cloud-examples/yc-dmz-with-high-available-ting-ngfw.git
    cd yc-dmz-with-high-available-ting-ngfw
@@ -270,7 +270,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
       1. Create an [authorized key](../../iam/concepts/authorization/key.md) for the service account and save it to the file:
-
+         
          ```bash
          yc iam key create \
            --service-account-id <service_account_ID> \
@@ -279,13 +279,13 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
          ```
 
          Where:
-
+         
          * `service-account-id`: Service account ID.
          * `folder-id`: ID of the folder where you created the service account.
          * `output`: Authorized key file name.
 
          Result:
-
+         
          ```text
          id: aje8nn871qo4********
          service_account_id: ajehr0to1g8b********
@@ -294,19 +294,19 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
          ```
 
       1. Create a CLI profile to run operations under the service account:
-
+        
          ```bash
          yc config profile create sa-terraform
          ```
 
          Result:
-
+         
          ```text
          Profile 'sa-terraform' created and activated
          ```
 
       1. Configure the profile:
-
+         
          ```bash
          yc config set service-account-key key.json
          yc config set cloud-id <cloud_ID>
@@ -320,7 +320,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
       1. Add your credentials to the environment variables:
-
+         
          ```bash
          export YC_TOKEN=$(yc iam create-token)
          ```
@@ -328,13 +328,13 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    {% endlist %}
 
 1. Get your PC's IP address:
-
+      
    ```bash
    curl 2ip.ru
    ```
 
    Result:
-
+   
    ```text
    192.2**.**.**
    ```
@@ -342,13 +342,13 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
 1. Open the `terraform.tfvars` file in `nano` and edit the following:
 
    1. Cloud ID line:
-
+      
       ```text
       cloud_id = "<cloud_ID>"
       ```
 
    1. Line with a list of public IP addresses allowed to access `jump-vm`:
-
+      
       ```text
       trusted_ip_for_access_jump-vm = ["<external_IP_address_of_your_PC>/32"]
       ```
@@ -375,25 +375,25 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
 1. Deploy your cloud resources using {{ TF }}:
 
    1. Initialize {{ TF }}:
-
+       
       ```bash
       terraform init
       ```
 
    1. Check the {{ TF }} file configuration:
-
+       
       ```bash
       terraform validate
       ```
 
    1. Check the list of new cloud resources:
-
+       
       ```bash
       terraform plan
       ```
 
    1. Create the resources:
-
+       
       ```bash
       terraform apply
       ```
@@ -413,7 +413,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    | `jump-vm_path_for_WireGuard_client_config` | WireGuard VPN jump VM connection configuration file | `"./jump-vm-wg.conf"` |
    | `jump-vm_public_ip_address_jump-vm` | Jump VM public IP address | `"D.D.D.D"` |
    | `path_for_private_ssh_key` | File with a private key used to connect to the VM (`jump-vm`, `fw-a`, `fw-b`, web servers in the `dmz` segment) over SSH | `"./pt_key.pem"` |
-
+   
    {% endcut %}
 
 ## Configure the NGFW {#configure-ngfw}
@@ -433,7 +433,7 @@ To set up a VPN tunnel:
 1. In the dialog that opens, select the `jump-vm-wg.conf` file in the `yc-dmz-with-high-available-ting-ngfw` directory.
 1. Click **Activate** to activate the tunnel.
 1. Check network connectivity with the management server via the WireGuard VPN tunnel by running the following command in the terminal:
-
+   
    ```bash
    ping 192.168.1.101
    ```
@@ -638,7 +638,7 @@ Within five minutes, the `route-switcher` module will start operating to ensure 
    ```
 
 1. Make sure your network infrastructure is accessible from outside by opening the following address in your browser:
-
+    
    ```text
    http://<ALB_load_balancer_public_IP_address>
    ```
@@ -654,7 +654,7 @@ Within five minutes, the `route-switcher` module will start operating to ensure 
 1. Connect to the FW-A management web interface at `https://192.168.1.10`. In the left-hand menu, in the **Firewall** section, select **Logs** -> **Live view**. In the log filter, select `label`, then `contains` and `ping from dmz to ya.ru`. Click `+`.
 
 1. To check whether or not the DMZ VM can access a public resource on the internet, run this command:
-
+   
    ```bash
    ping ya.ru
    ```
@@ -693,7 +693,7 @@ Within five minutes, the `route-switcher` module will start operating to ensure 
    ```
 
 1. Open another terminal window and connect to one of the DMZ VMs over SSH. Use the login from the `vm_admin_username` variable value for connection:
-
+   
    ```bash
    ssh -i pt_key.pem <login>@<VM_internal_IP_address_in_DMZ_segment>
    ```
@@ -733,7 +733,7 @@ Within five minutes, the `route-switcher` module will start operating to ensure 
 * Delete the public IP address of the jump VM if you are not going to use it.
 * If your plan is to use it for connection to the management segment via WireGuard VPN, change the WireGuard keys both on the jump VM and admin workstation.
 * Configure Smart-Soft TING for your specific needs in line with the corporate security policy.
-* Do not assign public IP addresses to the VMs in segments where Smart-Soft TING routing tables with a default route of `0.0.0.0/0` are used (more on it [here](../../vpc/concepts/routing.md#restrictions)). The only exception is the `mgmt` segment where routing tables do not use the `0.0.0.0/0` default route.
+* Do not assign public IP addresses to the VMs in segments where Smart-Soft TING routing tables with a default route of `0.0.0.0/0` are used (more on it [here](../../vpc/concepts/routing.md#restrictions)). The exception is the `mgmt` segment, where routing tables do not use the `0.0.0.0/0` default route. 
 
 ## How to delete the resources you created {#clear-out}
 

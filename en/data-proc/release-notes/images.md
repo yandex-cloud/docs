@@ -4,6 +4,10 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 
 ## 2.2.x images (beta) {#2-2-x}
 
+### 2.2.9 (beta) {#2-2-9}
+
+* Updated Apache Spark to version 3.5.6.
+
 ### 2.2.8 (beta) {#2-2-8}
 
 * Added support for environment variables:
@@ -14,9 +18,11 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 * Supported {{ oslogin }} for cluster hosts. This option enables [{{ oslogin }}](../../organization/concepts/os-login.md) access to all hosts you create in the cluster.
 
 ### 2.2.7 (beta) {#2-2-7}
+
 * Updated Java version to 11.
 
 ### 2.2.6 (beta) {#2-2-6}
+
 * Resolved an issue where the `dataproc:nodemanager_available_memory_ratio` property was ignored when reserving memory for YARN NodeManager.
 
 ### 2.2.5 (beta) {#2-2-5}
@@ -40,6 +46,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 ## 2.1.x images {#2-1-x}
 
 ### 2.1.21 {#2-1-21}
+
 * Added support for environment variables:
 
     * `HADOOP_HEAPSIZE_MIN` and `HADOOP_HEAPSIZE_MAX` for the `hadoop` service.
@@ -50,20 +57,25 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 * Supported {{ oslogin }} for cluster hosts. This option enables [{{ oslogin }}](../../organization/concepts/os-login.md) access to all hosts you create in the cluster.
 
 ### 2.1.19 {#2-1-19}
+
 * Resolved an issue where the `dataproc:nodemanager_available_memory_ratio` property was ignored when reserving memory for YARN NodeManager.
 
 ### 2.1.18 {#2-1-18}
+
 * Conda now uses [Mamba](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community) as its default solver.
 * Added logging for Conda package installation.
 * Removed `[ERROR] can't parse line` messages from cluster startup logs.
 
 ### 2.1.17 {#2-1-17}
+
 * {{ resmgr-name }} events are now published to Job History Server by default.
 
 ### 2.1.16 {#2-1-16}
+
 * Added log rotation for Yarn TimelineServer.
 
 ### 2.1.15 {#2-1-15}
+
 * Stabilized the 2.1 image version line.
 * Configuration file properties are now automatically removed when deleted in cluster settings.
 * The following components were updated:
@@ -95,6 +107,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 ## Image 2.0.x {#2-0-x}
 
 ### 2.0.80 {#2-0-80}
+
 * Added support for environment variables:
 
     * `HADOOP_HEAPSIZE_MIN` and `HADOOP_HEAPSIZE_MAX` for the `hadoop` service.
@@ -105,16 +118,20 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 * Supported {{ oslogin }} for cluster hosts. This option enables [{{ oslogin }}](../../organization/concepts/os-login.md) access to all hosts you create in the cluster.
 
 ### 2.0.78 {#2-0-78}
+
 * Resolved an issue where the `dataproc:nodemanager_available_memory_ratio` property was ignored when reserving memory for YARN NodeManager.
 
 ### 2.0.77 {#2-0-77}
+
 * Added logging during Conda package installation.
 * Deleted `[ERROR] can't parse line` lines from cluster startup logs.
 
 ### 2.0.76 {#2-0-76}
+
 * Added log rotation for Yarn TimelineServer.
 
 ### 2.0.74 {#2-0-74}
+
 * Configuration file properties are now automatically removed when deleted in cluster settings.
 
 ### 2.0.69 {#2-0-69}
@@ -180,7 +197,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 ### 2.0.48 {#2-0-48}
 
 * Added support for [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html). For more information, see [{#T}](../concepts/settings-list.md#spark-thrift-server).
-* Fixed the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error that could occur on lightweight Apache Spark configurations.
+* Fixed the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error that could occured on lightweight Apache Spark configurations.
 
 ### 2.0.47 {#2-0-47}
 

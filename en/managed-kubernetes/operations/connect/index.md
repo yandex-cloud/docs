@@ -44,8 +44,6 @@ To connect to a cluster:
          get-credentials <cluster_name_or_ID> \
          --external
       ```
- 
-      {% include [note-connect-button](../../../_includes/managed-kubernetes/note-connect-button.md) %}
 
       If you [created your cluster](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with no public IP address, this cluster can only be connected to using its internal IP.
 
@@ -58,8 +56,6 @@ To connect to a cluster:
          get-credentials <cluster_name_or_ID> \
          --internal
       ```
-      
-      {% include [note-connect-button](../../../_includes/managed-kubernetes/note-connect-button.md) %}
 
    {% endlist %}
 

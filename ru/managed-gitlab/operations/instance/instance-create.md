@@ -59,7 +59,7 @@ description: Из статьи вы узнаете, как создать инс
      * `disk_size` — размер диска в ГБ.
      * `admin_login` — логин администратора инстанса {{ GL }}.
      * `admin_email` — адрес электронной почты администратора. На этот адрес придет письмо со ссылкой для создания пароля.
-     * `domain` — [доменное имя инстанса](../../../compute/concepts/network.md#hostname). Для него будут автоматически созданы нужные DNS-записи в домене `.gitlab.yandexcloud.net`.
+     * `domain` — [доменное имя инстанса](../../../compute/concepts/network.md#hostname) в формате `<имя>.gitlab.yandexcloud.net`. Для него будут автоматически созданы нужные DNS-записи в домене `.gitlab.yandexcloud.net`.
 
         {% include [domain-name-format](../../../_includes/managed-gitlab/domain-name-format.md) %}
 

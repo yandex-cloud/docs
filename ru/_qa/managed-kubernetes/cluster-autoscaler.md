@@ -1,5 +1,3 @@
-# Вопросы и ответы про автоматическое масштабирование группы узлов в {{ managed-k8s-name }}
-
 #### Почему в моем кластере стало N узлов и он не уменьшается? {#not-scaling-down}
 
 [Автоматическое масштабирование](../../managed-kubernetes/concepts/autoscale.md) не останавливает узлы с [подами](../../managed-kubernetes/concepts/index.md#pod), которые не могут быть расселены. Масштабированию препятствуют:
@@ -67,3 +65,7 @@ kubectl annotate pod <имя_пода> cluster-autoscaler.kubernetes.io/safe-to-
 Это происходит из-за того, что во время автоматического масштабирования контроллер [Pod garbage collector (PodGC)](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-garbage-collection) не успевает удалять поды. Подробнее в разделе [Удаление подов в статусе Terminated](../../managed-kubernetes/operations/autoscale.md#delete-terminated).
 
 Ответы на другие вопросы об автоматическом масштабировании смотрите в [документации {{ k8s }}](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#table-of-contents).
+
+#### Есть ли поддержка Horizontal Pod Autoscaler? {#horizontal-pod-autoscaler}
+
+Да, {{ managed-k8s-name }} поддерживает механизм [горизонтального автомасштабирования подов](../../managed-kubernetes/concepts/autoscale.md#hpa) (Horizontal Pod Autoscaler).

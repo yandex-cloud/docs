@@ -1,0 +1,1 @@
+You can link a dedicated public subnet to multiple pools at once.

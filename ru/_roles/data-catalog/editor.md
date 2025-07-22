@@ -1,0 +1,8 @@
+Роль `data-catalog.editor` позволяет просматривать информацию о каталогах в Data Catalog и управлять ими.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о каталогах в Data Catalog, а также создавать, изменять и удалять их;
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к каталогам в Data Catalog;
+* просматривать информацию о [квотах](../../metadata-hub/concepts/limits.md#data-catalog-quota) Data Catalog.
+
+Включает разрешения, предоставляемые ролью `data-catalog.catalogs.editor`.

@@ -39,9 +39,9 @@ items:
             href: operations/cluster-logs.md
   - name: Concepts
     items:
-      - name: Resource relationships
+      - name: Service resource interdependencies
         href: concepts/index.md
-      - name: Networking in {{ mtr-name }}
+      - name: '{{ mtr-name }} network'
         href: concepts/network.md
       - name: Impersonation
         href: concepts/impersonation.md

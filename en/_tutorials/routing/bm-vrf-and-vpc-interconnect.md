@@ -276,7 +276,7 @@ A network connectivity check assumes that:
       ping <server_private_IP_address> -c 5
       ```
 
-      You can find the private IP address of the {{ baremetal-name }} server in the [management console]({{ link-console-main }}) under **Network settings** on the server information page.
+      You can learn the {{ baremetal-name }} server's private IP address in the [management console]({{ link-console-main }}) under **Network settings** on the server information page.
 
       Result:
 

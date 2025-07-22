@@ -2,6 +2,8 @@
 
     * В поле **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** перечислите фразы-триггеры. Каждую фразу укажите на отдельной строке. Если в диалоге присутствует фраза-триггер, этому диалогу присваивается тег.
 
+        {% include [key-phrases-restrictions](../data/key-phrases-restrictions.md) %}
+
         Вместе с перечисленными ключевыми словами вы также можете указать [словари](../../../speechsense/concepts/dictionaries.md). Они содержат заранее подготовленный набор фраз-триггеров. Если указать несколько словарей, их содержимое будет суммироваться, как если бы между ними стоял логический оператор «ИЛИ». Теги будут назначаться на диалоги, которые содержат фразы из списка в поле **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** и из указанных словарей. Чтобы использовать словари, нажмите кнопку ![icon](../../../_assets/console-icons/book-open.svg) **{{ ui-key.yc-ui-talkanalytics.dictionaries.add-dictionary }}** и в выпадающем списке выберите нужные словари.
 
     * (Опционально) Выберите опцию **{{ ui-key.yc-ui-talkanalytics.tags.exact-match-key-value }}**.

@@ -255,18 +255,7 @@
 
             {% endnote %}
 
-        * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
-
-            Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
-            * Нажмите кнопку **Добавить ключ**.
-            * Задайте имя SSH-ключа.
-            * Загрузите или вставьте содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к ВМ по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * Выберите срок действия ключа.
-            * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-
-            SSH-ключ будет добавлен в ваш профиль пользователя организации.
-
-            Если в организации отключена возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя создаваемой виртуальной машины.
+        * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
        
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ — `web-node-a`.
     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.

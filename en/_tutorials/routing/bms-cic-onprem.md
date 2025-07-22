@@ -25,6 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
 The cost of supporting an infrastructure for network connectivity between {{ baremetal-name }} and {{ vpc-short-name }} subnets includes:
@@ -210,7 +211,7 @@ A network connectivity check assumes that:
       ping <server_private_IP_address> -c 5
       ```
 
-      You can find the private IP address of the {{ baremetal-name }} server in the [management console]({{ link-console-main }}) under **Network settings** on the server information page.
+      You can learn the {{ baremetal-name }} server's private IP address in the [management console]({{ link-console-main }}) under **Network settings** on the server information page.
 
       Result:
 

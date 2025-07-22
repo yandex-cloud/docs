@@ -108,6 +108,10 @@ items:
             href: operations/add-ssh.md
           - name: Включить refresh-токены
             href: operations/enable-refresh-tokens.md
+          - name: >-
+              Включить требование двухфакторной аутентификации для аккаунтов на
+              Яндексе
+            href: operations/enable-2fa-access.md
           - name: Работа с {{ oslogin }}
             items:
               - name: Включить доступ по {{ oslogin }}

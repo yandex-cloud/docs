@@ -16,6 +16,8 @@
 1. (Опционально) Задайте описание словаря.
 1. В поле **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** перечислите фразы-триггеры. Если в диалоге присутствует фраза-триггер, этому диалогу присваивается тег, содержащий словарь.
 
+   {% include [key-phrases-restrictions](../../../_includes/speechsense/data/key-phrases-restrictions.md) %}
+
    Каждую фразу укажите на отдельной строке.
 
    {% cut "Пример, что можно указать в поле" %}

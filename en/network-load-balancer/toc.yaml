@@ -69,7 +69,7 @@ items:
             href: tutorials/load-balancer-website/console.md
           - name: '{{ TF }}'
             href: tutorials/load-balancer-website/terraform.md
-      - name: Working with an instance group with autoscaling
+      - name: Working with autoscaling instance groups
         items:
           - name: Overview
             href: tutorials/vm-autoscale/index.md

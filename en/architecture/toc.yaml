@@ -8,3 +8,5 @@ items:
       Deploying a web app in a fault-tolerant configuration in {{ yandex-cloud
       }}
     href: app-in-k8s.md
+  - name: Testing fault tolerance in {{ yandex-cloud }}
+    href: testing-zone-failure.md

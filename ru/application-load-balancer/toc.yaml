@@ -65,7 +65,7 @@ items:
             items:
               - name: Разрешить и запретить перенос трафика
                 href: operations/manage-zone/allow-and-deny-shift.md
-              - name: Отключить и подключить зоны доступности
+              - name: Включить и отключить зоны доступности
                 href: operations/manage-zone/start-and-cancel-shift.md
           - name: Удалить L7-балансировщик
             href: operations/application-load-balancer-delete.md

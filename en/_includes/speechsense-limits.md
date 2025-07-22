@@ -3,10 +3,11 @@
 Type of limit | Value
 ----- | -----
 **Quotas for a project** |
-Number of dialogs you can get via the API, per second | 20
-Number of dialogs you can get via the API, per minute | 200
-Number of dialogs you can get via the API, per hour | 2,000
-Number of dialogs you can get via the API, per day | 20,000
+Total number of requests for dialogs via API and for viewing in the {{ speechsense-name }} interface, per second | 20
+Total number of requests for dialogs via API and for viewing in the {{ speechsense-name }} interface, per minute | 200
+Total number of requests for dialogs via API and for viewing in the {{ speechsense-name }} interface, per hour | 2,000
+Total number of requests for dialogs via API and for viewing in the {{ speechsense-name }} interface, per day | 20,000
+
 
 #### Limits {#speechsense-limits}
 

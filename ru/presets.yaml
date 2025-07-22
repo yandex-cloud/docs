@@ -617,11 +617,18 @@ default:
   roles-yagpt-user: ai.languageModels.user
   roles:
     data-catalog:
+      admin: data-catalog.admin
+      auditor: data-catalog.auditor
       catalog:
         admin: data-catalog.catalogs.admin
         auditor: data-catalog.catalogs.auditor
         editor: data-catalog.catalogs.editor
         viewer: data-catalog.catalogs.viewer
+      dataConsumer: data-catalog.dataConsumer
+      dataSteward: data-catalog.dataSteward
+      editor: data-catalog.editor
+      user: data-catalog.user
+      viewer: data-catalog.viewer
     gitlab:
       admin: gitlab.admin
       editor: gitlab.editor
@@ -6400,6 +6407,10 @@ default:
         section_settings: Настройки уведомлений
         section_transports: Способы уведомления
         value_theme-system: Системная
+      ssh-key-add-dialog:
+        value_radio-generate: Сгенерировать ключ
+        value_radio-manual: Ввести вручную
+        value_radio-upload: Загрузить из файла
       usermenu:
         label_login: Войти
     yacloud_monitoring:
@@ -6814,10 +6825,16 @@ default:
       organization:
         security-settings:
           OtherSecuritySettingsForm:
+            auth_settings_1RoAM: Настройки аутентификации
+            required_mfa_6P4xN: >-
+              Требовать включения второго фактора аутентификации для
+              пользователей с аккаунтом на Яндексе
             title_hide-users-list_9eW2W: >-
               Запретить пользователям просматривать список членов организации и
               информацию о них
             title_users-list-visibility_ftTaP: Конфиденциальность
+          SecuritySettingsPageLayout:
+            tab_other_kJgk8: Другие параметры
         userpool:
           action_delete-domain: Удалить
         userpools:
@@ -8441,10 +8458,10 @@ default:
             label_ymq: Message Queue
             label_yq: Query
             label_yq_ru: Yandex Query
-            value_audit-trails: Audit trail
+            value_audit-trails: Трейл
             value_compute: Виртуальная машина
             value_data-proc: Кластер Yandex Data Processing
-            value_data-streams: Data Streams
+            value_data-streams: Поток данных
             value_data-transfer: Data Transfer
             value_managed-mysql: Кластер MySQL
             value_managed-postgresql: Кластер PostgreSQL
@@ -8515,6 +8532,9 @@ default:
       k8s:
         access:
           label_title: Управление доступом
+        Cluster:
+          CommonInfo:
+            access-section-title_fW4Au: Доступ
         cluster:
           marketplace:
             button_install: Установить
@@ -8529,6 +8549,7 @@ default:
             label_master-title: Мастер
             label_status: Статус
             label_title: Обзор
+            section_master: Конфигурация мастера
           switch_custom-resources: Пользовательские ресурсы
           switch_events: События
           switch_marketplace: Marketplace
@@ -8538,7 +8559,6 @@ default:
           switch_storage: Хранилища
           switch_workloads: Рабочая нагрузка
         clusters:
-          button_action-connect: Подключиться
           button_create: Создать кластер
           create:
             button_add-day-of-week: Добавить день и время

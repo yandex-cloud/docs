@@ -86,7 +86,7 @@ items:
                 href: operations/delete-subject.md
       - name: '{{ data-catalog-name }}'
         items:
-          - name: Folder
+          - name: Metadata catalogs
             items:
               - name: Getting a list of metadata catalogs
                 href: operations/data-catalog/catalog-list.md
@@ -94,7 +94,9 @@ items:
                 href: operations/data-catalog/create-catalog.md
               - name: Updating a metadata catalog
                 href: operations/data-catalog/update-catalog.md
-              - name: Deleting a folder
+              - name: Getting a list of operations with a metadata catalog
+                href: operations/data-catalog/catalog-operations.md
+              - name: Deleting a metadata catalog
                 href: operations/data-catalog/delete-catalog.md
           - name: Ingestions
             items:
@@ -190,8 +192,6 @@ items:
             href: tutorials/metastore-import.md
       - name: '{{ schema-registry-name }}'
         items:
-          - name: Using {{ schema-registry-name }} with {{ mkf-name }}
-            href: tutorials/managed-schema-registry.md
           - name: Delivering data in Debezium CDC format from {{ KF }}
             href: tutorials/schema-registry-cdc-debezium-kafka.md
   - name: Concepts

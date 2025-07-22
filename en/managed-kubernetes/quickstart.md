@@ -115,12 +115,6 @@ With kubectl, you can manage the {{ managed-k8s-name }} cluster. To configure th
      yc managed-kubernetes cluster get-credentials test-k8s-cluster --external
      ```
 
-     {% note tip %}
-
-     {% include [note-connect-button](../_includes/managed-kubernetes/note-connect-button.md) %}
-
-     {% endnote %}
-
      * By default, credentials are added to the `$HOME/.kube/config` directory.
      * If you need to change the configuration location, use the `--kubeconfig <file_path>` parameter.
      

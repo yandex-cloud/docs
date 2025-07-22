@@ -36,7 +36,6 @@ With a schema registry, you can define schemas for your data formats and version
 
 ### Use cases {#examples-schema-registry}
 
-* [{#T}](../tutorials/managed-schema-registry.md)
 * [{#T}](../tutorials/schema-registry-cdc-debezium-kafka.md)
 
 ## Metadata collection and markup {#data-catalog}
