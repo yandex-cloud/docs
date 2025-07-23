@@ -80,18 +80,22 @@ items:
             href: operations/user-pools/edit-userpool.md
           - name: Deleting a user pool
             href: operations/user-pools/delete-userpool.md
-          - name: Adding a user
-            href: operations/user-pools/add-user.md
-          - name: Updating user data
-            href: operations/user-pools/edit-user.md
-          - name: Activating a user
-            href: operations/user-pools/activate-user.md
-          - name: Deactivating a user
-            href: operations/user-pools/deactivate-user.md
-          - name: Resetting a user password
-            href: operations/user-pools/reset-user-password.md
-          - name: Remove user
-            href: operations/user-pools/delete-user.md
+          - name: Managing users
+            items:
+              - name: Adding a user
+                href: operations/user-pools/add-user.md
+              - name: Updating user data
+                href: operations/user-pools/edit-user.md
+              - name: Activating a user
+                href: operations/user-pools/activate-user.md
+              - name: Deactivating a user
+                href: operations/user-pools/deactivate-user.md
+              - name: Resetting a user password
+                href: operations/user-pools/reset-user-password.md
+              - name: Remove user
+                href: operations/user-pools/delete-user.md
+      - name: Managing domains
+        items:
           - name: Adding a domain
             href: operations/user-pools/add-domain.md
           - name: Verifying a domain

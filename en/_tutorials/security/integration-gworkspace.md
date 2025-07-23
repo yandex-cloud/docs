@@ -43,7 +43,7 @@ To create a federation:
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
@@ -145,7 +145,7 @@ To create a federation:
 
   1. Specify the federation parameters in the configuration file.
 
-      Here is the configuration file example:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -204,14 +204,14 @@ To create a federation:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, navigate to the directory where you created the configuration file.
       1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out. 
+      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will show them. 
 
   1. Create a federation.
 
@@ -288,7 +288,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   {% include [add-cert-to-fed](../../_includes/organization/add-cert-to-fed.md) %}
 
@@ -430,13 +430,13 @@ To do this, you will need user name IDs. They are returned by the IdP server tog
 
 {% include [auto-create-users](../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant a role to a user, see [Roles](../../organization/security/index.md#admin).
+A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant a role to a user, see [Roles](../../organization/security/index.md#add-role).
 
 {% include [console-user-access](../../_includes/organization/console-user-access.md) %}
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   {% include [add-users-to-fed](../../_includes/organization/add-users-to-fed.md) %}
 

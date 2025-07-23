@@ -10,4 +10,5 @@ description: This section contains tutorials for {{ postbox-name }}.
 
 ## Sending emails using AWS SDK {#aws-sdk}
 
+* [{#T}](send-emails-aws-sdk-csharp.md)
 * [{#T}](send-emails-aws-sdk-go.md)

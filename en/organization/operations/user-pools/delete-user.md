@@ -6,6 +6,8 @@ description: Follow this guide to remove a user from a pool in {{ org-name }}.
 # Remove user
 
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}

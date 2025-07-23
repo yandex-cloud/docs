@@ -44,11 +44,13 @@ items:
           analyzing them using {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
       - name: >-
-          Creating a {{ postbox-full-name }} address and checking domain
+          Creating a {{ postbox-full-name }} address and verifying domain
           ownership with {{ TF }}
         href: tutorials/domain-identity-creating.md
       - name: Sending emails using AWS SDK
         items:
+          - name: .NET Core
+            href: tutorials/send-emails-aws-sdk-csharp.md
           - name: Go
             href: tutorials/send-emails-aws-sdk-go.md
   - name: Tools
@@ -117,5 +119,7 @@ items:
             href: aws-compatible-api/api-ref/request-headers.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Public materials
+    href: public-talks.md
   - name: Release notes
     href: release-notes.md

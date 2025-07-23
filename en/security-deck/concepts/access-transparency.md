@@ -9,6 +9,8 @@ description: '{{ atr-name }} is an automated tool within {{ sd-name }} designed 
 
 {% include [access-transparency-attach-ba-notice](../../_includes/security-deck/access-transparency-attach-ba-notice.md) %}
 
+To manage an {{ atr-name }} subscription, you need the `access-transparency.subscriptionManager` role. To specify a billing account when connecting {{ atr-name }}, you need the `access-transparency.billingProvider` role. `access-transparency.admin` and `access-transparency.editor` include both these roles. For more information, see [{#T}](../security/access-transparency-roles.md).
+
 Key {{ atr-name }} features:
 
 * Collects and analyzes data on the actions taken by {{ yandex-cloud }} engineers with the organization's resources.

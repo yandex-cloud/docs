@@ -1,6 +1,6 @@
 # {{ oslogin }}
 
-{{ oslogin }} facilitates SSH connections to _virtual machines_ in {{ yandex-cloud }}. Here and below, virtual machines (or VMs) will refer both to actual [{{ compute-full-name }} VMs](../../compute/concepts/vm.md#project) and [individual nodes in node groups](../../managed-kubernetes/concepts/index.md#node-group) within [{{ managed-k8s-full-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) used to run user containers.
+{{ oslogin }} facilitates SSH connections to _virtual machines_ in {{ yandex-cloud }}. Here and below, virtual machines (or VMs) will refer both to actual [{{ compute-full-name }} VMs](../../compute/concepts/vm.md#project), [{{ dataproc-full-name }} subcluster](../../data-proc/concepts/index.md#resources) hosts, and [individual nodes in node groups](../../managed-kubernetes/concepts/index.md#node-group) within [{{ managed-k8s-full-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) used to run user containers.
 
 With {{ oslogin }}, you can manage SSH access to VMs relying solely on the [{{ iam-full-name }} mechanisms](../../iam/concepts/index.md). There is no need to upload SSH keys to each new VM when it is created. {{ oslogin }} links the VM user account to a {{ org-full-name }} account, i.e., an [organization user](../../organization/concepts/membership.md) account or [service account](../../iam/concepts/users/service-accounts.md).
 
@@ -111,7 +111,7 @@ The certificate is valid for one hour. After this time has elapsed, you will nee
 
 You can connect to a VM with enabled {{ oslogin }} access using the {{ yandex-cloud }} CLI with either an SSH key [saved](../../organization/operations/add-ssh.md) in the {{ oslogin }} profile of a user or service account or an SSH certificate of that user or service account.
 
-To learn more about connecting to VMs via {{ oslogin }}, see [{#T}](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli) and [Connecting to a {{ k8s }} node via {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md#connect-via-cli).
+For more information about connecting to VMs via {{ oslogin }}, see [{#T}](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli), [Connecting to a {{ k8s }} node via {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md#connect-via-cli), and [Connecting to a {{ dataproc-name }} cluster](../../data-proc/operations/connect.md#os-login-cli).
 
 ### Roles required to connect to a VM via {{ oslogin }} {#necessary-roles}
 

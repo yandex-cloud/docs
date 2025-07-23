@@ -55,6 +55,8 @@ items:
             href: tutorials/send-emails-aws-sdk-go.md
           - name: JavaScript
             href: tutorials/send-emails-aws-sdk-js.md
+          - name: Python
+            href: tutorials/send-emails-aws-sdk-python.md
   - name: Инструменты
     items:
       - name: AWS CLI

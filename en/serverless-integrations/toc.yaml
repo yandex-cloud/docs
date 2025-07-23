@@ -146,7 +146,7 @@ items:
                     href: operations/eventrouter/bus/label-delete.md
               - name: Deleting a bus
                 href: operations/eventrouter/bus/delete.md
-          - name: Sending events to the bus
+          - name: Sending events to a bus
             items:
               - name: Sending events directly
                 href: operations/eventrouter/bus/data-put.md
@@ -622,5 +622,7 @@ items:
                 href: eventrouter/api-ref/Rule/listOperations.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
+  - name: Public materials
+    href: public-talks.md
   - name: Release notes
     href: release-notes.md

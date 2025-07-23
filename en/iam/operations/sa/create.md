@@ -38,7 +38,7 @@ A service account is created inside a [folder](../../../resource-manager/concept
       yc iam service-account create --name my-robot
       ```
 
-      The name should match the following format:
+      Follow these naming requirements:
 
       {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -46,7 +46,7 @@ A service account is created inside a [folder](../../../resource-manager/concept
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
     
      ```hcl
      resource "yandex_iam_service_account" "sa" {
@@ -58,20 +58,20 @@ A service account is created inside a [folder](../../../resource-manager/concept
 
      * `name`: Service account name. This is a required parameter.
      * `description`: Service account description. This is an optional parameter.
-     * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md). This is an optional parameter. By default, the value specified in the provider settings is used.
+     * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md). This is an optional parameter. It defaults to the value specified in the provider settings.
 
-     For more information about the `yandex_iam_service_account` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iam_service_account).
+     For more information about `yandex_iam_service_account` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account).
     
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is specified correctly, the terminal will display information about the service account. If there are errors in the configuration, Terraform will point them out. 
+     If the configuration description is correct, the terminal will display information about the service account. If the configuration contains any errors, Terraform will show them. 
 
   1. Deploy the cloud resources.
 
@@ -81,9 +81,9 @@ A service account is created inside a [folder](../../../resource-manager/concept
         terraform apply
         ```
 
-     1. Confirm creating the service account: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the service account by typing `yes` in the terminal and pressing **Enter**.
 
-        The service account will then be created. You can check the new service account using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+        This will create the service account. You can check it using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
         
         ```bash
         yc iam service-account list
@@ -139,6 +139,7 @@ Create a service account with the following name and description:
 
 #### See also {#see-also}
 
-* [{#T}](assign-role-for-sa.md).
-* [{#T}](set-access-bindings.md).
-* [{#T}](../../concepts/users/service-accounts.md#sa-key).
+* [{#T}](list-get.md)
+* [{#T}](assign-role-for-sa.md)
+* [{#T}](set-access-bindings.md)
+* [{#T}](../../concepts/users/service-accounts.md#sa-key)

@@ -9,5 +9,6 @@ description: В этом разделе собраны обучающие кур
 
 Подробнее узнать об использовании сервиса {{ monitoring-full-name }} можно в следующих курсах:
 * {% include [training-ycloud](../_includes/training/training-csi.md) %}
+* {% include [training-monitoring](../_includes/training/training-monitoring.md) %}
 
 {% include [training-courses](../_includes/training/training-courses.md) %}

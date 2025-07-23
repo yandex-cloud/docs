@@ -1,4 +1,4 @@
-By default, the AWS SDK for Go uses authentication data from environment variables if they are set. These variables have priority over authentication data from the `.aws/credentials` file.
+By default, the AWS SDK uses authentication data from environment variables if they are set. These variables have priority over authentication data from the `.aws/credentials` file.
 
 The following environment variables are supported:
 

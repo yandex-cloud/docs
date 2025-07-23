@@ -7,7 +7,7 @@ description: In this tutorial, you will learn how to edit organization data in {
 
 {% note info %}
 
-Organization data can be edited by users with the `organization-manager.admin` or `organization-manager.organizations.owner` role. To learn how to grant a role to a user, see the [Roles](../security/index.md#admin) section.
+Organization data can be edited by users with the `organization-manager.admin` or `organization-manager.organizations.owner` role. To learn how to grant a role to a user, see the [Roles](../security/index.md#add-role) section.
 
 {% endnote %}
 

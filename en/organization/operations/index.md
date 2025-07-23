@@ -55,6 +55,9 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./user-pools/deactivate-user.md)
 * [{#T}](./user-pools/reset-user-password.md)
 * [{#T}](./user-pools/delete-user.md)
+
+## Managing domains {#manage-domains}
+
 * [{#T}](./user-pools/add-domain.md)
 * [{#T}](./user-pools/validate-domain.md)
 * [{#T}](./user-pools/delete-domain.md)

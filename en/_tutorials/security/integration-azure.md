@@ -72,7 +72,7 @@ Add users to the IdP server:
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
@@ -173,7 +173,7 @@ Add users to the IdP server:
 
   1. Specify the federation parameters in the configuration file.
 
-      Here is the configuration file example:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -234,14 +234,14 @@ Add users to the IdP server:
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, go to the directory where you created the configuration file.
+      1. In the command line, navigate to the directory where you created the configuration file.
       1. Run a check using this command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will point them out.
+      If the configuration is described correctly, the terminal displays the federation parameters. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Create a federation.
 
@@ -319,7 +319,7 @@ While authenticating, the {{ org-name }} service should be able to verify the Id
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   {% include [add-cert-to-fed](../../_includes/organization/add-cert-to-fed.md) %}
 
@@ -417,7 +417,7 @@ User data | Comment | Application Attributes
 Unique user ID (name ID) | Required attribute.<br> By default, {{ microsoft-idp.entra-id-short }} uses User Principal Name (UPN) in `<login>_<domain>#EXT#@<provider>.onmicrosoft.com` format as the attribute source. When manually adding users to a federation, this name ID format is not supported. We recommend changing the attribute source in {{ microsoft-idp.entra-id-short }}: choose email address, `user.mail`, instead of UPN, `user.userprincipalname`. | **Unique user ID** claim
 Surname | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-last-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`
 Name | Displayed in {{ yandex-cloud }} services.<br> Value length limit: {{ saml-limit-first-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`
-Full name | Displayed in {{ yandex-cloud }} services.<br>Example: `Ivan Ivanov`.<br> Value length limit: {{ saml-limit-display-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
+Full name | Displayed in {{ yandex-cloud }} services.<br>Here is an example: `Ivan Ivanov`.<br> Value length limit: {{ saml-limit-display-name }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`
 Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example: `ivanov@example.com`.<br> Value length limit: {{ saml-limit-email }}. | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
 {% note warning %}
@@ -434,13 +434,13 @@ To do this, you will need user name IDs. They are returned by the IdP server tog
 
 {% include [auto-create-users](../../_includes/organization/auto-create-users.md) %}
 
-A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant a role to a user, see [Roles](../../organization/security/index.md#admin).
+A user can be added by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role). To learn how to grant a role to a user, see [Roles](../../organization/security/index.md#add-role).
 
 {% include [console-user-access](../../_includes/organization/console-user-access.md) %}
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   {% include [add-users-to-fed](../../_includes/organization/add-users-to-fed.md) %}
 

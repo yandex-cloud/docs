@@ -6,6 +6,8 @@ description: Follow this guide to verify a domain in an {{ org-name }} user pool
 # Verifying a domain
 
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 You can use only verified [domains](../../concepts/domains.md) to add users.
 
 {% list tabs group=instructions %}

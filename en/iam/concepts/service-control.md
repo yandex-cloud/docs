@@ -63,6 +63,9 @@ Service | ID
 {{ metadata-hub-full-name }}: [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) | `connection-manager`
 {{ sd-full-name }}: [Data Security Posture Management ({{ dspm-name }})](../../security-deck/concepts/dspm.md) | `dspm`
 [{{ websql-full-name }}](../../websql/index.yaml) | `websql`
+[{{ cloud-registry-full-name }}](../../cloud-registry/index.yaml) | `cloud-registry`
+{{ si-full-name }}: [{{ er-name }}](../../serverless-integrations/concepts/index.md#eventrouter) | `serverless-eventrouter`
+[{{ src-full-name }}]({{ link-src-main }}/portal/docs/ru/) | `src-integration`
 
 Moving forward, cloud administrators will be able to manage access of all the services that require permissions for actions with resources in {{ yandex-cloud }}. With [CLI](../../cli/cli-ref/iam/cli-ref/service-control/list.md), you can [get](../operations/service-control/list-get.md#list) an up-to-date list of services whose access you can manage.
 

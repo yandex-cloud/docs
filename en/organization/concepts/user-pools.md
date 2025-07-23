@@ -6,6 +6,8 @@ description: You can create user pools to use local users and group them into co
 # User pools
 
 
+{% include [note-preview](../../_includes/note-preview.md) %}
+
 _User pools_ group [local users](../../iam/concepts/users/accounts.md#local) together, thus allowing you to manage them centrally, link your [domains](domains.md), manage access permissions and authentication settings.
 
 Pools and users inside them exist only at the organization level and are subject to {{ yandex-cloud }} [security policies](../../security/standarts.md).

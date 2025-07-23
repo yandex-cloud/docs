@@ -6,6 +6,8 @@ description: Follow this guide to edit a user pool in {{ org-name }}.
 # Editing a user pool
 
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}

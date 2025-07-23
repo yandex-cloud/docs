@@ -147,6 +147,8 @@ items:
         href: concepts/maintenance.md
       - name: Настройки {{ KF }}
         href: concepts/settings-list.md
+      - name: Политика работы с версиями {{ KF }}
+        href: concepts/update-policy.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
