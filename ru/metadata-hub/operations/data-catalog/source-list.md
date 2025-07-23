@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. В открывшемся списке выберите каталог метаданных, в котором созданы источники.
-    1. Перейдите на вкладку ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Источники**.
+    1. Перейдите на вкладку ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}**.
 
 {% endlist %}
 
@@ -39,7 +39,7 @@ description: Следуя данной инструкции, вы сможете
 Нажмите на заголовок нужной колонки:
 
 * **{{ ui-key.yacloud.common.name }}** — сортировка по названию источника в алфавитном порядке;
-* **Кол-во загрузок** — сортировка по количеству загрузок в порядке возрастания;
+* **{{ ui-key.yacloud.data-catalog.label_ingestion-count }}** — сортировка по количеству загрузок в порядке возрастания;
 * **{{ ui-key.yacloud.common.created-at }}** — сортировка по дате создания в порядке возрастания дат;
 * **{{ ui-key.yacloud.common.label_author }}** — сортировка по имени автора в алфавитном порядке.
 
@@ -56,4 +56,4 @@ description: Следуя данной инструкции, вы сможете
     * Чтобы отобразить скрытые колонки, отметьте их.
     * Чтобы изменить порядок колонок, слева от названия колонки нажмите ![image](../../../_assets/console-icons/grip.svg) и перетяните колонку вверх или вниз на нужную позицию в списке.
 
-1. Нажмите кнопку **Применить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.

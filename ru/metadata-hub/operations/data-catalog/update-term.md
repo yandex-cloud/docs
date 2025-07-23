@@ -14,7 +14,7 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. В открывшемся списке выберите каталог метаданных с глоссарием, в котором вы хотите изменить термин.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/book.svg) **Термины и глоссарии** и нажмите на строку с нужным глоссарием.  
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}** и нажмите на строку с нужным глоссарием.  
   1. В списке терминов нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужным термином и выберите **{{ ui-key.yacloud.common.edit }}**.
 
       {% include [search-tip](../../../_includes/metadata-hub/tip-search-term.md) %}
@@ -23,11 +23,11 @@
 
      * В поле **{{ ui-key.yacloud.common.name }}** задайте новое уникальное имя термина.
      * (Опционально) Измените описание термина.
-     * (Опционально) В поле **Синонимы** добавьте или удалите один или несколько синонимов термина:
-        * Нажмите кнопку **Добавить**, введите новый синоним и нажмите **Enter**.
+     * (Опционально) В поле **{{ ui-key.yacloud.data-catalog.label_term-synonyms }}** добавьте или удалите один или несколько синонимов термина:
+        * Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_term-synonyms-add }}**, введите новый синоним и нажмите **Enter**.
         * Справа от синонима, который вы хотите удалить, нажмите ![image](../../../_assets/console-icons/xmark.svg) .
-     * (Опционально) В поле **Связанные термины** добавьте или удалите близкие по смыслу термины этого глоссария:
-        * Нажмите кнопку **Добавить**, в открывшемся окне выберите нужные термины и нажмите кнопку **Добавить термины**.
+     * (Опционально) В поле **{{ ui-key.yacloud.data-catalog.label_connected-terms }}** добавьте или удалите близкие по смыслу термины этого глоссария:
+        * Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_add }}**, в открывшемся окне выберите нужные термины и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
         * Нажмите ![image](../../../_assets/console-icons/xmark.svg) справа от термина, связь с которым вы хотите удалить, или выделите сразу несколько терминов и нажмите внизу кнопку **{{ ui-key.yacloud.common.delete }}**.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save-changes }}**.

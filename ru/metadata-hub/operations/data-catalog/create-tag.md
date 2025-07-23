@@ -19,9 +19,9 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. В открывшемся списке выберите каталог метаданных, в котором вы хотите создать тег.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/tag.svg) **Теги и классификации**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}**.
   1. Выберите классификацию, в которой вы хотите создать тег, или создайте новую классификацию.
-  1. Нажмите кнопку **Создать тег**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-tag-action }}**.
   1. Задайте параметры тега:
 
      * В поле **{{ ui-key.yacloud.common.name }}** задайте уникальное имя тега.

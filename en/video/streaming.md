@@ -8,7 +8,7 @@ description: To start a {{ video-name }} video broadcast, create a line and conf
 {% include [preview-stage](../_includes/video/preview-stage.md) %}
 
 To [stream a video](./concepts/index.md#streams) on the service's [channel](./concepts/index.md#channels):
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a channel](#create-channel).
 1. [Create a line](#create-line).
 1. [Create a broadcast](#create-stream).
@@ -18,7 +18,7 @@ To [stream a video](./concepts/index.md#streams) on the service's [channel](./co
 
 {% include [link-to-api-quickstart](../_includes/video/link-to-api-quickstart.md) %}
 
-## Prepare your cloud environment {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_includes/video/before-you-begin.md) %}
 
@@ -101,12 +101,12 @@ To [stream a video](./concepts/index.md#streams) on the service's [channel](./co
        * In the **Recording Path** field, specify the path to save your stream to.
        * In the **Recording Format** field, select the video file format.
     
-    1. Click **ОК**.
+    1. Click **OK**.
     1. In the **Sources** panel at the bottom left, click ![plus-sign](../_assets/console-icons/plus.svg) to add a source.
     
        * In the window that opens, select a source, e.g., **Video Capture Device**.
        * In the window that opens, specify the source name and click **OK**.
-       * Select the video streaming device, e.g., a webcam, and click **OK**.
+       * Select the video stream's source device, e.g., a webcam, and click **OK**.
     
     1. In the center of the window, you can set the size and position of the video stream.
     1. To start a broadcast, in the bottom-right **Controls** panel, click **Start Streaming**.
@@ -135,4 +135,5 @@ For more information, see [OBS Studio setup recommendations](operations/streams/
 
 * [{#T}](hosting.md)
 * [{{ video-full-name }} overview](./concepts/index.md)
+* [Configuring ads](operations/channels/settings.md#ad-settings)
 * [{#T}](troubleshooting.md)

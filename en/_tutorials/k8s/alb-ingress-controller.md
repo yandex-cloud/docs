@@ -1,4 +1,4 @@
-# Configuring an {{ alb-full-name }} L7 load balancer using an Ingress controller
+# Configuring a {{ alb-full-name }} L7 load balancer using an Ingress controller
 
 [{{ alb-full-name }}](../../application-load-balancer/) helps with load balancing and traffic distribution across applications. To use it for managing ingress traffic of applications running in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), you need an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
 
@@ -797,7 +797,6 @@ If you specified a name for the Ingress resource group settings in the `ingress.
 ## Make sure the applications are accessible via the L7 load balancer {#verify-setup}
 
 1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **Value** field, specify the public IP address of the {{ alb-name }} L7 load balancer. If you are using ExternalDNS with a plugin for {{ dns-full-name }}, this record will be created automatically.
-
 1. Test the load balancer:
 
    {% list tabs %}

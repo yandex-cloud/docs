@@ -22,7 +22,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
   1. Optionally, in the **{{ ui-key.yacloud.alb.label_security-profile-id }}** field, select the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
-  1. Optionally, under **{{ ui-key.yacloud.alb.label_modifications }}**, click **{{ ui-key.yacloud.alb.button_add-modification }}** and configure the [HTTP header](HTTP header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields).
+  1. Optionally, under **{{ ui-key.yacloud.alb.label_modifications }}**, click **{{ ui-key.yacloud.alb.button_add-modification }}** and configure the [HTTP header](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields).
      * In the **{{ ui-key.yacloud.alb.label_modification-type }}** field, select:
        * `{{ ui-key.yacloud.alb.label_header-request }}`: To modify the incoming request header, from client to load balancer.
        * `{{ ui-key.yacloud.alb.label_header-response }}`: To modify outgoing response header, from backend to external client.
@@ -192,19 +192,32 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      }
 
      resource "yandex_alb_virtual_host" "my-virtual-host" {
-       name                    = "<virtual_host_name>"
-       http_router_id          = yandex_alb_http_router.tf-router.id
+       name           = "<virtual_host_name>"
+       http_router_id = yandex_alb_http_router.tf-router.id
+       
+       rate_limit {
+         all_requests {
+           per_second = <requests_per_second>
+           # or per_minute = <requests_per_minute>
+         }
+         requests_per_ip {
+           per_second = <requests_per_second>
+           # or per_minute = <requests_per_minute>
+         }
+       }
+       
        route {
-         name                  = "<route_name>"
+         name = "<route_name>"
          grpc_route {
            grpc_route_action {
-             backend_group_id  = "<backend_group_ID>"
-             max_timeout       = "60s"
+             backend_group_id = "<backend_group_ID>"
+             max_timeout      = "<timeout>"
            }
          }
        }
+       
        route_options {
-         security_profile_id   = "<security_profile_ID>"
+         security_profile_id = "<security_profile_ID>"
        }
      }
      ```
@@ -217,11 +230,18 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
        * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). Specify a key-value pair.
      * `yandex_alb_virtual_host`: Virtual host description:
-       * `name`: Virtual host name. Follow these naming requirements:
+       * `name`: Virtual host name. Use the following name format:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
        * `http_router_id`: HTTP router ID.
+       * `rate_limit`: Optionally, rate limit for the whole virtual host.
+         * `all_requests`: Optionally, limit on all requests per second or per minute:
+           * `per_second`: Per second.
+           * `per_minute`: Per minute.
+         * `requests_per_ip`: Optionally, additionally limits requests for each IP address per second or per minute:
+           * `per_second`: Per second.
+           * `per_minute`: Per minute.
        * `route`: Route description:
          * `name`: Route name.
          * `grpc_route`: Route description for gRPC traffic:

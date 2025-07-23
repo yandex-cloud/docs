@@ -1,6 +1,8 @@
-The cost depends on the [rental period](../../baremetal/concepts/servers.md#server-lease).
+The cost depends on the [rent period](../../baremetal/concepts/servers.md#server-lease). 
 
-Server type        | Price per month<br/>for a rental<br/>of 1 day,<br/>without VAT | Price per month<br/>for a rental<br/>of 1 month,<br/>without VAT | Price per month<br/>for a rental<br/>of 3 months,<br/>without VAT | Price per month<br/>for a rental<br/>of 6 months,<br/>without VAT | Price per month<br/>for a rental<br/>of 1 year,<br/>without VAT
+The funds are debited **monthly**, irrespective of the rent period.
+
+Server type        | Price per month<br/>for one-day rent,<br/>without VAT | Price per month<br/>for one-month rent,<br/>without VAT | Price per month<br/>for three-month rent,<br/>without VAT | Price per month<br/>for six-month rent,<br/>without VAT | Price per month<br/>for 12-month rent,<br/>without VAT
 ------------------ | ----------- | ----------- | ----------- | ----------- | ---
 **BA-i100-H**      | {{ sku|USD|baremetal.server.ba_i100_h.1_day|string }} | {{ sku|USD|baremetal.server.ba_i100_h.1_month|string }} | {{ sku|USD|baremetal.server.ba_i100_h.3_month|string }} | {{ sku|USD|baremetal.server.ba_i100_h.6_month|string }} | {{ sku|USD|baremetal.server.ba_i100_h.12_month|string }}
 **BA-i101-H**      | {{ sku|USD|baremetal.server.ba_i101_h.1_day|string }} | {{ sku|USD|baremetal.server.ba_i101_h.1_month|string }} | {{ sku|USD|baremetal.server.ba_i101_h.3_month|string }} | {{ sku|USD|baremetal.server.ba_i101_h.6_month|string }} | {{ sku|USD|baremetal.server.ba_i101_h.12_month|string }}

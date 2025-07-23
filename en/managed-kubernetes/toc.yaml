@@ -101,7 +101,7 @@ items:
             href: operations/cilium.md
           - name: Configuring NodeLocal DNS for the Cilium network policy controller
             href: operations/cilium-node-local-dns.md
-          - name: Creating a network load balancer using an NGINX Ingress Controller
+          - name: Creating a network load balancer using an NGINX ingress controller
             href: operations/create-load-balancer-with-ingress-nginx.md
       - name: Working with persistent volumes
         items:
@@ -198,10 +198,10 @@ items:
             href: tutorials/load-testing-grpc-autoscaling.md
       - name: Installing NGINX
         items:
-          - name: Installing an NGINX Ingress Controller with Let's Encrypt®
+          - name: Installing an NGINX ingress controller with Let's Encrypt®
             href: tutorials/ingress-cert-manager.md
           - name: >-
-              Installing an NGINX Ingress Controller with a {{
+              Installing an NGINX ingress controller with a {{
               certificate-manager-name }} certificate
             href: tutorials/nginx-ingress-certificate-manager.md
       - name: Using {{ container-registry-name }}
@@ -296,7 +296,7 @@ items:
             href: tutorials/marketplace/hashicorp-vault.md
   - name: Concepts
     items:
-      - name: Resource relationships
+      - name: Service resource interdependencies
         href: concepts/index.md
       - name: Release channels and updates
         href: concepts/release-channels-and-updates.md
@@ -318,7 +318,7 @@ items:
             href: concepts/node-group/allocatable-resources.md
           - name: Node groups with GPUs
             href: concepts/node-group/node-group-gpu.md
-      - name: Networking in {{ managed-k8s-name }}
+      - name: '{{ managed-k8s-name }} network'
         href: concepts/network.md
       - name: Network settings and cluster policies
         href: concepts/network-policy.md

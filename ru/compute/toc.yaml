@@ -626,6 +626,8 @@ items:
             href: concepts/vm-platforms.md
           - name: Уровни производительности vCPU
             href: concepts/performance-levels.md
+          - name: Поколения оборудования
+            href: concepts/hardware-generations.md
           - name: Прерываемые виртуальные машины
             href: concepts/preemptible-vm.md
           - name: Сетевые интерфейсы виртуальных машин
