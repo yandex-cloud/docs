@@ -6,6 +6,8 @@ description: Follow this guide to activate a user in an {{ org-name }} pool.
 # Activating a user
 
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 Activated users will gain access to the organization resources.
 
 {% list tabs group=instructions %}

@@ -24,6 +24,7 @@ description: Step-by-step guides on how to manage access permissions to {{ yande
 ## Service accounts {#sa}
 
 - [{#T}](sa/create.md)
+- [{#T}](sa/list-get.md)
 - [{#T}](sa/update.md)
 - [{#T}](sa/assign-role-for-sa.md)
 - [{#T}](sa/set-access-bindings.md)

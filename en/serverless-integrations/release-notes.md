@@ -5,6 +5,23 @@ description: This section contains {{ si-name }} release notes.
 
 # {{ si-full-name }} release notes
 
+## June 2025 {#june-2025}
+
+### Updates {#updates}
+
+* Supported `At least once` guaranteed delivery for internal {{ sw-full-name }} errors.
+* Supported LLMs and knowledge sources for the [AIAgent](concepts/workflows/yawl/integration/aiagent.md) step.
+* Supported the `concurrency` field for the [Foreach](concepts/workflows/yawl/management/foreach.md) and [Parallel](concepts/workflows/yawl/management/parallel.md) steps.
+
+## May 2025 {#may-2025}
+
+### Updates {#updates}
+
+* {{ sw-full-name }} is now publicly available at the [Preview](../overview/concepts/launch-stages.md) stage.
+* Supported a new connector source type, [Timer](concepts/eventrouter/connector.md#timer).
+* Supported the [AIAgent](concepts/workflows/yawl/integration/aiagent.md) step.
+* Updated the [{{ sw-full-name }} quotas](concepts/limits.md#sw-quotas).
+
 ## April 2025 {#april-2025}
 
 ### Updates {#updates}

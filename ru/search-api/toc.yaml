@@ -169,6 +169,8 @@ items:
                     href: api-ref/WebSearch/search.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: История изменений
+    href: release-notes/index.md
   - name: Приложения
     items:
       - name: Коды ошибок

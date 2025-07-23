@@ -13,13 +13,13 @@ You can get the following information about an organization's registered users:
 
 {% note info %}
 
-Only users with the `organization-manager.admin` or `organization-manager.organizations.owner` role can get a user ID or email. To learn how to grant roles to a user, see [Roles](../security/index.md#admin).
+Only users with the `organization-manager.admin` or `organization-manager.organizations.owner` role can get a user ID or email. To learn how to grant a role to a user, see the [Roles](../security/index.md#add-role) section.
 
 {% endnote %}
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   {% include [users-info](../../_includes/users-info.md) %}
 

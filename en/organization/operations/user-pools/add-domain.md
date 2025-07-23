@@ -6,6 +6,8 @@ description: Follow this guide to add a domain to an {{ org-name }} user pool.
 # Adding a domain
 
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 To add a [domain](../../concepts/domains.md), you must be its owner and have the credentials to modify DNS records in the domain name registrar's system.
 
 {% list tabs group=instructions %}

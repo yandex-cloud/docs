@@ -5,6 +5,18 @@ description: This section contains {{ api-gw-name }} release notes.
 
 # {{ api-gw-full-name }} release notes
 
+## June 2025 {#june-2025}
+
+### Fixes and improvements {#fixes-improvements}
+
+* Improved WebSocket protocol stability in {{ api-gw-full-name }}: fixed incorrect ping event processing, fixed unresponsive long-lived connections, optimized event processing.
+
+## May 2025 {#may-2025}
+
+### Updates {#updates}
+
+* Added support for [integration with {{ sw-full-name }}](operations/spec-constructor/workflows.md).
+
 ## March 2025 {#march-2025}
 
 ### Updates {#updates}

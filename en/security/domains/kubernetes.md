@@ -315,7 +315,7 @@ Examples of collecting and exporting pod logs:
 * Exporting logs to {{ cloud-logging-name }} using Fluent Bit is described in the [{{ managed-k8s-name }} documentation](../../managed-kubernetes/tutorials/fluent-bit-logging.md).
 * Exporting pod logs into Elastic or Splunk is described in the [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-mk8s-osquery-kubequery/blob/main/README-en.md).
 
-The [Filebeat](/marketplace/products/yc/filebeat) plugin for transferring logs to Elastic and [Fluent Bit with a {{ cloud-logging-name }} plugin](/marketplace/products/yc/fluent-bit) is available in {{ marketplace-name }}.
+The [Filebeat](/marketplace/products/yc/filebeat) plugin for transferring logs to Elastic and [Fluent Bit with the {{ cloud-logging-name }} plugin](/marketplace/products/yc/fluent-bit) are available from {{ marketplace-name }}.
 
 ### {{ k8s }} metrics {#kubernetes-metrics}
 

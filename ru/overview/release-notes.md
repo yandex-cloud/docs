@@ -44,6 +44,7 @@
 
 * [{{ load-testing-full-name }}](../load-testing/release-notes.md)
 * [{{ mgl-full-name }}](../managed-gitlab/release-notes.md)
+* [{{ search-api-full-name }}](../search-api/release-notes/index.md)
 
 ## Бессерверные вычисления {#serverless}
 
@@ -74,6 +75,7 @@
 
 * [{{ ml-platform-full-name }}](../datasphere/release-notes.md)
 * [{{ foundation-models-full-name }}](../foundation-models/release-notes/index.md)
+* [{{ search-api-full-name }}](../search-api/release-notes/index.md)
 * {{ speechkit-full-name }}: [распознавание](../speechkit/release-notes-stt.md) и [синтез](../speechkit/release-notes-tts.md)
 * [{{ sk-hybrid-full-name }}](../speechkit-hybrid/release-notes.md)
 * [{{ vision-full-name }}](../vision/release-notes.md)

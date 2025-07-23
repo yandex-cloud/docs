@@ -67,6 +67,15 @@ Token to retrieve the next page of results. ||
             "max_num_results": "google.protobuf.Int64Value",
             "rephraser_options": {
               "rephraser_uri": "string"
+            },
+            "call_strategy": {
+              // Includes only one of the fields `always_call`, `auto_call`
+              "always_call": "AlwaysCall",
+              "auto_call": {
+                "name": "string",
+                "instruction": "string"
+              }
+              // end of the list of possible fields
             }
           },
           "function": {
@@ -189,6 +198,11 @@ This ensures that the combined prompt and search results do not exceed the token
 Options for rephrasing user queries.
 Used to rewrite the last user message for search,
 incorporating context from the previous conversation. ||
+|| call_strategy | **[CallStrategy](#yandex.cloud.ai.assistants.v1.CallStrategy)**
+
+Defines the strategy for triggering search.
+Controls whether search results are always included or returned only when
+the model explicitly calls the tool. ||
 |#
 
 ## RephraserOptions {#yandex.cloud.ai.assistants.v1.RephraserOptions}
@@ -200,6 +214,50 @@ Options for configuring the rephrasing the last user message for search using co
 || rephraser_uri | **string**
 
 Required field. The ID of the model used to rephrase the last user message for search. ||
+|#
+
+## CallStrategy {#yandex.cloud.ai.assistants.v1.CallStrategy}
+
+Defines when the assistant uses the search tool.
+
+#|
+||Field | Description ||
+|| always_call | **[AlwaysCall](#yandex.cloud.ai.assistants.v1.CallStrategy.AlwaysCall)**
+
+Includes only one of the fields `always_call`, `auto_call`.
+
+One of `always_call` or `auto_call`.
+always_call is used if no strategy is explicitly set ||
+|| auto_call | **[AutoCall](#yandex.cloud.ai.assistants.v1.CallStrategy.AutoCall)**
+
+Includes only one of the fields `always_call`, `auto_call`.
+
+One of `always_call` or `auto_call`.
+always_call is used if no strategy is explicitly set ||
+|#
+
+## AlwaysCall {#yandex.cloud.ai.assistants.v1.CallStrategy.AlwaysCall}
+
+Always includes retrieved search results in the prompt.
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## AutoCall {#yandex.cloud.ai.assistants.v1.CallStrategy.AutoCall}
+
+Exposes the tool as a callable function.
+The model decides when to trigger search based on the instruction.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the tool as exposed to the model. ||
+|| instruction | **string**
+
+Required field. Required instruction that helps the model decide when to call the tool. ||
 |#
 
 ## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool}

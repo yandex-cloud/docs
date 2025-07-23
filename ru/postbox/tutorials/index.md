@@ -13,3 +13,4 @@ description: В этом разделе собраны практические 
 * [{#T}](send-emails-aws-sdk-csharp.md)
 * [{#T}](send-emails-aws-sdk-go.md)
 * [{#T}](send-emails-aws-sdk-js.md)
+* [{#T}](send-emails-aws-sdk-python.md)

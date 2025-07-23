@@ -9,7 +9,7 @@ To delete a user account, [remove](#remove-user) or [delete](#delete-user) the u
 
 {% note info %}
 
-Only users with the `organization-manager.admin` or `organization-manager.organizations.owner` role can delete or remove an account. To learn how to grant a role to a user, see the [Roles](../security/index.md#admin) section.
+Only users with the `organization-manager.admin` or `organization-manager.organizations.owner` role can delete or remove an account. To learn how to grant a role to a user, see the [Roles](../security/index.md#add-role) section.
 
 {% endnote %}
 
@@ -23,7 +23,7 @@ To remove a user from an organization:
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Navigate to [{{ org-full-name }}]({{ link-org-cloud-center }}) and log in using an administrator or organization owner account.
 
@@ -45,7 +45,7 @@ To delete a user from your organization:
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Navigate to [{{ org-full-name }}]({{ link-org-cloud-center }}) and log in using an administrator or organization owner account.
 

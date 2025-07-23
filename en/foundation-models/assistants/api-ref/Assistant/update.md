@@ -61,6 +61,15 @@ Required field. ID of the assistant to update. ||
         "maxNumResults": "string",
         "rephraserOptions": {
           "rephraserUri": "string"
+        },
+        "callStrategy": {
+          // Includes only one of the fields `alwaysCall`, `autoCall`
+          "alwaysCall": "object",
+          "autoCall": {
+            "name": "string",
+            "instruction": "string"
+          }
+          // end of the list of possible fields
         }
       },
       "function": {
@@ -70,7 +79,15 @@ Required field. ID of the assistant to update. ||
       }
       // end of the list of possible fields
     }
-  ]
+  ],
+  "responseFormat": {
+    // Includes only one of the fields `jsonObject`, `jsonSchema`
+    "jsonObject": "boolean",
+    "jsonSchema": {
+      "schema": "object"
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -115,6 +132,7 @@ New configuration for completion generation. ||
 || tools[] | **[Tool](#yandex.cloud.ai.assistants.v1.Tool)**
 
 New list of tools the assistant can use. ||
+|| responseFormat | **[ResponseFormat](#yandex.cloud.ai.assistants.v1.ResponseFormat)** ||
 |#
 
 ## ExpirationConfig {#yandex.cloud.ai.common.ExpirationConfig}
@@ -221,6 +239,11 @@ This ensures that the combined prompt and search results do not exceed the token
 Options for rephrasing user queries.
 Used to rewrite the last user message for search,
 incorporating context from the previous conversation. ||
+|| callStrategy | **[CallStrategy](#yandex.cloud.ai.assistants.v1.CallStrategy)**
+
+Defines the strategy for triggering search.
+Controls whether search results are always included or returned only when
+the model explicitly calls the tool. ||
 |#
 
 ## RephraserOptions {#yandex.cloud.ai.assistants.v1.RephraserOptions}
@@ -232,6 +255,41 @@ Options for configuring the rephrasing the last user message for search using co
 || rephraserUri | **string**
 
 Required field. The ID of the model used to rephrase the last user message for search. ||
+|#
+
+## CallStrategy {#yandex.cloud.ai.assistants.v1.CallStrategy}
+
+Defines when the assistant uses the search tool.
+
+#|
+||Field | Description ||
+|| alwaysCall | **object**
+
+Includes only one of the fields `alwaysCall`, `autoCall`.
+
+One of `always_call` or `auto_call`.
+always_call is used if no strategy is explicitly set ||
+|| autoCall | **[AutoCall](#yandex.cloud.ai.assistants.v1.CallStrategy.AutoCall)**
+
+Includes only one of the fields `alwaysCall`, `autoCall`.
+
+One of `always_call` or `auto_call`.
+always_call is used if no strategy is explicitly set ||
+|#
+
+## AutoCall {#yandex.cloud.ai.assistants.v1.CallStrategy.AutoCall}
+
+Exposes the tool as a callable function.
+The model decides when to trigger search based on the instruction.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the tool as exposed to the model. ||
+|| instruction | **string**
+
+Required field. Required instruction that helps the model decide when to call the tool. ||
 |#
 
 ## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool}
@@ -250,6 +308,37 @@ A description of the function's purpose or behavior. ||
 
 A JSON Schema that defines the expected parameters for the function.
 The schema should describe the required fields, their types, and any constraints or default values. ||
+|#
+
+## ResponseFormat {#yandex.cloud.ai.assistants.v1.ResponseFormat}
+
+Specifies the format of the model's response.
+
+#|
+||Field | Description ||
+|| jsonObject | **boolean**
+
+When set to true, the model will respond with a valid JSON object.
+Be sure to explicitly ask the model for JSON.
+Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
+
+Includes only one of the fields `jsonObject`, `jsonSchema`. ||
+|| jsonSchema | **[JsonSchema](#yandex.cloud.ai.assistants.v1.JsonSchema)**
+
+Enforces a specific JSON structure for the model's response based on a provided schema.
+
+Includes only one of the fields `jsonObject`, `jsonSchema`. ||
+|#
+
+## JsonSchema {#yandex.cloud.ai.assistants.v1.JsonSchema}
+
+Represents the expected structure of the model's response using a JSON Schema.
+
+#|
+||Field | Description ||
+|| schema | **object**
+
+The JSON Schema that the model's output must conform to. ||
 |#
 
 ## Response {#yandex.cloud.ai.assistants.v1.Assistant}
@@ -297,6 +386,15 @@ The schema should describe the required fields, their types, and any constraints
         "maxNumResults": "string",
         "rephraserOptions": {
           "rephraserUri": "string"
+        },
+        "callStrategy": {
+          // Includes only one of the fields `alwaysCall`, `autoCall`
+          "alwaysCall": "object",
+          "autoCall": {
+            "name": "string",
+            "instruction": "string"
+          }
+          // end of the list of possible fields
         }
       },
       "function": {
@@ -306,7 +404,15 @@ The schema should describe the required fields, their types, and any constraints
       }
       // end of the list of possible fields
     }
-  ]
+  ],
+  "responseFormat": {
+    // Includes only one of the fields `jsonObject`, `jsonSchema`
+    "jsonObject": "boolean",
+    "jsonSchema": {
+      "schema": "object"
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -385,6 +491,9 @@ Configuration options for completion generation. ||
 
 List of tools that the assistant can use to perform additional tasks.
 One example is the SearchIndexTool, which is used for Retrieval-Augmented Generation (RAG). ||
+|| responseFormat | **[ResponseFormat](#yandex.cloud.ai.assistants.v1.ResponseFormat2)**
+
+Specifies the format of the model's response. ||
 |#
 
 ## ExpirationConfig {#yandex.cloud.ai.common.ExpirationConfig2}
@@ -491,6 +600,11 @@ This ensures that the combined prompt and search results do not exceed the token
 Options for rephrasing user queries.
 Used to rewrite the last user message for search,
 incorporating context from the previous conversation. ||
+|| callStrategy | **[CallStrategy](#yandex.cloud.ai.assistants.v1.CallStrategy2)**
+
+Defines the strategy for triggering search.
+Controls whether search results are always included or returned only when
+the model explicitly calls the tool. ||
 |#
 
 ## RephraserOptions {#yandex.cloud.ai.assistants.v1.RephraserOptions2}
@@ -502,6 +616,41 @@ Options for configuring the rephrasing the last user message for search using co
 || rephraserUri | **string**
 
 Required field. The ID of the model used to rephrase the last user message for search. ||
+|#
+
+## CallStrategy {#yandex.cloud.ai.assistants.v1.CallStrategy2}
+
+Defines when the assistant uses the search tool.
+
+#|
+||Field | Description ||
+|| alwaysCall | **object**
+
+Includes only one of the fields `alwaysCall`, `autoCall`.
+
+One of `always_call` or `auto_call`.
+always_call is used if no strategy is explicitly set ||
+|| autoCall | **[AutoCall](#yandex.cloud.ai.assistants.v1.CallStrategy.AutoCall2)**
+
+Includes only one of the fields `alwaysCall`, `autoCall`.
+
+One of `always_call` or `auto_call`.
+always_call is used if no strategy is explicitly set ||
+|#
+
+## AutoCall {#yandex.cloud.ai.assistants.v1.CallStrategy.AutoCall2}
+
+Exposes the tool as a callable function.
+The model decides when to trigger search based on the instruction.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The name of the tool as exposed to the model. ||
+|| instruction | **string**
+
+Required field. Required instruction that helps the model decide when to call the tool. ||
 |#
 
 ## FunctionTool {#yandex.cloud.ai.assistants.v1.FunctionTool2}
@@ -520,4 +669,35 @@ A description of the function's purpose or behavior. ||
 
 A JSON Schema that defines the expected parameters for the function.
 The schema should describe the required fields, their types, and any constraints or default values. ||
+|#
+
+## ResponseFormat {#yandex.cloud.ai.assistants.v1.ResponseFormat2}
+
+Specifies the format of the model's response.
+
+#|
+||Field | Description ||
+|| jsonObject | **boolean**
+
+When set to true, the model will respond with a valid JSON object.
+Be sure to explicitly ask the model for JSON.
+Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
+
+Includes only one of the fields `jsonObject`, `jsonSchema`. ||
+|| jsonSchema | **[JsonSchema](#yandex.cloud.ai.assistants.v1.JsonSchema2)**
+
+Enforces a specific JSON structure for the model's response based on a provided schema.
+
+Includes only one of the fields `jsonObject`, `jsonSchema`. ||
+|#
+
+## JsonSchema {#yandex.cloud.ai.assistants.v1.JsonSchema2}
+
+Represents the expected structure of the model's response using a JSON Schema.
+
+#|
+||Field | Description ||
+|| schema | **object**
+
+The JSON Schema that the model's output must conform to. ||
 |#

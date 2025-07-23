@@ -6,6 +6,8 @@ description: Follow this guide to update user data in an {{ org-name }} pool.
 # Updating user data
 
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}

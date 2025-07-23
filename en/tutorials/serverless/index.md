@@ -30,5 +30,9 @@
 * [{#T}](functions-framework-to-container.md)
 * [{#T}](forms-and-datalens-integration/index.md)
 * [{#T}](domain-identity-creating.md)
-* [{#T}](send-emails-aws-sdk-go.md)
 * [{#T}](create-ai-agent-function.md)
+
+## Sending emails in {{ postbox-full-name }} using the AWS SDK {#postbox-send-aws-sdk}
+
+* [{#T}](send-emails-aws-sdk-csharp.md)
+* [{#T}](send-emails-aws-sdk-go.md)

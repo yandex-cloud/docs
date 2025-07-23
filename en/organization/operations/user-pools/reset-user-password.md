@@ -6,6 +6,8 @@ description: Follow this guide to reset a user password in a {{ org-name }} pool
 # Resetting a user password
 
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}
