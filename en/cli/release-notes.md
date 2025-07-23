@@ -7,6 +7,53 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.154.0 (09/07/25) {#version0.154.0}
+
+#### {{ alb-name }}
+
+Added these commands to manage traffic routing in load balancer availability zones:
+* `yc alb load-balancer disable-zones`
+* `yc alb load-balancer enable-zones`
+
+#### {{ cloud-desktop-name }}
+
+The `--id` flag in the `yc desktop update-properties` command is now optional.
+
+#### {{ mch-name }}
+
+Added disk autoscaling management parameters. The new parameters can be used in these commands:
+* `yc clickhouse cluster create`
+* `yc clickhouse cluster update`
+* `yc clickhouse restore`
+* `yc clickhouse shards add`
+* `yc clickhouse shard update`
+
+#### {{ mgl-name }}
+
+Added this instance update command: `yc managed-gitlab instance update`.
+
+#### {{ mgp-name }}
+
+Added the `yc managed-greenplum connect` command to connect users with IAM authentication.
+
+#### {{ mmy-name }}
+
+Added the `--disk-size-autoscaling` flag to the `yc managed-mysql cluster update` command.
+
+#### {{ mos-name }}
+
+Added these cluster start/stop commands:
+* `yc managed-opensearch cluster start`
+* `yc managed-opensearch cluster stop`
+
+#### {{ network-load-balancer-name }}
+
+Renamed these load balancer zone lock start/stop commands:
+* `yc load-balancer network-load-balancer disable-zones`
+* `yc load-balancer network-load-balancer enable-zones`
+
+## Previous releases {#previous-release}
+
 ### Version 0.153.0 (30/06/25) {#version0.153.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -15,30 +62,28 @@ description: This page presents a list of CLI releases and the updates of each.
 
 In the `desktops update group` command, changed the `--disk-size` flag type to `byteSize` for boot and data disks.
 
-## Previous releases {#previous-release}
-
 ### Version 0.152.0 (25/06/25) {#version0.152.0}
 
 #### Changes in {{ yandex-cloud }} services
 
 ##### {{ alb-name }} {#version-0.152-alb}
 
-You can now specify a list of zones in the `yc application-load-balancer load-balancer start-zonal-shift` and `yc application-load-balancer load-balancer cancel-zonal-shift` commands for starting and cancelling a load balancer zonal shift.
+You can now specify a list of zones in the `yc application-load-balancer load-balancer start-zonal-shift` and `yc application-load-balancer load-balancer cancel-zonal-shift` load balancer zonal shift start/stop commands.
 
 ##### {{ cloud-desktop-name }} {#version-0.152-desktop}
 
-* Added the `yc desktops group update` command to update desktop group info.
+* Added the `yc desktops group update` command for updating desktop group info.
 * Added the following parameters to the `yc desktops group create` command: `max-group-size`, `hot-standby`, and `user-account-id`.
 
 ##### {{ network-load-balancer-name }} {#version-0.152-nlb}
 
-Added the following commands for starting and cancelling a load balancer zone lock:
+Added load balancer zone lock start/stop commands:
 * `yc load-balancer network-load-balancer start-zonal-shift`
 * `yc load-balancer network-load-balancer cancel-zonal-shift`
 
 ##### {{ metastore-full-name }} {#version-0.152-metastore}
 
-Added commands for {{ metastore-name }} cluster management:
+Added {{ metastore-name }} cluster management commands:
 * `yc managed-metastore cluster get`
 * `yc managed-metastore cluster list`
 * `yc managed-metastore cluster create`
@@ -573,7 +618,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 ##### {{ cloud-registry-name }} {#cloud-registry}
 
 * Added the `yc cloud-registry artifact get` and `yc cloud-registry artifact delete` commands you can use to manage artifacts.
-* Added commands for managing these registries: `yc cloud-registry registry [ get | list | create | update | delete | add-labels | remove-labels | list-access-bindings | set-access-bindings | add-access-bindings | remove-access-bindings | list-ip-permissions | set-ip-permissions | add-ip-permissions | remove-ip-permissions ]`.
+* Added these registry management commands: `yc cloud-registry registry [ get | list | create | update | delete | add-labels | remove-labels | list-access-bindings | set-access-bindings | add-access-bindings | remove-access-bindings | list-ip-permissions | set-ip-permissions | add-ip-permissions | remove-ip-permissions ]`.
 
 ##### {{ data-transfer-name }} {#data-transfer}
 

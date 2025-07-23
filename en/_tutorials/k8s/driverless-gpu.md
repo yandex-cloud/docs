@@ -15,8 +15,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* Fee for the {{ managed-k8s-name }} cluster: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
@@ -30,9 +30,14 @@ The support cost includes:
 
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. [Create a {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) cluster with any suitable configuration. When creating them, specify the security groups prepared earlier.
+1. [Create a {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) cluster with any suitable configuration. When creating, specify the security groups prepared earlier.
 
-1. [Create a node group](../../managed-kubernetes/operations/node-group/node-group-create.md) on a platform with a GPU, and enable **{{ ui-key.yacloud.k8s.node-groups.create.field_driverless-gpu }}**. Specify the security groups prepared earlier.
+1. [Create a {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-group/node-group-create.md) node group with the following settings:
+   * **{{ ui-key.yacloud.compute.instances.create.section_platform }}**: Navigate to the **GPU** tab and select a suitable platform.
+   * **{{ ui-key.yacloud.k8s.node-groups.create.field_driverless-gpu }}**: Select the option.
+   * **{{ ui-key.yacloud.mdb.forms.field_security-group }}**: Select the security groups you created earlier.
+   * **{{ ui-key.yacloud.k8s.node-groups.create.field_node-taints }}**: Specify the `nvidia.com/gpu=true:NoSchedule` [taint policy](../../managed-kubernetes/concepts/index.md#taints-tolerations).
+
 
 1. {% include [kubectl-install](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -57,6 +62,14 @@ The support cost includes:
     {% note info %}
 
     For the {{ managed-k8s-name }} `{{ a100-epyc }}` (`gpu-standard-v3`) node group platform, use [driver version `515.48.07`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-515-48-07/index.html).
+
+    {% endnote %}
+
+    GPU Operator will be installed with default parameters. Learn more about parameters from the [official documentation]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
+
+    {% note tip %}
+
+    You can view parameter values in the Helm chart's `values.yaml` configuration file. To do this, download the Helm chart archive using the `helm pull --untar nvidia/gpu-operator` command.
 
     {% endnote %}
 

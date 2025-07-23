@@ -70,25 +70,28 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/cloud-arrow-up-in.svg) **Источники** и нажмите кнопку **Создать источник данных**.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}** и нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-source-button }}**.
   1. Задайте **{{ ui-key.yacloud.common.name }}** источника.
   1. Задайте **{{ ui-key.yacloud.common.description }}** источника.
-  1. Выберите **Тип базы данных** — **PostgreSQL**.
+  1. Выберите **{{ ui-key.yacloud.data-catalog.label_source-database-type }}** — **PostgreSQL**.
   1. В блоке **Источник PostgreSQL** задайте параметры:
 
-     * **Каталог пользователя в облаке** — каталог ресурсов, в котором создан кластер {{ mpg-name }}.
+     * **ID папки** — каталог ресурсов, в котором создан кластер {{ mpg-name }}.
      * **Тип инсталляции** — **Кластер {{ mpg-name }}**.
      * **Кластер управляемой БД** — созданный ранее кластер {{ mpg-name }}.
      * **ID подключения** — подключение к созданному ранее кластеру {{ mpg-name }} в сервисе {{ connection-manager-full-name }}.
      * **Имя базы данных** в созданном ранее кластере {{ mpg-name }}.
+     * (Опционально) **Выгружать из всех баз данных** — включите опцию, если необходимо выгружать данные из всех баз данных.
+     * **Идентификатор сети** — укажите идентификатор сети.
+
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**. 
-  1. После этого вам откроется страница со списком источников в каталоге метаданных. В строке с только что созданным источником будет отображаться сообщение **Нет загрузки**.
-  1. Наведите курсор на это сообщение и в отобразившемся окне нажмите кнопку **Создать загрузку**. 
+  1. После этого вам откроется страница со списком источников в каталоге метаданных. В строке с только что созданным источником будет отображаться сообщение **{{ ui-key.yacloud.data-catalog.label_empty-ingestion-count-short }}**.
+  1. Наведите курсор на это сообщение и в отобразившемся окне нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-ingestion-action }}**. 
   1. Задайте **{{ ui-key.yacloud.common.name }}** загрузки.
   1. Задайте **{{ ui-key.yacloud.common.description }}** загрузки.  
   1. В поле **Расписание** выберите **Каждый день**.
-  1. В поле **Временные интервалы** задайте время работы загрузки.
+  1. В полях **Время начала** и **Время окончания** задайте время работы загрузки.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -100,7 +103,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/database-magnifier.svg) **Поиск по метаданным**.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
 
      В открывшемся списке отобразятся метаданные, полученные из созданного ранее кластера {{ mpg-name }}.
 
@@ -108,7 +111,7 @@
 
 {% note tip %}
 
-Загруженные из источника метаданные также отобразятся на вкладке **Выгруженные данные** в этом источнике.
+Загруженные из источника метаданные также отобразятся на вкладке **{{ ui-key.yacloud.data-catalog.label_source-data-tab }}** в этом источнике.
 
 {% endnote %}
 
@@ -121,7 +124,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/tag.svg) **Теги и классификации** и нажмите кнопку **Создать классификацию**.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}** и нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-classification-action }}**.
   1. Задайте **{{ ui-key.yacloud.common.name }}** классификации.
   1. Задайте **{{ ui-key.yacloud.common.description }}** классификации.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -135,8 +138,8 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/tag.svg) **Теги и классификации** и откройте [созданную ранее](#create-classification) классификацию.
-  1. Нажмите кнопку **Создать тег**.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}** и откройте [созданную ранее](#create-classification) классификацию.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-tag-action }}**.
   1. В открывшемся окне задайте **{{ ui-key.yacloud.common.name }}** тега.
   1. Задайте **{{ ui-key.yacloud.common.description }}** тега.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -152,7 +155,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/globe.svg) **Домены** и нажмите кнопку **Создать домен**.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.data-catalog.label_domains }}** и нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-domain-action }}**.
   1. Задайте **{{ ui-key.yacloud.common.name }}** домена. 
   1. Задайте **{{ ui-key.yacloud.common.description }}** домена.
   1. Добавьте один или несколько [созданных ранее](#create-tags) тегов.
@@ -167,8 +170,8 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/globe.svg) **Домены** и выберите [созданный ранее](#create-domain) домен.
-  1. Нажмите кнопку **Добавить поддомен**.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.data-catalog.label_domains }}** и выберите [созданный ранее](#create-domain) домен.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_add-subdomain-action }}**.
   1. Задайте **{{ ui-key.yacloud.common.name }}** поддомена. 
   1. Задайте **{{ ui-key.yacloud.common.description }}** поддомена.
   1. Добавьте один или несколько [созданных ранее](#create-tags) тегов.
@@ -185,7 +188,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/book.svg) **Термины и глоссарии** и нажмите кнопку **Создать глоссарий**.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}** и нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-glossary-action }}**.
   1. Задайте **{{ ui-key.yacloud.common.name }}** глоссария.
   1. Задайте **{{ ui-key.yacloud.common.description }}** глоссария.
   1. Добавьте один или несколько [созданных ранее](#create-tags) тегов.
@@ -200,8 +203,8 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/book.svg) **Термины и глоссарии** и выберите [созданный ранее](#create-glossary) глоссарий.
-  1. Нажмите кнопку **Создать термин**.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}** и выберите [созданный ранее](#create-glossary) глоссарий.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-term-action }}**.
   1. Задайте **{{ ui-key.yacloud.common.name }}** термина.
   1. Задайте **{{ ui-key.yacloud.common.description }}** термина.
   1. Укажите синонимы для термина.
@@ -218,8 +221,8 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/database-magnifier.svg) **Поиск по метаданным**.
-  1. В строке с выбранным набором данных нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Присвоить домен**, **Добавить теги** или **Добавить термин**.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
+  1. В строке с выбранным набором данных нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.data-catalog.action_set-domain }}**, **{{ ui-key.yacloud.data-catalog.label_add-tags }}** или **{{ ui-key.yacloud.data-catalog.label_add-terms }}**.
   1. В открывшемся окне выберите объект в иерархии доменов, тегов или терминов. При необходимости воспользуйтесь поиском.
   1. Добавьте выбранные объекты.
 

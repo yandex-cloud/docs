@@ -44,7 +44,7 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
         You can add multiple rules.
 
-  1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}** and specify listener settings:
+  1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**. Specify listener settings:
      1. Specify the listener name.
      1. Optionally, enable **{{ ui-key.yacloud.alb.section_external-address-specs }}**. Set **{{ ui-key.yacloud.alb.label_port }}** to `80` and select **{{ ui-key.yacloud.common.type }}**:
         * `{{ ui-key.yacloud.alb.label_address-auto }}`.
@@ -248,66 +248,157 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
   1. In the configuration file, describe the resources you want to create:
 
-     ```hcl
-     resource "yandex_alb_load_balancer" "test-balancer" {
-       name        = "<L7_load_balancer_name>"
-       network_id  = "<network_ID>"
-       security_group_ids = ["<list_of_security_group_IDs>"]
+      ```hcl
+      resource "yandex_alb_load_balancer" "test-balancer" {
+        name        = "<L7_load_balancer_name>"
+        network_id  = "<network_ID>"
+        security_group_ids = ["<list_of_security_group_IDs>"]
 
-       allocation_policy {
-         location {
-           zone_id   = "<availability_zone>"
-           subnet_id = "<subnet_ID>" 
-         }
-       }
+        allocation_policy {
+          location {
+            zone_id   = "<availability_zone>"
+            subnet_id = "<subnet_ID>" 
+          }
+        }
 
-       listener {
-         name = "<listener_name>"
-         endpoint {
-           address {
-             external_ipv4_address {
-             }
-           }
-           ports = [ 9000 ]
-         }
-         http {
-           handler {
-             http_router_id = "<HTTP_router_ID>"
-           }
-         }
-       }
+        # HTTP listener
+        listener {
+          name = "<HTTP_listener_name>"
+          endpoint {
+            address {
+              external_ipv4_address {
+              }
+            }
+            ports = [<port>]
+          }
+          http {
+            handler {
+              http_router_id = "<HTTP_router_ID>"
+            }
+          }
+        }
 
-       log_options {
-         log_group_id = "<log_group_ID>"
-         discard_rule {
-           http_codes          = ["<HTTP_code>"]
-           http_code_intervals = ["<HTTP_code_class>"]
-           grpc_codes          = ["<gRPC_code>"]
-           discard_percent     = <discarded_log_percentage>
-         }
-       }
-     }
-     ```
+        # Stream listener
+        listener {
+          name = "<Stream_listener_name>"
+          endpoint {
+            address {
+              external_ipv4_address {
+              }
+            }
+            ports = [<port>]
+          }
+          stream {
+            handler {
+              backend_group_id = "<backend_group_ID>"
+              idle_timeout     = "<timeout>"
+            }
+          }
+        }
 
-     Where:
-     * `name`: L7 load balancer name. Follow these naming requirements:
+        # TLS listener
+        listener {
+          name = "<TLS_listener_name>"
+          endpoint {
+            address {
+              external_ipv4_address {
+              }
+            }
+            ports = [<port>]
+          }
+          tls {
+            default_handler {
+              certificate_ids = ["<certificate_IDs>"]
+              stream_handler {
+                backend_group_id = "<backend_group_ID>"
+                idle_timeout     = "<timeout>"
+              }
+            }
+            sni_handler {
+              name         = "SNI_listener_name"
+              server_names = [“server_names"]
+              handler {
+                certificate_ids = ["<certificate_IDs>"]
+                stream_handler {
+                  backend_group_id = "<backend_group_ID>"
+                  idle_timeout     = "<timeout>"
+                }
+              }
+            }
+          }
+        }
 
-       {% include [name-format](../../_includes/name-format.md) %}
+        log_options {
+          log_group_id = "<log_group_ID>"
+          discard_rule {
+            http_codes          = ["<HTTP_code>"]
+            http_code_intervals = ["<HTTP_code_class>"]
+            grpc_codes          = ["<gRPC_code>"]
+            discard_percent     = <discarded_log_percentage>
+          }
+        }
+      }
+      ```
 
-     * `network_id`: ID of the network that will host your load balancer.
-     * `security_group_ids`: Comma separated list of one to five [security group](../concepts/application-load-balancer.md#security-groups) IDs. This is an optional setting.
-         If you skip it, the load balancer will accept all traffic.
-     * `allocation_policy`: L7 load balancer's [node location](../../application-load-balancer/concepts/application-load-balancer.md#lb-location). Specify the availability zones and subnet IDs.
-     * `listener`: L7 load balancer's [listener](../../application-load-balancer/concepts/application-load-balancer.md#listener) settings:
-        * `name`: Listener name. Follow these naming requirements:
+      Where:
+
+       * `name`: L7 load balancer name. Follow these naming requirements:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-        * `endpoint`: Listener addresses and ports. Specify the external IPv4 address and port for receiving traffic. If the `external_ipv4_address` setting is not specified, a public IP address will be assigned automatically.
-        * `http`: Listener HTTP endpoint description. Specify the HTTP router ID.
-        * `log_options`: Optional [logging](../logs-ref.md) settings for [{{ cloud-logging-full-name }}](../../logging/):
+      * `network_id`: ID of the network that will host your load balancer.
+      * `security_group_ids`: Comma separated list of one to five [security group](../concepts/application-load-balancer.md#security-groups) IDs. This is an optional setting.
+
+          If you skip it, the load balancer will accept all traffic.
+
+      * `allocation_policy`: L7 load balancer's [node location](../../application-load-balancer/concepts/application-load-balancer.md#lb-location). Specify the availability zones and subnet IDs.
+      * `listener`: Description of parameters for the L7 load balancer [listener](../../application-load-balancer/concepts/application-load-balancer.md#listener). This is an optional setting. You can specify one or multiple listeners.
+
+          * `name`: Listener name. Use the following name format:
+
+              {% include [name-format](../../_includes/name-format.md) %}
+
+          * `endpoint`: Listener addresses and ports. Specify the external IPv4 address and port for receiving traffic. If the `external_ipv4_address` setting is not specified, a public IP address will be assigned automatically.
+          * `ports`: One or multiple ports. Listener ports must not match.
+          * `http`: Listener HTTP endpoint description.
+
+              * `http_router_id`: HTTP router ID.
+
+        * `stream`: Listener Stream endpoint description.
+
+            * `backend_group_id`: ID of the `Stream`-type backend group to forward the incoming TCP connections to.
+            * `idle_timeout`: Idle timeout to close the connection when it expires. This is an optional setting. The possible values are, e.g., `"10s"`, `"5m"`, or `"1h"`. Set `"0"` to have no timeout. The default value is one hour.
+
+        * `tls`: TLS listener description.
+
+            * `default_handler`: Default TLS listener.
+
+                * `certificate_ids`: List of {{ certificate-manager-full-name }} [certificate](../../certificate-manager/concepts/index.md#types) IDs.
+                * `stream_handler`: Stream listener settings.
+
+                    * `backend_group_id`: ID of the `Stream`-type backend group.
+                    * `idle_timeout`: Idle timeout to close the connection when it expires. This is an optional setting. The possible values are, e.g., `"10s"`, `"5m"`, or `"1h"`. Set `"0"` to have no timeout. The default value is one hour.
+
+            * `sni_handler`: SNI listener description.
+
+                * `name`: Listener name. Use the following name format:
+
+                  {% include [name-format](../../_includes/name-format.md) %}
+
+                * `server_names`: Names of servers that the SNI listener is mapped to.
+                * `handler`: SNI listener settings:
+
+                    * `certificate_ids`: List of {{ certificate-manager-full-name }} certificate IDs.
+                    * `stream_handler`: Stream listener settings.
+
+                        * `backend_group_id`: ID of the `Stream`-type backend group.
+                        * `idle_timeout`: Idle timeout to close the connection when it expires. This is an optional setting. The possible values are, e.g., `"10s"`, `"5m"`, or `"1h"`. Set `"0"` to have no timeout. The default value is one hour.
+
+      * `log_options`: Optional [logging](../logs-ref.md) settings for [{{ cloud-logging-full-name }}](../../logging/):
+
           * `log_group_id`: [Log group](../../logging/concepts/log-group.md) ID.
           * `discard_rule`: [Log discard rule](../concepts/application-load-balancer.md#discard-logs-rules).
+
             * `http_codes`: HTTP codes.
             * `http_code_intervals`: HTTP code classes.
             * `grpc_codes`: gRPC codes.
@@ -315,30 +406,34 @@ To create an [L7 load balancer](../concepts/application-load-balancer.md):
 
             You can add multiple rules.
 
-     For more information about `yandex_alb_load_balancer` properties in {{ TF }}, see [this]({{ tf-provider-resources-link }}/alb_load_balancer) {{ TF }} article.
+      For more information about `yandex_alb_load_balancer` properties in {{ TF }}, see [this]({{ tf-provider-resources-link }}/alb_load_balancer) {{ TF }} article.
+
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
 
-        ```bash
-        terraform plan
-        ```
+      1. In the command line, navigate to the directory where you created the configuration file.
+      1. Run a check using this command:
 
-     If your configuration is correct, you will see a detailed list of new resources; otherwise, {{ TF }} will show configuration errors.
-  1. Deploy your cloud resources.
-     1. If your configuration is correct, run this command:
+          ```bash
+          terraform plan
+          ```
 
-        ```bash
-        terraform apply
-        ```
+      If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
-     1. Type `yes` and press **Enter** to confirm changes.
+  1. Deploy the cloud resources.
 
-        After that, your resources will appear in the specified folder. You can check your new resources and their settings in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
+      1. If the configuration does not contain any errors, run this command:
 
-        ```bash
-        yc alb load-balancer list
-        ```
+          ```bash
+          terraform apply
+          ```
+
+      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+
+          This will create all the resources you need in the specified folder. You can check your new resources and their settings in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
+
+          ```bash
+          yc alb load-balancer list
+          ```
 
 - API {#api}
 

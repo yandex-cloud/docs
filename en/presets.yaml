@@ -192,6 +192,7 @@ default:
   dt-status-stopping: '**Stopping**'
   dt-type-copy: '**Snapshot**'
   dt-type-copy-repl: '**Snapshot and increment**'
+  dt-type-preparing: '**Preparing**'
   dt-type-repl: '**Replication**'
   dt-white-ip-list-uri: >-
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
@@ -6681,10 +6682,29 @@ default:
           mx:
             save-as: Add to dashboard
     yacloud_org:
+      action:
+        applications:
+          components:
+            action_activate: Activate
+            action_deactivate: Deactivate
+            create-app: Create application
       actions:
         add: Add
         exclude: Remove
         save-changes: Save
+      application:
+        overview:
+          certificate_action_download_cert: Download certificate
+          certificate_action_manage_certs: Certificate management
+          certificate_section_title: Application certificate
+          idp_section_download_metadata_action: Download metadata file
+          idp_section_title: Identity provider (IdP) configuration
+          saml_field_metadata: Metadata URL
+      attributes:
+        update_dialog:
+          field_attribute_name: Attribute name
+          field_attribute_value: Value
+          field_group_attribute_value: Transmitted groups
       billing:
         account:
           entities:
@@ -6702,6 +6722,11 @@ default:
             tariff_available-title: Available
             tariff_blocked-title: Available via the support service
           switch_proposals: Offers
+      cloud-components:
+        manage-cert-dialog:
+          action-generate-new-certificate: Generate new certificate
+          table:
+            column-active: Active
       common:
         columns:
           column_id: Identifier
@@ -6752,6 +6777,8 @@ default:
           action_remove-acl: Revoke access
           action_remove-user: Remove from group
           action_update-acl: Configure access
+          label_id: ID
+          label_user: User
           title_tab-access: Group access rights
           title_tab-members: Members
         invitation:
@@ -6770,6 +6797,12 @@ default:
           caption:
             federation: Federation
             user: User
+            username: Username
+      field-data:
+        attributes:
+          update_dialog:
+            field_group_all: 'All grous '
+            field_group_assigned: Assigned groups only
       form:
         federation:
           action:
@@ -6821,6 +6854,32 @@ default:
       layout:
         organization: Identity Hub
       organization:
+        apps:
+          AppAssignmentsPage:
+            action_add-assignments: Add users
+          AppCreateForm:
+            create-app-submit_myxPn: Create application
+            field-description_kzkNB: Description
+            field-name_1VbM1: Name
+            saml-title_kyofk: SAML (Security Assertion Markup Language)
+          AppPageLayout:
+            action_add_attribute: Add attribute
+            action_add_group_attribute: Add group attribute
+            assignments_kKzJS: Users and groups
+            attributes_to71e: Attributes
+            overview_b5LJQ: Overview
+          SamlAppAcsUrlsField:
+            add-acs-url_eMunC: Add URL
+          SamlAppEditForm:
+            field-acs-urls_eQcJr: ACS URL
+            field-description_cjpok: Description
+            field-labels_uT2D2: Labels
+            field-name_d22aF: Name
+            field-signature-mode_ipXQ7: Signature mode
+            field-sp-entity-id_snAsX: 'SP EntityID '
+            signature-mode-assertions_thJgN: Assertions
+            signature-mode-response_x7SKD: Response
+            signature-mode-response-and-assertions_u2j6T: Assertions and Response
         security-settings:
           OtherSecuritySettingsForm:
             auth_settings_1RoAM: Authentication settings
@@ -6855,6 +6914,12 @@ default:
             download-cert: Download certificate
           section:
             certificates: Certificates
+        user:
+          field_user-email: Email
+          field_user-familyname: Surname
+          field_user-givenname: Name
+          field_user-phone: Phone
+          title_personal-info: Personal info
         users:
           action:
             add-federated-users: Add federated users
@@ -6863,6 +6928,7 @@ default:
             button-text: Add user
       pages:
         acl: Access bindings
+        apps: Apps
         federations: Federations
         groups: Groups
         oslogin:
@@ -7588,6 +7654,7 @@ default:
         cancel: Cancel
         clear: Clear
         clone: Clone
+        close: Close
         confirm: Confirm
         continue: Continue
         create: Create
@@ -7596,6 +7663,7 @@ default:
         description: Description
         disable: Disable
         disabled: Disabled
+        download: Download
         edit: Edit
         enable: Enable
         enabled: Enabled
@@ -7917,6 +7985,9 @@ default:
           popup-confirm_button_resume: Resume
           popup-confirm_button_start: Start
           popup-confirm_button_stop: Stop
+        hardware-gen1-v1-title_oK6qE: Gen 1.1 (MBR, BIOS)
+        hardware-gen1-v2-title_eSmBa: Gen 1.2 (MBR, BIOS)
+        hardware-generation_1iEpT: Hardware generation
         host-group:
           hosts:
             label_title: List of hosts
@@ -8068,6 +8139,7 @@ default:
           button_menu-create-instance-placement-group: Virtual machine placement group
           label_tab-disks: Non-replicated disk placement groups
           label_tab-instances: Virtual machine placement groups
+        section_additional_7yvYG: Additional
         snapshots_81jHX: Snapshots
         snapshots-schedules:
           action_attach-disk: Add disk
@@ -8142,8 +8214,38 @@ default:
         switch_registry: Registries
       data-catalog:
         action_create-catalog: Create catalog
+        action_set-domain: Set domain
+        label_add: Add
+        label_add-subdomain-action: Add subdomain
+        label_add-tags: Edit tags
+        label_add-terms: Edit terms
+        label_connected-terms: Linked terms
         label_create-catalog: Creating a catalog
+        label_create-classification-action: Create classification
+        label_create-domain-action: Create domain
+        label_create-glossary-action: Create glossary
+        label_create-ingestion-action: Create ingestion
+        label_create-source-button: Create data source
+        label_create-tag-action: Create tag
+        label_create-term-action: Create term
+        label_domains: Domains
+        label_empty-ingestion-count-short: No ingestion
+        label_ingestion-count: Number of ingestions
+        label_ingestion-status-Running: Running
         label_ingestion-tab-operations: Operations
+        label_ingestions: Ingestions
+        label_search-button-add-filter: Add filter
+        label_search-placeholder: Data search
+        label_source-data-tab: Uploaded data
+        label_source-database-type: Database type
+        label_sources: Data sources
+        label_subterms: Child terms
+        label_tag-mutual-exclusion: Mutually exclusive
+        label_tags-and-classification: Tags and classifications
+        label_term-synonyms: Synonyms
+        label_term-synonyms-add: Add
+        label_terms-and-glossaries: Terms and glossaries
+        title_search-data: Metadata search
       data-streams:
         button_connect: Connect
         button_create-stream: Create stream

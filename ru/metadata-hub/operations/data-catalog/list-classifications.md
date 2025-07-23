@@ -14,7 +14,7 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. В открывшемся списке выберите каталог метаданных, в котором созданы классификации.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/tag.svg) **Теги и классификации**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}**.
 
 {% endlist %}
 

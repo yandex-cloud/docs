@@ -1,7 +1,7 @@
 ---
-canonical: '{{ link-docs }}/tutorials/security/sws-protection-ongoing-ddos'
+canonical: '{{ link-docs }}/tutorials/security/sws-basic-settings'
 ---
 
-# Emergency DdoS protection in {{ alb-name }}, L7
+# Emergency DDoS protection in {{ alb-name }}, L7
 
 {% include notitle [sws-protection-ddos](../../_tutorials/security/sws-protection-ddos.md) %}

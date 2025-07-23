@@ -14,7 +14,7 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. В открывшемся списке выберите каталог метаданных, в котором созданы домены.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/globe.svg) **Домены**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.data-catalog.label_domains }}**.
 
 {% endlist %}
 
@@ -35,4 +35,4 @@
     * Чтобы отобразить скрытые колонки, отметьте их.
     * Чтобы изменить порядок колонок, слева от названия колонки нажмите ![image](../../../_assets/console-icons/grip.svg) и перетяните колонку вверх или вниз на нужную позицию в списке.
 
-1. Нажмите кнопку **Применить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.

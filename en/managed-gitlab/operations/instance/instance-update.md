@@ -19,7 +19,15 @@ After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can 
 
   1. Under **{{ ui-key.yacloud.gitlab.label_configuration-section }}**:
 
-      * Change the instance type. From the current instance type, you can only upgrade to a higher-performance type, e.g., from `s2.micro` to `s2.small`. You cannot downgrade to a lower-performance instance type.
+      * Change the [instance type](../../concepts/index.md#config). From the current instance type, you can only upgrade to a higher-performance type, e.g., from `s2.micro` to `s2.small`. You cannot downgrade to a lower-performance instance type.
+      * Select another [security group](../../../vpc/concepts/security-groups.md) or create a new one:
+
+        * Click **{{ ui-key.yacloud.component.network-subnet-select.button_create-security-group }}**.
+        * Enter a name and description for the security group. You can add rules for the security group later in {{ vpc-name }}.
+        * Click **{{ ui-key.yacloud.common.create }}**.
+
+        {% include [sg-notes](../../../_includes/managed-gitlab/sg-notes.md) %}
+
       * Specify the disk size. You can increase the disk size or keep the same size. You cannot reduce the disk size.
       * Change the automatic backup retention period, in days.
       * Select the appropriate [configuration](../../concepts/approval-rules.md#packages) for approval rules.

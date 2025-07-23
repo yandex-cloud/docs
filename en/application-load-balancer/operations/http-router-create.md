@@ -32,7 +32,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
        * `replace`: To replace the header value with a specified string.
        * `remove`: To remove the header. Both the header value and the header will be removed.
        * `rename`: To rename the header. The header value will not change.
-     * Enter a string to modify the header value or a new header name.
+     * Enter the string to modify the header value or specify a new header name.
   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
   1. Specify the route **{{ ui-key.yacloud.common.name }}**.
   1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select one of the options:
@@ -112,7 +112,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
      Where:
      * `--http-router-name`: HTTP router name.
-     * `--authority`: HTTP/1.1 `Host` (HTTP/2 `authority`) header domains associated with this virtual host. You can use wildcards, e.g., `*.foo.com` or `*-bar.foo.com`. This is an optional argument.
+     * `--authority`: HTTP/1.1 `Host` (HTTP/2 `authority`) header domains associated with this virtual host. You can use wildcards, e.g., `*.foo.com` or `*-bar.foo.com`. This is an optional parameter.
      * `--modify-request-header`: Request header modification settings:
        * `name`: Modified header name.
        * `append`: String appended to the header.
@@ -120,7 +120,7 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
        * `rps` or `rpm`: Number of allowed incoming requests per second or per minute.
        * `all-requests`: Limits all incoming requests.
        * `requests-per-ip` Limits the total number of requests per IP address. That is, for each IP address, only the specified number of requests is allowed per unit of time.
-     * `--security-profile-id`: [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md) ID. This is an optional setting. A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
+     * `--security-profile-id`: ID of the [{{ sws-full-name }}](../../smartwebsecurity/) [security profile](../../smartwebsecurity/concepts/profiles.md). This is an optional setting. A security profile allows you to enable WAF and filter incoming requests, limiting their number for protection against malicious attacks. For more information, see [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
      Result:
@@ -213,20 +213,33 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
      }
 
      resource "yandex_alb_virtual_host" "my-virtual-host" {
-       name                    = "<virtual_host_name>"
-       http_router_id          = yandex_alb_http_router.tf-router.id
+       name           = "<virtual_host_name>"
+       http_router_id = yandex_alb_http_router.tf-router.id
+       
+       rate_limit {
+         all_requests {
+           per_second = <requests_per_second>
+           # or per_minute = <requests_per_minute>
+         }
+         requests_per_ip {
+           per_second = <requests_per_second>
+           # or per_minute = <requests_per_minute>
+         }
+       }
+       
        route {
-         name                  = "<route_name>"
+         name = "<route_name>"
          http_route {
            http_route_action {
-             backend_group_id  = "<backend_group_ID>"
-             timeout           = "60s"
+             backend_group_id = "<backend_group_ID>"
+             timeout          = "60s"
            }
          }
        }
-       authority               = "<domains>"
+       
+       authority             = "<domains>"
        route_options {
-         security_profile_id   = "<security_profile_ID>"
+         security_profile_id = "<security_profile_ID>"
        }
      }
      ```
@@ -239,11 +252,18 @@ To create an [HTTP router](../concepts/http-router.md) and add a [route](../conc
 
        * `labels`: HTTP router [labels](../../resource-manager/concepts/labels.md). Specify a key-value pair.
      * `yandex_alb_virtual_host`: Virtual host description:
-       * `name`: Virtual host name. Follow these naming requirements:
+       * `name`: Virtual host name. Use the following name format:
 
          {% include [name-format](../../_includes/name-format.md) %}
 
        * `http_router_id`: HTTP router ID.
+       * `rate_limit`: Optionally, rate limit for the whole virtual host.
+         * `all_requests`: Optionally, limit on all requests per second or per minute:
+           * `per_second`: Per second.
+           * `per_minute`: Per minute.
+         * `requests_per_ip`: Optionally, additionally limits requests for each IP address per second or per minute:
+           * `per_second`: Per second.
+           * `per_minute`: Per minute.
        * `route`: Route description:
          * `name`: Route name.
          * `http_route_action`: Action applied to HTTP traffic.

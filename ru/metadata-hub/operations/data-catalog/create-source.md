@@ -19,8 +19,8 @@ description: Следуя данной инструкции, вы сможете
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. В открывшемся списке выберите каталог метаданных, в котором вы хотите создать источник.
-    1. Перейдите на вкладку ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Источники**.
-    1. Нажмите кнопку **Создать источник**.
+    1. Перейдите на вкладку ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-source-button }}**.
     1. Задайте уникальное имя источника. После создания источника нельзя будет изменить его имя.
     1. (Опционально) Добавьте описание источника.
     1. Выберите тип бэкенда, из которого будут поставляться метаданные. После создания источника нельзя будет изменить тип базы данных.

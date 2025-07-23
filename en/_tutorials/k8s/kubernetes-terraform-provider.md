@@ -1,6 +1,6 @@
 # Managing {{ k8s }} resources in a {{ managed-k8s-full-name }} cluster via the {{ TF }} provider
 
-You can use {{ TF }} manifests to create {{ k8s }} resources. To do this, activate the `kubernetes` {{ TF }} provider. It supports {{ TF }} resources that are mapped to YAML configuration files for various {{ k8s }} resources.
+You can create {{ k8s }} resources using {{ TF }} manifests. To do this, activate the `kubernetes` {{ TF }} provider. It supports {{ TF }} resources that are mapped to YAML configuration files for various {{ k8s }} resources.
 
 It is convenient to create {{ k8s }} resources with {{ TF }} if you are already using {{ TF }} to support the infrastructure for a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). This way, you will be able to describe all resources in the same markup language.
 
@@ -37,18 +37,18 @@ The support cost includes:
    At this step, the file should not contain `kubernetes` provider settings. You will add them at the [next steps](#apply-kubernetes-provider).
 
 1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
-1. Download the [managed-k8s-infrastructure.tf](https://github.com/yandex-cloud-examples/yc-mk8s-terraform-provider-for-k8s/blob/main/terraform-manifests/managed-k8s-infrastructure.tf) configuration file to the same working directory.
+1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) configuration file to the same working directory.
 
    This file describes:
 
    * Network.
    * Subnet.
    * Two security groups: one for the cluster and one for the node group.
-   * Cloud service account with the `k8s.clusters.agent`, `vpc.publicAdmin`, `load-balancer.admin`, and `container-registry.images.puller` roles.
-   * {{ managed-k8s-name }} cluster.
+   * Cloud service account with the `k8s.clusters.agent`, `k8s.tunnelClusters.agent`, `vpc.publicAdmin`, `load-balancer.admin`, and `container-registry.images.puller` roles.
+   * {{ managed-k8s-name }} cluster
    * {{ k8s }} node group.
 
-1. Specify the values of variables in the `managed-k8s-infrastructure.tf` file.
+1. Specify the values of variables in the `k8s-cluster.tf` file.
 1. Make sure the {{ TF }} configuration files are correct using this command:
 
    ```bash
@@ -291,7 +291,7 @@ For information about creating [custom resources](https://kubernetes.io/docs/con
 
 ## Delete the resources you created {#clear-out}
 
-1. In the terminal window, go to the directory containing the infrastructure plan.
+1. In the terminal window, navigate to the directory containing the infrastructure plan.
 
 1. Run this command:
 
@@ -300,6 +300,111 @@ For information about creating [custom resources](https://kubernetes.io/docs/con
    ```
 
    {{ TF }} will delete all resources you created in the current configuration.
+
+## Example of preparing a persistent volume using {{ TF }} {#example}
+
+Prepare a [persistent volume](../../managed-kubernetes/concepts/volume.md#persistent-volume) for the {{ managed-k8s-name }} cluster. To do this, use a configuration file:
+
+{% cut "pv-pvc.tf" %}
+
+```hcl
+resource "yandex_compute_disk" "pv_disk" {
+  name = "pv-disk"
+  zone = "ru-central1-a"
+  size = 10
+  type = "network-ssd"
+}
+
+resource "kubernetes_storage_class" "pv_sc" {
+  metadata {
+    name = "pv-sc"
+  }
+  storage_provisioner = "disk-csi-driver.mks.ycloud.io"
+
+  parameters = {
+    "csi.storage.k8s.io/fstype" = "ext4"
+  }
+
+  reclaim_policy      = "Retain"
+  volume_binding_mode = "WaitForFirstConsumer"
+}
+
+resource "kubernetes_persistent_volume" "my_pv" {
+  metadata {
+    name = "my-pv"
+  }
+  spec {
+    capacity = {
+      storage = "10Gi"
+    }
+    access_modes       = ["ReadWriteOnce"]
+    storage_class_name = "pv-sc"
+    persistent_volume_source {
+      csi {
+        driver        = "disk-csi-driver.mks.ycloud.io"
+        volume_handle = yandex_compute_disk.pv_disk.id
+      }
+    }
+  }
+}
+
+resource "kubernetes_persistent_volume_claim" "my_pvc" {
+  metadata {
+    name = "my-pvc"
+  }
+  spec {
+    access_modes = ["ReadWriteOnce"]
+    resources {
+      requests = {
+        storage = "5Gi"
+      }
+    }
+    storage_class_name = "pv-sc"
+    volume_name        = "my-pv"
+  }
+}
+```
+
+{% endcut %}
+
+The `pv-pvc.tf` file describes:
+
+* {{ compute-name }} [disk](../../compute/concepts/disk.md) used as a storage for `PersistentVolume`:
+  
+    * Name: `pv-disk`.
+    * Availability zone: `ru-central1-a`.
+    * Disk size: 10 GB.
+    * Disk type: `network-ssd`.
+
+* Custom [StorageClass](../../managed-kubernetes/operations/volumes/manage-storage-class.md):
+
+    * Name: `pv-sc`.
+    * Storage provider: `disk-csi-driver.mks.ycloud.io`.
+    * File system type: `ext4`.
+    * Reuse policy: `Retain`. The `PersistentVolume` object will not be deleted after the deletion of its associated `PersistentVolumeClaim` object.
+    * Volume binding mode: `WaitForFirstConsumer`. `PersistentVolume` and `PersistentVolumeClaim` will only be bound when the pod requests the volume.
+
+    [Learn more about storage class parameters](https://kubernetes.io/docs/concepts/storage/storage-classes/).
+
+* `PersistentVolume` object:
+
+    * Name: `my-pv`.
+    * Size: 10 GB.
+    * Access mode: `ReadWriteOnce`. Only pods located on the same node can read and write data to this `PersistentVolume` object. Pods on other nodes will not be able to access this object.
+    * Storage class: `pv-sc`. If not specified, the default storage class will be used.
+    * Data source: `pv-disk`.
+
+    [Learn more about PersistentVolume parameters](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-v1/).
+
+* `PersistentVolumeClaim` object:
+
+    * Name: `my-pvc`.
+    * Access mode: `ReadWriteOnce`. Only pods located on the same node can read and write data to this `PersistentVolume` object. Pods on other nodes will not be able to access this object.
+    * Requested storage size is 5GB.
+    * Storage class: `pv-sc`. If not specified, the default storage class will be used.
+    * Volume name: `PersistentVolume` object to bind with `PersistentVolumeClaim`.
+
+  [Learn more about PersistentVolumeClaim parameters](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).  
 
 #### See also {#see-also}
 

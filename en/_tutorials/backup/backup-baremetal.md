@@ -160,7 +160,7 @@ For more information on leasing a server, see [this {{ baremetal-name }} guide](
 
 - Windows 10/11 {#windows}
 
-  To establish a server connection, specify its public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **Network settings** on the server page.
+  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **Network settings** on the server page.
 
   Make sure the Windows account has read access to the key folder.
 
