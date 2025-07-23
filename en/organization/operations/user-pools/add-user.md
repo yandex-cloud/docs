@@ -6,6 +6,8 @@ description: Follow this guide to add a user to an {{ org-name }} pool.
 # Adding a user
 
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}

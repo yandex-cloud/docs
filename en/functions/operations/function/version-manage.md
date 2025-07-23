@@ -27,18 +27,18 @@ When creating a version, set the following parameters:
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function to create a version of.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-    1. Select the [runtime environment](../../concepts/runtime/index.md). Disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option.
+    1. Select the [runtime environment](../../concepts/runtime/index.md). Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Prepare the function code:
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs18`.
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `hello-js.zip`.
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs18`
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `hello-js.zip`
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`
     1. Set the version parameters:
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
-       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-       * [**{{ ui-key.yacloud.forms.label_service-account-select }}**](../../../iam/concepts/users/service-accounts.md): `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`.
-       * [**{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**](../../concepts/runtime/environment-variables.md): `{{ ui-key.yacloud.common.not-selected }}`.
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
+       * [**{{ ui-key.yacloud.forms.label_service-account-select }}**](../../../iam/concepts/users/service-accounts.md): `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`
+       * [**{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**](../../concepts/runtime/environment-variables.md): `{{ ui-key.yacloud.common.not-selected }}`
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
@@ -65,7 +65,7 @@ When creating a version, set the following parameters:
     * `--runtime`: Runtime environment.
     * `--entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum running time of the function until timeout.
+    * `--execution-timeout`: Maximum function running time before timeout.
     * `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:
@@ -134,7 +134,7 @@ When creating a version, set the following parameters:
 
        {% endnote %}
 
-        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
 
     1. Check the configuration using this command:
         
@@ -154,7 +154,7 @@ When creating a version, set the following parameters:
        terraform plan
        ```
         
-       The terminal will display a list of resources with their properties. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
          
     1. Apply the changes:
 
@@ -177,13 +177,15 @@ When creating a version, set the following parameters:
 
     To use the examples, install [cURL](https://curl.haxx.se) and [authenticate](../../api-ref/functions/authentication.md) in the API.
 
+    {% cut "Example where code is fetched from an {{ objstorage-name }} bucket" %}
+
     1. [Upload](../../../storage/operations/objects/upload.md) the `hello-js.zip` archive with the function version code to your {{ objstorage-name }} bucket.
     1. Prepare a file named `body.json` with the following request body:
 
         ```json
         {
           "functionId": "<function_ID>",
-          "runtime": "nodejs18",
+          "runtime": "nodejs22",
           "entrypoint": "index.handler",
           "resources": {
             "memory": "134217728"
@@ -198,42 +200,106 @@ When creating a version, set the following parameters:
         ```
 
         Where:
+
         * `functionId`: ID of the function the version of which you want to create.
         * `runtime`: [Runtime environment](../../concepts/runtime/index.md#runtimes).
         * `entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
         * `memory`: Amount of RAM.
-        * `executionTimeout`: Maximum running time of the function until timeout.
+        * `executionTimeout`: Maximum function running time before timeout.
         * `serviceAccountId`: ID of the service account with a [role](../../../storage/security/index.md#service-roles) that allows bucket data reads.
         * `bucketName`: Name of the bucket where you uploaded the ZIP archive with the function code and required dependencies.
         * `objectName`: [Key of the bucket object](../../../storage/concepts/object.md#key) that contains the function code.
 
-    1. Run this request:
+    {% endcut %}
+
+    {% cut "Example where code is provided in the request body" %}
+
+    1. Encode the ZIP archive with the function code into Base64 format:
 
         ```bash
-        export IAM_TOKEN=<IAM_token>
-        curl \
-            --request POST \
-            --header "Authorization: Bearer ${IAM_TOKEN}" \
-            --data "@<body.json_file_path>" \
-            https://serverless-functions.{{ api-host }}/functions/v1/versions
+        base64 -i hello-js.zip > output.txt
         ```
-        
-        Result:
-        
+
+    1. Prepare a file named `body.json` with the following request body:
+
         ```json
         {
-         "done": false,
-         "metadata": {
-          "@type": "type.googleapis.com/yandex.cloud.serverless.functions.v1.CreateFunctionVersionMetadata",
-          "functionVersionId": "d4e25m0gila4********"
-         },
-         "id": "d4edk0oobcc9********",
-         "description": "Create function version",
-         "createdAt": "2023-10-11T11:22:21.286786431Z",
-         "createdBy": "ajeol2afu1js********",
-         "modifiedAt": "2023-10-11T11:22:21.286786431Z"
+          "functionId": "<function_ID>",
+          "runtime": "nodejs22",
+          "entrypoint": "index.handler",
+          "resources": {
+            "memory": "134217728"
+          },
+          "executionTimeout": "5s",
+          "content": "<ZIP_archive_contents_in_Base64_encoding>"
         }
         ```
+
+        Where:
+
+        * `functionId`: ID of the function the version of which you want to create.
+        * `runtime`: [Runtime environment](../../concepts/runtime/index.md#runtimes).
+        * `entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
+        * `memory`: Amount of RAM.
+        * `executionTimeout`: Maximum function running time before timeout.
+        * `content`: Function version code in Base64 encoding, `output.txt` file contents.
+
+    {% endcut %}
+
+    {% cut "Example where code is fetched from another function version in {{ sf-name }}" %}
+
+    Prepare a file named `body.json` with the following request body:
+
+    ```json
+    {
+      "functionId": "<function_ID>",
+      "runtime": "nodejs22",
+      "entrypoint": "index.handler",
+      "resources": {
+        "memory": "134217728"
+      },
+      "executionTimeout": "5s",
+      "versionId": "<previous_function_version_ID>"
+    }
+    ```
+
+    Where:
+
+    * `functionId`: ID of the function the version of which you want to create.
+    * `runtime`: [Runtime environment](../../concepts/runtime/index.md#runtimes).
+    * `entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
+    * `memory`: Amount of RAM.
+    * `executionTimeout`: Maximum function running time before timeout.
+    * `versionId`: ID of a [previous function version](./version-list.md).
+
+    {% endcut %}
+
+    Send the request by specifying the path to the previously prepared file with the request body:
+
+    ```bash
+    export IAM_TOKEN=$(yc iam create-token)
+    curl -X POST \
+      -H "Authorization: Bearer ${IAM_TOKEN}" \
+      -d "@<body.json_file_path>" \
+      https://serverless-functions.{{ api-host }}/functions/v1/versions
+    ```
+    
+    Result:
+    
+    ```json
+    {
+      "done": false,
+      "metadata": {
+        "@type": "type.googleapis.com/yandex.cloud.serverless.functions.v1.CreateFunctionVersionMetadata",
+        "functionVersionId": "d4e25m0gila4********"
+      },
+      "id": "d4edk0oobcc9********",
+      "description": "Create function version",
+      "createdAt": "2023-10-11T11:22:21.286786431Z",
+      "createdBy": "ajeol2afu1js********",
+      "modifiedAt": "2023-10-11T11:22:21.286786431Z"
+    }
+    ```
 
 - {{ yandex-cloud }} Toolkit {#yc-toolkit}
 

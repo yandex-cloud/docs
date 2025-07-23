@@ -6,6 +6,8 @@ description: In {{ org-full-name }}, you can associate your domains with user po
 # Domains
 
 
+{% include [note-preview](../../_includes/note-preview.md) %}
+
 In {{ org-full-name }}, you can associate your domains with [user pools](user-pools.md). Domains enable users to get authenticated as [local](../../iam/concepts/users/accounts.md#local) users. Such users have names in `<username>@<domain>` format.
 
 Each user pool has one default domain and supports [associating](../operations/user-pools/add-domain.md) additional ones. You can only associate each domain with one user pool.

@@ -6,6 +6,8 @@ description: Follow this guide to delete a domain in an {{ org-name }} user pool
 # Deleting a domain
 
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 You cannot delete the default [domain](../../concepts/domains.md) or a domain with associated users.
 
 {% list tabs group=instructions %}

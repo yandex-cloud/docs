@@ -23,4 +23,6 @@ description: В этом разделе собраны обучающие кур
 
 * {% include [training-load-testing](../_includes/training/training-load-testing.md) %}
 
+* {% include [training-monitoring](../_includes/training/training-monitoring.md) %}
+
 {% include [training-courses](../_includes/training/training-courses.md) %}

@@ -21,7 +21,9 @@ items:
         href: security/alb-ingress-with-sws-profile.md
       - name: Centralized online publication and app protection against DDoS attacks
         href: security/different-folders-services.md
-      - name: Emergency DdoS protection in {{ alb-name }}, L7
+      - name: Basic SWS setup
+        href: security/sws-basic-protection.md
+      - name: Emergency DDoS protection in {{ alb-name }}, L7
         href: security/sws-protection-ongoing-ddos.md
       - name: >-
           Migrating services from NLB to L7 ALB for DDoS protection using {{
@@ -926,12 +928,12 @@ items:
       - name: Shared use of {{ dataproc-name }} tables through {{ metastore-name }}
         href: dataplatform/data-processing-to-data-processing.md
       - name: >-
-          Transferring metadata between {{ dataproc-name }} clusters using {{
+          Transferring metadata across {{ dataproc-name }} clusters using {{
           metastore-name }}
         href: dataplatform/metastore-import.md
       - name: >-
-          Importing data from {{ objstorage-name }}, processing and exporting to
-          {{ mch-name }}
+          Importing data from {{ objstorage-name }}, processing, and exporting
+          to {{ mch-name }}
         href: dataplatform/s3-data-processing-ch.md
       - name: Working with jobs {{ dataproc-name }}
         items:
@@ -1239,8 +1241,8 @@ items:
       - name: Configuring a network for {{ dataproc-name }}
         href: routing/data-processing-nat-instance.md
       - name: >-
-          Reconfiguring a network connection when recreating a {{ dataproc-name
-          }} cluster
+          Network connection switching during {{ dataproc-name }} cluster
+          recreation
         href: routing/data-processing-dns-reconnect.md
       - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
         href: routing/storage-vpc-access.md
@@ -1456,6 +1458,8 @@ items:
         href: serverless/domain-identity-creating.md
       - name: Sending emails in {{ postbox-full-name }} using AWS SDK
         items:
+          - name: .NET Core
+            href: serverless/send-emails-aws-sdk-csharp.md
           - name: Go
             href: serverless/send-emails-aws-sdk-go.md
       - name: Creating an AI agent with {{ sf-full-name }}

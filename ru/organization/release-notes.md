@@ -8,6 +8,10 @@ description: В разделе представлена история изме�
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
+## II квартал 2025 {#q2-2025}
+
+* Сервис {{ org-name }} вышел в [Public Preview](../overview/concepts/launch-stages.md).
+* Включена возможность использования [Refresh-токенов](../iam/concepts/authorization/refresh-token.md#token-enabling) в {{ yandex-cloud }} CLI. {{ tag-cli }}
 
 ## I квартал 2025 {#q1-2025}
 

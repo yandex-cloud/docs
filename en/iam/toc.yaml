@@ -35,6 +35,8 @@ items:
         items:
           - name: Creating a service account
             href: operations/sa/create.md
+          - name: Viewing the folder's service accounts
+            href: operations/sa/list-get.md
           - name: Updating a service account
             href: operations/sa/update.md
           - name: Assigning roles to a service account
@@ -155,7 +157,7 @@ items:
             href: concepts/authorization/sts.md
           - name: Authorized key
             href: concepts/authorization/key.md
-          - name: OAuth_token
+          - name: OAuth token
             href: concepts/authorization/oauth-token.md
           - name: ID token
             href: concepts/authorization/id-token.md
@@ -353,7 +355,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

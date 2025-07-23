@@ -155,7 +155,7 @@ items:
         href: tutorials/api-gw-sws-integration.md
   - name: Concepts
     items:
-      - name: Resource relationships
+      - name: Service resource interdependencies
         href: concepts/index.md
       - name: Networking
         href: concepts/networking.md
@@ -249,7 +249,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/apigateway/authentication.md
       - name: gRPC
         items:
@@ -435,6 +435,8 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Public materials
+    href: public-talks.md
   - name: Release notes
     href: release-notes.md
   - name: FAQ

@@ -6,6 +6,8 @@ description: Follow this guide to deactivate a user in a {{ org-name }} pool.
 # Deactivating a user
 
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 Deactivation will terminate all the user's sessions, and the user will lose access to the organization's resources until reactivated.
 
 {% list tabs group=instructions %}

@@ -90,9 +90,9 @@ The support cost includes:
                 {% include [configure-sg-alb-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-tf.md) %}
 
                 {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
-
+                
             * [Security profile](../../smartwebsecurity/concepts/profiles.md) in {{ sws-name }} with a [smart protection rule](../../smartwebsecurity/concepts/rules.md#smart-protection-rules) and a simple rule to [test](#check-the-result) the profile; this rule will only allow traffic from a specific IP address.
-
+              
               The default [basic rule](../../smartwebsecurity/concepts/rules.md#base-rules) is not specified in the manifest and is created automatically.
 
         1. Specify the following in the configuration file:
@@ -118,7 +118,7 @@ The support cost includes:
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
             {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
-
+            
         {% note info %}
 
         If you deployed the infrastructure with {{ TF }}, skip the [Creating a security profile](#create-security-profile) step.
@@ -467,7 +467,7 @@ To create an ingress resource:
 
 ## Check the result {#check-the-result}
 
-Requests to the application deployed in the {{ k8s }} cluster go through an {{ alb-name }}. The virtual hosts to which those requests are directed are protected using the security profile. The profile [configuration](#create-security-profile) only allows traffic from a specific IP address, e.g., `203.0.113.200`.
+Requests to the application deployed in the {{ k8s }} cluster go through an {{ alb-name }}. Protection of the virtual hosts to which those requests are routed is implemented with a security profile. The profile [configuration](#create-security-profile) only allows traffic from a specific IP address, e.g., `203.0.113.200`.
 
 Make sure the load balancer works correctly as per the security profile settings.
 

@@ -135,7 +135,7 @@ When deploying virtual machines, we recommend:
 
 With {{ TF }}, you can manage a cloud infrastructure using configuration files. If you change the files, {{ TF }} will automatically detect which part of your configuration is already deployed, and what should be added or removed. For more information, see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md).
 
-We do not recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, payment system data, etc. Instead, you should use services to store and use secrets in the configuration, such as: [HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [Lockbox](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
+We do not recommend using private information in {{ TF }} configuration files, such as passwords, secrets, personal data, payment system data, etc. Instead, you should use services to store and use secrets in the configuration, such as [HashiCorp Vault](/marketplace/products/yc/vault-yckms) from {{ marketplace-name }} or [Lockbox](/services/lockbox) (to transfer secrets to the target object without using {{ TF }}).
 
 If you still need to enter private information in the configuration, you should take the following security measures:
 

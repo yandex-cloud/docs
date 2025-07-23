@@ -39,11 +39,13 @@ description: Follow this guide to configure API gateway logging.
 
     {% include [logging-destination](../../_includes/api-gateway/logging-destination.md) %}
 
-    To write logs to a custom log group, provide the log group ID in the `--log-group-id` parameter when [creating](api-gw-create.md) or [updating](api-gw-update.md) an API gateway. The log group must reside in the same folder as the API gateway.
+    For logging to another folder's default log group, provide that folder's ID in the `--log-folder-id` parameter when [creating](api-gw-create.md) or [updating](api-gw-update.md) an API gateway. The [account](../../iam/concepts/users/accounts.md) used to run the command must have the `logging.editor` [role](../../logging/security/index.md#logging-editor) or higher for the folder.
+
+    For logging to a custom log group, provide that log group's ID in the `--log-group-id` parameter when creating or updating an API gateway. The log group may reside in a different folder. The account used to run the command must have the `logging.editor` role or higher for the folder.
 
     ## Minimum logging level {#log-level}
 
-    To set the minimum logging level, provide it in the `--min-log-level` parameter when creating or updating an API gateway. 
+    To set the minimum logging level, specify it in the `--min-log-level` parameter when creating or updating an API gateway. 
 
     {% include [min-log-level](../../_includes/api-gateway/min-log-level.md) %}
 
@@ -53,7 +55,7 @@ description: Follow this guide to configure API gateway logging.
 
     ## Command example {#example}
 
-    To write logs to a custom log group, run this command:
+    For logging to a custom log group, run this command:
 
     ```bash
     {{ yc-serverless }} api-gateway update <API_gateway_name_or_ID> \
@@ -91,11 +93,13 @@ description: Follow this guide to configure API gateway logging.
 
     {% include [logging-destination](../../_includes/api-gateway/logging-destination.md) %}
 
-    To write logs to a custom log group, under `log_options`, provide the log group ID in the `log_group_id` parameter when [creating](api-gw-create.md) or [updating](api-gw-update.md) an API gateway. The log group must reside in the same folder as the API gateway.
+    For logging to another folder's default log group, provide that folder's ID under `log_options` in the `folder_id` parameter when [creating](api-gw-create.md) or [updating](api-gw-update.md) an API gateway. The [account](../../iam/concepts/users/accounts.md) used to run the command must have the `logging.editor` [role](../../logging/security/index.md#logging-editor) or higher for the folder.
+
+    For logging to a custom log group, provide that log group's ID under `log_options` in the `log_group_id` parameter when creating or updating an API gateway. The log group may reside in a different folder. The account used to run the command must have the `logging.editor` role or higher for the folder.
 
     ## Minimum logging level {#log-level}
 
-    To set the minimum logging level, provide it in the `log_group_id` parameter under `log_options` when creating or updating an API gateway. 
+    To set the minimum logging level, specify it under `log_options` in the `min_level` parameter when creating or updating an API gateway. 
 
     {% include [min-log-level](../../_includes/api-gateway/min-log-level.md) %}
 
@@ -105,7 +109,7 @@ description: Follow this guide to configure API gateway logging.
 
     ## Example {#example}
 
-    To write logs to a custom log group:
+    For logging to a custom log group:
 
     1. Open the {{ TF }} configuration file and add the `log_options` section to the `yandex_api_gateway` resource description:
 
@@ -146,7 +150,7 @@ description: Follow this guide to configure API gateway logging.
         terraform plan
         ```
 
-        The terminal will display a list of resources with their properties. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+        You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
     
     1. Apply the changes:
 
@@ -158,6 +162,6 @@ description: Follow this guide to configure API gateway logging.
 
 - API {#api}
 
-    To write to the execution log in {{ api-gw-full-name }}, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/ApiGateway/update.md) gRPC API call.
+    For logging to the execution log in {{ api-gw-full-name }}, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/ApiGateway/update.md) gRPC API call.
 
 {% endlist %}

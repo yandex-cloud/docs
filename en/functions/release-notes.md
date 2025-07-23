@@ -5,6 +5,12 @@ description: This section contains {{ sf-name }} release notes.
 
 # {{ sf-full-name }} release notes
 
+## June 2025 {#june-2025}
+
+### Updates {#updates}
+
+* Added support for Node.js 22 and Go 1.23.
+
 ## February 2025 {#february-2025}
 
 ### Updates {#updates}

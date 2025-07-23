@@ -19,10 +19,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
-
-* Fee for using {{ postbox-full-name }} (see [{{ postbox-name }} pricing](../../postbox/pricing.md)).
-* Fee for public DNS queries and [DNS zones](../../dns/concepts/dns-zone.md), if you are creating a resource record in {{ dns-name }} (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+{% include [paid-resources](../../_includes/postbox/send-emails-aws-sdk/paid-resources.md) %}
 
 
 ### Set up resources {#infrastructure}

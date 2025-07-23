@@ -136,7 +136,14 @@ The infrastructure support cost includes:
      --from-file=authorized-key=authorized-key.json
    ```
 
-1. Create a [secret storage (SecretStore)](https://external-secrets.io/v0.5.8/api-secretstore/) named `secret-store` containing the `yc-auth` secret:
+1. Find out the supported `apiVersion` for [SecretStore](https://external-secrets.io/v0.5.8/api-secretstore/):
+
+   ```bash
+   kubectl get crd secretstores.external-secrets.io \
+     -o json | jq -r '.spec.versions[].name'
+   ```
+
+1. Create a `secret-store` containing the `yc-auth` secret and specify a supported `apiVersion`:
 
 
    ```bash
@@ -158,7 +165,14 @@ The infrastructure support cost includes:
 
 ## Create an ExternalSecret {#create-externalsecret}
 
-1. Create an [ExternalSecret](https://external-secrets.io/v0.5.8/api-externalsecret/) object named `external-secret` referring to a certificate from {{ certificate-manager-name }}:
+1. Find out the supported `apiVersion` for [ExternalSecret](https://external-secrets.io/v0.5.8/api-externalsecret/):
+
+   ```bash
+   kubectl get crd externalsecrets.external-secrets.io \
+     -o json | jq -r '.spec.versions[].name'
+   ```
+
+1. Create an `external-secret` object referring to a certificate from {{ certificate-manager-name }}, specifying a supported `apiVersion`:
 
    ```bash
    kubectl --namespace ns apply -f - <<< '

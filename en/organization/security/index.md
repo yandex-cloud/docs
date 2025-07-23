@@ -2,13 +2,13 @@
 
 Access management in {{ yandex-cloud }} leverages the [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC) policy. To grant a user certain privileges or access to a resource, you must assign the user the appropriate roles.
 
-Each role consists of a set of permissions that describe operations that can be performed with the resource. A user can assign a role with only those permissions which are available to themselves. For example, only a user with the organization [owner](#admin) role can assign this role: the administrator role is not sufficient to do this.
+Each role consists of a set of permissions that describe operations that can be performed with the resource. A user can assign a role with only those permissions which are available to themselves. For example, only a user with the organization [owner](#organization-manager-organizations-owner) role can assign this role: the administrator role is not sufficient to do this.
 
 If a resource has child resources, all permissions from the parent resource will be inherited by the child resources. For example, if you assign the administrator role for the organization hosting the cloud, all the role's permissions will apply to the cloud and all its nested resources.
 
 For more information on access management in {{ yandex-cloud }}, see the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/index.md).
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -16,7 +16,7 @@ You can assign a role for individual resources within the service using the [{{ 
 
 {% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
 
-## Roles this service has {#roles-list}
+## Roles existing in this service {#roles-list}
 
 ### Service roles {#service-roles}
 
@@ -146,12 +146,9 @@ You can assign a role for individual resources within the service using the [{{ 
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-### Appointing a user the organization administrator {#admin}
+### Assigning a user as an organization administrator {#add-admin}
 
-To grant a user organization management access, [assign](#add-role) the user one of the following roles:
-
-* `organization-manager.admin`
-* `organization-manager.organizations.owner`
+To grant a user permissions to manage an organization, [assign](#add-role) them the `organization-manager.admin` role .
 
 ### Assigning a role to a user {#add-role}
 
@@ -229,7 +226,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
        terraform plan
        ```
 
-      If the configuration is described correctly, the terminal will display a list of the assigned roles. If the configuration contains errors, {{ TF }} will show them. 
+      If the configuration is described correctly, the terminal will display a list of the assigned roles. If the configuration contains any errors, {{ TF }} will show them. 
  
   1. Assign roles.
   
@@ -293,7 +290,7 @@ In a similar way, you can [assign roles](../../iam/operations/sa/assign-role-for
 
 If you want to deny a user access to a resource, revoke the relevant roles for this resource as well as for other resources access permissions can be inherited from. For more information on access management in {{ yandex-cloud }}, see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.
 
-The role can be revoked by a user with the `organization-manager.admin` or `organization-manager.organizations.owner` role. To learn how to grant a role to a user, see the [Roles](#admin) section.
+The role can be revoked by a user with the `organization-manager.admin` or `organization-manager.organizations.owner` role. To learn how to grant a role to a user, see the [Roles](#add-role) section.
 
 {% list tabs group=instructions %}
 
