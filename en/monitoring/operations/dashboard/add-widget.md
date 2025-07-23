@@ -53,6 +53,10 @@ You can add a link to an external resource or dashboard.
    1. **Share timeframe**. The chart will share the timeframe of the source chart.
 1. Enable or disable the **Open in new tab** option.
 
+    The links you add will appear in the top right chart in the menu.
+
+   ![](../../../_assets/monitoring/operations/dashboard/widget-graph-links.png)
+
 ## Alert {#alert}
 
 Use the alert widget to display the current alert status on a dashboard. To add such widget to a dashboard, [create an alert](../alert/create-alert.md) first.

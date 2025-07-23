@@ -68,6 +68,10 @@
 
 * {{ dt-status-copy }} (`SNAPSHOTTING`) — присваивается трансферам типа _{{ dt-type-copy }}_ и _{{ dt-type-copy-repl }}_ на время копирования данных из источника.
 
+
+* {{ dt-type-preparing }} (`PREPARING`) — присваивается трансферам типа _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ на начальной стадии репликации, когда операция только запускается. В этот момент передача данных еще не началась.
+
+
 * {{ dt-status-repl }}(`RUNNING`) — присваивается трансферам типа _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_.
   
   * _{{ dt-type-repl }}_ — после успешной [активации](../operations/transfer.md#activate).

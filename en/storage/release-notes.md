@@ -5,6 +5,23 @@ description: This section contains {{ objstorage-name }} release notes.
 
 # {{ objstorage-full-name }} release notes
 
+## Q2 2025 {#q2-2025}
+
+* In the [management console]({{ link-console-main }}), you can now enable [encryption](./concepts/encryption.md) and [versioning](./concepts/versioning.md) when creating a [bucket](./concepts/bucket.md).
+* Added the following commands to the [{{ yandex-cloud }} CLI](../cli/quickstart.md):
+  * [yc storage s3api get-bucket-acl](./cli-ref/s3api/get-bucket-acl.md): Getting a bucket [ACL](./security/acl.md).
+  * [yc storage s3api put-bucket-acl](./cli-ref/s3api/put-bucket-acl.md): Changing a bucket ACL.
+  * [yc storage s3api get-object-acl](./cli-ref/s3api/get-object-acl.md): Getting the ACL of an [object](./concepts/object.md).
+  * [yc storage s3api put-object-acl](./cli-ref/s3api/put-object-acl.md): Changing the ACL of an object.
+  * [yc storage s3api list-objects](./cli-ref/s3api/list-objects.md): Getting a list of objects.
+  * [yc storage s3 cp](./cli-ref/s3/cp.md): Copying objects.
+  * [yc storage s3 mv](./cli-ref/s3/mv.md): Moving objects.
+  * [yc storage s3 rm](./cli-ref/s3/rm.md): Removing objects.
+* Added new resources to the [{{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md) provider:
+  * [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant): Managing a bucket [ACL](./security/acl.md) with a separate resource.
+  * [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding): Assigning users {{ iam-full-name }} [roles](./security/index.md) for a specific bucket.
+* You can now make your bucket accessible only from [{{ vpc-short-name }}](../vpc/concepts/private-endpoint.md) service connections.
+* Added the ability to view bucket [labels](./concepts/tags.md) for users with the `storage.configViewer` [role](./security/index.md#storage-config-viewer).
 
 ## Q1 2025 {#q1-2025}
 

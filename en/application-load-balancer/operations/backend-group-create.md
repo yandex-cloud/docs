@@ -72,7 +72,7 @@ To create a [backend group](../concepts/backend-group.md):
 
      {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
 
-     All backends within the group must be of the same [type](../concepts/backend-group.md#group-types): `HTTP`, `gRPC`, or `Stream`.
+     All backends within a group must be of the same [type](../concepts/backend-group.md#group-types): `HTTP`, `gRPC`, or `Stream`.
 
      {% cut "HTTP backend" %}
 
@@ -218,9 +218,15 @@ To create a [backend group](../concepts/backend-group.md):
            interval             = "2s"
            healthy_threshold    = 10
            unhealthy_threshold  = 15
+           keep_connections_on_host_health_failure = <true_or_false>
            stream_healthcheck {
              send               = "<data_to_endpoint>"
              receive            = "<data_from_endpoint>"
+           }
+           http_healthcheck {
+             path              = "<path>"
+             host              = "<host>"
+             expected_statuses = [<HTTP codes>]
            }
          }
        }
@@ -234,8 +240,8 @@ To create a [backend group](../concepts/backend-group.md):
 
          {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
-         * `connection`: Session affinity by the `source_ip` [IP address](../../vpc/concepts/address.md). It can be either `true` or `false`. You can also choose `cookie` or `header` session affinity modes, but you can only specify one mode. If the backend group is of the `Stream` type, i.e., it consists of the `stream_backend` resources, you can only use the `connection` mode for session affinity.
-       * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within a group must be of the same type: `HTTP`, `gRPC`, or `Stream`.
+         * `connection`: Session affinity by the `source_ip` [IP address](../../vpc/concepts/address.md). It can be either `true` or `false`. You can also use `cookie` or `header` session affinity modes, but you can only specify one mode. If the backend group is of the `Stream` type, i.e., it consists of the `stream_backend` resources, you can only use the `connection` mode for session affinity.
+       * `http_backend`, `grpc_backend`, and `stream_backend`: [Backend type](../concepts/backend-group.md#group-types). All backends within a group must match the same type: `HTTP`, `gRPC`, or `Stream`.
 
      {% include [TF-backend-settings](../../_includes/application-load-balancer/TF-backend-settings.md) %}
 

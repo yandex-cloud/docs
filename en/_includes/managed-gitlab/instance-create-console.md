@@ -13,11 +13,16 @@
 
 1. Under **{{ ui-key.yacloud.gitlab.label_configuration-section }}**:
 
-   1. Select the instance type. After you create an instance, you can [change its type](../../managed-gitlab/operations/instance/instance-update.md) to a higher performing one.
+   1. Select the [instance type](../../managed-gitlab/concepts/index.md#config). After you create an instance, you can [change its type](../../managed-gitlab/operations/instance/instance-update.md) to a higher performing one.
    1. Specify the [availability zone](../../overview/concepts/geo-scope.md). After you create an instance, you cannot change its availability zone.
    1. Specify the [subnet](../../vpc/concepts/network.md#subnet) where the instance will be hosted. Currently, {{ yandex-cloud }} technical restrictions do not allow selecting a subnet with the `192.168.0.0/24` address range.
+   1. Select a [security group](../../vpc/concepts/security-groups.md) or create a new one:
 
-      The [default security group](../../vpc/concepts/security-groups.md#default-security-group) for the selected [network](../../vpc/concepts/network.md#network) will be used for the instance. If you cannot open the {{ GL }} web interface after you create the instance, [configure](../../managed-gitlab/operations/configure-security-group.md) your security group so that the rules allow incoming and outgoing traffic from required ports and IP addresses.
+      1. Click **{{ ui-key.yacloud.component.network-subnet-select.button_create-security-group }}**.
+      1. Enter a name and description for the security group. You can add rules for the security group later in **{{ vpc-name }}**.
+      1. Click **{{ ui-key.yacloud.common.create }}**.
+
+      {% include [sg-notes](sg-notes.md) %}
 
    1. Select the [disk](../../compute/concepts/disk.md) size. After you create an instance, [you can increase](../../managed-gitlab/operations/instance/instance-update.md) its disk size.
    1. Specify the [instance domain name](../../compute/concepts/network.md#hostname): relevant DNS records will be automatically created for it in the `.gitlab.yandexcloud.net` domain.

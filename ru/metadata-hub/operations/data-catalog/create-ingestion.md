@@ -14,8 +14,8 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. В открывшемся списке выберите каталог метаданных, в котором вы хотите создать загрузку.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **Загрузки**.
-  1. Нажмите кнопку **Создать загрузку**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.data-catalog.label_ingestions }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-ingestion-action }}**.
   1. Задайте параметры загрузки:
 
       * В поле **{{ ui-key.yacloud.common.name }}** задайте уникальное имя загрузки.

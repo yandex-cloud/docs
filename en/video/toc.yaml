@@ -22,6 +22,8 @@ items:
             href: operations/channels/update.md
           - name: Deleting a channel
             href: operations/channels/delete.md
+          - name: Setting up a channel and advertising
+            href: operations/channels/settings.md
       - name: Videos
         items:
           - name: Uploading a video
@@ -161,7 +163,7 @@ items:
     href: pricing.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: Getting started with the API
         href: api-ref/quickstart.md

@@ -7,6 +7,67 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.155.0 (23.07.25) {#version0.155.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ compute-name }}
+
+В командах `yc compute instance create` и `yc compute instance update` исправлено описание для параметра `--memory`.
+
+##### {{ backup-name }}
+
+В команду `yc backup provider activate` добавлен запрос подтверждения для активации провайдера и флаг `--force` для выполнения команды без подтверждения.
+
+##### {{ mkf-name }}
+
+В команды `yc managed-kafka cluster create` и `yc managed-kafka cluster update` добавлен флаг `--kafka-ui-enabled` для включения Kafka UI в кластере.
+
+##### {{ dataproc-name }}
+
+В команды `yc dataproc cluster create` и `yc dataproc cluster update` добавлены параметры для указания сервисного аккаунта для управления группой ВМ, на которых размещаются хосты кластера:
+* `--autoscaling-service-account-id`;
+* `--autoscaling-service-account-name`.
+
+##### {{ mch-name }}
+
+В команды `yc managed-clickhouse cluster create` и `yc managed-clickhouse cluster restore` добавлены параметры:
+* `--maintenance-window` — для указания окна обслуживания кластера;
+* `--disk-encryption-key-id` — для указания ключа шифрования дисков.
+
+##### {{ mos-name }}
+
+* В команды `yc managed-opensearch cluster create` и `yc managed-opensearch cluster update` добавлены параметры для управления созданием снапшотов кластера:
+    * `--snapshot-schedule`;
+    * `--snapshot-day`;
+    * `--snapshot-hour`;
+    * `--snapshot-minute`;
+    * `--snapshot-max-age-days`.
+* В команды `yc managed-opensearch cluster create` и `yc managed-opensearch cluster restore` добавлен параметр для указания ключа шифрования дисков `--disk-encryption-key-id`.
+
+##### {{ mmy-name }}
+
+* В команды `yc managed-mysql cluster create` и `yc managed-mysql cluster update` добавлен параметр `--yandexquery-access` для включения доступа к кластеру из {{ yq-full-name }}.
+* В команды `yc managed-mysql cluster create` и `yc managed-mysql cluster restore` добавлен параметр для указания ключа шифрования дисков `--disk-encryption-key-id`.
+
+##### {{ metastore-name }}
+
+В команды `yc managed-metastore cluster create` и `yc managed-metastore cluster update` добавлен параметр `--version` для поддержки версионирования кластера.
+
+##### {{ mpg-name }}
+
+В команды `yc managed-postgresql cluster create` и `yc managed-postgresql cluster restore` добавлен параметр для указания ключа шифрования дисков `--disk-encryption-key-id`.
+
+##### {{ mmg-name }}
+
+В команды `yc managed-mongodb cluster create` и `yc managed-mongodb cluster restore` добавлен параметр для указания ключа шифрования дисков `--disk-encryption-key-id`.
+
+##### {{ mrd-name }}
+
+В команды `yc managed-redis cluster create` и `yc managed-redis cluster restore` добавлен параметр для указания ключа шифрования дисков `--disk-encryption-key-id`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.154.0 (09.07.25) {#version0.154.0}
 
 #### {{ alb-name }}
@@ -51,8 +112,6 @@ description: На странице представлены релизы CLI, а
 Переименованы команды для начала и отмены блокировки зон балансировщика:
 * `yc load-balancer network-load-balancer disable-zones`
 * `yc load-balancer network-load-balancer enable-zones`
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.153.0 (30.06.25) {#version0.153.0}
 

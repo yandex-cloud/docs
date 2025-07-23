@@ -96,8 +96,10 @@ items:
         href: tutorials/balancer-with-sws-profile.md
       - name: >-
           Creating an L7 load balancer with a security profile through an {{
-          alb-name }} Ingress controller
+          alb-name }} ingress controller
         href: tutorials/alb-ingress-with-sws-profile.md
+      - name: Basic SWS setup
+        href: tutorials/sws-basic-protection.md
       - name: Creating an L7 load balancer with DDoS protection at OSI L3-L4
         items:
           - name: Overview
@@ -108,7 +110,7 @@ items:
             href: tutorials/alb-with-ddos-protection/terraform.md
       - name: '{{ api-gw-name }} protection with {{ sws-name }}'
         href: tutorials/api-gw-sws-integration.md
-      - name: Emergency DdoS protection in {{ alb-name }}, L7
+      - name: Emergency L7 DDoS protection in {{ alb-name }}
         href: tutorials/sws-protection-ongoing-ddos.md
       - name: Centralized online publication and DDoS protection of applications
         href: tutorials/different-folders-services.md
@@ -163,8 +165,8 @@ items:
                 href: >-
                   tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
       - name: >-
-          Deploying a web app on {{ baremetal-name }} servers with an L7 load
-          balancer and {{ sws-name }} protection
+          Deploying a web application on {{ baremetal-name }} servers with an L7
+          load balancer and {{ sws-name }} protection
         href: tutorials/webapp-on-bms-behind-sws.md
   - name: Concepts
     expanded: true

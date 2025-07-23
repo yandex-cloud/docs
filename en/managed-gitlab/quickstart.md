@@ -1,6 +1,6 @@
 ---
 title: How to get started with {{ mgl-full-name }}
-description: Follow this guide to create and set up an {{ GL }} cluster.
+description: Follow this guide to set up and configure an {{ GL }} cluster.
 ---
 
 # Getting started with {{ mgl-name }}
@@ -25,7 +25,7 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+  1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
   1. If you do not have a folder yet, create one:
 
      {% include [create-folder](../_includes/create-folder.md) %}
@@ -33,14 +33,6 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
   1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.gitlab.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create an instance.
 
       {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
-
-  1. [Configure](operations/configure-security-group.md) the default security group for access to the {{ mgl-name }} instance.
-
-      {% note warning %}
-
-      The security group's setup determines the {{ mgl-name }} instance performance and availability.
-
-      {% endnote %}
 
 {% endlist %}
 

@@ -8,7 +8,7 @@ description: Follow this guide to upload your video to {{ video-full-name }} and
 {% include [preview-stage](../_includes/video/preview-stage.md) %}
 
 To upload a [video](./concepts/index.md#videos) to a service [channel](./concepts/index.md#channels):
-1. [Prepare your cloud environment](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a channel](#create-channel).
 1. [Upload a video](#upload-video).
 1. [Publish your video](#publish-video).
@@ -75,4 +75,5 @@ In the video settings window that opens, wait until the video is completely uplo
 
 * [{#T}](streaming.md)
 * [{{ video-full-name }} overview](./concepts/index.md)
+* [Configuring ads](operations/channels/settings.md#ad-settings)
 * [{#T}](troubleshooting.md)

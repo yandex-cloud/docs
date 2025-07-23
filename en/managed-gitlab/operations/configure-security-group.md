@@ -12,20 +12,23 @@ description: In this article, you will learn how to set up security groups and r
 * Certificate for HTTPS: [Let's Encrypt]({{ gl.docs }}/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) (default) or [your own certificate]({{ gl.docs }}/omnibus/settings/ssl/#configure-https-manually).
 * Whether or not access to [{{ GL }} Container Registry]({{ gl.docs }}/ee/user/packages/container_registry/) is provided.
 
-To set traffic rules for a {{ GL }} instance:
+{% note warning %}
 
-1. [Create a security group](../../vpc/operations/security-group-create.md) in the {{ yandex-cloud }} network you selected when creating the instance.
-1. [Add](../../vpc/operations/security-group-add-rule.md) inbound and outbound traffic rules to the security groups. See the list of rules further below.
-1. [Contact support]({{ link-console-support }}) to bind a security group to a {{ GL }} instance.
+The security group's setup determines the {{ mgl-name }} instance performance and availability.
 
-   If you do not bind a separate security group to an instance, the group created by default in the instance's network will apply to it. The rules of this security group added for other services affect access to the {{ GL }} instance.
+{% endnote %}
 
-   If you have no access to the instance or it works incorrectly when using the default security group, add rules for {{ GL }} to this group or bind a new one.
+1. [Add](../../vpc/operations/security-group-add-rule.md) rules for [incoming](#ingress-rules) and [outgoing](#egress-rules) traffic to the existing security group or [create](../../vpc/operations/security-group-create.md) a new group with such rules.
+1. Apply the security group to the {{ GL }} instance when [creating](instance/instance-create.md) or [modifying](instance/instance-update.md) it.
+
+If you do not bind a separate security group to an instance, the group created by default in the instance's network will apply to it. The rules of this security group added for other services affect access to the {{ GL }} instance.
+
+If you have issues with setting up a security group, contact [support]({{ link-console-support }}).
 
 ## Rules for incoming traffic {#ingress-rules}
 
 #|
-|| **Why the rule is required** | **Rule settings** ||
+|| **Rule purpose** | **Rule settings** ||
 || To access Git repositories over SSH. | 
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-ssh }}` and `2222`. Create a separate rule for each port.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -79,7 +82,7 @@ This certificate is [used by default]({{ gl.docs }}/omnibus/settings/ssl/#enable
 Your choice of rule depends on the certificate you are using: Let's Encrypt (default) or self-signed.
 
 #|
-|| **Why the rule is required** | **Rule settings** ||
+|| **Rule purpose** | **Rule settings** ||
 || To enable Let’s Encrypt certificate |
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-https }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`

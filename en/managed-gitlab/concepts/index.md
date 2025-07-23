@@ -17,7 +17,16 @@ Users can mange instances from the [{{ yandex-cloud }} management console]({{ li
 ## Instance configuration {#config}
 
 When creating an instance, you specify:
-* Instance type: [The number of vCPUs and the amount of RAM](../../compute/concepts/vm-platforms.md). After you create an instance, you can [change its type](../operations/instance/instance-update.md) to a higher performing one.
+* Instance type: [The number of vCPUs and the amount of RAM](../../compute/concepts/vm-platforms.md). Available instance types:
+
+  | Type            | Computing resources |
+  |----------------|------------------------|
+  | s2.micro       | 2 vCPUs, 8 GB RAM       |
+  | s2.small       | 4 vCPUs, 16 GB RAM      |
+  | s2.medium      | 8 vCPUs, 32 GB RAM      |
+  | s2.large       | 16 vCPUs, 64 GB RAM     |
+
+  After you create an instance, you can [change its type](../operations/instance/instance-update.md) to a higher performing one.
 * [Subnet](../../vpc/concepts/network.md#subnet).
 
   {% include [GL CIDR Warning](../../_includes/managed-gitlab/cidr-note.md) %}
@@ -54,6 +63,16 @@ You can get started with {{ GLR }} in the following ways:
     * 16 vCPUs, 128 GB RAM
 
     {% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
+
+## {{ GL }} Pages {#pages}
+
+{{ GL }} Pages is a tool for publishing static websites composed of files residing in a {{ GL }} repository. Websites are deployed by {{ GL }} CI/CD jobs. {{ GL }} Pages works with static website generators and standard HTML, CSS, and JavaScript files.
+
+{{ GL }} Pages enables you to use your own domains and SSL/TLS certificates and to configure access to websites.
+
+[For more information, see the official {{ GL }} documentation](https://docs.gitlab.com/user/project/pages/).
+
+{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
 
 ## Use cases {#examples}
 

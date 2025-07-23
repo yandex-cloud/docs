@@ -5,6 +5,16 @@ description: This section contains {{ sws-name }} release notes.
 
 # {{ sws-full-name }} release notes
 
+## Q2 2025 {#q2-2025}
+
+* Added a new functionality: [domains](concepts/domain-protect.md) for protection of websites and web applications hosted in {{ yandex-cloud }} or other platforms that do not use the L7 {{ alb-name }}.
+  
+    In addition to protection, we provide a proxy server with load balancing, request analysis and routing, and basic [DDoS protection](../vpc/ddos-protection/).
+
+    The domain protection functionality is at the [Preview](../overview/concepts/launch-stages.md) stage.
+
+* Added [subscription billing](pricing.md) allowing you to predict information security costs and optimize resource spending.
+
 ## January 2025 {#jan-2025}
 
 {{ sws-name }} was certified for compliance with [152-FZ, GOST R 57580, and PCI DSS](https://yandex.cloud/ru/security/standards).

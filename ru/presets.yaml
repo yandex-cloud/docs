@@ -194,6 +194,7 @@ default:
   dt-status-stopping: '**Останавливается**'
   dt-type-copy: '**Копирование**'
   dt-type-copy-repl: '**Копирование и репликация**'
+  dt-type-preparing: '**Подготавливается**'
   dt-type-repl: '**Репликация**'
   dt-white-ip-list-uri: >-
     https://stat.ripe.net/widget/announced-prefixes#w.resource%3DAS200350%26w.min_peers_seeing%3D0
@@ -6683,10 +6684,29 @@ default:
           mx:
             save-as: Добавить на дашборд
     yacloud_org:
+      action:
+        applications:
+          components:
+            action_activate: Активировать
+            action_deactivate: Деактивировать
+            create-app: Создать приложение
       actions:
         add: Добавить
         exclude: Исключить
         save-changes: Сохранить
+      application:
+        overview:
+          certificate_action_download_cert: Скачать сертификат
+          certificate_action_manage_certs: Управление сертификатами
+          certificate_section_title: Сертификат приложения
+          idp_section_download_metadata_action: Скачать файл с метаданными
+          idp_section_title: Конфигурация поставщика удостоверений (IdP)
+          saml_field_metadata: Metadata URL
+      attributes:
+        update_dialog:
+          field_attribute_name: Имя атрибута
+          field_attribute_value: Значение
+          field_group_attribute_value: Передаваемые группы
       billing:
         account:
           entities:
@@ -6704,6 +6724,11 @@ default:
             tariff_available-title: Доступно
             tariff_blocked-title: Доступно через обращение в поддержку
           switch_proposals: Предложения
+      cloud-components:
+        manage-cert-dialog:
+          action-generate-new-certificate: Сгенерировать новый сертификат
+          table:
+            column-active: Активный
       common:
         columns:
           column_id: Идентификатор
@@ -6754,6 +6779,8 @@ default:
           action_remove-acl: Отозвать права доступа
           action_remove-user: Исключить из группы
           action_update-acl: Настроить доступ
+          label_id: Идентификатор
+          label_user: Пользователь
           title_tab-access: Права доступа к группе
           title_tab-members: Участники
         invitation:
@@ -6772,6 +6799,12 @@ default:
           caption:
             federation: Федерация
             user: Пользователь
+            username: Имя пользователя
+      field-data:
+        attributes:
+          update_dialog:
+            field_group_all: Все группы
+            field_group_assigned: Только назначенные группы
       form:
         federation:
           action:
@@ -6823,6 +6856,32 @@ default:
       layout:
         organization: Identity Hub
       organization:
+        apps:
+          AppAssignmentsPage:
+            action_add-assignments: Добавить пользователей
+          AppCreateForm:
+            create-app-submit_myxPn: Создать приложение
+            field-description_kzkNB: Описание
+            field-name_1VbM1: Имя
+            saml-title_kyofk: SAML (Security Assertion Markup Language)
+          AppPageLayout:
+            action_add_attribute: Добавить атрибут
+            action_add_group_attribute: Добавить атрибут группы
+            assignments_kKzJS: Пользователи и группы
+            attributes_to71e: Атрибуты
+            overview_b5LJQ: Обзор
+          SamlAppAcsUrlsField:
+            add-acs-url_eMunC: Добавить URL
+          SamlAppEditForm:
+            field-acs-urls_eQcJr: ACS URL
+            field-description_cjpok: Описание
+            field-labels_uT2D2: Метки
+            field-name_d22aF: Имя
+            field-signature-mode_ipXQ7: Режим подписи
+            field-sp-entity-id_snAsX: SP EntityID
+            signature-mode-assertions_thJgN: Assertions
+            signature-mode-response_x7SKD: Response
+            signature-mode-response-and-assertions_u2j6T: Assertions and Response
         security-settings:
           OtherSecuritySettingsForm:
             auth_settings_1RoAM: Настройки аутентификации
@@ -6857,6 +6916,12 @@ default:
             download-cert: Скачать сертификат
           section:
             certificates: Сертификаты
+        user:
+          field_user-email: Электронная почта
+          field_user-familyname: Фамилия
+          field_user-givenname: Имя
+          field_user-phone: Номер телефона
+          title_personal-info: Персональная информация
         users:
           action:
             add-federated-users: Добавить федеративных пользователей
@@ -6865,6 +6930,7 @@ default:
             button-text: Добавить пользователя
       pages:
         acl: Права доступа
+        apps: Приложения
         federations: Федерации
         groups: Группы
         oslogin:
@@ -7594,6 +7660,7 @@ default:
         cancel: Отменить
         clear: Очистить
         clone: Клонировать
+        close: Закрыть
         confirm: Подтвердить
         continue: Продолжить
         create: Создать
@@ -7602,6 +7669,7 @@ default:
         description: Описание
         disable: Выключить
         disabled: Выключено
+        download: Скачать
         edit: Редактировать
         enable: Включить
         enabled: Включено
@@ -7923,6 +7991,9 @@ default:
           popup-confirm_button_resume: Возобновить
           popup-confirm_button_start: Запустить
           popup-confirm_button_stop: Остановить
+        hardware-gen1-v1-title_oK6qE: Gen 1.1 (MBR, BIOS)
+        hardware-gen1-v2-title_eSmBa: Gen 1.2 (MBR, BIOS)
+        hardware-generation_1iEpT: Поколение оборудования
         host-group:
           hosts:
             label_title: Список хостов
@@ -8076,6 +8147,7 @@ default:
           button_menu-create-instance-placement-group: Группу размещения виртуальных машин
           label_tab-disks: Группы размещения нереплицируемых дисков
           label_tab-instances: Группы размещения виртуальных машин
+        section_additional_7yvYG: Дополнительно
         snapshots_81jHX: Снимки дисков
         snapshots-schedules:
           action_attach-disk: Добавить диск
@@ -8150,8 +8222,38 @@ default:
         switch_registry: Реестры
       data-catalog:
         action_create-catalog: Cоздать каталог
+        action_set-domain: Присвоить домен
+        label_add: Добавить
+        label_add-subdomain-action: Добавить поддомен
+        label_add-tags: Изменить теги
+        label_add-terms: Изменить термины
+        label_connected-terms: Связанные термины
         label_create-catalog: Создание каталога
+        label_create-classification-action: Создать классификацию
+        label_create-domain-action: Создать домен
+        label_create-glossary-action: Создать глоссарий
+        label_create-ingestion-action: Создать загрузку
+        label_create-source-button: Создать источник данных
+        label_create-tag-action: Создать тег
+        label_create-term-action: Создать термин
+        label_domains: Домены
+        label_empty-ingestion-count-short: Нет загрузки
+        label_ingestion-count: Количество загрузок
+        label_ingestion-status-Running: Running
         label_ingestion-tab-operations: Операции
+        label_ingestions: Загрузки
+        label_search-button-add-filter: Добавить фильтр
+        label_search-placeholder: Поиск данных
+        label_source-data-tab: Выгруженные данные
+        label_source-database-type: Тип базы данных
+        label_sources: Источники данных
+        label_subterms: Дочерние термины
+        label_tag-mutual-exclusion: Взаимоисключение
+        label_tags-and-classification: Теги и классификации
+        label_term-synonyms: Синонимы
+        label_term-synonyms-add: Добавить
+        label_terms-and-glossaries: Термины и глоссарии
+        title_search-data: Поиск по метаданным
       data-streams:
         button_connect: Подключиться
         button_create-stream: Создать поток

@@ -16,6 +16,12 @@ _Снимок диска_ — это копия файловой системы 
 
 ## Создание снимка {#create}
 
+{% note info %}
+
+За создаваемым снимком диска закрепляется [поколение виртуализированного оборудования](../../concepts/hardware-generations.md), на котором из этого снимка может быть развернута виртуальная машина. Закрепить за снимком поколение, отличное от поколения, которое закреплено за исходным диском, можно с помощью [{{ yandex-cloud }} CLI](../../../cli/index.yaml), [{{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md) и [API](../../../api-design-guide/index.yaml).
+
+{% endnote %}
+
 Чтобы создать снимок диска:
 
 {% include [create-snapshot](../../../_includes/compute/create-snapshot.md) %}

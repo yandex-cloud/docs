@@ -5,6 +5,16 @@ description: This section contains {{ backup-name }} release notes.
 
 # {{ backup-full-name }} release notes
 
+## Q2 2025 {#q2-2025}
+
+* Implemented automatic connection of {{ baremetal-full-name }} servers to {{ backup-name }} when ordering them from the [management console]({{ link-console-main }}).
+* Added new settings for [backup policies](./concepts/policy.md):
+  * Creating [LVM](./concepts/backup.md#lvm) snapshots.
+  * Sector-by-sector backups.
+  * Running skipped jobs after the VM or {{ baremetal-full-name }} server loads.
+  * Checking backups.
+* Discontinued support for the `preserveFileSecuritySettings` and `quiesceSnapshottingEnabled` backup policy parameters.
+* Supported CentOS 7 for {{ baremetal-full-name }} servers.
 
 ## Q1 2025 {#q1-2025}
 

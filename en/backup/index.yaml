@@ -28,7 +28,7 @@ links:
     description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
   - title: API reference
     description: HTTP API method descriptions

@@ -62,6 +62,12 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./user-pools/validate-domain.md)
 * [{#T}](./user-pools/delete-domain.md)
 
+## Управление SAML-приложениями {#manage-saml-applications}
+
+* [{#T}](./applications/saml-create.md)
+* [{#T}](./applications/saml-update.md)
+* [{#T}](./applications/saml-deactivate-remove.md)
+
 ## Авторизация и аутентификация {#auths}
 
 * [{#T}](./add-ssh.md)
