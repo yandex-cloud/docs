@@ -102,7 +102,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-Управлять пользователями и группами, добавленными в SAML-приложение, может пользователь, которому назначена [роль](../../security/index.md#organization-manager-samlApplications-usersAdmin) `organization-manager.samlApplications.usersAdmin` или выше.
+Управлять пользователями и группами, добавленными в SAML-приложение, может пользователь, которому назначена [роль](../../security/index.md#organization-manager-samlApplications-userAdmin) `organization-manager.samlApplications.userAdmin` или выше.
 
 {% endnote %}
 

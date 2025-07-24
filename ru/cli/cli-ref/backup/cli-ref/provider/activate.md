@@ -20,6 +20,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--provider-name`|<b>`string`</b><br/>|
 |`--skip-default-policy`|Don't create default policies with the provider activation|
+|`--force`|Force backup provider activation without confirmation from input (bypass interactive prompt)|
 
 #### Global Flags
 

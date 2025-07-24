@@ -1,7 +1,6 @@
 ---
 title: Getting limits on the number of requests to {{ search-api-full-name }} via API v1
 description: Follow this guide to get information about the limits on the number of requests you can send to {{ search-api-name }} via API v1 in the next 24 hours.
-noIndex: true
 ---
 
 # Requesting limits for the next 24 hours

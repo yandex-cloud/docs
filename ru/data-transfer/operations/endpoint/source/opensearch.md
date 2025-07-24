@@ -102,8 +102,12 @@ description: Из статьи вы узнаете, как задать наст
 
 ## Решение проблем, возникающих при переносе данных {#troubleshooting}
 
-* [Прерывание трансфера с ошибкой](#ambiguous-resolution-os)
+* [Прерывание трансфера с ошибкой](#ambiguous-resolution-es)
 * [Дублирование документов на приемнике](#duplication)
+* [Превышение лимита максимального количества полей](#exceeding-fields-limit)
+* [Прерывание трансфера с ошибкой mapper_parsing_exception](#data-types)
+* [Ошибка SSL is required](#ssl-required)
+* [Не удалось найти ни одной таблицы](#no-tables)
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
@@ -111,3 +115,10 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [duplication](../../../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
 
+{% include [exceeding-fields-limit](../../../../_includes/data-transfer/troubles/elastic-opensearch/exceeding-fields-limit.md) %}
+
+{% include [mapper-parsing-exception](../../../../_includes/data-transfer/troubles/elastic-opensearch/mapper-parsing-exception.md) %}
+
+{% include [ssl-is-required](../../../../_includes/data-transfer/troubles/elastic-opensearch/ssl-is-required.md) %}
+
+{% include [no-tables](../../../../_includes/data-transfer/troubles/elastic-opensearch/no-tables.md) %}

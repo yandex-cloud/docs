@@ -23,6 +23,11 @@ Syntax:
 |`--max-clause-count`|<b>`int`</b><br/>Maximum amount of clauses to use in a query.|
 |`--fielddata-cache-size`|<b>`string`</b><br/>Data field cache size.|
 |`--reindex-remote-whitelist`|<b>`value[,value]`</b><br/>Comma-separated list of host:port pairs indicating the remote sources to be reindexed.|
+|`--snapshot-schedule`|<b>`string`</b><br/>Snapshot schedule type. Supported: 'hourly', 'daily', 'weekly'. Leave empty for default settings.|
+|`--snapshot-day`|<b>`string`</b><br/>For weekly schedule, the day of the week ('mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun') to start snapshot.|
+|`--snapshot-hour`|<b>`int`</b><br/>For daily/weekly schedule, the hour (0-23) of the day ) to start snapshot.|
+|`--snapshot-minute`|<b>`int`</b><br/>For any schedule, the minute (0-59) of the hour to start snapshot.|
+|`--snapshot-max-age-days`|<b>`int`</b><br/>Max snapshot age in days. 7 days minimum.|
 |`--new-name`|<b>`string`</b><br/>Name of the cluster.|
 |`--description`|<b>`string`</b><br/>Description of the cluster.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of labels given as key=value pairs.|

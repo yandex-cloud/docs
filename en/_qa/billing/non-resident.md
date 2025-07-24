@@ -5,6 +5,8 @@
 
 Yes, you can.
 
+{% include [non-residents-limitations](../../_includes/billing/non-residents-limitations.md) %}
+
 #### Will you provide an agreement for the provision and payment of services? {#contract}
 
 {% include [contract-qa](../../billing/_includes/contract-qa.md) %}

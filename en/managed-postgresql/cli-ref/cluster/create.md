@@ -40,6 +40,7 @@ Syntax:
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the PostgreSQL cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups to place VMs of cluster on.|
+|`--disk-encryption-key-id`|<b>`string`</b><br/>ID of the KMS key for cluster disk encryption.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

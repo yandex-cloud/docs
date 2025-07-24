@@ -2,13 +2,19 @@
 
 To migrate your database to {{ mpg-full-name }}, you need to directly transfer the data, acquire a write lock for the old database, and switch over the load to the database cluster in {{ yandex-cloud }}.
 
+{% note warning %}
+
+Users are not transferred automatically to a {{ mpg-name }} cluster. You need to [create](../../managed-postgresql/operations/cluster-users.md#adduser) them again in the new cluster.
+
+{% endnote %}
+
 Performing migration with {{ data-transfer-name }} allows you to:
 
 * Go without creating an intermediate VM or granting online access to your {{ mpg-name }} target cluster.
 * Minimize the DB downtime when migrating data.
 * Migrate from older {{ PG }} versions to newer versions.
 
-To learn more, see [{#T}](../../data-transfer/concepts/use-cases.md).
+For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 To use this migration method, allow connecting to the source cluster from the internet.
 

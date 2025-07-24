@@ -37,7 +37,7 @@ If a sentence contains words in different languages, the language may be detecte
 
 {% note info %}
 
-Language detection and setting language labels are only available in gRPC API v3.
+Language detection and language labels are only available in API v3.
 
 {% endnote %}
 

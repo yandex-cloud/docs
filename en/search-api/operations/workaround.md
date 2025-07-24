@@ -1,7 +1,6 @@
 ---
 title: '{{ search-api-full-name }} general connection procedure for API v1'
 description: Follow this guide to connect to {{ search-api-name }} to use it via API v1.
-noIndex: true
 ---
 
 # General connection procedure

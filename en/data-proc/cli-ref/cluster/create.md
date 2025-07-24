@@ -22,6 +22,8 @@ Syntax:
 |`--zone`|<b>`string`</b><br/>ID of the availability zone where the cluster resides.|
 |`--service-account-id`|<b>`string`</b><br/>Service account id.|
 |`--service-account-name`|<b>`string`</b><br/>Service account name.|
+|`--autoscaling-service-account-id`|<b>`string`</b><br/>Autoscaling service account id.|
+|`--autoscaling-service-account-name`|<b>`string`</b><br/>Autoscaling service account name.|
 |`--version`|<b>`string`</b><br/>Version of an image for cluster provisioning.|
 |`--services`|List of used services in a cluster. If no service is specified, the default set will be used.<br/>A list can be specified by listing services separated by commas as well as passing this flag multiple times.<br/>Available services are: 'hdfs', 'yarn', 'mapreduce', 'hive', 'tez', 'zookeeper', 'hbase', 'sqoop', 'flume', 'spark', 'zeppelin'.<br/>|
 |`--property`|<b>`value[,value]`</b><br/>Properties passed to all hosts *-site.xml configurations in \<service\>:\<property\>=\<value\> format.<br/>For example setting property 'dfs.replication' to 3 in /etc/hadoop/conf/hdfs-site.xml requires specifying --property "hdfs:dfs.replication=3"<br/>This flag can be passed multiple times.<br/>|

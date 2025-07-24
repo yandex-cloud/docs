@@ -50,6 +50,7 @@ description: В этой инструкции вы научитесь созда
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Задайте параметры кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
 1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mpg-short-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
+1. (Опционально) [Перенесите данные](../data-transfer/tutorials/managed-postgresql.md#quick-transfer) в БД кластера.
 
 ## Подключитесь к БД {#connect}
 

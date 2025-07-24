@@ -54,17 +54,27 @@ Solution: Increase the connection limit in the [**Conn limit** setting](../../ma
 
 To learn how to update {{ PG }} settings at the user level, see [this tutorial](../../managed-postgresql/operations/cluster-users.md#update-settings).
 
-#### Why do I get an error when trying to connect to a database? {#database-error}
+#### Why do I get an error when connecting to a custom database? {#database-error}
 
-Connecting to a database may fail with an error like:
+Connecting to a custom database may fail with the following error:
 
 ```text
-ERROR: odyssey: ce3ea075f4ffa: route for 'dbname.username' is not found
+ERROR: odyssey: ce3ea075f4ffa: route for '<DB_name>.<user_name>' is not found
 ```
 
 The error means that the connection parameters contain an invalid database name.
 
-#### Why does a connection terminate with an error? {#connection-error}
+#### Why do I get an error when connecting to the postgres database? {#database-postgres-error}
+
+Connecting to the `postgres` database fails with the following error:
+
+```text
+ERROR: odyssey: c76e2c1283a7a: route for 'postgres.<user_name>' is not found
+```
+
+`postgres` is a system database; connecting to it is prohibited in {{ mpg-name }}. Specify a different database in the connection parameters.
+
+#### Why does a connection terminate with `terminating connection due to administrator command`? {#connection-error}
 
 A {{ mpg-name }} cluster connection may be terminated with the following message:
 
@@ -87,6 +97,9 @@ This error occurs if public access to the host is denied or users are using cust
 Solution:
 
 * Enable public access for the host you are connecting to. When using a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns), enable public access for the host the special FQDN points to.
+
+  {% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
+
 * We recommend that you enable public access for all cluster hosts. This will avoid connection errors during automatic master failover.
 * For custom DNS servers, configure DNS forwarding for the `mdb.yandexcloud.net` zone.
 
@@ -143,3 +156,49 @@ To avoid this error:
 
 1. If the script or logical dump is in text format, remove the operators for creating {{ PG }} extensions from them.
 1. [Install](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) all required extensions in the target database using the {{ yandex-cloud }} interfaces.
+
+#### Why do I get an error when setting up cascading replication? {#cascade-errors}
+
+Error message:
+
+```text
+cluster should have at least 2 HA hosts to use cascade host
+```
+
+The error occurs if you specify a replication source for a single non-cascading replication.
+
+To ensure [high availability](../../architecture/fault-tolerance.md#mdb-ha), your cluster must have at least one replica without a replication source. During maintenance or if the master host fails, this replica will take over as the master.
+
+To learn more about replication, see [this guide](../../managed-postgresql/concepts/replication.md).
+
+#### Why do I get the `cannot execute <SQL_command> in a read-only transaction` error? {#read-only-error}
+
+Error options:
+
+```text
+ERROR: cannot execute ALTER EXTENSION in a read-only transaction
+```
+
+```text
+ERROR: cannot execute CREATE TABLE in a read-only transaction
+```
+
+```text
+ERROR: cannot execute UPDATE in a read-only transaction
+```
+
+```text
+ERROR: cannot execute INSERT in a read-only transaction
+```
+
+Such errors can occur after master [failover](../../architecture/fault-tolerance.md#mdb-ha) if you connected to a read-only replica.
+
+To prevent such errors, use any of the following ways:
+
+* Connect to the cluster using a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns) that always points to the current master.
+
+  {% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
+
+* When connecting, specify the `target_session_attrs=read-write` parameter and list all cluster hosts. This way, you will connect to the master host with read and write access.
+
+For more information on how to connect to the master host, see [Connecting to a database](../../managed-postgresql/operations/connect.md#automatic-master-host-selection).

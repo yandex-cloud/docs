@@ -1,7 +1,6 @@
 ---
 title: How to get mobile search results using {{ search-api-full-name }}'s API v1
 description: In this tutorial, you will learn how to get a mobile search results file using {{ search-api-name }}'s API v1.
-noIndex: true
 ---
 
 # Getting mobile search results using API v1

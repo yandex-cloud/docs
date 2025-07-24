@@ -109,7 +109,7 @@ All prices below do not include VAT.
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Host computing resources {#prices-hosts}
+### Host compute resources {#prices-hosts}
 
 
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
@@ -121,12 +121,6 @@ All prices below do not include VAT.
 
 
 ### Storage and backups {#prices-storage}
-
-{% note info %}
-
-Access to ultra high-speed network storage with three replicas (SSD) is available upon request. Contact [support]({{ link-console-support }}) or your account manager.
-
-{% endnote %}
 
 
 

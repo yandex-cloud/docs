@@ -6,9 +6,11 @@
 
 * [What should I do if I get the `too many active clients for user` error when connecting?](#connection-limit-error)
 
-* [Why do I get an error when trying to connect to a database?](#database-error)
+* [Why do I get an error when connecting to a custom database?](#database-error)
 
-* [Why does a connection fail?](#connection-error)
+* [Why do I get an error when connecting to the `postgres` database?](#database-postgres-error)
+
+* [Why does the connection terminate with `terminating connection due to administrator command`?](#connection-error)
 
 * [Why cannot I connect to cluster hosts?](#host-error)
 
@@ -21,3 +23,7 @@
 * [What should I do if I get the `replication slot already exists` error when performing logical replication?](#repl-slot-exists)
 
 * [Why do I get an `extension... is not available` error when migrating my DB to {{ mpg-short-name }}](#extension-is-not-available)?
+
+* [Why do I get an error when setting up cascading replication?](#cascade-errors)
+
+* [Why do I get the `cannot execute <SQL_command> in a read-only transaction` error?](#read-only-error)

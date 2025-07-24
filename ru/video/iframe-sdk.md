@@ -59,7 +59,7 @@
 К URL кода вставки после символа `?` добавьте пары `параметр=значение`, разделяя их символом `&`:
 
 ```http
-https://runtime.video.cloud.yandex.net/player/...?{param1=value1}&...&{paramN=valueN}
+https://runtime.video.cloud.yandex.net/player/...?param1=value1&...&paramN=valueN
 ```
 
 Список параметров и их значений приведен в таблице ниже. Если параметры не указаны, плеер загрузится с параметрами по умолчанию.
@@ -98,6 +98,7 @@ https://runtime.video.cloud.yandex.net/player/...?{param1=value1}&...&{paramN=va
 {% cut "Список элементов интерфейса" %}
 
 * `*` — все элементы интерфейса.
+* `*,!<элемент-исключение>` — все элементы интерфейса, кроме исключенного. Например, `*,!play` — скрыть все элементы интерфейса, кроме кнопки воспроизведения.
 * `contextMenu` — контекстное меню.
 * `fullscreen` — кнопка перевода в полноэкранный режим.
 * `live` — кнопка **Вернуться в эфир**.
@@ -120,6 +121,13 @@ https://runtime.video.cloud.yandex.net/player/...?{param1=value1}&...&{paramN=va
 {% endcut %}
 
 Чтобы скрыть несколько элементов интерфейса, передайте строку со значениями через запятую, например `hidden=startScreenPlay,play`.
+
+{% note info %}
+  
+Не рекомендуется использовать вместе `autoplay=0` и `hidden=*`, с такими параметрами видео нельзя запустить.
+  
+{% endnote %}
+
 ||
 || `lang` |
 Язык, на котором будет отображаться интерфейс плеера.
@@ -195,6 +203,56 @@ https://runtime.video.cloud.yandex.net/player/...?{param1=value1}&...&{paramN=va
 Может принимать значения от `0` до `1` включительно, например `volume=0.5`.
 
 Значение параметра игнорируется, если `mute=1`.
+||
+|| `background_color` |
+Цвет фона плеера и виджетов.
+
+Поддерживаются цвета в формате [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) из трех и шести символов, а также стандартные для HTML [названия цветов](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+||
+||  `widget_text_color_primary`  |
+Цвет основного текста виджетов.
+
+Поддерживаются цвета в формате [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) из трех и шести символов, а также стандартные для HTML [названия цветов](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+||
+||  `widget_text_color_secondary`  |
+Цвет вторичного текста виджетов.
+
+Поддерживаются цвета в формате [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) из трех и шести символов, а также стандартные для HTML [названия цветов](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+||
+||  `widget_accent_color`  |
+Акцентный цвет текста виджетов.
+
+Поддерживаются цвета в формате [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) из трех и шести символов, а также стандартные для HTML [названия цветов](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+||
+||  `playlist_selected_item_background_color`  |
+Цвет фона активного элемента плейлиста.
+
+Поддерживаются цвета в формате [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) из трех и шести символов, а также стандартные для HTML [названия цветов](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+||
+||  `widget_block_separator_color`  |
+Цвет разделителей блоков виджетов.
+
+Поддерживаются цвета в формате [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) из трех и шести символов, а также стандартные для HTML [названия цветов](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+||
+||  `player_border_radius`  |
+Скругление углов блока плеера.
+
+Значение по умолчанию — `3`.
+||
+||  `playlist_item_border_radius`  |
+Скругление углов элементов плейлиста.
+
+Значение по умолчанию — `3`.
+||
+||  `widget_block_gap`  |
+Отступ плеера от блока плейлиста.
+
+Значение по умолчанию — `0`.
+||
+||  `playlist_item_gap`  |
+Отступ между элементами плейлиста.
+
+Значение по умолчанию — `10`.
 ||
 |#
 

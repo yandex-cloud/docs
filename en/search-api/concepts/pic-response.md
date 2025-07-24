@@ -1,7 +1,6 @@
 ---
 title: XML response format for image search in {{ search-api-full-name }}
 description: This article describes the XML format of a response returned by {{ search-api-name }} for an image search query.
-noIndex: true
 ---
 
 # Image search response format
@@ -9,8 +8,6 @@ noIndex: true
 In response to an image search query, {{ search-api }} returns a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoded XML file with the search results.
 
 XML files consist of the [request](#request-el) (aggregate information on search query parameters) and [response](#response-el) (search query handling results) grouping tags.
-
-Currently, image search is only available for queries made via the API v1.
 
 Below is the general structure of the resulting XML document with examples of values.
 
@@ -33,7 +30,7 @@ Below is the general structure of the resulting XML document with examples of va
    <found priority="phrase">11132</found>
    <found priority="strict">11132</found>
    <found priority="all">11132</found>
-   <found-human>11 thousand results found</found-human>
+   <found-human>Found 11,000 results</found-human>
    <results>
       <grouping attr="ii" mode="deep" groups-on-page="1" docs-in-group="1" curcateg="-1">
          <page first="1" last="1">2</page>
@@ -71,7 +68,7 @@ Below is the general structure of the resulting XML document with examples of va
          <found-docs priority="phrase">8432</found-docs>
          <found-docs priority="strict">8432</found-docs>
          <found-docs priority="all">8432</found-docs>
-         <found-docs-human>8 thousand results found</found-docs-human>
+         <found-docs-human>Found 8,000 results</found-docs-human>
       </grouping>
    </results>
 </response>
@@ -88,7 +85,7 @@ The `request` group provides aggregate information about request parameters. It 
 #|
 || **Request group tags** | **Description** | **Attributes** ||
 || query | Search query text | None ||
-|| page | Number of returned search results page. Page numbering starts from zero (`0` stands for page 1). | None ||
+|| page | Number of returned search results page. Page numbering starts from zero (`0` stands for page one). | None ||
 || sortby | 
 Result sorting parameters. Service tag, takes the `rlv` value: sorting by relevance.
 | 
@@ -169,7 +166,7 @@ Attributes reflect the grouping rules for images.
 * `docs-in-group`: Maximum number of images that can be returned per group. Service attribute, takes the `1` value.
 * `curcateg`: Service attribute. Takes the `-1` value.
 ||
-|| page | Number of returned search results page. Page numbering starts from zero (`0` stands for page 1).
+|| page | Number of returned search results page. Page numbering starts from zero (`0` stands for page one).
 | 
 * `first`: Sequence number of the first search results group displayed on the page.
 * `last`: Sequence number of the last search results group displayed on the page.
@@ -177,7 +174,7 @@ Attributes reflect the grouping rules for images.
 || group | 
 Grouping tag.
 
-Each `group` tag contains information about one group of found images. Since each group of images contains one image, the tag provides information about one image.
+Each `group` tag contains information about one group of found images. As each image group contains one image, the tag provides information about one image.
 | None
 ||
 || categ | Description of the found image | 
@@ -218,7 +215,7 @@ Contains information about the image properties to include in search results.
 || file-size | Image size in bytes | None ||
 || mime-type | Image format (JPG, GIF, or PNG) | None ||
 || mime-type | Format of the document containing the image | None ||
-|| found | Estimate of the number of generated groups | 
+|| found | Estimated number of generated groups | 
 `priority`: Service attribute. The possible values are:
 
 * `phrase`
@@ -236,7 +233,7 @@ It is a more accurate estimate compared to the value provided in the `found` tag
 
 * `phrase`
 * `strict`
-* `all`.
+* `all`
 ||
 || found-docs-human | 
 A string in the language matching the selected [search type](../operations/workaround.md). Contains information about the number of found images and related information.
