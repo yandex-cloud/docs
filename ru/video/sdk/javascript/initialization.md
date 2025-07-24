@@ -5,7 +5,9 @@ description: На странице описаны параметры, котор
 
 # Параметры инициализации плеера
 
-При [инициализации](./index.md#initialize-player) видеоплеера [Cloud Video Player](../../concepts/player.md) вы можете передать в него исходные параметры:
+При [инициализации](./index.md#initialize-player) видеоплеера [Cloud Video Player](../../concepts/player.md) вы можете передать в него исходные параметры.
+
+## Параметры управления воспроизведением {#playback-controls}
 
 #### element {#element}
 

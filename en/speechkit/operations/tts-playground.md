@@ -30,4 +30,4 @@ To convert text to speech via the {{ speechkit-name }} Playground interface:
 1. Click ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.speechkit.speech-synthesis.label_button_playback }}** to synthesize speech.
 1. To download the result, click ![arrow-down-to-line](../../_assets/console-icons/arrow-down-to-line.svg).
 
-{{ speechkit-name }} Playground features basic speech synthesis options. For more flexible synthesis settings, use the [API](#tts-quickstart).
+{{ speechkit-name }} Playground features basic speech synthesis options. For more flexible synthesis settings, use the [API](../quickstart/tts-quickstart-v3.md).

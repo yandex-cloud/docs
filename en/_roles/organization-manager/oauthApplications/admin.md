@@ -5,4 +5,4 @@ Users with this role can:
 * View info on the [access permissions](../../../iam/concepts/access-control/index.md) granted for the relevant OIDC applications and modify such permissions.
 * View and edit the list of the [users](../../../overview/roles-and-resources.md#users) added to OIDC applications.
 
-This role includes the `organization-manager.oauthApplications.editor` and `organization-manager.oauthApplications.usersAdmin` permissions.
+This role includes the `organization-manager.oauthApplications.editor` and `organization-manager.oauthApplications.userAdmin` permissions.

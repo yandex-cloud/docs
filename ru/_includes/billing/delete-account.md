@@ -3,7 +3,7 @@
 
     {% include [account-access-lost](../../_includes/billing/account-access-lost.md) %}
 
-1. На странице **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** в правом верхнем углу нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}**.
+1. На странице **{{ ui-key.yacloud_org.billing.account.switch_overview }}** в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_components.cloud-center.action_more }}** и выберите пункт **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}**.
 1. Подтвердите ваше намерение и дождитесь окончания проверки.
 1. Если аккаунт может быть удален, вы увидите уведомление о начале удаления. В этот момент вы еще можете прервать операцию, нажав кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard.popup-go-pay_button_cancel }}**.
 1. Если аккаунт не может быть удален, нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard.card_label_threshold-description }}**, чтобы посмотреть причину отказа.

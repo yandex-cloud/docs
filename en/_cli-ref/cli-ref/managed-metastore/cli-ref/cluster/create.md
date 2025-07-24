@@ -20,6 +20,7 @@ Syntax:
 |`--description`|<b>`string`</b><br/>Description of the cluster.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of Metastore cluster labels as key-value pairs.|
 |`--service-account-id`|<b>`string`</b><br/>A service account id used to access Cloud resources.|
+|`--version`|<b>`string`</b><br/>A Metastore server version.|
 |`--subnet-ids`|<b>`value[,value]`</b><br/>List of IDs of VPC network subnets where instances of the cluster are attached.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the Metastore cluster.|
 |`--resource-preset-id`|<b>`string`</b><br/>ID of the preset for computational resources available to the cluster (CPU, memory etc.).|

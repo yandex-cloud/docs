@@ -1,3 +1,3 @@
 [Локальных пользователей](../../iam/concepts/users/accounts.md#local) необходимо добавлять в организацию вручную. При этом каждому пользователю присваивается имя пользователя, уникальное для выбранного [пула пользователей](../../organization/concepts/user-pools.md).
 
-Добавлять в организацию локальных пользователей и удалять их могут пользователи с любой из следующих [ролей](../../organization/security/index.md): `organization-manager.userpools.usersAdmin`, `organization-manager.userpools.admin`, `organization-manager.admin` или `organization-manager.organizations.owner`.
+Добавлять в организацию локальных пользователей и удалять их могут пользователи с любой из следующих [ролей](../../organization/security/index.md): `organization-manager.userpools.userAdmin`, `organization-manager.userpools.admin`, `organization-manager.admin` или `organization-manager.organizations.owner`.

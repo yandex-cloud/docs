@@ -53,11 +53,13 @@ Syntax:
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the ClickHouse cluster.|
 |`--cloud-storage`|Whether to use Yandex Object Storage for storing ClickHouse data.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
+|`--disk-encryption-key-id`|<b>`string`</b><br/>ID of the KMS key for cluster disk encryption. Empty input will remove the use of encryption.|
 |`--admin-password`|<b>`string`</b><br/>Password for entity. Usage of --read-admin-password is more secure|
 |`--read-admin-password`|Read password for entity from input|
 |`--generate-admin-password`|Generate random password|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--disk-size-autoscaling`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Disk size autoscaling settings<br/><br/>Possible property names:<br/><ul> <li><code>clickhouse-disk-size-limit</code>:     Disk size limit of all shards in the cluster (GB).</li> <li><code>clickhouse-planned-usage-threshold</code>:     Planned usage threshold of all shards in the cluster.</li> <li><code>clickhouse-emergency-usage-threshold</code>:     Emergency usage threshold of all shards in the cluster.</li> <li><code>zookeeper-disk-size-limit</code>:     Set disk size limit for zookeeper subcluster (GB).</li> <li><code>zookeeper-planned-usage-threshold</code>:     Set planned usage threshold for zookeeper subcluster.</li> <li><code>zookeeper-emergency-usage-threshold</code>:     Set emergency usage threshold for zookeeper subcluster.</li> </ul>|
+|`--maintenance-window`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Maintenance window settings<br/><br/>Possible property names:<br/><ul> <li><code>type</code>:     Type of maintenance window, it can be anytime or weekly. A day and hour of window need to be specified with weekly window.</li> <li><code>hour</code>:     Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.</li> <li><code>day</code>:     Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'</li> </ul>|
 
 #### Global Flags
 

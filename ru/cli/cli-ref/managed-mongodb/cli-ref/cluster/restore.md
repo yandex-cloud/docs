@@ -28,6 +28,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of labels as key-value pairs to add for the cluster being restored.|
 |`--folder-id`|<b>`string`</b><br/>ID of folder where restored cluster will be created.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the MongoDB cluster.|
+|`--disk-encryption-key-id`|<b>`string`</b><br/>ID of the KMS key for cluster disk encryption. Empty input will remove the use of encryption.|
 |`--mongodb-version`|<b>`string`</b><br/>Version of MongoDB used by the cluster. Supported value: 5.0, 6.0, 7.0|
 |`--backup-window-start`|<b>`timeofday`</b><br/>Start time for the daily backup in UTC timezone. Format: HH:MM:SS|
 |`--backup-retain-period-days`|<b>`int`</b><br/>Retain period of automatically created backup in days.|

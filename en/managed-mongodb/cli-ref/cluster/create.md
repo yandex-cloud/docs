@@ -48,6 +48,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of cluster labels as key-value pairs.|
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the MongoDB cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
+|`--disk-encryption-key-id`|<b>`string`</b><br/>ID of the KMS key for cluster disk encryption.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

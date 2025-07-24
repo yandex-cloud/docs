@@ -12,7 +12,7 @@ The {{ api-gw-full-name }} will receive requests from your bot and forward them 
 To create a bot:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Create resources](#prepare).
+1. [Set up resources](#prepare).
 1. [Register your Telegram bot](#bot-register).
 1. [Create a function](#create-function).
 1. [Create an API gateway](#create-api-gateway).
@@ -34,7 +34,7 @@ The cost of Telegram bot support includes:
 * Fee for function invocation count, computing resources allocated to run the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 * Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-name }} pricing](../../api-gateway/pricing.md)).
 
-## Create resources {#prepare}
+## Set up resources {#prepare}
 
 1. [Create a service account](../../iam/operations/sa/create.md) named `recognizer-bot-sa` and assign it the `ai.editor` and `{{ roles-functions-editor }}` [roles](../../iam/operations/sa/assign-role-for-sa.md) for your folder.
 1. Create a ZIP archive with the function code:
@@ -206,7 +206,7 @@ Register your bot in Telegram and get a token.
    ```
 
 1. In the `name` field, enter a name for the new bot. This is the name users will see when chatting with the bot.
-1. In the `username` field, enter a username for the new bot. This will allow users to find your bot on Telegram. The username must end with `...Bot` or `..._bot`.
+1. In the `username` field, enter a username for the new bot. You can use it to find the bot in Telegram. The username must end with `...Bot` or `..._bot`.
 
    Once done, you will get a token. Save it, as you will need it later.
 
@@ -313,7 +313,7 @@ Create a function to process user actions in the chat.
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, define the function properties:
+  1. In the configuration file, describe the function settings:
 
      ```hcl
      resource "yandex_function" "for-recognizer-bot-function" {
@@ -356,7 +356,7 @@ Create a function to process user actions in the chat.
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the new resources and their properties. If the configuration contains any errors, {{ TF }} will show them.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -496,7 +496,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
      * `name`: API gateway name.
      * `spec`: API gateway specification.
 
-     For more information about `yandex_api_gateway` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
+     For more information about resource properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
 
   1. Make sure the configuration files are correct.
 
@@ -507,7 +507,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the new resources and their properties. If the configuration contains any errors, {{ TF }} will show them.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -517,7 +517,7 @@ The Telegram server will notify your bot of new messages using a [webhook](https
         terraform apply
         ```
 
-     1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
 - API {#api}
 

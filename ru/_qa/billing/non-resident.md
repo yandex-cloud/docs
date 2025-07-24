@@ -5,6 +5,8 @@
 
 Да, можете.
 
+{% include [non-residents-limitations](../../_includes/billing/non-residents-limitations.md) %}
+
 #### Будет ли предоставлен договор на оказание и оплату услуг? {#contract}
 
 {% include [contract-qa](../../billing/_includes/contract-qa.md) %}

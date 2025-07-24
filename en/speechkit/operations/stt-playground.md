@@ -8,8 +8,8 @@ description: Follow this guide to recognize an audio file via the {{ speechkit-n
 To recognize speech from an audio file via the {{ speechkit-name }} Playground interface:
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you are going to use to work with {{ speechkit-name }}.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
-1. Go to the **{{ ui-key.yacloud.yagpt.speechkit.services.stt.title }}** tab.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
+1. Navigate to the **{{ ui-key.yacloud.yagpt.speechkit.services.stt.title }}** tab.
 1. In the **{{ ui-key.yacloud.speechkit.speech-to-text.field_language }}** field, select the language you need or leave `{{ ui-key.yacloud.speechkit.speech-to-text.label_language-auto }}`.
 1. Click **Select file** or drag the audio file to the loading area.
 

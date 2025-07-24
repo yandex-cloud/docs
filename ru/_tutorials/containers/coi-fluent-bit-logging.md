@@ -152,7 +152,7 @@ if __name__ == '__main__':
 
      fluentbit:
        container_name: fluentbit
-       image: cr.yandex/yc/fluent-bit-plugin-yandex:v1.0.3-fluent-bit-1.8.6
+       image: cr.yandex/yc/fluent-bit-plugin-yandex:v2.1.1-fluent-bit-1.8.15
        ports:
          - 24224:24224
          - 24224:24224/udp

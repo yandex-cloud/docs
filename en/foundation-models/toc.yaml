@@ -69,7 +69,7 @@ items:
             href: operations/assistant/create-with-labels.md
           - name: Getting intermediate response generation results
             href: operations/assistant/request-chunked-response.md
-          - name: Paraphrasing the queries using the model
+          - name: Rephrasing queries using the model
             href: operations/assistant/rephraser.md
   - name: Concepts
     items:
@@ -115,7 +115,7 @@ items:
             href: concepts/assistant/files.md
           - name: Search indexes
             href: concepts/assistant/search-index.md
-          - name: Paraphrasing queries
+          - name: Rephrasing queries
             href: concepts/assistant/rephraser.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -725,6 +725,8 @@ items:
         href: tutorials/models-fine-tuning.md
       - name: Creating an AI agent with {{ sf-full-name }}
         href: tutorials/create-ai-agent-function.md
+      - name: Integrating the Qwen3 model into Visual Studio Code
+        href: tutorials/qwen-vsc-integration.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

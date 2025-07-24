@@ -6353,6 +6353,8 @@ default:
           service-accounts: Сервисные аккаунты
           title: Настройка прав доступа
           user-accounts: Пользовательские аккаунты
+      cloud-center:
+        action_more: Ещё
       cloud:
         button_delete: Удалить
         button_save: Сохранить
@@ -6723,6 +6725,7 @@ default:
             tariff_activating-title: Применяется
             tariff_available-title: Доступно
             tariff_blocked-title: Доступно через обращение в поддержку
+          switch_overview: Аккаунт
           switch_proposals: Предложения
       cloud-components:
         manage-cert-dialog:
@@ -9126,6 +9129,7 @@ default:
             label_service-account: Сервисный аккаунт
             label_services: Сервисы
             label_status: Статус
+            label_title: Обзор
             section_additional: Дополнительные настройки
             section_configuration: Настройки
             section_resource: Ресурсы
@@ -9151,6 +9155,7 @@ default:
           switch_overview: Обзор
           switch_subclusters: Подкластеры
           switch_users: Пользователи
+          title_migration-alert-action: Мигрировать данные
           users:
             action_add-user: Создать пользователя
             button_action-password: Изменить пароль

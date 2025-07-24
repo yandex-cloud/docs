@@ -8,6 +8,62 @@ To ensure [high availability](../../architecture/fault-tolerance.md#mdb-ha) duri
 
 {% endnote %}
 
+#### Why do I get an error when setting up cascading replication? {#cascade-error}
+
+Error message:
+
+```text
+cluster should have at least 2 HA hosts to use cascade host
+```
+
+The error occurs if you specify a replication source for a single non-cascading replica.
+
+To ensure [high availability](../../architecture/fault-tolerance.md#mdb-ha), your cluster must have at least one replica without a replication source. During maintenance or if the master host fails, this replica will take over as the master.
+
+To learn more about replication, see [this guide](../../managed-postgresql/concepts/replication.md).
+
+#### How do I always connect to the master host? {#connect-to-master-ha}
+
+To connect to the current master host, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns). It has this format: `c-<cluster_ID>.rw.{{ dns-zone }}`. When connected to this FQDN, you can perform read and write operations.
+
+{% cut "Example of command for connection to a master" %}
+
+  ```bash
+  psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
+        port={{ port-mpg }} \
+        sslmode=verify-full \
+        dbname=<DB_name> \
+        user=<user_name>"
+  ```
+
+{% endcut %}
+
+#### How do I always connect to the most recent replica? {#connect-to-replica-ha}
+
+To connect to the most recent replica, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns). It has this format: `c-<cluster_ID>.ro.{{ dns-zone }}`. When connected to this FQDN, you can perform only read operations. 
+
+{% cut "Example of command for connection to a replica" %}
+
+```bash
+psql "host=c-<cluster_ID>.ro.{{ dns-zone }} \
+      port={{ port-mpg }} \
+      sslmode=verify-full \
+      dbname=<DB_name> \
+      user=<user_name>"
+```
+
+{% endcut %}
+
+If there are no active replicas in the cluster, this FQDN will point to the current master host.
+
+#### Why did the master and the replicas switch places? {#failover}
+
+This means the master has [failed over](../../architecture/fault-tolerance.md#mdb-ha) to the replica host. Failover ensures cluster availability during maintenance or if the master fails.
+
+Use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns) to always connect to the current master.
+
+{% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
+
 #### Can I configure multimaster in a cluster or between two clusters? {#setting-multimaster}
 
 No, {{ mpg-name }} does not support multimaster configuration.

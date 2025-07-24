@@ -6351,6 +6351,8 @@ default:
           service-accounts: Service accounts
           title: Configuring access bindings
           user-accounts: User accounts
+      cloud-center:
+        action_more: More
       cloud:
         button_delete: Delete
         button_save: Save
@@ -6721,6 +6723,7 @@ default:
             tariff_activating-title: Applying
             tariff_available-title: Available
             tariff_blocked-title: Available via the support service
+          switch_overview: Account
           switch_proposals: Offers
       cloud-components:
         manage-cert-dialog:
@@ -9118,6 +9121,7 @@ default:
             label_service-account: Service account
             label_services: Services
             label_status: Status
+            label_title: Overview
             section_additional: Advanced settings
             section_configuration: Configuration
             section_resource: Resources
@@ -9143,6 +9147,7 @@ default:
           switch_overview: Overview
           switch_subclusters: Subclusters
           switch_users: Users
+          title_migration-alert-action: Migrate data
           users:
             action_add-user: Create user
             button_action-password: Change password

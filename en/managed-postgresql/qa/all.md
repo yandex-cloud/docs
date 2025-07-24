@@ -26,9 +26,13 @@ description: This page covers FAQ about {{ mpg-short-name }}.
 
 {% include [cluster-backups-minitoc](../../_qa/managed-postgresql/minitoc/backup.md) %}
 
+### Users and roles {#toc-users}
+
+{% include [users-minitoc](../../_qa/managed-postgresql/minitoc/users.md) %}
+
 ### High availability and load balancing {#toc-ha}
 
-{% include [cluster-backups-minitoc](../../_qa/managed-postgresql/minitoc/ha.md) %}
+{% include [ha-minitoc](../../_qa/managed-postgresql/minitoc/ha.md) %}
 
 ### Monitoring and logs {#toc-monitoring}
 
@@ -58,9 +62,13 @@ description: This page covers FAQ about {{ mpg-short-name }}.
 
 {% include [backup](../../_qa/managed-postgresql/backup.md) %}
 
+## Users and roles {#users}
+
+{% include [users](../../_qa/managed-postgresql/users.md) %}
+
 ## High availability and load balancing {#ha}
 
-{% include [backup](../../_qa/managed-postgresql/ha.md) %}
+{% include [ha](../../_qa/managed-postgresql/ha.md) %}
 
 ## Monitoring and logs {#monitoring}
 

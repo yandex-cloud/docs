@@ -1,9 +1,9 @@
 ---
-title: How to search in {{ search-api-full-name }} in deferred mode using API v2
-description: Follow this guide to learn how to use the API v2 interface in {{ search-api-name }} to send search queries and get search results in XML or HTML format in deferred (asynchronous) mode.
+title: How to perform text search in {{ search-api-full-name }} via API v2 in deferred mode
+description: Follow this guide to learn how to use {{ search-api-name }}'s API v2 interface to send search queries and get search results in XML or HTML format in deferred (asynchronous) mode.
 ---
 
-# Performing search queries in deferred mode using API v2
+# Performing text search queries in deferred mode via API v2
 
 With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can perform text search through the Yandex search database and get search results in [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) format in deferred (asynchronous) mode. You can run queries using [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
 
@@ -99,9 +99,9 @@ Save the obtained [Operation object](../../api-design-guide/concepts/operation.m
 
 ## Make sure the request was executed successfully {#verify-operation}
 
-Wait until {{ search-api-name }} executes the query and generates a response. This may take from five minutes to a few hours.
+Wait until {{ search-api-name }} executes the request and generates a response. This may take from five minutes to a few hours.
 
-Make sure the query was executed successfully:
+Make sure the request was executed successfully:
 
 {% list tabs group=instructions %}
 
@@ -119,7 +119,7 @@ Make sure the query was executed successfully:
   Where:
 
   * `<IAM_token>`: Previously obtained IAM token.
-  * `<query_ID>`: The Operation object ID you saved at the previous step.
+  * `<request_ID>`: The Operation object ID you saved at the previous step.
 
   Result:
 
@@ -177,7 +177,7 @@ If the `done` field is set to `true` and the `response` object is present in the
 
 ## Get a response {#get-response}
 
-After {{ search-api-name }} has successfully processed the query:
+After {{ search-api-name }} has successfully processed the request:
 
 1. Get the result:
 

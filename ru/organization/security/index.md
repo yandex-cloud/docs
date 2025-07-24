@@ -92,9 +92,9 @@
 
 {% include [organizationmanager-oauthApplications-editor](../../_roles/organization-manager/oauthApplications/editor.md) %}
 
-#### organization-manager.oauthApplications.usersAdmin {#organization-manager-oauthApplications-usersAdmin}
+#### organization-manager.oauthApplications.userAdmin {#organization-manager-oauthApplications-userAdmin}
 
-{% include [organizationmanager-oauthApplications-usersAdmin](../../_roles/organization-manager/oauthApplications/usersAdmin.md) %}
+{% include [organizationmanager-oauthApplications-userAdmin](../../_roles/organization-manager/oauthApplications/userAdmin.md) %}
 
 #### organization-manager.oauthApplications.admin {#organization-manager-oauthApplications-admin}
 
@@ -112,9 +112,9 @@
 
 {% include [organizationmanager-samlApplications-editor](../../_roles/organization-manager/samlApplications/editor.md) %}
 
-#### organization-manager.samlApplications.usersAdmin {#organization-manager-samlApplications-usersAdmin}
+#### organization-manager.samlApplications.userAdmin {#organization-manager-samlApplications-userAdmin}
 
-{% include [organizationmanager-samlApplications-usersAdmin](../../_roles/organization-manager/samlApplications/usersAdmin.md) %}
+{% include [organizationmanager-samlApplications-userAdmin](../../_roles/organization-manager/samlApplications/userAdmin.md) %}
 
 #### organization-manager.samlApplications.admin {#organization-manager-samlApplications-admin}
 
@@ -132,9 +132,9 @@
 
 {% include [organizationmanager-userpools-editor](../../_roles/organization-manager/userpools/editor.md) %}
 
-#### organization-manager.userpools.usersAdmin {#organization-manager-userpools-usersAdmin}
+#### organization-manager.userpools.userAdmin {#organization-manager-userpools-userAdmin}
 
-{% include [organizationmanager-userpools-usersAdmin](../../_roles/organization-manager/userpools/userAdmin.md) %}
+{% include [organizationmanager-userpools-userAdmin](../../_roles/organization-manager/userpools/userAdmin.md) %}
 
 #### organization-manager.userpools.admin {#organization-manager-userpools-admin}
 

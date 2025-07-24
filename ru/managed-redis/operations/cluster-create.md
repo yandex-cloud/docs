@@ -179,6 +179,7 @@ description: Следуя данной инструкции, вы сможете
       {{ yc-mdb-rd }} cluster create \
         --name <имя_кластера> \
         --environment <окружение> \
+        --redis-version <версия_{{ VLK }}> \
         --network-name <имя_сети> \
         --host zone-id=<зона_доступности>,`
               `subnet-id=<идентификатор_подсети>,`
@@ -198,6 +199,7 @@ description: Следуя данной инструкции, вы сможете
 
       Где:
       * `--environment` — окружение: `prestable` или `production`.
+      * `--redis-version` — версия {{ VLK }}: {{ versions.cli.str }}.
 
       
       * `--host` — параметры хоста:
@@ -392,7 +394,7 @@ description: Следуя данной инструкции, вы сможете
         * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
         * `configSpec` — настройки кластера:
 
-            * `version` — версия {{ VLK }}.
+            * `version` — версия {{ VLK }}: {{ versions.cli.str }}.
             * `resources` — ресурсы кластера:
 
                 * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
@@ -524,7 +526,7 @@ description: Следуя данной инструкции, вы сможете
         * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
         * `config_spec` — настройки кластера:
 
-            * `version` — версия {{ VLK }}.
+            * `version` — версия {{ VLK }}: {{ versions.cli.str }}.
             * `resources` — ресурсы кластера:
 
                 * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);

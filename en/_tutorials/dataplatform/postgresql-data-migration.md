@@ -26,6 +26,12 @@ There are three ways to migrate data from a third-party _source cluster_ to a {{
 
     Use this method only if, for some reason, it is not possible to transfer data using any of the above methods.
 
+{% note warning %}
+
+Users are not transferred automatically to a {{ mpg-name }} cluster. You need to [create](../../managed-postgresql/operations/cluster-users.md#adduser) them again in the new cluster.
+
+{% endnote %}
+
 ## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
 
 {% include notitle [PostgreSQL migration with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-postgresql.md) %}
@@ -101,7 +107,7 @@ Create the required resources:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -191,7 +197,7 @@ Use the `pg_dump` utility to create a file with the database schema to apply in 
 
 ```bash
 pg_dump -h <IP_address_or_FQDN_for_master_host_of_source_cluster> \
-        -U <username> \
+        -U <user_name> \
         -p <port> \
         --schema-only \
         --no-privileges \
@@ -208,7 +214,7 @@ Use the `pg_restore` utility to restore the database schema in the target cluste
 
 ```bash
 pg_restore -h <IP_address_or_FQDN_for_master_host_of_target_cluster> \
-           -U <username> \
+           -U <user_name> \
            -p {{ port-mpg }} \
            -Fd -v \
            --single-transaction \
@@ -270,7 +276,7 @@ To complete synchronization of the source cluster and the target cluster:
 
    ```bash
    pg_dump -h <IP_address_or_FQDN_for_master_host_of_source_cluster> \
-           -U <username> \
+           -U <user_name> \
            -p <port> \
            -d <DB_name> \
            --data-only -t '*.*_seq' > /tmp/seq-data.sql
@@ -284,7 +290,7 @@ To complete synchronization of the source cluster and the target cluster:
 
    ```bash
    psql -h <IP_address_or_FQDN_for_master_host_of_target_cluster> \
-        -U <username> \
+        -U <user_name> \
         -p {{ port-mpg }} \
         -d <DB_name> \
         < /tmp/seq-data.sql
@@ -417,7 +423,7 @@ Create the required resources:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -435,7 +441,7 @@ Create the required resources:
     ```bash
     pg_dump --host=<IP_address_or_FQDN_for_master_host_of_source_cluster> \
             --port=<port> \
-            --username=<username> \
+            --username=<user_name> \
             --jobs=<number_of_CPU_cores> \
             --format=d \
             --dbname=<DB_name> \
@@ -497,7 +503,7 @@ That is, to restore a dump of {{ PG }} 10, {{ PG }} 11, {{ PG }} 12, {{ PG }} 13
 
 ```bash
 pg_restore --host=<IP_address_or_FQDN_for_master_host_of_target_cluster> \
-           --username=<username> \
+           --username=<user_name> \
            --dbname=<DB_name> \
            --port={{ port-mpg }} \
            --format=d \
