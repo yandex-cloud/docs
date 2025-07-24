@@ -22,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
 
 В приведенных примерах используется аутентификация с помощью [API-ключа](../../iam/concepts/authorization/api-key.md). Чтобы использовать для аутентификации [IAM-токен](../../iam/concepts/authorization/iam-token.md), измените в примерах запросов заголовок `Authorization`. Подробнее см. в разделе [{#T}](../../search-api/api-ref/authentication.md).
 
-В приведенных примерах запросы к {{ search-api-name }} выполняются с помощью [REST API](../api-ref/). Примеры выполнения запросов с помощью [gPRC API](../api-ref/grpc/) см. в разделе [{#T}](../operations/web-search.md).
+В приведенных примерах запросы к {{ search-api-name }} выполняются с помощью [REST API](../api-ref/). Примеры выполнения запросов с помощью [gRPC API](../api-ref/grpc/) см. в разделе [{#T}](../operations/web-search.md).
 
 ## Сформируйте поисковый запрос {#form-request}
 
