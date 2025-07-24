@@ -1,9 +1,9 @@
 ---
-title: How to search in synchronous mode in {{ search-api-full-name }} using API v2
-description: Follow this guide to learn how to use the API v2 interface in {{ search-api-name }} to send search queries and get search results in XML or HTML format in synchronous mode.
+title: How to perform text search in {{ search-api-full-name }} via API v2 in synchronous mode
+description: Follow this guide to learn how to use {{ search-api-name }} API v2 interface to send search queries and get search results in XML or HTML format in synchronous mode.
 ---
 
-# Performing search queries using API v2 in synchronous mode
+# Performing text search queries via API v2 in synchronous mode
 
 With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can perform text search through the Yandex search database and get search results in [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) format in synchronous mode. You can run queries using [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
 
@@ -40,14 +40,14 @@ To use the examples, install the [cURL](https://curl.haxx.se) and [jq](https://s
 
       1. Run an http query by specifying the IAM token you got earlier:
 
-      ```bash
-      curl \
-        --request POST \
-        --header "Authorization: Bearer <IAM_token>" \
-        --data "@body.json" \
-        "https://searchapi.{{ api-host }}/v2/web/search" \
-        > result.json
-      ```
+          ```bash
+          curl \
+            --request POST \
+            --header "Authorization: Bearer <IAM_token>" \
+            --data "@body.json" \
+            "https://searchapi.{{ api-host }}/v2/web/search" \
+            > result.json
+          ```
 
     - gRPC API {#grpc-api}
 
@@ -83,23 +83,23 @@ To use the examples, install the [cURL](https://curl.haxx.se) and [jq](https://s
 
     - XML {#xml}
 
-      ```bash
-      echo "$(< result.json)" | \
-        jq -r .rawData | \
-        base64 --decode > result.xml
-      ```
+        ```bash
+        echo "$(< result.json)" | \
+          jq -r .rawData | \
+          base64 --decode > result.xml
+        ```
 
-      The XML response to the query will be saved to a file named `result.xml`.
+        The XML response to the query will be saved to a file named `result.xml`.
 
     - HTML {#html}
 
-      ```bash
-      echo "$(< result.json)" | \
-        jq -r .rawData | \
-        base64 --decode > result.html
-      ```
+        ```bash
+        echo "$(< result.json)" | \
+          jq -r .rawData | \
+          base64 --decode > result.html
+        ```
 
-      The HTML response to the query will be saved to a file named `result.html`.
+        The HTML response to the query will be saved to a file named `result.html`.
 
     {% endlist %}
 

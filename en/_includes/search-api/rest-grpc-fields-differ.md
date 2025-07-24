@@ -1,0 +1,1 @@
+The names of the request body fields are different in [REST API](../../search-api/api-ref/) and [gPRC API](../../search-api/api-ref/grpc/): the former uses [CamelCase](https://en.wikipedia.org/wiki/Camel_case), while the latter uses [snake_case](https://en.wikipedia.org/wiki/Snake_case).

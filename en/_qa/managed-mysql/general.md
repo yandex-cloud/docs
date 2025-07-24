@@ -54,6 +54,7 @@ For more information, see [Getting started](../../managed-mysql/quickstart.md).
 
 #### How many database hosts can there be in one cluster? {#how-many-hosts}
 
+
 The minimum number of hosts depends on the selected type of [storage](../../managed-mysql/concepts/storage.md):
 
 * A minimum of three hosts for these disks:
@@ -66,6 +67,7 @@ The minimum number of hosts depends on the selected type of [storage](../../mana
    * Network HDDs (`network-hdd`)
    * Network SSDs (`network-ssd`)
    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
+
 
 The maximum number of hosts per cluster is subject to the limits in place.
 

@@ -68,3 +68,45 @@ To learn how to update {{ PG }} settings at the user level, see [this tutorial](
 #### Why do I get an error when trying to connect to a database from {{ google-looker }}? {#google-looker}
 
 To connect from {{ google-looker }}, be sure to generate a client certificate file and a private key and specify them in the connection settings. For more information about how to do this, see [Connecting from {{ google-looker }}](../../managed-postgresql/operations/connect.md#connection-google-looker).
+
+#### How do I always connect to the master host? {#connect-to-master}
+
+To connect to the current master host, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns). It has this format: `c-<cluster_ID>.rw.{{ dns-zone }}`. When connected to this FQDN, you can perform read and write operations.
+
+{% cut "Example of command for connection to a master" %}
+
+  ```bash
+  psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
+        port={{ port-mpg }} \
+        sslmode=verify-full \
+        dbname=<DB_name> \
+        user=<user_name>"
+  ```
+
+{% endcut %}
+
+#### How do I always connect to the most recent replica? {#connect-to-replica}
+
+To connect to the most recent replica, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns). It has this format: `c-<cluster_ID>.ro.{{ dns-zone }}`. When connected to this FQDN, you can perform only read operations. 
+
+{% cut "Example of command for connection to a replica" %}
+
+```bash
+psql "host=c-<cluster_ID>.ro.{{ dns-zone }} \
+      port={{ port-mpg }} \
+      sslmode=verify-full \
+      dbname=<DB_name> \
+      user=<user_name>"
+```
+
+{% endcut %}
+
+If there are no active replicas in the cluster, this FQDN will point to the current master host.
+
+#### How do I connect to the `postgres` database? {#postgres-db}
+
+`postgres` is a housekeeping database. For security reasons, you cannot connect to housekeeping databases.
+
+#### How do I get the `postgres` user's password? {#postgres-user}
+
+For security reasons, you cannot get the `postgres` user's password nor connect to the database as that user.

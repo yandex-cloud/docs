@@ -7,10 +7,14 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Synchronous search
+      - name: Text search in synchronous mode
         href: operations/web-search-sync.md
-      - name: Deferred search
+      - name: Text search in deferred mode
         href: operations/web-search.md
+      - name: Searching by text description
+        href: operations/search-images.md
+      - name: Searching by image
+        href: operations/search-images-by-pic.md
       - name: Mobile search results
         href: operations/v2-mobile.md
       - name: API v1
@@ -18,21 +22,27 @@ items:
           - name: General connection procedure
             href: operations/workaround.md
             hidden: true
+            stage: preview
           - name: Query testing
             href: operations/test-request.md
             hidden: true
+            stage: preview
           - name: API authentication
             href: operations/auth.md
             hidden: true
+            stage: preview
           - name: Requesting limits
             href: operations/request-limits.md
             hidden: true
+            stage: preview
           - name: Performing search queries
             href: operations/searching.md
             hidden: true
+            stage: preview
           - name: Mobile search results
             href: operations/mobile.md
             hidden: true
+            stage: preview
   - name: Concepts
     items:
       - name: Overview
@@ -45,6 +55,8 @@ items:
         href: concepts/html-response.md
       - name: Generative response
         href: concepts/generative-response.md
+      - name: Image search
+        href: concepts/image-search.md
       - name: API v1
         items:
           - name: Text search
@@ -52,17 +64,21 @@ items:
               - name: GET requests
                 href: concepts/get-request.md
                 hidden: true
+                stage: preview
               - name: POST requests
                 href: concepts/post-request.md
                 hidden: true
+                stage: preview
           - name: Searching by images
             items:
               - name: GET requests
                 href: concepts/pic-search.md
                 hidden: true
+                stage: preview
               - name: Response format
                 href: concepts/pic-response.md
                 hidden: true
+                stage: preview
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

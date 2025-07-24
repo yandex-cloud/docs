@@ -25,6 +25,7 @@ Syntax:
 |`--network-name`|<b>`string`</b><br/>Network name.|
 |`--datatransfer-access`|Allow access for DataTransfer|
 |`--rest-api-enabled`|Enables REST API on kafka cluster|
+|`--kafka-ui-enabled`|Enables Kafka UI on kafka cluster|
 |`--version`|<b>`string`</b><br/>Version of the Kafka server software.|
 |`--zone-ids`|<b>`value[,value]`</b><br/>List of availability zones.|
 |`--brokers-count`|<b>`int`</b><br/>Count of brokers in each availability zone.|

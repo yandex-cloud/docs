@@ -7,4 +7,4 @@
 * просматривать и изменять список [пользователей](../../../overview/roles-and-resources.md#users), добавленных в SAML-приложения;
 * просматривать список пользователей, добавленных в OIDC-приложения.
 
-Включает разрешения, предоставляемые ролями `organization-manager.samlApplications.editor` и `organization-manager.samlApplications.usersAdmin`.
+Включает разрешения, предоставляемые ролями `organization-manager.samlApplications.editor` и `organization-manager.samlApplications.userAdmin`.

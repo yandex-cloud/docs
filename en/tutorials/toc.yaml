@@ -1532,3 +1532,5 @@ items:
               Implementing an AI assistant with search capabilities for PDF
               files with complex formatting
             href: ml-ai/pdf-searchindex-ai-assistant.md
+          - name: Integrating Qwen3 into Visual Studio Code as a coding assistant
+            href: ml-ai/qwen-vsc-integration.md

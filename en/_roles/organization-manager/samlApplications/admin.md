@@ -7,4 +7,4 @@ Users with this role can:
 * View and edit the list of the [users](../../../overview/roles-and-resources.md#users) added to SAML applications.
 * View the list of the users added to OIDC applications.
 
-This role includes the `organization-manager.samlApplications.editor` and `organization-manager.samlApplications.usersAdmin` permissions.
+This role includes the `organization-manager.samlApplications.editor` and `organization-manager.samlApplications.userAdmin` permissions.

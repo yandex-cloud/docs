@@ -8,6 +8,12 @@ editable: false
 
 
 
+{% note warning %}
+
+Цены провайдера {{ cdn-full-name }} начнут действовать с 1 августа 2025 года.
+
+{% endnote %}
+
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}

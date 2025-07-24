@@ -28,6 +28,7 @@ Syntax:
 |`--datalens-access`|Allow access for DataLens|
 |`--websql-access`|Allow access for Web SQL|
 |`--datatransfer-access`|Allow access for DataTransfer|
+|`--yandexquery-access`|Allow access for YandexQuery|
 |`--mysql-version`|<b>`string`</b><br/>Version of MYSQL used in the cluster. Values: 8.0, 5.7|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|
 |`--disk-size`|<b>`byteSize`</b><br/>Volume of the storage available to a host in GB.|
@@ -38,6 +39,7 @@ Syntax:
 |`--security-group-ids`|<b>`value[,value]`</b><br/>A list of security groups for the MySQL cluster.|
 |`--deletion-protection`|Deletion Protection inhibits deletion of the cluster.|
 |`--host-group-ids`|<b>`value[,value]`</b><br/>A list of host groups to place VMs of cluster on.|
+|`--disk-encryption-key-id`|<b>`string`</b><br/>ID of the KMS key for cluster disk encryption.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

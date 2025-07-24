@@ -13,3 +13,11 @@
 * [What is the allowed number of connections per user?](#user-conn)
 
 * [Why does an error occur when trying to connect to a database from {{ google-looker }}?](#google-looker)
+
+* [How do I always connect to the master host?](#connect-to-master)
+
+* [How do I always connect to the most recent replica?](#connect-to-replica)
+
+* [How do I connect to the `postgres` database?](#postgres-db)
+
+* [How do I get the `postgres` user password?](#postgres-user)

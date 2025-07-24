@@ -13,7 +13,7 @@ Depending on the specified query parameters, you will get the result in [XML](./
 
 ## Request body format {#parameters}
 
-The names of the request body fields are different in [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/): the former uses [CamelCase](https://en.wikipedia.org/wiki/Camel_case), while the latter uses [snake_case](https://en.wikipedia.org/wiki/Snake_case).
+{% include [rest-grpc-fields-differ](../../_includes/search-api/rest-grpc-fields-differ.md) %}
 
 {% list tabs group=instructions %}
 
@@ -37,7 +37,7 @@ The names of the request body fields are different in [REST API](../api-ref/) an
 
 ## Synchronous search mode {#sync-mode}
 
-You can [run](../operations/web-search-sync.md) queries in synchronous mode only using the [gRPC API](../api-ref/grpc/).
+You can [run](../operations/web-search-sync.md) queries in synchronous mode using the [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/).
 
 In response to a synchronous mode query, depending on the query [parameters](#parameters) you provide, {{ search-api-name }} will return the result in [XML](./response.md) or [HTML](./html-response.md) format. The result is returned in the `rawData` response field as a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) string.
 

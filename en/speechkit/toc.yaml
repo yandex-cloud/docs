@@ -265,7 +265,7 @@ items:
     items:
       - name: Error codes
         href: concepts/response.md
-      - name: Request headers
+      - name: Request headers for troubleshooting
         href: concepts/support-headers.md
       - name: General questions
         href: qa/general.md

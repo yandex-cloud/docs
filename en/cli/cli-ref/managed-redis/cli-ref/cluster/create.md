@@ -32,6 +32,7 @@ Syntax:
 |`--persistence-mode`|<b>`string`</b><br/>Persistence mode for Redis cluster (ON, OFF or ON_REPLICAS).|
 |`--announce-hostnames`|Enable announce hostnames for Redis cluster.|
 |`--auth-sentinel`|Allows to use ACL users to auth in sentinel|
+|`--disk-encryption-key-id`|<b>`string`</b><br/>ID of the KMS key for cluster disk encryption.|
 |`--disk-size-autoscaling`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Disk size autoscaling settings<br/><br/>Possible property names:<br/><ul> <li><code>disk-size-limit</code>:     Set disk size limit in GB</li> <li><code>planned-usage-threshold</code>:     Planned usage threshold</li> <li><code>emergency-usage-threshold</code>:     Emergency usage threshold</li> </ul>|
 |`--redis-version`|<b>`string`</b><br/>Version of Redis used in the cluster. Values: 7.2|
 |`--resource-preset`|<b>`string`</b><br/>ID of the preset for computational resources available to a host (CPU, memory etc.).|

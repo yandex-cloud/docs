@@ -10,6 +10,8 @@ description: '{{ mpg-short-name }} has some limitations on DB owner actions when
 * You cannot change the {{ PG }} settings.
 * You cannot manage users or create and assign roles to them. However, you can [grant user privileges](../operations/grant.md) at the level of individual DB objects.
 * You cannot create databases; however, DB owners and users with the `mdb_admin` or `mdb_superuser` [role](roles.md) can run the `ALTER DATABASE` command for a previously created DB.
+* You cannot connect to the `postgres` system database.
+* You cannot request the `postgres` user password and connect to the database on their behalf.
 * You cannot manage {{ PG }} extensions.
 * No actions that require superuser privileges are allowed.
 

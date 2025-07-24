@@ -1,7 +1,6 @@
 ---
 title: GET requests via {{ search-api-full-name }}'s API v1
 description: This article describes the specificities and format of GET requests when accessing {{ search-api-name }} via API v1.
-noIndex: true
 ---
 
 # GET requests

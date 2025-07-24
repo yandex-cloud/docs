@@ -11,8 +11,6 @@ When creating a cluster, you can select the following disk types for data storag
 
   Such disks can be increased in size only in 93 GB increments.
 
-  Access to high-performance SSDs is available on request. Contact [support]({{ link-console-support }}) or your account manager.
-
 
 * **Local SSDs** (`local-ssd`): Disks with the best performance.
 

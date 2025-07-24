@@ -1,22 +1,5 @@
-* `search_type`: Search type. The possible values are:
+{% include [grpc-common-body-params](./grpc-common-body-params.md) %}
 
-    * `SEARCH_TYPE_RU`: For the `Russian` search type.
-    * `SEARCH_TYPE_TR`: For the `Turkish` search type.
-    * `SEARCH_TYPE_COM`: For the `International` search type.
-    * `SEARCH_TYPE_KK`: For the `Kazakh` search type.
-    * `SEARCH_TYPE_BE`: For the `Belarusian` search type.
-    * `SEARCH_TYPE_UZ`: For the `Uzbek` search type.
-* `query_text`: Search query text. The maximum length is 400 characters.
-* `family_mode`: Results filtering. This is an optional parameter. The possible values are:
-
-    * `FAMILY_MODE_MODERATE`: Moderate filter (default). Documents of the Adult category are excluded from search results unless a query is explicitly made for searching resources of this category.
-    * `FAMILY_MODE_NONE`: Filtering is disabled. Search results include any documents regardless of their contents.
-    * `FAMILY_MODE_STRICT`: Family filter. Regardless of a search query, documents of the Adult category and those with profanity are excluded from search results.
-* `page`: Requested page number. This is an optional parameter. By default, the first page with search results is returned. Page numbering starts from zero (`0` stands for page 1).
-* `fix_typo_mode`: Search query typo correction setting. This is an optional parameter. The possible values are:
-
-    * `FIX_TYPO_MODE_ON`: Typo correction enabled (default). Search query typos are corrected automatically.
-    * `FIX_TYPO_MODE_OFF`: Typo correction disabled. Search query typos are not corrected. The search is performed strictly as per the query.
 * `sort_mode`: Search results sorting mode rule. This is an optional parameter. The possible values are:
 
     * `SORT_MODE_BY_RELEVANCE`: Sorting by relevance (default).

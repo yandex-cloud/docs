@@ -73,7 +73,7 @@ items:
             href: operations/cluster-logs.md
           - name: Performance diagnostics
             href: operations/performance-diagnostics.md
-          - name: Monitoring the state of clusters and hosts
+          - name: Cluster and host status monitoring
             href: operations/monitoring.md
           - name: Connecting to DataLens
             href: operations/datalens-connect.md
@@ -179,7 +179,7 @@ items:
             href: tutorials/rdbms-to-clickhouse.md
   - name: Concepts
     items:
-      - name: Resource relationships
+      - name: Service resource interdependencies
         href: concepts/index.md
       - name: Host classes
         items:
@@ -197,11 +197,11 @@ items:
         href: concepts/planning-cluster-topology.md
       - name: Cluster high availability
         href: concepts/high-availability.md
-      - name: Networking in {{ mpg-name }}
+      - name: '{{ mpg-name }} network'
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Storage in {{ mpg-name }}
+      - name: '{{ mpg-name }} storage'
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md
@@ -609,6 +609,8 @@ items:
         href: qa/configuration.md
       - name: Moving and restoring a cluster
         href: qa/backup.md
+      - name: Users and roles
+        href: qa/users.md
       - name: High availability and load balancing
         href: qa/ha.md
       - name: Monitoring and logs

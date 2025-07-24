@@ -1,7 +1,6 @@
 ---
 title: How to authenticate with {{ search-api-full-name }}'s API v1
 description: This section describes the methods of authentication with the {{ search-api-name }}'s API v1.
-noIndex: true
 ---
 
 # Authentication in API v1

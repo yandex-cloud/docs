@@ -1,12 +1,13 @@
 default:
   versions:
     tf:
-      latest: '8.1'
-      str: 7.2, 8.0 или 8.1
+      latest: 8.1-valkey
+      str: '`7.2-valkey`, `8.0-valkey` или `8.1-valkey`'
     cli:
-      latest: '8.1'
-      previous: '8.0'
-      str: 7.2, 8.0 или 8.1
+      latest: 8.1-valkey
+      previous: 8.0-valkey
+      str: '`7.2-valkey`, `8.0-valkey` или `8.1-valkey`'
     console:
       latest: '8.1'
+      previous: '8.0'
       str: 7.2, 8.0 или 8.1

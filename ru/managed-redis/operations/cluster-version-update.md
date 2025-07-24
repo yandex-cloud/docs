@@ -18,6 +18,12 @@
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Откройте список в поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}**.
 
+    {% note info %}
+
+    Чтобы указать номер версии в CLI, {{ TF }} и API, добавьте к нему постфикс `-valkey` (например, `{{ versions.cli.previous }}`).
+
+    {% endnote %}
+
 {% endlist %}
 
 ## Перед обновлением версии {#before-update}
@@ -190,7 +196,7 @@
 
 ## Примеры {#examples}
 
-Допустим, нужно обновить кластер с версии {{ versions.cli.previous }} до версии {{ versions.cli.latest }}.
+Допустим, нужно обновить кластер с версии {{ versions.console.previous }} до версии {{ versions.console.latest }}.
 
 {% list tabs group=instructions %}
 
@@ -224,11 +230,11 @@
       id: c9q8p8j2gaih********
       ...
       config:
-        version: "{{ versions.cli.previous }}"
+        version: {{ versions.cli.previous }}
         ...
       ```
 
-   1. Для обновления кластера с именем `redis406` до версии {{ versions.cli.latest }}, выполните команду:
+   1. Для обновления кластера с именем `redis406` до версии `{{ versions.console.latest }}`, выполните команду:
 
       ```bash
       {{ yc-mdb-rd }} cluster update redis406 --redis-version {{ versions.cli.latest }}
