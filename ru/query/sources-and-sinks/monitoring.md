@@ -1,103 +1,102 @@
-# Запись метрик в {{ monitoring-name }}
+# Чтение данных из {{ monitoring-name }} с помощью соединений в {{ yq-name }}
 
-[{{ monitoring-name }}](../../monitoring/concepts/index.md) - это сервис, позволяющий собирать и хранить метрики, а также отображать их в виде графиков на дашбордах. Отправляемые в {{ monitoring-name }} данные представляют из себя значения измеряемых величин (`метрики`) и метки (`labels`), их описывающие. 
+[{{ monitoring-name }}](../../monitoring/concepts/index.md) — это сервис, позволяющий собирать и хранить метрики, а также отображать их в виде графиков на дашбордах. Отправляемые в {{ monitoring-name }} данные представляют из себя значения измеряемых величин (`метрики`) и метки (`labels`), их описывающие. 
 
-Например, чтобы следить за количеством сбоев приложения, в качестве метрики можно использовать число сбоев за интервал времени. Данные, описывающие это падение: название хоста, версия приложения - являются метками. В интерфейсе {{ monitoring-name }} можно проводить различные агрегации метрик по меткам.
+Например, чтобы следить за количеством сбоев приложения, в качестве метрики можно использовать число сбоев за интервал времени. Данные, описывающие это падение: название хоста, версия приложения — являются метками. В интерфейсе {{ monitoring-name }} можно проводить различные агрегации метрик по меткам.
 
-Пример записи метрик из {{ yq-full-name }} в {{ monitoring-name }}.
+Пример чтения метрик из {{ monitoring-name }}.
 
 ```sql
-INSERT INTO `monitoring`.custom
 SELECT
-        `my_timestamp`,
-        host_name,
-        app_version,
-        exception_count,
-        "exception_monitor" as service_type
-FROM $query;
+    *
+FROM
+    `monitoring`.ydb
+WITH (
+    program = @@max{method="DescribeTable"}@@,
+
+    from = "2025-03-12T14:00:00Z",
+    to = "2025-03-12T15:00:00Z",
+);
 ```
 
-При [потоковой обработке данных](../concepts/stream-processing.md) {{ yq-full-name }} может отправлять в {{ monitoring-name }} результаты исполнения запроса в виде метрик и их меток. 
+## Настройка соединения {#setup-connection}
 
-## Настройка соединения
-
-Для отправки метрик в {{ monitoring-name }} необходимо:
+Для чтения метрик из {{ monitoring-name }} необходимо:
 1. Перейти в интерфейс {{ yq-full-name }} в раздел **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** и нажать кнопку **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. В открывшемся окне в поле **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** указать название соединения с {{ monitoring-name }}.
 1. В выпадающем поле **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** выбрать `{{ ui-key.yql.yq-connection.action_monitoring }}`.
-1. В поле **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** выбрать сервисный аккаунт, который будет использоваться для записи метрик, или создать новый, выдав ему права [`monitoring.editor`](../../monitoring/security/index.md).
+1. В поле **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** выбрать сервисный аккаунт, который будет использоваться для чтения метрик, или создать новый, выдав ему права [`monitoring.viewer`](../../monitoring/security/index.md#monitoring-viewer).
 
    {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
 1. Создать соединение, нажав кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
-## Модель данных
+## Модель данных {#data-model}
 
-Запись метрик в {{ monitoring-name }} выполняется с помощью SQL-выражения
+Чтение метрик из {{ monitoring-name }} выполняется с помощью SQL-выражения:
 
 ```sql
-INSERT INTO 
-        <соединение>.custom 
-SELECT 
-        <поля> 
-FROM 
-        <запрос>;
+SELECT
+    <выражение>
+FROM
+    <соединение>.<сервис>
+WITH (
+    (selectors|program) = "<запрос>",
+    labels = "<метки>",
+    from = "<время_от>",
+    to = "<время_до>",
+    <параметры прореживания>
+);
 ```
 
 Где:
 
 - `<соединение>` — название соединения с {{ monitoring-name }}, созданного в предыдущем пункте.
-- `<поля>` — список полей, содержащих временную отметку, метрики и их метки.
-- `<запрос>` — запрос-источник данных {{ yq-full-name }}.
+- `<сервис>` — сервис {{ monitoring-name }}.
+- `<запрос>` — запрос на [языке запросов](../../monitoring/concepts/querying.md) {{ monitoring-name }}.
+- `<метки>` — список имен меток, которые нужно вернуть в отдельных столбцах. Параметр `labels` можно опустить, тогда все метки будут возвращены в формате `yql dict` в колонке `labels`.
+- `<время_от>` — левая граница искомого временного интервала в формате [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601).
+- `<время_до>` — правая граница искомого временного интервала в формате ISO 8601.
 
 {% note info %}
 
-При записи метрик необходимо использовать конструкцию `INSERT INTO <соединение>.custom`, где [`custom`](../../monitoring/api-ref/MetricsData/write.md#query_params) — зарезервированное имя в {{ monitoring-name }} для записи пользовательских метрик.
+Параметр `selectors` работает без ограничений на количество метрик, но принимает на вход только набор селекторов. Метки `folderId`, `cloudId` и `service` в наборе селекторов указывать не нужно. Если вам нужно использовать [функции](../../monitoring/concepts/querying.md#functions) языка запросов — используйте параметр `program`.
 
 {% endnote %}
 
-Для записи метрик используется метод [write](../../monitoring/api-ref/MetricsData/write.md) {{ monitoring-name }} API. При записи метрик необходимо передать:
-- временную метку;
-- список метрик с указанием их типа. {{ yq-full-name }} поддерживает типы метрик `DGAUGE`, `IGAUGE`;
-- список меток.
+В {{ yq-full-name }} поддерживаются следующие [параметры прореживания](../../monitoring/concepts/decimation.md#decimation-methods):
 
-{{ yq-full-name }} автоматически выводит семантику параметров из SQL-запроса.
+| Имя параметра | Описание | Принимаемые значения | Значение по умолчанию |
+| --- | --- | --- | --- |
+| `downsampling.disabled` | В случае значения `true` указывает, что данные в ответе на запрос будут получены без прореживания. | `true`, `false` | `false` |
+| `downsampling.aggregation` | Функция агрегации, которая используется для прореживания. | `MAX`, `MIN`, `SUM`, `AVG`, `LAST`, `COUNT` | `AVG` |
+| `downsampling.fill` | Параметры заполнения пропусков в данных. | `NULL`, `NONE`, `PREVIOUS` | `PREVIOUS` |
+| `downsampling.grid_interval` | Ширина временного окна (сетки) в секундах, используемая для прореживания. | Целое число | `15` |
 
-|Тип поля|Описание|Ограничения|
-|---|---|---|
-|Временной: `Date`, `Datetime`, `Timestamp`, `TzDate`,` TzDatetime`, `TzTimestamp`|Временная метка всех метрик|В запросе может быть только одно поле с временной меткой|
-|Целочисленный: `Bool`, `Int8`, `Uint8`, `Int16`, `Uint16`, `Int32`, `Uint32`, `Int64`, `Uint64` |Значения метрик, `IGAUGE`|Название поля из SQL-выражения является именем метрики. В одном запросе может быть неограниченное число метрик|
-|С плавающей точкой: `Float`, `Double`|Значения метрик, `DGAUGE`|Название поля из SQL-выражения является именем метрики. В одном запросе может быть неограниченное число метрик|
-|Текстовый: `String`, `Utf8`|Значения меток|Название поля из SQL-выражения является именем метки, а текстовое значение является значением метки. В одном запросе может быть неограниченное число метрик|
+## Пример записи метрик {#example}
 
-Другие типы данных в полях не допускаются.
-
-## Пример записи метрик
-
-Пример запроса для записи метрик из {{ yq-full-name }} в {{ monitoring-name }}.
+Пример запроса для чтения метрик из {{ monitoring-name }}:
 
 ```sql
-INSERT INTO 
-        `monitoring`.custom
 SELECT
-        `my_timestamp`,
-        host AS host_name,
-        app_version,
-        exception_count,
-        "exception_monitor" as service_type
-FROM $query;
+    *
+FROM
+    `monitoring`.ydb
+WITH (
+    selectors = @@{name = "api.grpc.request.bytes"}@@,
+
+    labels = "database.dedicated, database_path, api_service",
+
+    from = "2025-03-12T14:00:00Z",
+    to = "2025-03-12T15:00:00Z",
+
+    `downsampling.aggregation` = "AVG",
+    `downsampling.fill` = "PREVIOUS",
+    `downsampling.grid_interval` = "15"
+);
 ```
 
 Где:
 
-|Поле|Тип|Описание|
-|--|---|---|
-|`monitoring`| |Название соединения с {{ monitoring-name }}|
-|`$query`| |Источник данных в SQL-запросе, может быть подзапросом языка YQL, в том числе [подключением](../quickstart/streaming-example.md) к источнику данных|
-|`my_timestamp`| Метка времени| Источник данных — столбец `my_timestamp` в потоке-источнике данных `stream`|
-|`exception_count`|Метрика| Источник данных — столбец `exception_count` в потоке-источнике данных `stream`|
-|`host_name`|Метка| Источник данных — столбец `host` в потоке-источнике данных `stream`|
-|`app_version`|Метка| Источник данных — столбец `app_version` в потоке-источнике данных `stream`|
-
-Пример результата работы запроса в {{ monitoring-name }}.
-![](../../_assets/query/monitoring-example.png)
+* `monitoring` — название соединения с {{ monitoring-name }}.
+* `ydb` — искомый сервис {{ monitoring-name }}.

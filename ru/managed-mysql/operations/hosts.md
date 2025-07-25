@@ -106,9 +106,9 @@ description: Из статьи вы узнаете, как управлять х
      
      * Зону доступности.
      * Подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md)).
-
-
      * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+
+
      * Приоритет назначения хоста мастером.
      * Приоритет хоста как {{ MY }}-реплики для создания резервной копии.
 
@@ -331,7 +331,11 @@ description: Из статьи вы узнаете, как управлять х
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
   1. Задайте новые настройки для хоста:
      1. Выберите источник репликации для хоста, чтобы вручную управлять потоками репликации.
+
+     
      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+
+
      1. Задайте значение поля **{{ ui-key.yacloud.mysql.field_priority }}**.
      1. Задайте значение поля **{{ ui-key.yacloud.mysql.field_backup_priority }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.postgresql.hosts.dialog.button_choose }}**.

@@ -112,7 +112,11 @@
   1. Укажите параметры хоста:
      * [Зону доступности](../../overview/concepts/geo-scope.md).
      * [Подсеть](../../vpc/concepts/network.md#subnet) (если нужной подсети в списке нет, создайте ее).
+
+     
      * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+
+
      * Тип хоста и название шарда, если в кластере {{ mmg-name }} включено шардирование.
   1. Нажмите **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 

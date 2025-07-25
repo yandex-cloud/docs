@@ -5,7 +5,7 @@
 || Максимальное количество [каналов](../video/concepts/index.md#channels) в одной [организации](../organization/quickstart.md)
 `video.channels.count` | 25 ||
 || Общее количество [видео](../video/concepts/videos.md) во всех каналах
-`video.videos.count` | 5000 ||
+`video.videos.count` | 5 000 ||
 || Количество [плейлистов](../video/concepts/playlists.md) во всех каналах
 `video.playlists.count` | 500 ||
 || Количество одновременных процессов по транскодированию видео с нейросетевыми функциями: [суммаризация](../video/concepts/videos.md#summarization), [нейроперевод](../video/concepts/videos.md#stranslation) и [генерация субтитров](../video/concepts/videos.md#subtitles)
@@ -18,6 +18,8 @@
 `video.parallelStreams.count` | 1 ||
 || Количество [эпизодов](../video/concepts/streams.md#episodes) во всех трансляциях
 `video.episodes.count` | 500 ||
+|| Общее количество [обложек](../video/operations/video/add-thumbnail.md) к видео во всех каналах
+`video.thumbnails.count` | 20 000 ||
 |#
 
 #### Лимиты {#limits}

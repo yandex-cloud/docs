@@ -101,12 +101,6 @@ keywords:
           {% endnote %}
 
 
-      {% note warning %}
-
-      Изменить конфигурацию хостов после создания кластера можно только с помощью [API](../../glossary/rest-api.md), однако при необходимости вы сможете создать новую группу хостов с другой конфигурацией.
-
-      {% endnote %}
-
   1. При необходимости задайте конфигурацию [группы хостов](../concepts/host-roles.md#dashboards) `Dashboards` в блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 2**:
 
       1. Выберите платформу, тип и класс хостов.

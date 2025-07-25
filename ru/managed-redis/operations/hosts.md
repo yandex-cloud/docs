@@ -114,7 +114,11 @@
 
 
      * [Приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
+
+     
      * При необходимости настройте публичный доступ к хосту.
+
+
      * Если вы добавляете хост в шардированный кластер, выберите шард.
 
 - CLI {#cli}
@@ -239,10 +243,13 @@
   1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
+
+  
   1. Задайте новые настройки для хоста:
 
       1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
       1. Укажите [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
+
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 

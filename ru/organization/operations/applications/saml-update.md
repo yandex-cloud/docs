@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
   1. Справа сверху нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
 
       1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-name_d22aF }}** измените имя приложения. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
@@ -40,7 +40,7 @@ description: Следуя данной инструкции, вы сможете
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
   1. {% include [saml-app-update-sp-settings](../../../_includes/organization/saml-app-update-sp-settings.md) %}
 
 {% endlist %}
@@ -56,7 +56,7 @@ description: Следуя данной инструкции, вы сможете
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
   1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.certificate_action_manage_certs }}** и в открывшемся окне:
 
       1. Нажмите кнопку **{{ ui-key.yacloud_org.cloud-components.manage-cert-dialog.action-generate-new-certificate }}**. В результате будет создан новый сертификат, который отобразится в списке.
@@ -87,5 +87,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](./saml-create.md)
 * [{#T}](./saml-deactivate-remove.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md)
+* [{#T}](../../concepts/applications.md#saml)
 * [{#T}](../manage-groups.md)

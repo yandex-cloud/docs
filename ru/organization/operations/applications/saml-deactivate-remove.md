@@ -65,5 +65,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](./saml-create.md)
 * [{#T}](./saml-update.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md)
+* [{#T}](../../concepts/applications.md#saml)
 * [{#T}](../manage-groups.md)

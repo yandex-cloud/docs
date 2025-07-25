@@ -101,7 +101,11 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите на значок ![image](../../_assets/console-icons/pencil.svg) и выберите параметры хостов БД, создаваемых вместе с кластером {{ mmy-name }}:
      * Зону доступности.
      * [Подсеть](../../vpc/concepts/network.md#subnet) хоста — по умолчанию каждый хост создается в отдельной подсети.
+
+     
      * Опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+
+
      * [Приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
      * [Приоритет хоста как {{ MY }}-реплики](../concepts/backup.md#size) для создания резервной копии.
 
