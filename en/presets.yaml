@@ -6699,9 +6699,19 @@ default:
           certificate_action_download_cert: Download certificate
           certificate_action_manage_certs: Certificate management
           certificate_section_title: Application certificate
+          idp_section_closed_text: Additional attributes
           idp_section_download_metadata_action: Download metadata file
           idp_section_title: Identity provider (IdP) configuration
+          oauth_field_auth_endpoint: Authorization endpoint
+          oauth_field_client_id: ClientID
+          oauth_field_open_id: OpenID Configuration
+          oauth_field_redirect_uri: Redirect URI
+          oauth_field_token_endpoint: Token endpoint
+          oauth_field_user_info_endpoint: Userinfo endpoint
+          oauth_service_section_title: Service provider (SP) configuration
           saml_field_metadata: Metadata URL
+          secret_section_add_new_secret_action: Add secret
+          secret_section_title: App secrets
       attributes:
         update_dialog:
           field_attribute_name: Attribute name
@@ -6863,7 +6873,9 @@ default:
           AppCreateForm:
             create-app-submit_myxPn: Create application
             field-description_kzkNB: Description
+            field-folder_rANM4: Folder
             field-name_1VbM1: Name
+            oauth-title_uUs4x: OIDC (OpenID Connect)
             saml-title_kyofk: SAML (Security Assertion Markup Language)
           AppPageLayout:
             action_add_attribute: Add attribute
@@ -6871,6 +6883,17 @@ default:
             assignments_kKzJS: Users and groups
             attributes_to71e: Attributes
             overview_b5LJQ: Overview
+          OauthAppEditForm:
+            field-description_fcXBi: Description
+            field-labels_kc4MN: Labels
+            field-name_kxMrU: Name
+            field-scopes_hEuar: Scopes
+            oauth-scope-email_vYNmM: email address
+            oauth-scope-groups_iZoa5: groups (user's groups in the organization)
+            oauth-scope-openid_o99tx: openid (user ID)
+            oauth-scope-profile_sgdKX: profile (full name, first name, last name, avatar, etc.)
+          OauthAppRedirectUrlsField:
+            add-redirect-url_rS5jw: Add URI
           SamlAppAcsUrlsField:
             add-acs-url_eMunC: Add URL
           SamlAppEditForm:

@@ -50,7 +50,7 @@ description: Следуя данной инструкции, вы сможете
 - Настройка вручную
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
   1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значения параметров, которые необходимо задать на стороне поставщика услуг:
 
       {% include [saml-app-sp-parameter-list](../../../_includes/organization/saml-app-sp-parameter-list.md) %}
@@ -61,7 +61,7 @@ description: Следуя данной инструкции, вы сможете
 - Файл с метаданными
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
   1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.idp_section_download_metadata_action }}**.
 
       Скачанный [XML](https://ru.wikipedia.org/wiki/XML)-файл содержит значения всех необходимых настроек и сертификат, который используется для проверки подписи SAML-ответов. Загрузите скачанный файл на стороне поставщика услуг, если ваш поставщик услуг поддерживает конфигурирование приложения с помощью файла с метаданными. При необходимости обратитесь к документации или в службу поддержки вашего поставщика услуг.
@@ -69,7 +69,7 @@ description: Следуя данной инструкции, вы сможете
 - URL с метаданными
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
   1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значение поля **{{ ui-key.yacloud_org.application.overview.saml_field_metadata }}**.
 
       По ссылке доступны значения всех необходимых настроек и сертификат, который используется для проверки подписи SAML-ответов. Укажите полученную ссылку в настройках на стороне поставщика услуг, если ваш поставщик услуг поддерживает конфигурирование приложения с помощью URL с метаданными. При необходимости обратитесь к документации или в службу поддержки вашего поставщика услуг.
@@ -85,7 +85,7 @@ description: Следуя данной инструкции, вы сможете
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
   1. {% include [saml-app-update-sp-settings](../../../_includes/organization/saml-app-update-sp-settings.md) %}
 
 {% endlist %}
@@ -117,5 +117,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](./saml-update.md)
 * [{#T}](./saml-deactivate-remove.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md)
+* [{#T}](../../concepts/applications.md#saml)
 * [{#T}](../manage-groups.md)

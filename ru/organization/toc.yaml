@@ -112,6 +112,14 @@ items:
                 href: operations/applications/saml-update.md
               - name: Деактивировать и удалить приложение
                 href: operations/applications/saml-deactivate-remove.md
+          - name: OIDC-приложения
+            items:
+              - name: Создать приложение
+                href: operations/applications/oidc-create.md
+              - name: Изменить приложение
+                href: operations/applications/oidc-update.md
+              - name: Деактивировать и удалить приложение
+                href: operations/applications/oidc-deactivate-remove.md
       - name: Аутентификация
         items:
           - name: Добавить SSH-ключ

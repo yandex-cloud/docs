@@ -75,6 +75,12 @@ items:
             href: sources-and-sinks/data-streams-binding.md
           - name: Запись данных
             href: sources-and-sinks/data-streams-write.md
+      - name: Работа с {{ monitoring-full-name }}
+        items:
+          - name: Чтение данных с помощью соединений
+            href: sources-and-sinks/monitoring.md
+          - name: Запись данных
+            href: sources-and-sinks/monitoring-write.md
       - name: Работа с базами данных {{ mch-name }}
         href: sources-and-sinks/clickhouse.md
       - name: Работа с базами данных {{ mgp-name }}
@@ -85,8 +91,6 @@ items:
         href: sources-and-sinks/postgresql.md
       - name: Работа с базами данных {{ ydb-name }}
         href: sources-and-sinks/ydb.md
-      - name: Запись метрик в {{ monitoring-full-name }}
-        href: sources-and-sinks/monitoring.md
   - name: Практические руководства
     items:
       - name: Все руководства

@@ -6701,9 +6701,19 @@ default:
           certificate_action_download_cert: Скачать сертификат
           certificate_action_manage_certs: Управление сертификатами
           certificate_section_title: Сертификат приложения
+          idp_section_closed_text: Дополнительные атрибуты
           idp_section_download_metadata_action: Скачать файл с метаданными
           idp_section_title: Конфигурация поставщика удостоверений (IdP)
+          oauth_field_auth_endpoint: Authorization endpoint
+          oauth_field_client_id: ClientID
+          oauth_field_open_id: OpenID Configuration
+          oauth_field_redirect_uri: Redirect URI
+          oauth_field_token_endpoint: Token endpoint
+          oauth_field_user_info_endpoint: Userinfo endpoint
+          oauth_service_section_title: Конфигурация поставщика услуг (SP)
           saml_field_metadata: Metadata URL
+          secret_section_add_new_secret_action: Добавить секрет
+          secret_section_title: Секреты приложения
       attributes:
         update_dialog:
           field_attribute_name: Имя атрибута
@@ -6865,7 +6875,9 @@ default:
           AppCreateForm:
             create-app-submit_myxPn: Создать приложение
             field-description_kzkNB: Описание
+            field-folder_rANM4: Каталог
             field-name_1VbM1: Имя
+            oauth-title_uUs4x: OIDC (OpenID Connect)
             saml-title_kyofk: SAML (Security Assertion Markup Language)
           AppPageLayout:
             action_add_attribute: Добавить атрибут
@@ -6873,6 +6885,17 @@ default:
             assignments_kKzJS: Пользователи и группы
             attributes_to71e: Атрибуты
             overview_b5LJQ: Обзор
+          OauthAppEditForm:
+            field-description_fcXBi: Описание
+            field-labels_kc4MN: Метки
+            field-name_kxMrU: Имя
+            field-scopes_hEuar: Scopes
+            oauth-scope-email_vYNmM: email (адрес электронной почты)
+            oauth-scope-groups_iZoa5: groups (группы пользователя в организации)
+            oauth-scope-openid_o99tx: openid (идентификатор пользователя)
+            oauth-scope-profile_sgdKX: profile (полное имя, имя, фамилия, аватар и др.)
+          OauthAppRedirectUrlsField:
+            add-redirect-url_rS5jw: Добавить URI
           SamlAppAcsUrlsField:
             add-acs-url_eMunC: Добавить URL
           SamlAppEditForm:

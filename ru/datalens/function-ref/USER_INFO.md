@@ -42,4 +42,4 @@ USER_INFO([UserId], 'email') = 'test_user@example.com'
 
 #### Поддержка источников данных {#data-source-support}
 
-`DataLens Usage Analytics`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.7`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `Яндекс Документы`, `YDB`.

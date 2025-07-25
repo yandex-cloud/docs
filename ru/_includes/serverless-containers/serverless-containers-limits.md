@@ -18,6 +18,7 @@
 `serverless.containersCpu.count` | 10 ||
 || Количество [подготовленных экземпляров](../../serverless-containers/concepts/container.md#provisioned-instances) контейнеров в одном облаке 
 `serverless.containersWorkersProvisioned.count` | 2 ||
+|| Количество [пользовательских сетей](../../serverless-containers/concepts/networking.md#user-network) в одном облаке | 10 ||
 |#
 
 {% include [quota-trigger-count](../quota-trigger-count.md) %}
@@ -35,7 +36,6 @@
 Максимальный объем переменных окружения, включая их имена^2^ | 4 КБ
 Максимальное количество триггеров для одной [очереди сообщений](../../message-queue/concepts/queue.md) | 1
 Максимальный размер сообщения для триггера^3^ | 230 КБ
-Количество [пользовательских сетей](../../serverless-containers/concepts/networking.md#user-network) в одном облаке | 1
 
 ^1^ Таймаут больше 10 минут доступен только для [долгоживущих контейнеров](../../serverless-containers/concepts/long-lived-containers.md).
 ^2^ Секреты {{ lockbox-short-name }} передаются через переменные окружения и также учитываются в этом лимите.

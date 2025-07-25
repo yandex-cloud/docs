@@ -24,6 +24,7 @@
 `serverless.concurrentCloudOperations.count` | 20 ||
 || Количество сетевых пакетов в секунду на экземпляр функции 
 `serverless.networkPackets.rate` | 10 000 ||
+|| Количество [пользовательских сетей](../functions/concepts/networking.md#user-network) в одном облаке | 10 ||
 |#
 
 {% include [quota-trigger-count](quota-trigger-count.md) %}
@@ -46,7 +47,6 @@ ZIP-архив через S3 бакет | 128 МБ
 Максимальный объем переменных окружения, включая их имена^2^ | 4 КБ
 Максимальное количество триггеров для одной [очереди сообщений](../message-queue/concepts/queue.md) | 1
 Максимальный размер сообщения для триггера^3^ | 230 КБ
-Количество [пользовательских сетей](../functions/concepts/networking.md#user-network) в одном облаке | 1
 
 ^1^ Таймаут больше 10 минут доступен только для [долгоживущих функций](../functions/concepts/long-lived-functions.md).
 ^2^ Секреты {{ lockbox-short-name }} передаются через переменные окружения и также учитываются в этом лимите.
