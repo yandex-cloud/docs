@@ -1,0 +1,1 @@
+Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../organization/security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.

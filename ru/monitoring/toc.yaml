@@ -129,6 +129,8 @@ items:
         href: concepts/limits.md
   - name: Практические руководства
     items:
+      - name: Все практические руководства
+        href: tutorials/index.md
       - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
         href: tutorials/autoscale-monitoring.md
       - name: Мониторинг показаний датчиков и уведомления о событиях
@@ -137,6 +139,8 @@ items:
         href: tutorials/alerts-monitoring.md
       - name: Поиск проблем с производительностью кластера {{ mpg-name }}
         href: tutorials/mpg-performance-problems.md
+      - name: Сбор метрик кластера «1С:Предприятие» на базе Linux
+        href: tutorials/collect-metrics-1c-cluster.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Обзор

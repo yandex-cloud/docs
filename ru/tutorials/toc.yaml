@@ -727,6 +727,8 @@ items:
               Создание кластера Linux-серверов «1С:Предприятия» с кластером {{
               mpg-name }}
             href: infrastructure-management/1c-postgresql-linux.md
+          - name: Мониторинг кластера «1С:Предприятие» на базе Linux
+            href: infrastructure-management/collect-metrics-1c-cluster.md
       - name: Интернет вещей (IoT)
         items:
           - name: Работа с помощью Mosquitto

@@ -68,6 +68,12 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./applications/saml-update.md)
 * [{#T}](./applications/saml-deactivate-remove.md)
 
+## Управление OIDC-приложениями {#manage-oidc-applications}
+
+* [{#T}](./applications/oidc-create.md)
+* [{#T}](./applications/oidc-update.md)
+* [{#T}](./applications/oidc-deactivate-remove.md)
+
 ## Авторизация и аутентификация {#auths}
 
 * [{#T}](./add-ssh.md)
