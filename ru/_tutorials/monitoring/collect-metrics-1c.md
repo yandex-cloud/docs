@@ -2,7 +2,7 @@
 
 В этом руководстве вы настроите сбор метрик кластера «1С:Предприятие» на базе Linux в формате {{ prometheus-name }} и их визуализацию в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/visualization/metric-explorer.md). Помимо визуализации, {{ monitoring-name }} позволяет настраивать алерты, гибридные дашборды с метриками различных сервисов {{ yandex-cloud }} и обладает большими возможностями по масштабированию.
 
-Метрики кластера будут собираться с помощью свободно распространяемой утилиты [{{ prometheus-name }} 1C Exporter](https://github.com/kirillmasanov/prometheus_1C_exporter), передаваться в [{{ unified-agent-full-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md) и затем в {{ monitoring-name }}.
+Метрики кластера будут собираться с помощью свободно распространяемой утилиты [{{ prometheus-name }} 1C Exporter](https://github.com/LazarenkoA/prometheus_1C_exporter), передаваться в [{{ unified-agent-full-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md) и затем в {{ monitoring-name }}.
 
 Руководство предполагает, что у вас уже развернут кластер «1С:Предприятие» на виртуальной машине в сервисе [{{ compute-full-name }}](../../compute/quickstart/index.md). Пример развертывания см. в руководстве [{#T}](../../tutorials/infrastructure-management/1c-postgresql-linux.md).
 
@@ -111,7 +111,7 @@
    * `client_lic` — клиентские лицензии 1С (Histogram).
    * `connect` — соединения 1С (Histogram).
 
-   При необходимости можно добавить [другие метрики](https://github.com/kirillmasanov/prometheus_1C_exporter).
+   При необходимости можно добавить [другие метрики](https://github.com/LazarenkoA/prometheus_1C_exporter).
 
 1. Создайте символическую ссылку для утилиты управления 1C RAC:
 

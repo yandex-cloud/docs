@@ -8,11 +8,7 @@ editable: false
 
 
 
-{% note info %}
-
-Сервис находится на [стадии Preview](../overview/concepts/launch-stages.md), и его использование не тарифицируется.
-
-{% endnote %}
+{% include [preview](../_includes/managed-ytsaurus/note-preview.md) %}
 
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ myt-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы. За потребление других ресурсов {{ yandex-cloud }}, которые вы используете в процессе работы с сервисом, взимается плата в соответствии с их тарифами.
 
@@ -138,12 +134,6 @@ editable: false
 
 ### Вычислительные ресурсы компонентов {#prices-components}
 
-{% note info %}
-
-Цены, указанные ниже, начнут действовать 28 июля 2025 года.
-
-{% endnote %}
-
 
 {% list tabs group=pricing %}
 
@@ -160,12 +150,6 @@ editable: false
 
 
 ### Хранилище {#prices-storage}
-
-{% note info %}
-
-Цены, указанные ниже, начнут действовать 28 июля 2025 года.
-
-{% endnote %}
 
 
 {% list tabs group=pricing %}

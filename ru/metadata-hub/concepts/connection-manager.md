@@ -1,6 +1,6 @@
 ---
-title: Подключение {{ metadata-hub-name }} к базам данных
-description: С помощью {{ connection-manager-full-name }} вы можете управлять параметрами подключений к базам данных.
+title: Подключение {{ connection-manager-name }} к базам данных
+description: С помощью {{ connection-manager-name }} вы можете управлять параметрами подключений к базам данных.
 ---
 
 # Подключение

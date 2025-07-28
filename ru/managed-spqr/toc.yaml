@@ -20,7 +20,11 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Хранилище в {{ SPQR }}
+        href: concepts/storage.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Правила тарификации
     href: pricing.md
+  - name: История изменений
+    href: release-notes.md

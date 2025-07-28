@@ -277,6 +277,89 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
+  Для редактирования ACL бакета вы можете использовать ресурсы:
+  * [yandex_storage_bucket_grant](#tf-storage-bucket-grant);
+  * [yandex_storage_bucket](#tf-yandex_storage_bucket) (устаревший способ).
+
+  {% include [tf-iam-binding-warning](../../../_includes/storage/tf-bucket-grant-warning.md) %}
+
+  **yandex_storage_bucket_grant** {#tf-storage-bucket-grant}
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+     ```hcl
+     resource "yandex_storage_bucket_grant" "my_bucket_grant" {
+       bucket = "<имя_существующего_бакета>"
+       grant {
+         id          = "<идентификатор_пользователя_1>"
+         permissions = ["READ", "WRITE"]
+         type        = "CanonicalUser"
+       }
+       grant {
+         id          = "<идентификатор_пользователя_2>"
+         permissions = ["FULL_CONTROL"]
+         type        = "CanonicalUser"
+       }
+       grant {
+         uri         = "http://acs.amazonaws.com/groups/global/AuthenticatedUsers"
+         permissions = ["READ"]
+         type        = "Group"
+       }
+     }
+     ```
+
+     Где:
+
+     * `bucket` — имя существующего бакета.
+     * `grant` — настройки [ACL](../../concepts/acl.md). Чтобы управлять этим параметром, у сервисного аккаунта, на который получены статические ключи доступа, должна быть [роль](../../security/index.md#roles-list) `storage.admin` на бакет или каталог.
+       * `type` — тип получателя разрешений. Возможные значения:
+         * `CanonicalUser` — для пользователя, [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) или [группы пользователей](../../../organization/concepts/groups.md).
+         * `Group` — для [публичной группы](../../concepts/acl.md#public-groups).
+       * `permissions` — тип [разрешений](../../concepts/acl.md#permissions-types) ACL, возможные значения:
+         * `READ` — доступ к списку объектов в бакете, чтению различных настроек бакета (жизненный цикл, CORS, статический хостинг), чтению всех объектов в бакете.
+         * `WRITE` — доступ к записи, перезаписи и удалению объектов в бакете. Используется только совместно с `READ`, например `permissions = ["READ", "WRITE"]`.
+         * `FULL_CONTROL` — полный доступ к бакету и объектам в нем.
+
+         Подробнее о разрешениях см. в разделе [{#T}](../../concepts/acl.md#permissions-types).
+
+       * `id` — идентификатор пользователя, сервисного аккаунта или группы пользователей:
+
+         {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
+
+         Используется с типом получателя разрешений `CanonicalUser`.
+
+       * `uri` — идентификатор публичной группы. Используется с типом получателя разрешений `Group`. Возможные значения:
+         * `http://acs.amazonaws.com/groups/global/AllUsers` — все пользователи интернета.
+         * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — все аутентифицированные пользователи {{ yandex-cloud }}.
+
+     Вместо параметра `grant` вы можете указать параметр `acl` — [предопределенный ACL](../../../storage/concepts/acl.md#predefined-acls) бакета. Значение по умолчанию — `private`: пользователи {{ yandex-cloud }} получают разрешения в соответствии со своими ролями в {{ iam-short-name }}.
+
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket_grant` см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket_grant).
+
+  1. Если вы совместно с ресурсом [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant) планируете использовать ресурс [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding) для одного и того же бакета, рекомендуем выполнять создание ресурсов последовательно. Для этого добавьте в блок `yandex_storage_bucket_iam_binding` зависимость от наличия ресурса `yandex_storage_bucket_grant`:
+
+      ```hcl
+      resource "yandex_storage_bucket_iam_binding" "mybucket-viewers" {
+        ...
+      
+        depends_on = [
+          yandex_storage_bucket_grant.my_bucket_grant
+        ]
+      }
+      ```
+
+  1. Примените конфигурацию:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     Проверить изменения ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
+
+     ```bash
+     yc storage bucket get <имя_бакета> --full
+     ```
+
+  **yandex_storage_bucket (устаревший способ)** {#tf-yandex_storage_bucket}
+
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
      ```hcl
@@ -326,30 +409,17 @@ description: Следуя данной инструкции, вы сможете
 
      Вместо параметра `grant` вы можете указать параметр `acl` — [предопределенный ACL](../../../storage/concepts/acl.md#predefined-acls) бакета. Значение по умолчанию — `private`: пользователи {{ yandex-cloud }} получают разрешения в соответствии со своими ролями в {{ iam-short-name }}.
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 
-  1. Проверьте корректность конфигурационных файлов.
+  1. Примените конфигурацию:
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        ```bash
-        terraform plan
-        ```
+     Проверить изменения ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Разверните облачные ресурсы.
-
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов.
-
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+     ```bash
+     yc storage bucket get <имя_бакета> --full
+     ```
 
 - API {#api}
 
