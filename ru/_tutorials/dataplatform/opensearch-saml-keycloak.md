@@ -103,7 +103,6 @@
 
     Для этого отключите опцию **Client signature required**.
 
-1. На вкладке **Client scopes** удалите сопоставление ролей с названием `role_list` из списка **Assigned Default Client Scopes**, если такое существует.
 
 1. На вкладке **Client scopes** настройте сопоставление ролей для клиента:
 
