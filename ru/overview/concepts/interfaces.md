@@ -85,6 +85,7 @@ description: Сервисы в {{ yandex-cloud }} могут быть досту
 | [{{ vpc-full-name }}](../../vpc/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | [{{ websql-full-name }}](../../websql/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |
 | [{{ ydb-full-name }}](../../ydb/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| [{{ myt-full-name }}](../../managed-ytsaurus/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |
 
 ^1^ Взаимодействие с сервисом осуществляется с помощью специального плагина для [Visual Studio Code](https://code.visualstudio.com/) и [IDE от JetBrains](https://www.jetbrains.com/ides/).
 ^2^ Дополнительно доступен интерфейс командной строки [AWS CLI](../../storage/tools/aws-cli.md).

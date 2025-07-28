@@ -8,17 +8,25 @@ description:
     возможности управления подключениями к базам данных, хранения схем обмена
     данными и описания наборов данных, а также систему управления метаданными.
 links:
-  - title: Начало работы
+  - title: '{{ connection-manager-name }}'
     description: >-
-      Создайте первое подключение, реестр схем данных, кластер {{ metastore-name
-      }} или каталог метаданных
-    href: quickstart/
-  - title: Пошаговые инструкции
+      Автоматическое создание и управление параметрами подключений к базам
+      данных.
+    href: concepts/connection-manager
+  - title: '{{ metastore-full-name }}'
+    description: Создание и управление кластерами Hive Metastore.
+    href: concepts/metastore
+  - title: '{{ schema-registry-name }}'
+    description: Централизованное хранилище для управления и проверки схем данных.
+    href: concepts/schema-registry
+  - title: '{{ data-catalog-name }}'
+    description: >-
+      Инструмент для сбора, анализа и разметки метаданных из различных
+      источников.
+    href: concepts/data-catalog
+  - title: Все пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/
-  - title: Концепции
-    description: Узнайте про концепции сервиса
-    href: concepts/
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

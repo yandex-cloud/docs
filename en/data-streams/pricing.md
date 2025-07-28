@@ -14,7 +14,9 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-{{ yds-name }} supports two pricing modes:
+{% include [vat](../_includes/vat.md) %}
+
+{{ yds-name }} supports two pricing models:
 
 * [Based on allocated resources](#rules): You pay a fixed hourly rate for the established throughput limit and message retention period and additionally for the number of units of actually written data.
 * [On-demand](#on-demand): You pay for data writes and reads performed, the amount of data read/written, and the size of storage actually used for messages with a valid retention period.
@@ -31,7 +33,7 @@ Pricing for the allocated resources includes the established segment throughput 
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-### Examples of cost calculation {#price-example}
+### Cost calculation examples {#price-example}
 
 A single-shard stream receives two 50 KB messages per second. The message retention period is 12 hours.
 

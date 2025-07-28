@@ -9905,6 +9905,7 @@ default:
         label_history-server: History Server
       speechkit-common:
         brand-voice_51nd8: Brand Voice Lite
+        brand-voice_button_activate_47zAB: Активировать
         brand-voice_create-dataset_option_title_record-audio_jvUMz: Записать аудиофайлы
         brand-voice_create-dataset_option_title_upload-audio_4D15S: Добавить аудиофайлы
         brand-voice_create-dataset_option_title_upload-zip_nFtBR: Загрузить ZIP-архив

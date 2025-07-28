@@ -10,7 +10,7 @@ editable: false
 
 {% note info %}
 
-{{ myt-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage and can be used free of charge.
+{{ myt-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage.
 
 {% endnote %}
 
@@ -127,13 +127,7 @@ This is an example of calculating the cost of using a cluster with the following
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Component computing resources {#prices-hosts}
-
-{% note info %}
-
-The prices below will be effective starting July 28, 2025.
-
-{% endnote %}
+### Component computing resources {#prices-components}
 
 
 
@@ -141,12 +135,6 @@ The prices below will be effective starting July 28, 2025.
 
 
 ### Storage {#prices-storage}
-
-{% note info %}
-
-The prices below will be effective starting July 28, 2025.
-
-{% endnote %}
 
 
 

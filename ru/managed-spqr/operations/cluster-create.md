@@ -54,7 +54,7 @@ keywords:
         1. В поле **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** выберите платформу.
         1. Укажите **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** виртуальной машины, на которой будут развернуты хосты.
         1. Выберите **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
-        1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** выберите тип диска и укажите размер хранилища.
+        1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** выберите тип диска и укажите размер [хранилища](../concepts/storage.md).
         1. В блоке **{{ ui-key.yacloud.spqr.section_hosts }}**:
 
             1. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.label_title }}**, чтобы добавить нужное количество хостов, создаваемых вместе с кластером {{ SPQR }}.

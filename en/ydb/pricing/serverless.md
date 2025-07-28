@@ -22,6 +22,8 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 
 {% include [currency-choice](../../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../../_includes/vat.md) %}
+
 When you use {{ ydb-name }} in serverless mode, you are billed for each request made to the database. Users do not have to indicate the resources they need: the database quickly adapts to changes in the user load. Apart from requests, the user pays for the data stored in {{ ydb-name }} on an hourly basis. Other operations, such as recovery from a backup, are charged extra.
 
 ## What goes into the cost of using {{ ydb-name }} in serverless mode {#rules}
@@ -146,6 +148,8 @@ Actual (on-demand) consumption of RUs per month will be:
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
+
+Monthly prices are provided for a 30-day month. The price is higher for shorter months and lower for longer months.
 
 
 

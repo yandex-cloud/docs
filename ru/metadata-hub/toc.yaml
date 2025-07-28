@@ -2,27 +2,13 @@ title: Yandex MetaData Hub
 href: index.yaml
 stage: preview
 items:
-  - name: Начало работы
+  - name: О сервисе {{ metadata-hub-full-name }}
+    href: concepts/index.md
+  - name: '{{ connection-manager-name }}'
     items:
-      - name: Обзор
-        href: quickstart/index.md
-      - name: Connection Manager
+      - name: Начало работы
         href: quickstart/connection-manager.md
-      - name: '{{ metastore-full-name }}'
-        href: quickstart/metastore.md
-      - name: Schema Registry
-        href: quickstart/schema-registry.md
-      - name: Data Catalog
-        items:
-          - name: Начало работы управляющего метаданными
-            href: quickstart/data-steward-quickstart.md
-          - name: Начало работы аналитика метаданных
-            href: quickstart/data-analyst-quickstart.md
-  - name: Пошаговые инструкции
-    items:
-      - name: Все инструкции
-        href: operations/index.md
-      - name: Connection Manager
+      - name: Пошаговые инструкции
         items:
           - name: Создание подключения
             href: operations/create-connection.md
@@ -34,7 +20,83 @@ items:
             href: operations/delete-connection.md
           - name: Настроить права доступа к подключению
             href: operations/connection-access.md
-      - name: '{{ metastore-full-name }}'
+      - name: Концепции
+        items:
+          - name: Подключение
+            href: concepts/connection-manager.md
+          - name: Секрет
+            href: concepts/secret.md
+      - name: Сервисные роли для управления доступом
+        href: security/connection-manager-roles.md
+      - name: Справочник API
+        items:
+          - name: Аутентификация в API
+            href: api-ref/authentication-connman.md
+          - name: gRPC (англ.)
+            items:
+              - name: Overview
+                href: api-ref/grpc/index.md
+              - name: Connection
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Connection/index.md
+                  - name: Get
+                    href: api-ref/grpc/Connection/get.md
+                  - name: ResolveCluster
+                    href: api-ref/grpc/Connection/resolveCluster.md
+                  - name: List
+                    href: api-ref/grpc/Connection/list.md
+                  - name: Create
+                    href: api-ref/grpc/Connection/create.md
+                  - name: Update
+                    href: api-ref/grpc/Connection/update.md
+                  - name: Delete
+                    href: api-ref/grpc/Connection/delete.md
+                  - name: ListOperations
+                    href: api-ref/grpc/Connection/listOperations.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/grpc/Operation/cancel.md
+          - name: REST (англ.)
+            items:
+              - name: Overview
+                href: api-ref/index.md
+              - name: Connection
+                items:
+                  - name: Overview
+                    href: api-ref/Connection/index.md
+                  - name: Get
+                    href: api-ref/Connection/get.md
+                  - name: ResolveCluster
+                    href: api-ref/Connection/resolveCluster.md
+                  - name: List
+                    href: api-ref/Connection/list.md
+                  - name: Create
+                    href: api-ref/Connection/create.md
+                  - name: Update
+                    href: api-ref/Connection/update.md
+                  - name: Delete
+                    href: api-ref/Connection/delete.md
+                  - name: ListOperations
+                    href: api-ref/Connection/listOperations.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/Operation/index.md
+                  - name: Get
+                    href: api-ref/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/Operation/cancel.md
+  - name: '{{ metastore-full-name }}'
+    items:
+      - name: Начало работы
+        href: quickstart/metastore.md
+      - name: Пошаговые инструкции
         items:
           - name: Создание кластера {{ metastore-name }}
             href: operations/metastore/cluster-create.md
@@ -52,7 +114,33 @@ items:
             href: operations/metastore/logging.md
           - name: Удаление кластера {{ metastore-name }}
             href: operations/metastore/cluster-delete.md
-      - name: Schema Registry
+      - name: Практические руководства
+        items:
+          - name: >-
+              Совместная работа с таблицами {{ dataproc-name }} с использованием
+              {{ metastore-name }}
+            href: tutorials/sharing-tables.md
+          - name: >-
+              Перенос метаданных между кластерами {{ dataproc-name }} с помощью
+              {{ metastore-name }}
+            href: tutorials/metastore-import.md
+      - name: Концепции
+        items:
+          - name: Кластеры {{ metastore-name }}
+            href: concepts/metastore.md
+          - name: Имперсонация в {{ metastore-name }}
+            href: concepts/metastore-impersonation.md
+      - name: Сервисные роли для управления доступом
+        href: security/metastore-roles.md
+      - name: Решение проблем
+        href: qa/metastore-qa.md
+      - name: Аудитные логи {{ at-name }}
+        href: at-ref.md
+  - name: '{{ schema-registry-name }}'
+    items:
+      - name: Начало работы
+        href: quickstart/schema-registry.md
+      - name: Пошаговые инструкции
         items:
           - name: Пространство имен
             items:
@@ -82,7 +170,37 @@ items:
                 href: operations/update-subject.md
               - name: Удаление субъекта
                 href: operations/delete-subject.md
-      - name: '{{ data-catalog-name }}'
+      - name: Практические руководства
+        items:
+          - name: Поставка данных в формате Debezium CDC из {{ KF }}
+            href: tutorials/schema-registry-cdc-debezium-kafka.md
+      - name: Концепции
+        items:
+          - name: Реестр схем
+            href: concepts/schema-registry.md
+          - name: Контентные модели и проблемы эволюции JSON-схем
+            href: concepts/schema-registry-content-model.md
+          - name: Политики проверки совместимости
+            href: concepts/compatibility-check-policy.md
+      - name: Сервисные роли для управления доступом
+        href: security/schema-registry-roles.md
+      - name: Решение проблем
+        href: qa/schema-registry-qa.md
+      - name: Справочник API
+        items:
+          - name: Аутентификация в API
+            href: api-ref/authentication.md
+          - name: Schema Registry
+            href: api-ref/schema-registry/index.md
+  - name: '{{ data-catalog-name }}'
+    items:
+      - name: Начало работы
+        items:
+          - name: Начало работы управляющего метаданными
+            href: quickstart/data-steward-quickstart.md
+          - name: Начало работы аналитика метаданных
+            href: quickstart/data-analyst-quickstart.md
+      - name: Пошаговые инструкции
         items:
           - name: Каталог
             items:
@@ -174,77 +292,32 @@ items:
                 href: operations/data-catalog/update-source.md
               - name: Удаление источника
                 href: operations/data-catalog/delete-source.md
-  - name: Практические руководства
-    items:
-      - name: Все руководства
-        href: tutorials/index.md
-      - name: '{{ metastore-name }}'
+      - name: Концепции
         items:
-          - name: >-
-              Совместная работа с таблицами {{ dataproc-name }} с использованием
-              {{ metastore-name }}
-            href: tutorials/sharing-tables.md
-          - name: >-
-              Перенос метаданных между кластерами {{ dataproc-name }} с помощью
-              {{ metastore-name }}
-            href: tutorials/metastore-import.md
-      - name: '{{ schema-registry-name }}'
-        items:
-          - name: Поставка данных в формате Debezium CDC из {{ KF }}
-            href: tutorials/schema-registry-cdc-debezium-kafka.md
-  - name: Концепции
-    items:
-      - name: О сервисе {{ metadata-hub-full-name }}
-        href: concepts/index.md
-      - name: Connection Manager
-        items:
-          - name: Подключение
-            href: concepts/connection-manager.md
-          - name: Секрет
-            href: concepts/secret.md
-      - name: '{{ metastore-full-name }}'
-        items:
-          - name: Кластеры {{ metastore-name }}
-            href: concepts/metastore.md
-          - name: Имперсонация в {{ metastore-name }}
-            href: concepts/metastore-impersonation.md
-      - name: Schema Registry
-        items:
-          - name: Реестр схем
-            href: concepts/schema-registry.md
-          - name: Контентные модели и проблемы эволюции JSON-схем
-            href: concepts/schema-registry-content-model.md
-          - name: Политики проверки совместимости
-            href: concepts/compatibility-check-policy.md
-      - name: '{{ data-catalog-full-name }}'
-        href: concepts/data-catalog.md
-      - name: Квоты и лимиты
-        href: concepts/limits.md
-  - name: Управление доступом
-    items:
-      - name: Обзор
-        href: security/index.md
-      - name: Роли {{ connection-manager-name }}
-        href: security/connection-manager-roles.md
-      - name: Роли {{ metastore-name }}
-        href: security/metastore-roles.md
-      - name: Роли {{ schema-registry-name }}
-        href: security/schema-registry-roles.md
-      - name: Роли {{ data-catalog-full-name }}
+          - name: Каталог метаданных
+            href: concepts/data-catalog.md
+      - name: Сервисные роли для управления доступом
         href: security/data-catalog-roles.md
-  - name: Справочник API
-    items:
-      - name: Аутентификация в API
-        href: api-ref/authentication.md
-      - name: Schema Registry
-        href: api-ref/schema-registry/index.md
-  - name: Аудитные логи {{ at-name }}
-    href: at-ref.md
+  - name: Управление доступом
+    href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Решение проблем
-    href: qa/index.md
   - name: Публичные материалы
     href: public-talks.md
   - name: История изменений
     href: release-notes/index.md
+  - name: Решение проблем
+    href: qa/index.md
+    hidden: true
+  - name: Квоты и лимиты в сервисе
+    href: concepts/limits
+    hidden: true
+  - name: Начало работы в сервисе
+    href: quickstart/index.md
+    hidden: true
+  - name: Все пошаговые инструкции
+    href: operations/index.md
+    hidden: true
+  - name: Все руководства
+    href: tutorials/index.md
+    hidden: true
