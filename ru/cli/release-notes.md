@@ -7,6 +7,18 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.156.0 (28.07.25) {#version0.156.0}
+
+####  Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ managed-k8s-name }}
+
+* В команды `yc managed-kubernetes cluster create` и `yc managed-kubernetes cluster update` добавлен параметр `--master-scale-policy`, который позволяет управлять вычислительными ресурсами мастеров кластера.
+* В вывод команды `yc managed-kubernetes cluster get` добавлено поле `scale_policy` для получения конфигурации вычислительных ресурсов мастеров кластера.
+* Добавлены команды `yc managed-kubernetes resource-preset get` и `yc managed-kubernetes resource-preset list` для получения возможных конфигураций вычислительных ресурсов для мастеров кластера.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.155.0 (23.07.25) {#version0.155.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -65,8 +77,6 @@ description: На странице представлены релизы CLI, а
 ##### {{ mrd-name }}
 
 В команды `yc managed-redis cluster create` и `yc managed-redis cluster restore` добавлен параметр для указания ключа шифрования дисков `--disk-encryption-key-id`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.154.0 (09.07.25) {#version0.154.0}
 

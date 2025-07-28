@@ -85,6 +85,7 @@ For the availability of interfaces for specific services, see the table below:
 | [{{ vpc-full-name }}](../../vpc/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
 | [{{ websql-full-name }}](../../websql/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |
 | [{{ ydb-full-name }}](../../ydb/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+| [{{ myt-full-name }}](../../managed-ytsaurus/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |
 
 ^1^ You interact with the service with the help of a special plugin for [Visual Studio Code](https://code.visualstudio.com/) and [JetBrains IDE](https://www.jetbrains.com/ides/).
 ^2^ Additionally, you can use the [AWS CLI](../../storage/tools/aws-cli.md).

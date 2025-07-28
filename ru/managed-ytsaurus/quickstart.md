@@ -5,7 +5,7 @@ description: Чтобы начать работать с {{ myt-full-name }}, с
 
 # Как начать работать с {{ myt-full-name }}
 
-{% include notitle [preview](../_includes/note-preview.md) %}
+{% include [preview](../_includes/managed-ytsaurus/note-preview.md) %}
 
 Чтобы начать работу с сервисом {{ myt-name }}:
 
