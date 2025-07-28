@@ -367,4 +367,4 @@
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 1. [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. Если вы зарезервировали для кластера {{ managed-k8s-name }} [публичный статический IP-адрес](../../vpc/concepts/address.md#public-addresses), [удалите его](../../vpc/operations/address-delete.md).
-1. [Удалите диск](https://yandex.cloud/ru/docs/compute/operations/disk-control/delete), который был создан для хранилища `trickster`, определить его можно по метке в описании диска, метку можно узнать через `kubectl describe pvc trickster-pvc` она будет соответсвовать значению в поле `Volume:`
+1. [Удалите диск](../../compute/operations/disk-control/delete.md), который был создан для хранилища `trickster`. Определить его можно по метке в описании диска, метку можно узнать с помощью команды `kubectl describe pvc trickster-pvc` — она будет соответствовать значению в поле `Volume`.
