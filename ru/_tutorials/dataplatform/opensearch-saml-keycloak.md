@@ -103,8 +103,15 @@
 
     Для этого отключите опцию **Client signature required**.
 
+
 1. На вкладке **Client scopes** настройте сопоставление ролей для клиента:
 
+   {% note info %}
+   
+   Если на вкладке **Client scopes** в списке **Assigned Default Client Scopes** присутствует сопоставление ролей `role_list`, рекомендуется удалить это сопоставление во избежание проблем с проверкой SAML-ответа.
+   
+   {% endnote %}
+   
     1. Нажмите на URL для подключения к {{ OS }} Dashboards с суффиксом `-dedicated`.
 
     1. На вкладке **Mappers** нажмите **Configure a new mapper**. Выберите из списка маппер **Role list**.
