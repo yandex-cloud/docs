@@ -21,7 +21,7 @@ description: Follow this guide to create a user pool in {{ org-name }}.
 
       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
-  1. In the **{{ ui-key.yacloud_org.form.userpool.caption.domain }}** field, add the [domain](../../concepts/domains.md) that will be used for all the default pool users.
+  1. In the **{{ ui-key.yacloud_org.form.userpool.caption.domain }}** field, add the [domain](../../concepts/domains.md) that will be used if there are no other domains associated with the pool.
   1. Optionally, add labels:
      1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
      1. Enter a label in `key: value` format.

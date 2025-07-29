@@ -11,7 +11,6 @@ description: In this article, you will learn about disk types in {{ mos-name }} 
 
 {% include [storage-type](../../_includes/mdb/mos/storage-type.md) %}
 
-
 ## Selecting storage type when creating a cluster {#storage-type-selection}
 
 The number of hosts with the `DATA` role you can create together with an {{ OS }} cluster depends on the selected storage type:
@@ -34,3 +33,10 @@ The number of hosts with the `DATA` role you can create together with an {{ OS }
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 
 To improve fault tolerance, you can set up [index replication](scalability-and-resilience.md#replication) (for multi-host cluster configurations only).
+
+
+
+## Disk encryption {#disk-encryption}
+
+{% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
+

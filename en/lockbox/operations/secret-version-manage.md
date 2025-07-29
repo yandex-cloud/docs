@@ -39,7 +39,7 @@ With secret version management, you can:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the parameters of resources you want to create:
 
       ```hcl
       resource "yandex_lockbox_secret_version_hashed" "my_version" {
@@ -64,7 +64,7 @@ With secret version management, you can:
 
       {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -140,7 +140,7 @@ With secret version management, you can:
          * `include_digits`: Use numbers (0...9). The default value is `true`.
          * `include_punctuation`: Use special characters. The default value is `true`.
 
-       For more information about the `yandex_lockbox_secret` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/lockbox_secret).
+       For more information about `yandex_lockbox_secret` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/lockbox_secret).
 
     1. Apply the changes:
 
@@ -197,7 +197,7 @@ With secret version management, you can:
        * `key`: Secret key. Non-secret name you will use to identify a value.
        * `path`: Path to the secret generation script.
 
-       For more information about the `yandex_lockbox_secret_version` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/lockbox_secret_version).
+       For more information about `yandex_lockbox_secret_version` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/lockbox_secret_version).
 
     1. Apply the changes:
 

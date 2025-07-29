@@ -68,7 +68,7 @@ You need to create an API key for Visual Studio Code to be able to access the mo
 1. In the window that opens, select **OpenAI Compatible** in the **API Provider** field.
 1. In the **Base URL** field, specify `https://{{ api-host-llm }}/v1`.
 1. In the **API-key** field, paste the secret key value you got in the previous [step](#create-key).
-1. In the **Model** field, specify `gpt://<folder_ID>/Qwen3-235b-a22b-fp8/latest`, where `<folder_ID>` stands for the `aistudio` [folder ID](../../resource-manager/operations/folder/get-id.md).
+1. In the **Model** field, specify `gpt://<folder_ID>/qwen3-235b-a22b-fp8/latest`, where `<folder_ID>` stands for the `aistudio` [folder ID](../../resource-manager/operations/folder/get-id.md).
 1. Click **Go!**.
 
 ## Test the model {#test}

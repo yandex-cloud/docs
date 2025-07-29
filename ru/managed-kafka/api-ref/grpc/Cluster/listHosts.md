@@ -98,7 +98,8 @@ Host role. If the field has default value, it is not returned in the response.
 
 - `ROLE_UNSPECIFIED`: Role of the host is unspecified. Default value.
 - `KAFKA`: The host is a Kafka broker.
-- `ZOOKEEPER`: The host is a ZooKeeper server. ||
+- `ZOOKEEPER`: The host is a ZooKeeper server.
+- `KRAFT`: The host is a Kafka KRaft controller broker. ||
 || resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
 
 Computational resources allocated to the host. ||

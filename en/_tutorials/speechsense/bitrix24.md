@@ -13,7 +13,7 @@ To set up integration with Bitrix24 in {{ speechsense-name }}:
 
 ## Get your cloud ready {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../../getting-started/).
+1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../../getting-started/).
 1. Accept the user agreement.
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its status is `ACTIVE`. If you do not have a billing account yet, [create one](../../billing/quickstart/index.md#create_billing_account). If your billing account has the `TRIAL_ACTIVE` status, [activate its paid version](../../billing/operations/activate-commercial.md).
 1. [Assign](../../iam/operations/roles/grant.md) the `speech-sense.spaces.creator` role to your {{ yandex-cloud }} account.
@@ -74,11 +74,7 @@ Create an API key for the `speechsense` service account.
   1. Click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
   1. [Link a billing account](../../speechsense/operations/space/link-ba.md) to the space. This account will be debited for the use of {{ speechsense-name }}.
 
-     {% note tip %}
-
-     To manage a billing account, you must have a [Yandex account](../../iam/concepts/users/accounts.md#passport). If using {{ yandex-cloud }} through an [identity federation](../../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
-
-     {% endnote %}
+     {% include [manage-ba-note](../../_includes/speechsense/manage-ba-note.md) %}
 
 {% endlist %}
 

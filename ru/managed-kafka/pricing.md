@@ -108,6 +108,7 @@ editable: false
 
 
 
+
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -119,6 +120,7 @@ editable: false
 По схеме CVoS можно заказать только ресурсы определенного вида: для недоступных видов ресурсов в колонках CVoS в разделе [Цены для региона Россия](#prices) стоят прочерки. Объем хранилища и интернет-трафика заказать таким образом пока невозможно.
 
 {% endnote %}
+
 
 
 ## Цены для региона Россия {#prices}
@@ -300,6 +302,31 @@ editable: false
 
 {% endlist %}
 
+
+
+
+
+
+### Вычислительные ресурсы для {{ kafka-ui }} {#prices-kafka-ui}
+
+{% note info %}
+
+Цены, указанные ниже, начнут действовать 9 августа 2025 года.
+
+{% endnote %}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [RUB: kafka-ui](../_pricing/managed-kafka/rub-kafka-ui.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [KZT: kafka-ui](../_pricing/managed-kafka/kzt-kafka-ui.md) %}
+
+{% endlist %}
 
 
 

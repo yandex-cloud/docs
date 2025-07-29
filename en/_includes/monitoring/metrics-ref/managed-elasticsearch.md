@@ -1,4 +1,4 @@
-The `name` label stores the metric name.
+The metric name goes into the `name` label.
 
 Labels shared by all {{ mes-name }} metrics: 
 
@@ -169,7 +169,7 @@ These metrics show processor core workload.
 | `inodes_free`<br/>`DGAUGE`, count | Free inodes | 
 | `inodes_total`<br/>`DGAUGE`, count | Available inodes | 
 | `inodes_used`<br/>`DGAUGE`, count | Used inodes |
-| `instance_userfault_broken`<br/>`DGAUGE`, count | Number of memory operation errors |
+| `instance_userfault_broken`<br/>`DGAUGE`, 0/1 | Indicator of host failure due to user fault. |
 | `iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress | 
 | `ip_defaultttl`<br/>`DGAUGE`, string | Default TTL value inserted into the IP header for IP packets generated in this object when the transport layer protocol does not provide a TTL. | 
 | `ip_forwarding`<br/>`DGAUGE` | IP forwarding status (SNMP): `0` for disabled, `1` for enabled. | 

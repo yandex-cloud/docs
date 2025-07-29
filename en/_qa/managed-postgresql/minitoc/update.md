@@ -9,3 +9,5 @@
 * [Can I change the disk type in an existing cluster?](#disk-type)
 
 * [Can I manage a cluster using SQL commands?](#sql-control)
+
+* [Can I create a database using SQL commands?](#create-db-sql)

@@ -1,6 +1,6 @@
 ---
 title: How to work with {{ si-full-name }}
-description: In this article, you will learn how to work with {{ si-full-name }} in {{ yandex-cloud }}.
+description: In this tutorial, you will learn how to work with {{ si-full-name }} in {{ yandex-cloud }}.
 ---
 
 # Step-by-step guides for {{ si-name }}
@@ -42,6 +42,7 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 * [Yandex Disk](workflows/constructor/yadisk.md)
 * [{{ sw-name }}](workflows/constructor/workflow.md)
 * [AI agent](workflows/constructor/aiagent.md)
+* [Telegram bot](workflows/constructor/telegrambot.md)
 * [Switch](workflows/constructor/switch.md)
 * [Foreach](workflows/constructor/foreach.md)
 * [While](workflows/constructor/while.md)

@@ -15,14 +15,14 @@ description: Follow this guide to view detailed information about a {{ mmg-name 
 
 ## Monitoring cluster state {#cluster}
 
-To view detailed information about the {{ mmg-name }} cluster state:
+To view detailed info on the state of a {{ mmg-name }} cluster:
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
 
 1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
-The following charts will open on the page:
+The following charts will appear on the page:
 
 * **Asserts total**: Number of [asserts](https://docs.mongodb.com/manual/reference/command/serverStatus/#mongodb-serverstatus-serverstatus.asserts) triggered in the cluster.
 * **Average operation time per host**: Average time of operation execution by each host (in microseconds).
@@ -76,9 +76,9 @@ The following charts will open on the page:
 
 ## Monitoring the state of hosts {#hosts}
 
-To view detailed information about the state of individual {{ mmg-name }} hosts:
+To view detailed info on the state of individual {{ mmg-name }} hosts:
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.mongodb.cluster.switch_hosts }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
 1. Select the host from the drop-down list. You will see the host role (`PRIMARY` or `SECONDARY`) and type (`MONGOCFG`, `MONGOD`, `MONGOINFRA`, or `MONGOS`) next to the host name.
 
@@ -129,10 +129,10 @@ The recommended thresholds are as follows:
 
 For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `75,161,927,680` bytes (70%)
 
-You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/managed-mongodb-ref.md).
+You can view the current storage size in the [detailed information about the cluster](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-mongodb-ref.md).
 
 
 ### Monitoring the transition to read-only mode {#read-only-alert}
@@ -140,7 +140,7 @@ You can view the current storage size in the [detailed information about the clu
 To monitor storage usage on cluster hosts and get notifications when free space is about to run out:
 
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md).
-1. Add a status `disk.free_bytes` metric.
+1. Add the `disk.free_bytes` status metric.
 
     To do this, create a query in the query builder:
 
@@ -164,8 +164,8 @@ To monitor storage usage on cluster hosts and get notifications when free space 
 
 To view a cluster's state and status:
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the required cluster row.
+1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Hover over the indicator in the cluster row of the **{{ ui-key.yacloud.common.availability }}** column.
 
 ### Cluster states {#cluster-health}
 

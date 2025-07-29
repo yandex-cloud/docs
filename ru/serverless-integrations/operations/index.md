@@ -80,6 +80,7 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](eventrouter/bus/create.md)
 * [{#T}](eventrouter/bus/update.md)
+* [{#T}](eventrouter/bus/logs-write.md)
 * [Добавить метку](eventrouter/bus/label-add.md)
 * [Изменить метку](eventrouter/bus/label-update.md)
 * [Удалить метку](eventrouter/bus/label-delete.md)

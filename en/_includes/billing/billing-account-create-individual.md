@@ -34,3 +34,9 @@ To create a billing account:
 1. Enter your current email address and phone number. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents. If you have already signed up for {{ yandex-cloud }}, check that your contact details are correct.
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
+
+   {% note warning %}
+
+   Note that for individuals an established verification procedure applies, which may result in the account activation being declined.  
+   
+   {% endnote %} 

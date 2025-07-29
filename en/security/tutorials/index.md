@@ -35,7 +35,7 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](virtualenv-safe-config/gatsby-static-website.md)
 * [{#T}](virtualenv-safe-config/lockbox-and-airflow.md)
 * [{#T}](virtualenv-safe-config/nodejs-cron-restart-vm.md)
-* Migrating services from an NLB to an L7 ALB for DDoS protection using {{ sws-full-name }}
+* Migrating services from NLB to L7 ALB for DDoS protection using {{ sws-full-name }}
     * [{#T}](virtualenv-safe-config/nlb-with-target-resource-vm.md)
     * [{#T}](virtualenv-safe-config/nlb-with-target-resource-group-vm.md)
     * [{#T}](virtualenv-safe-config/nlb-as-target-resource-alb.md)

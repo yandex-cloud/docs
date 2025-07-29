@@ -8,9 +8,11 @@ description: In this article, you will learn about chart types available in {{ d
 
 
 
+
+
 {% note info %}
 
-[Editor](../charts/editor/index.md) has its own list of visualizations.
+[Editor](../charts/editor/index.md) has its own [list of visualizations](../charts/editor/widgets/index.md).
 
 {% endnote %}
 
@@ -35,11 +37,11 @@ The following types of charts are available in {{ datalens-full-name }}:
 * **Tables**:
 
   * [Table](table-chart.md)
-  * [Pivot table](pivot-table-chart.md)
+  * [Pivot table](pivot-table-chart.md): Not supported in [QL charts](../concepts/chart/index.md#sql-charts)
 
 * **Geographical map**:
 
-  * [Map](map-chart.md)
+  * [Map](map-chart.md): Not supported in [QL charts](../concepts/chart/index.md#sql-charts)
 
     * [Point map](point-map-chart.md)
     * [Point map with clusters](cluster-point-map-chart.md)
@@ -51,11 +53,3 @@ The following types of charts are available in {{ datalens-full-name }}:
 
   * [Indicator](indicator-chart.md)
 
-{% note info %}
-
-[QL charts](../concepts/chart/index.md#sql-charts) do not support:
-
-* Any type of map
-* Pivot table
-
-{% endnote %}

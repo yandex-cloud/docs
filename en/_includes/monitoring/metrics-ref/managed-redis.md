@@ -1,4 +1,4 @@
-The `name` label stores the metric name.
+The metric name goes into the `name` label.
 
 Labels shared by all {{ mrd-name }} metrics: 
 
@@ -60,12 +60,12 @@ These metrics show processor core workload.
 | `io.disk*.weighted_io_time`<br/>`DGAUGE`, milliseconds | I/O wait time for a given disk | 
 | `io.disk*.write_time`<br/>`DGAUGE`, milliseconds | Average write time for a given disk | 
 | `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a given disk | 
-| `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second for a given disk | 
+| `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of write operations per second for a given disk | 
 
 ## RAM metrics {#managed-redis-ram-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `mem.active_bytes`<br/>`DGAUGE`, bytes | Active resident memory | 
+| `mem.active_bytes`<br/>`DGAUGE`, bytes | Active resident memory (frequently accessed and released when absolutely necessary) | 
 | `mem.available_bytes`<br/>`DGAUGE`, bytes | RAM usage, `available` usage type | 
 | `mem.available_percent_bytes`<br/>`DGAUGE`, % | Percentage of RAM usage, `available` usage type | 
 | `mem.buffers_bytes`<br/>`DGAUGE`, bytes | RAM usage, `buffers` usage type | 
@@ -115,15 +115,15 @@ These metrics show processor core workload.
 ## Service metrics {#managed-redis-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `active`<br/>`DGAUGE`, count | Active resident memory |
+| `active`<br/>`DGAUGE`, count | Active resident memory (frequently accessed and released when absolutely necessary) |
 | `available`<br/>`DGAUGE`, count | RAM usage, `available` usage type |
 | `available_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, `available` usage type |
 | `buffered`<br/>`DGAUGE`, bytes | RAM usage, `buffered` usage type |
 | `bytes_recv`<br/>`DGAUGE`, bytes | Size of data received |
 | `bytes_sent`<br/>`DGAUGE`, bytes | Size of data sent |
 | `cached`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type |
-| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>It can be either `1` if a cluster is available for reads or `0` if it is not.  | 
-| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>It can be either `1` if a cluster is available for writes or `0` if it is not.  | 
+| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>It can be either `1` if a service on the host is available for reads or `0` if it is not. |
+| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>It can be either `1` if a service on the host is available for writes or `0` if it is not. |
 | `commit_limit`<br/>`DGAUGE`, bytes | RAM usage, `commit_limit` usage type |
 | `committed_as`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type |
 | `dirty`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type | 
@@ -168,7 +168,7 @@ These metrics show processor core workload.
 | `inodes_free`<br/>`DGAUGE`, count | Free inodes | 
 | `inodes_total`<br/>`DGAUGE`, count | Available inodes | 
 | `inodes_used`<br/>`DGAUGE`, count | Used inodes |
-| `instance_userfault_broken`<br/>`DGAUGE`, count | Number of memory operation errors |
+| `instance_userfault_broken`<br/>`DGAUGE`, 0/1 | Indicator of host failure due to user fault |
 | `iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress | 
 | `ip_defaultttl`<br/>`DGAUGE`, string | Default TTL value inserted into the IP header for IP packets generated in this object when the transport layer protocol does not provide a TTL. | 
 | `ip_forwarding`<br/>`DGAUGE` | IP forwarding status (SNMP): `0` for disabled, `1` for enabled.  | 
@@ -221,7 +221,7 @@ These metrics show processor core workload.
 | `redis_io_threaded_reads_processed`<br/>`DGAUGE`, count | Number of read operations processed using threaded I/O | 
 | `redis_io_threaded_writes_processed`<br/>`DGAUGE`, count | Number of write operations processed using threaded I/O | 
 | `redis_io_threads_active`<br/>`DGAUGE`, count | Number of active threads | 
-| `redis_is_alive`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. | 
+| `redis_is_alive`<br/>`DGAUGE` | Host health indicator.<br/>It can be either `1` if a DB host is alive or `0` if it is not. | 
 | `redis_is_master`<br/>`DGAUGE` | Host type indicator.<br/>It can be either `1` if it is a DB server master host or `0` if it is not. | 
 | `redis_keyspace_hits`<br/>`DGAUGE`, count | Number of successful key lookups | 
 | `redis_keyspace_misses`<br/>`DGAUGE`, count | Number of unsuccessful key lookups | 

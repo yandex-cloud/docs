@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting in {{ foundation-models-full-name }}
-description: If something went wrong while sending API requests and you need help, contact technical support. The support team will solve your issue faster if you use additional HTTP request and response headers.
+description: If you get an error sending requests to the API and need help, contact support. The support team will solve your issue faster if you use additional HTTP request and response headers.
 ---
 
 # Request headers for troubleshooting in {{ foundation-models-full-name }}
@@ -9,7 +9,12 @@ description: If something went wrong while sending API requests and you need hel
 
 ## Request headers {#request-headers}
 
-{% include [request-headers](../../_includes/ai-common/request-headers.md) %}
+When sending HTTP requests, use the following headers:
+
+* {% include [x-client-request-id](../../_includes/ai-common/x-client-request-id.md) %}
+* `x-data-logging-enabled`: Flag that allows saving the data provided by the user in the request.
+
+    By default, all requests to {{ foundation-models-name }} are logged. Logging will help resolve your issue if you also specify the request ID when contacting support. You can [disable](../operations/disable-logging.md) logging if you need to include sensitive information in your request.
 
 ### Examples {#examples}
 

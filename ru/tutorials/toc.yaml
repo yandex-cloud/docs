@@ -780,6 +780,7 @@ items:
         href: dataplatform/index.md
       - name: Развертывание веб-интерфейса {{ KF }}
         href: dataplatform/deploy-kafka-ui.md
+        hidden: true
       - name: Миграция БД из стороннего кластера {{ KF }} в {{ mkf-name }}
         href: dataplatform/kafka-connector.md
       - name: >-

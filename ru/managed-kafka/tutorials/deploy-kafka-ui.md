@@ -1,5 +1,6 @@
 ---
 canonical: '{{ link-docs }}/tutorials/dataplatform/deploy-kafka-ui'
+noIndex: true
 ---
 
 # Развертывание веб-интерфейса {{ KF }}

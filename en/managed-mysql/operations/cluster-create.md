@@ -40,7 +40,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
   1. Enter a name for the {{ mmy-name }} cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
   1. Select the environment where you want to create the {{ mmy-name }} cluster (you cannot change the environment once the cluster is created):
      * `PRODUCTION`: For stable versions of your apps.
-     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+     * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
   1. Select the DBMS version.
   1. Select the host class that defines the technical specifications of the [VMs](../../compute/concepts/vm-platforms.md) where the DB hosts will be deployed. All available options are listed under [Host classes](../concepts/instance-types.md). When you change the host class for the {{ mmy-name }} cluster, the specifications of all existing hosts change, too.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
@@ -56,6 +56,18 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        If the DB storage is 95% full, the {{ mmy-name }} cluster will switch to read-only mode. Increase the storage size in advance.
 
        {% endnote %}
+
+     
+     * Optionally, select the **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** option to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
+
+       {% include [preview-note](../../_includes/note-preview-by-request.md) %}
+
+       * To [create](../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+
+       * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
+
+       To learn more about disk encryption, see [Storage](../../network-load-balancer/k8s-ref/networkpolicy.md).
+
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
      * DB name. The name must be unique within the folder.
@@ -118,7 +130,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in [{{ vpc-full-name }}](../../vpc/).
 
 
-  1. See the description of the CLI command for creating a {{ mmy-name }} cluster:
+  1. View the description of the CLI command to create a {{ mmy-name }} cluster:
 
      ```bash
      {{ yc-mdb-my }} cluster create --help
@@ -139,7 +151,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
          `backup-priority=<backup_priority> \
        --mysql-version <{{ MY }}_version> \
        --resource-preset <host_class> \
-       --user name=<username>,password=<user_password> \
+       --user name=<user_name>,password=<user_password> \
        --database name=<DB_name> \
        --disk-size <storage_size_in_GB> \
        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
@@ -172,7 +184,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        You can also generate a password using {{ connection-manager-name }}. To do this, adjust the command, setting the user parameters as follows:
 
        ```bash
-         --user name=<username>,generate-password=true
+         --user name=<user_name>,generate-password=true
        ```
 
        To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
@@ -223,13 +235,13 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   To create a {{ mmy-name }} cluster:
-  1. In the configuration file, describe the resources you want to create:
-     * DB cluster: Description of the cluster and its hosts
-     * Database: Cluster DB description
+  1. In the configuration file, describe the parameters of resources you want to create:
+     * DB cluster: description of the cluster and its hosts.
+     * Database: cluster DB description.
 
        {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-     * User: Cluster user description
+     * User: cluster user description.
 
      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -267,9 +279,9 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        name       = "<DB_name>"
      }
 
-     resource "yandex_mdb_mysql_user" "<username>" {
+     resource "yandex_mdb_mysql_user" "<user_name>" {
        cluster_id = "<cluster_ID>"
-       name       = "<username>"
+       name       = "<user_name>"
        password   = "<user_password>"
        permission {
          database_name = "<DB_name>"
@@ -365,7 +377,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
        For `sessions_sampling_interval` and `statements_sampling_interval`, possible values range from `1` to `86400` seconds.
 
-     For more information about the resources you can create with {{ TF }}, see the [{{ TF }} documentation]({{ tf-provider-mmy }}).
+     For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmy }}).
   1. Make sure the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
@@ -698,7 +710,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ MY }} cluster using the settings of another one created earlier. To do so, you need to import the configuration of the source {{ MY }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MY }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ MY }} cluster using the settings of another one created earlier. To do so, import the source {{ MY }} cluster’s configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MY }} cluster has a lot of settings and you need to create a similar one.
 
 To create an {{ MY }} cluster copy:
 
@@ -717,15 +729,15 @@ To create an {{ MY }} cluster copy:
         resource "yandex_mdb_mysql_cluster" "old" { }
         ```
 
-    1. Write the ID of the initial {{ MY }} cluster to the environment variable:
+    1. Write the initial {{ MY }} cluster’s ID to the environment variable:
 
         ```bash
         export MYSQL_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
+        You can get the ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
-    1. Import the settings of the initial {{ MY }} cluster into the {{ TF }} configuration:
+    1. Import the initial {{ MY }} cluster’s settings into the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_mysql_cluster.old ${MYSQL_CLUSTER_ID}
@@ -749,7 +761,7 @@ To create an {{ MY }} cluster copy:
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
     1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
@@ -875,7 +887,7 @@ To create an {{ MY }} cluster copy:
     name       = "db1"
   }
 
-  resource "yandex_mdb_mysql_user" "<username>" {
+  resource "yandex_mdb_mysql_user" "<user_name>" {
     cluster_id = yandex_mdb_mysql_cluster.my-mysql.id
     name       = "user1"
     password   = "user1user1"

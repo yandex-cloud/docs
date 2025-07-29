@@ -24,6 +24,8 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
@@ -92,13 +94,9 @@ Calculation for the storage cost and total cost:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
-Prices are net of VAT.
-
-
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Host computing resources {#prices-host}
+### Host compute resources {#prices-host}
 
 The prices for computing resources are the same for all types of hosts: mongod, mongos, and mongocfg.
 

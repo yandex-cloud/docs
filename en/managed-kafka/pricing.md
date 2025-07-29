@@ -99,6 +99,7 @@ This is an example of calculating the cost of using a cluster with the following
 {% include [usd-hour](../_pricing_examples/managed-kafka/usd-hour.md) %}
 
 
+
 ## Discount for committed volumes of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -110,6 +111,7 @@ This is an example of calculating the cost of using a cluster with the following
 CVoS discount is only available for certain types of resources. A dash in the relevant CVoS columns under [Prices for the Russia region](#prices) means the resource is not supported. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
+
 
 
 ## Prices for the Russia region {#prices}
@@ -224,6 +226,21 @@ For cost details, contact [technical support]({{ link-console-support }}).
 
 {% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-kraft-dedicated.md) %}
 
+
+
+
+
+### Computing resources for {{ kafka-ui }} {#prices-kafka-ui}
+
+{% note info %}
+
+The prices listed below will take effect on August 9, 2025.
+
+{% endnote %}
+
+
+
+{% include [USD: kafka-ui](../_pricing/managed-kafka/usd-kafka-ui.md) %}
 
 
 

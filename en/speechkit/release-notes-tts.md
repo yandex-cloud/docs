@@ -5,7 +5,7 @@
 For more information about voice models, see [About technology](tts/index.md#voices).
 
 
-## Release
+## Release as of 28/05/25 {#280525}
 
 Added a new option of creating a unique voice, {{ brand-voice-lite-name }}. For more information, see [{#T}](tts/brand-voice/index.md).
 

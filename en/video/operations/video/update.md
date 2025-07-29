@@ -7,13 +7,13 @@ description: Follow this guide to edit a video in {{ video-full-name }}.
 
 {% list tabs group=instructions %}
 
-- {{ video-name }} interface {#console}
+- {{ video-name }} UI {#console}
 
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
   1. On the ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** tab, in the row with the video you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_video.common.action_edit }}**.
   1. Edit the name of your video.
-  1. (Optional) Under **{{ ui-key.yacloud_video.videos.label_description }}**, specify the timecodes for your video in the following format:
+  1. Optionally, under **{{ ui-key.yacloud_video.videos.label_description }}**, specify the timecodes for your video in the following format:
    
      {% include [video-timecodes](../../../_includes/video/video-timecodes.md) %}
 
@@ -26,10 +26,11 @@ description: Follow this guide to edit a video in {{ video-full-name }}.
   1. To change the cover:
 
       1. If the video has a cover, hover over the cover preview and click ![image](../../../_assets/console-icons/circle-xmark.svg).
-      1. Click ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and select a new cover image.
+      1. Click ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and select a new thumbnail image.
 
           {% include [image-characteristic](../../../_includes/video/image-characteristic.md) %}
 
+  1. Enable or disable [summarization](../../concepts/videos.md#summarization).
   1. To edit [subtitles](../../concepts/videos.md#subtitles), delete and add them as needed:
 
       1. Click ![image](../../../_assets/console-icons/xmark.svg) to the right of the name of the subtitle file you want to update.
@@ -39,6 +40,15 @@ description: Follow this guide to edit a video in {{ video-full-name }}.
       1. Click **{{ ui-key.yacloud_video.common.action_create }}**.
 
           Wait for the file to upload.
+
+  1. To edit [neural translation](../../concepts/videos.md#translation), delete the old languages and add the new ones:
+      
+      1. Under **{{ ui-key.yacloud_video.videos.label_neuro-translation }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of neural translation language.
+      1. Click ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_video.common.action_delete }}**.
+      1. Click **{{ ui-key.yacloud_video.common.action_add }}**.
+      1. In the window that opens, select the language of the video.
+      1. Select languages for translation. 
+      1. Click **{{ ui-key.yacloud_video.common.action_create }}**.
 
   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 

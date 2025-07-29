@@ -62,6 +62,7 @@ After solving the problem, depending on the status of the transfer, activate it 
 
 {% include [unknown-user](../../_includes/data-transfer/troubles/unknown-user.md) %}
 
+
 ### Decrease in transfer speed {#speed-degrade}
 
 **Issue**:

@@ -1,12 +1,12 @@
 # Compatibility with {{ openai }}
 
-{{ foundation-models-name }} API is partially compatible with the {{ openai }} API. You can quickly adapt your applications designed to work with {{ openai }} by changing a few parameters in the query.
+The {{ foundation-models-name }} API is partially compatible with the {{ openai }} API. You can quickly adapt your applications designed to work with {{ openai }} by changing a few parameters in the query.
 
 Use the [{{ ml-sdk-full-name }}](../sdk/index.md) API and library to access all {{ foundation-models-name }} features.
 
 ## Configuring {{ openai }} to work with {{ foundation-models-name }} {#before-begin}
 
-To use the {{ foundation-models-name }} [text generation models](./yandexgpt/models.md) in {{ openai }} libraries, change the basic endpoint and specify the [API key](../operations/get-api-key.md).
+To use [text generation models](./yandexgpt/models.md) from {{ foundation-models-name }} in {{ openai }} libraries, change the basic endpoint and specify the [API key](../operations/get-api-key.md).
 
 {% list tabs group=programming_language %}
 
@@ -94,21 +94,21 @@ In {{ openai }}-compatible mode, API supports the following parameters: `tempera
     json_schema = {
         "type": "object",
         "properties": {
-            "name": {"type": "string"},
-            "size": {"type": "integer"},
+            "skyscraper_name": {"type": "string", "description": "Skyscraper name."},
+            "skyscraper_height": {"type": "integer", "description": "Skyscraper height in meters."},
         },
-        "required": ["name", "size"]
+        "required": ["skyscraper_name", "skyscraper_height"]
     }
 
     response = client.chat.completions.create(
         model=f"gpt://{YANDEX_CLOUD_FOLDER}/yandexgpt/rc",
         messages=[
-            {"role": "user", "content": "Name: sofa, size: 150 centimeters"}
+            {"role": "user", "content": "Shanghai Tower (Shanghai, China): 632 meters, 127 floors."}
         ],
         max_tokens=200,
         temperature=0.3,
         stream=False,
-        response_format={"type": "json_schema", "json_schema": {"schema": json_schema, "name": "divan"}}
+        response_format={"type": "json_schema", "json_schema": json_schema}
     )
     print(response)
     ```
@@ -159,7 +159,7 @@ In {{ openai }}-compatible mode, API supports the following parameters: `tempera
 
 ### Function calling {#function-call}
 
-Before running the example, specify folder ID and {{ yandex-cloud }} [API key](../operations/get-api-key.md). The `tool_choice` parameter with `auto` and `none` values is supported.
+Before running the example, specify the folder ID and {{ yandex-cloud }} [API key](../operations/get-api-key.md). The `tool_choice` parameter with `auto` and `none` values is supported.
 
 {% list tabs group=programming_language %}
 
@@ -188,13 +188,13 @@ Before running the example, specify folder ID and {{ yandex-cloud }} [API key](.
   def run_conversation(user_input):
       selected_model = f"gpt://{YANDEX_CLOUD_FOLDER}/yandexgpt/rc"
 
-      # Function definition
+      # Defining functions
       tools = [
           {
               "type": "function",
               "function": {
                   "name": "get_weather",
-                  "description": "Retrieving current weather for the specified location",
+                  "description": "Getting current weather for the specified location",
                   "parameters": {
                       "type": "object",
                       "properties": {
@@ -244,7 +244,7 @@ Before running the example, specify folder ID and {{ yandex-cloud }} [API key](.
       message = response.choices[0].message
       print(message)
 
-      # Invoking model-requested functions
+      # Calling model-requested functions
       if message.tool_calls:
           # Array of messages to send execution results
           new_messages = [
@@ -252,7 +252,7 @@ Before running the example, specify folder ID and {{ yandex-cloud }} [API key](.
               message
           ]
 
-          # Populating the result for each invoked function
+          # Populating the result for each function call
           for tool_call in message.tool_calls:
 
               function_name = tool_call.function.name
@@ -280,10 +280,10 @@ Before running the example, specify folder ID and {{ yandex-cloud }} [API key](.
               tools=tools
           )
 
-          # Model response based on function invocation
+          # Model response with information from function calls
           return second_response.choices[0].message.content
 
-      # Functions were not invoked, returning the original response
+      # No functions were called, returning the original response
       return message.content
 
 
@@ -315,9 +315,9 @@ Supported embeddings for single strings with the `encoding_format` parameter set
       base_url="https://{{ api-host-llm }}/v1"
   )
 
-  # Method for getting arbitrary embedding
+  # Method for getting a random embedding
   def get_embedding(text, model):
-      # Removing extra line breaks
+      # Removing excessive line breaks
       fixed_text = get_trimmed_text(text)
       return (
           (
@@ -349,15 +349,15 @@ Supported embeddings for single strings with the `encoding_format` parameter set
       return ' '.join(text.split())
 
   def main():
-      # Document for searching as an array of texts
+      # Document for search as an array of texts
       doc_texts = [
           """Alexander Sergeyevich Pushkin (May 26 [June 6], 1799, Moscow – January 29 [February 10], 1837, St. Petersburg)
           was a Russian poet, playwright, and novelist, the progenitor of Russian realism,
           a literary critic and theorist, historian, essay writer, and journalist.""",
           """Pushkin repeatedly wrote about his ancestry in poems and prose, seeing in his ancestors an example of true
-          'aristocracy', an ancient lineage that faithfully served the fatherland yet never gained rulers' favor and was
-          'persecuted'. He repeatedly addressed (including through literary forms) the image of his maternal great-grandfather:
-          African Abraham Petrovich Gannibal, who became a servant and ward of Peter I, later a military engineer and
+          aristocracy, an ancient lineage that faithfully served the fatherland yet never gained rulers' favor and was
+          persecuted. He often referred to, also through literary forms, the image of his maternal great-grandfather
+          of African origin, Abraham Petrovich Gannibal, who became a servant and ward of Peter I, later a military engineer and
           general""",
       ]
 
@@ -372,7 +372,7 @@ Supported embeddings for single strings with the `encoding_format` parameter set
       cosine_distance = cdist([query_embedding], doc_embedding, metric="cosine")
       # Calculating similarity
       cosine_similarity = 1 - cosine_distance
-      # Calculating the index of the most matching text
+      # Calculating the index of the most relevant text
       argmax = np.argmax(cosine_similarity)
       # Getting text by index
       result = doc_texts[argmax]

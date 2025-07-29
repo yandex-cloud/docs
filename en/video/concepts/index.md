@@ -18,7 +18,7 @@ You can also monetize your video content using the [Yandex Advertising Network](
 
 To learn more about advertising, see [{#T}](../operations/channels/settings.md).
 
-Also, in {{ video-name }}, you can use Yandex tools for summarization, neural machine translation, and subtitle generation.
+Also, in {{ video-name }}, you can use Yandex tools for summarization, neural translation, and subtitle generation.
 
 ## Channels {#channels}
 

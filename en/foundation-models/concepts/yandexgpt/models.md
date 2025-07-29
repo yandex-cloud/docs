@@ -21,7 +21,7 @@ All basic models are subject to the update rules described in [Model lifecycle](
 || **{{ llama }} 8B**^2^ </br>`gpt://<folder_ID>/llama-lite` | Deprecated 3.1</br>Latest 3.1</br>RC 3.1 | 8,192 | Asynchronous, synchronous ||
 || **{{ llama }} 70B**^2^ </br>`gpt://<folder_ID>/llama` | Deprecated 3.3</br>Latest 3.3</br>RC 3.3 | 8,192 | Asynchronous, synchronous ||
 || **Qwen3 235B** </br>`gpt://<folder ID>/qwen3-235b-a22b-fp8/latest` | — | 128 000 | [{{ openai }} API](../openai-compatibility.md) only ||
-|| [**Fine-tuned models**](../tuning/index.md) </br>`gpt://<basic_model_URI>/<version>@<tuning_suffix>` | Depends on the basic model | Depends on the basic model | Asynchronous, synchronous ||
+|| [**Fine-tuned models**](../tuning/index.md) </br>`gpt://<folder_ID>/<basic_model>/<version>@<suffix>` | Depends on the basic model | Depends on the basic model | Asynchronous, synchronous ||
 |#
 
 ^1^ {{ gpt-pro }} 32k features a larger context window compared to the 4th generation {{ gpt-pro }}. This model was designed specifically to process large texts in synchronous mode. The 5th generation {{ gpt-pro }} models have the same context windows size in synchronous and asynchronous mode. We recommend using them instead of {{ gpt-pro }} 32k, which is getting obsolete. 

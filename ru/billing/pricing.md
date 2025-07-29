@@ -89,7 +89,6 @@ editable: false
 * [{{ speechsense-full-name }}](../speechsense/pricing.md)
     * [Анализ аудиозаписей диалогов](../speechsense/pricing.md#speech)
     * [Анализ текстовых диалогов](../speechsense/pricing.md#text)
-* [{{ tracker-full-name }}]({{ link-tracker-cloudless }})
 * [{{ translate-full-name }}](../translate/pricing.md)
 * [{{ vpc-full-name }}](../vpc/pricing.md)
 * [{{ vision-full-name }}](../vision/pricing.md)
@@ -106,7 +105,6 @@ editable: false
 * {{ preview-stage }} [{{ quota-manager-full-name }}](../quota-manager/pricing.md)
 * {{ preview-stage }} [{{ video-full-name }}](../video/pricing.md)
 * {{ preview-stage }} [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/pricing)
-* [{{ forms-full-name }}]({{ link-forms-cloudless }})
 * [{{ iam-full-name }}](../iam/pricing.md)
 * {{ preview-stage }} [{{ msp-full-name }}](../managed-spark/pricing.md)
 * {{ preview-stage }} [{{ metadata-hub-full-name }}](../metadata-hub/pricing.md)
@@ -114,6 +112,5 @@ editable: false
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
 * {{ preview-stage }} [{{ si-full-name }}](../serverless-integrations/pricing.md)
 * [{{ websql-full-name }}](../websql/pricing.md)
-* [{{ wiki-full-name }}]({{ link-wiki-cloudless }})
 
  Тегом {{ preview-stage }} отмечены сервисы на стадии [Preview](../overview/concepts/launch-stages.md). 

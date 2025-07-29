@@ -54,7 +54,7 @@ For more information about creating a backup manually, see [Managing backups](..
 
 ## Storing backups {#storage}
 
-* Backups of [local](storage.md) and [network](storage.md) storage devices are stored in a separate {{ objstorage-name }} bucket and take up no space in the cluster storage. If there are N GB of free space in the cluster, the first N GB of backups are stored free of charge.
+* Backups of [local and network storages](storage.md) reside in a separate {{ objstorage-name }} bucket and take up no space in the cluster storage. If there are N GB of free space in the cluster, the first N GB of backups are stored free of charge.
 
 * Backups of cold data from [hybrid storage](storage.md#hybrid-storage-features) are stored in the same {{ objstorage-name }} bucket as the regular data. The cost of using {{ objstorage-name }} considers both the space used by the backups and the space used by the data itself.
 

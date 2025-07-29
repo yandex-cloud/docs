@@ -1,0 +1,1 @@
+`--kafka-ui-enabled` — использование [веб-интерфейса {{ kafka-ui }} для {{ KF }}](../../../managed-kafka/concepts/kafka-ui.md): `true` или `false`.

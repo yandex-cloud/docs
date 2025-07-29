@@ -36,6 +36,10 @@ items:
             href: operations/video/add-thumbnail.md
           - name: Managing subtitles
             href: operations/video/subtitles.md
+          - name: Managing neural translation
+            href: operations/video/translation.md
+          - name: Managing summarization
+            href: operations/video/summarization.md
           - name: Downloading a video
             href: operations/video/download.md
           - name: Publishing a video

@@ -259,6 +259,7 @@ default:
   k8s-versions-regular: 1.29, 1.30, 1.31, 1.32
   k8s-versions-stable: 1.29, 1.30, 1.31, 1.32
   k8s-vpa: Vertical Pod Autoscaler
+  kafka-ui: Kafka UI
   keycloak: Keycloak
   KF: Apache Kafka®
   kf:
@@ -2374,6 +2375,18 @@ default:
                   v2|string: "7,7112\_₸"
                   v3|month|string: "4\_990,2480\_₸"
                   v3|string: "6,9309\_₸"
+              kraft:
+                cpu:
+                  c100:
+                    v2|month|string: "5\_878,80\_₸"
+                    v2|string: "8,1650\_₸"
+                    v3|month|string: "5\_283,72\_₸"
+                    v3|string: "7,3385\_₸"
+                ram:
+                  v2|month|string: "1\_574,64\_₸"
+                  v2|string: "2,1870\_₸"
+                  v3|month|string: "1\_400,04\_₸"
+                  v3|string: "1,9445\_₸"
               ram:
                 v2|month|string: "1\_487,16\_₸"
                 v2|string: "2,0655\_₸"
@@ -2471,6 +2484,18 @@ default:
                   v2|string: "7,0762\_₸"
                   v3|month|string: "4\_579,2864\_₸"
                   v3|string: "6,3601\_₸"
+              kraft:
+                cpu:
+                  c100:
+                    v2|month|string: "5\_551,92\_₸"
+                    v2|string: "7,7110\_₸"
+                    v3|month|string: "4\_990,32\_₸"
+                    v3|string: "6,9310\_₸"
+                ram:
+                  v2|month|string: "1\_487,16\_₸"
+                  v2|string: "2,0655\_₸"
+                  v3|month|string: "1\_321,56\_₸"
+                  v3|string: "1,8355\_₸"
               ram:
                 v2|month|string: "1\_364,6880\_₸"
                 v2|string: "1,8954\_₸"
@@ -4089,6 +4114,18 @@ default:
                   v2|string: "1,5422\_₽"
                   v3|month|string: "998,0496\_₽"
                   v3|string: "1,3862\_₽"
+              kraft:
+                cpu:
+                  c100:
+                    v2|month|string: "1\_175,76\_₽"
+                    v2|string: "1,6330\_₽"
+                    v3|month|string: "1\_056,7440\_₽"
+                    v3|string: "1,4677\_₽"
+                ram:
+                  v2|month|string: "314,9280\_₽"
+                  v2|string: "0,4374\_₽"
+                  v3|month|string: "280,0080\_₽"
+                  v3|string: "0,3889\_₽"
               ram:
                 v2|month|string: "297,4320\_₽"
                 v2|string: "0,4131\_₽"
@@ -4186,6 +4223,18 @@ default:
                   v2|string: "1,4152\_₽"
                   v3|month|string: "915,8573\_₽"
                   v3|string: "1,2720\_₽"
+              kraft:
+                cpu:
+                  c100:
+                    v2|month|string: "1\_110,3840\_₽"
+                    v2|string: "1,5422\_₽"
+                    v3|month|string: "998,0640\_₽"
+                    v3|string: "1,3862\_₽"
+                ram:
+                  v2|month|string: "297,4320\_₽"
+                  v2|string: "0,4131\_₽"
+                  v3|month|string: "264,3120\_₽"
+                  v3|string: "0,3671\_₽"
               ram:
                 v2|month|string: "272,9376\_₽"
                 v2|string: "0,3791\_₽"
@@ -5783,6 +5832,18 @@ default:
                   v2|string: "0,012852\_$"
                   v3|month|string: "8,317076\_$"
                   v3|string: "0,011551\_$"
+              kraft:
+                cpu:
+                  c100:
+                    v2|month|string: "9,797996\_$"
+                    v2|string: "0,013608\_$"
+                    v3|month|string: "8,806196\_$"
+                    v3|string: "0,012231\_$"
+                ram:
+                  v2|month|string: "2,624399\_$"
+                  v2|string: "0,003645\_$"
+                  v3|month|string: "2,333399\_$"
+                  v3|string: "0,003241\_$"
               ram:
                 v2|month|string: "2,478599\_$"
                 v2|string: "0,003442\_$"
@@ -5880,6 +5941,18 @@ default:
                   v2|string: "0,011794\_$"
                   v3|month|string: "7,632141\_$"
                   v3|string: "0,010600\_$"
+              kraft:
+                cpu:
+                  c100:
+                    v2|month|string: "9,253197\_$"
+                    v2|string: "0,012852\_$"
+                    v3|month|string: "8,317197\_$"
+                    v3|string: "0,011552\_$"
+                ram:
+                  v2|month|string: "2,478599\_$"
+                  v2|string: "0,003442\_$"
+                  v3|month|string: "2,202599\_$"
+                  v3|string: "0,003059\_$"
               ram:
                 v2|month|string: "2,274479\_$"
                 v2|string: "0,003159\_$"
@@ -8816,6 +8889,7 @@ default:
         field_connector-secret-access-key: Секретный ключ
         field_connector-security-protocol: Протокол безопасности
         field_connector-ssl-truststore-certificates: Сертификат в формате PEM
+        field_kafka-ui: Kafka UI
         field_kraft-combined-mode: Комбинированный режим
         field_rest-api-config: Kafka Rest API
         field_schema-registry: Реестр схем данных
@@ -9328,7 +9402,6 @@ default:
           section_subclusters: Подкластеры
           section_user: Пользователь
           section_zookeeper-disk: Размер хранилища ZooKeeper
-          section_zookeeper-hosts: Хосты ZooKeeper
           section_zookeeper-resource: Класс хоста ZooKeeper
           title_pip-packages: Pip-пакеты
           value_maintenance-type-anytime: произвольное

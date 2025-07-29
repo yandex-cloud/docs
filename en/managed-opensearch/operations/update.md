@@ -40,7 +40,7 @@ For more information about setting up a service account, see [Configuring access
 
     To change a service account linked to a {{ mos-name }} cluster:
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the account you need from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up a service account, see [Configuring access to {{ objstorage-name }}](s3-access.md).
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -175,9 +175,12 @@ For more information about setting up a service account, see [Configuring access
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. In the **{{ ui-key.yacloud.mdb.forms.database_field_admin-password }}** field, enter a new password.
+
+        {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -194,6 +197,8 @@ For more information about setting up a service account, see [Configuring access
         {{ yc-mdb-os }} cluster update <cluster_name_or_ID> \
            --admin-password <new_password>
         ```
+
+        {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
 
     * Generating a password automatically. The generated password will be output to the console.
 
@@ -220,6 +225,8 @@ For more information about setting up a service account, see [Configuring access
             }
         }
         ```
+
+        {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
 
     1. Make sure the settings are correct.
 
@@ -260,6 +267,8 @@ For more information about setting up a service account, see [Configuring access
             Only one parameter is provided in this case.
 
         * `configSpec.adminPassword`: New password for the `admin` user.
+
+            {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -306,6 +315,8 @@ For more information about setting up a service account, see [Configuring access
 
         * `config_spec.admin_password`: New password for the `admin` user.
 
+            {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
@@ -335,9 +346,9 @@ For more information about setting up a service account, see [Configuring access
 
     Command settings:
 
-    * `--max-clause-count`: Maximum allowed number of boolean clauses per query. For more information, see the relevant [{{ OS }}]({{ os.docs }}/query-dsl/compound/bool/) documentation.
-    * `--fielddata-cache-size`: JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the relevant [{{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings) documentation.
-    * `--reindex-remote-whitelist`: List of remote hosts whose indexes contain documents to copy for reindexing. Specify the parameter value in `<host_address>:<port>` format. If you need to specify more than one host, list values separated by commas. For more information, see the relevant [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
+    * `--max-clause-count`: Maximum allowed number of boolean clauses per query. For more information, see [this {{ OS }} article]({{ os.docs }}/query-dsl/compound/bool/).
+    * `--fielddata-cache-size`: JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see [this {{ OS }} article]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
+    * `--reindex-remote-whitelist`: List of remote hosts whose indexes contain documents to copy for reindexing. Specify the parameter value in `<host_address>:<port>` format. If you need to specify more than one host, list values separated by commas. For more information, see [this {{ OS }} article]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
 - REST API {#api}
 
@@ -374,11 +385,11 @@ For more information about setting up a service account, see [Configuring access
         * `updateMask`: List of parameters to update as a single string, separated by commas.
         * `configSpec.opensearchSpec.opensearchConfig_2`: {{ OS }} settings:
 
-            * `maxClauseCount`: New maximum allowed number of boolean clauses. For more information, see the relevant [{{ OS }}]({{ os.docs }}/query-dsl/compound/bool/) documentation.
+            * `maxClauseCount`: New maximum allowed number of boolean clauses. For more information, see [this {{ OS }} article]({{ os.docs }}/query-dsl/compound/bool/).
 
-            * `fielddataCacheSize`: New JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the relevant [{{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/) documentation.
+            * `fielddataCacheSize`: New JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see [this {{ OS }} article]({{ os.docs }}/install-and-configure/configuring-opensearch/).
 
-            * `reindexRemoteWhitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify [host FQDN](connect.md#fqdn) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see the relevant [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
+            * `reindexRemoteWhitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify [host FQDN](connect.md#fqdn) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see [this {{ OS }} article]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -433,11 +444,11 @@ For more information about setting up a service account, see [Configuring access
 
         * `config_spec.opensearch_spec.opensearch_config_2`: {{ OS }} settings:
 
-            * `max_clause_count`: New maximum allowed number of boolean clauses. For more information, see the relevant [{{ OS }}]({{ os.docs }}/query-dsl/compound/bool/) documentation.
+            * `max_clause_count`: New maximum allowed number of boolean clauses. For more information, see [this {{ OS }} article]({{ os.docs }}/query-dsl/compound/bool/).
 
-            * `fielddata_cache_size`: New JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the relevant [{{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/) documentation.
+            * `fielddata_cache_size`: New JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see [this {{ OS }} article]({{ os.docs }}/install-and-configure/configuring-opensearch/).
 
-            * `reindex_remote_whitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify [host FQDN](connect.md#fqdn) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see the relevant [{{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster) documentation.
+            * `reindex_remote_whitelist`: New list of remote hosts whose indexes contain documents to copy for reindexing. Specify [host FQDN](connect.md#fqdn) and port 9200, separated by a colon. To specify multiple hosts, list them separated by commas after the port. For more information, see [this {{ OS }} article]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -451,7 +462,7 @@ For more information about setting up a service account, see [Configuring access
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Change additional cluster settings:
 
@@ -692,7 +703,7 @@ After you assign other [security groups](../concepts/network.md#security-groups)
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Select a cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for cluster network traffic.
     1. Click **{{ ui-key.yacloud.common.save }}**.

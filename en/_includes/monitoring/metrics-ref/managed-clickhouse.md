@@ -1,4 +1,4 @@
-The `name` label stores the metric name.
+The metric name goes into the `name` label.
 
 Labels shared by all {{ mch-name }} metrics: 
 
@@ -577,7 +577,7 @@ For each metric, the increment per unit of time (second) is calculated.
 | `ch_system_async_metrics_NumberOfTablesSystem`<br/>`DGAUGE`, count | Total system database tables stored as MergeTree tables on the server |
 | `ch_system_async_metrics_ReplicasMaxAbsoluteDelay`<br/>`DGAUGE`, seconds | Maximum replication delay | 
 | `ch_system_async_metrics_ReplicasMaxInsertsInQueue`<br/>`DGAUGE`, count | Maximum number of queued `INSERT` operations (to replicate) in replicated tables | 
-| `ch_system_async_metrics_ReplicasMaxMergesInQueue`<br/>`DGAUGE`, count | Maximum number of queued merge operations (to apply) for replicated tables | 
+| `ch_system_async_metrics_ReplicasMaxMergesInQueue`<br/>`DGAUGE`, count | Maximum number of queued `MERGE` operations (to apply) for replicated tables | 
 | `ch_system_async_metrics_ReplicasMaxQueueSize`<br/>`DGAUGE`, count | Maximum replication queue size |
 | `ch_system_async_metrics_ReplicasMaxRelativeDelay`<br/>`DGAUGE`, seconds | Maximum lag difference between a replica and the most delayed replica of the same table across replicated tables | 
 | `ch_system_async_metrics_ReplicasSumInsertsInQueue`<br/>`DGAUGE`, count | Total queued `INSERT` operations (to replicate) across replicated tables | 
@@ -594,6 +594,6 @@ For each metric, the increment per unit of time (second) is calculated.
 ## Other metrics {#managed-clickhouse-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>It can be either `1` if a cluster is available for reads or `0` if it is not. | 
-| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>It can be either `1` if a cluster is available for writes or `0` if it is not. | 
-| `is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. |
+| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>It can be either `1` if a service on the host is available for reads or `0` if it is not. |
+| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>It can be either `1` if a service on the host is available for writes or `0` if it is not. |
+| `is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is alive or `0` if it is not. |

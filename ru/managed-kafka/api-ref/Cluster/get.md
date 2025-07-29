@@ -140,6 +140,9 @@ To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/
         "diskSize": "string",
         "diskTypeId": "string"
       }
+    },
+    "kafkaUiConfig": {
+      "enabled": "boolean"
     }
   },
   "networkId": "string",
@@ -164,6 +167,9 @@ To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/
   "plannedOperation": {
     "info": "string",
     "delayedUntil": "string"
+  },
+  "kafkaUi": {
+    "url": "string"
   }
 }
 ```
@@ -254,6 +260,9 @@ Window of maintenance operations. ||
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.kafka.v1.MaintenanceOperation)**
 
 Scheduled maintenance operation. ||
+|| kafkaUi | **[KafkaUI](#yandex.cloud.mdb.kafka.v1.Cluster.KafkaUI)**
+
+KafkaUI state. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.kafka.v1.Monitoring}
@@ -315,6 +324,9 @@ DiskSizeAutoscaling settings ||
 || kraft | **[KRaft](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft)**
 
 Configuration and resource allocation for KRaft-controller hosts. ||
+|| kafkaUiConfig | **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)**
+
+Configuration of Kafka UI. ||
 |#
 
 ## Kafka {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka}
@@ -414,7 +426,8 @@ This is the global cluster-level setting that can be overridden on a topic level
 
 Should pre allocate file when create new segment?
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
+Deprecated. Feature useless for Yandex Cloud. ||
 || socketSendBufferBytes | **string** (int64)
 
 The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
@@ -513,7 +526,8 @@ This is the global cluster-level setting that can be overridden on a topic level
 
 Should pre allocate file when create new segment?
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
+Deprecated. Feature useless for Yandex Cloud. ||
 || socketSendBufferBytes | **string** (int64)
 
 The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
@@ -601,6 +615,15 @@ New storage size (in bytes) that is set when one of the thresholds is achieved. 
 Resources allocated to KRaft controller hosts. ||
 |#
 
+## KafkaUIConfig {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Is Kafka UI enabled for this cluster. ||
+|#
+
 ## MaintenanceWindow {#yandex.cloud.mdb.kafka.v1.MaintenanceWindow}
 
 #|
@@ -645,4 +668,13 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#
+
+## KafkaUI {#yandex.cloud.mdb.kafka.v1.Cluster.KafkaUI}
+
+#|
+||Field | Description ||
+|| url | **string**
+
+URL for connection to kafka ui ||
 |#

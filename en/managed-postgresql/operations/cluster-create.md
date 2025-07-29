@@ -57,7 +57,9 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      * Select the storage size to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
      
-     * Optionally, select the **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** option to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md). 
+     * Optionally, select the **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** option to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
+
+       {% include [preview-note](../../_includes/note-preview-by-request.md) %}
 
        * To [create](../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 
@@ -180,7 +182,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
                 `subnet-id=<subnet_ID>,`
                 `assign-public-ip=<access_to_host_from_internet> \
        --resource-preset <host_class> \
-       --user name=<username>,password=<user_password> \
+       --user name=<user_name>,password=<user_password> \
        --database name=<DB_name>,owner=<database_owner_name> \
        --disk-size <storage_size_in_GB> \
        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
@@ -223,7 +225,7 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
      You can also generate a password using {{ connection-manager-name }}. To do this, adjust the command, setting the user parameters as follows:
      
      ```bash
-       --user name=<username>,generate-password=true
+       --user name=<user_name>,generate-password=true
      ```
 
      To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
@@ -302,13 +304,13 @@ To create a {{ mpg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        name       = "<DB_name>"
        owner      = "<database_owner_name>"
        depends_on = [
-         yandex_mdb_postgresql_user.<username>
+         yandex_mdb_postgresql_user.<user_name>
        ]
      }
 
-     resource "yandex_mdb_postgresql_user" "<username>" {
+     resource "yandex_mdb_postgresql_user" "<user_name>" {
        cluster_id = "<cluster_ID>"
-       name       = "<username>"
+       name       = "<user_name>"
        password   = "<user_password>"
      }
 

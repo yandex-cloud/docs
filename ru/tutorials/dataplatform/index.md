@@ -7,7 +7,6 @@ description: На странице представлен список прак�
 
 ## {{ KF }} {#kafka}
 
-* [{#T}](deploy-kafka-ui.md)
 * [{#T}](kafka-connector.md)
 * [{#T}](data-transfer-mkf.md)
 * [{#T}](data-transfer-mmy.md)

@@ -61,3 +61,4 @@ You can send an email using the AWS SDK for .NET Core, Go, JavaScript, and Pytho
 
 * [{#T}](../../postbox/tutorials/send-emails-aws-sdk-csharp.md)
 * [{#T}](../../postbox/tutorials/send-emails-aws-sdk-go.md)
+* [{#T}](../../postbox/tutorials/send-emails-aws-sdk-js.md)

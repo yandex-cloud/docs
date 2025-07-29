@@ -261,6 +261,7 @@ items:
         href: release-notes-tts.md
       - name: Release archive
         href: release-notes.md
+        hidden: true
   - name: Troubleshooting
     items:
       - name: Error codes

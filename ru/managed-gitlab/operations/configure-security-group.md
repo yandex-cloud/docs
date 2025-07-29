@@ -18,6 +18,7 @@ description: Из статьи вы узнаете про настройку г�
 
 {% endnote %}
 
+Чтобы настроить группу безопасности инстанса {{ mgl-name }}:
 1. [Добавьте](../../vpc/operations/security-group-add-rule.md) в имеющуюся группу безопасности правила для [входящего](#ingress-rules) и [исходящего](#egress-rules) трафика или [создайте](../../vpc/operations/security-group-create.md) новую группу с указанными правилами.
 1. Примените группу безопасности к инстансу {{ GL }} при [создании](instance/instance-create.md) или [изменении](instance/instance-update.md).
 
@@ -54,7 +55,7 @@ description: Из статьи вы узнаете про настройку г�
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — `0.0.0.0/0`.
 ||
-|| Для создания резервных копий инстанса |
+|| Для создания резервных копий инстанса. |
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `{{ port-https }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
@@ -77,19 +78,17 @@ description: Из статьи вы узнаете про настройку г�
 
 ## Правила для исходящего трафика {#egress-rules}
 
-{{ mgl-name }} использует для работы внешние ресурсы. Если в группе безопасности инстанса вы ограничили исходящий трафик, инстанс может работать некорректно. Чтобы избежать этого, добавьте в группу безопасности одно из приведенных в таблице правил. Они нужны для создания [резервных копий](../concepts/backup.md) и хранения пользовательских объектов в {{ objstorage-full-name }}.
-
-Выбор правила зависит от сертификата, который вы используете: Let's Encrypt (по умолчанию) или самоподписанный.
+{{ mgl-name }} использует для работы внешние ресурсы. Если в группе безопасности инстанса вы ограничили исходящий трафик, инстанс может работать некорректно. Чтобы избежать этого, добавьте в группу безопасности следующие правила:
 
 #|
 || **Зачем нужно правило** | **Настройки правила** ||
-|| Для использования сертификата Let's Encrypt |
+|| Для использования сертификата Let's Encrypt. |
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `{{ port-https }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — `0.0.0.0/0`.
 ||
-|| Для создания резервных копий инстанса |
+|| Для создания резервных копий инстанса. |
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `{{ port-https }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
@@ -114,5 +113,11 @@ description: Из статьи вы узнаете про настройку г�
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_udp }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — `0.0.0.0/0`.
+||
+|| Для доступа к воркерам под управлением раннера, [созданного с помощью консоли управления](../tutorials/install-gitlab-runner.md#create-runner). |
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} — `22`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} — `{{ ui-key.yacloud.common.label_tcp }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} — CIDR подсети, в которой находится инстанс {{ mgl-name }} (воркеры создаются в ней же). Например `10.128.0.0/24`.
 ||
 |#

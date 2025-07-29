@@ -25,3 +25,7 @@ Yes, you can. To do this, [restore the cluster from a backup](../../managed-post
 #### Can I manage a cluster using SQL commands? {#sql-control}
 
 There are some restrictions for cluster management using SQL commands. For more information, see [{#T}](../../managed-postgresql/concepts/sql-limits.md).
+
+#### Can I create a database using SQL commands? {#create-db-sql}
+
+No, you cannot create a database using SQL commands. In a {{ mpg-name }} cluster, you can create databases only using {{ yandex-cloud }} interfaces.

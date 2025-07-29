@@ -8,7 +8,9 @@
 
 * [Why do I get an error when connecting to a custom database?](#database-error)
 
-* [Why do I get an error when connecting to the `postgres` database?](#database-postgres-error)
+* [Why do I get an error when creating a dump with pg_dumpall?](#dump-error)
+
+* [Why do I get an error when connecting to a postgres database?](#database-postgres-error)
 
 * [Why does the connection terminate with `terminating connection due to administrator command`?](#connection-error)
 
@@ -23,6 +25,8 @@
 * [What should I do if I get the `replication slot already exists` error when performing logical replication?](#repl-slot-exists)
 
 * [Why do I get an `extension... is not available` error when migrating my DB to {{ mpg-short-name }}](#extension-is-not-available)?
+
+* [Why do I get the `must be owner of extension` error when deploying a logical dump?](#owner-of-extension)
 
 * [Why do I get an error when setting up cascading replication?](#cascade-errors)
 

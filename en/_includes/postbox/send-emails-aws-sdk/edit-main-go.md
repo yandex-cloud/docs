@@ -1,7 +1,7 @@
-Fill out the `Sender` and `Recipient` fields in the `main.go` file:
+In the `main.go` file, specify the following:
 
-* `Sender`: Sender's email address.
+* Sender's email address in the `Sender` field.
 
     {% include [sender-domain](sender-domain.md) %}
 
-* `Recipient`: Recipient's email address, e.g., `receiver@domain.com`. You will need access to this email address for the next step.
+* Recipient's email address in the `Recipient` field, e.g., `receiver@domain.com`. You will need access to this email address for the next step.

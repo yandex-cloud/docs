@@ -132,6 +132,7 @@
 
 {% endlist %}
 
+For security profile configuration guidelines, see [{#T}](tutorials/sws-basic-protection.md).
 
 ### Check your security profile settings {#profile-check}
 

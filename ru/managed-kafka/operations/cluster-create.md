@@ -168,6 +168,7 @@
         --assign-public-ip <публичный_доступ> \
         --security-group-ids <список_идентификаторов_групп_безопасности> \
         --deletion-protection
+        --kafka-ui-enabled <true_или_false>
      ```
 
 
@@ -195,6 +196,8 @@
      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         Включенная защита кластера от удаления не помешает удалить пользователя или топик, а также подключиться вручную и удалить данные.
+    
+     * {% include [kafka-ui-enabled](../../_includes/mdb/cli/kafka-ui-enabled.md) %}
 
      {% note tip %}
 
@@ -281,6 +284,9 @@
          brokers_count    = <количество_хостов-брокеров>
          assign_public_ip = "<публичный_доступ>"
          schema_registry  = "<управление_схемами_данных>"
+         kafka_ui {
+           enabled = <true_или_false>
+         }
          kafka {
            resources {
              disk_size          = <размер_хранилища_ГБ>
@@ -325,6 +331,8 @@
      * `schema_registry` — управление схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md): `true` или `false`. Значение по умолчанию — `false`.
 
        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
+      
+     * `kafka_ui` — использование [веб-интерфейса {{ kafka-ui }} для {{ KF }}](../concepts/kafka-ui.md): `true` или `false`. Значение по умолчанию — `false`.
 
      {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
@@ -405,6 +413,9 @@
                 "diskSizeAutoscaling": {
                   <параметры_автоматического_увеличения_размера_хранилища>
                 },
+                "kafkaUiConfig": {
+                  "enabled": <использование_веб-интерфейса_{{ kafka-ui }}:_true_или_false>
+                }
               },
               "topicSpecs": [
                 {
@@ -483,6 +494,8 @@
                 * `diskSizeAutoscaling` – [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища (в процентах от общего объема хранилища), при достижении которых его размер будет увеличиваться:
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
+
+                * `kafkaUiConfig` — использование [веб-интерфейса {{ kafka-ui }}](../concepts/kafka-ui.md). Для доступа к веб-интерфейсу {{ kafka-ui }} укажите `enabled: true`.
 
             * `topicSpecs` — настройки топиков в виде массива элементов. Каждый элемент соответствует отдельному топику и имеет следующую структуру:
 
@@ -593,6 +606,9 @@
                 "disk_size_autoscaling": {
                   <параметры_автоматического_увеличения_размера_хранилища>
                 },
+                "kafka_ui_config": {
+                  "enabled": <использование_веб-интерфейса_{{ kafka-ui }}:_true_или_false>
+                }
               },
               "topic_specs": [
                 {
@@ -675,6 +691,8 @@
                 * `disk_size_autoscaling` – чтобы в кластере не заканчивалось место на диске, укажите [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища (в процентах от общего объема хранилища), при достижении которых его размер будет увеличиваться:
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
+                
+                * `kafka_ui_config` — использование [веб-интерфейса {{ kafka-ui }}](../concepts/kafka-ui.md). Для доступа к веб-интерфейсу {{ kafka-ui }} укажите `enabled: true`.
 
             * `topic_specs` — настройки топиков в виде массива элементов. Каждый элемент соответствует отдельному топику и имеет следующую структуру:
 

@@ -8,19 +8,23 @@ description: In this tutorial, you will learn how cluster host replication works
 {{ mpg-name }} clusters use _quorum-based synchronous replication_:
 
 1. Master host is selected from among cluster hosts, while all other hosts become replicas.
-1. A transaction is considered successful only if it is confirmed by the master host and at least half of the cluster replicas.
+1. A transaction is considered successful only if it is confirmed by the master host and the quorum of replicas. The quorum is the half of all replicas in a cluster. Replicas for the quorum are selected randomly (_quorum replicas_).
 
-If there is an odd number of replicas, the value is rounded down. For example, in a cluster with 17 replicas, a _quorum_ requires at least eight.
+    If there is an odd number of replicas, the value is rounded down, except when there is only one replica. For example, in a cluster with 17 replicas, the quorum requires a minimum of eight replicas, while in a single-replica cluster, the quorum is one.
 
-The number of replicas required for a quorum is established over again when the cluster topology changes, i.e., after [adding](../operations/hosts.md#add) and [deleting](../operations/hosts.md#remove) hosts, their failure, withdrawal for maintenance, return to service, etc. The host added to the cluster is first synchronized with the master host and only then can become part of the quorum.
+{% note warning %}
 
-Replicas with a manually specified replication source can neither become master hosts nor be part of a quorum.
+Replicas with a [manually specified replication source](#replication-manual) can neither become master hosts nor be part of a quorum.
 
-For more information about how replication works in {{ PG }}, read the [relevant documentation](https://www.postgresql.org/docs/current/static/warm-standby.html).
+{% endnote %}
+
+The number of quorum replicas is updated every time the number of available cluster hosts changes, e.g., when hosts are [added](../operations/hosts.md#add) or [deleted](../operations/hosts.md#remove) as well as during scheduled or unscheduled maintenance. When you add a host, it is first synchronized with the master and only then can become part of the quorum.
+
+For more information on how replication works in {{ PG }}, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/static/warm-standby.html).
 
 ## Managing replication {#replication}
 
-To ensure data safety in a cluster, {{ mpg-full-name }} uses streaming replication. Each replica host receives a replication thread from another host (usually the master host). {{ mpg-name }} manages replication threads in the cluster automatically, but you can [manage them manually](../operations/hosts.md#update) if you need to.
+To ensure data integrity, the cluster supports automatic replication management, where each replica host receives a replication stream from the master host. If you need to, you can [specify the replication source manually](../operations/hosts.md#update).
 
 In a cluster, you can combine automatic and manual management of replication streams.
 
@@ -30,21 +34,16 @@ Once you create a {{ PG }} cluster with multiple hosts, it contains one master h
 
 Specifics of automatic replication in {{ mpg-name }}:
 
-* If the master host fails, its replica becomes a new master.
+* When the master host fails, its most recent replica becomes the new master.
 * When the master changes, the replication source for all replica hosts automatically switches to the new master host.
 
 You can disable autofailover [by changing additional cluster settings](../operations/update.md#change-additional-settings). If the current master host fails, you will have to run the selection of a new master or assign this role to one of the replicas [manually](../operations/update.md#start-manual-failover).
 
 ### Manual management of replication streams {#replication-manual}
 
-When you manually manage replication streams, any host in the cluster may become a replication source for a replica.
+When you manage replication streams manually, a cluster host other than the master will serve as the replication source for a replica.
 
-In this case, you can:
-
-* Fully manage the replication process in the cluster without using automatic replication.
-* Configure replication for {{ PG }} clusters with a complex topology. In this case, some of the replicas will be managed automatically, while others, manually.
-
-For example, this way, you can configure cascading replication when some of the cluster replicas use other hosts in the cluster as the source of the replication stream. The replication thread for such source hosts can be managed both automatically (with the {{ mpg-name }} tools) and manually.
+This way, in a {{ PG }} cluster with complex topology, you can configure _cascading replication_ during which some of the replicas use other cluster hosts as the replication stream source. The replication stream for such source hosts can be managed both automatically, using the {{ mpg-name }} tools, and manually.
 
 {% note warning %}
 
@@ -55,13 +54,22 @@ Replicas, for which the replication source is specified manually, cannot:
 * Be part of quorum replication.
 * Be selected as most recent replicas when using a [special FQDN](../operations/connect.md#fqdn-replica).
 
+A replica with a manually specified replication source cannot confirm a write operation. Its data will be regarded as obsolete if the write operation was made to other replicas and the quorum confirmed the transaction. As the replica’s lag grows, its WAL will be automatically overwritten with the new data from the replication source.
+
 {% endnote %}
 
 ## Write sync and read consistency {#write-sync-and-read-consistency}
 
-Synchronization of data writes in {{ PG }} is ensured by syncing the [write-ahead log](https://www.postgresql.org/docs/current/wal-intro.html) (WAL) (the `synchronous_commit` [parameter](settings-list.md#setting-synchronous-commit)). The default parameter value is `synchronous_commit = on`. This means a transaction is committed only if the WAL is written to both the master disk and quorum replica disk.
+Synchronization of data writes in {{ PG }} is ensured by the `synchronous_commit` [parameter](settings-list.md#setting-synchronous-commit) that manages syncing the [write-ahead log](https://www.postgresql.org/docs/current/wal-intro.html) (WAL). The default value is `synchronous_commit = on`. In this case, a transaction is commited only if the WAL is written to both the master disk and each quorum replica disk.
 
-To ensure ongoing consistency of data reads between the master and quorum replica, set `synchronous_commit = remote_apply` [in the cluster settings](../operations/update.md#change-postgresql-config). With this parameter value, a data write is not considered successful until the quorum replica applies the changes from the WAL. In this case, the read operation performed on the master and the synchronous quorum returns the same result.
+Depending on the number of replicas in the cluster, the following behavior scenarios are possible:
+
+* In a cluster with one replica, this replica will constitute the quorum, and manual replication stream management is unavailable. If the replica fails, write transactions will await confirmation until it is restored in the cluster.
+* In a cluster with two replicas, a transaction is committed if the WAL is written to the disk of the quorum replica. If it fails, the quorum will consists of the remaining replica unless it has a replication source specified. In this case, the results of queries to the master host will not change.
+* In a cluster with an odd number of replicas `N > 1`, the quorum consists of `N-1 / 2` replicas. For other replicas, you can set a replication source manually.
+* In a cluster with an even number of replicas `N > 2`, the quorum consists of `N / 2` replicas. For other replicas, you can set a replication source manually.
+
+To ensure ongoing consistency of data reads between the master and quorum replica, set `synchronous_commit = remote_apply` [in the cluster settings](../operations/update.md#change-postgresql-config). With this parameter value, a data write is not considered successful until the quorum replica applies the changes from the WAL. In this case, the read operation performed on the master and quorum replica returns the same result.
 
 The downside is that the write operations to the cluster will take longer. If the master and the quorum replica are located in different [availability zones](../../overview/concepts/geo-scope.md), the transaction confirmation latency cannot be less than the round-trip time (RTT) between data centers. This will degrade cluster performance if writing data to a single thread with the `AUTOCOMMIT` mode on.
 

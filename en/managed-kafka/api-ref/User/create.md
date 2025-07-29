@@ -73,6 +73,7 @@ Set of permissions granted to the user. ||
 || topicName | **string**
 
 Name or prefix-pattern with wildcard for the topic that the permission grants access to.
+With roles SCHEMA_READER and SCHEMA_WRITER: string that contains set of schema registry subjects, separated by ';'.
 
 To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/Topic/list#List) request. ||
 || role | **enum** (AccessRole)
@@ -83,7 +84,11 @@ Access role type to grant to the user.
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user.
-- `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user. ||
+- `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user.
+- `ACCESS_ROLE_TOPIC_PRODUCER`
+- `ACCESS_ROLE_TOPIC_CONSUMER`
+- `ACCESS_ROLE_SCHEMA_READER`
+- `ACCESS_ROLE_SCHEMA_WRITER` ||
 || allowHosts[] | **string**
 
 Lists hosts allowed for this permission.
@@ -261,6 +266,7 @@ Set of permissions granted to this user. ||
 || topicName | **string**
 
 Name or prefix-pattern with wildcard for the topic that the permission grants access to.
+With roles SCHEMA_READER and SCHEMA_WRITER: string that contains set of schema registry subjects, separated by ';'.
 
 To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/Topic/list#List) request. ||
 || role | **enum** (AccessRole)
@@ -271,7 +277,11 @@ Access role type to grant to the user.
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user.
-- `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user. ||
+- `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user.
+- `ACCESS_ROLE_TOPIC_PRODUCER`
+- `ACCESS_ROLE_TOPIC_CONSUMER`
+- `ACCESS_ROLE_SCHEMA_READER`
+- `ACCESS_ROLE_SCHEMA_WRITER` ||
 || allowHosts[] | **string**
 
 Lists hosts allowed for this permission.

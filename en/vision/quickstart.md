@@ -20,17 +20,13 @@ This section describes how to recognize text in an image or file using the {{ vi
 
 ## Recognize text {#analyze-image}
 
-You can use any recognition model from [this list](concepts/ocr/index.md#models). As an example, we will use the `page` model that enables recognizing any amount of text in an image:
+You can use any recognition model from [this list](concepts/ocr/index.md#models). As an example, we will use the `page` model which can recognize any amount of text in an image:
 
 1. Prepare an image file that meets the requirements:
 
     {% include [file-restrictions](../_includes/vision/ocr-file-restrictions.md) %}
 
-    {% note info %}
-
-    Need a sample image? Download an image of the [penguin crossing](https://{{ s3-storage-host }}/vision/penguins_sample.jpg) road sign.
-
-    {% endnote %}
+    {% include [file-restrictions](../_includes/vision/example-image.md) %}
 
 1. Encode the image file as Base64:
 
@@ -49,7 +45,7 @@ You can use any recognition model from [this list](concepts/ocr/index.md#models)
     ```
 
     In the `content` property, specify the image file contents [encoded](./operations/base64-encode.md) as Base64.
-
+    
     To automatically detect the text language, specify the `"languageCodes": ["*"]` property in the configuration.
 
 

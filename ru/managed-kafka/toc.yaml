@@ -41,6 +41,8 @@ items:
         href: operations/cluster-accounts.md
       - name: Управление коннекторами
         href: operations/cluster-connector.md
+      - name: Веб-интерфейс {{ kafka-ui }} для {{ KF }}
+        href: operations/kafka-ui-enable.md
       - name: Логи и мониторинг
         items:
           - name: Просмотр логов кластера
@@ -53,6 +55,7 @@ items:
         href: tutorials/index.md
       - name: Развертывание веб-интерфейса {{ KF }}
         href: tutorials/deploy-kafka-ui.md
+        hidden: true
       - name: Перемещение данных из {{ KF }}
         items:
           - name: Настройка {{ KFC }} для работы с {{ mkf-name }}
@@ -129,6 +132,8 @@ items:
         href: concepts/account-roles.md
       - name: Управление схемами данных
         href: concepts/managed-schema-registry.md
+      - name: Веб-интерфейс {{ KF }}
+        href: concepts/kafka-ui.md
       - name: API в {{ mkf-name }}
         href: concepts/available-apis.md
       - name: Классы хостов

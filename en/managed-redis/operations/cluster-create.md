@@ -52,9 +52,9 @@ There are no restrictions for non-sharded clusters.
      * (Optional) Add a cluster description.
      * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
        * `PRODUCTION`: For stable versions of your apps.
-       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+       * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
      * Select the DBMS version.
-     * Optionally, add labels.
+     * Optionally, you can add labels.
      * If necessary, enable [cluster sharding](../concepts/sharding.md).
 
           {% note warning %}
@@ -83,7 +83,7 @@ There are no restrictions for non-sharded clusters.
      * Specify the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** of the VM to deploy hosts on.
      * Select **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
 
-  
+     
      * Select the [disk type](../concepts/storage.md):
        * Either the more flexible network SSD (`network-ssd`) or non-replicated SSD (`network-ssd-nonreplicated`) storage
        * Or the faster local SSD (`local-ssd`) storage
@@ -92,6 +92,18 @@ There are no restrictions for non-sharded clusters.
 
 
      * Select the storage size. The available storage size is limited by [quotas and limits](../concepts/limits.md#mrd-limits).
+
+     
+     * Optionally, select the **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** option to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
+
+       {% include [preview-note](../../_includes/note-preview-by-request.md) %}
+
+       * To [create](../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+
+       * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
+
+       To learn more about disk encryption, see [Storage](../../network-load-balancer/k8s-ref/networkpolicy.md).
+
 
   
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
@@ -224,7 +236,7 @@ There are no restrictions for non-sharded clusters.
 
   To create a {{ mrd-name }} cluster:
 
-    1. In the configuration file, describe the resources you want to create:
+    1. In the configuration file, describe the parameters of resources you want to create:
 
        * Database cluster: Description of the cluster and its hosts. You can also configure [DBMS settings](../concepts/settings-list.md) here if necessary.
 
@@ -299,7 +311,7 @@ There are no restrictions for non-sharded clusters.
 
        {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
 
-       To learn more about the resources you can create with {{ TF }}, see the [{{ TF }} documentation]({{ tf-provider-mrd }}).
+       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mrd }}).
 
     1. Make sure the settings are correct.
 
@@ -591,7 +603,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ VLK }} cluster using the settings of another one created earlier. To do so, you need to import the configuration of the source {{ VLK }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ VLK }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ VLK }} cluster using the settings of another one created earlier. To do so, import the source {{ VLK }} cluster’s configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ VLK }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ VLK }} cluster copy:
 
@@ -610,15 +622,15 @@ To create a {{ VLK }} cluster copy:
         resource "yandex_mdb_redis_cluster" "old" { }
         ```
 
-    1. Write the ID of the initial {{ VLK }} cluster to the environment variable:
+    1. Write the initial {{ VLK }} cluster’s ID to the environment variable:
 
         ```bash
         export REDIS_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with the [list of clusters in the folder](../../managed-redis/operations/cluster-list.md#list-clusters).
+        You can get the ID with the [list of clusters in the folder](../../managed-redis/operations/cluster-list.md#list-clusters).
 
-    1. Import the settings of the initial {{ VLK }} cluster into the {{ TF }} configuration:
+    1. Import the initial {{ VLK }} cluster’s settings into the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_redis_cluster.old ${REDIS_CLUSTER_ID}
@@ -644,7 +656,7 @@ To create a {{ VLK }} cluster copy:
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
     1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
@@ -654,7 +666,7 @@ To create a {{ VLK }} cluster copy:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -688,7 +700,7 @@ To create a {{ VLK }} cluster copy:
   * Password: `user1user1`.
   * Deletion protection: Enabled.
 
-  Run the following command:
+  Run this command:
 
   
   ```bash
@@ -802,7 +814,7 @@ To create a {{ VLK }} cluster copy:
   * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
   * Password: `user1user1`.
 
-  Run the following command:
+  Run this command:
 
   
   ```bash

@@ -4,11 +4,13 @@ If your employees have Yandex accounts, e.g., `{{ login-example }}`, they can us
 
 You can invite a user to an organization via the management console or the {{ cloud-center }} interface. An invitation to join your organization will be sent to the user's email address.
 
+Users with any of the following [roles](../../organization/security/index.md) can invite new users with Yandex accounts to an organization and delete such invitations: `organization-manager.passportUserAdmin`, `organization-manager.admin`, or `organization-manager.organizations.owner`.
+
 ### Send an invitation {#send-invitation}
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   {% include [add-yandex-user](./add-yandex-user.md) %}
 
@@ -16,7 +18,7 @@ You can invite a user to an organization via the management console or the {{ cl
 
     1. Log in to the [management console]({{ link-console-main }}) with the cloud administrator account.
 
-    1. Select the appropriate cloud from the list on the left. Example:
+    1. Select the appropriate cloud from the list on the left. Here is an example:
 
         ![image](../../_assets/resource-manager/switch-cloud-n-n.png)
 
@@ -38,7 +40,7 @@ You can delete or resend your invitation only via {{ org-name }}.
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
@@ -56,7 +58,7 @@ You can delete or resend your invitation only via {{ org-name }}.
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 

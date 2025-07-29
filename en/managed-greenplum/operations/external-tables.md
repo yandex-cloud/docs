@@ -6,7 +6,7 @@ Let's say there is a table with sales data over several years. It contains three
 
 * Hot data for the last few months stored in {{ MY }}.
 * Warm data for the last few years stored in {{ GP }}.
-* Cold data for a longer period stored in S3.
+* Cold data for the earlier period stored in S3.
 
 The colder the data, the less often it is accessed.
 

@@ -9,6 +9,12 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить кластер {{ managed-k8s-name }} {#update-cluster}
 
+{% note warning %}
+
+[Публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) можно назначить только при [создании](kubernetes-cluster-create.md) кластера {{ managed-k8s-name }}. После этого назначить публичный IP-адрес существующему кластеру невозможно.
+
+{% endnote %}
+
 Вы можете изменить следующие параметры [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster):
 * Имя.
 * Описание.

@@ -6,6 +6,8 @@ editable: false
 
 # {{ video-full-name }} pricing policy
 
+
+
 At the [Preview](../overview/concepts/launch-stages.md) stage, {{ video-name }} is free of charge.
 
 {% note warning %}
@@ -33,7 +35,7 @@ The video content is stored in {{ objstorage-name }}. The data amount is measure
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Storage and transcoding of video {#video}
+### Video storage and conversion {#video}
 
 
 
@@ -65,3 +67,4 @@ We also assume that the videos (both the original and the streaming content) are
 
 
 {% include notitle [usd-video.md](../_pricing_examples/video/usd-video.md) %}
+

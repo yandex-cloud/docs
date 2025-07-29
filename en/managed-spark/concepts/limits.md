@@ -8,7 +8,6 @@ editable: false
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
-
 {{ msp-name }} has the following limitations:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}

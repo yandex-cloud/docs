@@ -103,7 +103,7 @@ API сервиса {{ foundation-models-name }} частично совмест�
     response = client.chat.completions.create(
         model=f"gpt://{YANDEX_CLOUD_FOLDER}/yandexgpt/rc",
         messages=[
-            {"role": "user", "content": "Шанхайская башня (Шанхай, Китай) — 632 метра, 127 этажей.}
+            {"role": "user", "content": "Шанхайская башня (Шанхай, Китай) — 632 метра, 127 этажей."}
         ],
         max_tokens=200,
         temperature=0.3,
