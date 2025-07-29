@@ -432,6 +432,14 @@ items:
             href: cli-ref/node-group/remove-node-labels.md
           - name: update
             href: cli-ref/node-group/update.md
+      - name: resource-preset
+        items:
+          - name: Overview
+            href: cli-ref/resource-preset/index.md
+          - name: get
+            href: cli-ref/resource-preset/get.md
+          - name: list
+            href: cli-ref/resource-preset/list.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

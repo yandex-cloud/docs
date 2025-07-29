@@ -7,6 +7,7 @@ description: Various security use cases in {{ yandex-cloud }}.
 
 * [{#T}](user-group-access-control.md)
 * [Creating an L7 load balancer with DDoS protection](alb-with-ddos-protection/index.md)
+* [{#T}](sws-basic-protection.md)
 * [{#T}](alb-ingress-with-sws-profile.md)
 * [{#T}](migration-from-nlb-to-alb/index.md)
 * [Terminating TLS connections](tls-termination/index.md)

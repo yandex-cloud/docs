@@ -1,6 +1,6 @@
 # Row-level security (RLS)
 
-With RLS (_row-level security_), you can restrict data access for users or [user groups](../../organization/concepts/groups.md) within a single dataset. For example, you can introduce data access control for different customers.
+RLS (_row-level security_) enables you to restrict data access for users or [user groups](../../organization/concepts/groups.md) within a single dataset. For example, you can introduce data access control for different customers.
 
 {% include [rls-note](../../_includes/datalens/datalens-rls-note.md) %}
 
@@ -15,6 +15,8 @@ With RLS, a query to a dataset passes through the following filter:
 ```sql
 where dimension in (value_1, value_2 ... value_N)
 ```
+
+
 
 ### User access {#user-rls}
 
@@ -138,21 +140,25 @@ You can also use the `"` character:
 ```
 
 
+
 ## Configuring RLS at the data source level {#datasource-rls}
 
 Configuring RLS at the dataset level requires editing the datatset every time the RLS settings change.
 
 To avoid this, you can move the row-level security logic to the data source side:
 
-1. Add a new field for storing user IDs to the source data. All requests to the source will be filtered by this field.
+1. Add a new field for storing the user ID to the source data. All requests to the source will be filtered by this field.
 
    
-   To view your ID, follow [this link]({{ link-org-cloud-center }}/users). If you need another user's ID, ask them to open this link and pass the ID to you.
+   
+   Use [this link]({{ link-org-cloud-center }}/users) to look up your ID. If you need another user's ID, ask them to open the link and send you the ID.
 
 
-1. For each row of source data, specify the ID of the user who is allowed to access this row. If multiple users must have access to the same row, you can move the access control logic to a separate table and [join](../dataset/settings.md#multi-table) it to the main table at the dataset level.
 
-1. In the dataset, enter `userid:userid` in the ID field under the RLS settings. The `userid` variable can be used together with the regular RLS type in the dataset:
+1. For each source data row, specify the ID of the user who should get access to this row. If multiple users must have access to the same row, you can move the access control logic to a separate table and [join](../dataset/settings.md#multi-table) it to the main table at the dataset level.
+
+
+1. In the dataset RLS setting, enter `userid:userid` in the ID field. The `userid` variable can be used together with the regular RLS type in the dataset:
 
    ```yaml
    'value_1': user_1, user_2
@@ -160,11 +166,13 @@ To avoid this, you can move the row-level security logic to the data source side
       userid:userid
    ```
 
+
 {% note info %}
 
-You can transfer the RLS logic to the source side for sources where the data structure can be changed. In Yandex Metrica and AppMetrica, the data structure is closed, so this method is unavailable.
+You can transfer the RLS logic to the source side for sources where the data structure can be changed. In Yandex Metrica and AppMetrica, the data structure is closed, so this method is not available.
 
 {% endnote %}
+
 
 ## How to change permissions to a row in a dataset {#how-to-manage-rls}
 

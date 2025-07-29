@@ -28,6 +28,32 @@ description: Следуя этой инструкции, вы создадите
   1. Задайте [настройки каталога {{ TR }}](#catalog-settings).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    1. Посмотрите описание команды CLI для создания каталога {{ TR }}:
+
+        ```bash
+        {{ yc-mdb-tr }} catalog create --help
+        ```
+
+    1. Посмотрите описание команды CLI для создания каталога {{ TR }} c конкретным коннектором:
+
+        ```bash
+        {{ yc-mdb-tr }} catalog create <тип_коннектора> --help
+        ```
+
+    1. Чтобы создать каталог {{ TR }}, выполните команду:
+
+        ```bash
+        {{ yc-mdb-tr }} catalog create <тип_коннектора> <имя_каталога_{{ TR }}>
+        ```
+
+        В команде также нужно передать настройки каталога {{ TR }}, которые зависят от типа коннектора. [Подробнее о настройках для разных типов коннекторов](#catalog-settings).
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -37,8 +63,8 @@ description: Следуя этой инструкции, вы создадите
     1. Добавьте ресурс `yandex_trino_catalog`:
 
         ```hcl
-        resource "yandex_trino_catalog" "<имя_каталога>" {
-          name        = "<имя_каталога>"
+        resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+          name        = "<имя_каталога_{{ TR }}>"
           cluster_id  = yandex_trino_cluster.mytr.id
           <тип_коннектора> = {
             <настройки_каталога_{{ TR }}>
@@ -91,12 +117,41 @@ description: Следуя этой инструкции, вы создадите
 
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/clickhouse.html).
 
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create clickhouse <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --connection-manager-connection-id <идентификатор_подключения> \
+      --connection-manager-database <имя_БД> \
+      --connection-manager-connection-properties <список_параметров_клиента_{{ CH }}> \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--connection-manager-connection-id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ CH }}.
+
+      Чтобы узнать идентификатор подключения:
+        1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.   
+
+    * `--connection-manager-database` — имя БД в кластере {{ CH }}.
+    * `--connection-manager-connection-properties` — параметры клиента {{ CH }} в формате `ключ=значение`.
+
+        {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
+
+    * `additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/clickhouse.html).
+
 - {{ TF }} {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога>" {
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
       ...
       clickhouse = {
         connection_manager = {
@@ -143,12 +198,33 @@ description: Следуя этой инструкции, вы создадите
     * **Пароль** — пароль пользователя для подключения к БД {{ CH }}.
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/clickhouse.html).
 
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create clickhouse <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --on-premise-connection-url <URL_для_подключения> \
+      --on-premise-user-name <имя_пользователя> \
+      --on-premise-password <пароль_пользователя> \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url` — URL для подключения к БД {{ CH }} в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`
+    * `--on-premise-user-name` — имя пользователя для подключения к БД {{ CH }}.
+    * `--on-premise-password` — пароль пользователя для подключения к БД {{ CH }}.
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/clickhouse.html).
+
 - {{ TF }} {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога>" {
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
       ...
       clickhouse = {
         on_premise = {
@@ -185,12 +261,34 @@ description: Следуя этой инструкции, вы создадите
 
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/delta-lake.html).
 
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create delta-lake <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --metastore-hive-uri <URI_для_подключения> \
+      --filesystem-native-s3 \
+      --filesystem-external-s3-aws-access-key <идентификатор_ключа_доступа> \
+      --filesystem-external-s3-aws-secret-key <секретный_ключ> \
+      --filesystem-external-s3-aws-endpoint <эндпоинт> \
+      --filesystem-external-s3-aws-region <регион> \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
+
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/delta-lake.html).
+
 - {{ TF }} {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога>" {
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
       ...
       delta_lake = {
         file_system = {
@@ -224,12 +322,34 @@ description: Следуя этой инструкции, вы создадите
 
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/hive.html).
 
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create hive <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --metastore-hive-uri <URI_для_подключения> \
+      --filesystem-native-s3 \
+      --filesystem-external-s3-aws-access-key <идентификатор_ключа_доступа> \
+      --filesystem-external-s3-aws-secret-key <секретный_ключ> \
+      --filesystem-external-s3-aws-endpoint <эндпоинт> \
+      --filesystem-external-s3-aws-region <регион> \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
+
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/hive.html).
+
 - {{ TF }} {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога>" {
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
       ...
       hive = {
         file_system = {
@@ -263,12 +383,34 @@ description: Следуя этой инструкции, вы создадите
 
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/iceberg.html).
 
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create iceberg <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --metastore-hive-uri <URI_для_подключения> \
+      --filesystem-native-s3 \
+      --filesystem-external-s3-aws-access-key <идентификатор_ключа_доступа> \
+      --filesystem-external-s3-aws-secret-key <секретный_ключ> \
+      --filesystem-external-s3-aws-endpoint <эндпоинт> \
+      --filesystem-external-s3-aws-region <регион> \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
+
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/iceberg.html).
+
 - {{ TF }} {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога>" {
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
       ...
       iceberg = {
         file_system = {
@@ -304,12 +446,33 @@ description: Следуя этой инструкции, вы создадите
     * **Пароль** — пароль пользователя для подключения к БД Oracle.
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/oracle.html).
 
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create oracle <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --on-premise-connection-url <URL_для_подключения> \
+      --on-premise-user-name <имя_пользователя> \
+      --on-premise-password <пароль_пользователя> \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url` — URL для подключения к БД Oracle в формате `jdbc:oracle:thin:@<адрес_хоста>:<порт>:<SID>`. `SID` — системный идентификатор Oracle.
+    * `--on-premise-user-name` — имя пользователя для подключения к БД Oracle.
+    * `--on-premise-password` — пароль пользователя для подключения к БД Oracle.
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/oracle.html).
+
 - {{ TF }} {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога>" {
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
       ...
       oracle = {
         on_premise = {
@@ -355,12 +518,41 @@ description: Следуя этой инструкции, вы создадите
     * **База данных** — имя БД в кластере {{ PG }}.
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/postgresql.html).
 
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create postgresql <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --connection-manager-connection-id <идентификатор_подключения> \
+      --connection-manager-database <имя_БД> \
+      --connection-manager-connection-properties <список_параметров_клиента_{{ PG }}> \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--connection-manager-connection-id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ PG }}.
+
+        Чтобы узнать идентификатор подключения:
+        1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+
+    * `--connection-manager-database` — имя БД в кластере {{ PG }}.
+    * `--connection-manager-connection-properties` — список настроек клиента {{ PG }} в формате `ключ=значение`.
+
+        {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
+
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/postgresql.html).
+
 - {{ TF }} {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога>" {
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
       ...
       postgresql = {
         connection_manager = {
@@ -407,12 +599,33 @@ description: Следуя этой инструкции, вы создадите
     * **Пароль** — пароль пользователя для подключения к БД {{ PG }}.
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/postgresql.html).
 
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create postgresql <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --on-premise-connection-url <URL_для_подключения> \
+      --on-premise-user-name <имя_пользователя> \
+      --on-premise-password <пароль_пользователя> \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url` — URL для подключения к БД {{ PG }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+    * `--on-premise-user-name` — имя пользователя для подключения к БД {{ PG }}.
+    * `--on-premise-password` — пароль пользователя для подключения к БД {{ PG }}.
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/postgresql.html).
+
 - {{ TF }} {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога>" {
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
       ...
       postgresql = {
         on_premise = {
@@ -451,12 +664,33 @@ description: Следуя этой инструкции, вы создадите
     * **Пароль** — пароль пользователя для подключения к БД Microsoft SQL Server.
     * **Дополнительные настройки** — в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/sqlserver.html).
 
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create sqlserver <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --on-premise-connection-url <URL_для_подключения> \
+      --on-premise-user-name <имя_пользователя> \
+      --on-premise-password <пароль_пользователя> \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url` — URL для подключения к БД Microsoft SQL Server в формате `jdbc:sqlserver://<адрес_хоста>:<порт>;databaseName=<имя_БД>`.
+    * `--on-premise-user-name` — имя пользователя для подключения к БД Microsoft SQL Server.
+    * `--on-premise-password` — пароль пользователя для подключения к БД Microsoft SQL Server.
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/sqlserver.html).
+
 - {{ TF }} {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога>" {
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
       ...
       sqlserver = {
         on_premise = {
@@ -493,12 +727,27 @@ description: Следуя этой инструкции, вы создадите
 
     Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/tpcds.html).
 
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create tpcds <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --additional-properties <список_дополнительных_настроек>
+    ```  
+
+    Где:
+
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/tpcds.html).  
+
 - {{ TF }} {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога>" {
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
       ...
       tpcds = {
         additional_properties = {
@@ -522,12 +771,27 @@ description: Следуя этой инструкции, вы создадите
 
     Вы можете задать дополнительные настройки в формате `ключ: значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/tpch.html).
 
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create tpch <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера> \
+      --additional-properties <список_дополнительных_настроек>
+    ```  
+
+    Где:
+
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/tpch.html).      
+
 - {{ TF }} {#tf}
 
     Пример конфигурации:
 
     ```hcl
-    resource "yandex_trino_catalog" "<имя_каталога>" {
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
       ...
       tpch = {
         additional_properties = {

@@ -1,6 +1,14 @@
+{% endlist %}
+
+{% note info %}
+
+Language detection and language labels are only available in API v3.
+
+{% endnote %}
+
 {{ speechkit-short-name }} automatically detects language in each sentence during speech recognition.
 
-To configure automatic language detection, set the `language_code` parameter of the `LanguageRestrictionOptions()` method to `auto`:
+To use automatic language detection, specify `auto` in the `language_code` parameter of the `LanguageRestrictionOptions()` method:
 
 {% list tabs group=programming_language %}
 
@@ -21,7 +29,7 @@ Along with recognition results, the service returns language labels containing t
 language_code: "ru-RU" probability: 0.91582357883453369
 ```
 
-If a sentence contains words in different languages, the language may be detected incorrectly. To improve results, provide a list of expected languages as a clue for the model. Here is an example:
+If a sentence contains words in different languages, the language may be detected incorrectly. To make recognition more accurate, replace `auto` with a list of expected languages as a clue for the model. For example:
 
 {% list tabs group=programming_language %}
 
@@ -35,11 +43,7 @@ If a sentence contains words in different languages, the language may be detecte
 
 {% endlist %}
 
-{% note info %}
-
-Language detection and language labels are only available in API v3.
-
-{% endnote %}
+The language is recognized for each sentence. If a sentence has phrases in different languages, all of them will be transcribed in the most probable language.
 
 **Examples**
 

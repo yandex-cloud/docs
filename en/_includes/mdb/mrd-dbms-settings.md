@@ -1,4 +1,12 @@
-* **Client output buffer limit normal**{#settings-limit-normal}{{ tag-all }}
+* **Activedefrag**{#settings-activedefrag} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+
+    This setting enables active memory defragmentation in the cluster. It helps to reduce memory fragmentation, which can lead to insufficient memory issues. We do not recommend enabling this setting if you do not have memory fragmentation issues.
+
+    The setting is disabled by default.
+
+    For more information, see [this {{ VLK }} article](https://redis.io/docs/latest/operate/rs/references/rest-api/objects/bdb).
+
+* **Client output buffer limit normal**{#settings-limit-normal} {{ tag-all }}
 
     Setting a limit on the output buffer for regular clients.
 
@@ -12,7 +20,7 @@
 
     For more information about this setting, see the [{{ VLK }} documentation](https://redis.io/docs/reference/clients/#output-buffer-limits).
 
-* **Client output buffer limit pubsub**{#settings-limit-pubsub}{{ tag-all }}
+* **Client output buffer limit pubsub**{#settings-limit-pubsub} {{ tag-all }}
 
     This limits the output buffer size for clients using the [Pub/Sub](https://redis.io/docs/manual/pubsub/) pattern.
 
@@ -34,7 +42,7 @@
 
     The minimum value is `1`; the maximum value is `2147483647`; default: is `16`.
 
-    For more information, see the relevant [{{ VLK }} documentation](https://github.com/redis/redis/blob/6.0/redis.conf#L275).
+    For more information, see [this {{ VLK }} article](https://github.com/redis/redis/blob/6.0/redis.conf#L275).
 
     {% note warning %}
 
@@ -50,7 +58,7 @@
 
     Changes do not affect an already running script.
 
-    For more information, see the relevant [{{ RD }} documentation](https://github.com/redis/redis/blob/6.0/redis.conf#L1203).    
+    For more information, see [this {{ RD }} article](https://github.com/redis/redis/blob/6.0/redis.conf#L1203).    
 
 * **Maxmemory percent**{#settings-maxmemory-percent} {{ tag-all }}
 
@@ -77,7 +85,7 @@
     * `allkeys-random`: Delete keys regardless of their TTL in any order.
     * `noeviction` (default): Do not delete keys. Return an error if there is not enough memory to insert the data.
 
-    For more information, see the relevant [{{ VLK }} documentation](https://docs.redislabs.com/latest/rs/administering/database-operations/eviction-policy/).
+    For more information, see [this {{ VLK }} article](https://docs.redislabs.com/latest/rs/administering/database-operations/eviction-policy/).
 
 * **Notify keyspace events**{#settings-notify-keyspace-events} {{ tag-all }}
 
@@ -93,7 +101,7 @@
 
     The minimum value is `-1` (no slow log); the maximum value is `9223372036854775807`; default: `10000`.
 
-    For more information, see the relevant [{{ VLK }}](https://redis.io/commands/slowlog) documentation.
+    For more information, see [this {{ VLK }} article](https://redis.io/commands/slowlog).
 
 * **Slowlog max len**{#settings-slowlog-max-len} {{ tag-all }}
 
@@ -101,7 +109,7 @@
 
     The minimum value is `0` (no slow log); the maximum value is `9223372036854775807`; default: `1000`.
 
-    For more information, see the relevant [{{ VLK }}](https://redis.io/commands/slowlog) documentation.
+    For more information, see [this {{ VLK }} article](https://redis.io/commands/slowlog).
 
 * **Timeout**{#settings-timeout} {{ tag-all }}
 
@@ -109,4 +117,4 @@
 
     The minimum and default value is `0` (connections are not terminated); the maximum value is `2147483647`.
 
-    For more information, see the relevant [{{ VLK }} documentation](https://redis.io/topics/clients).
+    For more information, see [this {{ VLK }} article](https://redis.io/topics/clients).

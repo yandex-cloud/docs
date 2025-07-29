@@ -18,6 +18,8 @@ In this section, you can find the {{ mes-name }} pricing [policy](#rules) and [e
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## Cluster status {#running-stopped}
 
 Prices apply differently depending on the cluster status:
@@ -60,7 +62,7 @@ You pay for the following:
 
   * Backups are stored free of charge as long as the combined size of the data in the cluster and all backups is smaller than the selected storage size.
 
-  * When performing automatic backups, {{ mes-short-name }} does not create a new copy; instead, it saves the changes from the previous backup. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+  * When performing automatic backups, {{ mes-short-name }} does not create a new backup but saves the data changes made since the previous copy. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
 
   * The number of hosts in a cluster does not affect the storage size and, consequently, the backup size that is free of charge.
 
@@ -94,7 +96,7 @@ Where:
 > Total: $699.289600, cost of using the cluster for 30 days.
 
 Where:
-* 720: Number of hours in 30 days.
+* 720: Hours in 30 days.
 * $0.967680: Cost of operation of all hosts per hour.
 * 100: Amount of network HDD storage (in GB).
 * $0.025600: Cost of using 1 GB of network HDD storage per month.
@@ -105,11 +107,6 @@ Where:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
-
-All prices below do not include VAT.
-
-
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 {% note info %}
@@ -118,7 +115,7 @@ As of June 13, 2022, the `Gold` [edition](./concepts/es-editions.md) has been di
 
 {% endnote %}
 
-### Host computing resources {#prices-hosts}
+### Host compute resources {#prices-hosts}
 
 The cost for computing resources depends on the selected {{ ES }} edition:
 
@@ -175,4 +172,3 @@ The cost for computing resources depends on the selected {{ ES }} edition:
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
-

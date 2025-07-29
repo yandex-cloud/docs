@@ -488,6 +488,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
             * `version`: {{ OS }} version.
             * `adminPassword`: `admin` user password.
+
+                {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
             * `opensearchSpec`: `{{ OS }}` host group settings. Contain an array of `nodeGroups` elements. one for each host group. Each element has the following structure:
 
                 * `name`: Host group name.
@@ -598,6 +601,9 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
 
             * `version`: {{ OS }} version.
             * `admin_password`: `admin` user password.
+
+                {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
             * `opensearch_spec`: `{{ OS }}` host group settings. Contain an array of `nodeGroups` elements. One for each host group. Each element has the following structure:
 
                 * `name`: Host group name.

@@ -1,9 +1,9 @@
 ---
-title: Disk types in {{ mch-full-name }}
+title: Storage in {{ mch-full-name }}
 description: In this article, you will learn about disk types in {{ mch-name }}, some features of hybrid storage, and discover how to select the right disk type when creating a cluster.
 ---
 
-# Disk types in {{ mch-name }}
+# {{ mch-name }} storage
 
 
 {{ mch-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the database host servers.
@@ -131,6 +131,12 @@ The number of hosts you can create together with a {{ CH }} cluster depends on t
     * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
+
+
+
+## Disk encryption {#disk-encryption}
+
+{% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
 
 
 ## Use cases {#examples}

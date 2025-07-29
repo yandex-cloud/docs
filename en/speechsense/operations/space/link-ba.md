@@ -7,11 +7,7 @@ description: The {{ yandex-cloud }} billing account is used to identify the user
 
 The {{ yandex-cloud }} [billing account](../../../billing/concepts/billing-account.md) is used to identify the user who pays for the {{ speechsense-name }} service. To get started in the new [space](../../concepts/resources-hierarchy.md#space), link a billing account to it. You can use one account to [pay for resources](../../pricing.md) in multiple spaces, or link a separate account to each space.
 
-{% note info %}
-
-To manage a billing account, you must have a [Yandex account](../../../iam/concepts/users/accounts.md#passport). If using {{ yandex-cloud }} through an [identity federation](../../../organization/concepts/add-federation.md), [contact]({{ link-console-support }}) support.
-
-{% endnote %}
+{% include [manage-ba-note](../../../_includes/speechsense/manage-ba-note.md) %}
 
 ## Getting started {#before-you-begin}
 
@@ -27,13 +23,6 @@ To manage a billing account, you must have a [Yandex account](../../../iam/conce
    The **Create billing account** window will open. If you already created an account, it will automatically appear in the **Billing account** field in the window that opens.
 
 1. If you have multiple billing accounts, specify the required one in the **Billing account** field.
-
-   {% note warning %}
-
-   Once a billing account is linked, it cannot be changed. Make sure you selected the correct billing account.
-
-   {% endnote %}
-
 1. In the **Contact details** section, provide your email and phone number.
 1. Click **Link**.
 

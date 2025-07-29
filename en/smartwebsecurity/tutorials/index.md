@@ -5,6 +5,7 @@ description: Various {{ sws-name }} use cases in {{ yandex-cloud }}.
 
 # {{ sws-name }} tutorials
 
+* [{#T}](sws-basic-protection.md)
 * [{#T}](balancer-with-sws-profile/index.md)
 * [{#T}](alb-ingress-with-sws-profile.md)
 * [{#T}](alb-with-ddos-protection/index.md)

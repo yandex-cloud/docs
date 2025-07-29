@@ -7,6 +7,7 @@ description: Follow this guide to create a semantic tag of your project.
 
 You can only create a [semantic tag](../../../concepts/tags.md#sense-tags) in a [project](../../../concepts/resources-hierarchy.md#project). To do this, you need the `{{ roles-speechsense-admin }}` or `{{ roles-speechsense-editor }}` role in the project.
 
+
 When creating a semantic tag, the following options are available:
 
 * [Create a new tag](#new-tag).

@@ -3157,6 +3157,14 @@ items:
                   cli-ref/managed-kubernetes/cli-ref/node-group/remove-node-labels.md
               - name: update
                 href: cli-ref/managed-kubernetes/cli-ref/node-group/update.md
+          - name: resource-preset
+            items:
+              - name: Overview
+                href: cli-ref/managed-kubernetes/cli-ref/resource-preset/index.md
+              - name: get
+                href: cli-ref/managed-kubernetes/cli-ref/resource-preset/get.md
+              - name: list
+                href: cli-ref/managed-kubernetes/cli-ref/resource-preset/list.md
       - name: managed-metastore
         items:
           - name: Overview

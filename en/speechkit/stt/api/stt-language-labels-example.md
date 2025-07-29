@@ -9,10 +9,6 @@ The example uses the following parameters:
 * [Number of audio channels](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RawAudio): 1 (default).
 * Other parameters are left at their defaults.
 
-## Automatic language detection {#language-labels}
-
-{% include [stt-language-labels](../../../_includes/speechkit/stt-language-labels.md) %}
-
 ## Prepare the required resources {#preparations}
 
 1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-speechkit-stt }}` role to it.
@@ -171,7 +167,7 @@ To implement an example from this section:
     export IAM_TOKEN=<service_account_IAM_token>
     ```
 
-1. Run the created file:
+1. Run the file you created:
 
     ```bash
     python3 output/test.py --token ${IAM_TOKEN} --path <path_to_speech.pcm_file>

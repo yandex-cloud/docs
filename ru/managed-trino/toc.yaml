@@ -9,7 +9,7 @@ items:
         href: operations/index.md
       - name: Кластеры
         items:
-          - name: Информация об имеющихся кластерах
+          - name: Получение информации об имеющихся кластерах
             href: operations/cluster-list.md
           - name: Создание кластера
             href: operations/cluster-create.md
@@ -23,7 +23,7 @@ items:
             href: operations/cluster-delete.md
       - name: Каталоги
         items:
-          - name: Получение списка каталогов в кластере
+          - name: Получение информации об имеющихся каталогах
             href: operations/catalog-list.md
           - name: Создание каталога
             href: operations/catalog-create.md

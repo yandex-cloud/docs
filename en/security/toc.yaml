@@ -219,12 +219,12 @@ items:
             href: tutorials/audit-logs/logging-functions.md
           - name: Processing {{ at-name }} events
             href: tutorials/audit-logs/audit-trails.md
-          - name: Exporting audit logs to {{ mes-name }}
+          - name: Uploading audit logs to {{ mes-name }}
             href: tutorials/audit-logs/trails-logs-opensearch.md
             hidden: true
-          - name: Exporting audit logs to MaxPatrol SIEM
+          - name: Uploading audit logs to MaxPatrol SIEM
             href: tutorials/audit-logs/maxpatrol.md
-          - name: Exporting audit logs to SIEM Splunk systems
+          - name: Uploading audit logs to Splunk SIEM
             href: tutorials/audit-logs/export-logs-to-splunk.md
           - name: Uploading audit logs to ArcSight SIEM
             href: tutorials/audit-logs/export-logs-to-arcsight.md

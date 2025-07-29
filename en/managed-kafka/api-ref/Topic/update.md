@@ -190,7 +190,8 @@ This setting overrides the cluster-level [KafkaConfig2_8.logSegmentBytes](/docs/
 
 True if we should preallocate the file on disk when creating a new log segment.
 
-This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
+This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level.
+Deprecated. Feature useless for Yandex Cloud. ||
 |#
 
 ## TopicConfig3 {#yandex.cloud.mdb.kafka.v1.TopicConfig3}
@@ -265,7 +266,8 @@ This setting overrides the cluster-level [KafkaConfig3.logSegmentBytes](/docs/ma
 
 True if we should preallocate the file on disk when creating a new log segment.
 
-This setting overrides the cluster-level [KafkaConfig3.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
+This setting overrides the cluster-level [KafkaConfig3.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level.
+Deprecated. Feature useless for Yandex Cloud. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -537,7 +539,8 @@ This setting overrides the cluster-level [KafkaConfig2_8.logSegmentBytes](/docs/
 
 True if we should preallocate the file on disk when creating a new log segment.
 
-This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
+This setting overrides the cluster-level [KafkaConfig2_8.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level.
+Deprecated. Feature useless for Yandex Cloud. ||
 |#
 
 ## TopicConfig3 {#yandex.cloud.mdb.kafka.v1.TopicConfig32}
@@ -612,5 +615,6 @@ This setting overrides the cluster-level [KafkaConfig3.logSegmentBytes](/docs/ma
 
 True if we should preallocate the file on disk when creating a new log segment.
 
-This setting overrides the cluster-level [KafkaConfig3.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
+This setting overrides the cluster-level [KafkaConfig3.logPreallocate](/docs/managed-kafka/api-ref/Cluster/get#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level.
+Deprecated. Feature useless for Yandex Cloud. ||
 |#

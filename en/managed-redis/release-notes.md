@@ -5,6 +5,12 @@ description: This section contains {{ mrd-name }} release notes.
 
 # {{ mrd-full-name }} release notes
 
+
+## July 2025 {#jul-2025}
+
+Now you can [encrypt storage disks](concepts/storage.md#disk-encryption) with a custom KMS key when creating a cluster and restoring it from a backup.
+
+
 ## May 2025 {#may-2025}
 
 A new version is out: {{ VLK }} 8.1. For more information about revisions, see the [{{ VLK }}](https://github.com/valkey-io/valkey/releases) documentation.

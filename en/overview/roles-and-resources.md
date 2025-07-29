@@ -20,7 +20,9 @@ Each {{ yandex-cloud }} user has an _account_ of their own used for identificati
 
 Each user belongs to at least one organization. When logging in to {{ yandex-cloud }} with your Yandex ID for the first time, you will be prompted to register your own organization. After creating an organization, you can enable and disable {{ yandex-cloud }} services, create clouds, folders, and other resources.
 
-You can invite other members with Yandex accounts to your organization to grant them access to its services and resources. If your company already uses a different account management system (such as [Active Directory](https://learn.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) or [Keycloak](https://www.keycloak.org/)), you can [configure an identity federation](../organization/concepts/add-federation.md). This will allow company employees to use their corporate accounts to access {{ yandex-cloud }} services. For bulk access management, users can be combined into [groups](../organization/operations/manage-groups.md).
+You can invite other members with Yandex accounts to your organization to grant them access to its services and resources. If your company already uses a different account management system (such as [Active Directory](https://learn.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) or [Keycloak](https://www.keycloak.org/)), you can [configure an identity federation](../organization/concepts/add-federation.md). This will allow company employees to use their corporate accounts to access {{ yandex-cloud }} services. In addition, you can [create a user pool](../organization/operations/user-pools/create-userpool.md) in your organization and, by adding a [domain](../organization/concepts/domains.md) to it, create [local user accounts](../iam/concepts/users/accounts.md#local) in the organization.
+
+For bulk access management, users can be combined into [groups](../organization/operations/manage-groups.md).
 
 ## Access management {#access}
 

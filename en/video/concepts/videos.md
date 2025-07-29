@@ -25,14 +25,14 @@ On the website, you can post both single videos and [playlists](playlists.md) wi
 ### Video statuses {#video-statuses}
 
 * `{{ ui-key.yacloud_video.videos.status_wait-uploading }}`: Original video file is being uploaded to a {{ yandex-cloud }} storage.
-* `{{ ui-key.yacloud_video.videos.status_processing }}`: Original video file is being transcoded into several versions with different bitrates and resolutions. When viewing the video on client devices, the video player selects the best version for smooth playback at a given internet connection speed.
+* `{{ ui-key.yacloud_video.videos.status_processing }}`: Original video file is transcoded into several video versions with different bitrates and resolutions. When viewing the video on client devices, the video player selects the best version for smooth playback at a given internet connection speed.
 * `{{ ui-key.yacloud_video.videos.status_ready }}`: Transcoding is complete. The video is ready for viewing.
 * `{{ ui-key.yacloud_video.videos.status_error }}`: Error uploading a file or transcoding a video. Check the stability of your internet connection, the integrity and format of the file and try again.
 
 ### Publication statuses {#publication-statuses}
 
-* `{{ ui-key.yacloud_video.videos.status_published }}`: The video is [published](../operations/video/publish.md).
-* `{{ ui-key.yacloud_video.videos.status_unpublished }}`: The video is not published.
+* `{{ ui-key.yacloud_video.videos.status_published }}`: Video is [published](../operations/video/publish.md).
+* `{{ ui-key.yacloud_video.videos.status_unpublished }}`: Video is not published.
 
 ## Video publishing parameters {#video-parameters}
 
@@ -66,6 +66,14 @@ The following viewing statistics are currently available:
     Each point on the heat map corresponds to a 30-second video fragment.
 
     On the heat map, the fact of video fragment playback is counted as a view regardless of playback duration. For example, if you start a video and stop it right away, a view will be counted for the first fragment of the video.
+
+## Summarization {#summarization}
+
+Summarization automatically creates a short summary of your video conveying its main points and key message.
+
+## Neural translation {#stranslation}
+
+Neural translation automatically translates videos into multiple languages and does the voice over. View the list of supported languages in [{{ video-name }}]({{ link-video-main }}) interface.
 
 ## Subtitles {#subtitles}
 

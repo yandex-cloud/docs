@@ -5,6 +5,12 @@ description: This section contains {{ mmg-name }} release notes.
 
 # {{ mmg-full-name }} release notes
 
+
+## July 2025 {#jul-2025}
+
+Now you can [encrypt storage disks](concepts/storage.md#disk-encryption) with a custom KMS key when creating a cluster and restoring it from a backup.
+
+
 ## April 2025 {#apr-2025}
 
 * Added support for {{ MG }} 8.0. To learn how to update a cluster to the latest version, see [{#T}](operations/cluster-version-update.md).

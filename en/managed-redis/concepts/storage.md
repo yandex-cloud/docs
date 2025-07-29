@@ -26,6 +26,12 @@ Sharded clusters with the **local-ssd** disk type and only one host per shard ar
 For more information about limits on the number of hosts per cluster or shard, see [Quotas and limits](./limits.md).
 
 
+
+## Disk encryption {#disk-encryption}
+
+{% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
+
+
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/redis-as-php-sessions-storage.md)

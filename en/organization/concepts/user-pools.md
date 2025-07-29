@@ -14,6 +14,8 @@ Pools and users inside them exist only at the organization level and are subject
 
 All pool users form a new [group](groups.md) for the purpose of [access settings](../operations/groups-access-binding.md) management.
 
+When [creating](../operations/user-pools/create-userpool.md) a user pool, you specify a default domain which can be used if no other domains are linked to the pool.
+
 #### See also {#see-also}
 
 * [{#T}](../operations/user-pools/create-userpool.md)

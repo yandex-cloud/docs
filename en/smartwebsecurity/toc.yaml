@@ -85,6 +85,8 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Basic SWS setup
+        href: tutorials/sws-basic-protection.md
       - name: Creating an L7 load balancer with a security profile
         items:
           - name: Overview
@@ -98,8 +100,6 @@ items:
           Creating an L7 load balancer with a security profile through an {{
           alb-name }} ingress controller
         href: tutorials/alb-ingress-with-sws-profile.md
-      - name: Basic SWS setup
-        href: tutorials/sws-basic-protection.md
       - name: Creating an L7 load balancer with DDoS protection at OSI L3-L4
         items:
           - name: Overview

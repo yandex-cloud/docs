@@ -21,7 +21,7 @@ description: Follow this guide to edit a user pool in {{ org-name }}.
 
       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
-  1. Specify a new [domain](../../concepts/domains.md) that will be used for all the default pool users.
+  1. Specify a new [domain](../../concepts/domains.md) to use if there are no other domains associated with the pool.
   1. Add or delete labels.
   1. Click **{{ ui-key.yacloud_org.actions.save-changes }}**.
 

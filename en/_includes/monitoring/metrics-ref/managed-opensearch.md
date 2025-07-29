@@ -1,4 +1,4 @@
-The `name` label stores the metric name.
+The metric name goes into the `name` label.
 
 Labels shared by all {{ mos-name }} metrics: 
 
@@ -170,10 +170,12 @@ These metrics show processor core workload.
 | `icmpmsg_outtype3`<br/>`DGAUGE`, count | Number of ICMP type 3 (destination unreachable) messages sent  | 
 | `icmpmsg_outtype8`<br/>`DGAUGE`, count | Total number of ICMP type 8 (echo request) messages sent  | 
 | `inactive`<br/>`DGAUGE`, bytes | RAM usage, `inactive` usage type | 
+| `index_docs_count`<br/>`DGAUGE`, count | Number of documents in the index. Displays 10 indexes with the largest number of documents. Only applies to indexes larger than 1 MB. |
+| `index_primary_store_size`<br/>`DGAUGE`, bytes | Index size. Displays 10 largest indexes. Only applies to indexes larger than 1 MB. |
 | `inodes_free`<br/>`DGAUGE`, count | Free inodes | 
 | `inodes_total`<br/>`DGAUGE`, count | Available inodes | 
 | `inodes_used`<br/>`DGAUGE`, count | Used inodes |
-| `instance_userfault_broken`<br/>`DGAUGE`, count | Number of memory operation errors |
+| `instance_userfault_broken`<br/>`DGAUGE`, 0/1 | Indicator of host failure due to user fault. |
 | `iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress | 
 | `ip_defaultttl`<br/>`DGAUGE`, string | Default TTL value inserted into the IP header for IP packets generated in this object when the transport layer protocol does not provide a TTL. | 
 | `ip_forwarding`<br/>`DGAUGE` | IP forwarding status (SNMP): `0` for disabled, `1` for enabled.  | 

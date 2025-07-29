@@ -103,7 +103,7 @@ To minimize fault handling time, especially in case of API faults, it is essenti
 
 ### {{ network-load-balancer-name }} {#nlb}
 
-The central tool for building fault-tolerant solutions in {{ yandex-cloud }} is a [network load balancer ({{ network-load-balancer-name }})](../network-load-balancer/concepts/), which distributes TCP connections among targets. It can be either external, for processing traffic from the internet (listener with a public IP address), or internal, for processing internal network traffic (listener with a private IP address). Targets are checked for readiness using health checks. Currently, {{ network-load-balancer-name }} does not support disabling traffic in a specific zone.
+The central tool for building fault-tolerant solutions in {{ yandex-cloud }} is a [network load balancer ({{ network-load-balancer-name }})](../network-load-balancer/concepts/), which distributes TCP connections among targets. It can be either external, for processing traffic from the internet (listener with a public IP address), or internal, for processing internal network traffic (listener with a private IP address). Targets are checked for readiness using health checks.
 
 We recommend checking the targets for readiness frequently enough with an interval of under three seconds. The health check trigger thresholds must be strictly greater than 1. To avoid increased load on targets, the health checks must not require much resources to generate a response. Example of poor practice: requesting the website root page for a health check. Example of good practice: using a separate URI to check connections to the targets of interest (e.g., databases) and overall operability. 
 
@@ -230,7 +230,7 @@ When using network security groups, you have to configure separate rules to allo
 
 ### Application high availability testing {#app-ha-test}
 
-You can test your application for fault tolerance (ability to process traffic if one of the availability zones fails) using our [Cloud zone failure exercise guide](testing-zone-faiure). We have prepared this [infrastructure deployment scenario](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb?tab=readme-ov-file) for the availability zone failure test.
+You can test your application for fault tolerance (ability to process traffic if one of the availability zones fails) using our [Cloud zone failure exercise guide](testing-zone-failure.md). We have prepared this [infrastructure deployment scenario](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb?tab=readme-ov-file) for the availability zone failure test.
 
 ### NLB tagging for zone shifting {#nlb-zone-shift}
 

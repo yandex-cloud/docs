@@ -11,11 +11,11 @@ You can create a connection from the {{ datalens-full-name }} interface or from 
 
 {% list tabs group=instructions %}
 
-- {{ datalens-name }} interface {#datalens}
+- {{ datalens-name }} UI {#datalens}
 
   {% include [create-speechsense-connection](../../../_includes/datalens/operations/datalens-create-speechsense-connection.md) %}
 
-- {{ speechsense-name }} interface {#speechsense}
+- {{ speechsense-name }} UI {#speechsense}
 
   1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
   1. Go to the space you need and select a project.
@@ -29,3 +29,4 @@ You can create a connection from the {{ datalens-full-name }} interface or from 
   1. Give your connection a name and click **Create**.
 
 {% endlist %}
+

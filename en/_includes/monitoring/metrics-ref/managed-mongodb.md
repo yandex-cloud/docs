@@ -1,4 +1,4 @@
-The `name` label stores the metric name.
+The metric name goes into the `name` label.
 
 Labels shared by all {{ mmg-name }} metrics: 
 
@@ -112,7 +112,7 @@ These metrics show processor core workload.
 | `net.packets_recv`<br/>`DGAUGE`, packets per second | Network packet receive rate | 
 | `net.packets_sent`<br/>`DGAUGE`, packets per second | Network packet transmit rate | 
 
-## dbStats metrics {#managed-mongodb-dbstats-metrics}
+## `dbStats` metrics {#managed-mongodb-dbstats-metrics}
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -178,7 +178,7 @@ These metrics show processor core workload.
 | `inodes_free`<br/>`DGAUGE`, count | Free inodes | 
 | `inodes_total`<br/>`DGAUGE`, count | Available inodes | 
 | `inodes_used`<br/>`DGAUGE`, count | Used inodes |
-| `instance_userfault_broken`<br/>`DGAUGE`, count | Number of memory operation errors |
+| `instance_userfault_broken`<br/>`DGAUGE`, 0/1 | Indicator of host failure due to user fault. |
 | `iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress | 
 | `ip_defaultttl`<br/>`DGAUGE`, string | Default TTL value inserted into the IP header for IP packets generated in this object when the transport layer protocol does not provide a TTL. | 
 | `ip_forwarding`<br/>`DGAUGE` | IP forwarding status (SNMP): `0` for disabled, `1` for enabled.  | 
@@ -279,7 +279,7 @@ These metrics show processor core workload.
 | `write_count`<br/>`DGAUGE`, operations per second | Number of writes per second | 
 | `write_time`<br/>`DGAUGE`, milliseconds | Average disk write time | 
 
-#### serverStatus metrics {#managed-mongodb-serverstatus-metrics}
+#### `serverStatus` metrics {#managed-mongodb-serverstatus-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `server_status_admin_asserts.msg_rate`<br/>`DGAUGE`, count | Message assert trigger increment, per second | 
@@ -344,8 +344,8 @@ These metrics show processor core workload.
 ## Other metrics {#managed-mongodb-other-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>It can be either `1` if a cluster is available for reads or `0` if it is not.  | 
-| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>It can be either `1` if a cluster is available for writes or `0` if it is not.  | 
+| `can_read`<br/>`DGAUGE`, 0/1 | Read access indicator.<br/>It can be either `1` if a service on the host is available for reads or `0` if it is not. |
+| `can_write`<br/>`DGAUGE`, 0/1 | Write access indicator.<br/>It can be either `1` if a service on the host is available for writes or `0` if it is not. |
 | `oplog-diff`<br/>`DGAUGE`, milliseconds | Operation log size | 
 | `oplog-maxSize`<br/>`DGAUGE`, bytes | Maximum size of the operation log | 
 | `replset_status-replicationLag`<br/>`DGAUGE`, seconds | Replication lag |

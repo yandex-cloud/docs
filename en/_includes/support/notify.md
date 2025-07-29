@@ -60,7 +60,7 @@ If there is an event in the {{ yandex-cloud }} infrastructure that has resulted 
 
 To configure notification methods:
 
-1. In the bottom left corner of the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/gear.svg) **Settings** and go to the **{{ ui-key.yacloud_components.settings.label_title_communications }}** tab.
+1. In the bottom left corner of the [management console]({{ link-console-main }}) or [{{ support-center-name }}]({{ link-console-support }}), click ![image](../../_assets/console-icons/gear.svg) **Settings** and go to the **{{ ui-key.yacloud_components.settings.label_title_communications }}** tab.
 1. Under **{{ ui-key.yacloud_components.settings.section_transports }}**, configure notification channels.
 
     You can receive notifications via email, text messages, or Telegram bot.
@@ -69,3 +69,16 @@ To configure notification methods:
     * ![image](../../_assets/console-icons/smartphone.svg): Text message.
     * ![image](../../_assets/console-icons/logo-telegram.svg): Telegram bot message.
     * ![image](../../_assets/console-icons/handset.svg): Phone call to the specified number (only available for {{ monitoring-name }} escalations).
+    * ![image](../../_assets/console-icons/antenna-signal.svg): Messages to specified URLs.
+
+## Webhooks {#webhook}
+
+You can configure auto-sending of messages to specified URLs upon certain events in your cloud services. Currently, webhooks for **{{ ui-key.yacloud_components.settings.label_tech-name }}** and **{{ ui-key.yacloud_components.settings.label_monitoring-name }}** event types are supported. You can use your on-premise messengers, such as Rocket.Chat, Mattermost, Jabber, and Slack, as message handlers. Webhooks allow you to tailor your notification system to your business processes and integrate your infrastructure in {{ yandex-cloud }} more flexibly, with monitoring and management systems already configured.
+
+To configure webhooks:
+
+1. In the bottom left corner of the [management console]({{ link-console-main }}) or [{{ support-center-name }}]({{ link-console-support }}), click ![image](../../_assets/console-icons/gear.svg) **Settings** and go to the **{{ ui-key.yacloud_components.settings.label_title_communications }}** tab.
+1. Click **{{ ui-key.yacloud_components.settings.button_add-empty }}** in the **{{ ui-key.yacloud_components.settings.label_add-empty-webhookOutgoing }}** section under **{{ ui-key.yacloud_components.settings.section_transports }}**.
+1. In the window that opens, specify the webhook name and URL, then click **{{ ui-key.yacloud_components.settings.button_send-code }}**.
+1. After the webhook receives the code in `your confirmation code <code>` format, enter it in the [management console]({{ link-console-main }}) or [{{ support-center-name }}]({{ link-console-support }}) confirmation window. 
+After confirmation, the URL and specified webhook name will be displayed in the **{{ ui-key.yacloud_components.settings.section_transports }}** section.

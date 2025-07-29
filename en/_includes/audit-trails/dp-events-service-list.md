@@ -3,6 +3,7 @@
 * [{{ dns-full-name }}](../../audit-trails/concepts/events-data-plane.md#dns)
 * [{{ compute-full-name }}](../../audit-trails/concepts/events-data-plane.md#compute)
 * [{{ foundation-models-full-name }}](../../audit-trails/concepts/events-data-plane.md#foundation-models)
+* [{{ org-full-name }}](../../audit-trails/concepts/events-data-plane.md#organization)
 * [{{ iam-full-name }}](../../audit-trails/concepts/events-data-plane.md#iam)
 * [{{ kms-full-name }}](../../audit-trails/concepts/events-data-plane.md#kms)
 * [{{ lockbox-full-name }}](../../audit-trails/concepts/events-data-plane.md#lockbox)

@@ -6,7 +6,7 @@ noIndex: true
 
 {% include [deprecation-warning](../../../_includes/vision/deprecation-warning.md) %}
 
-To check an image for properties like <q>adult content</q>, <q>shocking content</q>, <q>watermarks</q>, use the [Image classification](../../concepts/classification/index.md) feature.
+To check an image for properties such as <q>adult content</q>, <q>shock content</q>, <q>watermarks</q>, use the [Image classification](../../concepts/classification/index.md) feature.
 
 To do this, set the `type` property to `Classification` in the [batchAnalyze](../../vision/api-ref/Vision/batchAnalyze.md) method and specify the [moderation](../../concepts/classification/supported-models.md#moderation) model in the configuration.
 
@@ -26,9 +26,10 @@ To do this, set the `type` property to `Classification` in the [batchAnalyze](..
 
     {% note info %}
 
-    Need an image? [Download a sample](https://{{ s3-storage-host }}/vision/moderate-watermark.jpg).
+    Need an example? [Download the image](https://{{ s3-storage-host }}/doc-files/ml/vision/moderate-watermark.jpg).
 
     {% endnote %}
+    
 1. Encode the file into Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}

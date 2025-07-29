@@ -52,7 +52,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
   1. Enter a name for the cluster in the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field. It must be unique within the folder.
   1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
       * `PRODUCTION`: For stable versions of your apps.
-      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
   1. From the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list, select the {{ CH }} version which the {{ mch-name }} cluster will use. For most clusters, we recommend selecting the latest LTS version.
 
   
@@ -73,12 +73,18 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
       * Select the size of your data and backup disk. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
+      
+      * Optionally, select the **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** option to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
 
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
+        {% include [preview-note](../../_includes/note-preview-by-request.md) %}
 
-      * To create additional DB hosts, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**. After you add a second host, the **Configure ZooKeeper** button will appear. Change the {{ ZK }} settings in **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, and **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**, if required.
-      * Specify the parameters of the DB hosts that will be created together with the cluster. To change the added host, hover over the host line and click ![image](../../_assets/console-icons/pencil.svg).
-      * To connect to the host from the internet, enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** setting.
+        * To [create](../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+
+        * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
+
+        To learn more about disk encryption, see [Storage](../../network-load-balancer/k8s-ref/networkpolicy.md).
+
+
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
@@ -176,7 +182,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         --clickhouse-resource-preset <host_class> \
         --clickhouse-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --clickhouse-disk-size <storage_size_in_GB> \
-        --user name=<username>,password=<user_password> \
+        --user name=<user_name>,password=<user_password> \
         --database name=<DB_name> \
         --security-group-ids <list_of_security_group_IDs> \
         --websql-access=<true_or_false> \
@@ -211,7 +217,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         You can also generate a password using {{ connection-manager-name }}. To do this, adjust the command, setting the user parameters as follows:
 
         ```bash
-          --user name=<username>,generate-password=true
+          --user name=<user_name>,generate-password=true
         ```
 
         To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
@@ -380,9 +386,9 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
          name       = "<DB_name>"
        }
 
-       resource "yandex_mdb_clickhouse_user" "<username>" {
+       resource "yandex_mdb_clickhouse_user" "<user_name>" {
          cluster_id = yandex_mdb_clickhouse_cluster.<cluster_name>.id
-         name       = "<username>"
+         name       = "<user_name>"
          password   = "<user_password>"
          permission {
            database_name = yandex_mdb_clickhouse_database.<DB_name>.name
@@ -463,7 +469,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
        For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mch }}).
 
-    1. Check that the {{ TF }} configuration files are correct:
+    1. Make sure the {{ TF }} configuration files are correct:
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -854,7 +860,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
 
-        1. Run this request:
+        1. Run this query:
 
             ```bash
             grpcurl \
@@ -883,7 +889,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ CH }} cluster using the settings of another one created earlier. To do so, you need to import the configuration of the source {{ CH }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ CH }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ CH }} cluster using the settings of another one created earlier. To do so, import the source {{ CH }} cluster’s configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ CH }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ CH }} cluster copy:
 
@@ -902,15 +908,15 @@ To create a {{ CH }} cluster copy:
         resource "yandex_mdb_clickhouse_cluster" "old" { }
         ```
 
-    1. Write the ID of the initial {{ CH }} cluster to the environment variable:
+    1. Write the initial {{ CH }} cluster’s ID to the environment variable:
 
         ```bash
         export CLICKHOUSE_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with the [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+        You can get the ID with the [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-    1. Import the settings of the initial {{ CH }} cluster into the {{ TF }} configuration:
+    1. Import the initial {{ CH }} cluster’s settings into the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_clickhouse_cluster.old ${CLICKHOUSE_CLUSTER_ID}
@@ -938,7 +944,7 @@ To create a {{ CH }} cluster copy:
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
     1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 

@@ -47,6 +47,12 @@ Service name: `ai.foundationmodels`.
 
 {% include [foundation-models-dp](../../_includes/audit-trails/events/foundation-models-dp.md) %}
 
+## {{ org-full-name }} {#organization}
+
+Service name: `organizationmanager`.
+
+{% include [org-events-dp](../../_includes/audit-trails/events/org-events-dp.md) %}
+
 ## {{ iam-full-name }} {#iam}
 
 Service name: `iam`.

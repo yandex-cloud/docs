@@ -3,7 +3,7 @@ title: Storage in {{ mmg-full-name }}
 description: In this article, you will learn what storage is in {{ mmg-name }}, how to manage disk space, and how to select the right disk type when creating a cluster.
 ---
 
-# Storage in {{ mmg-name }}
+# {{ mmg-name }} storage
 
 
 {{ mmg-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the database host servers.
@@ -29,6 +29,12 @@ The number of hosts you can create together with a {{ MG }} cluster depends on t
     * Network SSDs (`network-ssd`)    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 For more information about limits on the number of hosts per cluster or [shard](./sharding.md), see [Quotas and limits](./limits.md).
+
+
+
+## Disk encryption {#disk-encryption}
+
+{% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
 
 
 ## Disk space management {#manage-storage-space}

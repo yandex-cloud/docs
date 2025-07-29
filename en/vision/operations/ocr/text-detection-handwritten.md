@@ -32,8 +32,6 @@ Image text recognition is implemented in the [recognize](../../ocr/api-ref/TextR
 
     In the `content` property, specify the image file contents [encoded](../base64-encode.md) as Base64.
 
-    {% include [en-ru-model-autoselect](../../../_includes/vision/en-ru-model-autoselect.md) %} 
-
     {% include [send-request](../../../_includes/vision/send-request_ocr.md) %}
 
     The result will consist of recognized blocks of text, lines, and words with their position on the image.

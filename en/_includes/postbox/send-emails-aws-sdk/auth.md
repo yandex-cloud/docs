@@ -9,10 +9,10 @@
     For Windows:
 
     ```bash
-    mkdir C:\Users\<username>\.aws\
+    mkdir C:\Users\<user_name>\.aws\
     ```
 
-1. In the `.aws` directory, create a file named `credentials`, copy the credentials you got when [creating a static access key](#key), and paste them into it:
+1. In the `.aws` directory, create a file named `credentials`, copy the credentials you got when [creating a static access key](#infrastructure), and paste them into it:
 
     ```text
     [default]

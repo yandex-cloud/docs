@@ -21,6 +21,7 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](cluster-version-update.md).
 * [{#T}](storage-space.md).
 * [{#T}](host-migration.md).
+* [{#T}](kafka-ui-enable.md).
 
 ## Изменить имя и описание кластера {#change-name-and-description}
 
