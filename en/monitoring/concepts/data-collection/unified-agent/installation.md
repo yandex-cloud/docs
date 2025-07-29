@@ -47,6 +47,8 @@ Install {{ unified-agent-short-name }} using one of the following methods:
 
 - Docker image {#docker}
 
+  Install Docker Engine. Use [this guide](https://docs.docker.com/engine/install/#supported-platforms) to install and run Docker for your operating system.
+
   {{ unified-agent-short-name }} is distributed as a Docker image. The image is published in the `{{ registry }}/yc` repository with the `unified_agent` name and the `latest` tag. The image includes a binary file with the agent and a configuration file used to set up the agent [for Linux system metric delivery](../../../operations/unified-agent/linux_metrics.md) in {{ monitoring-full-name }}.
 
   To upload a Docker image, run this command:

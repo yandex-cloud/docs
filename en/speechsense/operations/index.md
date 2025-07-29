@@ -29,6 +29,7 @@ description: This page presents all the guides on how to use {{ speechsense-name
 
 * [{#T}](space/create.md)
 * [{#T}](space/link-ba.md)
+* [{#T}](space/change-ba.md)
 * [{#T}](space/add-user-to-space.md)
 * [{#T}](space/delete.md)
 * [{#T}](space/delete-user-from-space.md)

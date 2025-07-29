@@ -47,12 +47,14 @@ items:
           Creating a {{ postbox-full-name }} address and verifying domain
           ownership with {{ TF }}
         href: tutorials/domain-identity-creating.md
-      - name: Sending emails using AWS SDK
+      - name: Sending emails using the AWS SDK
         items:
           - name: .NET Core
             href: tutorials/send-emails-aws-sdk-csharp.md
           - name: Go
             href: tutorials/send-emails-aws-sdk-go.md
+          - name: JavaScript
+            href: tutorials/send-emails-aws-sdk-js.md
   - name: Tools
     items:
       - name: AWS CLI

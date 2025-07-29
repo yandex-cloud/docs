@@ -6,11 +6,19 @@ items:
     href: quickstart.md
   - name: Step-by-step guides
     items:
+      - name: All guides
+        href: operations/index.md
+      - name: Creating a cluster
+        href: operations/cluster-create.md
+      - name: Updating a cluster
+        href: operations/cluster-update.md
       - name: Managing shards
         href: operations/shards.md
+      - name: Deleting a cluster
+        href: operations/cluster-delete.md
   - name: Concepts
     items:
-      - name: Resource relationships
+      - name: Service resource interdependencies
         href: concepts/index.md
       - name: Quotas and limits
         href: concepts/limits.md

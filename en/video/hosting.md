@@ -18,7 +18,7 @@ To upload a [video](./concepts/index.md#videos) to a service [channel](./concept
 
 ## Get your cloud ready {#before-you-begin}
 
-{% include [before-you-begin](../_includes/video/before-you-begin.md) %}
+{% include [before-you-begin](../_includes/video/before-you-begin-variants.md) %}
 
 ## Create a channel {#create-channel}
 
@@ -50,10 +50,12 @@ To upload a [video](./concepts/index.md#videos) to a service [channel](./concept
 
     {% include [image-characteristic](../_includes/video/image-characteristic.md) %}
 
+1. {% include [add-summarization-optional](../_includes/video/add-summarization-optional.md) %}
 1. {% include [add-subtitles-optional](../_includes/video/add-subtitles-optional.md) %}
+1. {% include [add-translation-optional](../_includes/video/add-translation-optional.md) %}
 1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
-[Learn more about videos](./concepts/videos.md)
+To learn more about video, see [{#T}](./concepts/videos.md).
 
 ## Publish your video {#publish-video}
 

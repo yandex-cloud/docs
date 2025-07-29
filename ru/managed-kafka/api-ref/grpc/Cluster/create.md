@@ -114,6 +114,9 @@ Creates a new Apache Kafka® cluster in the specified folder.
         "disk_size": "int64",
         "disk_type_id": "string"
       }
+    },
+    "kafka_ui_config": {
+      "enabled": "bool"
     }
   },
   "topic_specs": [
@@ -289,6 +292,9 @@ DiskSizeAutoscaling settings ||
 || kraft | **[KRaft](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft)**
 
 Configuration and resource allocation for KRaft-controller hosts. ||
+|| kafka_ui_config | **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)**
+
+Configuration of Kafka UI. ||
 |#
 
 ## Kafka {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka}
@@ -388,7 +394,8 @@ This is the global cluster-level setting that can be overridden on a topic level
 
 Should pre allocate file when create new segment?
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
+Deprecated. Feature useless for Yandex Cloud. ||
 || socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
@@ -487,7 +494,8 @@ This is the global cluster-level setting that can be overridden on a topic level
 
 Should pre allocate file when create new segment?
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
+Deprecated. Feature useless for Yandex Cloud. ||
 || socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
@@ -573,6 +581,15 @@ New storage size (in bytes) that is set when one of the thresholds is achieved. 
 || resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
 
 Resources allocated to KRaft controller hosts. ||
+|#
+
+## KafkaUIConfig {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Is Kafka UI enabled for this cluster. ||
 |#
 
 ## TopicSpec {#yandex.cloud.mdb.kafka.v1.TopicSpec}
@@ -672,7 +689,8 @@ This setting overrides the cluster-level [KafkaConfig2_8.log_segment_bytes](#yan
 
 True if we should preallocate the file on disk when creating a new log segment.
 
-This setting overrides the cluster-level [KafkaConfig2_8.log_preallocate](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level. ||
+This setting overrides the cluster-level [KafkaConfig2_8.log_preallocate](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) setting on the topic level.
+Deprecated. Feature useless for Yandex Cloud. ||
 |#
 
 ## TopicConfig3 {#yandex.cloud.mdb.kafka.v1.TopicConfig3}
@@ -747,7 +765,8 @@ This setting overrides the cluster-level [KafkaConfig3.log_segment_bytes](#yande
 
 True if we should preallocate the file on disk when creating a new log segment.
 
-This setting overrides the cluster-level [KafkaConfig3.log_preallocate](#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level. ||
+This setting overrides the cluster-level [KafkaConfig3.log_preallocate](#yandex.cloud.mdb.kafka.v1.KafkaConfig3) setting on the topic level.
+Deprecated. Feature useless for Yandex Cloud. ||
 |#
 
 ## UserSpec {#yandex.cloud.mdb.kafka.v1.UserSpec}
@@ -772,6 +791,7 @@ Set of permissions granted to the user. ||
 || topic_name | **string**
 
 Name or prefix-pattern with wildcard for the topic that the permission grants access to.
+With roles SCHEMA_READER and SCHEMA_WRITER: string that contains set of schema registry subjects, separated by ';'.
 
 To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/grpc/Topic/list#List) request. ||
 || role | enum **AccessRole**
@@ -782,7 +802,11 @@ Access role type to grant to the user.
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
 - `ACCESS_ROLE_ADMIN`: Admin role for the user.
-- `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user. ||
+- `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user.
+- `ACCESS_ROLE_TOPIC_PRODUCER`
+- `ACCESS_ROLE_TOPIC_CONSUMER`
+- `ACCESS_ROLE_SCHEMA_READER`
+- `ACCESS_ROLE_SCHEMA_WRITER` ||
 || allow_hosts[] | **string**
 
 Lists hosts allowed for this permission.
@@ -956,6 +980,9 @@ Hour of the day in UTC. ||
           "disk_size": "int64",
           "disk_type_id": "string"
         }
+      },
+      "kafka_ui_config": {
+        "enabled": "bool"
       }
     },
     "network_id": "string",
@@ -980,6 +1007,9 @@ Hour of the day in UTC. ||
     "planned_operation": {
       "info": "string",
       "delayed_until": "google.protobuf.Timestamp"
+    },
+    "kafka_ui": {
+      "url": "string"
     }
   }
   // end of the list of possible fields
@@ -1131,6 +1161,9 @@ Window of maintenance operations. ||
 || planned_operation | **[MaintenanceOperation](#yandex.cloud.mdb.kafka.v1.MaintenanceOperation)**
 
 Scheduled maintenance operation. ||
+|| kafka_ui | **[KafkaUI](#yandex.cloud.mdb.kafka.v1.Cluster.KafkaUI)**
+
+KafkaUI state. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.kafka.v1.Monitoring}
@@ -1192,6 +1225,9 @@ DiskSizeAutoscaling settings ||
 || kraft | **[KRaft](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft2)**
 
 Configuration and resource allocation for KRaft-controller hosts. ||
+|| kafka_ui_config | **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig2)**
+
+Configuration of Kafka UI. ||
 |#
 
 ## Kafka {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka2}
@@ -1291,7 +1327,8 @@ This is the global cluster-level setting that can be overridden on a topic level
 
 Should pre allocate file when create new segment?
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
+Deprecated. Feature useless for Yandex Cloud. ||
 || socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
@@ -1390,7 +1427,8 @@ This is the global cluster-level setting that can be overridden on a topic level
 
 Should pre allocate file when create new segment?
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
+Deprecated. Feature useless for Yandex Cloud. ||
 || socket_send_buffer_bytes | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
@@ -1478,6 +1516,15 @@ New storage size (in bytes) that is set when one of the thresholds is achieved. 
 Resources allocated to KRaft controller hosts. ||
 |#
 
+## KafkaUIConfig {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig2}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Is Kafka UI enabled for this cluster. ||
+|#
+
 ## MaintenanceWindow {#yandex.cloud.mdb.kafka.v1.MaintenanceWindow2}
 
 #|
@@ -1522,4 +1569,13 @@ Hour of the day in UTC. ||
 ||Field | Description ||
 || info | **string** ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|#
+
+## KafkaUI {#yandex.cloud.mdb.kafka.v1.Cluster.KafkaUI}
+
+#|
+||Field | Description ||
+|| url | **string**
+
+URL for connection to kafka ui ||
 |#

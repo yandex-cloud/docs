@@ -6,24 +6,26 @@ description: 'OCR stands for optical character recognition. {{ vision-full-name 
 
 OCR stands for optical character recognition. {{ vision-full-name }} is a computer vision service that enables image text and PDF recognition.
 
-{{ vision-name }} provides its features through API. You can integrate {{ vision-name }} features into your app written in any language or send requests using [cURL](https://curl.haxx.se) or similar utilities. {{ vision-name }} provides API in REST and gRPC notations. You can generate your own API for your programming language using [this API specification](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/ai/ocr/v1).
+{{ vision-name }} provides its features through API. You can integrate {{ vision-name }} features into your app written in any language or send requests using [cURL](https://curl.haxx.se) or similar utilities. {{ vision-name }} provides APIs in REST and gRPC notations. You can generate your own API for your programming language using [this API specification](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/ai/ocr/v1).
 
 ## {{ vision-name }} operating modes {#modes}
 
 {{ vision-name }} can process image recognition requests both synchronously and asynchronously.
 
 * In synchronous mode, {{ vision-name }} will process your request once it gets it and will provide you with the result in the response. This mode is good for apps that need to communicate with the user. However, you cannot use {{ vision-name }} synchronous mode to process large pieces of information.
-* In asynchronous mode, {{ vision-name}} will get your request and immediately return the operation ID you can use to get the recognition result. Recognizing text in asynchronous mode takes more time but allows processing large volumes of information in a single request. Use asynchronous mode if you do not need an urgent response. 
+* In asynchronous mode, {{ vision-name }} will get your request and immediately return the operation ID, which you can use to get the recognition result. Recognizing text in asynchronous mode takes more time but allows processing large volumes of information in a single request. Use asynchronous mode if you do not need an urgent response. 
 
 ## Recognition models {#models}
 
 {{ vision-name }} provides various models to recognize different types of image and PDF text. In particular, there are models for normal text, multi-column text, tables, handwritten text, or [common documents](template-recognition.md), such as passport or license plate number. With a more suitable model, you get better recognition result. To specify the model you need, use the `model` field in your request.
 
 See below for the list of available recognition models:
-  * `page` (default): Suitable for images with any number of text lines within a single column.
-  * `page-column-sort`: Use it to recognize multi-column text.
-  * `handwritten`: Use it to recognize a combination of typed and handwritten text in English or Russian.
-  * `table`: Use it to recognize tables in English or Russian.
+  * `page` (default): Suitable for images with any number of text lines arranged into a single column.
+  * `page-column-sort`: Recognizes multi-column text.
+  * `handwritten`: Recognizes a combination of typed and handwritten text in English or Russian.
+  * `table`: Suitable for recognizing tables in Russian and English.
+  * `markdown`: Recognizes text in images and returns results including in [Markdown](https://{{ lang }}.wikipedia.org/wiki/Markdown) format, e.g., `'markdown': 'PENGUINS. CROSSING\nSLOW\n'`.
+  * `math-markdown`: Suitable for recognizing math formulas. The model returns recognized text, including in Markdown format, with math formulas in LaTeX syntax, e.g., `'markdown': 'Important Algebraic Formulas\n\n$(a + b) ^ {2} = a ^ {2} + b ^ {2} + 2ab$'`.
   
 {% include [models-templates](../../../_includes/vision/models-templates.md) %}
 
@@ -34,12 +36,6 @@ For text recognition, {{ vision-name }} uses [language models](supported-languag
 The `handwritten` and `table` models only support Russian and English. To use these models, explicitly specify one or both languages in the `languageCodes` property for the [OCR API](../../ocr/api-ref/index.md).
 
 To use models for recognizing common documents, specify the language of the [country](template-recognition.md#countries) you need.
-
-{% note tip %}
-
-If your text is in Russian and English, the [English-Russian model](supported-languages.md#engrus) works best. To use this model, specify one or both of these languages in `text_detection_config` but do not specify any other languages.
-
-{% endnote %}
 
 ### Image requirements {#image-requirements}
 
@@ -54,10 +50,22 @@ The service highlights the text characters found in the image and groups them by
 ![image](../../../_assets/vision/text-detection.jpg)
 
 As a result, {{ vision-full-name }} returns an object with the following properties:
-* For `pages[]`: Page size.
-* For `blocks[]`: Position of the text on the page.
-* For `lines[]`: Position of lines.
-* For `words[]`: Position of words, text, and language used for recognition.
+* `pages[]`: Page size.
+* `blocks[]`: Position of the text on the page. Text blocks have the *LayoutType* property which takes one of the following values:
+  * `LAYOUT_TYPE_UNSPECIFIED`: Not set.
+  * `LAYOUT_TYPE_UNKNOWN`: Not found.
+  * `LAYOUT_TYPE_TEXT`: Text.
+  * `LAYOUT_TYPE_HEADER`: Header.
+  * `title`: Section header.
+  * `LAYOUT_TYPE_FOOTER`: Bottom note.
+  * `LAYOUT_TYPE_FOOTNOTE`: Note.
+  * `LAYOUT_TYPE_PICTURE`: Text in an image.
+  * `LAYOUT_TYPE_CAPTION`: Signature.
+  * `LAYOUT_TYPE_TITLE`: Name.
+  * `LAYOUT_TYPE_LIST`: List.
+* `lines[]`: Position of lines.
+* `words[]`: Position of words, text, and language used for recognition.
+* `pictures[]`: Position of images in the document.
 
 To show the position of the text, {{ vision-full-name }} returns the coordinates of the rectangle that frames the text. Coordinates are the number of pixels from the top-left corner of the image.
 

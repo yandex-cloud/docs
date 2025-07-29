@@ -5,6 +5,12 @@ description: This section contains {{ mos-name }} release notes.
 
 # {{ mos-full-name }} release notes
 
+
+## July 2025 {#jul-2025}
+
+Now you can [encrypt storage disks](concepts/storage.md#disk-encryption) with a custom KMS key when creating a cluster and restoring it from a backup.
+
+
 ## April 2025 {#apr-2025}
 
 * Implemented a new shard balancing algorithm. In addition to the number of shards and primary shards, it takes the amount of free space into consideration and can balance primary shards better than the standard algorithm.

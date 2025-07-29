@@ -30,7 +30,7 @@ To do this, set the `type` property to `Classification` in the [batchAnalyze](..
 
    {% note info %}
 
-   Need an image? [Download a sample](https://{{ s3-storage-host }}/vision/face-detection-sample.jpg).
+   Need an example? [Download the image](https://{{ s3-storage-host }}/doc-files/ml/vision/face-detection-sample.jpg).
 
    {% endnote %}
 

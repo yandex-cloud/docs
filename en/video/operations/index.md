@@ -17,6 +17,8 @@ description: Step-by-step guides on how to use the streaming and video hosting s
 * [{#T}](video/update.md)
 * [{#T}](video/add-thumbnail.md)
 * [{#T}](video/subtitles.md)
+* [{#T}](video/translation.md)
+* [{#T}](video/summarization.md)
 * [{#T}](video/download.md)
 * [{#T}](video/publish.md)
 * [{#T}](video/unpublish.md)

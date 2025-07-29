@@ -1,6 +1,6 @@
 ---
 title: Monitoring the state of a {{ VLK }} cluster and hosts
-description: You can track the state of a {{ mrd-name }} cluster and its individual hosts with the monitoring tools in the management console. These tools display diagnostic information as charts.
+description: You can track the state of a {{ mrd-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts.
 ---
 
 # Monitoring the state of a {{ VLK }} cluster and hosts
@@ -15,7 +15,7 @@ description: You can track the state of a {{ mrd-name }} cluster and its individ
 
 ## Monitoring cluster state {#monitoring-cluster}
 
-To view detailed information about the {{ mrd-name }} cluster state:
+To view detailed info on the state of a {{ mrd-name }} cluster:
 
 {% list tabs group=instructions %}
 
@@ -24,10 +24,10 @@ To view detailed information about the {{ mrd-name }} cluster state:
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
-
+  
   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
-  The following charts will open on the page:
+  The following charts will appear on the page:
 
   * **Can Read**: Displays clusters available for reading.
 
@@ -149,7 +149,7 @@ To view detailed information about the {{ mrd-name }} cluster state:
 
 ## Monitoring the state of hosts {#monitoring-hosts}
 
-To view detailed information about the state of individual {{ mrd-name }} hosts:
+To view detailed info on the state of individual {{ mrd-name }} hosts:
 
 {% list tabs group=instructions %}
 
@@ -179,7 +179,7 @@ To view detailed information about the state of individual {{ mrd-name }} hosts:
 
 ## Alert settings in {{ monitoring-full-name }} {#monitoring-integration}
 
-To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) state indicator alerts:
+To configure state indicator alerts for the [cluster](#monitoring-cluster) and [hosts](#monitoring-hosts):
 
 {% list tabs group=instructions %}
 
@@ -213,7 +213,7 @@ For the `disk.used_bytes` metric, the `Alarm` and `Warning` thresholds are only 
 * `Alarm`: `96636764160` bytes (90%).
 * `Warning`: `85899345920` bytes (80%).
 
-You can view a host's current RAM amount in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see the [{{ monitoring-name }} documentation](../../monitoring/metrics-ref/managed-redis-ref.md).
+You can view a host's current RAM amount in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-redis-ref.md).
 
 
 ## Cluster state and status {#cluster-health-and-status}
@@ -228,7 +228,7 @@ To view a cluster's state and status:
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the required cluster row.
+  1. Hover over the indicator in the cluster row of the **{{ ui-key.yacloud.common.availability }}** column.
 
 {% endlist %}
 

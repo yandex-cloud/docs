@@ -55,6 +55,9 @@ Aliases:
 	- [yc managed-kubernetes node-group remove-metadata](node-group/remove-metadata.md) — Remove keys from metadata of the node template of the specified node group.
 	- [yc managed-kubernetes node-group remove-node-labels](node-group/remove-node-labels.md) — Remove NODE labels from the specified node group.
 	- [yc managed-kubernetes node-group update](node-group/update.md) — Modify configuration or attributes of a node group.
+- [yc managed-kubernetes resource-preset](resource-preset/index.md) — Manage Kubernetes master resource presets.
+	- [yc managed-kubernetes resource-preset get](resource-preset/get.md) — Show information about the specified master resource preset.
+	- [yc managed-kubernetes resource-preset list](resource-preset/list.md) — List available master resource presets.
 
 #### Global Flags
 

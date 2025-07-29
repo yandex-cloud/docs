@@ -138,9 +138,9 @@ items:
         hidden: true
       - name: Alert settings in {{ monitoring-name }}
         href: security/alerts-monitoring.md
-      - name: Exporting audit logs to MaxPatrol SIEM
+      - name: Uploading audit logs to MaxPatrol SIEM
         href: security/maxpatrol.md
-      - name: Exporting audit logs to SIEM Splunk systems
+      - name: Uploading audit logs to Splunk SIEM
         href: security/export-logs-to-splunk.md
       - name: Uploading audit logs to ArcSight SIEM
         href: security/export-logs-to-arcsight.md
@@ -200,7 +200,7 @@ items:
             href: security/wlif-gitlab-integration.md
           - name: '{{ k8s }}'
             href: security/wlif-k8s-integration.md
-      - name: Exporting audit logs to {{ mos-name }}
+      - name: Uploading audit logs to {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md
       - name: >-
@@ -313,7 +313,7 @@ items:
     items:
       - name: All tutorials
         href: infrastructure/index.md
-      - name: Architecture and protection of a basic internet service
+      - name: Architecture and protection of a basic web service
         href: routing/web-service.md
       - name: Cost analysis by resource using {{ objstorage-name }}
         href: infrastructure/billing-resource-detailing.md
@@ -343,7 +343,7 @@ items:
               Integrating an L7 load balancer with {{ cdn-name }} and {{
               objstorage-name }}
             href: web/cdn-storage-integration.md
-          - name: Working with an instance group with autoscaling
+          - name: Working with an autoscaling instance group
             items:
               - name: Overview
                 href: infrastructure-management/vm-autoscale/index.md
@@ -415,7 +415,7 @@ items:
         items:
           - name: Configuring time synchronization using NTP
             href: infrastructure-management/ntp.md
-          - name: DHCP settings for working with a corporate DNS server
+          - name: DHCP settings for interfacing with a corporate DNS server
             href: routing/dhcp-options.md
           - name: Routing through a NAT instance
             items:
@@ -867,7 +867,7 @@ items:
         hidden: true
       - name: Fetching data from {{ RMQ }} to {{ mch-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
-      - name: Saving a {{ yds-name }} data stream in {{ mch-name }}
+      - name: Saving a data stream from {{ yds-name }} to {{ mch-name }}
         href: dataplatform/yds-to-clickhouse.md
       - name: >-
           Asynchronous replication of data from {{ metrika }} to {{ CH }} using
@@ -1148,7 +1148,7 @@ items:
         href: dataplatform/audit-log-processing.md
       - name: Processing {{ cloud-logging-name }} logs
         href: dataplatform/cloud-logging-processing.md
-      - name: Processing CDC Debezium streams
+      - name: Debezium Change Data Capture (CDC) stream processing
         href: dataplatform/debezium-yq.md
       - name: Analyzing data with {{ jlab }}
         href: dataplatform/jupyter-yq.md
@@ -1456,12 +1456,14 @@ items:
           Creating a {{ postbox-full-name }} address and checking domain
           ownership with {{ TF }}
         href: serverless/domain-identity-creating.md
-      - name: Sending emails in {{ postbox-full-name }} using AWS SDK
+      - name: Sending emails in {{ postbox-full-name }} using the AWS SDK
         items:
           - name: .NET Core
             href: serverless/send-emails-aws-sdk-csharp.md
           - name: Go
             href: serverless/send-emails-aws-sdk-go.md
+          - name: JavaScript
+            href: serverless/send-emails-aws-sdk-js.md
       - name: Creating an AI agent with {{ sf-full-name }}
         href: serverless/create-ai-agent-function.md
   - name: Machine learning and artificial intelligence

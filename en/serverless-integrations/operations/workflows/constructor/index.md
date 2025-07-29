@@ -1,6 +1,6 @@
 ---
 title: Guidelines on using the workflow step constructor
-description: In this article, you will learn how to use the {{ sw-full-name }} workflow step constructor. You will learn how to use the constructor to add integration and management steps to a workflow.
+description: In this tutorial, you will learn how to use the {{ sw-full-name }} workflow step constructor. You will learn how to use the constructor to add integration and management steps to a workflow.
 ---
 
 # {{ sw-name }} workflow step constructor overview
@@ -25,6 +25,7 @@ You can configure the following workflow steps using the constructor:
 * [Yandex Disk](./yadisk.md)
 * [{{ sw-name }}](./workflow.md)
 * [AI agent](./aiagent.md)
+* [Telegram bot](./telegrambot.md)
 
 ## Control steps {control-steps}
 

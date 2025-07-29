@@ -20,7 +20,7 @@ To [stream a video](./concepts/index.md#streams) on the service's [channel](./co
 
 ## Get your cloud ready {#before-you-begin}
 
-{% include [before-you-begin](../_includes/video/before-you-begin.md) %}
+{% include [before-you-begin](../_includes/video/before-you-begin-variants.md) %}
 
 ## Create a channel {#create-channel}
 
@@ -38,7 +38,7 @@ To [stream a video](./concepts/index.md#streams) on the service's [channel](./co
 
 1. Click **{{ ui-key.yacloud_video.common.action_create }}**.
 
-[Learn more about lines](./concepts/index.md#lines)
+To learn more about lines, see [{#T}](./concepts/streams.md#lines).
 
 ## Create a broadcast {#create-stream}
 
@@ -52,10 +52,10 @@ To [stream a video](./concepts/index.md#streams) on the service's [channel](./co
 1. In the **{{ ui-key.yacloud_video.streams.label_stream-type }}** field, select `{{ ui-key.yacloud_video.streams.label_type-on-demand }}`.
 1. Click **{{ ui-key.yacloud_video.common.action_create }}**.
 1. In the broadcast settings window that opens, copy the following data:
-    * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**
+    * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**.
     * **{{ ui-key.yacloud_video.stream-lines.label_server-address }}**.
 
-[Learn more about broadcasts](./concepts/index.md#streams)
+To learn more about streams, see [{#T}](./concepts/streams.md#streams).
 
 ## Set up OBS Studio {#configure-obs}
 
@@ -89,7 +89,7 @@ To [stream a video](./concepts/index.md#streams) on the service's [channel](./co
 
        * In the **Service** field, select **Custom...**.
        * In the **Server** field, specify the server address you [got](#create-stream) earlier.
-       * In the **Stream Key** field, specify the broadcast key you got earlier.
+       * In the **Stream key** field, specify the broadcast key you got earlier.
     
     1. In the left-hand panel, select **Output** → **Stream**.
     
@@ -99,7 +99,7 @@ To [stream a video](./concepts/index.md#streams) on the service's [channel](./co
     1. In the **Recording** section:
     
        * In the **Recording Path** field, specify the path to save your stream to.
-       * In the **Recording Format** field, select the video file format.
+       * In the **Recording format** field, select the video file format.
     
     1. Click **OK**.
     1. In the **Sources** panel at the bottom left, click ![plus-sign](../_assets/console-icons/plus.svg) to add a source.
@@ -111,7 +111,7 @@ To [stream a video](./concepts/index.md#streams) on the service's [channel](./co
     1. In the center of the window, you can set the size and position of the video stream.
     1. To start a broadcast, in the bottom-right **Controls** panel, click **Start Streaming**.
 
-For more information, see [OBS Studio setup recommendations](operations/streams/obs-config-help.md).
+For more information, see [{#T}](operations/streams/obs-config-help.md).
 
 ## Start your broadcast {#start-stream}
 

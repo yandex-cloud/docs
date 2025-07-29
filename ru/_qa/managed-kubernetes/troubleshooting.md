@@ -439,3 +439,7 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
    Обновление сетевых параметров может привести к недоступности сервисов внутри кластера на несколько минут.
 
    {% endnote %}
+
+#### Что делать, если я удалил сетевой балансировщик нагрузки или целевые группы {{ network-load-balancer-full-name }}, автоматически созданные для сервиса типа LoadBalancer? {#deleted-loadbalancer-service}
+
+Восстановить сетевой балансировщик или целевые группы {{ network-load-balancer-name }} вручную нельзя. [Пересоздайте](../../managed-kubernetes/operations/create-load-balancer.md#lb-create) сервис типа `LoadBalancer` — балансировщик и целевые группы будут созданы автоматически.

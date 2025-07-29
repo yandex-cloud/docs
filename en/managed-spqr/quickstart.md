@@ -14,7 +14,7 @@ To get started:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
 
 1. If you do not have a folder yet, create one:
 
@@ -53,6 +53,7 @@ To get started:
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Specify your cluster settings and click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
+   To learn more about the cluster properties, see [Creating a cluster](operations/cluster-create.md).
 
 1. Wait until the cluster is ready for operation: its availability status on the {{ mspqr-short-name }} panel will change to **Alive**. This may take some time.
 
@@ -83,5 +84,6 @@ To get started:
 
 ## What's next {#whats-next}
 
-Read about [service concepts](concepts/index.md).
+* Read about [service concepts](concepts/index.md).
+* Learn more about [creating a cluster](operations/cluster-create.md).
 

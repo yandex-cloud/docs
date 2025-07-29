@@ -1,7 +1,7 @@
 #### Quotas {#speechkit-quotas}
 
 
-Type of limitation | Value
+Type of limit | Value
 ----- | -----
 [**Streaming speech recognition**](../{{ speechkit-slug }}/stt/streaming.md) |
 Requests per second | 40
@@ -22,7 +22,7 @@ Requests per second | 40
 
 #### Limits {#speechkit-limits}
 
-Type of limitation | Value
+Type of limit | Value
 ----- | -----
 [**Streaming speech recognition**](../{{ speechkit-slug }}/stt/streaming.md) |
 Maximum duration of transmitted audio for entire session | {{ stt-streaming-audioLength }}

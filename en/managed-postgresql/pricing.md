@@ -24,6 +24,8 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 {% include [pricing-status.md](../_includes/mdb/pricing-status.md) %}
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
@@ -122,15 +124,10 @@ CVoS discount is only available for certain resource types. For unsupported reso
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
-
-All prices below do not include VAT.
-
-
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 
-### Host computing resources {#prices-hosts}
+### Host compute resources {#prices-hosts}
 
 
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}

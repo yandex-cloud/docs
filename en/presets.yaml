@@ -258,6 +258,7 @@ default:
   k8s-versions-regular: 1.29, 1.30, 1.31, 1.32
   k8s-versions-stable: 1.29, 1.30, 1.31, 1.32
   k8s-vpa: Vertical Pod Autoscaler
+  kafka-ui: Kafka UI
   keycloak: Keycloak
   KF: Apache Kafka®
   kf:
@@ -2372,6 +2373,18 @@ default:
                   v2|string: ₸7.7112
                   v3|month|string: ₸4990.2480
                   v3|string: ₸6.9309
+              kraft:
+                cpu:
+                  c100:
+                    v2|month|string: ₸5878.80
+                    v2|string: ₸8.1650
+                    v3|month|string: ₸5283.72
+                    v3|string: ₸7.3385
+                ram:
+                  v2|month|string: ₸1574.64
+                  v2|string: ₸2.1870
+                  v3|month|string: ₸1400.04
+                  v3|string: ₸1.9445
               ram:
                 v2|month|string: ₸1487.16
                 v2|string: ₸2.0655
@@ -2469,6 +2482,18 @@ default:
                   v2|string: ₸7.0762
                   v3|month|string: ₸4579.2864
                   v3|string: ₸6.3601
+              kraft:
+                cpu:
+                  c100:
+                    v2|month|string: ₸5551.92
+                    v2|string: ₸7.7110
+                    v3|month|string: ₸4990.32
+                    v3|string: ₸6.9310
+                ram:
+                  v2|month|string: ₸1487.16
+                  v2|string: ₸2.0655
+                  v3|month|string: ₸1321.56
+                  v3|string: ₸1.8355
               ram:
                 v2|month|string: ₸1364.6880
                 v2|string: ₸1.8954
@@ -4087,6 +4112,18 @@ default:
                   v2|string: ₽1.5422
                   v3|month|string: ₽998.0496
                   v3|string: ₽1.3862
+              kraft:
+                cpu:
+                  c100:
+                    v2|month|string: ₽1175.76
+                    v2|string: ₽1.6330
+                    v3|month|string: ₽1056.7440
+                    v3|string: ₽1.4677
+                ram:
+                  v2|month|string: ₽314.9280
+                  v2|string: ₽0.4374
+                  v3|month|string: ₽280.0080
+                  v3|string: ₽0.3889
               ram:
                 v2|month|string: ₽297.4320
                 v2|string: ₽0.4131
@@ -4184,6 +4221,18 @@ default:
                   v2|string: ₽1.4152
                   v3|month|string: ₽915.8573
                   v3|string: ₽1.2720
+              kraft:
+                cpu:
+                  c100:
+                    v2|month|string: ₽1110.3840
+                    v2|string: ₽1.5422
+                    v3|month|string: ₽998.0640
+                    v3|string: ₽1.3862
+                ram:
+                  v2|month|string: ₽297.4320
+                  v2|string: ₽0.4131
+                  v3|month|string: ₽264.3120
+                  v3|string: ₽0.3671
               ram:
                 v2|month|string: ₽272.9376
                 v2|string: ₽0.3791
@@ -5781,6 +5830,18 @@ default:
                   v2|string: $0.012852
                   v3|month|string: $8.317076
                   v3|string: $0.011551
+              kraft:
+                cpu:
+                  c100:
+                    v2|month|string: $9.797996
+                    v2|string: $0.013608
+                    v3|month|string: $8.806196
+                    v3|string: $0.012231
+                ram:
+                  v2|month|string: $2.624399
+                  v2|string: $0.003645
+                  v3|month|string: $2.333399
+                  v3|string: $0.003241
               ram:
                 v2|month|string: $2.478599
                 v2|string: $0.003442
@@ -5878,6 +5939,18 @@ default:
                   v2|string: $0.011794
                   v3|month|string: $7.632141
                   v3|string: $0.010600
+              kraft:
+                cpu:
+                  c100:
+                    v2|month|string: $9.253197
+                    v2|string: $0.012852
+                    v3|month|string: $8.317197
+                    v3|string: $0.011552
+                ram:
+                  v2|month|string: $2.478599
+                  v2|string: $0.003442
+                  v3|month|string: $2.202599
+                  v3|string: $0.003059
               ram:
                 v2|month|string: $2.274479
                 v2|string: $0.003159
@@ -8808,6 +8881,7 @@ default:
         field_connector-secret-access-key: Secret access key
         field_connector-security-protocol: Security protocol
         field_connector-ssl-truststore-certificates: Certificate in PEM format
+        field_kafka-ui: Kafka UI
         field_kraft-combined-mode: Combined mode
         field_rest-api-config: Kafka Rest API
         field_schema-registry: Schema registry
@@ -9320,7 +9394,6 @@ default:
           section_subclusters: Subclusters
           section_user: User
           section_zookeeper-disk: ZooKeeper storage size
-          section_zookeeper-hosts: ZooKeeper hosts
           section_zookeeper-resource: ZooKeeper host class
           title_pip-packages: Pip packages
           value_maintenance-type-anytime: arbitrary

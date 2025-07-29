@@ -64,7 +64,19 @@ ERROR: odyssey: ce3ea075f4ffa: route for '<DB_name>.<user_name>' is not found
 
 The error means that the connection parameters contain an invalid database name.
 
-#### Why do I get an error when connecting to the postgres database? {#database-postgres-error}
+#### Why do I get an error when creating a dump using pg_dumpall? {#dump-error}
+
+You get this error when creating a dump using `pg_dumpall`:
+
+```text
+ERROR: odyssey: c16b9035a1f78: route for 'template1.<user_name>' is not found
+```
+
+This error is there because `pg_dumpall` tries to export all databases: both custom and system ones.
+
+You cannot create a dump of all {{ mpg-name }} databases at the same time. Export dumps using `pg_dump` for each custom database one by one, excluding the system ones.
+
+#### Why do I get an error when connecting to a postgres database? {#database-postgres-error}
 
 Connecting to the `postgres` database fails with the following error:
 
@@ -156,6 +168,18 @@ To avoid this error:
 
 1. If the script or logical dump is in text format, remove the operators for creating {{ PG }} extensions from them.
 1. [Install](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) all required extensions in the target database using the {{ yandex-cloud }} interfaces.
+
+#### Why do I get the `must be owner of extension` error when deploying a logical dump? {#owner-of-extension}
+
+[Restoring a logical dump](../../managed-postgresql/tutorials/data-migration.md#backup) may fail with this error: `ERROR: must be owner of extension`.
+
+The error is there because the logical dump contains installation or update operations of [{{ PG }} extensions](../../managed-postgresql/operations/extensions/cluster-extensions.md). In {{ mpg-short-name }} clusters, you cannot manage extensions using SQL commands.
+
+To fix this error:
+
+1. Before restoring the dump, [enable](../../managed-postgresql/operations/extensions/cluster-extensions.md#update-extensions) all required extensions in the target database.
+1. Exclude any operations with extensions from the dump. For example, you can comment out lines related to installation of extensions.
+1. Perform logical dump recovery again.
 
 #### Why do I get an error when setting up cascading replication? {#cascade-errors}
 

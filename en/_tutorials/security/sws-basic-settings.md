@@ -1,7 +1,15 @@
 
 # Setting up basic protection in {{ sws-name }}
 
-[{{ sws-name }}](../../smartwebsecurity/concepts/index.md) (SWS) protects web resources from internet threats by filtering malicious traffic. For a custom configuration, you can connect multiple {{ sws-name }} tools: basic rules for simple filtering, Smart Protection rules for DDoS protection, [{{ captcha-name }}](../../smartcaptcha/) for anti-bot protection, Web Application Firewall (WAF) for protection from vulnerability exploits, and advanced rate limiter (ARL) for traffic restrictions.
+[{{ sws-name }}](../../smartwebsecurity/concepts/index.md) (SWS) protects web resources from internet threats by filtering malicious traffic.
+
+For individual customization, you can connect several {{ sws-name }} tools:
+
+* Basic rules for simple filtering.
+* Smart Protection rules for DDoS protection.
+* [{{ captcha-name }}](../../smartcaptcha/) for protection against bots.
+* Web Application Firewall (WAF) as a safeguard from exploitation of vulnerabilities.
+* Advanced Rate Limiter (ARL) for traffic limiting.
 
 Setting up each tool includes these steps: adding rules, testing them in real-world conditions, and adjusting. We recommend setting up the tools one by one, starting from the basic and Smart Protection rules. This will allow you to quickly enable protection and easily monitor and adjust your rules.
 
@@ -356,43 +364,27 @@ To see how the security profile rules work, check the logs.
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- L7 load balancer {#balancer}
 
-  1. If you use an L7 load balancer:
-     1. Make sure that [logging](../../smartwebsecurity/operations/configure-logging.md) is configured.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-     1. Select the load balancer with an associated security profile.
-  1. If you use an API gateway:
-     1. Make sure that [logging](../../api-gateway/operations/api-gw-logs-write.md) is configured.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-     1. Select the API gateway with an associated security profile.
-  1. If you use a domain:
-     1. Make sure that [logging](../../smartwebsecurity/operations/proxy-create.md) is configured.
-     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-     1. In the left-hand panel, select ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
-     1. Select the proxy server your security profile is associated with.
-  1. Navigate to **{{ ui-key.yacloud.common.logs }}**.
-  1. Select the number of messages per page and the period, e.g., `1 hour`.
-  1. In the **Query** field, specify you query using the [filter expression language](../../logging/concepts/filter.md) and click **Run**.
+  1. Make sure that [logging](../../smartwebsecurity/operations/configure-logging.md) is configured.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Select the load balancer with an associated security profile.
+  1. {% include [log-requests](../../_includes/smartwebsecurity/log-requests.md) %}
 
-      Request examples:
+- API gateway {#api-gateway}
+  
+  1. Make sure that [logging](../../api-gateway/operations/api-gw-logs-write.md) is configured.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Select the API gateway with an associated security profile.
+  1. {% include [log-requests](../../_includes/smartwebsecurity/log-requests.md) %}
 
-      * Show requests which triggered a Smart Protection rule with a CAPTCHA challenge (in logging mode):
-        ```
-        json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.dry_run_matched_rule.verdict = CAPTCHA
-        ```
-      * Similar request without the logging mode:
-        ```
-        json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.matched_rule.verdict = CAPTCHA
-        ```
-      * Show requests blocked by basic rules based on any conditions (in logging mode):
-        ```
-        json_payload.smartwebsecurity.dry_run_matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-        ```
-      * Similar request without the logging mode:
-        ```
-        json_payload.smartwebsecurity.matched_rule.rule_type = RULE_CONDITION and json_payload.smartwebsecurity.matched_rule.verdict = DENY
-        ```
+- Domain {#domain}
+
+  1. Make sure that [logging](../../smartwebsecurity/operations/proxy-create.md) is configured.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the left-hand panel, select ![domain-protection-icon](../../_assets/smartwebsecurity/domain-protection-icon.svg) **{{ ui-key.yacloud.smart-web-security.label_domain-protection }}**.
+  1. Select the proxy server your security profile is associated with.
+  1. {% include [log-requests](../../_includes/smartwebsecurity/log-requests.md) %}
 
 {% endlist %}
 

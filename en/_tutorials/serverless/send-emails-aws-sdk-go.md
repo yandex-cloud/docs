@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Set up resources {#infrastructure}
 
-{% include [clone-yc-postbox-examples](../../_includes/postbox/send-emails-aws-sdk/send-emails-infrastructure.md) %}
+{% include [clone-yc-postbox-examples](../../_includes/postbox/send-emails-aws-sdk/infrastructure.md) %}
 
 
 ## Configure a directory for authentication data {#auth}
@@ -240,7 +240,4 @@ Make sure the recipient specified in the file named `main.go` in the `Recipient`
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
-
-* Delete the [address](../../postbox/operations/).
-* Delete the [DNS zone](../../dns/operations/zone-delete.md) if you had created a resource record in it.
+{% include [clear-out](../../_includes/postbox/send-emails-aws-sdk/clear-out.md) %}

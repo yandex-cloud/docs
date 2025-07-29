@@ -3,7 +3,7 @@ title: Storage in {{ mpg-full-name }}
 description: In this article, you will learn what storage is in {{ mpg-name }}, how to manage disk space, and how to select the right disk type when creating a cluster.
 ---
 
-# Storage in {{ mpg-name }}
+# {{ mpg-name }} storage
 
 
 
@@ -36,17 +36,7 @@ For more information about limits on the number of hosts per cluster, see [Quota
 
 ## Disk encryption {#disk-encryption}
 
-When creating or restoring a cluster from a backup, you can encrypt the storage disk with a [custom KMS key](../../kms/concepts/key.md). You can neither disable or change disk encryption nor encrypt a disk of an already created cluster.
-
-{% note warning %}
-
-Encryption is not available for network SSDs (`network-ssd`).
-
-{% endnote %}
-
-{% include [encryption-role](../../_includes/compute/encryption-role.md) %}
-
-{% include [encryption-keys-note](../../_includes/compute/encryption-keys-note.md) %}
+{% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
 
 
 ## Disk space management {#manage-storage-space}

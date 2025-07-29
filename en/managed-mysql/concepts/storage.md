@@ -11,7 +11,6 @@ description: In this article, you will learn about disk types in {{ mmy-name }} 
 
 {% include [storage-type](../../_includes/mdb/mmy/storage-type.md) %}
 
-
 ## Selecting disk type during cluster creation {#storage-type-selection}
 
 The number of hosts you can create together with a {{ MY }} cluster depends on the selected disk type:
@@ -34,9 +33,17 @@ The number of hosts you can create together with a {{ MY }} cluster depends on t
 For more information about limits on the number of hosts per cluster, see [Quotas and limits](./limits.md).
 
 
+
+## Disk encryption {#disk-encryption}
+
+{% include [disk-encryption](../../_includes/mdb/disk-encryption.md) %}
+
+
+
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/sync-mysql.md)
 * [{#T}](../tutorials/bitrix-shop/index.md)
 * [{#T}](../tutorials/bitrix-website/index.md)
 * [{#T}](../tutorials/opencart/index.md)
+

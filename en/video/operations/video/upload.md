@@ -9,7 +9,7 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
 {% list tabs group=instructions %}
 
-- {{ video-name }} interface {#console}
+- {{ video-name }} UI {#console}
 
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
@@ -37,7 +37,9 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
       {% include [image-characteristic](../../../_includes/video/image-characteristic.md) %}
 
+  1. {% include [add-summarization-optional](../../../_includes/video/add-summarization-optional.md) %}
   1. {% include [add-subtitles-optional](../../../_includes/video/add-subtitles-optional.md) %}
+  1. {% include [add-translation-optional](../../../_includes/video/add-translation-optional.md) %}
   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
   This will open the video management page. After processing is complete, the video will be available for viewing.
@@ -136,7 +138,7 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
 
 {% list tabs group=instructions %}
 
-- {{ video-name }} interface {#console}
+- {{ video-name }} UI {#console}
 
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.

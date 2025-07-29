@@ -43,7 +43,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
       * Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
 
           * `PRODUCTION`: For stable versions of your apps.
-          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
 
       * Specify the DBMS version.
 
@@ -56,6 +56,18 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
       * Select the storage size to be used for data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
+
+      
+      * Optionally, select the **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** option to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
+
+        {% include [preview-note](../../_includes/note-preview-by-request.md) %}
+
+        * To [create](../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+
+        * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
+
+        To learn more about disk encryption, see [Storage](../../network-load-balancer/k8s-ref/networkpolicy.md).
+
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify the DB attributes:
 
@@ -77,7 +89,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      
      * Click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
-     * Select an [availability zone](../../overview/concepts/geo-scope.md).
+     * Select the [availability zone](../../overview/concepts/geo-scope.md).
      * Select a [subnet](../../vpc/concepts/network.md#subnet) in the specified availability zone. If there is no subnet, create one.
      * If the host must be available outside {{ yandex-cloud }}, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
@@ -135,7 +147,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
               `secondary-delay-secs=<replica_lag_in_seconds>,`
               `priority=<host_priority> \
         --mongod-resource-preset <host_class> \
-        --user name=<username>,password=<user_password> \
+        --user name=<user_name>,password=<user_password> \
         --database name=<DB_name> \
         --mongod-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --mongod-disk-size <storage_size_in_GB> \
@@ -184,7 +196,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
   To create a {{ mmg-name }} cluster:
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, describe the parameters of resources you want to create:
 
      * Database cluster: Description of the cluster and its hosts.
 
@@ -230,9 +242,9 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        name       = "<DB_name>"
      }
 
-     resource "yandex_mdb_mongodb_user" "<username>" {
+     resource "yandex_mdb_mongodb_user" "<user_name>" {
        cluster_id = <cluster_ID>
-       name       = "<username>"
+       name       = "<user_name>"
        password   = "<password>"
        permission {
          database_name = "<DB_name>"
@@ -275,7 +287,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
-     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-mmg }}).
+     For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmg }}).
 
   1. Make sure the settings are correct.
 
@@ -672,7 +684,7 @@ If you specified security group IDs when creating a cluster, you may also need t
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ MG }} cluster using the settings of another one created earlier. To do so, you need to import the configuration of the source {{ MG }} cluster to {{ TF }}. This way you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MG }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ MG }} cluster using the settings of another one created earlier. To do so, import the source {{ MG }} cluster’s configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MG }} cluster has a lot of settings and you need to create a similar one.
 
 To create a {{ MG }} cluster copy:
 
@@ -691,15 +703,15 @@ To create a {{ MG }} cluster copy:
         resource "yandex_mdb_mongodb_cluster" "old" { }
         ```
 
-    1. Write the ID of the initial {{ MG }} cluster to the environment variable:
+    1. Write the initial {{ MG }} cluster’s ID to the environment variable:
 
         ```bash
         export MONGODB_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with the [list of clusters in the folder](../../managed-mongodb/operations/cluster-list.md#list-clusters).
+        You can get the ID with the [list of clusters in the folder](../../managed-mongodb/operations/cluster-list.md#list-clusters).
 
-    1. Import the settings of the initial {{ MG }} cluster into the {{ TF }} configuration:
+    1. Import the initial {{ MG }} cluster’s settings into the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_mongodb_cluster.old ${MONGODB_CLUSTER_ID}
@@ -724,7 +736,7 @@ To create a {{ MG }} cluster copy:
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). To avoid creating a configuration file with provider settings manually, [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
     1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
@@ -734,7 +746,7 @@ To create a {{ MG }} cluster copy:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -770,7 +782,7 @@ To create a {{ MG }} cluster copy:
   * Deletion protection: Enabled.
 
 
-  Run the following command:
+  Run this command:
 
   
   ```bash

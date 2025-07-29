@@ -28,15 +28,15 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
   1. In the left-hand panel, click ![image](../../../_assets/console-icons/sliders.svg) **{{ ui-key.yacloud.tuning.tunings }}**.
   1. Click **{{ ui-key.yacloud.tuning.train-model }}**.
-  1. Enter a name and descriptions for the dataset. Follow these naming requirements:
+  1. Enter a name and description for the tuned model. The naming requirements are as follows:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. Optionally, add or delete the tuning [labels](../../../resource-manager/concepts/labels.md). You can use them to split or join resources into logical groups.
-  1. In the **{{ ui-key.yacloud.tuning.task }}** field, select **{{ ui-key.yacloud.tuning.embedding }}**.
+  1. In the **{{ ui-key.yacloud.tuning.task }}** field, select `{{ ui-key.yacloud.tuning.embedding }}`.
   1. Select **{{ ui-key.yacloud.tuning.embedding-type}}** that matches the prepared dataset. 
   1. In the **{{ ui-key.yacloud.yagpt.model }}** field, select the model you need.
-  1. In the **{{ ui-key.yacloud.dataset.dataset }}** field, click **{{ ui-key.yacloud.common.add }}**.
+  1. In the **{{ ui-key.yacloud.dataset.dataset }}** field, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.common.add }}**.
   1. In the window that opens, go to the **{{ ui-key.yacloud.dataset.select-from-created }}** tab and select the dataset you created earlier.
   1. Click **{{ ui-key.yacloud.tuning.addition-params }}** to do advanced fine-tuning setup.
   1. Click **{{ ui-key.yacloud.tuning.start-tuning }}**.
@@ -53,9 +53,10 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
      * `<API_key>`: Service account [API key](../../../iam/concepts/authorization/api-key.md) you got earlier required for [authentication in the API](../../../foundation-models/api-ref/authentication.md).
 
          {% include [sdk-auth-details-paragraph](../../../_includes/foundation-models/sdk-auth-details-paragraph.md) %}
-     * `<dataset_ID>`: ID of the dataset for fine-tuning.
+     * `<dataset_type>`: Type of previously created [dataset](../../concepts/resources/dataset.md#embeddings). Possible values: `pair` and `triplet`.
+     * `<dataset_ID>`: ID of the previously created dataset for fine-tuning.
 
-  1. Run the created file:
+  1. Run the file you created:
 
      ```bash
      python3 start-tuning.py
@@ -72,7 +73,6 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
      download_tensorboard(metrics_url)
      ```
 
-
 - cURL {#curl}
 
   1. Start tuning.
@@ -85,7 +85,7 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
          -d @ \
          {{ api-host-llm }}:443 yandex.cloud.ai.tuning.v1.TuningService/Tune <<EOM
          {
-           "base_model_uri": "emb://<folder_ID>/yandexgpt-lite/latest",
+           "base_model_uri": "emb://<folder_ID>/text-embeddings/latest",
            "train_datasets": [{"dataset_id": "<dataset_ID>", "weight": 1.0}],
            "name": "train-embeddings",
            "text_embedding_pair_params": {}
@@ -101,7 +101,7 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
          -d @ \
          {{ api-host-llm }}:443 yandex.cloud.ai.tuning.v1.TuningService/Tune <<EOM
          {
-           "base_model_uri": "emb://<folder_ID>/yandexgpt-lite/latest",
+           "base_model_uri": "emb://<folder_ID>/text-embeddings/latest",
            "train_datasets": [{"dataset_id": "<dataset_ID>", "weight": 1.0}],
            "name": "train-embeddings",
            "text_embedding_triplet_params": {}
@@ -119,11 +119,13 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
 
      ```text
      {
-       "id": "ftnlljf53kil********",
-       "createdAt": "2025-04-20T11:17:33Z",
-       "modifiedAt": "2025-04-20T11:17:33Z",
+       "id": "ftna7bps63gh********",
+       "createdAt": "2025-07-16T10:44:57Z",
+       "modifiedAt": "2025-07-16T10:44:57Z",
        "metadata": {
-         "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningMetadata"
+         "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningMetadata",
+         "status": "CREATED",
+         "tuningTaskId": "ftna7bps63gh********"
        }
      }
      ```
@@ -147,20 +149,20 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
 
      ```json
      {
-       "id": "ftnlljf53kil********",
-       "createdAt": "2025-04-20T11:17:33Z",
-       "modifiedAt": "2025-04-20T11:25:40Z",
+       "id": "ftna7bps63gh********",
+       "createdAt": "2025-07-16T10:44:57Z",
+       "modifiedAt": "2025-07-16T10:48:07Z",
        "done": true,
        "metadata": {
          "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningMetadata",
          "status": "COMPLETED",
-         "tuningTaskId": "ftnlljf53kil********"
+         "tuningTaskId": "ftna7bps63gh********"
        },
        "response": {
          "@type": "type.googleapis.com/yandex.cloud.ai.tuning.v1.TuningResponse",
          "status": "COMPLETED",
-         "targetModelUri": "emb://b1gt6g8ht345********/yandexgpt-lite/latest@tamr2nc6pev5e********",
-         "tuningTaskId": "ftnlljf53kil********"
+         "targetModelUri": "emb://b1gt6g8ht345********/text-embeddings/latest@tamr0j6m2crpi********",
+         "tuningTaskId": "ftna7bps63gh********"
        }
      }
      ```
@@ -182,7 +184,7 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
 
 ### Accessing a fine-tuned model {#model-call}
 
-Once the model is fine-tuned, save its URI in this format: `emb://<base_model_URI>/@<tuning_suffix>`. Use it as a custom embedding model, if needed. For example, you can specify `model_uri` when [building a search index](../../concepts/assistant/search-index.md).
+Once the model is fine-tuned, save its URI in this format: `emb://<folder_ID>/text-embeddings/latest@<tuning_suffix>`. Use it as a custom embedding model, if needed. For example, you can specify `model_uri` when [building a search index](../../concepts/assistant/search-index.md).
 
 #### See also {#see-also}
 

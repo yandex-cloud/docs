@@ -138,6 +138,8 @@ items:
                 href: operations/eventrouter/bus/create.md
               - name: Изменить шину
                 href: operations/eventrouter/bus/update.md
+              - name: Записать логи
+                href: operations/eventrouter/bus/logs-write.md
               - name: Управлять метками
                 items:
                   - name: Добавить метку

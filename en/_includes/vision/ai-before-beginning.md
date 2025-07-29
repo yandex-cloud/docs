@@ -8,25 +8,13 @@ Get your account data for authentication:
   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-vision-user }}` role or higher.
   1. When accessing {{ vision-name }} via the API, provide the received parameters in each request:
 
-      * For the Vision API and Classifier API:
+    * Specify the IAM token in the `Authorization` header.
+    * Specify the folder ID in the `x-folder-id` header.
 
-          Specify the IAM token in the `Authorization` header as follows:
-
-          ```
-          Authorization: Bearer <IAM_token>
-          ```
-
-          Specify the folder ID in the request body in the `folderId` parameter.
-
-      * For the [OCR API](../../vision/ocr/api-ref/index.md):
-
-          * Specify the IAM token in the `Authorization` header.
-          * Specify the folder ID in the `x-folder-id` header.
-
-          ```
-          Authorization: Bearer <IAM_token>
-          x-folder-id: <folder_ID>
-          ```
+    ```bash
+    Authorization: Bearer <IAM_token>
+    x-folder-id: <folder_ID>
+    ```
 
 - Service account {#service-account}
 
@@ -37,7 +25,7 @@ Get your account data for authentication:
       1. Get an [IAM token](../../iam/operations/iam-token/create-for-sa.md).
       1. Provide the IAM token in the `Authorization` header in the following format:
 
-          ```
+          ```bash
           Authorization: Bearer <IAM_token>
           ```
 
@@ -48,7 +36,7 @@ Get your account data for authentication:
       1. [Get an API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key).
       1. Provide the API key in the `Authorization` header in the following format:
 
-          ```
+          ```bash
           Authorization: Api-Key <API_key>
           ```
 

@@ -10,12 +10,6 @@ You cannot upgrade a regular cluster version to versions optimized for _1C:Enter
 
 You can only upgrade to a version that immediately follows the current one, e.g., from version 14 to 15. Upgrades to higher versions are performed in steps. For example, for {{ PG }}, the upgrade sequence from version 13 to 15 is: 13 → 14 → 15.
 
-{% note warning %}
-
-You can upgrade to version 17 only using {{ data-transfer-full-name }}. To do so, [create a cluster](cluster-create.md#create-cluster) with the new version and [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
-
-{% endnote %}
-
 In single-host clusters, the only master host is brought out of its running state for upgrades. During an upgrade, these clusters will be unavailable for reading and writing.
 
 In multi-host clusters, upgrades follow the procedure below:

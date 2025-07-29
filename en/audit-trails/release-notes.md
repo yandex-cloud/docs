@@ -5,6 +5,313 @@ description: This section contains {{ at-name }} release notes.
 
 # {{ at-full-name }} release notes
 
+## Q2 2025 {#q2-2025}
+
+* Added new events for the services:
+
+  {% cut "{{ alb-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CancelZonalShift` | Stopping the process of outputting traffic from any availability zone
+  `StartZonalShift` | Starting the process of outputting traffic from any availability zone
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `LoadbalancerHTTPAccessLog` | HTTP request logging
+  `LoadbalancerTCPAccessLog` | TCP request logging
+
+  {% endcut %}
+
+  {% cut "{{ baremetal-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `ApplyUpdatePrivateCloudConnection` | Applying updates to a private connection to subnets in a VPC or on-prem infrastructure
+  `CreateImage` | Creating a boot image
+  `CreatePrivateCloudConnection` | Creating a [private connection](../baremetal/concepts/network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure
+  `CreatePublicSubnet` | Creating a [public subnet](../baremetal/concepts/network.md#public-network)
+  `DeleteImage` | Deleting a boot image
+  `DeletePrivateCloudConnection` | Deleting a private connection to subnets in a VPC or on-prem infrastructure
+  `DeletePublicSubnet` | Deleting a public subnet
+  `UpdateImage` | Updating a boot image
+  `UpdatePrivateCloudConnection` | Updating a private connection to subnets in a VPC or on-prem infrastructure
+  `UpdatePublicSubnet` | Updating a public subnet
+
+  {% endcut %}
+
+  {% cut "{{ certificate-manager-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `GetExCertificateContent` | Getting the contents of an expired SSL certificate
+
+  {% endcut %}
+
+  {% cut "{{ video-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateStylePreset` | Creating a player preset
+  `DeleteStylePreset` | Deleting a player preset
+  `UpdateStylePreset` | Updating a player preset
+
+  {% endcut %}
+
+  {% cut "{{ compute-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `serialssh.ConnectSerialPort` | Connecting to an instance serial port
+  `MigrateInstance` | VM [live migration](../compute/concepts/live-migration.md) ^*^
+
+  \* The audit log collects events only for VMs with a [maintenance policy](../compute/concepts/vm-policies.md) configured.
+
+  {% endcut %}
+
+  {% cut "{{ datalens-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `SwitchDataExportProhibition` | Updating the data export restriction
+  `SwitchWorkbookFileExportProhibition` | Updating the restriction on file export from a workbook
+
+  {% endcut %}
+
+  {% cut "{{ foundation-models-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `TextProcessing` | Text processing
+  `GetTextProcessingResult` | Getting text processing results
+
+  {% endcut %}
+
+  {% cut "{{ org-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `idp.AddUserpoolDomain` | Associating a domain with a user pool
+  `idp.CreateUser` | Creating a local user
+  `idp.CreateUserpool` | Creating a user pool
+  `idp.DeleteUser` | Deleting a local user
+  `idp.DeleteUserpool` | Deleting a user pool
+  `idp.DeleteUserpoolDomain` | Deleting domain's association with a user pool
+  `idp.ReactivateUser` | Activating a local user
+  `idp.SetUserPassword` | Setting a password for a local user
+  `idp.SetUserpoolAccessBindings` | Assigning access permissions for a user pool
+  `idp.SuspendUser` | Deactivating a local user
+  `idp.UpdateUser` | Updating a local user
+  `idp.UpdateUserpool` | Updating a user pool
+  `idp.UpdateUserpoolAccessBindings` | Updating access permissions for a user pool
+  `idp.ValidateUserpoolDomain` | Validating a domain to associate with a user pool
+  `oauth.CreateApplication` | Creating an OIDC app
+  `oauth.DeleteApplication` | Deleting an OIDC app
+  `oauth.ReactivateApplication` | Activating an OIDC app
+  `oauth.SetApplicationAccessBindings` | Assigning access permissions for an OIDC app
+  `oauth.SuspendApplication` | Deactivating an OIDC app
+  `oauth.UpdateApplication` | Updating an OIDC app
+  `oauth.UpdateApplicationAccessBindings` | Updating access permissions for an OIDC app
+  `oauth.UpdateApplicationAssignments` | Updating a list of OIDC app users
+  `saml.CreateApplication` | Creating a SAML app
+  `saml.CreateSignatureCertificate` | Creating a signature certificate
+  `saml.DeleteApplication` | Deleting a SAML app
+  `saml.DeleteFederationDomain` | Deleting a domain
+  `saml.DeleteSignatureCertificate` | Deleting a signature certificate
+  `saml.ReactivateApplication` | Restarting a SAML app
+  `saml.SetApplicationAccessBindings` | Assigning access permissions for a SAML app
+  `saml.SuspendApplication` | Suspending a SAML app
+  `saml.UpdateApplication` | Updating a SAML app
+  `saml.UpdateApplicationAccessBindings` | Updating access permissions for a SAML app
+  `saml.UpdateApplicationAssignments` | Updating a list of SAML app users
+  `saml.UpdateSignatureCertificate` | Updating a signature certificate
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `idp.AuthenticateByPassword` | Password authentication.
+
+  {% endcut %}
+
+  {% cut "{{ iam-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `credential.CreateRefreshTokenForSubject` | Creating a [refresh token](../iam/concepts/authorization/refresh-token.md) for a user
+  `credential.RevokeRefreshTokenForSubject` | Revoking a refresh token from a user
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `oauthclient.CreateOAuthClient` | Creating an OAuth client
+  `oauthclient.CreateOAuthClientSecret` | Creating a secret for an OAuth client
+  `oauthclient.DeleteOAuthClient` | Deleting an OAuth client
+  `oauthclient.DeleteOAuthClientSecret` | Deleting a secret for an OAuth client
+  `oauthclient.UpdateOAuthClient` | Updating an OAuth client
+
+  {% endcut %}
+
+  {% cut "{{ mch-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateClusterExtension` | Creating an extension
+  `DeleteClusterExtension` | Deleting an extension
+  `UpdateClusterExtension` | Updating an extension
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `SetClusterExtensions` | Installing cluster extensions
+
+  {% endcut %}
+  
+  {% cut "{{ managed-k8s-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `UpdateClusterCertificate` | Updating a [cluster certificate](../managed-kubernetes/concepts/release-channels-and-updates.md#certificates)
+
+  {% endcut %}
+
+  {% cut "{{ mtr-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  `CreateCatalog` | Creating a metadata catalog
+  `CreateCluster` | Creating a cluster
+  `DeleteCatalog` | Deleting a folder
+  `DeleteCluster` | Deleting a cluster
+  `StartCluster` | Starting a cluster
+  `StopCluster` | Stopping a cluster
+  `UpdateCatalog` | Updating a folder
+  `UpdateCluster` | Updating a cluster
+
+  {% endcut %}
+  
+  {% cut "{{ message-queue-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateQueue` | Creating a message queue
+  `DeleteQueue` | Deleting a message queue
+  `UpdateQueue` | Editing a message queue
+
+  {% endcut %}
+
+  {% cut "{{ speechkit-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `stt.GetRecognition` | Request for asynchronous speech recognition results
+  `stt.RecognizeSpeechAsync` | Request for asynchronous speech recognition
+  `stt.RecognizeSpeechStream` | Streaming speech recognition request
+  `tts.UtteranceSynthesis` | Request for speech synthesis
+
+  {% endcut %}
+
+  {% cut "{{ sws-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateDomain` | Creating a domain
+  `CreateLoadBalancer` | Creating a proxy server
+  `DeleteDomain` | Deleting a domain
+  `DeleteLoadBalancer` | Deleting a proxy server
+  `UpdateDomain` | Updating a domain
+  `UpdateLoadBalancer` | Updating a proxy server
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `SWSMatchedRequest` | Triggering a rule from a security profile
+
+  {% endcut %}
+
+  {% cut "{{ translate-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `TranslateText` | Text translation request
+
+  {% endcut %}
+  
+  {% cut "{{ vision-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `RecognizeText` | Text recognition request
+  `GetRecognition` | Request for the recognition result
+
+  {% endcut %}
+
+  {% cut "{{ wiki-name }}" %}
+
+  [Data events](./concepts/format-data-plane.md):
+
+  Event | Description
+  --- | ---
+  `InviteActivate` | Activating an invite
+  `InviteDelete` | Deleting an invite
+  `InviteReactivate` | Resending an invite
+  `InviteRemoveAccess` | Revoking access granted via an invite
+  `InviteRemoveAllAccesses` | Revoking access granted via all invites
+  `InviteUse` | Using an invite
+
+  {% endcut %}
+
+* Renamed events for:
+
+  {% cut "{{ baremetal-name }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateExternalConnection` is now `CreatePrivateCloudConnection` | Creating a [private connection](../baremetal/concepts/network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure
+  `DeleteExternalConnection` is now `DeletePrivateCloudConnection` | Deleting a private connection to subnets in a VPC or on-prem infrastructure
+  
+  {% endcut %}
+
 ## Q1 2025 {#q1-2025}
 
 * Added new events for the services:
@@ -67,7 +374,7 @@ description: This section contains {{ at-name }} release notes.
   --- | ---
   `CreateFilestore` | Create file storage
   `CreateModel` | Creating a [model](../datasphere/concepts/models/index.md)
-  `CreateS3Connector` | Creating an [S3 connector](https://yandex.ru/support/metrica/pro/cloud.html)
+  `CreateS3Connector` | Creating an [S3 connector](../datasphere/concepts/s3-connector.md)
   `CreateSecret` | Creating a [secret](../datasphere/concepts/secrets.md)
   `CreateSparkConnector` | Creating a [Spark connector](../datasphere/concepts/spark-connector.md)
   `CreateYandexDataProcessing` | Creating a [{{ dataproc-name }} template](../datasphere/concepts/data-processing-template.md)
@@ -214,7 +521,7 @@ description: This section contains {{ at-name }} release notes.
   `UpdateCluster` | Updating a cluster
   `UpdateClusterAccessBindings` | Updating access permissions for a cluster
   `UpdateHelmRelease` | Updating a Helm version
-  `UpdateNodeGroup` | Updating a  node group
+  `UpdateNodeGroup` | Updating a node group
 
   [Data events](./concepts/format-data-plane.md):
 
@@ -313,7 +620,7 @@ description: This section contains {{ at-name }} release notes.
   `DeleteCluster` | Deleting a {{ metastore-full-name }} cluster
   `StartCluster` | Starting a {{ metastore-full-name }} cluster
   `StopCluster` | Stopping a {{ metastore-full-name }} cluster
-  `UpdateCluster` | Updating an {{ metastore-full-name }} cluster
+  `UpdateCluster` | Updating a {{ metastore-full-name }} cluster
 
   {% endcut %}
 
@@ -1016,6 +1323,23 @@ description: This section contains {{ at-name }} release notes.
   `DatabaseUserLogin` | Connecting a user to a database
   `DatabaseUserLogout` | Disconnecting a user from a database
   `StartClusterFailover` | Launching master switching for a cluster
+
+  {% endcut %}
+
+  {% cut "{{ TR }}" %}
+
+  [Management events](./concepts/format.md):
+
+  Event | Description
+  --- | ---
+  `CreateCatalog` | Creating a metadata catalog
+  `CreateCluster` | Creating a cluster
+  `DeleteCatalog` | Deleting a folder
+  `DeleteCluster` | Deleting a cluster
+  `StartCluster` | Starting a cluster
+  `StopCluster` | Stopping a cluster
+  `UpdateCatalog` | Updating a folder
+  `UpdateCluster` | Updating a cluster
 
   {% endcut %}
 
