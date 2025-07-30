@@ -229,6 +229,11 @@ https://runtime.video.cloud.yandex.net/player/...?param1=value1&...&paramN=value
 
 Поддерживаются цвета в формате [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) из трех и шести символов, а также стандартные для HTML [названия цветов](https://www.w3.org/wiki/CSS/Properties/color/keywords).
 ||
+||  `player_color`  |
+Цвет элементов интерфейса плеера: индикатора загрузки, временной шкалы и кнопки воспроизведения на стартовом экране при `autoplay=0`.
+
+Поддерживаются цвета в формате [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) из трех и шести символов, а также стандартные для HTML [названия цветов](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+||
 ||  `widget_block_separator_color`  |
 Цвет разделителей блоков виджетов.
 

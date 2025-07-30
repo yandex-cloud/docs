@@ -45,6 +45,7 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](applications/loki.md)
 * [{#T}](applications/metrics-provider.md)
 * [{#T}](applications/node-local-dns.md)
+* [{#T}](applications/oidc.md)
 * [{#T}](applications/policy-reporter.md)
 * [{#T}](applications/prometheus-operator.md)
 * [{#T}](applications/thumbor.md)

@@ -118,90 +118,150 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Architecture and protection of a basic internet service
-        href: tutorials/web-service.md
-      - name: DHCP settings for working with a corporate DNS server
-        href: tutorials/dhcp-options.md
-      - name: Routing through a NAT instance
+      - name: Setting up VPN connections
         items:
-          - name: Overview
-            href: tutorials/nat-instance/index.md
-          - name: Management console
-            href: tutorials/nat-instance/console.md
-          - name: '{{ TF }}'
-            href: tutorials/nat-instance/terraform.md
-      - name: Setting up network connectivity with IPsec gateways
+          - name: Connecting to a cloud network using OpenVPN
+            href: tutorials/openvpn.md
+          - name: Creating a bastion host
+            href: tutorials/bastion.md
+          - name: Secure user access to cloud resources based on WireGuard VPN
+            href: tutorials/remote-wireguard-vpn.md
+          - name: Creating a tunnel between two subnets with OpenVPN Access Server
+            href: tutorials/site-to-site-openvpn.md
+          - name: Configuring a secure GRE tunnel over IPsec
+            href: tutorials/gre-over-ipsec.md
+          - name: Establishing network connectivity with the help of IPsec gateways
+            items:
+              - name: Solution architecture
+                href: tutorials/ipsec/index.md
+              - name: Unaided implementation with {{ yandex-cloud }}
+                href: tutorials/ipsec/ipsec-vpn.md
+              - name: SGW solution by the {{ yandex-cloud }} architect team
+                href: tutorials/ipsec/sgw.md
+          - name: ViPNet Coordinator in {{ yandex-cloud }}
+            href: tutorials/vipnet-to-yc.md
+            hidden: true
+      - name: NGFW-based network cloud infrastructure
         items:
-          - name: Solution architecture
-            href: tutorials/ipsec/index.md
-          - name: Unaided implementation with {{ yandex-cloud }}
-            href: tutorials/ipsec/ipsec-vpn.md
-          - name: SGW solution by the {{ yandex-cloud }} architect team
-            href: tutorials/ipsec/sgw.md
-      - name: Installing the Cisco CSR 1000v virtual router
-        href: tutorials/cisco.md
-      - name: Installing the Mikrotik CHR virtual router
-        href: tutorials/mikrotik.md
-      - name: Connecting to a cloud network using OpenVPN
-        href: tutorials/openvpn.md
-      - name: >-
-          Configuring {{ dns-name }} to access a {{ mch-name }} cluster from
-          other cloud networks
-        href: tutorials/clickhouse-dns-peering.md
-      - name: Secure user access to cloud resources based on WireGuard VPN
-        href: tutorials/remote-wireguard-vpn.md
-      - name: Creating and configuring a UserGate gateway in proxy server mode
-        href: tutorials/usergate-proxy.md
-      - name: Creating and configuring a UserGate gateway in firewall mode
-        href: tutorials/usergate-firewall.md
-      - name: Implementing fault-tolerant use cases for network VMs
-        href: tutorials/route-switcher.md
-      - name: Creating a tunnel between two subnets using OpenVPN Access Server
-        href: tutorials/site-to-site-openvpn.md
-      - name: Creating a bastion host
-        href: tutorials/bastion.md
-      - name: >-
-          Migrating an HDFS {{ dataproc-full-name }} cluster to a different
-          availability zone
-        href: tutorials/hdfs-cluster-migration.md
-      - name: Configuring a network for {{ dataproc-full-name }}
-        href: tutorials/data-processing-nat-instance.md
-      - name: Network between folders
-        href: tutorials/multi-folder-vpc.md
-      - name: >-
-          Implementing a secure high-availability network infrastructure with a
-          dedicated DMZ based on the Check Point NGFW
-        href: tutorials/high-accessible-dmz.md
-      - name: >-
-          Cloud infrastructure segmentation with the Check Point next-generation
-          firewall
-        href: tutorials/network-segmentation-checkpoint.md
-      - name: Connecting to {{ objstorage-name }} from {{ vpc-name }}
-        href: tutorials/storage-vpc-access.md
-      - name: Connecting to {{ container-registry-name }} from {{ vpc-name }}
-        href: tutorials/vpc-cr-access.md
-      - name: Using {{ yandex-cloud }} modules in {{ TF }}
-        href: tutorials/terraform-modules.md
-      - name: >-
-          Deploying an Always On availability group with an internal network
-          load balancer
-        href: tutorials/mssql-alwayson-lb.md
-      - name: >-
-          Configuring {{ interconnect-name }} access to cloud networks behind
-          NGFWs
-        href: tutorials/cic-with-ngfw.md
-      - name: Automating tasks using {{ maf-short-name }}
-        href: tutorials/airflow-auto-tasks.md
-      - name: ViPNet Coordinator in {{ yandex-cloud }}
-        href: tutorials/vipnet-to-yc.md
-        hidden: true
-      - name: >-
-          Setting up network connectivity between {{ baremetal-name }} and {{
-          vpc-name }} subnets
-        href: tutorials/bm-vrf-and-vpc-interconnect.md
+          - name: >-
+              Implementing a secure high-availability network infrastructure
+              with a dedicated DMZ based on the Check Point NGFW
+            href: tutorials/high-accessible-dmz.md
+          - name: >-
+              Cloud infrastructure segmentation with the Check Point
+              next-generation firewall
+            href: tutorials/network-segmentation-checkpoint.md
+          - name: Setting up a UserGate proxy server
+            href: tutorials/usergate-proxy.md
+          - name: >-
+              Implementing a secure high-availability network infrastructure
+              with a dedicated DMZ based on Smart-Soft NGFW
+            href: tutorials/high-accessible-dmz-ting.md
+          - name: Setting up a UserGate firewall
+            href: tutorials/usergate-firewall.md
+      - name: '{{ baremetal-name }}'
+        items:
+          - name: >-
+              Configuring VRRP for a {{ baremetal-name }} server cluster using
+              Keepalived
+            href: tutorials/bms-vrf-routing.md
+          - name: >-
+              Establishing network connectivity in a {{ baremetal-full-name }}
+              private subnet
+            href: tutorials/bms-simple-subnet.md
+          - name: >-
+              Setting up network connectivity between {{ baremetal-full-name }}
+              and {{ vpc-full-name }} subnets using {{ interconnect-full-name }}
+            href: tutorials/bm-vrf-and-vpc-interconnect.md
+          - name: >-
+              Forwarding USB devices to a {{ baremetal-name }} server or {{
+              compute-name }} virtual machine
+            href: tutorials/usb-over-ip.md
+          - name: >-
+              Configuring an OPNsense firewall in high availability cluster mode
+              on {{ baremetal-full-name }} servers
+            href: tutorials/opnsense-failover-cluster.md
+          - name: >-
+              Deploying a web app on {{ baremetal-full-name }} servers with an
+              L7 load balancer and {{ sws-full-name }} protection
+            href: tutorials/webapp-on-bms-behind-sws.md
+      - name: '{{ interconnect-name }}'
+        items:
+          - name: >-
+              Configuring {{ interconnect-name }} access to cloud networks
+              behind NGFWs
+            href: tutorials/cic-with-ngfw.md
+          - name: Creating a direct trunk and a private connection in it
+            href: tutorials/trunk-priv-add.md
+          - name: Creating a direct trunk and a public connection in it
+            href: tutorials/trunk-pub-add.md
+          - name: Adding a private connection to a direct or partner trunk
+            href: tutorials/priv-add.md
+          - name: Adding a public connection to a direct or partner trunk
+            href: tutorials/pub-add.md
+          - name: Changing trunk capacity
+            href: tutorials/trunk-capacity-change.md
+          - name: Deleting a private connection
+            href: tutorials/priv-del.md
+          - name: Deleting a public connection
+            href: tutorials/pub-del.md
+          - name: Deleting a trunk connection
+            href: tutorials/trunk-del.md
+      - name: Configuring network resources and interaction between them
+        items:
+          - name: Architecture and protection of a basic web service
+            href: tutorials/web-service.md
+          - name: DHCP settings for interfacing with a corporate DNS server
+            href: tutorials/dhcp-options.md
+          - name: Routing through a NAT instance
+            items:
+              - name: Overview
+                href: tutorials/nat-instance/index.md
+              - name: Management console
+                href: tutorials/nat-instance/console.md
+              - name: '{{ TF }}'
+                href: tutorials/nat-instance/terraform.md
+          - name: Setting up networking between resources from different folders
+            href: tutorials/multi-folder-vpc.md
+          - name: Implementing fault-tolerant scenarios for NAT VMs
+            href: tutorials/route-switcher.md
+          - name: Configuring a network for {{ dataproc-full-name }}
+            href: tutorials/data-processing-nat-instance.md
+          - name: >-
+              Network connection switching during {{ dataproc-full-name }}
+              cluster recreation
+            href: tutorials/data-processing-dns-reconnect.md
+          - name: >-
+              Migrating an HDFS {{ dataproc-full-name }} cluster to a different
+              availability zone
+            href: tutorials/hdfs-cluster-migration.md
+          - name: >-
+              Deploying an Always On availability group with an internal network
+              load balancer
+            href: tutorials/mssql-alwayson-lb.md
+      - name: Connecting to services
+        items:
+          - name: Connecting to {{ objstorage-name }} from {{ vpc-name }}
+            href: tutorials/storage-vpc-access.md
+          - name: Connecting to {{ container-registry-name }} from {{ vpc-name }}
+            href: tutorials/vpc-cr-access.md
+      - name: Additional settings and tools
+        items:
+          - name: Installing the Cisco CSR 1000v virtual router
+            href: tutorials/cisco.md
+          - name: Installing the Mikrotik CHR virtual router
+            href: tutorials/mikrotik.md
+          - name: >-
+              Configuring {{ dns-name }} to access a {{ mch-name }} cluster from
+              other cloud networks
+            href: tutorials/clickhouse-dns-peering.md
+          - name: Automating {{ yq-name }} tasks with {{ maf-name }}
+            href: tutorials/airflow-auto-tasks.md
+          - name: Using {{ yandex-cloud }} modules in {{ TF }}
+            href: tutorials/terraform-modules.md
   - name: Concepts
     items:
-      - name: Resource relationships
+      - name: Service resource interdependencies
         href: concepts/index.md
       - name: '{{ yandex-cloud }} network overview'
         href: concepts/network-overview.md

@@ -16,7 +16,7 @@
 
 * Реализован механизм принудительного удаления узла в группе с [автоматическим масштабированием](./concepts/node-group/cluster-autoscaler.md), если он по каким-то причинам не смог подключиться к кластеру в течение 15 минут. После удаления узел автоматически пересоздается.
 * В соответствии с [CIS {{ k8s }} Benchmarks](https://www.cisecurity.org/benchmark/kubernetes) отключен профайлинг на компонентах мастеров.
-* В кластерах с [туннельным режимом](https://yandex.cloud/ru/docs/managed-kubernetes/concepts/network-policy#cilium) добавлена поддержка [Topology Aware Routing](https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/) для локализации трафика в одной [зоне доступности](../overview/concepts/geo-scope.md) с целью сокращения сетевых задержек.
+* В кластерах с [туннельным режимом](./concepts/network-policy.md#cilium) добавлена поддержка [Topology Aware Routing](https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/) для локализации трафика в одной [зоне доступности](../overview/concepts/geo-scope.md) с целью сокращения сетевых задержек.
 * Улучшена безопасность регистрации узлов в кластере: теперь с помощью bootstrap-конфигурации можно выписать сертификат для узла только с самого этого узла, а не из любого другого узла или любого пода.
 
 ### Исправления {#q2-2025-problems-solved}
@@ -37,7 +37,7 @@
   * _Высокодоступный в одной зоне доступности_ — содержит три хоста мастера в одной зоне доступности и одной подсети. Новая конфигурация.
 
   Подробнее см. в [описании мастера](./concepts/index.md#master).
-  
+
 ### Исправления и улучшения {#q1-2025-problems-solved}
 
 * Шифрование секретов кластеров в [etcd](https://kubernetes.io/docs/concepts/architecture/#etcd) переключено на [KMS v2](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#kms-v2).

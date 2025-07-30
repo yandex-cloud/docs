@@ -22,4 +22,38 @@ description: 'Follow this guide to get information about the {{ baremetal-full-n
       * Under **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}**, information about the terms of server lease, including lease period/duration and auto-renewal.
       * Under **{{ ui-key.yacloud.baremetal.title_section-backup }}** and **{{ ui-key.yacloud.baremetal.title_section-accesses }}**, information about the server's connection to [{{ backup-full-name }}](../../../backup/index.yaml) and public SSH key of the root user, respectively.
 
+- CLI {#cli}
+
+   {% include [cli-install](../../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+   1. View the description of the command for getting information about a server:
+
+      ```bash
+      yc baremetal server get --help
+      ```
+
+   1. Get information about the server:
+
+      ```bash
+      yc baremetal server get <server_name_or_ID>
+      ```
+
+{% endlist %}
+
+## Example {#example}
+
+Get information about the server:
+
+ {% list tabs group=instructions %}
+
+ - CLI {#cli}
+
+   ```bash
+   yc baremetal server get demo-baremetal-server
+   ```
+
+   {% include [server-lease-cli-result](../../../_includes/baremetal/instruction-steps/server-lease-cli-result.md) %}
+
 {% endlist %}

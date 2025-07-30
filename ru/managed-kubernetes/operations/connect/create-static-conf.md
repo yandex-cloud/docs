@@ -2,6 +2,8 @@
 
 Статические файлы конфигурации позволяют получить доступ к [кластеру {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) без использования [CLI](../../../glossary/cli.md), например из систем непрерывной интеграции.
 
+{% include [tip-gitlab](../../../_includes/managed-kubernetes/tip-gitlab-integration.md) %}
+
 Также с помощью статического файла конфигурации можно настроить доступ к нескольким кластерам {{ managed-k8s-name }}. Между описанными в конфигурациях кластерами {{ managed-k8s-name }} можно быстро переключаться с помощью команды `kubectl config use-context`. Подробнее о настройке доступа к нескольким кластерам {{ managed-k8s-name }} читайте в [документации {{ k8s }}](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
 
 Чтобы создать файл конфигурации:
@@ -390,3 +392,11 @@ kubectl get namespace --kubeconfig=test.kubeconfig
 NAME     STATUS  AGE
 default  Active  9d
 ```
+
+С помощью полученного файла `test.kubeconfig` вы можете подключаться к кластеру без использования CLI, например из систем непрерывной интеграции, а также переключаться между разными кластерами с помощью команды `kubectl config use-context`.
+
+{% note warning %}
+
+Для хранения статического файла конфигурации используйте хранилище секретов или шифрование.
+
+{% endnote %}

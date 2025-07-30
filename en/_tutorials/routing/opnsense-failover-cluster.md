@@ -120,12 +120,10 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
       To test the solution, a configuration with minimum hardware specifications will be enough.
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select `{{ ui-key.yacloud.baremetal.field_choose-no-os }}`.
   1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
-  1. Under **Network settings**:
-
-      1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `opnsense-private-subnet-m4` you created earlier.
-      1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `opnsense-private-subnet-m4` subnet you created earlier.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `opnsense-master`.
-  1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
+  1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
   1. Similarly, lease one more server named `opnsense-backup` in the `{{ region-id }}-m4` server pool.
   1. Similarly, lease two more servers named `vmware-esxi` and `jump-server` in the `{{ region-id }}-m4` server pool. But select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **Network settings** when filling the lease form.
 

@@ -197,7 +197,7 @@ description: В разделе представлена история изме�
 
   Событие | Описание
   --- | ---
-  `UpdateClusterCertificate` | Изменение [сертификата кластера](../managed-kubernetes/concepts/release-channels-and-updates#certificates)
+  `UpdateClusterCertificate` | Изменение [сертификата кластера](../managed-kubernetes/concepts/release-channels-and-updates.md#certificates)
 
   {% endcut %}
 

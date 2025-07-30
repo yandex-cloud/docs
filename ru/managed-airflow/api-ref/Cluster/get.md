@@ -96,9 +96,15 @@ Required field. ID of the Apache Airflow Cluster resource to return. ||
     ]
   },
   "codeSync": {
-    // Includes only one of the fields `s3`
+    // Includes only one of the fields `s3`, `gitSync`
     "s3": {
       "bucket": "string"
+    },
+    "gitSync": {
+      "repo": "string",
+      "branch": "string",
+      "subPath": "string",
+      "sshKey": "string"
     }
     // end of the list of possible fields
   },
@@ -239,7 +245,7 @@ Link to the monitoring system. ||
 || versionId | **string**
 
 Version of Apache Airflow that runs on the cluster.
-Use `airlow_version` instead. ||
+Use `airflow_version` instead. ||
 || airflow | **[AirflowConfig](#yandex.cloud.airflow.v1.AirflowConfig)**
 
 Configuration of the Apache Airflow application itself. ||
@@ -377,7 +383,10 @@ User security groups. ||
 ||Field | Description ||
 || s3 | **[S3Config](#yandex.cloud.airflow.v1.S3Config)**
 
-Includes only one of the fields `s3`. ||
+Includes only one of the fields `s3`, `gitSync`. ||
+|| gitSync | **[GitSyncConfig](#yandex.cloud.airflow.v1.GitSyncConfig)**
+
+Includes only one of the fields `s3`, `gitSync`. ||
 |#
 
 ## S3Config {#yandex.cloud.airflow.v1.S3Config}
@@ -387,6 +396,16 @@ Includes only one of the fields `s3`. ||
 || bucket | **string**
 
 The name of the Object Storage bucket that stores DAG files used in the cluster. ||
+|#
+
+## GitSyncConfig {#yandex.cloud.airflow.v1.GitSyncConfig}
+
+#|
+||Field | Description ||
+|| repo | **string** ||
+|| branch | **string** ||
+|| subPath | **string** ||
+|| sshKey | **string** ||
 |#
 
 ## LoggingConfig {#yandex.cloud.airflow.v1.LoggingConfig}

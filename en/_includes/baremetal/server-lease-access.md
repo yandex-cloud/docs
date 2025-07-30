@@ -2,11 +2,7 @@
 
     * To generate a new root password, select `{{ ui-key.yacloud.baremetal.label_password-plain }}` and click **{{ ui-key.yacloud.component.password-input.label_button-generate }}**.
 
-        {% note warning %}
-
-        This option requires you to maintain password security. Save the password you generated in a secure location. {{ yandex-cloud }} does not store it, and you will not be able to retrieve it once the server is deployed.
-
-        {% endnote %}
+        {% include [server-lease-access-password-warning](server-lease-access-password-warning.md) %}
 
     * To use the root password saved in a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md), select `{{ ui-key.yacloud.baremetal.label_password-lockbox }}`.
 
@@ -24,6 +20,6 @@
     * Upload your public key file or paste its contents in the field below. You will need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) your own SSH key pair to establish a secure server connection.
     * Click **{{ ui-key.yacloud.common.add }}**.
 
-    The system will add the SSH key to your organization user profile.
+    The SSH key will be added to your organization user profile.
 
-    If, due to restrictions, you cannot add SSH keys to your organization profile, the system will save the new public SSH key to your {{ baremetal-name }} server’s user profile.
+    If adding SSH keys by users to their profiles is disabled in the organization, the public SSH key you add will be saved only to the OS user profile of the new {{ baremetal-name }} server.

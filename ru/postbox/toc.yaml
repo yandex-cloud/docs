@@ -29,6 +29,8 @@ items:
         href: concepts/index.md
       - name: Уведомления о доставке писем
         href: concepts/notification.md
+      - name: Отслеживание открытия писем
+        href: concepts/mail_opened.md
       - name: Термины и определения
         href: concepts/glossary.md
       - name: Ограничения на вложения в письмах

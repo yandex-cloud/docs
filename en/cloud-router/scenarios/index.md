@@ -18,11 +18,9 @@
 - [{#T}](ri-2_prc-1noha_vpc-1.md)
 
 ## VPC Stitching use cases {#cr-vpcs}
-
 - [{#T}](vpc-st-with-two-vpc.md)
 - [{#T}](vpc-st-with-two-vpc-and-onprem.md)
 
 ## Integration use cases with {{ baremetal-full-name }} {#cr-bms}
 
 - [{#T}](../tutorials/bm-vrf-and-vpc-interconnect.md)
-

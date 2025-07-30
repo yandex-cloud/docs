@@ -7980,6 +7980,8 @@ default:
         components:
           PlatformField:
             value_platform-tab-gpu_hGyQ8: With GPU
+          SshViaPrivateKeyDialog:
+            connect-via-private-key_6DKKe: Connect
         disk-form:
           field_size: Size
           field_type: Type
@@ -8111,6 +8113,7 @@ default:
             button_update: Save changes
           overview:
             button_action-edit: Edit VM
+            button_action-ssh: Connect in Cloud Shell
             button_add-public-ip: Add public IP address
             button_edit-network-interface: Edit
             button_remove-public-ip: Disassociate public IP address
@@ -12449,6 +12452,9 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/node-local-dns
         tag: 1.5.1
+    yc_oidc-authenticator:
+      helmChart:
+        tag: 0.1.0
     yc_policy-reporter:
       helmChart:
         name: cr.yandex/yc-marketplace/policy-reporter

@@ -1,4 +1,6 @@
 ---
+title: Setting up network connectivity between cloud and remote resources with IPsec gateways
+description: In this tutorial, you will learn how to use IPsec gateways to establish network connectivity between cloud resources and remote resources.
 canonical: '{{ link-docs }}/tutorials/routing/ipsec'
 ---
 

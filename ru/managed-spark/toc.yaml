@@ -40,7 +40,7 @@ items:
     href: security.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник Terraform
+  - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
     items:

@@ -137,6 +137,10 @@ Make sure the new configuration of {{ managed-k8s-name }} nodes is within the [q
 
 To run your {{ managed-k8s-name }} cluster, [increase the quotas](../../managed-kubernetes/concepts/limits.md).
 
+#### After changing the node subnet mask in the cluster settings, the number of pods on the nodes does not match the estimated count {#count-pods}
+
+**Solution**: Create the node group one more time.
+
 #### Error renewing ingress controller certificate {#ingress-certificate}
 
 Error message:

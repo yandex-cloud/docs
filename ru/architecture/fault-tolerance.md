@@ -125,7 +125,7 @@ keywords:
 
 Дополнительная устойчивость {{ alb-name }} к отказам, связанным с вредоносной деятельностью, может быть достигнута с помощью подключения к {{ alb-name }} сервисов защиты веб-приложений, таких как [{{ sws-name }}](../smartwebsecurity/), [ARL](../smartwebsecurity/concepts/arl.md), [WAF](../smartwebsecurity/concepts/waf.md), и [{{ captcha-name }}](../smartcaptcha/).
 
-[Пример](../tutorials/web/application-load-balancer-website) создания отказоустойчивого сайта с балансировкой нагрузки через {{ alb-name }} между тремя зонами доступности, защищенный от сбоев в одной зоне.
+[Пример](../tutorials/web/application-load-balancer-website/index.md) создания отказоустойчивого сайта с балансировкой нагрузки через {{ alb-name }} между тремя зонами доступности, защищенный от сбоев в одной зоне.
 
 
 ## Отказоустойчивость платформенных сервисов {#platform-services-ha}
@@ -215,7 +215,7 @@ keywords:
 
 ## Как уводить нагрузку из зоны доступности {#traffic-shifting}
 
-Для [{{ network-load-balancer-name }}](https://yandex.cloud/ru/docs/network-load-balancer/operations/manage-zone/disable-enable-zone) и для [{{ alb-name }}](https://yandex.cloud/ru/docs/application-load-balancer/operations/manage-zone/start-and-cancel-shift) есть возможность вручную отключить балансировку трафика в выбранную зону доступности. 
+Для [{{ network-load-balancer-name }}](../network-load-balancer/operations/manage-zone/disable-enable-zone.md) и для [{{ alb-name }}](../application-load-balancer/operations/manage-zone/start-and-cancel-shift.md) есть возможность вручную отключить балансировку трафика в выбранную зону доступности. 
 
 Кроме предложенных способов, в случае недоступности API {{ yandex-cloud }},
 увести трафик из зоны можно путем отключения проверок доступности (Health Checks) для целевых ресурсов в проблемной зоне. Это можно сделать одним из следующих способов:

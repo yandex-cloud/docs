@@ -422,7 +422,7 @@ This tutorial describes how to configure firewalls FW-A and FW-B with basic fire
 
 ### Connect to the management segment via a VPN {#connect-via-vpn}
 
-After deploying the infrastructure, the `mgmt` folder will contain the `jump-vm` Ubuntu instance with the configured [WireGuard VPN](https://www.wireguard.com/) allowing secure connections. Set up a VPN tunnel to `jump-vm` on your PC to access the `mgmt`, `dmz`, and `public` segment subnets.
+After deploying the infrastructure, the `mgmt` folder will contain the `jump-vm` Ubuntu instance with the configured [WireGuard VPN](https://www.wireguard.com/) providing secure connection. Set up a VPN tunnel to `jump-vm` on your PC to access the `mgmt`, `dmz`, and `public` segment subnets.
 
 You can also connect to the jump VM over SSH using the SSH key from `terraform output` and the username from the `vm_admin_username` variable.
 
@@ -500,7 +500,7 @@ Connect to the FW-A management web interface at `https://192.168.1.10`. Admin cr
 |----------------|-----------|--------------------------------|
 | `mgmt`         | Network      | `192.168.1.0/24`<br>`192.168.2.0/24` |
 | `dmz`          | Network      | `10.160.1.0/24`<br>`10.160.2.0/24` |
-| `public`       | Network      | `172.16.1.0`<br>`172.16.2.0/24` |
+| `public`       | Network      | `172.16.1.0/24`<br>`172.16.2.0/24` |
 | `healthcheck_net` | Network     | `198.18.235.0/24`<br>`198.18.248.0/24` |
 | `dmz_web_server` | Host  | `10.160.1.100` |
 | `TCP_8080`     | Port  | `8080` |

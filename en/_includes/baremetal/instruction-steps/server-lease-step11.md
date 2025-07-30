@@ -1,5 +1,3 @@
-1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**:
-
-    1. Enter the server name in the **{{ ui-key.yacloud.baremetal.field_name }}** field.
-    1. Optionally, add a server description in the **{{ ui-key.yacloud.baremetal.field_description }}** field.
-    1. Optionally, set [labels](../../../resource-manager/concepts/labels.md) in the **{{ ui-key.yacloud.component.label-set.label_labels }}** field.
+1. Enable **{{ ui-key.yacloud.baremetal.title_section-server-backups }}**.
+1. Select an existing [backup policy](../../../backup/concepts/policy.md) or [create](../../../backup/operations/policy-vm/create.md) a new one.
+1. Select a [service account](../../../iam/concepts/users/service-accounts.md) with the [`baremetal.editor`](../../../baremetal/security/index.md#baremetal-editor) and [`backup.editor`](../../../backup/security/index.md#backup-editor) roles assigned or [create](../../../iam/operations/sa/create.md) a new one.

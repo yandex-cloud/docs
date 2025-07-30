@@ -50,21 +50,21 @@ items:
     items:
       - name: All use cases
         href: scenarios/index.md
-      - name: On-prem without redundancy and 1 VPC
+      - name: On-premises without redundancy and one cloud network
         href: scenarios/ri-1_prc-1noha_vpc-1.md
-      - name: On-prem without redundancy and multiple VPCs
+      - name: On-premises without redundancy and multiple cloud networks
         href: scenarios/ri-1_prc-1noha_vpc-few.md
-      - name: On-prem with redundancy and 1 VPC
+      - name: On-premises with redundancy and one cloud network
         href: scenarios/ri-1_prc-2ha_vpc-1.md
-      - name: On-prem with redundancy and multiple VPCs
+      - name: On-premises with redundancy and multiple cloud networks
         href: scenarios/ri-1_prc-2ha_vpc-few.md
-      - name: Two separate RIs without on-prem redundancy
+      - name: Two separate route instances without on-premises redundancy
         href: scenarios/ri-2_prc-1noha_vpc-1.md
-      - name: Even redistribution of on-prem traffic (Active-Active)
+      - name: Even redistribution of on-premise traffic (Active-Active)
         href: scenarios/prc-ha-with-active-active.md
-      - name: Prioritizing on-prem traffic based on direction (Active-Standby)
+      - name: Prioritizing on-premise traffic based on direction (Active-Standby)
         href: scenarios/prc-ha-with-active-standby.md
-      - name: On-prem (PRC) connection redundancy via a VPN gateway
+      - name: Reserving an on-premise connection via a VPN gateway (PRC)
         href: scenarios/prc-ha-via-vpn-gw.md
       - name: Prioritizing a static VPC route over routes from PRC
         href: scenarios/static-priority-via-vpn-gw.md
@@ -74,7 +74,7 @@ items:
         href: scenarios/prc-ha-with-default-active-standby.md
       - name: Connectivity for two cloud networks
         href: scenarios/vpc-st-with-two-vpc.md
-      - name: Connectivity for two cloud networks and on-prem
+      - name: Connectivity for two cloud networks and on-premises
         href: scenarios/vpc-st-with-two-vpc-and-onprem.md
   - name: Tutorials
     items:
@@ -83,10 +83,9 @@ items:
           subnet and a {{ vpc-name }} network
         href: tutorials/bm-vrf-and-vpc-interconnect.md
       - name: >-
-          Organizing network connectivity between a private {{ baremetal-name }}
-          subnet and on-prem using {{ interconnect-name }}
+          Establishing network connectivity between a {{ baremetal-name }}
+          private subnet and on-premise resources
         href: tutorials/bms-cic-onprem.md
-        hidden: true
       - name: Changing a set of VPC IP prefixes in a routing instance
         href: tutorials/ri-prefixes-upsert.md
   - name: Access management

@@ -1,0 +1,1 @@
+When this period expires, server lease will automatically be renewed for the same period. You cannot terminate the lease during the specified lease period, but you can [refuse](../../../baremetal/operations/servers/server-lease-cancel.md) to extend the server lease further.

@@ -5,8 +5,6 @@ description: С помощью {{ cloud-shell-name }} вы можете поль
 
 # Начало работы с {{ cloud-shell-full-name }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 С помощью {{ cloud-shell-name }} вы можете пользоваться [CLI {{ yandex-cloud }}](../../cli/) и другими терминальными инструментами без предварительной настройки прямо в браузере. Среда окружения {{ cloud-shell-name }} содержит основные инструменты для работы с облаком и популярные SDK для языков программирования.
 
 Чтобы начать работать с {{ cloud-shell-name }}:
