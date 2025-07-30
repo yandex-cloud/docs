@@ -10,6 +10,8 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 In {{ baremetal-name }}, you pay for leasing a server of a [certain configuration](concepts/server-configurations.md). A leased server is billable for the entire lease period, whether it is on or off.
 
 The monthly prices are based on 720 hours per month.
@@ -20,7 +22,7 @@ The monthly prices are based on 720 hours per month.
 
 
 
-All prices are per month and net of VAT.
+All prices are per month.
 
 {% include [usd-servers.md](../_pricing/baremetal/usd-servers.md) %}
 
@@ -40,8 +42,6 @@ The prices for dedicated public subnets are effective starting May 15, 2025.
 {% endnote %}
 
 
-
-All prices below do not include VAT.
 
 {% include [usd-subnets](../_pricing/baremetal/usd-subnets.md) %}
 

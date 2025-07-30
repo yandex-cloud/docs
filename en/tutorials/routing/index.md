@@ -3,34 +3,53 @@ title: Use cases for network infrastructure in {{ yandex-cloud }}
 description: Various use cases for network infrastructure in {{ yandex-cloud }}.
 ---
 
-# Tutorials for working with network infrastructure in {{ yandex-cloud }}
+# Tutorials on the use of the network infrastructure in {{ yandex-cloud }}
 
-* [{#T}](multi-folder-vpc.md)
-* [{#T}](bastion.md)
-* [{#T}](site-to-site-openvpn.md)
-* [{#T}](remote-wireguard-vpn.md)
-* [{#T}](usergate-firewall.md)
-* [{#T}](route-switcher.md)
-* [{#T}](high-accessible-dmz.md)
-* [{#T}](network-segmentation-checkpoint.md)
-* [{#T}](high-accessible-dmz-usergate.md)
-* [{#T}](cic-with-ngfw.md)
-* [{#T}](gre-over-ipsec.md)
-* [{#T}](data-processing-nat-instance.md)
-* [{#T}](data-processing-dns-reconnect.md)
-* [{#T}](./storage-vpc-access.md)
-* [{#T}](./vpc-cr-access.md)
+## Setting up VPN connections {#sec-vpn}
+
+* [Creating a bastion host](bastion.md)
+* [Creating a tunnel between two subnets using OpenVPN Access Server](site-to-site-openvpn.md)
+* [Secure user access to cloud resources based on WireGuard VPN](remote-wireguard-vpn.md)
+* [Configuring a secure GRE tunnel over IPsec](gre-over-ipsec.md)
+
+## NGFW-based network cloud infrastructure {#sec-ngfw}
+
+* [Cloud infrastructure segmentation with the Check Point NGFW](network-segmentation-checkpoint.md)
+* [Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the Check Point NGFW](high-accessible-dmz.md)
+* [Implementing a secure high-availability network infrastructure with a dedicated DMZ based on the UserGate NGFW](high-accessible-dmz-usergate.md)
+* [Implementing a secure high-availability network infrastructure with a dedicated DMZ based on Smart-Soft NGFW](high-accessible-dmz-ting.md)
+* [Creating and configuring a UserGate gateway in firewall mode](usergate-firewall.md)
+
+## {{ baremetal-name }} {#sec-baremetal}
+
+* [Configuring VRRP for a {{ baremetal-name }} server cluster using Keepalived](bms-vrf-routing.md)
+* [Establishing network connectivity in a private {{ baremetal-full-name }} subnet](bms-simple-subnet.md)
+* [Setting up network connectivity between {{ baremetal-full-name }} and {{ vpc-full-name }} subnets using {{ interconnect-full-name }}](./bm-vrf-and-vpc-interconnect.md)
+* [Forwarding USB devices to a {{ baremetal-name }} server or {{ compute-name }} virtual machine](usb-over-ip.md)
+* [Configuring an OPNsense firewall in high availability cluster mode on {{ baremetal-full-name }} servers](opnsense-failover-cluster.md)
+* [Deploying a web application on {{ baremetal-full-name }} servers with an L7 load balancer and {{ sws-full-name }} protection](webapp-on-bms-behind-sws.md)
+
+## {{ interconnect-name }} {#sec-interconnect}
+
+* [Configuring {{ interconnect-name }} access to cloud networks behind NGFWs](cic-with-ngfw.md)
 * [Creating a direct trunk and a private connection in it](trunk-priv-add.md)
 * [Creating a direct trunk and a public connection in it](trunk-pub-add.md)
 * [Adding a private connection to a direct or partner trunk](priv-add.md)
 * [Adding a public connection to a direct or partner trunk](pub-add.md)
-* [{#T}](trunk-capacity-change.md)
-* [{#T}](priv-del.md)
-* [{#T}](pub-del.md)
-* [{#T}](trunk-del.md)
-* [{#T}](./bms-vrf-routing.md)
-* [{#T}](./bms-simple-subnet.md)
-* [{#T}](./bm-vrf-and-vpc-interconnect.md)
-* [{#T}](./usb-over-ip.md)
-* [{#T}](./opnsense-failover-cluster.md)
-* [{#T}](./webapp-on-bms-behind-sws.md)
+* [Changing trunk capacity](trunk-capacity-change.md)
+* [Deleting a private connection](priv-del.md)
+* [Deleting a public connection](pub-del.md)
+* [Deleting a trunk](trunk-del.md)
+
+## Configuring network resources and interaction between them {#sec-network-resources}
+
+* [Setting up networking between resources from different folders](multi-folder-vpc.md)
+* [Implementing fault-tolerant use cases for network VMs](route-switcher.md)
+* [Configuring a network for {{ dataproc-full-name }}](data-processing-nat-instance.md)
+* [Network connection switching during {{ dataproc-full-name }} cluster recreation](data-processing-dns-reconnect.md)
+
+## Connecting to services {#sec-services-connect}
+
+* [Connecting to {{ objstorage-name }} from {{ vpc-name }}](storage-vpc-access.md)
+* [Connecting to {{ container-registry-name }} from {{ vpc-name }}](vpc-cr-access.md)
+

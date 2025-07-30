@@ -10,4 +10,4 @@ Users with this role can:
 * View info on the relevant [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View info on the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role includes the `ai.playground.user` and `ai.assistants.viewer` permissions.
+This role includes the `ai.assistants.viewer` permissions.

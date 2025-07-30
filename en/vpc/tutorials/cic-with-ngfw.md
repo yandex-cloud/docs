@@ -1,6 +1,6 @@
 ---
 title: Configuring {{ interconnect-name }} access to cloud networks behind NGFWs
-description: This tutorial explains how to set up network connectivity between the customer's infrastructure and a secure high-availability network infrastructure based on Next-Generation Firewall using {{ interconnect-full-name }}
+description: This tutorial explains how to use {{ interconnect-full-name }} for network connectivity between the customer’s infrastructure and the high-availability cloud network protected by the next-generation firewall.
 canonical: '{{ link-docs }}/tutorials/routing/cic-with-ngfw'
 ---
 

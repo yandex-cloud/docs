@@ -7,11 +7,9 @@ description: Follow this guide to learn how to manage an {{ objstorage-name }} b
 
 Bucket [versioning](../../concepts/versioning.md) enables keeping a history of an object through its versions.
 
-{% note info %}
+{% include [versioning-irreversible](../../../_includes/storage/versioning-irreversible.md) %}
 
-You cannot disable versioning once you enable it; however, you can pause the creation of new versions. After you pause versioning, new objects will be saved as `null` versions.
-
-{% endnote %}
+{% include [versioning-suspend-rule](../../../_includes/storage/versioning-suspend-rule.md) %}
 
 To enable bucket versioning:
 
@@ -79,7 +77,7 @@ To enable bucket versioning:
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
-  In the configuration file, define the parameters of the resources you want to create:
+  In the configuration file, describe the parameters of resources you want to create:
 
   ```hcl
   resource "yandex_iam_service_account" "sa" {

@@ -81,6 +81,8 @@ items:
             href: operations/applications/metrics-provider.md
           - name: Установка NodeLocal DNS
             href: operations/applications/node-local-dns.md
+          - name: Установка OIDC Аутентификация
+            href: operations/applications/oidc.md
           - name: Установка Policy Reporter
             href: operations/applications/policy-reporter.md
           - name: Установка Prometheus Operator

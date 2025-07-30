@@ -39,7 +39,7 @@ keywords:
         * Установите или снимите защиту от удаления кластера.
         * Включите или выключите запись логов. Если логирование включено, выберите:
 
-            * Место записи логов — пользовательская [лог-группа](../../logging/concepts/log-group.md) или лог-группа по умолчанию в выбранном каталоге.  
+            * Место записи логов — пользовательская [лог-группа](../../logging/concepts/log-group.md) или лог-группа по умолчанию в выбранном каталоге.
             * Минимальный уровень логирования.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -68,15 +68,15 @@ keywords:
             --retry-policy <тип_объекта_для_перезапроса> \
             --retry-policy-additional-properties <список_дополнительных_параметров> \
             --retry-policy-exchange-manager-service-s3 \
-            --retry-policy-exchange-manager-additional-properties <список_дополнительных_параметров> \     
+            --retry-policy-exchange-manager-additional-properties <список_дополнительных_параметров> \
             --coordinator resource-preset-id=<класс_хостов> \
             --worker min-count=<минимальное_количество_экземпляров>,`
-                    `max-count=<максимальное_количество_экземпляров>,`    
+                    `max-count=<максимальное_количество_экземпляров>,`
                     `resource-preset-id=<класс_хостов> \
             --deletion-protection \
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
-                                `hour=<час_дня> \                 
+                                `hour=<час_дня> \
             --log-enabled \
             --log-folder-id <идентификатор_каталога> \
             --log-min-level <уровень_логирования>

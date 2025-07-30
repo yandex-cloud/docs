@@ -2,6 +2,30 @@
 
 Updates appear in the service's [release channels](./concepts/release-channels-and-updates.md) in a sequence. First, updates with new features and improvements are released in the `rapid` channel, after a while, in the `regular` channel, and only then they become available in the `stable` channel.
 
+## Q2 2025 {#q2-2025}
+
+### New features {#q2-2025-new-features}
+
+* Added support for {{ k8s }} version [1.32](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md). For more information, see [{#T}](./concepts/release-channels-and-updates.md).
+* You can now specify the same value for the minimum and maximum number of nodes in an [autoscaling](./concepts/node-group/cluster-autoscaler.md) group. This way, you can achieve a fixed size and effectively disable autoscaling without switching the group type to fixed.
+* Added support for [encrypted {{ compute-full-name }} disks](./concepts/volume.md#encrypted-disks) for static and dynamic provisioning of persistent volumes.
+* Added sending a `UpdateClusterCertificate` [management event](./at-ref.md#control-plane-events) to {{ at-full-name }} when updating a [cluster certificate](./concepts/release-channels-and-updates.md#certificates).
+* Updated the [Calico](./concepts/network-policy.md#calico) network controller to version [3.30](https://github.com/projectcalico/calico/blob/release-v3.30/release-notes/v3.30.0-release-notes.md).
+
+### Improvements {#q2-2025-improvements}
+
+* Implemented a mechanism for forced removal of an [autoscaling](./concepts/node-group/cluster-autoscaler.md) group node if for any reason it was unable to connect to the cluster within 15 minutes. Once deleted, the node is automatically recreated.
+* In accordance with [CIS {{ k8s }} Benchmarks](https://www.cisecurity.org/benchmark/kubernetes), disabled profiling for master components.
+* In [tunnel mode](concepts/network-policy.md#cilium) clusters, added support for [Topology Aware Routing](https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/) to localize traffic in one [availability zone](../overview/concepts/geo-scope.md) to reduce network latency.
+* Made cluster node registration more secure: now you can use a bootstrap configuration to issue a certificate for a node only from that node itself, not from any other node or pod.
+
+### Fixes {#q2-2025-problems-solved}
+
+* Fixed the [Cilium](./concepts/network-policy.md#cilium) network controller's bug causing the cluster network to go unavailable if the masters failed. Now, the network and apps in the cluster remain operational even if the masters fail completely. Only supported on clusters running Cilium 1.15 or higher ({{ k8s }} 1.31).
+* Fixed a bug with potential to cause master components to keep operating with an expired certificate.
+* Fixed a bug with potential to prevent [autoscaling](./concepts/node-group/cluster-autoscaler.md) in node groups of over 80 nodes.
+* Fixed a bug with potential to prevent updating {{ network-load-balancer-full-name }} [target groups](../network-load-balancer/concepts/target-resources.md) for `LoadBalancer` type services.
+
 ## Q1 2025 {#q1-2025}
 
 ### New features {#q1-2025-new-features}

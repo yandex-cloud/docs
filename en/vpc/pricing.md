@@ -12,6 +12,8 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ vpc-short-name }} {#rules}
 
 In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.
@@ -37,10 +39,6 @@ A public IP address can have one of the two statuses:
 
 1. **Active**: When a _dynamic_ or _static_ public IP address is associated with a running cloud resource.
 1. **Inactive**: When a _static_ public IP address is not associated with a cloud resource or it is associated with a stopped resource.
-
-
-All prices are net of VAT.
-
 
 
 
@@ -106,14 +104,12 @@ You can use [security groups](concepts/security-groups.md) free of charge.
 
 
 
-All prices are net of VAT.
-
 {% include [usd-ddos](../_pricing/vpc/usd-ddos.md) %}
 
 
 Legitimate traffic is incoming traffic that passes through the DDoS Protection system to the user's cloud resources. You are only charged for the legitimate traffic.
 
-For example, let's assume a user's VM was hit by a typical 10 Gbps DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded to the VM 2 GB of legitimate files from the internet. When the attack ended, the user downloaded another 2 GB of legitimate files.
+For example, let's assume a user's VM was hit by a typical 10 Gbps DDoS attack generating 75 GB of incoming traffic. During the attack, the user downloaded to the VM 2 GB of legitimate files from the internet. When the attack ended, the user downloaded another 2 GB of legitimate files. 
 
 In this case, the user will be charged only for these 4 GB of legitimate traffic: 2 GB that passed through DDoS Protection to the cloud resources during the attack and 2 GB downloaded after the attack ended. Malicious traffic is filtered at no charge to the user.
 
@@ -134,8 +130,6 @@ The prevailing traffic bandwidth for the billing period is calculated as a one-m
 The excess is calculated by multiplying 1 Mbps of traffic by the prevailing traffic bandwidth.
 
 
-
-All prices are net of VAT.
 
 {% include [usd-advanced-ddos](../_pricing/vpc/usd-advanced-ddos.md) %}
 
@@ -159,16 +153,12 @@ With the {{ adv-ddos-protection }} service plan, you can additionally activate t
 
 
 
-All prices are net of VAT.
-
 {% include [usd-advanced-ddos-services](../_pricing/vpc/usd-advanced-ddos-services.md) %}
 
 
 ### Managed Web Application Firewall {#prices-waf}
 
 
-
-All prices are net of VAT.
 
 {% include [usd-waf](../_pricing/vpc/usd-waf.md) %}
 

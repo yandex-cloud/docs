@@ -202,6 +202,48 @@ description: Из статьи вы узнаете, как получить сп
 
 {% endlist %}
 
+## Получить подробную информацию об операции {#get-operation-info}
+
+1. [Получите список операций](#list-operations) для инстанса.
+1. Скопируйте идентификатор нужной операции.
+1. Получите подробную информацию об операции:
+
+    {% list tabs group=instructions %}
+
+    - CLI {#cli}
+
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+      Выполните команду:
+
+      ```bash
+      yc operation get <идентификатор_операции>
+      ```
+
+      Результат:
+
+      ```text
+      id: c17de7epmui********
+      description: Create automatic GitLab backup
+      created_at: "2025-07-24T22:01:24.352Z"
+      created_by: yc.managed-gitlab.serviceAccount
+      modified_at: "2025-07-25T03:07:17.092Z"
+      done: true
+      metadata:
+        '@type': type.googleapis.com/google.protobuf.Empty
+      value: {}
+      response:
+        '@type': type.googleapis.com/yandex.cloud.gitlab.v1.Instance
+      ...
+      ```
+
+    - API {#api}
+
+      Воспользуйтесь методом REST API [Get](../../api-ref/Operation/get.md) для ресурса [Operation](../../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../../api-ref/grpc/Operation/get.md).
+
+    {% endlist %}
 
 #### См. также {#see-also}
 

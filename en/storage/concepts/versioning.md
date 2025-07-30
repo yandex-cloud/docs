@@ -10,17 +10,16 @@ For more information on how to enable versioning, see [Managing bucket versionin
 * Before versioning is enabled, each bucket object is assigned a `version_id` equal to `null`.
 
   When versioning is paused, the `version_id` of existing objects does not change. Each new object gets a `null` version ID. If the `null` version already exists, it will be overwritten.
+
+  {% include [versioning-suspend-rule](../../_includes/storage/versioning-suspend-rule.md) %}
+
 * Overwriting an object version results in a new object with the same ID and a randomly generated `version_id`.
 
   To access a previous version of an object, use the object ID and the `version_id` you need.
   
 * If versioning is enabled, you can restore previous object versions by following [this guide](../operations/objects/restore-object-version.md).
 
-{% note info %}
-
-You cannot disable versioning once you enable it; however, you can pause new version creation. After you pause versioning, new objects will be saved as `null` versions.
-
-{% endnote %}
+{% include [versioning-irreversible](../../_includes/storage/versioning-irreversible.md) %}
 
 When you delete an object version, it is marked as _delete_ and no longer takes up any storage space.
 

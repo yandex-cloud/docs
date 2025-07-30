@@ -109,7 +109,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) named `vpn-sg` 
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }} |
       | --- | --- | --- | --- | --- | --- |
       | Ingress | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Ingress | `vpn`            | `63665`   | `UDP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Inbound | `vpn`            | `63665`   | `UDP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | Egress | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -128,7 +128,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) named `vpn-sg` 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `subnet-{{ region-id }}-b`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `subnet-{{ region-id }}-b` subnet you created earlier.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select `vpn-sg`.
 
@@ -178,17 +178,15 @@ To keep the VPN connection alive if you stop and restart your VPN server, [make]
   1. {% include [server-lease-step6](../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Ubuntu 24.04` image.
   1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
-  1. Under **Network settings**:
-
-     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3` you created earlier.
-     1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m3` subnet you created earlier.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
 
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
       {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `my-usbip-client`.
-  1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
+  1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
 
 {% endlist %}
 

@@ -1,0 +1,1 @@
+* `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`: Assign a random IP address. If you need to get the IP address when creating a server via a request to a DHCP server, enable **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}**.

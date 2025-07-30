@@ -1,1 +1,0 @@
-* `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`: To assign a random IP address.

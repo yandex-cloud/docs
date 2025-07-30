@@ -82,6 +82,7 @@ description: Пошаговые инструкции по работе и упр
 ## Работа на виртуальной машине {#vm-use}
 
 * [{#T}](vm-connect/ssh.md)
+* [{#T}](vm-connect/cloud-shell.md)
 * [{#T}](vm-connect/rdp.md)
 * [{#T}](vm-connect/powershell.md)
 * [{#T}](vm-connect/os-login-create-vm.md)

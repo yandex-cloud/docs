@@ -133,7 +133,7 @@ Configure the infrastructure on the {{ vpc-name }} side. In this step, you will 
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `vpc-subnet-a`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `vpc-subnet-a` subnet you created earlier.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select `vpc-ingress-sg`.
 
@@ -221,17 +221,14 @@ Create a {{ interconnect-name }} [private connection](../../baremetal/concepts/n
   1. In the **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** field, select your lease period: `1 day`.
   
       When this period expires, server lease will automatically be renewed for the same period. You cannot terminate the lease during the specified lease period, but you can [refuse](../../baremetal/operations/servers/server-lease-cancel.md) to extend the server lease further.
-  1. Under **Network settings**:
-
-     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m4` you created earlier.
-     1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
-
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m4` subnet you created earlier.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
       {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `alb-back-0`.
-  1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
+  1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
   1. Similarly, lease one more server, `alb-back-1`, in the `{{ region-id }}-m4` server pool.
 
 {% endlist %}

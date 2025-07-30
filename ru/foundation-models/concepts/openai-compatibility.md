@@ -108,7 +108,7 @@ API сервиса {{ foundation-models-name }} частично совмест�
         max_tokens=200,
         temperature=0.3,
         stream=False,
-        response_format={"type": "json_schema", "json_schema": json_schema}}
+        response_format={"type": "json_schema", "json_schema": json_schema}
     )
     print(response)
     ```

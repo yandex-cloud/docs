@@ -25,11 +25,12 @@ You can change the following parameters of a [{{ managed-k8s-name }}](../../conc
 
   {% endnote %}
 
-* Mask of the [{{ managed-k8s-name }} node](../../concepts/index.md#node-group) [subnet](../../../vpc/concepts/network.md#subnet).
+* [Subnet mask](../../../vpc/concepts/network.md#subnet) of the [{{ managed-k8s-name }} nodes](../../concepts/index.md#node-group).
 
   {% note warning %}
 
-  If you change the subnet mask of an active {{ managed-k8s-name }} cluster, it may run out of CIDR blocks. In this case, you will not be able to deploy [pods](../../concepts/index.md#pod) on new node groups.
+  * If you change the subnet mask of an active {{ managed-k8s-name }} cluster, it may run out of CIDR blocks. In this case, you will not be able to deploy [pods](../../concepts/index.md#pod) on new node groups.
+  * After changing the subnet mask, you must recreate the cluster node groups.
 
   {% endnote %}
 

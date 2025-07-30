@@ -1,0 +1,1 @@
+You can [install](../../../baremetal/operations/servers/reinstall-os-from-own-image.md) the OS from a custom ISO image later.

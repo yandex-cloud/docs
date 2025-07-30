@@ -6,6 +6,8 @@ Versioning can take one of the two statuses:
 - `Enabled`: Turns on version management for objects in the bucket. All new objects added to the bucket will get a unique version ID.
 - `Suspended`: Suspends version management for objects in the bucket. All new objects added to the bucket will get `null` for the version ID.
 
+{% include [versioning-suspend-rule](../../../../_includes/storage/versioning-suspend-rule.md) %}
+
 {% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
 ## Request {#request}

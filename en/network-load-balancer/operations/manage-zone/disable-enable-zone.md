@@ -55,7 +55,7 @@ You can enable and disable availability zones one by one or as a comma-separated
       ```
 
       Where:
-
+      
       * `--zones`: Availability zone IDs.
       * `--duration`: Duration, from `1m` to `72h`. No value stands for unlimited duration. If zones are provided as a list, they all will be disabled for the specified period.
 
@@ -205,5 +205,5 @@ You cannot run the zone disable command more often than once every two minutes.
       - zone_id: ru-central1-d
         disabled_until: "2025-06-06T04:10:02.679608678Z"
     ```
-
+      
 {% endlist %}

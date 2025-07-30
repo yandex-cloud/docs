@@ -1,0 +1,1 @@
+`--rental-period-id`: Server lease period. The possible values are `1 day`, `1 month`, `3 months`, `6 months` or `1 year`.
