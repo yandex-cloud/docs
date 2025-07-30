@@ -15,11 +15,76 @@ To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../.
 
 - Management console {#console}
 
-   {% include [instance-create-console](../../../_includes/managed-gitlab/instance-create-console.md) %}
+  {% include [instance-create-console](../../../_includes/managed-gitlab/instance-create-console.md) %}
 
 - CLI {#cli}
 
   {% include [instance-create-cli](../../../_includes/managed-gitlab/instance-create-cli.md) %}
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  To create a {{ GL }} instance:
+
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
+
+     ```hcl
+     resource "yandex_gitlab_instance" "my_gitlab_instance" {
+       name                      = "<instance_name>"
+       resource_preset_id        = "<host_class>"
+       disk_size                 = <disk_size_in_GB>
+       admin_login               = "<admin_login>"
+       admin_email               = "<admin_email_address>"
+       domain                    = "<instance_domain_name>"
+       subnet_id                 = "<subnet_ID>"
+       approval_rules_id         = "<approval_rule_configuration>"
+       backup_retain_period_days = <backup_retention_period>
+       deletion_protection       = <true_or_false>
+     }
+     ```
+
+     Where:
+     * `name`: Instance name, unique within {{ yandex-cloud }}. The naming requirements are as follows:
+
+        {% include [name-format](../../../_includes/name-format.md) %}
+
+     * `resource_preset_id`: Host class. Represents the configuration of the virtual machine to host the {{ GL }} instance. The possible values are:
+        * `s2.micro`: 2 vCPUs, 8 GB RAM
+        * `s2.small`: 4 vCPUs, 16 GB RAM
+        * `s2.medium`: 8 vCPUs, 32 GB RAM
+        * `s2.large`: 16 vCPUs, 64 GB RAM
+     * `disk_size`: Disk size in GB.
+     * `admin_login`: {{ GL }} instance admin login.
+     * `admin_email`: Instance admin email address. This is the address to receive the email with a link to create a password.
+     * `domain`: [Instance domain name](../../../compute/concepts/network.md#hostname). The system will automatically create the relevant DNS records for it in the `.gitlab.yandexcloud.net` domain.
+
+        {% include [domain-name-format](../../../_includes/managed-gitlab/domain-name-format.md) %}
+
+     * `subnet_id`: ID of the selected subnet.
+     * `approval_rules_id`: [Approval rule](../../concepts/approval-rules.md) configuration. The possible values are:
+        * `BASIC`
+        * `STANDARD`
+        * `ADVANCED`
+
+        {% include [note-approval-rules-pricing](../../../_includes/managed-gitlab/note-approval-rules-pricing.md) %}
+
+     * `backup_retain_period_days`: Automatic backup retention period, in days.
+     * `deletion_protection`: Instance protection against accidental deletion by the user. The possible values are `true` or `false`.
+
+     For more information about `yandex_gitlab_instance` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/gitlab_instance).
+
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+
+     ```bash
+     {{ yc-mdb-gl }} instance list
+     ```
 
 - API {#api}
 

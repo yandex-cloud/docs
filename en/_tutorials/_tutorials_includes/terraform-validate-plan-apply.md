@@ -1,4 +1,5 @@
-1. In the terminal, navigate to the directory where you edited the configuration file.
+1. In the terminal, go to the directory where you edited the configuration file.
+
 1. Make sure the configuration file is correct using this command:
 
    ```bash

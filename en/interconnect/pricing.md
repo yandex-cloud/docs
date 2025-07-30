@@ -6,8 +6,15 @@ editable: false
 
 # {{ interconnect-name }} pricing policy
 
+{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [vat](../_includes/vat.md) %}
+
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 The service is provided if technically feasible.
 
@@ -27,19 +34,20 @@ Automatic billing for the service starts with the earliest of the two events:
 * The [BGP session](./concepts/priv-con.md#bgp-peering) of any [private connection](./concepts/priv-con.md) in the trunk goes `Active`.
 * More than 90 days elapses since the [trunk](./concepts/trunk.md) was created (port was reserved) on the {{ yandex-cloud }} equipment. The state of the trunk physical port (ports) is irrelevant.
 
+## Data size {#data}
 
-
-### Data size {#data}
 
 
 
 {% include [usd-data](../_pricing/interconnect/usd-data.md) %}
 
 
-### Other services {#other-services}
+## Other services {#other-services}
+
 
 
 
 {% include [usd-other-services](../_pricing/interconnect/usd-other-services.md) %}
+
 
 

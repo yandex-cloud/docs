@@ -2,6 +2,8 @@
 
 Sets up [object locks](../../../concepts/object-lock.md) in a [versioned bucket](../../../concepts/versioning.md): enables or disables object locks and configures default locks.
 
+{% include [versioning-block-relations](../../../../_includes/storage/versioning-block-relations.md) %}
+
 With object lock enabled, you can lock an object version so that it cannot be deleted or overwritten:
 
 * When uploading the object (the [upload](../object/upload.md) method).

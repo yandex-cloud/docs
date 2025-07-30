@@ -1204,91 +1204,107 @@ items:
     items:
       - name: All tutorials
         href: routing/index.md
-      - name: Connecting resources from different folders
-        href: routing/multi-folder-vpc.md
-      - name: Creating a bastion host
-        href: routing/bastion.md
-      - name: Creating a tunnel between two subnets with OpenVPN Access Server
-        href: routing/site-to-site-openvpn.md
-      - name: Secure user access to cloud resources based on WireGuard VPN
-        href: routing/remote-wireguard-vpn.md
-      - name: Setting up a UserGate firewall
-        href: routing/usergate-firewall.md
-      - name: Implementing fault-tolerant scenarios for network VMs
-        href: routing/route-switcher.md
-      - name: >-
-          Implementing a secure high-availability network infrastructure with a
-          dedicated DMZ based on the Check Point NGFW
-        href: routing/high-accessible-dmz.md
-      - name: >-
-          Cloud infrastructure segmentation with the Check Point next-generation
-          firewall
-        href: routing/network-segmentation-checkpoint.md
-      - name: >-
-          Implementing a secure high-availability network infrastructure with a
-          dedicated DMZ based on the UserGate NGFW
-        href: routing/high-accessible-dmz-usergate.md
-      - name: >-
-          Implementing a secure high-availability network infrastructure with a
-          dedicated DMZ based on Smart-Soft NGFW
-        href: routing/high-accessible-dmz-ting.md
-      - name: >-
-          Configuring {{ interconnect-name }} access to cloud networks behind
-          NGFWs
-        href: routing/cic-with-ngfw.md
-      - name: Configuring a secure GRE tunnel over IPsec
-        href: routing/gre-over-ipsec.md
-      - name: Configuring a network for {{ dataproc-name }}
-        href: routing/data-processing-nat-instance.md
-      - name: >-
-          Network connection switching during {{ dataproc-name }} cluster
-          recreation
-        href: routing/data-processing-dns-reconnect.md
-      - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
-        href: routing/storage-vpc-access.md
-      - name: Connecting to {{ container-registry-name }} from {{ vpc-short-name }}
-        href: routing/vpc-cr-access.md
-      - name: Creating a direct trunk and a private connection in it
-        href: routing/trunk-priv-add.md
-      - name: Creating a direct trunk and a public connection in it
-        href: routing/trunk-pub-add.md
-      - name: Adding a private connection to a direct or partner trunk
-        href: routing/priv-add.md
-      - name: Adding a public connection to a direct or partner trunk
-        href: routing/pub-add.md
-      - name: Updating trunk capacity
-        href: routing/trunk-capacity-change.md
-      - name: Deleting a private connection
-        href: routing/priv-del.md
-      - name: Deleting a public connection
-        href: routing/pub-del.md
-      - name: Deleting a trunk
-        href: routing/trunk-del.md
-      - name: Configuring VRRP for a cluster of {{ baremetal-name }} servers
-        href: routing/bms-vrf-routing.md
-      - name: Configuring network connectivity in the {{ baremetal-name }} subnet
-        href: routing/bms-simple-subnet.md
-      - name: >-
-          Setting up network connectivity between {{ baremetal-name }} and {{
-          vpc-name }} subnets
-        href: routing/bm-vrf-and-vpc-interconnect.md
-      - name: >-
-          Establishing network connectivity between {{ baremetal-name }} and
-          on-prem subnets with the help of {{ interconnect-name }}
-        href: routing/bms-cic-onprem.md
-        hidden: true
-      - name: >-
-          Delivering USB devices to a {{ baremetal-name }} server or virtual
-          machine
-        href: routing/usb-over-ip.md
-      - name: >-
-          Configuring an OPNsense firewall in high availability cluster mode on
-          {{ baremetal-name }} servers
-        href: routing/opnsense-failover-cluster.md
-      - name: >-
-          Deploying a web app on {{ baremetal-name }} servers with an L7 load
-          balancer and {{ sws-name }} protection
-        href: routing/webapp-on-bms-behind-sws.md
+      - name: Setting up VPN connections
+        items:
+          - name: Creating a bastion host
+            href: routing/bastion.md
+          - name: Creating a tunnel between two subnets with OpenVPN Access Server
+            href: routing/site-to-site-openvpn.md
+          - name: Secure user access to cloud resources based on WireGuard VPN
+            href: routing/remote-wireguard-vpn.md
+          - name: Configuring a secure GRE tunnel over IPsec
+            href: routing/gre-over-ipsec.md
+      - name: NGFW-based network cloud infrastructure
+        items:
+          - name: >-
+              Cloud infrastructure segmentation with the Check Point
+              next-generation firewall
+            href: routing/network-segmentation-checkpoint.md
+          - name: >-
+              Implementing a secure high-availability network infrastructure
+              with a dedicated DMZ based on the Check Point NGFW
+            href: routing/high-accessible-dmz.md
+          - name: >-
+              Implementing a secure high-availability network infrastructure
+              with a dedicated DMZ based on the UserGate NGFW
+            href: routing/high-accessible-dmz-usergate.md
+          - name: >-
+              Implementing a secure high-availability network infrastructure
+              with a dedicated DMZ based on Smart-Soft NGFW
+            href: routing/high-accessible-dmz-ting.md
+          - name: Setting up a UserGate firewall
+            href: routing/usergate-firewall.md
+      - name: '{{ baremetal-name }}'
+        items:
+          - name: Configuring VRRP for a cluster of {{ baremetal-name }} servers
+            href: routing/bms-vrf-routing.md
+          - name: >-
+              Configuring network connectivity in the {{ baremetal-name }}
+              subnet
+            href: routing/bms-simple-subnet.md
+          - name: >-
+              Setting up network connectivity between {{ baremetal-name }} and
+              {{ vpc-name }} subnets
+            href: routing/bm-vrf-and-vpc-interconnect.md
+          - name: >-
+              Delivering USB devices to a {{ baremetal-name }} server or virtual
+              machine
+            href: routing/usb-over-ip.md
+          - name: >-
+              Configuring an OPNsense firewall in high availability cluster mode
+              on {{ baremetal-name }} servers
+            href: routing/opnsense-failover-cluster.md
+          - name: >-
+              Deploying a web app on {{ baremetal-name }} servers with an L7
+              load balancer and {{ sws-name }} protection
+            href: routing/webapp-on-bms-behind-sws.md
+          - name: >-
+              Establishing network connectivity between {{ baremetal-name }}
+              subnets and on-prem with the help of {{ interconnect-name }}
+            href: routing/bms-cic-onprem.md
+            hidden: true
+      - name: '{{ interconnect-name }}'
+        items:
+          - name: >-
+              Configuring {{ interconnect-name }} access to cloud networks
+              behind NGFWs
+            href: routing/cic-with-ngfw.md
+          - name: Creating a direct trunk and a private connection in it
+            href: routing/trunk-priv-add.md
+          - name: Creating a direct trunk and a public connection in it
+            href: routing/trunk-pub-add.md
+          - name: Adding a private connection to a direct or partner trunk
+            href: routing/priv-add.md
+          - name: Adding a public connection to a direct or partner trunk
+            href: routing/pub-add.md
+          - name: Updating trunk capacity
+            href: routing/trunk-capacity-change.md
+          - name: Deleting a private connection
+            href: routing/priv-del.md
+          - name: Deleting a public connection
+            href: routing/pub-del.md
+          - name: Deleting a trunk
+            href: routing/trunk-del.md
+      - name: Configuring network resources and interaction between them
+        items:
+          - name: Setting up networking between resources from different folders
+            href: routing/multi-folder-vpc.md
+          - name: Implementing fault-tolerant scenarios for network VMs
+            href: routing/route-switcher.md
+          - name: Configuring a network for {{ dataproc-name }}
+            href: routing/data-processing-nat-instance.md
+          - name: >-
+              Network connection switching during {{ dataproc-name }} cluster
+              recreation
+            href: routing/data-processing-dns-reconnect.md
+      - name: Connecting to services
+        items:
+          - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
+            href: routing/storage-vpc-access.md
+          - name: >-
+              Connecting to {{ container-registry-name }} from {{ vpc-short-name
+              }}
+            href: routing/vpc-cr-access.md
   - name: Data analysis and visualization
     items:
       - name: All tutorials

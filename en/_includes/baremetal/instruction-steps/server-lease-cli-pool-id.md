@@ -1,0 +1,1 @@
+`--hardware-pool-id`: [Pool](../../../baremetal/concepts/servers.md#server-pools) to lease a server from.

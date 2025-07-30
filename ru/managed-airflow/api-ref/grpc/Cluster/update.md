@@ -64,9 +64,15 @@ Updates the specified Apache Airflow cluster.
     "python_version": "string"
   },
   "code_sync": {
-    // Includes only one of the fields `s3`
+    // Includes only one of the fields `s3`, `git_sync`
     "s3": {
       "bucket": "string"
+    },
+    "git_sync": {
+      "repo": "string",
+      "branch": "string",
+      "sub_path": "string",
+      "ssh_key": "string"
     }
     // end of the list of possible fields
   },
@@ -270,7 +276,10 @@ The setting allows to enable Lockbox Secret Backend. ||
 ||Field | Description ||
 || s3 | **[S3Config](#yandex.cloud.airflow.v1.S3Config)**
 
-Includes only one of the fields `s3`. ||
+Includes only one of the fields `s3`, `git_sync`. ||
+|| git_sync | **[GitSyncConfig](#yandex.cloud.airflow.v1.GitSyncConfig)**
+
+Includes only one of the fields `s3`, `git_sync`. ||
 |#
 
 ## S3Config {#yandex.cloud.airflow.v1.S3Config}
@@ -280,6 +289,16 @@ Includes only one of the fields `s3`. ||
 || bucket | **string**
 
 The name of the Object Storage bucket that stores DAG files used in the cluster. ||
+|#
+
+## GitSyncConfig {#yandex.cloud.airflow.v1.GitSyncConfig}
+
+#|
+||Field | Description ||
+|| repo | **string** ||
+|| branch | **string** ||
+|| sub_path | **string** ||
+|| ssh_key | **string** ||
 |#
 
 ## UpdateNetworkConfigSpec {#yandex.cloud.airflow.v1.UpdateNetworkConfigSpec}
@@ -463,9 +482,15 @@ Hour of the day in UTC. ||
       ]
     },
     "code_sync": {
-      // Includes only one of the fields `s3`
+      // Includes only one of the fields `s3`, `git_sync`
       "s3": {
         "bucket": "string"
+      },
+      "git_sync": {
+        "repo": "string",
+        "branch": "string",
+        "sub_path": "string",
+        "ssh_key": "string"
       }
       // end of the list of possible fields
     },
@@ -667,7 +692,7 @@ Link to the monitoring system. ||
 || version_id | **string**
 
 Version of Apache Airflow that runs on the cluster.
-Use `airlow_version` instead. ||
+Use `airflow_version` instead. ||
 || airflow | **[AirflowConfig](#yandex.cloud.airflow.v1.AirflowConfig2)**
 
 Configuration of the Apache Airflow application itself. ||
@@ -805,7 +830,10 @@ User security groups. ||
 ||Field | Description ||
 || s3 | **[S3Config](#yandex.cloud.airflow.v1.S3Config2)**
 
-Includes only one of the fields `s3`. ||
+Includes only one of the fields `s3`, `git_sync`. ||
+|| git_sync | **[GitSyncConfig](#yandex.cloud.airflow.v1.GitSyncConfig2)**
+
+Includes only one of the fields `s3`, `git_sync`. ||
 |#
 
 ## S3Config {#yandex.cloud.airflow.v1.S3Config2}
@@ -815,6 +843,16 @@ Includes only one of the fields `s3`. ||
 || bucket | **string**
 
 The name of the Object Storage bucket that stores DAG files used in the cluster. ||
+|#
+
+## GitSyncConfig {#yandex.cloud.airflow.v1.GitSyncConfig2}
+
+#|
+||Field | Description ||
+|| repo | **string** ||
+|| branch | **string** ||
+|| sub_path | **string** ||
+|| ssh_key | **string** ||
 |#
 
 ## LoggingConfig {#yandex.cloud.airflow.v1.LoggingConfig2}

@@ -143,6 +143,8 @@ items:
         items:
           - name: Подключиться к ВМ по SSH
             href: operations/vm-connect/ssh.md
+          - name: Подключиться к ВМ по SSH с помощью {{ cloud-shell-name }}
+            href: operations/vm-connect/cloud-shell.md
           - name: Обмен файлами с ВМ
             href: operations/vm-connect/scp-sftp.md
           - name: Подключиться к ВМ по RDP

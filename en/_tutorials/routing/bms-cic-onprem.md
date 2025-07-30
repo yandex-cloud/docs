@@ -1,17 +1,19 @@
-# Establishing network connectivity between {{ baremetal-full-name }} subnets and on-premise with the help of {{ interconnect-name }}
+# Establishing network connectivity between {{ baremetal-full-name }} subnets and on-premise environment with {{ interconnect-name }}
 
-In this tutorial, you will set up network connectivity between a {{ baremetal-name }} [server](../../baremetal/concepts/servers.md) located in a [private {{ baremetal-full-name }} subnet](../../baremetal/concepts/network.md#private-network) and your on-prem resources. Network connectivity will be established using [{{ interconnect-name }}](../../interconnect/index.yaml) and [{{ cr-name }}](../../cloud-router/index.yaml).
-The diagram above shows network connectivity between the {{ baremetal-full-name }} segment resources and remote on-prem resources on the customer's site connected to {{ yandex-cloud }} via {{ interconnect-name }}.
+In this tutorial, you will set up network connectivity between a {{ baremetal-name }} [server](../../baremetal/concepts/servers.md) located in a [private {{ baremetal-full-name }} subnet](../../baremetal/concepts/network.md#private-network) and your on-premise resources. Network connectivity will be established using [{{ interconnect-name }}](../../interconnect/index.yaml) and [{{ cr-name }}](../../cloud-router/index.yaml).
 
-To establish network connectivity between these resources and the customer's VPC network, you need to add the relevant VPC subnet IP prefixes to the routing instance. For more on configuring this type of network connectivity, see the [relevant documentation](../../cloud-router/tutorials/bm-vrf-and-vpc-interconnect.md). 
+
+The diagram above shows network connectivity between the {{ baremetal-full-name }} segment resources and customer’s remote on-premise resources connected to {{ yandex-cloud }} via {{ interconnect-name }}.
+
+To establish network connectivity between these resources and the customer's virtual network, you need to add the relevant {{ vpc-name }} subnet IP prefixes to the routing instance. For more on configuring this type of network connectivity, see the [relevant documentation](../../cloud-router/tutorials/bm-vrf-and-vpc-interconnect.md). 
 
 {% note info %}
 
-It is assumed that the connectivity between on-prem and the VPC network via {{ interconnect-name }} has already been established and is operational. 
+It is assumed that the connectivity between on-premise and the {{ vpc-short-name }} network via {{ interconnect-name }} has already been established and is operational. 
 
 {% endnote %}
 
-To set up network connectivity between {{ baremetal-name }} private subnets and on-prem using {{ interconnect-name }}, do the following:
+To set up network connectivity between {{ baremetal-name }} private subnets and on-premise resources using {{ interconnect-name }}, do the following:
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a cloud infrastructure](#setup-infrastructure).
@@ -85,17 +87,14 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
   1. {% include [server-lease-step6](../../_includes/baremetal/instruction-steps/server-lease-step6.md) %}
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select an image, e.g., `Ubuntu 24.04`.
   1. {% include [server-lease-step6-substep](../../_includes/baremetal/instruction-steps/server-lease-step6-substep.md) %}
-  1. Under **Network settings**:
-
-     1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select `subnet-m3` you created earlier.
-     1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
-
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m3` subnet you created earlier.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-no }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
       {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
 
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `server-m3`.
-  1. {% include [server-lease-step12](../../_includes/baremetal/instruction-steps/server-lease-step12.md) %}
+  1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
 
 {% endlist %}
 
@@ -107,7 +106,7 @@ Server setup and OS installation may take up to 45 minutes. The server will have
 
 ## Create a routing instance {#create-routing-instance}
 
-To set up network connectivity between {{ baremetal-name }} subnets and on-prem subnets, you need to create a `Routing Instance` resource. To create a `Routing Instance`, [contact]({{ link-console-support }}/tickets/create) support.
+To set up network connectivity between {{ baremetal-name }} subnets and on-premise subnets, you need to create a `Routing Instance` resource. To create a `Routing Instance`, [contact]({{ link-console-support }}/tickets/create) support.
 
 If your folder already has [{{ interconnect-name }}](../../interconnect/index.yaml) network connectivity (VPC-to-On-Prem) configured, you can either use the existing `Routing Instance` or request a new additional `Routing Instance` to be created for standalone network connectivity.
 
@@ -143,7 +142,7 @@ A network connectivity check assumes that:
 * The routing table in the {{ baremetal-name }} server OS contains a route to the CIRD of the subnet the VM resides in.
 * The [security group](../../vpc/concepts/security-groups.md) assigned to the VM [network interface](../../compute/concepts/network.md) allows ICMP traffic.
 
-### Test network connectivity from the private {{ baremetal-name }} subnet to the on-prem resources {#check-bms-to-onprem}
+### Test network connectivity from the private {{ baremetal-name }} subnet to on-premise resources {#check-bms-to-onprem}
 
 {% list tabs group=instructions %}
 
@@ -202,7 +201,7 @@ A network connectivity check assumes that:
 
 {% endlist %}
 
-### Test network connectivity from the on-prem resource to the private {{ baremetal-name }} subnet {#check-onprem-to-bms}
+### Test network connectivity from an on-premise resource to the private {{ baremetal-name }} subnet {#check-onprem-to-bms}
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
 1. In the terminal, run the `ping` command to make sure you can access `server-m3` by its private IP address:

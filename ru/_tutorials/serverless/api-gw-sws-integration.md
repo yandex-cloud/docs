@@ -93,7 +93,7 @@
 
 - Консоль управления {#console}
 
-  [Создайте API-шлюз](../../api-gateway/operations/api-gw-create.md) `my-gateway`.  При создании добавьте в поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** следующую спецификацию:
+  [Создайте API-шлюз](../../api-gateway/operations/api-gw-create.md) `my-gateway`. При создании добавьте в поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** следующую спецификацию:
 
   ```yaml
   openapi: "3.0.0"
@@ -119,7 +119,7 @@
 
   Остальные параметры оставьте без изменений.
 
-- {{ TF }} {#tf}  
+- {{ TF }} {#tf}
 
   1. В файле `api-gw-sws-integration.tf`:
 

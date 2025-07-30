@@ -105,7 +105,7 @@ items:
         href: tutorials/bm-vrf-and-vpc-interconnect.md
       - name: >-
           Establishing network connectivity between a {{ baremetal-name }}
-          private subnet and on-prem resources
+          private subnet and on-premise resources
         href: tutorials/bms-cic-onprem.md
       - name: >-
           Delivering USB devices to a {{ baremetal-name }} server or virtual

@@ -41,6 +41,37 @@ Create a new image using the link you got in {{ objstorage-name }}:
   1. Paste the link to your image file from {{ objstorage-name }}.
   1. Click **{{ ui-key.yacloud.baremetal.label_create-image }}**.
 
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   1. View the image download command description:
+
+      ```bash
+      yc baremetal boot-image create --help
+      ```
+
+   1. Download the image:
+
+      ```bash
+      yc baremetal boot-image create \
+        --name demo-boot-image \
+        --description "Boot image for BareMetal" \
+        --uri "<image_link>" \
+        --labels <label_key>=<label_value>
+      ```
+
+      Where:
+      * `--name`: Image name. The naming requirements are as follows:
+        
+        {% include [name-format](../../_includes/name-format.md) %}
+
+      * `--description`: Image description. This is an optional parameter.
+      * `--uri`: Image link you got in {{ objstorage-name }}.
+      * `--labels`: Image labels. This is an optional parameter.
+
 {% endlist %}
 
 ## Deleting the image from {{ objstorage-name }} {#delete-image}

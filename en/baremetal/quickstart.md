@@ -1,5 +1,5 @@
 ---
-title: How to get started with {{ baremetal-full-name }}
+title: Getting started with {{ baremetal-full-name }}
 description: Follow this guide to lease and set up your first physical server in {{ baremetal-full-name }}.
 ---
 
@@ -19,7 +19,7 @@ Lease your first physical server and connect to it. All the leased server's reso
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to lease a server.
   1. In the list of services, select **{{ baremetal-name }}**.
-  1. Click **Order server**.
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
   1. Select the `{{ region-id }}-m` [availability zone](../overview/concepts/geo-scope.md).
   1. Select the `{{ region-id }}-m3` pool.
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-config }}**:
@@ -36,18 +36,16 @@ Lease your first physical server and connect to it. All the leased server's reso
      1. **{{ ui-key.yacloud.baremetal.field_server-count }}**: `1`.
      1. **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}**: `{{ ui-key.yacloud.baremetal.label_one-month-duration }}`.
 
-  1. Under **Network settings**:
-
-     1. In the **Private subnet** field, click **{{ ui-key.yacloud.common.create }}**.
-     1. Enter `bm-subnetwork` for the subnet name and click **Create subnet**.
-     1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, click **{{ ui-key.yacloud.common.create }}**.
+  1. In the window that opens, under **{{ ui-key.yacloud.baremetal.title_common-info }}**, in the **{{ ui-key.yacloud.baremetal.field_subnetwork-name }}** field, enter the `bm-subnetwork` subnet name and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
+  1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
 
   1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
       {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}
 
   1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, enter the server **{{ ui-key.yacloud.baremetal.field_name }}**: `bm-server`.
-  1. Click **Order server**.
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}**.
 
 {% endlist %}
 
@@ -62,8 +60,8 @@ Lease your first physical server and connect to it. All the leased server's reso
   1. In the row with the server you need, click ![image](../_assets/console-icons/ellipsis.svg) and select **KVM console**.
 
 - Linux/macOS {#linux-macos}
-   
-  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **Network settings** on the server page.
+
+  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** on the server page.
 
   In the terminal, run this command:
 
@@ -84,7 +82,7 @@ Lease your first physical server and connect to it. All the leased server's reso
 
 - Windows 10/11 {#windows}
 
-  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **Network settings** on the server page.
+  To establish a server connection, specify its public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** on the server page.
 
   Make sure the Windows account has read access to the key folder.
 
@@ -106,7 +104,7 @@ Lease your first physical server and connect to it. All the leased server's reso
 
 - Windows 7/8 {#windows7-8}
 
-  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **Network settings** on the server page.
+  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** on the server page.
 
   Establish a connection using PuTTY:
 

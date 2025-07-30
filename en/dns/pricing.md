@@ -12,6 +12,8 @@ editable: false
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 
 ## Prices for the Russia region {#prices}
 

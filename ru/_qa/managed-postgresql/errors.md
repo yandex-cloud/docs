@@ -135,8 +135,8 @@ ERROR: rpc error: code = FailedPrecondition desc = Cluster has no backups
 
 [Восстановление логического дампа](../../managed-postgresql/tutorials/data-migration.md#backup) может завершаться одной из ошибок:
 
-* `ERROR:  role "<имя_пользователя_источника>" does not exist`
-* `ERROR:  must be member of role "<имя_пользователя_источника>"`
+* `ERROR: role "<имя_пользователя_источника>" does not exist`
+* `ERROR: must be member of role "<имя_пользователя_источника>"`
 
 Ошибки связаны с отсутствием в кластере-приемнике пользователя или привилегий пользователя, от имени которого был создан логический дамп в кластере-источнике.
 
