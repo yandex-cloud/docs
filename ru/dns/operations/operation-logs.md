@@ -57,7 +57,7 @@
 
 - API {#api}
 
-  Чтобы получить список операций с зоной, воспользуйтесь методом REST API [listOperations](../api-ref/DnsZone/listOperations.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md), или вызовом gPRC API [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md).
+  Чтобы получить список операций с зоной, воспользуйтесь методом REST API [listOperations](../api-ref/DnsZone/listOperations.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md), или вызовом gRPC API [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md).
 
 {% endlist %}
 
