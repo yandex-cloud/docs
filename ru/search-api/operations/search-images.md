@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы научите
 
 # Поиск изображений по текстовому описанию с помощью API v2
 
-[API v2](../concepts/index.md#api-v2) сервиса {{ search-api-name }} позволяет искать изображения по текстовым описаниям в индексе [Яндекс Картинок](https://yandex.ru/images) и получать результат поиска в [формате XML](../concepts/image-search.md#xml-response-format). Выполнять запросы можно с помощью [REST API](../api-ref/) и [gPRC API](../api-ref/grpc/). Поисковая выдача зависит от заданных в запросе параметров.
+[API v2](../concepts/index.md#api-v2) сервиса {{ search-api-name }} позволяет искать изображения по текстовым описаниям в индексе [Яндекс Картинок](https://yandex.ru/images) и получать результат поиска в [формате XML](../concepts/image-search.md#xml-response-format). Выполнять запросы можно с помощью [REST API](../api-ref/) и [gRPC API](../api-ref/grpc/). Поисковая выдача зависит от заданных в запросе параметров.
 
 ## Перед началом работы {#before-you-begin}
 

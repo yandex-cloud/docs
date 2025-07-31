@@ -1,9 +1,9 @@
 ---
 title: Uploading audio data via API
-description: Follow this guide to upload audio data to {{ speechsense-name }} via gPRC API.
+description: Follow this guide to upload audio data to {{ speechsense-name }} via gRPC API.
 ---
 
-# Uploading audio data via the gPRC API
+# Uploading audio data via the gRPC API
 
 Use this guide to upload data to {{ speechsense-name }} for speech recognition and analysis via API. This example uses the following parameters:
 

@@ -37,13 +37,13 @@ Depending on the specified query parameters, you will get the result in [XML](./
 
 ## Synchronous search mode {#sync-mode}
 
-You can [run](../operations/web-search-sync.md) queries in synchronous mode using the [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/).
+You can [run](../operations/web-search-sync.md) queries in synchronous mode using the [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/).
 
 In response to a synchronous mode query, depending on the query [parameters](#parameters) you provide, {{ search-api-name }} will return the result in [XML](./response.md) or [HTML](./html-response.md) format. The result is returned in the `rawData` response field as a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) string.
 
 ## Deferred (asynchronous) search mode {#async-mode}
 
-You can [run](../operations/web-search.md) queries in deferred mode using the [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). 
+You can [run](../operations/web-search.md) queries in deferred mode using the [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/). 
 
 In response to a deferred query, {{ search-api-name }} returns an [Operation object](#response-format) containing the operation info: status, ID, call time, etc. 
 

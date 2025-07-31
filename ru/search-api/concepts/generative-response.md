@@ -21,7 +21,7 @@ description: В данной статье описан формат генера
 
 ## Формат тела запроса {#body}
 
-Имена полей тела запроса различаются в [REST API](../api-ref/index.md) и [gPRC API](../api-ref/grpc/index.md): в REST API используется [camelCase](https://ru.wikipedia.org/wiki/CamelCase), в gPRC API — [snake_case](https://ru.wikipedia.org/wiki/Snake_case).
+Имена полей тела запроса различаются в [REST API](../api-ref/index.md) и [gRPC API](../api-ref/grpc/index.md): в REST API используется [camelCase](https://ru.wikipedia.org/wiki/CamelCase), в gRPC API — [snake_case](https://ru.wikipedia.org/wiki/Snake_case).
 
 Каждый запрос на получение генеративного ответа должен содержать тело запроса в формате [JSON](https://ru.wikipedia.org/wiki/JSON) следующего вида:
 
