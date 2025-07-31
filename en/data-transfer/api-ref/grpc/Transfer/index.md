@@ -5,6 +5,8 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/index.md
 
 # Data Transfer API, gRPC: TransferService
 
+A set of methods for managing [transfers]({{ api-url-prefix }}/data-transfer/concepts/#transfer).
+
 ## Methods
 
 #|

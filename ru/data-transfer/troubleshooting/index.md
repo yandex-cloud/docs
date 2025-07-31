@@ -63,6 +63,8 @@
 {% include [unknown-user](../../_includes/data-transfer/troubles/unknown-user.md) %}
 
 
+{% include [no-such-host](../../_includes/data-transfer/troubles/no-such-host.md) %}
+
 ### Снижение скорости трансфера {#speed-degrade}
 
 **Проблема**:

@@ -8118,6 +8118,7 @@ default:
             button_edit-network-interface: Edit
             button_remove-public-ip: Disassociate public IP address
             field_access: Access
+            field_serial-port-enable: Serial console access
             field_ua-enabled: Agent for delivering metrics
             label_cert-connect-tab: Via certificate
             label_cli-connect-card-title: Connect via the Yandex Cloud CLI
@@ -8175,7 +8176,6 @@ default:
             field_instance-name: VM name
             field_key: SSH key
             field_security-groups: Security groups
-            field_serial-port-enable: Access to serial console
             field_service-account: Service account
             field_user: Login
             field_zone: Availability zone

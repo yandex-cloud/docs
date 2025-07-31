@@ -40,6 +40,8 @@ description: Следуя данной инструкции, вы сможете
        --disk-size <размер_хранилища_ГБ> \
        --disk-type <тип_хранилища> \
        --fixed-size <фиксированное_количество_узлов_в_группе> \
+       --max-expansion <расширение_размера_группы_при_обновлении> \
+       --max-unavailable <количество_недоступных_узлов_при_обновлении> \
        --location zone=[<зона_доступности>],subnet-id=[<идентификатор_подсети>] \
        --memory <количество_ГБ_RAM> \
        --name <имя_группы_узлов> \
@@ -76,6 +78,11 @@ description: Следуя данной инструкции, вы сможете
 
        Тип масштабирования нельзя изменить после создания группы узлов.
 
+     * `--max-expansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
+
+       {% include [note-expansion-group-vm](../../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+     * `--max-unavailable` — максимальное количество недоступных узлов группы при ее обновлении.
      * `--location` — [зона доступности](../../../overview/concepts/geo-scope.md) и [подсеть](../../../vpc/concepts/network.md#subnet), в которых будут расположены узлы {{ managed-k8s-name }}. Можно указать несколько вариантов, но нельзя указывать несколько подсетей для одной зоны. Для каждой зоны доступности следует использовать отдельный параметр `--location`.
 
        {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
@@ -186,6 +193,10 @@ description: Следуя данной инструкции, вы сможете
        scale_policy {
          <настройки_масштабирования_группы_узлов>
        }
+       deploy_policy {
+         max_expansion   = <расширение_размера_группы_при_обновлении>
+         max_unavailable = <количество_недоступных_узлов_при_обновлении>
+       }
        ...
        allocation_policy {
          location {
@@ -216,6 +227,13 @@ description: Следуя данной инструкции, вы сможете
        * `scale_policy` — настройки масштабирования. 
 
          Тип масштабирования нельзя изменить после создания группы узлов.
+
+       * `deploy_policy` — настройки развертывания группы:
+         * `max_expansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
+
+           {% include [note-expansion-group-vm](../../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+         * `max_unavailable` — максимальное количество недоступных узлов группы при ее обновлении.
 
        * `allocation_policy` — настройки размещения. Содержат блок `location` с параметром `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой вы хотите разместить узлы группы. Вы можете разместить узлы группы с фиксированным типом масштабирования в нескольких зонах доступности, для этого укажите каждую зону доступности в отдельном блоке `location`.
 
@@ -248,7 +266,7 @@ description: Следуя данной инструкции, вы сможете
          }
        }
        ```
-
+       
      * Чтобы добавить метаданные для узлов, передайте их в параметре `instance_template.metadata`.
 
         {% include [connect-metadata-list](../../../_includes/managed-kubernetes/connect-metadata-list.md) %}
@@ -314,6 +332,14 @@ description: Следуя данной инструкции, вы сможете
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
   
     Тип масштабирования нельзя изменить после создания группы узлов.
+
+  * Настройки развертывания группы узлов в параметре `deployPolicy`:
+    * `maxExpansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
+
+      {% include [note-expansion-group-vm](../../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+    * `maxUnavailable` — максимальное количество недоступных узлов группы при ее обновлении.
+
   * [Настройки размещения](../../../overview/concepts/geo-scope.md) группы узлов {{ managed-k8s-name }} в параметрах `allocationPolicy`.
 
     {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}

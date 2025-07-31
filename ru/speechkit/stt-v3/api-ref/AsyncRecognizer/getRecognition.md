@@ -37,7 +37,7 @@ GET https://{{ api-host-sk-stt }}/stt/v3/getRecognition
     "eouTimeMs": "string"
   },
   "responseWallTimeMs": "string",
-  // Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`
+  // Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`, `summarization`
   "partial": {
     "alternatives": [
       {
@@ -267,6 +267,18 @@ GET https://{{ api-host-sk-stt }}/stt/v3/getRecognition
     "totalSpeechDurationMs": "string",
     "totalSpeechRatio": "string"
   },
+  "summarization": {
+    "results": [
+      {
+        "response": "string"
+      }
+    ],
+    "contentUsage": {
+      "inputTextTokens": "string",
+      "completionTokens": "string",
+      "totalTokens": "string"
+    }
+  },
   // end of the list of possible fields
   "channelTag": "string"
 }
@@ -293,44 +305,49 @@ Wall clock on server side. This is time when server wrote results to stream ||
 Partial results, server will send them regularly after enough audio data was received from user. This are current text estimation
 from final_time_ms to partial_time_ms. Could change after new data will arrive.
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
+Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`, `summarization`. ||
 || final | **[AlternativeUpdate](#speechkit.stt.v3.AlternativeUpdate)**
 
 Final results, the recognition is now fixed until final_time_ms. For now, final is sent only if the EOU event was triggered. This could be change in future releases.
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
+Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`, `summarization`. ||
 || eouUpdate | **[EouUpdate](#speechkit.stt.v3.EouUpdate)**
 
 After EOU classifier, send the message with final, send the EouUpdate with time of EOU
 before eou_update we send final with the same time. there could be several finals before eou update.
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
+Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`, `summarization`. ||
 || finalRefinement | **[FinalRefinement](#speechkit.stt.v3.FinalRefinement)**
 
 For each final, if normalization is enabled, sent the normalized text (or some other advanced post-processing).
 Final normalization will introduce additional latency.
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
+Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`, `summarization`. ||
 || statusCode | **[StatusCode](#speechkit.stt.v3.StatusCode)**
 
 Status messages, send by server with fixed interval (keep-alive).
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
+Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`, `summarization`. ||
 || classifierUpdate | **[RecognitionClassifierUpdate](#speechkit.stt.v3.RecognitionClassifierUpdate)**
 
 Result of the triggered classifier
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
+Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`, `summarization`. ||
 || speakerAnalysis | **[SpeakerAnalysis](#speechkit.stt.v3.SpeakerAnalysis)**
 
 Speech statistics for every speaker
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
+Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`, `summarization`. ||
 || conversationAnalysis | **[ConversationAnalysis](#speechkit.stt.v3.ConversationAnalysis)**
 
 Conversation statistics
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
+Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`, `summarization`. ||
+|| summarization | **[Summarization](#speechkit.stt.v3.Summarization)**
+
+Summary
+
+Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`, `summarization`. ||
 || channelTag | **string**
 
 Tag for distinguish audio channels. ||
@@ -443,7 +460,7 @@ Estimation of language and its probability.
 ||Field | Description ||
 || languageCode | **string**
 
-Language code in ISO 639-1 format. ||
+Language tag in IETF BCP 47 format, consisting of ISO 639-1 language code and ISO 3166-1 country code (e.g., en-US, ru-RU). ||
 || probability | **string**
 
 Estimation of language probability. ||
@@ -714,4 +731,44 @@ Total duration of all interrupts ||
 || interrupts[] | **[AudioSegmentBoundaries](#speechkit.stt.v3.AudioSegmentBoundaries)**
 
 Boundaries for every interrupt ||
+|#
+
+## Summarization {#speechkit.stt.v3.Summarization}
+
+#|
+||Field | Description ||
+|| results[] | **[SummarizationPropertyResult](#speechkit.stt.v3.SummarizationPropertyResult)**
+
+A list of summarizations of transcription. ||
+|| contentUsage | **[ContentUsage](#speechkit.stt.v3.ContentUsage)**
+
+A set of statistics describing the number of content tokens used by the completion model. ||
+|#
+
+## SummarizationPropertyResult {#speechkit.stt.v3.SummarizationPropertyResult}
+
+Represents summarization response entry for transcription.
+
+#|
+||Field | Description ||
+|| response | **string**
+
+Summarization response text. ||
+|#
+
+## ContentUsage {#speechkit.stt.v3.ContentUsage}
+
+An object representing the number of content [tokens](/docs/foundation-models/concepts/yandexgpt/tokens) used by the completion model.
+
+#|
+||Field | Description ||
+|| inputTextTokens | **string** (int64)
+
+The number of tokens in the textual part of the model input. ||
+|| completionTokens | **string** (int64)
+
+The number of tokens in the generated completion. ||
+|| totalTokens | **string** (int64)
+
+The total number of tokens, including all input tokens and all generated tokens. ||
 |#

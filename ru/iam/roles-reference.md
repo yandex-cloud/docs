@@ -2014,6 +2014,33 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../serverless-containers/security/index.md).
 
 
+## {{ si-full-name }} {#serverless-integrations-roles}
+
+### Сервисные роли {{ er-full-name }} {#eventrouter-roles}
+
+#### serverless.eventrouter.auditor {#serverless-eventrouter-auditor}
+
+{% include [serverless.eventrouter.auditor](../_roles/serverless/eventrouter/auditor.md) %}
+
+#### serverless.eventrouter.viewer {#serverless-eventrouter-viewer}
+
+{% include [serverless.eventrouter.viewer](../_roles/serverless/eventrouter/viewer.md) %}
+
+#### serverless.eventrouter.supplier {#serverless-eventrouter-supplier}
+
+{% include [serverless.eventrouter.supplier](../_roles/serverless/eventrouter/supplier.md) %}
+
+#### serverless.eventrouter.editor {#serverless-eventrouter-editor}
+
+{% include [serverless.eventrouter.editor](../_roles/serverless/eventrouter/editor.md) %}
+
+#### serverless.eventrouter.admin {#serverless-eventrouter-admin}
+
+{% include [serverless.eventrouter.admin](../_roles/serverless/eventrouter/admin.md) %}
+
+Подробнее см. [Управление доступом в {{ er-name }}](../serverless-integrations/security/eventrouter.md).
+
+
 ## {{ captcha-full-name }} {#captcha-roles}
 
 #### smart-captcha.auditor {#smart-captcha-auditor}

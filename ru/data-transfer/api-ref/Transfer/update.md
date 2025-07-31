@@ -210,8 +210,7 @@ The rest of the fields will be reset to the default. ||
 
 Transfer labels as `key:value` pairs.
 
-For details about the concept, see [documentation]({{ api-url-prefix
-}}/resource-manager/concepts/labels). ||
+For details about the concept, see [documentation]({{ api-url-prefix }}/resource-manager/concepts/labels). ||
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
 || dataObjects | **[DataObjects](#yandex.cloud.datatransfer.v1.DataObjects)** ||
 |#

@@ -13,8 +13,7 @@ Actions are performed by making RPC calls. For more information about API archit
 
 #|
 ||Service | Description ||
-|| [Endpoint](Endpoint/index.md) | A set of methods for managing [endpoints]({{ api-url-prefix
-}}/data-transfer/concepts/#endpoint). ||
+|| [Endpoint](Endpoint/index.md) | A set of methods for managing [endpoints]({{ api-url-prefix }}/data-transfer/concepts/#endpoint). ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
-|| [Transfer](Transfer/index.md) |  ||
+|| [Transfer](Transfer/index.md) | A set of methods for managing [transfers]({{ api-url-prefix }}/data-transfer/concepts/#transfer). ||
 |#

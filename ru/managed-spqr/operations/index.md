@@ -10,4 +10,5 @@ description: Из статьи вы узнаете, как работать с {
 * [Создание кластера](cluster-create.md)
 * [Изменение кластера](cluster-update.md)
 * [Управление шардами](shards.md)
+* [Подключение к базе данных](connect.md)
 * [Удаление кластера](cluster-delete.md)

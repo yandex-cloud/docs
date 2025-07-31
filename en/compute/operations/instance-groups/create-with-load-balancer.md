@@ -58,7 +58,7 @@ To create an instance group with an L7 load balancer:
      * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the VM access credentials:
        * Select the service account to link to the VM instance.
        * If you selected a Linux [image](../../concepts/image.md), fill out the **{{ ui-key.yacloud.compute.instances.create.field_user }}** and **{{ ui-key.yacloud.compute.instances.create.field_key }}** fields. Provide the contents of the [public key](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file as the key value.
-       * Enable `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`, if required.
+       * Enable `{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}`, if required.
      * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**:
       * In the **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}** field, specify the maximum number of instances the group size can be scaled up by.

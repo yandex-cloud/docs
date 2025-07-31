@@ -50,8 +50,7 @@ Required field. Identifier of the endpoint to be updated. ||
           }
         },
         "connectionManagerConnection": {
-          "connectionId": "string",
-          "subnetId": "string"
+          "connectionId": "string"
         }
         // end of the list of possible fields
       },
@@ -99,8 +98,7 @@ Required field. Identifier of the endpoint to be updated. ||
           }
         },
         "connectionManagerConnection": {
-          "connectionId": "string",
-          "subnetId": "string"
+          "connectionId": "string"
         }
         // end of the list of possible fields
       },
@@ -322,7 +320,7 @@ Required field. Identifier of the endpoint to be updated. ||
       "connection": {
         // Includes only one of the fields `connectionOptions`
         "connectionOptions": {
-          // Includes only one of the fields `mdbClusterId`, `onPremise`
+          // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
           "mdbClusterId": "string",
           "onPremise": {
             "hosts": [
@@ -337,6 +335,10 @@ Required field. Identifier of the endpoint to be updated. ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string",
+            "replicaSet": "string"
           },
           // end of the list of possible fields
           "user": "string",
@@ -371,7 +373,7 @@ Required field. Identifier of the endpoint to be updated. ||
       "connection": {
         // Includes only one of the fields `connectionOptions`
         "connectionOptions": {
-          // Includes only one of the fields `onPremise`, `mdbClusterId`
+          // Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`
           "onPremise": {
             "shards": [
               {
@@ -390,6 +392,9 @@ Required field. Identifier of the endpoint to be updated. ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string"
           },
           "mdbClusterId": "string",
           // end of the list of possible fields
@@ -434,8 +439,7 @@ Required field. Identifier of the endpoint to be updated. ||
           }
         },
         "connectionManagerConnection": {
-          "connectionId": "string",
-          "subnetId": "string"
+          "connectionId": "string"
         }
         // end of the list of possible fields
       },
@@ -453,7 +457,8 @@ Required field. Identifier of the endpoint to be updated. ||
       "serviceDatabase": "string",
       "securityGroups": [
         "string"
-      ]
+      ],
+      "isSchemaMigrationDisabled": "boolean"
     },
     "postgresTarget": {
       "connection": {
@@ -474,8 +479,7 @@ Required field. Identifier of the endpoint to be updated. ||
           }
         },
         "connectionManagerConnection": {
-          "connectionId": "string",
-          "subnetId": "string"
+          "connectionId": "string"
         }
         // end of the list of possible fields
       },
@@ -489,13 +493,14 @@ Required field. Identifier of the endpoint to be updated. ||
       "cleanupPolicy": "string",
       "securityGroups": [
         "string"
-      ]
+      ],
+      "isSchemaMigrationDisabled": "boolean"
     },
     "clickhouseTarget": {
       "connection": {
         // Includes only one of the fields `connectionOptions`
         "connectionOptions": {
-          // Includes only one of the fields `onPremise`, `mdbClusterId`
+          // Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`
           "onPremise": {
             "shards": [
               {
@@ -514,6 +519,9 @@ Required field. Identifier of the endpoint to be updated. ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string"
           },
           "mdbClusterId": "string",
           // end of the list of possible fields
@@ -555,6 +563,7 @@ Required field. Identifier of the endpoint to be updated. ||
         }
         // end of the list of possible fields
       },
+      "isSchemaMigrationDisabled": "boolean",
       "clickhouseClusterName": "string",
       "securityGroups": [
         "string"
@@ -572,7 +581,8 @@ Required field. Identifier of the endpoint to be updated. ||
         "string"
       ],
       "isTableColumnOriented": "boolean",
-      "defaultCompression": "string"
+      "defaultCompression": "string",
+      "isSchemaMigrationDisabled": "boolean"
     },
     "kafkaTarget": {
       "connection": {
@@ -638,7 +648,7 @@ Required field. Identifier of the endpoint to be updated. ||
       "connection": {
         // Includes only one of the fields `connectionOptions`
         "connectionOptions": {
-          // Includes only one of the fields `mdbClusterId`, `onPremise`
+          // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
           "mdbClusterId": "string",
           "onPremise": {
             "hosts": [
@@ -653,6 +663,10 @@ Required field. Identifier of the endpoint to be updated. ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string",
+            "replicaSet": "string"
           },
           // end of the list of possible fields
           "user": "string",
@@ -734,8 +748,7 @@ The new description for the endpoint. ||
 
 Endpoint labels as `key:value` pairs.
 
-For details about the concept, see [documentation]({{ api-url-prefix
-}}/resource-manager/concepts/labels). ||
+For details about the concept, see [documentation]({{ api-url-prefix }}/resource-manager/concepts/labels). ||
 || settings | **[EndpointSettings](#yandex.cloud.datatransfer.v1.EndpointSettings)**
 
 The new endpoint settings. ||
@@ -907,9 +920,6 @@ connect to the server. ||
 #|
 ||Field | Description ||
 || connectionId | **string** ||
-|| subnetId | **string**
-
-Network interface for endpoint. If none will assume public ipv4 ||
 |#
 
 ## Secret {#yandex.cloud.datatransfer.v1.endpoint.Secret}
@@ -1219,10 +1229,6 @@ CREATE MATERIALIZED VIEW ...
 - `AFTER_DATA`: After data transfer
 - `NEVER`: Don't copy ||
 || sequenceSet | **enum** (ObjectTransferStage)
-
-Sequence sets
-
-CREATE SEQUENCE ...
 
 - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
 - `BEFORE_DATA`: Before data transfer
@@ -1537,10 +1543,13 @@ Includes only one of the fields `connectionOptions`. ||
 ||Field | Description ||
 || mdbClusterId | **string**
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 || onPremise | **[OnPremiseMongo](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMongo)**
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
+|| connectionManagerConnection | **[MongoConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionManagerConnection)**
+
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 || user | **string**
 
 User name ||
@@ -1560,6 +1569,16 @@ Database name associated with the credentials ||
 || port | **string** (int64) ||
 || replicaSet | **string** ||
 || tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)** ||
+|#
+
+## MongoConnectionManagerConnection {#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionManagerConnection}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
+|| replicaSet | **string**
+
+Used only for on-premise connections ||
 |#
 
 ## MongoCollection {#yandex.cloud.datatransfer.v1.endpoint.MongoCollection}
@@ -1606,10 +1625,13 @@ Includes only one of the fields `connectionOptions`. ||
 ||Field | Description ||
 || onPremise | **[OnPremiseClickhouse](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseClickhouse)**
 
-Includes only one of the fields `onPremise`, `mdbClusterId`. ||
+Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`. ||
+|| connectionManagerConnection | **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+
+Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`. ||
 || mdbClusterId | **string**
 
-Includes only one of the fields `onPremise`, `mdbClusterId`. ||
+Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`. ||
 || user | **string** ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)** ||
 || database | **string**
@@ -1690,6 +1712,7 @@ Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).
 || securityGroups[] | **string**
 
 Security groups ||
+|| isSchemaMigrationDisabled | **boolean** ||
 |#
 
 ## PostgresTarget {#yandex.cloud.datatransfer.v1.endpoint.PostgresTarget}
@@ -1720,6 +1743,7 @@ truncate.
 || securityGroups[] | **string**
 
 Security groups ||
+|| isSchemaMigrationDisabled | **boolean** ||
 |#
 
 ## ClickhouseTarget {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseTarget}
@@ -1738,6 +1762,7 @@ Alternative table names in target ||
 - `CLICKHOUSE_CLEANUP_POLICY_DROP`
 - `CLICKHOUSE_CLEANUP_POLICY_TRUNCATE` ||
 || sharding | **[ClickhouseSharding](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding)** ||
+|| isSchemaMigrationDisabled | **boolean** ||
 || clickhouseClusterName | **string**
 
 Name of the ClickHouse cluster. For Managed ClickHouse that is name of
@@ -1842,6 +1867,7 @@ Compression that will be used for default columns family on YDB table creation
 - `YDB_DEFAULT_COMPRESSION_UNSPECIFIED`
 - `YDB_DEFAULT_COMPRESSION_DISABLED`
 - `YDB_DEFAULT_COMPRESSION_LZ4` ||
+|| isSchemaMigrationDisabled | **boolean** ||
 |#
 
 ## KafkaTarget {#yandex.cloud.datatransfer.v1.endpoint.KafkaTarget}

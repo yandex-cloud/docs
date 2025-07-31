@@ -34,7 +34,7 @@ included
 in the response message. Include it into the subsequent `ListEndpointRequest` to
 fetch the next page. Defaults to `100` if not specified. The maximum allowed
 value
-for this field is `500`. ||
+for this field is `1000`. ||
 || pageToken | **string**
 
 Opaque value identifying the endpoints page to be fetched. Should be empty in
@@ -77,8 +77,7 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
               }
             },
             "connectionManagerConnection": {
-              "connectionId": "string",
-              "subnetId": "string"
+              "connectionId": "string"
             }
             // end of the list of possible fields
           },
@@ -126,8 +125,7 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
               }
             },
             "connectionManagerConnection": {
-              "connectionId": "string",
-              "subnetId": "string"
+              "connectionId": "string"
             }
             // end of the list of possible fields
           },
@@ -349,7 +347,7 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
           "connection": {
             // Includes only one of the fields `connectionOptions`
             "connectionOptions": {
-              // Includes only one of the fields `mdbClusterId`, `onPremise`
+              // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
               "mdbClusterId": "string",
               "onPremise": {
                 "hosts": [
@@ -364,6 +362,10 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
                   }
                   // end of the list of possible fields
                 }
+              },
+              "connectionManagerConnection": {
+                "connectionId": "string",
+                "replicaSet": "string"
               },
               // end of the list of possible fields
               "user": "string",
@@ -398,7 +400,7 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
           "connection": {
             // Includes only one of the fields `connectionOptions`
             "connectionOptions": {
-              // Includes only one of the fields `onPremise`, `mdbClusterId`
+              // Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`
               "onPremise": {
                 "shards": [
                   {
@@ -417,6 +419,9 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
                   }
                   // end of the list of possible fields
                 }
+              },
+              "connectionManagerConnection": {
+                "connectionId": "string"
               },
               "mdbClusterId": "string",
               // end of the list of possible fields
@@ -461,8 +466,7 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
               }
             },
             "connectionManagerConnection": {
-              "connectionId": "string",
-              "subnetId": "string"
+              "connectionId": "string"
             }
             // end of the list of possible fields
           },
@@ -480,7 +484,8 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
           "serviceDatabase": "string",
           "securityGroups": [
             "string"
-          ]
+          ],
+          "isSchemaMigrationDisabled": "boolean"
         },
         "postgresTarget": {
           "connection": {
@@ -501,8 +506,7 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
               }
             },
             "connectionManagerConnection": {
-              "connectionId": "string",
-              "subnetId": "string"
+              "connectionId": "string"
             }
             // end of the list of possible fields
           },
@@ -516,13 +520,14 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
           "cleanupPolicy": "string",
           "securityGroups": [
             "string"
-          ]
+          ],
+          "isSchemaMigrationDisabled": "boolean"
         },
         "clickhouseTarget": {
           "connection": {
             // Includes only one of the fields `connectionOptions`
             "connectionOptions": {
-              // Includes only one of the fields `onPremise`, `mdbClusterId`
+              // Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`
               "onPremise": {
                 "shards": [
                   {
@@ -541,6 +546,9 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
                   }
                   // end of the list of possible fields
                 }
+              },
+              "connectionManagerConnection": {
+                "connectionId": "string"
               },
               "mdbClusterId": "string",
               // end of the list of possible fields
@@ -582,6 +590,7 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
             }
             // end of the list of possible fields
           },
+          "isSchemaMigrationDisabled": "boolean",
           "clickhouseClusterName": "string",
           "securityGroups": [
             "string"
@@ -599,7 +608,8 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
             "string"
           ],
           "isTableColumnOriented": "boolean",
-          "defaultCompression": "string"
+          "defaultCompression": "string",
+          "isSchemaMigrationDisabled": "boolean"
         },
         "kafkaTarget": {
           "connection": {
@@ -665,7 +675,7 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
           "connection": {
             // Includes only one of the fields `connectionOptions`
             "connectionOptions": {
-              // Includes only one of the fields `mdbClusterId`, `onPremise`
+              // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
               "mdbClusterId": "string",
               "onPremise": {
                 "hosts": [
@@ -680,6 +690,10 @@ with the `next_page_token` from the previous `ListEndpointsResponse`. ||
                   }
                   // end of the list of possible fields
                 }
+              },
+              "connectionManagerConnection": {
+                "connectionId": "string",
+                "replicaSet": "string"
               },
               // end of the list of possible fields
               "user": "string",
@@ -934,9 +948,6 @@ connect to the server. ||
 #|
 ||Field | Description ||
 || connectionId | **string** ||
-|| subnetId | **string**
-
-Network interface for endpoint. If none will assume public ipv4 ||
 |#
 
 ## Secret {#yandex.cloud.datatransfer.v1.endpoint.Secret}
@@ -1246,10 +1257,6 @@ CREATE MATERIALIZED VIEW ...
 - `AFTER_DATA`: After data transfer
 - `NEVER`: Don't copy ||
 || sequenceSet | **enum** (ObjectTransferStage)
-
-Sequence sets
-
-CREATE SEQUENCE ...
 
 - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
 - `BEFORE_DATA`: Before data transfer
@@ -1564,10 +1571,13 @@ Includes only one of the fields `connectionOptions`. ||
 ||Field | Description ||
 || mdbClusterId | **string**
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 || onPremise | **[OnPremiseMongo](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMongo)**
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
+|| connectionManagerConnection | **[MongoConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionManagerConnection)**
+
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 || user | **string**
 
 User name ||
@@ -1587,6 +1597,16 @@ Database name associated with the credentials ||
 || port | **string** (int64) ||
 || replicaSet | **string** ||
 || tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)** ||
+|#
+
+## MongoConnectionManagerConnection {#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionManagerConnection}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
+|| replicaSet | **string**
+
+Used only for on-premise connections ||
 |#
 
 ## MongoCollection {#yandex.cloud.datatransfer.v1.endpoint.MongoCollection}
@@ -1633,10 +1653,13 @@ Includes only one of the fields `connectionOptions`. ||
 ||Field | Description ||
 || onPremise | **[OnPremiseClickhouse](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseClickhouse)**
 
-Includes only one of the fields `onPremise`, `mdbClusterId`. ||
+Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`. ||
+|| connectionManagerConnection | **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+
+Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`. ||
 || mdbClusterId | **string**
 
-Includes only one of the fields `onPremise`, `mdbClusterId`. ||
+Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`. ||
 || user | **string** ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)** ||
 || database | **string**
@@ -1717,6 +1740,7 @@ Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).
 || securityGroups[] | **string**
 
 Security groups ||
+|| isSchemaMigrationDisabled | **boolean** ||
 |#
 
 ## PostgresTarget {#yandex.cloud.datatransfer.v1.endpoint.PostgresTarget}
@@ -1747,6 +1771,7 @@ truncate.
 || securityGroups[] | **string**
 
 Security groups ||
+|| isSchemaMigrationDisabled | **boolean** ||
 |#
 
 ## ClickhouseTarget {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseTarget}
@@ -1765,6 +1790,7 @@ Alternative table names in target ||
 - `CLICKHOUSE_CLEANUP_POLICY_DROP`
 - `CLICKHOUSE_CLEANUP_POLICY_TRUNCATE` ||
 || sharding | **[ClickhouseSharding](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding)** ||
+|| isSchemaMigrationDisabled | **boolean** ||
 || clickhouseClusterName | **string**
 
 Name of the ClickHouse cluster. For Managed ClickHouse that is name of
@@ -1869,6 +1895,7 @@ Compression that will be used for default columns family on YDB table creation
 - `YDB_DEFAULT_COMPRESSION_UNSPECIFIED`
 - `YDB_DEFAULT_COMPRESSION_DISABLED`
 - `YDB_DEFAULT_COMPRESSION_LZ4` ||
+|| isSchemaMigrationDisabled | **boolean** ||
 |#
 
 ## KafkaTarget {#yandex.cloud.datatransfer.v1.endpoint.KafkaTarget}
