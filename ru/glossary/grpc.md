@@ -80,7 +80,7 @@ gRPC, как и большинство распределенных сервис
 
 <center>
 
-![image](../_assets/glossary/gprc-architecture.svg)
+![image](../_assets/glossary/grpc-architecture.svg)
 
 </center>
 
@@ -95,7 +95,7 @@ gRPC предусматривает четыре возможных режима
 
 <center>
 
-![image](../_assets/glossary/gprc-workflow.svg)
+![image](../_assets/glossary/grpc-workflow.svg)
 
 </center>
 
@@ -124,7 +124,7 @@ gRPC использует бинарный формат хранения дан�
 
 <center>
 
-![image](../_assets/glossary/gprc-rest-model.svg)
+![image](../_assets/glossary/grpc-rest-model.svg)
 
 </center>
 
@@ -134,7 +134,7 @@ gRPC использует бинарный формат хранения дан�
 
 <center>
 
-![image](../_assets/glossary/gprc-model.svg)
+![image](../_assets/glossary/grpc-model.svg)
 
 </center>
 

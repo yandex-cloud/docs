@@ -1,1 +1,1 @@
-Имена полей тела запроса различаются в [REST API](../../search-api/api-ref/) и [gPRC API](../../search-api/api-ref/grpc/): в REST API используется [CamelCase](https://ru.wikipedia.org/wiki/CamelCase), в gPRC API — [snake_case](https://ru.wikipedia.org/wiki/Snake_case).
+Имена полей тела запроса различаются в [REST API](../../search-api/api-ref/) и [gRPC API](../../search-api/api-ref/grpc/): в REST API используется [CamelCase](https://ru.wikipedia.org/wiki/CamelCase), в gRPC API — [snake_case](https://ru.wikipedia.org/wiki/Snake_case).
