@@ -321,8 +321,11 @@
   Настройки обновлений можно указать при [создании группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-group/node-group-create.md) или [изменении ее настроек](../../managed-kubernetes/operations/node-group/node-group-update.md).
 
   В поле **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}** укажите настройки масштабирования группы узлов {{ managed-k8s-name }}:
-  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-expansion }}** — задайте максимальное количество виртуальных машин, на которое можно превысить размер группы узлов {{ managed-k8s-name }} при ее обновлении.
-  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-unavailable }}** — задайте максимальное количество ВМ, на которое можно уменьшить размер группы узлов {{ managed-k8s-name }} при ее обновлении.
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-expansion }}** — задайте максимальное количество узлов, на которое можно превысить размер группы при ее обновлении.
+
+    {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-unavailable }}** — задайте максимальное количество недоступных узлов группы при ее обновлении.
 
   В поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** выберите политику обновления группы узлов {{ managed-k8s-name }}:
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — выберите эту опцию, чтобы не использовать автоматические обновления.
@@ -337,8 +340,8 @@
   ```bash
   {{ yc-k8s }} node-group <create_или_update> <имя_или_идентификатор_группы_узлов> \
   ...
-    --max-expansion <количество_ВМ> \
-    --max-unavailable <количество_ВМ> \
+    --max-expansion <расширение_размера_группы_при_обновлении> \
+    --max-unavailable <количество_недоступных_узлов_при_обновлении> \
     --auto-upgrade <режим_автоматического_обновления> \
     --auto-repair <режим_пересоздания> \
     --anytime-maintenance-window \
@@ -348,8 +351,11 @@
 
   Где:
 
-  * `--max-expansion` — максимальное количество ВМ, на которое можно превысить размер группы узлов {{ managed-k8s-name }} при ее обновлении.
-  * `--max-unavailable` — максимальное количество ВМ, на которое можно уменьшить размер группы узлов {{ managed-k8s-name }} при ее обновлении.
+  * `--max-expansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
+
+    {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+  * `--max-unavailable` — максимальное количество недоступных узлов группы при ее обновлении.
 
     {% note info %}
 
@@ -444,18 +450,26 @@
        ```
 
      * Чтобы включить режим произвольного времени обновления, не добавляйте блок параметров `maintenance_policy` в описание группы узлов {{ managed-k8s-name }}. Если в описании группы узлов {{ managed-k8s-name }} не указаны настройки автоматического обновления, оно будет производиться в произвольное время.
-     * Чтобы задать настройки масштабирования группы узлов {{ managed-k8s-name }} при обновлении:
+     * Чтобы задать настройки развертывания группы узлов {{ managed-k8s-name }} при обновлении:
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
          name = <имя_группы_узлов>
          ...
          deploy_policy {
-           max_expansion   = <максимальное_количество_ВМ,_на_которое_можно_превысить_размер_группы_узлов>
-           max_unavailable = <максимальное_количество_ВМ,_на_которое_можно_уменьшить_размер_группы_узлов>
+           max_expansion   = <расширение_размера_группы_при_обновлении>
+           max_unavailable = <количество_недоступных_узлов_при_обновлении>
          }
        }
        ```
+
+       Где:
+       * `max_expansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
+
+         {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+       * `max_unavailable` — максимальное количество недоступных узлов группы при ее обновлении.
+
 
        {% note info %}
 
@@ -548,19 +562,21 @@
     * `nanos` — доля секунды начала обновления, в наносекундах.
     * `duration` — длительность периода обновления, в часах.
 
-  Для настройки масштабирования группы узлов {{ managed-k8s-name }} добавьте блок `deployPolicy`:
+  Для настройки развертывания группы узлов {{ managed-k8s-name }} при ее обновлении добавьте блок `deployPolicy`:
 
   ```json
   "deployPolicy": {
-    "maxUnavailable": "<максимальное_количество_ВМ>",
-    "maxExpansion": "<максимальное_количество_ВМ>"
+    "maxUnavailable": "<количество_недоступных_узлов_при_обновлении>",
+    "maxExpansion": "<расширение_размера_группы_при_обновлении>"
   }
   ```
 
-    Где:
+  Где:
 
-    * `maxUnavailable` — максимальное количество ВМ, на которое можно уменьшить размер группы узлов.
-    * `maxExpansion` — максимальное количество ВМ, на которое можно превысить размер группы узлов.
+  * `maxUnavailable` — максимальное количество недоступных узлов группы при ее обновлении.
+  * `maxExpansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
+
+    {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
 {% endlist %}
 

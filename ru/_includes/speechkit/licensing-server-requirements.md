@@ -6,4 +6,5 @@
 |---|---|---|---|
 | NVIDIA® Tesla® T4 | 2 | 2 | 4 |
 | NVIDIA® Tesla® V100 | 4 | 4 | 8 |
+| NVIDIA® Tesla® L4 | 8 | 8 | 16 |
 | NVIDIA® Ampere® A100 | 10 | 10 | 20 |

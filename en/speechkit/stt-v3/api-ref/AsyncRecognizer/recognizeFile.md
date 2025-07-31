@@ -66,6 +66,20 @@ POST https://{{ api-host-sk-stt }}/stt/v3/recognizeFileAsync
   },
   "speakerLabeling": {
     "speakerLabeling": "string"
+  },
+  "summarization": {
+    "modelUri": "string",
+    "properties": [
+      {
+        "instruction": "string",
+        // Includes only one of the fields `jsonObject`, `jsonSchema`
+        "jsonObject": "boolean",
+        "jsonSchema": {
+          "schema": "object"
+        }
+        // end of the list of possible fields
+      }
+    ]
   }
 }
 ```
@@ -94,6 +108,9 @@ Configuration for speech analysis over speech recognition. ||
 || speakerLabeling | **[SpeakerLabelingOptions](#speechkit.stt.v3.SpeakerLabelingOptions)**
 
 Configuration for speaker labeling ||
+|| summarization | **[SummarizationOptions](#speechkit.stt.v3.SummarizationOptions)**
+
+Summarization options ||
 |#
 
 ## RecognitionModelOptions {#speechkit.stt.v3.RecognitionModelOptions}
@@ -271,6 +288,58 @@ Specifies the execution of speaker labeling. Default is SPEAKER_LABELING_DISABLE
 - `SPEAKER_LABELING_UNSPECIFIED`
 - `SPEAKER_LABELING_ENABLED`: Enable speaker labeling
 - `SPEAKER_LABELING_DISABLED`: Disable speaker labeling ||
+|#
+
+## SummarizationOptions {#speechkit.stt.v3.SummarizationOptions}
+
+Represents transcription summarization options.
+
+#|
+||Field | Description ||
+|| modelUri | **string**
+
+The [ID of the model](/docs/foundation-models/concepts/yandexgpt/models) to be used for completion generation. ||
+|| properties[] | **[SummarizationProperty](#speechkit.stt.v3.SummarizationProperty)**
+
+A list of suimmarizations to perform with transcription. ||
+|#
+
+## SummarizationProperty {#speechkit.stt.v3.SummarizationProperty}
+
+Represents summarization entry for transcription.
+
+#|
+||Field | Description ||
+|| instruction | **string**
+
+Summarization instruction for model. ||
+|| jsonObject | **boolean**
+
+When set to true, the model will respond with a valid JSON object.
+Be sure to explicitly ask the model for JSON.
+Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
+
+Includes only one of the fields `jsonObject`, `jsonSchema`.
+
+Specifies the format of the model's response. ||
+|| jsonSchema | **[JsonSchema](#speechkit.stt.v3.JsonSchema)**
+
+Enforces a specific JSON structure for the model's response based on a provided schema.
+
+Includes only one of the fields `jsonObject`, `jsonSchema`.
+
+Specifies the format of the model's response. ||
+|#
+
+## JsonSchema {#speechkit.stt.v3.JsonSchema}
+
+Represents the expected structure of the model's response using a JSON Schema.
+
+#|
+||Field | Description ||
+|| schema | **object**
+
+The JSON Schema that the model's output must conform to. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

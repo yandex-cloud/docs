@@ -169,7 +169,7 @@ Repeat these steps to create a second folder named `site-b`.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cisco-router-d`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, enable `{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   It may take a few minutes to create your VM. When the VM status changes to `RUNNING`, you can use the serial console.

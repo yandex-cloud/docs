@@ -10,6 +10,8 @@ items:
         href: operations/index.md
       - name: Создание кластера
         href: operations/cluster-create.md
+      - name: Подключение к базе данных
+        href: operations/connect.md
       - name: Изменение кластера
         href: operations/cluster-update.md
       - name: Управление шардами
@@ -20,6 +22,10 @@ items:
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Шардирование
+        href: concepts/sharding.md
+      - name: Классы хостов
+        href: concepts/instance-types.md
       - name: Хранилище в {{ SPQR }}
         href: concepts/storage.md
       - name: Квоты и лимиты

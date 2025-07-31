@@ -73,6 +73,20 @@ Expects audio in real-time
     },
     "speaker_labeling": {
       "speaker_labeling": "SpeakerLabeling"
+    },
+    "summarization": {
+      "model_uri": "string",
+      "properties": [
+        {
+          "instruction": "string",
+          // Includes only one of the fields `json_object`, `json_schema`
+          "json_object": "bool",
+          "json_schema": {
+            "schema": "google.protobuf.Struct"
+          }
+          // end of the list of possible fields
+        }
+      ]
     }
   },
   "chunk": {
@@ -134,6 +148,9 @@ Configuration for speech analysis over speech recognition. ||
 || speaker_labeling | **[SpeakerLabelingOptions](#speechkit.stt.v3.SpeakerLabelingOptions)**
 
 Configuration for speaker labeling ||
+|| summarization | **[SummarizationOptions](#speechkit.stt.v3.SummarizationOptions)**
+
+Summarization options ||
 |#
 
 ## RecognitionModelOptions {#speechkit.stt.v3.RecognitionModelOptions}
@@ -358,6 +375,58 @@ Specifies the execution of speaker labeling. Default is SPEAKER_LABELING_DISABLE
 - `SPEAKER_LABELING_DISABLED`: Disable speaker labeling ||
 |#
 
+## SummarizationOptions {#speechkit.stt.v3.SummarizationOptions}
+
+Represents transcription summarization options.
+
+#|
+||Field | Description ||
+|| model_uri | **string**
+
+The [ID of the model](/docs/foundation-models/concepts/yandexgpt/models) to be used for completion generation. ||
+|| properties[] | **[SummarizationProperty](#speechkit.stt.v3.SummarizationProperty)**
+
+A list of suimmarizations to perform with transcription. ||
+|#
+
+## SummarizationProperty {#speechkit.stt.v3.SummarizationProperty}
+
+Represents summarization entry for transcription.
+
+#|
+||Field | Description ||
+|| instruction | **string**
+
+Summarization instruction for model. ||
+|| json_object | **bool**
+
+When set to true, the model will respond with a valid JSON object.
+Be sure to explicitly ask the model for JSON.
+Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
+
+Includes only one of the fields `json_object`, `json_schema`.
+
+Specifies the format of the model's response. ||
+|| json_schema | **[JsonSchema](#speechkit.stt.v3.JsonSchema)**
+
+Enforces a specific JSON structure for the model's response based on a provided schema.
+
+Includes only one of the fields `json_object`, `json_schema`.
+
+Specifies the format of the model's response. ||
+|#
+
+## JsonSchema {#speechkit.stt.v3.JsonSchema}
+
+Represents the expected structure of the model's response using a JSON Schema.
+
+#|
+||Field | Description ||
+|| schema | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
+
+The JSON Schema that the model's output must conform to. ||
+|#
+
 ## AudioChunk {#speechkit.stt.v3.AudioChunk}
 
 Data chunk with audio.
@@ -406,7 +475,7 @@ Force EOU
     "eou_time_ms": "int64"
   },
   "response_wall_time_ms": "int64",
-  // Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`
+  // Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`
   "partial": {
     "alternatives": [
       {
@@ -636,6 +705,18 @@ Force EOU
     "total_speech_duration_ms": "int64",
     "total_speech_ratio": "double"
   },
+  "summarization": {
+    "results": [
+      {
+        "response": "string"
+      }
+    ],
+    "content_usage": {
+      "input_text_tokens": "int64",
+      "completion_tokens": "int64",
+      "total_tokens": "int64"
+    }
+  },
   // end of the list of possible fields
   "channel_tag": "string"
 }
@@ -662,44 +743,49 @@ Wall clock on server side. This is time when server wrote results to stream ||
 Partial results, server will send them regularly after enough audio data was received from user. This are current text estimation
 from final_time_ms to partial_time_ms. Could change after new data will arrive.
 
-Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`. ||
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || final | **[AlternativeUpdate](#speechkit.stt.v3.AlternativeUpdate)**
 
 Final results, the recognition is now fixed until final_time_ms. For now, final is sent only if the EOU event was triggered. This could be change in future releases.
 
-Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`. ||
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || eou_update | **[EouUpdate](#speechkit.stt.v3.EouUpdate)**
 
 After EOU classifier, send the message with final, send the EouUpdate with time of EOU
 before eou_update we send final with the same time. there could be several finals before eou update.
 
-Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`. ||
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || final_refinement | **[FinalRefinement](#speechkit.stt.v3.FinalRefinement)**
 
 For each final, if normalization is enabled, sent the normalized text (or some other advanced post-processing).
 Final normalization will introduce additional latency.
 
-Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`. ||
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || status_code | **[StatusCode](#speechkit.stt.v3.StatusCode)**
 
 Status messages, send by server with fixed interval (keep-alive).
 
-Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`. ||
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || classifier_update | **[RecognitionClassifierUpdate](#speechkit.stt.v3.RecognitionClassifierUpdate)**
 
 Result of the triggered classifier
 
-Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`. ||
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || speaker_analysis | **[SpeakerAnalysis](#speechkit.stt.v3.SpeakerAnalysis)**
 
 Speech statistics for every speaker
 
-Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`. ||
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || conversation_analysis | **[ConversationAnalysis](#speechkit.stt.v3.ConversationAnalysis)**
 
 Conversation statistics
 
-Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`. ||
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
+|| summarization | **[Summarization](#speechkit.stt.v3.Summarization)**
+
+Summary
+
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || channel_tag | **string**
 
 Tag for distinguish audio channels. ||
@@ -812,7 +898,7 @@ Estimation of language and its probability.
 ||Field | Description ||
 || language_code | **string**
 
-Language code in ISO 639-1 format. ||
+Language tag in IETF BCP 47 format, consisting of ISO 639-1 language code and ISO 3166-1 country code (e.g., en-US, ru-RU). ||
 || probability | **double**
 
 Estimation of language probability. ||
@@ -1083,4 +1169,44 @@ Total duration of all interrupts ||
 || interrupts[] | **[AudioSegmentBoundaries](#speechkit.stt.v3.AudioSegmentBoundaries)**
 
 Boundaries for every interrupt ||
+|#
+
+## Summarization {#speechkit.stt.v3.Summarization}
+
+#|
+||Field | Description ||
+|| results[] | **[SummarizationPropertyResult](#speechkit.stt.v3.SummarizationPropertyResult)**
+
+A list of summarizations of transcription. ||
+|| content_usage | **[ContentUsage](#speechkit.stt.v3.ContentUsage)**
+
+A set of statistics describing the number of content tokens used by the completion model. ||
+|#
+
+## SummarizationPropertyResult {#speechkit.stt.v3.SummarizationPropertyResult}
+
+Represents summarization response entry for transcription.
+
+#|
+||Field | Description ||
+|| response | **string**
+
+Summarization response text. ||
+|#
+
+## ContentUsage {#speechkit.stt.v3.ContentUsage}
+
+An object representing the number of content [tokens](/docs/foundation-models/concepts/yandexgpt/tokens) used by the completion model.
+
+#|
+||Field | Description ||
+|| input_text_tokens | **int64**
+
+The number of tokens in the textual part of the model input. ||
+|| completion_tokens | **int64**
+
+The number of tokens in the generated completion. ||
+|| total_tokens | **int64**
+
+The total number of tokens, including all input tokens and all generated tokens. ||
 |#

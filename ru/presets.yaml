@@ -8124,6 +8124,7 @@ default:
             button_edit-network-interface: Изменить
             button_remove-public-ip: Отвязать публичный IP-адрес
             field_access: Доступ
+            field_serial-port-enable: Доступ к серийной консоли
             field_ua-enabled: Агент для поставки метрик
             label_cert-connect-tab: По сертификату
             label_cli-connect-card-title: Подключиться с помощью CLI Yandex Cloud
@@ -8183,7 +8184,6 @@ default:
             field_instance-name: Имя ВМ
             field_key: SSH-ключ
             field_security-groups: Группы безопасности
-            field_serial-port-enable: Доступ к серийной консоли
             field_service-account: Сервисный аккаунт
             field_user: Логин
             field_zone: Зона доступности

@@ -5,8 +5,7 @@ sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/index.md
 
 # Data Transfer API, REST: Endpoint
 
-A set of methods for managing [endpoints]({{ api-url-prefix
-}}/data-transfer/concepts/#endpoint).
+A set of methods for managing [endpoints]({{ api-url-prefix }}/data-transfer/concepts/#endpoint).
 
 ## Methods
 

@@ -64,6 +64,20 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/recog
   },
   "speaker_labeling": {
     "speaker_labeling": "SpeakerLabeling"
+  },
+  "summarization": {
+    "model_uri": "string",
+    "properties": [
+      {
+        "instruction": "string",
+        // Includes only one of the fields `json_object`, `json_schema`
+        "json_object": "bool",
+        "json_schema": {
+          "schema": "google.protobuf.Struct"
+        }
+        // end of the list of possible fields
+      }
+    ]
   }
 }
 ```
@@ -92,6 +106,9 @@ Configuration for speech analysis over speech recognition. ||
 || speaker_labeling | **[SpeakerLabelingOptions](#speechkit.stt.v3.SpeakerLabelingOptions)**
 
 Configuration for speaker labeling ||
+|| summarization | **[SummarizationOptions](#speechkit.stt.v3.SummarizationOptions)**
+
+Summarization options ||
 |#
 
 ## RecognitionModelOptions {#speechkit.stt.v3.RecognitionModelOptions}
@@ -269,6 +286,58 @@ Specifies the execution of speaker labeling. Default is SPEAKER_LABELING_DISABLE
 - `SPEAKER_LABELING_UNSPECIFIED`
 - `SPEAKER_LABELING_ENABLED`: Enable speaker labeling
 - `SPEAKER_LABELING_DISABLED`: Disable speaker labeling ||
+|#
+
+## SummarizationOptions {#speechkit.stt.v3.SummarizationOptions}
+
+Represents transcription summarization options.
+
+#|
+||Field | Description ||
+|| model_uri | **string**
+
+The [ID of the model](/docs/foundation-models/concepts/yandexgpt/models) to be used for completion generation. ||
+|| properties[] | **[SummarizationProperty](#speechkit.stt.v3.SummarizationProperty)**
+
+A list of suimmarizations to perform with transcription. ||
+|#
+
+## SummarizationProperty {#speechkit.stt.v3.SummarizationProperty}
+
+Represents summarization entry for transcription.
+
+#|
+||Field | Description ||
+|| instruction | **string**
+
+Summarization instruction for model. ||
+|| json_object | **bool**
+
+When set to true, the model will respond with a valid JSON object.
+Be sure to explicitly ask the model for JSON.
+Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
+
+Includes only one of the fields `json_object`, `json_schema`.
+
+Specifies the format of the model's response. ||
+|| json_schema | **[JsonSchema](#speechkit.stt.v3.JsonSchema)**
+
+Enforces a specific JSON structure for the model's response based on a provided schema.
+
+Includes only one of the fields `json_object`, `json_schema`.
+
+Specifies the format of the model's response. ||
+|#
+
+## JsonSchema {#speechkit.stt.v3.JsonSchema}
+
+Represents the expected structure of the model's response using a JSON Schema.
+
+#|
+||Field | Description ||
+|| schema | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
+
+The JSON Schema that the model's output must conform to. ||
 |#
 
 ## yandex.cloud.operation.Operation {#yandex.cloud.operation.Operation}
