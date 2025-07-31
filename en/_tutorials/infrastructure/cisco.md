@@ -71,7 +71,7 @@ Save the private key in a secure location, as you will not be able to connect to
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cisco-router`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, disable `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**, disable `{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   It may take a few minutes to create your VM. When the VM status changes to `RUNNING`, you can use the serial console.

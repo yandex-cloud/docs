@@ -70,7 +70,7 @@
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `cisco-router`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** выключите опцию `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** выключите опцию `{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы сможете пользоваться серийной консолью.

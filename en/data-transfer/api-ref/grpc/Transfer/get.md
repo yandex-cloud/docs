@@ -67,8 +67,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
             }
           },
           "connection_manager_connection": {
-            "connection_id": "string",
-            "subnet_id": "string"
+            "connection_id": "string"
           }
           // end of the list of possible fields
         },
@@ -117,8 +116,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
             }
           },
           "connection_manager_connection": {
-            "connection_id": "string",
-            "subnet_id": "string"
+            "connection_id": "string"
           }
           // end of the list of possible fields
         },
@@ -341,7 +339,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
         "connection": {
           // Includes only one of the fields `connection_options`
           "connection_options": {
-            // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+            // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
             "mdb_cluster_id": "string",
             "on_premise": {
               "hosts": [
@@ -357,6 +355,10 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
                 }
                 // end of the list of possible fields
               }
+            },
+            "connection_manager_connection": {
+              "connection_id": "string",
+              "replica_set": "string"
             },
             // end of the list of possible fields
             "user": "string",
@@ -391,7 +393,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
         "connection": {
           // Includes only one of the fields `connection_options`
           "connection_options": {
-            // Includes only one of the fields `on_premise`, `mdb_cluster_id`
+            // Includes only one of the fields `on_premise`, `connection_manager_connection`, `mdb_cluster_id`
             "on_premise": {
               "shards": [
                 {
@@ -411,6 +413,9 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
                 }
                 // end of the list of possible fields
               }
+            },
+            "connection_manager_connection": {
+              "connection_id": "string"
             },
             "mdb_cluster_id": "string",
             // end of the list of possible fields
@@ -456,8 +461,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
             }
           },
           "connection_manager_connection": {
-            "connection_id": "string",
-            "subnet_id": "string"
+            "connection_id": "string"
           }
           // end of the list of possible fields
         },
@@ -475,7 +479,8 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
         "service_database": "string",
         "security_groups": [
           "string"
-        ]
+        ],
+        "is_schema_migration_disabled": "bool"
       },
       "postgres_target": {
         "connection": {
@@ -497,8 +502,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
             }
           },
           "connection_manager_connection": {
-            "connection_id": "string",
-            "subnet_id": "string"
+            "connection_id": "string"
           }
           // end of the list of possible fields
         },
@@ -512,13 +516,14 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
         "cleanup_policy": "CleanupPolicy",
         "security_groups": [
           "string"
-        ]
+        ],
+        "is_schema_migration_disabled": "bool"
       },
       "clickhouse_target": {
         "connection": {
           // Includes only one of the fields `connection_options`
           "connection_options": {
-            // Includes only one of the fields `on_premise`, `mdb_cluster_id`
+            // Includes only one of the fields `on_premise`, `connection_manager_connection`, `mdb_cluster_id`
             "on_premise": {
               "shards": [
                 {
@@ -538,6 +543,9 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
                 }
                 // end of the list of possible fields
               }
+            },
+            "connection_manager_connection": {
+              "connection_id": "string"
             },
             "mdb_cluster_id": "string",
             // end of the list of possible fields
@@ -581,6 +589,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
           "round_robin": "google.protobuf.Empty"
           // end of the list of possible fields
         },
+        "is_schema_migration_disabled": "bool",
         "clickhouse_cluster_name": "string",
         "security_groups": [
           "string"
@@ -598,7 +607,8 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
           "string"
         ],
         "is_table_column_oriented": "bool",
-        "default_compression": "YdbDefaultCompression"
+        "default_compression": "YdbDefaultCompression",
+        "is_schema_migration_disabled": "bool"
       },
       "kafka_target": {
         "connection": {
@@ -665,7 +675,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
         "connection": {
           // Includes only one of the fields `connection_options`
           "connection_options": {
-            // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+            // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
             "mdb_cluster_id": "string",
             "on_premise": {
               "hosts": [
@@ -681,6 +691,10 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
                 }
                 // end of the list of possible fields
               }
+            },
+            "connection_manager_connection": {
+              "connection_id": "string",
+              "replica_set": "string"
             },
             // end of the list of possible fields
             "user": "string",
@@ -775,8 +789,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
             }
           },
           "connection_manager_connection": {
-            "connection_id": "string",
-            "subnet_id": "string"
+            "connection_id": "string"
           }
           // end of the list of possible fields
         },
@@ -825,8 +838,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
             }
           },
           "connection_manager_connection": {
-            "connection_id": "string",
-            "subnet_id": "string"
+            "connection_id": "string"
           }
           // end of the list of possible fields
         },
@@ -1049,7 +1061,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
         "connection": {
           // Includes only one of the fields `connection_options`
           "connection_options": {
-            // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+            // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
             "mdb_cluster_id": "string",
             "on_premise": {
               "hosts": [
@@ -1065,6 +1077,10 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
                 }
                 // end of the list of possible fields
               }
+            },
+            "connection_manager_connection": {
+              "connection_id": "string",
+              "replica_set": "string"
             },
             // end of the list of possible fields
             "user": "string",
@@ -1099,7 +1115,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
         "connection": {
           // Includes only one of the fields `connection_options`
           "connection_options": {
-            // Includes only one of the fields `on_premise`, `mdb_cluster_id`
+            // Includes only one of the fields `on_premise`, `connection_manager_connection`, `mdb_cluster_id`
             "on_premise": {
               "shards": [
                 {
@@ -1119,6 +1135,9 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
                 }
                 // end of the list of possible fields
               }
+            },
+            "connection_manager_connection": {
+              "connection_id": "string"
             },
             "mdb_cluster_id": "string",
             // end of the list of possible fields
@@ -1164,8 +1183,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
             }
           },
           "connection_manager_connection": {
-            "connection_id": "string",
-            "subnet_id": "string"
+            "connection_id": "string"
           }
           // end of the list of possible fields
         },
@@ -1183,7 +1201,8 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
         "service_database": "string",
         "security_groups": [
           "string"
-        ]
+        ],
+        "is_schema_migration_disabled": "bool"
       },
       "postgres_target": {
         "connection": {
@@ -1205,8 +1224,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
             }
           },
           "connection_manager_connection": {
-            "connection_id": "string",
-            "subnet_id": "string"
+            "connection_id": "string"
           }
           // end of the list of possible fields
         },
@@ -1220,13 +1238,14 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
         "cleanup_policy": "CleanupPolicy",
         "security_groups": [
           "string"
-        ]
+        ],
+        "is_schema_migration_disabled": "bool"
       },
       "clickhouse_target": {
         "connection": {
           // Includes only one of the fields `connection_options`
           "connection_options": {
-            // Includes only one of the fields `on_premise`, `mdb_cluster_id`
+            // Includes only one of the fields `on_premise`, `connection_manager_connection`, `mdb_cluster_id`
             "on_premise": {
               "shards": [
                 {
@@ -1246,6 +1265,9 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
                 }
                 // end of the list of possible fields
               }
+            },
+            "connection_manager_connection": {
+              "connection_id": "string"
             },
             "mdb_cluster_id": "string",
             // end of the list of possible fields
@@ -1289,6 +1311,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
           "round_robin": "google.protobuf.Empty"
           // end of the list of possible fields
         },
+        "is_schema_migration_disabled": "bool",
         "clickhouse_cluster_name": "string",
         "security_groups": [
           "string"
@@ -1306,7 +1329,8 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
           "string"
         ],
         "is_table_column_oriented": "bool",
-        "default_compression": "YdbDefaultCompression"
+        "default_compression": "YdbDefaultCompression",
+        "is_schema_migration_disabled": "bool"
       },
       "kafka_target": {
         "connection": {
@@ -1373,7 +1397,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
         "connection": {
           // Includes only one of the fields `connection_options`
           "connection_options": {
-            // Includes only one of the fields `mdb_cluster_id`, `on_premise`
+            // Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`
             "mdb_cluster_id": "string",
             "on_premise": {
               "hosts": [
@@ -1389,6 +1413,10 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
                 }
                 // end of the list of possible fields
               }
+            },
+            "connection_manager_connection": {
+              "connection_id": "string",
+              "replica_set": "string"
             },
             // end of the list of possible fields
             "user": "string",
@@ -1638,7 +1666,9 @@ Transfer core entity
 - `STOPPED`: Transfer stopped by user
 - `ERROR`: Transfer stopped by system
 - `SNAPSHOTTING`: Transfer copy snapshot
-- `DONE`: Transfer reach terminal phase ||
+- `DONE`: Transfer reach terminal phase
+- `PAUSED`: Transfer is paused by user - same as stopped, but replication slot is alive
+- `PREPARING`: Transfer does some work before replication ||
 || type | enum **TransferType**
 
 - `TRANSFER_TYPE_UNSPECIFIED`
@@ -1822,9 +1852,6 @@ connect to the server. ||
 #|
 ||Field | Description ||
 || connection_id | **string** ||
-|| subnet_id | **string**
-
-Network interface for endpoint. If none will assume public ipv4 ||
 |#
 
 ## Secret {#yandex.cloud.datatransfer.v1.endpoint.Secret}
@@ -2134,10 +2161,6 @@ CREATE MATERIALIZED VIEW ...
 - `AFTER_DATA`: After data transfer
 - `NEVER`: Don't copy ||
 || sequence_set | enum **ObjectTransferStage**
-
-Sequence sets
-
-CREATE SEQUENCE ...
 
 - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
 - `BEFORE_DATA`: Before data transfer
@@ -2475,10 +2498,13 @@ Includes only one of the fields `connection_options`. ||
 ||Field | Description ||
 || mdb_cluster_id | **string**
 
-Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
 || on_premise | **[OnPremiseMongo](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMongo)**
 
-Includes only one of the fields `mdb_cluster_id`, `on_premise`. ||
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
+|| connection_manager_connection | **[MongoConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionManagerConnection)**
+
+Includes only one of the fields `mdb_cluster_id`, `on_premise`, `connection_manager_connection`. ||
 || user | **string**
 
 User name ||
@@ -2498,6 +2524,16 @@ Database name associated with the credentials ||
 || port | **int64** ||
 || replica_set | **string** ||
 || tls_mode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)** ||
+|#
+
+## MongoConnectionManagerConnection {#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionManagerConnection}
+
+#|
+||Field | Description ||
+|| connection_id | **string** ||
+|| replica_set | **string**
+
+Used only for on-premise connections ||
 |#
 
 ## MongoCollection {#yandex.cloud.datatransfer.v1.endpoint.MongoCollection}
@@ -2544,10 +2580,13 @@ Includes only one of the fields `connection_options`. ||
 ||Field | Description ||
 || on_premise | **[OnPremiseClickhouse](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseClickhouse)**
 
-Includes only one of the fields `on_premise`, `mdb_cluster_id`. ||
+Includes only one of the fields `on_premise`, `connection_manager_connection`, `mdb_cluster_id`. ||
+|| connection_manager_connection | **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+
+Includes only one of the fields `on_premise`, `connection_manager_connection`, `mdb_cluster_id`. ||
 || mdb_cluster_id | **string**
 
-Includes only one of the fields `on_premise`, `mdb_cluster_id`. ||
+Includes only one of the fields `on_premise`, `connection_manager_connection`, `mdb_cluster_id`. ||
 || user | **string** ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)** ||
 || database | **string**
@@ -2628,6 +2667,7 @@ Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).
 || security_groups[] | **string**
 
 Security groups ||
+|| is_schema_migration_disabled | **bool** ||
 |#
 
 ## PostgresTarget {#yandex.cloud.datatransfer.v1.endpoint.PostgresTarget}
@@ -2658,6 +2698,7 @@ truncate.
 || security_groups[] | **string**
 
 Security groups ||
+|| is_schema_migration_disabled | **bool** ||
 |#
 
 ## ClickhouseTarget {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseTarget}
@@ -2676,6 +2717,7 @@ Alternative table names in target ||
 - `CLICKHOUSE_CLEANUP_POLICY_DROP`
 - `CLICKHOUSE_CLEANUP_POLICY_TRUNCATE` ||
 || sharding | **[ClickhouseSharding](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding)** ||
+|| is_schema_migration_disabled | **bool** ||
 || clickhouse_cluster_name | **string**
 
 Name of the ClickHouse cluster. For Managed ClickHouse that is name of
@@ -2786,6 +2828,7 @@ Compression that will be used for default columns family on YDB table creation
 - `YDB_DEFAULT_COMPRESSION_UNSPECIFIED`
 - `YDB_DEFAULT_COMPRESSION_DISABLED`
 - `YDB_DEFAULT_COMPRESSION_LZ4` ||
+|| is_schema_migration_disabled | **bool** ||
 |#
 
 ## KafkaTarget {#yandex.cloud.datatransfer.v1.endpoint.KafkaTarget}

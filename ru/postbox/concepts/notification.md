@@ -1,6 +1,6 @@
-# Уведомления о доставке писем
+# Уведомления об операциях с письмами
 
-Чтобы получать уведомления о доставке писем, необходимо [создать конфигурацию](../operations/create-configuration.md) и [привязать ее к адресу](../operations/bind-configuration.md).
+Чтобы получать уведомления об операциях с письмами, необходимо [создать конфигурацию](../operations/create-configuration.md) и [привязать ее к адресу](../operations/bind-configuration.md).
 
 ## Типы уведомлений {#types}
 
@@ -57,6 +57,14 @@
             "to":[ "Recipient Name <recipient@example.com>" ],
             "messageId":"vgAyRUls8591ybPKeH-Ov",
             "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ],
         }
     },
     "bounce": null,
@@ -90,6 +98,14 @@
             "to":[ "Recipient Name <recipient@example.com>" ],
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ],
         }
     },
     "bounce": {
@@ -148,6 +164,85 @@
 }
 ```
 
+### Уведомление о том, что доставка письма задерживается {#delayed-delivery}
+
+После того как {{ postbox-name }} успешно принял письмо, обычно оно отправляется немедленно. Однако иногда может возникнуть небольшая задержка доставки. В таком случае приходит данное уведомление.
+
+Пример уведомления:
+
+```json
+{
+    "eventType": "DeliveryDelay",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ],
+        }
+    },
+    "deliveryDelay": {
+        "delayType": "General",
+        "delayedRecipients": [
+            {
+                "emailAddress": "recipient@example.com"
+            }
+        ],
+        "timestamp": "2024-04-25T18:10:04.973666+03:00"
+    },
+    "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
+}
+```
+
+### Уведомление о том, что получатель отписался от рассылки {#subscription}
+
+Приходит, когда получатель отписался от рассылки через механизм «отказ от подписки в один клик» (`one-click unsubscribe`), добавленный {{ postbox-name }} в письмо.
+
+Пример уведомления:
+
+```json
+{
+    "eventType": "Unsubscribe",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ],
+        }
+    },
+    "subscription": {
+        "contactList": "my-list",
+        "timestamp": "2024-04-25T18:08:04.973666+03:00",
+        "source": "UnsubscribeHeader"
+    }
+}
+```
+
 ## Формат уведомлений {#format}
 
 Уведомление записывается в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }} в формате JSON. Последовательность и набор полей могут отличаться от описанных ниже.
@@ -160,7 +255,8 @@
 `mail` | Объект [Mail](#mail-object) | Объект, который содержит общую информацию об отправленном письме.
 `bounce` | Объект [Bounce](#bounce-object) | Объект, который содержит информацию о том, что письмо не доставлено. Обязателен, если `notificationType` — `Bounce`, иначе отсутствует.
 `delivery` | Объект [Delivery](#delivery-object) | Объект, который содержит информацию о доставке письма отдельному получателю. Обязателен, если `notificationType` — `Delivery`, иначе отсутствует.
-`Open` | Объект [Open](#open-object) | Объект, который содержит информацию о том, что письмо было открыто. Обязателен, если `notificationType` — `Open`, иначе отсутствует.
+`subscription` | Объект [Subscription](#subscription-object) | Объект, который содержит информацию о том, что получатель отписался от рассылки. Обязателен, если `notificationType` — `Subscription`, иначе отсутствует.
+`open` | Объект [Open](#open-object) | Объект, который содержит информацию о том, что письмо было открыто. Обязателен, если `notificationType` — `Open`, иначе отсутствует.
 `eventId` | Строка | Уникальный идентификатор события.
 
 ### Объект Mail {#mail-object}
@@ -171,6 +267,7 @@
 `messageId` | Строка | Уникальный идентификатор письма. У одного письма может быть несколько получателей. Выдается {{ postbox-name }} при приеме письма в обработку.
 `identityId` | Строка | Идентификатор адреса {{ postbox-name }}, который используется при отправке письма.
 `commonHeaders` | Объект [CommonHeaders](#common-headers-object) | Объект, который содержит основные заголовки письма.
+`tags` | Объект | Объект, который содержит теги, добавленные к письму.
 
 ### Объект CommonHeaders {#common-headers-object}
 
@@ -211,6 +308,28 @@
 `timestamp` | Строка | Дата в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`). Время, когда {{ postbox-name }} отправил письмо и получил успешный ответ от почтового клиента получателя.
 `processingTimeMillis` | Целое число | Время, которое потребовалось на обработку письма в миллисекундах.
 `recipients` | Массив строк | Адреса получателей.
+
+### Объект DeliveryDelay {#delivery-delay-object}
+
+Название | Тип | Описание
+--- | --- | ---
+`delayType` | Строка | Тип задержки. Возможные значения: `General`.
+`delayedRecipients` | Массив объектов [DelayedRecipient](#delayed-recipient-object) | Массив, который содержит информацию о получателе письма и связанной с ним задержке доставки.
+`timestamp` | Строка | Дата в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`). Время, когда случилась задержка доставки.
+
+### Объект DelayedRecipient {#delayed-recipient-object}
+
+Название | Тип | Описание
+--- | --- | ---
+`emailAddress` | Строка | Электронный адрес получателя.
+
+### Объект Subscription {#subscription-object}
+
+Название | Тип | Описание
+--- | --- | ---
+`contactList` | Строка | Имя списка контактов, с которым связано письмо.
+`timestamp` | Строка | Дата в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`). Время, когда получатель отписался от рассылки.
+`source` | Строка | Источник отписки. Возможные значения: `UnsubscribeHeader`.
 
 ### Объект Open {#open-object}
 

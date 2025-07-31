@@ -77,6 +77,8 @@ items:
         href: stt/analysis.md
       - name: Определение дикторов
         href: stt/speaker-labeling.md
+      - name: Обработка результатов распознавания с помощью LLM
+        href: stt/llm-results.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
       - name: Загрузка данных для дообучения модели распознавания речи

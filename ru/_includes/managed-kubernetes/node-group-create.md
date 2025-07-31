@@ -26,7 +26,10 @@
 
    {% endnote %}
 
-1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}** укажите максимальное количество [виртуальных машин](../../compute/concepts/vm.md), на которое можно превысить и уменьшить размер группы узлов {{ managed-k8s-name }}.
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}** укажите максимальное количество узлов, на которое можно превысить размер группы при ее обновлении, а также максимальное количество недоступных при обновлении узлов.
+
+   {% include [note-expansion-group-vm](note-expansion-group-vm.md) %}
+
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
    * Выберите [платформу](../../compute/concepts/vm-platforms.md).
    * Укажите необходимое количество [GPU](../../compute/concepts/gpus.md), vCPU и [гарантированную долю vCPU](../../compute/concepts/performance-levels.md), а также объем RAM.
