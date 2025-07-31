@@ -21,7 +21,7 @@ You can get a generative response only when searching within a given search area
 
 ## Request body format {#body}
 
-The names of the request body fields are different in [REST API](../api-ref/index.md) and [gPRC API](../api-ref/grpc/index.md): the former uses [camelCase](https://en.wikipedia.org/wiki/Camel_case), while the latter uses [snake_case](https://en.wikipedia.org/wiki/Snake_case).
+The names of the request body fields are different in [REST API](../api-ref/index.md) and [gRPC API](../api-ref/grpc/index.md): the former uses [camelCase](https://en.wikipedia.org/wiki/Camel_case), while the latter uses [snake_case](https://en.wikipedia.org/wiki/Snake_case).
 
 Each query seeking a generative response must contain the following request body in [JSON](https://en.wikipedia.org/wiki/JSON) format:
 

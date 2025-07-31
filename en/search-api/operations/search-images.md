@@ -5,7 +5,7 @@ description: Follow this guide to learn how to use {{ search-api-full-name }}'s 
 
 # Searching by text description via API v2
 
-With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can search through the [Yandex Images](https://yandex.ru/images) index by text description and get search results in [XML format](../concepts/image-search.md#xml-response-format). You can run queries using [REST API](../api-ref/) and [gPRC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
+With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can search through the [Yandex Images](https://yandex.ru/images) index by text description and get search results in [XML format](../concepts/image-search.md#xml-response-format). You can run queries using [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
 
 ## Getting started {#before-you-begin}
 
