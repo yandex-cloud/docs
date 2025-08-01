@@ -6,10 +6,6 @@
 
   1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
   1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
-  1. Заполните заявку на доступ к [Preview-версии](../../overview/concepts/launch-stages.md).
-
-     Дождитесь подтверждения заявки.
-
   1. На главной странице сервиса подтвердите, что ознакомились с [Условиями использования](https://yandex.ru/legal/cloud_termsofuse/?lang=ru) и принимаете их и нажмите кнопку **Войти**.
   1. Создайте [платежный аккаунт](../../billing/operations/create-new-account.md).
 
@@ -17,7 +13,6 @@
 
   1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе.
   1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
-  1. Заполните заявку на доступ к [Preview-версии](../../overview/concepts/launch-stages.md).
   1. Выберите один из вариантов:
 
      * Если у вас уже есть организация, выберите ее в выпадающем меню и нажмите **Открыть Cloud Video**.

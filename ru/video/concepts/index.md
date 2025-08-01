@@ -1,9 +1,5 @@
 # Обзор сервиса {{ video-full-name }}
 
-{% include [preview-stage](../../_includes/video/preview-stage.md) %}
-
-{% include [ask-for-turning-on](../../_includes/video/ask-for-turning-on.md) %}
-
 {% include [about-service](../../_includes/video/about-service.md) %}
 
 Необработанный оригинальный видеоконтент (файл с видео или трансляция) в высоком качестве плохо подходит для встраивания на сайте или в приложении, поскольку для его воспроизведения на стороне клиента требуется стабильное интернет-соединение с высокой скоростью.

@@ -7,6 +7,5 @@ Users with this role can:
 * View info on DSPM [data categories](../../security-deck/concepts/dspm.md#data-categories).
 * View info on security [scan](../../security-deck/concepts/dspm.md#scanning) jobs, as well as create, modify, and delete such jobs.
 * Run security scan jobs and view their results, as well as info on the detected threats.
-* View the [bucket](../../storage/concepts/bucket.md) metadata.
 
-This role includes the `dspm.editor` and `dspm.inspector` permissions.
+This role includes the `dspm.editor` permissions.

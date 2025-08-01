@@ -49,6 +49,8 @@ description: Из статьи вы узнаете, какие типы диск
 
 Чтобы отслеживать, какой объем занимают куски таблиц [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) в {{ objstorage-full-name }}, [воспользуйтесь метрикой](../tutorials/hybrid-storage.md#metrics) `ch_s3_disk_parts_size` в сервисе {{ monitoring-full-name }}. Она доступна только для кластеров {{ mch-name }} с настроенным гибридным хранилищем.
 
+Хранение холодных данных и их резервных копий в гибридном хранилище учитывается при расчете [стоимости использования кластера](../pricing.md#prices-storage).
+
 ### Доступные политики хранения {#storage-policies}
 
 {% note info %}
