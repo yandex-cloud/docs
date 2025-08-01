@@ -1595,3 +1595,5 @@ items:
               Интеграция Qwen3 в Visual Studio Code в качестве ассистента для
               написания кода
             href: ml-ai/qwen-vsc-integration.md
+          - name: Создание интеллектуального ассистента для Telegram
+            href: ml-ai/tg-bot-assistant.md

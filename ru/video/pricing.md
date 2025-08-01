@@ -8,14 +8,6 @@ editable: false
 
 
 
-На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ video-name }} не тарифицируется.
-
-{% note warning %}
-
-Тарифы вступят в силу с 1 августа 2025 года.
-
-{% endnote %}
-
 
 {% include [vat](../_includes/vat.md) %}
 

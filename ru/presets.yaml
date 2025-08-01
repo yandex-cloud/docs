@@ -8481,21 +8481,128 @@ default:
           perf-diag:
             label_action-terminate-query: Прервать запрос
             label_action-terminate-session: Прервать сессию
+            label_field-application: Приложение
             label_field-backend-start: Время старта
             label_field-cpu-time: CPU time
+            label_field-database: База данных
+            label_field-instrumentation-startup-time: Planning and resource waiting time
+            label_field-peak-memory: Peak memory
             label_field-query-cpu-time: CPU time
             label_field-query-peak-memory: Peak memory
+            label_field-query-spill-file_count: Spill file count
             label_field-query-started: Время начала запроса
+            label_field-query-status: Состояние запроса
+            label_field-query-text: Teкст запроса
+            label_field-read-bytes: Disk R
+            label_field-running-query-key: Ключ выполняемого запроса
+            label_field-session-backend-xmin: Горизонт транзакции
+            label_field-session-client-addr: Адрес клиента
+            label_field-session-client-hostname: Хост клиента
+            label_field-session-client-port: Порт клиента
+            label_field-session-pid: Идентификатор процесса
+            label_field-session-rsgid: OID ресурсной группы
+            label_field-session-rsgname: Имя ресурсной группы
+            label_field-session-waiting: Ожидание
+            label_field-session-xact-start: Время начала транзакции
+            label_field-spill-total-bytes: Spill
+            label_field-state-changed: Статус изменён
+            label_field-total-instrumentation-blk_read_time: Time spent reading blocks
+            label_field-total-instrumentation-blk_write_time: Time spent writing blocks
+            label_field-total-instrumentation-firsttuple: First tuple time
+            label_field-total-instrumentation-local_blks_hit: Local buffer hits
+            label_field-total-instrumentation-local_blks_read: Local disk blocks read
+            label_field-total-instrumentation-local_blks_written: Local disk blocks written
+            label_field-total-instrumentation-nloops: Cycles count
+            label_field-total-instrumentation-shared_blks_dirtied: Shared blocks dirtied
+            label_field-total-instrumentation-shared_blks_hit: Shared buffer hits
+            label_field-total-instrumentation-shared_blks_read: Shared disk blocks read
+            label_field-total-instrumentation-shared_blks_written: Shared disk blocks written
+            label_field-total-instrumentation-startup: Startup time
+            label_field-total-instrumentation-temp_blks_read: Temp blocks read
+            label_field-total-instrumentation-temp_blks_written: Temp blocks written
+            label_field-total-instrumentation-total: Total time
+            label_field-total-spill-file_count: Spill file count
+            label_field-total-system_stat-cancelled_write_bytes: Cancelled write bytes
+            label_field-total-system_stat-kernel_time_seconds: CPU kernel time
+            label_field-total-system_stat-rchar: Chars read
+            label_field-total-system_stat-rss: Resident set size
+            label_field-total-system_stat-syscr: Read syscalls
+            label_field-total-system_stat-syscw: Write syscalls
+            label_field-total-system_stat-user_time_seconds: CPU user time
+            label_field-total-system_stat-vsize: Virtual memory size
+            label_field-total-system_stat-wchar: Chars written
+            label_field-user: Пользователь
+            label_field-write-bytes: Disk W
             label_filter-entity-query: Запросы
             label_filter-entity-session: Сессии
             label_filter-monitoring-cpu-usage: CPU usage
+            label_interconnect-active-connections-num: Interconnect active connections num
+            label_interconnect-buffer-counting-time: Interconnect buffer counting time
+            label_interconnect-capacity-counting-time: Interconnect capacity counting time
+            label_interconnect-crc-errors: Interconnect CRC errors
+            label_interconnect-disordered-pkt-num: Interconnect disordered pkt num
+            label_interconnect-duplicated-pkt-num: Interconnect duplicated pkt num
+            label_interconnect-mismatch-num: Interconnect mismatch num
+            label_interconnect-recv-ack-num: Interconnect recv ack num
+            label_interconnect-recv-pkt-num: Interconnect recv pkt num
+            label_interconnect-recv-queue-size-counting-time: Interconnect recv queue size counting time
+            label_interconnect-retransmits: Interconnect retransmits
+            label_interconnect-snd-pkt-num: Interconnect snd pkt num
+            label_interconnect-startup-cached-pkt-num: Interconnect startup cached pkt num
+            label_interconnect-status-query-msg-num: Interconnect status query msg num
+            label_interconnect-total-buffers: Interconnect total buffers
+            label_interconnect-total-capacity: Interconnect total capacity
+            label_interconnect-total-recv-queue-size: Interconnect total recv queue size
+            label_query-field-blk_read_time: Time spent reading blocks
+            label_query-field-blk_write_time: Time spent writing blocks
+            label_query-field-cancelled_write_bytes: Cancelled write bytes
+            label_query-field-database: База данных
+            label_query-field-end-time: End time
+            label_query-field-firsttuple: First tuple time
+            label_query-field-generator: Оптимизатор
+            label_query-field-kernel-time-seconds: CPU kernel time
+            label_query-field-local_blks_dirtied: Local blocks dirtied
+            label_query-field-local_blks_hit: Local buffer hits
+            label_query-field-local_blks_read: Local disk blocks read
+            label_query-field-local_blks_written: Local disk blocks written
+            label_query-field-max-time: Max time
+            label_query-field-min-time: Min time
+            label_query-field-net-recv-chunks: Packets recv
+            label_query-field-net-sent-chunks: Packets sent
+            label_query-field-nloops: Cycles count
+            label_query-field-plan-id: Идентификатор плана
+            label_query-field-query-id: Идентификатор запроса
+            label_query-field-query-key: Ключ запроса
+            label_query-field-rchar: Chars read
             label_query-field-read-bytes: Disk R
+            label_query-field-rss: Resident set size
             label_query-field-running-time-seconds: CPU time
+            label_query-field-shared_blks_hit: Shared buffer hits
+            label_query-field-shared_blks_written: Shared disk blocks written
+            label_query-field-shared-blks-dirtied: Shared blocks dirtied
+            label_query-field-shared-blks-read: Shared disk blocks read
+            label_query-field-skew: Skew
             label_query-field-spill-total-bytes: Spill
+            label_query-field-start-time: Start time
+            label_query-field-startup: Startup time
+            label_query-field-syscr: Read syscalls
+            label_query-field-syscw: Write syscalls
+            label_query-field-temp_blks_read: Temp blocks read
+            label_query-field-temp_blks_written: Temp blocks written
             label_query-field-total-time: Total time
+            label_query-field-user-time-seconds: CPU user time
+            label_query-field-username: Пользователь
             label_query-field-vm-peak-kb: Peak memory
+            label_query-field-vsize: Virtual Memory Size
+            label_query-field-wchar: Chars written
             label_query-field-write-bytes: Disk W
+            label_section_counters: Количество обращений к буферу и другие счётчики БД
+            label_section_optimizations: Количество строк и оценки оптимизатора
+            label_section_other-resources: Другие ресурсы
+            label_section_query-info: Информация о запросе
+            label_section_resources: Ресурсы
             label_section_session-info: Информация о сессии
+            label_section_session-queries: Запросы
             section_command-center: Командный центр
             title_consumption-history: История потребления
             title_current-state: Текущее состояние

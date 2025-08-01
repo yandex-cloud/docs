@@ -4,4 +4,3 @@ Users with this role can:
 * View info on DSPM profiles.
 * View info on DSPM [data sources](../../security-deck/concepts/dspm.md#data-source).
 * View info on security [scan](../../security-deck/concepts/dspm.md#scanning) jobs.
-* View scan results and the info on the detected threats.

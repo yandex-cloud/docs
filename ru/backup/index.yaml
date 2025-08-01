@@ -1,11 +1,6 @@
 title: Yandex Cloud Backup
 description:
   - >-
-    <em>В <a href="/docs/overview/concepts/region">регионе Казахстан</a> сервис
-    Yandex Cloud Backup находится на <a
-    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
-  - Сервис Yandex BareMetal доступен только в регионе Россия.
-  - >-
     Сервис Yandex Cloud Backup позволяет настроить автоматическое резервное
     копирование виртуальных машин сервиса <a href="/docs/compute">Yandex Compute
     Cloud</a>, а также серверов <a href="/docs/baremetal">Yandex BareMetal</a>.
