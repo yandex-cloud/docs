@@ -26,4 +26,5 @@ description: На этой странице приведен справочни�
 {% include [tf-iam-binding-warning](../_includes/storage/tf-bucket-grant-warning.md) %}
 
 ||
+|| [yandex_storage_bucket_policy]({{ tf-provider-resources-link }}/storage_bucket_policy) | [Управление](operations/buckets/policy.md) политикой доступа ([bucket policy](concepts/policy.md)) бакета. ||
 |#

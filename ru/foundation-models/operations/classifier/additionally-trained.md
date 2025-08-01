@@ -1,6 +1,6 @@
 # Использовать дообученные классификаторы на базе {{ yagpt-name }}
 
-Чтобы выполнить запрос к [дообученному](../../concepts/tuning/index.md) классификатору, используйте метод [classify](../../text-classification/api-ref/TextClassification/classify.md) Text Classification API или [{{ ml-sdk-full-name }}](../../sdk/index.md).
+Чтобы выполнить запрос к любому типу [дообученных](../../concepts/tuning/index.md) классификаторов, используйте метод [classify](../../text-classification/api-ref/TextClassification/classify.md) Text Classification API или [{{ ml-sdk-full-name }}](../../sdk/index.md).
 
 ## Перед началом работы {#before-begin}
 

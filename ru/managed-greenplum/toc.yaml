@@ -155,6 +155,8 @@ items:
         href: concepts/user-authentication.md
       - name: Командный центр
         href: concepts/command-center.md
+      - name: Параметры командного центра
+        href: concepts/command-center-parameters.md
       - name: Внешние таблицы
         href: concepts/external-tables.md
       - name: Управление соединениями

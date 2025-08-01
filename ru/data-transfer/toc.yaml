@@ -478,6 +478,8 @@ items:
     items:
       - name: Все изменения
         href: release-notes/index.md
+      - name: Июль 2025
+        href: release-notes/2507.md
       - name: Июнь 2025
         href: release-notes/2506.md
       - name: Май 2025

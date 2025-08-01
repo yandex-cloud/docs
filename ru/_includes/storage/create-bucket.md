@@ -152,7 +152,7 @@
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
-  По умолчанию для аутентификации в {{ objstorage-name }} {{ TF }} использует IAM-токен. Кроме IAM-токена для аутентификации в {{ objstorage-name }} можно использовать сервисный аккаунт и статические ключи доступа. Более подробную информацию об особенностях аутентификации {{ TF }} в в {{ objstorage-name }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+  {% include [iam-auth-note](iam-auth-note.md) %}
 
   **Создание бакета с использованием IAM-токена**
 
