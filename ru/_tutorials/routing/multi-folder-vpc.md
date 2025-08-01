@@ -261,7 +261,7 @@
         yc vpc subnet create --help
         ```
 
-     1. Создайте подсети в целевых каталогах:
+     1. Создайте подсети в каталоге `net-folder`:
 
         ```bash
         yc vpc subnet create --folder-name net-folder --name subnet-a \
@@ -444,6 +444,7 @@
 
      ```bash
      yc compute instance create --name=net-vm --hostname=net-vm \
+       --folder-name net-folder \
        --zone={{ region-id }}-a \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
@@ -452,6 +453,7 @@
        --metadata-from-file user-data=vm-config.txt
 
      yc compute instance create --name=dev-vm --hostname=dev-vm \
+       --folder-name dev-folder \
        --zone={{ region-id }}-b \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
@@ -460,6 +462,7 @@
        --metadata-from-file user-data=vm-config.txt
 
      yc compute instance create --name=prod-vm --hostname=prod-vm \
+       --folder-name prod-folder \
        --zone={{ region-id }}-d \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
@@ -473,9 +476,9 @@
   1. Сохраните публичные IP-адреса ВМ для дальнейшего использования:
 
      ```bash
-     NET_VM_IP=$(yc compute instance get net-vm --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
-     DEV_VM_IP=$(yc compute instance get dev-vm --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
-     PROD_VM_IP=$(yc compute instance get prod-vm --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
+     NET_VM_IP=$(yc compute instance get net-vm --folder-name=net-folder --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
+     DEV_VM_IP=$(yc compute instance get dev-vm --folder-name=dev-folder --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
+     PROD_VM_IP=$(yc compute instance get prod-vm --folder-name=prod-folder --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
      ```
 
 - {{ TF }} {#tf}
@@ -666,7 +669,7 @@
 1. Подключитесь к ВМ `net-vm` по SSH:
 
    ```bash
-   ssh ycuser@<публичный_IP-адрес_ВМ_net-vm>
+   ssh -l yc-user $NET_VM_IP
    ```
 
 1. Проверьте IP-связность с ВМ `dev-vm` внутри VPC:
