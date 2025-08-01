@@ -267,10 +267,10 @@
         yc vpc subnet create --folder-name net-folder --name subnet-a \
           --network-name shared-net --zone {{ region-id }}-a --range 10.1.11.0/24
 
-        yc vpc subnet create --folder-name dev-folder --name subnet-b \
+        yc vpc subnet create --folder-name net-folder --name subnet-b \
           --network-name shared-net --zone {{ region-id }}-b --range 10.1.12.0/24
 
-        yc vpc subnet create --folder-name prod-folder --name subnet-d \
+        yc vpc subnet create --folder-name net-folder --name subnet-d \
           --network-name shared-net --zone {{ region-id }}-d --range 10.1.13.0/24
         ```
 
@@ -358,6 +358,7 @@
 
      ```bash
      yc vpc subnet move subnet-b \
+       --folder-name net-folder \
        --destination-folder-name dev-folder
      ```
 
