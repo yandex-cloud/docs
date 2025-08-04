@@ -109,7 +109,7 @@ items:
             href: security/protected-access-to-content/console.md
           - name: '{{ TF }}'
             href: security/protected-access-to-content/terraform.md
-      - name: Uploading audit logs to KUMA SIEM
+      - name: Uploading audit logs to SIEM KUMA
         items:
           - name: Overview
             href: security/audit-trails-events-to-kuma/index.md
@@ -253,7 +253,7 @@ items:
             href: archive/vm-with-backup-policy/console.md
           - name: '{{ TF }}'
             href: archive/vm-with-backup-policy/terraform.md
-      - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
+      - name: Log replication to {{ objstorage-name }} via {{ yds-name }}
         href: archive/replicate-logs-to-storage-via-data-streams.md
       - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
         href: archive/replicate-logs-to-storage.md
@@ -343,7 +343,7 @@ items:
               Integrating an L7 load balancer with {{ cdn-name }} and {{
               objstorage-name }}
             href: web/cdn-storage-integration.md
-          - name: Working with an autoscaling instance group
+          - name: Working with an instance group with autoscaling
             items:
               - name: Overview
                 href: infrastructure-management/vm-autoscale/index.md
@@ -415,7 +415,7 @@ items:
         items:
           - name: Configuring time synchronization using NTP
             href: infrastructure-management/ntp.md
-          - name: DHCP settings for interfacing with a corporate DNS server
+          - name: DHCP settings for working with a corporate DNS server
             href: routing/dhcp-options.md
           - name: Routing through a NAT instance
             items:
@@ -818,7 +818,9 @@ items:
           Delivering data from {{ yds-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/yds-to-kafka.md
-      - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
+      - name: >-
+          Change data capture (CDC) from {{ ydb-short-name }} and delivery to {{
+          DS }}
         href: dataplatform/ydb-to-yds.md
       - name: Configuring Kafka Connect to work with a {{ mkf-name }} cluster
         href: dataplatform/kafka-connect.md
@@ -1154,13 +1156,13 @@ items:
         href: dataplatform/jupyter-yq.md
       - name: Processing files with usage details in {{ billing-name }}
         href: dataplatform/billing-detail-files-processing.md
-      - name: Ingesting data into storage systems
+      - name: Data ingestion into storage systems
         href: dataplatform/data-ingestion.md
       - name: Smart log processing
         href: dataplatform/log-ingestion.md
-      - name: Transferring data within microservice architectures
+      - name: Data transfer in microservice architectures
         href: dataplatform/message-broker.md
-      - name: Migrating data to {{ objstorage-name }} using {{ data-transfer-name }}
+      - name: Data migration to {{ objstorage-name }} using {{ data-transfer-name }}
         href: dataplatform/yds-obj-migration.md
       - name: >-
           Migrating data from a third-party {{ GP }} or {{ PG }} cluster to {{
@@ -1247,7 +1249,7 @@ items:
               {{ vpc-name }} subnets
             href: routing/bm-vrf-and-vpc-interconnect.md
           - name: >-
-              Delivering USB devices to a {{ baremetal-name }} server or virtual
+              Forwarding USB devices to a {{ baremetal-name }} server or virtual
               machine
             href: routing/usb-over-ip.md
           - name: >-
@@ -1285,7 +1287,7 @@ items:
             href: routing/pub-del.md
           - name: Deleting a trunk
             href: routing/trunk-del.md
-      - name: Configuring network resources and interaction between them
+      - name: Configuring network resources and their interactions
         items:
           - name: Setting up networking between resources from different folders
             href: routing/multi-folder-vpc.md
@@ -1382,7 +1384,7 @@ items:
         href: serverless/index.md
       - name: URL shortener
         href: serverless/serverless-url-shortener.md
-      - name: Ingesting data into storage systems
+      - name: Data ingestion into storage systems
         href: serverless/data-ingestion.md
       - name: Storing application runtime logs
         href: serverless/log-ingestion.md
@@ -1402,7 +1404,7 @@ items:
         href: serverless/ci-cd-sourcecraft-functions.md
       - name: Working with an API gateway via WebSocket
         href: serverless/api-gw-websocket.md
-      - name: Creating an interactive serverless application using WebSocket
+      - name: Building an interactive serverless application using WebSocket
         href: serverless/websocket-app.md
       - name: >-
           Automatically copying objects from one {{ objstorage-name }} bucket to
@@ -1422,7 +1424,7 @@ items:
         href: serverless/deploy-app-container.md
       - name: >-
           Streaming {{ postbox-name }} events to {{ yds-name }} and analyzing
-          them using {{ datalens-name }}
+          them with {{ datalens-name }}
         href: serverless/events-from-postbox-to-yds.md
       - name: >-
           Using {{ api-gw-name }} to set up speech synthesis in {{
@@ -1472,7 +1474,7 @@ items:
           Creating a {{ postbox-full-name }} address and checking domain
           ownership with {{ TF }}
         href: serverless/domain-identity-creating.md
-      - name: Sending emails in {{ postbox-full-name }} using the AWS SDK
+      - name: Sending emails in {{ postbox-full-name }} using AWS SDK
         items:
           - name: .NET Core
             href: serverless/send-emails-aws-sdk-csharp.md
@@ -1480,6 +1482,8 @@ items:
             href: serverless/send-emails-aws-sdk-go.md
           - name: JavaScript
             href: serverless/send-emails-aws-sdk-js.md
+          - name: Python
+            href: serverless/send-emails-aws-sdk-python.md
       - name: Creating an AI agent with {{ sf-full-name }}
         href: serverless/create-ai-agent-function.md
   - name: Machine learning and artificial intelligence
@@ -1502,7 +1506,7 @@ items:
             href: ml-ai/s3-to-datasphere.md
           - name: Creating an MLFlow server for logging experiments and artifacts
             href: ml-ai/mlflow-datasphere.md
-          - name: Model tuning in {{ ml-platform-name }}
+          - name: Model fine-tuning in {{ ml-platform-name }}
             href: ml-ai/models-fine-tuning.md
       - name: Usage {{ ml-platform-name }}
         items:

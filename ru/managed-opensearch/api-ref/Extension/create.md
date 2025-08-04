@@ -1,5 +1,7 @@
 ---
 editable: false
+apiPlayground:
+  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/extensions","method":"post","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. Required. ID of the cluster.","type":"string"}},"required":["clusterId"],"additionalProperties":false},"query":null,"body":{"type":"object","properties":{"extensionSpec":{"description":"**[ExtensionSpec](/docs/managed-opensearch/api-ref/Extension/create#yandex.cloud.mdb.opensearch.v1.ExtensionSpec)**\n\nRequired field. ","$ref":"#/definitions/ExtensionSpec"}},"required":["extensionSpec"],"additionalProperties":false},"definitions":{"ExtensionSpec":{"type":"object","properties":{"name":{"description":"**string**\n\nRequired field. Name of the extension.","type":"string"},"uri":{"description":"**string**\n\nRequired field. URI of the extension file\nCurrently only supports links that are stored in Yandex Object Storage.","type":"string"},"disabled":{"description":"**boolean**","type":"boolean"},"type":{"description":"**enum** (ExtensionType)\n\nRequired field. Extension type\n\n- `EXTENSION_TYPE_UNSPECIFIED`\n- `EXTENSION_TYPE_SYNONYMS`\n- `EXTENSION_TYPE_STOPWORDS`","type":"string","enum":["EXTENSION_TYPE_UNSPECIFIED","EXTENSION_TYPE_SYNONYMS","EXTENSION_TYPE_STOPWORDS"]}},"required":["name","uri","type"]}}}'
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Extension/create.md
 ---
 

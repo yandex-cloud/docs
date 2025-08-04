@@ -1,5 +1,7 @@
 ---
 editable: false
+apiPlayground:
+  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/auth","method":"get","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. Required. ID of the OpenSearch cluster.","type":"string"}},"required":["clusterId"],"additionalProperties":false},"query":null,"body":null,"definitions":null}'
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/getAuthSettings.md
 ---
 

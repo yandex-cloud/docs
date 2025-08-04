@@ -36,7 +36,7 @@ To create an {{ objstorage-name }} bucket to store the source images and recogni
 
   1. Go to the [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you will perform the operations.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+  1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. Enter a name for the bucket consistent with the [naming requirements](../../storage/concepts/bucket.md#naming).
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** field, select **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.

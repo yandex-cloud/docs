@@ -131,7 +131,8 @@ Creates a new OpenSearch cluster using the specified backup.
       "hour": "int64"
     }
     // end of the list of possible fields
-  }
+  },
+  "disk_encryption_key_id": "google.protobuf.StringValue"
 }
 ```
 
@@ -184,6 +185,9 @@ To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List]
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow)**
 
 Cluster maintenance window. Should be defined by either one of the two options. ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## ConfigCreateSpec {#yandex.cloud.mdb.opensearch.v1.ConfigCreateSpec}
@@ -672,7 +676,8 @@ Hour of the day in the UTC timezone. ||
       "delayed_until": "google.protobuf.Timestamp",
       "latest_maintenance_time": "google.protobuf.Timestamp",
       "next_maintenance_window_time": "google.protobuf.Timestamp"
-    }
+    },
+    "disk_encryption_key_id": "google.protobuf.StringValue"
   }
   // end of the list of possible fields
 }
@@ -825,6 +830,9 @@ Cluster maintenance window. Should be defined by either one of the two options. 
 || planned_operation | **[MaintenanceOperation](#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation)**
 
 Maintenance operation planned at nearest `maintenance_window`. ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.opensearch.v1.Monitoring}

@@ -40,7 +40,10 @@ Required field. ID of the backup to return. ||
   ],
   "opensearch_version": "string",
   "size_bytes": "int64",
-  "indices_total": "int64"
+  "indices_total": "int64",
+  "incremental_size_bytes": "int64",
+  "total_size_bytes": "int64",
+  "free_space_required_bytes": "int64"
 }
 ```
 
@@ -73,4 +76,13 @@ Size of the backup in bytes. ||
 || indices_total | **int64**
 
 The number of indices in the backup. ||
+|| incremental_size_bytes | **int64**
+
+Size of files which were copied as part of the incremental snapshot. ||
+|| total_size_bytes | **int64**
+
+Size of files that are referenced by the snapshot. ||
+|| free_space_required_bytes | **int64**
+
+The space amount required to restore from this backup. ||
 |#

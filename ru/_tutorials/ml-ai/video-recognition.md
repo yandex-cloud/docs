@@ -129,7 +129,7 @@
 
    1. Перейдите в каталог `data-folder`.
    1. В списке сервисов выберите **{{ objstorage-name }}**.
-   1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+   1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
    1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
       

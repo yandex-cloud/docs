@@ -1,5 +1,7 @@
 ---
 editable: false
+apiPlayground:
+  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/backups","method":"get","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. ID of the OpenSearch cluster.\n\nTo get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.","type":"string"}},"required":["clusterId"],"additionalProperties":false},"query":{"type":"object","properties":{"pageSize":{"description":"**string** (int64)\n\nThe maximum number of results per page to return. If the number of available\nresults is larger than `page_size`, the service returns a [ListClusterBackupsResponse.nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listBackups#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse)\nthat can be used to get the next page of results in subsequent list requests.","type":"string","format":"int64"},"pageToken":{"description":"**string**\n\nPage token. To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listBackups#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse)\nreturned by the previous list request.","type":"string"}},"additionalProperties":false},"body":null,"definitions":null}'
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/listBackups.md
 ---
 
@@ -57,7 +59,10 @@ returned by the previous list request. ||
       ],
       "opensearchVersion": "string",
       "sizeBytes": "string",
-      "indicesTotal": "string"
+      "indicesTotal": "string",
+      "incrementalSizeBytes": "string",
+      "totalSizeBytes": "string",
+      "freeSpaceRequiredBytes": "string"
     }
   ],
   "nextPageToken": "string"
@@ -124,4 +129,13 @@ Size of the backup in bytes. ||
 || indicesTotal | **string** (int64)
 
 The number of indices in the backup. ||
+|| incrementalSizeBytes | **string** (int64)
+
+Size of files which were copied as part of the incremental snapshot. ||
+|| totalSizeBytes | **string** (int64)
+
+Size of files that are referenced by the snapshot. ||
+|| freeSpaceRequiredBytes | **string** (int64)
+
+The space amount required to restore from this backup. ||
 |#

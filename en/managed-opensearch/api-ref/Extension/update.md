@@ -1,5 +1,7 @@
 ---
 editable: false
+apiPlayground:
+  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/extensions/{extensionId}","method":"patch","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. Required. ID of the cluster.","type":"string"},"extensionId":{"description":"**string**\n\nRequired field. Required. ID of the extension to update.","type":"string"}},"required":["clusterId","extensionId"],"additionalProperties":false},"query":null,"body":{"type":"object","properties":{"active":{"description":"**boolean**","type":"boolean"}},"additionalProperties":false},"definitions":null}'
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Extension/update.md
 ---
 

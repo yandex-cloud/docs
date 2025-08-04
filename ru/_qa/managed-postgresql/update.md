@@ -29,3 +29,7 @@
 #### Можно ли создать базу данных с помощью команд SQL? {#create-db-sql}
 
 Нет, создать базу данных с помощью команд SQL нельзя. В кластере {{ mpg-name }} возможно создание баз данных только с помощью интерфейсов {{ yandex-cloud }}.
+
+#### Как вывести кластер из режима read-only? {#read-only-exit}
+
+Воспользуйтесь инструкциями в разделах [{#T}](../../managed-postgresql/concepts/storage.md#read-only-solutions) и [{#T}](../../managed-postgresql/operations/storage-space.md#read-only-solutions).

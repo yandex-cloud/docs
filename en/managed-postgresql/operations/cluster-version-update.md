@@ -1,6 +1,6 @@
 # {{ PG }} version upgrade
 
-You can upgrade a {{ mpg-name }} cluster to version 16 or lower.
+You can upgrade a {{ mpg-name }} cluster to version 17 or lower.
 
 {% note info %}
 
@@ -40,12 +40,7 @@ Make sure this does not affect your applications:
 
 {% endnote %}
 
-### Upgrading a cluster to {{ PG }} 17 {#update-to-v17}
-
-1. [Create a cluster](cluster-create.md#create-cluster) with {{ PG }} 17.
-1. Use {{ data-transfer-name }} to [transfer data to it](../tutorials/data-migration.md#data-transfer) from the cluster you want to upgrade.
-
-### Upgrading a cluster to {{ PG }} 16 or lower {#update-to-v16-or-lower}
+### Upgrading a cluster to {{ PG }} 17 or lower {#update-to-v16-or-lower}
 
 {% list tabs group=instructions %}
 
@@ -201,7 +196,7 @@ Cluster upgrade time depends on the database size.
 
 {% note tip %}
 
-Contact [support](../../support/overview.md) if you have issues upgrading to version 16.
+Contact [support](../../support/overview.md) if you have issues upgrading to version 17.
 
 {% endnote %}
 
