@@ -62,7 +62,7 @@
    - Bash {#bash}
 
      ```bash
-     CLUSTER_ID=catb3ppsdsh7********
+     export CLUSTER_ID=catb3ppsdsh7********
      ```
 
    - PowerShell {#powershell}
