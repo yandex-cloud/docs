@@ -51,7 +51,7 @@ The infrastructure support cost includes:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+  1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
       1. Enter a name for the bucket consistent with the [naming requirements](../../storage/concepts/bucket.md#naming).
 

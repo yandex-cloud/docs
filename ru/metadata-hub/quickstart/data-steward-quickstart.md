@@ -74,14 +74,14 @@
   1. Задайте **{{ ui-key.yacloud.common.name }}** источника.
   1. Задайте **{{ ui-key.yacloud.common.description }}** источника.
   1. Выберите **{{ ui-key.yacloud.data-catalog.label_source-database-type }}** — **PostgreSQL**.
-  1. В блоке **Источник PostgreSQL** задайте параметры:
+  1. В блоке **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.title }}** задайте параметры:
 
-     * **ID папки** — каталог ресурсов, в котором создан кластер {{ mpg-name }}.
-     * **Тип инсталляции** — **Кластер {{ mpg-name }}**.
-     * **Кластер управляемой БД** — созданный ранее кластер {{ mpg-name }}.
-     * **ID подключения** — подключение к созданному ранее кластеру {{ mpg-name }} в сервисе {{ connection-manager-full-name }}.
-     * **Имя базы данных** в созданном ранее кластере {{ mpg-name }}.
-     * (Опционально) **Выгружать из всех баз данных** — включите опцию, если необходимо выгружать данные из всех баз данных.
+     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.folder_id.title }}** — каталог ресурсов, в котором создан кластер {{ mpg-name }}.
+     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.connection_types.title }}** — **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ConnectionType.managed.title }}**.
+     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ConnectionType.ManagedConnection.cluster_id.title }}** — созданный ранее кластер {{ mpg-name }}.
+     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ConnectionType.ManagedConnection.connection_id.title }}** — подключение к созданному ранее кластеру {{ mpg-name }} в сервисе {{ connection-manager-full-name }}.
+     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.database_name.title }}** в созданном ранее кластере {{ mpg-name }}.
+     * (Опционально) **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ingest_all.title }}** — включите опцию, если необходимо выгружать данные из всех баз данных.
      * **Идентификатор сети** — укажите идентификатор сети.
 
 
@@ -90,8 +90,8 @@
   1. Наведите курсор на это сообщение и в отобразившемся окне нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-ingestion-action }}**. 
   1. Задайте **{{ ui-key.yacloud.common.name }}** загрузки.
   1. Задайте **{{ ui-key.yacloud.common.description }}** загрузки.  
-  1. В поле **Расписание** выберите **Каждый день**.
-  1. В полях **Время начала** и **Время окончания** задайте время работы загрузки.
+  1. В поле **{{ ui-key.data-catalog.console.form.ingestion.PostgresConfigForm.cron.title }}** выберите **{{ ui-key.data-catalog.console.form.cron.Cron.day.title }}**.
+  1. В полях **{{ ui-key.data-catalog.console.form.cron.HoursInterval.start.title }}** и **{{ ui-key.data-catalog.console.form.cron.HoursInterval.end.title }}** задайте время работы загрузки.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

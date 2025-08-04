@@ -22,6 +22,12 @@ items:
             href: operations/create-trial-period.md
           - name: Интеграция с {{ license-manager }} API
             href: operations/license-manager-integration.md
+          - name: Создание конфигурации для приложения {{ cloud-apps-name }}
+            href: operations/create-configuration.md
+      - name: Практические руководства
+        items:
+          - name: Создание демонстрационного приложения {{ cloud-apps-name }}
+            href: tutorials/demo-cloud-apps.md
       - name: Концепции
         items:
           - name: Профиль партнера
@@ -45,6 +51,10 @@ items:
             href: concepts/api-usage.md
           - name: Пробный период
             href: concepts/trial-period.md
+          - name: >-
+              Справочник полей, доступных для формы приложения {{
+              cloud-apps-name }}
+            href: concepts/form-fields-ref.md
       - name: Управление доступом
         href: security/partners.md
       - name: Справочник Metering API

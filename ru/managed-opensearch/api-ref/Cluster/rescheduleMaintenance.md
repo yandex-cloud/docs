@@ -1,5 +1,7 @@
 ---
 editable: false
+apiPlayground:
+  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:rescheduleMaintenance","method":"post","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. ID of the OpenSearch cluster to reschedule the maintenance operation for.\n\nTo get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.","type":"string"}},"required":["clusterId"],"additionalProperties":false},"query":null,"body":{"type":"object","properties":{"rescheduleType":{"description":"**enum** (RescheduleType)\n\nRequired field. The type of the reschedule request.\n\n- `RESCHEDULE_TYPE_UNSPECIFIED`: Time of the maintenance is not specified..\n- `IMMEDIATE`: Start the maintenance operation immediately.\n- `NEXT_AVAILABLE_WINDOW`: Start the maintenance operation within the next available maintenance window.\n- `SPECIFIC_TIME`: Start the maintenance operation at the specific time.","type":"string","enum":["RESCHEDULE_TYPE_UNSPECIFIED","IMMEDIATE","NEXT_AVAILABLE_WINDOW","SPECIFIC_TIME"]},"delayedUntil":{"description":"**string** (date-time)\n\nThe time until which this maintenance operation should be delayed.\nThe value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks.\nThe value can also point to a moment in the past if [rescheduleType.IMMEDIATE](/docs/managed-opensearch/api-ref/Cluster/rescheduleMaintenance#yandex.cloud.mdb.opensearch.v1.RescheduleMaintenanceRequest.RescheduleType) reschedule type is selected.\n\nString in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from\n`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.\n\nTo work with values in this field, use the APIs described in the\n[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).\nIn some languages, built-in datetime utilities do not support nanosecond precision (9 digits).","type":"string","format":"date-time"}},"required":["rescheduleType"],"additionalProperties":false},"definitions":null}'
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/rescheduleMaintenance.md
 ---
 
@@ -222,7 +224,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
       "delayedUntil": "string",
       "latestMaintenanceTime": "string",
       "nextMaintenanceWindowTime": "string"
-    }
+    },
+    "diskEncryptionKeyId": "string"
   }
   // end of the list of possible fields
 }
@@ -420,6 +423,9 @@ Cluster maintenance window. Should be defined by either one of the two options. 
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation)**
 
 Maintenance operation planned at nearest `maintenanceWindow`. ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.opensearch.v1.Monitoring}

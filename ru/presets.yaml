@@ -6139,6 +6139,90 @@ default:
             1|string: "0,438840\_$"
         requests|string: Не тарифицируется
   ui-key:
+    data-catalog:
+      console:
+        form:
+          cron:
+            Cron:
+              day:
+                title: Каждый день
+              month:
+                title: Каждый месяц
+              none:
+                title: Ручной запуск
+              week:
+                title: Каждую неделю
+            HoursInterval:
+              end:
+                title: Время окончания
+              start:
+                title: Время начала
+          ingestion:
+            MetadataProcessSection:
+              use_file_backed_cache:
+                title: Использовать файловый кеш
+            PostgresConfigForm:
+              cron:
+                title: Расписание
+              data_filters:
+                title: Фильтры данных
+              metadata_process:
+                title: Обработка метаданных
+              metadata_types:
+                title: Типы метаданных
+              profiling:
+                title: Профилирование данных
+              title: Конфигурация загрузки PostgreSQL
+            ProfilingConfigForm:
+              enabled:
+                title: Включить профилирование
+              include_field_distinct_count:
+                title: include_field_distinct_count
+              include_field_max_value:
+                title: include_field_max_value
+              include_field_mean_value:
+                title: include_field_mean_value
+              include_field_median_value:
+                title: include_field_median_value
+              include_field_min_value:
+                title: include_field_min_value
+              include_field_null_count:
+                title: include_field_null_count
+              include_field_sample_values:
+                title: include_field_sample_values
+              include_field_stddev_value:
+                title: include_field_stddev_value
+              max_workers:
+                title: Максимум рабочих процессов
+              profile_table_level_only:
+                title: Профилировать только на уровне таблиц
+              profile_table_row_limit:
+                title: Предел количества строк таблицы
+              profile_table_size_limit:
+                title: Предел размера таблицы (ГБ)
+              sample_size:
+                title: Размер выборки
+              use_sampling:
+                title: Использовать выборку
+          postgresql_source_create:
+            PostgreSQLSourceCreate:
+              connection_types:
+                title: Тип инсталляции
+              ConnectionType:
+                managed:
+                  title: Кластер Managed Service for PostgreSQL
+                ManagedConnection:
+                  cluster_id:
+                    title: Кластер управляемой БД
+                  connection_id:
+                    title: ID подключения
+              database_name:
+                title: Имя базы данных
+              folder_id:
+                title: ID папки
+              ingest_all:
+                title: Выгружать из всех баз данных
+              title: Источник PostgreSQL
     datalens:
       component:
         access-rights:
@@ -10250,7 +10334,6 @@ default:
             title_redirect: Переадресация
         buckets:
           button_create: Создать бакет
-          button_empty-create: Создать бакет
           button_open-multipart-uploads: Показать список
           button_permissions: Настроить ACL
           create:
@@ -11624,7 +11707,7 @@ default:
         template_connector_batch_options_batch_size_title: Размер группы
         template_connector_batch_options_polling_timeout_title: Таймаут опроса, мс
         template_connector_batch_options_title: Настройки группирования сообщений
-        template_connector_batch_options_visibility_timeout_title: Таймаут видимости, ч
+        template_connector_batch_options_visibility_timeout_title: Таймаут видимости, с
         template_connector_timer_base_options_title: Настройки таймера
         template_connector_timer_cron_expression_title: Cron-выражение
         template_connector_timer_payload_title: Данные

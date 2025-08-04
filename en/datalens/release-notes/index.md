@@ -37,6 +37,13 @@ Updated the notification component that opens when you click ![image](../../_ass
 
 Fixed the problem of replacing tables in a connection to [Yandex Documents](../operations/connection/create-yadocs.md), where only the last element could be replaced correctly.
 
+### Undoing and redoing changes to datasets {#undo-redo}
+
+When editing a [dataset](../dataset/index.md), you can now undo/redo your changes before you click **Save**:
+
+* To undo changes, click ![image](../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top-right corner of the screen or press **Ctrl** (**Cmd**) + **Z**.
+* To redo changes, click ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) or press **Ctrl** (**Cmd**) + **Shift** + **Z**.
+
 
 ### Fixes in dashboards {#dashboard-fixes}
 

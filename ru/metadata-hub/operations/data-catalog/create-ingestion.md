@@ -21,13 +21,13 @@
       * В поле **{{ ui-key.yacloud.common.name }}** задайте уникальное имя загрузки.
       * (Опционально) Добавьте описание загрузки.
       * Выберите или создайте источник данных.
-      * В блоке **Конфигурация загрузки**:
+      * В блоке **{{ ui-key.data-catalog.console.form.ingestion.PostgresConfigForm.title }}**:
 
          * Выберите расписание запуска загрузки:
 
             {% include [schedule](../../../_includes/metadata-hub/schedule-ingestion.md) %}
 
-         * (Опционально) В блоке **Фильтры данных** с помощью регулярных выражений укажите, какие базы данных и объекты баз данных необходимо включить или исключить из загрузки.
+         * (Опционально) В блоке **{{ ui-key.data-catalog.console.form.ingestion.PostgresConfigForm.data_filters.title }}** с помощью регулярных выражений укажите, какие базы данных и объекты баз данных необходимо включить или исключить из загрузки.
 
          {% include [metadata-profiling](../../../_includes/metadata-hub/metadata-profiling.md) %}
 

@@ -20,18 +20,18 @@ description: Следуя данной инструкции, вы сможете
     - Ubuntu 22.04 {#ubuntu2204}
 
         ```bash
-        curl {{ s3-storage-host }}/greenplum-jammy-packages/install.sh | sudo bash
+        curl storage.yandexcloud.net/greenplum-jammy-packages/install.sh | sudo bash
         ```
 
-        Если вы хотите ознакомится со списком скачиваемых deb-пакетов, скачайте [файл скрипта](http://{{ s3-storage-host }}/greenplum-jammy-packages/install.sh).
+        Если вы хотите ознакомится со списком скачиваемых deb-пакетов, скачайте [файл скрипта](http://storage.yandexcloud.net/greenplum-jammy-packages/install.sh).
 
     - Ubuntu 20.04 {#ubuntu2004}
 
         ```bash
-        curl {{ s3-storage-host }}/greenplum-focal-packages/install.sh | sudo bash
+        curl storage.yandexcloud.net/greenplum-focal-packages/install.sh | sudo bash
         ```
 
-        Если вы хотите ознакомится со списком скачиваемых deb-пакетов, скачайте [файл скрипта](http://{{ s3-storage-host }}/greenplum-focal-packages/install.sh).
+        Если вы хотите ознакомится со списком скачиваемых deb-пакетов, скачайте [файл скрипта](http://storage.yandexcloud.net/greenplum-focal-packages/install.sh).
 
     {% endlist %}
 
