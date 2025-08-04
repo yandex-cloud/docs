@@ -1,5 +1,7 @@
 ---
 editable: false
+apiPlayground:
+  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/backups","method":"get","path":null,"query":{"type":"object","properties":{"folderId":{"description":"**string**\n\nRequired field. ID of the folder to list backups in.","type":"string"},"pageSize":{"description":"**string** (int64)\n\nThe maximum number of results per page that should be returned.\n\nIf the number of available results is larger than `pageSize`, the service returns\na [ListBackupsResponse.nextPageToken](/docs/managed-opensearch/api-ref/Backup/list#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) that can be used to get the next page of results\nin subsequent list requests.\n\nDefault value is 100.","type":"string","format":"int64"},"pageToken":{"description":"**string**\n\nThe page token. To get the next page of results, set `pageToken` to the [ListBackupsResponse.nextPageToken](/docs/managed-opensearch/api-ref/Backup/list#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse)\nreturned by the previous list request.","type":"string"}},"required":["folderId"],"additionalProperties":false},"body":null,"definitions":null}'
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Backup/list.md
 ---
 
@@ -53,7 +55,10 @@ returned by the previous list request. ||
       ],
       "opensearchVersion": "string",
       "sizeBytes": "string",
-      "indicesTotal": "string"
+      "indicesTotal": "string",
+      "incrementalSizeBytes": "string",
+      "totalSizeBytes": "string",
+      "freeSpaceRequiredBytes": "string"
     }
   ],
   "nextPageToken": "string"
@@ -120,4 +125,13 @@ Size of the backup in bytes. ||
 || indicesTotal | **string** (int64)
 
 The number of indices in the backup. ||
+|| incrementalSizeBytes | **string** (int64)
+
+Size of files which were copied as part of the incremental snapshot. ||
+|| totalSizeBytes | **string** (int64)
+
+Size of files that are referenced by the snapshot. ||
+|| freeSpaceRequiredBytes | **string** (int64)
+
+The space amount required to restore from this backup. ||
 |#

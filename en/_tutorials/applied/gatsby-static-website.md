@@ -61,7 +61,7 @@ To host a static website in the cloud, [create](../../storage/operations/buckets
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+  1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, specify the domain name you registered, e.g., `gatsbytest.ru`.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** field, specify `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Select the **Public** [access](../../storage/concepts/bucket.md#bucket-access) type for all operations.

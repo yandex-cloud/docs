@@ -1,5 +1,7 @@
 ---
 editable: false
+apiPlayground:
+  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/hosts","method":"get","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. ID of the OpenSearch cluster.\nTo get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.","type":"string"}},"required":["clusterId"],"additionalProperties":false},"query":{"type":"object","properties":{"pageSize":{"description":"**string** (int64)\n\nThe maximum number of results per page to return.\n\nIf the number of available results is larger than `pageSize`, the service returns\na [ListClusterHostsResponse.nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listHosts#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests.","type":"string","format":"int64"},"pageToken":{"description":"**string**\n\nPage token. To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listHosts#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse)\nreturned by the previous list request.","type":"string"}},"additionalProperties":false},"body":null,"definitions":null}'
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/listHosts.md
 ---
 

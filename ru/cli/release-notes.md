@@ -7,6 +7,39 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.157.0 (04.08.25) {#version0.157.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ cloud-desktop-name }}
+В команду `desktops group update` добавлен флаг `--update-policy` (значение по умолчанию — `manual`).
+
+##### {{ org-name }}
+Добавлены команды для управления доменами SAML-федераций:
+* `yc organization-manager federation saml get-domain`;
+* `yc organization-manager federation saml list-domains`;
+* `yc organization-manager federation saml add-domain`;
+* `yc organization-manager federation saml validate-domain`;
+* `yc organization-manager federation saml delete-domain`.
+
+##### {{ compute-name }}
+* Добавлена сортировка списка подкоманд в `yc compute`.
+* Добавлены команды `yc compute maintenance`:
+  * `yc compute maintenance get`;
+  * `yc compute maintenance list`;
+  * `yc compute maintenance reschedule`.
+
+##### {{ objstorage-name }}
+Удалены параметры `--sse-c`, `--sse-c-key`, `--sse-c-copy-source` и `--sse-c-copy-source-keys` команды `yc storage cp`.
+
+##### {{ er-name }}
+Для команды `serverless eventrouter connector create message-queue` значения по умолчанию следующих параметров приведены в соответствие с аналогичным методом API:
+* `--visibility-timeout`;
+* `--polling-timeout`;
+* `--batch-size`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.156.0 (28.07.25) {#version0.156.0}
 
 ####  Изменения в сервисах {{ yandex-cloud }}
@@ -16,8 +49,6 @@ description: На странице представлены релизы CLI, а
 * В команды `yc managed-kubernetes cluster create` и `yc managed-kubernetes cluster update` добавлен параметр `--master-scale-policy`, который позволяет управлять вычислительными ресурсами мастеров кластера.
 * В вывод команды `yc managed-kubernetes cluster get` добавлено поле `scale_policy` для получения конфигурации вычислительных ресурсов мастеров кластера.
 * Добавлены команды `yc managed-kubernetes resource-preset get` и `yc managed-kubernetes resource-preset list` для получения возможных конфигураций вычислительных ресурсов для мастеров кластера.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.155.0 (23.07.25) {#version0.155.0}
 

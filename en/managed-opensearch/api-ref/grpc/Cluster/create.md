@@ -130,7 +130,8 @@ Creates an OpenSearch cluster in the specified folder.
       "hour": "int64"
     }
     // end of the list of possible fields
-  }
+  },
+  "disk_encryption_key_id": "google.protobuf.StringValue"
 }
 ```
 
@@ -176,6 +177,9 @@ Determines whether the cluster is protected from being deleted. ||
 || maintenance_window | **[MaintenanceWindow](#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow)**
 
 Cluster maintenance window. Should be defined by either one of the two options. ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## ConfigCreateSpec {#yandex.cloud.mdb.opensearch.v1.ConfigCreateSpec}
@@ -518,7 +522,23 @@ Hour of the day in the UTC timezone. ||
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "cluster_id": "string"
+    "cluster_id": "string",
+    "operation_log": {
+      "entities": [
+        {
+          "cluster_id": "string",
+          "action": "string",
+          "started_at": "google.protobuf.Timestamp",
+          "hosts": [
+            {
+              "fqdn": "string",
+              "action": "string",
+              "started_at": "google.protobuf.Timestamp"
+            }
+          ]
+        }
+      ]
+    }
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -663,7 +683,8 @@ Hour of the day in the UTC timezone. ||
       "delayed_until": "google.protobuf.Timestamp",
       "latest_maintenance_time": "google.protobuf.Timestamp",
       "next_maintenance_window_time": "google.protobuf.Timestamp"
-    }
+    },
+    "disk_encryption_key_id": "google.protobuf.StringValue"
   }
   // end of the list of possible fields
 }
@@ -731,6 +752,35 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 || cluster_id | **string**
 
 ID of the OpenSearch cluster that is being created. ||
+|| operation_log | **[OperationLog](#yandex.cloud.mdb.operationlog.v1.OperationLog)**
+
+Log of actions during operation ||
+|#
+
+## OperationLog {#yandex.cloud.mdb.operationlog.v1.OperationLog}
+
+#|
+||Field | Description ||
+|| entities[] | **[ClusterEntity](#yandex.cloud.mdb.operationlog.v1.ClusterEntity)** ||
+|#
+
+## ClusterEntity {#yandex.cloud.mdb.operationlog.v1.ClusterEntity}
+
+#|
+||Field | Description ||
+|| cluster_id | **string** ||
+|| action | **string** ||
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| hosts[] | **[HostEntity](#yandex.cloud.mdb.operationlog.v1.HostEntity)** ||
+|#
+
+## HostEntity {#yandex.cloud.mdb.operationlog.v1.HostEntity}
+
+#|
+||Field | Description ||
+|| fqdn | **string** ||
+|| action | **string** ||
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#
 
 ## Cluster {#yandex.cloud.mdb.opensearch.v1.Cluster}
@@ -813,6 +863,9 @@ Cluster maintenance window. Should be defined by either one of the two options. 
 || planned_operation | **[MaintenanceOperation](#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation)**
 
 Maintenance operation planned at nearest `maintenance_window`. ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.opensearch.v1.Monitoring}

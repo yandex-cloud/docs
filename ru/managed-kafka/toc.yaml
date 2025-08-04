@@ -53,9 +53,6 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Развертывание веб-интерфейса {{ KF }}
-        href: tutorials/deploy-kafka-ui.md
-        hidden: true
       - name: Перемещение данных из {{ KF }}
         items:
           - name: Настройка {{ KFC }} для работы с {{ mkf-name }}

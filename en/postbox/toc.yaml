@@ -41,13 +41,13 @@ items:
         href: tutorials/index.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them using {{ datalens-full-name }}
+          analyzing them with {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
       - name: >-
           Creating a {{ postbox-full-name }} address and verifying domain
           ownership with {{ TF }}
         href: tutorials/domain-identity-creating.md
-      - name: Sending emails using the AWS SDK
+      - name: Sending emails using AWS SDK
         items:
           - name: .NET Core
             href: tutorials/send-emails-aws-sdk-csharp.md
@@ -55,6 +55,8 @@ items:
             href: tutorials/send-emails-aws-sdk-go.md
           - name: JavaScript
             href: tutorials/send-emails-aws-sdk-js.md
+          - name: Python
+            href: tutorials/send-emails-aws-sdk-python.md
   - name: Tools
     items:
       - name: AWS CLI

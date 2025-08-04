@@ -129,7 +129,7 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
    1. Go to `data-folder`.
    1. In the list of services, select **{{ objstorage-name }}**.
-   1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
    1. On the bucket creation page:
       1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
       

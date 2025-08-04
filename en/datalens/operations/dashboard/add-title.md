@@ -21,7 +21,8 @@ To add a [title](../../dashboard/widget.md#title) to a dashboard:
 
    * Enter title text.
    * Select the text size from the preset options: `XS`, `S`, `M`, `L`, or `XL`.
-   * (Optional) Set a background.
+   * Optionally, set a background.
+   * Optionally, enable **Tooltip** and enter the tooltip text. The input field supports [Markdown](../../dashboard/markdown.md).
 
 1. Click **Add**. The widget will be displayed on the dashboard. A hash for the title is created automatically, you can see the `#` icon when hovering over the title.
 

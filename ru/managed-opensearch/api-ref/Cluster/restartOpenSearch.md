@@ -1,5 +1,7 @@
 ---
 editable: false
+apiPlayground:
+  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/host/{host}","method":"post","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. Required. ID of the OpenSearch cluster.","type":"string"},"host":{"description":"**string**\n\nRequired field. Required. Host to restart OpenSearch service on.","type":"string"}},"required":["clusterId","host"],"additionalProperties":false},"query":null,"body":null,"definitions":null}'
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/restartOpenSearch.md
 ---
 

@@ -15,7 +15,7 @@ keywords:
 
 {% note alert %}
 
-Starting August 1, 2025, {{ objstorage-name }} will discontinue support for the TLS protocol versions 1.0 and 1.1.
+As of August 1, 2025, {{ objstorage-name }} no longer supports the TLS protocol versions 1.0 and 1.1.
 
 {% endnote %}
 

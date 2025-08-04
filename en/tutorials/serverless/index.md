@@ -1,4 +1,4 @@
-# Tutorials on the use of serverless technologies in {{ yandex-cloud }}
+# Tutorials for working with serverless technology in {{ yandex-cloud }}
 
 * [URL shortener](serverless-url-shortener.md)
 * [Entering data into storage systems](data-ingestion.md)
@@ -37,3 +37,4 @@
 * [{#T}](send-emails-aws-sdk-csharp.md)
 * [{#T}](send-emails-aws-sdk-go.md)
 * [{#T}](send-emails-aws-sdk-js.md)
+* [{#T}](send-emails-aws-sdk-python.md)

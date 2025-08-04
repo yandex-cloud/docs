@@ -6137,6 +6137,90 @@ default:
             1|string: $0.438840
         requests|string: Free
   ui-key:
+    data-catalog:
+      console:
+        form:
+          cron:
+            Cron:
+              day:
+                title: Daily
+              month:
+                title: Monthly
+              none:
+                title: Manually
+              week:
+                title: Weekly
+            HoursInterval:
+              end:
+                title: End time
+              start:
+                title: Start time
+          ingestion:
+            MetadataProcessSection:
+              use_file_backed_cache:
+                title: Use File Cache
+            PostgresConfigForm:
+              cron:
+                title: Sched
+              data_filters:
+                title: Data Filters
+              metadata_process:
+                title: Metadata Processing
+              metadata_types:
+                title: Metadata Types
+              profiling:
+                title: Data Profiling
+              title: PostgreSQL Ingestion Configuration
+            ProfilingConfigForm:
+              enabled:
+                title: Enable Profiling
+              include_field_distinct_count:
+                title: include_field_distinct_count
+              include_field_max_value:
+                title: include_field_max_value
+              include_field_mean_value:
+                title: include_field_mean_value
+              include_field_median_value:
+                title: include_field_median_value
+              include_field_min_value:
+                title: include_field_min_value
+              include_field_null_count:
+                title: include_field_null_count
+              include_field_sample_values:
+                title: include_field_sample_values
+              include_field_stddev_value:
+                title: include_field_stddev_value
+              max_workers:
+                title: Max Workers
+              profile_table_level_only:
+                title: Profile Table Level Only
+              profile_table_row_limit:
+                title: Table Row Count Limit
+              profile_table_size_limit:
+                title: Table Size Limit (GB)
+              sample_size:
+                title: Sample Size
+              use_sampling:
+                title: Use Sampling
+          postgresql_source_create:
+            PostgreSQLSourceCreate:
+              connection_types:
+                title: Installation type
+              ConnectionType:
+                managed:
+                  title: Cluster Managed Service for PostgreSQL
+                ManagedConnection:
+                  cluster_id:
+                    title: Cluster for Managed DB
+                  connection_id:
+                    title: Connection ID
+              database_name:
+                title: Database name
+              folder_id:
+                title: Folder ID
+              ingest_all:
+                title: Upload from all databases
+              title: PostgreSQL source
     datalens:
       component:
         access-rights:
@@ -10242,7 +10326,6 @@ default:
             title_redirect: Redirect
         buckets:
           button_create: Create bucket
-          button_empty-create: Create bucket
           button_open-multipart-uploads: Show uploads
           button_permissions: Configure ACL
           create:
@@ -11616,7 +11699,7 @@ default:
         template_connector_batch_options_batch_size_title: Batch size
         template_connector_batch_options_polling_timeout_title: Polling timeout, ms
         template_connector_batch_options_title: Batch message settings
-        template_connector_batch_options_visibility_timeout_title: Visibility timeout, h
+        template_connector_batch_options_visibility_timeout_title: Visibility timeout, s
         template_connector_timer_base_options_title: Timer settings
         template_connector_timer_cron_expression_title: Cron expression
         template_connector_timer_payload_title: Payload

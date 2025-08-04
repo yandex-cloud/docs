@@ -1,5 +1,7 @@
 ---
 editable: false
+apiPlayground:
+  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:backup","method":"post","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. ID of the OpenSearch cluster to back up.\n\nTo get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.","type":"string"}},"required":["clusterId"],"additionalProperties":false},"query":null,"body":null,"definitions":null}'
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/backup.md
 ---
 
@@ -188,7 +190,8 @@ To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Clus
       "delayedUntil": "string",
       "latestMaintenanceTime": "string",
       "nextMaintenanceWindowTime": "string"
-    }
+    },
+    "diskEncryptionKeyId": "string"
   }
   // end of the list of possible fields
 }
@@ -376,6 +379,9 @@ Cluster maintenance window. Should be defined by either one of the two options. 
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation)**
 
 Maintenance operation planned at nearest `maintenanceWindow`. ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.opensearch.v1.Monitoring}

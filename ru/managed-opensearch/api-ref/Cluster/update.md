@@ -1,5 +1,7 @@
 ---
 editable: false
+apiPlayground:
+  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}","method":"patch","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. ID of the OpenSearch cluster resource to update.\nTo get the OpenSearch cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.","type":"string"}},"required":["clusterId"],"additionalProperties":false},"query":null,"body":{"type":"object","properties":{"updateMask":{"description":"**string** (field-mask)\n\nA comma-separated names off ALL fields to be updated.\nOnly the specified fields will be changed. The others will be left untouched.\nIf the field is specified in `` updateMask `` and no value for that field was sent in the request,\nthe field''s value will be reset to the default. The default value for most fields is null or 0.\n\nIf `` updateMask `` is not sent in the request, all fields'' values will be updated.\nFields specified in the request will be updated to provided values.\nThe rest of the fields will be reset to the default.","type":"string","format":"field-mask"},"description":{"description":"**string**\n\nNew description of the OpenSearch cluster.","type":"string"},"labels":{"description":"**object** (map<**string**, **string**>)\n\nCustom labels for the OpenSearch cluster as `key:value` pairs.\nFor example, `\"project\": \"mvp\"` or `\"source\": \"dictionary\"`.\n\nThe new set of labels completely replaces the old one. To add a label, request the current\nset with the [ClusterService.Get](/docs/managed-opensearch/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.","pattern":"[a-z][-_0-9a-z]*","type":"string"},"configSpec":{"description":"**[ConfigUpdateSpec](/docs/managed-opensearch/api-ref/Cluster/update#yandex.cloud.mdb.opensearch.v1.ConfigUpdateSpec)**\n\nNew cluster configuration","$ref":"#/definitions/ConfigUpdateSpec"},"name":{"description":"**string**\n\nNew name for the cluster. The name must be unique within the folder.","pattern":"[a-zA-Z0-9_-]*","type":"string"},"securityGroupIds":{"description":"**string**\n\nUser security groups","type":"array","items":{"type":"string"}},"serviceAccountId":{"description":"**string**\n\nID of the service account used to access Object Storage.","type":"string"},"deletionProtection":{"description":"**boolean**\n\nDetermines whether the cluster is protected from being deleted.","type":"boolean"},"maintenanceWindow":{"description":"**[MaintenanceWindow](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow)**\n\nCluster maintenance window. Should be defined by either one of the two options.","oneOf":[{"type":"object","properties":{"anytime":{"description":"**object**\n\nAn any-time maintenance window.\n\nIncludes only one of the fields `anytime`, `weeklyMaintenanceWindow`.","$ref":"#/definitions/AnytimeMaintenanceWindow"},"weeklyMaintenanceWindow":{"description":"**[WeeklyMaintenanceWindow](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.WeeklyMaintenanceWindow)**\n\nA weekly maintenance window.\n\nIncludes only one of the fields `anytime`, `weeklyMaintenanceWindow`.","$ref":"#/definitions/WeeklyMaintenanceWindow"}}}]},"networkId":{"description":"**string**\n\nID of the network to move the cluster to.","type":"string"}},"additionalProperties":false},"definitions":{"OpenSearchConfig2":{"type":"object","properties":{"maxClauseCount":{"description":"**string** (int64)\n\nthe maximum number of allowed boolean clauses in a query","type":"string","format":"int64"},"fielddataCacheSize":{"description":"**string**\n\nthe percentage or absolute value (10%, 512mb) of heap space that is allocated to fielddata","type":"string"},"reindexRemoteWhitelist":{"description":"**string**","type":"string"}}},"DashboardsClusterUpdateSpec":{"type":"object","properties":{}},"Access":{"type":"object","properties":{"dataTransfer":{"description":"**boolean**\n\nDetermines whether the access to Data Transfer is allowed.","type":"boolean"},"serverless":{"description":"**boolean**\n\nDetermines whether the access to Serverless is allowed.","type":"boolean"}}},"HourlySnapshotSchedule":{"type":"object","properties":{"minute":{"description":"**string** (int64)\n\nThe minute of the hour at which the backup should be created.","type":"string","format":"int64"}}},"DailySnapshotSchedule":{"type":"object","properties":{"hour":{"description":"**string** (int64)\n\nThe hour of the day in UTC timezone at which the backup should be created.","type":"string","format":"int64"},"minute":{"description":"**string** (int64)\n\nThe minute of the hour at which the backup should be created.","type":"string","format":"int64"}}},"WeeklySnapshotSchedule":{"type":"object","properties":{"day":{"description":"**enum** (WeekDay)\n\nDay of the week\n\n- `WEEK_DAY_UNSPECIFIED`\n- `MON`\n- `TUE`\n- `WED`\n- `THU`\n- `FRI`\n- `SAT`\n- `SUN`","type":"string","enum":["WEEK_DAY_UNSPECIFIED","MON","TUE","WED","THU","FRI","SAT","SUN"]},"hour":{"description":"**string** (int64)\n\nThe hour of the day in UTC timezone at which the backup should be created.","type":"string","format":"int64"},"minute":{"description":"**string** (int64)\n\nThe minute of the hour at which the backup should be created.","type":"string","format":"int64"}}},"SnapshotManagement":{"type":"object","properties":{"snapshotSchedule":{"description":"**[SnapshotSchedule](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.SnapshotSchedule)**\n\nSnapshot creation schedule","oneOf":[{"type":"object","properties":{"hourlySnapshotSchedule":{"description":"**[HourlySnapshotSchedule](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.HourlySnapshotSchedule)**\n\nHourly based snapshot schedule\n\nIncludes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.","$ref":"#/definitions/HourlySnapshotSchedule"},"dailySnapshotSchedule":{"description":"**[DailySnapshotSchedule](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.DailySnapshotSchedule)**\n\nDaily based snapshot schedule\n\nIncludes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.","$ref":"#/definitions/DailySnapshotSchedule"},"weeklySnapshotSchedule":{"description":"**[WeeklySnapshotSchedule](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.WeeklySnapshotSchedule)**\n\nWeekly based snapshot schedule\n\nIncludes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`.","$ref":"#/definitions/WeeklySnapshotSchedule"}}}]},"snapshotMaxAgeDays":{"description":"**string** (int64)\n\nSnapshot max age in days","type":"string","format":"int64"}}},"ConfigUpdateSpec":{"type":"object","properties":{"version":{"description":"**string**\n\nOpenSearch version.","type":"string"},"adminPassword":{"description":"**string**\n\nRequired field. OpenSearch admin password.","type":"string"},"opensearchSpec":{"description":"**[OpenSearchClusterUpdateSpec](/docs/managed-opensearch/api-ref/Cluster/update#yandex.cloud.mdb.opensearch.v1.OpenSearchClusterUpdateSpec)**\n\nOpenSearch configuration.","oneOf":[{"type":"object","properties":{"opensearchConfig_2":{"description":"**`OpenSearchConfig2`**\n\nIncludes only one of the fields `opensearchConfig_2`.","$ref":"#/definitions/OpenSearchConfig2"}}}]},"dashboardsSpec":{"description":"**object**\n\nDashboards configuration.","$ref":"#/definitions/DashboardsClusterUpdateSpec"},"access":{"description":"**[Access](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.Access)**\n\nAccess policy for external services.","$ref":"#/definitions/Access"},"snapshotManagement":{"description":"**[SnapshotManagement](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**\n\nSnapshot management configuration","$ref":"#/definitions/SnapshotManagement"}},"required":["adminPassword"]},"AnytimeMaintenanceWindow":{"type":"object","properties":{}},"WeeklyMaintenanceWindow":{"type":"object","properties":{"day":{"description":"**enum** (WeekDay)\n\nDay of the week.\n\n- `WEEK_DAY_UNSPECIFIED`\n- `MON`\n- `TUE`\n- `WED`\n- `THU`\n- `FRI`\n- `SAT`\n- `SUN`","type":"string","enum":["WEEK_DAY_UNSPECIFIED","MON","TUE","WED","THU","FRI","SAT","SUN"]},"hour":{"description":"**string** (int64)\n\nHour of the day in the UTC timezone.","type":"string","format":"int64"}}}}}'
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/update.md
 ---
 
@@ -368,7 +370,23 @@ Hour of the day in the UTC timezone. ||
   "modifiedAt": "string",
   "done": "boolean",
   "metadata": {
-    "clusterId": "string"
+    "clusterId": "string",
+    "operationLog": {
+      "entities": [
+        {
+          "clusterId": "string",
+          "action": "string",
+          "startedAt": "string",
+          "hosts": [
+            {
+              "fqdn": "string",
+              "action": "string",
+              "startedAt": "string"
+            }
+          ]
+        }
+      ]
+    }
   },
   // Includes only one of the fields `error`, `response`
   "error": {
@@ -519,7 +537,8 @@ Hour of the day in the UTC timezone. ||
       "delayedUntil": "string",
       "latestMaintenanceTime": "string",
       "nextMaintenanceWindowTime": "string"
-    }
+    },
+    "diskEncryptionKeyId": "string"
   }
   // end of the list of possible fields
 }
@@ -601,6 +620,49 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 || clusterId | **string**
 
 ID of the OpenSearch cluster resource that is being updated. ||
+|| operationLog | **[OperationLog](#yandex.cloud.mdb.operationlog.v1.OperationLog)**
+
+Log of actions during operation ||
+|#
+
+## OperationLog {#yandex.cloud.mdb.operationlog.v1.OperationLog}
+
+#|
+||Field | Description ||
+|| entities[] | **[ClusterEntity](#yandex.cloud.mdb.operationlog.v1.ClusterEntity)** ||
+|#
+
+## ClusterEntity {#yandex.cloud.mdb.operationlog.v1.ClusterEntity}
+
+#|
+||Field | Description ||
+|| clusterId | **string** ||
+|| action | **string** ||
+|| startedAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| hosts[] | **[HostEntity](#yandex.cloud.mdb.operationlog.v1.HostEntity)** ||
+|#
+
+## HostEntity {#yandex.cloud.mdb.operationlog.v1.HostEntity}
+
+#|
+||Field | Description ||
+|| fqdn | **string** ||
+|| action | **string** ||
+|| startedAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -707,6 +769,9 @@ Cluster maintenance window. Should be defined by either one of the two options. 
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation)**
 
 Maintenance operation planned at nearest `maintenanceWindow`. ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.opensearch.v1.Monitoring}

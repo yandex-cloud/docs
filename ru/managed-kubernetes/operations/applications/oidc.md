@@ -1,7 +1,7 @@
 # Установка OIDC Аутентификация
 
 
-[OIDC Аутентификация](/marketplace/products/yc/oidc) — приложение для аутентификации пользователей в кластере {{ managed-k8s-name }} с помощью сторонних провайдеров аутентификации, поддерживающих протоколы идентификации [OIDC](https://openid.net/specs/openid-connect-core-1_0.html), [Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/active-directory-domain-services), [LDAP](https://ru.wikipedia.org/wiki/LDAP) или [GitHub](https://github.com/). Приложение использует протокол [OAuth 2.0](https://oauth.net/2/) для выпуска токена доступа пользователя по идентификатору и секретному ключу, предоставленному провайдером.
+[OIDC Аутентификация]({{ link-cloud-marketplace }}/products/yc/oidc-authenticator) — приложение для аутентификации пользователей в кластере {{ managed-k8s-name }} с помощью сторонних провайдеров аутентификации, поддерживающих протоколы идентификации [OIDC](https://openid.net/specs/openid-connect-core-1_0.html), [Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/active-directory-domain-services), [LDAP](https://ru.wikipedia.org/wiki/LDAP) или [GitHub](https://github.com/). Приложение использует протокол [OAuth 2.0](https://oauth.net/2/) для выпуска токена доступа пользователя по идентификатору и секретному ключу, предоставленному провайдером.
 
 Приложение состоит из двух компонентов:
 
@@ -34,7 +34,7 @@
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [OIDC Аутентификация](/marketplace/products/yc/oidc) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [OIDC Аутентификация]({{ link-cloud-marketplace }}/products/yc/oidc-authenticator) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
     * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) `pinniped-concierge`. Приложение использует его по умолчанию. Если вы оставите пространство имен `default`, OIDC Аутентификация может работать некорректно.
     * **Название приложения** — укажите название приложения.

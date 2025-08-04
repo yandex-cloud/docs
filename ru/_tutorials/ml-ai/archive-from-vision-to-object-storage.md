@@ -36,7 +36,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.

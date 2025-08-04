@@ -8,7 +8,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
   1. Select **{{ objstorage-name }}**.
-  1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+  1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
 
       1. Enter a name for the bucket consistent with the [naming requirements](../../storage/concepts/bucket.md#naming).
