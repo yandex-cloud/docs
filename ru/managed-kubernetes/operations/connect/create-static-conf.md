@@ -196,7 +196,7 @@
   * Записывает содержимое токена в переменную `SA_TOKEN`.
 
   ```bash
-  SA_TOKEN=$(kubectl -n kube-system get secret $(kubectl -n kube-system get secret | \
+  export SA_TOKEN=$(kubectl -n kube-system get secret $(kubectl -n kube-system get secret | \
     grep admin-user-token | \
     awk '{print $1}') -o json | \
     jq -r .data.token | \
