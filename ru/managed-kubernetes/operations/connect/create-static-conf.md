@@ -196,7 +196,7 @@
   * Записывает содержимое токена в переменную `SA_TOKEN`.
 
   ```bash
-  SA_TOKEN=$(kubectl -n kube-system get secret $(kubectl -n kube-system get secret | \
+  export SA_TOKEN=$(kubectl -n kube-system get secret $(kubectl -n kube-system get secret | \
     grep admin-user-token | \
     awk '{print $1}') -o json | \
     jq -r .data.token | \
@@ -239,7 +239,7 @@
   Для подключения к API кластера {{ managed-k8s-name }} из интернета (вне {{ yandex-cloud }}).
 
   ```bash
-  MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
+  export MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
     --format json | \
     jq -r .master.endpoints.external_v4_endpoint)
   ```
@@ -247,7 +247,7 @@
   Для подключения к API кластера {{ managed-k8s-name }} для подключения к [мастеру](../../concepts/index.md#master) из [облачных сетей](../../../vpc/concepts/network.md#network).
 
   ```bash
-  MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
+  export MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
     --format json | \
     jq -r .master.endpoints.internal_v4_endpoint)
   ```
