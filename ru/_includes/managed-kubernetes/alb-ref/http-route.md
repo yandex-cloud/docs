@@ -104,19 +104,19 @@ spec: <HTTPRouteSpec>
 
     * `gateway.alb.yc.io/rules.sessionAffinity.header.name`
 
-      Имя HTTP-заголовка для session affinity.
+      Имя HTTP-заголовка для [привязки сессий](../../../application-load-balancer/concepts/backend-group.md#session-affinity) (session affinity).
 
-    * `gateway.alb.yc.io/rules.sessionAffinity.cookie.name` 
+    * `gateway.alb.yc.io/rules.sessionAffinity.cookie.name`
 
-      Имя cookie для session affinity.
+      Имя cookie для привязки сессий.
 
     * `gateway.alb.yc.io/rules.sessionAffinity.cookie.ttl`
 
-      Время жизни cookie для session affinity.
+      Время жизни cookie для привязки сессий.
 
     * `gateway.alb.yc.io/rules.sessionAffinity.sourceIP`
 
-      Признак использования IP-адреса клиента для session affinity.
+      Признак использования IP-адреса клиента для привязки сессий.
 
     * `gateway.alb.yc.io/rules.backends.balancing.mode`
 

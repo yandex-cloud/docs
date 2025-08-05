@@ -103,6 +103,9 @@ annotations:
   ingress.alb.yc.io/balancing-locality-aware-routing: <string>
   ingress.alb.yc.io/autoscale-max-size: <string>
   ingress.alb.yc.io/autoscale-min-zone-size: <string>
+  ingress.alb.yc.io/session-affinity-header: <string>
+  ingress.alb.yc.io/session-affinity-cookie: <string>
+  ingress.alb.yc.io/session-affinity-connection: <string>
 ```
 
 #|
@@ -116,7 +119,7 @@ annotations:
 
 ### Аннотации (metadata.annotations) {#annotations}
 
-Аннотации — это коллекция пар `ключ:значение`, которые используются для присвоения метаданных объекту. Значения аннотаций всегда имеют тип данных `string`. 
+Аннотации — это коллекция пар `ключ:значение`, которые используются для присвоения метаданных объекту. Значения аннотаций всегда имеют тип данных `string`.
 
 Значением аннотации могут быть несколько пар `<ключ>=<значение>`, перечисленные через запятую:
 
@@ -418,9 +421,44 @@ annotations:
 
 * **ingress.alb.yc.io/autoscale-min-zone-size** {#annot-autoscale-min-zone-size}
 
-  Задает минимальное количество ресурсных единиц в каждой зоне доступности. Минимальное значение и значение по умолчанию — `2`. 
+  Задает минимальное количество ресурсных единиц в каждой зоне доступности. Минимальное значение и значение по умолчанию — `2`.
   
   [Подробнее о настройках автомасштабирования](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
+
+* **ingress.alb.yc.io/session-affinity-header** {#annot-session-affinity-header}
+
+  HTTP-заголовок для [привязки сессий](../../../application-load-balancer/concepts/backend-group.md#session-affinity).
+
+  * `name` — имя HTTP-заголовка.
+
+* **ingress.alb.yc.io/session-affinity-cookie** {#annot-session-affinity-cookie}
+
+  Параметры cookie для привязки сессий.
+
+  * `name` — имя cookie.
+
+  * `ttl` — время жизни cookie. Значение следует указывать с единицами измерения, например: `300ms`, `1.5h`. Допустимые единицы измерения:
+    * `ns` — наносекунды.
+    * `us` — микросекунды.
+    * `ms` — миллисекунды.
+    * `s` — секунды.
+    * `m` — минуты.
+    * `h` — часы.
+
+  Параметры перечисляются через запятую. Пример:
+
+  ```
+  ...
+  annotations:
+    ingress.alb.yc.io/session-affinity-cookie: name=X-Example,ttl=30m
+    ...
+  ```
+
+* **ingress.alb.yc.io/session-affinity-connection** {#annot-session-affinity-connection}
+
+  Признак использования IP-адреса клиента для привязки сессий.
+
+  * `source-ip` — значение `true` или `false`.
 
 ## IngressSpec {#spec}
 

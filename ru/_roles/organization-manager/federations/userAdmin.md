@@ -1,3 +1,12 @@
-Роль `organization-manager.federations.userAdmin` позволяет добавлять [федеративных пользователей](../../../organization/concepts/add-federation.md#saml-authentication) в организацию и удалять их, отзывать [refresh-токены](../../../iam/concepts/authorization/refresh-token.md) федеративных пользователей, просматривать список [пользователей](../../../organization/concepts/membership.md) организации и [группы пользователей](../../../organization/concepts/groups.md), в которые они входят, а также [атрибуты](../../../organization/operations/setup-federation.md#claims-mapping) федеративных пользователей.
+Роль `organization-manager.federations.userAdmin` позволяет добавлять федеративных пользователей в организацию и удалять их, отзывать refresh-токены, управлять факторами MFA пользовательских аккаунтов, а также просматривать список пользователей организации и данные их профилей.
+
+Пользователи с этой ролью могут:
+* добавлять и удалять [федеративных пользователей](../../../iam/concepts/users/accounts.md#saml-federation);
+* отзывать [refresh-токены](../../../iam/concepts/authorization/refresh-token.md) федеративных пользователей;
+* удалять [факторы MFA](../../../organization/concepts/mfa.md#mfa-factors) федеративных и [локальных](../../../iam/concepts/users/accounts.md#local) аккаунтов пользователей;
+* сбрасывать дату верификации федеративных и локальных аккаунтов пользователей;
+* просматривать список [пользователей](../../../overview/roles-and-resources.md#users) организации, сведения в профилях пользователей (включая номер телефона), дату их последней аутентификации, а также дату последней верификации федеративных и локальных аккаунтов с помощью [двухфакторной аутентификации](../../../organization/concepts/mfa.md);
+* просматривать список [групп](../../../organization/concepts/groups.md), в которые входят пользователи;
+* просматривать [атрибуты](../../../organization/operations/setup-federation.md#claims-mapping) федеративных и локальных пользователей.
 
 Включает разрешения, предоставляемые ролью `iam.userAccounts.refreshTokenRevoker`.

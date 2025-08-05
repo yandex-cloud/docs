@@ -74,6 +74,15 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./applications/oidc-update.md)
 * [{#T}](./applications/oidc-deactivate-remove.md)
 
+## Управление политиками MFA {#manage-mfa-policies}
+
+* [{#T}](./mfa/create-policy.md)
+* [{#T}](./mfa/add-users.md)
+* [{#T}](./mfa/update-policy.md)
+* [{#T}](./mfa/deactivate-reactivate-policy.md)
+* [{#T}](./mfa/delete-policy.md)
+* [{#T}](./mfa/manage-verification.md)
+
 ## Авторизация и аутентификация {#auths}
 
 * [{#T}](./add-ssh.md)

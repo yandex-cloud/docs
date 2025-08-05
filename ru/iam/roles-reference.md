@@ -582,9 +582,17 @@ description: В статье приведен полный справочник 
 
 {% include [organizationmanager-oslogins-admin](../_roles/organization-manager/osLogins/admin.md) %}
 
+#### organization-manager.groups.editor {#organization-manager-groups-editor}
+
+{% include [organization-manager-groups-editor](../_roles/organization-manager/groups/editor.md) %}
+
 #### organization-manager.groups.memberAdmin {#organization-manager-groups-memberAdmin}
 
 {% include [organizationmanager-groups-memberAdmin](../_roles/organization-manager/groups/memberAdmin.md) %}
+
+#### organization-manager.groups.admin {#organization-manager-groups-admin}
+
+{% include [organization-manager-groups-admin](../_roles/organization-manager/groups/admin.md) %}
 
 #### organization-manager.users.viewer {#organization-manager-users-viewer}
 

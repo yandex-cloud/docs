@@ -37,10 +37,9 @@
 * [Из {{ KF }} в {{ CH }}](send-data-to-mch.md)
 * [Из {{ KF }} в ksqlDB](use-ksqldb-with-mkf.md)
 
-
 ## Другое {#other}
 
+* [{#T}](zk-kraft-kafka-migration.md)
 * [{#T}](data-processing.md)
-
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

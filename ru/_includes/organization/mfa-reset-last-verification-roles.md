@@ -1,0 +1,1 @@
+Сбросить дату верификации пользовательского аккаунта может пользователь, которому назначена [роль](../../organization/security/index.md) `organization-manager.federations.userAdmin` или выше (для федеративного аккаунта) или `organization-manager.userpools.userAdmin` или выше (для локального аккаунта).

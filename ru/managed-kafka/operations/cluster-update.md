@@ -942,7 +942,7 @@ description: Следуя данной инструкции, вы сможете
             --header "Content-Type: application/json" \
             -url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>' \
             --data '{
-                      "updateMask": "configSpec.restApiConfig.emabled,configSpec.schemaRegistry,maintenanceWindow,deletionProtection",
+                      "updateMask": "configSpec.restApiConfig.enabled,configSpec.schemaRegistry,maintenanceWindow,deletionProtection",
                       "configSpec": {
                         "schemaRegistry": true,
                         "restApiConfig": {

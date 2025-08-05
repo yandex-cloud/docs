@@ -362,6 +362,18 @@ description: Следуя данной инструкции, вы сможете
 
      {% endnote %}
 
+     Чтобы настроить автоматическое увеличение размера хранилища, добавьте в блок `config` блок `disk_size_autoscaling`:
+
+     {% include [disk-size-autoscaling](../../_includes/mdb/mpg/terraform/disk-size-autoscaling.md) %}
+
+     {% note warning %}
+     
+     * При использовании параметра `planned_usage_threshold` необходимо настроить окно технического обслуживания в блоке `maintenance_window`.
+     
+     * Если заданы оба порога, значение `emergency_usage_threshold` должно быть не меньше `planned_usage_threshold`.
+     
+     {% endnote %}
+
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
      {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
@@ -417,6 +429,11 @@ description: Следуя данной инструкции, вы сможете
            "enabled": <активация_сбора_статистики:_true_или_false>,
            "sessionsSamplingInterval": "<интервал_сбора_сессий>",
            "statementsSamplingInterval": "<интервал_сбора_запросов>"
+         },
+         "diskSizeAutoscaling": {
+           "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+           "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+           "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
          }
        },
        "databaseSpecs": [
@@ -452,7 +469,13 @@ description: Следуя данной инструкции, вы сможете
          { <аналогичный_набор_настроек_для_хоста_2> },
          { ... },
          { <аналогичный_набор_настроек_для_хоста_N> }
-       ]
+       ],
+       "maintenanceWindow": {
+         "weeklyMaintenanceWindow": {
+           "day": "<день_недели>",
+           "hour": "<час_дня>"
+         }
+       }
      }
      ```
 
@@ -502,6 +525,8 @@ description: Следуя данной инструкции, вы сможете
          * `enabled` — активация сбора статистики.
          * `sessionsSamplingInterval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+       
+       {% include [disk-size-autoscaling-rest](../../_includes/mdb/mpg/disk-size-autoscaling-rest.md) %}
 
      * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и имеет следующую структуру:
 
@@ -525,6 +550,11 @@ description: Следуя данной инструкции, вы сможете
        * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
        * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
        * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
+
+     * `maintenanceWindow` — настройки расписания [окна технического обслуживания](../concepts/maintenance.md):
+
+       * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
+       * `hour` — час дня в формате `HH`, когда должно проходить обслуживание. Допустимые значения: от `1` до `24`.  
 
   1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -580,6 +610,11 @@ description: Следуя данной инструкции, вы сможете
            "enabled": <активация_сбора_статистики:_true_или_false>,
            "sessions_sampling_interval": "<интервал_сбора_сессий>",
            "statements_sampling_interval": "<интервал_сбора_запросов>"
+         },
+         "disk_size_autoscaling": {
+           "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+           "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+           "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
          }
        },
        "database_specs": [
@@ -615,7 +650,13 @@ description: Следуя данной инструкции, вы сможете
          { <аналогичный_набор_настроек_для_хоста_2> },
          { ... },
          { <аналогичный_набор_настроек_для_хоста_N> }
-       ]
+       ],
+       "maintenance_window": {
+         "weekly_maintenance_window": {
+           "day": "<день_недели>",
+           "hour": "<час_дня>"
+         }
+       }
      }
      ```
 
@@ -666,6 +707,8 @@ description: Следуя данной инструкции, вы сможете
          * `sessions_sampling_interval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
 
+       {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mpg/disk-size-autoscaling-grpc.md) %}
+
      * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и имеет следующую структуру:
 
        * `name` — имя БД.
@@ -688,6 +731,11 @@ description: Следуя данной инструкции, вы сможете
        * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
        * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
        * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
+    
+     * `maintenance_window` — настройки расписания [окна технического обслуживания](../concepts/maintenance.md):
+
+       * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
+       * `hour` — час дня в формате `HH`, когда должно проходить обслуживание. Допустимые значения: от `1` до `24`.
 
   1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 

@@ -127,3 +127,4 @@ _Том_ — общее хранилище для совместного исп�
 ## Примеры использования {#examples}
 
 * [{#T}](../tutorials/kubernetes-backup.md)
+* [{#T}](../operations/volumes/statefulset-pvc-expansion.md)
