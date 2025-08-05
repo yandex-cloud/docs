@@ -24,6 +24,15 @@ You can set up access to an organization's resources for individual users or use
 * [User pools](user-pools.md): Allow grouping [local users](../../iam/concepts/users/accounts.md#local) into containers.
 * [{{ iam-full-name }}](../../iam/concepts/index.md): Provides users with roles they need to perform specific operations with a particular {{ yandex-cloud }} resource.
 
+## Organization security management {#security}
+
+These practices can help you manage security of your organization:
+
+* [Use refresh tokens in the {{ yandex-cloud }} CLI](../operations/enable-refresh-tokens.md).
+* [Set up {{ oslogin }} access](../operations/os-login-access.md).
+* [Require two-factor authentication](../operations/enable-2fa-access.md).
+* [Block users from viewing information about organization members](../operations/hide-user-info.md).
+
 ## Service management {#service-management}
 
 Most {{ yandex-cloud }} services store their resources in [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) within an [organization](organization.md). However, some services are separate from the common resource and role model. They operate at the organization level and can exchange data with other services within the same organization. These services include:

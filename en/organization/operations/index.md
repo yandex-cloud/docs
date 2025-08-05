@@ -62,10 +62,17 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./user-pools/validate-domain.md)
 * [{#T}](./user-pools/delete-domain.md)
 
+## Managing SAML applications {#manage-saml-applications}
+
+* [{#T}](./applications/saml-create.md)
+* [{#T}](./applications/saml-update.md)
+* [{#T}](./applications/saml-deactivate-remove.md)
+
 ## Authorization and authentication {#auths}
 
 * [{#T}](./add-ssh.md)
 * [{#T}](./enable-refresh-tokens.md)
+* [{#T}](./enable-2fa-access.md)
 
 ## Working with {{ oslogin }} {#os-login}
 

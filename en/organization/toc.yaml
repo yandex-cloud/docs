@@ -102,12 +102,26 @@ items:
             href: operations/user-pools/validate-domain.md
           - name: Deleting a domain
             href: operations/user-pools/delete-domain.md
+      - name: Managing apps
+        items:
+          - name: SAML apps
+            items:
+              - name: Creating an app
+                href: operations/applications/saml-create.md
+              - name: Updating an app
+                href: operations/applications/saml-update.md
+              - name: Deactivating and deleting an app
+                href: operations/applications/saml-deactivate-remove.md
       - name: Authentication
         items:
           - name: Adding an SSH key
             href: operations/add-ssh.md
           - name: Enabling refresh tokens
             href: operations/enable-refresh-tokens.md
+          - name: >-
+              Enabling the two-factor authentication requirement for Yandex
+              accounts
+            href: operations/enable-2fa-access.md
           - name: Working with {{ oslogin }}
             items:
               - name: Enabling access via {{ oslogin }}
@@ -170,6 +184,8 @@ items:
         href: concepts/add-federation.md
       - name: Domains
         href: concepts/domains.md
+      - name: Applications
+        href: concepts/applications.md
       - name: '{{ oslogin }}'
         href: concepts/os-login.md
       - name: Controlled organizations

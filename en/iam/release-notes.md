@@ -8,6 +8,9 @@ description: This section contains {{ iam-name }} release notes.
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
 
+## Q2 2025 {#q2-2025}
+
+* Enabled creating and using [refresh tokens](concepts/authorization/refresh-token.md). {{ tag-cli }}
 
 ## Q1 2025 {#q1-2025}
 
@@ -28,7 +31,7 @@ description: This section contains {{ iam-name }} release notes.
 * Added [Workload Identity Federations](./concepts/workload-identity.md) that allow you to grant access to external applications without using long-lived access keys. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 * You can now create [API keys with limited scope and validity period](./concepts/authorization/api-key.md#scoped-api-keys). {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 * Added the [ResolveAgent](./api-ref/ServiceControl/resolveAgent.md) REST API method. {{ tag-api }}
-* Added the ability to revoke an [IAM token](./concepts/authorization/iam-token.md) using [{{ yandex-cloud}} CLI](../cli/cli-ref/iam/cli-ref/revoke-token.md). {{ tag-cli }}
+* Added the ability to revoke an [IAM token](./concepts/authorization/iam-token.md) using [{{ yandex-cloud }} CLI](../cli/cli-ref/iam/cli-ref/revoke-token.md). {{ tag-cli }}
 * Added `All users in organization X` and `All users in federation N` [system groups](./concepts/access-control/system-group.md).
 * Added the {{ TF }} data source used to get the [service agent](./concepts/service-control.md#service-agent) ID. {{ tag-tf }}
 

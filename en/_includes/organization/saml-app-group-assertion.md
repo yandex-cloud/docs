@@ -1,0 +1,4 @@
+* `{{ ui-key.yacloud_org.field-data.attributes.update_dialog.field_group_all }}`: In a SAML response, this field will include all [groups](../../organization/concepts/groups.md) the user belongs to.
+
+    The maximum number of groups this field can include is 1,000. If the user belongs to more groups, only the first thousand of them will be communicated to the service provider. 
+* `{{ ui-key.yacloud_org.field-data.attributes.update_dialog.field_group_assigned }}`: In a SAML response, this field will include only those groups that are explicitly specified on the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}** tab of your SAML app.

@@ -78,7 +78,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
 
-     * Выберите настройки [персистентности данных](../concepts/replication.md#persistence).
+     * Выберите режим [персистентности данных](../concepts/replication.md#persistence).
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**:
 
@@ -191,6 +191,7 @@ description: Следуя данной инструкции, вы сможете
               `replica-priority=<приоритет_хоста> \
         --security-group-ids <список_идентификаторов_групп_безопасности> \
         --enable-tls \
+        --persistence-mode <режим_персистентности>
         --resource-preset <класс_хоста> \
         --disk-size <размер_хранилища_ГБ> \
         --disk-type-id <network-ssd|network-ssd-nonreplicated|local-ssd> \
@@ -215,6 +216,10 @@ description: Следуя данной инструкции, вы сможете
 
       * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
+
+      * `--persistence-mode` — режим [персистентности данных](../concepts/replication.md#persistence).
+
+        {% include [persistence-modes](../../_includes/mdb/mrd/persistence-modes.md) %}
 
       * `--backup-window-start` — время начала резервного копирования в формате `ЧЧ:ММ:СС`.
       * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
@@ -266,6 +271,7 @@ description: Следуя данной инструкции, вы сможете
          tls_enabled         = true
          deletion_protection = <защита_кластера_от_удаления>
          announce_hostnames  = <использование_FQDN_вместо_IP-адресов>
+         persistence_mode    = "<режим_персистентности>"
 
          config {
            password = "<пароль>"
@@ -306,6 +312,10 @@ description: Следуя данной инструкции, вы сможете
        * `announce_hostnames` — настройка, определяющая, [использовать ли FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
 
             {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
+
+       * `persistence_mode` — режим [персистентности данных](../concepts/replication.md#persistence).
+
+            {% include [persistence-modes](../../_includes/mdb/mrd/persistence-modes.md) %}
 
        * `version` — версия {{ VLK }}: {{ versions.tf.str }}.
        * `host` — параметры хоста:
@@ -384,7 +394,8 @@ description: Следуя данной инструкции, вы сможете
           ],
           "tlsEnabled": <поддержка_шифрованных_TLS-соединений>,
           "deletionProtection": <защита_кластера_от_удаления>,
-          "announceHostnames": <использование_FQDN_вместо_IP-адресов>
+          "announceHostnames": <использование_FQDN_вместо_IP-адресов>,
+          "persistenceMode": "<режим_персистентности>"
         }
         ```
 
@@ -451,7 +462,11 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
 
-    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+        * `persistenceMode` — режим [персистентности данных](../concepts/replication.md#persistence).
+
+            {% include [persistence-modes](../../_includes/mdb/mrd/persistence-modes.md) %}
+
+    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -516,7 +531,8 @@ description: Следуя данной инструкции, вы сможете
           ],
           "tls_enabled": <поддержка_шифрованных_TLS-соединений>,
           "deletion_protection": <защита_кластера_от_удаления>,
-          "announce_hostnames": <использование_FQDN_вместо_IP-адресов>
+          "announce_hostnames": <использование_FQDN_вместо_IP-адресов>,
+          "persistence_mode": "<режим_персистентности>"
         }
         ```
 
@@ -583,7 +599,11 @@ description: Следуя данной инструкции, вы сможете
 
             {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+        * `persistence_mode` — режим [персистентности данных](../concepts/replication.md#persistence).
+        
+            {% include [persistence-modes](../../_includes/mdb/mrd/persistence-modes.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

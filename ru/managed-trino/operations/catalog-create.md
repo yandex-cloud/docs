@@ -65,7 +65,7 @@ description: Следуя этой инструкции, вы создадите
         ```hcl
         resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
           name        = "<имя_каталога_{{ TR }}>"
-          cluster_id  = yandex_trino_cluster.mytr.id
+          cluster_id  = yandex_trino_cluster.<имя_кластера>.id
           <тип_коннектора> = {
             <настройки_каталога_{{ TR }}>
           }
@@ -81,6 +81,76 @@ description: Следуя этой инструкции, вы создадите
     1. Подтвердите изменение ресурсов.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Catalog.Create](../api-ref/Catalog/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+            --data '{
+                      "catalog": {
+                        "name": "<имя_каталога_{{ TR }}>",
+                        "connector": {
+                          "<тип_коннектора>": {
+                            <настройки_каталога_{{ TR }}>
+                          }
+                        }
+                      }
+                    }'
+        ```
+
+        [Подробнее о настройках каталога {{ TR }}](#catalog-settings) для разных типов коннекторов.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Catalog/create.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [CatalogService.Create](../api-ref/grpc/Catalog/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "<тип_коннектора>": {
+                            <настройки_каталога_{{ TR }}>
+                      }
+                    }
+                  }
+                }' \
+            {{ api-host-trino }}:{{ port-https }} \
+            yandex.cloud.trino.v1.CatalogService.Create
+        ```
+
+        [Подробнее о настройках каталога {{ TR }}](#catalog-settings) для разных типов коннекторов.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Catalog/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -185,6 +255,114 @@ description: Следуя этой инструкции, вы создадите
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/clickhouse.html).
 
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "clickhouse": {
+                        "connection": {
+                          "connectionManager": {
+                            "connectionId": "<идентификатор_подключения>",
+                            "database": "<имя_БД>",
+                            "connectionProperties": {
+                              <список_настроек_клиента_{{ CH }}>
+                            }
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    * `connectionManager` — настройки {{ connection-manager-name }}:
+
+        * `connectionId` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ CH }}.
+
+            Чтобы узнать идентификатор подключения:
+            1. В консоли управления перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+
+        * `database` — имя БД в кластере {{ CH }}.
+        * `connectionProperties` — список настроек клиента {{ CH }} в формате `"ключ": "значение"`.
+
+            {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
+
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/clickhouse.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "clickhouse": {
+                    "connection": {
+                      "connection_manager": {
+                        "connection_id": "<идентификатор_подключения>",
+                        "database": "<имя_БД>",
+                        "connection_properties": {
+                          <список_настроек_клиента_{{ CH }}>
+                        }
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    * `connection_manager` — настройки {{ connection-manager-name }}:
+
+        * `connection_id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ CH }}.
+
+            Чтобы узнать идентификатор подключения:
+            1. В консоли управления перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+
+        * `database` — имя БД в кластере {{ CH }}.
+        * `connection_properties` — список настроек клиента {{ CH }} в формате `"ключ": "значение"`.
+
+            {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/clickhouse.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 {% endlist %}
 
 #### Подключение On-premise {#ch-on-premise}
@@ -249,6 +427,96 @@ description: Следуя этой инструкции, вы создадите
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/clickhouse.html).
 
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "clickhouse": {
+                        "connection": {
+                          "onPremise": {
+                            "connectionUrl": "<URL_для_подключения>",
+                            "userName": "<имя_пользователя>",
+                            "password": "<пароль_пользователя>"
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    * `onPremise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connectionUrl` — URL для подключения к БД {{ CH }} в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `userName` — имя пользователя для подключения к БД {{ CH }}.
+        * `password` — пароль пользователя для подключения к БД {{ CH }}.
+
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/clickhouse.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "clickhouse": {
+                    "connection": {
+                      "on_premise": {
+                        "connection_url": "<URL_для_подключения>",
+                        "user_name": "<имя_пользователя>",
+                        "password": "<пароль_пользователя>"
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    * `on_premise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connection_url` — URL для подключения к БД {{ CH }} в формате `jdbc:clickhouse://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `user_name` — имя пользователя для подключения к БД {{ CH }}.
+        * `password` — пароль пользователя для подключения к БД {{ CH }}.
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/clickhouse.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 {% endlist %}
 
 ### Коннектор Delta Lake {#delta-lake}
@@ -309,6 +577,90 @@ description: Следуя этой инструкции, вы создадите
     {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/delta-lake.html).
+
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "deltaLake": {
+                        "filesystem": {
+                          "s3": {}
+                        },
+                        "metastore": {
+                          "hive": {
+                            "uri": "<URI_для_подключения>"
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
+
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/delta-lake.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "delta_lake": {
+                    "filesystem": {
+                      "s3": {}
+                    },
+                    "metastore": {
+                      "hive": {
+                        "uri": "<URI_для_подключения>"
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/delta-lake.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -371,6 +723,90 @@ description: Следуя этой инструкции, вы создадите
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/hive.html).
 
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "hive": {
+                        "filesystem": {
+                          "s3": {}
+                        },
+                        "metastore": {
+                          "hive": {
+                            "uri": "<URI_для_подключения>"
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
+
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/hive.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "hive": {
+                    "filesystem": {
+                      "s3": {}
+                    },
+                    "metastore": {
+                      "hive": {
+                        "uri": "<URI_для_подключения>"
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/hive.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 {% endlist %}
 
 ### Коннектор Iceberg {#iceberg}
@@ -431,6 +867,90 @@ description: Следуя этой инструкции, вы создадите
     {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/iceberg.html).
+
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "iceberg": {
+                        "filesystem": {
+                          "s3": {}
+                        },
+                        "metastore": {
+                          "hive": {
+                            "uri": "<URI_для_подключения>"
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    {% include [connector-settings-rest-api](../../_includes/managed-trino/api/connector-settings-rest.md) %}
+
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/iceberg.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "iceberg": {
+                    "filesystem": {
+                      "s3": {}
+                    },
+                    "metastore": {
+                      "hive": {
+                        "uri": "<URI_для_подключения>"
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    {% include [connector-settings-grpc-api](../../_includes/managed-trino/api/connector-settings-grpc.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/iceberg.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -496,6 +1016,96 @@ description: Следуя этой инструкции, вы создадите
         * `password` — пароль пользователя для подключения к БД Oracle.
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/oracle.html).
+
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "oracle": {
+                        "connection": {
+                          "onPremise": {
+                            "connectionUrl": "<URL_для_подключения>",
+                            "userName": "<имя_пользователя>",
+                            "password": "<пароль_пользователя>"
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    * `onPremise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connectionUrl` — URL для подключения к БД Oracle в формате `jdbc:oracle:thin:@<адрес_хоста>:<порт>:<SID>`. `SID` — системный идентификатор Oracle.
+        * `userName` — имя пользователя для подключения к БД Oracle.
+        * `password` — пароль пользователя для подключения к БД Oracle.
+
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/oracle.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "oracle": {
+                    "connection": {
+                      "on_premise": {
+                        "connection_url": "<URL_для_подключения>",
+                        "user_name": "<имя_пользователя>",
+                        "password": "<пароль_пользователя>"
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    * `on_premise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connection_url` — URL для подключения к БД Oracle в формате `jdbc:oracle:thin:@<адрес_хоста>:<порт>:<SID>`. `SID` — системный идентификатор Oracle.
+        * `user_name` — имя пользователя для подключения к БД Oracle.
+        * `password` — пароль пользователя для подключения к БД Oracle.
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/oracle.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -586,6 +1196,114 @@ description: Следуя этой инструкции, вы создадите
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/postgresql.html).
 
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "postgresql": {
+                        "connection": {
+                          "connectionManager": {
+                            "connectionId": "<идентификатор_подключения>",
+                            "database": "<имя_БД>",
+                            "connectionProperties": {
+                              <список_настроек_клиента_{{ PG }}>
+                            }
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    * `connectionManager` — настройки {{ connection-manager-name }}:
+
+        * `connectionId` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ PG }}.
+
+            Чтобы узнать идентификатор подключения:
+            1. В консоли управления перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+
+        * `database` — имя БД в кластере {{ PG }}.
+        * `connectionProperties` — список настроек клиента {{ PG }} в формате `"ключ": "значение"`.
+
+            {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
+
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/postgresql.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "postgesql": {
+                    "connection": {
+                      "connection_manager": {
+                        "connection_id": "<идентификатор_подключения>",
+                        "database": "<имя_БД>",
+                        "connection_properties": {
+                          <список_настроек_клиента_{{ PG }}>
+                        }
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    * `connection_manager` — настройки {{ connection-manager-name }}:
+
+        * `connection_id` — идентификатор подключения в {{ connection-manager-name }} для подключения к кластеру {{ PG }}.
+
+            Чтобы узнать идентификатор подключения:
+            1. В консоли управления перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+            1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+
+        * `database` — имя БД в кластере {{ PG }}.
+        * `connection_properties` — список настроек клиента {{ PG }} в формате `"ключ": "значение"`.
+
+            {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/postgresql.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 {% endlist %}
 
 #### Подключение On-premise {#pg-on-premise}
@@ -649,6 +1367,96 @@ description: Следуя этой инструкции, вы создадите
         * `password` — пароль пользователя для подключения к БД {{ PG }}.
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/postgresql.html).
+
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "postgesql": {
+                        "connection": {
+                          "onPremise": {
+                            "connectionUrl": "<URL_для_подключения>",
+                            "userName": "<имя_пользователя>",
+                            "password": "<пароль_пользователя>"
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    * `onPremise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connectionUrl` — URL для подключения к БД {{ PG }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `userName` — имя пользователя для подключения к БД {{ PG }}.
+        * `password` — пароль пользователя для подключения к БД {{ PG }}.
+
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/postgresql.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "postgresql": {
+                    "connection": {
+                      "on_premise": {
+                        "connection_url": "<URL_для_подключения>",
+                        "user_name": "<имя_пользователя>",
+                        "password": "<пароль_пользователя>"
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    * `on_premise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connection_url` — URL для подключения к БД {{ PG }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `user_name` — имя пользователя для подключения к БД {{ PG }}.
+        * `password` — пароль пользователя для подключения к БД {{ PG }}.
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/postgresql.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -715,6 +1523,96 @@ description: Следуя этой инструкции, вы создадите
 
     * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/sqlserver.html).
 
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "sqlserver": {
+                        "connection": {
+                          "onPremise": {
+                            "connectionUrl": "<URL_для_подключения>",
+                            "userName": "<имя_пользователя>",
+                            "password": "<пароль_пользователя>"
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    * `onPremise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connectionUrl` — URL для подключения к БД Microsoft SQL Server в формате `jdbc:sqlserver://<адрес_хоста>:<порт>;databaseName=<имя_БД>`.
+        * `userName` — имя пользователя для подключения к БД Microsoft SQL Server.
+        * `password` — пароль пользователя для подключения к БД Microsoft SQL Server.
+
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/sqlserver.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "sqlserver": {
+                    "connection": {
+                      "on_premise": {
+                        "connection_url": "<URL_для_подключения>",
+                        "user_name": "<имя_пользователя>",
+                        "password": "<пароль_пользователя>"
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    * `on_premise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connection_url` — URL для подключения к БД Microsoft SQL Server в формате `jdbc:sqlserver://<адрес_хоста>:<порт>;databaseName=<имя_БД>`.
+        * `user_name` — имя пользователя для подключения к БД Microsoft SQL Server.
+        * `password` — пароль пользователя для подключения к БД Microsoft SQL Server.
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/sqlserver.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 {% endlist %}
 
 ### Коннектор TPC-DS {#tpc-ds}
@@ -759,6 +1657,66 @@ description: Следуя этой инструкции, вы создадите
 
     Где `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/tpcds.html).
 
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "tpcds": {
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/tpcds.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "tpcds": {
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/tpcds.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
 {% endlist %}
 
 ### Коннектор TPC-H {#tpc-h}
@@ -802,6 +1760,66 @@ description: Следуя этой инструкции, вы создадите
     ```
 
     Где `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/tpch.html).
+
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "tpch": {
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/tpch.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "tpch": {
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs}}/connector/tpch.html).
+
+    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 

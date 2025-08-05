@@ -217,7 +217,7 @@ http:
 
 * `sessionAffinity` (`SessionAffinity`)
 
-  Параметры сессий. Подробнее см. [SessionAffinity](#sessionaffinity).
+  Параметры [привязки сессий](../../../application-load-balancer/concepts/backend-group.md#session-affinity). Подробнее см. [SessionAffinity](#sessionaffinity).
 
 * `securityProfileId` (`string`)
 
@@ -403,11 +403,11 @@ header:
 
 * `connection.sourceIP` (`bool`)
 
-  Признак использования IP-адреса клиента для session affinity.
+  Признак использования IP-адреса клиента для привязки сессий (session affinity).
 
 * `cookie.name` (`string`)
 
-  Имя cookie для session affinity.
+  Имя cookie для привязки сессий.
 
 * `cookie.ttl` (`string`)
 
@@ -415,7 +415,7 @@ header:
 
 * `header.name` (`string`)
 
-  Имя HTTP-заголовка для session affinity.
+  Имя HTTP-заголовка для привязки сессий.
 
 ## RBAC {#rbac}
 

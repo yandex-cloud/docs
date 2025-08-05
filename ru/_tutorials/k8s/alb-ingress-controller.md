@@ -460,6 +460,32 @@
        ingress.alb.yc.io/modify-header-request-remove: <имя_удаляемого_заголовка>=true
        ```
 
+     * `ingress.alb.yc.io/session-affinity-header` — задает HTTP-заголовок для [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity). Заголовок указывается в формате:
+
+       ```yaml
+       ingress.alb.yc.io/session-affinity-header: name=<имя_заголовка>
+       ```
+
+     * `ingress.alb.yc.io/session-affinity-cookie` — задает параметры cookie для привязки сессий. Параметры указываются в формате:
+
+       ```yaml
+       ingress.alb.yc.io/session-affinity-cookie: name=<имя_cookie>,ttl=<время_жизни_cookie>
+       ```
+
+       Значение для `ttl` следует указывать с единицами измерения, например: `300ms`, `1.5h`. Допустимые единицы измерения:
+       * `ns` — наносекунды.
+       * `us` — микросекунды.
+       * `ms` — миллисекунды.
+       * `s` — секунды.
+       * `m` — минуты.
+       * `h` — часы.
+
+     * `ingress.alb.yc.io/session-affinity-connection` — разрешает использование IP-адреса клиента для привязки сессий. Признак указывается в формате:
+
+       ```yaml
+       ingress.alb.yc.io/session-affinity-connection: source-ip=<true_или_false>
+       ```
+
      {% endcut %}
 
      Если вы используете несколько Ingress-контроллеров, для каждого из них создайте ресурс [IngressClass](../../managed-kubernetes/alb-ref/ingress-class.md). В конфигурации `Ingress` укажите нужный `IngressClass` в поле `spec.ingressClassName`.
