@@ -7,6 +7,7 @@ description: На странице представлен список прак�
 
 ## {{ KF }} {#kafka}
 
+* [{#T}](zk-kraft-kafka-migration.md)
 * [{#T}](kafka-connector.md)
 * [{#T}](data-transfer-mkf.md)
 * [{#T}](data-transfer-mmy.md)

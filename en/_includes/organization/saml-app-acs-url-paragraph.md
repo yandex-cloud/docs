@@ -1,0 +1,1 @@
+If your service provider uses ACS indexes instead of ACS URLs, in addition to ACS URLs, you can specify the index value you got on the service provider's side.

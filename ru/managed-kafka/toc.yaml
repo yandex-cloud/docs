@@ -53,6 +53,10 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: >-
+          Обновление кластера {{ mkf-name }} с {{ ZK }} на {{ kraft-short-name
+          }}
+        href: tutorials/zk-kraft-kafka-migration.md
       - name: Перемещение данных из {{ KF }}
         items:
           - name: Настройка {{ KFC }} для работы с {{ mkf-name }}

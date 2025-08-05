@@ -226,3 +226,7 @@ ERROR: cannot execute INSERT in a read-only transaction
 * При подключении укажите параметр `target_session_attrs=read-write` и перечислите все хосты кластера. Так вы подключитесь к хосту-мастеру с возможностью чтения и записи.
 
 Подробнее о способах подключения к хосту-мастеру см. в разделе [Подключение к базе данных](../../managed-postgresql/operations/connect.md#automatic-master-host-selection).
+
+#### Что делать, если в логах отображается ошибка `too many connections for role "monitor"`? {#monitor-role-error}
+
+Пользователь `monitor` зарезервирован для нужд мониторинга в кластере {{ mpg-name }}. Сообщения об исчерпании лимита подключений для этого пользователя можно игнорировать.

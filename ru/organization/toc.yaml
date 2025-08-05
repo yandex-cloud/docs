@@ -120,6 +120,20 @@ items:
                 href: operations/applications/oidc-update.md
               - name: Деактивировать и удалить приложение
                 href: operations/applications/oidc-deactivate-remove.md
+      - name: Управление MFA
+        items:
+          - name: Создать политику MFA
+            href: operations/mfa/create-policy.md
+          - name: Применить политику MFA к пользователям
+            href: operations/mfa/add-users.md
+          - name: Изменить политику MFA
+            href: operations/mfa/update-policy.md
+          - name: Активировать и деактивировать политику MFA
+            href: operations/mfa/deactivate-reactivate-policy.md
+          - name: Удалить политику MFA
+            href: operations/mfa/delete-policy.md
+          - name: Удалить MFA-фактор и сбросить дату верификации
+            href: operations/mfa/manage-verification.md
       - name: Аутентификация
         items:
           - name: Добавить SSH-ключ
@@ -202,6 +216,8 @@ items:
         href: concepts/applications.md
       - name: '{{ oslogin }}'
         href: concepts/os-login.md
+      - name: MFA
+        href: concepts/mfa.md
       - name: Управляемые организации
         href: concepts/controlled-org.md
         hidden: true

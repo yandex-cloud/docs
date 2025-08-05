@@ -811,7 +811,7 @@ keywords:
     * Имя сервисного аккаунта — `os-account`.
     * Защита от удаления — отключена.
     * Время технического обслуживания — каждый понедельник с 13:00 до 14:00.
-    * Версия {{ OS }} — `2.8`.
+    * Версия {{ OS }} — `2.12`.
     * Пароль пользователя `admin` — указывается после ввода команды по созданию кластера.
     * Доступ к {{ data-transfer-name }} — включен.
     * Доступ к {{ serverless-containers-name }} — включен.
@@ -819,11 +819,11 @@ keywords:
     * Дополнительный параметр {{ OS }} — `fielddata-cache-size=50%`.
     * Конфигурация группы узлов `{{ OS }}`:
 
-        * название группы — `os-group`;
+        * имя группы узлов — `os-group`;
         * класс хостов — `{{ host-class }}`;
         * размер диска — `10737418240` (в байтах);
         * тип диска — `network-ssd`;
-        * количество хостов — три;
+        * количество хостов — `3`;
         * зона доступности — `{{ region-id }}-a`;
         * подсеть — `{{ network-name }}-{{ region-id }}-a`;
         * публичный адрес — выделен;
@@ -831,11 +831,11 @@ keywords:
 
     * Конфигурация группы хостов `Dashboards`:
 
-        * название группы — `dashboard-group`;
+        * имя группы хостов — `dashboard-group`;
         * класс хостов — `{{ host-class }}`;
         * размер диска — `10737418240` (в байтах);
         * тип диска — `network-ssd`;
-        * количество хостов — один;
+        * количество хостов — `1`;
         * зона доступности — `{{ region-id }}-a`;
         * подсеть — `{{ network-name }}-{{ region-id }}-a`;
         * публичный адрес — выделен.
@@ -855,7 +855,7 @@ keywords:
        --maintenance schedule=weekly,`
                     `weekday=mon,`
                     `hour=14 \
-       --version 2.8 \
+       --version 2.12 \
        --read-admin-password \
        --data-transfer-access=true \
        --serverless-access=true \
@@ -886,15 +886,29 @@ keywords:
 
     * Имя — `my-os-clstr`.
     * Окружение — `PRODUCTION`.
-    * Версия {{ OS }} — `2.8`.
-    * Пароль пользователя `admin` — `osadminpwd`.
-    * Имя группы узлов `{{ OS }}` — `os-group`.
-    * Класс хостов — `{{ host-class }}`.
-    * Размер диска — `10737418240` (в байтах).
-    * Тип диска — `{{ disk-type-example }}`.
-    * Количество хостов — `1`.
-    * Публичный адрес — выделен.
-    * Роли группы хостов — `DATA` и `MANAGER`.
+    * Версия {{ OS }} — `2.12`.
+    * Пароль пользователя `admin` — `osAdminpwd1`.
+    * Конфигурация группы узлов `{{ OS }}`:
+
+      * имя группы узлов `{{ OS }}` — `os-group`;
+      * класс хостов — `{{ host-class }}`;
+      * размер диска — `10737418240` (в байтах);
+      * тип диска — `{{ disk-type-example }}`;
+      * количество хостов — `3`;
+      * зона доступности — `{{ region-id }}-a`;
+      * публичный адрес — выделен;
+      * роли группы хостов — `DATA` и `MANAGER`.
+    
+    * Конфигурация группы хостов `Dashboards`:
+    
+      * имя группы хостов — `dashboard-group`;
+      * класс хостов — `{{ host-class }}`;
+      * размер диска — `10737418240` (в байтах);
+      * тип диска — `network-ssd`;
+      * количество хостов — `1`;
+      * зона доступности — `{{ region-id }}-a`;
+      * публичный адрес — выделен.
+    
     * Время технического обслуживания — каждый понедельник с 13:00 до 14:00.
     * Имя сети — `mynet`.
     * Имя подсети — `mysubnet`.
@@ -913,14 +927,14 @@ keywords:
 
       config {
 
-        version        = "2.8"
-        admin_password = "osadminpwd"
+        version        = "2.12"
+        admin_password = "osAdminpwd1"
 
         opensearch {
           node_groups {
             name             = "os-group"
             assign_public_ip = true
-            hosts_count      = 1
+            hosts_count      = 3
             zone_ids         = ["{{ region-id }}-a"]
             subnet_ids       = [yandex_vpc_subnet.mysubnet.id]
             roles            = ["DATA", "MANAGER"]
@@ -931,7 +945,24 @@ keywords:
             }
           }
         }
+
+        dashboards {
+          node_groups {
+            name             = "dashboard-group"
+            assign_public_ip = true
+            hosts_count      = 1
+            zone_ids         = ["ru-central1-a"]
+            subnet_ids       = [yandex_vpc_subnet.mysubnet.id]
+            resources {
+              resource_preset_id = "s2.micro"
+              disk_size          = 10737418240
+              disk_type_id       = "network-ssd"
+            }
+          }
+        }
+
       }
+
       maintenance_window {
         type = "WEEKLY"
         day  = "MON"

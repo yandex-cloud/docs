@@ -1138,6 +1138,14 @@ default:
     logs:
       raw|string: "27\_000,00\_₸"
       shielding|string: "18\_900,00\_₸"
+    yc:
+      bytes:
+        sent:
+          v1|string: "5,1840\_₸"
+      logs:
+        raw|string: "27\_000,00\_₸"
+      server:
+        shielding|string: "18\_900,00\_₸"
   sku|KZT|cloud_backup:
     bms_used_space:
       v1|month|string: "22,68\_₸"
@@ -1257,8 +1265,12 @@ default:
           v2|string: "0,8640\_₸"
         c05|string: "1,5965\_₸"
         c100:
+          amd:
+            v1|string: "5,67\_₸"
           highfreq-v3|string: "9,5040\_₸"
           preemptible:
+            amd:
+              v1|string: "1,5660\_₸"
             highfreq-v3|string: "8,80\_₸"
             v2|string: "1,7280\_₸"
             v3|string: "1,5660\_₸"
@@ -1273,7 +1285,11 @@ default:
         c100|number: 5.768
         c100|string: "5,7680\_₸"
         c20:
+          amd:
+            v1|string: "2,3760\_₸"
           preemptible:
+            amd:
+              v1|string: "0,7560\_₸"
             v2|string: "0,8640\_₸"
             v3|string: "0,7560\_₸"
           preemptible|string: "1,3905\_₸"
@@ -1286,15 +1302,23 @@ default:
         c20|number: 4.532
         c20|string: "4,5320\_₸"
         c50:
+          amd:
+            v1|string: "3,4560\_₸"
           preemptible:
+            amd:
+              v1|string: "1,08\_₸"
             v2|string: "1,1880\_₸"
             v3|string: "1,08\_₸"
           v3|month|number: 2488.32
           v3|number: 3.456
           v3|string: "3,4560\_₸"
       ram:
+        amd:
+          v1|string: "1,5120\_₸"
         highfreq-v3|string: "1,7280\_₸"
         preemptible:
+          amd:
+            v1|string: "0,3780\_₸"
           highfreq-v3|string: "1,60\_₸"
           v2|string: "0,3780\_₸"
           v3|string: "0,3780\_₸"
@@ -1310,6 +1334,8 @@ default:
       ram|string: "2,0085\_₸"
       software_accelerated_network:
         cores:
+          amd:
+            v1|number: 11.556
           highfreq-v3|number: 19.008
           v1|number: 11.021
           v2|number: 11.556
@@ -2873,6 +2899,14 @@ default:
     logs:
       raw|string: "5\_400,00\_₽"
       shielding|string: "3\_780,00\_₽"
+    yc:
+      bytes:
+        sent:
+          v1|string: "1,0368\_₽"
+      logs:
+        raw|string: "5\_400,00\_₽"
+      server:
+        shielding|string: "3\_780,00\_₽"
   sku|RUB|cloud_backup:
     bms_used_space:
       v1|month|string: "4,5360\_₽"
@@ -2992,8 +3026,12 @@ default:
           v2|string: "0,1728\_₽"
         c05|string: "0,3193\_₽"
         c100:
+          amd:
+            v1|string: "1,1340\_₽"
           highfreq-v3|string: "1,9008\_₽"
           preemptible:
+            amd:
+              v1|string: "0,3132\_₽"
             highfreq-v3|string: "1,76\_₽"
             v2|string: "0,3456\_₽"
             v3|string: "0,3132\_₽"
@@ -3008,7 +3046,11 @@ default:
         c100|number: 1.1536
         c100|string: "1,1536\_₽"
         c20:
+          amd:
+            v1|string: "0,4752\_₽"
           preemptible:
+            amd:
+              v1|string: "0,1512\_₽"
             v2|string: "0,1728\_₽"
             v3|string: "0,1512\_₽"
           preemptible|string: "0,2781\_₽"
@@ -3021,15 +3063,23 @@ default:
         c20|number: 0.9064
         c20|string: "0,9064\_₽"
         c50:
+          amd:
+            v1|string: "0,6912\_₽"
           preemptible:
+            amd:
+              v1|string: "0,2160\_₽"
             v2|string: "0,2376\_₽"
             v3|string: "0,2160\_₽"
           v3|month|number: 497.664
           v3|number: 0.6912
           v3|string: "0,6912\_₽"
       ram:
+        amd:
+          v1|string: "0,3024\_₽"
         highfreq-v3|string: "0,3456\_₽"
         preemptible:
+          amd:
+            v1|string: "0,0756\_₽"
           highfreq-v3|string: "0,32\_₽"
           v2|string: "0,0756\_₽"
           v3|string: "0,0756\_₽"
@@ -3045,6 +3095,8 @@ default:
       ram|string: "0,4017\_₽"
       software_accelerated_network:
         cores:
+          amd:
+            v1|number: 2.3112
           highfreq-v3|number: 3.8016
           v1|number: 2.2042
           v2|number: 2.3112
@@ -4603,6 +4655,14 @@ default:
     logs:
       raw|string: "44,999982\_$"
       shielding|string: "31,499987\_$"
+    yc:
+      bytes:
+        sent:
+          v1|string: "0,008640\_$"
+      logs:
+        raw|string: "44,999982\_$"
+      server:
+        shielding|string: "31,499987\_$"
   sku|USD|cloud_backup:
     bms_used_space:
       v1|month|string: "0,037800\_$"
@@ -4722,8 +4782,12 @@ default:
           v2|string: "0,001440\_$"
         c05|string: "0,002661\_$"
         c100:
+          amd:
+            v1|string: "0,009450\_$"
           highfreq-v3|string: "0,015840\_$"
           preemptible:
+            amd:
+              v1|string: "0,002610\_$"
             highfreq-v3|string: "0,014667\_$"
             v2|string: "0,002880\_$"
             v3|string: "0,002610\_$"
@@ -4738,7 +4802,11 @@ default:
         c100|number: 0.009613
         c100|string: "0,009613\_$"
         c20:
+          amd:
+            v1|string: "0,003960\_$"
           preemptible:
+            amd:
+              v1|string: "0,001260\_$"
             v2|string: "0,001440\_$"
             v3|string: "0,001260\_$"
           preemptible|string: "0,002317\_$"
@@ -4751,15 +4819,23 @@ default:
         c20|number: 0.007553
         c20|string: "0,007553\_$"
         c50:
+          amd:
+            v1|string: "0,005760\_$"
           preemptible:
+            amd:
+              v1|string: "0,001800\_$"
             v2|string: "0,001980\_$"
             v3|string: "0,001800\_$"
           v3|month|number: 4.147199
           v3|number: 0.00576
           v3|string: "0,005760\_$"
       ram:
+        amd:
+          v1|string: "0,002520\_$"
         highfreq-v3|string: "0,002880\_$"
         preemptible:
+          amd:
+            v1|string: "0,000630\_$"
           highfreq-v3|string: "0,002667\_$"
           v2|string: "0,000630\_$"
           v3|string: "0,000630\_$"
@@ -4775,6 +4851,8 @@ default:
       ram|string: "0,003347\_$"
       software_accelerated_network:
         cores:
+          amd:
+            v1|number: 0.01926
           highfreq-v3|number: 0.03168
           v1|number: 0.018368
           v2|number: 0.01926
@@ -6903,6 +6981,8 @@ default:
         columns:
           column_id: Идентификатор
         confirm: Подтвердить
+        more: Ещё
+        overview: Обзор
         section-base: Общая информация
       component:
         form-file-upload:
@@ -6966,6 +7046,7 @@ default:
           action:
             acl: Назначить роли
             delete: Удалить
+            reset-date: Сбросить дату верификации
           caption:
             federation: Федерация
             user: Пользователь
@@ -6991,6 +7072,15 @@ default:
             group-name: Имя группы
             iam-group: IAM-группа
             tab-idp: IdP-группы
+        mfa-enforcement:
+          caption:
+            acr_id: Типы факторов
+            active: Политика активна
+            creation_time: Срок создания
+            ttl: Время жизни
+          create:
+            action:
+              create: Создать политику
         oslogin-settings:
           title_allow-edit-own-keys: Разрешить членам организации управлять своими SSH-ключами
           title_ssh-certificate-settings: Доступ по OS Login при помощи SSH-сертификатов (рекомендуется)
@@ -7009,6 +7099,9 @@ default:
         action:
           create: Создать
           save: Сохранить
+        field:
+          description: Описание
+          display-name: Название
       groups:
         action_create-group: Создать группу
       iam-bindings:
@@ -7025,6 +7118,8 @@ default:
             field_description: Описание
       layout:
         organization: Identity Hub
+      mfa-policy-audiences:
+        action_add-users: Добавить пользователей
       organization:
         apps:
           AppAssignmentsPage:
@@ -7066,6 +7161,13 @@ default:
             signature-mode-response_x7SKD: Response
             signature-mode-response-and-assertions_u2j6T: Assertions and Response
         security-settings:
+          acr_any-mfa_j6PdY: Любые методы
+          acr_phr_7hMqk: Устойчивые к фишингу
+          mfa-overview-action-activate: Активировать
+          mfa-overview-action-suspend: Деактивировать
+          mfa-policies-create-policy-action: Создать политику
+          MfaPolicyPageLayout:
+            tab_groups: Целевые группы
           OtherSecuritySettingsForm:
             auth_settings_1RoAM: Настройки аутентификации
             required_mfa_6P4xN: >-
@@ -7076,6 +7178,7 @@ default:
               информацию о них
             title_users-list-visibility_ftTaP: Конфиденциальность
           SecuritySettingsPageLayout:
+            tab_mfa_policies_m8oE3: Политики MFA
             tab_other_kJgk8: Другие параметры
         userpool:
           action_delete-domain: Удалить
@@ -7091,6 +7194,9 @@ default:
           field_password: Пароль
           title_personal-info: Персональная информация
           title_userpool_members: Пользователи
+        users:
+          components:
+            title_mfa_5CFwd: MFA
       page:
         acl-diagnostics:
           action_select-subject: Выбрать субъект
@@ -7118,6 +7224,7 @@ default:
         groups: Группы
         oslogin:
           title: Настройки безопасности
+        securitySettings: Настройки безопасности
         userpools: Пулы пользователей
         users: Пользователи
       user:
