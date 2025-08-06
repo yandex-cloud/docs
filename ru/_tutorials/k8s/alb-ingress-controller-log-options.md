@@ -143,7 +143,7 @@
 
 ### Зарегистрируйте доменную зону {#register-domain}
 
-[Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
+{% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}
 
 ### Установите Ingress-контроллер {{ alb-name }} {#install-alb-ingress-controller}
 

@@ -1,0 +1,1 @@
+When adding a new SSH key, an archive containing the key pair will be created and downloaded. In Linux or macOS-based operating systems, unpack the archive to the `/home/<user_name>/.ssh` directory. In Windows, unpack the archive to the `C:\Users\<user_name>/.ssh` directory. You do not need additionally enter the public key in the management console.

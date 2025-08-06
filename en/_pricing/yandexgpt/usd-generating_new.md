@@ -6,6 +6,8 @@
 || {{ llama }} 8B | {{ sku|USD|foundation_models.text_generation_alt.v1|string }} | {% calc [currency=USD] 0,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} ||
 || {{ llama }} 70B | {% calc [currency=USD] 6 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} | {% calc [currency=USD] 3 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} ||
 || Qwen3 235B | {% calc [currency=USD] 2,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} ^1^ | —  || 
+|| gpt-oss-120b | {% calc [currency=USD] 1,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} | — || 
+|| gpt-oss-20b | {% calc [currency=USD] 0,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} | — || 
 |#
 
 ^1^ The price is based on the current 50% discount.

@@ -450,9 +450,9 @@
     Predis\Autoloader::register();
 
     $sentinels = [
-        "<FQDN_хоста_1_{{ VLK }}>:{{ port-mrd-sentinel }}>",
+        "<FQDN_хоста_1_{{ VLK }}>:{{ port-mrd-sentinel }}",
         ...
-        "<FQDN_хоста_N_{{ VLK }}>:{{ port-mrd-sentinel }}>",
+        "<FQDN_хоста_N_{{ VLK }}>:{{ port-mrd-sentinel }}",
     ];
     $options = [
         "replication" => "sentinel",

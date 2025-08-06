@@ -1,0 +1,1 @@
+The system will add the SSH key to your organization user profile. If the organization has [disabled](../../../organization/operations/os-login-access.md) the ability for users to add SSH keys to their profiles, the added public SSH key will only be saved in the user profile inside the newly created resource.

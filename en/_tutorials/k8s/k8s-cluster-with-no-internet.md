@@ -13,7 +13,8 @@ To create a {{ managed-k8s-name }} cluster with no internet access:
 1. [Prepare the infrastructure for {{ managed-k8s-name }}](#infra).
 1. [Set up a virtual machine](#vm).
 1. [Check cluster availability](#check).
-1. (Optional) [Connect a private Docker image registry](#cert).
+1. Optionally, [set up a connection to NTP servers](#ntp).
+1. Optionally, [connect a private Docker image registry](#cert).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -25,7 +26,7 @@ The support cost includes:
 * Fee for the {{ managed-k8s-name }} cluster: using the master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for cluster nodes and VMs: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address for a VM, which is used to connect to the cluster (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* {{ kms-name }} fee: number of active key versions (with `Active` or `Scheduled For Destruction` for status) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
+* {{ kms-name }} fee: the number of active key versions (having `Active` or `Scheduled For Destruction` for status) and completed cryptographic operations (see [{{ kms-name }} pricing](../../kms/pricing.md)).
 
 
 ## Prepare the infrastructure for {{ managed-k8s-name }} {#infra}
@@ -57,7 +58,7 @@ The support cost includes:
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-   1. [Create](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) a {{ managed-k8s-name }} cluster with the following parameters:
+   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with the following parameters:
 
       * **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: `resource-sa`.
       * **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: `node-sa`.
@@ -107,7 +108,7 @@ The support cost includes:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will show any errors found in your configuration files.
 
    1. Create the required infrastructure:
 
@@ -152,7 +153,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
          * Security group for VM.
          * VM.
 
-      1. Specify the following in the `virtual-machine-for-k8s.tf` file:
+      1. Specify the following in `virtual-machine-for-k8s.tf`:
 
          * Folder ID.
          * ID of the network created together with the {{ managed-k8s-name }} cluster.
@@ -166,7 +167,7 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
          terraform validate
          ```
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
+         {{ TF }} will show any errors found in your configuration files.
 
       1. Create the required infrastructure:
 
@@ -179,14 +180,14 @@ As the {{ managed-k8s-name }} cluster has no internet access, you can only conne
 1. [Connect to the VM](../../compute/operations/vm-connect/ssh.md#vm-connect) over SSH:
 
    ```bash
-   ssh <username>@<VM_public_IP_address>
+   ssh <user_name>@<VM_public_IP_address>
    ```
 
    Where `<username>` is the VM account username.
 
 1. [Install the {{ yandex-cloud }} command line interface](../../cli/operations/install-cli.md#interactive) (YC CLI).
 1. [Create a YC CLI profile](../../cli/operations/profile/profile-create.md#create).
-1. [Install kubect]({{ k8s-docs }}/tasks/tools/#kubectl) and [set it up to work with the created cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. [Install kubect]({{ k8s-docs }}/tasks/tools/#kubectl) and [configure it to work with the new cluster](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
 ## Check cluster availability {#check}
 
@@ -205,7 +206,73 @@ CoreDNS is running at https://<cluster_address>/api/v1/namespaces/kube-system/se
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 ```
 
-## (Optional) Connect a private Docker image registry {#cert}
+## Optionally, set up {{ managed-k8s-name }} cluster time synchronization with your private NTP server.
+
+To ensure the {{ managed-k8s-name }} cluster time remains synchronized with another resource (in this case, a VM), deploy a private NTP server in `my-subnet` and set up synchronization of the cluster and VM with this server.
+
+1. Specify the NTP server address in the [DHCP settings](../../vpc/concepts/dhcp-options.md) of `my-subnet`.
+
+   {% list tabs group=instructions %}
+
+   - Manually {#manual}
+
+     [Update `my-subnet`](../../vpc/operations/subnet-update.md) by adding the NTP server’s IP address.
+
+   - {{ TF }} {#tf}
+
+     1. In the {{ TF }} configuration file, update `my-subnet` description. Add the `dhcp_options` section (if there is none) with the `ntp_servers` parameter and specify the IP address of your NTP server:
+
+        ```hcl
+        ...
+        resource "yandex_vpc_subnet" "lab-subnet-a" {
+          name           = "subnet-1"
+          ...
+          v4_cidr_blocks = ["<IPv4_address>"]
+          network_id     = "<network_ID>"
+          ...
+          dhcp_options {
+            ntp_servers = ["<IPv4_address>"]
+            ...
+          }
+        }
+        ...
+        ```
+
+        For more information about `yandex_vpc_subnet` properties in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
+
+     1. Apply the changes:
+
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+        
+        {{ TF }} will update all required resources. You can check the subnet update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+        ```
+        yc vpc subnet get <subnet_name>
+        ```
+     
+   {% endlist %}
+
+1. Allow the cluster and VM to connect to the NTP server.
+   
+   [Create](../../vpc/operations/security-group-add-rule.md) rules in the [security group of the cluster and node groups](../../managed-kubernetes/operations/connect/security-groups#rules-internal-cluster) and `vm-security-group`:
+
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`. If using any port other than port `123` on the NTP server, specify it.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `<NTP_server_IP_address>/32`.
+
+1. Update the network settings in the cluster node group and on the VM using one of the following methods:
+
+   * Connect to each node in the group and to the VM [over SSH](../../managed-kubernetes/operations/node-connect-ssh.md) or [via OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md) and run the `sudo dhclient -v -r && sudo dhclient` command.
+   * Reboot the group nodes and VM at a time convenient for you.
+
+   {% note warning %}
+
+   Updating network parameters may cause the services within the cluster to become unavailable for a few minutes.
+
+   {% endnote %}
+
+## Optionally, connect a private Docker image registry {#cert}
 
 You can connect a [private Docker image registry](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/) to your {{ managed-k8s-name }} cluster. To get authenticated in the registry and connect to it over HTTPS, the cluster will need certificates issued by the CA (Certificate Authority). Use the [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) controller to add and later automatically update the certificates on cluster nodes. It runs the following process in pods:
 

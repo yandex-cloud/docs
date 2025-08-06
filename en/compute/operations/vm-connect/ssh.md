@@ -1,5 +1,5 @@
 
-# Connecting to a Linux VM via SSH
+# Connecting to a Linux VM over SSH
 
 To connect to a [VM](../../concepts/vm.md) via SSH, you need a key pair with the public key located on the VM and the private key kept by the user. This method is more secure than connecting with a username and password.
 
@@ -20,7 +20,25 @@ To connect to a Linux VM via SSH:
 
 ## Creating an SSH key pair {#creating-ssh-keys}
 
-{% include [vm-ssh-prepare-key](../../../_includes/vm-ssh-prepare-key.md) %}
+{% list tabs group=operating_system %}
+
+- Management console {#console}
+
+  {% include [vm-ssh-prepare-key-console](../../../_includes/vm-ssh-prepare-key-console.md) %}
+
+- Linux/macOS {#linux-macos}
+
+  {% include [vm-ssh-prepare-key-linux-macos](../../../_includes/vm-ssh-prepare-key-linux-macos.md) %}
+
+- Windows 10/11 {#windows}
+
+  {% include [vm-ssh-prepare-key-win-10-11](../../../_includes/vm-ssh-prepare-key-win-10-11.md) %}
+
+- Windows 7/8 {#windows7-8}
+
+  {% include [vm-ssh-prepare-key-win-7-8](../../../_includes/vm-ssh-prepare-key-win-7-8.md) %}
+
+{% endlist %}
 
 {% note warning %}
 
@@ -36,7 +54,7 @@ The [previously created](#creating-ssh-keys) public key has the following format
 <key_type> <public_key_body> <optional_comment>
 ```
 
-Example:
+Here is an example:
 
 > ```text
 > ssh-ed25519 AAAAC3NzaC1lZDI1NTE5ABFLIFyapYheN7OZNhTaNqEHefjmU5mtzK********+gRPCz user@Desktop
@@ -44,7 +62,7 @@ Example:
 
 {% note tip %}
 
-The `<optional_comment>` section is not used when connecting via SSH, so you can omit it.
+The `<optional_comment>` section is not used when connecting over SSH, so you can skip it.
 
 {% endnote %}
 
@@ -101,7 +119,7 @@ After that, paste the public key into the **{{ ui-key.yacloud.compute.instances.
 
 ## Connecting to a VM {#vm-connect}
 
-You can connect to a VM with the `RUNNING` status via SSH. It may take some time for all services to initialize after the VM [starts](../vm-control/vm-stop-and-start.md#start). If you get a connection error, try again in a few minutes.
+You can connect to a VM with the `RUNNING` status over SSH. It may take some time for all services to initialize after the VM [starts](../vm-control/vm-stop-and-start.md#start). If you get a connection error, try again in a few minutes.
 
 The VM [security groups](../../../vpc/concepts/security-groups.md) must allow incoming TCP traffic on port 22.
 
@@ -140,12 +158,12 @@ You can also use [internal IP addresses](../../../vpc/concepts/address.md#intern
 
 - Windows 10/11 {#windows}
 
-  Make sure the Windows account has read permissions for the directory containing the keys.
+  Make sure the Windows account has read access to the key folder.
 
   To connect to the VM, run the following command in the command line:
 
   ```shell
-  ssh <username>@<VM_public_IP_address>
+  ssh <user_name>@<VM_public_IP_address>
   ```
 
   Where `<username>` is the VM account username. If you created your VM via the CLI, `yc-user` is the default user.
@@ -153,7 +171,7 @@ You can also use [internal IP addresses](../../../vpc/concepts/address.md#intern
   If you have multiple private keys, specify the one you need:
 
   ```shell
-  ssh -i <key_path\key_file_name> <username>@<VM_public_IP_address>
+  ssh -i <key_path\key_file_name> <user_name>@<VM_public_IP_address>
   ```
 
   If this is your first time connecting to the VM, you will get this unknown host warning:
@@ -174,7 +192,7 @@ You can also use [internal IP addresses](../../../vpc/concepts/address.md#intern
      1. In the context menu, select **Add key**.
      1. Select a PuTTY-generated private key in `.ppk` format. Enter the password for this key, if any.
   1. Run PuTTY.
-     1. In the **Host Name (or IP address)** field, enter the public IP address of the VM you want to connect to. Set the port to `22` and connection type to **SSH**.
+     1. In the **Host Name (or IP address)** field, enter the public IP address of the VM you want to connect to. Specify port `22` and **SSH** connection type.
 
         ![ssh_add_ip](../../../_assets/compute/ssh-putty/ssh_add_ip.png)
 
@@ -262,7 +280,7 @@ To configure users from within the VM, follow these steps:
    echo "<public_key>" >> /home/testuser/.ssh/authorized_keys
    ```
 
-1. Change the access permissions to the `authorized_keys` file and the `.ssh` folder:
+1. Update access permissions for the `authorized_keys` file and `.ssh` folder:
 
    ```bash
    chmod 700 ~/.ssh

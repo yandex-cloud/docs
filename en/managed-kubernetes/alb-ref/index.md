@@ -18,11 +18,12 @@ noIndex: true
 
 ## Gateway API resources {#gateway-api}
 
-* [Gateway](gateway.md): Rules for receiving incoming traffic and selecting routes (`HTTPRoute` and `TLSRoute`) for this traffic.
+* [Gateway](gateway.md): Incoming traffic reception and routing (`HTTPRoute` and `TLSRoute`) rules.
 * [GatewayPolicy](gateway-policy.md): `Gateway` resource policy, incoming traffic processing configuration.
 * [YCCertificate](./yc-certificate.md): {{ certificate-manager-name }} certificate parameters for setting up TLS connections in the `Gateway` resource.
-* [HTTPRoute](http-route.md): Rules for redirecting or routing HTTP, HTTPS, and gRPC traffic between backends.
+* [HTTPRoute](http-route.md): Rules for redirecting or routing HTTP and HTTPS traffic across backends.
 * [RoutePolicy](route-policy.md): `HTTPRoute` resource policy and backend access rule configuration.
+* [HTTPRoute](grpc-route.md): Rules for redirecting or routing gRPC traffic across backends.
 * [YCStorageBucket](./yc-storage-bucket.md): {{ objstorage-name }} bucket parameters for setting up a backend in the `HTTPRoute` resource.
-* [TLSRoute](./tls-route.md): Rules for routing TLS traffic between backends.
+* [TLSRoute](./tls-route.md): Rules for TLS traffic routing between backends.
 * [Service](service-for-gateway.md): {{ k8s }} backend service description.

@@ -7,6 +7,67 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.155.0 (23/07/25) {#version0.155.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ compute-name }}
+
+Fixed the description for the `--memory` parameter in the `yc compute instance create` and `yc compute instance update` commands.
+
+##### {{ backup-name }}
+
+Added the confirmation prompt for provider activation to the `yc backup provider activate` command and the `--force` flag for running the command without confirmation.
+
+##### {{ mkf-name }}
+
+Added the `--kafka-ui-enabled` flag to the `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands to enable Kafka UI in the cluster.
+
+##### {{ dataproc-name }}
+
+In the `yc dataproc cluster create` and `yc dataproc cluster update` commands, added parameters for specifying a service account to manage the VM group where the cluster hosts reside.
+* `--autoscaling-service-account-id`
+* `--autoscaling-service-account-name`
+
+##### {{ mch-name }}
+
+Added the following parameters to the `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster restore` commands:
+* `--maintenance-window`: For specifying a cluster maintenance window.
+* `--disk-encryption-key-id`: For specifying a disk encryption key.
+
+##### {{ mos-name }}
+
+* In the `yc managed-opensearch cluster create` and `yc managed-opensearch cluster update` commands, added parameters for managing cluster snapshot creation:
+    * `--snapshot-schedule`
+    * `--snapshot-day`
+    * `--snapshot-hour`
+    * `--snapshot-minute`
+    * `--snapshot-max-age-days`
+* In the `yc managed-opensearch cluster create` and `yc managed-opensearch cluster restore` commands, added the `--disk-encryption-key-id` parameter for specifying a disk encryption key.
+
+##### {{ mmy-name }}
+
+* In the `yc managed-mysql cluster create` and `yc managed-mysql cluster update` commands, added the `--yandexquery-access` parameter for enabling access to the cluster from {{ yq-full-name }}.
+* In the `yc managed-mysql cluster create` and `yc managed-mysql cluster restore` commands, added the `--disk-encryption-key-id` parameter for specifying a disk encryption key.
+
+##### {{ metastore-name }}
+
+In the `yc managed-metastore cluster create` and `yc managed-metastore cluster update` commands, added the `--version` parameter to support cluster versioning.
+
+##### {{ mpg-name }}
+
+In the `yc managed-postgresql cluster create` and `yc managed-postgresql cluster restore` commands, added the `--disk-encryption-key-id` parameter for specifying a disk encryption key.
+
+##### {{ mmg-name }}
+
+In the `yc managed-mongodb cluster create` and `yc managed-mongodb cluster restore` commands, added the `--disk-encryption-key-id` parameter for specifying a disk encryption key.
+
+##### {{ mrd-name }}
+
+In the `yc managed-redis cluster create` and `yc managed-redis cluster restore` commands, added the `--disk-encryption-key-id` parameter for specifying a disk encryption key.
+
+## Previous releases {#previous-release}
+
 ### Version 0.154.0 (09/07/25) {#version0.154.0}
 
 #### {{ alb-name }}
@@ -51,8 +112,6 @@ Added these cluster start/stop commands:
 Renamed these load balancer zone lock start/stop commands:
 * `yc load-balancer network-load-balancer disable-zones`
 * `yc load-balancer network-load-balancer enable-zones`
-
-## Previous releases {#previous-release}
 
 ### Version 0.153.0 (30/06/25) {#version0.153.0}
 

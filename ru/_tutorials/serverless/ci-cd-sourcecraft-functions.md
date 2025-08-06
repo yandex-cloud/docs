@@ -147,7 +147,7 @@
 - Интерфейс {{ src-name }} {#src}
 
   1. Откройте [главную страницу]({{ link-src-main }}) {{ src-name }}.
-  1. На вкладке ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_modules_mainApp.route_repositories }}**.
+  1. На вкладке ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** в секции ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.ui_modules_orgCommon.link_your-craftspace }}** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_lib.repositories }}**.
   1. Выберите созданный ранее репозиторий.
   1. На странице репозитория в разделе ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.sourcecraft.ui_modules_repo.title_navigation-repository-settings }}** перейдите в секцию ![image](../../_assets/console-icons/vault.svg) **{{ ui-key.sourcecraft.ui_lib.tab_secrets }}**.
   1. На странице с секретами нажмите **{{ ui-key.sourcecraft.ui_modules_secrets.action_new-secrete }}**.
@@ -173,7 +173,7 @@
 - Интерфейс {{ src-name }} {#src}
 
   1. Откройте [главную страницу]({{ link-src-main }}) {{ src-name }}.
-  1. На вкладке ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_modules_mainApp.route_repositories }}**.
+  1. На вкладке ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** в секции ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.ui_modules_orgCommon.link_your-craftspace }}** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_lib.repositories }}**.
   1. Выберите созданный ранее репозиторий.
   1. Нажмите **{{ ui-key.sourcecraft.ui_modules_repoMain.action_go-to-browse }}**.
   1. Справа от имени ветки нажмите ![image](../../_assets/console-icons/square-plus.svg) → ![image](../../_assets/console-icons/file.svg) **{{ ui-key.sourcecraft.ui_modules_repo.file }}**.
@@ -273,7 +273,7 @@
 - Интерфейс {{ src-name }} {#src}
 
   1. Откройте [главную страницу]({{ link-src-main }}) {{ src-name }}.
-  1. На вкладке ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_modules_mainApp.route_repositories }}**.
+  1. На вкладке ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** в секции ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.ui_modules_orgCommon.link_your-craftspace }}** перейдите в раздел ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_lib.repositories }}**.
   1. Выберите созданный ранее репозиторий.
   1. На странице репозитория в разделе ![image](../../_assets/console-icons/code.svg) **{{ ui-key.sourcecraft.ui_modules_repo.title_navigation-code }}** перейдите в секцию ![image](../../_assets/console-icons/arrows-3-rotate-right.svg) **{{ ui-key.sourcecraft.ui_modules_repo.action_cicd }}**.
   1. В списке запусков автоматизаций вы увидите новый запуск со статусом ![image](../../_assets/console-icons/circle.svg) **{{ ui-key.sourcecraft.ui_modules_cicd.value_status-created }}**. Дождитесь, когда статус изменится на ![image](../../_assets/console-icons/circle-check.svg) **{{ ui-key.sourcecraft.ui_modules_cicd.value_succeeded }}**.

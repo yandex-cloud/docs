@@ -229,6 +229,8 @@ items:
     href: security.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Метрики {{ monitoring-full-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

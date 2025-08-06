@@ -1,6 +1,6 @@
 ---
 title: Working with a VM
-description: This article describes how to work with a VM created from a public image in {{ yandex-cloud }}. Let's consider operations like connecting to a VM using an SSH key pair, generating an SSH key pair on Linux/MacOS, Windows 7, 8, 10, connecting to a VM via {{ oslogin }}, using SSL certificates, network traffic filtering, and installing updates.
+description: This article describes how to work with a VM created from a public image in {{ yandex-cloud }}. Let's consider operations like connecting to a VM using an SSH key pair, generating an SSH key pair on Linux/macOS, Windows 7, 8, 10, connecting to a VM via {{ oslogin }}, using SSL certificates, network traffic filtering, and installing updates.
 ---
 
 # Working with a VM created from a public image
@@ -9,7 +9,7 @@ description: This article describes how to work with a VM created from a public 
 
 You can connect to a [virtual machine](../../concepts/vm.md) via SSH using an SSH key pair, [via {{ oslogin }}](../vm-connect/os-login.md), or via the [serial console](../serial-console/index.md).
 
-### Connecting via SSH {#connect}
+### Connecting over SSH {#connect}
 
 This method for connecting to a VM uses an SSH key pair: the public key resides on the VM, while the private one is kept by the user. Connecting with a key pair is more secure than with a username and password.
 
@@ -17,7 +17,25 @@ This method for connecting to a VM uses an SSH key pair: the public key resides 
 
 #### Creating an SSH key pair {#creating-ssh-keys}
 
-{% include [vm-ssh-prepare-key](../../../_includes/vm-ssh-prepare-key.md) %}
+{% list tabs group=operating_system %}
+
+- Management console {#console}
+
+  {% include [vm-ssh-prepare-key-console](../../../_includes/vm-ssh-prepare-key-console.md) %}
+
+- Linux/macOS {#linux-macos}
+
+  {% include [vm-ssh-prepare-key-linux-macos](../../../_includes/vm-ssh-prepare-key-linux-macos.md) %}
+
+- Windows 10/11 {#windows}
+
+  {% include [vm-ssh-prepare-key-win-10-11](../../../_includes/vm-ssh-prepare-key-win-10-11.md) %}
+
+- Windows 7/8 {#windows7-8}
+
+  {% include [vm-ssh-prepare-key-win-7-8](../../../_includes/vm-ssh-prepare-key-win-7-8.md) %}
+
+{% endlist %}
 
 #### Connecting using an SSH key pair {#vm-connect}
 

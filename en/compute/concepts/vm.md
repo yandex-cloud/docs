@@ -1,6 +1,6 @@
 ---
 title: A VM is similar to a server
-description: A VM is similar to a server in the cloud infrastructure. A VM is created in a folder and inherits access rights from it. When creating a VM, you can choose the availability zone where it will be located.
+description: A VM is similar to a server in the cloud infrastructure. A VM is created in one of the folders and inherits its access permissions. When creating a VM, you can choose the availability zone where it will be located.
 ---
 
 # VMs in {{ compute-name }}
@@ -11,7 +11,7 @@ A _virtual machine_ is similar to a server in cloud infrastructures.
 
 A VM is created in a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) within your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and inherits access rights from it. You can read more about the {{ yandex-cloud }} resource hierarchy [here](../../resource-manager/concepts/resources-hierarchy.md).
 
-Each VM has a unique ID and name. The name is unique within the folder. Follow these naming requirements:
+Each VM has a unique ID and name. The name is unique within the folder. The naming requirements are as follows:
 
 {% include [name-format](../../_includes/name-format.md) %}
 
@@ -31,6 +31,14 @@ You can move a VM to another folder within a single cloud.
 When creating a VM, you need to specify the amount of computing resources to allocate to it; this includes the number and performance of processor cores (vCPUs) and the amount of RAM. You can choose the computing resources that are appropriate for the expected load. For more information, see [{#T}](performance-levels.md).
 
 To reserve computing resources for as many VMs as you need in a particular availability zone, you can create a [reserved instance pool](./reserved-pools.md).
+
+## Hardware generations {#hardware-generations}
+
+The virtualized hardware a {{ compute-name }} VM is deployed on and its OS has access to can belong to different [generations](./hardware-generations.md).
+
+The VM will run on virtualized hardware of the generation assigned to the [disk](./disk.md), [snapshot](./snapshot.md), or [image](./image.md) the VM was created based on.
+
+Once a VM has been created, its hardware generation cannot be changed. Instead, you can create a [snapshot](../operations/disk-control/create-snapshot.md#create) or [image](../operations/image-create/create-from-disk.md) from the boot disk of your existing VM with preferred hardware generation assigned and then proceed to create a new VM from the resulting snapshot or image.
 
 ## Disks {#disks}
 

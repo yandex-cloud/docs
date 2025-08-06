@@ -6324,6 +6324,7 @@ default:
     sourcecraft:
       ui_lib:
         home: Домой
+        repositories: Репозитории
         tab_secrets: Секреты
       ui_modules_cicd:
         value_status-created: В очереди
@@ -6331,6 +6332,8 @@ default:
       ui_modules_mainApp:
         route_create-repository: Создать репозиторий
         route_repositories: Репозитории
+      ui_modules_orgCommon:
+        link_your-craftspace: Ваша мастерская
       ui_modules_repo:
         action_cicd: Автоматизации
         action_commit: Сохранить изменения

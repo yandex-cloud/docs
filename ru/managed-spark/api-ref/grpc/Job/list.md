@@ -112,15 +112,6 @@ String that describes a display filter. ||
         ]
       },
       // end of the list of possible fields
-      "application_info": {
-        "id": "string",
-        "application_attempts": [
-          {
-            "id": "string",
-            "am_container_id": "string"
-          }
-        ]
-      },
       "ui_url": "string"
     }
   ],
@@ -192,9 +183,6 @@ Job specification. ||
 Includes only one of the fields `spark_job`, `pyspark_job`.
 
 Job specification. ||
-|| application_info | **[ApplicationInfo](#yandex.cloud.spark.v1.ApplicationInfo)**
-
-Attributes of application. ||
 || ui_url | **string**
 
 Spark UI Url. ||
@@ -221,7 +209,7 @@ URIs of archives to be extracted in the working directory of Spark drivers and t
 A mapping of property names to values, used to configure Spark. ||
 || main_jar_file_uri | **string**
 
-The HCFS URI of the jar file containing the main class. ||
+URI of the jar file containing the main class. ||
 || main_class | **string**
 
 The name of the driver's main class. ||
@@ -270,28 +258,4 @@ List of additional remote repositories to search for the maven coordinates given
 || exclude_packages[] | **string**
 
 List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. ||
-|#
-
-## ApplicationInfo {#yandex.cloud.spark.v1.ApplicationInfo}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of application ||
-|| application_attempts[] | **[ApplicationAttempt](#yandex.cloud.spark.v1.ApplicationAttempt)**
-
-Application attempts ||
-|#
-
-## ApplicationAttempt {#yandex.cloud.spark.v1.ApplicationAttempt}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of application attempt ||
-|| am_container_id | **string**
-
-ID of Application Master container ||
 |#

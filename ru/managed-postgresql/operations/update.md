@@ -445,16 +445,16 @@ description: Из статьи вы узнаете, как изменить на
         {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
             --backup-window-start <время_начала_резервного_копирования> \
             --backup-retain-period-days=<срок_хранения_автоматических_резервных_копий_в_днях> \
-            --datalens-access=<true_или_false> \
+            --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
                                 `hour=<час_дня> \
-            --websql-access=<true_или_false> \
+            --websql-access=<разрешить_доступ_из_{{ websql-name }}> \
             --deletion-protection \
             --connection-pooling-mode=<режим_работы_менеджера_подключений> \
-            --serverless-access=<true_или_false> \
-            --yandexquery-access=<доступ_через_{{ yq-name }}> \
-            --performance-diagnostics enabled=<true_или_false>,`
+            --serverless-access=<разрешить_доступ_из_Serverless_Containers> \
+            --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
+            --performance-diagnostics enabled=<активировать_сбор_статистики>,`
                                      `sessions-sampling-interval=<интервал_сбора_сессий>,`
                                      `statements-sampling-interval=<интервал_сбора_запросов>
         ```
@@ -483,7 +483,7 @@ description: Из статьи вы узнаете, как изменить на
 
     * `--connection-pooling-mode` — указывает [режим работы менеджера подключений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
 
-    * `deletion-protection` — защита от удаления кластера, его баз данных и пользователей.
+    * `--deletion-protection` — защита от удаления кластера, его баз данных и пользователей.
 
         По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
 
@@ -531,8 +531,8 @@ description: Из статьи вы узнаете, как изменить на
         ...
         config {
           access {
-            data_lens = <доступ_из_{{ datalens-name }}>
-            web_sql   = <выполнение_SQL-запросов_из_консоли_управления>
+            data_lens = <разрешить_доступ_из_{{ datalens-name }}>
+            web_sql   = <разрешить_доступ_из_{{ websql-name }}>
             ...
         }
         ...
@@ -551,7 +551,7 @@ description: Из статьи вы узнаете, как изменить на
         ...
         config {
           pooler_config {
-            pool_discard = <параметр_Odyssey>
+            pool_discard = <сбрасывать_состояния_клиентов_после_каждой_транзакции>
             pooling_mode = "<режим_работы>"
           }
           ...
@@ -561,7 +561,7 @@ description: Из статьи вы узнаете, как изменить на
 
       Где:
 
-      * `pool_discard`  — параметр Odyssey `pool_discard`: `true` или `false`.
+      * `pool_discard` — определяет, должны ли клиенты терять свое состояние после каждой транзакции: `true` или `false`.
       * `pooling_mode` — режим работы: `SESSION`, `TRANSACTION` или `STATEMENT`.
 
   1. {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
@@ -575,7 +575,7 @@ description: Из статьи вы узнаете, как изменить на
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
         ...
-        deletion_protection = <защита_от_удаления>
+        deletion_protection = <защитить_кластер_от_удаления>
       }
       ```
 
@@ -614,7 +614,7 @@ description: Из статьи вы узнаете, как изменить на
        "configSpec": {
          "poolerConfig": {
            "poolingMode": "<режим_управления_соединениями>",
-           "poolDiscard": <сброс_состояния_клиентов_после_каждой_транзакции:_true_или_false>
+           "poolDiscard": <сбрасывать_состояния_клиентов_после_каждой_транзакции>
          },
          "backupWindowStart": {
            "hours": "<часы>",
@@ -624,14 +624,14 @@ description: Из статьи вы узнаете, как изменить на
          },
          "backupRetainPeriodDays": "<количество_дней>",
          "access": {
-           "dataLens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-           "webSql": <доступ_к_{{ websql-name }}:_true_или_false>,
-           "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
-           "dataTransfer": <доступ_к_Data_Transfer:_true_или_false>,
-           "yandexQuery": <доступ_к_{{ yq-name }}:_true_или_false>
+           "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
+           "webSql": <разрешить_доступ_из_{{ websql-name }}>,
+           "serverless": <разрешить_доступ_из_Cloud_Functions>,
+           "dataTransfer": <разрешить_доступ_из_Data_Transfer>,
+           "yandexQuery": <разрешить_доступ_из_{{ yq-name }}>
          },
          "performanceDiagnostics": {
-           "enabled": <активация_сбора_статистики:_true_или_false>,
+           "enabled": <активировать_сбор_статистики>,
            "sessionsSamplingInterval": "<интервал_сбора_сессий>",
            "statementsSamplingInterval": "<интервал_сбора_запросов>"
          }
@@ -642,7 +642,7 @@ description: Из статьи вы узнаете, как изменить на
            "hour": "<час>"
          }
        },
-       "deletionProtection": <защита_от_удаления:_true_или_false>
+       "deletionProtection": <защитить_кластер_от_удаления>
      }
      ```
 
@@ -655,7 +655,7 @@ description: Из статьи вы узнаете, как изменить на
        * `poolerConfig` — настройки менеджера подключений:
 
          * `poolingMode` — режим работы менеджера подключений. Возможные значения: `SESSION`, `TRANSACTION` и `STATEMENT`. Подробнее о каждом режиме читайте в разделе [{#T}](../concepts/pooling.md).
-         * `poolDiscard` — должны ли клиенты терять свое состояние после каждой транзакции. Соответствует параметру [server_reset_query_always](https://www.pgbouncer.org/config.html) для менеджера подключений [PgBouncer](https://www.pgbouncer.org/usage).
+         * `poolDiscard` — должны ли клиенты терять свое состояние после каждой транзакции: `true` или `false`. Соответствует параметру [server_reset_query_always](https://www.pgbouncer.org/config.html) для менеджера подключений [PgBouncer](https://www.pgbouncer.org/usage).
 
        * `backupWindowStart` — настройки окна [резервного копирования](../concepts/backup.md).
 
@@ -677,11 +677,13 @@ description: Из статьи вы узнаете, как изменить на
          * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
          * `yandexQuery` — [{{ yq-full-name }}](../../query/index.yaml).
 
+         Возможные значения настроек: `true` или `false`.
+
 
        
        * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-         * `enabled` — активация сбора статистики.
+         * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessionsSamplingInterval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
 
@@ -694,7 +696,7 @@ description: Из статьи вы узнаете, как изменить на
          * `day` — день недели в формате `DDD`;
          * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
 
-     * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей.
+     * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей: `true` или `false`.
 
         По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
 
@@ -747,7 +749,7 @@ description: Из статьи вы узнаете, как изменить на
        "config_spec": {
          "pooler_config": {
            "pooling_mode": "<режим_управления_соединениями>",
-           "pool_discard": <сброс_состояния_клиентов_после_каждой_транзакции:_true_или_false>
+           "pool_discard": <сбрасывать_состояния_клиентов_после_каждой_транзакции>
          },
          "backup_window_start": {
            "hours": "<часы>",
@@ -757,14 +759,14 @@ description: Из статьи вы узнаете, как изменить на
          },
          "backup_retain_period_days": "<количество_дней>",
          "access": {
-           "data_lens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-           "web_sql": <доступ_к_{{ websql-name }}:_true_или_false>,
-           "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
-           "data_transfer": <доступ_к_Data_Transfer:_true_или_false>,
-           "yandex_query": <доступ_к_{{ yq-name }}:_true_или_false>
+           "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
+           "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
+           "serverless": <разрешить_доступ_из_Cloud_Functions>,
+           "data_transfer": <разрешить_доступ_из_Data_Transfer>,
+           "yandex_query": <разрешить_доступ_из_{{ yq-name }}>
          },
          "performance_diagnostics": {
-           "enabled": <активация_сбора_статистики:_true_или_false>,
+           "enabled": <активировать_сбор_статистики>,
            "sessions_sampling_interval": "<интервал_сбора_сессий>",
            "statements_sampling_interval": "<интервал_сбора_запросов>"
          }
@@ -775,7 +777,7 @@ description: Из статьи вы узнаете, как изменить на
            "hour": "<час>"
          }
        },
-       "deletion_protection": <защита_от_удаления:_true_или_false>
+       "deletion_protection": <защитить_кластер_от_удаления>
      }
      ```
 
@@ -788,7 +790,7 @@ description: Из статьи вы узнаете, как изменить на
        * `pooler_config` — настройки менеджера подключений:
 
          * `pooling_mode` — режим работы менеджера подключений. Возможные значения: `SESSION`, `TRANSACTION` и `STATEMENT`. Подробнее о каждом режиме читайте в разделе [{#T}](../concepts/pooling.md).
-         * `pool_discard` — должны ли клиенты терять свое состояние после каждой транзакции. Соответствует параметру [server_reset_query_always](https://www.pgbouncer.org/config.html) для менеджера подключений [PgBouncer](https://www.pgbouncer.org/usage).
+         * `pool_discard` — должны ли клиенты терять свое состояние после каждой транзакции: `true` или `false`. Соответствует параметру [server_reset_query_always](https://www.pgbouncer.org/config.html) для менеджера подключений [PgBouncer](https://www.pgbouncer.org/usage).
 
        * `backup_window_start` — настройки окна [резервного копирования](../concepts/backup.md).
 
@@ -810,11 +812,13 @@ description: Из статьи вы узнаете, как изменить на
          * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
          * `yandex_query` — [{{ yq-full-name }}](../../query/index.yaml).
 
+         Возможные значения настроек: `true` или `false`.
+
 
        
        * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-         * `enabled` — активация сбора статистики.
+         * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessions_sampling_interval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
 
@@ -827,7 +831,7 @@ description: Из статьи вы узнаете, как изменить на
          * `day` — день недели в формате `DDD`;
          * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
 
-     * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей.
+     * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей: `true` или `false`.
 
         По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
 

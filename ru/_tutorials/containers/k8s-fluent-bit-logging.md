@@ -100,19 +100,19 @@
    {{ yc-k8s }} cluster update <имя_кластера> \
      --master-logging enabled=true,`
        `log-group-id=<идентификатор_лог-группы>,`
-       `kube-apiserver-enabled=<отправка_логов_kube-apiserver:_true_или_false>,`
-       `cluster-autoscaler-enabled=<отправка_логов_cluster-autoscaler:_true_или_false>,`
-       `events-enabled=<отправка_событий_{{ k8s }}:_true_или_false>`
-       `audit-enabled=<отправка_событий_аудита:_true_или_false>
+       `kube-apiserver-enabled=<отправлять_логи_kube-apiserver>,`
+       `cluster-autoscaler-enabled=<отправлять_логи_cluster-autoscaler>,`
+       `events-enabled=<отправлять_события_{{ k8s }}>`
+       `audit-enabled=<отправлять_события_аудита>
    ```
 
    Где:
    * `enabled` — флаг отправки логов.
    * `log-group-id` — идентификатор [созданной ранее](#before-you-begin-master-logging) лог-группы, в которую нужно отправлять логи.
-   * `kube-apiserver-enabled` — флаг отправки логов [kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/).
-   * `cluster-autoscaler-enabled` — флаг отправки логов `cluster-autoscaler`.
-   * `events-enabled` — флаг отправки событий {{ k8s }}.
-   * `audit-enabled` — флаг отправки событий аудита.
+   * `kube-apiserver-enabled` — флаг отправки логов [kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/): `true` или `false`.
+   * `cluster-autoscaler-enabled` — флаг отправки логов `cluster-autoscaler`: `true` или `false`.
+   * `events-enabled` — флаг отправки событий {{ k8s }}: `true` или `false`.
+   * `audit-enabled` — флаг отправки событий аудита: `true` или `false`.
 
 ### Проверьте результат {#check-result-master-logging}
 

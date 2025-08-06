@@ -73,7 +73,7 @@
           --data '{
                     "configSpec": {
                       "performanceDiagnostics": {
-                        "enabled": <активация_сбора_статистики:_true_или_false>,
+                        "enabled": <активировать_сбор_статистики>,
                         "sessionsSamplingInterval": "<интервал_сбора_сессий>",
                         "statementsSamplingInterval": "<интервала_сбора_запросов>"
                       },
@@ -85,7 +85,7 @@
 
         Где `configSpec.performanceDiagnostics` — настройки сбора статистики:
 
-        * `enabled` — активация сбора статистики.
+        * `enabled` — активация сбора статистики: `true` или `false`.
         * `sessionsSamplingInterval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
         * `statementsSamplingInterval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
 
@@ -107,7 +107,7 @@
                     "updateMask": "configSpec.performanceDiagnostics",
                     "configSpec": {
                       "performanceDiagnostics": {
-                        "enabled": <активация_сбора_статистики:_true_или_false>,
+                        "enabled": <активировать_сбор_статистики>,
                         "sessionsSamplingInterval": "<интервал_сбора_сессий>",
                         "statementsSamplingInterval": "<интервала_сбора_запросов>"
                       }
@@ -117,7 +117,7 @@
 
         Где `configSpec.performanceDiagnostics` — настройки сбора статистики:
 
-        * `enabled` — активация сбора статистики.
+        * `enabled` — активация сбора статистики: `true` или `false`.
         * `sessionsSamplingInterval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
         * `statementsSamplingInterval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
 
@@ -144,7 +144,7 @@
           -d '{
                 "config_spec": {
                   "performance_diagnostics": {
-                    "enabled": <активация_сбора_статистики:_true_или_false>,
+                    "enabled": <активировать_сбор_статистики>,
                     "sessions_sampling_interval": "<интервал_сбора_сессий>",
                     "statements_sampling_interval": "<интервала_сбора_запросов>"
                   },
@@ -158,7 +158,7 @@
 
         Где `config_spec.performance_diagnostics` — настройки сбора статистики:
 
-        * `enabled` — активация сбора статистики.
+        * `enabled` — активация сбора статистики: `true` или `false`.
         * `sessions_sampling_interval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
         * `statements_sampling_interval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
 
@@ -186,7 +186,7 @@
                 },
                 "config_spec": {
                   "performance_diagnostics": {
-                    "enabled": <активация_сбора_статистики:_true_или_false>,
+                    "enabled": <активировать_сбор_статистики>,
                     "sessions_sampling_interval": "<интервал_сбора_сессий>",
                     "statements_sampling_interval": "<интервала_сбора_запросов>"
                   }
@@ -198,7 +198,7 @@
 
         Где `config_spec.performance_diagnostics` — настройки сбора статистики:
 
-        * `enabled` — активация сбора статистики.
+        * `enabled` — активация сбора статистики: `true` или `false`.
         * `sessions_sampling_interval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
         * `statements_sampling_interval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
 

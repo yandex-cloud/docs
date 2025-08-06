@@ -155,7 +155,7 @@ description: Следуя данной инструкции, вы сможете
        --network-name <имя_сети> \
        --host zone-id=<зона_доступности>,`
          `subnet-id=<идентификатор_подсети>,`
-         `assign-public-ip=<публичный_доступ_к_хосту>,`
+         `assign-public-ip=<разрешить_публичный_доступ_к_хосту>,`
          `priority=<приоритет_при_выборе_хоста-мастера>,`
          `backup-priority=<приоритет_для_резервного_копирования> \
        --mysql-version <версия_{{ MY }}> \
@@ -207,8 +207,8 @@ description: Следуя данной инструкции, вы сможете
        ...
        --backup-window-start <время_начала_резервного_копирования> \
        --backup-retain-period-days=<срок_хранения_копий> \
-       --datalens-access=<true_или_false> \
-       --websql-access=<true_или_false> \
+       --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
+       --websql-access=<разрешить_доступ_из_{{ websql-name }}> \
        --deletion-protection \
        --performance-diagnostics enabled=true,`
                                 `sessions-sampling-interval=<интервал_сбора_сессий>,`
@@ -266,7 +266,7 @@ description: Следуя данной инструкции, вы сможете
        network_id          = "<идентификатор_сети>"
        version             = "<версия_{{ MY }}>"
        security_group_ids  = [ "<список_идентификаторов_групп_безопасности>" ]
-       deletion_protection = <защита_кластера_от_удаления>
+       deletion_protection = <защитить_кластер_от_удаления>
 
        resources {
          resource_preset_id = "<класс_хоста>"
@@ -277,7 +277,7 @@ description: Следуя данной инструкции, вы сможете
        host {
          zone             = "<зона_доступности>"
          subnet_id        = "<идентификатор_подсети>"
-         assign_public_ip = <публичный_доступ_к_хосту>
+         assign_public_ip = <разрешить_публичный_доступ_к_хосту>
          priority         = <приоритет_при_выборе_хоста-мастера>
          backup_priority  = <приоритет_для_резервного_копирования>
        }
@@ -418,7 +418,7 @@ description: Следуя данной инструкции, вы сможете
               ...
               "<идентификатор_группы_безопасности_N>"
           ],
-          "deletionProtection": <защита_кластера_от_удаления:_true_или_false>,
+          "deletionProtection": <защитить_кластер_от_удаления>,
           "configSpec": {
               "version": "<версия_{{ MY }}>",
               "resources": {
@@ -427,12 +427,12 @@ description: Следуя данной инструкции, вы сможете
                   "diskTypeId": "<тип_диска>"
               },
               "access": {
-                  "dataLens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                  "webSql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                  "dataTransfer": <доступ_к_Data_Transfer:_true_или_false>
+                  "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
+                  "webSql": <разрешить_доступ_из_{{ websql-name }}>,
+                  "dataTransfer": <разрешить_доступ_из_Data_Transfer>
               },
               "performanceDiagnostics": {
-                  "enabled": <активация_сбора_статистики:_true_или_false>,
+                  "enabled": <активировать_сбор_статистики>,
                   "sessionsSamplingInterval": "<интервал_сбора_сессий>",
                   "statementsSamplingInterval": "<интервал_сбора_запросов>"
               }
@@ -466,7 +466,7 @@ description: Следуя данной инструкции, вы сможете
               {
                   "zoneId": "<зона_доступности>",
                   "subnetId": "<идентификатор_подсети>",
-                  "assignPublicIp": <публичный_адрес_хоста:_true_или_false>
+                  "assignPublicIp": <разрешить_публичный_доступ_к_хосту>
               },
               { <аналогичный_набор_настроек_для_хоста_2> },
               { ... },
@@ -487,7 +487,7 @@ description: Следуя данной инструкции, вы сможете
       * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
-      * `deletionProtection` — защита кластера от непреднамеренного удаления.
+      * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -507,10 +507,12 @@ description: Следуя данной инструкции, вы сможете
               * `webSql` — [{{ websql-full-name }}](../../websql/index.yaml);
               * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
 
+              Возможные значения настроек: `true` или `false`.
+
 
       * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-          * `enabled` — активация сбора статистики;
+          * `enabled` — активация сбора статистики: `true` или `false`;
           * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
           * `statementsSamplingInterval` — интервал сбора запросов: от `1` до `86400` секунд.
 
@@ -539,7 +541,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
           * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-          * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
+          * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
 
   1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -576,7 +578,7 @@ description: Следуя данной инструкции, вы сможете
               ...
               "<идентификатор_группы_безопасности_N>"
           ],
-          "deletion_protection": <защита_кластера_от_удаления:_true_или_false>,
+          "deletion_protection": <защитить_кластер_от_удаления>,
           "config_spec": {
               "version": "<версия_{{ MY }}>",
               "resources": {
@@ -585,12 +587,12 @@ description: Следуя данной инструкции, вы сможете
                   "disk_type_id": "<тип_диска>"
               },
               "access": {
-                  "data_lens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                  "web_sql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                  "data_transfer": <доступ_к_Data_Transfer:_true_или_false>
+                  "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
+                  "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
+                  "data_transfer": <разрешить_доступ_из_Data_Transfer>
               },
               "performance_diagnostics": {
-                  "enabled": <активация_сбора_статистики:_true_или_false>,
+                  "enabled": <активировать_сбор_статистики>,
                   "sessions_sampling_interval": "<интервал_сбора_сессий>",
                   "statements_sampling_interval": "<интервал_сбора_запросов>"
               }
@@ -621,7 +623,7 @@ description: Следуя данной инструкции, вы сможете
               {
                   "zone_id": "<зона_доступности>",
                   "subnet_id": "<идентификатор_подсети>",
-                  "assign_public_ip": <публичный_адрес_хоста:_true_или_false>
+                  "assign_public_ip": <разрешить_публичный_доступ_к_хосту>
               }
           ]
       }
@@ -639,7 +641,7 @@ description: Следуя данной инструкции, вы сможете
       * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
-      * `deletion_protection` — защита кластера от непреднамеренного удаления.
+      * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -659,10 +661,12 @@ description: Следуя данной инструкции, вы сможете
               * `web_sql` — [{{ websql-full-name }}](../../websql/index.yaml);
               * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
 
+              Возможные значения настроек: `true` или `false`.
+
 
       * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-          * `enabled` — активация сбора статистики;
+          * `enabled` — активация сбора статистики: `true` или `false`;
           * `sessions_sampling_interval` — интервал сбора сессий: от `1` до `86400` секунд;
           * `statements_sampling_interval` — интервал сбора запросов: от `60` до `86400` секунд.
 
@@ -688,7 +692,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
           * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-          * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
+          * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
 
   1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 

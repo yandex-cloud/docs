@@ -74,7 +74,7 @@
      parameters:
        mounter: geesefs
        options: "--memory-limit=1000 --dir-mode=0777 --file-mode=0666"
-       bucket: <опционально:_имя_существующего_бакета>
+       bucket: <имя_существующего_бакета>
        csi.storage.k8s.io/provisioner-secret-name: csi-s3-secret
        csi.storage.k8s.io/provisioner-secret-namespace: kube-system
        csi.storage.k8s.io/controller-publish-secret-name: csi-s3-secret
@@ -85,7 +85,7 @@
        csi.storage.k8s.io/node-publish-secret-namespace: kube-system
      ```
 
-     Чтобы использовать существующий бакет, укажите его имя в параметре `bucket`. Эта настройка актуальна только для [динамических `PersistentVolume`](#dpvc-csi-usage).
+     Параметр `bucket` опциональный. Задайте его, чтобы использовать существующий бакет. Эта настройка актуальна только для [динамических `PersistentVolume`](#dpvc-csi-usage).
   1. Клонируйте [GitHub-репозиторий](https://github.com/yandex-cloud/k8s-csi-s3.git), содержащий актуальный драйвер {{ CSI }}:
 
      ```bash
@@ -297,7 +297,7 @@
           name: csi-s3-pvc-static
         csi:
           driver: ru.yandex.s3.csi
-          volumeHandle: "<имя_static-бакета>/<опционально:_путь_к_каталогу_в_бакете>"
+          volumeHandle: "<имя_static-бакета>/<путь_к_каталогу_в_бакете>"
           controllerPublishSecretRef:
             name: csi-s3-secret
             namespace: kube-system
@@ -314,6 +314,8 @@
       ```
 
       В этом примере настройки GeeseFS для работы с бакетом изменены по сравнению со `StorageClass`. В них добавлена опция `--uid`, в которой указан идентификатор пользователя-владельца всех файлов в хранилище — `1001`. Подробнее о настройке GeeseFS для статического `PersistentVolume` см. [выше](#spvc-csi-usage).
+
+      В параметре `volumeHandle` путь к каталогу в бакете задается опционально.
 
       {% endcut %}
 

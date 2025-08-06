@@ -92,7 +92,7 @@ keywords:
                       `resource-preset-id=<идентификатор_ресурсов> \
            --deb-packages <список_deb-пакетов> \
            --pip-packages <список_pip-пакетов> \
-           --dags-bucket <имя-бакета> \
+           --dags-bucket <имя_бакета> \
            --deletion-protection \
            --lockbox-secrets-backend \
            --log-enabled \

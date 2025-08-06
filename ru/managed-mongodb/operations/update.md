@@ -680,7 +680,7 @@ description: Следуя данной инструкции, вы сможете
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "<имя_кластера>" {
           ...
-          deletion_protection = <защита_кластера_от_удаления>
+          deletion_protection = <защитить_кластер_от_удаления>
         }
         ```
 
@@ -723,7 +723,7 @@ description: Следуя данной инструкции, вы сможете
           },
           "backupRetainPeriodDays": "<время_хранения_резервных_копий_в_днях>",
           "performanceDiagnostics": {
-            "profilingEnabled": <включить_профилировщик:_true_или_false>
+            "profilingEnabled": <включить_профилировщик>
           }
         }
         "maintenanceWindow": {
@@ -732,7 +732,7 @@ description: Следуя данной инструкции, вы сможете
             "hour": "<час>"
           }
         },    
-        "deletionProtection": <защита_кластера_от_удаления:_true_или_false>
+        "deletionProtection": <защитить_кластер_от_удаления>
       }
       ```
     
@@ -754,7 +754,7 @@ description: Следуя данной инструкции, вы сможете
         * `backupRetainPeriodDays` — время хранения резервных копий в днях.
 
         * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
-          * `profilingEnabled` — включение [профилировщика](tools.md#explore-profiler).
+          * `profilingEnabled` — включение [профилировщика](tools.md#explore-profiler): `true` или `false`.
 
       * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
 
@@ -816,7 +816,7 @@ description: Следуя данной инструкции, вы сможете
           },
           "backup_retain_period_days": "<время_хранения_резервных_копий_в_днях>",
           "performance_diagnostics": {
-            "profiling_enabled": <включить_профилировщик:_true_или_false>
+            "profiling_enabled": <включить_профилировщик>
           }
         },
         "maintenance_window": {
@@ -825,7 +825,7 @@ description: Следуя данной инструкции, вы сможете
             "hour": "<час>"
           }
         },
-        "deletion_protection": <защита_кластера_от_удаления:_true_или_false>
+        "deletion_protection": <защитить_кластер_от_удаления>
       }
       ```
 
@@ -848,7 +848,7 @@ description: Следуя данной инструкции, вы сможете
 
         * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-          * `profiling_enabled` — включение [профилировщика](tools.md#explore-profiler).
+          * `profiling_enabled` — включение [профилировщика](tools.md#explore-profiler): `true` или `false`.
 
       * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
 

@@ -1,6 +1,6 @@
 ---
-title: How to connect to a {{ k8s }} cluster in {{ managed-k8s-full-name }}
-description: Follow this guide to connect to a {{ k8s }} cluster in {{ managed-k8s-name }}.
+title: How do I connect to a {{ k8s }} cluster in {{ managed-k8s-full-name }}
+description: Follow this guide to connect to a {{ managed-k8s-name }} cluster.
 ---
 
 # Connection method overview
@@ -27,7 +27,7 @@ When connecting to a {{ k8s }} cluster, the user [logs in to {{ iam-full-name }}
 
 {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-To connect to a cluster:
+To connect to your cluster:
 
 1. Install [kubectl]({{ k8s-docs }}/tasks/tools/#kubectl).
 
@@ -45,6 +45,8 @@ To connect to a cluster:
          --external
       ```
 
+      {% include [note-connect-button](../../../_includes/managed-kubernetes/note-connect-button.md) %}
+
       If you [created your cluster](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with no public IP address, this cluster can only be connected to using its internal IP.
 
    - Internal IP address
@@ -56,6 +58,8 @@ To connect to a cluster:
          get-credentials <cluster_name_or_ID> \
          --internal
       ```
+
+      {% include [note-connect-button](../../../_includes/managed-kubernetes/note-connect-button.md) %}
 
    {% endlist %}
 

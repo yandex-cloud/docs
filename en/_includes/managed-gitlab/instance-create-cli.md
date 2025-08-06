@@ -36,12 +36,11 @@
       --domain-prefix <instance_domain_name> \
       --deletion-protection \
       --approval-rules <approval_rule_configuration> \
-      --zone <availability_zone> \
       --subnet-id <subnet_ID>
     ```
 
     Where:
-    * `--name`: Instance name, unique within {{ yandex-cloud }}. Follow these naming requirements:
+    * `--name`: Instance name, unique within {{ yandex-cloud }}. The naming requirements are as follows:
 
       {% include [name-format](../name-format.md) %}
 
@@ -65,7 +64,6 @@
 
       {% include [note-approval-rules-pricing](note-approval-rules-pricing.md) %}
 
-    * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) corresponding to the selected subnet.
     * `--subnet-id`: ID of the selected subnet.
 
     Result:
@@ -73,8 +71,8 @@
     ```text
     id: c17c60tpadua********
     folder_id: b1g2slt7p9ug********
-    created_at: "2025-06-16T13:07:57.729Z"
-    updated_at: "2025-06-16T13:07:57.729Z"
+    created_at: "2025-07-20T18:34:16.078Z"
+    updated_at: "2025-07-20T18:34:16.078Z"
     name: test-cli
     resource_preset_id: s2.small
     disk_size: "107374182400"
@@ -86,7 +84,7 @@
     backup_retain_period_days: "7"
     deletion_protection: true
     approval_rules_id: BASIC
-    gitlab_version: 17.11.2
+    gitlab_version: 17.11.6
     ```
 
     For more information about this command, see the [CLI reference](../../managed-gitlab/cli-ref/instance/create.md).

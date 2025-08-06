@@ -24,7 +24,7 @@
 1. Получите текст запроса для создания таблиц:
 
    ```sql
-   SELECT create_table_query FROM system.tables WHERE database = '<имя_БД,_которую_вы_хотите_перенести>';
+   SELECT create_table_query FROM system.tables WHERE database = '<имя_переносимой_БД>';
    ```
 
    Например, в вашей БД `db1` хранится таблица `tasks` со списком заданий. Ответ на запрос будет выглядеть так:

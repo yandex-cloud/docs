@@ -166,7 +166,7 @@
         --resource-preset <класс_хоста> \
         --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --disk-size <размер_хранилища_ГБ> \
-        --assign-public-ip <публичный_доступ> \
+        --assign-public-ip <разрешить_публичный_доступ_к_кластеру> \
         --security-group-ids <список_идентификаторов_групп_безопасности> \
         --deletion-protection
         --kafka-ui-enabled <true_или_false>
@@ -282,16 +282,16 @@
        network_id          = "<идентификатор_сети>"
        subnet_ids          = ["<список_идентификаторов_подсетей>"]
        security_group_ids  = ["<список_идентификаторов_групп_безопасности_кластера>"]
-       deletion_protection = <защита_кластера_от_удаления>
+       deletion_protection = <защитить_кластер_от_удаления>
 
        config {
          version          = "<версия>"
          zones            = ["<зоны_доступности>"]
          brokers_count    = <количество_хостов-брокеров>
-         assign_public_ip = "<публичный_доступ>"
-         schema_registry  = "<управление_схемами_данных>"
+         assign_public_ip = "<разрешить_публичный_доступ_к_кластеру>"
+         schema_registry  = "<включить_управление_схемами_данных>"
          kafka_ui {
-           enabled = <true_или_false>
+           enabled = <использовать_веб-интерфейс_Kafka_UI>
          }
          kafka {
            resources {
@@ -416,16 +416,16 @@
                   <список_зон_доступности>
                 ],
                 "brokersCount": "<количество_брокеров_в_зоне>",
-                "assignPublicIp": <публичный_доступ:_true_или_false>,
-                "schemaRegistry": <управление_схемами_данных:_true_или_false>,
+                "assignPublicIp": <разрешить_публичный_доступ_к_кластеру>,
+                "schemaRegistry": <включить_управление_схемами_данных>,
                 "restApiConfig": {
-                  "enabled": <отправка_запросов_к_API_{{ KF }}:_true_или_false>
+                  "enabled": <включить_отправку_запросов_к_API_{{ KF }}>
                 },
                 "diskSizeAutoscaling": {
                   <параметры_автоматического_увеличения_размера_хранилища>
                 },
                 "kafkaUiConfig": {
-                  "enabled": <использование_веб-интерфейса_{{ kafka-ui }}:_true_или_false>
+                  "enabled": <использовать_веб-интерфейс_Kafka_UI>
                 }
               },
               "topicSpecs": [
@@ -460,7 +460,7 @@
                   "hour": "<час_дня_по_UTC>"
                 }
               },
-              "deletionProtection": <защита_кластера_от_удаления:_true_или_false>
+              "deletionProtection": <защитить_кластер_от_удаления>
             }
             ```
 
@@ -614,16 +614,16 @@
                 "brokers_count": {
                   "value": "<количество_брокеров_в_зоне>"
                 },
-                "assign_public_ip": <публичный_доступ:_true_или_false>,
-                "schema_registry": <управление_схемами_данных:_true_или_false>,
+                "assign_public_ip": <разрешить_публичный_доступ_к_кластеру>,
+                "schema_registry": <включить_управление_схемами_данных>,
                 "rest_api_config": {
-                  "enabled": <отправка_запросов_к_API_{{ KF }}:_true_или_false>
+                  "enabled": <включить_отправку_запросов_к_API_{{ KF }}>
                 },
                 "disk_size_autoscaling": {
                   <параметры_автоматического_увеличения_размера_хранилища>
                 },
                 "kafka_ui_config": {
-                  "enabled": <использование_веб-интерфейса_{{ kafka-ui }}:_true_или_false>
+                  "enabled": <использовать_веб-интерфейс_Kafka_UI>
                 }
               },
               "topic_specs": [
@@ -662,7 +662,7 @@
                   "hour": "<час_дня_по_UTC>"
                 }
               },
-              "deletion_protection": <защита_кластера_от_удаления:_true_или_false>
+              "deletion_protection": <защитить_кластер_от_удаления>
             }
             ```
 

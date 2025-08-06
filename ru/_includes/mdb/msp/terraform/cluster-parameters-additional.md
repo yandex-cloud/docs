@@ -8,7 +8,7 @@
       config = {
       ...
         history_server = {
-          enabled = <использование_history_server:_true_или_false>
+          enabled = true
         }
       }
     }

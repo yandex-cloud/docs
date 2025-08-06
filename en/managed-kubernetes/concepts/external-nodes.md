@@ -20,7 +20,7 @@ To connect external nodes to a {{ managed-k8s-name }} cluster, the following req
 
   You can use the following methods to establish a private dedicated connection between your local network infrastructure and {{ yandex-cloud }}:
   * Via [{{ interconnect-full-name }}](../../interconnect/index.yaml).
-  * Manually, via a VPN.
+  * Manually, via a VPN, e.g., [IPSec](../operations/external-nodes-connect-ipsec.md) or [WireGuard](../operations/external-nodes-connect-wireguard.md).
 
 * A {{ managed-k8s-name }} cluster uses network [tunneling](../concepts/network-policy.md#cilium).
 * Connecting servers must have internet access.
@@ -62,4 +62,4 @@ You must deploy any loads requiring this functionality on {{ managed-k8s-name }}
 
 You can manage traffic at L7 instead of doing it with L3 load balancers. To do this, install an Ingress controller in your {{ managed-k8s-name }} cluster and use `Ingress` resources.
 
-Currently, the [{{ alb-full-name }}-based Ingress Controller](../tutorials/alb-ingress-controller.md) does not support load balancing for external nodes. You can use one of the [alternative ingress controllers](../tutorials/ingress-cert-manager.md) as a temporary solution.
+Currently, the [{{ alb-full-name }}-based Ingress Controller](../tutorials/alb-ingress-controller.md) does not support load balancing for external nodes. You can use one of the [alternative Ingress controllers](../tutorials/ingress-cert-manager.md) as a temporary solution.
