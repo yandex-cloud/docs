@@ -88,8 +88,10 @@ kubectl describe svc <имя_сервиса_типа_LoadBalancer> \
 
    ```bash
    kubectl describe pvc <имя_PVC> \
-     --namespace=<пространство_имен,_в_котором_находится_PVC>
+     --namespace=<пространство_имен>
    ```
+
+   Где `--namespace` — пространство имен, в котором находится PVC.
 
    Сообщение `waiting for first consumer to be created before binding` означает, что PVC ожидает создания пода.
 1. [Создайте под](../../managed-kubernetes/operations/volumes/dynamic-create-pv.md#create-pod) для этого PVC.

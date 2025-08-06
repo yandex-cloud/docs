@@ -31,7 +31,7 @@
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
+1. {% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}
 
 ## Создайте ресурсы {{ managed-k8s-name }} {#k8s-create}
 

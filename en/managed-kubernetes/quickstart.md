@@ -11,8 +11,8 @@ Create a [{{ managed-k8s-name }} cluster](concepts/index.md#kubernetes-cluster) 
 ## Getting started {#before-you-begin}
 
 To get started with {{ managed-k8s-name }}:
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, check whether you have a linked [billing account](../billing/concepts/billing-account.md) with an `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../resource-manager/operations/folder/create.md).
 1. Install the {{ k8s }} CLI, [kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl/).
 1. Make sure you have enough [resources available in the cloud](concepts/limits.md).
@@ -30,11 +30,11 @@ To get started with {{ managed-k8s-name }}:
 
 ## Create a {{ managed-k8s-name }} cluster {#kubernetes-cluster-create}
 
-1. In the management console, select the folder where you want to create a {{ managed-k8s-name }} cluster.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ managed-k8s-name }} cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
 1. Enter the {{ managed-k8s-name }} cluster name. It must be unique within the folder.
-1. (Optional) Enter the {{ managed-k8s-name }} cluster description.
+1. Optionally, enter a description for the {{ managed-k8s-name }} cluster.
 1. **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**: Specify a [service account](../iam/concepts/users/service-accounts.md) with the `k8s.clusters.agent` annd `vpc.publicAdmin` roles to use for creating resources.
 1. **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}**: Specify a service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller) role that {{ managed-k8s-name }} nodes will use to access the Docker image registry.
 1. Specify a [release channel](concepts/release-channels-and-updates.md). You will not be able to edit this setting once you create a {{ managed-k8s-name }} cluster.
@@ -42,7 +42,7 @@ To get started with {{ managed-k8s-name }}:
    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}**: Select a {{ k8s }} version to install on the [{{ managed-k8s-name }}](concepts/index.md#master) master.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}**: Select the [IP address](../vpc/concepts/address.md) assignment method:
      * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-     * `{{ ui-key.yacloud.k8s.clusters.create.switch_none }}`: Not to assign a public IP address.
+     * `{{ ui-key.yacloud.k8s.clusters.create.switch_none }}`: Do not assign a public IP address.
    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: Select the master type:
      * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-basic }}`: To create a single master host in the selected availability zone. Specify a cloud network and select a subnet for the master host.
      * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-highly-available }}`: To create a single master host in each availability zone. Specify a cloud network and subnet for each availability zone.
@@ -87,7 +87,7 @@ To create a {{ managed-k8s-name }} node group:
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
    * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select an IP address assignment method:
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP pool.
-     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Not to assign a public IP address.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign a public IP address.
    * Select [security groups](operations/connect/security-groups.md).
    * Select an availability zone and subnet to deploy the {{ managed-k8s-name }} group nodes in.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the access credentials for the {{ managed-k8s-name }} group nodes over SSH:
@@ -114,6 +114,12 @@ With kubectl, you can manage the {{ managed-k8s-name }} cluster. To configure th
      ```bash
      yc managed-kubernetes cluster get-credentials test-k8s-cluster --external
      ```
+
+     {% note tip %}
+
+     {% include [note-connect-button](../_includes/managed-kubernetes/note-connect-button.md) %}
+
+     {% endnote %}
 
      * By default, credentials are added to the `$HOME/.kube/config` directory.
      * If you need to change the configuration location, use the `--kubeconfig <file_path>` parameter.

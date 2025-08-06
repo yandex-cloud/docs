@@ -105,7 +105,7 @@ description: Вы можете создавать резервные копии 
          --network-name=<имя_сети> \
          --host zone-id=<зона_доступности>,`
                `subnet-name=<имя_подсети>,`
-               `assign-public-ip=<публичный_доступ_к_хосту> \
+               `assign-public-ip=<разрешить_публичный_доступ_к_хосту> \
          --resource-preset=<класс_хоста> \
          --disk-size=<размер_хранилища_ГБ> \
          --disk-type=<тип_диска>
@@ -270,7 +270,7 @@ description: Вы можете создавать резервные копии 
          {
            "zoneId": "<зона_доступности>",
            "subnetId": "<идентификатор_подсети>",
-           "assignPublicIp": <публичный_адрес_хоста:_true_или_false>
+           "assignPublicIp": <разрешить_публичный_доступ_к_хосту>
          }
        ]
      }
@@ -301,7 +301,7 @@ description: Вы можете создавать резервные копии 
 
        * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
        * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-       * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
+       * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
 
   1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -345,7 +345,7 @@ description: Вы можете создавать резервные копии 
          {
            "zone_id": "<зона_доступности>",
            "subnet_id": "<идентификатор_подсети>",
-           "assign_public_ip": <публичный_адрес_хоста:_true_или_false>
+           "assign_public_ip": <разрешить_публичный_доступ_к_хосту>
          }
        ]
      }
@@ -376,7 +376,7 @@ description: Вы можете создавать резервные копии 
 
        * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
        * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-       * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
+       * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
 
   1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 

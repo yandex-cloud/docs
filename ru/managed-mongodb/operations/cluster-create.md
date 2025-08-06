@@ -142,8 +142,8 @@ description: Следуя данной инструкции, вы сможете
         --network-name <имя_сети> \
         --host zone-id=<зона_доступности>,`
               `subnet-id=<идентификатор_подсети>,`
-              `assign-public-ip=<публичный_доступ_к_хосту>,`
-              `hidden=<скрытие_хоста>,`
+              `assign-public-ip=<разрешить_публичный_доступ_к_хосту>,`
+              `hidden=<скрыть_хост>,`
               `secondary-delay-secs=<отставание_реплики_в_секундах>,`
               `priority=<приоритет_хоста> \
         --mongod-resource-preset <класс_хоста> \
@@ -213,7 +213,7 @@ description: Следуя данной инструкции, вы сможете
        environment         = "<окружение>"
        network_id          = "<идентификатор_сети>"
        security_group_ids  = [ "<список_идентификаторов_групп_безопасности>" ]
-       deletion_protection = <защита_кластера_от_удаления>
+       deletion_protection = <защитить_кластер_от_удаления>
 
        cluster_config {
          version = "<версия_{{ MG }}>"
@@ -228,9 +228,9 @@ description: Следуя данной инструкции, вы сможете
        host {
          zone_id          = "<зона_доступности>"
          subnet_id        = "<идентификатор_подсети>"
-         assign_public_ip = <публичный_доступ>
+         assign_public_ip = <разрешить_публичный_доступ_к_хосту>
          host_parameters {
-           hidden               = <скрытие_хоста>
+           hidden               = <скрыть_хост>
            secondary_delay_secs = <отставание_реплики_в_секундах>
            priority             = <приоритет_хоста>
          }
@@ -322,7 +322,7 @@ description: Следуя данной инструкции, вы сможете
             ...
             "<идентификатор_группы_безопасности_N>"
           ],
-          "deletionProtection": <защита_кластера_от_удаления:_true_или_false>,
+          "deletionProtection": <защитить_кластер_от_удаления>,
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<день_недели>",
@@ -348,7 +348,7 @@ description: Следуя данной инструкции, вы сможете
             },  
             "backupRetainPeriodDays": "<время_хранения_резервных_копий_в_днях>",
             "performanceDiagnostics": {
-              "profilingEnabled": <включить_профилировщик:_true_или_false>
+              "profilingEnabled": <включить_профилировщик>
             }
           },
           "databaseSpecs": [
@@ -380,10 +380,10 @@ description: Следуя данной инструкции, вы сможете
             {
               "zoneId": "<зона_доступности>",
               "subnetId": "<идентификатор_подсети>",
-              "assignPublicIp": <публичный_доступ_к_хосту:_true_или_false>,
+              "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
               "type": "<тип_хоста>",
               "shardName": "<имя_шарда>",
-              "hidden": <скрытие_хоста:_true_или_false>,
+              "hidden": <скрыть_хост>,
               "secondaryDelaySecs": "<отставание_реплики_в_секундах>",
               "priority": "<приоритет_хоста>",
               "tags": "<метки_хоста>"
@@ -442,7 +442,7 @@ description: Следуя данной инструкции, вы сможете
             * `backupRetainPeriodDays` — время хранения резервных копий в днях.
 
             * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
-              * `profilingEnabled` — включение [профилировщика](tools.md#explore-profiler). 
+              * `profilingEnabled` — включение [профилировщика](tools.md#explore-profiler): `true` или `false`.
 
         * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.
 
@@ -463,7 +463,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
           * `subnetId` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу.
+          * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
           * `type`— тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`.
           * `shardName` — имя шарда в шардированном кластере.
           * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузки на кластер).
@@ -506,7 +506,7 @@ description: Следуя данной инструкции, вы сможете
             ...
             "<идентификатор_группы_безопасности_N>"
           ],
-          "deletion_protection": <защита_кластера_от_удаления:_true_или_false>,
+          "deletion_protection": <защитить_кластер_от_удаления>,
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<день_недели>",
@@ -532,7 +532,7 @@ description: Следуя данной инструкции, вы сможете
             },
             "backup_retain_period_days": "<время_хранения_резервных_копий_в_днях>",
             "performance_diagnostics": {
-              "profiling_enabled": <включить_профилировщик:_true_или_false>
+              "profiling_enabled": <включить_профилировщик>
             }
           },
           "database_specs": [
@@ -564,10 +564,10 @@ description: Следуя данной инструкции, вы сможете
             {
               "zone_id": "<зона_доступности>",
               "subnet_id": "<идентификатор_подсети>",
-              "assign_public_ip": <публичный_доступ_к_хосту:_true_или_false>,
+              "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
               "type": "<тип_хоста>",
               "shard_name": "<имя_шарда>",
-              "hidden": <скрытие_хоста:_true_или_false>,
+              "hidden": <скрыть_хост>,
               "secondary_delay_secs": "<отставание_реплики_в_секундах>",
               "priority": "<приоритет_хоста>",
               "tags": "<метки_хоста>"
@@ -626,7 +626,7 @@ description: Следуя данной инструкции, вы сможете
             * `backup_retain_period_days` — время хранения резервных копий в днях.
 
             * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
-              * `profiling_enabled` — включение [профилировщика](tools.md#explore-profiler).
+              * `profiling_enabled` — включение [профилировщика](tools.md#explore-profiler): `true` или `false`.
 
         * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.
 
@@ -647,7 +647,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
           * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-          * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу.
+          * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
           * `type`— тип хоста в шардированном кластере: `MONGOD`, `MONGOINFRA`, `MONGOS` или `MONGOCFG`.
           * `shard_name` — имя шарда в шардированном кластере.
           * `hidden` — скрытие хоста: `true` или `false`. Если хост скрыт, он будет доступен для чтения только для прямых подключений (например, чтобы делать с него резервные копии, не добавляя нагрузки на кластер).

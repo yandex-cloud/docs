@@ -30,25 +30,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
+1. {% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}
 
-1. Если у вас уже есть сертификат для доменной зоны, [добавьте сведения о нем](../../certificate-manager/operations/import/cert-create.md) в сервис [{{ certificate-manager-full-name }}](../../certificate-manager/). Или [добавьте новый сертификат от {{ lets-encrypt }}](../../certificate-manager/operations/managed/cert-create.md).
+1. {% include [add-certificate](../../_includes/managed-kubernetes/certificate-add.md) %}
 
-1. Получите идентификатор добавленного сертификата:
-
-    ```bash
-    yc certificate-manager certificate list
-    ```
-
-    Результат выполнения команды:
-
-    ```text
-    +----------------------+-----------+----------------+---------------------+----------+--------+
-    |          ID          |   NAME    |    DOMAINS     |      NOT AFTER      |   TYPE   | STATUS |
-    +----------------------+-----------+----------------+---------------------+----------+--------+
-    | fpq8diorouhp******** | sert-test |    test.ru     | 2022-01-06 17:19:37 | IMPORTED | ISSUED |
-    +----------------------+-----------+----------------+---------------------+----------+--------+
-    ```
+1. {% include [get-certificate-id](../../_includes/managed-kubernetes/certificate-get-id.md) %}
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
@@ -822,7 +808,7 @@
 
 ## Убедитесь в доступности приложений через L7-балансировщик {#verify-setup}
 
-1. Если вы не устанавливали [ExternalDNS с плагином для {{ dns-name }}](/marketplace/products/yc/externaldns), [добавьте A-запись в зону](../../dns/operations/resource-record-create.md) вашего домена. В поле **Значение** укажите публичный IP-адрес L7-балансировщика {{ alb-name }}. При использовании ExternalDNS c плагином для {{ dns-full-name }} запись создастся автоматически.
+1. Если вы не устанавливали [ExternalDNS с плагином для {{ dns-name }}](/marketplace/products/yc/externaldns), [добавьте A-запись в зону](../../dns/operations/resource-record-create.md) вашего домена. В поле **{{ ui-key.yacloud.dns.label_records }}** укажите публичный IP-адрес L7-балансировщика {{ alb-name }}. При использовании ExternalDNS c плагином для {{ dns-full-name }} запись создастся автоматически.
 1. Проверьте работу балансировщика:
 
    {% list tabs %}

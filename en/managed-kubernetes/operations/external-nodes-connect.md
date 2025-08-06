@@ -21,7 +21,7 @@ For external nodes to connect to a {{ managed-k8s-name }} cluster, both the clus
 
 ## Getting started {#before-you-begin}
 
-1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
+1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) in any suitable configuration.
 
     To create an external node group, the {{ managed-k8s-name }} cluster must operate in [tunnel mode](../concepts/network-policy#cilium). This mode can be enabled only when creating the cluster.
 
@@ -282,3 +282,9 @@ journalctl -u kubelet
 ```
 
 Keep in mind the external {{ managed-k8s-name }} node connection [requirements](../concepts/external-nodes.md#requirements).
+
+
+## See also {#see-also}
+
+* [Configuring WireGuard gateways to connect external nodes](external-nodes-connect-wireguard.md)
+* [Configuring IPSec gateways to connect external nodes](external-nodes-connect-ipsec.md)

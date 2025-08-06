@@ -255,10 +255,10 @@
                         {
                           "zoneId": "<зона_доступности>",
                           "subnetId": "<идентификатор_подсети>",
-                          "assignPublicIp": <публичный_адрес_хоста:_true_или_false>,
+                          "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
                           "type": "<тип_хоста>",
                           "shardName": "<имя_шарда>",
-                          "hidden": <видимость_хоста:_true_или_false>,
+                          "hidden": <скрыть_хост>,
                           "secondaryDelaySecs": "<задержка_в_секундах>",
                           "priority": "<приоритет_назначения_хоста_мастером>",
                           "tags": "<метки_хоста>"
@@ -278,10 +278,10 @@
 
           * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
           * `subnetId` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу.
+          * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
           * `type`— тип хоста (`MONGOINFRA`, `MONGOS` или `MONGOCFG`).
           * `shardName` — имя шарда.
-          * `hidden`— будет ли хост виден или скрыт.
+          * `hidden`— будет ли хост виден (`false`) или скрыт (`true`).
           * `secondaryDelaySecs` — время отставания хоста от мастера.
           * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
           * `tags`— метки хоста.
@@ -319,10 +319,10 @@
                   {
                     "zone_id": "<зона_доступности>",
                     "subnet_id": "<идентификатор_подсети>",
-                    "assign_public_ip": <публичный_адрес_хоста:_true_или_false>,
+                    "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
                     "type": "<тип_хоста>",
                     "shard_name": "<имя_шарда>",
-                    "hidden": <видимость_хоста:_true_или_false>,
+                    "hidden": <скрыть_хост>,
                     "secondary_delay_secs": "<задержка_в_секундах>",
                     "priority": "<приоритет_назначения_хоста_мастером>",
                     "tags": "<метки_хоста>"
@@ -344,10 +344,10 @@
 
         * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
         * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-        * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу.
+        * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
         * `type`— тип хоста (`MONGOINFRA`, `MONGOS` или `MONGOCFG`).
         * `shard_name` — имя шарда.
-        * `hidden`— будет ли хост виден или скрыт.
+        * `hidden`— будет ли хост виден (`false`) или скрыт (`true`).
         * `secondary_delay_secs` — время отставания хоста от мастера.
         * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
         * `tags`— метки хоста.
@@ -528,10 +528,10 @@
                         {
                           "zoneId": "<зона_доступности>",
                           "subnetId": "<идентификатор_подсети>",
-                          "assignPublicIp": <публичный_адрес_хоста:_true_или_false>,
+                          "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
                           "type": "<тип_хоста>",
                           "shardName": "<имя_шарда>",
-                          "hidden": <видимость_хоста:_true_или_false>,
+                          "hidden": <скрыть_хост>,
                           "secondaryDelaySecs": "<время_в_секундах>",
                           "priority": "<приоритет_назначения_хоста_мастером>",
                           "tags": "<метки>"
@@ -551,10 +551,10 @@
 
           * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md).
           * `subnetId` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу.
+          * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
           * `type`— тип хоста. Укажите `MONGOD`.
           * `shardName` — имя шарда.
-          * `hidden`— будет ли хост виден или скрыт.
+          * `hidden`— будет ли хост виден (`false`) или скрыт (`true`).
           * `secondaryDelaySecs` — время отставания хоста от мастера.
           * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
           * `tags`— метки хоста.
@@ -587,10 +587,10 @@
                     {
                       "zone_id": "<зона_доступности>",
                       "subnet_id": "<идентификатор_подсети>",
-                      "assign_public_ip": <публичный_адрес_хоста:_true_или_false>,
+                      "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
                       "type": "<тип_хоста>",
                       "shard_name": "<имя_шарда>",
-                      "hidden": <видимость_хоста:_true_или_false>,
+                      "hidden": <скрыть_хост>,
                       "secondary_delay_secs": "<время_в_секундах>",
                       "priority": "<приоритет_назначения_хоста_мастером>",
                       "tags": "<метки>"
@@ -611,10 +611,10 @@
 
           * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
           * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet).
-          * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу.
+          * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
           * `type`— тип хоста. Укажите `MONGOD`.
           * `shard_name` — имя шарда.
-          * `hidden`— будет ли хост виден или скрыт.
+          * `hidden`— будет ли хост виден (`false`) или скрыт (`true`).
           * `secondary_delay_secs` — время отставания хоста от мастера.
           * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
           * `tags`— метки хоста.

@@ -21,6 +21,10 @@ To regularly back up your data on disks, use [snapshots](snapshot.md).
 
 {% endnote %}
 
+Each image will get assigned a particular [virtualized hardware generation](./hardware-generations.md) on which you can deploy a VM instance from that image. You can assign a particular hardware generation to an image only at the time of creating it.
+
+Once the image is created, you cannot change the generation assigned to it. Instead, you can [create](../operations/image-create/create-from-image.md) a new image from the current one with another hardware generation assigned.
+
 You can create an image from a [disk](../operations/image-create/create-from-disk.md), [snapshot](../operations/image-create/create-from-snapshot.md), or [another image](../operations/image-create/create-from-image.md). If you have an image file, you can [import](../operations/image-create/upload.md) it to {{ yandex-cloud }}.
 
 {% include [create-unreplicated-instance-via-cli-tf-api](../_includes_service/create-unreplicated-instance-via-cli-tf-api.md) %}

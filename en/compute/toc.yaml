@@ -624,6 +624,8 @@ items:
             href: concepts/vm-platforms.md
           - name: vCPU performance levels
             href: concepts/performance-levels.md
+          - name: Hardware generations
+            href: concepts/hardware-generations.md
           - name: Preemptible VMs
             href: concepts/preemptible-vm.md
           - name: VM network interfaces

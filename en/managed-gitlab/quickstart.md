@@ -68,7 +68,7 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
    * View issues and merge requests by group.
    * View analytics on group's activities.
 
-   For more information, see the [{{ GL }} documentation](https://docs.gitlab.com/ee/user/group/).
+   For more information, see [this {{ GL }} article](https://docs.gitlab.com/ee/user/group/).
 
 1. [Create an empty project](https://docs.gitlab.com/ee/user/project/) to host the repository.
 1. [Create users and add](operations/create-user.md) them to a group or project with the `Maintainer` or `Owner` role.
@@ -79,7 +79,21 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
 
 1. Create a pair of public and private SSH keys for the {{ GL }} account:
 
-   {% include [vm-ssh-prepare-key](../_includes/vm-ssh-prepare-key.md) %}
+    {% list tabs group=operating_system %}
+
+    - Linux/macOS {#linux-macos}
+
+      {% include [vm-ssh-prepare-key-linux-macos](../_includes/vm-ssh-prepare-key-linux-macos.md) %}
+
+    - Windows 10/11 {#windows}
+
+      {% include [vm-ssh-prepare-key-win-10-11](../_includes/vm-ssh-prepare-key-win-10-11.md) %}
+
+    - Windows 7/8 {#windows7-8}
+
+      {% include [vm-ssh-prepare-key-win-7-8](../_includes/vm-ssh-prepare-key-win-7-8.md) %}
+
+    {% endlist %}
 
 1. {% include [turn-on-ssh-agent](../_includes/turn-on-ssh-agent.md) %}
 1. Add a key to the SSH agent:

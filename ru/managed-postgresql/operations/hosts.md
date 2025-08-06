@@ -232,7 +232,7 @@ description: Из статьи вы узнаете, как управлять х
                    {
                      "zoneId": "<зона_доступности>",
                      "subnetId": "<идентификатор_подсети>",
-                     "assignPublicIp": <публичный_адрес_хоста:_true_или_false>,
+                     "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
                      "replicationSource": "<FQDN_хоста>",
                      "priority": "<приоритет_хоста>",
                      "configSpec": {
@@ -252,7 +252,7 @@ description: Из статьи вы узнаете, как управлять х
 
      * `zoneId` — зона доступности.
      * `subnetId` — идентификатор подсети.
-     * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу.
+     * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите [FQDN хоста](connect.md#special-fqdns), который будет источником репликации.
      * `priority` — приоритет хоста среди всех хостов.
      * `configSpec.postgresqlConfig_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
@@ -285,7 +285,7 @@ description: Из статьи вы узнаете, как управлять х
                {
                  "zone_id": "<зона_доступности>",
                  "subnet_id": "<идентификатор_подсети>",
-                 "assign_public_ip": <публичный_адрес_хоста:_true_или_false>,
+                 "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
                  "replication_source": "<FQDN_хоста>",
                  "priority": "<приоритет_хоста>",
                  "config_spec": {
@@ -307,7 +307,7 @@ description: Из статьи вы узнаете, как управлять х
 
      * `zone_id` — зона доступности.
      * `subnet_id` — идентификатор подсети.
-     * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу.
+     * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите [FQDN хоста](connect.md#special-fqdns), который будет источником репликации.
      * `priority` — приоритет хоста среди всех хостов.
      * `config_spec.postgresql_config_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
@@ -430,7 +430,7 @@ description: Из статьи вы узнаете, как управлять х
                    {
                      "updateMask": "assignPublicIp,replicationSource,priority,configSpec.postgresqlConfig_<версия_{{ PG }}>",
                      "hostName": "<FQDN_хоста>",
-                     "assignPublicIp": <публичный_адрес_хоста:_true_или_false>,
+                     "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
                      "replicationSource": "<FQDN_хоста>",
                      "priority": "<приоритет_хоста>",
                      "configSpec": {
@@ -492,7 +492,7 @@ description: Из статьи вы узнаете, как управлять х
                      ]
                  },
                  "host_name": "<FQDN_хоста>",
-                 "assign_public_ip": <публичный_адрес_хоста:_true_или_false>,
+                 "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
                  "replication_source": "<FQDN_хоста>",
                  "priority": "<приоритет_хоста>",
                  "config_spec": {

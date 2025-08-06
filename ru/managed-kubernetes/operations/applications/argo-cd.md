@@ -52,7 +52,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Доступ к приложению {#application-access}
 
-Вы можете открыть приложение Argo CD через [localhost](#open-via-localhost) или [выделенный IP-адрес](#go-to-static-address). Первый способ проще в настройке и не требует дополнительных затрат на сетевой балансировщик нагрузки. Второй способ позволяет получить постоянный доступ к Argo CD. Через `localhost` приложение доступно, только пока активна переадресация портов.
+Вы можете открыть приложение Argo CD через [localhost](#open-via-localhost), по [выделенному IP-адресу](#go-to-static-address) через сетевой балансировщик [{{ network-load-balancer-full-name }}](../../../network-load-balancer) или по [URL](#open-via-alb) через L7-балансировщик [{{ alb-full-name }}](../../../application-load-balancer). Первый способ проще в настройке и не требует дополнительных затрат на балансировщики. Однако через `localhost` приложение доступно, только пока активна переадресация портов, а балансировщики обеспечивают постоянный доступ к Argo CD.
 
 Перед тем как настроить доступ к Argo CD, получите пароль администратора (`admin`):
 
@@ -76,9 +76,9 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
 
 1. Перейдите по ссылке `https://localhost:8080` и авторизуйтесь с учетными данными администратора.
 
-### Открыть приложение по выделенному IP-адресу {#go-to-static-address}
+### Открыть приложение по выделенному IP-адресу через {{ network-load-balancer-name }}{#go-to-static-address}
 
-1. Сохраните следующую спецификацию для создания сервиса типа `LoadBalancer` в файл `load-balancer.yaml`. В результате вы создадите балансировщик [{{ network-load-balancer-full-name }}](../../../network-load-balancer/index.yaml):
+1. Сохраните следующую спецификацию для создания сервиса типа `LoadBalancer` в файл `load-balancer.yaml`. В результате вы создадите балансировщик [{{ network-load-balancer-name }}](../../../network-load-balancer/index.yaml):
 
    ```yaml
    apiVersion: v1
@@ -109,7 +109,7 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
    kubectl apply -f load-balancer.yaml --namespace <пространство_имен>
    ```
 
-1. Получите IP-адрес созданного балансировщика:
+1. Получите IP-адрес созданного сетевого балансировщика:
 
    {% list tabs group=instructions %}
 
@@ -125,6 +125,112 @@ kubectl --namespace <пространство_имен> get secret argocd-initia
    {% endlist %}
 
 1. Перейдите по ссылке `https://<IP-адрес_балансировщика>` и авторизуйтесь с учетными данными администратора.
+
+### Открыть приложение по URL через {{ alb-name }} {#open-via-alb}
+
+1. {% include [create-zone](../../../_includes/managed-kubernetes/create-public-zone.md) %}
+
+1. {% include [add-certificate](../../../_includes/managed-kubernetes/certificate-add.md) %}
+
+1. {% include [get-certificate-id](../../../_includes/managed-kubernetes/certificate-get-id.md) %}
+
+1. [Настройте](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) группы безопасности, необходимые для работы L7-балансировщика {{ alb-name }}.
+
+1. [Установите Ingress-контроллер {{ alb-name }}](alb-ingress-controller.md).
+
+1. Для работы с L7-балансировщиком {{ alb-name }} требуется сервис типа `NodePort`, но Argo CD запускает сервер с сервисом типа `ClusterIP`. Измените тип сервиса:
+
+   1. Откройте файл с описанием объекта `Service`:
+
+      ```bash
+      kubectl -n <пространство_имен> edit svc <название_приложения>-argocd-server
+      ```
+
+   1. Замените значение `type` на `NodePort`:
+
+        ```yaml
+        spec:
+          ... 
+          type: NodePort
+          ...
+        ```
+
+1. L7-балансировщик {{ alb-name }} снимает TLS-шифрование с входящего трафика. Чтобы избежать бесконечного перенаправления, отключите для Argo CD перенаправление с HTTP на HTTPS:
+
+   1. Откройте конфигурационный файл `argocd-cmd-params-cm`:
+
+      ```bash
+      kubectl -n <пространство_имен> edit configmap argocd-cmd-params-cm
+      ```
+
+   1. Замените значение `server.insecure` на `true`:
+
+      ```yaml
+      data:
+        ...
+        server.insecure: "true"
+        ...
+      ```
+
+1. Создайте файл `ingress.yaml` и укажите в нем настройки L7-балансировщика {{ alb-name }}:
+
+    ```yaml
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: argocd-ingress
+      namespace: argo-cd-space
+      annotations:
+        ingress.alb.yc.io/subnets: <идентификатор_подсети_балансировщика>
+        ingress.alb.yc.io/security-groups: <идентификатор_группы_безопасности_балансировщика>
+        ingress.alb.yc.io/external-ipv4-address: auto
+        ingress.alb.yc.io/group-name: my-ingress-group
+    spec:
+      tls:
+        - hosts:
+            - <доменное_имя>
+          secretName: yc-certmgr-cert-id-<идентификатор_TLS-сертификата>
+      rules:
+        - host: <доменное_имя>
+          http:
+            paths:
+              - path: /
+                pathType: Prefix
+                backend:
+                  service:
+                    name: argo-cd-argocd-server
+                    port:
+                      number: 80
+    ```
+
+    Подробнее о настройках см. в разделе [Настройка L7-балансировщика {{ alb-full-name }} с помощью Ingress-контроллера](../../tutorials/alb-ingress-controller.md#create-ingress-and-apps).
+
+1. В директории с файлом `ingress.yaml` выполните команду:
+
+    ```bash
+    kubectl apply -f ingress.yaml
+    ```
+
+    Будет создан ресурс `Ingress`. По его конфигурации ALB Ingress Controller автоматически развернет L7-балансировщик {{ alb-name }}.
+
+1. Убедитесь, что L7-балансировщик создан. Для этого выполните команду:
+
+    ```bash
+    kubectl get ingress argocd-ingress
+    ```
+
+    Изучите результат выполнения команды. Если L7-балансировщик создан, в поле `ADDRESS` должен отображаться его IP-адрес:
+
+    ```bash
+    NAME            CLASS   HOSTS           ADDRESS        PORTS    AGE
+    argocd-ingress  <none>  <доменное_имя>  51.250.**.***  80, 443  15h
+    ```    
+
+1. [Добавьте A-запись в зону](../../../dns/operations/resource-record-create.md) вашего домена. В поле **{{ ui-key.yacloud.dns.label_records }}** укажите публичный IP-адрес L7-балансировщика {{ alb-name }}.
+
+1. Откройте в браузере ссылку `https://<доменное_имя>` и авторизуйтесь с учетными данными администратора.
+
+   {% include [Настройка групп безопасности при недоступности ресурса](../../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 ## Примеры использования {#examples}
 
