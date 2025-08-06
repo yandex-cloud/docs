@@ -16,6 +16,12 @@ A _disk snapshot_ is a copy of the disk file system at a specific point in time.
 
 ## Creating a snapshot {#create}
 
+{% note info %}
+
+The disk snapshot you create will get assigned the [virtualized hardware generation](../../concepts/hardware-generations.md) on which a VM instance can be deployed from this snapshot. You can assign to a snapshot a generation different from the one assigned to the source disk using the [{{ yandex-cloud }} CLI](../../../cli/index.yaml), [{{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md), or [API](../../../api-design-guide/index.yaml).
+
+{% endnote %}
+
 To create a disk snapshot:
 
 {% include [create-snapshot](../../../_includes/compute/create-snapshot.md) %}

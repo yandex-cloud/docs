@@ -26,13 +26,17 @@ You can create disk snapshots both manually and automatically, based on a [sched
 
 A single snapshot can only be created for one disk at a time.
 
+Each snapshot will get assigned a particular [virtualized hardware generation](./hardware-generations.md) on which a VM instance can be deployed from this snapshot. You can assign a particular hardware generation to a snapshot only at the time of creating it.
+
+Once a snapshot is created, you cannot change the generation assigned to it. Instead, you can [recover](../operations/disk-create/from-snapshot.md) the current snapshot to a new [disk](./disk.md) and then [create](../operations/disk-control/create-snapshot.md) a new snapshot from that disk with another hardware generation assigned.
+
 {% include [snapshot-disk-types](../../_includes/compute/snapshot-disk-types.md) %}
 
 {% include [boot-disk-recover](../../_includes/compute/boot-disk-recover.md) %}
 
 ## Disk snapshot as a {{ yandex-cloud }} resource {#snapshot-as-resource}
 
-A disk snapshot is a resource, just like a disk itself. Snapshots are stored in a folder. Access rights to a snapshot are inherited from those to the folder.
+A disk snapshot is a resource, just like a disk itself. Snapshots are stored in a folder. Snapshot access permissions are inherited from folder access permissions.
 
 A snapshot takes some space in the storage and is kept for an indefinite period of time. Snapshot storage is charged separately. To avoid unnecessary costs, delete unused snapshots. For more information, see [{#T}](../pricing.md).
 

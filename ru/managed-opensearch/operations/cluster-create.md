@@ -151,7 +151,7 @@ keywords:
          --name <имя_кластера> \
          --description <описание_кластера> \
          --labels <метки> \
-         --environment <окружение:_production_или_prestable> \
+         --environment <окружение> \
          --network-name <имя_сети> \
          --security-group-ids <идентификаторы_групп_безопасности> \
          --service-account-name <имя_сервисного_аккаунта> \
@@ -161,8 +161,8 @@ keywords:
                       `hour=<час_дня> \
          --version <версия_{{ OS }}> \
          --read-admin-password \
-         --data-transfer-access=<true_или_false> \
-         --serverless-access=<true_или_false> \
+         --data-transfer-access=<разрешить_доступ_из_Data_Transfer> \
+         --serverless-access=<разрешить_доступ_из_Serverless_Containers> \
          --plugins <{{ OS }}_плагины> \
          --advanced-params <дополнительные_параметры> \
          --opensearch-node-group name=<имя_группы_хостов_{{ OS }}>,`
@@ -172,7 +172,7 @@ keywords:
                                 `hosts-count=<количество_хостов_в_группе>,`
                                 `zone-ids=<зоны_доступности>,`
                                 `subnet-names=<имена_подсетей>,`
-                                `assign-public-ip=<назначить_публичный_адрес:_true_или_false>,`
+                                `assign-public-ip=<разрешить_публичный_доступ_к_хостам>,`
                                 `roles=<роли_хостов> \
          --dashboards-node-group name=<имя_группы_хостов_Dashboards>,`
                                 `resource-preset-id=<класс_хостов>,`
@@ -181,7 +181,7 @@ keywords:
                                 `hosts-count=<количество_хостов_в_группе>,`
                                 `zone-ids=<зоны_доступности>,`
                                 `subnet-names=<имена_подсетей>,`
-                                `assign-public-ip=<назначить_публичный_адрес:_true_или_false>
+                                `assign-public-ip=<разрешить_публичный_доступ_к_хостам>
       ```
 
       Где:
@@ -246,7 +246,7 @@ keywords:
         environment         = "<окружение>"
         network_id          = "<идентификатор_сети>"
         security_group_ids  = ["<список_идентификаторов_групп_безопасности>"]
-        deletion_protection = "<защита_кластера_от_удаления>"
+        deletion_protection = "<защитить_кластер_от_удаления>"
 
         config {
 
@@ -256,7 +256,7 @@ keywords:
           opensearch {
             node_groups {
               name             = "<имя_группы_виртуальных_хостов>"
-              assign_public_ip = <публичный_доступ>
+              assign_public_ip = <разрешить_публичный_доступ_к_хостам>
               hosts_count      = <количество_хостов>
               zone_ids         = ["<список_зон_доступности>"]
               subnet_ids       = ["<список_идентификаторов подсетей>"]
@@ -275,7 +275,7 @@ keywords:
           dashboards {
             node_groups {
               name             = "<имя_группы_виртуальных_хостов>"
-              assign_public_ip = <публичный_доступ>
+              assign_public_ip = <разрешить_публичный_доступ_к_хостам>
               hosts_count      = <количество_хостов>
               zone_ids         = ["<список_зон_доступности>"]
               subnet_ids       = ["<список_идентификаторов подсетей>"]
@@ -362,7 +362,7 @@ keywords:
               "<идентификатор_группы_безопасности_N>"
           ],
           "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
-          "deletionProtection": <защита_кластера_от_удаления:_true_или_false>,
+          "deletionProtection": <защитить_кластер_от_удаления>,
           "configSpec": {
               "version": "<версия_{{ OS }}>",
               "adminPassword": "<пароль_пользователя-администратора>",
@@ -393,7 +393,7 @@ keywords:
                               "<идентификатор_подсети_2>",
                               "<идентификатор_подсети_3>"
                           ],
-                          "assignPublicIp": <публичный_адрес_хоста:_true_или_false>,
+                          "assignPublicIp": <разрешить_публичный_доступ_к_хостам>,
                           "diskSizeAutoscaling": {
                               "plannedUsageThreshold": "<процент_для_планового_увеличения>",
                               "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
@@ -415,7 +415,7 @@ keywords:
                           "hostsCount": "<число_хостов>",
                           "zoneIds": ["<зона_доступности>"],
                           "subnetIds": ["<идентификатор_подсети>"],
-                          "assignPublicIp": <публичный_адрес_хоста:_true_или_false>,
+                          "assignPublicIp": <разрешить_публичный_доступ_к_хостам>,
                           "diskSizeAutoscaling": {
                               "plannedUsageThreshold": "<процент_для_планового_увеличения>",
                               "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
@@ -425,8 +425,8 @@ keywords:
                   ]
               },
               "access": {
-                  "dataTransfer": <доступ_из_Data_Transfer:_true_или_false>,
-                  "serverless": <доступ_из_Serverless_Containers:_true_или_false>
+                  "dataTransfer": <разрешить_доступ_из_Data_Transfer>,
+                  "serverless": <разрешить_доступ_из_Serverless_Containers>
               }
           },
           "maintenanceWindow": {
@@ -451,7 +451,7 @@ keywords:
       * `serviceAccountId` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером.
 
 
-      * `deletionProtection` — защита кластера от непреднамеренного удаления.
+      * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
         Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
@@ -482,7 +482,7 @@ keywords:
                   * `subnetIds` — список идентификаторов подсетей.
 
                   
-                  * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
+                  * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
 
 
                   * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища:
@@ -506,6 +506,8 @@ keywords:
 
               * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
               * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml).
+
+              Возможные значения настроек: `true` или `false`.
 
 
       * `maintenance_window.weeklyMaintenanceWindow` — расписание окна технического обслуживания:
@@ -549,7 +551,7 @@ keywords:
               "<идентификатор_группы_безопасности_N>"
           ],
           "service_account_id": "<идентификатор_сервисного_аккаунта>",
-          "deletion_protection": <защита_кластера_от_удаления:_true_или_false>,
+          "deletion_protection": <защитить_кластер_от_удаления>,
           "config_spec": {
               "version": "<версия_{{ OS }}>",
               "admin_password": "<пароль_пользователя-администратора>",
@@ -580,7 +582,7 @@ keywords:
                               "<идентификатор_подсети_2>",
                               "<идентификатор_подсети_3>"
                           ],
-                          "assign_public_ip": <публичный_адрес_хоста:_true_или_false>,
+                          "assign_public_ip": <разрешить_публичный_доступ_к_хостам>,
                           "disk_size_autoscaling": {
                               "planned_usage_threshold": "<процент_для_планового_увеличения>",
                               "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
@@ -602,7 +604,7 @@ keywords:
                           "hosts_count": "<число_хостов>",
                           "zone_ids": ["<зона_доступности>"],
                           "subnet_ids": ["<идентификатор_подсети>"],
-                          "assign_public_ip": <публичный_адрес_хоста:_true_или_false>,
+                          "assign_public_ip": <разрешить_публичный_доступ_к_хостам>,
                           "disk_size_autoscaling": {
                               "planned_usage_threshold": "<процент_для_планового_увеличения>",
                               "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
@@ -612,8 +614,8 @@ keywords:
                   ]
               },
               "access": {
-                  "data_transfer": <доступ_из_Data_Transfer:_true_или_false>,
-                  "serverless": <доступ_из_Serverless_Containers:_true_или_false>
+                  "data_transfer": <разрешить_доступ_из_Data_Transfer>,
+                  "serverless": <разрешить_доступ_из_Serverless_Containers>
               }
           },
           "maintenance_window": {
@@ -638,7 +640,7 @@ keywords:
       * `service_account_id` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером.
 
 
-      * `deletion_protection` — защита кластера от непреднамеренного удаления.
+      * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
         Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
@@ -669,7 +671,7 @@ keywords:
                   * `subnet_ids` — список идентификаторов подсетей.
 
                   
-                  * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
+                  * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
 
 
                   * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища:
@@ -693,6 +695,8 @@ keywords:
 
               * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
               * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml).
+
+              Возможные значения настроек: `true` или `false`.
 
 
       * `maintenance_window.weekly_maintenance_window` — расписание окна технического обслуживания:

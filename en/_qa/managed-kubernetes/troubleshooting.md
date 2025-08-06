@@ -1,5 +1,3 @@
-# Troubleshooting in {{ managed-k8s-name }}
-
 This section describes typical problems you may encounter while using {{ managed-k8s-name }} and gives troubleshooting recommendations.
 
 #### Error creating a cluster in a different folder's cloud network {#neighbour-catalog-permission-denied}
@@ -18,7 +16,7 @@ To create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/i
 
 To use a [public IP address](../../vpc/concepts/address.md#public-addresses), also [assign](../../iam/operations/sa/assign-role-for-sa.md) the [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin) role.
 
-#### A namespace has been deleted but its status is _Terminating_ and its deletion is not completed {#namespace-terminating}
+#### A namespace has been deleted but its status is still _Terminating_ and its deletion cannot be completed {#namespace-terminating}
 
 This happens when a [namespace](../../managed-kubernetes/concepts/index.md#namespace) has stuck resources that cannot be deleted by the namespace controller.
 
@@ -81,9 +79,9 @@ kubectl describe svc <LoadBalancer_type_service_name> \
 
 For more information, see [Parameters of a LoadBalancer service](../../managed-kubernetes/operations/create-load-balancer.md#advanced).
 
-#### Why is a created PersistentVolumeClaim still pending? {#pvc-pending}
+#### Why does the newly created PersistentVolumeClaim remain in _Pending_ status? {#pvc-pending}
 
-This is normal for a [PersistentVolumeClaim](../../managed-kubernetes/concepts/volume.md#persistent-volume) (PVC). The created PVC remains in the **Pending** status until you create a pod that must use it.
+This is normal for a [PersistentVolumeClaim](../../managed-kubernetes/concepts/volume.md#persistent-volume) (PVC). The newly created PVC remains **Pending** until you create a pod that must use it.
 
 To change the PVC status to **Running**:
 1. View details of the PVC:
@@ -137,9 +135,9 @@ Make sure the new configuration of {{ managed-k8s-name }} nodes is within the [q
 
 To run your {{ managed-k8s-name }} cluster, [increase the quotas](../../managed-kubernetes/concepts/limits.md).
 
-#### After changing the node subnet mask in the cluster settings, the number of pods on the nodes does not match the estimated count {#count-pods}
+#### After changing the node subnet mask in the cluster settings, the number of pods placed on the nodes is not as expected {#count-pods}
 
-**Solution**: Create the node group one more time.
+**Solution**: Create the node group from scratch.
 
 #### Error renewing ingress controller certificate {#ingress-certificate}
 
@@ -215,7 +213,7 @@ Set up [automatic DNS scaling by {{ managed-k8s-name }} cluster size](../../mana
 
 [Set up NodeLocal DNS Cache](../../managed-kubernetes/tutorials/node-local-dns.md). To make sure that the settings are optimal, [install NodeLocal DNS Cache from {{ marketplace-full-name }}](../../managed-kubernetes/operations/applications/node-local-dns.md#marketplace-install).
 
-#### When creating a node group via the CLI, a parameter conflict occurs. How do I fix that? {#conflicting-flags}
+#### There is a parameter conflict when creating a node group via the CLI. How do I fix it? {#conflicting-flags}
 
 Check whether the `--location`, `--network-interface`, and `--public-ip` parameters are specified in the same command. If you provide these parameters together, the following errors occur:
 * For the `--location` and `--public-ip` or `--location` and `--network-interface` pairs:
@@ -261,7 +259,7 @@ To connect to the cluster's private IP address from a VM located in the same net
 
 If you need to connect to a cluster from the internet, [recreate the cluster and assign](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) it a public IP address.
 
-#### Errors occur when connecting to a node over SSH {#node-connect}
+#### Errors connecting to a node over SSH {#node-connect}
 
 Error messages:
 
@@ -273,10 +271,10 @@ Permission denied (publickey,password)
 Too many authentication failures
 ```
 
-Errors occur [when connecting to a {{ managed-k8s-name }} node](../../managed-kubernetes/operations/node-connect-ssh.md) in the following cases:
+Errors occur [when connecting to a {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-connect-ssh.md) node in the following cases:
 * No public SSH key is added to the {{ managed-k8s-name }} node group metadata.
 
-  **Solution**: [Update the {{ managed-k8s-name }}  node group keys](../../managed-kubernetes/operations/node-connect-ssh.md#node-add-metadata).
+  **Solution**: [Update the {{ managed-k8s-name }} node group keys](../../managed-kubernetes/operations/node-connect-ssh.md#node-add-metadata).
 * An invalid public SSH key is added to the {{ managed-k8s-name }} node group metadata.
 
   **Solution**: [Change the format of the public key file to the appropriate one](../../managed-kubernetes/operations/node-connect-ssh.md#key-format) and [update the {{ managed-k8s-name }} node group keys](../../managed-kubernetes/operations/node-connect-ssh.md#node-add-metadata).
@@ -306,7 +304,7 @@ If you assigned public IP addresses to the cluster nodes and then configured the
 
 There is no support for Docker as a container runtime environment in clusters with {{ k8s }} version 1.24 or higher. Only [containerd](https://containerd.io/) is available.
 
-#### Error when connecting a {{ GL }} repository to Argo CD {#argo-cd}
+#### Error connecting a {{ GL }} repository to Argo CD {#argo-cd}
 
 Error message:
 
@@ -333,3 +331,111 @@ The [default health check](../../network-load-balancer/concepts/health-check.md)
 To prevent this, we recommend setting up backend health checks on your {{ alb-name }}. Thanks to health checks, the load balancer spots unavailable backends in a timely manner and diverts traffic to other backends. Once the app update is over, traffic will once again be distributed between all backends.
 
 For more information, see [{#T}](../../application-load-balancer/concepts/best-practices.md) and [{#T}](../../application-load-balancer/k8s-ref/service-for-ingress.md#annotations).
+
+#### System time displayed incorrectly on nodes, as well as in container and {{ managed-k8s-name }} cluster pod logs {#time}
+
+{{ managed-k8s-name }} cluster time may deviate from the time of other resources, e.g., a VM, if they use different clock sources for synchronization. For example, a {{ managed-k8s-name }} cluster synchronizes with a time server (by default), whereas a VM synchronizes with a private or public NTP server.
+
+**Solution**: Set up {{ managed-k8s-name }} cluster time synchronization with your private NTP server. To do this:
+
+1. Specify the NTP server's addresses in the [DHCP settings](../../vpc/concepts/dhcp-options.md) of the master subnets.
+
+   {% list tabs group=instructions %}
+
+   - Management console {#console}
+
+     1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. Click the name of the {{ k8s }} cluster.
+     1. Under **{{ ui-key.yacloud.k8s.cluster.overview.section_master }}**, click the subnet name.
+     1. Click ![subnets](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+     1. In the window that opens, expand the **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}** section.
+     1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-ntp-server }}** and specify the IP address of your NTP server.
+     1. Click **{{ ui-key.yacloud.vpc.subnetworks.update.button_update }}**.
+
+   - CLI {#cli}
+
+     {% include [include](../../_includes/cli-install.md) %}
+
+     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+     1. View the description of the CLI command for updating subnet parameters:
+
+         ```bash
+         yc vpc subnet update --help
+         ```
+
+     1. Run the `subnet` command with the NTP server's IP address in the `--ntp-server` parameter: 
+
+         ```bash
+         yc vpc subnet update <subnet_ID> --ntp-server <server_address>
+         ```
+
+     {% include [note-get-cluster-subnet-id](../../_includes/managed-kubernetes/note-get-cluster-subnet-id.md) %}
+
+   - {{ TF }} {#tf}
+
+     1. In the {{ TF }} configuration file, change the cluster subnet description. Add the `dhcp_options` section (if there is none) with the `ntp_servers` parameter and specify the IP address of your NTP server:
+
+        ```hcl
+        ...
+        resource "yandex_vpc_subnet" "lab-subnet-a" {
+          ...
+          v4_cidr_blocks = ["<IPv4_address>"]
+          network_id     = "<network_ID>"
+          ...
+          dhcp_options {
+            ntp_servers = ["<IPv4_address>"]
+            ...
+          }
+        }
+        ...
+        ```
+
+        For more information about `yandex_vpc_subnet` properties in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_subnet).
+
+     1. Apply the changes:
+
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+        
+        {{ TF }} will update all required resources. You can check the subnet update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+
+        ```bash
+        yc vpc subnet get <subnet_name>
+        ```
+     
+   - API {#api}
+   
+     Use the [update](../../vpc/api-ref/Subnet/update.md) method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource and include the following in the request:
+
+     * NTP server's IP address in the `dhcpOptions.ntpServers` parameter.
+     * The `dhcpOptions.ntpServers` parameter to update in the `updateMask` parameter.
+     
+     {% include [note-get-cluster-subnet-id](../../_includes/managed-kubernetes/note-get-cluster-subnet-id.md) %}
+
+   {% endlist %}
+
+   {% note warning %}
+
+   For a highly available master hosted across three availability zones, you need to update each of the three subnets.
+
+   {% endnote %}
+
+1. Enable connections from the cluster to NTP servers.
+   
+   [Create a rule](../../vpc/operations/security-group-add-rule.md) in the [cluster and node groups security group](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-cluster):
+
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`. If using any port other than port `123` on the NTP server, specify it.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `<NTP_server_IP_address>/32`. For a master hosted across three availability zones, specify three sections: `<NTP_server_IP_address_in_subnet1>/32`, `<NTP_server_IP_address_in_subnet2>/32`, `<NTP_server_IP_address_in_subnet3>/32`.
+
+1. Update the network settings in the cluster node group using one of the following methods:
+
+   * Connect to each node in the group [over SSH](../../managed-kubernetes/operations/node-connect-ssh.md) or [via OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md) and run the `sudo dhclient -v -r && sudo dhclient` command.
+   * Reboot the group nodes at a time convenient for you.
+
+   {% note warning %}
+
+   Updating network parameters may cause the services within the cluster to become unavailable for a few minutes.
+
+   {% endnote %}

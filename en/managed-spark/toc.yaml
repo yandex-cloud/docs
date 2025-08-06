@@ -60,6 +60,8 @@ items:
                 href: api-ref/grpc/Cluster/list.md
               - name: Create
                 href: api-ref/grpc/Cluster/create.md
+              - name: Update
+                href: api-ref/grpc/Cluster/update.md
               - name: Delete
                 href: api-ref/grpc/Cluster/delete.md
               - name: Start

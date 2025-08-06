@@ -491,8 +491,8 @@ keywords:
                     `weekday=<день_недели>,`
                     `hour=<час_дня> \
        --delete-protection \
-       --data-transfer-access=<true_или_false> \
-       --serverless-access=<true_или_false>
+       --data-transfer-access=<разрешить_доступ_из_Data_Transfer> \
+       --serverless-access=<разрешить_доступ_из_Serverless_Containers>
     ```
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -543,7 +543,7 @@ keywords:
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
             ...
-            deletion_protection = <true_или_false>
+            deletion_protection = <защитить_кластер_от_удаления>
         }
         ```
 
@@ -580,11 +580,11 @@ keywords:
                         "updateMask": "configSpec.access,deletionProtection,maintenanceWindow",
                         "configSpec": {
                             "access": {
-                                "dataTransfer": <доступ_из_Data_Transfer:_true_или_false>,
-                                "serverless": <доступ_из_Serverless_Containers:_true_или_false>
+                                "dataTransfer": <разрешить_доступ_из_Data_Transfer>,
+                                "serverless": <разрешить_доступ_из_Serverless_Containers>
                             }
                         },
-                        "deletionProtection": <защита_кластера_от_удаления:_true_или_false>,
+                        "deletionProtection": <защитить_кластер_от_удаления>,
                         "maintenanceWindow": {
                             "weeklyMaintenanceWindow": {
                                 "day": "<день_недели>",
@@ -605,8 +605,10 @@ keywords:
             * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
             * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml).
 
+            Возможные значения настроек: `true` или `false`.
 
-        * `deletionProtection` — защита кластера от непреднамеренного удаления.
+
+        * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
             Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
@@ -649,11 +651,11 @@ keywords:
                     },
                     "config_spec": {
                         "access": {
-                            "data_transfer": <доступ_из_Data_Transfer:_true_или_false>,
-                            "serverless": <доступ_из_Serverless_Containers:_true_или_false>
+                            "data_transfer": <разрешить_доступ_из_Data_Transfer>,
+                            "serverless": <разрешить_доступ_из_Serverless_Containers>
                         }
                     },
-                    "deletion_protection": <защита_кластера_от_удаления:_true_или_false>,
+                    "deletion_protection": <защитить_кластер_от_удаления>,
                     "maintenance_window": {
                         "weekly_maintenance_window": {
                             "day": "<день_недели>",
@@ -678,8 +680,10 @@ keywords:
             * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
             * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml).
 
+            Возможные значения настроек: `true` или `false`.
 
-        * `deletion_protection` — защита кластера от непреднамеренного удаления.
+
+        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
             Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 

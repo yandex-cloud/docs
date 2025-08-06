@@ -653,7 +653,7 @@ description: Из статьи вы узнаете, как изменить на
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
         ...
-        deletion_protection = <защита_кластера_от_удаления>
+        deletion_protection = <защитить_кластер_от_удаления>
       }
       ```
 
@@ -712,12 +712,12 @@ description: Из статьи вы узнаете, как изменить на
               },
               "backupRetainPeriodDays": "<количество_дней>",
               "access": {
-                  "dataLens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                  "webSql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                  "dataTransfer": <доступ_к_Data_Transfer:_true_или_false>
+                  "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
+                  "webSql": <разрешить_доступ_из_{{ websql-name }}>,
+                  "dataTransfer": <разрешить_доступ_из_Data_Transfer>
               },
               "performanceDiagnostics": {
-                  "enabled": <активация_сбора_статистики:_true_или_false>,
+                  "enabled": <активировать_сбор_статистики>,
                   "sessionsSamplingInterval": "<интервал_сбора_сессий>",
                   "statementsSamplingInterval": "<интервал_сбора_запросов>"
               }
@@ -728,7 +728,7 @@ description: Из статьи вы узнаете, как изменить на
                   "hour": "<час>"
               }
           },
-          "deletionProtection": <защита_кластера_от_удаления:_true_или_false>
+          "deletionProtection": <защитить_кластер_от_удаления>
       }
       ```
 
@@ -756,10 +756,12 @@ description: Из статьи вы узнаете, как изменить на
               * `webSql` — [{{ websql-full-name }}](../../websql/index.yaml);
               * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
 
+              Возможные значения настроек: `true` или `false`.
+
 
           * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-              * `enabled` — активация сбора статистики;
+              * `enabled` — активация сбора статистики: `true` или `false`;
               * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
               * `statementsSamplingInterval` — интервал сбора запросов: от `1` до `86400` секунд.
 
@@ -771,7 +773,7 @@ description: Из статьи вы узнаете, как изменить на
               * `day` — день недели в формате `DDD`;
               * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
 
-      * `deletionProtection` — защита кластера от непреднамеренного удаления.
+      * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
           {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -824,12 +826,12 @@ description: Из статьи вы узнаете, как изменить на
               },
               "backup_retain_period_days": "<количество_дней>",
               "access": {
-                  "data_lens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                  "web_sql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                  "data_transfer": <доступ_к_Data_Transfer:_true_или_false>
+                  "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
+                  "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
+                  "data_transfer": <разрешить_доступ_из_Data_Transfer>
               },
               "performance_diagnostics": {
-                  "enabled": <активация_сбора_статистики:_true_или_false>,
+                  "enabled": <активировать_сбор_статистики>,
                   "sessions_sampling_interval": "<интервал_сбора_сессий>",
                   "statements_sampling_interval": "<интервал_сбора_запросов>"
               }
@@ -840,7 +842,7 @@ description: Из статьи вы узнаете, как изменить на
                   "hour": "<час>"
               }
           },
-          "deletion_protection": <защита_кластера_от_удаления:_true_или_false>
+          "deletion_protection": <защитить_кластер_от_удаления>
       }
       ```
 
@@ -868,10 +870,12 @@ description: Из статьи вы узнаете, как изменить на
               * `web_sql` — [{{ websql-full-name }}](../../websql/index.yaml);
               * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
 
+              Возможные значения настроек: `true` или `false`.
+
 
           * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-              * `enabled` — активация сбора статистики;
+              * `enabled` — активация сбора статистики: `true` или `false`;
               * `sessions_sampling_interval` — интервал сбора сессий: от `1` до `86400` секунд;
               * `statements_sampling_interval` — интервал сбора запросов: от `1` до `86400` секунд.
 
@@ -883,7 +887,7 @@ description: Из статьи вы узнаете, как изменить на
               * `day` — день недели в формате `DDD`;
               * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
 
-      * `deletion_protection` — защита кластера от непреднамеренного удаления.
+      * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
           {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 

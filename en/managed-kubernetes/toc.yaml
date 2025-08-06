@@ -158,6 +158,10 @@ items:
             href: operations/node-group/node-group-delete.md
       - name: Connecting external nodes to the cluster
         href: operations/external-nodes-connect.md
+      - name: Configuring WireGuard gateways to connect external nodes to a cluster
+        href: operations/external-nodes-connect-wireguard.md
+      - name: Configuring IPSec gateways to connect external nodes to a cluster
+        href: operations/external-nodes-connect-ipsec.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -674,6 +678,8 @@ items:
             href: alb-ref/yc-certificate.md
           - name: HTTPRoute
             href: alb-ref/http-route.md
+          - name: GRPCRoute
+            href: alb-ref/grpc-route.md
           - name: RoutePolicy
             href: alb-ref/route-policy.md
           - name: YCStorageBucket

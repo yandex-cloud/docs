@@ -95,7 +95,7 @@
         metadata:
           name: <имя_ресурса>
           annotations:
-            ingress.alb.yc.io/subnets: <идентификатор_подсети_ru-central1-a,идентификатор_подсети_ru-central1-b,идентификатор_подсети_ru-central1-d>
+            ingress.alb.yc.io/subnets: <идентификаторы_подсетей_в_трех_зонах_доступности>
             ingress.alb.yc.io/security-groups: <идентификатор_группы_безопасности_L7-балансировщика>
             ingress.alb.yc.io/external-ipv4-address: <статический_публичный_IP-адрес>
             ingress.alb.yc.io/group-name: <имя_группы_ресурсов>
@@ -117,7 +117,7 @@
                     service:
                       name: <имя_сервиса_Kubernetes>
                       port:
-                        number: <номер_порта,_например_443>
+                        number: <443_или_другой_номер_порта>
         ```
 
     1. Создайте ресурс `Ingress` с помощью команды:

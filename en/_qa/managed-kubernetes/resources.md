@@ -1,5 +1,3 @@
-# Resources
-
 #### What resources are needed to maintain a {{ k8s }} cluster with a group of, say, three nodes? {#required-resources}
 
 Each [node](../../managed-kubernetes/concepts/index.md#node-group) needs resources to run the components in charge of running the node as part of the [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). For more information, see [{#T}](../../managed-kubernetes/concepts/node-group/allocatable-resources.md).

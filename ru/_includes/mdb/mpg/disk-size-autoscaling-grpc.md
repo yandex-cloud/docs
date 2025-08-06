@@ -16,4 +16,6 @@
         
   * Если заданы оба порога, значение `emergency_usage_threshold` должно быть не меньше `planned_usage_threshold`.
 
-  {% endnote %}  
+  {% endnote %}
+
+  Подробнее об условиях для увеличения хранилища см. в [соответствующем разделе](../../../managed-postgresql/concepts/storage.md#auto-rescale). 

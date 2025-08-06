@@ -6322,6 +6322,7 @@ default:
     sourcecraft:
       ui_lib:
         home: Home
+        repositories: Repositories
         tab_secrets: Secrets
       ui_modules_cicd:
         value_status-created: Queued
@@ -6329,6 +6330,8 @@ default:
       ui_modules_mainApp:
         route_create-repository: Create repository
         route_repositories: Repositories
+      ui_modules_orgCommon:
+        link_your-craftspace: Your craftspace
       ui_modules_repo:
         action_cicd: CI/CD
         action_commit: Commit changes

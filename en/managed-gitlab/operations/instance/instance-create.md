@@ -59,7 +59,7 @@ To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../.
      * `disk_size`: Disk size in GB.
      * `admin_login`: {{ GL }} instance admin login.
      * `admin_email`: Instance admin email address. This is the address to receive the email with a link to create a password.
-     * `domain`: [Instance domain name](../../../compute/concepts/network.md#hostname). The system will automatically create the relevant DNS records for it in the `.gitlab.yandexcloud.net` domain.
+     * `domain`: [Instance domain name](../../../compute/concepts/network.md#hostname) in `<name>.gitlab.yandexcloud.net` format. The system will automatically create the relevant DNS records for it in the `.gitlab.yandexcloud.net` domain.
 
         {% include [domain-name-format](../../../_includes/managed-gitlab/domain-name-format.md) %}
 

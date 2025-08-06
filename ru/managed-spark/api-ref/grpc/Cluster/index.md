@@ -14,6 +14,7 @@ A set of methods for managing Spark clusters.
 || [Get](get.md) | Returns the specified Spark cluster. ||
 || [List](list.md) | Retrieves a list of Spark clusters. ||
 || [Create](create.md) | Creates a Spark cluster. ||
+|| [Update](update.md) | Updates configuration of the specified Spark cluster. ||
 || [Delete](delete.md) | Deletes the specified Spark cluster. ||
 || [Start](start.md) | Start the specified Spark cluster. ||
 || [Stop](stop.md) | Stops the specified Spark cluster ||

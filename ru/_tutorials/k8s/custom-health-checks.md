@@ -250,7 +250,9 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
 - Вручную {#manual}
 
    1. [Зарезервируйте статический публичный IP-адрес](../../vpc/operations/get-static-ip.md) для балансировщика {{ alb-name }}.
-   1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
+
+   1. {% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}
+   
    1. Чтобы привязать адрес к домену, [создайте A-запись](../../dns/operations/resource-record-create.md) для делегированного домена. В качестве значения записи укажите зарезервированный IP-адрес.
    1. Убедитесь, что A-запись добавилась:
 

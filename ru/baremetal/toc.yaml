@@ -70,6 +70,8 @@ items:
             href: concepts/server-configurations.md
           - name: Анализ состояния дисков
             href: concepts/smart-disk-analysis.md
+          - name: Дополнительные настройки серверов
+            href: concepts/server-advanced-settings.md
       - name: Сеть
         expanded: true
         items:

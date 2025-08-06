@@ -20,6 +20,10 @@ Each disk is located in one of the [availability zones](../../overview/concepts/
 
 After creating a disk, you can [change](../operations/disk-control/update.md#change-disk-name) its name and description and [increase](../operations/disk-control/update.md#change-disk-size) its size.
 
+Each boot disk will get assigned a particular [virtualized hardware generation](./hardware-generations.md) on which a VM instance can be deployed with this boot disk. You can assign a particular hardware generation to a disk only at the time of creating it. 
+
+Once a disk is created, you cannot change the generation assigned to it. Instead, you can create a [snapshot](./snapshot.md) or [image](./image.md) of the disk with preferred hardware generation assigned and then proceed to create a new disk from the resulting snapshot or image.
+
 Disks are subject to [technical restrictions on reads and writes](storage-read-write.md), as well as {{ compute-name }} [quotas](limits.md#compute-quotas) and [limits](limits.md#compute-limits-disks).
 
 ## Disk as a {{ yandex-cloud }} resource {#disk-as-resource}
