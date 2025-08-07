@@ -26,4 +26,6 @@ Changes to a dictionary apply to dialogs you upload to the project afterwards as
    * Dictionary name and description.
    * **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}**: Use a separate line for each trigger phrase. {{ speechsense-name }} will scan the conversation for the keywords and assign a [dictionary tag](../../concepts/tags.md#dictionary-tags) to the recording if it finds any.
 
+      {% include [key-phrases-restrictions](../../../_includes/speechsense/data/key-phrases-restrictions.md) %}
+
 1. Click **{{ ui-key.yc-ui-talkanalytics.common.save }}**.

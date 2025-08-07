@@ -14,7 +14,7 @@ To get started:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
 
 1. If you do not have a folder yet, create one:
 
@@ -23,7 +23,7 @@ To get started:
 1. [Assign](../iam/operations/roles/grant.md) the following roles to your {{ yandex-cloud }} account:
 
     * [managed-trino.admin](security.md#managed-trino-admin): To create a cluster.
-    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user): To use the cluster [network](../vpc/concepts/network.md#network).
+    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user): Required to access the cluster [network](../vpc/concepts/network.md#network).
     * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user): To link a service account to the cluster.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
@@ -41,7 +41,7 @@ To get started:
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-    1. Give the cluster a name.
+    1. Specify a name for the cluster.
     1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select the previously created service account.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [network](../vpc/operations/network-create.md), [subnet](../vpc/operations/subnet-create.md), and [security group](../vpc/concepts/security-groups.md) for the cluster.
     1. Configure the [coordinator](concepts/index.md#coordinator) and [workers](concepts/index.md#workers).

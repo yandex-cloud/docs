@@ -1,0 +1,26 @@
+title: Terraform in Yandex Cloud
+description:
+  - >-
+    {{ TF }}: Tool for managing your cloud infrastructure as a code (IaC) using
+    configuration files.
+  - >-
+    {{ yandex-cloud }} provides a provider, a set of modules, and a number of
+    ready-made solutions that  you can adapt to your needs.
+links:
+  - title: Getting started
+    description: Deploy a test infrastructure using {{ TF }}
+    href: quickstart
+  - title: Concepts
+    description: Learn about the basic {{ TF }} concepts
+    href: concepts/
+  - title: Tutorials
+    description: Configure access permissions for the service
+    href: tutorials/
+  - title: '{{ yandex-cloud }} provider'
+    description: Reference of resources and {{ yandex-cloud }} data sources
+    href: tf-ref/yandex-cloud
+meta:
+  title: '{{ TF }} in Yandex Cloud'
+  description: >-
+    Use the {{ yandex-cloud }} provider for {{ TF }} to manage your cloud
+    infrastructure

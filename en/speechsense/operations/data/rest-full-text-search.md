@@ -40,7 +40,10 @@ To refine your search results, you can use [filtering by parameters](rest-search
 
     * `query`: Full-text search request body. Supports the following parameters: 
 
-      * `text`: Search query text. You can specify a word or phrase. {{ speechsense-name }} will search for the specified string in the audio text transcript or chat text. 
+      * `text`: Search query text. You can specify a word or phrase. {{ speechsense-name }} will search for the specified string in the audio text transcript or chat text.
+
+        {% include [key-phrases-restrictions](../../../_includes/speechsense/data/key-phrases-restrictions.md) %}
+
       * `channelNumber`: Channel number. If you specify this parameter, the search is performed only in the audio text transcript or chat text for the specified channel. 
 
         Channel numbering in chat connections: 

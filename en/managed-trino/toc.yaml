@@ -125,6 +125,8 @@ items:
             href: cli-ref/cluster/stop.md
           - name: update
             href: cli-ref/cluster/update.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
       - name: API authentication

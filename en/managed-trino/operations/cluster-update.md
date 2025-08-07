@@ -65,7 +65,7 @@ After creating a cluster, you can edit its basic and advanced settings.
             --service-account-id <service_account_ID> \
             --security-group-ids <security_group_IDs> \
             --retry-policy-enabled \ 
-            --retry-policy <retry_object_type> \
+            --retry-policy <object_type_for_retry> \
             --retry-policy-additional-properties <list_of_additional_parameters> \
             --retry-policy-exchange-manager-service-s3 \
             --retry-policy-exchange-manager-additional-properties <list_of_additional_parameters> \     
@@ -92,32 +92,26 @@ After creating a cluster, you can edit its basic and advanced settings.
         
         * [Fault-tolerant query execution](../concepts/retry-policy.md) parameters:
 
-          * `--retry-policy-enabled`: Enables the retry policy.
+          * `--retry-policy-enabled`: Enables a retry policy.
           * `--retry-policy`: Query retry method. The possible values are:
 
               * `query`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
               * `task`: Retries the intermediate task within the query that caused worker failure.
 
           * `--retry-policy-additional-properties`: Additional query retry parameters in `<key>=<value>` format. [Learn more about parameters in the {{ TR }} documentation]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
-          * `--retry-policy-exchange-manager-service-s3`: Activates the use of a service {{ objstorage-name }} bucket as an Exchange Manager storage for intermediate data.
+          * `--retry-policy-exchange-manager-service-s3`: Enables the use of an {{ objstorage-name }} service bucket as an Exchange Manager storage for intermediate data.
           * `--retry-policy-exchange-manager-additional-properties`: Additional Exchange Manager storage parameters in `<key>=<value>` format. [Learn more about parameters in the {{ TR }} documentation]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 
         * `--coordinator`, `--worker`: Configuration of {{ TR }} cluster [components](../concepts/index.md).
 
           * `resource-preset-id`: Class of [coordinator](../concepts/index.md#coordinator) and [worker](../concepts/index.md#workers) hosts. The possible values are:
-            * `c4-m16`: 4 vCPUs, 16 GB RAM
-            * `c4-m32`: 4 vCPUs, 32 GB RAM
-            * `c8-m32`: 8 vCPUs, 32 GB RAM
-            * `c8-m64`: 8 vCPUs, 64 GB RAM
-            * `c16-m64`: 16 vCPUs, 64 GB RAM
-            * `c16-m128`: 16 vCPUs, 128 GB RAM
-            * `c32-m128`: 32 vCPUs, 128 GB RAM
-            * `c32-m256`: 32 vCPUs, 256 GB RAM
+
+            {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
           * `min-count`, `max-count`: Set the minimum and maximum range boundaries for the worker count to be automatically adjusted to load.
           * `count`: Set a fixed number of workers.
 
-            You can set either `min-count` and `max-count`, or `count`.
+            You can specify either `min-count` and `max-count`, or `count`.
 
         * `--deletion-protection`: Enables cluster protection against accidental deletion. Even if it is enabled, one can still connect to the cluster manually and delete it.
         * `--maintenance-window`: Maintenance window settings (including for disabled clusters), where `type` is the maintenance type:
@@ -135,6 +129,46 @@ After creating a cluster, you can edit its basic and advanced settings.
           * `--log-min-level`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO` (default), `WARN`, `ERROR`, and `FATAL`.
 
         You can request the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).   
+
+- {{ TF }} {#tf}
+
+    To change the cluster settings:
+
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
+
+        For a complete list of available {{ mtr-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mtr }}).
+
+    1. To change cluster settings, change the required fields' values in the configuration file.
+
+        {% note alert %}
+
+        Do not change the cluster name using {{ TF }}. This will delete the existing cluster and create a new one.
+
+        {% endnote %}
+
+        {% include [Terraform cluster parameters description](../../_includes/managed-trino/terraform/cluster-parameters.md) %}
+
+    1. To enable sending {{ TR }} logs to [{{ cloud-logging-full-name }}](../../logging/), add the `logging` section to the cluster description:
+
+        {% include [Terraform logging parameters description](../../_includes/managed-trino/terraform/logging-parameters.md) %}
+
+    1. To enable a [fault-tolerant query execution](../concepts/retry-policy.md) policy, add a `retry_policy` section to the cluster description:
+
+        {% include [Terraform retry policy parameters description](../../_includes/managed-trino/terraform/retry-policy-parameters.md) %}
+
+    1. To change the maintenance time (including for disabled clusters), provide the following settings in the `maintenance_window` section:
+
+        {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
 - REST API {#api}
 
@@ -177,7 +211,7 @@ After creating a cluster, you can edit its basic and advanced settings.
             }
           },
           "retryPolicy": {
-            "policy": "<retry_object_type>",
+            "policy": "<object_type_for_retry>",
             "exchangeManager": {
               "storage": {
                 "serviceS3": {}
@@ -218,27 +252,13 @@ After creating a cluster, you can edit its basic and advanced settings.
 
                * `resources.resourcePresetId`: Class of coordinator hosts. The possible values are:
 
-                    * `c4-m16`: 4 vCPUs, 16 GB RAM
-                    * `c4-m32`: 4 vCPUs, 32 GB RAM
-                    * `c8-m32`: 8 vCPUs, 32 GB RAM
-                    * `c8-m64`: 8 vCPUs, 64 GB RAM
-                    * `c16-m64`: 16 vCPUs, 64 GB RAM
-                    * `c16-m128`: 16 vCPUs, 128 GB RAM
-                    * `c32-m128`: 32 vCPUs, 128 GB RAM
-                    * `c32-m256`: 32 vCPUs, 256 GB RAM
+                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
               
             * `workerConfig`: Worker configuration.
 
                * `resources.resourcePresetId`: Class of worker hosts. The possible values are:
 
-                    * `c4-m16`: 4 vCPUs, 16 GB RAM
-                    * `c4-m32`: 4 vCPUs, 32 GB RAM
-                    * `c8-m32`: 8 vCPUs, 32 GB RAM
-                    * `c8-m64`: 8 vCPUs, 64 GB RAM
-                    * `c16-m64`: 16 vCPUs, 64 GB RAM
-                    * `c16-m128`: 16 vCPUs, 128 GB RAM
-                    * `c32-m128`: 32 vCPUs, 128 GB RAM
-                    * `c32-m256`: 32 vCPUs, 256 GB RAM
+                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
                * `scalePolicy`: Worker scaling policy:
 
@@ -258,7 +278,7 @@ After creating a cluster, you can edit its basic and advanced settings.
                * `policy`: Query retry method. The possible values are:
 
                   * `TASK`: Retries the intermediate task within the query that caused worker failure.
-                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
+                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
 
                * `exchangeManager.additionalProperties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
@@ -339,7 +359,7 @@ After creating a cluster, you can edit its basic and advanced settings.
               }
             },
             "retry_policy": {
-              "policy": "<retry_object_type>",
+              "policy": "<object_type_for_retry>",
               "exchange_manager": {
                 "storage": {
                   "service_s3": ""
@@ -397,27 +417,13 @@ After creating a cluster, you can edit its basic and advanced settings.
 
                * `resources.resource_preset_id`: Class of coordinator hosts. The possible values are:
 
-                    * `c4-m16`: 4 vCPUs, 16 GB RAM
-                    * `c4-m32`: 4 vCPUs, 32 GB RAM
-                    * `c8-m32`: 8 vCPUs, 32 GB RAM
-                    * `c8-m64`: 8 vCPUs, 64 GB RAM
-                    * `c16-m64`: 16 vCPUs, 64 GB RAM
-                    * `c16-m128`: 16 vCPUs, 128 GB RAM
-                    * `c32-m128`: 32 vCPUs, 128 GB RAM
-                    * `c32-m256`: 32 vCPUs, 256 GB RAM
+                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
               
             * `worker_config`: Worker configuration.
 
                * `resources.resource_preset_id`: Class of worker hosts. The possible values are:
 
-                    * `c4-m16`: 4 vCPUs, 16 GB RAM
-                    * `c4-m32`: 4 vCPUs, 32 GB RAM
-                    * `c8-m32`: 8 vCPUs, 32 GB RAM
-                    * `c8-m64`: 8 vCPUs, 64 GB RAM
-                    * `c16-m64`: 16 vCPUs, 64 GB RAM
-                    * `c16-m128`: 16 vCPUs, 128 GB RAM
-                    * `c32-m128`: 32 vCPUs, 128 GB RAM
-                    * `c32-m256`: 32 vCPUs, 256 GB RAM
+                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
                * `scale_policy`: Worker scaling policy:
 
@@ -437,7 +443,7 @@ After creating a cluster, you can edit its basic and advanced settings.
                * `policy`: Query retry method. The possible values are:
 
                   * `TASK`: Retries the intermediate task within the query that caused worker failure.
-                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
+                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
 
                * `exchange_manager.additional_properties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 

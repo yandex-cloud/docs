@@ -145,6 +145,8 @@ items:
         href: concepts/maintenance.md
       - name: '{{ KF }} settings'
         href: concepts/settings-list.md
+      - name: '{{ KF }} versioning policy'
+        href: concepts/update-policy.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
