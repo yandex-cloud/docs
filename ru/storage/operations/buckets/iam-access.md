@@ -94,6 +94,10 @@ description: Следуя данной инструкции, вы сможете
 
       Проверить изменения ресурсов можно в [консоли управления]({{ link-console-main }}).
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [updateAccessBindings](../../../storage/api-ref/Bucket/updateAccessBindings.md) для ресурса [Bucket](../../../storage/api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/UpdateAccessBindings](../../../storage/api-ref/grpc/Bucket/updateAccessBindings.md).
+
 {% endlist %}
 
 Также вы можете [назначить](../../../iam/operations/roles/grant.md) роль на бакет в сервисе {{ iam-name }}.

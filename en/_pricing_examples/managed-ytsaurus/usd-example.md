@@ -149,14 +149,14 @@ Where:
 
 Where:
 * 720: Hours in 30 days.
-* {% calc [currency=USD] 8 × 1,361 / 120 + 32 × 0,363 / 120 %}, cost of operation of the exec node for one hour.
-* {% calc [currency=USD] 3 × (8 × 1,361 / 120 + 16 × 0,363 / 120) %}, cost of operation of tablet nodes for one hour.
-* {% calc [currency=USD] 3 × (4 × 1,361 / 120 + 12 × 0,363 / 120) %}, cost of operation of master nodes for one hour.
-* {% calc [currency=USD] 2 × (24 × 1,361 / 120 + 64 × 0,363 / 120) %}, cost of operation of system nodes for one hour.
-* {% calc [currency=USD] 2 × (4 × 1,361 / 120 + 8 × 0,363 / 120) %}, cost of operation of proxy nodes for one hour.
-* {% calc [currency=USD] 2 × (8 × 1,361 / 120 + 16 × 0,363 / 120) %}, cost of operation of service tablet nodes for one hour.
-* {% calc [currency=USD] 6 × (8 × 1,361 / 120 + 8 × 0,363 / 120) + 3 × (4 × 1,361 / 120 + 8 × 0,363 / 120) %}, cost of operation of storage nodes for one hour.
-* {% calc [currency=USD] 3 × 2048 × 3,784 / 120 + 3 × 465 × 11,405 / 120 %}, cost of using non-replicated SSD and network HDD storage for one month.
-* {% calc [currency=USD] 93 × 1 × 11,405 / 120 %}, cost of using non-replicated SSD storage for the exec node.
-* {% calc [currency=USD] 3 × 93 × 11,405 / 120 %}, cost of using non-replicated SSD storage for the service storage nodes.
-* {% calc [currency=USD] 93 × 6 × 11,405 / 120 %}, cost of using non-replicated SSD storage.
+* {% calc [currency=USD] 8 × 1,361 / 120 + 32 × 0,363 / 120 %}: Cost of operation of the exec node for one hour.
+* {% calc [currency=USD] 3 × (8 × 1,361 / 120 + 16 × 0,363 / 120) %}: Cost of operation of tablet nodes for one hour.
+* {% calc [currency=USD] 3 × (4 × 1,361 / 120 + 12 × 0,363 / 120) %}: Cost of operation of master nodes for one hour.
+* {% calc [currency=USD] 2 × (24 × 1,361 / 120 + 64 × 0,363 / 120) %}: Cost of operation of system nodes for one hour.
+* {% calc [currency=USD] 2 × (4 × 1,361 / 120 + 8 × 0,363 / 120) %}: Cost of operation of proxy nodes for one hour.
+* {% calc [currency=USD] 2 × (8 × 1,361 / 120 + 16 × 0,363 / 120) %}: Cost of operation of service tablet nodes for one hour.
+* {% calc [currency=USD] 6 × (8 × 1,361 / 120 + 8 × 0,363 / 120) + 3 × (4 × 1,361 / 120 + 8 × 0,363 / 120) %}: Cost of operation of storage nodes for one hour.
+* {% calc [currency=USD] 3 × 2048 × 3,784 / 120 + 3 × 465 × 11,405 / 120 %}: Cost of using non-replicated SSD and network HDD storage for one month.
+* {% calc [currency=USD] 93 × 1 × 11,405 / 120 %}: Cost of using non-replicated SSD storage for the exec node.
+* {% calc [currency=USD] 3 × 93 × 11,405 / 120 %}: Cost of using non-replicated SSD storage for the service storage nodes.
+* {% calc [currency=USD] 93 × 6 × 11,405 / 120 %}: Cost of using non-replicated SSD storage.

@@ -69,6 +69,8 @@ You cannot delete a connection from a project, but you can [delete a project](..
       * **By phrases**: Dialog is divided into segments based on key phrases.
 
          * **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.start-key-value }}**, **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.finish-key-value }}**: List the key phrases for the beginning and the end of the dialog.
+           
+            {% include [key-phrases-restrictions](../../../_includes/speechsense/data/key-phrases-restrictions.md) %}
 
 1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
 

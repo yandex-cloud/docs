@@ -80,6 +80,8 @@ Such use of semantic tags allows you to [filter dialogs](../operations/data/mana
 
 Dictionary tags are based on scanning dialogs for specified key phrases. You can either list the key phrases for tags or reuse them from [dictionaries](dictionaries.md). Dictionaries contain a ready-made list of key phrases which you can use across multiple tags and manage from the same place.
 
+{% include [key-phrases-restrictions](../../_includes/speechsense/data/key-phrases-restrictions.md) %}
+
 To fine-tune key phrase detection:
 
 * Enable the **{{ ui-key.yc-ui-talkanalytics.tags.exact-match-key-value }}** setting. In this case, related phrases will not be considered in key phrase detection.

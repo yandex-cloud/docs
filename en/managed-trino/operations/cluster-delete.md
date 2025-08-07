@@ -13,7 +13,7 @@ You can delete an {{ TR }} cluster if you no longer need it.
 
 ## Deleting a cluster {#delete}
 
-Before deleting a cluster, disable its deletion protection if active.
+Before deleting a cluster, disable its deletion protection if it is enabled.
 
 {% list tabs group=instructions %}
 

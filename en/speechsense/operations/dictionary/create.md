@@ -16,6 +16,8 @@ To create a dictionary:
 1. (Optional) Describe your dictionary.
 1. In the **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** field, list trigger phrases. If a conversation contains one of these phrases, it will get a tag with this dictionary.
 
+   {% include [key-phrases-restrictions](../../../_includes/speechsense/data/key-phrases-restrictions.md) %}
+
    Use a separate line for each one.
 
    {% cut "Field input example" %}

@@ -15,4 +15,31 @@ description: Follow this guide to update catalog parameters in a {{ mtr-name }} 
     1. Next to the catalog, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
     1. Update your {{ TR }} catalog parameters and click **{{ ui-key.yacloud.common.update }}**.
 
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
+
+    1. Edit the catalog settings in the `yandex_trino_catalog` section.
+
+        ```hcl
+        resource "yandex_trino_catalog" "<folder_name>" {
+          ...
+          <connector_type> = {
+            <{{ TR }}_catalog_settings>
+          }
+        }
+        ```
+
+        [Learn more about {{ TR }} catalog settings](catalog-create.md#catalog-settings) for various connector types.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 {% endlist %}

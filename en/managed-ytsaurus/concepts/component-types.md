@@ -7,6 +7,8 @@ description: The component configuration determines the computing power allocate
 
 The component configuration determines the computing power allocated for each component in a cluster.
 
+For more information on limits, see [Quotas and limits](limits.md).
+
 ## Available component configuration options
 
 ### Exec nodes {#exec-node}

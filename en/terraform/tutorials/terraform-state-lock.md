@@ -1,0 +1,1 @@
+{% include [terraform-state-lock](../../_tutorials/infrastructure/terraform-state-lock.md) %}
