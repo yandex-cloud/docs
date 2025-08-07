@@ -2,9 +2,29 @@ title: '{{ myt-full-name }}'
 href: index.yaml
 stage: preview
 items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Information about existing clusters
+        href: operations/cluster-list.md
+      - name: Creating a cluster
+        href: operations/cluster-create.md
+      - name: Updating a cluster
+        href: operations/cluster-update.md
+      - name: Stopping and starting a cluster
+        href: operations/cluster-stop.md
+      - name: Deleting a cluster
+        href: operations/cluster-delete.md
   - name: Concepts
     items:
+      - name: Quotas and limits
+        href: concepts/limits.md
       - name: Configuration options for cluster components
         href: concepts/component-types.md
+  - name: Access management
+    href: security/index.md
   - name: Pricing policy
     href: pricing.md

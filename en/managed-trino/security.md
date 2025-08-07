@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mtr-full-name }}
-description: Access management in {{ TR }}, a cluster creation and management service. This section covers the resources supporting role assignment, the available service roles, and required permissions for specific actions.
+description: Access management in {{ TR }}, a cluster creation and management service. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
 ---
 
 # Managing access to {{ mtr-name }}
@@ -8,27 +8,27 @@ description: Access management in {{ TR }}, a cluster creation and management se
 
 In this section, you will learn:
 
-* [What resources support role assignment](#resources).
-* [What roles are available in the service](#roles-list).
-* [What roles are required for specific actions](#required-roles).
+* [What resources you can assign a role for](#resources).
+* [What roles this service has](#roles-list).
+* [What roles are required](#required-roles) for specific actions.
 
 To use the service, log in to the management console with a [Yandex account](../iam/concepts/users/accounts.md#passport) or [federated account](../iam/concepts/users/accounts.md#saml-federation).
 
 {% include [about-access-management](../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user needs the `managed-trino.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you should have the `managed-trino.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../_includes/iam/roles-list.md) %}
 
-## Resources supporing role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../_includes/iam/basic-resources-for-access-control.md) %}
 
 To allow access to {{ mtr-name }} resources, such as clusters and accounts, give the user the relevant roles for the folder, cloud, or organization containing those resources.
 
-## Available service roles {#roles-list}
+## What roles exist in this service {#roles-list}
 
-Below is a list of all roles that are used to verify access rights in the service.
+Below is a list of all roles relevant for access control in the service.
 
 ### Service roles {#service-roles}
 

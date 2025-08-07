@@ -54,6 +54,8 @@ items:
         href: tutorials/index.md
       - name: Настройка сетевого взаимодействия ресурсов из разных каталогов
         href: tutorials/multi-folder-vpc.md
+      - name: Приглашение нового пользователя и назначение ролей
+        href: tutorials/add-account-and-assign-roles.md
   - name: Концепции
     items:
       - name: Иерархия ресурсов Yandex Cloud

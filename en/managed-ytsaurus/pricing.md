@@ -10,7 +10,7 @@ editable: false
 
 {% note info %}
 
-{{ myt-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage.
+{{ myt-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage and can be used free of charge.
 
 {% endnote %}
 

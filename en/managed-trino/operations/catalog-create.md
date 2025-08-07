@@ -28,6 +28,34 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
   1. Configure [{{ TR }} catalog settings](#catalog-settings).
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
+
+    1. Add the `yandex_trino_catalog` resource:
+
+        ```hcl
+        resource "yandex_trino_catalog" "<folder_name>" {
+          name        = "<folder_name>"
+          cluster_id  = yandex_trino_cluster.mytr.id
+          <connector_type> = {
+            <{{ TR }}_catalog_settings>
+          }
+        }
+        ```
+
+        [Learn more about the {{ TR }} catalog settings](#catalog-settings) for various connector types.
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 {% endlist %}
 
 ## {{ TR }} catalog settings {#catalog-settings}
@@ -42,168 +70,475 @@ Connectors marked with {{ preview-stage }} are at the preview stage. Their stabi
 
 ### {{ CH }} connector {#ch}
 
-To tailor the settings, select the connection type: [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) or On-premise (custom installation).
+Adjust the settings according to your connection type: [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) or On-premise (custom installation).
 
-{% list tabs %}
+#### {{ connection-manager-name }} {#ch-connection-manager}
 
-- Connection Manager
+{% list tabs group=instructions %}
 
-  * **Connection ID**: Connection ID in {{ connection-manager-name }} for connection to the {{ CH }} cluster.
-    
-    To find out the connection ID:
-      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-      1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+- Management console {#console}
 
-  * **Database**: DB name in the {{ CH }} cluster.
-  * **Client parameters**: {{ CH }} client parameters in `key: value` format.
+    * **Connection ID**: Connection ID in {{ connection-manager-name }} for connection to the {{ CH }} cluster.
 
-    {% cut "Available parameters" %}
+        To find out the connection ID:
+        1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
-    * `async`: Use of asynchronous mode, `true` or `false`.
+    * **Database**: DB name in the {{ CH }} cluster.
+    * **Client parameters**: {{ CH }} client parameters in `key: value` format.
 
-    * `buffer_queue_variation`: How many times the buffer can be filled up before its size is increased.
+        {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `buffer_size`: Buffer size, increases to `max_buffer_size` on overflow.
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/clickhouse.html).
 
-    * `client_name`: Client name.
+- {{ TF }} {#tf}
 
-    * `compress`: Data compression in the server response, `true` or `false`.
+    Configuration example:
 
-    * `compress_algorithm`: Data compression algorithm. The possible values are: [BROTLI](https://en.wikipedia.org/wiki/Brotli), [BZ2](https://en.wikipedia.org/wiki/Bzip2), [DEFLATE](https://en.wikipedia.org/wiki/Deflate), [GZIP](https://en.wikipedia.org/wiki/Gzip), [LZ4](https://en.wikipedia.org/wiki/LZ4_(compression_algorithm)), [SNAPPY](https://en.wikipedia.org/wiki/Snappy_(compression)), [XZ](https://en.wikipedia.org/wiki/XZ_Utils), [ZSTD](https://en.wikipedia.org/wiki/Zstd), or `NONE`.
+    ```hcl
+    resource "yandex_trino_catalog" "<folder_name>" {
+      ...
+      clickhouse = {
+        connection_manager = {
+          connection_id = "<connection_ID>"
+          database      = "<DB_name>"
+          connection_properties = {
+            <list_of_{{ CH }}_client_settings>
+          }
+        }
+        additional_properties = {
+          <list_of_additional_settings>
+        }
+      }
+    }
+    ```
 
-    * `compress_level`: Data compression level.
+    Where:
 
-    * `connect_timeout`: Maximum server connection timeout, in milliseconds.
+    * `connection_manager`: {{ connection-manager-name }} settings:
 
-    * `decompress`: Decompressing data in client request, `true` or `false`.
+        * `connection_id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ CH }} cluster.
 
-    * `decompress_algorithm`: Data decompression algorithm. The possible values are: [BROTLI](https://en.wikipedia.org/wiki/Brotli), [BZ2](https://en.wikipedia.org/wiki/Bzip2), [DEFLATE](https://en.wikipedia.org/wiki/Deflate), [GZIP](https://en.wikipedia.org/wiki/Gzip), [LZ4](https://en.wikipedia.org/wiki/LZ4_(compression_algorithm)), [SNAPPY](https://en.wikipedia.org/wiki/Snappy_(compression)), [XZ](https://en.wikipedia.org/wiki/XZ_Utils), [ZSTD](https://en.wikipedia.org/wiki/Zstd), or `NONE`.
+            To find out the connection ID:
+            1. In the management console, navigate to the [folder]({{ link-console-main }}) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
-    * `decompress_level`: Data decompression level.
+        * `database`: DB name in the {{ CH }} cluster.
+        * `connection_properties`: List of {{ CH }} client settings in `"key" = "value"` format.
 
-    * `failover`: Maximum number of attempts to connect to replicas if the server is unavailable.
+            {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
 
-    * `load_balancing_policy`: Replica selection algorithm for connection.
-        
-        * `firstAlive`: Request goes to the first available replica.
-        * `random`: Request goes to a random replica.
-        * `roundRobin`: Applies the [Round-robin](https://en.wikipedia.org/wiki/Round-robin_scheduling) policy to select a replica.
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/clickhouse.html).
 
-    * `max_buffer_size`: Maximum buffer size.
+{% endlist %}
 
-    * `max_threads_per_client`: Maximum number of threads per client.
+#### On-premise connection {#ch-on-premise}
 
-    * `product_name`: Product name in `User-Agent`.
+{% list tabs group=instructions %}
 
-    * `read_buffer_size`: Read buffer size, in bytes. The default value is `buffer_size`. When the buffer is full, the size gets increased to `max_buffer_size`.
+- Management console {#console}
 
-    * `request_buffering`: Request buffering mode.
+    * **URL**: URL for connecting to the {{ CH }} DB, in `jdbc:clickhouse://<host_address>:<port>/<DB_name>` format.
+    * **Username**: Username for connecting to the {{ CH }} DB.
+    * **Password**: User password for connecting to the {{ CH }} DB.
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/clickhouse.html).
 
-        * `RESOURCE_EFFICIENT`: Provides moderate performance with minimum use of CPU and RAM. This mode relies only on the buffer size, no queue is used.
-        * `PERFORMANCE`: Maximizes performance by actively utilizing CPU and RAM.
-        * `CUSTOM`: Allows manual buffering settings to balance out resource utilization and desired performance.
+- {{ TF }} {#tf}
 
-    * `request_chunk_size`: Request chunk size, in bytes.
+    Configuration example:
 
-    * `response_buffering`: Response buffering mode.
+    ```hcl
+    resource "yandex_trino_catalog" "<folder_name>" {
+      ...
+      clickhouse = {
+        on_premise = {
+          connection_url = "<URL_for_connection>"
+          user_name      = "<user_name>"
+          password       = "<user_password>"
+        }
+        additional_properties = {
+          <list_of_additional_settings>
+        }
+      }
+    }
+    ```
 
-        * `RESOURCE_EFFICIENT`: Provides moderate performance with minimum use of CPU and RAM. This mode relies only on the buffer size, no queue is used.
-        * `PERFORMANCE`: Maximizes performance by actively utilizing CPU and RAM.
-        * `CUSTOM`: Allows manual buffering settings to balance out resource utilization and desired performance.
+    Where:
 
-    * `server_time_zone`: Serve time zone.
+    * `on_premise`: Settings for connecting to the custom installation:
 
-    * `use_server_time_zone`: Use of the server time zone, `true` or `false`.
+        * `connection_url`: URL for connection to the {{ CH }} DB, in `jdbc:clickhouse://<host_address>:<port>/<DB_name>` format.
+        * `user_name`: Username for connection to the {{ CH }} DB.
+        * `password`: User password for connection to the {{ CH }} DB.
 
-    * `use_server_time_zone_for_dates`: Use of the server time zone when processing the `Date` values, `true` or `false`.
-
-    * `use_time_zone`: What time zone to use, i.e., `Europe/Amsterdam`. Applies if `use_server_time_zone` is `false`.
-
-    * `write_buffer_size`: Write buffer size, in bytes. By default, equals `buffer_size`. When the buffer is full, the size gets increased to `max_buffer_size`.
-
-    {% endcut %}
-
-  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/clickhouse.html).
-
-- On-premise
-
-  * **URL**: URL for connecting to the {{ CH }} DB, in `jdbc:clickhouse://<host_address>:<port>/<DB_name>` format.
-  * **Username**: Username for connecting to the {{ CH }} DB.
-  * **Password**: User password for connecting to the {{ CH }} DB.
-  * **Additional settings**: Provide in `key: value` format. For a list of settings available, see the [official documentation](https://trino.io/docs/current/connector/clickhouse.html).
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/clickhouse.html).
 
 {% endlist %}
 
 ### Delta Lake connector {#delta-lake}
 
-  {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
+{% list tabs group=instructions %}
 
-  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/delta-lake.html).
+- Management console {#console}
+
+    {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
+
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/delta-lake.html).
+
+- {{ TF }} {#tf}
+
+    Configuration example:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<folder_name>" {
+      ...
+      delta_lake = {
+        file_system = {
+          s3 = {}
+        }
+        metastore = {
+          uri = "<URI_for_connection>"
+        }
+        additional_properties = {
+          <list_of_additional_settings>
+        }
+      }
+    }
+    ```
+
+    Where:
+
+    {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
+
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/delta-lake.html).
+
+{% endlist %}
 
 ### Hive connector {#hive}
 
-  {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
+{% list tabs group=instructions %}
 
-  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/hive.html).
+- Management console {#console}
+
+    {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
+
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/hive.html).
+
+- {{ TF }} {#tf}
+
+    Configuration example:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<folder_name>" {
+      ...
+      hive = {
+        file_system = {
+          s3 = {}
+        }
+        metastore = {
+          uri = "<URI_for_connection>"
+        }
+        additional_properties = {
+          <list_of_additional_settings>
+        }
+      }
+    }
+    ```
+
+    Where:
+
+    {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
+
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/hive.html).
+
+{% endlist %}
 
 ### Iceberg connector {#iceberg}
 
-  {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
+{% list tabs group=instructions %}
 
-  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/iceberg.html).
+- Management console {#console}
 
-### Oracle connector {{ preview-stage }} {#oracle}
+    {% include [connector-settings](../../_includes/managed-trino/connector-settings.md) %}
 
-  * **Connection type**: On-premise.
-  * **URL**: URL for connecting to the Oracle DB, in `jdbc:oracle:thin:@<host_address>:<port>:<SID>`. `SID`: Oracle system ID.
-  * **Username**: Username for connecting to the Oracle DB.
-  * **Password**: User password for connecting to the Oracle DB.
-  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/oracle.html).
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/iceberg.html).
+
+- {{ TF }} {#tf}
+
+    Configuration example:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<folder_name>" {
+      ...
+      iceberg = {
+        file_system = {
+          s3 = {}
+        }
+        metastore = {
+          uri = "<URI_for_connection>"
+        }
+        additional_properties = {
+          <list_of_additional_settings>
+        }
+      }
+    }
+    ```
+
+    Where:
+
+    {% include [connector-settings-terraform](../../_includes/managed-trino/terraform/connector-settings.md) %}
+
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/iceberg.html).
+
+{% endlist %}
+
+### Oracle {{ preview-stage }} connector {#oracle}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    * **Connection type**: On-premise.
+    * **URL**: URL for connecting to the Oracle DB, in `jdbc:oracle:thin:@<host_address>:<port>:<SID>`. `SID` format, Oracle system ID.
+    * **Username**: Username for connecting to the Oracle DB.
+    * **Password**: User password for connecting to the Oracle DB.
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/oracle.html).
+
+- {{ TF }} {#tf}
+
+    Configuration example:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<folder_name>" {
+      ...
+      oracle = {
+        on_premise = {
+          connection_url = "<URL_for_connection>"
+          user_name      = "<user_name>"
+          password       = "<user_password>"
+        }
+        additional_properties = {
+          <list_of_additional_settings>
+        }
+      }
+    }
+    ```
+
+    Where:
+
+    * `on_premise`: Settings for connecting to the custom installation:
+
+        * `connection_url`: URL for connecting to the Oracle DB, in `jdbc:oracle:thin:@<host_address>:<port>:<SID>` format, where `SID` is the Oracle system ID.
+        * `user_name`: Username for connection to the Oracle DB.
+        * `password`: User password for connection to the Oracle DB.
+
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/oracle.html).
+
+{% endlist %}
 
 ### {{ PG }} connector {#pg}
 
-To tailor the settings, select the connection type: [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) or On-premise (custom installation).
+Adjust the settings according to your connection type: [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) or On-premise (custom installation).
 
-{% list tabs %}
+#### {{ connection-manager-name }} {#pg-connection-manager}
 
-- Connection Manager
+{% list tabs group=instructions %}
 
-  * **Connection ID**: Connection ID in {{ connection-manager-name }} for connection to the {{ PG }} cluster.
-    
-    To find out the connection ID:
-      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-      1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+- Management console {#console}
 
-  * **Database**: DB name in the {{ PG }} cluster.
-  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/postgresql.html).
+    * **Connection ID**: Connection ID in {{ connection-manager-name }} for connection to the {{ PG }} cluster.
 
-- On-premise
+        To find out the connection ID:
+        1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
 
-  * **URL**: URL for connecting to the {{ PG }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
-  * **Username**: Username for connecting to the {{ PG }} DB.
-  * **Password**: User password for connecting to the {{ PG }} DB.
-  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/postgresql.html).
+    * **Database**: DB name in the {{ PG }} cluster.
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/postgresql.html).
+
+- {{ TF }} {#tf}
+
+    Configuration example:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<folder_name>" {
+      ...
+      postgresql = {
+        connection_manager = {
+          connection_id = "<connection_ID>"
+          database      = "<DB_name>"
+          connection_properties = {
+            <list_of_{{ PG }}_client_settings>
+          }
+        }
+        additional_properties = {
+          <list_of_additional_settings>
+        }
+      }
+    }
+    ```
+
+    Where:
+
+    * `connection_manager`: {{ connection-manager-name }} settings:
+
+        * `connection_id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ PG }} cluster.
+
+            To find out the connection ID:
+            1. In the management console, navigate to the [folder]({{ link-console-main }}) page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+            1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+
+        * `database`: DB name in the {{ PG }} cluster.
+        * `connection_properties`: List of {{ PG }} client settings in `"key" = "value"` format.
+
+            {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
+
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/postgresql.html).
+
+{% endlist %}
+
+#### On-premise connection {#pg-on-premise}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    * **URL**: URL for connecting to the {{ PG }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
+    * **Username**: Username for connecting to the {{ PG }} DB.
+    * **Password**: User password for connecting to the {{ PG }} DB.
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/postgresql.html).
+
+- {{ TF }} {#tf}
+
+    Configuration example:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<folder_name>" {
+      ...
+      postgresql = {
+        on_premise = {
+          connection_url = "<URL_for_connection>"
+          user_name      = "<user_name>"
+          password       = "<user_password>"
+        }
+        additional_properties = {
+          <list_of_additional_settings>
+        }
+      }
+    }
+    ```
+
+    Where:
+
+    * `on_premise`: Settings for connecting to the custom installation:
+
+        * `connection_url`: URL for connecting to the {{ PG }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
+        * `user_name`: Username for connecting to the {{ PG }} DB.
+        * `password`: User password for connecting to the {{ PG }} DB.
+
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/postgresql.html).
 
 {% endlist %}
 
 ### MS SQL Server connector {{ preview-stage }} {#ms-sql}
 
-  * **Connection type**: On-premise.
-  * **URL**: URL for connecting to the Microsoft SQL Server DB, in `jdbc:sqlserver://<host_address>:<port>;databaseName=<DB_name>` format.
-  * **Username**: Username for connecting to the Microsoft SQL Server DB.
-  * **Password**: User password for connecting to the Microsoft SQL Server DB.
-  * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/sqlserver.html).
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    * **Connection type**: On-premise.
+    * **URL**: URL for connecting to the Microsoft SQL Server DB, in `jdbc:sqlserver://<host_address>:<port>;databaseName=<DB_name>` format.
+    * **Username**: Username for connecting to the Microsoft SQL Server DB.
+    * **Password**: User password for connecting to the Microsoft SQL Server DB.
+    * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/sqlserver.html).
+
+- {{ TF }} {#tf}
+
+    Configuration example:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<folder_name>" {
+      ...
+      sqlserver = {
+        on_premise = {
+          connection_url = "<URL_for_connection>"
+          user_name      = "<user_name>"
+          password       = "<user_password>"
+        }
+        additional_properties = {
+          <list_of_additional_settings>
+        }
+      }
+    }
+    ```
+
+    Where:
+
+    * `on_premise`: Settings for connecting to the custom installation:
+
+        * `connection_url`: URL for connecting to the Microsoft SQL Server DB, in `jdbc:sqlserver://<host_address>:<port>;databaseName=<DB_name>` format.
+        * `user_name`: Username for connecting to the Microsoft SQL Server DB.
+        * `password`: User password for connecting to the Microsoft SQL Server DB.
+
+    * `additional_properties`: List of additional settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/sqlserver.html).
+
+{% endlist %}
 
 ### TPC-DS connector {#tpc-ds}
 
-The TPC-DS connector has no required settings.
+The TPC-DS connector has no required settings. Optionally, you can configure advanced settings.
 
-You can specify additional settings in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/tpcds.html).
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    You can specify additional settings in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/tpcds.html).
+
+- {{ TF }} {#tf}
+
+    Configuration example:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<folder_name>" {
+      ...
+      tpcds = {
+        additional_properties = {
+          <list_of_additional_settings>
+        }
+      }
+    }
+    ```
+
+    Where `additional_properties` is a list of advanced settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/tpcds.html).
+
+{% endlist %}
 
 ### TPC-H connector {#tpc-h}
 
-The TPC-H connector has no required settings.
+The TPC-H connector has no required settings. Optionally, you can configure advanced settings.
 
-You can specify additional settings in `key: value` format. For a list of available settings, see the [official documentation](https://trino.io/docs/current/connector/tpch.html).
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    You can specify additional settings in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/tpch.html).
+
+- {{ TF }} {#tf}
+
+    Configuration example:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<folder_name>" {
+      ...
+      tpch = {
+        additional_properties = {
+          <list_of_additional_settings>
+        }
+      }
+    }
+    ```
+
+    Where `additional_properties` is a list of advanced settings in `"key" = "value"` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/tpch.html).
+
+{% endlist %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

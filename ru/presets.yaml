@@ -6986,6 +6986,8 @@ default:
         confirm: Подтвердить
         more: Ещё
         overview: Обзор
+        resource-acl:
+          label_invitee-accounts: Приглашенные аккаунты
         section-base: Общая информация
       component:
         form-file-upload:

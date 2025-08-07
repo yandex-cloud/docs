@@ -7,12 +7,12 @@ description: This section contains {{ mtr-name }} release notes.
 
 ## July 2025 {#july-2025}
 
-* On July 21, 2025, {{ mtr-name }} entered the [General Availability](../overview/concepts/launch-stages.md) stage and is now charged according to the [pricing policy](pricing.md).
+On July 21, 2025, {{ mtr-name }} entered the [General Availability](../overview/concepts/launch-stages.md) stage and is now charged according to the [pricing policy](pricing.md).
 
 ## June 2025 {#june-2025}
 
 * Added support for [fault-tolerant execution of queries in cluster](concepts/retry-policy.md).
-* Added the ability to perform operations on a {{ TR }} cluster via the [{{ yandex-cloud }} CLI](../cli/cli-ref/managed-trino/cli-ref/index.md).
+* Added the ability to perform operations on the {{ TR }} cluster and catalogs via the [{{ yandex-cloud }} CLI](../cli/cli-ref/managed-trino/cli-ref/index.md), [{{ TF }}](tf-ref.md).
 
 ## May 2025 {#may-2025}
 

@@ -799,6 +799,7 @@ default:
   tf-provider-mpg: https://terraform-provider.yandexcloud.net/resources/mdb_postgresql_cluster
   tf-provider-mrd: https://terraform-provider.yandexcloud.net/resources/mdb_redis_cluster
   tf-provider-msp: https://terraform-provider.yandexcloud.net/resources/spark_cluster
+  tf-provider-mtr: https://terraform-provider.yandexcloud.net/resources/trino_cluster
   tf-provider-resources-link: https://terraform-provider.yandexcloud.net/resources
   TF-version: '0.90'
   TR: Trino
@@ -6984,6 +6985,8 @@ default:
         confirm: Confirm
         more: More
         overview: Overview
+        resource-acl:
+          label_invitee-accounts: Invitee accounts
         section-base: General information
       component:
         form-file-upload:

@@ -9,14 +9,14 @@ keywords:
 
 # Creating a {{ TR }} cluster
 
-Each cluster {{ mtr-name }} comprises a set of {{ TR }} components: a [coordinator](../concepts/index.md#coordinator) and workers, which can be represented in multiple instances.
+Each {{ mtr-name }} cluster consists of a set of {{ TR }} components: a [coordinator](../concepts/index.md#coordinator) and workers – potentially several instances of these.
 
 ## Roles for creating a cluster {#roles}
 
 To create a {{ mtr-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
 
 * [managed-trino.admin](../security.md#managed-trino-admin): To create a cluster.
-* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): To use the cluster [network](../../vpc/concepts/network.md#network).
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): Required to access the cluster [network](../../vpc/concepts/network.md#network).
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To link a service account to the cluster.
 
 Make sure to assign the `managed-trino.integrationProvider` and `storage.editor` roles to the cluster's [service account](../../iam/concepts/users/service-accounts.md). The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
@@ -116,39 +116,25 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * `resource-preset-id`: Class of coordinator’s computing resources. The possible values are:
 
-                * `c4-m16`: 4 vCPUs, 16 GB RAM
-                * `c4-m32`: 4 vCPUs, 32 GB RAM
-                * `c8-m32`: 8 vCPUs, 32 GB RAM
-                * `c8-m64`: 8 vCPUs, 64 GB RAM
-                * `c16-m64`: 16 vCPUs, 64 GB RAM
-                * `c16-m128`: 16 vCPUs, 128 GB RAM
-                * `c32-m128`: 32 vCPUs, 128 GB RAM
-                * `c32-m256`: 32 vCPUs, 256 GB RAM
+                {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
         * `--worker`: [Worker](../concepts/index.md#workers) configuration:
 
             * `resource-preset-id`: Class of worker’s computing resources. The possible values are:
 
-                * `c4-m16`: 4 vCPUs, 16 GB RAM
-                * `c4-m32`: 4 vCPUs, 32 GB RAM
-                * `c8-m32`: 8 vCPUs, 32 GB RAM
-                * `c8-m64`: 8 vCPUs, 64 GB RAM
-                * `c16-m64`: 16 vCPUs, 64 GB RAM
-                * `c16-m128`: 16 vCPUs, 128 GB RAM
-                * `c32-m128`: 32 vCPUs, 128 GB RAM
-                * `c32-m256`: 32 vCPUs, 256 GB RAM
+                {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
             * `count`: Fixed number of workers.
-            * `min_count`: Minimum number of workers for autoscaling.
-            * `maxCount`: Maximum number of workers for autoscaling.
+            * `min_count`: Minimum number of workers for automatic scaling.
+            * `maxCount`: Maximum number of workers for automatic scaling.
 
-            Specify either a fixed number of workers (`count`), or minimum and maximum number of workers (`minCount`, `maxCount`) for autoscaling.
+            Specify either a fixed number of workers (`count`), or minimum and maximum number of workers (`minCount`, `maxCount`) for automatic scaling.
 
         * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
             Even if it is enabled, one can still connect to the cluster manually and delete it.
 
-    1. Set these logging parameters to activate sending {{ TR }} logs to [{{ cloud-logging-full-name }}](../../logging/):
+    1. To enable sending of {{ TR }} logs to [{{ cloud-logging-full-name }}](../../logging/), specify logging parameters:
 
         ```bash
         {{ yc-mdb-tr }} cluster create <cluster_name> \
@@ -168,7 +154,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         * `--log-min-level`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO` (default), `WARN`, `ERROR`, and `FATAL`.
 
-    1. Set these parameters to activate the [fault-tolerant query execution](../concepts/retry-policy.md) policy:
+    1. To enable a [fault-tolerant query execution](../concepts/retry-policy.md) policy, specify these parameters:
 
         ```bash
         {{ yc-mdb-tr }} cluster create <cluster_name> \
@@ -189,7 +175,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             * `query`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
 
         * `--retry-policy-additional-properties`: Additional query retry parameters in `<key>=<value>` format. For more information about parameters, see the [{{ TR }} documentation]({{ tr.docs}}/admin/fault-tolerant-execution.html#advanced-configuration).
-        * `--retry-policy-exchange-manager-service-s3`: Use of S3 storage for data when retrying queries.
+        * `--retry-policy-exchange-manager-service-s3`: Use an S3 storage to write data when retrying queries.
         * `--retry-policy-exchange-manager-additional-properties`: Additional storage parameters in `<key>=<value>` format. For more information about parameters, see the [{{ TR }} documentation]({{ tr.docs}}/admin/fault-tolerant-execution.html#id1).
 
     1. To set up a maintenance window (including for disabled clusters), provide the required value in the `--maintenance-window` parameter:
@@ -205,6 +191,42 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         Where `type` is the maintenance type:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
+- {{ TF }} {#tf}
+
+    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+    To create a {{ mtr-name }} cluster:
+
+    1. In the configuration file, describe the resources you are creating:
+
+        * {{ mtr-name }} cluster: Cluster description.
+
+        * {{ mtr-name }} catalog: Catalog description.
+
+        * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
+
+        * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
+
+        {% include [Terraform cluster parameters description](../../_includes/managed-trino/terraform/cluster-parameters.md) %}
+
+    1. To create [{{ TR }} catalogs](../concepts/index.md#catalog) in the cluster, add the required number of `yandex_trino_catalog` resources to the configuration file. You can do this either when creating the cluster or later. For more information, see [Creating a {{ TR }} catalog](catalog-create.md).
+
+    1. To enable sending {{ TR }} logs to [{{ cloud-logging-full-name }}](../../logging/), add the `logging` section to the cluster description:
+
+        {% include [Terraform logging parameters description](../../_includes/managed-trino/terraform/logging-parameters.md) %}
+
+    1. To enable a [fault-tolerant query execution](../concepts/retry-policy.md) policy, add a `retry_policy` section to the cluster description:
+
+        {% include [Terraform retry policy parameters description](../../_includes/managed-trino/terraform/retry-policy-parameters.md) %}
+
+    1. To set up the maintenance window (for disabled clusters as well), add the `maintenance_window` section to the cluster description:
+
+        {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
+
+    For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mtr }}).
 
 - REST API {#api}
 
@@ -245,7 +267,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             }
           },
           "retryPolicy": {
-            "policy": "<retry_object_type>",
+            "policy": "<object_type_for_retry>",
             "exchangeManager": {
               "storage": {
                 "serviceS3": {}
@@ -278,29 +300,15 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * `coordinatorConfig`: Coordinator configuration.
 
-               * `resources.resourcePresetId`: Class of coordinator’s computing resources. The possible values are:
+               * `resources.resourcePresetId`: Class of the coordinator’s computing resources. The possible values are:
 
-                  * `c4-m16`: 4 vCPUs, 16 GB RAM
-                  * `c4-m32`: 4 vCPUs, 32 GB RAM
-                  * `c8-m32`: 8 vCPUs, 32 GB RAM
-                  * `c8-m64`: 8 vCPUs, 64 GB RAM
-                  * `c16-m64`: 16 vCPUs, 64 GB RAM
-                  * `c16-m128`: 16 vCPUs, 128 GB RAM
-                  * `c32-m128`: 32 vCPUs, 128 GB RAM
-                  * `c32-m256`: 32 vCPUs, 256 GB RAM
+                  {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
             * `workerConfig`: Worker configuration.
 
-               * `resources.resourcePresetId`: Class of worker’s computing resources. The possible values are:
+               * `resources.resourcePresetId`: Class of the worker’s computing resources. The possible values are:
 
-                  * `c4-m16`: 4 vCPUs, 16 GB RAM
-                  * `c4-m32`: 4 vCPUs, 32 GB RAM
-                  * `c8-m32`: 8 vCPUs, 32 GB RAM
-                  * `c8-m64`: 8 vCPUs, 64 GB RAM
-                  * `c16-m64`: 16 vCPUs, 64 GB RAM
-                  * `c16-m128`: 16 vCPUs, 128 GB RAM
-                  * `c32-m128`: 32 vCPUs, 128 GB RAM
-                  * `c32-m256`: 32 vCPUs, 256 GB RAM
+                  {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
                * `scalePolicy`: Worker scaling policy:
 
@@ -320,7 +328,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                * `policy`: Query retry method. The possible values are:
 
                   * `TASK`: Retries the intermediate task within the query that caused worker failure.
-                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
+                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
 
                * `exchangeManager.additionalProperties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
@@ -397,7 +405,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
               }
             },
             "retry_policy": {
-              "policy": "<retry_object_type>",
+              "policy": "<object_type_for_retry>",
               "exchange_manager": {
                 "storage": {
                   "service_s3": ""
@@ -431,29 +439,15 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * `coordinator_config`: Coordinator configuration.
 
-               * `resources.resource_preset_id`: Class of coordinator’s computing resources. The possible values are:
+               * `resources.resource_preset_id`: Class of the coordinator’s computing resources. The possible values are:
 
-                   * `c4-m16`: 4 vCPUs, 16 GB RAM
-                   * `c4-m32`: 4 vCPUs, 32 GB RAM
-                   * `c8-m32`: 8 vCPUs, 32 GB RAM
-                   * `c8-m64`: 8 vCPUs, 64 GB RAM
-                   * `c16-m64`: 16 vCPUs, 64 GB RAM
-                   * `c16-m128`: 16 vCPUs, 128 GB RAM
-                   * `c32-m128`: 32 vCPUs, 128 GB RAM
-                   * `c32-m256`: 32 vCPUs, 256 GB RAM
+                   {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
             * `worker_config`: Worker configuration.
 
-               * `resources.resource_preset_id`: Class of worker’s computing resources. The possible values are:
+               * `resources.resource_preset_id`: Class of the worker’s computing resources. The possible values are:
 
-                   * `c4-m16`: 4 vCPUs, 16 GB RAM
-                   * `c4-m32`: 4 vCPUs, 32 GB RAM
-                   * `c8-m32`: 8 vCPUs, 32 GB RAM
-                   * `c8-m64`: 8 vCPUs, 64 GB RAM
-                   * `c16-m64`: 16 vCPUs, 64 GB RAM
-                   * `c16-m128`: 16 vCPUs, 128 GB RAM
-                   * `c32-m128`: 32 vCPUs, 128 GB RAM
-                   * `c32-m256`: 32 vCPUs, 256 GB RAM
+                   {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
 
                * `scale_policy`: Worker scaling policy:
 
@@ -473,7 +467,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                * `policy`: Query retry method. The possible values are:
 
                   * `TASK`: Retries the intermediate task within the query that caused worker failure.
-                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
+                  * `QUERY`: Retries all [stages of the query](../concepts/index.md#query-execution) where worker failure occurred.
 
                * `exchange_manager.additional_properties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see the [{{ TR }} documentation](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
@@ -526,7 +520,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
     Create a {{ mtr-name }} cluster with the following test specifications:
 
     * Name: `mytr`.
-    * Service account: `trino-sa`.
+    * Service account: `ajev56jp96ji********`.
     * Subnet: `{{ subnet-id }}`.
     * Security group: `{{ security-group }}`.
     * Coordinator with computing resource class `c4-m16`.
@@ -544,6 +538,51 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
        --coordinator resource-preset-id=c4-m16 \
        --worker resource-preset-id=c4-m16,count=4 \
        --deletion-protection
+    ```
+
+- {{ TF }} {#tf}
+
+    Create a {{ mtr-name }} cluster and a network for it with the following test specifications:
+
+    * Name: `mytr`.
+    * Service account: `ajev56jp96ji********`.
+    * Network: `mtr-network`.
+    * Subnet: `mtr-subnet`. The subnet availability zone is `ru-central1-a`; the range is `10.1.0.0/16`.
+    * Coordinator with computing resource class `c4-m16`.
+    * Four workers with computing resource class `c4-m16`.
+    * Cluster protection from accidental deletion.
+
+    The configuration file for this cluster is as follows:
+
+    ```hcl
+    resource "yandex_trino_cluster" "mytr" {
+      name                = "mytr"
+      service_account_id  = "ajev56jp96ji********"
+      deletion_protection = true
+      subnet_ids          = [yandex_vpc_subnet.mtr-subnet.id]
+
+      coordinator = {
+        resource_preset_id = "c4-m16"
+      }
+
+      worker = {
+        fixed_scale = {
+          count = 4
+        }
+        resource_preset_id = "c4-m16"
+      }
+    }
+
+    resource "yandex_vpc_network" "mtr-network" {
+      name = "mtr-network"
+    }
+
+    resource "yandex_vpc_subnet" "mtr-subnet" {
+      name           = "mtr-subnet"
+      zone           = "ru-central1-a"
+      network_id     = yandex_vpc_network.mtr-network.id
+      v4_cidr_blocks = ["10.1.0.0/16"]
+    }
     ```
 
 {% endlist %}

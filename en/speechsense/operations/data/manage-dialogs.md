@@ -56,6 +56,9 @@ To perform a search:
 1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** tab.
 1. In the drop-down list above the search bar, select ![image](../../../_assets/console-icons/square-dashed-letter-t.svg) **{{ ui-key.yc-ui-talkanalytics.dialogs.search.dictionary.title }}**.
 1. Enter a key phrase or phrases in the search bar. Use a new row for each one.
+
+   {% include [key-phrases-restrictions](../../../_includes/speechsense/data/key-phrases-restrictions.md) %}
+
 1. (Optional) To refine your search results:
 
    * Select the channel you want to search in from the drop-down list: **{{ ui-key.yc-ui-talkanalytics.dialogs.all-participants }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, or **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**.
@@ -84,7 +87,7 @@ To perform a search:
 
 By default, not all columns are displayed in the dialog list. You can display additional columns, hide the ones you do not need, and reorder them.
 
-To customize column display:
+To customize the columns:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
@@ -92,7 +95,7 @@ To customize column display:
 1. Do one of the following in the list of columns:
 
     * Check any additional columns you want displayed.
-    * Uncheck columns you do not need to hide them. Some columns cannot be hidden, so you cannot uncheck them.
+    * Uncheck the columns you do not need. Some columns cannot be hidden, so you cannot uncheck them.
     * To reorder columns, click ![image](../../../_assets/console-icons/grip.svg) to the left of the column name and drag the column to a new position in the list.
 
 1. Click **Apply**.

@@ -19,7 +19,7 @@ In this section, you can find the {{ mtr-name }} pricing [policy](#rules) and [e
 
 ## Cluster status {#running-stopped}
 
-Prices apply differently depending on the cluster status:
+The prices apply differently depending on the cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.

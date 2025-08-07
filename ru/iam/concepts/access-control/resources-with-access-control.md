@@ -58,6 +58,9 @@ description: Из статьи вы узнаете, на какие ресурс
   * [Подключение к управляемым базам данных](../../../metadata-hub/operations/connection-access.md) в {{ connection-manager-full-name }}
 
   **{{ objstorage-full-name }}**
+
+  {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
+
   * [Бакет](../../../storage/operations/buckets/iam-access.md)
 
   **{{ resmgr-full-name }}**
@@ -171,6 +174,12 @@ description: Из статьи вы узнаете, на какие ресурс
   **{{ ydb-full-name }}**
   * [СУБД YDB](../../../ydb/concepts/index.md#ydb)
 
+  **{{ objstorage-full-name }}**
+
+  {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
+
+  * [Бакет](../../../storage/operations/buckets/iam-access.md)
+
   **{{ resmgr-full-name }}**
   * [Облако](../../../resource-manager/operations/cloud/set-access-bindings.md)
   * [Каталог](../../../resource-manager/operations/folder/set-access-bindings.md)
@@ -235,6 +244,12 @@ description: Из статьи вы узнаете, на какие ресурс
   **{{ ydb-full-name }}**
   * [СУБД YDB](../../../ydb/concepts/index.md#ydb)
   * Резервная копия СУБД YDB
+
+  **{{ objstorage-full-name }}**
+
+  {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
+
+  * [Бакет](../../../storage/operations/buckets/iam-access.md)
 
   **{{ resmgr-full-name }}**
   * [Облако](../../../resource-manager/operations/cloud/set-access-bindings.md)

@@ -2,6 +2,8 @@
 
     * In the **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** field, list trigger phrases. Use a separate line for each one. If a conversation contains one of these phrases, it will get a tag.
 
+        {% include [key-phrases-restrictions](../data/key-phrases-restrictions.md) %}
+
         Along with the listed keywords, you can also specify [dictionaries](../../../speechsense/concepts/dictionaries.md). They contain a set of trigger phrases prepared in advance. If you specify multiple dictionaries, their contents will be added together as if by the "OR" logical operator. Tags will thus be assigned to dialogs containing phrases from the list in the **{{ ui-key.yc-ui-talkanalytics.tags.key-phrases-key-value }}** field and from the specified dictionaries. To use dictionaries, click ![icon](../../../_assets/console-icons/book-open.svg) **{{ ui-key.yc-ui-talkanalytics.dictionaries.add-dictionary }}** and select the dictionaries you need from the drop-down list.
 
     * Optionally, select **{{ ui-key.yc-ui-talkanalytics.tags.exact-match-key-value }}**.
