@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/images/{imageId}
+    method: get
+    path:
+      type: object
+      properties:
+        imageId:
+          description: |-
+            **string**
+            Required field. ID of the image to get.
+          type: string
+      required:
+        - imageId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopImage/get.md
 ---
 

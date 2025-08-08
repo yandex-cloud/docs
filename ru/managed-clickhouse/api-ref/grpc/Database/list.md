@@ -45,7 +45,8 @@ returned by the previous list request. ||
   "databases": [
     {
       "name": "string",
-      "cluster_id": "string"
+      "cluster_id": "string",
+      "engine": "DatabaseEngine"
     }
   ],
   "next_page_token": "string"
@@ -78,4 +79,11 @@ Name of the database. ||
 || cluster_id | **string**
 
 ID of the ClickHouse cluster that the database belongs to. ||
+|| engine | enum **DatabaseEngine**
+
+Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
+
+- `DATABASE_ENGINE_UNSPECIFIED`
+- `DATABASE_ENGINE_ATOMIC`
+- `DATABASE_ENGINE_REPLICATED` ||
 |#

@@ -1,5 +1,21 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/gpuClusters/{gpuClusterId}
+    method: get
+    path:
+      type: object
+      properties:
+        gpuClusterId:
+          description: |-
+            **string**
+            ID of the GPU cluster to return.
+            To get a GPU cluster ID, make a [GpuClusterService.List](/docs/compute/api-ref/GpuCluster/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/get.md
 ---
 

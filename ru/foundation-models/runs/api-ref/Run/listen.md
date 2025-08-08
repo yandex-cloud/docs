@@ -1,5 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/assistants/v1/runs/listen
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        runId:
+          description: |-
+            **string**
+            Required field. ID of the run to listen to.
+          type: string
+        eventsStartIdx:
+          description: |-
+            **string** (int64)
+            Starting index for events. If provided, listening will start from this event.
+          type: string
+          format: int64
+      required:
+        - runId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ai/assistants/v1/runs/api-ref/Run/listen.md
 ---
 

@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ sk-operations-host }}/operations/{operationId}
+    method: get
+    path:
+      type: object
+      properties:
+        operationId:
+          description: |-
+            **string**
+            Required field. ID of the Operation resource to return.
+          type: string
+      required:
+        - operationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ai/stt/v3/stt-v3/api-ref/Operation/get.md
 ---
 

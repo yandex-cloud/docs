@@ -62,7 +62,24 @@ Required field. Required task id ||
     "created_by": "string",
     "created_at": "google.protobuf.Timestamp",
     "started_at": "google.protobuf.Timestamp",
-    "finished_at": "google.protobuf.Timestamp"
+    "finished_at": "google.protobuf.Timestamp",
+    "errors": {
+      "status": "google.rpc.Status",
+      "line_errors": [
+        {
+          "line_number": "int64",
+          "message": "string"
+        }
+      ],
+      "batch_errors": [
+        {
+          "batch_number": "int64",
+          "first_line": "int64",
+          "last_line": "int64",
+          "message": "string"
+        }
+      ]
+    }
   }
 }
 ```
@@ -99,6 +116,7 @@ Includes only one of the fields `completion_request`. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| errors | **[ErrorsInfo](#yandex.cloud.ai.batch_inference.v1.BatchInferenceTask.ErrorsInfo)** ||
 |#
 
 ## BatchCompletionRequest {#yandex.cloud.ai.batch_inference.v1.BatchCompletionRequest}
@@ -150,4 +168,39 @@ Unsupported ||
 #|
 ||Field | Description ||
 || schema | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)** ||
+|#
+
+## ErrorsInfo {#yandex.cloud.ai.batch_inference.v1.BatchInferenceTask.ErrorsInfo}
+
+#|
+||Field | Description ||
+|| status | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**
+
+The error result of the operation in case of failure or cancellation. ||
+|| line_errors[] | **[LineError](#yandex.cloud.ai.batch_inference.v1.BatchInferenceTask.ErrorsInfo.LineError)**
+
+Errors by lines ||
+|| batch_errors[] | **[BatchError](#yandex.cloud.ai.batch_inference.v1.BatchInferenceTask.ErrorsInfo.BatchError)**
+
+Errors by batches ||
+|#
+
+## LineError {#yandex.cloud.ai.batch_inference.v1.BatchInferenceTask.ErrorsInfo.LineError}
+
+#|
+||Field | Description ||
+|| line_number | **int64** ||
+|| message | **string** ||
+|#
+
+## BatchError {#yandex.cloud.ai.batch_inference.v1.BatchInferenceTask.ErrorsInfo.BatchError}
+
+#|
+||Field | Description ||
+|| batch_number | **int64** ||
+|| first_line | **int64**
+
+Range of lines in batch ||
+|| last_line | **int64** ||
+|| message | **string** ||
 |#

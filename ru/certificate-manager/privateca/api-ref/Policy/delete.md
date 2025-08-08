@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/policies/{id}
+    method: delete
+    path:
+      type: object
+      properties:
+        id:
+          description: |-
+            **string**
+            Required field. ID of the policy to delete.
+          type: string
+      required:
+        - id
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/Policy/delete.md
 ---
 

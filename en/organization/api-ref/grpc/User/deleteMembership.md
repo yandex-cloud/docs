@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/User/deleteMembership.md
 ---
 
-# Cloud Organization API, gRPC: UserService.DeleteMembership
+# Identity Hub API, gRPC: UserService.DeleteMembership
 
 Delete user membership.
 

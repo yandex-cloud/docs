@@ -6,6 +6,7 @@ sourcePath: en/_api-ref-grpc/mdb/mongodb/v1/api-ref/grpc/Cluster/listLogs.md
 # Managed Service for MongoDB API, gRPC: ClusterService.ListLogs
 
 Retrieves logs for the specified MongoDB cluster.
+See the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developers guide for detailed logs description.
 
 ## gRPC request
 
@@ -45,7 +46,7 @@ Type of the service to request logs about.
 - `MONGOD`: Logs of MongoDB activity.
 - `MONGOS`
 - `MONGOCFG`
-- `AUDIT` ||
+- `AUDIT`: MongoDB Enterprise audit logs ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||

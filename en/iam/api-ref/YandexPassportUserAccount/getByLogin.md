@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        login:
+          description: |-
+            **string**
+            Required field. Login of the YandexPassportUserAccount resource to return.
+          type: string
+      required:
+        - login
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/YandexPassportUserAccount/getByLogin.md
 ---
 

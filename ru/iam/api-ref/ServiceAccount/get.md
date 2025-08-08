@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/serviceAccounts/{serviceAccountId}
+    method: get
+    path:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            **string**
+            Required field. ID of the ServiceAccount resource to return.
+            To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+          type: string
+      required:
+        - serviceAccountId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/get.md
 ---
 

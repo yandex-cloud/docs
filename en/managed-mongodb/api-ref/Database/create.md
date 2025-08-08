@@ -1,5 +1,44 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/databases
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the MongoDB cluster to create a database in.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        databaseSpec:
+          description: |-
+            **[DatabaseSpec](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.DatabaseSpec)**
+            Required field. Configuration of the database to create.
+          $ref: '#/definitions/DatabaseSpec'
+      required:
+        - databaseSpec
+      additionalProperties: false
+    definitions:
+      DatabaseSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the MongoDB database. 1-63 characters long.
+            pattern: '[a-zA-Z0-9_-]{1,63}'
+            type: string
+        required:
+          - name
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Database/create.md
 ---
 

@@ -1,11 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/videos/{videoId}
+    method: delete
+    path:
+      type: object
+      properties:
+        videoId:
+          description: |-
+            **string**
+            Required field. ID of the video to delete.
+          type: string
+      required:
+        - videoId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Video/delete.md
 ---
 
 # Video API, REST: Video.Delete
 
-Delete video.
+Deletes a specific video by its ID.
 
 ## HTTP request
 
@@ -19,7 +36,7 @@ DELETE https://video.{{ api-host }}/video/v1/videos/{videoId}
 ||Field | Description ||
 || videoId | **string**
 
-Required field. ID of the video. ||
+Required field. ID of the video to delete. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -109,7 +126,8 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || videoId | **string**
 
-ID of the video. ||
+ID of the video.
+This identifier can be used to track the video deletion operation. ||
 |#
 
 ## Status {#google.rpc.Status}

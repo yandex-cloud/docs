@@ -1,5 +1,56 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}:setScalingPolicy
+    method: post
+    path:
+      type: object
+      properties:
+        functionId:
+          description: |-
+            **string**
+            Required field. ID of the function to retrieve scaling policies for.
+            To get a function ID, make a [FunctionService.List](/docs/functions/functions/api-ref/Function/list#List) request.
+          type: string
+      required:
+        - functionId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        tag:
+          description: |-
+            **string**
+            Required field. Version tag.
+            To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory#ListTagHistory) request.
+          pattern: '[a-z][-_0-9a-z]*|[$]latest'
+          type: string
+        provisionedInstancesCount:
+          description: |-
+            **string** (int64)
+            Minimum guaranteed provisioned instances count for all zones in total.
+            Billed separately.
+          type: string
+          format: int64
+        zoneInstancesLimit:
+          description: |-
+            **string** (int64)
+            Upper limit for instance count in each zone.
+            0 means no limit.
+          type: string
+          format: int64
+        zoneRequestsLimit:
+          description: |-
+            **string** (int64)
+            Upper limit of requests count in each zone.
+            0 means no limit.
+          type: string
+          format: int64
+      required:
+        - tag
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/setScalingPolicy.md
 ---
 

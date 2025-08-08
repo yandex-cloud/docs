@@ -17,7 +17,7 @@
   1. In the list of classifications, click ![image](../../../_assets/console-icons/ellipsis.svg) in the line with the classification and select **{{ ui-key.yacloud.common.edit }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify a new unique name for the classification.
   1. Optionally, edit the classification description.
-  1. Optionally, enable or disable **Mutual exclusion**.
+  1. Optionally, enable or disable **{{ ui-key.yacloud.data-catalog.label_tag-mutual-exclusion }}**.
 
       With this option on, not more than one classification tag can be assigned to any {{ data-catalog-name }} resource.
 

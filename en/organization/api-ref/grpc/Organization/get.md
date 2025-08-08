@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Organization/get.md
 ---
 
-# Cloud Organization API, gRPC: OrganizationService.Get
+# Identity Hub API, gRPC: OrganizationService.Get
 
 Returns the specified Organization resource.
 

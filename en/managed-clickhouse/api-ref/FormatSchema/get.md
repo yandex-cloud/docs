@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas/{formatSchemaName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ClickHouse cluster ID.
+            To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) method.
+          type: string
+        formatSchemaName:
+          description: |-
+            **string**
+            Required field. Format schema name.
+            To get a format schema name, use the [FormatSchemaService.List](/docs/managed-clickhouse/api-ref/FormatSchema/list#List) method.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - formatSchemaName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/FormatSchema/get.md
 ---
 

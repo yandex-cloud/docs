@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/cname/{folderId}
+    method: get
+    path:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. Folder ID to get provider's CNAME.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/Resource/getProviderCName.md
 ---
 

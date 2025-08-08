@@ -1,5 +1,106 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{resourceId}:updateAccessBindings
+    method: post
+    path:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of the resource for which access bindings are being updated.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            **`AccessBindingDelta`**
+            Updates to access bindings.
+          type: array
+          items:
+            $ref: '#/definitions/AccessBindingDelta'
+      additionalProperties: false
+    definitions:
+      Subject:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              Required field. ID of the subject.
+              It can contain one of the following values:
+              * `allAuthenticatedUsers`: A special public group that represents anyone
+              who is authenticated. It can be used only if the `type` is `system`.
+              * `allUsers`: A special public group that represents anyone. No authentication is required.
+              For example, you don't need to specify the IAM token in an API query.
+              It can be used only if the `type` is `system`.
+              * `group:organization:<id>:users`: A special system group that represents all members of organization
+              with given <id>. It can be used only if the `type` is `system`.
+              * `group:federation:<id>:users`: A special system group that represents all users of federation
+              with given <id>. It can be used only if the `type` is `system`.
+              * `<cloud generated id>`: An identifier that represents a user account.
+              It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+            type: string
+          type:
+            description: |-
+              **string**
+              Required field. Type of the subject.
+              It can contain one of the following values:
+              * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
+              * `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](/docs/iam/api-ref/ServiceAccount/get#yandex.cloud.iam.v1.ServiceAccount) resource.
+              * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+              * `system`: System group. This type represents several accounts with a common system identifier.
+              For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+            type: string
+        required:
+          - id
+          - type
+      AccessBinding:
+        type: object
+        properties:
+          roleId:
+            description: |-
+              **string**
+              Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
+            type: string
+          subject:
+            description: |-
+              **`Subject`**
+              Required field. Identity for which access binding is being created.
+              It can represent an account with a unique ID or several accounts with a system identifier.
+            $ref: '#/definitions/Subject'
+        required:
+          - roleId
+          - subject
+      AccessBindingDelta:
+        type: object
+        properties:
+          action:
+            description: |-
+              **enum** (AccessBindingAction)
+              Required field. The action that is being performed on an access binding.
+              - `ACCESS_BINDING_ACTION_UNSPECIFIED`
+              - `ADD`: Addition of an access binding.
+              - `REMOVE`: Removal of an access binding.
+            type: string
+            enum:
+              - ACCESS_BINDING_ACTION_UNSPECIFIED
+              - ADD
+              - REMOVE
+          accessBinding:
+            description: |-
+              **`AccessBinding`**
+              Required field. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+            $ref: '#/definitions/AccessBinding'
+        required:
+          - action
+          - accessBinding
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/updateAccessBindings.md
 ---
 

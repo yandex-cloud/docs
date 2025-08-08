@@ -1,9 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. ID of the Organization resource to list operations for.
+          type: string
+      required:
+        - organizationId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListOrganizationOperationsResponse.nextPageToken](/docs/organization/api-ref/Organization/listOperations#yandex.cloud.organizationmanager.v1.ListOrganizationOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. Set `pageToken`
+            to the [ListOrganizationOperationsResponse.nextPageToken](/docs/organization/api-ref/Organization/listOperations#yandex.cloud.organizationmanager.v1.ListOrganizationOperationsResponse)
+            returned by a previous list request to get the next page of results.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/listOperations.md
 ---
 
-# Cloud Organization API, REST: Organization.ListOperations
+# Identity Hub API, REST: Organization.ListOperations
 
 Lists operations for the specified organization.
 

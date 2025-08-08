@@ -1,5 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/extensions/{extensionId}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster.
+          type: string
+        extensionId:
+          description: |-
+            **string**
+            Required field. ID of the extension to return.
+          type: string
+      required:
+        - clusterId
+        - extensionId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Extension/get.md
 ---
 

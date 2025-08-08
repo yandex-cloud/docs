@@ -1,5 +1,35 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-workflows.{{ api-host }}/workflows/v1/execution/start
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        workflowId:
+          description: |-
+            **string**
+            Required field. ID of the Workflow.
+          type: string
+        input:
+          description: |-
+            **[ExecutionInput](/docs/functions/workflows/api-ref/Execution/start#yandex.cloud.serverless.workflows.v1.ExecutionInput)**
+            Input for the Workflow execution
+          oneOf:
+            - type: object
+              properties:
+                inputJson:
+                  description: |-
+                    **string**
+                    JSON input data for the Workflow execution.
+                    Includes only one of the fields `inputJson`.
+                  type: string
+      required:
+        - workflowId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Execution/start.md
 ---
 

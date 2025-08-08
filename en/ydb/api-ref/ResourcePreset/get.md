@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ydb.{{ api-host }}/ydb/v1/resourcePresets/{resourcePresetId}
+    method: get
+    path:
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            **string**
+            Required field. Required. ID of the resource preset to return.
+          type: string
+      required:
+        - resourcePresetId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ydb/v1/api-ref/ResourcePreset/get.md
 ---
 

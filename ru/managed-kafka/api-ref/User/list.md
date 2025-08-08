@@ -1,5 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: "**string**\nRequired field. ID of the Apache Kafka® cluster to list Kafka users in.\nTo get the Apache Kafka®\_cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request."
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `pageSize`, the service returns a [ListUsersResponse.nextPageToken](/docs/managed-kafka/api-ref/User/list#yandex.cloud.mdb.kafka.v1.ListUsersResponse) that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token.
+            To get the next page of results, set `pageToken` to the [ListUsersResponse.nextPageToken](/docs/managed-kafka/api-ref/User/list#yandex.cloud.mdb.kafka.v1.ListUsersResponse) returned by the previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/list.md
 ---
 

@@ -1,5 +1,48 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/networks/connections
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListConnectedResourcesResponse.nextPageToken](/docs/functions/functions/api-ref/Network/listConnectedResources#yandex.cloud.serverless.functions.v1.ListConnectedResourcesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListConnectedResourcesResponse.nextPageToken](/docs/functions/functions/api-ref/Network/listConnectedResources#yandex.cloud.serverless.functions.v1.ListConnectedResourcesResponse) returned by a previous list request.
+          type: string
+        networkId:
+          description: |-
+            **string**
+            ID of the network to list serverless resources connected to it.
+            Includes only one of the fields `networkId`, `cloudId`, `folderId`.
+          type: string
+        cloudId:
+          description: |-
+            **string**
+            ID of the cloud to list serverless resources connected to any network from it.
+            Includes only one of the fields `networkId`, `cloudId`, `folderId`.
+          type: string
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to list serverless resources connected to any network from it.
+            Includes only one of the fields `networkId`, `cloudId`, `folderId`.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Network/listConnectedResources.md
 ---
 

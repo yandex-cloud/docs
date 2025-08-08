@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://logging.{{ api-host }}/logging/v1/exports/{exportId}
+    method: get
+    path:
+      type: object
+      properties:
+        exportId:
+          description: |-
+            **string**
+            Required field. ID of the export to return.
+            To get a export ID make a [ExportService.List](/docs/logging/api-ref/Export/list#List) request.
+          type: string
+      required:
+        - exportId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/logging/v1/api-ref/Export/get.md
 ---
 

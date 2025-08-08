@@ -3,7 +3,7 @@ title: Getting a list of metadata catalogs
 description: Follow this guide to get a list of metadata catalogs in {{ data-catalog-full-name }}.
 ---
 
-# Getting a list of metadata catalogs
+# Getting a list of catalogs
 
 {% note info %}
 
@@ -25,7 +25,7 @@ description: Follow this guide to get a list of metadata catalogs in {{ data-cat
 
 You can use the management console to sort catalogs by name, status, or creation date and customize the columns in the list.
 
-To sort catalogs, click the **{{ ui-key.yacloud.common.name }}**, **{{ ui-key.yacloud.common.status }}**, or **{{ ui-key.yacloud.common.created-at }}** column header. This will sort catalogs alphabetically by name, status or in ascending date order. A second click on the same header reverses the sorting order. A third click cancels the sorting.
+To sort catalogs, click the **{{ ui-key.yacloud.common.name }}**, **{{ ui-key.yacloud.common.status }}**, or **{{ ui-key.yacloud.common.created-at }}** column header. This will sort catalogs alphabetically by name, status or in ascending date order. Second click on the same heading reverses the sorting order. Clicking a third time clears the applied sorting.
 
 To customize the columns:
 
@@ -36,4 +36,4 @@ To customize the columns:
     * Check the hidden columns you want displayed.
     * To reorder columns, click ![image](../../../_assets/console-icons/grip.svg) to the left of the column name and drag the column up or down to a new position in the list.
 
-1. Click **Apply**.
+1. Click **{{ ui-key.yacloud.common.apply }}**.

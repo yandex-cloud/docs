@@ -1,5 +1,382 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-containers.{{ api-host }}/containers/v1/revisions:deploy
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        containerId:
+          description: |-
+            **string**
+            Required field. ID of the container to create a revision for.
+            To get a container ID, make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/Container/list#List) request.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the revision.
+          type: string
+        resources:
+          description: |-
+            **[Resources](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Resources)**
+            Required field. Resources allocated to the revision.
+          $ref: '#/definitions/Resources'
+        executionTimeout:
+          description: |-
+            **string** (duration)
+            Timeout for the execution of the revision.
+            If the timeout is exceeded, Serverless Containers responds with a 504 HTTP code.
+          type: string
+          format: duration
+        serviceAccountId:
+          description: |-
+            **string**
+            ID of the service account to associate with the revision.
+          type: string
+        imageSpec:
+          description: |-
+            **[ImageSpec](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.ImageSpec)**
+            Required field. Image configuration for the revision.
+          $ref: '#/definitions/ImageSpec'
+        concurrency:
+          description: |-
+            **string** (int64)
+            The number of concurrent requests allowed per container instance.
+            The default value is 1.
+          type: string
+          format: int64
+        secrets:
+          description: |-
+            **[Secret](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Secret)**
+            Yandex Lockbox secrets to be used by the revision.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  environmentVariable:
+                    description: |-
+                      **string**
+                      Environment variable in which secret's value is delivered.
+                      Includes only one of the fields `environmentVariable`.
+                    type: string
+        connectivity:
+          description: |-
+            **[Connectivity](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Connectivity)**
+            Network access. If specified the revision will be attached to specified network/subnet(s).
+          $ref: '#/definitions/Connectivity'
+        provisionPolicy:
+          description: |-
+            **[ProvisionPolicy](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.ProvisionPolicy)**
+            Policy for provisioning instances of the revision.
+            The policy is only applied when the revision is ACTIVE.
+          $ref: '#/definitions/ProvisionPolicy'
+        scalingPolicy:
+          description: |-
+            **[ScalingPolicy](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.ScalingPolicy)**
+            Policy for scaling instances of the revision.
+          $ref: '#/definitions/ScalingPolicy'
+        logOptions:
+          description: |-
+            **[LogOptions](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.LogOptions)**
+            Options for logging from the container.
+          oneOf:
+            - type: object
+              properties:
+                logGroupId:
+                  description: |-
+                    **string**
+                    Entry should be written to log group resolved by ID.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                    Log entries destination.
+                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+                  type: string
+                folderId:
+                  description: |-
+                    **string**
+                    Entry should be written to default log group for specified folder.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                    Log entries destination.
+                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+                  type: string
+        storageMounts:
+          description: |-
+            **[StorageMount](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.StorageMount)**
+            S3 mounts to be used by the revision.
+          type: array
+          items:
+            $ref: '#/definitions/StorageMount'
+        mounts:
+          description: |-
+            **[Mount](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Mount)**
+            Mounts to be used by the revision.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  objectStorage:
+                    description: |-
+                      **[ObjectStorage](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Mount.ObjectStorage)**
+                      Object storage mounts
+                      Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+                      Target mount option
+                    $ref: '#/definitions/ObjectStorage'
+                  ephemeralDiskSpec:
+                    description: |-
+                      **[DiskSpec](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Mount.DiskSpec)**
+                      Working disk (worker-local non-shared read-write NBS disk templates)
+                      Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+                      Target mount option
+                    $ref: '#/definitions/DiskSpec'
+        runtime:
+          description: |-
+            **[Runtime](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Runtime)**
+            The container's execution mode
+          oneOf:
+            - type: object
+              properties:
+                http:
+                  description: |-
+                    **object**
+                    The classic one. You need to run an HTTP server inside the container.
+                    Includes only one of the fields `http`, `task`.
+                  $ref: '#/definitions/Http'
+                task:
+                  description: |-
+                    **object**
+                    We run a process from ENTRYPOINT inside the container for each user request.
+                    Includes only one of the fields `http`, `task`.
+                  $ref: '#/definitions/Task'
+        metadataOptions:
+          description: |-
+            **[MetadataOptions](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.MetadataOptions)**
+            Metadata options for the revision.
+          $ref: '#/definitions/MetadataOptions'
+      required:
+        - containerId
+        - resources
+        - imageSpec
+      additionalProperties: false
+    definitions:
+      Resources:
+        type: object
+        properties:
+          memory:
+            description: |-
+              **string** (int64)
+              Amount of memory available to the revision, specified in bytes, multiple of 128MB.
+            type: string
+            format: int64
+          cores:
+            description: |-
+              **string** (int64)
+              Number of cores available to the revision.
+            type: string
+            format: int64
+          coreFraction:
+            description: |-
+              **string** (int64)
+              Specifies baseline performance for a core in percent, multiple of 5%.
+              Should be 100% for cores > 1.
+            type: string
+            format: int64
+      Command:
+        type: object
+        properties:
+          command:
+            description: |-
+              **string**
+              Command that will override ENTRYPOINT of an image.
+              Commands will be executed as is. The runtime will not substitute environment
+              variables or execute shell commands. If one wants to do that, they should
+              invoke shell interpreter with an appropriate shell script.
+            type: array
+            items:
+              type: string
+      Args:
+        type: object
+        properties:
+          args:
+            description: |-
+              **string**
+              Arguments that will override CMD of an image.
+              Arguments will be passed as is. The runtime will not substitute environment
+              variables or execute shell commands. If one wants to do that, they should
+              invoke shell interpreter with an appropriate shell script.
+            type: array
+            items:
+              type: string
+      ImageSpec:
+        type: object
+        properties:
+          imageUrl:
+            description: |-
+              **string**
+              Required field. Image URL, that is used by the revision.
+            type: string
+          command:
+            description: |-
+              **[Command](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Command)**
+              Override for the image's ENTRYPOINT.
+            $ref: '#/definitions/Command'
+          args:
+            description: |-
+              **[Args](/docs/serverless-containers/containers/api-ref/Container/deployRevision#yandex.cloud.serverless.containers.v1.Args)**
+              Override for the image's CMD.
+            $ref: '#/definitions/Args'
+          environment:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional environment for the container.
+            pattern: '[a-zA-Z][a-zA-Z0-9_]*'
+            type: string
+          workingDir:
+            description: |-
+              **string**
+              Override for the image's WORKDIR.
+            type: string
+        required:
+          - imageUrl
+      Connectivity:
+        type: object
+        properties:
+          networkId:
+            description: |-
+              **string**
+              Network the revision will have access to.
+            type: string
+          subnetIds:
+            description: |-
+              **string**
+              The list of subnets (from the same network) the revision can be attached to.
+              Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      ProvisionPolicy:
+        type: object
+        properties:
+          minInstances:
+            description: |-
+              **string** (int64)
+              Minimum number of guaranteed provisioned container instances for all zones
+              in total.
+            type: string
+            format: int64
+      ScalingPolicy:
+        type: object
+        properties:
+          zoneInstancesLimit:
+            description: |-
+              **string** (int64)
+              Upper limit for instance count in each zone.
+              0 means no limit.
+            type: string
+            format: int64
+          zoneRequestsLimit:
+            description: |-
+              **string** (int64)
+              Upper limit of requests count in each zone.
+              0 means no limit.
+            type: string
+            format: int64
+      StorageMount:
+        type: object
+        properties:
+          bucketId:
+            description: |-
+              **string**
+              Required field. S3 bucket name for mounting.
+            pattern: '[-.0-9a-zA-Z]*'
+            type: string
+          prefix:
+            description: |-
+              **string**
+              S3 bucket prefix for mounting.
+            type: string
+          readOnly:
+            description: |-
+              **boolean**
+              Is mount read only.
+            type: boolean
+          mountPointPath:
+            description: |-
+              **string**
+              Required field. Mount point path inside the container for mounting.
+            pattern: '[-_0-9a-zA-Z/]*'
+            type: string
+        required:
+          - bucketId
+          - mountPointPath
+      ObjectStorage:
+        type: object
+        properties:
+          bucketId:
+            description: |-
+              **string**
+              Required field. ObjectStorage bucket name for mounting.
+            pattern: '[-.0-9a-zA-Z]*'
+            type: string
+          prefix:
+            description: |-
+              **string**
+              ObjectStorage bucket prefix for mounting.
+            type: string
+        required:
+          - bucketId
+      DiskSpec:
+        type: object
+        properties:
+          size:
+            description: |-
+              **string** (int64)
+              The size of disk for mount in bytes
+            type: string
+            format: int64
+          blockSize:
+            description: |-
+              **string** (int64)
+              Optional block size of disk for mount in bytes
+            type: string
+            format: int64
+      Http:
+        type: object
+        properties: {}
+      Task:
+        type: object
+        properties: {}
+      MetadataOptions:
+        type: object
+        properties:
+          gceHttpEndpoint:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to GCE flavored metadata
+              - `METADATA_OPTION_UNSPECIFIED`: Option is default
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
+          awsV1HttpEndpoint:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to AWS flavored metadata (IMDSv1)
+              - `METADATA_OPTION_UNSPECIFIED`: Option is default
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/deployRevision.md
 ---
 

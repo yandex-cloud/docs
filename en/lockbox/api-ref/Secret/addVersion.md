@@ -1,5 +1,59 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:addVersion
+    method: post
+    path:
+      type: object
+      properties:
+        secretId:
+          description: |-
+            **string**
+            Required field. ID of the secret.
+          type: string
+      required:
+        - secretId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        description:
+          description: |-
+            **string**
+            Description of the version.
+          type: string
+        payloadEntries:
+          description: |-
+            **[PayloadEntryChange](/docs/lockbox/api-ref/Secret/create#yandex.cloud.lockbox.v1.PayloadEntryChange)**
+            Describe how payload entries of the base version change in the added version.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  textValue:
+                    description: |-
+                      **string**
+                      Use the field to set a text value.
+                      Includes only one of the fields `textValue`, `binaryValue`.
+                      Confidential value of the entry.
+                    type: string
+                  binaryValue:
+                    description: |-
+                      **string** (bytes)
+                      Use the field to set a binary value.
+                      Includes only one of the fields `textValue`, `binaryValue`.
+                      Confidential value of the entry.
+                    type: string
+                    format: bytes
+        baseVersionId:
+          description: |-
+            **string**
+            Optional base version id. Defaults to the current version if not specified
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/addVersion.md
 ---
 

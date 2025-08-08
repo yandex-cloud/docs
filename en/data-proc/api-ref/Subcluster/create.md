@@ -1,5 +1,163 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclusters
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Yandex Data Processing cluster to create a subcluster in.
+            To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Name of the subcluster. The name must be unique within the cluster. The name can't be
+            changed when the subcluster is created.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        role:
+          description: |-
+            **enum** (Role)
+            Required field. Role that is fulfilled by hosts of the subcluster.
+            - `ROLE_UNSPECIFIED`
+            - `MASTERNODE`: The subcluster fulfills the master role.
+              Master can run the following services, depending on the requested components:
+            * HDFS: Namenode, Secondary Namenode
+            * YARN: ResourceManager, Timeline Server
+            * HBase Master
+            * Hive: Server, Metastore, HCatalog
+            * Spark History Server
+            * Zeppelin
+            * ZooKeeper
+            - `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
+              DATANODE can run the following services, depending on the requested components:
+            * HDFS DataNode
+            * YARN NodeManager
+            * HBase RegionServer
+            * Spark libraries
+            - `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
+              COMPUTENODE can run the following services, depending on the requested components:
+            * YARN NodeManager
+            * Spark libraries
+          type: string
+          enum:
+            - ROLE_UNSPECIFIED
+            - MASTERNODE
+            - DATANODE
+            - COMPUTENODE
+        resources:
+          description: |-
+            **[Resources](/docs/data-proc/api-ref/Cluster/create#yandex.cloud.dataproc.v1.Resources)**
+            Required field. Resources allocated for each host in the subcluster.
+          $ref: '#/definitions/Resources'
+        subnetId:
+          description: |-
+            **string**
+            Required field. ID of the VPC subnet used for hosts in the subcluster.
+          type: string
+        hostsCount:
+          description: |-
+            **string** (int64)
+            Required field. Number of hosts in the subcluster.
+          type: string
+          format: int64
+        autoscalingConfig:
+          description: |-
+            **[AutoscalingConfig](/docs/data-proc/api-ref/Cluster/create#yandex.cloud.dataproc.v1.AutoscalingConfig)**
+            Configuration for instance group based subclusters
+          $ref: '#/definitions/AutoscalingConfig'
+      required:
+        - role
+        - resources
+        - subnetId
+        - hostsCount
+      additionalProperties: false
+    definitions:
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the resource preset for computational resources available to a host (CPU, memory etc.).
+              All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types).
+            type: string
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage environment for the host.
+              Possible values:
+              * network-hdd - network HDD drive,
+              * network-ssd - network SSD drive.
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage available to a host, in bytes.
+            type: string
+            format: int64
+      AutoscalingConfig:
+        type: object
+        properties:
+          maxHostsCount:
+            description: |-
+              **string** (int64)
+              Upper limit for total instance subcluster count.
+            type: string
+            format: int64
+          preemptible:
+            description: |-
+              **boolean**
+              Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
+              if their resources are needed by Compute.
+              For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
+            type: boolean
+          measurementDuration:
+            description: |-
+              **string** (duration)
+              Required field. Time in seconds allotted for averaging metrics.
+            type: string
+            format: duration
+          warmupDuration:
+            description: |-
+              **string** (duration)
+              The warmup time of the instance in seconds. During this time,
+              traffic is sent to the instance, but instance metrics are not collected.
+            type: string
+            format: duration
+          stabilizationDuration:
+            description: |-
+              **string** (duration)
+              Minimum amount of time in seconds allotted for monitoring before
+              Instance Groups can reduce the number of instances in the group.
+              During this time, the group size doesn't decrease, even if the new metric values
+              indicate that it should.
+            type: string
+            format: duration
+          cpuUtilizationTarget:
+            description: |-
+              **string**
+              Defines an autoscaling rule based on the average CPU utilization of the instance group.
+            type: string
+          decommissionTimeout:
+            description: |-
+              **string** (int64)
+              Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+            type: string
+            format: int64
+        required:
+          - measurementDuration
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Subcluster/create.md
 ---
 

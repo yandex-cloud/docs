@@ -17,7 +17,8 @@ To get the list of available Configuration resources, make a [List](/docs/bareme
 
 ```json
 {
-  "configuration_id": "string"
+  "configuration_id": "string",
+  "folder_id": "string"
 }
 ```
 
@@ -28,6 +29,11 @@ To get the list of available Configuration resources, make a [List](/docs/bareme
 ID of the Configuration resource to return.
 
 To get the configuration ID, use a [ConfigurationService.List](/docs/baremetal/api-ref/grpc/Configuration/list#List) request. ||
+|| folder_id | **string**
+
+ID of the folder to return a Configuration resource for.
+
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
 |#
 
 ## Configuration {#yandex.cloud.baremetal.v1alpha.Configuration}
@@ -105,8 +111,9 @@ Number of cores. ||
 Type of the disk drive.
 
 - `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
-- `HDD`: Hard disk drive.
-- `SSD`: Solid state drive. ||
+- `HDD`: Hard disk drive (magnetic storage).
+- `SSD`: Solid state drive with SATA/SAS interface.
+- `NVME`: Solid state drive with NVMe interface. ||
 || disk_count | **int64**
 
 Number of disk drives. ||

@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/versions/{functionVersionId}
+    method: delete
+    path:
+      type: object
+      properties:
+        functionVersionId:
+          description: |-
+            **string**
+            Required field. ID of the function's version to delete.
+          type: string
+      required:
+        - functionVersionId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        force:
+          description: |-
+            **boolean**
+            Forces deletion of the version tags.
+            If the value equals false and the function has tags with the selected version then request returns an error.
+          type: boolean
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/deleteVersion.md
 ---
 

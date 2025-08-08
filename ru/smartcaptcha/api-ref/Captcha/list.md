@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://smartcaptcha.{{ api-host }}/smartcaptcha/v1/captchas
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the captcha belongs to.
+            Currently page_size, page_token, filter and order_by are not supported and List method will return all captchas in the folder.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/smartcaptcha/v1/api-ref/Captcha/list.md
 ---
 

@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ydb.{{ api-host }}/ydb/v1/databases:restore
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            **string**
+            Required field. Required. ID of the YDB backup.
+          type: string
+        databaseId:
+          description: |-
+            **string**
+            Required field. Required. ID of the YDB database.
+          type: string
+        pathsToRestore:
+          description: |-
+            **string**
+            Specify paths to restore.
+            If empty, all paths will restored by default.
+          type: array
+          items:
+            type: string
+        targetPath:
+          description: |-
+            **string**
+            Specify target path.
+          type: string
+      required:
+        - backupId
+        - databaseId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/ydb/v1/api-ref/Database/restore.md
 ---
 

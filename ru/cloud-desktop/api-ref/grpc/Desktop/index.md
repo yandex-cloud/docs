@@ -20,4 +20,7 @@ A set of methods for managing desktop resources.
 || [Delete](delete.md) | Deletes the specified desktop. ||
 || [ResetPassword](resetPassword.md) | Reset password ||
 || [Restart](restart.md) | Restart the specified desktop. ||
+|| [Update](update.md) | Sync desktop with group configuration ||
+|| [Start](start.md) | Start the specified desktop. ||
+|| [Stop](stop.md) | Stop the specified desktop. ||
 |#

@@ -1,5 +1,30 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/passwords/{passwordId}
+    method: delete
+    path:
+      type: object
+      properties:
+        brokerId:
+          description: |-
+            **string**
+            Required field. ID of the broker to delete a password for.
+            To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request.
+          type: string
+        passwordId:
+          description: |-
+            **string**
+            Required field. ID of the password to delete.
+            To get a password ID make a [BrokerService.ListPasswords](/docs/iot-core/broker/api-ref/Broker/listPasswords#ListPasswords) request.
+          type: string
+      required:
+        - brokerId
+        - passwordId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/deletePassword.md
 ---
 

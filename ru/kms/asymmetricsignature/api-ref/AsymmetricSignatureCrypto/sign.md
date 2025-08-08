@@ -1,5 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}:sign
+    method: post
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the asymmetric KMS key to use for signature.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        message:
+          description: |-
+            **string** (bytes)
+            Required field. Message to sign.
+            Should be encoded with base64.
+          type: string
+          format: bytes
+      required:
+        - message
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureCrypto/sign.md
 ---
 

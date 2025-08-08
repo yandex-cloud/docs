@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}
+    method: get
+    path:
+      type: object
+      properties:
+        functionId:
+          description: |-
+            **string**
+            Required field. ID of the function to return.
+            To get a function ID make a [FunctionService.List](/docs/functions/functions/api-ref/Function/list#List) request.
+          type: string
+      required:
+        - functionId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/get.md
 ---
 

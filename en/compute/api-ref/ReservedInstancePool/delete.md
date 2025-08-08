@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/reservedInstancePools/{reservedInstancePoolId}
+    method: delete
+    path:
+      type: object
+      properties:
+        reservedInstancePoolId:
+          description: |-
+            **string**
+            Required field. ID of the reserved instance pool to delete.
+            To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/ReservedInstancePool/list#List) request.
+          type: string
+      required:
+        - reservedInstancePoolId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/ReservedInstancePool/delete.md
 ---
 

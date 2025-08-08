@@ -1,5 +1,20 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://gitlab.{{ api-host }}/gitlab/v1/instances/{instanceId}
+    method: delete
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            ID of the GitLab instance to delete.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/gitlab/v1/api-ref/Instance/delete.md
 ---
 

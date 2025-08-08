@@ -196,7 +196,8 @@ Creates a Trino Cluster resource.
         }
       },
       "additional_properties": "map<string, string>"
-    }
+    },
+    "version": "string"
   },
   "network": {
     "subnet_ids": [
@@ -280,6 +281,10 @@ Required field. Configuration for worker nodes, including scaling policy and com
 || retry_policy | **[RetryPolicyConfig](#yandex.cloud.trino.v1.RetryPolicyConfig)**
 
 Configuration for retry policy, specifying the spooling storage destination and other settings. ||
+|| version | **string**
+
+Trino version.
+Format: "Number". ||
 |#
 
 ## CatalogSpec {#yandex.cloud.trino.v1.CatalogSpec}

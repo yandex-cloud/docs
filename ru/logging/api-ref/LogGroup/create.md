@@ -1,5 +1,55 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://logging.{{ api-host }}/logging/v1/logGroups
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a log group in.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the log group.
+            The name must be unique within the folder.
+          pattern: ([a-z]([-a-z0-9]{1,61}[a-z0-9])?)?
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the log group.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Log group labels as `key:value` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        retentionPeriod:
+          description: |-
+            **string** (duration)
+            Log group entry retention period.
+            Entries will be present in group during this period.
+            If specified, must be non-negative.
+            Empty or zero value is treated as no limit.
+          type: string
+          format: duration
+        dataStream:
+          description: |-
+            **string**
+            If specified, all log records will be written to this data stream
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/create.md
 ---
 

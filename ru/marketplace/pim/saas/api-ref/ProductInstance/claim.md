@@ -1,5 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://marketplace.{{ api-host }}/marketplace/pim/saas/v1/instances/claim
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        token:
+          description: |-
+            **string**
+            Required field. Signed JWT token which contains information about product instance and subscription.
+          type: string
+        resourceId:
+          description: |-
+            **string**
+            ID of the resource to which the product instance will be claimed.
+          type: string
+        resourceInfo:
+          description: |-
+            **[SaasInfo](/docs/marketplace/pim/ProductInstance/get#yandex.cloud.marketplace.pim.v1.saas.SaasInfo)**
+            Additional information about the resource.
+          $ref: '#/definitions/SaasInfo'
+      required:
+        - token
+      additionalProperties: false
+    definitions:
+      SaasInfo:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of the SaaS resource.
+            type: string
+          data:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional data about the SaaS resource.
+            type: string
 sourcePath: en/_api-ref/marketplace/pim/v1/saas/pim/saas/api-ref/ProductInstance/claim.md
 ---
 
@@ -66,7 +106,8 @@ Additional data about the SaaS resource. ||
   "metadata": {
     "productId": "string",
     "productInstanceId": "string",
-    "licenseInstanceId": "string"
+    "licenseInstanceId": "string",
+    "lockId": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": {
@@ -177,6 +218,9 @@ ID of the product instance. ||
 || licenseInstanceId | **string**
 
 ID of the subscription. ||
+|| lockId | **string**
+
+ID of the subscription lock. ||
 |#
 
 ## Status {#google.rpc.Status}

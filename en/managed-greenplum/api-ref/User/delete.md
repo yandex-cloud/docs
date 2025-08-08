@@ -1,5 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/users/{userName}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+        userName:
+          description: |-
+            **string**
+            Required field. 
+          pattern: ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$
+          type: string
+      required:
+        - clusterId
+        - userName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/User/delete.md
 ---
 

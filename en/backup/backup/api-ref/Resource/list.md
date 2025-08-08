@@ -1,5 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/resources
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. Folder ID.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            Number of results per page.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Token for the results page.
+          type: string
+        type:
+          description: |-
+            **enum** (ResourceType)
+            Type of resource. Could be compute VM or baremetal server.
+            - `RESOURCE_TYPE_UNSPECIFIED`
+            - `COMPUTE`: Resource is Compute Cloud VM
+            - `BMS`: Resource is baremetal server
+            - `EXTERNAL_VM`: Resource is VM
+            - `EXTERNAL_SERVER`: Resource is server
+          type: string
+          enum:
+            - RESOURCE_TYPE_UNSPECIFIED
+            - COMPUTE
+            - BMS
+            - EXTERNAL_VM
+            - EXTERNAL_SERVER
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Resource/list.md
 ---
 
@@ -32,7 +76,9 @@ Type of resource. Could be compute VM or baremetal server.
 
 - `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
-- `BMS`: Resource is baremetal server ||
+- `BMS`: Resource is baremetal server
+- `EXTERNAL_VM`: Resource is VM
+- `EXTERNAL_SERVER`: Resource is server ||
 |#
 
 ## Response {#yandex.cloud.backup.v1.ListResourcesResponse}
@@ -174,7 +220,9 @@ Type of resource. Could be compute VM or baremetal server.
 
 - `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
-- `BMS`: Resource is baremetal server ||
+- `BMS`: Resource is baremetal server
+- `EXTERNAL_VM`: Resource is VM
+- `EXTERNAL_SERVER`: Resource is server ||
 || tenantInfo | **[TenantInfo](#yandex.cloud.backup.v1.TenantInfo)**
 
 Additional info about tenant which resource belongs to ||

@@ -1,7 +1,23 @@
 ---
 editable: false
 apiPlayground:
-  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:backup","method":"post","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. ID of the OpenSearch cluster to back up.\n\nTo get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.","type":"string"}},"required":["clusterId"],"additionalProperties":false},"query":null,"body":null,"definitions":null}'
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:backup
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the OpenSearch cluster to back up.
+            To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/backup.md
 ---
 

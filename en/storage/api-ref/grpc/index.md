@@ -15,4 +15,5 @@ Actions are performed by making RPC calls. For more information about API archit
 ||Service | Description ||
 || [Bucket](Bucket/index.md) | A set of methods for managing buckets. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
+|| [Presign](Presign/index.md) | PresignService provides URL presigning functionality ||
 |#

@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/tokens:createForServiceAccount
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - serviceAccountId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/IamToken/createForServiceAccount.md
 ---
 

@@ -104,9 +104,7 @@ keywords:
 
         * `--coordinator`, `--worker` — конфигурация [компонентов](../concepts/index.md) кластера {{ TR }}.
 
-          * `resource-preset-id` — класс хостов [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers). Возможные значения:
-
-            {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+          * `resource-preset-id` — [класс хостов](../concepts/instance-types.md) координатора и воркеров.
 
           * `min-count`, `max-count` — задайте минимальное и максимальное количество воркеров, чтобы количество воркеров автоматически изменялось в зависимости от нагрузки.
           * `count` — задайте фиксированное количество воркеров.
@@ -250,15 +248,11 @@ keywords:
 
             * `coordinatorConfig` — конфигурация координатора.
 
-               * `resources.resourcePresetId` — класс хостов координатора. Возможные значения:
-
-                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resourcePresetId` — [класс хостов](../concepts/instance-types.md) координатора.
               
             * `workerConfig` — конфигурация воркера.
 
-               * `resources.resourcePresetId` — класс хостов воркера. Возможные значения:
-
-                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resourcePresetId` — [класс хостов](../concepts/instance-types.md) воркера.
 
                * `scalePolicy` — политика масштабирования воркеров:
 
@@ -415,15 +409,11 @@ keywords:
 
             * `coordinator_config` — конфигурация координатора.
 
-               * `resources.resource_preset_id` — класс хостов координатора. Возможные значения:
-
-                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resource_preset_id` — [класс хостов](../concepts/instance-types.md) координатора.
               
             * `worker_config` — конфигурация воркера.
 
-               * `resources.resource_preset_id` — класс хостов воркера. Возможные значения:
-
-                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resource_preset_id` — [класс хостов](../concepts/instance-types.md) воркера.
 
                * `scale_policy` — политика масштабирования воркеров:
 

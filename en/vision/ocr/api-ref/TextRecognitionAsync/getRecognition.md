@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ocr.{{ api-host }}/ocr/v1/getRecognition
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        operationId:
+          description: |-
+            **string**
+            Required field. Operation ID of async recognition request.
+          type: string
+      required:
+        - operationId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ai/ocr/v1/ocr/api-ref/TextRecognitionAsync/getRecognition.md
 ---
 
@@ -91,7 +108,8 @@ Required field. Operation ID of async recognition request. ||
             "startIndex": "string",
             "length": "string"
           }
-        ]
+        ],
+        "layoutType": "string"
       }
     ],
     "entities": [
@@ -138,7 +156,21 @@ Required field. Operation ID of async recognition request. ||
       }
     ],
     "fullText": "string",
-    "rotate": "string"
+    "rotate": "string",
+    "markdown": "string",
+    "pictures": [
+      {
+        "boundingBox": {
+          "vertices": [
+            {
+              "x": "string",
+              "y": "string"
+            }
+          ]
+        },
+        "score": "string"
+      }
+    ]
   },
   "page": "string"
 }
@@ -183,6 +215,12 @@ Angle of image rotation.
 - `ANGLE_90`
 - `ANGLE_180`
 - `ANGLE_270` ||
+|| markdown | **string**
+
+Full markdown (without pictures inside) from image. Available only in markdown and math-markdown models. ||
+|| pictures[] | **[Picture](#yandex.cloud.ai.ocr.v1.Picture)**
+
+List of pictures locations from image. ||
 |#
 
 ## Block {#yandex.cloud.ai.ocr.v1.Block}
@@ -201,6 +239,21 @@ A list of detected languages ||
 || textSegments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
 
 Block position from full_text string. ||
+|| layoutType | **enum** (LayoutType)
+
+Block layout type.
+
+- `LAYOUT_TYPE_UNSPECIFIED`
+- `LAYOUT_TYPE_UNKNOWN`
+- `LAYOUT_TYPE_TEXT`
+- `LAYOUT_TYPE_HEADER`
+- `LAYOUT_TYPE_SECTION_HEADER`
+- `LAYOUT_TYPE_FOOTER`
+- `LAYOUT_TYPE_FOOTNOTE`
+- `LAYOUT_TYPE_PICTURE`
+- `LAYOUT_TYPE_CAPTION`
+- `LAYOUT_TYPE_TITLE`
+- `LAYOUT_TYPE_LIST` ||
 |#
 
 ## Polygon {#yandex.cloud.ai.ocr.v1.Polygon}
@@ -345,4 +398,16 @@ Text in cell. ||
 || textSegments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
 
 Table cell position from full_text string. ||
+|#
+
+## Picture {#yandex.cloud.ai.ocr.v1.Picture}
+
+#|
+||Field | Description ||
+|| boundingBox | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
+
+Area on the page where the picture is located. ||
+|| score | **string**
+
+Confidence score of picture location. ||
 |#

@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/resourcePresets
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](/docs/managed-greenplum/api-ref/ResourcePreset/list#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](/docs/managed-greenplum/api-ref/ResourcePreset/list#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse) returned by the previous list request.
+          type: string
+        type:
+          description: |-
+            **enum** (Type)
+            Required field. Required. ResourcePreset type - master or segment.
+            - `TYPE_UNSPECIFIED`
+            - `MASTER`: Greenplum® master host.
+            - `SEGMENT`: Greenplum® segment host.
+          type: string
+          enum:
+            - TYPE_UNSPECIFIED
+            - MASTER
+            - SEGMENT
+      required:
+        - type
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/ResourcePreset/list.md
 ---
 

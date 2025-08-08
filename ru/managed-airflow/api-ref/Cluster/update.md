@@ -1,5 +1,362 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://airflow.{{ api-host }}/managed-airflow/v1/clusters/{clusterId}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Apache Airflow Cluster resource to update.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name of the cluster.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the Apache Airflow cluster.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the Apache Airflow cluster as `` key:value `` pairs. For example, "env": "prod".
+            The new set of labels will completely replace the old ones. To add a label, request the current
+            set with the [ClusterService.Get](/docs/managed-airflow/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        configSpec:
+          description: |-
+            **[UpdateClusterConfigSpec](/docs/managed-airflow/api-ref/Cluster/update#yandex.cloud.airflow.v1.UpdateClusterConfigSpec)**
+            Configuration of Apache Airflow components.
+          $ref: '#/definitions/UpdateClusterConfigSpec'
+        codeSync:
+          description: |-
+            **[CodeSyncConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.CodeSyncConfig)**
+            Parameters of the location and access to the code that will be executed in the cluster.
+          oneOf:
+            - type: object
+              properties:
+                s3:
+                  description: |-
+                    **[S3Config](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.S3Config)**
+                    Includes only one of the fields `s3`, `gitSync`.
+                  $ref: '#/definitions/S3Config'
+                gitSync:
+                  description: |-
+                    **[GitSyncConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.GitSyncConfig)**
+                    Includes only one of the fields `s3`, `gitSync`.
+                  $ref: '#/definitions/GitSyncConfig'
+        networkSpec:
+          description: |-
+            **[UpdateNetworkConfigSpec](/docs/managed-airflow/api-ref/Cluster/update#yandex.cloud.airflow.v1.UpdateNetworkConfigSpec)**
+            Network related configuration options.
+          $ref: '#/definitions/UpdateNetworkConfigSpec'
+        deletionProtection:
+          description: |-
+            **boolean**
+            Deletion Protection inhibits deletion of the cluster
+          type: boolean
+        serviceAccountId:
+          description: |-
+            **string**
+            Service account used to access Cloud resources.
+            For more information, see [documentation](/docs/managed-airflow/concepts/impersonation).
+          type: string
+        logging:
+          description: |-
+            **[LoggingConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.LoggingConfig)**
+            Cloud Logging configuration.
+          oneOf:
+            - type: object
+              properties:
+                folderId:
+                  description: |-
+                    **string**
+                    Logs should be written to default log group for specified folder.
+                    Includes only one of the fields `folderId`, `logGroupId`.
+                    Destination of log records.
+                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+                  type: string
+                logGroupId:
+                  description: |-
+                    **string**
+                    Logs should be written to log group resolved by ID.
+                    Includes only one of the fields `folderId`, `logGroupId`.
+                    Destination of log records.
+                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+                  type: string
+        maintenanceWindow:
+          description: |-
+            **[MaintenanceWindow](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.MaintenanceWindow)**
+            Window of maintenance operations.
+          oneOf:
+            - type: object
+              properties:
+                anytime:
+                  description: |-
+                    **object**
+                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+                  $ref: '#/definitions/AnytimeMaintenanceWindow'
+                weeklyMaintenanceWindow:
+                  description: |-
+                    **[WeeklyMaintenanceWindow](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow)**
+                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+      additionalProperties: false
+    definitions:
+      AirflowConfig:
+        type: object
+        properties:
+          config:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Properties to be passed to Apache Airflow configuration file.
+            type: string
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the preset for computational resources available to an instance (CPU, memory etc.).
+            type: string
+      WebserverConfig:
+        type: object
+        properties:
+          count:
+            description: |-
+              **string** (int64)
+              The number of webserver instances in the cluster.
+            type: string
+            format: int64
+          resources:
+            description: |-
+              **[Resources](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.Resources)**
+              Resources allocated to webserver instances.
+            $ref: '#/definitions/Resources'
+      SchedulerConfig:
+        type: object
+        properties:
+          count:
+            description: |-
+              **string** (int64)
+              The number of scheduler instances in the cluster.
+            type: string
+            format: int64
+          resources:
+            description: |-
+              **[Resources](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.Resources)**
+              Resources allocated to scheduler instances.
+            $ref: '#/definitions/Resources'
+      TriggererConfig:
+        type: object
+        properties:
+          count:
+            description: |-
+              **string** (int64)
+              The number of triggerer instances in the cluster.
+            type: string
+            format: int64
+          resources:
+            description: |-
+              **[Resources](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.Resources)**
+              Resources allocated to triggerer instances.
+            $ref: '#/definitions/Resources'
+      WorkerConfig:
+        type: object
+        properties:
+          minCount:
+            description: |-
+              **string** (int64)
+              The minimum number of worker instances in the cluster.
+            type: string
+            format: int64
+          maxCount:
+            description: |-
+              **string** (int64)
+              The maximum number of worker instances in the cluster.
+            type: string
+            format: int64
+          resources:
+            description: |-
+              **[Resources](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.Resources)**
+              Resources allocated to worker instances.
+            $ref: '#/definitions/Resources'
+      Dependencies:
+        type: object
+        properties:
+          pipPackages:
+            description: |-
+              **string**
+              Python packages that are installed in the cluster.
+            type: array
+            items:
+              type: string
+          debPackages:
+            description: |-
+              **string**
+              System packages that are installed in the cluster.
+            type: array
+            items:
+              type: string
+      LockboxConfig:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              The setting allows to enable Lockbox Secret Backend.
+            type: boolean
+      UpdateClusterConfigSpec:
+        type: object
+        properties:
+          airflow:
+            description: |-
+              **[AirflowConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.AirflowConfig)**
+              Configuration of the Apache Airflow application itself.
+            $ref: '#/definitions/AirflowConfig'
+          webserver:
+            description: |-
+              **[WebserverConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.WebserverConfig)**
+              Configuration of webserver instances.
+            $ref: '#/definitions/WebserverConfig'
+          scheduler:
+            description: |-
+              **[SchedulerConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.SchedulerConfig)**
+              Configuration of scheduler instances.
+            $ref: '#/definitions/SchedulerConfig'
+          triggerer:
+            description: |-
+              **[TriggererConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.TriggererConfig)**
+              Configuration of triggerer instances.
+            $ref: '#/definitions/TriggererConfig'
+          worker:
+            description: |-
+              **[WorkerConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.WorkerConfig)**
+              Configuration of worker instances.
+            $ref: '#/definitions/WorkerConfig'
+          dependencies:
+            description: |-
+              **[Dependencies](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.Dependencies)**
+              The list of additional packages installed in the cluster.
+            $ref: '#/definitions/Dependencies'
+          lockbox:
+            description: |-
+              **[LockboxConfig](/docs/managed-airflow/api-ref/Cluster/get#yandex.cloud.airflow.v1.LockboxConfig)**
+              Configuration of Lockbox Secret Backend.
+            $ref: '#/definitions/LockboxConfig'
+          airflowVersion:
+            description: |-
+              **string**
+              Apache Airflow version. Format: "Major.Minor"
+            type: string
+          pythonVersion:
+            description: |-
+              **string**
+              Python version. Format: "Major.Minor"
+            type: string
+      S3Config:
+        type: object
+        properties:
+          bucket:
+            description: |-
+              **string**
+              The name of the Object Storage bucket that stores DAG files used in the cluster.
+            type: string
+      GitSyncConfig:
+        type: object
+        properties:
+          repo:
+            description: |-
+              **string**
+              Required field. Git repository URL.
+            type: string
+          branch:
+            description: |-
+              **string**
+              Required field. Git branch name to sync from.
+            type: string
+          subPath:
+            description: |-
+              **string**
+              Subdirectory path within the repository containing DAG files.
+            type: string
+          sshKey:
+            description: |-
+              **string**
+              SSH private key for repository authentication.
+            type: string
+        required:
+          - repo
+          - branch
+      UpdateNetworkConfigSpec:
+        type: object
+        properties:
+          securityGroupIds:
+            description: |-
+              **string**
+              User security groups.
+            type: array
+            items:
+              type: string
+      AnytimeMaintenanceWindow:
+        type: object
+        properties: {}
+      WeeklyMaintenanceWindow:
+        type: object
+        properties:
+          day:
+            description: |-
+              **enum** (WeekDay)
+              - `WEEK_DAY_UNSPECIFIED`
+              - `MON`
+              - `TUE`
+              - `WED`
+              - `THU`
+              - `FRI`
+              - `SAT`
+              - `SUN`
+            type: string
+            enum:
+              - WEEK_DAY_UNSPECIFIED
+              - MON
+              - TUE
+              - WED
+              - THU
+              - FRI
+              - SAT
+              - SUN
+          hour:
+            description: |-
+              **string** (int64)
+              Hour of the day in UTC.
+            type: string
+            format: int64
 sourcePath: en/_api-ref/airflow/v1/api-ref/Cluster/update.md
 ---
 
@@ -309,10 +666,18 @@ The name of the Object Storage bucket that stores DAG files used in the cluster.
 
 #|
 ||Field | Description ||
-|| repo | **string** ||
-|| branch | **string** ||
-|| subPath | **string** ||
-|| sshKey | **string** ||
+|| repo | **string**
+
+Required field. Git repository URL. ||
+|| branch | **string**
+
+Required field. Git branch name to sync from. ||
+|| subPath | **string**
+
+Subdirectory path within the repository containing DAG files. ||
+|| sshKey | **string**
+
+SSH private key for repository authentication. ||
 |#
 
 ## UpdateNetworkConfigSpec {#yandex.cloud.airflow.v1.UpdateNetworkConfigSpec}
@@ -902,10 +1267,18 @@ The name of the Object Storage bucket that stores DAG files used in the cluster.
 
 #|
 ||Field | Description ||
-|| repo | **string** ||
-|| branch | **string** ||
-|| subPath | **string** ||
-|| sshKey | **string** ||
+|| repo | **string**
+
+Required field. Git repository URL. ||
+|| branch | **string**
+
+Required field. Git branch name to sync from. ||
+|| subPath | **string**
+
+Subdirectory path within the repository containing DAG files. ||
+|| sshKey | **string**
+
+SSH private key for repository authentication. ||
 |#
 
 ## LoggingConfig {#yandex.cloud.airflow.v1.LoggingConfig2}

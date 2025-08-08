@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-workflows.{{ api-host }}/workflows/v1/workflow/{workflowId}
+    method: get
+    path:
+      type: object
+      properties:
+        workflowId:
+          description: |-
+            **string**
+            Required field. ID of the Workflow.
+          type: string
+      required:
+        - workflowId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/get.md
 ---
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Group/updateMembers.md
 ---
 
-# Cloud Organization API, gRPC: GroupService.UpdateMembers
+# Identity Hub API, gRPC: GroupService.UpdateMembers
 
 Update group members.
 

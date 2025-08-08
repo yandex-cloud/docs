@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/GroupMapping/index.md
 ---
 
-# Cloud Organization API, gRPC: GroupMappingService
+# Identity Hub API, gRPC: GroupMappingService
 
 RPC service dedicated for federation group mapping.
 

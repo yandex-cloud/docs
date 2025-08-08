@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/StreamLine/batchDelete.md
 
 # Video API, gRPC: StreamLineService.BatchDelete
 
-Batch delete stream lines.
+Deletes multiple stream lines in a specific channel in a single request.
+This is more efficient than making multiple Delete requests when removing several stream lines.
 
 ## gRPC request
 
@@ -26,10 +27,11 @@ Batch delete stream lines.
 ||Field | Description ||
 || channel_id | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel containing the stream lines to delete. ||
 || stream_line_ids[] | **string**
 
-List of line IDs. ||
+List of stream line IDs to delete.
+All stream lines must exist in the specified channel. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -115,5 +117,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || stream_line_ids[] | **string**
 
-List of line IDs. ||
+List of stream line IDs being deleted.
+This list can be used to track which stream lines are included
+in the batch deletion operation. ||
 |#

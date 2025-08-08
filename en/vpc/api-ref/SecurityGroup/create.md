@@ -1,5 +1,110 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/securityGroups
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder for this request to create a security group in.
+            To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the security group.
+            The name must be unique within the folder.
+          pattern: '|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the security group.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the Network to create security group for.
+          type: string
+        ruleSpecs:
+          description: |-
+            **[SecurityGroupRuleSpec](/docs/vpc/api-ref/SecurityGroup/create#yandex.cloud.vpc.v1.SecurityGroupRuleSpec)**
+            Security rules specifications.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  protocolName:
+                    description: |-
+                      **string**
+                      Protocol name.
+                      Includes only one of the fields `protocolName`, `protocolNumber`.
+                      Values from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+                      Null value means any protocol.
+                    type: string
+                  protocolNumber:
+                    description: |-
+                      **string** (int64)
+                      Protocol number from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+                      Includes only one of the fields `protocolName`, `protocolNumber`.
+                      Values from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+                      Null value means any protocol.
+                    type: string
+                    format: int64
+              - type: object
+                properties:
+                  cidrBlocks:
+                    description: |-
+                      **[CidrBlocks](/docs/vpc/api-ref/Network/listSecurityGroups#yandex.cloud.vpc.v1.CidrBlocks)**
+                      CIDR blocks to allow to recieve or send traffic.
+                      Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+                    $ref: '#/definitions/CidrBlocks'
+                  securityGroupId:
+                    description: |-
+                      **string**
+                      ID of the security group to add rule to.
+                      Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+                    type: string
+                  predefinedTarget:
+                    description: |-
+                      **string**
+                      Predefined target. See [security groups rules](/docs/vpc/concepts/security-groups#security-groups-rules) for more information.
+                      Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+                    type: string
+      required:
+        - folderId
+        - networkId
+      additionalProperties: false
+    definitions:
+      CidrBlocks:
+        type: object
+        properties:
+          v4CidrBlocks:
+            description: |-
+              **string**
+              IPv4 CIDR blocks to allow traffic to.
+            type: array
+            items:
+              type: string
+          v6CidrBlocks:
+            description: |-
+              **string**
+              IPv6 CIDR blocks to allow traffic to.
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/create.md
 ---
 

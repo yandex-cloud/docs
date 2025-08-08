@@ -1,5 +1,285 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/policies
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        certificateAuthorityId:
+          description: |-
+            **string**
+            Required field. ID of the certificate authority to create a policy for.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the policy.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        subjectPolicy:
+          description: |-
+            **[SubjectPolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.SubjectPolicy)**
+            Policy for the subject field of the certificate.
+          $ref: '#/definitions/SubjectPolicy'
+        sanPolicy:
+          description: |-
+            **[SubjectAlternativeNamePolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeNamePolicy)**
+            Policy for the subject alternative name (SAN) field of the certificate.
+          $ref: '#/definitions/SubjectAlternativeNamePolicy'
+        keyUsagesWhiteList:
+          description: |-
+            **[KeyUsagePolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy)**
+            Whitelist of allowed key usages.
+            Includes only one of the fields `keyUsagesWhiteList`, `keyUsagesBlackList`.
+            Policy for key usages.
+          $ref: '#/definitions/KeyUsagePolicy'
+        keyUsagesBlackList:
+          description: |-
+            **[KeyUsagePolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.KeyUsagePolicy)**
+            Blacklist of disallowed key usages.
+            Includes only one of the fields `keyUsagesWhiteList`, `keyUsagesBlackList`.
+            Policy for key usages.
+          $ref: '#/definitions/KeyUsagePolicy'
+        extendedKeyUsagesWhiteList:
+          description: |-
+            **[ExtendedKeyUsagePolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy)**
+            Whitelist of allowed extended key usages.
+            Includes only one of the fields `extendedKeyUsagesWhiteList`, `extendedKeyUsagesBlackList`.
+            Policy for extended key usages.
+          $ref: '#/definitions/ExtendedKeyUsagePolicy'
+        extendedKeyUsagesBlackList:
+          description: |-
+            **[ExtendedKeyUsagePolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.ExtendedKeyUsagePolicy)**
+            Blacklist of disallowed extended key usages.
+            Includes only one of the fields `extendedKeyUsagesWhiteList`, `extendedKeyUsagesBlackList`.
+            Policy for extended key usages.
+          $ref: '#/definitions/ExtendedKeyUsagePolicy'
+        extensionWhiteList:
+          description: |-
+            **[ExtensionPolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.ExtensionPolicy)**
+            Whitelist of allowed extensions.
+            Includes only one of the fields `extensionWhiteList`, `extensionBlackList`.
+            Policy for extensions.
+          $ref: '#/definitions/ExtensionPolicy'
+        extensionBlackList:
+          description: |-
+            **[ExtensionPolicy](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.ExtensionPolicy)**
+            Blacklist of disallowed extensions.
+            Includes only one of the fields `extensionWhiteList`, `extensionBlackList`.
+            Policy for extensions.
+          $ref: '#/definitions/ExtensionPolicy'
+      required:
+        - certificateAuthorityId
+      additionalProperties: false
+    definitions:
+      SubjectPolicy:
+        type: object
+        properties:
+          country:
+            description: |-
+              **string**
+              Allowed country name in the subject field.
+            type: string
+          organization:
+            description: |-
+              **string**
+              Allowed organization name in the subject field.
+            type: string
+          organizationalUnit:
+            description: |-
+              **string**
+              Allowed organizational unit name in the subject field.
+            type: string
+          distinguishedNameQualifier:
+            description: |-
+              **string**
+              Allowed distinguished name qualifier in the subject field.
+            type: string
+          stateOrProvince:
+            description: |-
+              **string**
+              Allowed state or province name in the subject field.
+            type: string
+          commonName:
+            description: |-
+              **string**
+              Allowed common name in the subject field.
+            type: string
+          emailAddress:
+            description: |-
+              **string**
+              Allowed email address in the subject field.
+            type: string
+          serialNumber:
+            description: |-
+              **string**
+              Allowed serial number in the subject field.
+            type: string
+          locality:
+            description: |-
+              **string**
+              Allowed locality name in the subject field.
+            type: string
+          title:
+            description: |-
+              **string**
+              Allowed title in the subject field.
+            type: string
+          surname:
+            description: |-
+              **string**
+              Allowed surname in the subject field.
+            type: string
+          givenName:
+            description: |-
+              **string**
+              Allowed given name in the subject field.
+            type: string
+          initials:
+            description: |-
+              **string**
+              Allowed initials in the subject field.
+            type: string
+          generationQualifier:
+            description: |-
+              **string**
+              Allowed generation qualifier in the subject field.
+            type: string
+      EdiPartyName:
+        type: object
+        properties:
+          nameAssigner:
+            description: |-
+              **string**
+              Specifies the entity or authority that assigned the partyName
+            type: string
+          partyName:
+            description: |-
+              **string**
+              The actual identifier of the EDI party
+            type: string
+      SubjectAlternativeNamePolicy:
+        type: object
+        properties:
+          otherNameOid:
+            description: |-
+              **string**
+              Allowed OIDs of the other name in the SAN field.
+            type: string
+          rfc_822Name:
+            description: |-
+              **string**
+              Allowed RFC 822 names (email addresses) in the SAN field.
+            type: string
+          dnsName:
+            description: |-
+              **string**
+              Allowed DNS names in the SAN field.
+            type: string
+          directoryName:
+            description: |-
+              **string**
+              Allowed directory names in the SAN field.
+            type: string
+          ediPartyName:
+            description: |-
+              **[EdiPartyName](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName)**
+              Allowed EDI party names in the SAN field.
+            $ref: '#/definitions/EdiPartyName'
+          uniformResourceIdentifier:
+            description: |-
+              **string**
+              Allowed URIs in the SAN field.
+            type: string
+          ipAddress:
+            description: |-
+              **string**
+              Allowed IP addresses in the SAN field.
+            type: string
+          registeredId:
+            description: |-
+              **string**
+              Allowed registered IDs in the SAN field.
+            type: string
+      KeyUsagePolicy:
+        type: object
+        properties:
+          keyUsage:
+            description: |-
+              **enum** (KeyUsageExtension)
+              List of key usages that are allowed or disallowed.
+              - `KEY_USAGE_EXTENSION_UNSPECIFIED`
+              - `DIGITAL_SIGNATURE`
+              - `CONTENT_COMMITMENT`
+              - `KEY_ENCIPHERMENT`
+              - `DATA_ENCIPHERMENT`
+              - `KEY_AGREEMENT`
+              - `KEY_CERT_SIGN`
+              - `CRL_SIGN`
+              - `ENCIPHER_ONLY`
+              - `DECIPHER_ONLY`
+            type: array
+            items:
+              type: string
+              enum:
+                - KEY_USAGE_EXTENSION_UNSPECIFIED
+                - DIGITAL_SIGNATURE
+                - CONTENT_COMMITMENT
+                - KEY_ENCIPHERMENT
+                - DATA_ENCIPHERMENT
+                - KEY_AGREEMENT
+                - KEY_CERT_SIGN
+                - CRL_SIGN
+                - ENCIPHER_ONLY
+                - DECIPHER_ONLY
+      ExtendedKeyUsagePolicy:
+        type: object
+        properties:
+          extendedKeyUsage:
+            description: |-
+              **enum** (ExtendedKeyUsageExtension)
+              List of extended key usages that are allowed or disallowed.
+              - `EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED`
+              - `SERVER_AUTH`
+              - `CLIENT_AUTH`
+              - `CODE_SIGNING`
+              - `EMAIL_PROTECTION`
+              - `TIME_STAMPING`
+              - `OCSP_SIGNING`
+              - `IPSEC_IKE`
+              - `MS_CODE_IND`
+              - `MS_CODE_COM`
+              - `MS_CTL_SIGN`
+              - `MS_EFS`
+            type: array
+            items:
+              type: string
+              enum:
+                - EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED
+                - SERVER_AUTH
+                - CLIENT_AUTH
+                - CODE_SIGNING
+                - EMAIL_PROTECTION
+                - TIME_STAMPING
+                - OCSP_SIGNING
+                - IPSEC_IKE
+                - MS_CODE_IND
+                - MS_CODE_COM
+                - MS_CTL_SIGN
+                - MS_EFS
+      ExtensionPolicy:
+        type: object
+        properties:
+          extensionOid:
+            description: |-
+              **string**
+              List of extension OIDs that are allowed or disallowed.
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/Policy/create.md
 ---
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/User/index.md
 ---
 
-# Cloud Organization API, gRPC: UserService
+# Identity Hub API, gRPC: UserService
 
 A set of methods for managing Organization users.
 

@@ -1,5 +1,632 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://connman.{{ api-host }}/v1/connection/{connectionId}
+    method: patch
+    path:
+      type: object
+      properties:
+        connectionId:
+          description: '**string**'
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: '**string**'
+          type: string
+        description:
+          description: '**string**'
+          type: string
+        labels:
+          description: '**object** (map<**string**, **string**>)'
+          type: string
+        params:
+          description: '**[ConnectionParams](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ConnectionParams)**'
+          oneOf:
+            - type: object
+              properties:
+                postgresql:
+                  description: |-
+                    **[PostgreSQLConnection](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.PostgreSQLConnection)**
+                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
+                  $ref: '#/definitions/PostgreSQLConnection'
+                mysql:
+                  description: |-
+                    **[MySQLConnection](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.MySQLConnection)**
+                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
+                  $ref: '#/definitions/MySQLConnection'
+                mongodb:
+                  description: |-
+                    **[MongoDBConnection](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.MongoDBConnection)**
+                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
+                  $ref: '#/definitions/MongoDBConnection'
+                clickhouse:
+                  description: |-
+                    **[ClickHouseConnection](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ClickHouseConnection)**
+                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
+                  $ref: '#/definitions/ClickHouseConnection'
+                redis:
+                  description: |-
+                    **[RedisConnection](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.RedisConnection)**
+                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
+                  $ref: '#/definitions/RedisConnection'
+                opensearch:
+                  description: |-
+                    **[OpenSearchConnection](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.OpenSearchConnection)**
+                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
+                  $ref: '#/definitions/OpenSearchConnection'
+                trino:
+                  description: |-
+                    **[TrinoConnection](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TrinoConnection)**
+                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
+                  $ref: '#/definitions/TrinoConnection'
+                valkey:
+                  description: |-
+                    **[ValkeyConnection](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ValkeyConnection)**
+                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
+                  $ref: '#/definitions/ValkeyConnection'
+                greenplum:
+                  description: |-
+                    **[GreenplumConnection](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.GreenplumConnection)**
+                    Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
+                  $ref: '#/definitions/GreenplumConnection'
+      additionalProperties: false
+    definitions:
+      Host:
+        type: object
+        properties:
+          host:
+            description: '**string**'
+            type: string
+          httpPort:
+            description: |-
+              **string** (int64)
+              depends on tls params may vary as http or https
+            type: string
+            format: int64
+          tcpPort:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          shardName:
+            description: '**string**'
+            type: string
+          health:
+            description: |-
+              **enum** (Health)
+              - `HEALTH_UNKNOWN`
+              - `ALIVE`
+              - `DEAD`
+              - `DEGRADED`
+            type: string
+            enum:
+              - HEALTH_UNKNOWN
+              - ALIVE
+              - DEAD
+              - DEGRADED
+      TLSConfig:
+        type: object
+        properties:
+          caCertificate:
+            description: '**string**'
+            type: string
+      PostgreSQLCluster:
+        type: object
+        properties:
+          hosts:
+            description: '**[Host](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ClickHouseCluster.Host)**'
+            type: array
+            items:
+              $ref: '#/definitions/Host'
+          tlsParams:
+            description: '**[TLSParams](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSParams)**'
+            oneOf:
+              - type: object
+                properties:
+                  disabled:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `tls`.
+                    type: undefined
+                    format: empty
+                  tls:
+                    description: |-
+                      **[TLSConfig](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSConfig)**
+                      Includes only one of the fields `tls`.
+                    $ref: '#/definitions/TLSConfig'
+      UserPasswordAuth:
+        type: object
+        properties:
+          user:
+            description: '**string**'
+            type: string
+          password:
+            description: '**[Password](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.Password)**'
+            oneOf:
+              - type: object
+                properties:
+                  lockboxSecretKey:
+                    description: |-
+                      **string**
+                      Read-only. Do not fill this field in create/update requests.
+                      Includes only one of the fields `lockboxSecretKey`.
+                    type: string
+      PostgreSQLConnection:
+        type: object
+        properties:
+          cluster:
+            description: |-
+              **[PostgreSQLCluster](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.PostgreSQLCluster)**
+              When creating/updating Connection, the field "cluster" is mutually
+              exclusive with "managed_cluster_id".
+            $ref: '#/definitions/PostgreSQLCluster'
+          managedClusterId:
+            description: |-
+              **string**
+              When creating/updating Connection, the field "managed_cluster_id" is
+              mutually exclusive with "cluster".
+            type: string
+          auth:
+            description: '**[PostgreSQLAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.PostgreSQLAuth)**'
+            oneOf:
+              - type: object
+                properties:
+                  userPassword:
+                    description: |-
+                      **[UserPasswordAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+                      Includes only one of the fields `userPassword`.
+                    $ref: '#/definitions/UserPasswordAuth'
+          databases:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      MySQLCluster:
+        type: object
+        properties:
+          hosts:
+            description: '**[Host](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ClickHouseCluster.Host)**'
+            type: array
+            items:
+              $ref: '#/definitions/Host'
+          tlsParams:
+            description: '**[TLSParams](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSParams)**'
+            oneOf:
+              - type: object
+                properties:
+                  disabled:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `tls`.
+                    type: undefined
+                    format: empty
+                  tls:
+                    description: |-
+                      **[TLSConfig](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSConfig)**
+                      Includes only one of the fields `tls`.
+                    $ref: '#/definitions/TLSConfig'
+      MySQLConnection:
+        type: object
+        properties:
+          cluster:
+            description: |-
+              **[MySQLCluster](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.MySQLCluster)**
+              When creating/updating Connection, the field "cluster" is mutually
+              exclusive with "managed_cluster_id".
+            $ref: '#/definitions/MySQLCluster'
+          managedClusterId:
+            description: |-
+              **string**
+              When creating/updating Connection, the field "managed_cluster_id" is
+              mutually exclusive with "cluster".
+            type: string
+          auth:
+            description: '**[MySQLAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.MySQLAuth)**'
+            oneOf:
+              - type: object
+                properties:
+                  userPassword:
+                    description: |-
+                      **[UserPasswordAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+                      Includes only one of the fields `userPassword`.
+                    $ref: '#/definitions/UserPasswordAuth'
+          databases:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      MongoDBCluster:
+        type: object
+        properties:
+          hosts:
+            description: '**[Host](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ClickHouseCluster.Host)**'
+            type: array
+            items:
+              $ref: '#/definitions/Host'
+          tlsParams:
+            description: '**[TLSParams](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSParams)**'
+            oneOf:
+              - type: object
+                properties:
+                  disabled:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `tls`.
+                    type: undefined
+                    format: empty
+                  tls:
+                    description: |-
+                      **[TLSConfig](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSConfig)**
+                      Includes only one of the fields `tls`.
+                    $ref: '#/definitions/TLSConfig'
+      MongoDBConnection:
+        type: object
+        properties:
+          cluster:
+            description: |-
+              **[MongoDBCluster](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.MongoDBCluster)**
+              When creating/updating Connection, the field "cluster" is mutually
+              exclusive with "managed_cluster_id".
+            $ref: '#/definitions/MongoDBCluster'
+          managedClusterId:
+            description: |-
+              **string**
+              When creating/updating Connection, the field "managed_cluster_id" is
+              mutually exclusive with "cluster".
+            type: string
+          auth:
+            description: '**[MongoDBAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.MongoDBAuth)**'
+            oneOf:
+              - type: object
+                properties:
+                  userPassword:
+                    description: |-
+                      **[UserPasswordAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+                      Includes only one of the fields `userPassword`.
+                    $ref: '#/definitions/UserPasswordAuth'
+          databases:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      ClickHouseCluster:
+        type: object
+        properties:
+          hosts:
+            description: '**[Host](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ClickHouseCluster.Host)**'
+            type: array
+            items:
+              $ref: '#/definitions/Host'
+          tlsParams:
+            description: '**[TLSParams](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSParams)**'
+            oneOf:
+              - type: object
+                properties:
+                  disabled:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `tls`.
+                    type: undefined
+                    format: empty
+                  tls:
+                    description: |-
+                      **[TLSConfig](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSConfig)**
+                      Includes only one of the fields `tls`.
+                    $ref: '#/definitions/TLSConfig'
+      ClickHouseConnection:
+        type: object
+        properties:
+          cluster:
+            description: |-
+              **[ClickHouseCluster](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ClickHouseCluster)**
+              When creating/updating Connection, the field "cluster" is mutually
+              exclusive with "managed_cluster_id".
+            $ref: '#/definitions/ClickHouseCluster'
+          managedClusterId:
+            description: |-
+              **string**
+              When creating/updating Connection, the field "managed_cluster_id" is
+              mutually exclusive with "cluster".
+            type: string
+          auth:
+            description: '**[ClickHouseAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ClickHouseAuth)**'
+            oneOf:
+              - type: object
+                properties:
+                  userPassword:
+                    description: |-
+                      **[UserPasswordAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+                      Includes only one of the fields `userPassword`.
+                    $ref: '#/definitions/UserPasswordAuth'
+          databases:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      RedisCluster:
+        type: object
+        properties:
+          hosts:
+            description: '**[Host](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ClickHouseCluster.Host)**'
+            type: array
+            items:
+              $ref: '#/definitions/Host'
+          sentinelPort:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          tlsParams:
+            description: '**[TLSParams](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSParams)**'
+            oneOf:
+              - type: object
+                properties:
+                  disabled:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `tls`.
+                    type: undefined
+                    format: empty
+                  tls:
+                    description: |-
+                      **[TLSConfig](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSConfig)**
+                      Includes only one of the fields `tls`.
+                    $ref: '#/definitions/TLSConfig'
+      RedisConnection:
+        type: object
+        properties:
+          cluster:
+            description: '**[RedisCluster](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.RedisCluster)**'
+            $ref: '#/definitions/RedisCluster'
+          auth:
+            description: '**[RedisAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.RedisAuth)**'
+            oneOf:
+              - type: object
+                properties:
+                  userPassword:
+                    description: |-
+                      **[UserPasswordAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+                      Includes only one of the fields `userPassword`.
+                    $ref: '#/definitions/UserPasswordAuth'
+          databases:
+            description: '**string** (int64)'
+            type: array
+            items:
+              type: string
+              format: int64
+      OpenSearchCluster:
+        type: object
+        properties:
+          hosts:
+            description: '**[Host](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ClickHouseCluster.Host)**'
+            type: array
+            items:
+              $ref: '#/definitions/Host'
+          tlsParams:
+            description: '**[TLSParams](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSParams)**'
+            oneOf:
+              - type: object
+                properties:
+                  disabled:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `tls`.
+                    type: undefined
+                    format: empty
+                  tls:
+                    description: |-
+                      **[TLSConfig](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSConfig)**
+                      Includes only one of the fields `tls`.
+                    $ref: '#/definitions/TLSConfig'
+      OpenSearchConnection:
+        type: object
+        properties:
+          cluster:
+            description: |-
+              **[OpenSearchCluster](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.OpenSearchCluster)**
+              When creating/updating Connection, the field "cluster" is mutually
+              exclusive with "managed_cluster_id".
+            $ref: '#/definitions/OpenSearchCluster'
+          managedClusterId:
+            description: |-
+              **string**
+              When creating/updating Connection, the field "managed_cluster_id" is
+              mutually exclusive with "cluster".
+            type: string
+          auth:
+            description: '**[OpenSearchAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.OpenSearchAuth)**'
+            oneOf:
+              - type: object
+                properties:
+                  userPassword:
+                    description: |-
+                      **[UserPasswordAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+                      Includes only one of the fields `userPassword`.
+                    $ref: '#/definitions/UserPasswordAuth'
+      Coordinator:
+        type: object
+        properties:
+          host:
+            description: '**string**'
+            type: string
+          port:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      TrinoCluster:
+        type: object
+        properties:
+          coordinator:
+            description: '**[Coordinator](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TrinoCluster.Coordinator)**'
+            $ref: '#/definitions/Coordinator'
+          tlsParams:
+            description: '**[TLSParams](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSParams)**'
+            oneOf:
+              - type: object
+                properties:
+                  disabled:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `tls`.
+                    type: undefined
+                    format: empty
+                  tls:
+                    description: |-
+                      **[TLSConfig](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSConfig)**
+                      Includes only one of the fields `tls`.
+                    $ref: '#/definitions/TLSConfig'
+      TrinoConnection:
+        type: object
+        properties:
+          cluster:
+            description: '**[TrinoCluster](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TrinoCluster)**'
+            $ref: '#/definitions/TrinoCluster'
+          auth:
+            description: '**[TrinoAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TrinoAuth)**'
+            oneOf:
+              - type: object
+                properties:
+                  userPassword:
+                    description: |-
+                      **[UserPasswordAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+                      Includes only one of the fields `userPassword`.
+                    $ref: '#/definitions/UserPasswordAuth'
+      ValkeyCluster:
+        type: object
+        properties:
+          hosts:
+            description: '**[Host](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ClickHouseCluster.Host)**'
+            type: array
+            items:
+              $ref: '#/definitions/Host'
+          sentinelPort:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          tlsParams:
+            description: '**[TLSParams](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSParams)**'
+            oneOf:
+              - type: object
+                properties:
+                  disabled:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `tls`.
+                    type: undefined
+                    format: empty
+                  tls:
+                    description: |-
+                      **[TLSConfig](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSConfig)**
+                      Includes only one of the fields `tls`.
+                    $ref: '#/definitions/TLSConfig'
+      ValkeyConnection:
+        type: object
+        properties:
+          cluster:
+            description: |-
+              **[ValkeyCluster](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ValkeyCluster)**
+              When creating/updating Connection, the field "cluster" is mutually
+              exclusive with "managed_cluster_id".
+            $ref: '#/definitions/ValkeyCluster'
+          managedClusterId:
+            description: |-
+              **string**
+              When creating/updating Connection, the field "managed_cluster_id" is
+              mutually exclusive with "cluster".
+            type: string
+          auth:
+            description: '**[ValkeyAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ValkeyAuth)**'
+            oneOf:
+              - type: object
+                properties:
+                  userPassword:
+                    description: |-
+                      **[UserPasswordAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+                      Includes only one of the fields `userPassword`.
+                    $ref: '#/definitions/UserPasswordAuth'
+          databases:
+            description: '**string** (int64)'
+            type: array
+            items:
+              type: string
+              format: int64
+      GreenplumCluster:
+        type: object
+        properties:
+          coordinatorHosts:
+            description: '**[Host](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.ClickHouseCluster.Host)**'
+            type: array
+            items:
+              $ref: '#/definitions/Host'
+          tlsParams:
+            description: '**[TLSParams](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSParams)**'
+            oneOf:
+              - type: object
+                properties:
+                  disabled:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `tls`.
+                    type: undefined
+                    format: empty
+                  tls:
+                    description: |-
+                      **[TLSConfig](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.TLSConfig)**
+                      Includes only one of the fields `tls`.
+                    $ref: '#/definitions/TLSConfig'
+      GreenplumConnection:
+        type: object
+        properties:
+          cluster:
+            description: |-
+              **[GreenplumCluster](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.GreenplumCluster)**
+              When creating/updating Connection, the field "cluster" is mutually
+              exclusive with "managed_cluster_id".
+            $ref: '#/definitions/GreenplumCluster'
+          managedClusterId:
+            description: |-
+              **string**
+              When creating/updating Connection, the field "managed_cluster_id" is
+              mutually exclusive with "cluster".
+            type: string
+          auth:
+            description: '**[GreenplumAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.GreenplumAuth)**'
+            oneOf:
+              - type: object
+                properties:
+                  userPassword:
+                    description: |-
+                      **[UserPasswordAuth](/docs/connection-manager/api-ref/Connection/get#yandex.cloud.connectionmanager.v1.UserPasswordAuth)**
+                      Includes only one of the fields `userPassword`.
+                    $ref: '#/definitions/UserPasswordAuth'
+          databases:
+            description: '**string**'
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/connectionmanager/v1/api-ref/Connection/update.md
 ---
 

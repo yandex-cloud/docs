@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/setDefaultProfile.md
 ---
 
-# Cloud Organization API, gRPC: OsLoginService.SetDefaultProfile
+# Identity Hub API, gRPC: OsLoginService.SetDefaultProfile
 
 Sets a profile as a default for the subject assigned to this profile
 

@@ -1,5 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclusters/{subclusterId}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Yandex Data Processing cluster that the subcluster belongs to.
+          type: string
+        subclusterId:
+          description: |-
+            **string**
+            Required field. ID of the subcluster to return.
+            To get a subcluster ID make a [SubclusterService.List](/docs/data-proc/api-ref/Subcluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+        - subclusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Subcluster/get.md
 ---
 

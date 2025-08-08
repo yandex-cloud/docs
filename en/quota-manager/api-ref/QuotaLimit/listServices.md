@@ -1,5 +1,33 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://quota-manager.{{ api-host }}/quota-manager/v1/quotaLimits/services
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        resourceType:
+          description: |-
+            **string**
+            Required field. The type of resources for which services are being requested.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of services to return per response.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Token to retrieve the next page of results. Omitted on the first request.
+          type: string
+      required:
+        - resourceType
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/quotamanager/v1/api-ref/QuotaLimit/listServices.md
 ---
 

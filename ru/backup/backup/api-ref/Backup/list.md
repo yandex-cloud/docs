@@ -1,5 +1,122 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/backups
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            **string**
+            List backups that belongs to specific Compute Cloud instance.
+            Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`.
+          type: string
+        archive:
+          description: |-
+            **[ArchiveParameters](/docs/backup/backup/api-ref/Backup/list#yandex.cloud.backup.v1.ListBackupsRequest.ArchiveParameters)**
+            List backups that belongs to specific archive of specific folder.
+            Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`.
+          $ref: '#/definitions/ArchiveParameters'
+        folderId:
+          description: |-
+            **string**
+            List backups that belongs to specific folder.
+            Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`.
+          type: string
+        instancePolicy:
+          description: |-
+            **[InstancePolicy](/docs/backup/backup/api-ref/Backup/list#yandex.cloud.backup.v1.ListBackupsRequest.InstancePolicy)**
+            List backups that belongs to specific instance and policy at the same time.
+            Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`.
+          $ref: '#/definitions/InstancePolicy'
+        resourceId:
+          description: |-
+            **string**
+            List backups by specific resource ID.
+            Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`.
+          type: string
+        policyId:
+          description: |-
+            **string**
+            List backups by specific policy ID.
+            Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`.
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            By which column the listing should be ordered and in which direction,
+            format is "createdAt desc". "createdAt desc" if omitted.
+          type: string
+        filter:
+          description: |-
+            **string**
+            Filter list by various parameters.
+            Supported parameters are:
+            * created_at
+            Supported logic operators:
+            * AND
+          type: string
+        type:
+          description: |-
+            **enum** (ResourceType)
+            Type of resource. Could be compute VM or baremetal server.
+            - `RESOURCE_TYPE_UNSPECIFIED`
+            - `COMPUTE`: Resource is Compute Cloud VM
+            - `BMS`: Resource is baremetal server
+            - `EXTERNAL_VM`: Resource is VM
+            - `EXTERNAL_SERVER`: Resource is server
+          type: string
+          enum:
+            - RESOURCE_TYPE_UNSPECIFIED
+            - COMPUTE
+            - BMS
+            - EXTERNAL_VM
+            - EXTERNAL_SERVER
+        pageSize:
+          description: |-
+            **string** (int64)
+            Number of results per page.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Token for the results page. Not allowed to use if listing is performed by specific policy ID.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions:
+      ArchiveParameters:
+        type: object
+        properties:
+          archiveId:
+            description: |-
+              **string**
+              Required field. Archive ID.
+            type: string
+          folderId:
+            description: |-
+              **string**
+              Required field. Folder ID.
+            type: string
+        required:
+          - archiveId
+          - folderId
+      InstancePolicy:
+        type: object
+        properties:
+          computeInstanceId:
+            description: |-
+              **string**
+              Compute Cloud instance ID.
+            type: string
+          policyId:
+            description: |-
+              **string**
+              Policy ID.
+            type: string
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Backup/list.md
 ---
 
@@ -65,7 +182,9 @@ Type of resource. Could be compute VM or baremetal server.
 
 - `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
-- `BMS`: Resource is baremetal server ||
+- `BMS`: Resource is baremetal server
+- `EXTERNAL_VM`: Resource is VM
+- `EXTERNAL_SERVER`: Resource is server ||
 || pageSize | **string** (int64)
 
 Number of results per page. ||

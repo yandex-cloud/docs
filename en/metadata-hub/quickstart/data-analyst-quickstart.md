@@ -18,7 +18,7 @@ To get started:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
 
 1. Contact your working cloud or organization administrator for access to the resource catalog the metadata is processed in.
 
@@ -38,7 +38,7 @@ To get started:
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. Select the metadata catalog you need.
-  1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **Metadata search** tab to view the metadata available in the catalog.
+  1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab to view the metadata available in the catalog.
 
 {% endlist %}
 
@@ -49,12 +49,12 @@ To get started:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), go to your working metadata catalog.
-  1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **Metadata search** tab and select the dataset.
-  1. To view the general dataset information, navigate to the **Overview** tab and expand the list with the parameters you need.
+  1. Go to the ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab and select the dataset of interest.
+  1. To view general dataset information, navigate to the **{{ ui-key.yacloud.common.overview }}** tab and expand the list with the parameters you are looking for.
   1. To view the object schema, navigate to the **Schema** tab and select the schema version from the drop-down list.
   1. To view links with other objects go to the **Lineage** tab.
 
-     You can select the link depth, turn the **Display weak lineage** option on of off.
+     You can select the lineage depth and turn **Display weak lineage** on or off.
 
      {{ data-catalog-name }} displays links not just between objects but also between individual columns within objects. To view links between columns, expand the list of columns in the object of interest.
 
@@ -69,9 +69,9 @@ To get started:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), go to your working metadata catalog.
-  1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **Metadata search** tab.
+  1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab.
   1. By default, you search across all data types. If you need only specific data types, select them in the drop-down list to the left of the search bar.
-  1. Enter your search query in the **Search by metadata** field.
+  1. In the **{{ ui-key.yacloud.data-catalog.label_search-placeholder }}** field, enter the search query.
   1. To increase the relevance of search results, refine your search query and [configure metadata filters](#create-filters).
 
      The number of filters you can use depends on the data types you select. If you are working with several data types at the same time, only filters valid for all selected data types will be available.
@@ -87,8 +87,8 @@ To get started:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), go to your working metadata catalog.
-  1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **Metadata search** tab.
-  1. Click ![image](../../_assets/console-icons/plus.svg) **Add filter**.
+  1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab.
+  1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.data-catalog.label_search-button-add-filter }}**.
   1. Filter metadata by one or more tags created in the catalog.
 
      You can also add other filters. The number of filters you can use depends on the data types selected in the list to the left of the search bar. If you are working with several data types at the same time, only filters valid for all selected data types will be available.
@@ -106,9 +106,9 @@ To get started:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), go to your working metadata catalog.
-  1. Go to the ![image](../../_assets/console-icons/globe.svg) **Domains** tab.
+  1. Navigate to the ![image](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.data-catalog.label_domains }}** tab.
   1. Select the domain or subdomain from the list.
-  1. Navigate to the **Search by metadata** tab. It will present the list of datasets marked up by the current domain or containing fields marked up by the current domain.
+  1. Navigate to the **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab. It will present the list of datasets marked up by the current domain or containing fields marked up by the current domain.
   1. To find specific data, enter your query in the search bar above the data list.
   1. To go to the dataset, click its name in the list.
 
@@ -121,10 +121,10 @@ To get started:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), go to your working metadata catalog.
-  1. Go to the ![image](../../_assets/console-icons/book.svg) **Terms and glossaries** tab.
+  1. Navigate to the ![image](../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}** tab.
   1. Select the glossary containing the term you are looking for.
   1. Select the term from the list.
-  1. Navigate to the **Search by metadata** tab. It will present the list of datasets marked up by the current term or containing fields marked up by the current term.
+  1. Navigate to the **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab. It will present the list of datasets marked up by the current term or containing fields marked up by the current term.
   1. To find specific data, enter your query in the search bar above the data list.
   1. To go to the dataset, click its name in the list.
 
@@ -137,7 +137,7 @@ To get started:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), go to your working metadata catalog.
-  1. Go to the ![image](../../_assets/console-icons/tag.svg) **Tags and classifications** tab.
+  1. Navigate to the ![image](../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}** tab.
   1. Select the classification containing the tag you are looking for.
   1. Select the tag from the list. The tag page will present the list of datasets marked up by the current tag or containing fields marked up by the current tag.
   1. To find specific data, enter your query in the search bar above the data list.

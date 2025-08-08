@@ -1,5 +1,54 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/users
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        user:
+          description: |-
+            **[User](/docs/managed-greenplum/api-ref/User/list#yandex.cloud.mdb.greenplum.v1.User)**
+            Required field. 
+          $ref: '#/definitions/User'
+      required:
+        - user
+      additionalProperties: false
+    definitions:
+      User:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. User name
+            pattern: ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$
+            type: string
+          password:
+            description: |-
+              **string**
+              User password. Used only in create and update requests
+            type: string
+          resourceGroup:
+            description: |-
+              **string**
+              Resource group for user's queries
+            pattern: ^[^\|/*?.,;'<>]+$
+            type: string
+        required:
+          - name
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/User/create.md
 ---
 

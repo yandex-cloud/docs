@@ -1,5 +1,99 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://llm.{{ api-host }}/foundationModels/v1/completionBatch
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        modelUri:
+          description: |-
+            **string**
+            The [ID of the model](/docs/foundation-models/concepts/yandexgpt/models) to be used for batch completion generation.
+          type: string
+        completionOptions:
+          description: |-
+            **[CompletionOptions](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.CompletionOptions)**
+            Configuration options for completion generation.
+          $ref: '#/definitions/CompletionOptions'
+        sourceDatasetId:
+          description: |-
+            **string**
+            ID of the dataset containing the context for the completion model.
+            Includes only one of the fields `sourceDatasetId`.
+            Specifies the format of the request.
+          type: string
+        jsonObject:
+          description: |-
+            **boolean**
+            When set to true, the model will respond with a valid JSON object.
+            Be sure to explicitly ask the model for JSON.
+            Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
+            Includes only one of the fields `jsonObject`, `jsonSchema`.
+            Specifies the format of the model's response.
+          type: boolean
+        jsonSchema:
+          description: |-
+            **[JsonSchema](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.JsonSchema)**
+            Enforces a specific JSON structure for the model's response based on a provided schema.
+            Includes only one of the fields `jsonObject`, `jsonSchema`.
+            Specifies the format of the model's response.
+          $ref: '#/definitions/JsonSchema'
+      additionalProperties: false
+    definitions:
+      ReasoningOptions:
+        type: object
+        properties:
+          mode:
+            description: |-
+              **enum** (ReasoningMode)
+              Specifies the reasoning mode to be used.
+              - `REASONING_MODE_UNSPECIFIED`: Unspecified reasoning mode.
+              - `DISABLED`: Disables reasoning. The model will generate a response without performing any internal reasoning.
+              - `ENABLED_HIDDEN`: Enables reasoning in a hidden manner without exposing the reasoning steps to the user.
+            type: string
+            enum:
+              - REASONING_MODE_UNSPECIFIED
+              - DISABLED
+              - ENABLED_HIDDEN
+      CompletionOptions:
+        type: object
+        properties:
+          stream:
+            description: |-
+              **boolean**
+              Enables streaming of partially generated text.
+            type: boolean
+          temperature:
+            description: |-
+              **number** (double)
+              Affects creativity and randomness of responses. Should be a double number between 0 (inclusive) and 1 (inclusive).
+              Lower values produce more straightforward responses while higher values lead to increased creativity and randomness.
+              Default temperature: 0.3
+            type: number
+            format: double
+          maxTokens:
+            description: |-
+              **string** (int64)
+              The limit on the number of tokens used for single completion generation.
+              Must be greater than zero. This maximum allowed parameter value may depend on the model being used.
+            type: string
+            format: int64
+          reasoningOptions:
+            description: |-
+              **[ReasoningOptions](/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.ReasoningOptions)**
+              Configures reasoning capabilities for the model, allowing it to perform internal reasoning before responding.
+            $ref: '#/definitions/ReasoningOptions'
+      JsonSchema:
+        type: object
+        properties:
+          schema:
+            description: |-
+              **object**
+              The JSON Schema that the model's output must conform to.
+            type: object
 sourcePath: en/_api-ref/ai/foundation_models/v1/text_generation/text-generation/api-ref/TextGenerationBatch/completion.md
 ---
 
@@ -28,7 +122,13 @@ POST https://llm.{{ api-host }}/foundationModels/v1/completionBatch
     }
   },
   // Includes only one of the fields `sourceDatasetId`
-  "sourceDatasetId": "string"
+  "sourceDatasetId": "string",
+  // end of the list of possible fields
+  // Includes only one of the fields `jsonObject`, `jsonSchema`
+  "jsonObject": "boolean",
+  "jsonSchema": {
+    "schema": "object"
+  }
   // end of the list of possible fields
 }
 ```
@@ -50,6 +150,22 @@ ID of the dataset containing the context for the completion model.
 Includes only one of the fields `sourceDatasetId`.
 
 Specifies the format of the request. ||
+|| jsonObject | **boolean**
+
+When set to true, the model will respond with a valid JSON object.
+Be sure to explicitly ask the model for JSON.
+Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
+
+Includes only one of the fields `jsonObject`, `jsonSchema`.
+
+Specifies the format of the model's response. ||
+|| jsonSchema | **[JsonSchema](#yandex.cloud.ai.foundation_models.v1.JsonSchema)**
+
+Enforces a specific JSON structure for the model's response based on a provided schema.
+
+Includes only one of the fields `jsonObject`, `jsonSchema`.
+
+Specifies the format of the model's response. ||
 |#
 
 ## CompletionOptions {#yandex.cloud.ai.foundation_models.v1.CompletionOptions}
@@ -88,6 +204,17 @@ Specifies the reasoning mode to be used.
 - `REASONING_MODE_UNSPECIFIED`: Unspecified reasoning mode.
 - `DISABLED`: Disables reasoning. The model will generate a response without performing any internal reasoning.
 - `ENABLED_HIDDEN`: Enables reasoning in a hidden manner without exposing the reasoning steps to the user. ||
+|#
+
+## JsonSchema {#yandex.cloud.ai.foundation_models.v1.JsonSchema}
+
+Represents the expected structure of the model's response using a JSON Schema.
+
+#|
+||Field | Description ||
+|| schema | **object**
+
+The JSON Schema that the model's output must conform to. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

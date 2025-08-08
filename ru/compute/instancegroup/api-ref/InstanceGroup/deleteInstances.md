@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:deleteInstances
+    method: post
+    path:
+      type: object
+      properties:
+        instanceGroupId:
+          description: |-
+            **string**
+            Required field. ID of the instance group that the instances are being deleted from.
+            To get the ID of the instance group, use the [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+          type: string
+      required:
+        - instanceGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        managedInstanceIds:
+          description: |-
+            **string**
+            IDs of the instances to delete. Instances will be deleted along with all dependent resources.
+            Only IDs from the ManagedInstance.id field are allowed, not ManagedInstance.instance_id.
+          type: array
+          items:
+            type: string
+        createAnother:
+          description: |-
+            **boolean**
+            If set to true, the target size of instance group will not be reduced and
+            a new instance will be created instead of the deleted one. By default, the target size of instance group
+            will be reduced by the specified number of instance IDs.
+          type: boolean
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/deleteInstances.md
 ---
 

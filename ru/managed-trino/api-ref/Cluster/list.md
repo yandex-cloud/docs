@@ -1,5 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://trino.{{ api-host }}/managed-trino/v1/clusters
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list Trino clusters in.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](/docs/managed-trino/api-ref/Cluster/list#yandex.cloud.trino.v1.ListClustersResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](/docs/managed-trino/api-ref/Cluster/list#yandex.cloud.trino.v1.ListClustersResponse)
+            returned by the previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-trino/api-ref/Cluster/get#yandex.cloud.trino.v1.Cluster) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/trino/v1/api-ref/Cluster/list.md
 ---
 

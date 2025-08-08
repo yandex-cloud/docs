@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Playlist/get.md
 
 # Video API, gRPC: PlaylistService.Get
 
-Get the specific playlist.
+Retrieves detailed information about a specific playlist by its ID.
+Returns all playlist metadata, items, and related information.
 
 ## gRPC request
 
@@ -23,7 +24,7 @@ Get the specific playlist.
 ||Field | Description ||
 || playlist_id | **string**
 
-Required field. ID of the playlist. ||
+Required field. ID of the playlist to retrieve. ||
 |#
 
 ## Playlist {#yandex.cloud.video.v1.Playlist}
@@ -43,53 +44,66 @@ Required field. ID of the playlist. ||
       "position": "int64"
     }
   ],
+  "style_preset_id": "string",
   "created_at": "google.protobuf.Timestamp",
   "updated_at": "google.protobuf.Timestamp"
 }
 ```
 
-Entity representing an ordered list of videos or episodes.
+Entity representing an ordered collection of videos or episodes.
+Playlists allow organizing content into sequences for improved user experience.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the playlist. ||
+Unique identifier of the playlist. ||
 || channel_id | **string**
 
-ID of the channel to create the playlist in. ||
+Identifier of the channel where this playlist is created and managed. ||
 || title | **string**
 
-Playlist title. ||
+Title of the playlist displayed in interfaces and players. ||
 || description | **string**
 
-Playlist description. ||
+Detailed description of the playlist's content and purpose. ||
 || items[] | **[PlaylistItem](#yandex.cloud.video.v1.PlaylistItem)**
 
-List of playlist items. ||
+Ordered list of content items included in this playlist. ||
+|| style_preset_id | **string**
+
+Identifier of the style preset used in the player during playlist playback. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time when playlist was created. ||
+Timestamp when the playlist was initially created in the system. ||
 || updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time of last playlist update. ||
+Timestamp of the last modification to the playlist or its metadata. ||
 |#
 
 ## PlaylistItem {#yandex.cloud.video.v1.PlaylistItem}
+
+Represents a single item in a playlist.
+Each item references either a video or an episode and specifies its position in the sequence.
 
 #|
 ||Field | Description ||
 || video_id | **string**
 
-ID of the video.
+Identifier of a video included in the playlist.
 
-Includes only one of the fields `video_id`, `episode_id`. ||
+Includes only one of the fields `video_id`, `episode_id`.
+
+Specifies the content identifier type for this playlist item. ||
 || episode_id | **string**
 
-ID of the episode.
+Identifier of an episode included in the playlist.
 
-Includes only one of the fields `video_id`, `episode_id`. ||
+Includes only one of the fields `video_id`, `episode_id`.
+
+Specifies the content identifier type for this playlist item. ||
 || position | **int64**
 
-Item position (zero-indexed). ||
+Position of this item in the playlist sequence (zero-indexed).
+Determines the playback order of content in the playlist. ||
 |#

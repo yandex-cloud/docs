@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Stream/delete.md
 
 # Video API, gRPC: StreamService.Delete
 
-Delete stream.
+Deletes a specific stream by its ID.
 
 ## gRPC request
 
@@ -23,7 +23,7 @@ Delete stream.
 ||Field | Description ||
 || stream_id | **string**
 
-Required field. ID of the stream. ||
+Required field. ID of the stream to delete. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -107,5 +107,6 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || stream_id | **string**
 
-ID of the stream. ||
+ID of the stream.
+This identifier can be used to track the stream deletion operation. ||
 |#

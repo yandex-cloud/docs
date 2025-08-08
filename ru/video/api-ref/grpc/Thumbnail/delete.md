@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Thumbnail/delete.md
 
 # Video API, gRPC: ThumbnailService.Delete
 
-Delete thumbnail.
+Deletes a specific thumbnail by its ID.
+This removes both the metadata record and the associated image file.
 
 ## gRPC request
 
@@ -23,7 +24,7 @@ Delete thumbnail.
 ||Field | Description ||
 || thumbnail_id | **string**
 
-Required field. ID of the thumbnail. ||
+Required field. ID of the thumbnail to delete. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -107,5 +108,6 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || thumbnail_id | **string**
 
-ID of the thumbnail. ||
+ID of the thumbnail being deleted.
+This identifier can be used to track the thumbnail deletion operation. ||
 |#

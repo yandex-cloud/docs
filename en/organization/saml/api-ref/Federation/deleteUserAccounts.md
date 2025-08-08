@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}:deleteUserAccounts
+    method: post
+    path:
+      type: object
+      properties:
+        federationId:
+          description: |-
+            **string**
+            Required field. ID of the federation to delete users from.
+          type: string
+      required:
+        - federationId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        subjectIds:
+          description: |-
+            **string**
+            List of subjects to delete.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/deleteUserAccounts.md
 ---
 

@@ -1,5 +1,47 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-workflows.{{ api-host }}/workflows/v1/execution
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        workflowId:
+          description: |-
+            **string**
+            Required field. ID of the Workflow.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`, the service returns a [ListExecutionsResponse.nextPageToken](/docs/functions/workflows/api-ref/Execution/list#yandex.cloud.serverless.workflows.v1.ListExecutionsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListExecutionsResponse.nextPageToken](/docs/functions/workflows/api-ref/Execution/list#yandex.cloud.serverless.workflows.v1.ListExecutionsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently filtering can be applied to the following fields: status, started_at, finished_at.
+            2. Operator: `=`, `<` or `>`.
+            3. The value. Must be sting and match the regular expression `[+:\.-a-z0-9]`.
+            Examples of a filter: `status=ERROR`, `created_by=John.Doe`.
+          type: string
+      required:
+        - workflowId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Execution/list.md
 ---
 

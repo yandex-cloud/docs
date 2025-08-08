@@ -1,11 +1,54 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/streams/{streamId}:performAction
+    method: post
+    path:
+      type: object
+      properties:
+        streamId:
+          description: |-
+            **string**
+            Required field. ID of the stream on which to perform the action.
+          type: string
+      required:
+        - streamId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        publish:
+          description: |-
+            **object**
+            Publish the stream, changing its status from READY to ONAIR.
+            This makes the stream available for watching.
+            Includes only one of the fields `publish`, `stop`.
+            Specifies which action to perform on the stream (exactly one must be chosen).
+          $ref: '#/definitions/PublishAction'
+        stop:
+          description: |-
+            **object**
+            Stop the stream, changing its status to FINISHED.
+            This terminates the streaming session and releases resources.
+            Includes only one of the fields `publish`, `stop`.
+            Specifies which action to perform on the stream (exactly one must be chosen).
+          $ref: '#/definitions/StopAction'
+      additionalProperties: false
+    definitions:
+      PublishAction:
+        type: object
+        properties: {}
+      StopAction:
+        type: object
+        properties: {}
 sourcePath: en/_api-ref/video/v1/api-ref/Stream/performAction.md
 ---
 
 # Video API, REST: Stream.PerformAction
 
-Perform an action on the stream.
+Performs a specific action on a stream, such as publishing or stopping.
+Actions change the stream's state without modifying its content or metadata.
 
 ## HTTP request
 
@@ -19,7 +62,7 @@ POST https://video.{{ api-host }}/video/v1/streams/{streamId}:performAction
 ||Field | Description ||
 || streamId | **string**
 
-Required field. ID of the stream. ||
+Required field. ID of the stream on which to perform the action. ||
 |#
 
 ## Body parameters {#yandex.cloud.video.v1.PerformStreamActionRequest}
@@ -37,10 +80,20 @@ Required field. ID of the stream. ||
 ||Field | Description ||
 || publish | **object**
 
-Includes only one of the fields `publish`, `stop`. ||
+Publish the stream, changing its status from READY to ONAIR.
+This makes the stream available for watching.
+
+Includes only one of the fields `publish`, `stop`.
+
+Specifies which action to perform on the stream (exactly one must be chosen). ||
 || stop | **object**
 
-Includes only one of the fields `publish`, `stop`. ||
+Stop the stream, changing its status to FINISHED.
+This terminates the streaming session and releases resources.
+
+Includes only one of the fields `publish`, `stop`.
+
+Specifies which action to perform on the stream (exactly one must be chosen). ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -168,7 +221,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || streamId | **string**
 
-ID of the stream. ||
+ID of the stream on which the action is being performed.
+This identifier can be used to track the action operation
+and to verify that the action is being applied to the correct stream. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -190,39 +245,42 @@ A list of messages that carry the error details. ||
 
 ## Stream {#yandex.cloud.video.v1.Stream}
 
+Entity representing a live video stream.
+A stream is a real-time video broadcast linked to a specific stream line.
+
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the stream. ||
+Unique identifier of the stream. ||
 || channelId | **string**
 
-ID of the channel where the stream was created. ||
+Identifier of the channel where the stream is created and managed. ||
 || lineId | **string**
 
-ID of the line to which stream is linked. ||
+Identifier of the stream line to which this stream is linked. ||
 || title | **string**
 
-Stream title. ||
+Title of the stream displayed in interfaces and players. ||
 || description | **string**
 
-Stream description. ||
+Detailed description of the stream content and context. ||
 || thumbnailId | **string**
 
-ID of the thumbnail. ||
+Identifier of the thumbnail image used to represent the stream visually. ||
 || status | **enum** (StreamStatus)
 
-Stream status.
+Current status of the stream.
 
-- `STREAM_STATUS_UNSPECIFIED`: Stream status unspecified.
-- `OFFLINE`: Stream offline.
-- `PREPARING`: Preparing the infrastructure for receiving video signal.
-- `READY`: Everything is ready to launch stream.
-- `ONAIR`: Stream onair.
-- `FINISHED`: Stream finished. ||
+- `STREAM_STATUS_UNSPECIFIED`: The stream status is not specified.
+- `OFFLINE`: The stream is offline and not broadcasting.
+- `PREPARING`: The system is preparing the infrastructure for receiving the video signal.
+- `READY`: The infrastructure is ready to launch the stream.
+- `ONAIR`: The stream is currently broadcasting live.
+- `FINISHED`: The stream has completed and is no longer broadcasting. ||
 || startTime | **string** (date-time)
 
-Stream start time.
+Timestamp when the stream was initiated.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -232,7 +290,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || publishTime | **string** (date-time)
 
-Stream publish time. Time when stream switched to ONAIR status.
+Timestamp when the stream was published (switched to ONAIR status).
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -242,7 +300,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || finishTime | **string** (date-time)
 
-Stream finish time.
+Timestamp when the stream was completed.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -252,25 +310,25 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || autoPublish | **boolean**
 
-Automatically publish stream when ready.
-Switches status from READY to ONAIR. ||
+Controls automatic publishing of the stream when it's ready.
+When set to true, automatically switches status from READY to ONAIR. ||
 || onDemand | **object**
 
-On-demand stream. Starts immediately when a signal appears.
+On-demand stream starts immediately when a video signal appears.
 
 Includes only one of the fields `onDemand`, `schedule`.
 
-Stream type. ||
+Specifies the stream scheduling type. ||
 || schedule | **[Schedule](#yandex.cloud.video.v1.Schedule)**
 
-Schedule stream. Starts or finished at the specified time.
+Scheduled stream starts and finishes at specified time.
 
 Includes only one of the fields `onDemand`, `schedule`.
 
-Stream type. ||
+Specifies the stream scheduling type. ||
 || createdAt | **string** (date-time)
 
-Time when stream was created.
+Timestamp when the stream was initially created in the system.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -280,7 +338,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || updatedAt | **string** (date-time)
 
-Time of last stream update.
+Timestamp of the last modification to the stream or its metadata.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -290,17 +348,22 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per stream.
+Used for organization, filtering, and metadata purposes.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
 ## Schedule {#yandex.cloud.video.v1.Schedule}
 
-Schedule stream type.
-This type of streams start and finish automatically at the specified time.
+Represents a scheduled stream type.
+This type of stream starts and finishes automatically at specified time.
 
 #|
 ||Field | Description ||
 || startTime | **string** (date-time)
+
+Scheduled time when the stream should automatically start.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -309,6 +372,8 @@ To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || finishTime | **string** (date-time)
+
+Scheduled time when the stream should automatically finish.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

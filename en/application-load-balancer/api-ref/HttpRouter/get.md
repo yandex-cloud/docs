@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}
+    method: get
+    path:
+      type: object
+      properties:
+        httpRouterId:
+          description: |-
+            **string**
+            Required field. ID of the HTTP router to return.
+            To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/HttpRouter/list#List) request.
+          type: string
+      required:
+        - httpRouterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/HttpRouter/get.md
 ---
 
@@ -226,7 +244,8 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
               ]
             },
             "securityProfileId": "string"
-          }
+          },
+          "disableSecurityProfile": "boolean"
         }
       ],
       "modifyRequestHeaders": [
@@ -482,6 +501,9 @@ Includes only one of the fields `http`, `grpc`.
 
 Route configuration. ||
 || routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)** ||
+|| disableSecurityProfile | **boolean**
+
+Whether set to 'true' disables security profile for the route. ||
 |#
 
 ## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute}

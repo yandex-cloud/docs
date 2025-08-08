@@ -1,5 +1,52 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/refreshTokens:revoke
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        refreshTokenId:
+          description: |-
+            **string**
+            Identifier of the Refresh Token to be revoked.
+            Includes only one of the fields `refreshTokenId`, `refreshToken`, `revokeFilter`.
+          type: string
+        refreshToken:
+          description: |-
+            **string**
+            The Refresh Token to be revoked.
+            Includes only one of the fields `refreshTokenId`, `refreshToken`, `revokeFilter`.
+          type: string
+        revokeFilter:
+          description: |-
+            **[RevokeFilter](/docs/iam/api-ref/RefreshToken/revoke#yandex.cloud.iam.v1.RevokeFilter)**
+            The filter for revoking Refresh Token
+            Includes only one of the fields `refreshTokenId`, `refreshToken`, `revokeFilter`.
+          $ref: '#/definitions/RevokeFilter'
+      additionalProperties: false
+    definitions:
+      RevokeFilter:
+        type: object
+        properties:
+          clientId:
+            description: |-
+              **string**
+              The OAuth client identifier for which the Refresh Token was issued.
+            type: string
+          subjectId:
+            description: |-
+              **string**
+              The subject identifier for whom the Refresh Token was issued.
+              If not specified, it defaults to the subject that made the request.
+            type: string
+          clientInstanceInfo:
+            description: |-
+              **string**
+              Information about the app for which the Refresh Token was issued.
+            type: string
 sourcePath: en/_api-ref/iam/v1/api-ref/RefreshToken/revoke.md
 ---
 

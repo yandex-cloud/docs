@@ -1,5 +1,30 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/regressionDashboards/{dashboardId}
+    method: delete
+    path:
+      type: object
+      properties:
+        dashboardId:
+          description: |-
+            **string**
+            Required field. ID of the dashboard to delete.
+          type: string
+      required:
+        - dashboardId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        etag:
+          description: |-
+            **string**
+            The current etag of the dashboard.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/RegressionDashboard/delete.md
 ---
 

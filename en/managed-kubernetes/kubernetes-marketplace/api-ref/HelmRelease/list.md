@@ -1,5 +1,33 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://mks.{{ api-host }}/managed-kubernetes/marketplace/v1/helm-releases
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. The ID of the Kubernetes cluster to list Helm releases from.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Token for pagination to retrieve the next page of results.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/HelmRelease/list.md
 ---
 

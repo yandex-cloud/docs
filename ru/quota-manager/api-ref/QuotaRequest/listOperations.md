@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://quota-manager.{{ api-host }}/quota-manager/v1/quotaRequests/{quotaRequestId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        quotaRequestId:
+          description: |-
+            **string**
+            Required field. ID of the quota request to list operations for.
+          type: string
+      required:
+        - quotaRequestId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListQuotaRequestOperationsResponse.nextPageToken](/docs/quota-manager/api-ref/QuotaRequest/listOperations#yandex.cloud.quotamanager.v1.ListQuotaRequestOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken`
+            to the [ListQuotaRequestOperationsResponse.nextPageToken](/docs/quota-manager/api-ref/QuotaRequest/listOperations#yandex.cloud.quotamanager.v1.ListQuotaRequestOperationsResponse)
+            returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/quotamanager/v1/api-ref/QuotaRequest/listOperations.md
 ---
 

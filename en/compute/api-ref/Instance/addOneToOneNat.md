@@ -1,5 +1,92 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}/addOneToOneNat
+    method: post
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            ID of the instance to enable One-to-One NAT on.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        networkInterfaceIndex:
+          description: |-
+            **string**
+            The index of the network interface to enable One-to-One NAT on.
+          type: string
+        internalAddress:
+          description: |-
+            **string**
+            The network address that is assigned to the instance for this network interface.
+          type: string
+        oneToOneNatSpec:
+          description: |-
+            **[OneToOneNatSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.OneToOneNatSpec)**
+            An external IP address configuration.
+            If not specified, then this instance will have no external internet access.
+          $ref: '#/definitions/OneToOneNatSpec'
+      additionalProperties: false
+    definitions:
+      DnsRecordSpec:
+        type: object
+        properties:
+          fqdn:
+            description: |-
+              **string**
+              Required field. FQDN (required)
+            type: string
+          dnsZoneId:
+            description: |-
+              **string**
+              DNS zone id (optional, if not set, private zone used)
+            type: string
+          ttl:
+            description: |-
+              **string** (int64)
+              DNS record ttl, values in 0-86400 (optional)
+            type: string
+            format: int64
+          ptr:
+            description: |-
+              **boolean**
+              When set to true, also create PTR DNS record (optional)
+            type: boolean
+        required:
+          - fqdn
+      OneToOneNatSpec:
+        type: object
+        properties:
+          ipVersion:
+            description: |-
+              **enum** (IpVersion)
+              External IP address version.
+              - `IP_VERSION_UNSPECIFIED`
+              - `IPV4`: IPv4 address, for example 192.0.2.235.
+              - `IPV6`: IPv6 address. Not available yet.
+            type: string
+            enum:
+              - IP_VERSION_UNSPECIFIED
+              - IPV4
+              - IPV6
+          address:
+            description: |-
+              **string**
+              set static IP by value
+            type: string
+          dnsRecordSpecs:
+            description: |-
+              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              External DNS configuration
+            type: array
+            items:
+              $ref: '#/definitions/DnsRecordSpec'
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/addOneToOneNat.md
 ---
 

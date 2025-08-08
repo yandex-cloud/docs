@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Organization/listOperations.md
 ---
 
-# Cloud Organization API, gRPC: OrganizationService.ListOperations
+# Identity Hub API, gRPC: OrganizationService.ListOperations
 
 Lists operations for the specified organization.
 

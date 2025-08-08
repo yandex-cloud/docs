@@ -1,5 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        federationId:
+          description: |-
+            **string**
+            ID of the federation to add new certificate.
+            To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the certificate.
+            The name must be unique within the federation.
+          pattern: '[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the certificate.
+          type: string
+        data:
+          description: |-
+            **string**
+            Certificate data in PEM format.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Certificate/create.md
 ---
 

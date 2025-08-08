@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://storage.{{ api-host }}/storage/v1/buckets
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list buckets in.
+            To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/list.md
 ---
 

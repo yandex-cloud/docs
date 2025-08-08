@@ -114,16 +114,11 @@ keywords:
         * `--security-group-ids` — список идентификаторов групп безопасности.
         * `--coordinator` — конфигурация [координатора](../concepts/index.md#coordinator):
 
-            * `resource-preset-id` — класс вычислительных ресурсов координатора. Возможные значения:
-
-                {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+            * `resource-preset-id` — [класс вычислительных ресурсов](../concepts/instance-types.md) координатора.
 
         * `--worker` — конфигурация [воркера](../concepts/index.md#workers):
 
-            * `resource-preset-id` — класс вычислительных ресурсов воркера. Возможные значения:
-
-                {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
-
+            * `resource-preset-id` — [класс вычислительных ресурсов](../concepts/instance-types.md) воркера.
             * `count` — фиксированное количество воркеров.
             * `minCount` — минимальное количество воркеров для автоматического масштабирования.
             * `maxCount` — максимальное количество воркеров для автоматического масштабирования.
@@ -300,15 +295,11 @@ keywords:
 
             * `coordinatorConfig` — конфигурация координатора.
 
-               * `resources.resourcePresetId` — класс вычислительных ресурсов координатора. Возможные значения:
-
-                  {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resourcePresetId` — [класс вычислительных ресурсов](../concepts/instance-types.md) координатора.
 
             * `workerConfig` — конфигурация воркера.
 
-               * `resources.resourcePresetId` — класс вычислительных ресурсов воркера. Возможные значения:
-
-                  {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resourcePresetId` — [класс вычислительных ресурсов](../concepts/instance-types.md) воркера.
 
                * `scalePolicy` — политика масштабирования воркеров:
 
@@ -439,15 +430,11 @@ keywords:
 
             * `coordinator_config` — конфигурация координатора.
 
-               * `resources.resource_preset_id` — класс вычислительных ресурсов координатора. Возможные значения:
-
-                   {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resource_preset_id` — [класс вычислительных ресурсов](../concepts/instance-types.md) координатора.
 
             * `worker_config` — конфигурация воркера.
 
-               * `resources.resource_preset_id` — класс вычислительных ресурсов воркера. Возможные значения:
-
-                   {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resource_preset_id` — [класс вычислительных ресурсов](../concepts/instance-types.md) воркера.
 
                * `scale_policy` — политика масштабирования воркеров:
 
@@ -523,8 +510,8 @@ keywords:
     * Сервисный аккаунт — `ajev56jp96ji********`.
     * Подсеть — `{{ subnet-id }}`.
     * Группа безопасности — `{{ security-group }}`.
-    * Координатор с классом вычислительных ресурсов — `c4-m16`.
-    * 4 воркера с классом вычислительных ресурсов — `c4-m16`.
+    * Координатор с [классом вычислительных ресурсов](../concepts/instance-types.md) — `c4-m16`.
+    * 4 воркера с [классом вычислительных ресурсов](../concepts/instance-types.md) — `c4-m16`.
     * Защита от непреднамеренного удаления.
 
     Выполните следующую команду:
@@ -548,8 +535,8 @@ keywords:
     * Сервисный аккаунт — `ajev56jp96ji********`.
     * Сеть — `mtr-network`.
     * Подсеть — `mtr-subnet`. Зона доступности подсети — `ru-central1-a`, диапазон — `10.1.0.0/16`.
-    * Координатор с классом вычислительных ресурсов — `c4-m16`.
-    * 4 воркера с классом вычислительных ресурсов — `c4-m16`.
+    * Координатор с [классом вычислительных ресурсов](../concepts/instance-types.md) — `c4-m16`.
+    * 4 воркера с [классом вычислительных ресурсов](../concepts/instance-types.md) — `c4-m16`.
     * Защита от непреднамеренного удаления.
 
     Конфигурационный файл для такого кластера выглядит так:

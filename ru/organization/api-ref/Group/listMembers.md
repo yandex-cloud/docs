@@ -1,9 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/groups/{groupId}:listMembers
+    method: get
+    path:
+      type: object
+      properties:
+        groupId:
+          description: |-
+            **string**
+            Required field. ID of the Group resource to list members for.
+          type: string
+      required:
+        - groupId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListGroupMembersResponse.nextPageToken](/docs/organization/api-ref/Group/listMembers#yandex.cloud.organizationmanager.v1.ListGroupMembersResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. Set `pageToken`
+            to the [ListGroupMembersResponse.nextPageToken](/docs/organization/api-ref/Group/listMembers#yandex.cloud.organizationmanager.v1.ListGroupMembersResponse)
+            returned by a previous list request to get the next page of results.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/listMembers.md
 ---
 
-# Cloud Organization API, REST: Group.ListMembers
+# Identity Hub API, REST: Group.ListMembers
 
 List group active members.
 

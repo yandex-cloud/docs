@@ -1,5 +1,55 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshotSchedules
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list snapshot schedules in.
+            To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListSnapshotSchedulesResponse.nextPageToken](/docs/compute/api-ref/SnapshotSchedule/list#yandex.cloud.compute.v1.ListSnapshotSchedulesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListSnapshotSchedulesResponse.nextPageToken](/docs/compute/api-ref/SnapshotSchedule/list#yandex.cloud.compute.v1.ListSnapshotSchedulesResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters snapshot schedules listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [SnapshotSchedule.name](/docs/compute/api-ref/SnapshotSchedule/get#yandex.cloud.compute.v1.SnapshotSchedule) field.
+            2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+            3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            Example of a filter: `name=my-schedule`.
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            A sorting expression that sorts snapshot schedules listed in the response.
+            The expression must specify the field name from [SnapshotSchedule](/docs/compute/api-ref/SnapshotSchedule/get#yandex.cloud.compute.v1.SnapshotSchedule) and `asc`ending or `desc`ending order,
+            e.g. `createdAt desc`.
+            Default value: `id asc`.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/list.md
 ---
 

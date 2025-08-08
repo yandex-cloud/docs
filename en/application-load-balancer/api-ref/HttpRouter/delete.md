@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}
+    method: delete
+    path:
+      type: object
+      properties:
+        httpRouterId:
+          description: |-
+            **string**
+            Required field. ID of the HTTP router to delete.
+            To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/HttpRouter/list#List) request.
+          type: string
+      required:
+        - httpRouterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/HttpRouter/delete.md
 ---
 

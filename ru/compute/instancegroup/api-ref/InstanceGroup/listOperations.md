@@ -1,5 +1,46 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        instanceGroupId:
+          description: |-
+            **string**
+            Required field. ID of the InstanceGroup resource to list operations for.
+            To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+          type: string
+      required:
+        - instanceGroupId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is more than `pageSize`, the service returns a [ListInstanceGroupOperationsResponse.nextPageToken](/docs/compute/instancegroup/api-ref/InstanceGroup/listOperations#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListInstanceGroupOperationsResponse.nextPageToken](/docs/compute/instancegroup/api-ref/InstanceGroup/listOperations#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.InstanceGroup) field.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/listOperations.md
 ---
 

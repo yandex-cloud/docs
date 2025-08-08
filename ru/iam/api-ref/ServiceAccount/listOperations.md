@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/serviceAccounts/{serviceAccountId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            **string**
+            Required field. ID of the ServiceAccount resource to list operations for.
+          type: string
+      required:
+        - serviceAccountId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListServiceAccountOperationsResponse.nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#yandex.cloud.iam.v1.ListServiceAccountOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken`
+            to the [ListServiceAccountOperationsResponse.nextPageToken](/docs/iam/api-ref/ServiceAccount/listOperations#yandex.cloud.iam.v1.ListServiceAccountOperationsResponse)
+            returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/listOperations.md
 ---
 

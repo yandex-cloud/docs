@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/tests/{testId}
+    method: get
+    path:
+      type: object
+      properties:
+        testId:
+          description: |-
+            **string**
+            Required field. ID of the test to return.
+          type: string
+      required:
+        - testId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Test/get.md
 ---
 

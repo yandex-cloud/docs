@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Stream/batchDelete.md
 
 # Video API, gRPC: StreamService.BatchDelete
 
-Batch delete streams.
+Deletes multiple streams in a specific channel in a single request.
+This is more efficient than making multiple Delete requests when removing several streams.
 
 ## gRPC request
 
@@ -26,10 +27,11 @@ Batch delete streams.
 ||Field | Description ||
 || channel_id | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel containing the streams to delete. ||
 || stream_ids[] | **string**
 
-List of stream IDs. ||
+List of stream IDs to delete.
+All streams must exist in the specified channel. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -115,5 +117,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || stream_ids[] | **string**
 
-List of stream IDs. ||
+List of stream IDs being deleted.
+This list can be used to track which streams are included
+in the batch deletion operation. ||
 |#

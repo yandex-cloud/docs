@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/securityProfiles
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the security profile belongs to.
+            Currently page_size, page_token, filter and order_by are not supported and List method will return all security profiles in the folder.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/smartwebsecurity/v1/api-ref/SecurityProfile/list.md
 ---
 

@@ -1,11 +1,30 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}:updateStreamKey
+    method: patch
+    path:
+      type: object
+      properties:
+        streamLineId:
+          description: |-
+            **string**
+            Required field. ID of the stream line for which to update the stream key.
+            The stream line must be a push-type input (RTMP push or SRT push).
+          type: string
+      required:
+        - streamLineId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/updateStreamKey.md
 ---
 
 # Video API, REST: StreamLine.UpdateStreamKey
 
-Update stream key.
+Regenerates and updates the stream key for a push-type stream line.
+This is useful for security purposes when the existing key may be compromised.
 
 ## HTTP request
 
@@ -19,7 +38,8 @@ PATCH https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}:updateStr
 ||Field | Description ||
 || streamLineId | **string**
 
-Required field. ID of the line. ||
+Required field. ID of the stream line for which to update the stream key.
+The stream line must be a push-type input (RTMP push or SRT push). ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -127,7 +147,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || streamLineId | **string**
 
-ID of the line. ||
+ID of the stream line. ||
 |#
 
 ## Status {#google.rpc.Status}

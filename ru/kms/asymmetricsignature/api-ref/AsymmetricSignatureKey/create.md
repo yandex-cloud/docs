@@ -1,5 +1,78 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a asymmetric KMS key in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the key.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the key.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
+            For example, `"project": "mvp"` or `"source": "dictionary"`.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        signatureAlgorithm:
+          description: |-
+            **enum** (AsymmetricSignatureAlgorithm)
+            Asymmetric signature algorithm.
+            - `ASYMMETRIC_SIGNATURE_ALGORITHM_UNSPECIFIED`
+            - `RSA_2048_SIGN_PSS_SHA_256`: RSA-2048 signature with PSS padding and SHA-256
+            - `RSA_2048_SIGN_PSS_SHA_384`: RSA-2048 signature with PSS padding and SHA-384
+            - `RSA_2048_SIGN_PSS_SHA_512`: RSA-2048 signature with PSS padding and SHA-512
+            - `RSA_3072_SIGN_PSS_SHA_256`: RSA-3072 signature with PSS padding and SHA-256
+            - `RSA_3072_SIGN_PSS_SHA_384`: RSA-3072 signature with PSS padding and SHA-384
+            - `RSA_3072_SIGN_PSS_SHA_512`: RSA-3072 signature with PSS padding and SHA-512
+            - `RSA_4096_SIGN_PSS_SHA_256`: RSA-4096 signature with PSS padding and SHA-256
+            - `RSA_4096_SIGN_PSS_SHA_384`: RSA-4096 signature with PSS padding and SHA-384
+            - `RSA_4096_SIGN_PSS_SHA_512`: RSA-4096 signature with PSS padding and SHA-512
+            - `ECDSA_NIST_P256_SHA_256`: ECDSA signature with NIST P-256 curve and SHA-256
+            - `ECDSA_NIST_P384_SHA_384`: ECDSA signature with NIST P-384 curve and SHA-384
+            - `ECDSA_NIST_P521_SHA_512`: ECDSA signature with NIST P-521 curve and SHA-512
+            - `ECDSA_SECP256_K1_SHA_256`: ECDSA signature with SECP256_K1 curve and SHA-256
+          type: string
+          enum:
+            - ASYMMETRIC_SIGNATURE_ALGORITHM_UNSPECIFIED
+            - RSA_2048_SIGN_PSS_SHA_256
+            - RSA_2048_SIGN_PSS_SHA_384
+            - RSA_2048_SIGN_PSS_SHA_512
+            - RSA_3072_SIGN_PSS_SHA_256
+            - RSA_3072_SIGN_PSS_SHA_384
+            - RSA_3072_SIGN_PSS_SHA_512
+            - RSA_4096_SIGN_PSS_SHA_256
+            - RSA_4096_SIGN_PSS_SHA_384
+            - RSA_4096_SIGN_PSS_SHA_512
+            - ECDSA_NIST_P256_SHA_256
+            - ECDSA_NIST_P384_SHA_384
+            - ECDSA_NIST_P521_SHA_512
+            - ECDSA_SECP256_K1_SHA_256
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that inhibits deletion of the symmetric KMS key
+          type: boolean
+      required:
+        - folderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/create.md
 ---
 

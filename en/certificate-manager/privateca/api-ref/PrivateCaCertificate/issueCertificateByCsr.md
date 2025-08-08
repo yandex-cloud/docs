@@ -1,5 +1,60 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/privateCertificates:issueByCsr
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        certificateAuthorityId:
+          description: |-
+            **string**
+            Required field. The ID of the Certificate Authority (CA) that will issue this certificate.
+          type: string
+        name:
+          description: |-
+            **string**
+            The name of the certificate.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            A description of the certificate.
+          type: string
+        csr:
+          description: |-
+            **string**
+            Required field. PEM-encoded CSR content.
+          type: string
+        privateKey:
+          description: |-
+            **string**
+            PEM-encoded private key associated with the CSR. CA will generate own key for certificate if absent
+          type: string
+        templateId:
+          description: |-
+            **string**
+            Optional certificate template ID. Issue certificate with template's fields if non-empty.
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag to protect the certificate from being accidentally deleted.
+          type: boolean
+        desiredTtlDays:
+          description: |-
+            **string** (int64)
+            Desired time-to-live (TTL) of the certificate in days.
+          type: string
+          format: int64
+      required:
+        - certificateAuthorityId
+        - csr
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCaCertificate/issueCertificateByCsr.md
 ---
 

@@ -1,5 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/asymmetricEncryptionKeys/{keyId}:decrypt
+    method: post
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the asymmetric KMS key to use for decryption.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        ciphertext:
+          description: |-
+            **string** (bytes)
+            Required field. Ciphertext to be decrypted.
+            Should be encoded with base64.
+          type: string
+          format: bytes
+      required:
+        - ciphertext
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/AsymmetricEncryptionCrypto/decrypt.md
 ---
 

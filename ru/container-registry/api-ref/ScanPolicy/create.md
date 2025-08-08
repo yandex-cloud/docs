@@ -1,5 +1,93 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/scanPolicies
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the scan policy registry.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the scan policy.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the scan policy.
+          type: string
+        rules:
+          description: |-
+            **[ScanRules](/docs/container-registry/api-ref/ScanPolicy/get#yandex.cloud.containerregistry.v1.ScanRules)**
+            Rules of the scan policy.
+          $ref: '#/definitions/ScanRules'
+      required:
+        - registryId
+      additionalProperties: false
+    definitions:
+      PushRule:
+        type: object
+        properties:
+          repositoryPrefixes:
+            description: |-
+              **string**
+              List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+            pattern: \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))*
+            type: array
+            items:
+              type: string
+          disabled:
+            description: |-
+              **boolean**
+              Turns off scan rule.
+            type: boolean
+      ScheduledRule:
+        type: object
+        properties:
+          repositoryPrefixes:
+            description: |-
+              **string**
+              List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+            pattern: \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))*
+            type: array
+            items:
+              type: string
+          rescanPeriod:
+            description: |-
+              **string** (duration)
+              Required field. Period of time since last scan to trigger automatic rescan.
+            type: string
+            format: duration
+          disabled:
+            description: |-
+              **boolean**
+              Turns off scan rule.
+            type: boolean
+        required:
+          - rescanPeriod
+      ScanRules:
+        type: object
+        properties:
+          pushRule:
+            description: |-
+              **[PushRule](/docs/container-registry/api-ref/ScanPolicy/get#yandex.cloud.containerregistry.v1.PushRule)**
+              Description of on-push scan rule.
+            $ref: '#/definitions/PushRule'
+          scheduleRules:
+            description: |-
+              **[ScheduledRule](/docs/container-registry/api-ref/ScanPolicy/get#yandex.cloud.containerregistry.v1.ScheduledRule)**
+              Description of time based rescan rule.
+            type: array
+            items:
+              $ref: '#/definitions/ScheduledRule'
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/ScanPolicy/create.md
 ---
 

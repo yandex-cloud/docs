@@ -1,5 +1,188 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:relocate
+    method: post
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            Required field. ID of the instance to move.
+            To get the instance ID, make a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request.
+          type: string
+      required:
+        - instanceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationZoneId:
+          description: |-
+            **string**
+            Required field. ID of the availability zone to move the instance to.
+            To get the zone ID, make a [ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+          type: string
+        networkInterfaceSpecs:
+          description: |-
+            **[NetworkInterfaceSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.NetworkInterfaceSpec)**
+            Required field. Network configuration for the instance. Specifies how the network interface is configured
+            to interact with other services on the internal network and on the internet.
+            Currently only one network interface is supported per instance.
+          type: array
+          items:
+            $ref: '#/definitions/NetworkInterfaceSpec'
+        bootDiskPlacement:
+          description: |-
+            **[DiskPlacementPolicy](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+            Boot disk placement policy configuration in target zone. Must be specified if disk has placement policy.
+          $ref: '#/definitions/DiskPlacementPolicy'
+        secondaryDiskPlacements:
+          description: |-
+            **[DiskPlacementPolicyChange](/docs/compute/api-ref/Instance/relocate#yandex.cloud.compute.v1.DiskPlacementPolicyChange)**
+            Secondary disk placement policy configurations in target zone. Must be specified for each disk that has placement policy.
+          type: array
+          items:
+            $ref: '#/definitions/DiskPlacementPolicyChange'
+      required:
+        - destinationZoneId
+        - networkInterfaceSpecs
+      additionalProperties: false
+    definitions:
+      DnsRecordSpec:
+        type: object
+        properties:
+          fqdn:
+            description: |-
+              **string**
+              Required field. FQDN (required)
+            type: string
+          dnsZoneId:
+            description: |-
+              **string**
+              DNS zone id (optional, if not set, private zone used)
+            type: string
+          ttl:
+            description: |-
+              **string** (int64)
+              DNS record ttl, values in 0-86400 (optional)
+            type: string
+            format: int64
+          ptr:
+            description: |-
+              **boolean**
+              When set to true, also create PTR DNS record (optional)
+            type: boolean
+        required:
+          - fqdn
+      OneToOneNatSpec:
+        type: object
+        properties:
+          ipVersion:
+            description: |-
+              **enum** (IpVersion)
+              External IP address version.
+              - `IP_VERSION_UNSPECIFIED`
+              - `IPV4`: IPv4 address, for example 192.0.2.235.
+              - `IPV6`: IPv6 address. Not available yet.
+            type: string
+            enum:
+              - IP_VERSION_UNSPECIFIED
+              - IPV4
+              - IPV6
+          address:
+            description: |-
+              **string**
+              set static IP by value
+            type: string
+          dnsRecordSpecs:
+            description: |-
+              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              External DNS configuration
+            type: array
+            items:
+              $ref: '#/definitions/DnsRecordSpec'
+      PrimaryAddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              An IPv4 internal network address that is assigned to the instance for this network interface.
+              If not specified by the user, an unused internal IP is assigned by the system.
+            type: string
+          oneToOneNatSpec:
+            description: |-
+              **[OneToOneNatSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.OneToOneNatSpec)**
+              An external IP address configuration.
+              If not specified, then this instance will have no external internet access.
+            $ref: '#/definitions/OneToOneNatSpec'
+          dnsRecordSpecs:
+            description: |-
+              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              Internal DNS configuration
+            type: array
+            items:
+              $ref: '#/definitions/DnsRecordSpec'
+      NetworkInterfaceSpec:
+        type: object
+        properties:
+          subnetId:
+            description: |-
+              **string**
+              Required field. ID of the subnet.
+            type: string
+          primaryV4AddressSpec:
+            description: |-
+              **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+              Primary IPv4 address that will be assigned to the instance for this network interface.
+            $ref: '#/definitions/PrimaryAddressSpec'
+          primaryV6AddressSpec:
+            description: |-
+              **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+              Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet.
+            $ref: '#/definitions/PrimaryAddressSpec'
+          securityGroupIds:
+            description: |-
+              **string**
+              ID's of security groups attached to the interface
+            type: array
+            items:
+              type: string
+          index:
+            description: |-
+              **string**
+              The index of the network interface, will be generated by the server, 0,1,2... etc if not specified.
+            type: string
+        required:
+          - subnetId
+      DiskPlacementPolicy:
+        type: object
+        properties:
+          placementGroupId:
+            description: |-
+              **string**
+              Placement group ID.
+            type: string
+          placementGroupPartition:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      DiskPlacementPolicyChange:
+        type: object
+        properties:
+          diskId:
+            description: |-
+              **string**
+              Disk ID.
+            type: string
+          diskPlacementPolicy:
+            description: |-
+              **[DiskPlacementPolicy](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+              Placement policy configuration for given disk.
+            $ref: '#/definitions/DiskPlacementPolicy'
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/relocate.md
 ---
 

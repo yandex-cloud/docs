@@ -1,5 +1,134 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}:updateSniMatch
+    method: post
+    path:
+      type: object
+      properties:
+        loadBalancerId:
+          description: |-
+            **string**
+            Required field. ID of the application load balancer to update the SNI handler in.
+          type: string
+      required:
+        - loadBalancerId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        listenerName:
+          description: |-
+            **string**
+            Required field. Name of the listener to update the SNI handler in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the SNI handler to update.
+          type: string
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        serverNames:
+          description: |-
+            **string**
+            New server names that are matched by the SNI handler.
+            Existing set of server names is completely replaced by the provided set, so if you just want
+            to add or remove a server name:
+            1. Get the current set of server names with a [LoadBalancerService.Get](/docs/application-load-balancer/api-ref/LoadBalancer/get#Get) request.
+            2. Add or remove a server name in this set.
+            3. Send the new set in this field.
+          type: array
+          items:
+            type: string
+        handler:
+          description: |-
+            **[TlsHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsHandler)**
+            Required field. New settings for handling requests with Server Name Indication (SNI) matching one of `serverNames` values.
+          oneOf:
+            - type: object
+              properties:
+                httpHandler:
+                  description: |-
+                    **[HttpHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+                    HTTP handler.
+                    Includes only one of the fields `httpHandler`, `streamHandler`.
+                    Settings for handling requests.
+                  oneOf:
+                    - type: object
+                      properties:
+                        http2Options:
+                          description: |-
+                            **[Http2Options](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.Http2Options)**
+                            HTTP/2 settings.
+                            If specified, incoming HTTP/2 requests are supported by the listener.
+                            Includes only one of the fields `http2Options`, `allowHttp10`.
+                            Protocol settings.
+                            For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
+                            negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
+                          $ref: '#/definitions/Http2Options'
+                        allowHttp10:
+                          description: |-
+                            **boolean**
+                            Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
+                            Includes only one of the fields `http2Options`, `allowHttp10`.
+                            Protocol settings.
+                            For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
+                            negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
+                          type: boolean
+                streamHandler:
+                  description: |-
+                    **[StreamHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.StreamHandler)**
+                    Stream (TCP) handler.
+                    Includes only one of the fields `httpHandler`, `streamHandler`.
+                    Settings for handling requests.
+                  $ref: '#/definitions/StreamHandler'
+      required:
+        - listenerName
+        - name
+        - handler
+      additionalProperties: false
+    definitions:
+      Http2Options:
+        type: object
+        properties:
+          maxConcurrentStreams:
+            description: |-
+              **string** (int64)
+              Maximum number of concurrent HTTP/2 streams in a connection.
+            type: string
+            format: int64
+      StreamHandler:
+        type: object
+        properties:
+          backendGroupId:
+            description: |-
+              **string**
+              Required field. ID of the backend group processing requests. For details about the concept, see
+              [documentation](/docs/application-load-balancer/concepts/backend-group).
+              The backend group type, specified via [BackendGroup.backend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.BackendGroup.backend), must be `stream`.
+              To get the list of all available backend groups, make a [BackendGroupService.List](/docs/application-load-balancer/api-ref/BackendGroup/list#List) request.
+            type: string
+          idleTimeout:
+            description: |-
+              **string** (duration)
+              The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection.
+              If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout.
+            type: string
+            format: duration
+        required:
+          - backendGroupId
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/updateSniMatch.md
 ---
 

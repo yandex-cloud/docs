@@ -1,7 +1,23 @@
 ---
 editable: false
 apiPlayground:
-  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}","method":"get","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. ID of the OpenSearch cluster to return.\n\nTo get the cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.","type":"string"}},"required":["clusterId"],"additionalProperties":false},"query":null,"body":null,"definitions":null}'
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the OpenSearch cluster to return.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/get.md
 ---
 

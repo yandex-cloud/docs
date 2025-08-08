@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://billing.{{ api-host }}/billing/v1/billingAccounts/{id}
+    method: get
+    path:
+      type: object
+      properties:
+        id:
+          description: |-
+            **string**
+            Required field. ID of the billing account to return.
+            To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+          type: string
+      required:
+        - id
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/billing/v1/api-ref/BillingAccount/get.md
 ---
 

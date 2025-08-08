@@ -1,5 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:scheduleVersionDestruction
+    method: post
+    path:
+      type: object
+      properties:
+        secretId:
+          description: |-
+            **string**
+            Required field. ID of the secret whose version should be scheduled for destruction.
+          type: string
+      required:
+        - secretId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            **string**
+            Required field. ID of the version to be destroyed.
+          type: string
+        pendingPeriod:
+          description: |-
+            **string** (duration)
+            Time interval between the version destruction request and actual destruction.
+            Default value: 7 days.
+          type: string
+          format: duration
+      required:
+        - versionId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/scheduleVersionDestruction.md
 ---
 

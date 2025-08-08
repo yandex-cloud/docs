@@ -1,5 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://billing.{{ api-host }}/billing/v1/billingAccounts/{billingAccountId}/billableObjectBindings
+    method: post
+    path:
+      type: object
+      properties:
+        billingAccountId:
+          description: |-
+            **string**
+            Required field. ID of the billing account to bind billable object.
+            To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+          type: string
+      required:
+        - billingAccountId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        billableObject:
+          description: |-
+            **[BillableObject](/docs/billing/api-ref/BillingAccount/listBillableObjectBindings#yandex.cloud.billing.v1.BillableObject)**
+            [yandex.cloud.billing.v1.BillableObject](/docs/billing/api-ref/BillingAccount/listBillableObjectBindings#yandex.cloud.billing.v1.BillableObject) to bind with billing account.
+          $ref: '#/definitions/BillableObject'
+      additionalProperties: false
+    definitions:
+      BillableObject:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of the object in other service.
+            type: string
+          type:
+            description: |-
+              **string**
+              Billable object type. Can be one of the following:
+              * `cloud`
+            type: string
 sourcePath: en/_api-ref/billing/v1/api-ref/BillingAccount/bindBillableObject.md
 ---
 

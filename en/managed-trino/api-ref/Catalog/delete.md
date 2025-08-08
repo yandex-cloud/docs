@@ -1,5 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://trino.{{ api-host }}/managed-trino/v1/clusters/{clusterId}/catalogs/{catalogId}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Trino Cluster resource which contains the requested catalog.
+          type: string
+        catalogId:
+          description: |-
+            **string**
+            Required field. ID of the Trino Catalog resource.
+          type: string
+      required:
+        - clusterId
+        - catalogId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/trino/v1/api-ref/Catalog/delete.md
 ---
 

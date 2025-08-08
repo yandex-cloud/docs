@@ -7,11 +7,11 @@ description: Следуя данной инструкции, вы сможете
 
 {{ baremetal-full-name }} позволяет пользователям устанавливать и переустанавливать операционную систему сервера из собственных ISO-образов. Таким способом вы можете установить на сервер операционные системы семейств [Linux](https://ru.wikipedia.org/wiki/Linux) или [Windows](https://ru.wikipedia.org/wiki/Windows). При этом, если устанавливаемая ОС требует лицензии, пользователь должен использовать собственную лицензию.
 
-При установке или переустановке ОС из своего ISO-образа вы можете произвольным образом перераспределять дисковое пространство, доступное на сервере.
+При установке или переустановке ОС из [своего ISO-образа](../../concepts/images.md#user-images) вы можете произвольным образом [перераспределять](../../concepts/server-advanced-settings.md#storage-management) дисковое пространство, доступное на сервере.
 
 Создание отказоустойчивой дисковой разметки требует опыта и понимания технологий [RAID](https://ru.wikipedia.org/wiki/RAID) и/или [LVM](https://ru.wikipedia.org/wiki/LVM), поэтому рекомендуется использовать установку ОС из публичного образа {{ marketplace-short-name }}, а приведенный в этой инструкции способ установки использовать только при необходимости внесения существенных изменений, недоступных при установке из {{ marketplace-short-name }}.
 
-Например, установка из своего ISO-образа может потребоваться, если нужная ОС недоступна в {{ marketplace-short-name }}, либо если требуется нестандартная конфигурация разметки дисков, режим [UEFI](https://ru.wikipedia.org/wiki/Extensible_Firmware_Interface)/[SecureBoot](https://ru.wikipedia.org/wiki/Secure_Boot), шифрование корневой системы или другие настройки, недоступные при установке из образа {{ marketplace-short-name }}.
+Например, установка из своего ISO-образа может потребоваться, если нужная ОС недоступна в {{ marketplace-short-name }}, либо если требуется нестандартная конфигурация разметки дисков, режим [UEFI](../../concepts/server-advanced-settings#install-os-uefi)/[SecureBoot](https://ru.wikipedia.org/wiki/Secure_Boot), шифрование корневой системы или другие настройки, недоступные при установке из образа {{ marketplace-short-name }}.
 
 {% note warning %}
 
@@ -25,8 +25,45 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы создать из вашего ISO-образа образ {{ baremetal-name }} и запустить с него сервер:
 
-1. [Скачайте](https://releases.ubuntu.com/24.04.1/ubuntu-24.04.1-live-server-amd64.iso) на ваш локальный компьютер нужный образ операционной системы.
-1. [Загрузите](../image-upload.md#upload-file) скачанный ISO-образ в [{{ objstorage-full-name }}](../../../storage/index.yaml) и [создайте](../image-upload.md#create-image) из него образ {{ baremetal-name }}.
+1. [Скачайте](https://releases.ubuntu.com/) на ваш локальный компьютер нужный образ операционной системы.
+1. {% include [upload-iso-to-bucket](../../../_includes/baremetal/upload-iso-to-bucket.md) %}
+1. [Создайте](../image-upload.md#create-image) из загруженного ISO-образа образ {{ baremetal-name }}:
+
+    {% list tabs group=instructions %}
+
+    - Консоль управления {#console}
+
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать образ.
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+      1. На панели слева выберите ![icon](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
+      1. Нажмите кнопку **Загрузить образ**.
+      1. Введите имя образа. Требования к имени:
+
+           {% include [name-format](../../../_includes/name-format.md) %}
+
+      1. (Опционально) Добавьте описание образа.
+      1. Вставьте ссылку на образ, полученную в {{ objstorage-name }} на предыдущем шаге.
+      1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-image }}**.
+
+    - CLI {#cli}
+
+       1. Выполните команду:
+
+          ```bash
+          yc baremetal boot-image create \
+            --name <имя_образа> \
+            --uri "<ссылка_на_образ>"
+          ```
+
+          Где:
+          * `--name` — имя образа. Требования к имени:
+            
+              {% include [name-format](../../../_includes/name-format.md) %}
+
+          * `--uri` — ссылка на образ, полученная в {{ objstorage-name }} на предыдущем шаге.
+
+    {% endlist %}
+
 1. [Подключитесь](./server-kvm.md) к KVM-консоли сервера.
 
     {% note info %}
@@ -34,6 +71,7 @@ description: Следуя данной инструкции, вы сможете
     Все дальнейшие действия будут выполняться в окне KVM-консоли.
 
     {% endnote %}
+
 1. В окне KVM-консоли в верхнем меню выберите **Media** → **Virtual Media Wizard...** или нажмите на значок с изображением CD-диска. В открывшемся окне:
 
     1. В секции **CD/DVD Media1** нажмите кнопку **Browse** и в директории `user-iso` выберите [загруженный ранее](../image-upload.md) ISO-образ операционной системы.

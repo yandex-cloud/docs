@@ -15,8 +15,8 @@ Updates desktop properties.
 
 ```json
 {
-  "update_mask": "google.protobuf.FieldMask",
   "desktop_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "labels": "map<string, string>"
 }
@@ -24,10 +24,10 @@ Updates desktop properties.
 
 #|
 ||Field | Description ||
-|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
 || desktop_id | **string**
 
-Required field.  ||
+Required field. To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/grpc/Desktop/list#List) request. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
 || name | **string** ||
 || labels | **object** (map<**string**, **string**>) ||
 |#

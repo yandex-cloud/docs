@@ -1,5 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/backups/{backupId}/files
+    method: get
+    path:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            **string**
+            Required field. Backup ID.
+          type: string
+      required:
+        - backupId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. Folder ID.
+          type: string
+        sourceId:
+          description: |-
+            **string**
+            Empty source will list disks of the backup.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Backup/listFiles.md
 ---
 

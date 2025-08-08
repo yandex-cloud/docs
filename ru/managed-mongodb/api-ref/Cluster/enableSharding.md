@@ -1,5 +1,171 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:enableSharding
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the MongoDB cluster to enable sharding for.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        mongocfg:
+          description: |-
+            **[MongoCfg](/docs/managed-mongodb/api-ref/Cluster/enableSharding#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoCfg)**
+            mongocfg specification for sharding.
+          $ref: '#/definitions/MongoCfg'
+        mongos:
+          description: |-
+            **[Mongos](/docs/managed-mongodb/api-ref/Cluster/enableSharding#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.Mongos)**
+            mongos specification for sharding.
+          $ref: '#/definitions/Mongos'
+        hostSpecs:
+          description: |-
+            **[HostSpec](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.HostSpec)**
+            Configurations for mongos and mongocfg hosts.
+          type: array
+          items:
+            $ref: '#/definitions/HostSpec'
+        mongoinfra:
+          description: |-
+            **[MongoInfra](/docs/managed-mongodb/api-ref/Cluster/enableSharding#yandex.cloud.mdb.mongodb.v1.EnableClusterShardingRequest.MongoInfra)**
+            mongos specification for sharding.
+          $ref: '#/definitions/MongoInfra'
+      additionalProperties: false
+    definitions:
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the preset for computational resources available to a host (CPU, memory etc.).
+              All available presets are listed in the [documentation](/docs/managed-mongodb/concepts/instance-types).
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage available to a host, in bytes.
+            type: string
+            format: int64
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage environment for the host.
+              Possible values:
+              * network-hdd - network HDD drive,
+              * network-ssd - network SSD drive,
+              * local-ssd - local SSD storage.
+            type: string
+      MongoCfg:
+        type: object
+        properties:
+          resources:
+            description: |-
+              **[Resources](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Resources)**
+              Required field. Resources for mongocfg hosts.
+            $ref: '#/definitions/Resources'
+        required:
+          - resources
+      Mongos:
+        type: object
+        properties:
+          resources:
+            description: |-
+              **[Resources](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Resources)**
+              Required field. Resources for mongos hosts.
+            $ref: '#/definitions/Resources'
+        required:
+          - resources
+      HostSpec:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              ID of the availability zone where the host resides.
+              To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet that the host should belong to. This subnet should be a part
+              of the network that the cluster belongs to.
+              The network ID is set in the [Cluster.networkId](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field.
+            type: string
+          assignPublicIp:
+            description: |-
+              **boolean**
+              Whether the host should get a public IP address on creation.
+              After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
+              a public IP to a host without one, recreate the host with [assignPublicIp](/docs/managed-mongodb/api-ref/Cluster/updateHosts#yandex.cloud.mdb.mongodb.v1.UpdateHostSpec) set as needed.
+              Possible values:
+              * false - don't assign a public IP to the host.
+              * true - the host should have a public IP address.
+            type: boolean
+          type:
+            description: |-
+              **enum** (Type)
+              Type of the host to be deployed.
+              - `TYPE_UNSPECIFIED`: Type of the host is unspecified. Default value.
+              - `MONGOD`: A mongod host.
+              - `MONGOS`: A mongos host.
+              - `MONGOCFG`: A mongocfg host.
+              - `MONGOINFRA`: A mongoinfra (mongos+mongocfg) host.
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - MONGOD
+              - MONGOS
+              - MONGOCFG
+              - MONGOINFRA
+          shardName:
+            description: |-
+              **string**
+              Name of the shard that the host belongs to.
+            pattern: '[a-zA-Z0-9_-]*'
+            type: string
+          hidden:
+            description: |-
+              **boolean**
+              Is host hidden in replSet
+            type: boolean
+          secondaryDelaySecs:
+            description: |-
+              **string** (int64)
+              The number of seconds "behind" the primary that this replica set member should "lag"
+            type: string
+            format: int64
+          priority:
+            description: |-
+              **number** (double)
+              Priority of host for the election in replSet
+            type: number
+            format: double
+          tags:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Host tags
+            type: string
+      MongoInfra:
+        type: object
+        properties:
+          resources:
+            description: |-
+              **[Resources](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Resources)**
+              Required field. Resources for mongoinfra (mongos+mongocfg) hosts.
+            $ref: '#/definitions/Resources'
+        required:
+          - resources
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/enableSharding.md
 ---
 

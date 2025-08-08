@@ -1,5 +1,62 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities:import
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. Folder ID where the CA is being created.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. The name of the imported Certificate Authority.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            A brief description of the imported Certificate Authority.
+          type: string
+        certificateContent:
+          description: |-
+            **string**
+            Required field. PEM-encoded certificate content for the Certificate Authority.
+          type: string
+        keyPair:
+          description: |-
+            **string**
+            Required field. PEM-encoded key pair content for the CA (private key).
+          type: string
+        passphrase:
+          description: |-
+            **string**
+            PEM-encoded passphrase to decrypt the private key (if applicable).
+          type: string
+        endEntitiesTtlLimitDays:
+          description: |-
+            **string** (int64)
+            TTL limit in days for end-entities signed by the CA.
+          type: string
+          format: int64
+        deletionProtection:
+          description: |-
+            **boolean**
+            Protect the CA from accidental deletion.
+          type: boolean
+      required:
+        - folderId
+        - name
+        - certificateContent
+        - keyPair
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCa/importCertificateAuthority.md
 ---
 

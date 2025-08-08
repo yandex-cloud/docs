@@ -1,5 +1,88 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}
+    method: patch
+    path:
+      type: object
+      properties:
+        dnsZoneId:
+          description: |-
+            **string**
+            ID of the DNS zone to update.
+            To get the DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/DnsZone/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the DNS zone.
+            The name must be unique within the folder.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the DNS zone.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            DNS zone labels as `key:value` pairs.
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [DnsZoneService.Get](/docs/dns/api-ref/DnsZone/get#Get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        privateVisibility:
+          description: |-
+            **[PrivateVisibility](/docs/dns/api-ref/DnsZone/get#yandex.cloud.dns.v1.PrivateVisibility)**
+            Change network IDs for private visibility.
+          $ref: '#/definitions/PrivateVisibility'
+        publicVisibility:
+          description: |-
+            **object**
+            Public visibility configuration.
+          $ref: '#/definitions/PublicVisibility'
+        deletionProtection:
+          description: |-
+            **boolean**
+            Prevents accidental zone removal.
+          type: boolean
+      additionalProperties: false
+    definitions:
+      PrivateVisibility:
+        type: object
+        properties:
+          networkIds:
+            description: |-
+              **string**
+              Network IDs.
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      PublicVisibility:
+        type: object
+        properties: {}
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/update.md
 ---
 

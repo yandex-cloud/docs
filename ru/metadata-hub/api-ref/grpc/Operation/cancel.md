@@ -1,9 +1,9 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/connectionmanager/v1/api-ref/grpc/Operation/cancel.md
+sourcePath: en/_api-ref-grpc/metastore/v1/api-ref/grpc/Operation/cancel.md
 ---
 
-# Connection Manager API, gRPC: OperationService.Cancel
+# Managed Service for Hive Metastore™ API, gRPC: OperationService.Cancel
 
 Cancels the specified operation.
 

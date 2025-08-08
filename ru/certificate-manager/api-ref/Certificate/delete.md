@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{certificateId}
+    method: delete
+    path:
+      type: object
+      properties:
+        certificateId:
+          description: |-
+            **string**
+            Required field. ID of the certificate to be deleted.
+          type: string
+      required:
+        - certificateId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/delete.md
 ---
 

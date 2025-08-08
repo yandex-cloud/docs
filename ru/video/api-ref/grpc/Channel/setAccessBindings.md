@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Channel/setAccessBindings.md
 
 # Video API, gRPC: ChannelService.SetAccessBindings
 
-Set access bindings for the channel.
+Sets all access bindings for a specific channel.
+This operation completely replaces any existing access bindings.
 
 ## gRPC request
 

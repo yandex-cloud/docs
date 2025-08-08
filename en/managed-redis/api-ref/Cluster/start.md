@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:start
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Redis cluster to start.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/start.md
 ---
 
@@ -456,7 +473,8 @@ Required field. ID of the Redis cluster to start. ||
     "deletionProtection": "boolean",
     "persistenceMode": "string",
     "announceHostnames": "boolean",
-    "authSentinel": "boolean"
+    "authSentinel": "boolean",
+    "diskEncryptionKeyId": "string"
   }
   // end of the list of possible fields
 }
@@ -659,6 +677,9 @@ Enable FQDN instead of ip ||
 || authSentinel | **boolean**
 
 Allows to use ACL users to auth in sentinel ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}

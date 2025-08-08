@@ -1,5 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/topics
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Apache Kafka® cluster to list topics in.
+            To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `pageSize`, the service returns a [ListTopicsResponse.nextPageToken](/docs/managed-kafka/api-ref/Topic/list#yandex.cloud.mdb.kafka.v1.ListTopicsResponse) that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token.
+            To get the next page of results, set `pageToken` to the [ListTopicsResponse.nextPageToken](/docs/managed-kafka/api-ref/Topic/list#yandex.cloud.mdb.kafka.v1.ListTopicsResponse) returned by the previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Topic/list.md
 ---
 

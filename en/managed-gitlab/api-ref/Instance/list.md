@@ -1,5 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://gitlab.{{ api-host }}/gitlab/v1/instances
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to list instances in.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListInstancesRequest.next_page_token]
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the [ListInstancesRequest.next_page_token]
+            returned by the previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/gitlab/v1/api-ref/Instance/list.md
 ---
 

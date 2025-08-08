@@ -1,5 +1,498 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/advancedRateLimiterProfiles/{advancedRateLimiterProfileId}
+    method: patch
+    path:
+      type: object
+      properties:
+        advancedRateLimiterProfileId:
+          description: |-
+            **string**
+            Required field. ID of the ARL profile to update.
+          type: string
+      required:
+        - advancedRateLimiterProfileId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Labels as `` key:value `` pairs. Maximum of 64 per resource.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the ARL profile. The name is unique within the folder. 1-50 characters long.
+          type: string
+        description:
+          description: |-
+            **string**
+            Optional description of the ARL profile.
+          type: string
+        advancedRateLimiterRules:
+          description: |-
+            **[AdvancedRateLimiterRule](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule)**
+            List of rules.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  staticQuota:
+                    description: |-
+                      **[StaticQuota](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.StaticQuota)**
+                      Static quota. Counting each request individually.
+                      Includes only one of the fields `staticQuota`, `dynamicQuota`.
+                    $ref: '#/definitions/StaticQuota'
+                  dynamicQuota:
+                    description: |-
+                      **[DynamicQuota](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota)**
+                      Dynamic quota. Grouping requests by a certain attribute and limiting the number of groups.
+                      Includes only one of the fields `staticQuota`, `dynamicQuota`.
+                    $ref: '#/definitions/DynamicQuota'
+      additionalProperties: false
+    definitions:
+      AuthorityMatcher:
+        type: object
+        properties:
+          authorities:
+            description: |-
+              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              List of authorities. OR semantics implied.
+            type: array
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    exactMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    exactNotMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    prefixMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    prefixNotMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    pireRegexMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    pireRegexNotMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+      HttpMethodMatcher:
+        type: object
+        properties:
+          httpMethods:
+            description: |-
+              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              List of HTTP methods. OR semantics implied.
+            type: array
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    exactMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    exactNotMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    prefixMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    prefixNotMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    pireRegexMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    pireRegexNotMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+      QueryMatcher:
+        type: object
+        properties:
+          key:
+            description: |-
+              **string**
+              Required field. Key of the query parameter.
+            type: string
+          value:
+            description: |-
+              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              Required field. Value of the query parameter.
+            oneOf:
+              - type: object
+                properties:
+                  exactMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  exactNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  prefixMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  prefixNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  pireRegexMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  pireRegexNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+        required:
+          - key
+          - value
+      RequestUriMatcher:
+        type: object
+        properties:
+          path:
+            description: |-
+              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
+            oneOf:
+              - type: object
+                properties:
+                  exactMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  exactNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  prefixMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  prefixNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  pireRegexMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  pireRegexNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+          queries:
+            description: |-
+              **[QueryMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
+              List of query matchers. AND semantics implied.
+            type: array
+            items:
+              $ref: '#/definitions/QueryMatcher'
+      HeaderMatcher:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of header (case insensitive).
+            type: string
+          value:
+            description: |-
+              **[StringMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              Required field. Value of the header.
+            oneOf:
+              - type: object
+                properties:
+                  exactMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  exactNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  prefixMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  prefixNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  pireRegexMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  pireRegexNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+        required:
+          - name
+          - value
+      IpRangesMatcher:
+        type: object
+        properties:
+          ipRanges:
+            description: |-
+              **string**
+              List of IP ranges. OR semantics implied.
+            type: array
+            items:
+              type: string
+      GeoIpMatcher:
+        type: object
+        properties:
+          locations:
+            description: |-
+              **string**
+              ISO 3166-1 alpha 2. OR semantics implied.
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      IpMatcher:
+        type: object
+        properties:
+          ipRangesMatch:
+            description: '**[IpRangesMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
+            $ref: '#/definitions/IpRangesMatcher'
+          ipRangesNotMatch:
+            description: '**[IpRangesMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
+            $ref: '#/definitions/IpRangesMatcher'
+          geoIpMatch:
+            description: '**[GeoIpMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
+            $ref: '#/definitions/GeoIpMatcher'
+          geoIpNotMatch:
+            description: '**[GeoIpMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
+            $ref: '#/definitions/GeoIpMatcher'
+      Condition:
+        type: object
+        properties:
+          authority:
+            description: |-
+              **[AuthorityMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher)**
+              Match authority (Host header).
+            $ref: '#/definitions/AuthorityMatcher'
+          httpMethod:
+            description: |-
+              **[HttpMethodMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
+              Match HTTP method.
+            $ref: '#/definitions/HttpMethodMatcher'
+          requestUri:
+            description: |-
+              **[RequestUriMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
+              Match Request URI.
+            $ref: '#/definitions/RequestUriMatcher'
+          headers:
+            description: |-
+              **[HeaderMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
+              Match HTTP headers.
+            type: array
+            items:
+              $ref: '#/definitions/HeaderMatcher'
+          sourceIp:
+            description: |-
+              **[IpMatcher](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
+              Match IP.
+            $ref: '#/definitions/IpMatcher'
+      StaticQuota:
+        type: object
+        properties:
+          action:
+            description: |-
+              **enum** (Action)
+              Action in case of exceeding this quota.
+              - `ACTION_UNSPECIFIED`
+              - `DENY`: Deny request.
+            type: string
+            enum:
+              - ACTION_UNSPECIFIED
+              - DENY
+          condition:
+            description: |-
+              **[Condition](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition)**
+              The condition for matching the quota.
+            $ref: '#/definitions/Condition'
+          limit:
+            description: |-
+              **string** (int64)
+              Desired maximum number of requests per period.
+              Enter an integer within the range of 1 and 9999999999999.
+            type: string
+            format: int64
+          period:
+            description: |-
+              **string** (int64)
+              Period of time in seconds.
+            type: string
+            format: int64
+      SimpleCharacteristic:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (Type)
+              Type of simple characteristic.
+              - `TYPE_UNSPECIFIED`
+              - `REQUEST_PATH`: HTTP Request path.
+              - `HTTP_METHOD`: HTTP Method.
+              - `IP`: IP address.
+              - `GEO`: Region.
+              - `HOST`: Host.
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - REQUEST_PATH
+              - HTTP_METHOD
+              - IP
+              - GEO
+              - HOST
+      KeyCharacteristic:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (Type)
+              Type of key characteristic.
+              - `TYPE_UNSPECIFIED`
+              - `REQUEST_PATH`: HTTP Request path.
+              - `HTTP_METHOD`: HTTP Method.
+              - `IP`: IP address.
+              - `GEO`: Region.
+              - `HOST`: Host.
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - REQUEST_PATH
+              - HTTP_METHOD
+              - IP
+              - GEO
+              - HOST
+          value:
+            description: |-
+              **string**
+              String value of the key.
+            type: string
+      DynamicQuota:
+        type: object
+        properties:
+          action:
+            description: |-
+              **enum** (Action)
+              Action in case of exceeding this quota.
+              - `ACTION_UNSPECIFIED`
+              - `DENY`: Deny request.
+            type: string
+            enum:
+              - ACTION_UNSPECIFIED
+              - DENY
+          condition:
+            description: |-
+              **[Condition](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.Condition)**
+              The condition for matching the quota.
+            $ref: '#/definitions/Condition'
+          limit:
+            description: |-
+              **string** (int64)
+              Desired maximum number of requests per period.
+              Enter an integer within the range of 1 and 9999999999999.
+            type: string
+            format: int64
+          period:
+            description: |-
+              **string** (int64)
+              Period of time in seconds.
+            type: string
+            format: int64
+          characteristics:
+            description: |-
+              **[Characteristic](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic)**
+              List of characteristics.
+            type: array
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    simpleCharacteristic:
+                      description: |-
+                        **[SimpleCharacteristic](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.SimpleCharacteristic)**
+                        Characteristic automatically based on the Request path, HTTP method, IP address, Region, and Host attributes.
+                        See [Rules](/docs/smartwebsecurity/concepts/arl#requests-counting) for more details.
+                        Includes only one of the fields `simpleCharacteristic`, `keyCharacteristic`.
+                      $ref: '#/definitions/SimpleCharacteristic'
+                    keyCharacteristic:
+                      description: |-
+                        **[KeyCharacteristic](/docs/smartwebsecurity/api-ref/AdvancedRateLimiterProfile/get#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.KeyCharacteristic)**
+                        Characteristic based on key match in the Query params, HTTP header, and HTTP cookie attributes.
+                        See [Rules](/docs/smartwebsecurity/concepts/arl#requests-counting) for more details.
+                        Includes only one of the fields `simpleCharacteristic`, `keyCharacteristic`.
+                      $ref: '#/definitions/KeyCharacteristic'
 sourcePath: en/_api-ref/smartwebsecurity/v1/advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/update.md
 ---
 

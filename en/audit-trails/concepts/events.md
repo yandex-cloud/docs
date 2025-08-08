@@ -342,7 +342,7 @@ Service name: `smartwebsecurity`.
 
 Service name: `speechsense`.
 
-{% include [org-events](../../_includes/audit-trails/events/speechsense-events.md) %}
+{% include [speechsense-events](../../_includes/audit-trails/events/speechsense-events.md) %}
 
 ## {{ vpc-full-name }} {#vpc}
 

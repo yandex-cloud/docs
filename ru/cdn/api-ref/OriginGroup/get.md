@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/originGroups/{originGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        originGroupId:
+          description: |-
+            **string** (int64)
+            ID of the origin group to return.
+            To get a origin group ID, make a [OriginGroupService.List](/docs/cdn/api-ref/OriginGroup/list#List) request.
+          type: string
+          format: int64
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the origin group belongs to.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/get.md
 ---
 
@@ -65,9 +92,11 @@ Required field. ID of the folder that the origin group belongs to. ||
           "id": "string"
         }
         // end of the list of possible fields
-      }
+      },
+      "providerType": "string"
     }
-  ]
+  ],
+  "providerType": "string"
 }
 ```
 
@@ -93,6 +122,9 @@ false - the option is disabled. ||
 || origins[] | **[Origin](#yandex.cloud.cdn.v1.Origin)**
 
 List of origins. ||
+|| providerType | **string**
+
+RESERVED: This field is reserved for future use and should not be used at this time. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}
@@ -127,6 +159,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
 
 Set up origin of the content. ||
+|| providerType | **string**
+
+RESERVED: This field is reserved for future use and should not be used at this time. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}

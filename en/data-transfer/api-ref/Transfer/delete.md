@@ -1,5 +1,20 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-data-transfer }}/v1/transfer/{transferId}
+    method: delete
+    path:
+      type: object
+      properties:
+        transferId:
+          description: |-
+            **string**
+            Identifier of the transfer to be deleted.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/delete.md
 ---
 

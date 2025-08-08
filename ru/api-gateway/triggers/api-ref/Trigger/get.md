@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-triggers.{{ api-host }}/triggers/v1/triggers/{triggerId}
+    method: get
+    path:
+      type: object
+      properties:
+        triggerId:
+          description: |-
+            **string**
+            Required field. ID of the trigger to return.
+            To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-ref/Trigger/list#List) request.
+          type: string
+      required:
+        - triggerId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Trigger/get.md
 ---
 

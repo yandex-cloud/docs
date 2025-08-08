@@ -86,7 +86,19 @@ format is "createdAt desc". "id asc" if omitted. ||
       "network_settings": {
         "type": "Type"
       },
-      "size": "int64"
+      "size": "int64",
+      "committed_size": "int64",
+      "allow_oversubscription": "bool",
+      "slot_stats": {
+        "total": "int64",
+        "used": "int64",
+        "available": "int64",
+        "unavailable": "int64",
+        "pending": "int64"
+      },
+      "instance_stats": {
+        "total": "int64"
+      }
     }
   ],
   "next_page_token": "string"
@@ -155,6 +167,20 @@ Network Settings. ||
 || size | **int64**
 
 Desired size of the pool (number of slots for instances in this pool). ||
+|| committed_size | **int64**
+
+Equals to the size field except when updates occur with allow_pending=true. In those cases, committed_size equals only the number of non-pending slots. ||
+|| allow_oversubscription | **bool**
+
+Allows the pool to contain more linked instances than the number of available slots (size without pending or unavailable slots).
+While running instances are still limited by available slots, stopped instances can exceed this limit.
+Warning: When this option is enabled, attempting to start more instances than the number of available slots will result in a "Not Enough Resources" error. ||
+|| slot_stats | **[SlotStats](#yandex.cloud.compute.v1.ReservedInstancePool.SlotStats)**
+
+Statuses of the pool slots ||
+|| instance_stats | **[InstanceStats](#yandex.cloud.compute.v1.ReservedInstancePool.InstanceStats)**
+
+Stats for instances of the pool ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.compute.v1.ResourcesSpec}
@@ -200,4 +226,34 @@ Network Type
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
 - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||
+|#
+
+## SlotStats {#yandex.cloud.compute.v1.ReservedInstancePool.SlotStats}
+
+#|
+||Field | Description ||
+|| total | **int64**
+
+Equals to pool size (and equals to the sum of the following fields) ||
+|| used | **int64**
+
+Number of slots used by running instances ||
+|| available | **int64**
+
+Number of slots available for instances (but not currently used) ||
+|| unavailable | **int64**
+
+Number of slots unavailable for some reason (for example because of underlying host failure) ||
+|| pending | **int64**
+
+Number of slots requested for async update, but still waiting for resources and not yet available for usage ||
+|#
+
+## InstanceStats {#yandex.cloud.compute.v1.ReservedInstancePool.InstanceStats}
+
+#|
+||Field | Description ||
+|| total | **int64**
+
+Total number of instances linked to the pool ||
 |#

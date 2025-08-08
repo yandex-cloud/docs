@@ -17,7 +17,8 @@ Creates a new ClickHouse database in the specified cluster.
 {
   "cluster_id": "string",
   "database_spec": {
-    "name": "string"
+    "name": "string",
+    "engine": "DatabaseEngine"
   }
 }
 ```
@@ -40,6 +41,13 @@ Required field. Configuration of the database to create. ||
 || name | **string**
 
 Required field. Name of the ClickHouse database. 1-63 characters long. ||
+|| engine | enum **DatabaseEngine**
+
+Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
+
+- `DATABASE_ENGINE_UNSPECIFIED`
+- `DATABASE_ENGINE_ATOMIC`
+- `DATABASE_ENGINE_REPLICATED` ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -60,7 +68,8 @@ Required field. Name of the ClickHouse database. 1-63 characters long. ||
   "error": "google.rpc.Status",
   "response": {
     "name": "string",
-    "cluster_id": "string"
+    "cluster_id": "string",
+    "engine": "DatabaseEngine"
   }
   // end of the list of possible fields
 }
@@ -146,4 +155,11 @@ Name of the database. ||
 || cluster_id | **string**
 
 ID of the ClickHouse cluster that the database belongs to. ||
+|| engine | enum **DatabaseEngine**
+
+Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
+
+- `DATABASE_ENGINE_UNSPECIFIED`
+- `DATABASE_ENGINE_ATOMIC`
+- `DATABASE_ENGINE_REPLICATED` ||
 |#

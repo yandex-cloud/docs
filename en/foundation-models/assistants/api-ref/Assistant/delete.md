@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/assistants/v1/assistants/{assistantId}
+    method: delete
+    path:
+      type: object
+      properties:
+        assistantId:
+          description: |-
+            **string**
+            Required field. ID of the assistant to delete.
+          type: string
+      required:
+        - assistantId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ai/assistants/v1/assistants/api-ref/Assistant/delete.md
 ---
 

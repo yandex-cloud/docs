@@ -1,5 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/assistants/v1/searchIndexFile:batchCreate
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        fileIds:
+          description: '**string**'
+          type: array
+          items:
+            type: string
+        searchIndexId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - searchIndexId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/SearchIndexFile/batchCreate.md
 ---
 

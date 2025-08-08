@@ -1,7 +1,131 @@
 ---
 editable: false
 apiPlayground:
-  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/opensearch/node_groups","method":"post","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. ID of the OpenSearch cluster to create the OpenSearch type host group in.\n\nTo get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.","type":"string"}},"required":["clusterId"],"additionalProperties":false},"query":null,"body":{"type":"object","properties":{"nodeGroupSpec":{"description":"**[NodeGroup](/docs/managed-opensearch/api-ref/Cluster/create#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec.NodeGroup)**\n\nConfiguration of the new host group.","$ref":"#/definitions/NodeGroup"}},"additionalProperties":false},"definitions":{"Resources":{"type":"object","properties":{"resourcePresetId":{"description":"**string**\n\nID of the preset for computational resources allocated to a host.","type":"string"},"diskSize":{"description":"**string** (int64)\n\nVolume of the storage used by the host, in bytes.","type":"string","format":"int64"},"diskTypeId":{"description":"**string**\n\nType of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`.","type":"string"}}},"DiskSizeAutoscaling":{"type":"object","properties":{"plannedUsageThreshold":{"description":"**string** (int64)\n\nAmount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.","type":"string","format":"int64"},"emergencyUsageThreshold":{"description":"**string** (int64)\n\nAmount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.","type":"string","format":"int64"},"diskSizeLimit":{"description":"**string** (int64)\n\nLimit on how large the storage for database instances can automatically grow, in bytes.","type":"string","format":"int64"}}},"NodeGroup":{"type":"object","properties":{"name":{"description":"**string**\n\nRequired field. Name of the group.","pattern":"[a-zA-Z0-9_-]*","type":"string"},"resources":{"description":"**[Resources](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.Resources)**\n\nResources allocated to the hosts.","$ref":"#/definitions/Resources"},"hostsCount":{"description":"**string** (int64)\n\nNumber of hosts in the group.","type":"string","format":"int64"},"zoneIds":{"description":"**string**\n\nIDs of the availability zones the hosts belong to.","type":"array","items":{"type":"string"}},"subnetIds":{"description":"**string**\n\nIDs of the subnets that the hosts belong to.","type":"array","items":{"type":"string"}},"assignPublicIp":{"description":"**boolean**\n\nDetermines whether a public IP is assigned to the hosts in the group.","type":"boolean"},"roles":{"description":"**enum** (GroupRole)\n\nRoles of the hosts in the group.\n\n- `GROUP_ROLE_UNSPECIFIED`\n- `DATA`\n- `MANAGER`","type":"array","items":{"type":"string","enum":["GROUP_ROLE_UNSPECIFIED","DATA","MANAGER"]}},"diskSizeAutoscaling":{"description":"**[DiskSizeAutoscaling](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**\n\nDisk size autoscaling settings","$ref":"#/definitions/DiskSizeAutoscaling"}},"required":["name"]}}}'
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/opensearch/node_groups
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the OpenSearch cluster to create the OpenSearch type host group in.
+            To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        nodeGroupSpec:
+          description: |-
+            **[NodeGroup](/docs/managed-opensearch/api-ref/Cluster/create#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec.NodeGroup)**
+            Configuration of the new host group.
+          $ref: '#/definitions/NodeGroup'
+      additionalProperties: false
+    definitions:
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the preset for computational resources allocated to a host.
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage used by the host, in bytes.
+            type: string
+            format: int64
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`.
+            type: string
+      DiskSizeAutoscaling:
+        type: object
+        properties:
+          plannedUsageThreshold:
+            description: |-
+              **string** (int64)
+              Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+            type: string
+            format: int64
+          emergencyUsageThreshold:
+            description: |-
+              **string** (int64)
+              Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+            type: string
+            format: int64
+          diskSizeLimit:
+            description: |-
+              **string** (int64)
+              Limit on how large the storage for database instances can automatically grow, in bytes.
+            type: string
+            format: int64
+      NodeGroup:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the group.
+            pattern: '[a-zA-Z0-9_-]*'
+            type: string
+          resources:
+            description: |-
+              **[Resources](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.Resources)**
+              Resources allocated to the hosts.
+            $ref: '#/definitions/Resources'
+          hostsCount:
+            description: |-
+              **string** (int64)
+              Number of hosts in the group.
+            type: string
+            format: int64
+          zoneIds:
+            description: |-
+              **string**
+              IDs of the availability zones the hosts belong to.
+            type: array
+            items:
+              type: string
+          subnetIds:
+            description: |-
+              **string**
+              IDs of the subnets that the hosts belong to.
+            type: array
+            items:
+              type: string
+          assignPublicIp:
+            description: |-
+              **boolean**
+              Determines whether a public IP is assigned to the hosts in the group.
+            type: boolean
+          roles:
+            description: |-
+              **enum** (GroupRole)
+              Roles of the hosts in the group.
+              - `GROUP_ROLE_UNSPECIFIED`
+              - `DATA`
+              - `MANAGER`
+            type: array
+            items:
+              type: string
+              enum:
+                - GROUP_ROLE_UNSPECIFIED
+                - DATA
+                - MANAGER
+          diskSizeAutoscaling:
+            description: |-
+              **[DiskSizeAutoscaling](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
+              Disk size autoscaling settings
+            $ref: '#/definitions/DiskSizeAutoscaling'
+        required:
+          - name
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/addOpenSearchNodeGroup.md
 ---
 

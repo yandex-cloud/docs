@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/roles/{roleId}
+    method: get
+    path:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            **string**
+            Required field. ID of the Role resource to return.
+            To get the role ID, use a [RoleService.List](/docs/iam/api-ref/Role/list#List) request.
+          type: string
+      required:
+        - roleId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/Role/get.md
 ---
 

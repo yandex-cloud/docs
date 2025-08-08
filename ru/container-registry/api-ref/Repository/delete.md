@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/repositories/{repositoryId}
+    method: delete
+    path:
+      type: object
+      properties:
+        repositoryId:
+          description: |-
+            **string**
+            Required field. ID of the repository to delete.
+          type: string
+      required:
+        - repositoryId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Repository/delete.md
 ---
 

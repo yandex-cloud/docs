@@ -6,15 +6,17 @@ sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/index.md
 # Video API, REST: Thumbnail
 
 Thumbnail management service.
+Provides methods for creating, retrieving, and managing thumbnail images
+that can be associated with various resources such as videos, streams, episodes, and channels.
 
 ## Methods
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Get the specific thumbnail. ||
-|| [List](list.md) | List thumbnails for channel. ||
-|| [Create](create.md) | Create thumbnail. ||
-|| [BatchGenerateDownloadURLs](batchGenerateDownloadURLs.md) | Generate urls for downloading images. ||
-|| [GenerateUploadURL](generateUploadURL.md) | Generate url for uploading an image. ||
-|| [Delete](delete.md) | Delete thumbnail. ||
+|| [Get](get.md) | Retrieves detailed information about a specific thumbnail by its ID. ||
+|| [List](list.md) | Lists all thumbnails associated with a specific resource (channel, stream, video, etc.) ||
+|| [Create](create.md) | Creates a new thumbnail record for a specific resource. ||
+|| [BatchGenerateDownloadURLs](batchGenerateDownloadURLs.md) | Generates download URLs for multiple thumbnails in a single request. ||
+|| [GenerateUploadURL](generateUploadURL.md) | Generates a URL for uploading an image to an existing thumbnail record. ||
+|| [Delete](delete.md) | Deletes a specific thumbnail by its ID. ||
 |#

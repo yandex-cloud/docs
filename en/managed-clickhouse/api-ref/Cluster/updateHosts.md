@@ -1,5 +1,61 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/hosts:batchUpdate
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the ClickHouse cluster to update hosts in.
+            To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateHostSpecs:
+          description: |-
+            **[UpdateHostSpec](/docs/managed-clickhouse/api-ref/Cluster/updateHosts#yandex.cloud.mdb.clickhouse.v1.UpdateHostSpec)**
+            New configurations to apply to hosts.
+          type: array
+          items:
+            $ref: '#/definitions/UpdateHostSpec'
+      additionalProperties: false
+    definitions:
+      UpdateHostSpec:
+        type: object
+        properties:
+          hostName:
+            description: |-
+              **string**
+              Required field. Name of the host to update.
+              To get the ClickHouse host name, use a [ClusterService.ListHosts](/docs/managed-clickhouse/api-ref/Cluster/listHosts#ListHosts) request.
+            type: string
+          updateMask:
+            description: |-
+              **string** (field-mask)
+              A comma-separated names off ALL fields to be updated.
+              Only the specified fields will be changed. The others will be left untouched.
+              If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+              the field's value will be reset to the default. The default value for most fields is null or 0.
+              If `` updateMask `` is not sent in the request, all fields' values will be updated.
+              Fields specified in the request will be updated to provided values.
+              The rest of the fields will be reset to the default.
+            type: string
+            format: field-mask
+          assignPublicIp:
+            description: |-
+              **boolean**
+              Whether the host should get a public IP address on creation.
+            type: boolean
+        required:
+          - hostName
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/updateHosts.md
 ---
 

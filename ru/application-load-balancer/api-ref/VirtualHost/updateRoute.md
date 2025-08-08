@@ -1,5 +1,410 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}:updateRoute
+    method: post
+    path:
+      type: object
+      properties:
+        httpRouterId:
+          description: |-
+            **string**
+            Required field. ID of the HTTP router to update a route in.
+            To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/HttpRouter/list#List) request.
+          type: string
+        virtualHostName:
+          description: |-
+            **string**
+            Required field. Name of the virtual host to update a route in.
+            To get the virtual host name, make a [VirtualHostService.List](/docs/application-load-balancer/api-ref/VirtualHost/list#List) request.
+          type: string
+      required:
+        - httpRouterId
+        - virtualHostName
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        routeName:
+          description: |-
+            **string**
+            Required field. Name of the route to update.
+            To get the route name, make a [VirtualHostService.Get](/docs/application-load-balancer/api-ref/VirtualHost/get#Get) request.
+          type: string
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        http:
+          description: |-
+            **[HttpRoute](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HttpRoute)**
+            New settings of the HTTP route.
+            Includes only one of the fields `http`, `grpc`.
+            New settings of the route.
+          oneOf:
+            - type: object
+              properties:
+                route:
+                  description: |-
+                    **[HttpRouteAction](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HttpRouteAction)**
+                    Forwards the request to a backend group for processing as configured.
+                    Includes only one of the fields `route`, `redirect`, `directResponse`.
+                    Action performed on the request if the route is selected.
+                  oneOf:
+                    - type: object
+                      properties:
+                        hostRewrite:
+                          description: |-
+                            **string**
+                            Host replacement.
+                            Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+                            Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
+                            If not specified, the host is not changed.
+                          type: string
+                        autoHostRewrite:
+                          description: |-
+                            **boolean**
+                            Automatically replaces the host with that of the target.
+                            Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+                            Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
+                            If not specified, the host is not changed.
+                          type: boolean
+                redirect:
+                  description: |-
+                    **[RedirectAction](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.RedirectAction)**
+                    Redirects the request as configured.
+                    Includes only one of the fields `route`, `redirect`, `directResponse`.
+                    Action performed on the request if the route is selected.
+                  oneOf:
+                    - type: object
+                      properties:
+                        replacePath:
+                          description: |-
+                            **string**
+                            Replacement for the whole path.
+                            Includes only one of the fields `replacePath`, `replacePrefix`.
+                            URI path replacement.
+                            If not specified, the original path is used.
+                          type: string
+                        replacePrefix:
+                          description: |-
+                            **string**
+                            Replacement for the path prefix matched by [StringMatch](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.StringMatch).
+                            For instance, if [StringMatch.prefixMatch](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.StringMatch) value is `/foo` and `replace_prefix` value is `/bar`,
+                            a request with `https://example.com/foobaz` URI is redirected to `https://example.com/barbaz`.
+                            For [StringMatch.exactMatch](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.StringMatch), the whole path is replaced.
+                            Includes only one of the fields `replacePath`, `replacePrefix`.
+                            URI path replacement.
+                            If not specified, the original path is used.
+                          type: string
+                directResponse:
+                  description: |-
+                    **[DirectResponseAction](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.DirectResponseAction)**
+                    Instructs the load balancer to respond directly as configured.
+                    Includes only one of the fields `route`, `redirect`, `directResponse`.
+                    Action performed on the request if the route is selected.
+                  $ref: '#/definitions/DirectResponseAction'
+        grpc:
+          description: |-
+            **[GrpcRoute](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.GrpcRoute)**
+            New settings of the gRPC route.
+            Includes only one of the fields `http`, `grpc`.
+            New settings of the route.
+          oneOf:
+            - type: object
+              properties:
+                route:
+                  description: |-
+                    **[GrpcRouteAction](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.GrpcRouteAction)**
+                    Forwards the request to a backend group for processing as configured.
+                    Includes only one of the fields `route`, `statusResponse`.
+                    Action performed on the request if the route is selected.
+                  oneOf:
+                    - type: object
+                      properties:
+                        hostRewrite:
+                          description: |-
+                            **string**
+                            Host replacement.
+                            Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+                            Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
+                            If not specified, the host is not changed.
+                          type: string
+                        autoHostRewrite:
+                          description: |-
+                            **boolean**
+                            Automatically replaces the host with that of the target.
+                            Includes only one of the fields `hostRewrite`, `autoHostRewrite`.
+                            Value rewrite settings for HTTP/1.1 `Host` headers and HTTP/2 `:authority` pseudo-headers.
+                            If not specified, the host is not changed.
+                          type: boolean
+                statusResponse:
+                  description: |-
+                    **[GrpcStatusResponseAction](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.GrpcStatusResponseAction)**
+                    Instructs the load balancer to respond directly with a specified status.
+                    Includes only one of the fields `route`, `statusResponse`.
+                    Action performed on the request if the route is selected.
+                  $ref: '#/definitions/GrpcStatusResponseAction'
+        routeOptions:
+          description: |-
+            **[RouteOptions](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.RouteOptions)**
+            New route options for the route.
+          $ref: '#/definitions/RouteOptions'
+        disableSecurityProfile:
+          description: |-
+            **boolean**
+            Whether set to 'true' disable security profile for the route.
+          type: boolean
+      required:
+        - routeName
+      additionalProperties: false
+    definitions:
+      DirectResponseAction:
+        type: object
+        properties:
+          status:
+            description: |-
+              **string** (int64)
+              HTTP status code to use in responses.
+            type: string
+            format: int64
+          body:
+            description: |-
+              **[Payload](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.Payload)**
+              Response body.
+            oneOf:
+              - type: object
+                properties:
+                  text:
+                    description: |-
+                      **string**
+                      Payload text.
+                      Includes only one of the fields `text`.
+                      Payload.
+                    type: string
+      GrpcStatusResponseAction:
+        type: object
+        properties:
+          status:
+            description: |-
+              **enum** (Status)
+              gRPC [status code](https://grpc.github.io/grpc/core/md_doc_statuscodes.html) to use in responses.
+              - `OK`: `OK` (0) status code.
+              - `INVALID_ARGUMENT`: `INVALID_ARGUMENT` (3) status code.
+              - `NOT_FOUND`: `NOT_FOUND` (5) status code.
+              - `PERMISSION_DENIED`: `PERMISSION_DENIED` (7) status code.
+              - `UNAUTHENTICATED`: `UNAUTHENTICATED` (16) status code.
+              - `UNIMPLEMENTED`: `UNIMPLEMENTED` (12) status code.
+              - `INTERNAL`: `INTERNAL` (13) status code.
+              - `UNAVAILABLE`: `UNAVAILABLE` (14) status code.
+            type: string
+            enum:
+              - OK
+              - INVALID_ARGUMENT
+              - NOT_FOUND
+              - PERMISSION_DENIED
+              - UNAUTHENTICATED
+              - UNIMPLEMENTED
+              - INTERNAL
+              - UNAVAILABLE
+      HeaderMatcher:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Specifies the name of the header in the request.
+            type: string
+          value:
+            description: |-
+              **[StringMatch](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.StringMatch)**
+              Specifies how the header match will be performed to route the request.
+              In the absence of value a request that has specified header name will match,
+              regardless of the header's value.
+            oneOf:
+              - type: object
+                properties:
+                  exactMatch:
+                    description: |-
+                      **string**
+                      Exact match string.
+                      Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`.
+                      Match string for either exact or prefix match.
+                    type: string
+                  prefixMatch:
+                    description: |-
+                      **string**
+                      Prefix match string.
+                      Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`.
+                      Match string for either exact or prefix match.
+                    type: string
+                  regexMatch:
+                    description: |-
+                      **string**
+                      Regular expression match string.
+                      Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`.
+                      Match string for either exact or prefix match.
+                    type: string
+        required:
+          - name
+      Principals:
+        type: object
+        properties:
+          andPrincipals:
+            description: |-
+              **[Principal](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.Principal)**
+              Required. A match occurs when all principals match the request.
+            type: array
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    header:
+                      description: |-
+                        **[HeaderMatcher](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.Principal.HeaderMatcher)**
+                        A header (or pseudo-header such as :path or :method) of the incoming HTTP request.
+                        Includes only one of the fields `header`, `remoteIp`, `any`.
+                      $ref: '#/definitions/HeaderMatcher'
+                    remoteIp:
+                      description: |-
+                        **string**
+                        A CIDR block or IP that describes the request remote/origin address, e.g. ``192.0.0.0/24`` or``192.0.0.4`` .
+                        Includes only one of the fields `header`, `remoteIp`, `any`.
+                      type: string
+                    any:
+                      description: |-
+                        **boolean**
+                        When any is set, it matches any request.
+                        Includes only one of the fields `header`, `remoteIp`, `any`.
+                      type: boolean
+      RBAC:
+        type: object
+        properties:
+          action:
+            description: |-
+              **enum** (Action)
+              Required field. The action to take if a principal matches. Every action either allows or denies a request.
+              - `ACTION_UNSPECIFIED`
+              - `ALLOW`: Allows the request if and only if there is a principal that matches the request.
+              - `DENY`: Allows the request if and only if there are no principal that match the request.
+            type: string
+            enum:
+              - ACTION_UNSPECIFIED
+              - ALLOW
+              - DENY
+          principals:
+            description: |-
+              **[Principals](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.Principals)**
+              Required. A match occurs when at least one matches the request.
+            type: array
+            items:
+              $ref: '#/definitions/Principals'
+        required:
+          - action
+      RouteOptions:
+        type: object
+        properties:
+          modifyRequestHeaders:
+            description: |-
+              **[HeaderModification](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification)**
+              Apply the following modifications to the request headers.
+            type: array
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    append:
+                      description: |-
+                        **string**
+                        Appends the specified string to the header value.
+                        Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers)
+                        are supported.
+                        Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+                        Operation to perform on the header.
+                      type: string
+                    replace:
+                      description: |-
+                        **string**
+                        Replaces the value of the header with the specified string.
+                        Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers)
+                        are supported.
+                        Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+                        Operation to perform on the header.
+                      type: string
+                    remove:
+                      description: |-
+                        **boolean**
+                        Removes the header.
+                        Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+                        Operation to perform on the header.
+                      type: boolean
+                    rename:
+                      description: |-
+                        **string**
+                        Replaces the name of the header with the specified string.
+                        This operation is only supported for ALB Virtual Hosts.
+                        Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+                        Operation to perform on the header.
+                      type: string
+          modifyResponseHeaders:
+            description: |-
+              **[HeaderModification](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification)**
+              Apply the following modifications to the response headers.
+            type: array
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    append:
+                      description: |-
+                        **string**
+                        Appends the specified string to the header value.
+                        Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers)
+                        are supported.
+                        Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+                        Operation to perform on the header.
+                      type: string
+                    replace:
+                      description: |-
+                        **string**
+                        Replaces the value of the header with the specified string.
+                        Variables [defined for Envoy proxy](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/headers#custom-request-response-headers)
+                        are supported.
+                        Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+                        Operation to perform on the header.
+                      type: string
+                    remove:
+                      description: |-
+                        **boolean**
+                        Removes the header.
+                        Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+                        Operation to perform on the header.
+                      type: boolean
+                    rename:
+                      description: |-
+                        **string**
+                        Replaces the name of the header with the specified string.
+                        This operation is only supported for ALB Virtual Hosts.
+                        Includes only one of the fields `append`, `replace`, `remove`, `rename`.
+                        Operation to perform on the header.
+                      type: string
+          rbac:
+            description: '**[RBAC](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.RBAC)**'
+            $ref: '#/definitions/RBAC'
+          securityProfileId:
+            description: |-
+              **string**
+              Security profile that will take effect to all requests routed via particular virtual host.
+            type: string
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/updateRoute.md
 ---
 
@@ -215,7 +620,8 @@ To get the virtual host name, make a [VirtualHostService.List](/docs/application
       ]
     },
     "securityProfileId": "string"
-  }
+  },
+  "disableSecurityProfile": "boolean"
 }
 ```
 
@@ -253,6 +659,9 @@ New settings of the route. ||
 || routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)**
 
 New route options for the route. ||
+|| disableSecurityProfile | **boolean**
+
+Whether set to 'true' disable security profile for the route. ||
 |#
 
 ## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute}
@@ -1043,7 +1452,8 @@ regardless of the header's value. ||
             ]
           },
           "securityProfileId": "string"
-        }
+        },
+        "disableSecurityProfile": "boolean"
       }
     ],
     "modifyRequestHeaders": [
@@ -1309,6 +1719,9 @@ Includes only one of the fields `http`, `grpc`.
 
 Route configuration. ||
 || routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions2)** ||
+|| disableSecurityProfile | **boolean**
+
+Whether set to 'true' disables security profile for the route. ||
 |#
 
 ## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute2}

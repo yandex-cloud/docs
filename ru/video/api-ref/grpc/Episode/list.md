@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Episode/list.md
 
 # Video API, gRPC: EpisodeService.List
 
-List episodes for stream or line.
+Lists all episodes associated with a specific stream or stream line with pagination support.
+Results can be filtered and sorted using the provided parameters.
 
 ## gRPC request
 
@@ -30,41 +31,47 @@ List episodes for stream or line.
 ||Field | Description ||
 || stream_id | **string**
 
-ID of the stream.
+ID of the stream containing the episodes to list.
 
-Includes only one of the fields `stream_id`, `line_id`. ||
+Includes only one of the fields `stream_id`, `line_id`.
+
+Specifies the parent resource to list episodes from (exactly one must be chosen). ||
 || line_id | **string**
 
-ID of the line.
+ID of the stream line containing the episodes to list.
 
-Includes only one of the fields `stream_id`, `line_id`. ||
+Includes only one of the fields `stream_id`, `line_id`.
+
+Specifies the parent resource to list episodes from (exactly one must be chosen). ||
 || page_size | **int64**
 
-The maximum number of the results per page to return.
-Default value: 100. ||
+The maximum number of episodes to return per page. ||
 || page_token | **string**
 
-Page token for getting the next page of the result. ||
+Page token for retrieving the next page of results.
+This token is obtained from the next_page_token field in the previous ListEpisodesResponse. ||
 || order_by | **string**
 
-By which column the listing should be ordered and in which direction,
-format is "<field> <order>" (e.g. "createdAt desc").
+Specifies the ordering of results.
+Format is "<field> <order>" (e.g., "createdAt desc").
 Default: "id asc".
-Possible fields: ["id", "createdAt", "updatedAt"].
-Both snake_case and camelCase are supported for fields. ||
+Supported fields: ["id", "createdAt", "updatedAt"].
+Both snake_case and camelCase field names are supported. ||
 || filter | **string**
 
-Filter expression that filters resources listed in the response.
-Expressions are composed of terms connected by logic operators.
-If value contains spaces or quotes,
-it should be in quotes (`'` or `"`) with the inner quotes being backslash escaped.
+Filter expression to narrow down the list of returned episodes.
+Expressions consist of terms connected by logical operators.
+Values containing spaces or quotes must be enclosed in quotes (`'` or `"`)
+with inner quotes being backslash-escaped.
+
 Supported logical operators: ["AND", "OR"].
-Supported string match operators: ["=", "!=", ":"].
-Operator ":" stands for substring matching.
-Filter expressions may also contain parentheses to group logical operands.
-Example: `key1='value' AND (key2!='\'value\'' OR key2:"\"value\"")`
-Supported fields: ["id", "title"].
-Both snake_case and camelCase are supported for fields. ||
+Supported comparison operators: ["=", "!=", ":"] where ":" enables substring matching.
+Parentheses can be used to group logical expressions.
+
+Example: `title:'highlight' AND id='episode-1'`
+
+Filterable fields: ["id", "title"].
+Both snake_case and camelCase field names are supported. ||
 |#
 
 ## ListEpisodesResponse {#yandex.cloud.video.v1.ListEpisodesResponse}
@@ -83,9 +90,9 @@ Both snake_case and camelCase are supported for fields. ||
       "finish_time": "google.protobuf.Timestamp",
       "dvr_seconds": "int64",
       "visibility_status": "VisibilityStatus",
-      // Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`
+      "style_preset_id": "string",
+      // Includes only one of the fields `public_access`, `sign_url_access`
       "public_access": "EpisodePublicAccessRights",
-      "auth_system_access": "EpisodeAuthSystemAccessRights",
       "sign_url_access": "EpisodeSignURLAccessRights",
       // end of the list of possible fields
       "created_at": "google.protobuf.Timestamp",
@@ -100,90 +107,93 @@ Both snake_case and camelCase are supported for fields. ||
 ||Field | Description ||
 || episodes[] | **[Episode](#yandex.cloud.video.v1.Episode)**
 
-List of episodes for specific parent_id. ||
+List of episodes matching the request criteria.
+May be empty if no episodes match the criteria or if the parent resource has no episodes. ||
 || next_page_token | **string**
 
-Token for getting the next page. ||
+Token for retrieving the next page of results.
+Empty if there are no more results available. ||
 |#
 
 ## Episode {#yandex.cloud.video.v1.Episode}
+
+Entity representing a stream fragment that can be accessed independently.
+Episodes can be linked to either a stream or a line
+and provide a way to reference specific portions of the corresponding content.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the episode. ||
+Unique identifier of the episode. ||
 || stream_id | **string**
 
-ID of the stream. Optional, empty if the episode is linked to the line ||
+Identifier of the stream this episode is linked to.
+Optional, empty if the episode is linked to a line. ||
 || line_id | **string**
 
-ID of the line. Optional, empty if the episode is linked to the stream ||
+Identifier of the line this episode is linked to.
+Optional, empty if the episode is linked to a stream. ||
 || title | **string**
 
-Episode title. ||
+Title of the episode displayed in interfaces and players. ||
 || description | **string**
 
-Episode description. ||
+Detailed description of the episode content and context. ||
 || thumbnail_id | **string**
 
-ID of the thumbnail. ||
+Identifier of the thumbnail image used to represent the episode visually. ||
 || start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Episode start time. ||
+Timestamp marking the beginning of the episode content. ||
 || finish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Episode finish time. ||
+Timestamp marking the end of the episode content. ||
 || dvr_seconds | **int64**
 
-Enables episode DVR mode.
-Determines how many last seconds of the stream are available for watching.
+Controls the Digital Video Recording (DVR) functionality for the episode.
+Determines how many seconds of the stream are available for time-shifted viewing.
 
 Possible values:
-* `0`: infinite dvr size, the full length of the stream allowed to display
-* `>0`: size of dvr window in seconds, the minimum value is 30s ||
+* `0`: Infinite DVR size, the full length of the stream is available for viewing.
+* `>0`: Size of DVR window in seconds, the minimum value is 30s. ||
 || visibility_status | enum **VisibilityStatus**
 
-- `VISIBILITY_STATUS_UNSPECIFIED`
-- `PUBLISHED`
-- `UNPUBLISHED` ||
+Current visibility status controlling whether the episode is publicly available.
+
+- `VISIBILITY_STATUS_UNSPECIFIED`: The visibility status is not specified.
+- `PUBLISHED`: The episode is publicly available, subject to its access permission settings.
+- `UNPUBLISHED`: The episode is available only to administrators. ||
+|| style_preset_id | **string**
+
+Identifier of the style preset used in the player during episode playback. ||
 || public_access | **[EpisodePublicAccessRights](#yandex.cloud.video.v1.EpisodePublicAccessRights)**
 
-Episode is available to everyone.
+Allows unrestricted public access to the episode via direct link.
+No additional authorization or access control is applied.
 
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
+Includes only one of the fields `public_access`, `sign_url_access`.
 
-Episode access rights. ||
-|| auth_system_access | **[EpisodeAuthSystemAccessRights](#yandex.cloud.video.v1.EpisodeAuthSystemAccessRights)**
-
-Checking access rights using the authorization system.
-
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
-
-Episode access rights. ||
+Specifies the episode access permission settings. ||
 || sign_url_access | **[EpisodeSignURLAccessRights](#yandex.cloud.video.v1.EpisodeSignURLAccessRights)**
 
-Checking access rights using url's signature.
+Restricts episode access using URL signatures for secure time-limited access.
 
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
+Includes only one of the fields `public_access`, `sign_url_access`.
 
-Episode access rights. ||
+Specifies the episode access permission settings. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time when episode was created. ||
+Timestamp when the episode was initially created in the system. ||
 || updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time of last episode update. ||
+Timestamp of the last modification to the episode or its metadata. ||
 |#
 
 ## EpisodePublicAccessRights {#yandex.cloud.video.v1.EpisodePublicAccessRights}
 
-#|
-||Field | Description ||
-|| Empty | > ||
-|#
-
-## EpisodeAuthSystemAccessRights {#yandex.cloud.video.v1.EpisodeAuthSystemAccessRights}
+Represents public access rights for an episode.
+When this access type is set, the episode is publicly accessible via direct link.
 
 #|
 ||Field | Description ||
@@ -191,6 +201,9 @@ Time of last episode update. ||
 |#
 
 ## EpisodeSignURLAccessRights {#yandex.cloud.video.v1.EpisodeSignURLAccessRights}
+
+Represents access rights controlled by URL signatures.
+When this access type is set, the episode is accessible only via properly signed temporary link.
 
 #|
 ||Field | Description ||

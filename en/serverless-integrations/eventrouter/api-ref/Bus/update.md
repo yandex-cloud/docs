@@ -1,5 +1,85 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/buses/{busId}
+    method: patch
+    path:
+      type: object
+      properties:
+        busId:
+          description: |-
+            **string**
+            Required field. ID of the bus to update.
+          type: string
+      required:
+        - busId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name of the bus.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the bus.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New labels of the bus.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            New flag that disallow deletion of the bus.
+          type: boolean
+        loggingEnabled:
+          description: |-
+            **boolean**
+            Is logging from the bus enabled.
+          type: boolean
+        logOptions:
+          description: |-
+            **[LogOptions](/docs/serverless-integrations/eventrouter/api-ref/Bus/get#yandex.cloud.serverless.eventrouter.v1.LogOptions)**
+            New options for logging from the bus.
+          oneOf:
+            - type: object
+              properties:
+                logGroupId:
+                  description: |-
+                    **string**
+                    Entry will be written to log group resolved by ID.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                    Log entries destination.
+                  type: string
+                folderId:
+                  description: |-
+                    **string**
+                    Entry will be written to default log group for specified folder.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                    Log entries destination.
+                  type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/update.md
 ---
 

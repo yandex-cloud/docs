@@ -1,5 +1,62 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/{certificateAuthorityId}
+    method: patch
+    path:
+      type: object
+      properties:
+        certificateAuthorityId:
+          description: |-
+            **string**
+            Required field. The ID of the Certificate Authority to update.
+          type: string
+      required:
+        - certificateAuthorityId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name of the Certificate Authority (if applicable).
+            This field is optional and will only be applied if included in the update mask.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the Certificate Authority (if applicable).
+            Allows adding or updating the description to clarify the CA's purpose.
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Update the deletion protection flag.
+            Protects the Certificate Authority from accidental deletion.
+          type: boolean
+        endEntitiesTtlLimitDays:
+          description: |-
+            **string** (int64)
+            Update the end-entity TTL limit for certificates issued by this Certificate Authority.
+          type: string
+          format: int64
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCa/update.md
 ---
 

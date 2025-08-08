@@ -1,4 +1,4 @@
-# Configuring {{ dns-full-name }} to access a {{ mch-name }} cluster from other cloud networks
+# Setting up {{ dns-full-name }} to access managed database clusters from other cloud networks
 
 
 In this tutorial, we will use a {{ mch-name }} cluster as an example. You can configure availability for other managed database services the same way.
@@ -73,7 +73,7 @@ The support cost includes:
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
@@ -106,7 +106,7 @@ The support cost includes:
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 

@@ -1,5 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers/{name}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. Required. ID of the ElasticSearch cluster.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Required. Name of the provider to delete.
+          pattern: '[a-z][a-z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - name
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Auth/getProvider.md
 ---
 

@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://billing.{{ api-host }}/billing/v1/customers/{customerId}:suspend
+    method: post
+    path:
+      type: object
+      properties:
+        customerId:
+          description: |-
+            **string**
+            Required field. ID of the customer.
+            To get the customer ID, use [CustomerService.List](/docs/billing/api-ref/Customer/list#List) request.
+          type: string
+      required:
+        - customerId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/billing/v1/api-ref/Customer/suspend.md
 ---
 

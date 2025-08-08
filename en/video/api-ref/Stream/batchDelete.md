@@ -1,11 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/streams:batchDelete
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        channelId:
+          description: |-
+            **string**
+            Required field. ID of the channel containing the streams to delete.
+          type: string
+        streamIds:
+          description: |-
+            **string**
+            List of stream IDs to delete.
+            All streams must exist in the specified channel.
+          type: array
+          items:
+            type: string
+      required:
+        - channelId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Stream/batchDelete.md
 ---
 
 # Video API, REST: Stream.BatchDelete
 
-Batch delete streams.
+Deletes multiple streams in a specific channel in a single request.
+This is more efficient than making multiple Delete requests when removing several streams.
 
 ## HTTP request
 
@@ -28,10 +54,11 @@ POST https://video.{{ api-host }}/video/v1/streams:batchDelete
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel containing the streams to delete. ||
 || streamIds[] | **string**
 
-List of stream IDs. ||
+List of stream IDs to delete.
+All streams must exist in the specified channel. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -123,7 +150,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || streamIds[] | **string**
 
-List of stream IDs. ||
+List of stream IDs being deleted.
+This list can be used to track which streams are included
+in the batch deletion operation. ||
 |#
 
 ## Status {#google.rpc.Status}

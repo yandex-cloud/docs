@@ -20,4 +20,6 @@ sourcePath: en/_api-ref-grpc/ai/tuning/v1/tuning/api-ref/grpc/Tuning/index.md
 || [UpdateDraft](updateDraft.md) | Unimplemented ||
 || [DeleteDraft](deleteDraft.md) | Unimplemented ||
 || [TuneDraft](tuneDraft.md) | Unimplemented ||
+|| [Archive](archive.md) |  ||
+|| [EnableBilling](enableBilling.md) |  ||
 |#

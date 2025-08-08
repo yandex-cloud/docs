@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/versions/{functionVersionId}:setTag
+    method: post
+    path:
+      type: object
+      properties:
+        functionVersionId:
+          description: |-
+            **string**
+            Required field. ID of the version to set the tag for.
+            To get a version ID make a [FunctionService.ListVersions](/docs/functions/functions/api-ref/Function/listVersions#ListVersions) request.
+          type: string
+      required:
+        - functionVersionId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        tag:
+          description: |-
+            **string**
+            Tag to set for the version.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/setTag.md
 ---
 

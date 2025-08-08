@@ -1,5 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://audittrails.{{ api-host }}/audit-trails/v1/trails/{trailId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        trailId:
+          description: |-
+            **string**
+            Required field. ID of the trail to get operations for.
+          type: string
+      required:
+        - trailId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `page_size`, the service returns a [ListTrailOperationsResponse.nextPageToken](/docs/audit-trails/api-ref/Trail/listOperations#yandex.cloud.audittrails.v1.ListTrailOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListTrailOperationsRequest.next_page_token] returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/listOperations.md
 ---
 

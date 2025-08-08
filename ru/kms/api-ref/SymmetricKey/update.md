@@ -1,5 +1,100 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/keys/{keyId}
+    method: patch
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the symmetric KMS key to update.
+            To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](/docs/kms/api-ref/SymmetricKey/list#List) request.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            Required field. A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the symmetric KMS key.
+          type: string
+        description:
+          description: |-
+            **string**
+            New description for the symmetric KMS key.
+          type: string
+        status:
+          description: |-
+            **enum** (Status)
+            New status for the symmetric KMS key.
+            Using the [SymmetricKeyService.Update](#Update) method you can only set ACTIVE or INACTIVE status.
+            - `STATUS_UNSPECIFIED`
+            - `CREATING`: The key is being created.
+            - `ACTIVE`: The key is active and can be used for encryption and decryption.
+            Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.
+            - `INACTIVE`: The key is inactive and unusable.
+            Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.
+          type: string
+          enum:
+            - STATUS_UNSPECIFIED
+            - CREATING
+            - ACTIVE
+            - INACTIVE
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        defaultAlgorithm:
+          description: |-
+            **enum** (SymmetricAlgorithm)
+            Default encryption algorithm to be used with new versions of the symmetric KMS key.
+            - `SYMMETRIC_ALGORITHM_UNSPECIFIED`
+            - `AES_128`: AES algorithm with 128-bit keys.
+            - `AES_192`: AES algorithm with 192-bit keys.
+            - `AES_256`: AES algorithm with 256-bit keys.
+            - `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+          type: string
+          enum:
+            - SYMMETRIC_ALGORITHM_UNSPECIFIED
+            - AES_128
+            - AES_192
+            - AES_256
+            - AES_256_HSM
+        rotationPeriod:
+          description: |-
+            **string** (duration)
+            Time period between automatic symmetric KMS key rotations.
+          type: string
+          format: duration
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that inhibits deletion of the symmetric KMS key
+          type: boolean
+      required:
+        - updateMask
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/update.md
 ---
 

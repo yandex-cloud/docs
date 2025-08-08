@@ -1,5 +1,47 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        desktopGroupId:
+          description: |-
+            **string**
+            Required field. ID of the desktop group.
+          type: string
+      required:
+        - desktopGroupId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListDesktopGroupOperationsResponse.nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListDesktopGroupOperationsResponse.nextPageToken](/docs/cloud-desktop/api-ref/DesktopGroup/listOperations#yandex.cloud.clouddesktop.v1.api.ListDesktopGroupOperationsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            Sorting the list by [DesktopGroup.name](/docs/cloud-desktop/api-ref/DesktopGroup/get#yandex.cloud.clouddesktop.v1.api.DesktopGroup) field.
+            The default sorting order is ascending.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/listOperations.md
 ---
 

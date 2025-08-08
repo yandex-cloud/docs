@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        securityGroupId:
+          description: |-
+            **string**
+            Required field. ID of the address to list operations for.
+            To get a address ID make a [SecurityGroup.List] request.
+          type: string
+      required:
+        - securityGroupId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListSecurityGroupOperationsResponse.nextPageToken](/docs/vpc/api-ref/SecurityGroup/listOperations#yandex.cloud.vpc.v1.ListSecurityGroupOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListSecurityGroupOperationsResponse.nextPageToken](/docs/vpc/api-ref/SecurityGroup/listOperations#yandex.cloud.vpc.v1.ListSecurityGroupOperationsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/listOperations.md
 ---
 

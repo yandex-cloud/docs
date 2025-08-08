@@ -1,5 +1,46 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-data-transfer }}/v1/transfers/list/{folderId}
+    method: get
+    path:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Identifier of the folder containing the transfers to be listed.
+            To get the folder ID, make a
+            [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of transfers to be sent in the response message. If the
+            folder contains more transfers than `page_size`, `next_page_token` will be
+            included
+            in the response message. Include it into the subsequent `ListTransfersRequest`
+            to
+            fetch the next page. Defaults to `100` if not specified. The maximum allowed
+            value
+            for this field is `1000`.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Opaque value identifying the transfers page to be fetched. Should be empty in
+            the first `ListTransfersRequest`. Subsequent requests should have this field
+            filled
+            with the `next_page_token` from the previous `ListTransfersResponse`.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/list.md
 ---
 

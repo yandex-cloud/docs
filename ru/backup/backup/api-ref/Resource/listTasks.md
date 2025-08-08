@@ -1,5 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/resources/{computeInstanceId}/tasks
+    method: get
+    path:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            **string**
+            Required field. Compute Cloud instance ID.
+          type: string
+      required:
+        - computeInstanceId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            Number of results per page.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Token for the results page.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Resource/listTasks.md
 ---
 

@@ -1,5 +1,70 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/buses
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a bus in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the bus.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the bus.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Labels for the bus.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that disallow deletion of the bus.
+          type: boolean
+        loggingEnabled:
+          description: |-
+            **boolean**
+            Is logging from the bus enabled.
+          type: boolean
+        logOptions:
+          description: |-
+            **[LogOptions](/docs/serverless-integrations/eventrouter/api-ref/Bus/get#yandex.cloud.serverless.eventrouter.v1.LogOptions)**
+            Options for logging from the bus.
+          oneOf:
+            - type: object
+              properties:
+                logGroupId:
+                  description: |-
+                    **string**
+                    Entry will be written to log group resolved by ID.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                    Log entries destination.
+                  type: string
+                folderId:
+                  description: |-
+                    **string**
+                    Entry will be written to default log group for specified folder.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                    Log entries destination.
+                  type: string
+      required:
+        - folderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/create.md
 ---
 

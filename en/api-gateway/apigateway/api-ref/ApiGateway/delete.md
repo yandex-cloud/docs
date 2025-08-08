@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}
+    method: delete
+    path:
+      type: object
+      properties:
+        apiGatewayId:
+          description: |-
+            **string**
+            Required field. ID of the API gateway to update.
+            To get a API gateway ID make a [ApiGatewayService.List](/docs/api-gateway/apigateway/api-ref/ApiGateway/list#List) request.
+          type: string
+      required:
+        - apiGatewayId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/delete.md
 ---
 

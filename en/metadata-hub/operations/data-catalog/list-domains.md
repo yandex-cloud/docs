@@ -14,7 +14,7 @@
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog where your domains were created.
-  1. Go to the ![image](../../../_assets/console-icons/globe.svg) **Domains** tab.
+  1. Navigate to the ![image](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.data-catalog.label_domains }}** tab.
 
 {% endlist %}
 
@@ -24,7 +24,7 @@ You can use the management console to find domains by ID or name, sort domains b
 
 To find a domain, enter its ID or name in the search bar above the list of domains.
 
-To sort domains by name, click the **{{ ui-key.yacloud.common.name }}** column header. This will sort the domains in alphabetical order. A second click on the same header reverses the sorting order. A third click cancels the sorting.
+To sort domains by name, click the **{{ ui-key.yacloud.common.name }}** column header. This will sort the domains in alphabetical order. Clicking the same header a second time reverses the sorting order. Clicking a third time clears the applied sorting.
 
 To customize the columns:
 
@@ -35,4 +35,4 @@ To customize the columns:
     * Check the hidden columns you want displayed.
     * To reorder columns, click ![image](../../../_assets/console-icons/grip.svg) to the left of the column name and drag the column up or down to a new position in the list.
 
-1. Click **Apply**.
+1. Click **{{ ui-key.yacloud.common.apply }}**.

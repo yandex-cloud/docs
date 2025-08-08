@@ -5,7 +5,9 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Thumbnail/create.md
 
 # Video API, gRPC: ThumbnailService.Create
 
-Create thumbnail.
+Creates a new thumbnail record for a specific resource.
+This method only creates the metadata record; the actual image must be uploaded
+using the URL obtained from the GenerateUploadURL method.
 
 ## gRPC request
 
@@ -15,7 +17,11 @@ Create thumbnail.
 
 ```json
 {
-  "channel_id": "string"
+  "channel_id": "string",
+  // Includes only one of the fields `episode_id`, `video_id`
+  "episode_id": "string",
+  "video_id": "string"
+  // end of the list of possible fields
 }
 ```
 
@@ -23,7 +29,17 @@ Create thumbnail.
 ||Field | Description ||
 || channel_id | **string**
 
-ID of the channel. ||
+[Deprecated] ID of the channel. ||
+|| episode_id | **string**
+
+ID of the episode to associate the thumbnail with.
+
+Includes only one of the fields `episode_id`, `video_id`. ||
+|| video_id | **string**
+
+ID of the video to associate the thumbnail with.
+
+Includes only one of the fields `episode_id`, `video_id`. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -44,6 +60,10 @@ ID of the channel. ||
   "response": {
     "id": "string",
     "channel_id": "string",
+    // Includes only one of the fields `episode_id`, `video_id`
+    "episode_id": "string",
+    "video_id": "string",
+    // end of the list of possible fields
     "created_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
@@ -111,20 +131,33 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || thumbnail_id | **string**
 
-ID of the thumbnail. ||
+ID of the thumbnail being created. ||
 |#
 
 ## Thumbnail {#yandex.cloud.video.v1.Thumbnail}
+
+Entity representing an image used as a visual representation for various content entities.
+Thumbnails provide preview images for channels, streams, episodes, videos, and stream lines.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the thumbnail. ||
+Unique identifier of the thumbnail. ||
 || channel_id | **string**
 
-ID of the channel where the thumbnail was created. ||
+Identifier of the channel where the thumbnail is created and managed. ||
+|| episode_id | **string**
+
+ID of the episode which the thumbnail is associated with.
+
+Includes only one of the fields `episode_id`, `video_id`. ||
+|| video_id | **string**
+
+ID of the video which the thumbnail is associated with.
+
+Includes only one of the fields `episode_id`, `video_id`. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time when thumbnail was created. ||
+Timestamp when the thumbnail was initially created in the system. ||
 |#

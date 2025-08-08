@@ -1,5 +1,96 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:addListener
+    method: post
+    path:
+      type: object
+      properties:
+        networkLoadBalancerId:
+          description: |-
+            **string**
+            Required field. ID of the network load balancer to add a listener to.
+            To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#List) request.
+          type: string
+      required:
+        - networkLoadBalancerId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        listenerSpec:
+          description: |-
+            **[ListenerSpec](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/create#yandex.cloud.loadbalancer.v1.ListenerSpec)**
+            Required field. Listener spec.
+          oneOf:
+            - type: object
+              properties:
+                externalAddressSpec:
+                  description: |-
+                    **[ExternalAddressSpec](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/create#yandex.cloud.loadbalancer.v1.ExternalAddressSpec)**
+                    External IP address specification.
+                    Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
+                    IP address for incoming traffic. Either the ID of the previously created address or the address specification.
+                  $ref: '#/definitions/ExternalAddressSpec'
+                internalAddressSpec:
+                  description: |-
+                    **[InternalAddressSpec](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/create#yandex.cloud.loadbalancer.v1.InternalAddressSpec)**
+                    Internal IP address specification.
+                    Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
+                    IP address for incoming traffic. Either the ID of the previously created address or the address specification.
+                  $ref: '#/definitions/InternalAddressSpec'
+      required:
+        - listenerSpec
+      additionalProperties: false
+    definitions:
+      ExternalAddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              Public IP address for a listener.
+              If you provide a static public IP address for the [NetworkLoadBalancerService.Update](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/update#Update)
+              method, it will replace the existing listener address.
+            type: string
+          ipVersion:
+            description: |-
+              **enum** (IpVersion)
+              IP version.
+              - `IP_VERSION_UNSPECIFIED`
+              - `IPV4`: IPv4
+              - `IPV6`: IPv6
+            type: string
+            enum:
+              - IP_VERSION_UNSPECIFIED
+              - IPV4
+              - IPV6
+      InternalAddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              Internal IP address for a listener.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet.
+            type: string
+          ipVersion:
+            description: |-
+              **enum** (IpVersion)
+              IP version.
+              - `IP_VERSION_UNSPECIFIED`
+              - `IPV4`: IPv4
+              - `IPV6`: IPv6
+            type: string
+            enum:
+              - IP_VERSION_UNSPECIFIED
+              - IPV4
+              - IPV6
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/addListener.md
 ---
 
@@ -203,7 +294,13 @@ IP version.
       }
     ],
     "deletionProtection": "boolean",
-    "allowZonalShift": "boolean"
+    "allowZonalShift": "boolean",
+    "disableZoneStatuses": [
+      {
+        "zoneId": "string",
+        "disabledUntil": "string"
+      }
+    ]
   }
   // end of the list of possible fields
 }
@@ -377,6 +474,9 @@ Specifies if network load balancer protected from deletion. ||
 || allowZonalShift | **boolean**
 
 Specifies if network load balancer available to zonal shift. ||
+|| disableZoneStatuses[] | **[DisableZoneStatus](#yandex.cloud.loadbalancer.v1.DisableZoneStatus)**
+
+List of disabled zones for the network load balancer. ||
 |#
 
 ## Listener {#yandex.cloud.loadbalancer.v1.Listener}
@@ -492,4 +592,26 @@ Port to use for HTTP health checks. ||
 
 URL path to set for health checking requests for every target in the target group.
 For example `` /ping ``. The default path is `` / ``. ||
+|#
+
+## DisableZoneStatus {#yandex.cloud.loadbalancer.v1.DisableZoneStatus}
+
+Status of the disabled zone.
+
+#|
+||Field | Description ||
+|| zoneId | **string**
+
+Required field. ID of zone. ||
+|| disabledUntil | **string** (date-time)
+
+Timestamp until which the zone will be disabled.
+If not present then zone will be disabled until it is removed through a separate call.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/apiKeys/{apiKeyId}
+    method: delete
+    path:
+      type: object
+      properties:
+        apiKeyId:
+          description: |-
+            **string**
+            Required field. ID of the API key to delete.
+            To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#List) request.
+          type: string
+      required:
+        - apiKeyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/ApiKey/delete.md
 ---
 

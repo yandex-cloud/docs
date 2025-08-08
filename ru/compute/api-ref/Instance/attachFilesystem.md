@@ -1,5 +1,62 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:attachFilesystem
+    method: post
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            Required field. ID of the instance to attach the filesystem to.
+            To get the instance ID, make a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request.
+          type: string
+      required:
+        - instanceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        attachedFilesystemSpec:
+          description: |-
+            **[AttachedFilesystemSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedFilesystemSpec)**
+            Required field. Filesystem to attach to the instance.
+          $ref: '#/definitions/AttachedFilesystemSpec'
+      required:
+        - attachedFilesystemSpec
+      additionalProperties: false
+    definitions:
+      AttachedFilesystemSpec:
+        type: object
+        properties:
+          mode:
+            description: |-
+              **enum** (Mode)
+              Mode of access to the filesystem that should be attached.
+              - `MODE_UNSPECIFIED`
+              - `READ_ONLY`: Read-only access.
+              - `READ_WRITE`: Read/Write access.
+            type: string
+            enum:
+              - MODE_UNSPECIFIED
+              - READ_ONLY
+              - READ_WRITE
+          deviceName:
+            description: |-
+              **string**
+              Name of the device representing the filesystem on the instance.
+              The name should be used for referencing the filesystem from within the instance
+              when it's being mounted, resized etc.
+              If not specified, a random value will be generated.
+            pattern: '[a-z][a-z0-9-_]{,19}'
+            type: string
+          filesystemId:
+            description: |-
+              **string**
+              ID of the filesystem that should be attached.
+            type: string
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/attachFilesystem.md
 ---
 

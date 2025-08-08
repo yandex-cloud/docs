@@ -1,5 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}:disableZones
+    method: post
+    path:
+      type: object
+      properties:
+        loadBalancerId:
+          description: |-
+            **string**
+            Required field. ID of the application load balancer to disable traffic in zones.
+          type: string
+      required:
+        - loadBalancerId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        zoneIds:
+          description: |-
+            **string**
+            Zone IDs to disable traffic.
+          type: array
+          items:
+            type: string
+        duration:
+          description: |-
+            **string** (duration)
+            The interval during which the zones will be disabled (1m-72h). If not set then until EnableZones call.
+          type: string
+          format: duration
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/disableZones.md
 ---
 

@@ -1,5 +1,265 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://mks.{{ api-host }}/managed-kubernetes/v1/clusters
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a Kubernetes cluster in.
+            To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the Kubernetes cluster.
+            The name must be unique within the folder.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the Kubernetes cluster.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the network.
+          type: string
+        masterSpec:
+          description: |-
+            **[MasterSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.MasterSpec)**
+            Required field. Master specification of the Kubernetes cluster.
+          oneOf:
+            - type: object
+              properties:
+                zonalMasterSpec:
+                  description: |-
+                    **[ZonalMasterSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.ZonalMasterSpec)**
+                    Specification of the zonal master.
+                    Includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`.
+                  $ref: '#/definitions/ZonalMasterSpec'
+                regionalMasterSpec:
+                  description: |-
+                    **[RegionalMasterSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.RegionalMasterSpec)**
+                    Specification of the regional master.
+                    Includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`.
+                  $ref: '#/definitions/RegionalMasterSpec'
+        ipAllocationPolicy:
+          description: |-
+            **[IPAllocationPolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.IPAllocationPolicy)**
+            IP allocation policy of the Kubernetes cluster.
+          $ref: '#/definitions/IPAllocationPolicy'
+        gatewayIpv4Address:
+          description: |-
+            **string**
+            Gateway IPv4 address.
+            Includes only one of the fields `gatewayIpv4Address`.
+          type: string
+        serviceAccountId:
+          description: |-
+            **string**
+            Required field. Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster.
+            Selected service account should have `edit` role on the folder where the Kubernetes cluster will be
+            located and on the folder where selected network resides.
+          type: string
+        nodeServiceAccountId:
+          description: |-
+            **string**
+            Required field. Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.
+          type: string
+        releaseChannel:
+          description: |-
+            **enum** (ReleaseChannel)
+            Release channel for the master.
+            - `RELEASE_CHANNEL_UNSPECIFIED`
+            - `RAPID`: Minor updates with new functions and improvements are often added.
+            You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.
+            - `REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.
+            - `STABLE`: Only updates related to bug fixes or security improvements are added.
+          type: string
+          enum:
+            - RELEASE_CHANNEL_UNSPECIFIED
+            - RAPID
+            - REGULAR
+            - STABLE
+        networkPolicy:
+          description: '**[NetworkPolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.NetworkPolicy)**'
+          $ref: '#/definitions/NetworkPolicy'
+        kmsProvider:
+          description: |-
+            **[KMSProvider](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.KMSProvider)**
+            KMS provider configuration.
+          $ref: '#/definitions/KMSProvider'
+        cilium:
+          description: |-
+            **[Cilium](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.Cilium)**
+            Includes only one of the fields `cilium`.
+          $ref: '#/definitions/Cilium'
+      required:
+        - folderId
+        - networkId
+        - masterSpec
+        - serviceAccountId
+        - nodeServiceAccountId
+      additionalProperties: false
+    definitions:
+      InternalAddressSpec:
+        type: object
+        properties:
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet. If no ID is specified, and there only one subnet in specified zone, an address in this subnet will be allocated.
+            type: string
+      ExternalAddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              IP address.
+            type: string
+      ZonalMasterSpec:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              Required field. ID of the availability zone.
+            type: string
+          internalV4AddressSpec:
+            description: |-
+              **[InternalAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.InternalAddressSpec)**
+              Specification of parameters for internal IPv4 networking.
+            $ref: '#/definitions/InternalAddressSpec'
+          externalV4AddressSpec:
+            description: |-
+              **[ExternalAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              Specification of parameters for external IPv4 networking.
+            $ref: '#/definitions/ExternalAddressSpec'
+        required:
+          - zoneId
+      MasterLocation:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              Required field. ID of the availability zone.
+            type: string
+          internalV4AddressSpec:
+            description: |-
+              **[InternalAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.InternalAddressSpec)**
+              If not specified and there is a single subnet in specified zone, address
+              in this subnet will be allocated.
+            $ref: '#/definitions/InternalAddressSpec'
+        required:
+          - zoneId
+      RegionalMasterSpec:
+        type: object
+        properties:
+          regionId:
+            description: |-
+              **string**
+              Required field. ID of the availability zone where the master resides.
+            type: string
+          locations:
+            description: |-
+              **[MasterLocation](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.MasterLocation)**
+              List of locations where the master will be allocated.
+            type: array
+            items:
+              $ref: '#/definitions/MasterLocation'
+          externalV4AddressSpec:
+            description: |-
+              **[ExternalAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              Specify to allocate a static public IP for the master.
+            $ref: '#/definitions/ExternalAddressSpec'
+          externalV6AddressSpec:
+            description: |-
+              **[ExternalAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              Specification of parameters for external IPv6 networking.
+            $ref: '#/definitions/ExternalAddressSpec'
+        required:
+          - regionId
+      IPAllocationPolicy:
+        type: object
+        properties:
+          clusterIpv4CidrBlock:
+            description: |-
+              **string**
+              CIDR block. IP range for allocating pod addresses.
+              It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be
+              set up for this CIDR blocks in node subnets.
+            type: string
+          nodeIpv4CidrMaskSize:
+            description: |-
+              **string** (int64)
+              Size of the masks that are assigned for each node in the cluster.
+              If not specified, 24 is used.
+            type: string
+            format: int64
+          serviceIpv4CidrBlock:
+            description: |-
+              **string**
+              CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from.
+              It should not overlap with any subnet in the network the Kubernetes cluster located in.
+            type: string
+          clusterIpv6CidrBlock:
+            description: |-
+              **string**
+              IPv6 range for allocating pod IP addresses.
+            type: string
+          serviceIpv6CidrBlock:
+            description: |-
+              **string**
+              IPv6 range for allocating Kubernetes service IP addresses
+            type: string
+      NetworkPolicy:
+        type: object
+        properties:
+          provider:
+            description: |-
+              **enum** (Provider)
+              - `PROVIDER_UNSPECIFIED`
+              - `CALICO`
+            type: string
+            enum:
+              - PROVIDER_UNSPECIFIED
+              - CALICO
+      KMSProvider:
+        type: object
+        properties:
+          keyId:
+            description: |-
+              **string**
+              KMS key ID for secrets encryption.
+              To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/api-ref/SymmetricKey/list#List) request.
+            type: string
+      Cilium:
+        type: object
+        properties:
+          routingMode:
+            description: |-
+              **enum** (RoutingMode)
+              - `ROUTING_MODE_UNSPECIFIED`
+              - `TUNNEL`
+            type: string
+            enum:
+              - ROUTING_MODE_UNSPECIFIED
+              - TUNNEL
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/create.md
 ---
 

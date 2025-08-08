@@ -70,7 +70,8 @@ Updates the configuration of the specified cluster.
     "string"
   ],
   "deletion_protection": "bool",
-  "log_group_id": "string"
+  "log_group_id": "string",
+  "autoscaling_service_account_id": "string"
 }
 ```
 
@@ -117,6 +118,9 @@ Deletion Protection inhibits deletion of the cluster ||
 || log_group_id | **string**
 
 ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service ||
+|| autoscaling_service_account_id | **string**
+
+ID of the new service account to be used by the Instance Groups service. ||
 |#
 
 ## UpdateClusterConfigSpec {#yandex.cloud.dataproc.v1.UpdateClusterConfigSpec}
@@ -329,7 +333,8 @@ Execution timeout ||
     ],
     "deletion_protection": "bool",
     "log_group_id": "string",
-    "environment": "Environment"
+    "environment": "Environment",
+    "autoscaling_service_account_id": "string"
   }
   // end of the list of possible fields
 }
@@ -480,6 +485,9 @@ Environment of the cluster
 - `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`
 - `PRESTABLE` ||
+|| autoscaling_service_account_id | **string**
+
+ID of service account for working with the Instance Groups service. ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}

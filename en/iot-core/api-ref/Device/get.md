@@ -1,5 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}
+    method: get
+    path:
+      type: object
+      properties:
+        deviceId:
+          description: |-
+            **string**
+            Required field. ID of the device to return.
+            To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request.
+          type: string
+      required:
+        - deviceId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        deviceView:
+          description: |-
+            **enum** (DeviceView)
+            Specifies which parts of the device resource should be returned
+            in the response.
+            - `BASIC`: Server responses without monitoring data.
+            The default value.
+            - `FULL`: Server responses with monitoring data.
+          type: string
+          enum:
+            - BASIC
+            - FULL
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/get.md
 ---
 

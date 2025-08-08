@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Episode/update.md
 
 # Video API, gRPC: EpisodeService.Update
 
-Update episode.
+Updates an existing episode's metadata and settings.
+Only fields specified in the field_mask will be updated.
 
 ## gRPC request
 
@@ -23,9 +24,9 @@ Update episode.
   "start_time": "google.protobuf.Timestamp",
   "finish_time": "google.protobuf.Timestamp",
   "dvr_seconds": "int64",
-  // Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`
+  "style_preset_id": "string",
+  // Includes only one of the fields `public_access`, `sign_url_access`
   "public_access": "EpisodePublicAccessParams",
-  "auth_system_access": "EpisodeAuthSystemAccessParams",
   "sign_url_access": "EpisodeSignURLAccessParams"
   // end of the list of possible fields
 }
@@ -38,7 +39,10 @@ Update episode.
 Required field. ID of the episode. ||
 || field_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
-Required field. Field mask that specifies which fields of the episode are going to be updated. ||
+Required field. Field mask specifying which fields of the episode should be updated.
+Only fields specified in this mask will be modified;
+all other fields will retain their current values.
+This allows for partial updates. ||
 || title | **string**
 
 Episode title. ||
@@ -48,7 +52,9 @@ Episode description. ||
 || thumbnail_id | **string**
 
 ID of the thumbnail. ||
-|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Episode start time. ||
 || finish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Episode finish time. ||
@@ -60,37 +66,28 @@ Determines how many last seconds of the stream are available.
 Possible values:
 * `0`: infinite dvr size, the full length of the stream allowed to display
 * `>0`: size of dvr window in seconds, the minimum value is 30s ||
+|| style_preset_id | **string**
+
+New ID of the style preset to be applied to the episode player. ||
 || public_access | **[EpisodePublicAccessParams](#yandex.cloud.video.v1.EpisodePublicAccessParams)**
 
-Episode is available to everyone.
+Episode is publicly available.
 
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
-
-Episode access rights. ||
-|| auth_system_access | **[EpisodeAuthSystemAccessParams](#yandex.cloud.video.v1.EpisodeAuthSystemAccessParams)**
-
-Checking access rights using the authorization system.
-
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
+Includes only one of the fields `public_access`, `sign_url_access`.
 
 Episode access rights. ||
 || sign_url_access | **[EpisodeSignURLAccessParams](#yandex.cloud.video.v1.EpisodeSignURLAccessParams)**
 
-Checking access rights using url's signature.
+Access to the episode is restricted by temporarily signed links.
 
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
+Includes only one of the fields `public_access`, `sign_url_access`.
 
 Episode access rights. ||
 |#
 
 ## EpisodePublicAccessParams {#yandex.cloud.video.v1.EpisodePublicAccessParams}
 
-#|
-||Field | Description ||
-|| Empty | > ||
-|#
-
-## EpisodeAuthSystemAccessParams {#yandex.cloud.video.v1.EpisodeAuthSystemAccessParams}
+Parameters for episode public access rights.
 
 #|
 ||Field | Description ||
@@ -98,6 +95,8 @@ Episode access rights. ||
 |#
 
 ## EpisodeSignURLAccessParams {#yandex.cloud.video.v1.EpisodeSignURLAccessParams}
+
+Parameters for episode access restrictions based on temporary signed links.
 
 #|
 ||Field | Description ||
@@ -130,9 +129,9 @@ Episode access rights. ||
     "finish_time": "google.protobuf.Timestamp",
     "dvr_seconds": "int64",
     "visibility_status": "VisibilityStatus",
-    // Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`
+    "style_preset_id": "string",
+    // Includes only one of the fields `public_access`, `sign_url_access`
     "public_access": "EpisodePublicAccessRights",
-    "auth_system_access": "EpisodeAuthSystemAccessRights",
     "sign_url_access": "EpisodeSignURLAccessRights",
     // end of the list of possible fields
     "created_at": "google.protobuf.Timestamp",
@@ -203,87 +202,88 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || episode_id | **string**
 
-ID of the episode. ||
+ID of the episode being updated. ||
 |#
 
 ## Episode {#yandex.cloud.video.v1.Episode}
+
+Entity representing a stream fragment that can be accessed independently.
+Episodes can be linked to either a stream or a line
+and provide a way to reference specific portions of the corresponding content.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the episode. ||
+Unique identifier of the episode. ||
 || stream_id | **string**
 
-ID of the stream. Optional, empty if the episode is linked to the line ||
+Identifier of the stream this episode is linked to.
+Optional, empty if the episode is linked to a line. ||
 || line_id | **string**
 
-ID of the line. Optional, empty if the episode is linked to the stream ||
+Identifier of the line this episode is linked to.
+Optional, empty if the episode is linked to a stream. ||
 || title | **string**
 
-Episode title. ||
+Title of the episode displayed in interfaces and players. ||
 || description | **string**
 
-Episode description. ||
+Detailed description of the episode content and context. ||
 || thumbnail_id | **string**
 
-ID of the thumbnail. ||
+Identifier of the thumbnail image used to represent the episode visually. ||
 || start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Episode start time. ||
+Timestamp marking the beginning of the episode content. ||
 || finish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Episode finish time. ||
+Timestamp marking the end of the episode content. ||
 || dvr_seconds | **int64**
 
-Enables episode DVR mode.
-Determines how many last seconds of the stream are available for watching.
+Controls the Digital Video Recording (DVR) functionality for the episode.
+Determines how many seconds of the stream are available for time-shifted viewing.
 
 Possible values:
-* `0`: infinite dvr size, the full length of the stream allowed to display
-* `>0`: size of dvr window in seconds, the minimum value is 30s ||
+* `0`: Infinite DVR size, the full length of the stream is available for viewing.
+* `>0`: Size of DVR window in seconds, the minimum value is 30s. ||
 || visibility_status | enum **VisibilityStatus**
 
-- `VISIBILITY_STATUS_UNSPECIFIED`
-- `PUBLISHED`
-- `UNPUBLISHED` ||
+Current visibility status controlling whether the episode is publicly available.
+
+- `VISIBILITY_STATUS_UNSPECIFIED`: The visibility status is not specified.
+- `PUBLISHED`: The episode is publicly available, subject to its access permission settings.
+- `UNPUBLISHED`: The episode is available only to administrators. ||
+|| style_preset_id | **string**
+
+Identifier of the style preset used in the player during episode playback. ||
 || public_access | **[EpisodePublicAccessRights](#yandex.cloud.video.v1.EpisodePublicAccessRights)**
 
-Episode is available to everyone.
+Allows unrestricted public access to the episode via direct link.
+No additional authorization or access control is applied.
 
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
+Includes only one of the fields `public_access`, `sign_url_access`.
 
-Episode access rights. ||
-|| auth_system_access | **[EpisodeAuthSystemAccessRights](#yandex.cloud.video.v1.EpisodeAuthSystemAccessRights)**
-
-Checking access rights using the authorization system.
-
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
-
-Episode access rights. ||
+Specifies the episode access permission settings. ||
 || sign_url_access | **[EpisodeSignURLAccessRights](#yandex.cloud.video.v1.EpisodeSignURLAccessRights)**
 
-Checking access rights using url's signature.
+Restricts episode access using URL signatures for secure time-limited access.
 
-Includes only one of the fields `public_access`, `auth_system_access`, `sign_url_access`.
+Includes only one of the fields `public_access`, `sign_url_access`.
 
-Episode access rights. ||
+Specifies the episode access permission settings. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time when episode was created. ||
+Timestamp when the episode was initially created in the system. ||
 || updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time of last episode update. ||
+Timestamp of the last modification to the episode or its metadata. ||
 |#
 
 ## EpisodePublicAccessRights {#yandex.cloud.video.v1.EpisodePublicAccessRights}
 
-#|
-||Field | Description ||
-|| Empty | > ||
-|#
-
-## EpisodeAuthSystemAccessRights {#yandex.cloud.video.v1.EpisodeAuthSystemAccessRights}
+Represents public access rights for an episode.
+When this access type is set, the episode is publicly accessible via direct link.
 
 #|
 ||Field | Description ||
@@ -291,6 +291,9 @@ Time of last episode update. ||
 |#
 
 ## EpisodeSignURLAccessRights {#yandex.cloud.video.v1.EpisodeSignURLAccessRights}
+
+Represents access rights controlled by URL signatures.
+When this access type is set, the episode is accessible only via properly signed temporary link.
 
 #|
 ||Field | Description ||

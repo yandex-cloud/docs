@@ -5,7 +5,9 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Episode/getPlayerURL.md
 
 # Video API, gRPC: EpisodeService.GetPlayerURL
 
-Get player url.
+Generates a player URL for watching the episode.
+The URL can include player parameters such as autoplay, mute, and visibility of interface controls.
+For episodes with signed URL access, an expiration duration can be specified.
 
 ## gRPC request
 
@@ -29,11 +31,15 @@ Get player url.
 ||Field | Description ||
 || episode_id | **string**
 
-Required field. ID of the episode. ||
-|| params | **[EpisodePlayerParams](#yandex.cloud.video.v1.EpisodePlayerParams)** ||
+Required field. ID of the episode for which to generate a player URL. ||
+|| params | **[EpisodePlayerParams](#yandex.cloud.video.v1.EpisodePlayerParams)**
+
+Optional player parameters to customize the playback experience.
+These parameters control initial player state such as mute, autoplay, and visibility of interface controls. ||
 || signed_url_expiration_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
-Optional field, used to set custom url expiration duration for episodes with sign_url_access ||
+For episodes with signed URL access, specifies how long the generated URL will be valid.
+If not provided, a default expiration duration will be used. ||
 |#
 
 ## EpisodePlayerParams {#yandex.cloud.video.v1.EpisodePlayerParams}
@@ -42,13 +48,16 @@ Optional field, used to set custom url expiration duration for episodes with sig
 ||Field | Description ||
 || mute | **bool**
 
-If true, a player will be muted by default. ||
+If true, the player will start with audio muted.
+Users can unmute the audio manually after playback starts. ||
 || autoplay | **bool**
 
-If true, playback will start automatically. ||
+If true, the episode will start playing automatically when the player loads.
+This may be subject to browser autoplay policies that restrict autoplay with sound. ||
 || hidden | **bool**
 
-If true, a player interface will be hidden by default. ||
+If true, the player interface controls will be hidden initially.
+Users can typically reveal the controls by moving the mouse over the player. ||
 |#
 
 ## GetEpisodePlayerURLResponse {#yandex.cloud.video.v1.GetEpisodePlayerURLResponse}
@@ -64,8 +73,11 @@ If true, a player interface will be hidden by default. ||
 ||Field | Description ||
 || player_url | **string**
 
-Direct link to the episode. ||
+Direct URL to the episode player.
+This URL can be used to access the episode in a web browser
+or shared with users who have appropriate permissions. ||
 || html | **string**
 
-HTML embed code in Iframe format. ||
+HTML embed code in iframe format that can be inserted into web pages.
+This code allows the episode to be embedded directly in third-party websites. ||
 |#

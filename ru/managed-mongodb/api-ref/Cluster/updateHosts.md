@@ -1,5 +1,84 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/hosts:batchUpdate
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the MongoDB cluster to update hosts from.
+            To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateHostSpecs:
+          description: |-
+            **[UpdateHostSpec](/docs/managed-mongodb/api-ref/Cluster/updateHosts#yandex.cloud.mdb.mongodb.v1.UpdateHostSpec)**
+            New configurations to apply to hosts of a Managed Service for MongoDB cluster.
+          type: array
+          items:
+            $ref: '#/definitions/UpdateHostSpec'
+      additionalProperties: false
+    definitions:
+      UpdateHostSpec:
+        type: object
+        properties:
+          hostName:
+            description: |-
+              **string**
+              Required field. Host to be updated. Specify the [host FQDN](https://yandex.cloud/en/docs/managed-mongodb/operations/connect/#fqdn).
+            type: string
+          hidden:
+            description: |-
+              **boolean**
+              Determines if the host is a hidden replica set member.
+              Such members cannot become primary in a replica set, and they are invisible to client applications. However, hidden members can participate in elections of the primary host. For more information, see the [MongoDB documentation](https://www.mongodb.com/docs/manual/core/replica-set-hidden-member/).
+            type: boolean
+          secondaryDelaySecs:
+            description: |-
+              **string** (int64)
+              The time, in seconds, by which the given replica set member lags behind the primary host.
+            type: string
+            format: int64
+          priority:
+            description: |-
+              **number** (double)
+              Priority of the host to be elected as the primary in the replica set.
+              The minimum value is `0` if the Managed Service for MongoDB cluster contains three or more secondary hosts. Otherwise, the minimum value is `1`.
+            type: number
+            format: double
+          assignPublicIp:
+            description: |-
+              **boolean**
+              Determines whether the host should get a public IP address after the update.
+            type: boolean
+          updateMask:
+            description: |-
+              **string** (field-mask)
+              A comma-separated names off ALL fields to be updated.
+              Only the specified fields will be changed. The others will be left untouched.
+              If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+              the field's value will be reset to the default. The default value for most fields is null or 0.
+              If `` updateMask `` is not sent in the request, all fields' values will be updated.
+              Fields specified in the request will be updated to provided values.
+              The rest of the fields will be reset to the default.
+            type: string
+            format: field-mask
+          tags:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Host tag list that contains key-value pairs for the given replica set member. For more information about how to specify the tags and what values to choose, see the [MongoDB documentation](https://www.mongodb.com/docs/manual/reference/replica-configuration/#mongodb-rsconf-rsconf.members-n-.tags).
+            type: string
+        required:
+          - hostName
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/updateHosts.md
 ---
 

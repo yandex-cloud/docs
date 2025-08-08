@@ -165,6 +165,20 @@ items:
                 href: api-ref/grpc/Operation/get.md
               - name: Cancel
                 href: api-ref/grpc/Operation/cancel.md
+          - name: PrivateCloudConnection
+            items:
+              - name: Overview
+                href: api-ref/grpc/PrivateCloudConnection/index.md
+              - name: Get
+                href: api-ref/grpc/PrivateCloudConnection/get.md
+              - name: List
+                href: api-ref/grpc/PrivateCloudConnection/list.md
+              - name: Create
+                href: api-ref/grpc/PrivateCloudConnection/create.md
+              - name: Update
+                href: api-ref/grpc/PrivateCloudConnection/update.md
+              - name: Delete
+                href: api-ref/grpc/PrivateCloudConnection/delete.md
           - name: PrivateSubnet
             items:
               - name: Overview
@@ -262,6 +276,38 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: Configuration
+            items:
+              - name: Overview
+                href: api-ref/Configuration/index.md
+              - name: Get
+                href: api-ref/Configuration/get.md
+              - name: List
+                href: api-ref/Configuration/list.md
+          - name: HardwarePool
+            items:
+              - name: Overview
+                href: api-ref/HardwarePool/index.md
+              - name: Get
+                href: api-ref/HardwarePool/get.md
+              - name: List
+                href: api-ref/HardwarePool/list.md
+          - name: Image
+            items:
+              - name: Overview
+                href: api-ref/Image/index.md
+              - name: Get
+                href: api-ref/Image/get.md
+              - name: List
+                href: api-ref/Image/list.md
+              - name: Create
+                href: api-ref/Image/create.md
+              - name: Update
+                href: api-ref/Image/update.md
+              - name: Delete
+                href: api-ref/Image/delete.md
+              - name: ListOperations
+                href: api-ref/Image/listOperations.md
           - name: Operation
             items:
               - name: Overview
@@ -270,6 +316,112 @@ items:
                 href: api-ref/Operation/get.md
               - name: Cancel
                 href: api-ref/Operation/cancel.md
+          - name: PrivateCloudConnection
+            items:
+              - name: Overview
+                href: api-ref/PrivateCloudConnection/index.md
+              - name: Get
+                href: api-ref/PrivateCloudConnection/get.md
+              - name: List
+                href: api-ref/PrivateCloudConnection/list.md
+              - name: Create
+                href: api-ref/PrivateCloudConnection/create.md
+              - name: Update
+                href: api-ref/PrivateCloudConnection/update.md
+              - name: Delete
+                href: api-ref/PrivateCloudConnection/delete.md
+          - name: PrivateSubnet
+            items:
+              - name: Overview
+                href: api-ref/PrivateSubnet/index.md
+              - name: Get
+                href: api-ref/PrivateSubnet/get.md
+              - name: List
+                href: api-ref/PrivateSubnet/list.md
+              - name: Create
+                href: api-ref/PrivateSubnet/create.md
+              - name: Update
+                href: api-ref/PrivateSubnet/update.md
+              - name: Delete
+                href: api-ref/PrivateSubnet/delete.md
+              - name: ListOperations
+                href: api-ref/PrivateSubnet/listOperations.md
+          - name: PublicSubnet
+            items:
+              - name: Overview
+                href: api-ref/PublicSubnet/index.md
+              - name: Get
+                href: api-ref/PublicSubnet/get.md
+              - name: List
+                href: api-ref/PublicSubnet/list.md
+              - name: Create
+                href: api-ref/PublicSubnet/create.md
+              - name: Update
+                href: api-ref/PublicSubnet/update.md
+              - name: Delete
+                href: api-ref/PublicSubnet/delete.md
+              - name: ListOperations
+                href: api-ref/PublicSubnet/listOperations.md
+          - name: Server
+            items:
+              - name: Overview
+                href: api-ref/Server/index.md
+              - name: Get
+                href: api-ref/Server/get.md
+              - name: List
+                href: api-ref/Server/list.md
+              - name: Create
+                href: api-ref/Server/create.md
+              - name: BatchCreate
+                href: api-ref/Server/batchCreate.md
+              - name: Update
+                href: api-ref/Server/update.md
+              - name: PowerOff
+                href: api-ref/Server/powerOff.md
+              - name: PowerOn
+                href: api-ref/Server/powerOn.md
+              - name: Reboot
+                href: api-ref/Server/reboot.md
+              - name: Reinstall
+                href: api-ref/Server/reinstall.md
+              - name: StartProlongation
+                href: api-ref/Server/startProlongation.md
+              - name: StopProlongation
+                href: api-ref/Server/stopProlongation.md
+              - name: ListOperations
+                href: api-ref/Server/listOperations.md
+          - name: Storage
+            items:
+              - name: Overview
+                href: api-ref/Storage/index.md
+              - name: GetDefault
+                href: api-ref/Storage/getDefault.md
+              - name: BatchGetDefault
+                href: api-ref/Storage/batchGetDefault.md
+          - name: Vrf
+            items:
+              - name: Overview
+                href: api-ref/Vrf/index.md
+              - name: Get
+                href: api-ref/Vrf/get.md
+              - name: List
+                href: api-ref/Vrf/list.md
+              - name: Create
+                href: api-ref/Vrf/create.md
+              - name: Update
+                href: api-ref/Vrf/update.md
+              - name: Delete
+                href: api-ref/Vrf/delete.md
+              - name: ListOperations
+                href: api-ref/Vrf/listOperations.md
+          - name: Zone
+            items:
+              - name: Overview
+                href: api-ref/Zone/index.md
+              - name: Get
+                href: api-ref/Zone/get.md
+              - name: List
+                href: api-ref/Zone/list.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

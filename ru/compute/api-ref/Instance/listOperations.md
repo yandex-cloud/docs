@@ -1,5 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            Required field. ID of the Instance resource to list operations for.
+          type: string
+      required:
+        - instanceId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListInstanceOperationsResponse.nextPageToken](/docs/compute/api-ref/Instance/listOperations#yandex.cloud.compute.v1.ListInstanceOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListInstanceOperationsResponse.nextPageToken](/docs/compute/api-ref/Instance/listOperations#yandex.cloud.compute.v1.ListInstanceOperationsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/listOperations.md
 ---
 

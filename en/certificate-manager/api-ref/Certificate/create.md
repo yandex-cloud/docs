@@ -1,5 +1,61 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-certmanager }}/certificate-manager/v1/certificates
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a certificate in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the certificate.
+            The name must be unique within the folder.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the certificate.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Labels for the certificate as `key:value` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        certificate:
+          description: |-
+            **string**
+            PEM-encoded certificate content of the certificate.
+          type: string
+        chain:
+          description: |-
+            **string**
+            PEM-encoded certificate chain content of the certificate.
+          type: string
+        privateKey:
+          description: |-
+            **string**
+            Required field. PEM-encoded private key content of the certificate.
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that protects deletion of the certificate
+          type: boolean
+      required:
+        - folderId
+        - privateKey
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/create.md
 ---
 

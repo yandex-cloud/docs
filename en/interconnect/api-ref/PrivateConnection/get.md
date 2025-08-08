@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cic.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}
+    method: get
+    path:
+      type: object
+      properties:
+        privateConnectionId:
+          description: |-
+            **string**
+            Required field. ID of the PrivateConnection resource to return.
+            To get the privateConnection ID use a [PrivateConnectionService.List](/docs/interconnect/api-ref/PrivateConnection/list#List) request.
+          type: string
+      required:
+        - privateConnectionId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cic/v1/api-ref/PrivateConnection/get.md
 ---
 

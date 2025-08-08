@@ -1,5 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/resources
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to request listing for.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListResourcesResponse.nextPageToken](/docs/cdn/api-ref/Resource/list#yandex.cloud.cdn.v1.ListResourcesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results,
+            set `pageToken` to the [ListResourcesResponse.nextPageToken](/docs/cdn/api-ref/Resource/list#yandex.cloud.cdn.v1.ListResourcesResponse)
+            returned by a previous list request.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/Resource/list.md
 ---
 
@@ -215,7 +248,9 @@ returned by a previous list request. ||
           // end of the list of possible fields
         }
       },
-      "labels": "object"
+      "labels": "object",
+      "providerType": "string",
+      "providerCname": "string"
     }
   ],
   "nextPageToken": "string"
@@ -303,6 +338,12 @@ SSL certificate options. ||
 || labels | **object** (map<**string**, **string**>)
 
 Labels of the resource. ||
+|| providerType | **string**
+
+RESERVED: This field is reserved for future use and should not be used at this time. ||
+|| providerCname | **string**
+
+RESERVED: Provider CNAME. ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions}

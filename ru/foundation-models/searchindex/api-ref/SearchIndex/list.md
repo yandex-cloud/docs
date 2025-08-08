@@ -1,5 +1,33 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/assistants/v1/searchIndex
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. Folder ID from which to list search indexes.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            Maximum number of threads to return per page.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Token to retrieve the next page of results.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/SearchIndex/list.md
 ---
 

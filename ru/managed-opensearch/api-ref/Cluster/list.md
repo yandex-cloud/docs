@@ -1,7 +1,46 @@
 ---
 editable: false
 apiPlayground:
-  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters","method":"get","path":null,"query":{"type":"object","properties":{"folderId":{"description":"**string**\n\nRequired field. ID of the folder to list OpenSearch clusters in.\n\nTo get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.","type":"string"},"pageSize":{"description":"**string** (int64)\n\nThe maximum number of results per page to return.\n\nIf the number of available results is larger than `pageSize`, the service returns\na [ListClustersResponse.nextPageToken](/docs/managed-opensearch/api-ref/Cluster/list#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) that can be used to get the next page of results in subsequent list requests.","type":"string","format":"int64"},"pageToken":{"description":"**string**\n\nPage token. To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](/docs/managed-opensearch/api-ref/Cluster/list#yandex.cloud.mdb.opensearch.v1.ListClustersResponse)\nreturned by the previous list request.","type":"string"},"filter":{"description":"**string**\n\nA filter expression that filters resources listed in the response.\n\nThe expression must specify:\n\n1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.Cluster) field.\n\n2. An `=` operator.\n\n3. The value in double quotes (`\"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.","type":"string"}},"required":["folderId"],"additionalProperties":false},"body":null,"definitions":null}'
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/clusters
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list OpenSearch clusters in.
+            To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `pageSize`, the service returns
+            a [ListClustersResponse.nextPageToken](/docs/managed-opensearch/api-ref/Cluster/list#yandex.cloud.mdb.opensearch.v1.ListClustersResponse) that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](/docs/managed-opensearch/api-ref/Cluster/list#yandex.cloud.mdb.opensearch.v1.ListClustersResponse)
+            returned by the previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-opensearch/api-ref/Cluster/get#yandex.cloud.mdb.opensearch.v1.Cluster) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/list.md
 ---
 

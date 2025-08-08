@@ -1,5 +1,68 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/keys
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a symmetric KMS key in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the key.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the key.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key.
+            For example, `"project": "mvp"` or `"source": "dictionary"`.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        defaultAlgorithm:
+          description: |-
+            **enum** (SymmetricAlgorithm)
+            Required field. Encryption algorithm to be used with a new key version, generated with the next rotation.
+            - `SYMMETRIC_ALGORITHM_UNSPECIFIED`
+            - `AES_128`: AES algorithm with 128-bit keys.
+            - `AES_192`: AES algorithm with 192-bit keys.
+            - `AES_256`: AES algorithm with 256-bit keys.
+            - `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+          type: string
+          enum:
+            - SYMMETRIC_ALGORITHM_UNSPECIFIED
+            - AES_128
+            - AES_192
+            - AES_256
+            - AES_256_HSM
+        rotationPeriod:
+          description: |-
+            **string** (duration)
+            Interval between automatic rotations. To disable automatic rotation, don't include
+            this field in the creation request.
+          type: string
+          format: duration
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that inhibits deletion of the symmetric KMS key
+          type: boolean
+      required:
+        - folderId
+        - defaultAlgorithm
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/create.md
 ---
 

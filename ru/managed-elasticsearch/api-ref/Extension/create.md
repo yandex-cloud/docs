@@ -1,5 +1,43 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/extensions
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Required field. Name of the extension.
+          type: string
+        uri:
+          description: |-
+            **string**
+            Required field. URI of the zip archive to create the new extension from. Currently only supports links that are stored in Object Storage.
+          type: string
+        disabled:
+          description: |-
+            **boolean**
+            The flag that disables the extension.
+          type: boolean
+      required:
+        - name
+        - uri
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Extension/create.md
 ---
 

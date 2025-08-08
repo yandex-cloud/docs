@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/gateways/{gatewayId}:move
+    method: post
+    path:
+      type: object
+      properties:
+        gatewayId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - gatewayId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - destinationFolderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/move.md
 ---
 

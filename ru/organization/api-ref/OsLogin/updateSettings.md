@@ -1,9 +1,62 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}/osLoginSettings
+    method: patch
+    path:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - organizationId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        userSshKeySettings:
+          description: '**[UserSshKeySettings](/docs/organization/api-ref/OsLogin/updateSettings#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsRequest.UserSshKeySettings)**'
+          $ref: '#/definitions/UserSshKeySettings'
+        sshCertificateSettings:
+          description: '**[SshCertificateSettings](/docs/organization/api-ref/OsLogin/updateSettings#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsRequest.SshCertificateSettings)**'
+          $ref: '#/definitions/SshCertificateSettings'
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+      additionalProperties: false
+    definitions:
+      UserSshKeySettings:
+        type: object
+        properties:
+          enabled:
+            description: '**boolean**'
+            type: boolean
+          allowManageOwnKeys:
+            description: '**boolean**'
+            type: boolean
+      SshCertificateSettings:
+        type: object
+        properties:
+          enabled:
+            description: '**boolean**'
+            type: boolean
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/updateSettings.md
 ---
 
-# Cloud Organization API, REST: OsLogin.UpdateSettings
+# Identity Hub API, REST: OsLogin.UpdateSettings
 
 ## HTTP request
 

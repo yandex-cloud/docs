@@ -1,5 +1,50 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}:listRecordSets
+    method: get
+    path:
+      type: object
+      properties:
+        dnsZoneId:
+          description: |-
+            **string**
+            ID of the DNS zone to list record sets in.
+            To get a DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/DnsZone/list#List) request.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListDnsZoneRecordSetsResponse.nextPageToken](/docs/dns/api-ref/DnsZone/listRecordSets#yandex.cloud.dns.v1.ListDnsZoneRecordSetsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListDnsZoneRecordSetsResponse.nextPageToken](/docs/dns/api-ref/DnsZone/listRecordSets#yandex.cloud.dns.v1.ListDnsZoneRecordSetsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters record sets listed in the response. The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
+            Each condition has the form `<field> <operator> <value>`, where:
+            1. `<field>` is the field name. Currently you can use filtering only on the [RecordSet.name](/docs/dns/api-ref/DnsZone/getRecordSet#yandex.cloud.dns.v1.RecordSet) and [RecordSet.type](/docs/dns/api-ref/DnsZone/getRecordSet#yandex.cloud.dns.v1.RecordSet) fields.
+            2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
+            3. `<value>` represents a value.
+            3.1. In case of single value condition (`=` or `!=`), the value is a string in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
+            3.2. In case of a list of values condition (`IN` or `NOT IN`), the value is `(<string1>, <string2>, .., <stringN>)`, where `<string>` is a string in double (`"`) or single (`'`) quotes.
+            Examples of a filter: `name="my-record-set"`, `type IN ("MX","A") AND name="works.on.my.machine."`.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/listRecordSets.md
 ---
 

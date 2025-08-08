@@ -1,5 +1,338 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/regressionDashboards/{dashboardId}
+    method: patch
+    path:
+      type: object
+      properties:
+        dashboardId:
+          description: |-
+            **string**
+            Required field. ID of the dashboards to update.
+          type: string
+      required:
+        - dashboardId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        etag:
+          description: |-
+            **string**
+            The current etag of the dashboard.
+          type: string
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name of the dashboard.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the dashboard.
+          type: string
+        content:
+          description: |-
+            **`Content`**
+            New content of the dashboard.
+          $ref: '#/definitions/Content'
+      additionalProperties: false
+    definitions:
+      ResponseTime:
+        type: object
+        properties:
+          quantile:
+            description: |-
+              **enum** (QuantileType)
+              Cummulative quantile (percentile).
+              - `QUANTILE_TYPE_UNSPECIFIED`: Unspecified percentile.
+              - `QUANTILE_TYPE_50`: 50 percentile (median).
+              - `QUANTILE_TYPE_75`: 75 percentile.
+              - `QUANTILE_TYPE_80`: 80 percentile.
+              - `QUANTILE_TYPE_85`: 85 percentile.
+              - `QUANTILE_TYPE_90`: 90 percentile.
+              - `QUANTILE_TYPE_95`: 95 percentile.
+              - `QUANTILE_TYPE_98`: 98 percentile.
+              - `QUANTILE_TYPE_99`: 99 percentile.
+              - `QUANTILE_TYPE_100`: 100 percentile (maximum or minimum).
+            type: string
+            enum:
+              - QUANTILE_TYPE_UNSPECIFIED
+              - QUANTILE_TYPE_50
+              - QUANTILE_TYPE_75
+              - QUANTILE_TYPE_80
+              - QUANTILE_TYPE_85
+              - QUANTILE_TYPE_90
+              - QUANTILE_TYPE_95
+              - QUANTILE_TYPE_98
+              - QUANTILE_TYPE_99
+              - QUANTILE_TYPE_100
+      Instances:
+        type: object
+        properties:
+          agg:
+            description: |-
+              **enum** (Aggregation)
+              Aggregation function.
+              - `AGGREGATION_UNSPECIFIED`: Unspecified.
+              - `AGGREGATION_MIN`: Minimum.
+              - `AGGREGATION_MAX`: Maximum.
+              - `AGGREGATION_AVG`: Average.
+              - `AGGREGATION_MEDIAN`: Median.
+              - `AGGREGATION_STD_DEV`: Standard deviation.
+            type: string
+            enum:
+              - AGGREGATION_UNSPECIFIED
+              - AGGREGATION_MIN
+              - AGGREGATION_MAX
+              - AGGREGATION_AVG
+              - AGGREGATION_MEDIAN
+              - AGGREGATION_STD_DEV
+      ImbalanceRps:
+        type: object
+        properties: {}
+      ProtocolCodesAbsolute:
+        type: object
+        properties:
+          codesPatterns:
+            description: |-
+              **string**
+              Protocol (HTTP, GRPC) code patterns to match.
+              All successful HTTP responses: ['2xx', '3xx'].
+              All failed HTTP responses: ['0', '4xx', '5xx'].
+            type: array
+            items:
+              type: string
+      ProtocolCodesRelative:
+        type: object
+        properties:
+          codesPatterns:
+            description: |-
+              **string**
+              Protocol (HTTP, GRPC) code patterns to match.
+              All successful HTTP responses: ['2xx', '3xx'].
+              All failed HTTP responses: ['0', '4xx', '5xx'].
+            type: array
+            items:
+              type: string
+      NetworkCodesAbsolute:
+        type: object
+        properties:
+          codesPatterns:
+            description: |-
+              **string**
+              Network code patterns to match.
+              All successful network responses: ['0'].
+              All failed network responses: ['xx', 'xxx'].
+            type: array
+            items:
+              type: string
+      NetworkCodesRelative:
+        type: object
+        properties:
+          codesPatterns:
+            description: |-
+              **string**
+              Network code patterns to match.
+              All successful network responses: ['0'].
+              All failed network responses: ['xx', 'xxx'].
+            type: array
+            items:
+              type: string
+      KpiThreshold:
+        type: object
+        properties:
+          value:
+            description: |-
+              **string**
+              Value for comparison with an actual KPI value.
+            type: string
+          comparison:
+            description: |-
+              **enum** (Comparison)
+              Comparison operator for comparing actual with the threshold value.
+              Rule: actual (</<=/>/>=) reference
+              - `COMPARISON_UNSPECIFIED`: Unspecified.
+              - `COMPARISON_LT`: Less than the specified value.
+              - `COMPARISON_LTE`: Less than or equal to the specified value.
+              - `COMPARISON_GT`: Greater than the specified value.
+              - `COMPARISON_GTE`: Greater than or equal to the specified value.
+            type: string
+            enum:
+              - COMPARISON_UNSPECIFIED
+              - COMPARISON_LT
+              - COMPARISON_LTE
+              - COMPARISON_GT
+              - COMPARISON_GTE
+      Kpi:
+        type: object
+        properties:
+          selector:
+            description: |-
+              **`KpiSelector`**
+              Kind of KPI.
+            oneOf:
+              - type: object
+                properties:
+                  responseTime:
+                    description: |-
+                      **`ResponseTime`**
+                      Response time cummulative quantile (percentile).
+                      Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+                    $ref: '#/definitions/ResponseTime'
+                  instances:
+                    description: |-
+                      **`Instances`**
+                      A number of instances throughout the test.
+                      Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+                    $ref: '#/definitions/Instances'
+                  imbalanceRps:
+                    description: |-
+                      **object**
+                      An RPS at the moment the test has been auto-stopped.
+                      Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+                    $ref: '#/definitions/ImbalanceRps'
+                  protocolCodesAbsolute:
+                    description: |-
+                      **`ProtocolCodesAbsolute`**
+                      A total number of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
+                      Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+                    $ref: '#/definitions/ProtocolCodesAbsolute'
+                  protocolCodesRelative:
+                    description: |-
+                      **`ProtocolCodesRelative`**
+                      A percentage of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
+                      Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+                    $ref: '#/definitions/ProtocolCodesRelative'
+                  networkCodesAbsolute:
+                    description: |-
+                      **`NetworkCodesAbsolute`**
+                      A total number of requests completed with certain network codes.
+                      Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+                    $ref: '#/definitions/NetworkCodesAbsolute'
+                  networkCodesRelative:
+                    description: |-
+                      **`NetworkCodesRelative`**
+                      A percentage of requests completed with certain network codes.
+                      Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+                    $ref: '#/definitions/NetworkCodesRelative'
+          threshold:
+            description: |-
+              **`KpiThreshold`**
+              A condition that should be specified.
+            $ref: '#/definitions/KpiThreshold'
+      ChartWidget:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of the chart.
+            type: string
+          name:
+            description: |-
+              **string**
+              Name of the chart.
+            type: string
+          description:
+            description: |-
+              **string**
+              Description of the chart.
+            type: string
+          filterStr:
+            description: |-
+              **string**
+              Test filter selector to show KPI values for.
+            type: string
+          testCase:
+            description: |-
+              **string**
+              Test case to show KPI values for.
+            type: string
+          kpis:
+            description: |-
+              **`Kpi`**
+              KPIs to show.
+            type: array
+            items:
+              $ref: '#/definitions/Kpi'
+      TextWidget:
+        type: object
+        properties:
+          text:
+            description: |-
+              **string**
+              Text string.
+            type: string
+      TitleWidget:
+        type: object
+        properties:
+          text:
+            description: |-
+              **string**
+              Title string.
+            type: string
+          size:
+            description: |-
+              **enum** (TitleSize)
+              Title size.
+              - `TITLE_SIZE_UNSPECIFIED`: Unspecified.
+              - `TITLE_SIZE_XS`: Extra small.
+              - `TITLE_SIZE_S`: Small.
+              - `TITLE_SIZE_M`: Medium.
+              - `TITLE_SIZE_L`: Large.
+            type: string
+            enum:
+              - TITLE_SIZE_UNSPECIFIED
+              - TITLE_SIZE_XS
+              - TITLE_SIZE_S
+              - TITLE_SIZE_M
+              - TITLE_SIZE_L
+      Content:
+        type: object
+        properties:
+          widgets:
+            description: |-
+              **`Widget`**
+              Widgets.
+            type: array
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    chart:
+                      description: |-
+                        **`ChartWidget`**
+                        Chart widget.
+                        Includes only one of the fields `chart`, `text`, `title`.
+                      $ref: '#/definitions/ChartWidget'
+                    text:
+                      description: |-
+                        **`TextWidget`**
+                        Text widget.
+                        Includes only one of the fields `chart`, `text`, `title`.
+                      $ref: '#/definitions/TextWidget'
+                    title:
+                      description: |-
+                        **`TitleWidget`**
+                        Title widget.
+                        Includes only one of the fields `chart`, `text`, `title`.
+                      $ref: '#/definitions/TitleWidget'
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/RegressionDashboard/update.md
 ---
 

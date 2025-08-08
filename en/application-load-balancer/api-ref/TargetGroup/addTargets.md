@@ -1,5 +1,42 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups/{targetGroupId}:addTargets
+    method: post
+    path:
+      type: object
+      properties:
+        targetGroupId:
+          description: |-
+            **string**
+            Required field. ID of the target group to add targets to.
+            To get the target group ID, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request.
+          type: string
+      required:
+        - targetGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        targets:
+          description: |-
+            **[Target](/docs/application-load-balancer/api-ref/LoadBalancer/getTargetStates#yandex.cloud.apploadbalancer.v1.Target)**
+            List of targets to add to the target group.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  ipAddress:
+                    description: |-
+                      **string**
+                      IP address of the target.
+                      Includes only one of the fields `ipAddress`.
+                      Reference to the target. As of now, targets must only be referred to by their IP addresses.
+                    type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/addTargets.md
 ---
 

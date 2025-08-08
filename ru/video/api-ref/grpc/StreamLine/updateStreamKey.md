@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/StreamLine/updateStreamKey.md
 
 # Video API, gRPC: StreamLineService.UpdateStreamKey
 
-Update stream key.
+Regenerates and updates the stream key for a push-type stream line.
+This is useful for security purposes when the existing key may be compromised.
 
 ## gRPC request
 
@@ -23,7 +24,8 @@ Update stream key.
 ||Field | Description ||
 || stream_line_id | **string**
 
-Required field. ID of the line. ||
+Required field. ID of the stream line for which to update the stream key.
+The stream line must be a push-type input (RTMP push or SRT push). ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -109,7 +111,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || stream_line_id | **string**
 
-ID of the line. ||
+ID of the stream line. ||
 |#
 
 ## PushStreamKey {#yandex.cloud.video.v1.PushStreamKey}

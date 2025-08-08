@@ -1,5 +1,76 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/routeTables
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the route table belongs to.
+            To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the route table.
+            The name must be unique within the folder.
+          pattern: '|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the route table.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels, `` key:value `` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the network the route table belongs to.
+          type: string
+        staticRoutes:
+          description: |-
+            **[StaticRoute](/docs/vpc/api-ref/Network/listRouteTables#yandex.cloud.vpc.v1.StaticRoute)**
+            List of static routes.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  destinationPrefix:
+                    description: |-
+                      **string**
+                      Destination subnet in CIDR notation
+                      Includes only one of the fields `destinationPrefix`.
+                    type: string
+              - type: object
+                properties:
+                  nextHopAddress:
+                    description: |-
+                      **string**
+                      Next hop IP address
+                      Includes only one of the fields `nextHopAddress`, `gatewayId`.
+                    type: string
+                  gatewayId:
+                    description: |-
+                      **string**
+                      Next hop gateway id
+                      Includes only one of the fields `nextHopAddress`, `gatewayId`.
+                    type: string
+      required:
+        - folderId
+        - networkId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/create.md
 ---
 

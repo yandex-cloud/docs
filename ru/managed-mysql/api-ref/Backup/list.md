@@ -1,5 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/backups
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list backups in.
+            To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `pageSize`, the API returns a [ListBackupsResponse.nextPageToken](/docs/managed-mysql/api-ref/Backup/list#yandex.cloud.mdb.mysql.v1.ListBackupsResponse) that can be used to get the next page of results in the subsequent [BackupService.List](#List) requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token that can be used to iterate through multiple pages of results.
+            To get the next page of results, set `pageToken` to the [ListBackupsResponse.nextPageToken](/docs/managed-mysql/api-ref/Backup/list#yandex.cloud.mdb.mysql.v1.ListBackupsResponse) returned by the previous [BackupService.List](#List) request.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Backup/list.md
 ---
 

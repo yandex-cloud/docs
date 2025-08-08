@@ -1,5 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Apache Kafka® cluster to list connectors in.
+            To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `pageSize`, the API returns a [ListConnectorsResponse.nextPageToken](/docs/managed-kafka/api-ref/Connector/list#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) that can be used to get the next page of results in the subsequent [ConnectorService.List](#List) requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token that can be used to iterate through multiple pages of results.
+            To get the next page of results, set `pageToken` to the [ListConnectorsResponse.nextPageToken](/docs/managed-kafka/api-ref/Connector/list#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse) returned by the previous [ConnectorService.List](#List) request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Connector/list.md
 ---
 

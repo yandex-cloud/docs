@@ -75,7 +75,7 @@ If the technical support cannot resolve your third-party software issue, contact
 
 {% include [change-plan-roles](../_includes/support/pricing-roles.md) %}
 
-See [Changing your service plan](support-center.md#change-pricing) for details.
+See [Changing your service plan](cloud-center.md#change-pricing) for details.
 See [Requesting technical support](overview.md). Service plan upgrades are effective immediately; downgrades take effect on the first day of the following month.
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

@@ -1,5 +1,73 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{federationId}
+    method: patch
+    path:
+      type: object
+      properties:
+        federationId:
+          description: |-
+            **string**
+            Required field. ID of the OIDC workload identity federation to update.
+            To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request.
+          type: string
+      required:
+        - federationId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the OIDC workload identity federation.
+            The name must be unique within the folder.
+          pattern: '[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the OIDC workload identity federation.
+          type: string
+        disabled:
+          description: |-
+            **boolean**
+            True - the OIDC workload identity federation is disabled and cannot be used for authentication.
+            False - the OIDC workload identity federation is enabled and can be used for authentication.
+          type: boolean
+        audiences:
+          description: |-
+            **string**
+            List of trusted values for aud claim.
+          type: array
+          items:
+            type: string
+        jwksUrl:
+          description: |-
+            **string**
+            URL reference to trusted keys in format of JSON Web Key Set.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/update.md
 ---
 

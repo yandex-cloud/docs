@@ -1,7 +1,40 @@
 ---
 editable: false
 apiPlayground:
-  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/backups","method":"get","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. ID of the OpenSearch cluster.\n\nTo get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.","type":"string"}},"required":["clusterId"],"additionalProperties":false},"query":{"type":"object","properties":{"pageSize":{"description":"**string** (int64)\n\nThe maximum number of results per page to return. If the number of available\nresults is larger than `page_size`, the service returns a [ListClusterBackupsResponse.nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listBackups#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse)\nthat can be used to get the next page of results in subsequent list requests.","type":"string","format":"int64"},"pageToken":{"description":"**string**\n\nPage token. To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listBackups#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse)\nreturned by the previous list request.","type":"string"}},"additionalProperties":false},"body":null,"definitions":null}'
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/backups
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the OpenSearch cluster.
+            To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listBackups#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.nextPageToken](/docs/managed-opensearch/api-ref/Cluster/listBackups#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse)
+            returned by the previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/listBackups.md
 ---
 

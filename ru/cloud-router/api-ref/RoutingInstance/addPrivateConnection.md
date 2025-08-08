@@ -1,5 +1,30 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloudrouter.{{ api-host }}/cloudrouter/v1/routingInstances/{routingInstanceId}:addPrivateConnection
+    method: post
+    path:
+      type: object
+      properties:
+        routingInstanceId:
+          description: |-
+            **string**
+            Required field. ID of the RoutingInstance resource.
+          type: string
+      required:
+        - routingInstanceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        cicPrivateConnectionId:
+          description: |-
+            **string**
+            ID of the PrivateConnection to add to the RoutingInstance.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/cloudrouter/v1/api-ref/RoutingInstance/addPrivateConnection.md
 ---
 

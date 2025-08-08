@@ -1,5 +1,80 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups/{targetGroupId}
+    method: patch
+    path:
+      type: object
+      properties:
+        targetGroupId:
+          description: |-
+            **string**
+            Required field. ID of the target group to update.
+            To get the target group ID, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request.
+          type: string
+      required:
+        - targetGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the target group.
+            The name must be unique within the folder.
+          pattern: ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)?
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the target group.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Target group labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [TargetGroupService.Get](/docs/application-load-balancer/api-ref/TargetGroup/get#Get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        targets:
+          description: |-
+            **[Target](/docs/application-load-balancer/api-ref/LoadBalancer/getTargetStates#yandex.cloud.apploadbalancer.v1.Target)**
+            New list of targets in the target group.
+            Existing list of targets is completely replaced by the specified list, so if you just want to add or remove
+            a target, make a [TargetGroupService.AddTargets](/docs/application-load-balancer/api-ref/TargetGroup/addTargets#AddTargets) request or a [TargetGroupService.RemoveTargets](/docs/application-load-balancer/api-ref/TargetGroup/removeTargets#RemoveTargets) request.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  ipAddress:
+                    description: |-
+                      **string**
+                      IP address of the target.
+                      Includes only one of the fields `ipAddress`.
+                      Reference to the target. As of now, targets must only be referred to by their IP addresses.
+                    type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/update.md
 ---
 

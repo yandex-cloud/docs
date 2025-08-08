@@ -1,5 +1,67 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list target groups in.
+            To get the folder ID, use a [TargetGroupService.List](/docs/network-load-balancer/api-ref/TargetGroup/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the target group.
+            The name must be unique within the folder.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the target group.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        regionId:
+          description: |-
+            **string**
+            ID of the availability zone where the target group resides.
+          type: string
+        targets:
+          description: |-
+            **[Target](/docs/network-load-balancer/api-ref/TargetGroup/get#yandex.cloud.loadbalancer.v1.Target)**
+            List of targets within the target group.
+          type: array
+          items:
+            $ref: '#/definitions/Target'
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      Target:
+        type: object
+        properties:
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet that targets are connected to.
+              All targets in the target group must be connected to the same subnet within a single availability zone.
+            type: string
+          address:
+            description: |-
+              **string**
+              IP address of the target.
+            type: string
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/create.md
 ---
 

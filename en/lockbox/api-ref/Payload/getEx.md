@@ -1,5 +1,44 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets:getEx
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        secretId:
+          description: |-
+            **string**
+            Includes only one of the fields `secretId`, `folderAndName`.
+          type: string
+        folderAndName:
+          description: |-
+            **[FolderAndName](/docs/lockbox/api-ref/Payload/getEx#yandex.cloud.lockbox.v1.FolderAndName)**
+            Includes only one of the fields `secretId`, `folderAndName`.
+          $ref: '#/definitions/FolderAndName'
+        versionId:
+          description: '**string**'
+          type: string
+      additionalProperties: false
+    body: null
+    definitions:
+      FolderAndName:
+        type: object
+        properties:
+          folderId:
+            description: |-
+              **string**
+              Required field. 
+            type: string
+          secretName:
+            description: |-
+              **string**
+              Required field. 
+            type: string
+        required:
+          - folderId
+          - secretName
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Payload/getEx.md
 ---
 

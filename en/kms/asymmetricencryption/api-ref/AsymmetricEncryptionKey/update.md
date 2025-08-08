@@ -1,5 +1,78 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/asymmetricEncryptionKeys/{keyId}
+    method: patch
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the asymmetric KMS key to update.
+            To get the ID of a asymmetric KMS key use a [AsymmetricEncryptionKeyService.List](/docs/kms/asymmetricencryption/api-ref/AsymmetricEncryptionKey/list#List) request.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            Required field. A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the asymmetric KMS key.
+          type: string
+        description:
+          description: |-
+            **string**
+            New description for the asymmetric KMS key.
+          type: string
+        status:
+          description: |-
+            **enum** (Status)
+            New status for the asymmetric KMS key.
+            Using the [AsymmetricEncryptionKeyService.Update](#Update) method you can only set ACTIVE or INACTIVE status.
+            - `STATUS_UNSPECIFIED`
+            - `CREATING`: The key is being created.
+            - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
+            Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
+            - `INACTIVE`: The key is inactive and unusable.
+            Can be set to ACTIVE using the [AsymmetricKeyService.Update] method.
+          type: string
+          enum:
+            - STATUS_UNSPECIFIED
+            - CREATING
+            - ACTIVE
+            - INACTIVE
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that inhibits deletion of the asymmetric KMS key
+          type: boolean
+      required:
+        - updateMask
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/AsymmetricEncryptionKey/update.md
 ---
 

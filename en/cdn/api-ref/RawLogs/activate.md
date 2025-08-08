@@ -1,5 +1,51 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/rawLogs:activate
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of CDN resource to switch logs storage for..
+          type: string
+        settings:
+          description: |-
+            **[RawLogsSettings](/docs/cdn/api-ref/RawLogs/activate#yandex.cloud.cdn.v1.RawLogsSettings)**
+            Raw logs settings.
+          $ref: '#/definitions/RawLogsSettings'
+      required:
+        - resourceId
+      additionalProperties: false
+    definitions:
+      RawLogsSettings:
+        type: object
+        properties:
+          bucketName:
+            description: |-
+              **string**
+              Required field. Destination S3 bucket name, note that the suer should be owner of the bucket.
+            type: string
+          bucketRegion:
+            description: |-
+              **string**
+              Bucket region, unused for now, could be blank.
+            type: string
+          filePrefix:
+            description: |-
+              **string**
+              file_prefix: prefix each log object name with specified prefix.
+              The prefix makes it simpler for you to locate the log objects.
+              For example, if you specify the prefix value logs/, each log object that
+              S3 creates begins with the logs/ prefix in its key, so pseudo S3 folders
+              could be setup.
+            type: string
+        required:
+          - bucketName
 sourcePath: en/_api-ref/cdn/v1/api-ref/RawLogs/activate.md
 ---
 

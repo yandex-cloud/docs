@@ -1,5 +1,30 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}:startFailover
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of PostgreSQL cluster.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        hostName:
+          description: |-
+            **string**
+            New master host. Switch to the most up-to-date replica if not provided.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/startFailover.md
 ---
 

@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:rebalance
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Redis cluster to rebalance.
+            To get the cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/rebalance.md
 ---
 
@@ -457,7 +475,8 @@ To get the cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cl
     "deletionProtection": "boolean",
     "persistenceMode": "string",
     "announceHostnames": "boolean",
-    "authSentinel": "boolean"
+    "authSentinel": "boolean",
+    "diskEncryptionKeyId": "string"
   }
   // end of the list of possible fields
 }
@@ -660,6 +679,9 @@ Enable FQDN instead of ip ||
 || authSentinel | **boolean**
 
 Allows to use ACL users to auth in sentinel ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}

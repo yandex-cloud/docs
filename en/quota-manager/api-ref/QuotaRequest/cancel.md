@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://quota-manager.{{ api-host }}/quota-manager/v1/quotaRequests/{quotaRequestId}/cancel
+    method: post
+    path:
+      type: object
+      properties:
+        quotaRequestId:
+          description: |-
+            **string**
+            Required field. ID of the quota request to update.
+          type: string
+      required:
+        - quotaRequestId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        quotaIds:
+          description: |-
+            **string**
+            Quota IDs that is being canceled.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/quotamanager/v1/api-ref/QuotaRequest/cancel.md
 ---
 

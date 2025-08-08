@@ -1,5 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cic.{{ api-host }}/cic/v1/trunkConnections/{trunkConnectionId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        trunkConnectionId:
+          description: |-
+            **string**
+            Required field. ID of the TrunkConnection resource.
+          type: string
+      required:
+        - trunkConnectionId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListTrunkConnectionOperationsResponse.nextPageToken](/docs/interconnect/api-ref/TrunkConnection/listOperations#yandex.cloud.cic.v1.ListTrunkConnectionOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests. Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListTrunkConnectionOperationsResponse.nextPageToken](/docs/interconnect/api-ref/TrunkConnection/listOperations#yandex.cloud.cic.v1.ListTrunkConnectionOperationsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cic/v1/api-ref/TrunkConnection/listOperations.md
 ---
 

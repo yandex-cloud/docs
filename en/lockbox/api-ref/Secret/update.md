@@ -1,5 +1,115 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}
+    method: patch
+    path:
+      type: object
+      properties:
+        secretId:
+          description: |-
+            **string**
+            Required field. ID of the secret to update.
+          type: string
+      required:
+        - secretId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            Required field. A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name of the secret.
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the secret.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that inhibits deletion of the secret.
+          type: boolean
+        passwordPayloadSpecification:
+          description: |-
+            **[PasswordPayloadSpecification](/docs/lockbox/api-ref/Secret/get#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
+            Includes only one of the fields `passwordPayloadSpecification`.
+          $ref: '#/definitions/PasswordPayloadSpecification'
+      required:
+        - updateMask
+      additionalProperties: false
+    definitions:
+      PasswordPayloadSpecification:
+        type: object
+        properties:
+          passwordKey:
+            description: |-
+              **string**
+              Required field. key of the entry to store generated password value
+            pattern: '[-_./\\@0-9a-zA-Z]+'
+            type: string
+          length:
+            description: |-
+              **string** (int64)
+              password length; by default, a reasonable length will be decided
+            type: string
+            format: int64
+          includeUppercase:
+            description: |-
+              **boolean**
+              whether at least one A..Z character is included in the password, true by default
+            type: boolean
+          includeLowercase:
+            description: |-
+              **boolean**
+              whether at least one a..z character is included in the password, true by default
+            type: boolean
+          includeDigits:
+            description: |-
+              **boolean**
+              whether at least one 0..9 character is included in the password, true by default
+            type: boolean
+          includePunctuation:
+            description: |-
+              **boolean**
+              whether at least one punctuation character is included in the password, true by default
+              punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+              to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+            type: boolean
+          includedPunctuation:
+            description: |-
+              **string**
+              If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
+              a string of specific punctuation characters to use (at most, all the 32)
+            type: string
+          excludedPunctuation:
+            description: |-
+              **string**
+              a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32)
+            type: string
+        required:
+          - passwordKey
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/update.md
 ---
 

@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}
+    method: delete
+    path:
+      type: object
+      properties:
+        httpRouterId:
+          description: |-
+            **string**
+            Required field. ID of the HTTP router to delete a virtual host from.
+            To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/HttpRouter/list#List) request.
+          type: string
+        virtualHostName:
+          description: |-
+            **string**
+            Required field. Name of the virtual host to delete.
+            To get the virtual host name, make a [VirtualHostService.List](/docs/application-load-balancer/api-ref/VirtualHost/list#List) request.
+          pattern: ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)?
+          type: string
+      required:
+        - httpRouterId
+        - virtualHostName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/delete.md
 ---
 

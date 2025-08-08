@@ -1,5 +1,65 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://storage.{{ api-host }}/storage/v1/buckets/{name}:setHttpsConfig
+    method: post
+    path:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Required field. Name of the bucket to update the HTTPS configuration for.
+          type: string
+      required:
+        - name
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        selfManaged:
+          description: |-
+            **[SelfManagedHTTPSConfigParams](/docs/storage/api-ref/Bucket/setHTTPSConfig#yandex.cloud.storage.v1.SelfManagedHTTPSConfigParams)**
+            Your TLS certificate, uploaded directly.
+            Object Storage only supports [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificates.
+            Includes only one of the fields `selfManaged`, `certificateManager`.
+            HTTPS configuration parameters.
+          $ref: '#/definitions/SelfManagedHTTPSConfigParams'
+        certificateManager:
+          description: |-
+            **[CertificateManagerHTTPSConfigParams](/docs/storage/api-ref/Bucket/setHTTPSConfig#yandex.cloud.storage.v1.CertificateManagerHTTPSConfigParams)**
+            TLS certificate from Certificate Manager.
+            To create a certificate in Certificate Manager, make a
+            [yandex.cloud.certificatemanager.v1.CertificateService.Create](/docs/certificate-manager/api-ref/Certificate/create#Create) request.
+            Includes only one of the fields `selfManaged`, `certificateManager`.
+            HTTPS configuration parameters.
+          $ref: '#/definitions/CertificateManagerHTTPSConfigParams'
+      additionalProperties: false
+    definitions:
+      SelfManagedHTTPSConfigParams:
+        type: object
+        properties:
+          certificatePem:
+            description: |-
+              **string**
+              [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificate.
+            type: string
+          privateKeyPem:
+            description: |-
+              **string**
+              [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded private key for the certificate.
+            type: string
+      CertificateManagerHTTPSConfigParams:
+        type: object
+        properties:
+          certificateId:
+            description: |-
+              **string**
+              ID of the certificate.
+              To get the list of all available certificates, make a [yandex.cloud.certificatemanager.v1.CertificateService.List](/docs/certificate-manager/api-ref/Certificate/list#List)
+              request.
+            type: string
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/setHTTPSConfig.md
 ---
 

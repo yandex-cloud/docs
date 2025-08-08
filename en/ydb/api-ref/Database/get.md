@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ydb.{{ api-host }}/ydb/v1/databases/{databaseId}
+    method: get
+    path:
+      type: object
+      properties:
+        databaseId:
+          description: |-
+            **string**
+            Required field. Required. ID of the YDB cluster.
+          type: string
+      required:
+        - databaseId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ydb/v1/api-ref/Database/get.md
 ---
 

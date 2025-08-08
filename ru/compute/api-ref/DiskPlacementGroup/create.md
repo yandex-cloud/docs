@@ -1,5 +1,71 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/diskPlacementGroups
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a placement group in.
+            To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the placement group.
+          pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the placement group.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        zoneId:
+          description: |-
+            **string**
+            Required field. ID of the availability zone where the placement group resides.
+            To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+          type: string
+        spreadPlacementStrategy:
+          description: |-
+            **object**
+            Distribute disks over distinct failure domains.
+            Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+            Placement strategy.
+          $ref: '#/definitions/DiskSpreadPlacementStrategy'
+        partitionPlacementStrategy:
+          description: |-
+            **[DiskPartitionPlacementStrategy](/docs/compute/api-ref/DiskPlacementGroup/get#yandex.cloud.compute.v1.DiskPartitionPlacementStrategy)**
+            Distribute disks over partitions.
+            Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+            Placement strategy.
+          $ref: '#/definitions/DiskPartitionPlacementStrategy'
+      required:
+        - folderId
+        - zoneId
+      additionalProperties: false
+    definitions:
+      DiskSpreadPlacementStrategy:
+        type: object
+        properties: {}
+      DiskPartitionPlacementStrategy:
+        type: object
+        properties:
+          partitions:
+            description: '**string** (int64)'
+            type: string
+            format: int64
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/create.md
 ---
 

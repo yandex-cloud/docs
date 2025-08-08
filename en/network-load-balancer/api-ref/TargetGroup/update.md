@@ -1,5 +1,78 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups/{targetGroupId}
+    method: patch
+    path:
+      type: object
+      properties:
+        targetGroupId:
+          description: |-
+            **string**
+            Required field. ID of the TargetGroup resource to update.
+            To get the target group ID, use a [TargetGroupService.List](/docs/network-load-balancer/api-ref/TargetGroup/list#List) request.
+          type: string
+      required:
+        - targetGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the target group.
+            The name must be unique within the folder.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the target group.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+            The existing set of `` labels `` is completely replaced with the provided set.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        targets:
+          description: |-
+            **[Target](/docs/network-load-balancer/api-ref/TargetGroup/get#yandex.cloud.loadbalancer.v1.Target)**
+            A new list of targets for this target group.
+          type: array
+          items:
+            $ref: '#/definitions/Target'
+      additionalProperties: false
+    definitions:
+      Target:
+        type: object
+        properties:
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet that targets are connected to.
+              All targets in the target group must be connected to the same subnet within a single availability zone.
+            type: string
+          address:
+            description: |-
+              **string**
+              IP address of the target.
+            type: string
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/update.md
 ---
 

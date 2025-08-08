@@ -1,7 +1,81 @@
 ---
 editable: false
 apiPlayground:
-  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/auth","method":"put","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. Required. ID of the OpenSearch cluster.","type":"string"}},"required":["clusterId"],"additionalProperties":false},"query":null,"body":{"type":"object","properties":{"settings":{"description":"**[AuthSettings](/docs/managed-opensearch/api-ref/Cluster/getAuthSettings#yandex.cloud.mdb.opensearch.v1.AuthSettings)**\n\nRequired. Auth settings.","$ref":"#/definitions/AuthSettings"}},"additionalProperties":false},"definitions":{"SAMLSettings":{"type":"object","properties":{"enabled":{"description":"**boolean**","type":"boolean"},"idpEntityId":{"description":"**string**\n\nRequired. The entity ID of your IdP.","type":"string"},"idpMetadataFile":{"description":"**string** (bytes)\n\nRequired. The SAML 2.0 metadata file of your IdP.","type":"string","format":"bytes"},"spEntityId":{"description":"**string**\n\nRequired. The entity ID of the service provider.","type":"string"},"dashboardsUrl":{"description":"**string**\n\nRequired. The OpenSearch Dashboards base URL.","type":"string"},"rolesKey":{"description":"**string**\n\nOptional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used.","type":"string"},"subjectKey":{"description":"**string**\n\nOptional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used.","type":"string"},"jwtDefaultExpirationTimeout":{"description":"**string** (int64)\n\ndefault jwt expiration timeout.","type":"string","format":"int64"}}},"AuthSettings":{"type":"object","properties":{"saml":{"description":"**[SAMLSettings](/docs/managed-opensearch/api-ref/Cluster/getAuthSettings#yandex.cloud.mdb.opensearch.v1.SAMLSettings)**\n\nSAML settings","$ref":"#/definitions/SAMLSettings"}}}}}'
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/auth
+    method: put
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. Required. ID of the OpenSearch cluster.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        settings:
+          description: |-
+            **[AuthSettings](/docs/managed-opensearch/api-ref/Cluster/getAuthSettings#yandex.cloud.mdb.opensearch.v1.AuthSettings)**
+            Required. Auth settings.
+          $ref: '#/definitions/AuthSettings'
+      additionalProperties: false
+    definitions:
+      SAMLSettings:
+        type: object
+        properties:
+          enabled:
+            description: '**boolean**'
+            type: boolean
+          idpEntityId:
+            description: |-
+              **string**
+              Required. The entity ID of your IdP.
+            type: string
+          idpMetadataFile:
+            description: |-
+              **string** (bytes)
+              Required. The SAML 2.0 metadata file of your IdP.
+            type: string
+            format: bytes
+          spEntityId:
+            description: |-
+              **string**
+              Required. The entity ID of the service provider.
+            type: string
+          dashboardsUrl:
+            description: |-
+              **string**
+              Required. The OpenSearch Dashboards base URL.
+            type: string
+          rolesKey:
+            description: |-
+              **string**
+              Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used.
+            type: string
+          subjectKey:
+            description: |-
+              **string**
+              Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used.
+            type: string
+          jwtDefaultExpirationTimeout:
+            description: |-
+              **string** (int64)
+              default jwt expiration timeout.
+            type: string
+            format: int64
+      AuthSettings:
+        type: object
+        properties:
+          saml:
+            description: |-
+              **[SAMLSettings](/docs/managed-opensearch/api-ref/Cluster/getAuthSettings#yandex.cloud.mdb.opensearch.v1.SAMLSettings)**
+              SAML settings
+            $ref: '#/definitions/SAMLSettings'
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/updateAuthSettings.md
 ---
 

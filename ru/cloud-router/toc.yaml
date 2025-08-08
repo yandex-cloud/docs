@@ -160,6 +160,10 @@ items:
                 href: api-ref/grpc/RoutingInstance/upsertPrefixes.md
               - name: RemovePrefixes
                 href: api-ref/grpc/RoutingInstance/removePrefixes.md
+              - name: MovePrefix
+                href: api-ref/grpc/RoutingInstance/movePrefix.md
+              - name: UpdatePrefixMask
+                href: api-ref/grpc/RoutingInstance/updatePrefixMask.md
               - name: AddPrivateConnection
                 href: api-ref/grpc/RoutingInstance/addPrivateConnection.md
               - name: RemovePrivateConnection

@@ -209,7 +209,8 @@ Updates the specified HTTP router.
               ]
             },
             "security_profile_id": "string"
-          }
+          },
+          "disable_security_profile": "bool"
         }
       ],
       "modify_request_headers": [
@@ -465,6 +466,9 @@ Includes only one of the fields `http`, `grpc`.
 
 Route configuration. ||
 || route_options | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)** ||
+|| disable_security_profile | **bool**
+
+Whether set to 'true' disables security profile for the route. ||
 |#
 
 ## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute}
@@ -1252,7 +1256,8 @@ regardless of the header's value. ||
                 ]
               },
               "security_profile_id": "string"
-            }
+            },
+            "disable_security_profile": "bool"
           }
         ],
         "modify_request_headers": [
@@ -1569,6 +1574,9 @@ Includes only one of the fields `http`, `grpc`.
 
 Route configuration. ||
 || route_options | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions2)** ||
+|| disable_security_profile | **bool**
+
+Whether set to 'true' disables security profile for the route. ||
 |#
 
 ## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute2}

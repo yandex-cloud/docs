@@ -32,7 +32,7 @@ The cost of infrastructure support includes a fee for {{ mpg-full-name }} cluste
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
 
 1. If you do not have a resource folder, create one:
 
@@ -70,25 +70,28 @@ The cost of infrastructure support includes a fee for {{ mpg-full-name }} cluste
 - Management console
 
   1. In the [management console]({{ link-console-main }}), navigate to the metadata catalog you [created earlier](#create-catalog).
-  1. Go to the ![image](../../_assets/console-icons/cloud-arrow-up-in.svg) **Sources** tab and click **Create data source**.
+  1. Go to the ![image](../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}** tab and click **{{ ui-key.yacloud.data-catalog.label_create-source-button }}**.
   1. Set a **{{ ui-key.yacloud.common.name }}** for the source.
   1. Set a **{{ ui-key.yacloud.common.description }}** for the source.
-  1. Select **PostgreSQL** as **Database type**.
+  1. Select **{{ ui-key.yacloud.data-catalog.label_source-database-type }}**: **PostgreSQL**
   1. Under **PostgreSQL source**, provide the following parameters:
 
-     * **User folder in cloud**: Resource folder the {{ mpg-name }} was created in.
+     * **Folder ID**: Resource folder the {{ mpg-name }} cluster was created in.
      * **Installation type**: **{{ mpg-name }} cluster**.
      * **Managed DB cluster**: {{ mpg-name }} cluster you created earlier.
      * **Connection ID**: Connection to the previously created {{ mpg-name }} cluster in {{ connection-manager-full-name }}.
      * **Database name**: Name of the database in the previously created {{ mpg-name }} cluster.
+     * **Upload from all databases** (optional): Enable this one if you need to upload data from all databases.
+     * **Network ID**: Specify the network ID.
+
 
   1. Click **{{ ui-key.yacloud.common.create }}**. 
-  1. This will open a page with a list of sources in the metadata catalog. You will see **No ingestion** in the line with the source you just created.
-  1. Hover over this message and click **Create ingestion** in the window that opens. 
+  1. This will open a page with a list of sources in the metadata catalog. You will see **{{ ui-key.yacloud.data-catalog.label_empty-ingestion-count-short }}** in the line with the source you just created.
+  1. Hover over this message and click **{{ ui-key.yacloud.data-catalog.label_create-ingestion-action }}** in the window that opens. 
   1. Set a **{{ ui-key.yacloud.common.name }}** for the ingestion.
   1. Set a **{{ ui-key.yacloud.common.description }}** for the ingestion.  
   1. In the **Schedule** field, select **Daily**.
-  1. In the **Time intervals** field, specify ingestion running time.
+  1. In the **Start time** and **End time** fields, specify the ingestion operation time.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -100,7 +103,7 @@ The cost of infrastructure support includes a fee for {{ mpg-full-name }} cluste
 - Management console
 
   1. In the [management console]({{ link-console-main }}), navigate to the metadata catalog you [created earlier](#create-catalog).
-  1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **Metadata search** tab.
+  1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab.
 
      In the window that opens, you will see the metadata you got from the {{ mpg-name }} cluster created earlier.
 
@@ -108,7 +111,7 @@ The cost of infrastructure support includes a fee for {{ mpg-full-name }} cluste
 
 {% note tip %}
 
-The metadata ingested from the source will also appear on the **Exported data** tab in the same source.
+The metadata ingested from the source will also appear on the **{{ ui-key.yacloud.data-catalog.label_source-data-tab }}** tab in the same source.
 
 {% endnote %}
 
@@ -121,7 +124,7 @@ The metadata ingested from the source will also appear on the **Exported data** 
 - Management console
 
   1. In the [management console]({{ link-console-main }}), navigate to the metadata catalog you [created earlier](#create-catalog).
-  1. Go to the ![image](../../_assets/console-icons/tag.svg) **Tags and classifications** tab and click **Create classification**.
+  1. Go to the ![image](../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}** tab and click **{{ ui-key.yacloud.data-catalog.label_create-classification-action }}**.
   1. Set a **{{ ui-key.yacloud.common.name }}** for the classification.
   1. Set a **{{ ui-key.yacloud.common.description }}** for the classification.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -135,8 +138,8 @@ The metadata ingested from the source will also appear on the **Exported data** 
 - Management console
 
   1. In the [management console]({{ link-console-main }}), navigate to the metadata catalog you [created earlier](#create-catalog).
-  1. Go to the ![image](../../_assets/console-icons/tag.svg) **Tags and classifications** tab and open the [previously created](#create-classification) classification.
-  1. Click **Create tag**.
+  1. Go to the ![image](../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}** tab and open the [previously created](#create-classification) classification.
+  1. Click **{{ ui-key.yacloud.data-catalog.label_create-tag-action }}**.
   1. In the window that opens, set a **{{ ui-key.yacloud.common.name }}** for the tag.
   1. Set a **{{ ui-key.yacloud.common.description }}** for the tag.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -152,7 +155,7 @@ The metadata ingested from the source will also appear on the **Exported data** 
 - Management console
 
   1. In the [management console]({{ link-console-main }}), navigate to the metadata catalog you [created earlier](#create-catalog).
-  1. Go to the ![image](../../_assets/console-icons/globe.svg) **Domains** tab and click **Create domain**.
+  1. Go to the ![image](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.data-catalog.label_domains }}** tab and click **{{ ui-key.yacloud.data-catalog.label_create-domain-action }}**.
   1. Set a **{{ ui-key.yacloud.common.name }}** for the domain. 
   1. Set a **{{ ui-key.yacloud.common.description }}** for the domain.
   1. Add one or more [previously created](#create-tags) tags.
@@ -167,8 +170,8 @@ The metadata ingested from the source will also appear on the **Exported data** 
 - Management console
 
   1. In the [management console]({{ link-console-main }}), navigate to the metadata catalog you [created earlier](#create-catalog).
-  1. Go to the ![image](../../_assets/console-icons/globe.svg) **Domains** tab and select the [previously created](#create-domain) domain.
-  1. Click **Add subdomain**.
+  1. Go to the ![image](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.data-catalog.label_domains }}** tab and select the [previously created](#create-domain) domain.
+  1. Click **{{ ui-key.yacloud.data-catalog.label_add-subdomain-action }}**.
   1. Set a **{{ ui-key.yacloud.common.name }}** for the subdomain. 
   1. Set a **{{ ui-key.yacloud.common.description }}** for the subdomain.
   1. Add one or more [previously created](#create-tags) tags.
@@ -185,7 +188,7 @@ The metadata ingested from the source will also appear on the **Exported data** 
 - Management console
 
   1. In the [management console]({{ link-console-main }}), navigate to the metadata catalog you [created earlier](#create-catalog).
-  1. Go to the ![image](../../_assets/console-icons/book.svg) **Terms and glossaries** tab and click **Create glossary**.
+  1. Go to the ![image](../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}** tab and click **{{ ui-key.yacloud.data-catalog.label_create-glossary-action }}**.
   1. Set a **{{ ui-key.yacloud.common.name }}** for the glossary.
   1. Set a **{{ ui-key.yacloud.common.description }}** for the glossary.
   1. Add one or more [previously created](#create-tags) tags.
@@ -200,13 +203,13 @@ The metadata ingested from the source will also appear on the **Exported data** 
 - Management console
 
   1. In the [management console]({{ link-console-main }}), navigate to the metadata catalog you [created earlier](#create-catalog).
-  1. Go to the ![image](../../_assets/console-icons/book.svg) **Terms and glossaries** tab and select the [previously created](#create-glossary) glossary.
-  1. Click **Create term**.
+  1. Go to the ![image](../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}** tab and select the [previously created](#create-glossary) glossary.
+  1. Click **{{ ui-key.yacloud.data-catalog.label_create-term-action }}**.
   1. Set a **{{ ui-key.yacloud.common.name }}** for the term.
   1. Set a **{{ ui-key.yacloud.common.description }}** for the term.
   1. Specify synonyms for the term.
   1. Add one or more [previously created](#create-tags) tags.
-  1. Add related terms.
+  1. Add linked terms.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -218,8 +221,8 @@ The metadata ingested from the source will also appear on the **Exported data** 
 - Management console
 
   1. In the [management console]({{ link-console-main }}), navigate to the metadata catalog you [created earlier](#create-catalog).
-  1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **Metadata search** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the dataset you selected and go **Assign domain**, **Add tags**, or **Add term**.
+  1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the dataset you selected and select **{{ ui-key.yacloud.data-catalog.action_set-domain }}**, **{{ ui-key.yacloud.data-catalog.label_add-tags }}**, or **{{ ui-key.yacloud.data-catalog.label_add-terms }}**.
   1. In the window that opens, select an object in the hierarchy of domains, tags, or terms. You may want to use the search feature.
   1. Add the selected objects.
 

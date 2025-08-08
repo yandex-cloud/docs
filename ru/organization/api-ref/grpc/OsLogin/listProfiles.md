@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/listProfiles.md
 ---
 
-# Cloud Organization API, gRPC: OsLoginService.ListProfiles
+# Identity Hub API, gRPC: OsLoginService.ListProfiles
 
 ## gRPC request
 

@@ -1,5 +1,90 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://billing.{{ api-host }}/billing/v1/customers:createResellerServedCustomer
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        resellerId:
+          description: |-
+            **string**
+            Required field. ID of the reseller that customer will be associated with.</br>
+            Value must match either one of the three regular expressions:
+            </br>- `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$`
+            </br>- `^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{32}$`
+            </br>- `^[a-z][-a-zA-Z0-9.]{0,48}[a-zA-Z0-9]$`
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the customer.
+            String length is not limited.
+          type: string
+        person:
+          description: |-
+            **[CustomerPerson](/docs/billing/api-ref/Customer/invite#yandex.cloud.billing.v1.CustomerPerson)**
+            Required field. Person of the customer.
+          $ref: '#/definitions/CustomerPerson'
+      required:
+        - resellerId
+        - name
+        - person
+      additionalProperties: false
+    definitions:
+      CustomerPerson:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Optional. Name of the person.
+              String length is not limited.
+            type: string
+          longname:
+            description: |-
+              **string**
+              Optional. Long name of the person.
+              String length is not limited.
+            type: string
+          phone:
+            description: |-
+              **string**
+              Optional. Phone of the person.
+              Must be a valid telephone number or a valid [phoneword](https://en.m.wikipedia.org/wiki/Phoneword).
+            type: string
+          email:
+            description: |-
+              **string**
+              Optional. Email of the person.
+              Must be a valid [email address](https://en.wikipedia.org/wiki/Email_address).
+            type: string
+          postCode:
+            description: |-
+              **string**
+              Optional. Post code of the person.
+              String length is not limited.
+            type: string
+          postAddress:
+            description: |-
+              **string**
+              Optional. Post address of the person.
+              String length is not limited.
+            type: string
+          legalAddress:
+            description: |-
+              **string**
+              Optional. Legal address of the person.
+              String length is not limited.
+            type: string
+          tin:
+            description: |-
+              **string**
+              Optional. Tax identification number of the person.
+              String length is not limited.
+            type: string
 sourcePath: en/_api-ref/billing/v1/api-ref/Customer/createResellerServed.md
 ---
 

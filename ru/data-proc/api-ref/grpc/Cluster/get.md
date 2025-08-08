@@ -83,7 +83,8 @@ To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cl
   ],
   "deletion_protection": "bool",
   "log_group_id": "string",
-  "environment": "Environment"
+  "environment": "Environment",
+  "autoscaling_service_account_id": "string"
 }
 ```
 
@@ -166,6 +167,9 @@ Environment of the cluster
 - `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`
 - `PRESTABLE` ||
+|| autoscaling_service_account_id | **string**
+
+ID of service account for working with the Instance Groups service. ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}

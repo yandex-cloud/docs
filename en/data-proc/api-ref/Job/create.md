@@ -1,5 +1,235 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to create a job for.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Name of the job.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        mapreduceJob:
+          description: |-
+            **[MapreduceJob](/docs/data-proc/api-ref/Job/list#yandex.cloud.dataproc.v1.MapreduceJob)**
+            Specification for a MapReduce job.
+            Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
+            Specification for the job.
+          oneOf:
+            - type: object
+              properties:
+                mainJarFileUri:
+                  description: |-
+                    **string**
+                    HCFS URI of the .jar file containing the driver class.
+                    Includes only one of the fields `mainJarFileUri`, `mainClass`.
+                  type: string
+                mainClass:
+                  description: |-
+                    **string**
+                    The name of the driver class.
+                    Includes only one of the fields `mainJarFileUri`, `mainClass`.
+                  type: string
+        sparkJob:
+          description: |-
+            **[SparkJob](/docs/data-proc/api-ref/Job/list#yandex.cloud.dataproc.v1.SparkJob)**
+            Specification for a Spark job.
+            Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
+            Specification for the job.
+          $ref: '#/definitions/SparkJob'
+        pysparkJob:
+          description: |-
+            **[PysparkJob](/docs/data-proc/api-ref/Job/list#yandex.cloud.dataproc.v1.PysparkJob)**
+            Specification for a PySpark job.
+            Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
+            Specification for the job.
+          $ref: '#/definitions/PysparkJob'
+        hiveJob:
+          description: |-
+            **[HiveJob](/docs/data-proc/api-ref/Job/list#yandex.cloud.dataproc.v1.HiveJob)**
+            Specification for a Hive job.
+            Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
+            Specification for the job.
+          oneOf:
+            - type: object
+              properties:
+                queryFileUri:
+                  description: |-
+                    **string**
+                    URI of the script with all the necessary Hive queries.
+                    Includes only one of the fields `queryFileUri`, `queryList`.
+                  type: string
+                queryList:
+                  description: |-
+                    **[QueryList](/docs/data-proc/api-ref/Job/list#yandex.cloud.dataproc.v1.QueryList)**
+                    List of Hive queries to be used in the job.
+                    Includes only one of the fields `queryFileUri`, `queryList`.
+                  $ref: '#/definitions/QueryList'
+      additionalProperties: false
+    definitions:
+      SparkJob:
+        type: object
+        properties:
+          args:
+            description: |-
+              **string**
+              Optional arguments to pass to the driver.
+            type: array
+            items:
+              type: string
+          jarFileUris:
+            description: |-
+              **string**
+              JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task.
+            type: array
+            items:
+              type: string
+          fileUris:
+            description: |-
+              **string**
+              URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
+              and distributed Hadoop tasks.
+            type: array
+            items:
+              type: string
+          archiveUris:
+            description: |-
+              **string**
+              URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks.
+            type: array
+            items:
+              type: string
+          properties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Property names and values, used to configure Yandex Data Processing and Spark.
+            type: string
+          mainJarFileUri:
+            description: |-
+              **string**
+              The HCFS URI of the JAR file containing the `main` class for the job.
+            type: string
+          mainClass:
+            description: |-
+              **string**
+              The name of the driver class.
+            type: string
+          packages:
+            description: |-
+              **string**
+              List of maven coordinates of jars to include on the driver and executor classpaths.
+            type: array
+            items:
+              type: string
+          repositories:
+            description: |-
+              **string**
+              List of additional remote repositories to search for the maven coordinates given with --packages.
+            type: array
+            items:
+              type: string
+          excludePackages:
+            description: |-
+              **string**
+              List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts.
+            type: array
+            items:
+              type: string
+      PysparkJob:
+        type: object
+        properties:
+          args:
+            description: |-
+              **string**
+              Optional arguments to pass to the driver.
+            type: array
+            items:
+              type: string
+          jarFileUris:
+            description: |-
+              **string**
+              JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task.
+            type: array
+            items:
+              type: string
+          fileUris:
+            description: |-
+              **string**
+              URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
+              and distributed Hadoop tasks.
+            type: array
+            items:
+              type: string
+          archiveUris:
+            description: |-
+              **string**
+              URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks.
+            type: array
+            items:
+              type: string
+          properties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Property names and values, used to configure Yandex Data Processing and PySpark.
+            type: string
+          mainPythonFileUri:
+            description: |-
+              **string**
+              URI of the file with the driver code. Must be a .py file.
+            type: string
+          pythonFileUris:
+            description: |-
+              **string**
+              URIs of Python files to pass to the PySpark framework.
+            type: array
+            items:
+              type: string
+          packages:
+            description: |-
+              **string**
+              List of maven coordinates of jars to include on the driver and executor classpaths.
+            type: array
+            items:
+              type: string
+          repositories:
+            description: |-
+              **string**
+              List of additional remote repositories to search for the maven coordinates given with --packages.
+            type: array
+            items:
+              type: string
+          excludePackages:
+            description: |-
+              **string**
+              List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts.
+            type: array
+            items:
+              type: string
+      QueryList:
+        type: object
+        properties:
+          queries:
+            description: |-
+              **string**
+              List of Hive queries.
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/create.md
 ---
 

@@ -22,6 +22,7 @@ Actions are performed by making RPC calls. For more information about API archit
 || [HostType](HostType/index.md) | Set of methods to view possible host configurations. ||
 || [Image](Image/index.md) | A set of methods for managing Image resources. ||
 || [Instance](Instance/index.md) | A set of methods for managing Instance resources. ||
+|| [Maintenance](Maintenance/index.md) | A set of methods for managing maintenances in a service. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [PlacementGroup](PlacementGroup/index.md) | A set of methods for managing placement groups. ||
 || [ReservedInstancePool](ReservedInstancePool/index.md) | A set of methods for managing reserved instance pool resources. ||

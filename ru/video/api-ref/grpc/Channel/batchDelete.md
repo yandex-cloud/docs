@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Channel/batchDelete.md
 
 # Video API, gRPC: ChannelService.BatchDelete
 
-Batch delete channels.
+Deletes multiple channels in a specific organization in a single request.
+This is more efficient than making multiple Delete requests when removing several channels.
 
 ## gRPC request
 
@@ -26,10 +27,12 @@ Batch delete channels.
 ||Field | Description ||
 || organization_id | **string**
 
-Required field. ID of the organization. ||
+Required field. ID of the organization containing the channels to delete. ||
 || channel_ids[] | **string**
 
-List of channel IDs. ||
+List of channel IDs to delete.
+Deleting channels will also delete all their content,
+including videos, streams, and related resources. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -115,5 +118,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || channel_ids[] | **string**
 
-List of channel IDs. ||
+List of channel IDs being deleted.
+This list can be used to track which channels are included
+in the batch deletion operation. ||
 |#

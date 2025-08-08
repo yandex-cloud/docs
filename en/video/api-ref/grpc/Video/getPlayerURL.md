@@ -5,7 +5,9 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Video/getPlayerURL.md
 
 # Video API, gRPC: VideoService.GetPlayerURL
 
-Get player url.
+Generates a standard player URL for watching the video.
+The URL respects the video's access rights and can include custom player parameters.
+For videos with signed URL access, an expiration duration can be specified.
 
 ## gRPC request
 
@@ -29,11 +31,15 @@ Get player url.
 ||Field | Description ||
 || video_id | **string**
 
-Required field. ID of the video. ||
-|| params | **[VideoPlayerParams](#yandex.cloud.video.v1.VideoPlayerParams)** ||
+Required field. ID of the video for which to generate a player URL. ||
+|| params | **[VideoPlayerParams](#yandex.cloud.video.v1.VideoPlayerParams)**
+
+Optional player parameters to customize the playback experience.
+These parameters control initial player state such as mute, autoplay, and visibility of interface controls. ||
 || signed_url_expiration_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
-Optional field, used to set custom url expiration duration for videos with sign_url_access ||
+For episodes with signed URL access, specifies how long the generated URL will be valid.
+If not provided, a default expiration duration will be used. ||
 |#
 
 ## VideoPlayerParams {#yandex.cloud.video.v1.VideoPlayerParams}
@@ -42,13 +48,16 @@ Optional field, used to set custom url expiration duration for videos with sign_
 ||Field | Description ||
 || mute | **bool**
 
-If true, a player will be muted by default. ||
+If true, the player will start with audio muted.
+Users can unmute the audio manually after playback starts. ||
 || autoplay | **bool**
 
-If true, playback will start automatically. ||
+If true, the video will start playing automatically when the player loads.
+This may be subject to browser autoplay policies that restrict autoplay with sound. ||
 || hidden | **bool**
 
-If true, a player interface will be hidden by default. ||
+If true, the player interface controls will be hidden initially.
+Users can typically reveal the controls by moving the mouse over the player. ||
 |#
 
 ## GetVideoPlayerURLResponse {#yandex.cloud.video.v1.GetVideoPlayerURLResponse}
@@ -64,8 +73,11 @@ If true, a player interface will be hidden by default. ||
 ||Field | Description ||
 || player_url | **string**
 
-Direct link to the video. ||
+Direct URL to the video player.
+This URL can be used to access the video in a web browser
+or shared with users who have appropriate permissions. ||
 || html | **string**
 
-HTML embed code in Iframe format. ||
+HTML embed code in iframe format that can be inserted into web pages.
+This code allows the video to be embedded directly in third-party websites. ||
 |#

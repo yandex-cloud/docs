@@ -1,5 +1,48 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        dnsZoneId:
+          description: |-
+            **string**
+            ID of the DNS zone to list operations for.
+            To get a DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/DnsZone/list#List) request.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListDnsZoneOperationsResponse.nextPageToken](/docs/dns/api-ref/DnsZone/listOperations#yandex.cloud.dns.v1.ListDnsZoneOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListDnsZoneOperationsResponse.nextPageToken](/docs/dns/api-ref/DnsZone/listOperations#yandex.cloud.dns.v1.ListDnsZoneOperationsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters DNS zones listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on the [DnsZone.name](/docs/dns/api-ref/DnsZone/get#yandex.cloud.dns.v1.DnsZone) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            Example of a filter: `name=my-dns-zone`.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/listOperations.md
 ---
 

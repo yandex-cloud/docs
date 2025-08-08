@@ -1,5 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        instanceGroupId:
+          description: |-
+            **string**
+            Required field. ID of the InstanceGroup resource to return.
+            To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+          type: string
+      required:
+        - instanceGroupId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        view:
+          description: |-
+            **enum** (InstanceGroupView)
+            Defines which information about the Instance template should be returned in the server response.
+            - `BASIC`: Doesn't include the metadata of the instance template in the server response.
+            - `FULL`: Returns the metadata of the instance template in the server response.
+          type: string
+          enum:
+            - BASIC
+            - FULL
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/get.md
 ---
 

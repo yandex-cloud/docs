@@ -1,5 +1,44 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ocr.{{ api-host }}/ocr/v1/recognizeText
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        content:
+          description: |-
+            **string** (bytes)
+            Bytes with data
+            Includes only one of the fields `content`.
+          type: string
+          format: bytes
+        mimeType:
+          description: |-
+            **string**
+            Specifications of the ([MIME type](https://en.wikipedia.org/wiki/Media_type)). Each specification contains the file to analyze and features to use for analysis. Restrictions:
+            * Supported file formats: `JPEG`, `PNG`, `PDF`.
+            * Maximum file size: see [documentation](/docs/vision/concepts/limits).
+            * Image size should not exceed 20M pixels (length x width).
+            * The number of pages in a PDF file should not exceed 1.
+          type: string
+        languageCodes:
+          description: |-
+            **string**
+            [List of the languages](/docs/vision/concepts/ocr/supported-languages) to recognize text.
+            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `ru`).
+          type: array
+          items:
+            type: string
+        model:
+          description: |-
+            **string**
+            [Model](/docs/vision/concepts/ocr/template-recognition#models) to use for text detection.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/ai/ocr/v1/ocr/api-ref/TextRecognition/recognize.md
 ---
 
@@ -120,7 +159,8 @@ Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for ex
             "startIndex": "string",
             "length": "string"
           }
-        ]
+        ],
+        "layoutType": "string"
       }
     ],
     "entities": [
@@ -167,7 +207,21 @@ Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for ex
       }
     ],
     "fullText": "string",
-    "rotate": "string"
+    "rotate": "string",
+    "markdown": "string",
+    "pictures": [
+      {
+        "boundingBox": {
+          "vertices": [
+            {
+              "x": "string",
+              "y": "string"
+            }
+          ]
+        },
+        "score": "string"
+      }
+    ]
   },
   "page": "string"
 }
@@ -212,6 +266,12 @@ Angle of image rotation.
 - `ANGLE_90`
 - `ANGLE_180`
 - `ANGLE_270` ||
+|| markdown | **string**
+
+Full markdown (without pictures inside) from image. Available only in markdown and math-markdown models. ||
+|| pictures[] | **[Picture](#yandex.cloud.ai.ocr.v1.Picture)**
+
+List of pictures locations from image. ||
 |#
 
 ## Block {#yandex.cloud.ai.ocr.v1.Block}
@@ -230,6 +290,21 @@ A list of detected languages ||
 || textSegments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
 
 Block position from full_text string. ||
+|| layoutType | **enum** (LayoutType)
+
+Block layout type.
+
+- `LAYOUT_TYPE_UNSPECIFIED`
+- `LAYOUT_TYPE_UNKNOWN`
+- `LAYOUT_TYPE_TEXT`
+- `LAYOUT_TYPE_HEADER`
+- `LAYOUT_TYPE_SECTION_HEADER`
+- `LAYOUT_TYPE_FOOTER`
+- `LAYOUT_TYPE_FOOTNOTE`
+- `LAYOUT_TYPE_PICTURE`
+- `LAYOUT_TYPE_CAPTION`
+- `LAYOUT_TYPE_TITLE`
+- `LAYOUT_TYPE_LIST` ||
 |#
 
 ## Polygon {#yandex.cloud.ai.ocr.v1.Polygon}
@@ -374,4 +449,16 @@ Text in cell. ||
 || textSegments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
 
 Table cell position from full_text string. ||
+|#
+
+## Picture {#yandex.cloud.ai.ocr.v1.Picture}
+
+#|
+||Field | Description ||
+|| boundingBox | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
+
+Area on the page where the picture is located. ||
+|| score | **string**
+
+Confidence score of picture location. ||
 |#

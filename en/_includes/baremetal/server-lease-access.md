@@ -14,12 +14,4 @@
 
 1. In the **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** field, select the SSH key saved in your [organization user](../../organization/concepts/membership.md) profile.
 
-    If your profile has no SSH keys or you need to add a new one:
-    * Click **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
-    * Specify the SSH key name.
-    * Upload your public key file or paste its contents in the field below. You will need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) your own SSH key pair to establish a secure server connection.
-    * Click **{{ ui-key.yacloud.common.add }}**.
-
-    The SSH key will be added to your organization user profile.
-
-    If adding SSH keys by users to their profiles is disabled in the organization, the public SSH key you add will be saved only to the OS user profile of the new {{ baremetal-name }} server.
+    {% include [ssh-key-variants](../../_includes/compute/create/ssh-key-variants.md) %}

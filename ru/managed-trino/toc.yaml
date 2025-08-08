@@ -47,6 +47,8 @@ items:
         href: concepts/impersonation.md
       - name: Отказоустойчивое выполнение запросов
         href: concepts/retry-policy.md
+      - name: Классы хостов
+        href: concepts/instance-types.md
   - name: Справочник CLI (англ.)
     items:
       - name: Overview

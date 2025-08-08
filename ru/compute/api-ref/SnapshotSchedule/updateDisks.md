@@ -1,5 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}:updateDisks
+    method: patch
+    path:
+      type: object
+      properties:
+        snapshotScheduleId:
+          description: |-
+            **string**
+            ID of the snapshot schedule to update.
+            To get a snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/compute/api-ref/SnapshotSchedule/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        remove:
+          description: |-
+            **string**
+            List of IDs of the disks to detach from the specified schedule.
+            To get an ID of a disk attached to the schedule, make a [SnapshotScheduleService.ListDisks](/docs/compute/api-ref/SnapshotSchedule/listDisks#ListDisks) request.
+          type: array
+          items:
+            type: string
+        add:
+          description: |-
+            **string**
+            List of IDs of the disks to attach to the specified schedule.
+            To get a disk ID, make a [yandex.cloud.compute.v1.DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/updateDisks.md
 ---
 

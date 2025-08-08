@@ -1,5 +1,73 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/files/v1/files
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the file.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the file.
+          type: string
+        mimeType:
+          description: |-
+            **string**
+            MIME type of the file, indicating the file's format (e.g., "application/pdf").
+            If not specified, will be deduced automatically based on the file content.
+          type: string
+        content:
+          description: |-
+            **string** (bytes)
+            Required field. Binary content of the file.
+          type: string
+          format: bytes
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Set of key-value pairs to label the file.
+          type: string
+        expirationConfig:
+          description: |-
+            **`ExpirationConfig`**
+            Expiration configuration for the file.
+          $ref: '#/definitions/ExpirationConfig'
+      required:
+        - folderId
+        - content
+      additionalProperties: false
+    definitions:
+      ExpirationConfig:
+        type: object
+        properties:
+          expirationPolicy:
+            description: |-
+              **enum** (ExpirationPolicy)
+              - `EXPIRATION_POLICY_UNSPECIFIED`
+              - `STATIC`
+              - `SINCE_LAST_ACTIVE`
+            type: string
+            enum:
+              - EXPIRATION_POLICY_UNSPECIFIED
+              - STATIC
+              - SINCE_LAST_ACTIVE
+          ttlDays:
+            description: '**string** (int64)'
+            type: string
+            format: int64
 sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/create.md
 ---
 

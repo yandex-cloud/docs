@@ -1,11 +1,64 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/streamLines
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        channelId:
+          description: |-
+            **string**
+            Required field. ID of the channel containing the stream lines to list.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of stream lines to return per page.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token for retrieving the next page of results.
+            This token is obtained from the next_page_token field in the previous ListStreamLinesResponse.
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            Specifies the ordering of results.
+            Format is "<field> <order>" (e.g., "createdAt desc").
+            Default: "id asc".
+            Supported fields: ["id", "title", "createdAt", "updatedAt"].
+            Both snake_case and camelCase field names are supported.
+          type: string
+        filter:
+          description: |-
+            **string**
+            Filter expression to narrow down the list of returned stream lines.
+            Expressions consist of terms connected by logical operators.
+            Values containing spaces or quotes must be enclosed in quotes (`'` or `"`)
+            with inner quotes being backslash-escaped.
+            Supported logical operators: ["AND", "OR"].
+            Supported comparison operators: ["=", "!=", ":"] where ":" enables substring matching.
+            Parentheses can be used to group logical expressions.
+            Example: `title:'main' AND id='line-1'`
+            Filterable fields: ["id", "title"].
+            Both snake_case and camelCase field names are supported.
+          type: string
+      required:
+        - channelId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/list.md
 ---
 
 # Video API, REST: StreamLine.List
 
-List lines for channel.
+Lists all stream lines in a specific channel with pagination support.
+Results can be filtered and sorted using the provided parameters.
 
 ## HTTP request
 
@@ -19,34 +72,36 @@ GET https://video.{{ api-host }}/video/v1/streamLines
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel containing the stream lines to list. ||
 || pageSize | **string** (int64)
 
-The maximum number of the results per page to return.
-Default value: 100. ||
+The maximum number of stream lines to return per page. ||
 || pageToken | **string**
 
-Page token for getting the next page of the result. ||
+Page token for retrieving the next page of results.
+This token is obtained from the next_page_token field in the previous ListStreamLinesResponse. ||
 || orderBy | **string**
 
-By which column the listing should be ordered and in which direction,
-format is "<field> <order>" (e.g. "createdAt desc").
+Specifies the ordering of results.
+Format is "<field> <order>" (e.g., "createdAt desc").
 Default: "id asc".
-Possible fields: ["id", "title", "createdAt", "updatedAt"].
-Both snake_case and camelCase are supported for fields. ||
+Supported fields: ["id", "title", "createdAt", "updatedAt"].
+Both snake_case and camelCase field names are supported. ||
 || filter | **string**
 
-Filter expression that filters resources listed in the response.
-Expressions are composed of terms connected by logic operators.
-If value contains spaces or quotes,
-it should be in quotes (`'` or `"`) with the inner quotes being backslash escaped.
+Filter expression to narrow down the list of returned stream lines.
+Expressions consist of terms connected by logical operators.
+Values containing spaces or quotes must be enclosed in quotes (`'` or `"`)
+with inner quotes being backslash-escaped.
+
 Supported logical operators: ["AND", "OR"].
-Supported string match operators: ["=", "!=", ":"].
-Operator ":" stands for substring matching.
-Filter expressions may also contain parentheses to group logical operands.
-Example: `key1='value' AND (key2!='\'value\'' OR key2:"\"value\"")`
-Supported fields: ["id", "title"].
-Both snake_case and camelCase are supported for fields. ||
+Supported comparison operators: ["=", "!=", ":"] where ":" enables substring matching.
+Parentheses can be used to group logical expressions.
+
+Example: `title:'main' AND id='line-1'`
+
+Filterable fields: ["id", "title"].
+Both snake_case and camelCase field names are supported. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.ListStreamLinesResponse}
@@ -60,7 +115,6 @@ Both snake_case and camelCase are supported for fields. ||
       "id": "string",
       "channelId": "string",
       "title": "string",
-      "thumbnailId": "string",
       // Includes only one of the fields `rtmpPush`, `rtmpPull`
       "rtmpPush": {
         "url": "string"
@@ -88,15 +142,17 @@ Both snake_case and camelCase are supported for fields. ||
 ||Field | Description ||
 || streamLines[] | **[StreamLine](#yandex.cloud.video.v1.StreamLine)**
 
-List of lines for channel. ||
+List of stream lines matching the request criteria.
+May be empty if no stream lines match the criteria or if the channel has no stream lines. ||
 || nextPageToken | **string**
 
-Token for getting the next page. ||
+Token for retrieving the next page of results.
+Empty if there are no more results available. ||
 |#
 
 ## StreamLine {#yandex.cloud.video.v1.StreamLine}
 
-Entity that is responsible for the incoming video signal settings.
+Entity representing the incoming video signal settings.
 
 #|
 ||Field | Description ||
@@ -109,12 +165,9 @@ ID of the channel to which this stream line belongs. ||
 || title | **string**
 
 Title of the stream line. ||
-|| thumbnailId | **string**
-
-ID of the thumbnail image associated with the stream line.. ||
 || rtmpPush | **[RTMPPushInput](#yandex.cloud.video.v1.RTMPPushInput)**
 
-Real-Time Messaging Protocol (RTMP) push input settings.
+Real-Time Messaging Protocol (RTMP) push input type.
 
 Includes only one of the fields `rtmpPush`, `rtmpPull`.
 
@@ -128,21 +181,21 @@ Includes only one of the fields `rtmpPush`, `rtmpPull`.
 Specifies the input type and settings for the video signal source. ||
 || manualLine | **object**
 
-Manual control of stream.
+Manual stream control.
 
 Includes only one of the fields `manualLine`, `autoLine`.
 
 Specifies the control type of the stream line. ||
 || autoLine | **[AutoLine](#yandex.cloud.video.v1.AutoLine)**
 
-Automatic control of stream.
+Automatic stream control.
 
 Includes only one of the fields `manualLine`, `autoLine`.
 
 Specifies the control type of the stream line. ||
 || createdAt | **string** (date-time)
 
-Time when the stream line was created.
+Timestamp when the stream line was initially created in the system.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -152,7 +205,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || updatedAt | **string** (date-time)
 
-Time when the stream line was last updated.
+Timestamp of the last modification to the stream line or its metadata.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -162,7 +215,9 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per stream line.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
 ## RTMPPushInput {#yandex.cloud.video.v1.RTMPPushInput}

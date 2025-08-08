@@ -1,5 +1,249 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-api.speechsense.yandexcloud.net/speechsense/v1/talks/search
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            id of organization
+          type: string
+        spaceId:
+          description: |-
+            **string**
+            id of space
+          type: string
+        connectionId:
+          description: |-
+            **string**
+            id of connection
+          type: string
+        projectId:
+          description: |-
+            **string**
+            id of project
+          type: string
+        filters:
+          description: |-
+            **[Filter](/docs/speechsense/api-ref/Talk/search#yandex.cloud.speechsense.v1.Filter)**
+            metadata keys filters (user and system)
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  anyMatch:
+                    description: |-
+                      **[AnyMatchFilter](/docs/speechsense/api-ref/Talk/search#yandex.cloud.speechsense.v1.AnyMatchFilter)**
+                      find talk matched by any text filters
+                      Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
+                    $ref: '#/definitions/AnyMatchFilter'
+                  intRange:
+                    description: |-
+                      **[IntRangeFilter](/docs/speechsense/api-ref/Talk/search#yandex.cloud.speechsense.v1.IntRangeFilter)**
+                      find talks with value from int range
+                      Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
+                    $ref: '#/definitions/IntRangeFilter'
+                  doubleRange:
+                    description: |-
+                      **[DoubleRangeFilter](/docs/speechsense/api-ref/Talk/search#yandex.cloud.speechsense.v1.DoubleRangeFilter)**
+                      find talks with value from double range
+                      Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
+                    $ref: '#/definitions/DoubleRangeFilter'
+                  dateRange:
+                    description: |-
+                      **[DateRangeFilter](/docs/speechsense/api-ref/Talk/search#yandex.cloud.speechsense.v1.DateRangeFilter)**
+                      find talks with value from date range
+                      Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
+                    $ref: '#/definitions/DateRangeFilter'
+                  durationRange:
+                    description: |-
+                      **[DurationRangeFilter](/docs/speechsense/api-ref/Talk/search#yandex.cloud.speechsense.v1.DurationRangeFilter)**
+                      find talks with value from duration range
+                      Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
+                    $ref: '#/definitions/DurationRangeFilter'
+                  booleanMatch:
+                    description: |-
+                      **[BooleanFilter](/docs/speechsense/api-ref/Talk/search#yandex.cloud.speechsense.v1.BooleanFilter)**
+                      find talks with value equals boolean
+                      Includes only one of the fields `anyMatch`, `intRange`, `doubleRange`, `dateRange`, `durationRange`, `booleanMatch`.
+                    $ref: '#/definitions/BooleanFilter'
+        query:
+          description: |-
+            **[Query](/docs/speechsense/api-ref/Talk/search#yandex.cloud.speechsense.v1.Query)**
+            Full-text search query
+          $ref: '#/definitions/Query'
+        pageSize:
+          description: |-
+            **string** (int64)
+            page size, from 1 to 1000, default 100
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            next page token, if page is not first
+          type: string
+        sortData:
+          description: |-
+            **[SortData](/docs/speechsense/api-ref/Talk/search#yandex.cloud.speechsense.v1.SortData)**
+            talks sorting options
+          $ref: '#/definitions/SortData'
+      additionalProperties: false
+    definitions:
+      AnyMatchFilter:
+        type: object
+        properties:
+          values:
+            description: |-
+              **string**
+              values list to match with "OR" operator
+            type: array
+            items:
+              type: string
+      BoundsInclusive:
+        type: object
+        properties:
+          fromInclusive:
+            description: |-
+              **boolean**
+              include from bound
+            type: boolean
+          toInclusive:
+            description: |-
+              **boolean**
+              include to bound
+            type: boolean
+      IntRangeFilter:
+        type: object
+        properties:
+          fromValue:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          toValue:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          boundsInclusive:
+            description: '**[BoundsInclusive](/docs/speechsense/api-ref/Talk/search#yandex.cloud.speechsense.v1.BoundsInclusive)**'
+            $ref: '#/definitions/BoundsInclusive'
+      DoubleRangeFilter:
+        type: object
+        properties:
+          fromValue:
+            description: '**number** (double)'
+            type: number
+            format: double
+          toValue:
+            description: '**number** (double)'
+            type: number
+            format: double
+          boundsInclusive:
+            description: '**[BoundsInclusive](/docs/speechsense/api-ref/Talk/search#yandex.cloud.speechsense.v1.BoundsInclusive)**'
+            $ref: '#/definitions/BoundsInclusive'
+      DateRangeFilter:
+        type: object
+        properties:
+          fromValue:
+            description: |-
+              **string** (date-time)
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+              `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+              To work with values in this field, use the APIs described in the
+              [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+            type: string
+            format: date-time
+          toValue:
+            description: |-
+              **string** (date-time)
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+              `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+              To work with values in this field, use the APIs described in the
+              [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+            type: string
+            format: date-time
+          boundsInclusive:
+            description: '**[BoundsInclusive](/docs/speechsense/api-ref/Talk/search#yandex.cloud.speechsense.v1.BoundsInclusive)**'
+            $ref: '#/definitions/BoundsInclusive'
+      DurationRangeFilter:
+        type: object
+        properties:
+          fromValue:
+            description: '**string** (duration)'
+            type: string
+            format: duration
+          toValue:
+            description: '**string** (duration)'
+            type: string
+            format: duration
+          boundsInclusive:
+            description: '**[BoundsInclusive](/docs/speechsense/api-ref/Talk/search#yandex.cloud.speechsense.v1.BoundsInclusive)**'
+            $ref: '#/definitions/BoundsInclusive'
+      BooleanFilter:
+        type: object
+        properties:
+          value:
+            description: '**boolean**'
+            type: boolean
+      Query:
+        type: object
+        properties:
+          text:
+            description: '**string**'
+            type: string
+          inverse:
+            description: |-
+              **boolean**
+              should or should NOT match
+            type: boolean
+          channelNumber:
+            description: |-
+              **string** (int64)
+              id of channel to search ("1", "2", ..., any channel if not set)
+            type: string
+            format: int64
+      SortField:
+        type: object
+        properties:
+          field:
+            description: |-
+              **string**
+              sorting key
+            type: string
+          order:
+            description: |-
+              **enum** (SortOrder)
+              sorting order by current `field`
+              - `SORT_ORDER_UNSPECIFIED`
+              - `SORT_ORDER_ASC`
+              - `SORT_ORDER_DESC`
+            type: string
+            enum:
+              - SORT_ORDER_UNSPECIFIED
+              - SORT_ORDER_ASC
+              - SORT_ORDER_DESC
+          position:
+            description: |-
+              **string** (int64)
+              number of field in comparing order (sort by key1 (position = 0), then key2 (position = 1), then key3...)
+            type: string
+            format: int64
+      SortData:
+        type: object
+        properties:
+          fields:
+            description: '**[SortField](/docs/speechsense/api-ref/Talk/search#yandex.cloud.speechsense.v1.SortField)**'
+            type: array
+            items:
+              $ref: '#/definitions/SortField'
 sourcePath: en/_api-ref/speechsense/v1/api-ref/Talk/search.md
 ---
 

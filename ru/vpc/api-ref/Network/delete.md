@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}
+    method: delete
+    path:
+      type: object
+      properties:
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the Network resource to update.
+            To get the network ID, use a [NetworkService.List](/docs/vpc/api-ref/Network/list#List) request.
+          type: string
+      required:
+        - networkId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/delete.md
 ---
 

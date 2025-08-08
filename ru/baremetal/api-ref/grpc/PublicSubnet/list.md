@@ -54,12 +54,13 @@ The expression consists of one or more conditions united by `AND` operator: `<co
 
 Each condition has the form `<field> <operator> <value>`, where:
 1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
-2. `<operator>` is a logical operator, one of `=` (equal), `:` (substring).
+2. `<operator>` is a logical operator, one of `=` (equal), `:` (substring), `@>` (contains).
 3. `<value>` represents a value.
 String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
 Example: "key1='value' AND key2='value'"
 Supported operators: ["AND"].
-Supported fields: ["id", "name", "zoneId", "hardwarePoolId"].
+Supported fields: ["id", "name", "zoneId", "hardwarePoolIds"].
+Deprecated fields: ["hardwarePoolId"].
 Both snake_case and camelCase are supported for fields. ||
 |#
 

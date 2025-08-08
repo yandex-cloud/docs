@@ -1,5 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/registries/{registryId}:setIpPermission
+    method: post
+    path:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the registry for which ip permissions are being set.
+          type: string
+      required:
+        - registryId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        ipPermission:
+          description: |-
+            **[IpPermission](/docs/container-registry/api-ref/Registry/listIpPermission#yandex.cloud.containerregistry.v1.IpPermission)**
+            IP permission to be set.
+          type: array
+          items:
+            $ref: '#/definitions/IpPermission'
+      additionalProperties: false
+    definitions:
+      IpPermission:
+        type: object
+        properties:
+          action:
+            description: |-
+              **enum** (Action)
+              - `ACTION_UNSPECIFIED`
+              - `PULL`
+              - `PUSH`
+            type: string
+            enum:
+              - ACTION_UNSPECIFIED
+              - PULL
+              - PUSH
+          ip:
+            description: '**string**'
+            type: string
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/setIpPermission.md
 ---
 

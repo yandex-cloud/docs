@@ -1,5 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/hosts
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Elasticsearch cluster.
+            To get the Elasticsearch cluster ID, make a [ClusterService.List](/docs/managed-elasticsearch/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `page_size`, the service returns a [ListClusterHostsResponse.nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#yandex.cloud.mdb.elasticsearch.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token.
+            To get the next page of results, set `page_token` to the [ListClusterHostsResponse.nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listHosts#yandex.cloud.mdb.elasticsearch.v1.ListClusterHostsResponse) returned by the previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/listHosts.md
 ---
 

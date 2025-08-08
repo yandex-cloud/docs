@@ -1,5 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/tokens
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        yandexPassportOauthToken:
+          description: |-
+            **string**
+            OAuth token for a Yandex account.
+            For more information, see [OAuth token](/docs/iam/concepts/authorization/oauth-token).
+            Includes only one of the fields `yandexPassportOauthToken`, `jwt`.
+          type: string
+        jwt:
+          description: |-
+            **string**
+            JSON Web Token (JWT) for a service account.
+            For more information, see [Get IAM token for a service account](/docs/iam/operations/iam-token/create-for-sa).
+            Includes only one of the fields `yandexPassportOauthToken`, `jwt`.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/IamToken/create.md
 ---
 

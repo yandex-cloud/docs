@@ -1,5 +1,108 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloudrouter.{{ api-host }}/cloudrouter/v1/routingInstances
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Name of the RoutingInstance.
+            The name must be unique within the folder.
+            Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``.
+          type: string
+        description:
+          description: |-
+            **string**
+            Optional description of the RoutingInstance. 0-256 characters long.
+          type: string
+        folderId:
+          description: |-
+            **string**
+            ID of the folder that the RoutingInstance belongs to.
+          type: string
+        regionId:
+          description: |-
+            **string**
+            ID of the region that the routingInstance belongs to.
+          type: string
+        vpcInfo:
+          description: |-
+            **[VpcInfo](/docs/cloud-router/api-ref/RoutingInstance/get#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcInfo)**
+            List of the info about vpcNetworks which are attached to the RoutingInstance.
+          type: array
+          items:
+            $ref: '#/definitions/VpcInfo'
+        cicPrivateConnectionInfo:
+          description: |-
+            **[CicPrivateConnectionInfo](/docs/cloud-router/api-ref/RoutingInstance/get#yandex.cloud.cloudrouter.v1.RoutingInstance.CicPrivateConnectionInfo)**
+            List of the info about privateConnections which are attached to the RoutingInstance.
+          type: array
+          items:
+            $ref: '#/definitions/CicPrivateConnectionInfo'
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels, `key:value` pairs.
+            No more than 64 per resource.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `[-_0-9a-z]*`.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `[a-z][-_0-9a-z]*`.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+      additionalProperties: false
+    definitions:
+      VpcManualInfo:
+        type: object
+        properties:
+          azId:
+            description: |-
+              **string**
+              ID of the AZ
+            type: string
+          prefixes:
+            description: |-
+              **string**
+              List of prefixes to announce
+            type: array
+            items:
+              type: string
+      VpcAzInfo:
+        type: object
+        properties:
+          manualInfo:
+            description: |-
+              **[VpcManualInfo](/docs/cloud-router/api-ref/RoutingInstance/get#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcManualInfo)**
+              VpcInfo which is set by user
+            $ref: '#/definitions/VpcManualInfo'
+      VpcInfo:
+        type: object
+        properties:
+          vpcNetworkId:
+            description: |-
+              **string**
+              ID of the vpcNetwork that is attached to the routingInstance.
+            type: string
+          azInfos:
+            description: |-
+              **[VpcAzInfo](/docs/cloud-router/api-ref/RoutingInstance/get#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcAzInfo)**
+              List of the az-related info about vpcNetworks which are attached to routingInstance
+            type: array
+            items:
+              $ref: '#/definitions/VpcAzInfo'
+      CicPrivateConnectionInfo:
+        type: object
+        properties:
+          cicPrivateConnectionId:
+            description: |-
+              **string**
+              ID of the cicPrivateConnection that is attached to the routingInstance.
+            type: string
 sourcePath: en/_api-ref/cloudrouter/v1/api-ref/RoutingInstance/create.md
 ---
 

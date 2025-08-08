@@ -1,5 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/providers:activate
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the activate provider belongs to.
+          type: string
+        providerType:
+          description: |-
+            **string**
+            Required field. Specify provider brand/type.
+            Possible values: `gcore`.
+          type: string
+      required:
+        - folderId
+        - providerType
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/Provider/activate.md
 ---
 

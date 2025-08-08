@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}
+    method: get
+    path:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. ID of the Organization resource to return.
+            To get the organization ID, use a [OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+          type: string
+      required:
+        - organizationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/get.md
 ---
 
-# Cloud Organization API, REST: Organization.Get
+# Identity Hub API, REST: Organization.Get
 
 Returns the specified Organization resource.
 

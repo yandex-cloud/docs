@@ -1,5 +1,60 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://quota-manager.{{ api-host }}/quota-manager/v1/quotaRequests
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        resource:
+          description: |-
+            **[Resource](/docs/quota-manager/api-ref/QuotaLimit/get#yandex.cloud.quotamanager.v1.Resource)**
+            Required field. Resource to create a quota request in.
+          $ref: '#/definitions/Resource'
+        desiredQuotaLimits:
+          description: |-
+            **[DesiredQuotaLimit](/docs/quota-manager/api-ref/QuotaRequest/create#yandex.cloud.quotamanager.v1.CreateQuotaRequestRequest.DesiredQuotaLimit)**
+            Desired quota limits
+          type: array
+          items:
+            $ref: '#/definitions/DesiredQuotaLimit'
+      required:
+        - resource
+      additionalProperties: false
+    definitions:
+      Resource:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              Required field. The id if the resource.
+            type: string
+          type:
+            description: |-
+              **string**
+              Required field. The type of the resource, e.g. resource-manager.cloud, billing.account.
+            type: string
+        required:
+          - id
+          - type
+      DesiredQuotaLimit:
+        type: object
+        properties:
+          quotaId:
+            description: |-
+              **string**
+              Required field. ID of the quota
+            type: string
+          desiredLimit:
+            description: |-
+              **string**
+              Desired limit of the quota
+            type: string
+        required:
+          - quotaId
 sourcePath: en/_api-ref/quotamanager/v1/api-ref/QuotaRequest/create.md
 ---
 

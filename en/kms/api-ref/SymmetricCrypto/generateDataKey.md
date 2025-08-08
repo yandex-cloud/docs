@@ -1,5 +1,61 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:generateDataKey
+    method: post
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the symmetric KMS key that the generated data key should be encrypted with.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            **string**
+            ID of the key version to encrypt the generated data key with.
+            Defaults to the primary version if not specified.
+          type: string
+        aadContext:
+          description: |-
+            **string** (bytes)
+            Additional authenticated data (AAD context), optional.
+            If specified, this data will be required for decryption with the [SymmetricDecryptRequest](/docs/kms/api-ref/SymmetricCrypto/decrypt#yandex.cloud.kms.v1.SymmetricDecryptRequest).
+            Should be encoded with base64.
+          type: string
+          format: bytes
+        dataKeySpec:
+          description: |-
+            **enum** (SymmetricAlgorithm)
+            Encryption algorithm and key length for the generated data key.
+            - `SYMMETRIC_ALGORITHM_UNSPECIFIED`
+            - `AES_128`: AES algorithm with 128-bit keys.
+            - `AES_192`: AES algorithm with 192-bit keys.
+            - `AES_256`: AES algorithm with 256-bit keys.
+            - `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+          type: string
+          enum:
+            - SYMMETRIC_ALGORITHM_UNSPECIFIED
+            - AES_128
+            - AES_192
+            - AES_256
+            - AES_256_HSM
+        skipPlaintext:
+          description: |-
+            **boolean**
+            If `true`, the method won't return the data key as plaintext.
+            Default value is `false`.
+          type: boolean
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricCrypto/generateDataKey.md
 ---
 

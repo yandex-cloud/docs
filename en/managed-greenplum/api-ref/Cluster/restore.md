@@ -1,5 +1,316 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/clusters:restore
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            **string**
+            Required field. ID of the backup to create a cluster from.
+            To get the backup ID, use a [ClusterService.ListBackups](/docs/managed-greenplum/api-ref/Cluster/listBackups#ListBackups) request.
+          type: string
+        time:
+          description: |-
+            **string** (date-time)
+            Timestamp of the moment to which the Greenplum cluster should be restored.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create the Greenplum® cluster in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the Greenplum® cluster. The name must be unique within the folder.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the Greenplum® cluster.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the Greenplum® cluster as `key:value` pairs.
+            For example, "project":"mvp" or "source":"dictionary".
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        environment:
+          description: |-
+            **enum** (Environment)
+            Required field. Deployment environment of the Greenplum® cluster.
+            - `ENVIRONMENT_UNSPECIFIED`
+            - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes are applied during regular maintenance.
+            - `PRESTABLE`: Environment with more aggressive update policy: new versions are rolled out irrespective of backward compatibility.
+          type: string
+          enum:
+            - ENVIRONMENT_UNSPECIFIED
+            - PRODUCTION
+            - PRESTABLE
+        config:
+          description: |-
+            **[GreenplumRestoreConfig](/docs/managed-greenplum/api-ref/Cluster/restore#yandex.cloud.mdb.greenplum.v1.GreenplumRestoreConfig)**
+            Greenplum® cluster config.
+          $ref: '#/definitions/GreenplumRestoreConfig'
+        masterResources:
+          description: |-
+            **[Resources](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.Resources)**
+            Resources of the Greenplum® master subcluster.
+          $ref: '#/definitions/Resources'
+        segmentResources:
+          description: |-
+            **[Resources](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.Resources)**
+            Resources of the Greenplum® segment subcluster.
+          $ref: '#/definitions/Resources'
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the network to create the cluster in.
+          type: string
+        securityGroupIds:
+          description: |-
+            **string**
+            User security groups.
+          type: array
+          items:
+            type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Determines whether the cluster is protected from being deleted.
+          type: boolean
+        hostGroupIds:
+          description: |-
+            **string**
+            Host groups to place VMs of cluster on.
+          type: array
+          items:
+            type: string
+        placementGroupId:
+          description: |-
+            **string**
+            ID of the placement group.
+          type: string
+        maintenanceWindow:
+          description: |-
+            **[MaintenanceWindow](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.MaintenanceWindow)**
+            A Greenplum® cluster maintenance window. Should be defined by either one of the two options.
+          oneOf:
+            - type: object
+              properties:
+                anytime:
+                  description: |-
+                    **object**
+                    An any-time maintenance window.
+                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+                  $ref: '#/definitions/AnytimeMaintenanceWindow'
+                weeklyMaintenanceWindow:
+                  description: |-
+                    **[WeeklyMaintenanceWindow](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.WeeklyMaintenanceWindow)**
+                    A weekly maintenance window.
+                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+        segmentHostCount:
+          description: |-
+            **string** (int64)
+            Number of segment hosts
+          type: string
+          format: int64
+        segmentInHost:
+          description: |-
+            **string** (int64)
+            Number of segments on each host
+          type: string
+          format: int64
+        restoreOnly:
+          description: |-
+            **string**
+            List of databases and tables to restore
+          pattern: '[a-zA-Z0-9\*_]*(\/[a-zA-Z0-9\*_]*){0,2}'
+          type: array
+          items:
+            type: string
+        masterHostGroupIds:
+          description: |-
+            **string**
+            Host groups hosting VMs of the master subcluster.
+          type: array
+          items:
+            type: string
+        segmentHostGroupIds:
+          description: |-
+            **string**
+            Host groups hosting VMs of the segment subcluster.
+          type: array
+          items:
+            type: string
+        serviceAccountId:
+          description: |-
+            **string**
+            Service account that will be used to access a Yandex Cloud resources
+          type: string
+      required:
+        - backupId
+        - folderId
+        - name
+        - environment
+        - networkId
+      additionalProperties: false
+    definitions:
+      TimeOfDay:
+        type: object
+        properties:
+          hours:
+            description: |-
+              **integer** (int32)
+              Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+              to allow the value "24:00:00" for scenarios like business closing time.
+            type: integer
+            format: int32
+          minutes:
+            description: |-
+              **integer** (int32)
+              Minutes of hour of day. Must be from 0 to 59.
+            type: integer
+            format: int32
+          seconds:
+            description: |-
+              **integer** (int32)
+              Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+              allow the value 60 if it allows leap-seconds.
+            type: integer
+            format: int32
+          nanos:
+            description: |-
+              **integer** (int32)
+              Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+            type: integer
+            format: int32
+      Access:
+        type: object
+        properties:
+          dataLens:
+            description: |-
+              **boolean**
+              Allows data export from the cluster to DataLens.
+            type: boolean
+          webSql:
+            description: |-
+              **boolean**
+              Allows SQL queries to the cluster databases from the management console.
+            type: boolean
+          dataTransfer:
+            description: |-
+              **boolean**
+              Allows access for DataTransfer.
+            type: boolean
+          yandexQuery:
+            description: |-
+              **boolean**
+              Allow access for YandexQuery.
+            type: boolean
+      GreenplumRestoreConfig:
+        type: object
+        properties:
+          backupWindowStart:
+            description: |-
+              **`TimeOfDay`**
+              Time to start the daily backup, in the UTC timezone.
+            $ref: '#/definitions/TimeOfDay'
+          access:
+            description: |-
+              **[Access](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.Access)**
+              Access policy for external services.
+            $ref: '#/definitions/Access'
+          zoneId:
+            description: |-
+              **string**
+              ID of the availability zone where the host resides.
+              To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet that the host should belong to. This subnet should be a part of the network that the cluster belongs to.
+              The ID of the network is set in the field [Cluster.networkId](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.Cluster).
+            type: string
+          assignPublicIp:
+            description: |-
+              **boolean**
+              Determines whether the host should get a public IP address on creation.
+              After a host has been created, this setting cannot be changed.
+              To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with [assignPublicIp](/docs/managed-greenplum/api-ref/Cluster/get#yandex.cloud.mdb.greenplum.v1.GreenplumConfig) set as needed.
+              Possible values:
+              * `false` - do not assign a public IP to the master host.
+              * `true` - assign a public IP to the master host.
+            type: boolean
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the preset for computational resources allocated to a host.
+              Available presets are listed in the [documentation](/docs/managed-greenplum/concepts/instance-types).
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage used by the host, in bytes.
+            type: string
+            format: int64
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`.
+            type: string
+      AnytimeMaintenanceWindow:
+        type: object
+        properties: {}
+      WeeklyMaintenanceWindow:
+        type: object
+        properties:
+          day:
+            description: |-
+              **enum** (WeekDay)
+              Day of the week.
+              - `WEEK_DAY_UNSPECIFIED`
+              - `MON`: Monday
+              - `TUE`: Tuesday
+              - `WED`: Wednesday
+              - `THU`: Thursday
+              - `FRI`: Friday
+              - `SAT`: Saturday
+              - `SUN`: Sunday
+            type: string
+            enum:
+              - WEEK_DAY_UNSPECIFIED
+              - MON
+              - TUE
+              - WED
+              - THU
+              - FRI
+              - SAT
+              - SUN
+          hour:
+            description: |-
+              **string** (int64)
+              Hour of the day in the UTC timezone.
+            type: string
+            format: int64
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/restore.md
 ---
 

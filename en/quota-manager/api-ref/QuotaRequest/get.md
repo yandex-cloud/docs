@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://quota-manager.{{ api-host }}/quota-manager/v1/quotaRequests/{quotaRequestId}
+    method: get
+    path:
+      type: object
+      properties:
+        quotaRequestId:
+          description: |-
+            **string**
+            Required field. ID of the quota request to return.
+          type: string
+      required:
+        - quotaRequestId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/quotamanager/v1/api-ref/QuotaRequest/get.md
 ---
 

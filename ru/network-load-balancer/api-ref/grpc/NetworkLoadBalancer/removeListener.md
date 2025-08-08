@@ -92,7 +92,13 @@ Required field. Name of the listener to delete. ||
       }
     ],
     "deletion_protection": "bool",
-    "allow_zonal_shift": "bool"
+    "allow_zonal_shift": "bool",
+    "disable_zone_statuses": [
+      {
+        "zone_id": "string",
+        "disabled_until": "google.protobuf.Timestamp"
+      }
+    ]
   }
   // end of the list of possible fields
 }
@@ -228,6 +234,9 @@ Specifies if network load balancer protected from deletion. ||
 || allow_zonal_shift | **bool**
 
 Specifies if network load balancer available to zonal shift. ||
+|| disable_zone_statuses[] | **[DisableZoneStatus](#yandex.cloud.loadbalancer.v1.DisableZoneStatus)**
+
+List of disabled zones for the network load balancer. ||
 |#
 
 ## Listener {#yandex.cloud.loadbalancer.v1.Listener}
@@ -343,4 +352,19 @@ Port to use for HTTP health checks. ||
 
 URL path to set for health checking requests for every target in the target group.
 For example `` /ping ``. The default path is `` / ``. ||
+|#
+
+## DisableZoneStatus {#yandex.cloud.loadbalancer.v1.DisableZoneStatus}
+
+Status of the disabled zone.
+
+#|
+||Field | Description ||
+|| zone_id | **string**
+
+Required field. ID of zone. ||
+|| disabled_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp until which the zone will be disabled.
+If not present then zone will be disabled until it is removed through a separate call. ||
 |#

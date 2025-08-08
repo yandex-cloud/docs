@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Operation/cancel.md
 ---
 
-# Cloud Organization API, gRPC: OperationService.Cancel
+# Identity Hub API, gRPC: OperationService.Cancel
 
 Cancels the specified operation.
 

@@ -1,5 +1,57 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}:tagHistory
+    method: get
+    path:
+      type: object
+      properties:
+        functionId:
+          description: |-
+            **string**
+            Required field. ID of the function to retrieve tag history for.
+            To get a function ID, make a [FunctionService.List](/docs/functions/functions/api-ref/Function/list#List) request.
+          type: string
+      required:
+        - functionId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        tag:
+          description: |-
+            **string**
+            Specific tag that history should be limited to.
+          pattern: '[a-z][-_0-9a-z]*|[$]latest'
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#yandex.cloud.serverless.functions.v1.ListFunctionOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListFunctionOperationsResponse.nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#yandex.cloud.serverless.functions.v1.ListFunctionOperationsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently filtering can only be applied to the [FunctionTagHistoryRecord.effectiveFrom](/docs/functions/functions/api-ref/Function/listTagHistory#yandex.cloud.serverless.functions.v1.ListFunctionTagHistoryResponse.FunctionTagHistoryRecord) and [FunctionTagHistoryRecord.effectiveTo](/docs/functions/functions/api-ref/Function/listTagHistory#yandex.cloud.serverless.functions.v1.ListFunctionTagHistoryResponse.FunctionTagHistoryRecord) fields.
+            2. An `=` or `>` or `<` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            For example, `effective_to>2021-01-01T12:00:00Z`.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/listTagHistory.md
 ---
 

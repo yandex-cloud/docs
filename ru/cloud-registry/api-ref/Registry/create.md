@@ -1,5 +1,83 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://registry.{{ api-host }}/cloud-registry/v1/registries
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a registry in.
+            To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the registry.
+            There may be only one registry per folder.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        kind:
+          description: |-
+            **enum** (Kind)
+            Required field. Kind of the registry.
+            - `KIND_UNSPECIFIED`
+            - `MAVEN`: Registry kind is maven.
+            - `NPM`: Registry kind is npm.
+            - `DOCKER`: Registry kind is docker.
+            - `NUGET`: Registry kind is nuget.
+            - `DEBIAN`: Registry kind is debian.
+            - `PYPI`: Registry kind is pypi.
+          type: string
+          enum:
+            - KIND_UNSPECIFIED
+            - MAVEN
+            - NPM
+            - DOCKER
+            - NUGET
+            - DEBIAN
+            - PYPI
+        type:
+          description: |-
+            **enum** (Type)
+            Required field. Type of the registry.
+            - `TYPE_UNSPECIFIED`
+            - `LOCAL`: Registry type is local.
+            - `REMOTE`
+            - `VIRTUAL`
+          type: string
+          enum:
+            - TYPE_UNSPECIFIED
+            - LOCAL
+            - REMOTE
+            - VIRTUAL
+        description:
+          description: |-
+            **string**
+            Description of the registry. 0-1024 characters long.
+          type: string
+        properties:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Property names and values.
+          pattern: '[a-zA-Z]+'
+          type: string
+      required:
+        - folderId
+        - kind
+        - type
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/cloudregistry/v1/api-ref/Registry/create.md
 ---
 
@@ -50,7 +128,9 @@ Required field. Kind of the registry.
 - `MAVEN`: Registry kind is maven.
 - `NPM`: Registry kind is npm.
 - `DOCKER`: Registry kind is docker.
-- `NUGET`: Registry kind is nuget. ||
+- `NUGET`: Registry kind is nuget.
+- `DEBIAN`: Registry kind is debian.
+- `PYPI`: Registry kind is pypi. ||
 || type | **enum** (Type)
 
 Required field. Type of the registry.
@@ -225,7 +305,9 @@ Kind of the registry.
 - `MAVEN`: Registry kind is maven.
 - `NPM`: Registry kind is npm.
 - `DOCKER`: Registry kind is docker.
-- `NUGET`: Registry kind is nuget. ||
+- `NUGET`: Registry kind is nuget.
+- `DEBIAN`: Registry kind is debian.
+- `PYPI`: Registry kind is pypi. ||
 || type | **enum** (Type)
 
 Type of the registry.

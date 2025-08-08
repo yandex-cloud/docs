@@ -1,5 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates
+    method: get
+    path:
+      type: object
+      properties:
+        networkLoadBalancerId:
+          description: |-
+            **string**
+            ID of the NetworkLoadBalancer resource with an attached target group.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        targetGroupId:
+          description: |-
+            **string**
+            ID of the target group to get states of resources from.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/getTargetStates.md
 ---
 

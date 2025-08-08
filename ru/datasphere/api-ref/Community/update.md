@@ -1,5 +1,52 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/communities/{communityId}
+    method: patch
+    path:
+      type: object
+      properties:
+        communityId:
+          description: |-
+            **string**
+            Required field. ID of the community.
+          type: string
+      required:
+        - communityId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the community.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the community.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Labels of the community.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/update.md
 ---
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/GroupMapping/updateItems.md
 ---
 
-# Cloud Organization API, gRPC: GroupMappingService.UpdateItems
+# Identity Hub API, gRPC: GroupMappingService.UpdateItems
 
 Updates group mapping items for a specified federation
 Errors:

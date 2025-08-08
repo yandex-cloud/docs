@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/advancedRateLimiterProfiles/{advancedRateLimiterProfileId}
+    method: delete
+    path:
+      type: object
+      properties:
+        advancedRateLimiterProfileId:
+          description: |-
+            **string**
+            Required field. ID of the ARL profile to delete.
+          type: string
+      required:
+        - advancedRateLimiterProfileId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/smartwebsecurity/v1/advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/delete.md
 ---
 

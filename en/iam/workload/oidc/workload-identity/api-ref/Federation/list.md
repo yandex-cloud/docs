@@ -1,5 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/workload/oidc/federations
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list OIDC workload identity federations in.
+            To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListFederationsResponse.nextPageToken](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#yandex.cloud.iam.v1.workload.oidc.ListFederationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken`
+            to the [ListFederationsResponse.nextPageToken](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#yandex.cloud.iam.v1.workload.oidc.ListFederationsResponse)
+            returned by a previous list request.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/list.md
 ---
 

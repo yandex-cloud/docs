@@ -1,5 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:detachDisk
+    method: post
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            Required field. ID of the instance to detach the disk from.
+            To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request.
+          type: string
+      required:
+        - instanceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        diskId:
+          description: |-
+            **string**
+            ID of the disk that should be detached.
+            Includes only one of the fields `diskId`, `deviceName`.
+          type: string
+        deviceName:
+          description: |-
+            **string**
+            Serial number of the disk that should be detached. This value is reflected into the /dev/disk/by-id/ tree
+            of a Linux operating system running within the instance.
+            Includes only one of the fields `diskId`, `deviceName`.
+          pattern: '[a-z][a-z0-9-_]{,19}'
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/detachDisk.md
 ---
 

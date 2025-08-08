@@ -93,7 +93,8 @@ Required field. Operation ID of async recognition request. ||
             "start_index": "int64",
             "length": "int64"
           }
-        ]
+        ],
+        "layout_type": "LayoutType"
       }
     ],
     "entities": [
@@ -140,7 +141,21 @@ Required field. Operation ID of async recognition request. ||
       }
     ],
     "full_text": "string",
-    "rotate": "Angle"
+    "rotate": "Angle",
+    "markdown": "string",
+    "pictures": [
+      {
+        "bounding_box": {
+          "vertices": [
+            {
+              "x": "int64",
+              "y": "int64"
+            }
+          ]
+        },
+        "score": "double"
+      }
+    ]
   },
   "page": "int64"
 }
@@ -185,6 +200,12 @@ Angle of image rotation.
 - `ANGLE_90`
 - `ANGLE_180`
 - `ANGLE_270` ||
+|| markdown | **string**
+
+Full markdown (without pictures inside) from image. Available only in markdown and math-markdown models. ||
+|| pictures[] | **[Picture](#yandex.cloud.ai.ocr.v1.Picture)**
+
+List of pictures locations from image. ||
 |#
 
 ## Block {#yandex.cloud.ai.ocr.v1.Block}
@@ -203,6 +224,21 @@ A list of detected languages ||
 || text_segments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
 
 Block position from full_text string. ||
+|| layout_type | enum **LayoutType**
+
+Block layout type.
+
+- `LAYOUT_TYPE_UNSPECIFIED`
+- `LAYOUT_TYPE_UNKNOWN`
+- `LAYOUT_TYPE_TEXT`
+- `LAYOUT_TYPE_HEADER`
+- `LAYOUT_TYPE_SECTION_HEADER`
+- `LAYOUT_TYPE_FOOTER`
+- `LAYOUT_TYPE_FOOTNOTE`
+- `LAYOUT_TYPE_PICTURE`
+- `LAYOUT_TYPE_CAPTION`
+- `LAYOUT_TYPE_TITLE`
+- `LAYOUT_TYPE_LIST` ||
 |#
 
 ## Polygon {#yandex.cloud.ai.ocr.v1.Polygon}
@@ -347,4 +383,16 @@ Text in cell. ||
 || text_segments[] | **[TextSegments](#yandex.cloud.ai.ocr.v1.TextSegments)**
 
 Table cell position from full_text string. ||
+|#
+
+## Picture {#yandex.cloud.ai.ocr.v1.Picture}
+
+#|
+||Field | Description ||
+|| bounding_box | **[Polygon](#yandex.cloud.ai.ocr.v1.Polygon)**
+
+Area on the page where the picture is located. ||
+|| score | **double**
+
+Confidence score of picture location. ||
 |#

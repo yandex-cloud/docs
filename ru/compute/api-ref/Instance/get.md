@@ -1,5 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}
+    method: get
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            Required field. ID of the Instance resource to return.
+            To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request.
+          type: string
+      required:
+        - instanceId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        view:
+          description: |-
+            **enum** (InstanceView)
+            Defines which information about the Instance resource should be returned in the server response.
+            - `BASIC`: Doesn't include the metadata of the instance in the server response.
+            - `FULL`: Returns the metadata of the instance in the server response.
+          type: string
+          enum:
+            - BASIC
+            - FULL
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/get.md
 ---
 

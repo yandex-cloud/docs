@@ -1,5 +1,58 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a target group in.
+            To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the target group.
+            The name must be unique within the folder.
+          pattern: ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)?
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the target group.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Target group labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        targets:
+          description: |-
+            **[Target](/docs/application-load-balancer/api-ref/LoadBalancer/getTargetStates#yandex.cloud.apploadbalancer.v1.Target)**
+            List of targets in the target group.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  ipAddress:
+                    description: |-
+                      **string**
+                      IP address of the target.
+                      Includes only one of the fields `ipAddress`.
+                      Reference to the target. As of now, targets must only be referred to by their IP addresses.
+                    type: string
+      required:
+        - folderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/create.md
 ---
 

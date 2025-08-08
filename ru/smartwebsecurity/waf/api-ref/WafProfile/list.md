@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/wafProfiles
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the WAF profile belongs to.
+            Currently page_size, page_token, filter and order_by are not supported and List method will return all WAF profiles in the folder.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/WafProfile/list.md
 ---
 
@@ -158,7 +176,9 @@ Currently page_size, page_token, filter and order_by are not supported and List 
         "paranoiaLevel": "string",
         "ruleSet": {
           "name": "string",
-          "version": "string"
+          "version": "string",
+          "type": "string",
+          "id": "string"
         }
       },
       // end of the list of possible fields
@@ -166,7 +186,59 @@ Currently page_size, page_token, filter and order_by are not supported and List 
         "isEnabled": "boolean",
         "sizeLimit": "string",
         "sizeLimitAction": "string"
-      }
+      },
+      "ruleSets": [
+        {
+          // Includes only one of the fields `coreRuleSet`, `yaRuleSet`, `mlRuleSet`
+          "coreRuleSet": {
+            "ruleSet": {
+              "name": "string",
+              "version": "string",
+              "type": "string",
+              "id": "string"
+            },
+            "inboundAnomalyScore": "string",
+            "paranoiaLevel": "string"
+          },
+          "yaRuleSet": {
+            "ruleSet": {
+              "name": "string",
+              "version": "string",
+              "type": "string",
+              "id": "string"
+            },
+            "ruleGroups": [
+              {
+                "id": "string",
+                "action": "string",
+                "inboundAnomalyScore": "string",
+                "isEnabled": "boolean"
+              }
+            ]
+          },
+          "mlRuleSet": {
+            "ruleSet": {
+              "name": "string",
+              "version": "string",
+              "type": "string",
+              "id": "string"
+            },
+            "ruleGroups": [
+              {
+                "id": "string",
+                "action": "string",
+                "inboundAnomalyScore": "string",
+                "isEnabled": "boolean"
+              }
+            ]
+          },
+          // end of the list of possible fields
+          "priority": "string",
+          "isEnabled": "boolean",
+          "action": "string"
+        }
+      ],
+      "matchAllRuleSets": "boolean"
     }
   ]
 }
@@ -226,6 +298,12 @@ Includes only one of the fields `coreRuleSet`. ||
 || analyzeRequestBody | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody)**
 
 The parameter is deprecated. Parameters for request body analyzer. ||
+|| ruleSets[] | **[WafProfileRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet)**
+
+List of rule sets. ||
+|| matchAllRuleSets | **boolean**
+
+Determines ||
 |#
 
 ## WafProfileRule {#yandex.cloud.smartwebsecurity.v1.waf.WafProfileRule}
@@ -466,6 +544,17 @@ Required field. Name of rule set. ||
 || version | **string**
 
 Required field. Version of rule set. ||
+|| type | **enum** (RuleSetType)
+
+Type of rule set.
+
+- `RULE_SET_TYPE_UNSPECIFIED`
+- `CORE`: Core rule set.
+- `YA`: Yandex rule set.
+- `ML`: Yandex machine learning rule set. ||
+|| id | **string**
+
+ID of rule set. ||
 |#
 
 ## AnalyzeRequestBody {#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody}
@@ -485,4 +574,109 @@ Action to perform if maximum size of body exceeded.
 - `ACTION_UNSPECIFIED`
 - `IGNORE`: Ignore request.
 - `DENY`: Deny request. ||
+|#
+
+## WafProfileRuleSet {#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet}
+
+#|
+||Field | Description ||
+|| coreRuleSet | **[WafProfileCoreRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.WafProfileCoreRuleSet)**
+
+Core rule set settings. See [Basic rule set](/docs/smartwebsecurity/concepts/waf#rules-set) for details.
+
+Includes only one of the fields `coreRuleSet`, `yaRuleSet`, `mlRuleSet`. ||
+|| yaRuleSet | **[WafProfileYaRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.WafProfileYaRuleSet)**
+
+Yandex rule set settings.
+
+Includes only one of the fields `coreRuleSet`, `yaRuleSet`, `mlRuleSet`. ||
+|| mlRuleSet | **[WafProfileMlRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.WafProfileMlRuleSet)**
+
+Yandex Machine learning rule set settings.
+
+Includes only one of the fields `coreRuleSet`, `yaRuleSet`, `mlRuleSet`. ||
+|| priority | **string** (int64)
+
+Priority of rule set. ||
+|| isEnabled | **boolean**
+
+Determines is it rule set enabled or not. ||
+|| action | **enum** (RuleSetAction)
+
+Action to perfome on rule set match.
+
+- `RULE_SET_ACTION_UNSPECIFIED`
+- `DENY`: Deny request.
+- `CAPTCHA`: Show captcha. ||
+|#
+
+## WafProfileCoreRuleSet {#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.WafProfileCoreRuleSet}
+
+#|
+||Field | Description ||
+|| ruleSet | **[RuleSet](#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
+
+Required field. Rule set. ||
+|| inboundAnomalyScore | **string** (int64)
+
+Anomaly score.
+Enter an integer within the range of 2 and 10000.
+The higher this value, the more likely it is that the request that satisfies the rule is an attack.
+See [Rules](/docs/smartwebsecurity/concepts/waf#anomaly) for more details. ||
+|| paranoiaLevel | **string** (int64)
+
+Paranoia level.
+Enter an integer within the range of 1 and 4.
+Paranoia level classifies rules according to their aggression. The higher the paranoia level, the better your protection,
+but also the higher the probability of WAF false positives.
+See [Rules](/docs/smartwebsecurity/concepts/waf#paranoia) for more details.
+NOTE: this option has no effect on enabling or disabling rules.
+it is used only as recommendation for user to enable all rules with paranoia_level <= this value. ||
+|#
+
+## WafProfileYaRuleSet {#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.WafProfileYaRuleSet}
+
+#|
+||Field | Description ||
+|| ruleSet | **[RuleSet](#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
+
+Required field. Rule set. ||
+|| ruleGroups[] | **[RuleGroup](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.RuleGroup)**
+
+List of rule groups. ||
+|#
+
+## RuleGroup {#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.RuleGroup}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the rule group. ||
+|| action | **enum** (Action)
+
+Action to perfome on rule group match.
+
+- `ACTION_UNSPECIFIED`
+- `DENY`: Deny request.
+- `LOG`: Log request.
+- `IGNORE`: Ignore request. ||
+|| inboundAnomalyScore | **string** (int64)
+
+Anomaly score. ||
+|| isEnabled | **boolean**
+
+Determines is it rule group enabled or not. ||
+|#
+
+## WafProfileMlRuleSet {#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.WafProfileMlRuleSet}
+
+#|
+||Field | Description ||
+|| ruleSet | **[RuleSet](#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
+
+Required field. Rule set. ||
+|| ruleGroups[] | **[RuleGroup](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.WafProfileRuleSet.RuleGroup)**
+
+List of rule groups. ||
 |#

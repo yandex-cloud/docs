@@ -1,5 +1,1030 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}
+    method: patch
+    path:
+      type: object
+      properties:
+        instanceGroupId:
+          description: |-
+            **string**
+            Required field. ID of the instance group to update.
+            To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+          type: string
+      required:
+        - instanceGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the instance group.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the instance group.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+            The existing set of `labels` is completely replaced by the provided set.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        instanceTemplate:
+          description: |-
+            **[InstanceTemplate](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.InstanceTemplate)**
+            Required field. Instance template that the instance group belongs to.
+          $ref: '#/definitions/InstanceTemplate'
+        scalePolicy:
+          description: |-
+            **[ScalePolicy](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.ScalePolicy)**
+            Required field. [Scaling policy](/docs/compute/concepts/instance-groups/scale) of the instance group.
+          oneOf:
+            - type: object
+              properties:
+                fixedScale:
+                  description: |-
+                    **[FixedScale](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.ScalePolicy.FixedScale)**
+                    [Manual scaling policy](/docs/compute/concepts/instance-groups/scale#fixed-policy) of the instance group.
+                    Includes only one of the fields `fixedScale`, `autoScale`.
+                  $ref: '#/definitions/FixedScale'
+                autoScale:
+                  description: |-
+                    **[AutoScale](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale)**
+                    [Automatic scaling policy](/docs/compute/concepts/instance-groups/scale#auto-scale) of the instance group.
+                    Includes only one of the fields `fixedScale`, `autoScale`.
+                  $ref: '#/definitions/AutoScale'
+        deployPolicy:
+          description: |-
+            **[DeployPolicy](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.DeployPolicy)**
+            Required field. Deployment policy of the instance group.
+          $ref: '#/definitions/DeployPolicy'
+        allocationPolicy:
+          description: |-
+            **[AllocationPolicy](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.AllocationPolicy)**
+            Required field. Allocation policy of the instance group by zones and regions.
+          $ref: '#/definitions/AllocationPolicy'
+        healthChecksSpec:
+          description: |-
+            **[HealthChecksSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.HealthChecksSpec)**
+            Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check).
+          $ref: '#/definitions/HealthChecksSpec'
+        serviceAccountId:
+          description: |-
+            **string**
+            ID of the service account. The service account will be used for all API calls
+            made by the Instance Groups component on behalf of the user (for example, creating instances, adding them to load balancer target group, etc.). For more information, see [Service accounts](/docs/iam/concepts/users/service-accounts).
+            To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+          type: string
+        loadBalancerSpec:
+          description: |-
+            **[LoadBalancerSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.LoadBalancerSpec)**
+            Settings for balancing load between instances via [Network Load Balancer](/docs/network-load-balancer/concepts)
+            (OSI model layer 3).
+          $ref: '#/definitions/LoadBalancerSpec'
+        variables:
+          description: '**[Variable](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.Variable)**'
+          type: array
+          items:
+            $ref: '#/definitions/Variable'
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that inhibits deletion of the instance group
+          type: boolean
+        applicationLoadBalancerSpec:
+          description: |-
+            **[ApplicationLoadBalancerSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.ApplicationLoadBalancerSpec)**
+            Settings for balancing load between instances via [Application Load Balancer](/docs/application-load-balancer/concepts)
+            (OSI model layer 7).
+          $ref: '#/definitions/ApplicationLoadBalancerSpec'
+        autoHealingPolicy:
+          description: |-
+            **[AutoHealingPolicy](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy)**
+            AutoHealingPolicy policy of the instance group.
+          $ref: '#/definitions/AutoHealingPolicy'
+      required:
+        - instanceTemplate
+        - scalePolicy
+        - deployPolicy
+        - allocationPolicy
+      additionalProperties: false
+    definitions:
+      ResourcesSpec:
+        type: object
+        properties:
+          memory:
+            description: |-
+              **string** (int64)
+              The amount of memory available to the instance, specified in bytes.
+            type: string
+            format: int64
+          cores:
+            description: |-
+              **string** (int64)
+              The number of cores available to the instance.
+            type: string
+            format: int64
+          coreFraction:
+            description: |-
+              **string** (int64)
+              Baseline level of CPU performance with the ability to burst performance above that baseline level.
+              This field sets baseline performance for each core.
+            type: string
+            format: int64
+          gpus:
+            description: |-
+              **string** (int64)
+              The number of GPUs available to the instance.
+            type: string
+            format: int64
+      AttachedDiskSpec:
+        type: object
+        properties:
+          mode:
+            description: |-
+              **enum** (Mode)
+              Required field. Access mode to the Disk resource.
+              - `MODE_UNSPECIFIED`
+              - `READ_ONLY`: Read-only access.
+              - `READ_WRITE`: Read/Write access. Default value.
+            type: string
+            enum:
+              - MODE_UNSPECIFIED
+              - READ_ONLY
+              - READ_WRITE
+          deviceName:
+            description: |-
+              **string**
+              Serial number that is reflected in the /dev/disk/by-id/ tree
+              of a Linux operating system running within the instance.
+              This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
+            pattern: '|[a-z][-_0-9a-z]{0,19}'
+            type: string
+          diskSpec:
+            description: |-
+              **[DiskSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec.DiskSpec)**
+              Required field. oneof disk_spec or disk_id
+              Disk specification that is attached to the instance. For more information, see [Disks](/docs/compute/concepts/disk).
+            oneOf:
+              - type: object
+                properties:
+                  imageId:
+                    description: |-
+                      **string**
+                      ID of the image that will be used for disk creation.
+                      Includes only one of the fields `imageId`, `snapshotId`.
+                    type: string
+                  snapshotId:
+                    description: |-
+                      **string**
+                      ID of the snapshot that will be used for disk creation.
+                      Includes only one of the fields `imageId`, `snapshotId`.
+                    type: string
+          diskId:
+            description: |-
+              **string**
+              Set to use an existing disk. To set use variables.
+            pattern: '[-a-zA-Z0-9._{}]*'
+            type: string
+          name:
+            description: |-
+              **string**
+              When set can be later used to change DiskSpec of actual disk.
+            type: string
+        required:
+          - mode
+          - diskSpec
+      DnsRecordSpec:
+        type: object
+        properties:
+          fqdn:
+            description: |-
+              **string**
+              Required field. FQDN (required)
+            type: string
+          dnsZoneId:
+            description: |-
+              **string**
+              DNS zone id (optional, if not set, private zone used)
+            type: string
+          ttl:
+            description: |-
+              **string** (int64)
+              DNS record ttl, values in 0-86400 (optional)
+            type: string
+            format: int64
+          ptr:
+            description: |-
+              **boolean**
+              When set to true, also create PTR DNS record (optional)
+            type: boolean
+        required:
+          - fqdn
+      OneToOneNatSpec:
+        type: object
+        properties:
+          ipVersion:
+            description: |-
+              **enum** (IpVersion)
+              IP version for the public IP address.
+              - `IP_VERSION_UNSPECIFIED`
+              - `IPV4`: IPv4 address, for example 192.168.0.0.
+              - `IPV6`: IPv6 address, not available yet.
+            type: string
+            enum:
+              - IP_VERSION_UNSPECIFIED
+              - IPV4
+              - IPV6
+          address:
+            description: |-
+              **string**
+              Manual set static public IP. To set use variables. (optional)
+            type: string
+          dnsRecordSpecs:
+            description: |-
+              **[DnsRecordSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.DnsRecordSpec)**
+              External DNS configuration
+            type: array
+            items:
+              $ref: '#/definitions/DnsRecordSpec'
+      PrimaryAddressSpec:
+        type: object
+        properties:
+          oneToOneNatSpec:
+            description: |-
+              **[OneToOneNatSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.OneToOneNatSpec)**
+              An external IP address configuration.
+              If not specified, then this managed instance will have no external internet access.
+            $ref: '#/definitions/OneToOneNatSpec'
+          dnsRecordSpecs:
+            description: |-
+              **[DnsRecordSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.DnsRecordSpec)**
+              Internal DNS configuration
+            type: array
+            items:
+              $ref: '#/definitions/DnsRecordSpec'
+          address:
+            description: |-
+              **string**
+              Optional. Manual set static internal IP. To set use variables.
+            type: string
+      NetworkInterfaceSpec:
+        type: object
+        properties:
+          networkId:
+            description: |-
+              **string**
+              ID of the network.
+            type: string
+          subnetIds:
+            description: |-
+              **string**
+              IDs of the subnets.
+            type: array
+            items:
+              type: string
+          primaryV4AddressSpec:
+            description: |-
+              **[PrimaryAddressSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.PrimaryAddressSpec)**
+              Primary IPv4 address that is assigned to the instance for this network interface.
+            $ref: '#/definitions/PrimaryAddressSpec'
+          primaryV6AddressSpec:
+            description: |-
+              **[PrimaryAddressSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.PrimaryAddressSpec)**
+              Primary IPv6 address that is assigned to the instance for this network interface. IPv6 not available yet.
+            $ref: '#/definitions/PrimaryAddressSpec'
+          securityGroupIds:
+            description: |-
+              **string**
+              IDs of security groups.
+            type: array
+            items:
+              type: string
+      SchedulingPolicy:
+        type: object
+        properties:
+          preemptible:
+            description: |-
+              **boolean**
+              Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
+              if their resources are needed by Compute.
+              For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
+            type: boolean
+      NetworkSettings:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (Type)
+              Type of instance network.
+              - `TYPE_UNSPECIFIED`
+              - `STANDARD`
+              - `SOFTWARE_ACCELERATED`
+              - `HARDWARE_ACCELERATED`
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - STANDARD
+              - SOFTWARE_ACCELERATED
+              - HARDWARE_ACCELERATED
+      HostAffinityRule:
+        type: object
+        properties:
+          key:
+            description: |-
+              **string**
+              Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'
+            type: string
+          op:
+            description: |-
+              **enum** (Operator)
+              Include or exclude action
+              - `OPERATOR_UNSPECIFIED`
+              - `IN`
+              - `NOT_IN`
+            type: string
+            enum:
+              - OPERATOR_UNSPECIFIED
+              - IN
+              - NOT_IN
+          values:
+            description: |-
+              **string**
+              Affinity value or host ID or host group ID
+            type: array
+            items:
+              type: string
+      PlacementPolicy:
+        type: object
+        properties:
+          placementGroupId:
+            description: |-
+              **string**
+              Identifier of placement group
+            type: string
+          hostAffinityRules:
+            description: |-
+              **[HostAffinityRule](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.PlacementPolicy.HostAffinityRule)**
+              List of affinity rules. Scheduler will attempt to allocate instances according to order of rules.
+            type: array
+            items:
+              $ref: '#/definitions/HostAffinityRule'
+      AttachedFilesystemSpec:
+        type: object
+        properties:
+          mode:
+            description: |-
+              **enum** (Mode)
+              Mode of access to the filesystem that should be attached.
+              - `MODE_UNSPECIFIED`
+              - `READ_ONLY`: Read-only access.
+              - `READ_WRITE`: Read/Write access. Default value.
+            type: string
+            enum:
+              - MODE_UNSPECIFIED
+              - READ_ONLY
+              - READ_WRITE
+          deviceName:
+            description: |-
+              **string**
+              Name of the device representing the filesystem on the instance.
+              The name should be used for referencing the filesystem from within the instance
+              when it's being mounted, resized etc.
+              If not specified, a random value will be generated.
+            pattern: '|[a-z][-_0-9a-z]{0,19}'
+            type: string
+          filesystemId:
+            description: |-
+              **string**
+              ID of the filesystem that should be attached.
+            pattern: '[-a-zA-Z0-9._{}]*'
+            type: string
+      MetadataOptions:
+        type: object
+        properties:
+          gceHttpEndpoint:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to GCE flavored metadata
+              - `METADATA_OPTION_UNSPECIFIED`
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
+          awsV1HttpEndpoint:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to AWS flavored metadata (IMDSv1)
+              - `METADATA_OPTION_UNSPECIFIED`
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
+          gceHttpToken:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to IAM credentials with GCE flavored metadata
+              - `METADATA_OPTION_UNSPECIFIED`
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
+          awsV1HttpToken:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
+              - `METADATA_OPTION_UNSPECIFIED`
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
+      InstanceTemplate:
+        type: object
+        properties:
+          description:
+            description: |-
+              **string**
+              Description of the instance template.
+            type: string
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Resource labels as `key:value` pairs.
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            type: string
+          platformId:
+            description: |-
+              **string**
+              Required field. ID of the hardware platform configuration for the instance.
+              Platforms allows you to create various types of instances: with a large amount of memory,
+              with a large number of cores, with a burstable performance.
+              For more information, see [Platforms](/docs/compute/concepts/vm-platforms).
+            type: string
+          resourcesSpec:
+            description: |-
+              **[ResourcesSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.ResourcesSpec)**
+              Required field. Computing resources of the instance such as the amount of memory and number of cores.
+            $ref: '#/definitions/ResourcesSpec'
+          metadata:
+            description: |-
+              **object** (map<**string**, **string**>)
+              The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
+              Metadata values may contain one of the supported placeholders:
+              {instance_group.id}
+              {instance.short_id}
+              {instance.index}
+              {instance.index_in_zone}
+              {instance.zone_id}
+              InstanceGroup and Instance labels may be copied to metadata following way:
+              {instance_group.labels.some_label_key}
+              {instance.labels.another_label_key}
+              These placeholders will be substituted for each created instance anywhere in the value text.
+              In the rare case the value requires to contain this placeholder explicitly,
+              it must be escaped with double brackets, in example {instance.index}.
+              For example, you may use the metadata in order to provide your public SSH key to the instance.
+              For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+            pattern: '[a-z][-_0-9a-z]*'
+            type: string
+          bootDiskSpec:
+            description: |-
+              **[AttachedDiskSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec)**
+              Required field. Boot disk specification that will be attached to the instance.
+            $ref: '#/definitions/AttachedDiskSpec'
+          secondaryDiskSpecs:
+            description: |-
+              **[AttachedDiskSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec)**
+              Array of secondary disks that will be attached to the instance.
+            type: array
+            items:
+              $ref: '#/definitions/AttachedDiskSpec'
+          networkInterfaceSpecs:
+            description: |-
+              **[NetworkInterfaceSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.NetworkInterfaceSpec)**
+              Required field. Array of network interfaces that will be attached to the instance.
+            type: array
+            items:
+              $ref: '#/definitions/NetworkInterfaceSpec'
+          schedulingPolicy:
+            description: |-
+              **[SchedulingPolicy](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.SchedulingPolicy)**
+              Scheduling policy for the instance.
+            $ref: '#/definitions/SchedulingPolicy'
+          serviceAccountId:
+            description: |-
+              **string**
+              Service account ID for the instance.
+            type: string
+          networkSettings:
+            description: |-
+              **[NetworkSettings](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.NetworkSettings)**
+              Network settings for the instance.
+            $ref: '#/definitions/NetworkSettings'
+          name:
+            description: |-
+              **string**
+              Name of the instance.
+              In order to be unique it must contain at least on of instance unique placeholders:
+              {instance.short_id}
+              {instance.index}
+              combination of {instance.zone_id} and {instance.index_in_zone}
+              Example: my-instance-{instance.index}
+              If not set, default is used: {instance_group.id}-{instance.short_id}
+              It may also contain another placeholders, see metadata doc for full list.
+            type: string
+          hostname:
+            description: |-
+              **string**
+              Host name for the instance.
+              This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.Instance) value.
+              The host name must be unique within the network and region.
+              If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.Instance) of the instance
+              and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`.
+              In order to be unique it must contain at least on of instance unique placeholders:
+              {instance.short_id}
+              {instance.index}
+              combination of {instance.zone_id} and {instance.index_in_zone}
+              Example: my-instance-{instance.index}
+              If not set, `name` value will be used
+              It may also contain another placeholders, see metadata doc for full list.
+            type: string
+          placementPolicy:
+            description: |-
+              **[PlacementPolicy](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.PlacementPolicy)**
+              Placement Group
+            $ref: '#/definitions/PlacementPolicy'
+          filesystemSpecs:
+            description: |-
+              **[AttachedFilesystemSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.AttachedFilesystemSpec)**
+              Array of filesystems to attach to the instance.
+              The filesystems must reside in the same availability zone as the instance.
+              To use the instance with an attached filesystem, the latter must be mounted.
+              For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
+            type: array
+            items:
+              $ref: '#/definitions/AttachedFilesystemSpec'
+          metadataOptions:
+            description: |-
+              **[MetadataOptions](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.MetadataOptions)**
+              Metadata options for the instance
+            $ref: '#/definitions/MetadataOptions'
+        required:
+          - platformId
+          - resourcesSpec
+          - bootDiskSpec
+          - networkInterfaceSpecs
+      FixedScale:
+        type: object
+        properties:
+          size:
+            description: |-
+              **string** (int64)
+              Number of instances in the instance group.
+            type: string
+            format: int64
+      CpuUtilizationRule:
+        type: object
+        properties:
+          utilizationTarget:
+            description: |-
+              **string**
+              Target CPU utilization level. Instance Groups maintains this level for each availability zone.
+            type: string
+      CustomRule:
+        type: object
+        properties:
+          ruleType:
+            description: |-
+              **enum** (RuleType)
+              Required field. Custom metric rule type. This field affects which label from
+              the custom metric should be used: `zone_id` or `instance_id`.
+              - `RULE_TYPE_UNSPECIFIED`
+              - `UTILIZATION`: This type means that the metric applies to one instance.
+              First, Instance Groups calculates the average metric value for each instance,
+              then averages the values for instances in one availability zone or in whole group depends on autoscaling type.
+              This type of metric must have the `instance_id` label.
+              - `WORKLOAD`: This type means that the metric applies to instances in one availability zone or to whole group depends on autoscaling type.
+              This type of metric must have the `zone_id` label if ZONAL autoscaling type is chosen.
+            type: string
+            enum:
+              - RULE_TYPE_UNSPECIFIED
+              - UTILIZATION
+              - WORKLOAD
+          metricType:
+            description: |-
+              **enum** (MetricType)
+              Required field. Type of custom metric. This field affects how Instance Groups calculates the average metric value.
+              - `METRIC_TYPE_UNSPECIFIED`
+              - `GAUGE`: This type is used for metrics that show the metric value at a certain point in time,
+              such as requests per second to the server on an instance.
+                Instance Groups calculates the average metric value for the period
+              specified in the [AutoScale.measurementDuration](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale) field.
+              - `COUNTER`: This type is used for metrics that monotonically increase over time,
+              such as the total number of requests to the server on an instance.
+                Instance Groups calculates the average value increase for the period
+              specified in the [AutoScale.measurementDuration](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale) field.
+            type: string
+            enum:
+              - METRIC_TYPE_UNSPECIFIED
+              - GAUGE
+              - COUNTER
+          metricName:
+            description: |-
+              **string**
+              Required field. Name of custom metric in Monitoring that should be used for scaling.
+            pattern: '[a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198}'
+            type: string
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Labels of custom metric in Monitoring that should be used for scaling.
+            pattern: ^[a-zA-Z][0-9a-zA-Z_]{0,31}$
+            type: string
+          target:
+            description: |-
+              **string**
+              Target value for the custom metric. Instance Groups maintains this level for each availability zone.
+            type: string
+          folderId:
+            description: |-
+              **string**
+              Folder id of custom metric in Monitoring that should be used for scaling.
+            type: string
+          service:
+            description: |-
+              **string**
+              Service of custom metric in Monitoring that should be used for scaling.
+            type: string
+        required:
+          - ruleType
+          - metricType
+          - metricName
+      AutoScale:
+        type: object
+        properties:
+          minZoneSize:
+            description: |-
+              **string** (int64)
+              Lower limit for instance count in each zone.
+            type: string
+            format: int64
+          maxSize:
+            description: |-
+              **string** (int64)
+              Upper limit for total instance count (across all zones).
+              0 means maximum limit = 100.
+            type: string
+            format: int64
+          measurementDuration:
+            description: |-
+              **string** (duration)
+              Time in seconds allotted for averaging metrics.
+              1 minute by default.
+            type: string
+            format: duration
+          warmupDuration:
+            description: |-
+              **string** (duration)
+              The warmup time of the instance in seconds. During this time,
+              traffic is sent to the instance, but instance metrics are not collected.
+            type: string
+            format: duration
+          stabilizationDuration:
+            description: |-
+              **string** (duration)
+              Minimum amount of time in seconds allotted for monitoring before
+              Instance Groups can reduce the number of instances in the group.
+              During this time, the group size doesn't decrease, even if the new metric values
+              indicate that it should.
+            type: string
+            format: duration
+          initialSize:
+            description: |-
+              **string** (int64)
+              Target group size.
+            type: string
+            format: int64
+          cpuUtilizationRule:
+            description: |-
+              **[CpuUtilizationRule](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.ScalePolicy.CpuUtilizationRule)**
+              Defines an autoscaling rule based on the average CPU utilization of the instance group.
+              If more than one rule is specified, e.g. CPU utilization and one or more Monitoring metrics ([customRules](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale)),
+              the size of the instance group will be equal to the maximum of sizes calculated according to each metric.
+            $ref: '#/definitions/CpuUtilizationRule'
+          customRules:
+            description: |-
+              **[CustomRule](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule)**
+              Defines an autoscaling rule based on a [custom metric](/docs/monitoring/operations/metric/add) from Monitoring.
+              If more than one rule is specified, e.g. CPU utilization ([cpuUtilizationRule](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale)) and one or more Monitoring
+              metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric.
+            type: array
+            items:
+              $ref: '#/definitions/CustomRule'
+          autoScaleType:
+            description: |-
+              **enum** (AutoScaleType)
+              Autoscaling type.
+              - `AUTO_SCALE_TYPE_UNSPECIFIED`
+              - `ZONAL`: Scale each zone independently. This is the default.
+              - `REGIONAL`: Scale group as a whole.
+            type: string
+            enum:
+              - AUTO_SCALE_TYPE_UNSPECIFIED
+              - ZONAL
+              - REGIONAL
+      DeployPolicy:
+        type: object
+        properties:
+          maxUnavailable:
+            description: |-
+              **string** (int64)
+              The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time
+              during the update process.
+              If [maxExpansion](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.DeployPolicy) is not specified or set to zero, [maxUnavailable](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.DeployPolicy) must be set to a non-zero value.
+            type: string
+            format: int64
+          maxDeleting:
+            description: |-
+              **string** (int64)
+              The maximum number of instances that can be deleted at the same time.
+              The value 0 is any number of virtual machines within the allowed values.
+            type: string
+            format: int64
+          maxCreating:
+            description: |-
+              **string** (int64)
+              The maximum number of instances that can be created at the same time.
+              The value 0 is any number of virtual machines within the allowed values.
+            type: string
+            format: int64
+          maxExpansion:
+            description: |-
+              **string** (int64)
+              The maximum number of instances that can be temporarily allocated above the group's target size
+              during the update process.
+              If [maxUnavailable](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.DeployPolicy) is not specified or set to zero, [maxExpansion](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.DeployPolicy) must be set to a non-zero value.
+            type: string
+            format: int64
+          startupDuration:
+            description: |-
+              **string** (duration)
+              Instance startup duration.
+              Instance will be considered up and running (and start receiving traffic) only after startup_duration
+              has elapsed and all health checks are passed.
+              See [ManagedInstance.Status](/docs/compute/instancegroup/api-ref/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status) for more information.
+            type: string
+            format: duration
+          strategy:
+            description: |-
+              **enum** (Strategy)
+              Affects the lifecycle of the instance during deployment.
+              - `STRATEGY_UNSPECIFIED`
+              - `PROACTIVE`: Instance Groups can forcefully stop a running instance. This is the default.
+              - `OPPORTUNISTIC`: Instance Groups does not stop a running instance.
+              Instead, it will wait until the instance stops itself or becomes unhealthy.
+            type: string
+            enum:
+              - STRATEGY_UNSPECIFIED
+              - PROACTIVE
+              - OPPORTUNISTIC
+          minimalAction:
+            description: |-
+              **enum** (MinimalAction)
+              If instance update requires a less disruptive action than [minimalAction](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.DeployPolicy),
+              Instance Groups performs [minimalAction](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.DeployPolicy) to execute the update
+              - `MINIMAL_ACTION_UNSPECIFIED`
+              - `LIVE_UPDATE`: Updating an instance without stopping. This is the default.
+              - `RESTART`: Updating an instance with restart: stopping and then starting the instance.
+              - `RECREATE`: Re-creating an instance: deleting an instance and creating a new one.
+            type: string
+            enum:
+              - MINIMAL_ACTION_UNSPECIFIED
+              - LIVE_UPDATE
+              - RESTART
+              - RECREATE
+      Zone:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              Required field. ID of the availability zone where the instance resides.
+            type: string
+          instanceTagsPool:
+            description: |-
+              **string**
+              Each instance in a zone will be associated with exactly one of a tag from a pool below.
+              All specified tags must be unique across the whole group not only the zone.
+              It is guaranteed that during whole deploy only tags from prefix of the specified list will be used.
+              It is possible to use tag associated with instance in templating via {instance.tag}.
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        required:
+          - zoneId
+      AllocationPolicy:
+        type: object
+        properties:
+          zones:
+            description: |-
+              **[Zone](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.AllocationPolicy.Zone)**
+              List of availability zones.
+            type: array
+            items:
+              $ref: '#/definitions/Zone'
+      TcpOptions:
+        type: object
+        properties:
+          port:
+            description: |-
+              **string** (int64)
+              Port to use for TCP health checks.
+            type: string
+            format: int64
+      HttpOptions:
+        type: object
+        properties:
+          port:
+            description: |-
+              **string** (int64)
+              Port to use for HTTP health checks.
+            type: string
+            format: int64
+          path:
+            description: |-
+              **string**
+              URL path to set for health checking requests.
+            type: string
+      HealthChecksSpec:
+        type: object
+        properties:
+          healthCheckSpecs:
+            description: |-
+              **[HealthCheckSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec)**
+              Health checking specification. For more information, see [Health check](/docs/network-load-balancer/concepts/health-check).
+            type: array
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    tcpOptions:
+                      description: |-
+                        **[TcpOptions](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec.TcpOptions)**
+                        Configuration options for a TCP health check.
+                        Includes only one of the fields `tcpOptions`, `httpOptions`.
+                      $ref: '#/definitions/TcpOptions'
+                    httpOptions:
+                      description: |-
+                        **[HttpOptions](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec.HttpOptions)**
+                        Configuration options for an HTTP health check.
+                        Includes only one of the fields `tcpOptions`, `httpOptions`.
+                      $ref: '#/definitions/HttpOptions'
+          maxCheckingHealthDuration:
+            description: |-
+              **string** (duration)
+              Timeout for waiting for the VM to become healthy. If the timeout is exceeded,
+              the VM will be turned off based on the deployment policy. Specified in seconds.
+            type: string
+            format: duration
+      TargetGroupSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the target group.
+            pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+            type: string
+          description:
+            description: |-
+              **string**
+              Description of the target group.
+            type: string
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Resource labels as `key:value` pairs.
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            type: string
+      LoadBalancerSpec:
+        type: object
+        properties:
+          targetGroupSpec:
+            description: |-
+              **[TargetGroupSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.TargetGroupSpec)**
+              Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](/docs/network-load-balancer/concepts/target-resources).
+            $ref: '#/definitions/TargetGroupSpec'
+          maxOpeningTrafficDuration:
+            description: |-
+              **string** (duration)
+              Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded,
+              the VM will be turned off based on the deployment policy. Specified in seconds.
+            type: string
+            format: duration
+          ignoreHealthChecks:
+            description: |-
+              **boolean**
+              Do not wait load balancer health checks.
+            type: boolean
+      Variable:
+        type: object
+        properties:
+          key:
+            description: '**string**'
+            pattern: '[a-zA-Z0-9._-]*'
+            type: string
+          value:
+            description: '**string**'
+            type: string
+      ApplicationTargetGroupSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the target group.
+            type: string
+          description:
+            description: |-
+              **string**
+              Description of the target group.
+            type: string
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Resource labels as `key:value` pairs.
+            type: string
+      ApplicationLoadBalancerSpec:
+        type: object
+        properties:
+          targetGroupSpec:
+            description: |-
+              **[ApplicationTargetGroupSpec](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.ApplicationTargetGroupSpec)**
+              Required field. Basic properties of the Application Load Balancer target group attributed to the instance group.
+            $ref: '#/definitions/ApplicationTargetGroupSpec'
+          maxOpeningTrafficDuration:
+            description: |-
+              **string** (duration)
+              Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded,
+              the VM will be turned off based on the deployment policy. Specified in seconds.
+            type: string
+            format: duration
+          ignoreHealthChecks:
+            description: |-
+              **boolean**
+              Do not wait load balancer health checks.
+            type: boolean
+        required:
+          - targetGroupSpec
+      AutoHealingPolicy:
+        type: object
+        properties:
+          autoHealingAction:
+            description: |-
+              **enum** (AutoHealingAction)
+              Instance Groups performs [autoHealingAction](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy) when instance becomes unhealthy.
+              - `AUTO_HEALING_ACTION_UNSPECIFIED`
+              - `RESTART`: Re-starting an instance with restart: stopping and then starting the instance.
+              - `RECREATE`: Re-creating an instance: deleting an instance and creating a new one.
+              - `NONE`: No action
+            type: string
+            enum:
+              - AUTO_HEALING_ACTION_UNSPECIFIED
+              - RESTART
+              - RECREATE
+              - NONE
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/update.md
 ---
 

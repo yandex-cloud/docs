@@ -16,4 +16,6 @@ A set of methods for managing reserved instance pool resources.
 || [Create](create.md) | Creates an reserved instance pool in the specified folder. ||
 || [Update](update.md) | Updates the specified reserved instance pool. ||
 || [Delete](delete.md) | Deletes the specified reserved instance pool. ||
+|| [ListOperations](listOperations.md) | Lists operations for the specified reserved instance pool. ||
+|| [ListInstances](listInstances.md) | Retrieves the list of instances, using the specified reserved instance pool. ||
 |#

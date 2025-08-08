@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Organization/index.md
 ---
 
-# Cloud Organization API, gRPC: OrganizationService
+# Identity Hub API, gRPC: OrganizationService
 
 A set of methods for managing Organization resources.
 

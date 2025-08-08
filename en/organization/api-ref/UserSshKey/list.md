@@ -1,9 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/userSshKeys
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+        subjectId:
+          description: |-
+            **string**
+            if empty, list all organization keys
+          type: string
+        pageSize:
+          description: '**string** (int64)'
+          type: string
+          format: int64
+        pageToken:
+          description: '**string**'
+          type: string
+      required:
+        - organizationId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/UserSshKey/list.md
 ---
 
-# Cloud Organization API, REST: UserSshKey.List
+# Identity Hub API, REST: UserSshKey.List
 
 ## HTTP request
 

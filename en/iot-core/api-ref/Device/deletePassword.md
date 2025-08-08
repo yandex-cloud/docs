@@ -1,5 +1,30 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/passwords/{passwordId}
+    method: delete
+    path:
+      type: object
+      properties:
+        deviceId:
+          description: |-
+            **string**
+            Required field. ID of the device to delete a password for.
+            To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request.
+          type: string
+        passwordId:
+          description: |-
+            **string**
+            Required field. ID of the password to delete.
+            To get a password ID make a [DeviceService.ListPasswords](/docs/iot-core/api-ref/Device/listPasswords#ListPasswords) request.
+          type: string
+      required:
+        - deviceId
+        - passwordId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/deletePassword.md
 ---
 

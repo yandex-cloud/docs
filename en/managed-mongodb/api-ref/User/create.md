@@ -1,5 +1,70 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the MongoDB cluster to create a user in.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        userSpec:
+          description: |-
+            **[UserSpec](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.UserSpec)**
+            Properties of the user to be created.
+          $ref: '#/definitions/UserSpec'
+      additionalProperties: false
+    definitions:
+      Permission:
+        type: object
+        properties:
+          databaseName:
+            description: |-
+              **string**
+              Name of the database that the permission grants access to.
+            type: string
+          roles:
+            description: |-
+              **string**
+              MongoDB roles for the [databaseName](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.Permission) database that the permission grants.
+            type: array
+            items:
+              type: string
+      UserSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the MongoDB user.
+            pattern: '[a-zA-Z0-9_]*'
+            type: string
+          password:
+            description: |-
+              **string**
+              Required field. Password of the MongoDB user.
+            type: string
+          permissions:
+            description: |-
+              **[Permission](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.Permission)**
+              Set of permissions to grant to the user.
+            type: array
+            items:
+              $ref: '#/definitions/Permission'
+        required:
+          - name
+          - password
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/User/create.md
 ---
 

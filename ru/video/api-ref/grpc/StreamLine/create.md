@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/StreamLine/create.md
 
 # Video API, gRPC: StreamLineService.Create
 
-Create stream line.
+Creates a new stream line in the specified channel with the provided configuration.
+Stream lines define the technical settings for receiving and processing video signals.
 
 ## gRPC request
 
@@ -17,8 +18,6 @@ Create stream line.
 {
   "channel_id": "string",
   "title": "string",
-  "thumbnail_id": "string",
-  "labels": "map<string, string>",
   // Includes only one of the fields `rtmp_push`, `rtmp_pull`
   "rtmp_push": "RTMPPushParams",
   "rtmp_pull": {
@@ -27,8 +26,9 @@ Create stream line.
   // end of the list of possible fields
   // Includes only one of the fields `manual_line`, `auto_line`
   "manual_line": "ManualLineParams",
-  "auto_line": "AutoLineParams"
+  "auto_line": "AutoLineParams",
   // end of the list of possible fields
+  "labels": "map<string, string>"
 }
 ```
 
@@ -40,12 +40,6 @@ Required field. ID of the channel. ||
 || title | **string**
 
 Required field. Line title. ||
-|| thumbnail_id | **string**
-
-ID of the thumbnail. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 || rtmp_push | **[RTMPPushParams](#yandex.cloud.video.v1.RTMPPushParams)**
 
 RTMP push input type.
@@ -62,21 +56,29 @@ Includes only one of the fields `rtmp_push`, `rtmp_pull`.
 Video signal settings. ||
 || manual_line | **[ManualLineParams](#yandex.cloud.video.v1.ManualLineParams)**
 
-Manual control of stream.
+Manual stream control.
 
 Includes only one of the fields `manual_line`, `auto_line`.
 
 Line type. ||
 || auto_line | **[AutoLineParams](#yandex.cloud.video.v1.AutoLineParams)**
 
-Automatic control of stream.
+Automatic stream control.
 
 Includes only one of the fields `manual_line`, `auto_line`.
 
 Line type. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Custom user-defined labels as key:value pairs.
+Maximum 64 labels per stream line.
+Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
+Values can contain alphanumeric characters and various symbols. ||
 |#
 
 ## RTMPPushParams {#yandex.cloud.video.v1.RTMPPushParams}
+
+Parameters for creating an RTMP push input type stream line.
 
 #|
 ||Field | Description ||
@@ -85,14 +87,19 @@ Line type. ||
 
 ## RTMPPullParams {#yandex.cloud.video.v1.RTMPPullParams}
 
+Parameters for creating an RTMP pull input type stream line.
+
 #|
 ||Field | Description ||
 || url | **string**
 
-Required field. URL of a RTMP streaming server. ||
+Required field. The RTMP URL from which to pull the video stream.
+Must be a valid RTMP URL starting with "rtmp://". ||
 |#
 
 ## ManualLineParams {#yandex.cloud.video.v1.ManualLineParams}
+
+Parameters for manual stream line.
 
 #|
 ||Field | Description ||
@@ -100,6 +107,8 @@ Required field. URL of a RTMP streaming server. ||
 |#
 
 ## AutoLineParams {#yandex.cloud.video.v1.AutoLineParams}
+
+Parameters for auto stream line.
 
 #|
 ||Field | Description ||
@@ -125,7 +134,6 @@ Required field. URL of a RTMP streaming server. ||
     "id": "string",
     "channel_id": "string",
     "title": "string",
-    "thumbnail_id": "string",
     // Includes only one of the fields `rtmp_push`, `rtmp_pull`
     "rtmp_push": {
       "url": "string"
@@ -209,12 +217,12 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || stream_line_id | **string**
 
-ID of the line. ||
+ID of the stream line. ||
 |#
 
 ## StreamLine {#yandex.cloud.video.v1.StreamLine}
 
-Entity that is responsible for the incoming video signal settings.
+Entity representing the incoming video signal settings.
 
 #|
 ||Field | Description ||
@@ -227,12 +235,9 @@ ID of the channel to which this stream line belongs. ||
 || title | **string**
 
 Title of the stream line. ||
-|| thumbnail_id | **string**
-
-ID of the thumbnail image associated with the stream line.. ||
 || rtmp_push | **[RTMPPushInput](#yandex.cloud.video.v1.RTMPPushInput)**
 
-Real-Time Messaging Protocol (RTMP) push input settings.
+Real-Time Messaging Protocol (RTMP) push input type.
 
 Includes only one of the fields `rtmp_push`, `rtmp_pull`.
 
@@ -246,27 +251,29 @@ Includes only one of the fields `rtmp_push`, `rtmp_pull`.
 Specifies the input type and settings for the video signal source. ||
 || manual_line | **[ManualLine](#yandex.cloud.video.v1.ManualLine)**
 
-Manual control of stream.
+Manual stream control.
 
 Includes only one of the fields `manual_line`, `auto_line`.
 
 Specifies the control type of the stream line. ||
 || auto_line | **[AutoLine](#yandex.cloud.video.v1.AutoLine)**
 
-Automatic control of stream.
+Automatic stream control.
 
 Includes only one of the fields `manual_line`, `auto_line`.
 
 Specifies the control type of the stream line. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time when the stream line was created. ||
+Timestamp when the stream line was initially created in the system. ||
 || updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time when the stream line was last updated. ||
+Timestamp of the last modification to the stream line or its metadata. ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per stream line.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
 ## RTMPPushInput {#yandex.cloud.video.v1.RTMPPushInput}

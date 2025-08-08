@@ -1,5 +1,47 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/rules/{ruleId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        ruleId:
+          description: |-
+            **string**
+            Required field. ID of the rule to list operations for.
+          type: string
+      required:
+        - ruleId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per response.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            `next_page_token` returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            Supported attributes for filter:
+            description
+            created_at
+            modified_at
+            created_by
+            done
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/listOperations.md
 ---
 

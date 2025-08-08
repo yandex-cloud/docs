@@ -1,5 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://mks.{{ api-host }}/managed-kubernetes/v1/nodes
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        nodeGroupId:
+          description: |-
+            **string**
+            Required field. ID of the node group to list.
+            To get the node group ID use a [NodeGroupService.List](/docs/managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListNodeGroupsResponse.nextPageToken](/docs/managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/list#yandex.cloud.k8s.v1.ListNodeGroupsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListNodeGroupNodesResponse.nextPageToken](/docs/managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/listNodes#yandex.cloud.k8s.v1.ListNodeGroupNodesResponse) returned by a previous list request.
+          type: string
+      required:
+        - nodeGroupId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/NodeGroup/listNodes.md
 ---
 

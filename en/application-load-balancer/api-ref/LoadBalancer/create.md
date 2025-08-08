@@ -1,5 +1,578 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create an application load balancer in.
+            To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the application load balancer.
+            The name must be unique within the folder.
+          pattern: ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)?
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the application load balancer.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Application load balancer labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        regionId:
+          description: |-
+            **string**
+            Required field. ID of the region that the application load balancer is located at.
+            The only supported value is `ru-central1`.
+          type: string
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the network that the application load balancer belongs to.
+          type: string
+        listenerSpecs:
+          description: |-
+            **[ListenerSpec](/docs/application-load-balancer/api-ref/LoadBalancer/create#yandex.cloud.apploadbalancer.v1.ListenerSpec)**
+            Listeners that belong to the application load balancer.
+            For details about the concept,
+            see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#listener).
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  http:
+                    description: |-
+                      **[HttpListener](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.HttpListener)**
+                      Unencrypted HTTP listener settings.
+                      Includes only one of the fields `http`, `tls`, `stream`.
+                      Listener type and settings.
+                    $ref: '#/definitions/HttpListener'
+                  tls:
+                    description: |-
+                      **[TlsListener](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsListener)**
+                      TLS-encrypted HTTP or TCP stream listener settings.
+                      All handlers within a listener ([TlsListener.defaultHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsListener) and [TlsListener.sniHandlers](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsListener)) must be of one
+                      type, [HttpHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.HttpHandler) or [StreamHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.StreamHandler). Mixing HTTP and TCP stream traffic in a TLS-encrypted listener is not
+                      supported.
+                      Includes only one of the fields `http`, `tls`, `stream`.
+                      Listener type and settings.
+                    $ref: '#/definitions/TlsListener'
+                  stream:
+                    description: |-
+                      **[StreamListener](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.StreamListener)**
+                      Unencrypted stream (TCP) listener settings.
+                      Includes only one of the fields `http`, `tls`, `stream`.
+                      Listener type and settings.
+                    $ref: '#/definitions/StreamListener'
+        allocationPolicy:
+          description: |-
+            **[AllocationPolicy](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.AllocationPolicy)**
+            Locality settings of the application load balancer.
+            For details about the concept,
+            see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lb-location).
+          $ref: '#/definitions/AllocationPolicy'
+        securityGroupIds:
+          description: |-
+            **string**
+            ID's of the security groups attributed to the application load balancer.
+            For details about the concept,
+            see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#security-groups).
+          type: array
+          items:
+            type: string
+        autoScalePolicy:
+          description: |-
+            **[AutoScalePolicy](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.AutoScalePolicy)**
+            Scaling settings of the application load balancer.
+            The scaling settings relate to a special internal instance group which facilitates the balancer's work.
+            Instances in this group are called _resource units_. The group is scaled automatically based on incoming load
+            and within limitations specified in these settings.
+            For details about the concept,
+            see [documentation](/docs/application-load-balancer/concepts/application-load-balancer#lcu-scaling).
+          $ref: '#/definitions/AutoScalePolicy'
+        logOptions:
+          description: |-
+            **[LogOptions](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.LogOptions)**
+            Cloud logging settings of the application load balancer.
+          $ref: '#/definitions/LogOptions'
+        allowZonalShift:
+          description: |-
+            **boolean**
+            Specifies whether application load balancer is available to zonal shift.
+          type: boolean
+      required:
+        - folderId
+        - regionId
+        - networkId
+      additionalProperties: false
+    definitions:
+      Http2Options:
+        type: object
+        properties:
+          maxConcurrentStreams:
+            description: |-
+              **string** (int64)
+              Maximum number of concurrent HTTP/2 streams in a connection.
+            type: string
+            format: int64
+      Redirects:
+        type: object
+        properties:
+          httpToHttps:
+            description: |-
+              **boolean**
+              Redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`.
+              The setting has the same effect as a single, catch-all [HttpRoute](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HttpRoute)
+              with [RedirectAction.replaceScheme](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.RedirectAction) set to `https`.
+            type: boolean
+      HttpListener:
+        type: object
+        properties:
+          handler:
+            description: |-
+              **[HttpHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+              Settings for handling HTTP requests.
+              Only one of `handler` and [redirects](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.HttpListener) can be specified.
+            oneOf:
+              - type: object
+                properties:
+                  http2Options:
+                    description: |-
+                      **[Http2Options](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.Http2Options)**
+                      HTTP/2 settings.
+                      If specified, incoming HTTP/2 requests are supported by the listener.
+                      Includes only one of the fields `http2Options`, `allowHttp10`.
+                      Protocol settings.
+                      For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
+                      negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
+                    $ref: '#/definitions/Http2Options'
+                  allowHttp10:
+                    description: |-
+                      **boolean**
+                      Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
+                      Includes only one of the fields `http2Options`, `allowHttp10`.
+                      Protocol settings.
+                      For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
+                      negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
+                    type: boolean
+          redirects:
+            description: |-
+              **[Redirects](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.Redirects)**
+              Redirects settings.
+              Only one of `redirects` and [handler](/docs/application-load-balancer/api-ref/LoadBalancer/addSniMatch#yandex.cloud.apploadbalancer.v1.AddSniMatchRequest) can be specified.
+            $ref: '#/definitions/Redirects'
+      StreamHandler:
+        type: object
+        properties:
+          backendGroupId:
+            description: |-
+              **string**
+              Required field. ID of the backend group processing requests. For details about the concept, see
+              [documentation](/docs/application-load-balancer/concepts/backend-group).
+              The backend group type, specified via [BackendGroup.backend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.BackendGroup.backend), must be `stream`.
+              To get the list of all available backend groups, make a [BackendGroupService.List](/docs/application-load-balancer/api-ref/BackendGroup/list#List) request.
+            type: string
+          idleTimeout:
+            description: |-
+              **string** (duration)
+              The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection.
+              If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout.
+            type: string
+            format: duration
+        required:
+          - backendGroupId
+      SniMatch:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the SNI handler.
+            type: string
+          serverNames:
+            description: |-
+              **string**
+              Server names that are matched by the SNI handler.
+            type: array
+            items:
+              type: string
+          handler:
+            description: |-
+              **[TlsHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsHandler)**
+              Required field. Settings for handling requests with Server Name Indication (SNI) matching one of [serverNames](/docs/application-load-balancer/api-ref/LoadBalancer/addSniMatch#yandex.cloud.apploadbalancer.v1.AddSniMatchRequest) values.
+            oneOf:
+              - type: object
+                properties:
+                  httpHandler:
+                    description: |-
+                      **[HttpHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+                      HTTP handler.
+                      Includes only one of the fields `httpHandler`, `streamHandler`.
+                      Settings for handling requests.
+                    oneOf:
+                      - type: object
+                        properties:
+                          http2Options:
+                            description: |-
+                              **[Http2Options](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.Http2Options)**
+                              HTTP/2 settings.
+                              If specified, incoming HTTP/2 requests are supported by the listener.
+                              Includes only one of the fields `http2Options`, `allowHttp10`.
+                              Protocol settings.
+                              For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
+                              negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
+                            $ref: '#/definitions/Http2Options'
+                          allowHttp10:
+                            description: |-
+                              **boolean**
+                              Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
+                              Includes only one of the fields `http2Options`, `allowHttp10`.
+                              Protocol settings.
+                              For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
+                              negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
+                            type: boolean
+                  streamHandler:
+                    description: |-
+                      **[StreamHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.StreamHandler)**
+                      Stream (TCP) handler.
+                      Includes only one of the fields `httpHandler`, `streamHandler`.
+                      Settings for handling requests.
+                    $ref: '#/definitions/StreamHandler'
+        required:
+          - name
+          - handler
+      TlsListener:
+        type: object
+        properties:
+          defaultHandler:
+            description: |-
+              **[TlsHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsHandler)**
+              Required field. Settings for handling requests by default, with Server Name
+              Indication (SNI) not matching any of the [sniHandlers](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.TlsListener).
+            oneOf:
+              - type: object
+                properties:
+                  httpHandler:
+                    description: |-
+                      **[HttpHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+                      HTTP handler.
+                      Includes only one of the fields `httpHandler`, `streamHandler`.
+                      Settings for handling requests.
+                    oneOf:
+                      - type: object
+                        properties:
+                          http2Options:
+                            description: |-
+                              **[Http2Options](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.Http2Options)**
+                              HTTP/2 settings.
+                              If specified, incoming HTTP/2 requests are supported by the listener.
+                              Includes only one of the fields `http2Options`, `allowHttp10`.
+                              Protocol settings.
+                              For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
+                              negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
+                            $ref: '#/definitions/Http2Options'
+                          allowHttp10:
+                            description: |-
+                              **boolean**
+                              Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
+                              Includes only one of the fields `http2Options`, `allowHttp10`.
+                              Protocol settings.
+                              For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
+                              negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension.
+                            type: boolean
+                  streamHandler:
+                    description: |-
+                      **[StreamHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.StreamHandler)**
+                      Stream (TCP) handler.
+                      Includes only one of the fields `httpHandler`, `streamHandler`.
+                      Settings for handling requests.
+                    $ref: '#/definitions/StreamHandler'
+          sniHandlers:
+            description: |-
+              **[SniMatch](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.SniMatch)**
+              Settings for handling requests with Server Name Indication (SNI)
+              matching one of [SniMatch.serverNames](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.SniMatch) values.
+            type: array
+            items:
+              $ref: '#/definitions/SniMatch'
+        required:
+          - defaultHandler
+      StreamListener:
+        type: object
+        properties:
+          handler:
+            description: |-
+              **[StreamHandler](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.StreamHandler)**
+              Required field. Settings for handling stream (TCP) requests.
+            $ref: '#/definitions/StreamHandler'
+        required:
+          - handler
+      Location:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              Required field. ID of the availability zone where the application load balancer resides.
+              Each availability zone can only be specified once.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet that the application load balancer belongs to.
+            type: string
+          disableTraffic:
+            description: |-
+              **boolean**
+              Disables the load balancer node in the specified availability zone.
+              Backends in the availability zone are not directly affected by this setting.
+              They still may receive traffic from the load balancer nodes in other availability zones,
+              subject to [LoadBalancingConfig.localityAwareRoutingPercent](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) and [LoadBalancingConfig.strictLocality](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) settings.
+            type: boolean
+          zonalShiftActive:
+            description: |-
+              **boolean**
+              Show zonal shift status for the location.
+              Deprecated: use [zonalTrafficDisabled](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.Location) below to track traffic status.
+            deprecated: true
+            type: boolean
+          zonalTrafficDisabled:
+            description: |-
+              **boolean**
+              Computed field: will be set to true if all traffic in zone is disabled
+              either manually by user or automatically by Cloud infrastructure.
+            type: boolean
+        required:
+          - zoneId
+      AllocationPolicy:
+        type: object
+        properties:
+          locations:
+            description: |-
+              **[Location](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.Location)**
+              Availability zones and subnets that the application load balancer resides.
+            uniqueItems: true
+            type: array
+            items:
+              $ref: '#/definitions/Location'
+      AutoScalePolicy:
+        type: object
+        properties:
+          minZoneSize:
+            description: |-
+              **string** (int64)
+              Lower limit for the number of resource units in each availability zone.
+              If not specified previously (using other instruments such as management console), the default value is 2.
+              To revert to it, specify it explicitly.
+              The minimum value is 2.
+            type: string
+            format: int64
+          maxSize:
+            description: |-
+              **string** (int64)
+              Upper limit for the total number of resource units across all availability zones.
+              If a positive value is specified, it must be at least [minZoneSize](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.AutoScalePolicy) multiplied by the size of
+              [AllocationPolicy.locations](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.AllocationPolicy).
+              If the value is 0, there is no upper limit.
+            type: string
+            format: int64
+      LogDiscardRule:
+        type: object
+        properties:
+          httpCodes:
+            description: |-
+              **string** (int64)
+              HTTP codes that should be discarded.
+            type: array
+            items:
+              type: string
+              format: int64
+          httpCodeIntervals:
+            description: |-
+              **enum** (HttpCodeInterval)
+              Groups of HTTP codes like 4xx that should be discarded.
+              - `HTTP_CODE_INTERVAL_UNSPECIFIED`
+              - `HTTP_1XX`
+              - `HTTP_2XX`
+              - `HTTP_3XX`
+              - `HTTP_4XX`
+              - `HTTP_5XX`
+              - `HTTP_ALL`
+            type: array
+            items:
+              type: string
+              enum:
+                - HTTP_CODE_INTERVAL_UNSPECIFIED
+                - HTTP_1XX
+                - HTTP_2XX
+                - HTTP_3XX
+                - HTTP_4XX
+                - HTTP_5XX
+                - HTTP_ALL
+          grpcCodes:
+            description: |-
+              **enum** (Code)
+              GRPC codes that should be discarded
+              - `OK`: Not an error; returned on success
+                HTTP Mapping: 200 OK
+              - `CANCELLED`: The operation was cancelled, typically by the caller.
+                HTTP Mapping: 499 Client Closed Request
+              - `UNKNOWN`: Unknown error.  For example, this error may be returned when
+              a `Status` value received from another address space belongs to
+              an error space that is not known in this address space.  Also
+              errors raised by APIs that do not return enough error information
+              may be converted to this error.
+                HTTP Mapping: 500 Internal Server Error
+              - `INVALID_ARGUMENT`: The client specified an invalid argument.  Note that this differs
+              from `FAILED_PRECONDITION`.  `INVALID_ARGUMENT` indicates arguments
+              that are problematic regardless of the state of the system
+              (e.g., a malformed file name).
+                HTTP Mapping: 400 Bad Request
+              - `DEADLINE_EXCEEDED`: The deadline expired before the operation could complete. For operations
+              that change the state of the system, this error may be returned
+              even if the operation has completed successfully.  For example, a
+              successful response from a server could have been delayed long
+              enough for the deadline to expire.
+                HTTP Mapping: 504 Gateway Timeout
+              - `NOT_FOUND`: Some requested entity (e.g., file or directory) was not found.
+                Note to server developers: if a request is denied for an entire class
+              of users, such as gradual feature rollout or undocumented whitelist,
+              `NOT_FOUND` may be used. If a request is denied for some users within
+              a class of users, such as user-based access control, `PERMISSION_DENIED`
+              must be used.
+                HTTP Mapping: 404 Not Found
+              - `ALREADY_EXISTS`: The entity that a client attempted to create (e.g., file or directory)
+              already exists.
+                HTTP Mapping: 409 Conflict
+              - `PERMISSION_DENIED`: The caller does not have permission to execute the specified
+              operation. `PERMISSION_DENIED` must not be used for rejections
+              caused by exhausting some resource (use `RESOURCE_EXHAUSTED`
+              instead for those errors). `PERMISSION_DENIED` must not be
+              used if the caller can not be identified (use `UNAUTHENTICATED`
+              instead for those errors). This error code does not imply the
+              request is valid or the requested entity exists or satisfies
+              other pre-conditions.
+                HTTP Mapping: 403 Forbidden
+              - `UNAUTHENTICATED`: The request does not have valid authentication credentials for the
+              operation.
+                HTTP Mapping: 401 Unauthorized
+              - `RESOURCE_EXHAUSTED`: Some resource has been exhausted, perhaps a per-user quota, or
+              perhaps the entire file system is out of space.
+                HTTP Mapping: 429 Too Many Requests
+              - `FAILED_PRECONDITION`: The operation was rejected because the system is not in a state
+              required for the operation's execution.  For example, the directory
+              to be deleted is non-empty, an rmdir operation is applied to
+              a non-directory, etc.
+                Service implementors can use the following guidelines to decide
+              between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:
+              (a) Use `UNAVAILABLE` if the client can retry just the failing call.
+              (b) Use `ABORTED` if the client should retry at a higher level
+              (e.g., when a client-specified test-and-set fails, indicating the
+              client should restart a read-modify-write sequence).
+              (c) Use `FAILED_PRECONDITION` if the client should not retry until
+              the system state has been explicitly fixed.  E.g., if an "rmdir"
+              fails because the directory is non-empty, `FAILED_PRECONDITION`
+              should be returned since the client should not retry unless
+              the files are deleted from the directory.
+                HTTP Mapping: 400 Bad Request
+              - `ABORTED`: The operation was aborted, typically due to a concurrency issue such as
+              a sequencer check failure or transaction abort.
+                See the guidelines above for deciding between `FAILED_PRECONDITION`,
+              `ABORTED`, and `UNAVAILABLE`.
+                HTTP Mapping: 409 Conflict
+              - `OUT_OF_RANGE`: The operation was attempted past the valid range.  E.g., seeking or
+              reading past end-of-file.
+                Unlike `INVALID_ARGUMENT`, this error indicates a problem that may
+              be fixed if the system state changes. For example, a 32-bit file
+              system will generate `INVALID_ARGUMENT` if asked to read at an
+              offset that is not in the range [0,2^32-1], but it will generate
+              `OUT_OF_RANGE` if asked to read from an offset past the current
+              file size.
+                There is a fair bit of overlap between `FAILED_PRECONDITION` and
+              `OUT_OF_RANGE`.  We recommend using `OUT_OF_RANGE` (the more specific
+              error) when it applies so that callers who are iterating through
+              a space can easily look for an `OUT_OF_RANGE` error to detect when
+              they are done.
+                HTTP Mapping: 400 Bad Request
+              - `UNIMPLEMENTED`: The operation is not implemented or is not supported/enabled in this
+              service.
+                HTTP Mapping: 501 Not Implemented
+              - `INTERNAL`: Internal errors.  This means that some invariants expected by the
+              underlying system have been broken.  This error code is reserved
+              for serious errors.
+                HTTP Mapping: 500 Internal Server Error
+              - `UNAVAILABLE`: The service is currently unavailable.  This is most likely a
+              transient condition, which can be corrected by retrying with
+              a backoff.
+                See the guidelines above for deciding between `FAILED_PRECONDITION`,
+              `ABORTED`, and `UNAVAILABLE`.
+                HTTP Mapping: 503 Service Unavailable
+              - `DATA_LOSS`: Unrecoverable data loss or corruption.
+                HTTP Mapping: 500 Internal Server Error
+            type: array
+            items:
+              type: string
+              enum:
+                - OK
+                - CANCELLED
+                - UNKNOWN
+                - INVALID_ARGUMENT
+                - DEADLINE_EXCEEDED
+                - NOT_FOUND
+                - ALREADY_EXISTS
+                - PERMISSION_DENIED
+                - UNAUTHENTICATED
+                - RESOURCE_EXHAUSTED
+                - FAILED_PRECONDITION
+                - ABORTED
+                - OUT_OF_RANGE
+                - UNIMPLEMENTED
+                - INTERNAL
+                - UNAVAILABLE
+                - DATA_LOSS
+          discardPercent:
+            description: |-
+              **string** (int64)
+              Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all
+            type: string
+            format: int64
+      LogOptions:
+        type: object
+        properties:
+          logGroupId:
+            description: |-
+              **string**
+              Cloud Logging log group ID to store access logs.
+              If not set then logs will be stored in default log group for the folder
+              where load balancer located.
+            type: string
+          discardRules:
+            description: |-
+              **[LogDiscardRule](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.LogDiscardRule)**
+              ordered list of rules, first matching rule applies
+            type: array
+            items:
+              $ref: '#/definitions/LogDiscardRule'
+          disable:
+            description: |-
+              **boolean**
+              Do not send logs to Cloud Logging log group.
+            type: boolean
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/create.md
 ---
 

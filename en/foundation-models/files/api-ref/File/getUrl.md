@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/files/v1/files:getUrl
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        fileId:
+          description: |-
+            **string**
+            Required field. ID of the file which the URL is requested.
+          type: string
+      required:
+        - fileId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/getUrl.md
 ---
 

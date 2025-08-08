@@ -7,4 +7,4 @@ To customize the columns:
     * Check the hidden columns you want displayed.
     * To reorder columns, click ![image](../../_assets/console-icons/grip.svg) to the left of the column name and drag the column up or down to a new position in the list.
 
-1. Click **Apply**.
+1. Click **{{ ui-key.yacloud.common.apply }}**.

@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/policies/{policyId}:execute
+    method: post
+    path:
+      type: object
+      properties:
+        policyId:
+          description: |-
+            **string**
+            Required field. Policy ID.
+          type: string
+      required:
+        - policyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            **string**
+            Required field. Compute Cloud instance ID.
+          type: string
+      required:
+        - computeInstanceId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/execute.md
 ---
 

@@ -1,5 +1,375 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/assistants/v1/runs
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        assistantId:
+          description: |-
+            **string**
+            Required field. ID of the assistant for which the run is being created
+          type: string
+        threadId:
+          description: |-
+            **string**
+            Required field. ID of the thread associated with the run.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Set of key-value pairs to label the run.
+          type: string
+        additionalMessages:
+          description: |-
+            **[MessageData](/docs/assistants/api-ref/Thread/create#yandex.cloud.ai.assistants.v1.threads.MessageData)**
+            Additional messages that will be written to the thread before the run starts.
+          type: array
+          items:
+            $ref: '#/definitions/MessageData'
+        customPromptTruncationOptions:
+          description: |-
+            **[PromptTruncationOptions](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.PromptTruncationOptions)**
+            Configuration options for truncating the prompt when the token count exceeds a specified limit.
+            If specified, these options will override the assistant's prompt truncation settings for this run.
+          oneOf:
+            - type: object
+              properties:
+                autoStrategy:
+                  description: |-
+                    **object**
+                    Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`.
+                    Specifies the truncation strategy to use when the prompt exceeds the token limit.
+                  $ref: '#/definitions/AutoStrategy'
+                lastMessagesStrategy:
+                  description: |-
+                    **[LastMessagesStrategy](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.PromptTruncationOptions.LastMessagesStrategy)**
+                    Retains only the last `num_messages` messages in the thread.
+                    If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit.
+                    Includes only one of the fields `autoStrategy`, `lastMessagesStrategy`.
+                    Specifies the truncation strategy to use when the prompt exceeds the token limit.
+                  $ref: '#/definitions/LastMessagesStrategy'
+        customCompletionOptions:
+          description: |-
+            **[CompletionOptions](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.CompletionOptions)**
+            Configuration options for completion generation.
+            If specified, these options will override the assistant's completion settings for this run.
+          $ref: '#/definitions/CompletionOptions'
+        stream:
+          description: |-
+            **boolean**
+            Enables streaming of intermediate events, such as partial messages.
+          type: boolean
+        tools:
+          description: |-
+            **[Tool](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.Tool)**
+            List of tools that are available for the assistant to use in this run.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  searchIndex:
+                    description: |-
+                      **[SearchIndexTool](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.SearchIndexTool)**
+                      SearchIndexTool tool that performs search across specified indexes.
+                      Includes only one of the fields `searchIndex`, `function`, `genSearch`.
+                    $ref: '#/definitions/SearchIndexTool'
+                  function:
+                    description: |-
+                      **[FunctionTool](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.FunctionTool)**
+                      Function tool that can be invoked by the assistant.
+                      Includes only one of the fields `searchIndex`, `function`, `genSearch`.
+                    $ref: '#/definitions/FunctionTool'
+                  genSearch:
+                    description: |-
+                      **[GenSearchTool](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.GenSearchTool)**
+                      Performs web retrieval and generative synthesis.
+                      Includes only one of the fields `searchIndex`, `function`, `genSearch`.
+                    $ref: '#/definitions/GenSearchTool'
+        customResponseFormat:
+          description: |-
+            **[ResponseFormat](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.ResponseFormat)**
+            Specifies the format of the model's response.
+          oneOf:
+            - type: object
+              properties:
+                jsonObject:
+                  description: |-
+                    **boolean**
+                    When set to true, the model will respond with a valid JSON object.
+                    Be sure to explicitly ask the model for JSON.
+                    Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
+                    Includes only one of the fields `jsonObject`, `jsonSchema`.
+                  type: boolean
+                jsonSchema:
+                  description: |-
+                    **[JsonSchema](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.JsonSchema)**
+                    Enforces a specific JSON structure for the model's response based on a provided schema.
+                    Includes only one of the fields `jsonObject`, `jsonSchema`.
+                  $ref: '#/definitions/JsonSchema'
+      required:
+        - assistantId
+        - threadId
+      additionalProperties: false
+    definitions:
+      Author:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              Unique identifier of the author. This could be either the user's ID or the assistant's ID, depending on the role.
+            type: string
+          role:
+            description: |-
+              **string**
+              Role of the author, indicating whether the message was created by a "user" or an "assistant".
+            type: string
+      Text:
+        type: object
+        properties:
+          content:
+            description: |-
+              **string**
+              Text content of the message.
+            type: string
+      MessageContent:
+        type: object
+        properties:
+          content:
+            description: |-
+              **[ContentPart](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.ContentPart)**
+              A list of content parts that make up the message.
+            type: array
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    text:
+                      description: |-
+                        **[Text](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.Text)**
+                        Text content of the message part.
+                        Includes only one of the fields `text`.
+                        Specifies the type of content that the part contains.
+                      $ref: '#/definitions/Text'
+      MessageData:
+        type: object
+        properties:
+          author:
+            description: |-
+              **[Author](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.Author)**
+              Author of the message, containing details about the message's creator.
+            $ref: '#/definitions/Author'
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Set of key-value pairs that can be used to organize and categorize the message.
+            type: string
+          content:
+            description: |-
+              **[MessageContent](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.MessageContent)**
+              Content of the message.
+            $ref: '#/definitions/MessageContent'
+      AutoStrategy:
+        type: object
+        properties: {}
+      LastMessagesStrategy:
+        type: object
+        properties:
+          numMessages:
+            description: |-
+              **string** (int64)
+              The number of most recent messages to retain in the prompt.
+              If these messages exceed `max_prompt_tokens`, older messages will be further truncated to fit the limit.
+            type: string
+            format: int64
+      CompletionOptions:
+        type: object
+        properties:
+          maxTokens:
+            description: |-
+              **string** (int64)
+              The limit on the number of tokens used for single completion generation.
+              Must be greater than zero. This maximum allowed parameter value may depend on the model being used.
+            type: string
+            format: int64
+          temperature:
+            description: |-
+              **number** (double)
+              Affects creativity and randomness of responses. Should be a double number between 0 (inclusive) and 1 (inclusive).
+              Lower values produce more straightforward responses while higher values lead to increased creativity and randomness.
+              Default temperature: 0.3
+            type: number
+            format: double
+      RephraserOptions:
+        type: object
+        properties:
+          rephraserUri:
+            description: |-
+              **string**
+              Required field. The ID of the model used to rephrase the last user message for search.
+            type: string
+        required:
+          - rephraserUri
+      AlwaysCall:
+        type: object
+        properties: {}
+      AutoCall:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              The name of the tool as exposed to the model.
+            type: string
+          instruction:
+            description: |-
+              **string**
+              Required field. Required instruction that helps the model decide when to call the tool.
+            type: string
+        required:
+          - instruction
+      SearchIndexTool:
+        type: object
+        properties:
+          searchIndexIds:
+            description: |-
+              **string**
+              A list of search index IDs that this tool will query. Currently, only a single index ID is supported.
+            type: array
+            items:
+              type: string
+          maxNumResults:
+            description: |-
+              **string** (int64)
+              The maximum number of results to return from the search.
+              Fewer results may be returned if necessary to fit within the prompt's token limit.
+              This ensures that the combined prompt and search results do not exceed the token constraints.
+            type: string
+            format: int64
+          rephraserOptions:
+            description: |-
+              **[RephraserOptions](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.RephraserOptions)**
+              Options for rephrasing user queries.
+              Used to rewrite the last user message for search,
+              incorporating context from the previous conversation.
+            $ref: '#/definitions/RephraserOptions'
+          callStrategy:
+            description: |-
+              **[CallStrategy](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.CallStrategy)**
+              Defines the strategy for triggering search.
+              Controls whether search results are always included or returned only when
+              the model explicitly calls the tool.
+            oneOf:
+              - type: object
+                properties:
+                  alwaysCall:
+                    description: |-
+                      **object**
+                      Includes only one of the fields `alwaysCall`, `autoCall`.
+                      One of `always_call` or `auto_call`.
+                      always_call is used if no strategy is explicitly set
+                    $ref: '#/definitions/AlwaysCall'
+                  autoCall:
+                    description: |-
+                      **[AutoCall](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.CallStrategy.AutoCall)**
+                      Includes only one of the fields `alwaysCall`, `autoCall`.
+                      One of `always_call` or `auto_call`.
+                      always_call is used if no strategy is explicitly set
+                    $ref: '#/definitions/AutoCall'
+      FunctionTool:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              The name of the function.
+            type: string
+          description:
+            description: |-
+              **string**
+              A description of the function's purpose or behavior.
+            type: string
+          parameters:
+            description: |-
+              **object**
+              A JSON Schema that defines the expected parameters for the function.
+              The schema should describe the required fields, their types, and any constraints or default values.
+            type: object
+      SiteOption:
+        type: object
+        properties:
+          site:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      HostOption:
+        type: object
+        properties:
+          host:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      UrlOption:
+        type: object
+        properties:
+          url:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      GenSearchTool:
+        type: object
+        properties:
+          options:
+            description: |-
+              **[GenSearchOptions](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.GenSearchOptions)**
+              Scoping and filtering rules for the search query
+            oneOf:
+              - type: object
+                properties:
+                  site:
+                    description: |-
+                      **[SiteOption](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.GenSearchOptions.SiteOption)**
+                      Includes only one of the fields `site`, `host`, `url`.
+                      Restricts the search to the specific websites, hosts or pages.
+                      Includes only one of the fields site, host, url.
+                    $ref: '#/definitions/SiteOption'
+                  host:
+                    description: |-
+                      **[HostOption](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.GenSearchOptions.HostOption)**
+                      Includes only one of the fields `site`, `host`, `url`.
+                      Restricts the search to the specific websites, hosts or pages.
+                      Includes only one of the fields site, host, url.
+                    $ref: '#/definitions/HostOption'
+                  url:
+                    description: |-
+                      **[UrlOption](/docs/assistants/api-ref/Assistant/create#yandex.cloud.ai.assistants.v1.GenSearchOptions.UrlOption)**
+                      Includes only one of the fields `site`, `host`, `url`.
+                      Restricts the search to the specific websites, hosts or pages.
+                      Includes only one of the fields site, host, url.
+                    $ref: '#/definitions/UrlOption'
+          description:
+            description: |-
+              **string**
+              Required field. description of the purpose
+            type: string
+        required:
+          - description
+      JsonSchema:
+        type: object
+        properties:
+          schema:
+            description: |-
+              **object**
+              The JSON Schema that the model's output must conform to.
+            type: object
 sourcePath: en/_api-ref/ai/assistants/v1/runs/api-ref/Run/create.md
 ---
 
@@ -56,7 +426,7 @@ POST https://rest-assistant.{{ api-host }}/assistants/v1/runs
   "stream": "boolean",
   "tools": [
     {
-      // Includes only one of the fields `searchIndex`, `function`
+      // Includes only one of the fields `searchIndex`, `function`, `genSearch`
       "searchIndex": {
         "searchIndexIds": [
           "string"
@@ -79,6 +449,38 @@ POST https://rest-assistant.{{ api-host }}/assistants/v1/runs
         "name": "string",
         "description": "string",
         "parameters": "object"
+      },
+      "genSearch": {
+        "options": {
+          // Includes only one of the fields `site`, `host`, `url`
+          "site": {
+            "site": [
+              "string"
+            ]
+          },
+          "host": {
+            "host": [
+              "string"
+            ]
+          },
+          "url": {
+            "url": [
+              "string"
+            ]
+          },
+          // end of the list of possible fields
+          "enableNrfmDocs": "boolean",
+          "searchFilters": [
+            {
+              // Includes only one of the fields `date`, `lang`, `format`
+              "date": "string",
+              "lang": "string",
+              "format": "string"
+              // end of the list of possible fields
+            }
+          ]
+        },
+        "description": "string"
       }
       // end of the list of possible fields
     }
@@ -263,12 +665,17 @@ Represents a general tool that can be one of several types.
 
 SearchIndexTool tool that performs search across specified indexes.
 
-Includes only one of the fields `searchIndex`, `function`. ||
+Includes only one of the fields `searchIndex`, `function`, `genSearch`. ||
 || function | **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool)**
 
 Function tool that can be invoked by the assistant.
 
-Includes only one of the fields `searchIndex`, `function`. ||
+Includes only one of the fields `searchIndex`, `function`, `genSearch`. ||
+|| genSearch | **[GenSearchTool](#yandex.cloud.ai.assistants.v1.GenSearchTool)**
+
+Performs web retrieval and generative synthesis.
+
+Includes only one of the fields `searchIndex`, `function`, `genSearch`. ||
 |#
 
 ## SearchIndexTool {#yandex.cloud.ai.assistants.v1.SearchIndexTool}
@@ -359,6 +766,114 @@ A description of the function's purpose or behavior. ||
 
 A JSON Schema that defines the expected parameters for the function.
 The schema should describe the required fields, their types, and any constraints or default values. ||
+|#
+
+## GenSearchTool {#yandex.cloud.ai.assistants.v1.GenSearchTool}
+
+#|
+||Field | Description ||
+|| options | **[GenSearchOptions](#yandex.cloud.ai.assistants.v1.GenSearchOptions)**
+
+Scoping and filtering rules for the search query ||
+|| description | **string**
+
+Required field. description of the purpose ||
+|#
+
+## GenSearchOptions {#yandex.cloud.ai.assistants.v1.GenSearchOptions}
+
+#|
+||Field | Description ||
+|| site | **[SiteOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.SiteOption)**
+
+Includes only one of the fields `site`, `host`, `url`.
+
+Restricts the search to the specific websites, hosts or pages.
+Includes only one of the fields site, host, url. ||
+|| host | **[HostOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.HostOption)**
+
+Includes only one of the fields `site`, `host`, `url`.
+
+Restricts the search to the specific websites, hosts or pages.
+Includes only one of the fields site, host, url. ||
+|| url | **[UrlOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.UrlOption)**
+
+Includes only one of the fields `site`, `host`, `url`.
+
+Restricts the search to the specific websites, hosts or pages.
+Includes only one of the fields site, host, url. ||
+|| enableNrfmDocs | **boolean**
+
+Use the documents inaccessible from the front page. ||
+|| searchFilters[] | **[SearchFilter](#yandex.cloud.ai.assistants.v1.GenSearchOptions.SearchFilter)**
+
+Restricts the search by date, document formats or language. ||
+|#
+
+## SiteOption {#yandex.cloud.ai.assistants.v1.GenSearchOptions.SiteOption}
+
+Restricts the search to the specific websites.
+
+#|
+||Field | Description ||
+|| site[] | **string** ||
+|#
+
+## HostOption {#yandex.cloud.ai.assistants.v1.GenSearchOptions.HostOption}
+
+Restricts the search to the specific hosts.
+
+#|
+||Field | Description ||
+|| host[] | **string** ||
+|#
+
+## UrlOption {#yandex.cloud.ai.assistants.v1.GenSearchOptions.UrlOption}
+
+Restricts the search to the specific pages.
+
+#|
+||Field | Description ||
+|| url[] | **string** ||
+|#
+
+## SearchFilter {#yandex.cloud.ai.assistants.v1.GenSearchOptions.SearchFilter}
+
+#|
+||Field | Description ||
+|| date | **string**
+
+Restrict by document date
+
+Includes only one of the fields `date`, `lang`, `format`.
+
+Includes only one of the fields date, lang, format. ||
+|| lang | **string**
+
+Restrict by document language. Use ISO 639-1 language codes.
+
+Includes only one of the fields `date`, `lang`, `format`.
+
+Includes only one of the fields date, lang, format. ||
+|| format | **enum** (DocFormat)
+
+Restrict by document format.
+
+Includes only one of the fields `date`, `lang`, `format`.
+
+Includes only one of the fields date, lang, format.
+
+- `DOC_FORMAT_UNSPECIFIED`
+- `DOC_FORMAT_PDF`
+- `DOC_FORMAT_XLS`
+- `DOC_FORMAT_ODS`
+- `DOC_FORMAT_RTF`
+- `DOC_FORMAT_PPT`
+- `DOC_FORMAT_ODP`
+- `DOC_FORMAT_SWF`
+- `DOC_FORMAT_ODT`
+- `DOC_FORMAT_ODG`
+- `DOC_FORMAT_DOC` ||
 |#
 
 ## ResponseFormat {#yandex.cloud.ai.assistants.v1.ResponseFormat}
@@ -616,7 +1131,7 @@ The JSON Schema that the model's output must conform to. ||
   },
   "tools": [
     {
-      // Includes only one of the fields `searchIndex`, `function`
+      // Includes only one of the fields `searchIndex`, `function`, `genSearch`
       "searchIndex": {
         "searchIndexIds": [
           "string"
@@ -639,6 +1154,38 @@ The JSON Schema that the model's output must conform to. ||
         "name": "string",
         "description": "string",
         "parameters": "object"
+      },
+      "genSearch": {
+        "options": {
+          // Includes only one of the fields `site`, `host`, `url`
+          "site": {
+            "site": [
+              "string"
+            ]
+          },
+          "host": {
+            "host": [
+              "string"
+            ]
+          },
+          "url": {
+            "url": [
+              "string"
+            ]
+          },
+          // end of the list of possible fields
+          "enableNrfmDocs": "boolean",
+          "searchFilters": [
+            {
+              // Includes only one of the fields `date`, `lang`, `format`
+              "date": "string",
+              "lang": "string",
+              "format": "string"
+              // end of the list of possible fields
+            }
+          ]
+        },
+        "description": "string"
       }
       // end of the list of possible fields
     }
@@ -1378,12 +1925,17 @@ Represents a general tool that can be one of several types.
 
 SearchIndexTool tool that performs search across specified indexes.
 
-Includes only one of the fields `searchIndex`, `function`. ||
+Includes only one of the fields `searchIndex`, `function`, `genSearch`. ||
 || function | **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool2)**
 
 Function tool that can be invoked by the assistant.
 
-Includes only one of the fields `searchIndex`, `function`. ||
+Includes only one of the fields `searchIndex`, `function`, `genSearch`. ||
+|| genSearch | **[GenSearchTool](#yandex.cloud.ai.assistants.v1.GenSearchTool2)**
+
+Performs web retrieval and generative synthesis.
+
+Includes only one of the fields `searchIndex`, `function`, `genSearch`. ||
 |#
 
 ## SearchIndexTool {#yandex.cloud.ai.assistants.v1.SearchIndexTool2}
@@ -1474,6 +2026,114 @@ A description of the function's purpose or behavior. ||
 
 A JSON Schema that defines the expected parameters for the function.
 The schema should describe the required fields, their types, and any constraints or default values. ||
+|#
+
+## GenSearchTool {#yandex.cloud.ai.assistants.v1.GenSearchTool2}
+
+#|
+||Field | Description ||
+|| options | **[GenSearchOptions](#yandex.cloud.ai.assistants.v1.GenSearchOptions2)**
+
+Scoping and filtering rules for the search query ||
+|| description | **string**
+
+Required field. description of the purpose ||
+|#
+
+## GenSearchOptions {#yandex.cloud.ai.assistants.v1.GenSearchOptions2}
+
+#|
+||Field | Description ||
+|| site | **[SiteOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.SiteOption2)**
+
+Includes only one of the fields `site`, `host`, `url`.
+
+Restricts the search to the specific websites, hosts or pages.
+Includes only one of the fields site, host, url. ||
+|| host | **[HostOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.HostOption2)**
+
+Includes only one of the fields `site`, `host`, `url`.
+
+Restricts the search to the specific websites, hosts or pages.
+Includes only one of the fields site, host, url. ||
+|| url | **[UrlOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.UrlOption2)**
+
+Includes only one of the fields `site`, `host`, `url`.
+
+Restricts the search to the specific websites, hosts or pages.
+Includes only one of the fields site, host, url. ||
+|| enableNrfmDocs | **boolean**
+
+Use the documents inaccessible from the front page. ||
+|| searchFilters[] | **[SearchFilter](#yandex.cloud.ai.assistants.v1.GenSearchOptions.SearchFilter2)**
+
+Restricts the search by date, document formats or language. ||
+|#
+
+## SiteOption {#yandex.cloud.ai.assistants.v1.GenSearchOptions.SiteOption2}
+
+Restricts the search to the specific websites.
+
+#|
+||Field | Description ||
+|| site[] | **string** ||
+|#
+
+## HostOption {#yandex.cloud.ai.assistants.v1.GenSearchOptions.HostOption2}
+
+Restricts the search to the specific hosts.
+
+#|
+||Field | Description ||
+|| host[] | **string** ||
+|#
+
+## UrlOption {#yandex.cloud.ai.assistants.v1.GenSearchOptions.UrlOption2}
+
+Restricts the search to the specific pages.
+
+#|
+||Field | Description ||
+|| url[] | **string** ||
+|#
+
+## SearchFilter {#yandex.cloud.ai.assistants.v1.GenSearchOptions.SearchFilter2}
+
+#|
+||Field | Description ||
+|| date | **string**
+
+Restrict by document date
+
+Includes only one of the fields `date`, `lang`, `format`.
+
+Includes only one of the fields date, lang, format. ||
+|| lang | **string**
+
+Restrict by document language. Use ISO 639-1 language codes.
+
+Includes only one of the fields `date`, `lang`, `format`.
+
+Includes only one of the fields date, lang, format. ||
+|| format | **enum** (DocFormat)
+
+Restrict by document format.
+
+Includes only one of the fields `date`, `lang`, `format`.
+
+Includes only one of the fields date, lang, format.
+
+- `DOC_FORMAT_UNSPECIFIED`
+- `DOC_FORMAT_PDF`
+- `DOC_FORMAT_XLS`
+- `DOC_FORMAT_ODS`
+- `DOC_FORMAT_RTF`
+- `DOC_FORMAT_PPT`
+- `DOC_FORMAT_ODP`
+- `DOC_FORMAT_SWF`
+- `DOC_FORMAT_ODT`
+- `DOC_FORMAT_ODG`
+- `DOC_FORMAT_DOC` ||
 |#
 
 ## ResponseFormat {#yandex.cloud.ai.assistants.v1.ResponseFormat2}

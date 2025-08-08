@@ -1,5 +1,30 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/backups/{computeInstanceId}/archives
+    method: get
+    path:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            **string**
+            List of archives of the specified Compute Cloud instance.
+            Includes only one of the fields `folderId`, `computeInstanceId`.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            List of archives in specified folder.
+            Includes only one of the fields `folderId`, `computeInstanceId`.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Backup/listArchives.md
 ---
 

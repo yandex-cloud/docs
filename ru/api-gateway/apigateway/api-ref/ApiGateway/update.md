@@ -1,5 +1,142 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}
+    method: patch
+    path:
+      type: object
+      properties:
+        apiGatewayId:
+          description: |-
+            **string**
+            Required field. ID of the API gateway to update.
+            To get a API gateway ID make a [ApiGatewayService.List](/docs/api-gateway/apigateway/api-ref/ApiGateway/list#List) request.
+          type: string
+      required:
+        - apiGatewayId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the API gateway.
+            The name must be unique within the folder.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description for the API gateway.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            API gateway labels as `key:value` pairs.
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label, request the current set of labels with a [yandex.cloud.serverless.apigateway.v1.ApiGatewayService.Get](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#Get) request.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        openapiSpec:
+          description: |-
+            **string**
+            The text of specification, JSON or YAML.
+            Includes only one of the fields `openapiSpec`.
+            New OpenAPI specification of API gateway.
+          type: string
+        connectivity:
+          description: |-
+            **[Connectivity](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.Connectivity)**
+            Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s).
+          $ref: '#/definitions/Connectivity'
+        logOptions:
+          description: |-
+            **[LogOptions](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.LogOptions)**
+            Options for logging from the API gateway.
+          oneOf:
+            - type: object
+              properties:
+                logGroupId:
+                  description: |-
+                    **string**
+                    Entry should be written to log group resolved by ID.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                    Log entries destination.
+                  type: string
+                folderId:
+                  description: |-
+                    **string**
+                    Entry should be written to default log group for specified folder.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                    Log entries destination.
+                  type: string
+        variables:
+          description: |-
+            **object** (map<**string**, **[VariableInput](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
+            Values of variables defined in the specification.
+          type: object
+          additionalProperties:
+            type: string
+        canary:
+          description: |-
+            **[Canary](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.Canary)**
+            Canary release of the gateway.
+          $ref: '#/definitions/Canary'
+        executionTimeout:
+          description: |-
+            **string** (duration)
+            Timeout for gateway call execution
+          type: string
+          format: duration
+      additionalProperties: false
+    definitions:
+      Connectivity:
+        type: object
+        properties:
+          networkId:
+            description: |-
+              **string**
+              Network the gateway will have access to.
+              It's essential to specify network with subnets in all availability zones.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              Complete list of subnets (from the same network) the gateway can be attached to.
+              It's essential to specify at least one subnet for each availability zones.
+            type: array
+            items:
+              type: string
+      Canary:
+        type: object
+        properties:
+          weight:
+            description: |-
+              **string** (int64)
+              It describes percentage of requests, which will be processed by canary.
+            type: string
+            format: int64
+          variables:
+            description: |-
+              **object** (map<**string**, **[VariableInput](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
+              Values specification variables, associated with canary.
+            type: object
+            additionalProperties:
+              type: string
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/update.md
 ---
 

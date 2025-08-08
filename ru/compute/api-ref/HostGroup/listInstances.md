@@ -1,5 +1,55 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}/instances
+    method: get
+    path:
+      type: object
+      properties:
+        hostGroupId:
+          description: |-
+            **string**
+            Required field. ID of the host group to list instances for.
+            To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request.
+          type: string
+      required:
+        - hostGroupId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListHostGroupInstancesResponse.nextPageToken](/docs/compute/api-ref/HostGroup/listInstances#yandex.cloud.compute.v1.ListHostGroupInstancesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results,
+            set `pageToken` to the [ListHostGroupInstancesResponse.nextPageToken](/docs/compute/api-ref/HostGroup/listInstances#yandex.cloud.compute.v1.ListHostGroupInstancesResponse)
+            returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
+            Each condition has the form `<field> <operator> <value>`, where:
+            1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
+            2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
+            3. `<value>` represents a value.
+            String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
+            Currently you can use filtering only on the [Host.id](/docs/compute/api-ref/HostGroup/listHosts#yandex.cloud.compute.v1.Host) field.
+            To get the host ID, use [HostGroupService.ListHosts](/docs/compute/api-ref/HostGroup/listHosts#ListHosts) request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/listInstances.md
 ---
 

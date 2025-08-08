@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/certificates
+    method: post
+    path:
+      type: object
+      properties:
+        deviceId:
+          description: |-
+            **string**
+            Required field. ID of the device for which the certificate is being added.
+            To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request.
+          type: string
+      required:
+        - deviceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        certificateData:
+          description: |-
+            **string**
+            Public part of the certificate.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/addCertificate.md
 ---
 

@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}/route_tables
+    method: get
+    path:
+      type: object
+      properties:
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the Network resource to list route tables for.
+          type: string
+      required:
+        - networkId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListNetworkRouteTablesResponse.nextPageToken](/docs/vpc/api-ref/Network/listRouteTables#yandex.cloud.vpc.v1.ListNetworkRouteTablesResponse)
+            that can be used to get the next page of results in subsequent list requests. Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. Set `pageToken`
+            to the [ListNetworkRouteTablesResponse.nextPageToken](/docs/vpc/api-ref/Network/listRouteTables#yandex.cloud.vpc.v1.ListNetworkRouteTablesResponse)
+            returned by a previous list request to get the next page of results.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/listRouteTables.md
 ---
 

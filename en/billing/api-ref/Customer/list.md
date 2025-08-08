@@ -1,5 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://billing.{{ api-host }}/billing/v1/customers
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        resellerId:
+          description: |-
+            **string**
+            Required field. ID of the reseller.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListCustomersResponse.nextPageToken](/docs/billing/api-ref/Customer/list#yandex.cloud.billing.v1.ListCustomersResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results,
+            set `pageToken` to the [ListCustomersResponse.nextPageToken](/docs/billing/api-ref/Customer/list#yandex.cloud.billing.v1.ListCustomersResponse)
+            returned by a previous list request.
+          type: string
+      required:
+        - resellerId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/billing/v1/api-ref/Customer/list.md
 ---
 

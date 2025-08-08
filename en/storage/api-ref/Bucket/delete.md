@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://storage.{{ api-host }}/storage/v1/buckets/{name}
+    method: delete
+    path:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Required field. Name of the bucket to update.
+            To get the bucket name, make a [BucketService.List](/docs/storage/api-ref/Bucket/list#List) request.
+          type: string
+      required:
+        - name
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/delete.md
 ---
 

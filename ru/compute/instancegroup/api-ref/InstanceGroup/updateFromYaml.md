@@ -1,5 +1,33 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:yaml
+    method: patch
+    path:
+      type: object
+      properties:
+        instanceGroupId:
+          description: |-
+            **string**
+            Required field. ID of the instance group to update.
+            To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+          type: string
+      required:
+        - instanceGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        instanceGroupYaml:
+          description: |-
+            **string**
+            Required field. [InstanceGroupService.Update](/docs/compute/instancegroup/api-ref/InstanceGroup/update#Update) request in YAML format.
+          type: string
+      required:
+        - instanceGroupYaml
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/updateFromYaml.md
 ---
 

@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cic.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}:removeStaticRoutes
+    method: post
+    path:
+      type: object
+      properties:
+        privateConnectionId:
+          description: |-
+            **string**
+            Required field. ID of the PrivateConnection resource.
+          type: string
+      required:
+        - privateConnectionId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        ipv4StaticRoutes:
+          description: |-
+            **[StaticRoute](/docs/interconnect/api-ref/PrivateConnection/get#yandex.cloud.cic.v1.PrivateConnection.StaticRoute)**
+            IPv4 StaticRoute configs to remove
+          type: array
+          items:
+            $ref: '#/definitions/StaticRoute'
+      additionalProperties: false
+    definitions:
+      StaticRoute:
+        type: object
+        properties:
+          prefix:
+            description: |-
+              **string**
+              Prefix.
+              It's an ip with format ipPrefix/length where address part of ipPrefix is 0.
+            type: string
 sourcePath: en/_api-ref/cic/v1/api-ref/PrivateConnection/removeStaticRoute.md
 ---
 

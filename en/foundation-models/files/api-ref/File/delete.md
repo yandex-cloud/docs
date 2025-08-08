@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/files/v1/files/{fileId}
+    method: delete
+    path:
+      type: object
+      properties:
+        fileId:
+          description: |-
+            **string**
+            Required field. ID of the file to delete.
+          type: string
+      required:
+        - fileId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/delete.md
 ---
 

@@ -1,5 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:rollingRecreate
+    method: post
+    path:
+      type: object
+      properties:
+        instanceGroupId:
+          description: |-
+            **string**
+            Required field. ID of the instance group to recreate instances in.
+            To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+          type: string
+      required:
+        - instanceGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        managedInstanceIds:
+          description: |-
+            **string**
+            IDs of managed instances in the group to recreate
+            To get instance IDs, use a [InstanceGroupService.ListInstances](/docs/compute/instancegroup/api-ref/InstanceGroup/listInstances#ListInstances) request.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/rollingRecreate.md
 ---
 

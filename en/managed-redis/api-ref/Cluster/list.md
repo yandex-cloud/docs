@@ -1,5 +1,46 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-redis/v1/clusters
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list Redis clusters in.
+            To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](/docs/managed-redis/api-ref/Cluster/list#yandex.cloud.mdb.redis.v1.ListClustersResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the [ListClustersResponse.nextPageToken](/docs/managed-redis/api-ref/Cluster/list#yandex.cloud.mdb.redis.v1.ListClustersResponse)
+            returned by the previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters clusters listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-redis/api-ref/Cluster/get#yandex.cloud.mdb.redis.v1.Cluster) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{,61}[a-z0-9])?`.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/list.md
 ---
 
@@ -458,7 +499,8 @@ The expression must specify:
       "deletionProtection": "boolean",
       "persistenceMode": "string",
       "announceHostnames": "boolean",
-      "authSentinel": "boolean"
+      "authSentinel": "boolean",
+      "diskEncryptionKeyId": "string"
     }
   ],
   "nextPageToken": "string"
@@ -580,6 +622,9 @@ Enable FQDN instead of ip ||
 || authSentinel | **boolean**
 
 Allows to use ACL users to auth in sentinel ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}

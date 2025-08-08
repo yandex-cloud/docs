@@ -1,5 +1,122 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}:updateBackend
+    method: post
+    path:
+      type: object
+      properties:
+        backendGroupId:
+          description: |-
+            **string**
+            Required field. ID of the backend group to update the backend in.
+          type: string
+      required:
+        - backendGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        http:
+          description: |-
+            **[HttpBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend)**
+            New settings for the HTTP backend.
+            Includes only one of the fields `http`, `grpc`, `stream`.
+            Name of the backend to update (required) and new settings for the backend.
+          oneOf:
+            - type: object
+              properties:
+                targetGroups:
+                  description: |-
+                    **[TargetGroupsBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+                    Target groups that belong to the backend. For details about target groups, see
+                    [documentation](/docs/application-load-balancer/concepts/target-group).
+                    Includes only one of the fields `targetGroups`, `storageBucket`.
+                    Reference to targets that belong to the backend.
+                    A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see
+                    [documentation](/docs/application-load-balancer/concepts/backend-group#types).
+                  $ref: '#/definitions/TargetGroupsBackend'
+                storageBucket:
+                  description: |-
+                    **[StorageBucketBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.StorageBucketBackend)**
+                    Object Storage bucket to use as the backend. For details about buckets, see
+                    [documentation](/docs/storage/concepts/bucket).
+                    If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly
+                    accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability).
+                    Includes only one of the fields `targetGroups`, `storageBucket`.
+                    Reference to targets that belong to the backend.
+                    A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see
+                    [documentation](/docs/application-load-balancer/concepts/backend-group#types).
+                  $ref: '#/definitions/StorageBucketBackend'
+        grpc:
+          description: |-
+            **[GrpcBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackend)**
+            New settings for the gRPC backend.
+            Includes only one of the fields `http`, `grpc`, `stream`.
+            Name of the backend to update (required) and new settings for the backend.
+          oneOf:
+            - type: object
+              properties:
+                targetGroups:
+                  description: |-
+                    **[TargetGroupsBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+                    Target groups that belong to the backend.
+                    Includes only one of the fields `targetGroups`.
+                    Reference to targets that belong to the backend. For now, targets are referenced via target groups.
+                  $ref: '#/definitions/TargetGroupsBackend'
+        stream:
+          description: |-
+            **[StreamBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.StreamBackend)**
+            New settings for the stream (TCP) backend.
+            Includes only one of the fields `http`, `grpc`, `stream`.
+            Name of the backend to update (required) and new settings for the backend.
+          oneOf:
+            - type: object
+              properties:
+                targetGroups:
+                  description: |-
+                    **[TargetGroupsBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+                    Target groups that belong to the backend. For details about target groups, see
+                    [documentation](/docs/application-load-balancer/concepts/target-group).
+                    Includes only one of the fields `targetGroups`.
+                    Reference to targets that belong to the backend.
+                  $ref: '#/definitions/TargetGroupsBackend'
+      additionalProperties: false
+    definitions:
+      TargetGroupsBackend:
+        type: object
+        properties:
+          targetGroupIds:
+            description: |-
+              **string**
+              List of ID's of target groups that belong to the backend.
+              To get the ID's of all available target groups, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request.
+            type: array
+            items:
+              type: string
+      StorageBucketBackend:
+        type: object
+        properties:
+          bucket:
+            description: |-
+              **string**
+              Required field. Name of the bucket.
+            type: string
+        required:
+          - bucket
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/updateBackend.md
 ---
 

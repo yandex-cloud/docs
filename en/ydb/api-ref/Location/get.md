@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ydb.{{ api-host }}/ydb/v1/locations/{locationId}
+    method: get
+    path:
+      type: object
+      properties:
+        locationId:
+          description: |-
+            **string**
+            Required field. Required. ID of the location to return.
+          type: string
+      required:
+        - locationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ydb/v1/api-ref/Location/get.md
 ---
 

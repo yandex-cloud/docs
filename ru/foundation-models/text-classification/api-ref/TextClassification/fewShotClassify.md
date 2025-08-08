@@ -1,5 +1,59 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://llm.{{ api-host }}/foundationModels/v1/fewShotTextClassification
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        modelUri:
+          description: |-
+            **string**
+            The [URI](/docs/foundation-models/concepts/classifier/models) of the classifier model.
+          type: string
+        taskDescription:
+          description: |-
+            **string**
+            Text description of the classification task.
+          type: string
+        labels:
+          description: |-
+            **string**
+            List of available labels for the classification result.
+            Give meaningful names to label classes: this is essential for correct classification results.
+            For example, use ``chemistry`` and ``physics`` rather than ``chm`` and ``phs`` for class names.
+          type: array
+          items:
+            type: string
+        text:
+          description: |-
+            **string**
+            Text for classification.
+          type: string
+        samples:
+          description: |-
+            **[ClassificationSample](/docs/foundation-models/text-classification/api-ref/TextClassification/fewShotClassify#yandex.cloud.ai.foundation_models.v1.text_classification.ClassificationSample)**
+            Optional set of text samples with expected labels that may be used as an additional hint for the classifier.
+          type: array
+          items:
+            $ref: '#/definitions/ClassificationSample'
+      additionalProperties: false
+    definitions:
+      ClassificationSample:
+        type: object
+        properties:
+          text:
+            description: |-
+              **string**
+              Text sample.
+            type: string
+          label:
+            description: |-
+              **string**
+              Expected label for a given text.
+            type: string
 sourcePath: en/_api-ref/ai/foundation_models/v1/text_classification/text-classification/api-ref/TextClassification/fewShotClassify.md
 ---
 
