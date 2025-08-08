@@ -1,5 +1,61 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:attachDisk
+    method: post
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            Required field. ID of the instance to attach the disk to.
+            To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request.
+          type: string
+      required:
+        - instanceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        attachedDiskSpec:
+          description: |-
+            **[AttachedDiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec)**
+            Required field. Disk that should be attached.
+          oneOf:
+            - type: object
+              properties:
+                diskSpec:
+                  description: |-
+                    **[DiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
+                    Disk specification.
+                    Includes only one of the fields `diskSpec`, `diskId`.
+                  oneOf:
+                    - type: object
+                      properties:
+                        imageId:
+                          description: |-
+                            **string**
+                            ID of the image to create the disk from.
+                            Includes only one of the fields `imageId`, `snapshotId`.
+                          type: string
+                        snapshotId:
+                          description: |-
+                            **string**
+                            ID of the snapshot to restore the disk from.
+                            Includes only one of the fields `imageId`, `snapshotId`.
+                          type: string
+                diskId:
+                  description: |-
+                    **string**
+                    ID of the disk that should be attached.
+                    Includes only one of the fields `diskSpec`, `diskId`.
+                  type: string
+      required:
+        - attachedDiskSpec
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/attachDisk.md
 ---
 

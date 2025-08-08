@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/resourcePresets/{resourcePresetId}
+    method: get
+    path:
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            **string**
+            Required field. Required. ID of the resource preset to return.
+            To get the resource preset ID, use a [ResourcePresetService.List](/docs/data-proc/api-ref/ResourcePreset/list#List) request.
+          type: string
+      required:
+        - resourcePresetId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/ResourcePreset/get.md
 ---
 

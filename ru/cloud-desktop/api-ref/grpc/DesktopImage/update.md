@@ -15,8 +15,8 @@ Updates desktop image properties.
 
 ```json
 {
-  "update_mask": "google.protobuf.FieldMask",
   "image_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "labels": "map<string, string>"
 }
@@ -24,12 +24,18 @@ Updates desktop image properties.
 
 #|
 ||Field | Description ||
-|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
 || image_id | **string**
 
-Required field.  ||
-|| name | **string** ||
-|| labels | **object** (map<**string**, **string**>) ||
+Required field. Id of image to update. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+
+Mask of fields that need to be update. ||
+|| name | **string**
+
+New desktop image name. ||
+|| labels | **object** (map<**string**, **string**>)
+
+New desktop image labels. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -1,5 +1,77 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/files/v1/files/{fileId}
+    method: patch
+    path:
+      type: object
+      properties:
+        fileId:
+          description: |-
+            **string**
+            Required field. ID of the file to update.
+          type: string
+      required:
+        - fileId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            Required field. A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the file.
+          type: string
+        description:
+          description: |-
+            **string**
+            New description for the file.
+          type: string
+        expirationConfig:
+          description: |-
+            **`ExpirationConfig`**
+            New expiration configuration for the file.
+          $ref: '#/definitions/ExpirationConfig'
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New set of labels for the file.
+          type: string
+      required:
+        - updateMask
+      additionalProperties: false
+    definitions:
+      ExpirationConfig:
+        type: object
+        properties:
+          expirationPolicy:
+            description: |-
+              **enum** (ExpirationPolicy)
+              - `EXPIRATION_POLICY_UNSPECIFIED`
+              - `STATIC`
+              - `SINCE_LAST_ACTIVE`
+            type: string
+            enum:
+              - EXPIRATION_POLICY_UNSPECIFIED
+              - STATIC
+              - SINCE_LAST_ACTIVE
+          ttlDays:
+            description: '**string** (int64)'
+            type: string
+            format: int64
 sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/update.md
 ---
 

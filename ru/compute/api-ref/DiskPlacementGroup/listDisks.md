@@ -1,5 +1,42 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacementGroupId}/disks
+    method: get
+    path:
+      type: object
+      properties:
+        diskPlacementGroupId:
+          description: |-
+            **string**
+            Required field. ID of the placement group to list disks for.
+            To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request.
+          type: string
+      required:
+        - diskPlacementGroupId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListDiskPlacementGroupDisksResponse.nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results,
+            set `pageToken` to the [ListDiskPlacementGroupDisksResponse.nextPageToken](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.ListDiskPlacementGroupDisksResponse)
+            returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/listDisks.md
 ---
 

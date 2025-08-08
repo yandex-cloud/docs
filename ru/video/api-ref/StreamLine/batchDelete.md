@@ -1,11 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/streamLines:batchDelete
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        channelId:
+          description: |-
+            **string**
+            Required field. ID of the channel containing the stream lines to delete.
+          type: string
+        streamLineIds:
+          description: |-
+            **string**
+            List of stream line IDs to delete.
+            All stream lines must exist in the specified channel.
+          type: array
+          items:
+            type: string
+      required:
+        - channelId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/batchDelete.md
 ---
 
 # Video API, REST: StreamLine.BatchDelete
 
-Batch delete stream lines.
+Deletes multiple stream lines in a specific channel in a single request.
+This is more efficient than making multiple Delete requests when removing several stream lines.
 
 ## HTTP request
 
@@ -28,10 +54,11 @@ POST https://video.{{ api-host }}/video/v1/streamLines:batchDelete
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel containing the stream lines to delete. ||
 || streamLineIds[] | **string**
 
-List of line IDs. ||
+List of stream line IDs to delete.
+All stream lines must exist in the specified channel. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -123,7 +150,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || streamLineIds[] | **string**
 
-List of line IDs. ||
+List of stream line IDs being deleted.
+This list can be used to track which stream lines are included
+in the batch deletion operation. ||
 |#
 
 ## Status {#google.rpc.Status}

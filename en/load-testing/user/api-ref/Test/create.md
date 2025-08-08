@@ -1,5 +1,134 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/tests
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a test in.
+          type: string
+        configurations:
+          description: |-
+            **`SingleAgentConfiguration`**
+            Test configuration associated with agents on which they will be executed.
+            In case of multiple configurations, a multitest will be created.
+          type: array
+          items:
+            $ref: '#/definitions/SingleAgentConfiguration'
+        testDetails:
+          description: |-
+            **`Details`**
+            Test details. Name, tags etc.
+          $ref: '#/definitions/Details'
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      SingleAgentConfiguration:
+        type: object
+        properties:
+          configId:
+            description: |-
+              **string**
+              ID of the config.
+            type: string
+          agentSelector:
+            description: |-
+              **`AgentSelector`**
+              Agent selection criterion.
+            oneOf:
+              - type: object
+                properties:
+                  agentId:
+                    description: |-
+                      **string**
+                      Selection by agent ID.
+                      Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`.
+                    type: string
+                  matchByFilter:
+                    description: |-
+                      **string**
+                      Selection by filter string.
+                      Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`.
+                    type: string
+                  anonymousAgent:
+                    description: |-
+                      **boolean**
+                      Select anonymoud (i.e. not registered) agents.
+                      Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`.
+                    type: boolean
+          files:
+            description: |-
+              **object** (map<**string**, **`FilePointer`**>)
+              Additional files to be used during test execution, represented as `rel_path:file` pairs.
+              `rel_path` can be either a simple file name, a relative path, or absolute path. Files are
+              downloaded by the agent to appropriate location.
+              Use cases include:
+              - [Test Data files](/docs/load-testing/concepts/payload).
+              - Custom Pandora executable.
+              - JMeter executable or ".jmx" scenario.
+              - etc.
+            type: object
+            additionalProperties:
+              type: string
+      Tag:
+        type: object
+        properties:
+          key:
+            description: |-
+              **string**
+              Key of the tag.
+            type: string
+          value:
+            description: |-
+              **string**
+              Value of the tag.
+            type: string
+      Details:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the test.
+            pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+            type: string
+          description:
+            description: |-
+              **string**
+              Description of the test.
+            type: string
+          tags:
+            description: |-
+              **`Tag`**
+              Tags assigned to the test.
+            type: array
+            items:
+              $ref: '#/definitions/Tag'
+          loggingLogGroupId:
+            description: |-
+              **string**
+              ID of the logging group to which test artifacts are uploaded.
+            type: string
+          artifactSettings:
+            description: |-
+              **`ArtifactSettings`**
+              Settings which define where to upload test artifacts and which files should be included.
+            oneOf:
+              - type: object
+                properties:
+                  objectStorageBucket:
+                    description: |-
+                      **string**
+                      Name of output object storage bucket in test's folder.
+                      Includes only one of the fields `objectStorageBucket`.
+                    type: string
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Test/create.md
 ---
 

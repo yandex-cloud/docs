@@ -1,5 +1,383 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{clusterId}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Kubernetes cluster to update.
+            To get the Kubernetes cluster ID use a [ClusterService.List](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the Kubernetes cluster.
+            The name must be unique within the folder.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the Kubernetes cluster.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+            Existing set of `labels` is completely replaced by the provided set.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        gatewayIpv4Address:
+          description: |-
+            **string**
+            Gateway IPv4 address.
+            Includes only one of the fields `gatewayIpv4Address`.
+          type: string
+        masterSpec:
+          description: |-
+            **[MasterUpdateSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/update#yandex.cloud.k8s.v1.MasterUpdateSpec)**
+            Specification of the master update.
+          $ref: '#/definitions/MasterUpdateSpec'
+        serviceAccountId:
+          description: |-
+            **string**
+            Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster.
+            Selected service account should have `edit` role on the folder where the Kubernetes cluster will be
+            located and on the folder where selected network resides.
+          type: string
+        nodeServiceAccountId:
+          description: |-
+            **string**
+            Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry
+            or to push node logs and metrics.
+          type: string
+        networkPolicy:
+          description: '**[NetworkPolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.NetworkPolicy)**'
+          $ref: '#/definitions/NetworkPolicy'
+        ipAllocationPolicy:
+          description: '**[IPAllocationPolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.IPAllocationPolicy)**'
+          $ref: '#/definitions/IPAllocationPolicy'
+      additionalProperties: false
+    definitions:
+      AnytimeMaintenanceWindow:
+        type: object
+        properties: {}
+      TimeOfDay:
+        type: object
+        properties:
+          hours:
+            description: |-
+              **integer** (int32)
+              Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+              to allow the value "24:00:00" for scenarios like business closing time.
+            type: integer
+            format: int32
+          minutes:
+            description: |-
+              **integer** (int32)
+              Minutes of hour of day. Must be from 0 to 59.
+            type: integer
+            format: int32
+          seconds:
+            description: |-
+              **integer** (int32)
+              Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+              allow the value 60 if it allows leap-seconds.
+            type: integer
+            format: int32
+          nanos:
+            description: |-
+              **integer** (int32)
+              Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+            type: integer
+            format: int32
+      DailyMaintenanceWindow:
+        type: object
+        properties:
+          startTime:
+            description: |-
+              **`TimeOfDay`**
+              Required field. Window start time, in the UTC timezone.
+            $ref: '#/definitions/TimeOfDay'
+          duration:
+            description: |-
+              **string** (duration)
+              Window duration.
+            type: string
+            format: duration
+        required:
+          - startTime
+      DaysOfWeekMaintenanceWindow:
+        type: object
+        properties:
+          days:
+            description: |-
+              **enum** (DayOfWeek)
+              Days of the week when automatic updates are allowed.
+              - `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+              - `MONDAY`: The day-of-week of Monday.
+              - `TUESDAY`: The day-of-week of Tuesday.
+              - `WEDNESDAY`: The day-of-week of Wednesday.
+              - `THURSDAY`: The day-of-week of Thursday.
+              - `FRIDAY`: The day-of-week of Friday.
+              - `SATURDAY`: The day-of-week of Saturday.
+              - `SUNDAY`: The day-of-week of Sunday.
+            type: array
+            items:
+              type: string
+              enum:
+                - DAY_OF_WEEK_UNSPECIFIED
+                - MONDAY
+                - TUESDAY
+                - WEDNESDAY
+                - THURSDAY
+                - FRIDAY
+                - SATURDAY
+                - SUNDAY
+          startTime:
+            description: |-
+              **`TimeOfDay`**
+              Required field. Window start time, in the UTC timezone.
+            $ref: '#/definitions/TimeOfDay'
+          duration:
+            description: |-
+              **string** (duration)
+              Window duration.
+            type: string
+            format: duration
+        required:
+          - startTime
+      WeeklyMaintenanceWindow:
+        type: object
+        properties:
+          daysOfWeek:
+            description: |-
+              **[DaysOfWeekMaintenanceWindow](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
+              Days of the week and the maintenance window for these days when automatic updates are allowed.
+            type: array
+            items:
+              $ref: '#/definitions/DaysOfWeekMaintenanceWindow'
+      MasterMaintenancePolicy:
+        type: object
+        properties:
+          autoUpgrade:
+            description: |-
+              **boolean**
+              If set to true, automatic updates are installed in the specified period of time with no interaction from the user.
+              If set to false, automatic upgrades are disabled.
+            type: boolean
+          maintenanceWindow:
+            description: |-
+              **[MaintenanceWindow](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.MaintenanceWindow)**
+              Maintenance window settings. Update will start at the specified time and last no more than the specified duration.
+              The time is set in UTC.
+            oneOf:
+              - type: object
+                properties:
+                  anytime:
+                    description: |-
+                      **object**
+                      Updating the master at any time.
+                      Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+                      Maintenance policy.
+                    $ref: '#/definitions/AnytimeMaintenanceWindow'
+                  dailyMaintenanceWindow:
+                    description: |-
+                      **[DailyMaintenanceWindow](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.DailyMaintenanceWindow)**
+                      Updating the master on any day during the specified time window.
+                      Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+                      Maintenance policy.
+                    $ref: '#/definitions/DailyMaintenanceWindow'
+                  weeklyMaintenanceWindow:
+                    description: |-
+                      **[WeeklyMaintenanceWindow](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.WeeklyMaintenanceWindow)**
+                      Updating the master on selected days during the specified time window.
+                      Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+                      Maintenance policy.
+                    $ref: '#/definitions/WeeklyMaintenanceWindow'
+      LocationSpec:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              Required field. ID of the availability zone where the master resides.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the VPC network's subnet where the master resides.
+              If not specified and there is a single subnet in specified zone, address in this subnet will be allocated.
+            type: string
+        required:
+          - zoneId
+      ExternalAddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              IP address.
+            type: string
+      AutoScale:
+        type: object
+        properties:
+          minResourcePresetId:
+            description: |-
+              **string**
+              Required field. Preset of computing resources to be used as lower boundary for scaling.
+            type: string
+        required:
+          - minResourcePresetId
+      MasterUpdateSpec:
+        type: object
+        properties:
+          version:
+            description: |-
+              **[UpdateVersionSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/update#yandex.cloud.k8s.v1.UpdateVersionSpec)**
+              Specification of the master update.
+            oneOf:
+              - type: object
+                properties:
+                  version:
+                    description: |-
+                      **string**
+                      Request update to a newer version of Kubernetes (1.x -> 1.y).
+                      Includes only one of the fields `version`, `latestRevision`.
+                    type: string
+                  latestRevision:
+                    description: |-
+                      **boolean**
+                      Request update to the latest revision for the current version.
+                      Includes only one of the fields `version`, `latestRevision`.
+                    type: boolean
+          maintenancePolicy:
+            description: |-
+              **[MasterMaintenancePolicy](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.MasterMaintenancePolicy)**
+              Maintenance policy of the master.
+            $ref: '#/definitions/MasterMaintenancePolicy'
+          securityGroupIds:
+            description: |-
+              **string**
+              Master security groups.
+            type: array
+            items:
+              type: string
+          masterLogging:
+            description: |-
+              **[MasterLogging](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/get#yandex.cloud.k8s.v1.MasterLogging)**
+              Cloud Logging for master components.
+            oneOf:
+              - type: object
+                properties:
+                  logGroupId:
+                    description: |-
+                      **string**
+                      ID of the log group where logs of master components should be stored.
+                      Includes only one of the fields `logGroupId`, `folderId`.
+                      The destination of master components' logs.
+                    pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+                    type: string
+                  folderId:
+                    description: |-
+                      **string**
+                      ID of the folder where logs should be stored (in default group).
+                      Includes only one of the fields `logGroupId`, `folderId`.
+                      The destination of master components' logs.
+                    pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+                    type: string
+          locations:
+            description: |-
+              **[LocationSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.LocationSpec)**
+              Update master instance locations.
+            type: array
+            items:
+              $ref: '#/definitions/LocationSpec'
+          externalV6AddressSpec:
+            description: |-
+              **[ExternalAddressSpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              Specification of parameters for external IPv6 networking.
+            $ref: '#/definitions/ExternalAddressSpec'
+          scalePolicy:
+            description: |-
+              **[MasterScalePolicySpec](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.MasterScalePolicySpec)**
+              Scale policy of the master.
+            oneOf:
+              - type: object
+                properties:
+                  autoScale:
+                    description: |-
+                      **[AutoScale](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/create#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale)**
+                      Includes only one of the fields `autoScale`.
+                    $ref: '#/definitions/AutoScale'
+      NetworkPolicy:
+        type: object
+        properties:
+          provider:
+            description: |-
+              **enum** (Provider)
+              - `PROVIDER_UNSPECIFIED`
+              - `CALICO`
+            type: string
+            enum:
+              - PROVIDER_UNSPECIFIED
+              - CALICO
+      IPAllocationPolicy:
+        type: object
+        properties:
+          clusterIpv4CidrBlock:
+            description: |-
+              **string**
+              CIDR block. IP range for allocating pod addresses.
+              It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be
+              set up for this CIDR blocks in node subnets.
+            type: string
+          nodeIpv4CidrMaskSize:
+            description: |-
+              **string** (int64)
+              Size of the masks that are assigned for each node in the cluster.
+              If not specified, 24 is used.
+            type: string
+            format: int64
+          serviceIpv4CidrBlock:
+            description: |-
+              **string**
+              CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from.
+              It should not overlap with any subnet in the network the Kubernetes cluster located in.
+            type: string
+          clusterIpv6CidrBlock:
+            description: |-
+              **string**
+              IPv6 range for allocating pod IP addresses.
+            type: string
+          serviceIpv6CidrBlock:
+            description: |-
+              **string**
+              IPv6 range for allocating Kubernetes service IP addresses
+            type: string
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/update.md
 ---
 

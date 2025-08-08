@@ -85,5 +85,6 @@ https://gpdb.docs.pivotal.io/6-6/security-guide/topics/Authenticate.html
 - `AUTH_METHOD_UNSPECIFIED`
 - `MD5`: Perform SCRAM-SHA-256 or MD5 authentication to verify the user's password.
 - `LDAP`: Perform LDAP authentication, if MDB_GREENPLUM_LDAP flag is set
-- `REJECT`: Disable authentication ||
+- `REJECT`: Disable authentication
+- `IAM`: Perform authentication with IAM token ||
 |#

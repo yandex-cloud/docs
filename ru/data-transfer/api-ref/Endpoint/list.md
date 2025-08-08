@@ -1,5 +1,43 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-data-transfer }}/v1/endpoints/list/{folderId}
+    method: get
+    path:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Identifier of the folder containing the endpoints to be listed.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of endpoints to be sent in the response message. If the
+            folder contains more endpoints than `page_size`, `next_page_token` will be
+            included
+            in the response message. Include it into the subsequent `ListEndpointRequest` to
+            fetch the next page. Defaults to `100` if not specified. The maximum allowed
+            value
+            for this field is `1000`.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Opaque value identifying the endpoints page to be fetched. Should be empty in
+            the first `ListEndpointsRequest`. Subsequent requests should have this field
+            filled
+            with the `next_page_token` from the previous `ListEndpointsResponse`.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/list.md
 ---
 

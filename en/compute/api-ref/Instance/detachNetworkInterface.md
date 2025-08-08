@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:detachNetworkInterface
+    method: post
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            Required field. ID of the instance that in which network interface is being attached to.
+          type: string
+      required:
+        - instanceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        networkInterfaceIndex:
+          description: |-
+            **string**
+            Required field. The index of the network interface.
+          type: string
+      required:
+        - networkInterfaceIndex
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/detachNetworkInterface.md
 ---
 

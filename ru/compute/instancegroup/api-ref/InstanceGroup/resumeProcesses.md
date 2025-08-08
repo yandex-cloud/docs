@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:resumeProcesses
+    method: post
+    path:
+      type: object
+      properties:
+        instanceGroupId:
+          description: |-
+            **string**
+            ID of the instance group to resume processes in.
+            The instance group must have a `PAUSED` status ([InstanceGroup.status](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.InstanceGroup)).
+            To get the instance group ID, make a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/resumeProcesses.md
 ---
 

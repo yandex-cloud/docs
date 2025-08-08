@@ -1,5 +1,52 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:rescheduleMaintenance
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the MongoDB cluster to reschedule the maintenance operation for.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        rescheduleType:
+          description: |-
+            **enum** (RescheduleType)
+            Required field. The type of reschedule request.
+            - `RESCHEDULE_TYPE_UNSPECIFIED`
+            - `IMMEDIATE`: Start the maintenance operation immediately.
+            - `NEXT_AVAILABLE_WINDOW`: Start the maintenance operation within the next available maintenance window.
+            - `SPECIFIC_TIME`: Start the maintenance operation at the specific time.
+          type: string
+          enum:
+            - RESCHEDULE_TYPE_UNSPECIFIED
+            - IMMEDIATE
+            - NEXT_AVAILABLE_WINDOW
+            - SPECIFIC_TIME
+        delayedUntil:
+          description: |-
+            **string** (date-time)
+            The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if [rescheduleType.IMMEDIATE](/docs/managed-mongodb/api-ref/Cluster/rescheduleMaintenance#yandex.cloud.mdb.mongodb.v1.RescheduleMaintenanceRequest.RescheduleType) reschedule type is chosen.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+      required:
+        - rescheduleType
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/rescheduleMaintenance.md
 ---
 
@@ -2996,7 +3043,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   },
                   "collectionConfig": {
                     "blockCompressor": "string"
@@ -3039,14 +3087,31 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
               "setParameter": {
                 "auditAuthorizationSuccess": "boolean",
                 "enableFlowControl": "boolean",
-                "minSnapshotHistoryWindowInSeconds": "string"
+                "minSnapshotHistoryWindowInSeconds": "string",
+                "flowControlTargetLagSeconds": "string",
+                "flowControlWarnThresholdSeconds": "string",
+                "migrateCloneInsertionBatchDelayMs": "string",
+                "migrateCloneInsertionBatchSize": "string",
+                "orphanCleanupDelaySecs": "string",
+                "persistedChunkCacheUpdateMaxBatchSize": "string",
+                "rangeDeleterBatchDelayMs": "string",
+                "rangeDeleterBatchSize": "string",
+                "mirrorReads": {
+                  "samplingRate": "number",
+                  "maxTimeMs": "string"
+                }
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
               }
             },
             "userConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   },
                   "collectionConfig": {
                     "blockCompressor": "string"
@@ -3089,14 +3154,31 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
               "setParameter": {
                 "auditAuthorizationSuccess": "boolean",
                 "enableFlowControl": "boolean",
-                "minSnapshotHistoryWindowInSeconds": "string"
+                "minSnapshotHistoryWindowInSeconds": "string",
+                "flowControlTargetLagSeconds": "string",
+                "flowControlWarnThresholdSeconds": "string",
+                "migrateCloneInsertionBatchDelayMs": "string",
+                "migrateCloneInsertionBatchSize": "string",
+                "orphanCleanupDelaySecs": "string",
+                "persistedChunkCacheUpdateMaxBatchSize": "string",
+                "rangeDeleterBatchDelayMs": "string",
+                "rangeDeleterBatchSize": "string",
+                "mirrorReads": {
+                  "samplingRate": "number",
+                  "maxTimeMs": "string"
+                }
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
               }
             },
             "defaultConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   },
                   "collectionConfig": {
                     "blockCompressor": "string"
@@ -3139,7 +3221,23 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
               "setParameter": {
                 "auditAuthorizationSuccess": "boolean",
                 "enableFlowControl": "boolean",
-                "minSnapshotHistoryWindowInSeconds": "string"
+                "minSnapshotHistoryWindowInSeconds": "string",
+                "flowControlTargetLagSeconds": "string",
+                "flowControlWarnThresholdSeconds": "string",
+                "migrateCloneInsertionBatchDelayMs": "string",
+                "migrateCloneInsertionBatchSize": "string",
+                "orphanCleanupDelaySecs": "string",
+                "persistedChunkCacheUpdateMaxBatchSize": "string",
+                "rangeDeleterBatchDelayMs": "string",
+                "rangeDeleterBatchSize": "string",
+                "mirrorReads": {
+                  "samplingRate": "number",
+                  "maxTimeMs": "string"
+                }
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
               }
             }
           },
@@ -3160,7 +3258,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   },
                   "indexConfig": {
                     "prefixCompression": "boolean"
@@ -3185,13 +3284,18 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
               },
               "auditLog": {
                 "filter": "string"
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
               }
             },
             "userConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   },
                   "indexConfig": {
                     "prefixCompression": "boolean"
@@ -3216,13 +3320,18 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
               },
               "auditLog": {
                 "filter": "string"
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
               }
             },
             "defaultConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   },
                   "indexConfig": {
                     "prefixCompression": "boolean"
@@ -3247,6 +3356,10 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
               },
               "auditLog": {
                 "filter": "string"
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
               }
             }
           },
@@ -3273,11 +3386,24 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 }
               },
               "setParameter": {
-                "auditAuthorizationSuccess": "boolean"
+                "auditAuthorizationSuccess": "boolean",
+                "readHedgingMode": "string",
+                "shardingTaskExecutorPoolMaxSize": "string",
+                "shardingTaskExecutorPoolMaxConnecting": "string",
+                "shardingTaskExecutorPoolMinSize": "string",
+                "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
               },
               "auditLog": {
                 "filter": "string"
-              }
+              },
+              "chunkSize": "string"
             },
             "userConfig": {
               "net": {
@@ -3289,11 +3415,24 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 }
               },
               "setParameter": {
-                "auditAuthorizationSuccess": "boolean"
+                "auditAuthorizationSuccess": "boolean",
+                "readHedgingMode": "string",
+                "shardingTaskExecutorPoolMaxSize": "string",
+                "shardingTaskExecutorPoolMaxConnecting": "string",
+                "shardingTaskExecutorPoolMinSize": "string",
+                "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
               },
               "auditLog": {
                 "filter": "string"
-              }
+              },
+              "chunkSize": "string"
             },
             "defaultConfig": {
               "net": {
@@ -3305,11 +3444,24 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 }
               },
               "setParameter": {
-                "auditAuthorizationSuccess": "boolean"
+                "auditAuthorizationSuccess": "boolean",
+                "readHedgingMode": "string",
+                "shardingTaskExecutorPoolMaxSize": "string",
+                "shardingTaskExecutorPoolMaxConnecting": "string",
+                "shardingTaskExecutorPoolMinSize": "string",
+                "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
               },
               "auditLog": {
                 "filter": "string"
-              }
+              },
+              "chunkSize": "string"
             }
           },
           "resources": {
@@ -3335,11 +3487,24 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 }
               },
               "setParameter": {
-                "auditAuthorizationSuccess": "boolean"
+                "auditAuthorizationSuccess": "boolean",
+                "readHedgingMode": "string",
+                "shardingTaskExecutorPoolMaxSize": "string",
+                "shardingTaskExecutorPoolMaxConnecting": "string",
+                "shardingTaskExecutorPoolMinSize": "string",
+                "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
               },
               "auditLog": {
                 "filter": "string"
-              }
+              },
+              "chunkSize": "string"
             },
             "userConfig": {
               "net": {
@@ -3351,11 +3516,24 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 }
               },
               "setParameter": {
-                "auditAuthorizationSuccess": "boolean"
+                "auditAuthorizationSuccess": "boolean",
+                "readHedgingMode": "string",
+                "shardingTaskExecutorPoolMaxSize": "string",
+                "shardingTaskExecutorPoolMaxConnecting": "string",
+                "shardingTaskExecutorPoolMinSize": "string",
+                "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
               },
               "auditLog": {
                 "filter": "string"
-              }
+              },
+              "chunkSize": "string"
             },
             "defaultConfig": {
               "net": {
@@ -3367,11 +3545,24 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
                 }
               },
               "setParameter": {
-                "auditAuthorizationSuccess": "boolean"
+                "auditAuthorizationSuccess": "boolean",
+                "readHedgingMode": "string",
+                "shardingTaskExecutorPoolMaxSize": "string",
+                "shardingTaskExecutorPoolMaxConnecting": "string",
+                "shardingTaskExecutorPoolMinSize": "string",
+                "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
               },
               "auditLog": {
                 "filter": "string"
-              }
+              },
+              "chunkSize": "string"
             }
           },
           "configMongocfg": {
@@ -3379,7 +3570,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   },
                   "indexConfig": {
                     "prefixCompression": "boolean"
@@ -3404,13 +3596,18 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
               },
               "auditLog": {
                 "filter": "string"
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
               }
             },
             "userConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   },
                   "indexConfig": {
                     "prefixCompression": "boolean"
@@ -3435,13 +3632,18 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
               },
               "auditLog": {
                 "filter": "string"
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
               }
             },
             "defaultConfig": {
               "storage": {
                 "wiredTiger": {
                   "engineConfig": {
-                    "cacheSizeGb": "number"
+                    "cacheSizeGb": "number",
+                    "cacheSize": "number"
                   },
                   "indexConfig": {
                     "prefixCompression": "boolean"
@@ -3466,6 +3668,10 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
               },
               "auditLog": {
                 "filter": "string"
+              },
+              "oplog": {
+                "maxSizePercent": "string",
+                "minRetentionHours": "number"
               }
             }
           },
@@ -3502,7 +3708,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
     "securityGroupIds": [
       "string"
     ],
-    "deletionProtection": "boolean"
+    "deletionProtection": "boolean",
+    "diskEncryptionKeyId": "string"
   }
   // end of the list of possible fields
 }
@@ -3701,6 +3908,9 @@ User security groups ||
 || deletionProtection | **boolean**
 
 Deletion Protection inhibits deletion of the cluster ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.mongodb.v1.Monitoring}
@@ -7552,6 +7762,9 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter)**
 
 `SetParameter` section of mongod configuration. ||
+|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog)**
+
+`Oplog` section of mongod configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage}
@@ -7590,6 +7803,9 @@ Index configuration for WiredTiger ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|| cacheSize | **number** (double)
+
+The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## CollectionConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig}
@@ -7742,6 +7958,57 @@ lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
 The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+|| flowControlTargetLagSeconds | **string** (int64)
+
+The target maximum majority committed lag when running with flow control ||
+|| flowControlWarnThresholdSeconds | **string** (int64)
+
+The amount of time to wait to log a warning once the flow control mechanism detects the majority commit point has not moved. ||
+|| migrateCloneInsertionBatchDelayMs | **string** (int64)
+
+Time in milliseconds to wait between batches of insertions during cloning step of the migration process. ||
+|| migrateCloneInsertionBatchSize | **string** (int64)
+
+The maximum number of documents to insert in a single batch during the cloning step of the migration process. ||
+|| orphanCleanupDelaySecs | **string** (int64)
+
+Minimum delay before a migrated chunk is deleted from the source shard. ||
+|| persistedChunkCacheUpdateMaxBatchSize | **string** (int64)
+
+Specifies the maximum batch size used for updating the persisted chunk cache. ||
+|| rangeDeleterBatchDelayMs | **string** (int64)
+
+The amount of time in milliseconds to wait before the next batch of deletion during the cleanup stage of chunk migration (or the cleanupOrphaned command). ||
+|| rangeDeleterBatchSize | **string** (int64)
+
+The maximum number of documents in each batch to delete during the cleanup stage of chunk migration (or the cleanupOrphaned command). ||
+|| mirrorReads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads)**
+
+Specifies the settings for mirrored reads for the mongod instance ||
+|#
+
+## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads}
+
+#|
+||Field | Description ||
+|| samplingRate | **number** (double)
+
+The sampling rate used to mirror a subset of operations that support mirroring to a subset of electable secondaries ||
+|| maxTimeMs | **string** (int64)
+
+The maximum time in milliseconds for the mirrored reads ||
+|#
+
+## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog}
+
+#|
+||Field | Description ||
+|| maxSizePercent | **string** (int64)
+
+Oplog maxsize in percents. ||
+|| minRetentionHours | **number** (double)
+
+The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoCfg}
@@ -7794,6 +8061,9 @@ Default mongocfg configuration for a MongoDB cluster. ||
 || auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog)**
 
 `AuditLog` section of mongocfg configuration. ||
+|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog)**
+
+`Oplog` section of mongod configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage}
@@ -7826,6 +8096,9 @@ Index configuration for WiredTiger. ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|| cacheSize | **number** (double)
+
+The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## IndexConfig {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.IndexConfig}
@@ -7911,6 +8184,18 @@ https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-para
 Audit filter, should be valid JSON object string ||
 |#
 
+## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog}
+
+#|
+||Field | Description ||
+|| maxSizePercent | **string** (int64)
+
+Oplog maxsize in percents. ||
+|| minRetentionHours | **number** (double)
+
+The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
+|#
+
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb.Mongos}
 
 #|
@@ -7955,6 +8240,9 @@ Network settings for mongos. ||
 || auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog)**
 
 `AuditLog` section of mongos configuration. ||
+|| chunkSize | **string** (int64)
+
+`ChunkSize` parameter of mongos configuration. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -7996,6 +8284,42 @@ MongoDB supports the following compressors:
 
 Enables the auditing of authorization successes
 https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|| readHedgingMode | **string**
+
+Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option. ||
+|| shardingTaskExecutorPoolMaxSize | **string** (int64)
+
+Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
+|| shardingTaskExecutorPoolMaxConnecting | **string** (int64)
+
+Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance. ||
+|| shardingTaskExecutorPoolMinSize | **string** (int64)
+
+Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
+|| shardingTaskExecutorPoolReplicaSetMatching | **string**
+
+On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets. ||
+|| shardingTaskExecutorPoolHostTimeoutMs | **string** (int64)
+
+Maximum time that mongos goes without communication to a host before mongos drops all connections to the host. ||
+|| shardingTaskExecutorPoolRefreshRequirementMs | **string** (int64)
+
+Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool. ||
+|| shardingTaskExecutorPoolRefreshTimeoutMs | **string** (int64)
+
+Maximum time the mongos waits for a heartbeat before timing out the heartbeat. ||
+|| warmMinConnectionsInShardingTaskExecutorPoolOnStartup | **boolean**
+
+Configures a mongos instance to prewarm its connection pool on startup. ||
+|| warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs | **string** (int64)
+
+Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter. ||
+|| shardingTaskExecutorPoolMaxSizeForConfigServers | **string** (int64)
+
+Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|| shardingTaskExecutorPoolMinSizeForConfigServers | **string** (int64)
+
+Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
 |#
 
 ## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog}

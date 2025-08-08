@@ -1,5 +1,97 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}:logs
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Elasticsearch cluster to request logs for.
+            To get the Elasticsearch cluster ID, make a [ClusterService.List](/docs/managed-elasticsearch/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        columnFilter:
+          description: |-
+            **string**
+            Columns from the logs table to request.
+            If no columns are specified, full log records are returned.
+          type: array
+          items:
+            type: string
+        fromTime:
+          description: |-
+            **string** (date-time)
+            Start timestamp for the logs request.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+        toTime:
+          description: |-
+            **string** (date-time)
+            End timestamp for the logs request.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#yandex.cloud.mdb.elasticsearch.v1.ListClusterLogsResponse) that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token.
+            To get the next page of results, set `page_token` to the [ListClusterLogsResponse.nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#yandex.cloud.mdb.elasticsearch.v1.ListClusterLogsResponse) returned by the previous list request.
+          type: string
+        alwaysNextPageToken:
+          description: |-
+            **boolean**
+            The flag that defines behavior of providing the next page token.
+            If this flag is set to `true`, this API method will always return [ListClusterLogsResponse.nextPageToken](/docs/managed-elasticsearch/api-ref/Cluster/listLogs#yandex.cloud.mdb.elasticsearch.v1.ListClusterLogsResponse), even if current page is empty.
+          type: boolean
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name to filter by. Currently filtering can be applied to the `hostname` field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
+            Example of a filter: `message.hostname='node1.db.cloud.yandex.net'`
+          type: string
+        serviceType:
+          description: |-
+            **enum** (ServiceType)
+            Type of the service to request logs about.
+            - `SERVICE_TYPE_UNSPECIFIED`
+            - `ELASTICSEARCH`
+            - `KIBANA`
+          type: string
+          enum:
+            - SERVICE_TYPE_UNSPECIFIED
+            - ELASTICSEARCH
+            - KIBANA
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/listLogs.md
 ---
 

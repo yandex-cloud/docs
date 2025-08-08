@@ -1,5 +1,68 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://connman.{{ api-host }}/v1/connections
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: '**string**'
+          type: string
+        mdbClusterId:
+          description: '**string**'
+          type: string
+        pageSize:
+          description: '**string** (int64)'
+          type: string
+          format: int64
+        pageToken:
+          description: '**string**'
+          type: string
+        namePatternOrId:
+          description: '**string**'
+          type: string
+        authorId:
+          description: '**string**'
+          type: string
+        withCanUse:
+          description: '**boolean**'
+          type: boolean
+        isOnpremise:
+          description: '**boolean**'
+          type: boolean
+        isManual:
+          description: '**boolean**'
+          type: boolean
+        dbType:
+          description: |-
+            **enum** (DBType)
+            - `DB_TYPE_UNSPECIFIED`
+            - `POSTGRESQL`
+            - `MYSQL`
+            - `CLICKHOUSE`
+            - `MONGODB`
+            - `REDIS`
+            - `OPENSEARCH`
+            - `TRINO`
+            - `VALKEY`
+            - `GREENPLUM`
+          type: string
+          enum:
+            - DB_TYPE_UNSPECIFIED
+            - POSTGRESQL
+            - MYSQL
+            - CLICKHOUSE
+            - MONGODB
+            - REDIS
+            - OPENSEARCH
+            - TRINO
+            - VALKEY
+            - GREENPLUM
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/connectionmanager/v1/api-ref/Connection/list.md
 ---
 

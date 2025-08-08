@@ -1,7 +1,28 @@
 ---
 editable: false
 apiPlayground:
-  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/extensions/{extensionId}","method":"delete","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. Required. ID of the cluster.","type":"string"},"extensionId":{"description":"**string**\n\nRequired field. Required. ID of the extension to delete.","type":"string"}},"required":["clusterId","extensionId"],"additionalProperties":false},"query":null,"body":null,"definitions":null}'
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/extensions/{extensionId}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. Required. ID of the cluster.
+          type: string
+        extensionId:
+          description: |-
+            **string**
+            Required field. Required. ID of the extension to delete.
+          type: string
+      required:
+        - clusterId
+        - extensionId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Extension/delete.md
 ---
 

@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-containers.{{ api-host }}/containers/v1/revisions/{containerRevisionId}
+    method: get
+    path:
+      type: object
+      properties:
+        containerRevisionId:
+          description: |-
+            **string**
+            Required field. ID of the revision to return.
+            To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless-containers/containers/api-ref/Container/listRevisions#ListRevisions) request.
+          type: string
+      required:
+        - containerRevisionId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/getRevision.md
 ---
 

@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        securityGroupId:
+          description: |-
+            **string**
+            Required field. ID of the Security Group resource to return.
+            To get the security group ID, use a [SecurityGroup.List] request.
+          type: string
+      required:
+        - securityGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/get.md
 ---
 

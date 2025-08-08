@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://mks.{{ api-host }}/managed-kubernetes/v1/nodeGroups/{nodeGroupId}
+    method: delete
+    path:
+      type: object
+      properties:
+        nodeGroupId:
+          description: |-
+            **string**
+            Required field. ID of the node group to delete.
+            To get node group ID use a [NodeGroupService.List](/docs/managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/list#List) request.
+          type: string
+      required:
+        - nodeGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/NodeGroup/delete.md
 ---
 

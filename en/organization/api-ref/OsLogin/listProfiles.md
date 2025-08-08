@@ -1,9 +1,43 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/osLoginProfiles
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+        pageSize:
+          description: '**string** (int64)'
+          type: string
+          format: int64
+        pageToken:
+          description: '**string**'
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters profiles listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering by subject_id, uid or login.
+            2. An `=` operator.
+            3. The value in double quotes (`"`).
+            E.g. login="example-login"
+          type: string
+      required:
+        - organizationId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/listProfiles.md
 ---
 
-# Cloud Organization API, REST: OsLogin.ListProfiles
+# Identity Hub API, REST: OsLogin.ListProfiles
 
 ## HTTP request
 

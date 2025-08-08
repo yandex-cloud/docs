@@ -24,4 +24,6 @@ A set of methods for managing NetworkLoadBalancer resources.
 || [AddListener](addListener.md) | Adds a listener to the specified network load balancer. ||
 || [RemoveListener](removeListener.md) | Removes the listener from the specified network load balancer. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified network load balancer. ||
+|| [DisableZones](disableZones.md) | Disable zones for the specified network load balancer. ||
+|| [EnableZones](enableZones.md) | Enable zones for the specified network load balancer. ||
 |#

@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/scans/{scanResultId}
+    method: get
+    path:
+      type: object
+      properties:
+        scanResultId:
+          description: |-
+            **string**
+            Required field. ID of the ScanResult to return.
+          type: string
+      required:
+        - scanResultId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/get.md
 ---
 

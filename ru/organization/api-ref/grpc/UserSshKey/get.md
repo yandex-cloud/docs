@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/UserSshKey/get.md
 ---
 
-# Cloud Organization API, gRPC: UserSshKeyService.Get
+# Identity Hub API, gRPC: UserSshKeyService.Get
 
 ## gRPC request
 

@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/databases/{databaseName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the ClickHouse cluster that the database belongs to.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+          type: string
+        databaseName:
+          description: |-
+            **string**
+            Required field. Name of the ClickHouse Database resource to return.
+            To get the name of the database, use a [DatabaseService.List](/docs/managed-clickhouse/api-ref/Database/list#List) request.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - databaseName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Database/get.md
 ---
 
@@ -36,7 +62,8 @@ To get the name of the database, use a [DatabaseService.List](/docs/managed-clic
 ```json
 {
   "name": "string",
-  "clusterId": "string"
+  "clusterId": "string",
+  "engine": "string"
 }
 ```
 
@@ -51,4 +78,11 @@ Name of the database. ||
 || clusterId | **string**
 
 ID of the ClickHouse cluster that the database belongs to. ||
+|| engine | **enum** (DatabaseEngine)
+
+Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
+
+- `DATABASE_ENGINE_UNSPECIFIED`
+- `DATABASE_ENGINE_ATOMIC`
+- `DATABASE_ENGINE_REPLICATED` ||
 |#

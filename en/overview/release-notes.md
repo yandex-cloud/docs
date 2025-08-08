@@ -44,6 +44,7 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 
 * [{{ load-testing-full-name }}](../load-testing/release-notes.md)
 * [{{ mgl-full-name }}](../managed-gitlab/release-notes.md)
+* [{{ search-api-full-name }}](../search-api/release-notes/index.md)
 
 ## Serverless computing {#serverless}
 
@@ -74,6 +75,7 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 
 * [{{ ml-platform-full-name }}](../datasphere/release-notes.md)
 * [{{ foundation-models-full-name }}](../foundation-models/release-notes/index.md)
+* [{{ search-api-full-name }}](../search-api/release-notes/index.md)
 * {{ speechkit-full-name }}: [Speech recognition](../speechkit/release-notes-stt.md) and [synthesis](../speechkit/release-notes-tts.md)
 * [{{ sk-hybrid-full-name }}](../speechkit-hybrid/release-notes.md)
 * [{{ vision-full-name }}](../vision/release-notes.md)

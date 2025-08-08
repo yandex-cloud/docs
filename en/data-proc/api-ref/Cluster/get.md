@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Yandex Data Processing cluster.
+            To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/get.md
 ---
 
@@ -81,7 +99,8 @@ To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/Cluster
   ],
   "deletionProtection": "boolean",
   "logGroupId": "string",
-  "environment": "string"
+  "environment": "string",
+  "autoscalingServiceAccountId": "string"
 }
 ```
 
@@ -171,6 +190,9 @@ Environment of the cluster
 - `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`
 - `PRESTABLE` ||
+|| autoscalingServiceAccountId | **string**
+
+ID of service account for working with the Instance Groups service. ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}

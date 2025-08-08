@@ -1,11 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/playlists:batchDelete
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        channelId:
+          description: |-
+            **string**
+            Required field. ID of the channel containing the playlists to delete.
+          type: string
+        playlistIds:
+          description: |-
+            **string**
+            List of playlist IDs to delete.
+            All playlists must exist in the specified channel.
+          type: array
+          items:
+            type: string
+      required:
+        - channelId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Playlist/batchDelete.md
 ---
 
 # Video API, REST: Playlist.BatchDelete
 
-Batch delete playlists.
+Deletes multiple playlists in a specific channel in a single request.
+This is more efficient than making multiple Delete requests when removing several playlists.
 
 ## HTTP request
 
@@ -28,10 +54,11 @@ POST https://video.{{ api-host }}/video/v1/playlists:batchDelete
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel containing the playlists to delete. ||
 || playlistIds[] | **string**
 
-List of playlist IDs. ||
+List of playlist IDs to delete.
+All playlists must exist in the specified channel. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -123,7 +150,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || playlistIds[] | **string**
 
-List of playlist IDs. ||
+List of playlist IDs being deleted.
+This list can be used to track which playlists are included
+in the batch deletion operation. ||
 |#
 
 ## Status {#google.rpc.Status}

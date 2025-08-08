@@ -1,5 +1,43 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/devices:getByName
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the registry to get device.
+            To get a registry ID make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request.
+          type: string
+        deviceName:
+          description: |-
+            **string**
+            Required field. Name of the device to return.
+            To get a device name make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        deviceView:
+          description: |-
+            **enum** (DeviceView)
+            Specifies which parts of the device resource should be returned
+            in the response.
+            - `BASIC`: Server responses without monitoring data.
+            The default value.
+            - `FULL`: Server responses with monitoring data.
+          type: string
+          enum:
+            - BASIC
+            - FULL
+      required:
+        - registryId
+        - deviceName
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/getByName.md
 ---
 

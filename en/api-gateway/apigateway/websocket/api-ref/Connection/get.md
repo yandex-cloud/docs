@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://apigateway-connections.{{ api-host }}/apigateways/websocket/v1/connections/{connectionId}
+    method: get
+    path:
+      type: object
+      properties:
+        connectionId:
+          description: |-
+            **string**
+            Required field. ID of the connection to get.
+          type: string
+      required:
+        - connectionId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/apigateway/websocket/v1/apigateway/websocket/api-ref/Connection/get.md
 ---
 

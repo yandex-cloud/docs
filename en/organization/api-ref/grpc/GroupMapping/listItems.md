@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/GroupMapping/listItems.md
 ---
 
-# Cloud Organization API, gRPC: GroupMappingService.ListItems
+# Identity Hub API, gRPC: GroupMappingService.ListItems
 
 Returns all the group mappings items
 

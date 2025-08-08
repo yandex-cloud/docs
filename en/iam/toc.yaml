@@ -405,6 +405,32 @@ items:
                 href: api-ref/grpc/Key/delete.md
               - name: ListOperations
                 href: api-ref/grpc/Key/listOperations.md
+          - name: OAuthClientSecret
+            items:
+              - name: Overview
+                href: api-ref/grpc/OAuthClientSecret/index.md
+              - name: Get
+                href: api-ref/grpc/OAuthClientSecret/get.md
+              - name: List
+                href: api-ref/grpc/OAuthClientSecret/list.md
+              - name: Create
+                href: api-ref/grpc/OAuthClientSecret/create.md
+              - name: Delete
+                href: api-ref/grpc/OAuthClientSecret/delete.md
+          - name: OAuthClient
+            items:
+              - name: Overview
+                href: api-ref/grpc/OAuthClient/index.md
+              - name: Get
+                href: api-ref/grpc/OAuthClient/get.md
+              - name: List
+                href: api-ref/grpc/OAuthClient/list.md
+              - name: Create
+                href: api-ref/grpc/OAuthClient/create.md
+              - name: Update
+                href: api-ref/grpc/OAuthClient/update.md
+              - name: Delete
+                href: api-ref/grpc/OAuthClient/delete.md
           - name: Operation
             items:
               - name: Overview
@@ -627,6 +653,32 @@ items:
                 href: api-ref/Key/delete.md
               - name: ListOperations
                 href: api-ref/Key/listOperations.md
+          - name: OAuthClientSecret
+            items:
+              - name: Overview
+                href: api-ref/OAuthClientSecret/index.md
+              - name: Get
+                href: api-ref/OAuthClientSecret/get.md
+              - name: List
+                href: api-ref/OAuthClientSecret/list.md
+              - name: Create
+                href: api-ref/OAuthClientSecret/create.md
+              - name: Delete
+                href: api-ref/OAuthClientSecret/delete.md
+          - name: OAuthClient
+            items:
+              - name: Overview
+                href: api-ref/OAuthClient/index.md
+              - name: Get
+                href: api-ref/OAuthClient/get.md
+              - name: List
+                href: api-ref/OAuthClient/list.md
+              - name: Create
+                href: api-ref/OAuthClient/create.md
+              - name: Update
+                href: api-ref/OAuthClient/update.md
+              - name: Delete
+                href: api-ref/OAuthClient/delete.md
           - name: Operation
             items:
               - name: Overview

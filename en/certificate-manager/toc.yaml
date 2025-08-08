@@ -132,6 +132,8 @@ items:
                 href: api-ref/grpc/CertificateContent/index.md
               - name: Get
                 href: api-ref/grpc/CertificateContent/get.md
+              - name: GetEx
+                href: api-ref/grpc/CertificateContent/getEx.md
           - name: Certificate
             items:
               - name: Overview
@@ -313,6 +315,8 @@ items:
                 href: api-ref/CertificateContent/index.md
               - name: Get
                 href: api-ref/CertificateContent/get.md
+              - name: GetEx
+                href: api-ref/CertificateContent/getEx.md
           - name: Certificate
             items:
               - name: Overview

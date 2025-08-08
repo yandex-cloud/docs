@@ -1,5 +1,82 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshots
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a snapshot in.
+            To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        diskId:
+          description: |-
+            **string**
+            Required field. ID of the disk to create the snapshot from.
+            To get the disk ID use a [yandex.cloud.compute.v1.DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the snapshot.
+          pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the snapshot.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        hardwareGeneration:
+          description: |-
+            **[HardwareGeneration](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.HardwareGeneration)**
+            Specify the overrides to hardware_generation of a source disk, image or snapshot,
+            or to the default values if the source does not define it.
+          oneOf:
+            - type: object
+              properties:
+                legacyFeatures:
+                  description: |-
+                    **[LegacyHardwareFeatures](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
+                    Includes only one of the fields `legacyFeatures`, `generation2Features`.
+                  $ref: '#/definitions/LegacyHardwareFeatures'
+                generation2Features:
+                  description: |-
+                    **object**
+                    Includes only one of the fields `legacyFeatures`, `generation2Features`.
+                  $ref: '#/definitions/Generation2HardwareFeatures'
+      required:
+        - folderId
+        - diskId
+      additionalProperties: false
+    definitions:
+      LegacyHardwareFeatures:
+        type: object
+        properties:
+          pciTopology:
+            description: |-
+              **enum** (PCITopology)
+              - `PCI_TOPOLOGY_UNSPECIFIED`
+              - `PCI_TOPOLOGY_V1`
+              - `PCI_TOPOLOGY_V2`
+            type: string
+            enum:
+              - PCI_TOPOLOGY_UNSPECIFIED
+              - PCI_TOPOLOGY_V1
+              - PCI_TOPOLOGY_V2
+      Generation2HardwareFeatures:
+        type: object
+        properties: {}
 sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/create.md
 ---
 

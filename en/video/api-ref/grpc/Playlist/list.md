@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Playlist/list.md
 
 # Video API, gRPC: PlaylistService.List
 
-List playlists for a channel.
+Lists all playlists in a specific channel with pagination support.
+Results can be filtered and sorted using the provided parameters.
 
 ## gRPC request
 
@@ -27,34 +28,36 @@ List playlists for a channel.
 ||Field | Description ||
 || channel_id | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel containing the playlists to list. ||
 || page_size | **int64**
 
-The maximum number of the results per page to return.
-Default value: 100. ||
+The maximum number of playlists to return per page. ||
 || page_token | **string**
 
-Page token for getting the next page of the result. ||
+Page token for retrieving the next page of results.
+This token is obtained from the next_page_token field in the previous ListPlaylistsResponse. ||
 || order_by | **string**
 
-By which column the listing should be ordered and in which direction,
-format is "<field> <order>" (e.g. "createdAt desc").
+Specifies the ordering of results.
+Format is "<field> <order>" (e.g., "createdAt desc").
 Default: "id asc".
-Possible fields: ["id", "title", "createdAt", "updatedAt"].
-Both snake_case and camelCase are supported for fields. ||
+Supported fields: ["id", "title", "createdAt", "updatedAt"].
+Both snake_case and camelCase field names are supported. ||
 || filter | **string**
 
-Filter expression that filters resources listed in the response.
-Expressions are composed of terms connected by logic operators.
-If value contains spaces or quotes,
-it should be in quotes (`'` or `"`) with the inner quotes being backslash escaped.
+Filter expression to narrow down the list of returned playlists.
+Expressions consist of terms connected by logical operators.
+Values containing spaces or quotes must be enclosed in quotes (`'` or `"`)
+with inner quotes being backslash-escaped.
+
 Supported logical operators: ["AND", "OR"].
-Supported string match operators: ["=", "!=", ":"].
-Operator ":" stands for substring matching.
-Filter expressions may also contain parentheses to group logical operands.
-Example: `key1='value' AND (key2!='\'value\'' OR key2:"\"value\"")`
-Supported fields: ["id", "title"].
-Both snake_case and camelCase are supported for fields. ||
+Supported comparison operators: ["=", "!=", ":"] where ":" enables substring matching.
+Parentheses can be used to group logical expressions.
+
+Example: `title:'highlights' AND id='playlist-1'`
+
+Filterable fields: ["id", "title"].
+Both snake_case and camelCase field names are supported. ||
 |#
 
 ## ListPlaylistsResponse {#yandex.cloud.video.v1.ListPlaylistsResponse}
@@ -76,6 +79,7 @@ Both snake_case and camelCase are supported for fields. ||
           "position": "int64"
         }
       ],
+      "style_preset_id": "string",
       "created_at": "google.protobuf.Timestamp",
       "updated_at": "google.protobuf.Timestamp"
     }
@@ -88,56 +92,70 @@ Both snake_case and camelCase are supported for fields. ||
 ||Field | Description ||
 || playlists[] | **[Playlist](#yandex.cloud.video.v1.Playlist)**
 
-List of playlists for specific channel. ||
+List of playlists matching the request criteria.
+May be empty if no playlists match the criteria or if the channel has no playlists. ||
 || next_page_token | **string**
 
-Token for getting the next page. ||
+Token for retrieving the next page of results.
+Empty if there are no more results available. ||
 |#
 
 ## Playlist {#yandex.cloud.video.v1.Playlist}
 
-Entity representing an ordered list of videos or episodes.
+Entity representing an ordered collection of videos or episodes.
+Playlists allow organizing content into sequences for improved user experience.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the playlist. ||
+Unique identifier of the playlist. ||
 || channel_id | **string**
 
-ID of the channel to create the playlist in. ||
+Identifier of the channel where this playlist is created and managed. ||
 || title | **string**
 
-Playlist title. ||
+Title of the playlist displayed in interfaces and players. ||
 || description | **string**
 
-Playlist description. ||
+Detailed description of the playlist's content and purpose. ||
 || items[] | **[PlaylistItem](#yandex.cloud.video.v1.PlaylistItem)**
 
-List of playlist items. ||
+Ordered list of content items included in this playlist. ||
+|| style_preset_id | **string**
+
+Identifier of the style preset used in the player during playlist playback. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time when playlist was created. ||
+Timestamp when the playlist was initially created in the system. ||
 || updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time of last playlist update. ||
+Timestamp of the last modification to the playlist or its metadata. ||
 |#
 
 ## PlaylistItem {#yandex.cloud.video.v1.PlaylistItem}
+
+Represents a single item in a playlist.
+Each item references either a video or an episode and specifies its position in the sequence.
 
 #|
 ||Field | Description ||
 || video_id | **string**
 
-ID of the video.
+Identifier of a video included in the playlist.
 
-Includes only one of the fields `video_id`, `episode_id`. ||
+Includes only one of the fields `video_id`, `episode_id`.
+
+Specifies the content identifier type for this playlist item. ||
 || episode_id | **string**
 
-ID of the episode.
+Identifier of an episode included in the playlist.
 
-Includes only one of the fields `video_id`, `episode_id`. ||
+Includes only one of the fields `video_id`, `episode_id`.
+
+Specifies the content identifier type for this playlist item. ||
 || position | **int64**
 
-Item position (zero-indexed). ||
+Position of this item in the playlist sequence (zero-indexed).
+Determines the playback order of content in the playlist. ||
 |#

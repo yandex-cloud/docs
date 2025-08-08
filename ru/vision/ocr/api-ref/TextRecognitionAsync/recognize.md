@@ -1,5 +1,44 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ocr.{{ api-host }}/ocr/v1/recognizeTextAsync
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        content:
+          description: |-
+            **string** (bytes)
+            Bytes with data
+            Includes only one of the fields `content`.
+          type: string
+          format: bytes
+        mimeType:
+          description: |-
+            **string**
+            Specifications of the ([MIME type](https://en.wikipedia.org/wiki/Media_type)). Each specification contains the file to analyze and features to use for analysis. Restrictions:
+            * Supported file formats: `JPEG`, `PNG`, `PDF`.
+            * Maximum file size: see [documentation](/docs/vision/concepts/limits).
+            * Image size should not exceed 20M pixels (length x width).
+            * The number of pages in a PDF file should not exceed 1.
+          type: string
+        languageCodes:
+          description: |-
+            **string**
+            [List of the languages](/docs/vision/concepts/ocr/supported-languages) to recognize text.
+            Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `ru`).
+          type: array
+          items:
+            type: string
+        model:
+          description: |-
+            **string**
+            [Model](/docs/vision/concepts/ocr/template-recognition#models) to use for text detection.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/ai/ocr/v1/ocr/api-ref/TextRecognitionAsync/recognize.md
 ---
 

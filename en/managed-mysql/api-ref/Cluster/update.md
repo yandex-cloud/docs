@@ -1,5 +1,1700 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to update.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        description:
+          description: |-
+            **string**
+            New description of the cluster.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New set of custom labels for the cluster as `key:value` pairs.
+            This set will completely replace the current one.
+            To add a label, request the current label set with the [ClusterService.Get](/docs/managed-mysql/api-ref/Cluster/get#Get) request, then send an [ClusterService.Update](#Update) request with the new label added to the current set.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        configSpec:
+          description: |-
+            **[ConfigSpec](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.ConfigSpec)**
+            New configuration of the cluster.
+          oneOf:
+            - type: object
+              properties:
+                mysqlConfig_5_7:
+                  description: |-
+                    **`MysqlConfig5_7`**
+                    Configuration for a MySQL 5.7 cluster.
+                    Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`.
+                    Cluster-wide MySQL configuration.
+                  $ref: '#/definitions/MysqlConfig5_7'
+                mysqlConfig_8_0:
+                  description: |-
+                    **`MysqlConfig8_0`**
+                    Configuration for a MySQL 8.0 cluster.
+                    Includes only one of the fields `mysqlConfig_5_7`, `mysqlConfig_8_0`.
+                    Cluster-wide MySQL configuration.
+                  $ref: '#/definitions/MysqlConfig8_0'
+        name:
+          description: |-
+            **string**
+            New name of the cluster.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        maintenanceWindow:
+          description: |-
+            **[MaintenanceWindow](/docs/managed-mysql/api-ref/Cluster/get#yandex.cloud.mdb.mysql.v1.MaintenanceWindow)**
+            Configuration of a maintenance window in an MySQL cluster.
+          oneOf:
+            - type: object
+              properties:
+                anytime:
+                  description: |-
+                    **object**
+                    Maintenance operation can be scheduled anytime.
+                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+                    The maintenance policy in effect.
+                  $ref: '#/definitions/AnytimeMaintenanceWindow'
+                weeklyMaintenanceWindow:
+                  description: |-
+                    **[WeeklyMaintenanceWindow](/docs/managed-mysql/api-ref/Cluster/get#yandex.cloud.mdb.mysql.v1.WeeklyMaintenanceWindow)**
+                    Maintenance operation can be scheduled on a weekly basis.
+                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+                    The maintenance policy in effect.
+                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+        securityGroupIds:
+          description: |-
+            **string**
+            New list of security group IDs to apply to the cluster.
+          type: array
+          items:
+            type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            This option prevents unintended deletion of the cluster.
+          type: boolean
+        networkId:
+          description: |-
+            **string**
+            ID of the network to move the cluster to.
+          type: string
+      additionalProperties: false
+    definitions:
+      MysqlConfig5_7:
+        type: object
+        properties:
+          innodbBufferPoolSize:
+            description: |-
+              **string** (int64)
+              Size of the InnoDB buffer pool used for caching table and index data.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size) for details.
+            type: string
+            format: int64
+          maxConnections:
+            description: |-
+              **string** (int64)
+              The maximum permitted number of simultaneous client connections.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections) for details.
+            type: string
+            format: int64
+          longQueryTime:
+            description: |-
+              **number** (double)
+              Time that it takes to process a query before it is considered slow.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time) for details.
+            type: number
+            format: double
+          generalLog:
+            description: |-
+              **boolean**
+              Enable writing of general query log of MySQL.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log) for details.
+            type: boolean
+          auditLog:
+            description: |-
+              **boolean**
+              Enable writing of audit log of MySQL.
+              See [MySQL documentation](https://dev.mysql.com/doc/mysql-security-excerpt/5.7/en/audit-log-reference.html#audit-log-options-variables) for details.
+            type: boolean
+          sqlMode:
+            description: |-
+              **enum** (SQLMode)
+              Server SQL mode of MySQL.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting) for details.
+              - `SQLMODE_UNSPECIFIED`
+              - `ALLOW_INVALID_DATES`
+              - `ANSI_QUOTES`
+              - `ERROR_FOR_DIVISION_BY_ZERO`
+              - `HIGH_NOT_PRECEDENCE`
+              - `IGNORE_SPACE`
+              - `NO_AUTO_VALUE_ON_ZERO`
+              - `NO_BACKSLASH_ESCAPES`
+              - `NO_ENGINE_SUBSTITUTION`
+              - `NO_UNSIGNED_SUBTRACTION`
+              - `NO_ZERO_DATE`
+              - `NO_ZERO_IN_DATE`
+              - `NO_FIELD_OPTIONS`
+              - `NO_KEY_OPTIONS`
+              - `NO_TABLE_OPTIONS`
+              - `ONLY_FULL_GROUP_BY`
+              - `PAD_CHAR_TO_FULL_LENGTH`
+              - `PIPES_AS_CONCAT`
+              - `REAL_AS_FLOAT`
+              - `STRICT_ALL_TABLES`
+              - `STRICT_TRANS_TABLES`
+              - `ANSI`
+              - `TRADITIONAL`
+              - `DB2`
+              - `MAXDB`
+              - `MSSQL`
+              - `MYSQL323`
+              - `MYSQL40`
+              - `ORACLE`
+              - `POSTGRESQL`
+              - `NO_AUTO_CREATE_USER`
+              - `NO_DIR_IN_CREATE`
+            type: array
+            items:
+              type: string
+              enum:
+                - SQLMODE_UNSPECIFIED
+                - ALLOW_INVALID_DATES
+                - ANSI_QUOTES
+                - ERROR_FOR_DIVISION_BY_ZERO
+                - HIGH_NOT_PRECEDENCE
+                - IGNORE_SPACE
+                - NO_AUTO_VALUE_ON_ZERO
+                - NO_BACKSLASH_ESCAPES
+                - NO_ENGINE_SUBSTITUTION
+                - NO_UNSIGNED_SUBTRACTION
+                - NO_ZERO_DATE
+                - NO_ZERO_IN_DATE
+                - NO_FIELD_OPTIONS
+                - NO_KEY_OPTIONS
+                - NO_TABLE_OPTIONS
+                - ONLY_FULL_GROUP_BY
+                - PAD_CHAR_TO_FULL_LENGTH
+                - PIPES_AS_CONCAT
+                - REAL_AS_FLOAT
+                - STRICT_ALL_TABLES
+                - STRICT_TRANS_TABLES
+                - ANSI
+                - TRADITIONAL
+                - DB2
+                - MAXDB
+                - MSSQL
+                - MYSQL323
+                - MYSQL40
+                - ORACLE
+                - POSTGRESQL
+                - NO_AUTO_CREATE_USER
+                - NO_DIR_IN_CREATE
+          maxAllowedPacket:
+            description: |-
+              **string** (int64)
+              The maximum size in bytes of one packet.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet) for details.
+            type: string
+            format: int64
+          defaultAuthenticationPlugin:
+            description: |-
+              **enum** (AuthPlugin)
+              Authentication plugin used in the managed MySQL cluster.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_default_authentication_plugin) for details.
+              - `AUTH_PLUGIN_UNSPECIFIED`
+              - `MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
+              - `CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
+              - `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
+              - `MYSQL_NO_LOGIN`: Use [MYSQL_NO_LOGIN Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/no-login-pluggable-authentication.html).
+              - `MDB_IAMPROXY_AUTH`: Use [IAM Pluggable Authentication](https://yandex.cloud/en/docs/iam/concepts/authorization/).
+            type: string
+            enum:
+              - AUTH_PLUGIN_UNSPECIFIED
+              - MYSQL_NATIVE_PASSWORD
+              - CACHING_SHA2_PASSWORD
+              - SHA256_PASSWORD
+              - MYSQL_NO_LOGIN
+              - MDB_IAMPROXY_AUTH
+          innodbFlushLogAtTrxCommit:
+            description: |-
+              **string** (int64)
+              Transaction log flush behaviour.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit) for details.
+            type: string
+            format: int64
+          innodbLockWaitTimeout:
+            description: |-
+              **string** (int64)
+              Max time in seconds for a transaction to wait for a row lock.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout) for details.
+            type: string
+            format: int64
+          transactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              Default transaction isolation level.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_transaction_isolation) for details.
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `READ_COMMITTED`
+              - `REPEATABLE_READ`
+              - `SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - READ_COMMITTED
+              - REPEATABLE_READ
+              - SERIALIZABLE
+          innodbPrintAllDeadlocks:
+            description: |-
+              **boolean**
+              Print information about deadlocks in error log.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_print_all_deadlocks) for details.
+            type: boolean
+          netReadTimeout:
+            description: |-
+              **string** (int64)
+              The number of seconds to wait for more data from a connection before aborting the read.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_read_timeout) for details.
+            type: string
+            format: int64
+          netWriteTimeout:
+            description: |-
+              **string** (int64)
+              The number of seconds to wait for a block to be written to a connection before aborting the write.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_write_timeout) for details.
+            type: string
+            format: int64
+          groupConcatMaxLen:
+            description: |-
+              **string** (int64)
+              The maximum permitted result length in bytes for the GROUP_CONCAT() function.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_group_concat_max_len) for details.
+            type: string
+            format: int64
+          tmpTableSize:
+            description: |-
+              **string** (int64)
+              The maximum size of internal in-memory temporary tables.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) for details.
+            type: string
+            format: int64
+          maxHeapTableSize:
+            description: |-
+              **string** (int64)
+              This variable sets the maximum size to which user-created MEMORY tables are permitted to grow.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) for details.
+            type: string
+            format: int64
+          defaultTimeZone:
+            description: |-
+              **string**
+              The servers default time zone.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-options.html#option_mysqld_default-time-zone) for details.
+            type: string
+          characterSetServer:
+            description: |-
+              **string**
+              The servers default character set.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_server) for details.
+            type: string
+          collationServer:
+            description: |-
+              **string**
+              The server default collation.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_collation_server) for details.
+            type: string
+          innodbAdaptiveHashIndex:
+            description: |-
+              **boolean**
+              Enables InnoDB adaptive hash index.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index) for details.
+            type: boolean
+          innodbNumaInterleave:
+            description: |-
+              **boolean**
+              Enables the NUMA interleave memory policy for allocation of the InnoDB buffer pool.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_numa_interleave) for details.
+            type: boolean
+          innodbLogBufferSize:
+            description: |-
+              **string** (int64)
+              The size in bytes of the buffer that InnoDB uses to write to the log files on disk.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_buffer_size) for details.
+            type: string
+            format: int64
+          innodbLogFileSize:
+            description: |-
+              **string** (int64)
+              The size in bytes of the single InnoDB Redo log file.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_file_size) for details.
+            type: string
+            format: int64
+          innodbIoCapacity:
+            description: |-
+              **string** (int64)
+              Limits IO available for InnoDB background tasks.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_io_capacity) for details.
+            type: string
+            format: int64
+          innodbIoCapacityMax:
+            description: |-
+              **string** (int64)
+              Limits IO available for InnoDB background tasks.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_io_capacity_max) for details.
+            type: string
+            format: int64
+          innodbReadIoThreads:
+            description: |-
+              **string** (int64)
+              The number of I/O threads for read operations in InnoDB.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_read_io_threads) for details.
+            type: string
+            format: int64
+          innodbWriteIoThreads:
+            description: |-
+              **string** (int64)
+              The number of I/O threads for write operations in InnoDB.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_write_io_threads) for details.
+            type: string
+            format: int64
+          innodbPurgeThreads:
+            description: |-
+              **string** (int64)
+              The number of background threads devoted to the InnoDB purge operation.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_purge_threads) for details.
+            type: string
+            format: int64
+          innodbThreadConcurrency:
+            description: |-
+              **string** (int64)
+              Defines the maximum number of threads permitted inside of InnoDB.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_thread_concurrency) for details.
+            type: string
+            format: int64
+          innodbTempDataFileMaxSize:
+            description: |-
+              **string** (int64)
+              Limits the max size of InnoDB temp tablespace.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_temp_data_file_path) for details.
+            type: string
+            format: int64
+          threadCacheSize:
+            description: |-
+              **string** (int64)
+              A number of threads the server should cache for reuse.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_thread_cache_size) for details.
+            type: string
+            format: int64
+          threadStack:
+            description: |-
+              **string** (int64)
+              The stack size for each thread. The default is large enough for normal operation.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_thread_stack) for details.
+            type: string
+            format: int64
+          joinBufferSize:
+            description: |-
+              **string** (int64)
+              The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) for details.
+            type: string
+            format: int64
+          sortBufferSize:
+            description: |-
+              **string** (int64)
+              Each session that must perform a sort allocates a buffer of this size.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) for details.
+            type: string
+            format: int64
+          tableDefinitionCache:
+            description: |-
+              **string** (int64)
+              The number of table definitions that can be stored in the definition cache.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_table_definition_cache) for details.
+            type: string
+            format: int64
+          tableOpenCache:
+            description: |-
+              **string** (int64)
+              The number of open tables for all threads.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_table_open_cache) for details.
+            type: string
+            format: int64
+          tableOpenCacheInstances:
+            description: |-
+              **string** (int64)
+              The number of open tables cache instances.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_table_open_cache_instances) for details.
+            type: string
+            format: int64
+          explicitDefaultsForTimestamp:
+            description: |-
+              **boolean**
+              Determines whether the server enables certain nonstandard behaviors for default values and NULL-value handling in TIMESTAMP columns.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp) for details.
+            type: boolean
+          autoIncrementIncrement:
+            description: |-
+              **string** (int64)
+              Can be used to control the operation of AUTO_INCREMENT columns.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-source.html#sysvar_auto_increment_increment) for details.
+            type: string
+            format: int64
+          autoIncrementOffset:
+            description: |-
+              **string** (int64)
+              Can be used to control the operation of AUTO_INCREMENT columns.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-source.html#sysvar_auto_increment_offset) for details.
+            type: string
+            format: int64
+          syncBinlog:
+            description: |-
+              **string** (int64)
+              Controls how often the MySQL server synchronizes the binary log to disk.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_sync_binlog) for details.
+            type: string
+            format: int64
+          binlogCacheSize:
+            description: |-
+              **string** (int64)
+              The size of the cache to hold changes to the binary log during a transaction.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_cache_size) for details.
+            type: string
+            format: int64
+          binlogGroupCommitSyncDelay:
+            description: |-
+              **string** (int64)
+              Controls how many microseconds the binary log commit waits before synchronizing the binary log file to disk.
+              See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay) for details.
+            type: string
+            format: int64
+          binlogRowImage:
+            description: |-
+              **enum** (BinlogRowImage)
+              For MySQL row-based replication, this variable determines how row images are written to the binary log.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image) for details.
+              - `BINLOG_ROW_IMAGE_UNSPECIFIED`
+              - `FULL`
+              - `MINIMAL`
+              - `NOBLOB`
+            type: string
+            enum:
+              - BINLOG_ROW_IMAGE_UNSPECIFIED
+              - FULL
+              - MINIMAL
+              - NOBLOB
+          binlogRowsQueryLogEvents:
+            description: |-
+              **boolean**
+              When enabled, it causes the server to write informational log events such as row query log events into its binary log.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_rows_query_log_events) for details.
+            type: boolean
+          rplSemiSyncMasterWaitForSlaveCount:
+            description: |-
+              **string** (int64)
+              The number of replica acknowledgments the source must receive per transaction before proceeding.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-source.html#sysvar_rpl_semi_sync_master_wait_for_slave_count) for details.
+            type: string
+            format: int64
+          slaveParallelType:
+            description: |-
+              **enum** (SlaveParallelType)
+              When using a multi-threaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_parallel_type) for details.
+              - `SLAVE_PARALLEL_TYPE_UNSPECIFIED`
+              - `DATABASE`
+              - `LOGICAL_CLOCK`
+            type: string
+            enum:
+              - SLAVE_PARALLEL_TYPE_UNSPECIFIED
+              - DATABASE
+              - LOGICAL_CLOCK
+          slaveParallelWorkers:
+            description: |-
+              **string** (int64)
+              Sets the number of applier threads for executing replication transactions in parallel.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_parallel_workers) for details.
+            type: string
+            format: int64
+          mdbPreserveBinlogBytes:
+            description: |-
+              **string** (int64)
+              The size of the binary log to hold.
+            type: string
+            format: int64
+          interactiveTimeout:
+            description: |-
+              **string** (int64)
+              The number of seconds the server waits for activity on an interactive connection before closing it.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_interactive_timeout) for details.
+            type: string
+            format: int64
+          waitTimeout:
+            description: |-
+              **string** (int64)
+              The number of seconds the server waits for activity on a noninteractive connection before closing it.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_wait_timeout) for details.
+            type: string
+            format: int64
+          mdbOfflineModeEnableLag:
+            description: |-
+              **string** (int64)
+              Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
+            type: string
+            format: int64
+          mdbOfflineModeDisableLag:
+            description: |-
+              **string** (int64)
+              Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
+              Should be less than mdb_offline_mode_enable_lag value.
+            type: string
+            format: int64
+          rangeOptimizerMaxMemSize:
+            description: |-
+              **string** (int64)
+              The limit on memory consumption for the range optimizer.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size) for details.
+            type: string
+            format: int64
+          slowQueryLog:
+            description: |-
+              **boolean**
+              Manages slow query log.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log) for details.
+            type: boolean
+          slowQueryLogAlwaysWriteTime:
+            description: |-
+              **number** (double)
+              Query execution time, after which query to be logged unconditionally, that is, `log_slow_rate_limit`` will not apply to it.
+              See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time) for details.
+            type: number
+            format: double
+          logSlowRateType:
+            description: |-
+              **enum** (LogSlowRateType)
+              Specifies slow log granularity for `log_slow_rate_limit` values QUERY or SESSION.
+              See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type) for details.
+              - `LOG_SLOW_RATE_TYPE_UNSPECIFIED`
+              - `SESSION`
+              - `QUERY`
+            type: string
+            enum:
+              - LOG_SLOW_RATE_TYPE_UNSPECIFIED
+              - SESSION
+              - QUERY
+          logSlowRateLimit:
+            description: |-
+              **string** (int64)
+              Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
+              See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit) for details.
+            type: string
+            format: int64
+          logSlowSpStatements:
+            description: |-
+              **boolean**
+              When TRUE, statements executed by stored procedures are logged to the slow log.
+              See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements) for details.
+            type: boolean
+          logSlowFilter:
+            description: |-
+              **enum** (LogSlowFilterType)
+              Filters the slow log by the query's execution plan.
+              See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter) for details.
+              - `LOG_SLOW_FILTER_TYPE_UNSPECIFIED`
+              - `FULL_SCAN`
+              - `FULL_JOIN`
+              - `TMP_TABLE`
+              - `TMP_TABLE_ON_DISK`
+              - `FILESORT`
+              - `FILESORT_ON_DISK`
+            type: array
+            items:
+              type: string
+              enum:
+                - LOG_SLOW_FILTER_TYPE_UNSPECIFIED
+                - FULL_SCAN
+                - FULL_JOIN
+                - TMP_TABLE
+                - TMP_TABLE_ON_DISK
+                - FILESORT
+                - FILESORT_ON_DISK
+          mdbPriorityChoiceMaxLag:
+            description: |-
+              **string** (int64)
+              Replication lag threshold (seconds) which allows replica to be promoted to master while executing "switchover from".
+              Should be less than mdb_offline_mode_disable_lag.
+            type: string
+            format: int64
+          innodbPageSize:
+            description: |-
+              **string** (int64)
+              Specifies the page size for InnoDB tablespaces.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_page_size).
+            type: string
+            format: int64
+          innodbOnlineAlterLogMaxSize:
+            description: |-
+              **string** (int64)
+              The limit in bytes on the size of the temporary log files used during online DDL operations
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size).
+            type: string
+            format: int64
+          innodbFtMinTokenSize:
+            description: |-
+              **string** (int64)
+              Minimum length of words that are stored in an InnoDB FULLTEXT index
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size).
+            type: string
+            format: int64
+          innodbFtMaxTokenSize:
+            description: |-
+              **string** (int64)
+              Maximum length of words that are stored in an InnoDB FULLTEXT index
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
+            type: string
+            format: int64
+          lowerCaseTableNames:
+            description: |-
+              **string** (int64)
+              Table names storage and comparison strategy
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names).
+            type: string
+            format: int64
+          showCompatibility_56:
+            description: |-
+              **boolean**
+              Manages MySQL 5.6 compatibility
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56).
+            type: boolean
+          maxSpRecursionDepth:
+            description: |-
+              **string** (int64)
+              The number of times that any given stored procedure may be called recursively.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
+            type: string
+            format: int64
+          innodbCompressionLevel:
+            description: |-
+              **string** (int64)
+              The level of zlib compression to use for InnoDB compressed tables and indexes.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_compression_level).
+            type: string
+            format: int64
+          binlogTransactionDependencyTracking:
+            description: |-
+              **enum** (BinlogTransactionDependencyTracking)
+              Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
+              - `BINLOG_TRANSACTION_DEPENDENCY_TRACKING_UNSPECIFIED`
+              - `COMMIT_ORDER`
+              - `WRITESET`
+              - `WRITESET_SESSION`
+            type: string
+            enum:
+              - BINLOG_TRANSACTION_DEPENDENCY_TRACKING_UNSPECIFIED
+              - COMMIT_ORDER
+              - WRITESET
+              - WRITESET_SESSION
+          autocommit:
+            description: |-
+              **boolean**
+              Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_autocommit).
+            type: boolean
+          innodbStatusOutput:
+            description: |-
+              **boolean**
+              Enables or disables periodic output for the standard InnoDB Monitor.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_status_output).
+            type: boolean
+          innodbStrictMode:
+            description: |-
+              **boolean**
+              When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_strict_mode).
+            type: boolean
+          innodbPrintLockWaitTimeoutInfo:
+            description: |-
+              **boolean**
+              Makes InnoDB to write information about all lock wait timeout errors into the log file.
+              For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/5.7/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info).
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **string** (int64)
+              System variable specifies the verbosity for handling events intended for the error log
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_log_error_verbosity).
+            type: string
+            format: int64
+          maxDigestLength:
+            description: |-
+              **string** (int64)
+              The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_digest_length).
+            type: string
+            format: int64
+          queryCacheLimit:
+            description: |-
+              **string** (int64)
+              Do not cache results that are larger than this number of bytes.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_limit).
+            type: string
+            format: int64
+          queryCacheSize:
+            description: |-
+              **string** (int64)
+              The amount of memory allocated for caching query results.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size).
+            type: string
+            format: int64
+          queryCacheType:
+            description: |-
+              **string** (int64)
+              Set the query cache type.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_type).
+            type: string
+            format: int64
+          lockWaitTimeout:
+            description: |-
+              **string** (int64)
+              This variable specifies the timeout in seconds for attempts to acquire metadata locks
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lock_wait_timeout).
+            type: string
+            format: int64
+          maxPreparedStmtCount:
+            description: |-
+              **string** (int64)
+              This variable limits the total number of prepared statements in the server.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
+            type: string
+            format: int64
+          optimizerSwitch:
+            description: |-
+              **string**
+              The system variable enables control over optimizer behavior.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch)
+              https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html
+            type: string
+          optimizerSearchDepth:
+            description: |-
+              **string** (int64)
+              The maximum depth of search performed by the query optimizer
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)
+            type: string
+            format: int64
+          queryResponseTimeStats:
+            description: |-
+              **boolean**
+              Enables and disables collection of query times
+              For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html#query_response_time_stats).
+            type: boolean
+          userstat:
+            description: |-
+              **boolean**
+              Enables or disables collection of statistics
+              For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/5.7/diagnostics/user_stats.html#userstat).
+            type: boolean
+          maxExecutionTime:
+            description: |-
+              **string** (int64)
+              The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_execution_time)
+            type: string
+            format: int64
+          auditLogPolicy:
+            description: |-
+              **enum** (AuditLogPolicy)
+              The policy controlling how the audit log plugin writes events to its log file
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/audit-log-reference.html#sysvar_audit_log_policy)
+              - `AUDIT_LOG_POLICY_UNSPECIFIED`
+              - `ALL`
+              - `LOGINS`
+              - `QUERIES`
+              - `NONE`
+            type: string
+            enum:
+              - AUDIT_LOG_POLICY_UNSPECIFIED
+              - ALL
+              - LOGINS
+              - QUERIES
+              - NONE
+          innodbLruScanDepth:
+            description: |-
+              **string** (int64)
+              A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth)
+            type: string
+            format: int64
+          mdbForceSsl:
+            description: |-
+              **boolean**
+              Force ssl on all hosts (require_secure_transport)
+            type: boolean
+          innodbChangeBuffering:
+            description: |-
+              **enum** (InnodbChangeBuffering)
+              An optimization for change buffering
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_change_buffering).
+              - `INNODB_CHANGE_BUFFERING_UNSPECIFIED`
+              - `INNODB_CHANGE_BUFFERING_NONE`
+              - `INNODB_CHANGE_BUFFERING_INSERTS`
+              - `INNODB_CHANGE_BUFFERING_DELETES`
+              - `INNODB_CHANGE_BUFFERING_CHANGES`
+              - `INNODB_CHANGE_BUFFERING_PURGES`
+              - `INNODB_CHANGE_BUFFERING_ALL`
+            type: string
+            enum:
+              - INNODB_CHANGE_BUFFERING_UNSPECIFIED
+              - INNODB_CHANGE_BUFFERING_NONE
+              - INNODB_CHANGE_BUFFERING_INSERTS
+              - INNODB_CHANGE_BUFFERING_DELETES
+              - INNODB_CHANGE_BUFFERING_CHANGES
+              - INNODB_CHANGE_BUFFERING_PURGES
+              - INNODB_CHANGE_BUFFERING_ALL
+          maxWriteLockCount:
+            description: |-
+              **string** (int64)
+              Permit some pending read lock requests interval
+              P.S. Should be UInt64, but java fails to handle UInt64 limits
+              For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_write_lock_count).
+            type: string
+            format: int64
+      MysqlConfig8_0:
+        type: object
+        properties:
+          innodbBufferPoolSize:
+            description: |-
+              **string** (int64)
+              Size of the InnoDB buffer pool used for caching table and index data.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size) for details.
+            type: string
+            format: int64
+          maxConnections:
+            description: |-
+              **string** (int64)
+              The maximum permitted number of simultaneous client connections.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections) for details.
+            type: string
+            format: int64
+          longQueryTime:
+            description: |-
+              **number** (double)
+              Time that it takes to process a query before it is considered slow.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time) for details.
+            type: number
+            format: double
+          generalLog:
+            description: |-
+              **boolean**
+              Enable writing of general query log of MySQL.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_general_log) for details.
+            type: boolean
+          auditLog:
+            description: |-
+              **boolean**
+              Enable writing of audit log of MySQL.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables) for details.
+            type: boolean
+          sqlMode:
+            description: |-
+              **enum** (SQLMode)
+              Server SQL mode of MySQL.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting) for details.
+              - `SQLMODE_UNSPECIFIED`
+              - `ALLOW_INVALID_DATES`
+              - `ANSI_QUOTES`
+              - `ERROR_FOR_DIVISION_BY_ZERO`
+              - `HIGH_NOT_PRECEDENCE`
+              - `IGNORE_SPACE`
+              - `NO_AUTO_VALUE_ON_ZERO`
+              - `NO_BACKSLASH_ESCAPES`
+              - `NO_ENGINE_SUBSTITUTION`
+              - `NO_UNSIGNED_SUBTRACTION`
+              - `NO_ZERO_DATE`
+              - `NO_ZERO_IN_DATE`
+              - `NO_FIELD_OPTIONS`
+              - `NO_KEY_OPTIONS`
+              - `NO_TABLE_OPTIONS`
+              - `ONLY_FULL_GROUP_BY`
+              - `PAD_CHAR_TO_FULL_LENGTH`
+              - `PIPES_AS_CONCAT`
+              - `REAL_AS_FLOAT`
+              - `STRICT_ALL_TABLES`
+              - `STRICT_TRANS_TABLES`
+              - `ANSI`
+              - `TRADITIONAL`
+              - `DB2`
+              - `MAXDB`
+              - `MSSQL`
+              - `MYSQL323`
+              - `MYSQL40`
+              - `ORACLE`
+              - `POSTGRESQL`
+              - `NO_AUTO_CREATE_USER`
+              - `NO_DIR_IN_CREATE`
+            type: array
+            items:
+              type: string
+              enum:
+                - SQLMODE_UNSPECIFIED
+                - ALLOW_INVALID_DATES
+                - ANSI_QUOTES
+                - ERROR_FOR_DIVISION_BY_ZERO
+                - HIGH_NOT_PRECEDENCE
+                - IGNORE_SPACE
+                - NO_AUTO_VALUE_ON_ZERO
+                - NO_BACKSLASH_ESCAPES
+                - NO_ENGINE_SUBSTITUTION
+                - NO_UNSIGNED_SUBTRACTION
+                - NO_ZERO_DATE
+                - NO_ZERO_IN_DATE
+                - NO_FIELD_OPTIONS
+                - NO_KEY_OPTIONS
+                - NO_TABLE_OPTIONS
+                - ONLY_FULL_GROUP_BY
+                - PAD_CHAR_TO_FULL_LENGTH
+                - PIPES_AS_CONCAT
+                - REAL_AS_FLOAT
+                - STRICT_ALL_TABLES
+                - STRICT_TRANS_TABLES
+                - ANSI
+                - TRADITIONAL
+                - DB2
+                - MAXDB
+                - MSSQL
+                - MYSQL323
+                - MYSQL40
+                - ORACLE
+                - POSTGRESQL
+                - NO_AUTO_CREATE_USER
+                - NO_DIR_IN_CREATE
+          maxAllowedPacket:
+            description: |-
+              **string** (int64)
+              The maximum size in bytes of one packet.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) for details.
+            type: string
+            format: int64
+          defaultAuthenticationPlugin:
+            description: |-
+              **enum** (AuthPlugin)
+              Authentication plugin used in the managed MySQL cluster.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_authentication_plugin) for details.
+              - `AUTH_PLUGIN_UNSPECIFIED`
+              - `MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
+              - `CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
+              - `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
+              - `MYSQL_NO_LOGIN`: Use [MYSQL_NO_LOGIN Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/no-login-pluggable-authentication.html).
+              - `MDB_IAMPROXY_AUTH`: Use [IAM Pluggable Authentication](https://yandex.cloud/en/docs/iam/concepts/authorization/).
+            type: string
+            enum:
+              - AUTH_PLUGIN_UNSPECIFIED
+              - MYSQL_NATIVE_PASSWORD
+              - CACHING_SHA2_PASSWORD
+              - SHA256_PASSWORD
+              - MYSQL_NO_LOGIN
+              - MDB_IAMPROXY_AUTH
+          innodbFlushLogAtTrxCommit:
+            description: |-
+              **string** (int64)
+              Transaction log flush behaviour.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit) for details.
+            type: string
+            format: int64
+          innodbLockWaitTimeout:
+            description: |-
+              **string** (int64)
+              Max time in seconds for a transaction to wait for a row lock.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout) for details.
+            type: string
+            format: int64
+          transactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              Default transaction isolation level.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_isolation) for details.
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `READ_COMMITTED`
+              - `REPEATABLE_READ`
+              - `SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - READ_COMMITTED
+              - REPEATABLE_READ
+              - SERIALIZABLE
+          innodbPrintAllDeadlocks:
+            description: |-
+              **boolean**
+              Print information about deadlocks in error log.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_print_all_deadlocks) for details.
+            type: boolean
+          netReadTimeout:
+            description: |-
+              **string** (int64)
+              The number of seconds to wait for more data from a connection before aborting the read.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_net_read_timeout) for details.
+            type: string
+            format: int64
+          netWriteTimeout:
+            description: |-
+              **string** (int64)
+              The number of seconds to wait for a block to be written to a connection before aborting the write.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_net_write_timeout) for details.
+            type: string
+            format: int64
+          groupConcatMaxLen:
+            description: |-
+              **string** (int64)
+              The maximum permitted result length in bytes for the GROUP_CONCAT() function.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_group_concat_max_len) for details.
+            type: string
+            format: int64
+          tmpTableSize:
+            description: |-
+              **string** (int64)
+              The maximum size of internal in-memory temporary tables.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size) for details.
+            type: string
+            format: int64
+          maxHeapTableSize:
+            description: |-
+              **string** (int64)
+              This variable sets the maximum size to which user-created MEMORY tables are permitted to grow.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size) for details.
+            type: string
+            format: int64
+          defaultTimeZone:
+            description: |-
+              **string**
+              The servers default time zone.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-options.html#option_mysqld_default-time-zone) for details.
+            type: string
+          characterSetServer:
+            description: |-
+              **string**
+              The servers default character set.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_character_set_server) for details.
+            type: string
+          collationServer:
+            description: |-
+              **string**
+              The server default collation.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_collation_server) for details.
+            type: string
+          innodbAdaptiveHashIndex:
+            description: |-
+              **boolean**
+              Enables InnoDB adaptive hash index.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index) for details.
+            type: boolean
+          innodbNumaInterleave:
+            description: |-
+              **boolean**
+              Enables the NUMA interleave memory policy for allocation of the InnoDB buffer pool.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_numa_interleave) for details.
+            type: boolean
+          innodbLogBufferSize:
+            description: |-
+              **string** (int64)
+              The size in bytes of the buffer that InnoDB uses to write to the log files on disk.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_buffer_size) for details.
+            type: string
+            format: int64
+          innodbLogFileSize:
+            description: |-
+              **string** (int64)
+              The size in bytes of the single InnoDB Redo log file.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) for details.
+            type: string
+            format: int64
+          innodbIoCapacity:
+            description: |-
+              **string** (int64)
+              Limits IO available for InnoDB background tasks.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_io_capacity) for details.
+            type: string
+            format: int64
+          innodbIoCapacityMax:
+            description: |-
+              **string** (int64)
+              Limits IO available for InnoDB background tasks.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_io_capacity_max) for details.
+            type: string
+            format: int64
+          innodbReadIoThreads:
+            description: |-
+              **string** (int64)
+              The number of I/O threads for read operations in InnoDB.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_read_io_threads) for details.
+            type: string
+            format: int64
+          innodbWriteIoThreads:
+            description: |-
+              **string** (int64)
+              The number of I/O threads for write operations in InnoDB.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_write_io_threads) for details.
+            type: string
+            format: int64
+          innodbPurgeThreads:
+            description: |-
+              **string** (int64)
+              The number of background threads devoted to the InnoDB purge operation.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_purge_threads) for details.
+            type: string
+            format: int64
+          innodbThreadConcurrency:
+            description: |-
+              **string** (int64)
+              Defines the maximum number of threads permitted inside of InnoDB.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_thread_concurrency) for details.
+            type: string
+            format: int64
+          innodbTempDataFileMaxSize:
+            description: |-
+              **string** (int64)
+              Limits the max size of InnoDB temp tablespace.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_temp_data_file_path) for details.
+            type: string
+            format: int64
+          threadCacheSize:
+            description: |-
+              **string** (int64)
+              How many threads the server should cache for reuse.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_thread_cache_size) for details.
+            type: string
+            format: int64
+          threadStack:
+            description: |-
+              **string** (int64)
+              The stack size for each thread. The default is large enough for normal operation.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_thread_stack) for details.
+            type: string
+            format: int64
+          joinBufferSize:
+            description: |-
+              **string** (int64)
+              The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_join_buffer_size) for details.
+            type: string
+            format: int64
+          sortBufferSize:
+            description: |-
+              **string** (int64)
+              Each session that must perform a sort allocates a buffer of this size.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sort_buffer_size) for details.
+            type: string
+            format: int64
+          tableDefinitionCache:
+            description: |-
+              **string** (int64)
+              The number of table definitions that can be stored in the definition cache.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_table_definition_cache) for details.
+            type: string
+            format: int64
+          tableOpenCache:
+            description: |-
+              **string** (int64)
+              The number of open tables for all threads.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_table_open_cache) for details.
+            type: string
+            format: int64
+          tableOpenCacheInstances:
+            description: |-
+              **string** (int64)
+              The number of open tables cache instances.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_table_open_cache_instances) for details.
+            type: string
+            format: int64
+          explicitDefaultsForTimestamp:
+            description: |-
+              **boolean**
+              Determines whether the server enables certain nonstandard behaviors for default values and NULL-value handling in TIMESTAMP columns.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp) for details.
+            type: boolean
+          autoIncrementIncrement:
+            description: |-
+              **string** (int64)
+              Can be used to control the operation of AUTO_INCREMENT columns.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-source.html#sysvar_auto_increment_increment) for details.
+            type: string
+            format: int64
+          autoIncrementOffset:
+            description: |-
+              **string** (int64)
+              Can be used to control the operation of AUTO_INCREMENT columns.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-source.html#sysvar_auto_increment_offset) for details.
+            type: string
+            format: int64
+          syncBinlog:
+            description: |-
+              **string** (int64)
+              Controls how often the MySQL server synchronizes the binary log to disk.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_sync_binlog) for details.
+            type: string
+            format: int64
+          binlogCacheSize:
+            description: |-
+              **string** (int64)
+              The size of the cache to hold changes to the binary log during a transaction.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_cache_size) for details.
+            type: string
+            format: int64
+          binlogGroupCommitSyncDelay:
+            description: |-
+              **string** (int64)
+              Controls how many microseconds the binary log commit waits before synchronizing the binary log file to disk.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay) for details.
+            type: string
+            format: int64
+          binlogRowImage:
+            description: |-
+              **enum** (BinlogRowImage)
+              For MySQL row-based replication, this variable determines how row images are written to the binary log.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image) for details.
+              - `BINLOG_ROW_IMAGE_UNSPECIFIED`
+              - `FULL`
+              - `MINIMAL`
+              - `NOBLOB`
+            type: string
+            enum:
+              - BINLOG_ROW_IMAGE_UNSPECIFIED
+              - FULL
+              - MINIMAL
+              - NOBLOB
+          binlogRowsQueryLogEvents:
+            description: |-
+              **boolean**
+              When enabled, it causes the server to write informational log events such as row query log events into its binary log.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_rows_query_log_events) for details.
+            type: boolean
+          rplSemiSyncMasterWaitForSlaveCount:
+            description: |-
+              **string** (int64)
+              The number of replica acknowledgments the source must receive per transaction before proceeding.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-source.html#sysvar_rpl_semi_sync_master_wait_for_slave_count) for details.
+            type: string
+            format: int64
+          slaveParallelType:
+            description: |-
+              **enum** (SlaveParallelType)
+              When using a multi-threaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_type) for details.
+              - `SLAVE_PARALLEL_TYPE_UNSPECIFIED`
+              - `DATABASE`
+              - `LOGICAL_CLOCK`
+            type: string
+            enum:
+              - SLAVE_PARALLEL_TYPE_UNSPECIFIED
+              - DATABASE
+              - LOGICAL_CLOCK
+          slaveParallelWorkers:
+            description: |-
+              **string** (int64)
+              Sets the number of applier threads for executing replication transactions in parallel.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_workers) for details.
+            type: string
+            format: int64
+          regexpTimeLimit:
+            description: |-
+              **string** (int64)
+              The time limit for regular expression matching operations performed by REGEXP_LIKE and similar functions.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_regexp_time_limit) for details.
+            type: string
+            format: int64
+          mdbPreserveBinlogBytes:
+            description: |-
+              **string** (int64)
+              The size of the binary log to hold.
+            type: string
+            format: int64
+          interactiveTimeout:
+            description: |-
+              **string** (int64)
+              The number of seconds the server waits for activity on an interactive connection before closing it.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_interactive_timeout) for details.
+            type: string
+            format: int64
+          waitTimeout:
+            description: |-
+              **string** (int64)
+              The number of seconds the server waits for activity on a noninteractive connection before closing it.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout) for details.
+            type: string
+            format: int64
+          mdbOfflineModeEnableLag:
+            description: |-
+              **string** (int64)
+              Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
+            type: string
+            format: int64
+          mdbOfflineModeDisableLag:
+            description: |-
+              **string** (int64)
+              Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
+              Should be less than mdb_offline_mode_enable_lag.
+            type: string
+            format: int64
+          rangeOptimizerMaxMemSize:
+            description: |-
+              **string** (int64)
+              The limit on memory consumption for the range optimizer.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size) for details.
+            type: string
+            format: int64
+          slowQueryLog:
+            description: |-
+              **boolean**
+              Manages slow query log.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log) for details.
+            type: boolean
+          slowQueryLogAlwaysWriteTime:
+            description: |-
+              **number** (double)
+              Query execution time, after which query to be logged unconditionally, that is, `log_slow_rate_limit` will not apply to it.
+              See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time) for details.
+            type: number
+            format: double
+          logSlowRateType:
+            description: |-
+              **enum** (LogSlowRateType)
+              Specifies slow log granularity for `log_slow_rate_limit` QUERY or SESSION value.
+              See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type) for details.
+              - `LOG_SLOW_RATE_TYPE_UNSPECIFIED`
+              - `SESSION`
+              - `QUERY`
+            type: string
+            enum:
+              - LOG_SLOW_RATE_TYPE_UNSPECIFIED
+              - SESSION
+              - QUERY
+          logSlowRateLimit:
+            description: |-
+              **string** (int64)
+              Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
+              See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit) for details.
+            type: string
+            format: int64
+          logSlowSpStatements:
+            description: |-
+              **boolean**
+              When TRUE, statements executed by stored procedures are logged to the slow log.
+              See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements) for details.
+            type: boolean
+          logSlowFilter:
+            description: |-
+              **enum** (LogSlowFilterType)
+              Filters the slow log by the query's execution plan.
+              See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter) for details.
+              - `LOG_SLOW_FILTER_TYPE_UNSPECIFIED`
+              - `FULL_SCAN`
+              - `FULL_JOIN`
+              - `TMP_TABLE`
+              - `TMP_TABLE_ON_DISK`
+              - `FILESORT`
+              - `FILESORT_ON_DISK`
+            type: array
+            items:
+              type: string
+              enum:
+                - LOG_SLOW_FILTER_TYPE_UNSPECIFIED
+                - FULL_SCAN
+                - FULL_JOIN
+                - TMP_TABLE
+                - TMP_TABLE_ON_DISK
+                - FILESORT
+                - FILESORT_ON_DISK
+          mdbPriorityChoiceMaxLag:
+            description: |-
+              **string** (int64)
+              Replication lag threshold (seconds) which allows replica to be promoted to master while executing "switchover from".
+              Should be less than mdb_offline_mode_disable_lag.
+            type: string
+            format: int64
+          innodbPageSize:
+            description: |-
+              **string** (int64)
+              Specifies the page size for InnoDB tablespaces.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_page_size).
+            type: string
+            format: int64
+          innodbOnlineAlterLogMaxSize:
+            description: |-
+              **string** (int64)
+              The limit in bytes on the size of the temporary log files used during online DDL operations
+              See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size) for details.
+            type: string
+            format: int64
+          innodbFtMinTokenSize:
+            description: |-
+              **string** (int64)
+              Minimum length of words that are stored in an InnoDB FULLTEXT index
+              See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size) for details.
+            type: string
+            format: int64
+          innodbFtMaxTokenSize:
+            description: |-
+              **string** (int64)
+              Maximum length of words that are stored in an InnoDB FULLTEXT index
+              See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size) for details.
+            type: string
+            format: int64
+          lowerCaseTableNames:
+            description: |-
+              **string** (int64)
+              Table names storage and comparison strategy
+              See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names) for details.
+            type: string
+            format: int64
+          maxSpRecursionDepth:
+            description: |-
+              **string** (int64)
+              The number of times that any given stored procedure may be called recursively.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
+            type: string
+            format: int64
+          innodbCompressionLevel:
+            description: |-
+              **string** (int64)
+              The level of zlib compression to use for InnoDB compressed tables and indexes.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_compression_level).
+            type: string
+            format: int64
+          binlogTransactionDependencyTracking:
+            description: |-
+              **enum** (BinlogTransactionDependencyTracking)
+              Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
+              - `BINLOG_TRANSACTION_DEPENDENCY_TRACKING_UNSPECIFIED`
+              - `COMMIT_ORDER`
+              - `WRITESET`
+              - `WRITESET_SESSION`
+            type: string
+            enum:
+              - BINLOG_TRANSACTION_DEPENDENCY_TRACKING_UNSPECIFIED
+              - COMMIT_ORDER
+              - WRITESET
+              - WRITESET_SESSION
+          autocommit:
+            description: |-
+              **boolean**
+              Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit).
+            type: boolean
+          innodbStatusOutput:
+            description: |-
+              **boolean**
+              Enables or disables periodic output for the standard InnoDB Monitor.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_status_output).
+            type: boolean
+          innodbStrictMode:
+            description: |-
+              **boolean**
+              When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_strict_mode).
+            type: boolean
+          innodbPrintLockWaitTimeoutInfo:
+            description: |-
+              **boolean**
+              Makes InnoDB to write information about all lock wait timeout errors into the log file.
+              For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/8.0/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info).
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **string** (int64)
+              System variable specifies the verbosity for handling events intended for the error log
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_log_error_verbosity).
+            type: string
+            format: int64
+          maxDigestLength:
+            description: |-
+              **string** (int64)
+              The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_digest_length).
+            type: string
+            format: int64
+          lockWaitTimeout:
+            description: |-
+              **string** (int64)
+              This variable specifies the timeout in seconds for attempts to acquire metadata locks
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lock_wait_timeout).
+            type: string
+            format: int64
+          maxPreparedStmtCount:
+            description: |-
+              **string** (int64)
+              This variable limits the total number of prepared statements in the server.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
+            type: string
+            format: int64
+          optimizerSwitch:
+            description: |-
+              **string**
+              The system variable enables control over optimizer behavior.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_switch)
+              https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html
+            type: string
+          optimizerSearchDepth:
+            description: |-
+              **string** (int64)
+              The maximum depth of search performed by the query optimizer
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html)
+            type: string
+            format: int64
+          userstat:
+            description: |-
+              **boolean**
+              Enables or disables collection of statistics
+              For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/8.0/diagnostics/user_stats.html#userstat).
+            type: boolean
+          maxExecutionTime:
+            description: |-
+              **string** (int64)
+              The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_execution_time)
+            type: string
+            format: int64
+          auditLogPolicy:
+            description: |-
+              **enum** (AuditLogPolicy)
+              The policy controlling how the audit log plugin writes events to its log file
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#sysvar_audit_log_policy)
+              - `AUDIT_LOG_POLICY_UNSPECIFIED`
+              - `ALL`
+              - `LOGINS`
+              - `QUERIES`
+              - `NONE`
+            type: string
+            enum:
+              - AUDIT_LOG_POLICY_UNSPECIFIED
+              - ALL
+              - LOGINS
+              - QUERIES
+              - NONE
+          replicationSenderObserveCommitOnly:
+            description: |-
+              **boolean**
+              Limit callbacks to improve performance for semisynchronous replication
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replication_sender_observe_commit_only).
+            type: boolean
+          replicationOptimizeForStaticPluginConfig:
+            description: |-
+              **boolean**
+              Use shared locks, and avoid unnecessary lock acquisitions, to improve performance for semisynchronous replication
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replication_optimize_for_static_plugin_config).
+            type: boolean
+          innodbLruScanDepth:
+            description: |-
+              **string** (int64)
+              A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth)
+            type: string
+            format: int64
+          sqlRequirePrimaryKey:
+            description: |-
+              **boolean**
+              Whether statements that create new tables or alter the structure of existing tables enforce the requirement that tables have a primary key
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_require_primary_key).
+            type: boolean
+          mdbForceSsl:
+            description: |-
+              **boolean**
+              Force ssl on all hosts (require_secure_transport)
+            type: boolean
+          innodbChangeBuffering:
+            description: |-
+              **enum** (InnodbChangeBuffering)
+              An optimization for change buffering
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_change_buffering).
+              - `INNODB_CHANGE_BUFFERING_UNSPECIFIED`
+              - `INNODB_CHANGE_BUFFERING_NONE`
+              - `INNODB_CHANGE_BUFFERING_INSERTS`
+              - `INNODB_CHANGE_BUFFERING_DELETES`
+              - `INNODB_CHANGE_BUFFERING_CHANGES`
+              - `INNODB_CHANGE_BUFFERING_PURGES`
+              - `INNODB_CHANGE_BUFFERING_ALL`
+            type: string
+            enum:
+              - INNODB_CHANGE_BUFFERING_UNSPECIFIED
+              - INNODB_CHANGE_BUFFERING_NONE
+              - INNODB_CHANGE_BUFFERING_INSERTS
+              - INNODB_CHANGE_BUFFERING_DELETES
+              - INNODB_CHANGE_BUFFERING_CHANGES
+              - INNODB_CHANGE_BUFFERING_PURGES
+              - INNODB_CHANGE_BUFFERING_ALL
+          maxWriteLockCount:
+            description: |-
+              **string** (int64)
+              Permit some pending read lock requests interval
+              P.S. Should be UInt64, but java fails to handle UInt64 limits
+              For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_write_lock_count).
+            type: string
+            format: int64
+      AnytimeMaintenanceWindow:
+        type: object
+        properties: {}
+      WeeklyMaintenanceWindow:
+        type: object
+        properties:
+          day:
+            description: |-
+              **enum** (WeekDay)
+              Day of the week (in `DDD` format).
+              - `WEEK_DAY_UNSPECIFIED`
+              - `MON`
+              - `TUE`
+              - `WED`
+              - `THU`
+              - `FRI`
+              - `SAT`
+              - `SUN`
+            type: string
+            enum:
+              - WEEK_DAY_UNSPECIFIED
+              - MON
+              - TUE
+              - WED
+              - THU
+              - FRI
+              - SAT
+              - SUN
+          hour:
+            description: |-
+              **string** (int64)
+              Hour of the day in UTC (in `HH` format).
+            type: string
+            format: int64
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/update.md
 ---
 
@@ -129,7 +1824,8 @@ To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster
       "auditLogPolicy": "string",
       "innodbLruScanDepth": "string",
       "mdbForceSsl": "boolean",
-      "innodbChangeBuffering": "string"
+      "innodbChangeBuffering": "string",
+      "maxWriteLockCount": "string"
     },
     "mysqlConfig_8_0": {
       "innodbBufferPoolSize": "string",
@@ -225,7 +1921,8 @@ To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster
       "innodbLruScanDepth": "string",
       "sqlRequirePrimaryKey": "boolean",
       "mdbForceSsl": "boolean",
-      "innodbChangeBuffering": "string"
+      "innodbChangeBuffering": "string",
+      "maxWriteLockCount": "string"
     },
     // end of the list of possible fields
     "resources": {
@@ -242,14 +1939,20 @@ To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster
     "access": {
       "dataLens": "boolean",
       "webSql": "boolean",
-      "dataTransfer": "boolean"
+      "dataTransfer": "boolean",
+      "yandexQuery": "boolean"
     },
     "performanceDiagnostics": {
       "enabled": "boolean",
       "sessionsSamplingInterval": "string",
       "statementsSamplingInterval": "string"
     },
-    "backupRetainPeriodDays": "string"
+    "backupRetainPeriodDays": "string",
+    "diskSizeAutoscaling": {
+      "plannedUsageThreshold": "string",
+      "emergencyUsageThreshold": "string",
+      "diskSizeLimit": "string"
+    }
   },
   "name": "string",
   "maintenanceWindow": {
@@ -350,6 +2053,9 @@ Configuration of the performance diagnostics service. ||
 || backupRetainPeriodDays | **string** (int64)
 
 Retention policy of automated backups. ||
+|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mysql.v1.DiskSizeAutoscaling)**
+
+Disk size autoscaling ||
 |#
 
 ## MysqlConfig5_7 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfig5_7}
@@ -891,6 +2597,12 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 - `INNODB_CHANGE_BUFFERING_CHANGES`
 - `INNODB_CHANGE_BUFFERING_PURGES`
 - `INNODB_CHANGE_BUFFERING_ALL` ||
+|| maxWriteLockCount | **string** (int64)
+
+Permit some pending read lock requests interval
+P.S. Should be UInt64, but java fails to handle UInt64 limits
+
+For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_write_lock_count). ||
 |#
 
 ## MysqlConfig8_0 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfig8_0}
@@ -1417,6 +3129,12 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 - `INNODB_CHANGE_BUFFERING_CHANGES`
 - `INNODB_CHANGE_BUFFERING_PURGES`
 - `INNODB_CHANGE_BUFFERING_ALL` ||
+|| maxWriteLockCount | **string** (int64)
+
+Permit some pending read lock requests interval
+P.S. Should be UInt64, but java fails to handle UInt64 limits
+
+For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_write_lock_count). ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mysql.v1.Resources}
@@ -1487,6 +3205,9 @@ See [the documentation](/docs/managed-mysql/operations/web-sql-query) for detail
 || dataTransfer | **boolean**
 
 Allow access for DataTransfer. ||
+|| yandexQuery | **boolean**
+
+Allow access for YandexQuery. ||
 |#
 
 ## PerformanceDiagnostics {#yandex.cloud.mdb.mysql.v1.PerformanceDiagnostics}
@@ -1502,6 +3223,21 @@ Interval (in seconds) for `my_session` sampling. ||
 || statementsSamplingInterval | **string** (int64)
 
 Interval (in seconds) for `my_statements` sampling. ||
+|#
+
+## DiskSizeAutoscaling {#yandex.cloud.mdb.mysql.v1.DiskSizeAutoscaling}
+
+#|
+||Field | Description ||
+|| plannedUsageThreshold | **string** (int64)
+
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+|| emergencyUsageThreshold | **string** (int64)
+
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+|| diskSizeLimit | **string** (int64)
+
+Limit on how large the storage for database instances can automatically grow, in bytes. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.mysql.v1.MaintenanceWindow}
@@ -1686,7 +3422,8 @@ Hour of the day in UTC (in `HH` format). ||
           "auditLogPolicy": "string",
           "innodbLruScanDepth": "string",
           "mdbForceSsl": "boolean",
-          "innodbChangeBuffering": "string"
+          "innodbChangeBuffering": "string",
+          "maxWriteLockCount": "string"
         },
         "userConfig": {
           "innodbBufferPoolSize": "string",
@@ -1783,7 +3520,8 @@ Hour of the day in UTC (in `HH` format). ||
           "auditLogPolicy": "string",
           "innodbLruScanDepth": "string",
           "mdbForceSsl": "boolean",
-          "innodbChangeBuffering": "string"
+          "innodbChangeBuffering": "string",
+          "maxWriteLockCount": "string"
         },
         "defaultConfig": {
           "innodbBufferPoolSize": "string",
@@ -1880,7 +3618,8 @@ Hour of the day in UTC (in `HH` format). ||
           "auditLogPolicy": "string",
           "innodbLruScanDepth": "string",
           "mdbForceSsl": "boolean",
-          "innodbChangeBuffering": "string"
+          "innodbChangeBuffering": "string",
+          "maxWriteLockCount": "string"
         }
       },
       "mysqlConfig_8_0": {
@@ -1978,7 +3717,8 @@ Hour of the day in UTC (in `HH` format). ||
           "innodbLruScanDepth": "string",
           "sqlRequirePrimaryKey": "boolean",
           "mdbForceSsl": "boolean",
-          "innodbChangeBuffering": "string"
+          "innodbChangeBuffering": "string",
+          "maxWriteLockCount": "string"
         },
         "userConfig": {
           "innodbBufferPoolSize": "string",
@@ -2074,7 +3814,8 @@ Hour of the day in UTC (in `HH` format). ||
           "innodbLruScanDepth": "string",
           "sqlRequirePrimaryKey": "boolean",
           "mdbForceSsl": "boolean",
-          "innodbChangeBuffering": "string"
+          "innodbChangeBuffering": "string",
+          "maxWriteLockCount": "string"
         },
         "defaultConfig": {
           "innodbBufferPoolSize": "string",
@@ -2170,7 +3911,8 @@ Hour of the day in UTC (in `HH` format). ||
           "innodbLruScanDepth": "string",
           "sqlRequirePrimaryKey": "boolean",
           "mdbForceSsl": "boolean",
-          "innodbChangeBuffering": "string"
+          "innodbChangeBuffering": "string",
+          "maxWriteLockCount": "string"
         }
       },
       // end of the list of possible fields
@@ -2188,14 +3930,20 @@ Hour of the day in UTC (in `HH` format). ||
       "access": {
         "dataLens": "boolean",
         "webSql": "boolean",
-        "dataTransfer": "boolean"
+        "dataTransfer": "boolean",
+        "yandexQuery": "boolean"
       },
       "performanceDiagnostics": {
         "enabled": "boolean",
         "sessionsSamplingInterval": "string",
         "statementsSamplingInterval": "string"
       },
-      "backupRetainPeriodDays": "string"
+      "backupRetainPeriodDays": "string",
+      "diskSizeAutoscaling": {
+        "plannedUsageThreshold": "string",
+        "emergencyUsageThreshold": "string",
+        "diskSizeLimit": "string"
+      }
     },
     "networkId": "string",
     "health": "string",
@@ -2219,7 +3967,8 @@ Hour of the day in UTC (in `HH` format). ||
     "deletionProtection": "boolean",
     "hostGroupIds": [
       "string"
-    ]
+    ],
+    "diskEncryptionKeyId": "string"
   }
   // end of the list of possible fields
 }
@@ -2409,6 +4158,9 @@ This option prevents unintended deletion of the cluster. ||
 || hostGroupIds[] | **string**
 
 Host groups hosting VMs of the cluster. ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.mysql.v1.Monitoring}
@@ -2464,6 +4216,9 @@ Configuration of the performance diagnostics service. ||
 || backupRetainPeriodDays | **string** (int64)
 
 Retention policy of automated backups. ||
+|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mysql.v1.DiskSizeAutoscaling2)**
+
+Disk size autoscaling ||
 |#
 
 ## MysqlConfigSet5_7 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet5_7}
@@ -3021,6 +4776,12 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 - `INNODB_CHANGE_BUFFERING_CHANGES`
 - `INNODB_CHANGE_BUFFERING_PURGES`
 - `INNODB_CHANGE_BUFFERING_ALL` ||
+|| maxWriteLockCount | **string** (int64)
+
+Permit some pending read lock requests interval
+P.S. Should be UInt64, but java fails to handle UInt64 limits
+
+For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_write_lock_count). ||
 |#
 
 ## MysqlConfigSet8_0 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet8_0}
@@ -3563,6 +5324,12 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 - `INNODB_CHANGE_BUFFERING_CHANGES`
 - `INNODB_CHANGE_BUFFERING_PURGES`
 - `INNODB_CHANGE_BUFFERING_ALL` ||
+|| maxWriteLockCount | **string** (int64)
+
+Permit some pending read lock requests interval
+P.S. Should be UInt64, but java fails to handle UInt64 limits
+
+For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_write_lock_count). ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mysql.v1.Resources2}
@@ -3633,6 +5400,9 @@ See [the documentation](/docs/managed-mysql/operations/web-sql-query) for detail
 || dataTransfer | **boolean**
 
 Allow access for DataTransfer. ||
+|| yandexQuery | **boolean**
+
+Allow access for YandexQuery. ||
 |#
 
 ## PerformanceDiagnostics {#yandex.cloud.mdb.mysql.v1.PerformanceDiagnostics2}
@@ -3648,6 +5418,21 @@ Interval (in seconds) for `my_session` sampling. ||
 || statementsSamplingInterval | **string** (int64)
 
 Interval (in seconds) for `my_statements` sampling. ||
+|#
+
+## DiskSizeAutoscaling {#yandex.cloud.mdb.mysql.v1.DiskSizeAutoscaling2}
+
+#|
+||Field | Description ||
+|| plannedUsageThreshold | **string** (int64)
+
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+|| emergencyUsageThreshold | **string** (int64)
+
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+|| diskSizeLimit | **string** (int64)
+
+Limit on how large the storage for database instances can automatically grow, in bytes. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.mysql.v1.MaintenanceWindow2}

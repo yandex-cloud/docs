@@ -14,10 +14,10 @@
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog you want to create a domain in.
-  1. Go to the ![image](../../../_assets/console-icons/globe.svg) **Domains** tab.
-  1. Click **Create domain**.
+  1. Navigate to the ![image](../../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.data-catalog.label_domains }}** tab.
+  1. Click **{{ ui-key.yacloud.data-catalog.label_create-domain-action }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify a unique name for the tag.
-  1. Optionally, describe the domain.
+  1. Optionally, describe the term.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/diskTypes/{diskTypeId}
+    method: get
+    path:
+      type: object
+      properties:
+        diskTypeId:
+          description: |-
+            **string**
+            Required field. ID of the disk type to return information about.
+            To get the disk type ID use a [DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request.
+          type: string
+      required:
+        - diskTypeId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskType/get.md
 ---
 

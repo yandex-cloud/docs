@@ -145,7 +145,8 @@ To get a trail ID make a [List](/docs/audit-trails/api-ref/grpc/Trail/list#List)
         // end of the list of possible fields
         // Includes only one of the fields `dns_filter`
         "dns_filter": {
-          "only_recursive_queries": "bool"
+          "only_recursive_queries": "bool",
+          "include_nonrecursive_queries": "bool"
         },
         // end of the list of possible fields
         "resource_scopes": [
@@ -462,5 +463,8 @@ Policy with explicitly specified event group
 ||Field | Description ||
 || only_recursive_queries | **bool**
 
-Only recursive queries will be delivered ||
+deprecated: use all_dns_queries instead ||
+|| include_nonrecursive_queries | **bool**
+
+Not only recursive queries will be delivered ||
 |#

@@ -1,5 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs/{jobId}:logs
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster that the job is being created for.
+          type: string
+        jobId:
+          description: |-
+            **string**
+            ID of the job being created.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum bytes of job log per response to return. If the number of available
+            bytes is larger than `pageSize`, the service returns a [ListJobLogResponse.nextPageToken](/docs/data-proc/api-ref/Job/listLog#yandex.cloud.dataproc.v1.ListJobLogResponse)
+            that can be used to get the next page of output in subsequent list requests.
+            Default value: 1048576.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListJobLogResponse.nextPageToken](/docs/data-proc/api-ref/Job/listLog#yandex.cloud.dataproc.v1.ListJobLogResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/listLog.md
 ---
 

@@ -1,5 +1,531 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/resources/{resourceId}
+    method: patch
+    path:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of updated resource.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        originGroupId:
+          description: |-
+            **string** (int64)
+            ID of updated origin group.
+          type: string
+          format: int64
+        secondaryHostnames:
+          description: |-
+            **[SecondaryHostnames](/docs/cdn/api-ref/Resource/create#yandex.cloud.cdn.v1.SecondaryHostnames)**
+            List of additional CNAMEs.
+          $ref: '#/definitions/SecondaryHostnames'
+        options:
+          description: |-
+            **[ResourceOptions](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions)**
+            Resource settings and options to tune CDN edge behavior.
+          $ref: '#/definitions/ResourceOptions'
+        originProtocol:
+          description: |-
+            **enum** (OriginProtocol)
+            Specify the protocol schema to be used in communication with origin.
+            - `ORIGIN_PROTOCOL_UNSPECIFIED`
+            - `HTTP`: CDN servers will connect to your origin via HTTP.
+            - `HTTPS`: CDN servers will connect to your origin via HTTPS.
+            - `MATCH`: Connection protocol will be chosen automatically (content on the
+            origin source should be available for the CDN both through HTTP and HTTPS).
+          type: string
+          enum:
+            - ORIGIN_PROTOCOL_UNSPECIFIED
+            - HTTP
+            - HTTPS
+            - MATCH
+        active:
+          description: |-
+            **boolean**
+            Flag to create Resource either in active or disabled state.
+            In active state Origins payload could be transmitted from CDN CNAME requests.
+            Default value: true
+          type: boolean
+        sslCertificate:
+          description: |-
+            **[SSLTargetCertificate](/docs/cdn/api-ref/Resource/create#yandex.cloud.cdn.v1.SSLTargetCertificate)**
+            SSL Certificate options.
+          $ref: '#/definitions/SSLTargetCertificate'
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels. At some point will be needed for granular detailing.
+          type: string
+        removeLabels:
+          description: |-
+            **boolean**
+            If flag is set to true resource labels will be deleted.
+          type: boolean
+      additionalProperties: false
+    definitions:
+      SecondaryHostnames:
+        type: object
+        properties:
+          values:
+            description: |-
+              **string**
+              List of secondary hostname values.
+            type: array
+            items:
+              type: string
+      BoolOption:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              True - the option is enabled and its [value](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption) is applied to the resource.
+              False - the option is disabled and its default value is used for the resource.
+            type: boolean
+          value:
+            description: |-
+              **boolean**
+              Value of the option.
+            type: boolean
+      CachingTimes:
+        type: object
+        properties:
+          simpleValue:
+            description: |-
+              **string** (int64)
+              Caching time for a response with codes 200, 206, 301, 302.
+              Responses with codes 4xx, 5xx will not be cached. Use `0s` disable to caching.
+              Use [customValues](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.CachingTimes) field to specify a custom caching time for a response with specific codes.
+            type: string
+            format: int64
+          customValues:
+            description: |-
+              **object** (map<**string**, **string** (int64)>)
+              Caching time for a response with specific codes. These settings have a higher priority than the value field.
+              Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes.
+              Caching time in seconds (`0s`, `600s` for example). Use `0s` to disable caching for a specific response code.
+            type: string
+            format: int64
+      Int64Option:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              True - the option is enabled and its [value](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption) is applied to the resource.
+              False - the option is disabled and its default value is used for the resource.
+            type: boolean
+          value:
+            description: |-
+              **string** (int64)
+              Value of the option.
+            type: string
+            format: int64
+      StringsListOption:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              True - the option is enabled and its [value](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption) is applied to the resource.
+              False - the option is disabled and its default value is used for the resource.
+            type: boolean
+          value:
+            description: |-
+              **string**
+              Value of the option.
+            type: array
+            items:
+              type: string
+      StringOption:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              True - the option is enabled and its [value](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption) is applied to the resource.
+              False - the option is disabled and its default value is used for the resource.
+            type: boolean
+          value:
+            description: |-
+              **string**
+              Value of the option.
+            type: string
+      StringsMapOption:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              True - the option is enabled and its [value](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption) is applied to the resource.
+              False - the option is disabled and its default value is used for the resource.
+            type: boolean
+          value:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Value of the option.
+            type: string
+      RewriteOption:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              True - the option is enabled and its [flag](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption) is applied to the resource.
+              False - the option is disabled and its default value of the [flag](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption) is used for the resource.
+            type: boolean
+          body:
+            description: |-
+              **string**
+              Pattern for rewrite.
+              The value must have the following format: `<source path> <destination path>`, where both paths are regular expressions which use at least one group. E.g., `/foo/(.*) /bar/$1`.
+            type: string
+          flag:
+            description: |-
+              **enum** (RewriteFlag)
+              Break flag is applied to the option by default.
+              It is not shown in the field.
+              - `REWRITE_FLAG_UNSPECIFIED`
+              - `LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and
+              starts a search for a new location matching changed URI.
+              - `BREAK`: Stops processing of the current set of the Rewrite option.
+              - `REDIRECT`: Returns a temporary redirect with the 302 code; It is used when a replacement string does not start
+              with "http://", "https://", or "$scheme".
+              - `PERMANENT`: Returns a permanent redirect with the 301 code.
+            type: string
+            enum:
+              - REWRITE_FLAG_UNSPECIFIED
+              - LAST
+              - BREAK
+              - REDIRECT
+              - PERMANENT
+      SecureKeyOption:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              True - the option is enabled and its [flag](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption) is applied to the resource.
+              False - the option is disabled and its default value of the [flag](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption) is used for the resource.
+            type: boolean
+          key:
+            description: |-
+              **string**
+              The key for the URL signing.
+            type: string
+          type:
+            description: |-
+              **enum** (SecureKeyURLType)
+              The type of the URL signing. The URL could be available for all IP addresses or for the only one IP.
+              - `SECURE_KEY_URL_TYPE_UNSPECIFIED`
+              - `ENABLE_IP_SIGNING`: Use scpecific IP address in URL signing. URL will be availible only for this IP.
+              - `DISABLE_IP_SIGNING`: Sign URL without using IP address. URL will be available for all IP addresses.
+            type: string
+            enum:
+              - SECURE_KEY_URL_TYPE_UNSPECIFIED
+              - ENABLE_IP_SIGNING
+              - DISABLE_IP_SIGNING
+      IPAddressACLOption:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              True - the option is enabled and its [flag](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption) is applied to the resource.
+              False - the option is disabled and its default value of the [flag](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption) is used for the resource.
+            type: boolean
+          policyType:
+            description: |-
+              **enum** (PolicyType)
+              The policy type. One of allow or deny value.
+              - `POLICY_TYPE_UNSPECIFIED`
+              - `POLICY_TYPE_ALLOW`: Allow access to all IP addresses except the ones specified in the excepted_values field.
+              - `POLICY_TYPE_DENY`: Block access to all IP addresses except the ones specified in the excepted_values field.
+            type: string
+            enum:
+              - POLICY_TYPE_UNSPECIFIED
+              - POLICY_TYPE_ALLOW
+              - POLICY_TYPE_DENY
+          exceptedValues:
+            description: |-
+              **string**
+              The list of IP addresses to be allowed or denied.
+            type: array
+            items:
+              type: string
+      ResourceOptions:
+        type: object
+        properties:
+          disableCache:
+            description: |-
+              **[BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+              Set up a cache status.
+            $ref: '#/definitions/BoolOption'
+          edgeCacheSettings:
+            description: |-
+              **[EdgeCacheSettings](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.EdgeCacheSettings)**
+              Set up [EdgeCacheSettings](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.EdgeCacheSettings).
+            oneOf:
+              - type: object
+                properties:
+                  value:
+                    description: |-
+                      **[CachingTimes](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.CachingTimes)**
+                      Value of the option.
+                      Includes only one of the fields `value`, `defaultValue`.
+                    $ref: '#/definitions/CachingTimes'
+                  defaultValue:
+                    description: |-
+                      **string** (int64)
+                      Content will be cached according to origin cache settings.
+                      The value applies for a response with codes 200, 201, 204, 206, 301, 302, 303, 304, 307, 308
+                      if an origin server does not have caching HTTP headers.
+                      Responses with other codes will not be cached.
+                      Includes only one of the fields `value`, `defaultValue`.
+                    type: string
+                    format: int64
+          browserCacheSettings:
+            description: |-
+              **[Int64Option](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.Int64Option)**
+              Using [Int64Option](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.Int64Option). Set up a cache period for the end-users browser.
+              Content will be cached due to origin settings.
+              If there are no cache settings on your origin, the content will not be cached.
+              The list of HTTP response codes that can be cached in browsers: 200, 201, 204, 206, 301, 302, 303, 304, 307, 308.
+              Other response codes will not be cached.
+              The default value is 4 days.
+            $ref: '#/definitions/Int64Option'
+          cacheHttpHeaders:
+            description: |-
+              **[StringsListOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
+              List HTTP headers that must be included in responses to clients.
+            $ref: '#/definitions/StringsListOption'
+          queryParamsOptions:
+            description: |-
+              **[QueryParamsOptions](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.QueryParamsOptions)**
+              Set up [QueryParamsOptions](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.QueryParamsOptions).
+            oneOf:
+              - type: object
+                properties:
+                  ignoreQueryString:
+                    description: |-
+                      **[BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+                      Using [BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Selected by default. Files with different query parameters are cached as objects with the same key regardless of the parameter value.
+                      Includes only one of the fields `ignoreQueryString`, `queryParamsWhitelist`, `queryParamsBlacklist`.
+                    $ref: '#/definitions/BoolOption'
+                  queryParamsWhitelist:
+                    description: |-
+                      **[StringsListOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
+                      Ignore All Except.
+                      Files with the specified query parameters are cached as objects with different keys,
+                      files with other parameters are cached as objects with the same key.
+                      Includes only one of the fields `ignoreQueryString`, `queryParamsWhitelist`, `queryParamsBlacklist`.
+                    $ref: '#/definitions/StringsListOption'
+                  queryParamsBlacklist:
+                    description: |-
+                      **[StringsListOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
+                      Ignore only. Files with the specified query parameters are cached as objects with the same key,
+                      files with other parameters are cached as objects with different keys.
+                      Includes only one of the fields `ignoreQueryString`, `queryParamsWhitelist`, `queryParamsBlacklist`.
+                    $ref: '#/definitions/StringsListOption'
+          slice:
+            description: |-
+              **[BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+              Files larger than 10 MB will be requested and cached in parts (no larger than 10 MB each part). It reduces time to first byte.
+              The origin must support HTTP Range requests.
+              By default the option is disabled.
+            $ref: '#/definitions/BoolOption'
+          compressionOptions:
+            description: |-
+              **[CompressionOptions](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.CompressionOptions)**
+              Set up compression variant.
+            oneOf:
+              - type: object
+                properties:
+                  fetchCompressed:
+                    description: |-
+                      **[BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+                      The Fetch compressed option helps you to reduce
+                      the bandwidth between origin and CDN servers.
+                      Also, content delivery speed becomes higher because of reducing the time
+                      for compressing files in a CDN.
+                      Includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`.
+                    $ref: '#/definitions/BoolOption'
+                  gzipOn:
+                    description: |-
+                      **[BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+                      Using [BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). GZip compression at CDN servers reduces file size by 70% and can be as high as 90%.
+                      Includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`.
+                    $ref: '#/definitions/BoolOption'
+                  brotliCompression:
+                    description: |-
+                      **[StringsListOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
+                      The option allows to compress content with brotli on the CDN's end.
+                      Compression is performed on the Origin Shielding. If a pre-cache server doesn't active for a resource, compression does not occur even if the option is enabled.
+                      Specify the content-type for each type of content you wish to have compressed. CDN servers will request only uncompressed content from the origin.
+                      Includes only one of the fields `fetchCompressed`, `gzipOn`, `brotliCompression`.
+                    $ref: '#/definitions/StringsListOption'
+          redirectOptions:
+            description: |-
+              **[RedirectOptions](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.RedirectOptions)**
+              Set up redirects.
+            oneOf:
+              - type: object
+                properties:
+                  redirectHttpToHttps:
+                    description: |-
+                      **[BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+                      Using [BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Set up a redirect from HTTPS to HTTP.
+                      Includes only one of the fields `redirectHttpToHttps`, `redirectHttpsToHttp`.
+                    $ref: '#/definitions/BoolOption'
+                  redirectHttpsToHttp:
+                    description: |-
+                      **[BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+                      Using [BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Set up a redirect from HTTP to HTTPS.
+                      Includes only one of the fields `redirectHttpToHttps`, `redirectHttpsToHttp`.
+                    $ref: '#/definitions/BoolOption'
+          hostOptions:
+            description: |-
+              **[HostOptions](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.HostOptions)**
+              Set up host parameters.
+            oneOf:
+              - type: object
+                properties:
+                  host:
+                    description: |-
+                      **[StringOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.StringOption)**
+                      Custom value for the Host header.
+                      Your server must be able to process requests with the chosen header.
+                      Default value (if [StringOption.enabled](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.StringOption) is `false`) is [Resource.cname](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.Resource).
+                      Includes only one of the fields `host`, `forwardHostHeader`.
+                    $ref: '#/definitions/StringOption'
+                  forwardHostHeader:
+                    description: |-
+                      **[BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+                      Using [BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption). Choose the Forward Host header option if is important to send in the request to the Origin
+                      the same Host header as was sent in the request to CDN server.
+                      Includes only one of the fields `host`, `forwardHostHeader`.
+                    $ref: '#/definitions/BoolOption'
+          staticHeaders:
+            description: |-
+              **[StringsMapOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.StringsMapOption)**
+              Set up static headers that CDN servers send in responses to clients.
+            $ref: '#/definitions/StringsMapOption'
+          cors:
+            description: |-
+              **[StringsListOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
+              Parameter that lets browsers get access to selected resources from a domain
+              different to a domain from which the request is received.
+              [Read more](/docs/cdn/concepts/cors).
+            $ref: '#/definitions/StringsListOption'
+          stale:
+            description: |-
+              **[StringsListOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
+              List of errors which instruct CDN servers to serve stale content to clients.
+              Possible values: `error`, `http_403`, `http_404`, `http_429`, `http_500`, `http_502`, `http_503`, `http_504`, `invalid_header`, `timeout`, `updating`.
+            $ref: '#/definitions/StringsListOption'
+          allowedHttpMethods:
+            description: |-
+              **[StringsListOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
+              HTTP methods for your CDN content. By default the following methods
+              are allowed: GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS.
+              In case some methods are not allowed to the user, they will get the 405
+              (Method Not Allowed) response. If the method is not supported,
+              the user gets the 501 (Not Implemented) response.
+            $ref: '#/definitions/StringsListOption'
+          proxyCacheMethodsSet:
+            description: |-
+              **[BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+              Allows caching for GET, HEAD and POST requests.
+            $ref: '#/definitions/BoolOption'
+          disableProxyForceRanges:
+            description: |-
+              **[BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+              Disabling proxy force ranges.
+            $ref: '#/definitions/BoolOption'
+          staticRequestHeaders:
+            description: |-
+              **[StringsMapOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.StringsMapOption)**
+              Set up custom headers that CDN servers send in requests to origins.
+              The Header name field can contain letters (A-Z, a-z), numbers (0-9), dashes (-) and underscores (_).
+              The Value field can contain letters (A-Z, a-z), numbers (0-9), dashes (-),
+              underscores (_), slashes (/), colons (:), equal (=), dots (.), and spaces.
+            $ref: '#/definitions/StringsMapOption'
+          customServerName:
+            description: |-
+              **[StringOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.StringOption)**
+              Wildcard additional CNAME.
+              If a resource has a wildcard additional CNAME, you can use your own certificate for content delivery via HTTPS. Read-only.
+            $ref: '#/definitions/StringOption'
+          ignoreCookie:
+            description: |-
+              **[BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption)**
+              Using [BoolOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.BoolOption) for ignoring cookie.
+            $ref: '#/definitions/BoolOption'
+          rewrite:
+            description: |-
+              **[RewriteOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption)**
+              Changing or redirecting query paths.
+            $ref: '#/definitions/RewriteOption'
+          secureKey:
+            description: |-
+              **[SecureKeyOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.SecureKeyOption)**
+              Secure token to protect contect and limit access by IP addresses and time limits.
+            $ref: '#/definitions/SecureKeyOption'
+          ipAddressAcl:
+            description: |-
+              **[IPAddressACLOption](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.ResourceOptions.IPAddressACLOption)**
+              Manage the state of the IP access policy option.
+              The option controls access to content from the specified IP addresses.
+            $ref: '#/definitions/IPAddressACLOption'
+      SSLCertificateCMData:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of the custom certificate.
+            type: string
+      SSLTargetCertificate:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (SSLCertificateType)
+              Type of the certificate.
+              - `SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.
+              - `DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.
+              - `LETS_ENCRYPT_GCORE`: The option is deprecated. Works only if you have already pointed your domain name to the protected IP address in your DNS.
+              - `CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key.
+            type: string
+            enum:
+              - SSL_CERTIFICATE_TYPE_UNSPECIFIED
+              - DONT_USE
+              - LETS_ENCRYPT_GCORE
+              - CM
+          data:
+            description: |-
+              **[SSLCertificateData](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.SSLCertificateData)**
+              Certificate data.
+            oneOf:
+              - type: object
+                properties:
+                  cm:
+                    description: |-
+                      **[SSLCertificateCMData](/docs/cdn/api-ref/Resource/get#yandex.cloud.cdn.v1.SSLCertificateCMData)**
+                      Custom (add your SSL certificate by uploading the certificate
+                      in PEM format and your private key).
+                      Includes only one of the fields `cm`.
+                    $ref: '#/definitions/SSLCertificateCMData'
 sourcePath: en/_api-ref/cdn/v1/api-ref/Resource/update.md
 ---
 
@@ -871,7 +1397,9 @@ ID of the custom certificate. ||
         // end of the list of possible fields
       }
     },
-    "labels": "object"
+    "labels": "object",
+    "providerType": "string",
+    "providerCname": "string"
   }
   // end of the list of possible fields
 }
@@ -1039,6 +1567,12 @@ SSL certificate options. ||
 || labels | **object** (map<**string**, **string**>)
 
 Labels of the resource. ||
+|| providerType | **string**
+
+RESERVED: This field is reserved for future use and should not be used at this time. ||
+|| providerCname | **string**
+
+RESERVED: Provider CNAME. ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions2}

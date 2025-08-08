@@ -1,5 +1,20 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent/{agentId}
+    method: get
+    path:
+      type: object
+      properties:
+        agentId:
+          description: |-
+            **string**
+            ID of the agent to return.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Agent/get.md
 ---
 

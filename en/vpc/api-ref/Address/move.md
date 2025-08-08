@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/addresses/{addressId}:move
+    method: post
+    path:
+      type: object
+      properties:
+        addressId:
+          description: |-
+            **string**
+            Required field. ID of the address that is being moved.
+          type: string
+      required:
+        - addressId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to move address to.
+          type: string
+      required:
+        - destinationFolderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/move.md
 ---
 

@@ -1,5 +1,30 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster that the model belongs to.
+          type: string
+        mlModelName:
+          description: |-
+            **string**
+            Required field. Name of the model to return.
+            To get a model name make a [MlModelService.List](/docs/managed-clickhouse/api-ref/MlModel/list#List) request.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - mlModelName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/MlModel/get.md
 ---
 

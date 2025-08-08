@@ -43,6 +43,7 @@ Updates configuration of the specified Trino cluster.
         // end of the list of possible fields
       }
     },
+    "version": "string",
     "retry_policy": {
       "policy": "RetryPolicy",
       "exchange_manager": {
@@ -128,6 +129,10 @@ Configuration for the coordinator, specifying computational resources and other 
 || worker_config | **[UpdateWorkerConfig](#yandex.cloud.trino.v1.UpdateWorkerConfig)**
 
 Configuration for worker nodes, including scaling policy and computational resources. ||
+|| version | **string**
+
+Trino version.
+Format: "Number". ||
 || retry_policy | **[RetryPolicyConfig](#yandex.cloud.trino.v1.RetryPolicyConfig)**
 
 Configuration for retry policy, specifying the spooling storage destination and other settings. ||

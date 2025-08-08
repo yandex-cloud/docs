@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Group/update.md
 ---
 
-# Cloud Organization API, gRPC: GroupService.Update
+# Identity Hub API, gRPC: GroupService.Update
 
 Updates the specified group.
 
@@ -60,7 +60,9 @@ Description of the group. ||
     "organization_id": "string",
     "created_at": "google.protobuf.Timestamp",
     "name": "string",
-    "description": "string"
+    "description": "string",
+    "subject_container_id": "string",
+    "external_id": "string"
   }
   // end of the list of possible fields
 }
@@ -152,4 +154,10 @@ Name of the group. ||
 || description | **string**
 
 Description of the group. ||
+|| subject_container_id | **string**
+
+Id of the subject container that external group belongs to. It is set if group is external. ||
+|| external_id | **string**
+
+Id of the group from external system. It is set if group is external. ||
 |#

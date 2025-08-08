@@ -321,7 +321,8 @@ In response to a query by image, {{ search-api }} returns a [UTF-8](https://en.w
       ...
     ],
     "page": "3",
-    "maxPage": "37"
+    "maxPage": "37",
+    "id": "1716254/_KnCt2T9gLh4z8SSv8nVqQ7277"
   }
   ```
 
@@ -343,6 +344,7 @@ In response to a query by image, {{ search-api }} returns a [UTF-8](https://en.w
       * `pageUrl`: Image page URL.
   * `page`: Current search results page number.
   * `maxPage`: Last search results page number.
+  * `id`: Source image [CBIR](https://en.wikipedia.org/wiki/Content-based_image_retrieval) ID.
 
 - gRPC API {#grpc-api}
 
@@ -362,7 +364,8 @@ In response to a query by image, {{ search-api }} returns a [UTF-8](https://en.w
       ...
     ],
     "page": "3",
-    "max_page": "37"
+    "max_page": "37",
+    "id": "1716254/_KnCt2T9gLh4z8SSv8nVqQ7277"
   }
   ```
 
@@ -384,6 +387,7 @@ In response to a query by image, {{ search-api }} returns a [UTF-8](https://en.w
       * `page_url`: Image page URL.
   * `page`: Current search results page number.
   * `max_page`: Last search results page number.
+  * `id`: Source image [CBIR](https://en.wikipedia.org/wiki/Content-based_image_retrieval) ID.
 
 {% endlist %}
 

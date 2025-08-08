@@ -1,5 +1,60 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/expand
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Greenplum Cluster resource to update.
+            To get the Greenplum cluster ID, use a [ClusterService.List](/docs/managed-greenplum/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        segmentHostCount:
+          description: |-
+            **string** (int64)
+            Number of hosts for add to the segment subcluster
+          type: string
+          format: int64
+        addSegmentsPerHostCount:
+          description: |-
+            **string** (int64)
+            Number of segments per host to add
+          type: string
+          format: int64
+        duration:
+          description: |-
+            **string** (int64)
+            Redistribute duration, in seconds
+          type: string
+          format: int64
+        parallel:
+          description: |-
+            **string** (int64)
+            Redistribute process parallelism, 0 - for automatic detection
+          type: string
+          format: int64
+        closeCluster:
+          description: |-
+            **boolean**
+            Deny all client connections during the expand operation
+          type: boolean
+        delayRedistribution:
+          description: |-
+            **boolean**
+            Perform redistribution process by small chunks as background activity
+          type: boolean
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/expand.md
 ---
 

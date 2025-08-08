@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}/osLoginSettings
+    method: get
+    path:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - organizationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/getSettings.md
 ---
 
-# Cloud Organization API, REST: OsLogin.GetSettings
+# Identity Hub API, REST: OsLogin.GetSettings
 
 OsLogin settings
 

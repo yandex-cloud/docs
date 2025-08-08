@@ -1,5 +1,76 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/reservedInstancePools/{reservedInstancePoolId}
+    method: patch
+    path:
+      type: object
+      properties:
+        reservedInstancePoolId:
+          description: |-
+            **string**
+            Required field. ID of the reserved instance pool to update.
+            To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/ReservedInstancePool/list#List) request.
+          type: string
+      required:
+        - reservedInstancePoolId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the reserved instance pool.
+          pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the reserved instance pool.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+            Existing set of `labels` is completely replaced by the provided set.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        size:
+          description: |-
+            **string** (int64)
+            Desired size of the pool.
+          type: string
+          format: int64
+        allowOversubscription:
+          description: |-
+            **boolean**
+            Allows the pool to contain more linked instances than the number of available slots (size without pending or unavailable slots).
+            While running instances are still limited by available slots, stopped instances can exceed this limit.
+            Warning: When this option is enabled, attempting to start more instances than the number of available slots will result in a "Not Enough Resources" error.
+          type: boolean
+        allowPendingSlots:
+          description: |-
+            **boolean**
+            This field affects only the current request and allows size-increasing operation to complete successfully even when there are not enough resources.
+            In such cases, some of the new pool slots become "pending", meaning they cannot be used until resources become available.
+            Pending slots automatically convert to normal slots when sufficient resources are available.
+          type: boolean
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/ReservedInstancePool/update.md
 ---
 
@@ -31,7 +102,9 @@ To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/
   "name": "string",
   "description": "string",
   "labels": "object",
-  "size": "string"
+  "size": "string",
+  "allowOversubscription": "boolean",
+  "allowPendingSlots": "boolean"
 }
 ```
 
@@ -61,6 +134,16 @@ Existing set of `labels` is completely replaced by the provided set. ||
 || size | **string** (int64)
 
 Desired size of the pool. ||
+|| allowOversubscription | **boolean**
+
+Allows the pool to contain more linked instances than the number of available slots (size without pending or unavailable slots).
+While running instances are still limited by available slots, stopped instances can exceed this limit.
+Warning: When this option is enabled, attempting to start more instances than the number of available slots will result in a "Not Enough Resources" error. ||
+|| allowPendingSlots | **boolean**
+
+This field affects only the current request and allows size-increasing operation to complete successfully even when there are not enough resources.
+In such cases, some of the new pool slots become "pending", meaning they cannot be used until resources become available.
+Pending slots automatically convert to normal slots when sufficient resources are available. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -111,7 +194,19 @@ Desired size of the pool. ||
     "networkSettings": {
       "type": "string"
     },
-    "size": "string"
+    "size": "string",
+    "committedSize": "string",
+    "allowOversubscription": "boolean",
+    "slotStats": {
+      "total": "string",
+      "used": "string",
+      "available": "string",
+      "unavailable": "string",
+      "pending": "string"
+    },
+    "instanceStats": {
+      "total": "string"
+    }
   }
   // end of the list of possible fields
 }
@@ -266,6 +361,20 @@ Network Settings. ||
 || size | **string** (int64)
 
 Desired size of the pool (number of slots for instances in this pool). ||
+|| committedSize | **string** (int64)
+
+Equals to the size field except when updates occur with allow_pending=true. In those cases, committed_size equals only the number of non-pending slots. ||
+|| allowOversubscription | **boolean**
+
+Allows the pool to contain more linked instances than the number of available slots (size without pending or unavailable slots).
+While running instances are still limited by available slots, stopped instances can exceed this limit.
+Warning: When this option is enabled, attempting to start more instances than the number of available slots will result in a "Not Enough Resources" error. ||
+|| slotStats | **[SlotStats](#yandex.cloud.compute.v1.ReservedInstancePool.SlotStats)**
+
+Statuses of the pool slots ||
+|| instanceStats | **[InstanceStats](#yandex.cloud.compute.v1.ReservedInstancePool.InstanceStats)**
+
+Stats for instances of the pool ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.compute.v1.ResourcesSpec}
@@ -311,4 +420,34 @@ Network Type
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
 - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||
+|#
+
+## SlotStats {#yandex.cloud.compute.v1.ReservedInstancePool.SlotStats}
+
+#|
+||Field | Description ||
+|| total | **string** (int64)
+
+Equals to pool size (and equals to the sum of the following fields) ||
+|| used | **string** (int64)
+
+Number of slots used by running instances ||
+|| available | **string** (int64)
+
+Number of slots available for instances (but not currently used) ||
+|| unavailable | **string** (int64)
+
+Number of slots unavailable for some reason (for example because of underlying host failure) ||
+|| pending | **string** (int64)
+
+Number of slots requested for async update, but still waiting for resources and not yet available for usage ||
+|#
+
+## InstanceStats {#yandex.cloud.compute.v1.ReservedInstancePool.InstanceStats}
+
+#|
+||Field | Description ||
+|| total | **string** (int64)
+
+Total number of instances linked to the pool ||
 |#

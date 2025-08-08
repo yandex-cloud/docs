@@ -1,5 +1,48 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the network load balancer belongs to.
+            To get the folder ID, use a [NetworkLoadBalancerService.List](#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [<ResponseMessage>.next_page_token]
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListNetworkLoadBalancersResponse.nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#yandex.cloud.loadbalancer.v1.ListNetworkLoadBalancersResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can only filter by the [NetworkLoadBalancer.name](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/get#yandex.cloud.loadbalancer.v1.NetworkLoadBalancer) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/list.md
 ---
 
@@ -94,7 +137,13 @@ The expression must specify:
         }
       ],
       "deletionProtection": "boolean",
-      "allowZonalShift": "boolean"
+      "allowZonalShift": "boolean",
+      "disableZoneStatuses": [
+        {
+          "zoneId": "string",
+          "disabledUntil": "string"
+        }
+      ]
     }
   ],
   "nextPageToken": "string"
@@ -189,6 +238,9 @@ Specifies if network load balancer protected from deletion. ||
 || allowZonalShift | **boolean**
 
 Specifies if network load balancer available to zonal shift. ||
+|| disableZoneStatuses[] | **[DisableZoneStatus](#yandex.cloud.loadbalancer.v1.DisableZoneStatus)**
+
+List of disabled zones for the network load balancer. ||
 |#
 
 ## Listener {#yandex.cloud.loadbalancer.v1.Listener}
@@ -304,4 +356,26 @@ Port to use for HTTP health checks. ||
 
 URL path to set for health checking requests for every target in the target group.
 For example `` /ping ``. The default path is `` / ``. ||
+|#
+
+## DisableZoneStatus {#yandex.cloud.loadbalancer.v1.DisableZoneStatus}
+
+Status of the disabled zone.
+
+#|
+||Field | Description ||
+|| zoneId | **string**
+
+Required field. ID of zone. ||
+|| disabledUntil | **string** (date-time)
+
+Timestamp until which the zone will be disabled.
+If not present then zone will be disabled until it is removed through a separate call.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

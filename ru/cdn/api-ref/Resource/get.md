@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/resources/{resourceId}
+    method: get
+    path:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of the requested resource.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/Resource/get.md
 ---
 
@@ -204,7 +221,9 @@ Required field. ID of the requested resource. ||
       // end of the list of possible fields
     }
   },
-  "labels": "object"
+  "labels": "object",
+  "providerType": "string",
+  "providerCname": "string"
 }
 ```
 
@@ -273,6 +292,12 @@ SSL certificate options. ||
 || labels | **object** (map<**string**, **string**>)
 
 Labels of the resource. ||
+|| providerType | **string**
+
+RESERVED: This field is reserved for future use and should not be used at this time. ||
+|| providerCname | **string**
+
+RESERVED: Provider CNAME. ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions}

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Operation/get.md
 ---
 
-# Cloud Organization API, gRPC: OperationService.Get
+# Identity Hub API, gRPC: OperationService.Get
 
 Returns the specified Operation resource.
 

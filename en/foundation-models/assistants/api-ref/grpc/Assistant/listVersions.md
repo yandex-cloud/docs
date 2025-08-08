@@ -76,7 +76,7 @@ Token to retrieve the next page of results. ||
         },
         "tools": [
           {
-            // Includes only one of the fields `search_index`, `function`
+            // Includes only one of the fields `search_index`, `function`, `gen_search`
             "search_index": {
               "search_index_ids": [
                 "string"
@@ -99,6 +99,38 @@ Token to retrieve the next page of results. ||
               "name": "string",
               "description": "string",
               "parameters": "google.protobuf.Struct"
+            },
+            "gen_search": {
+              "options": {
+                // Includes only one of the fields `site`, `host`, `url`
+                "site": {
+                  "site": [
+                    "string"
+                  ]
+                },
+                "host": {
+                  "host": [
+                    "string"
+                  ]
+                },
+                "url": {
+                  "url": [
+                    "string"
+                  ]
+                },
+                // end of the list of possible fields
+                "enable_nrfm_docs": "bool",
+                "search_filters": [
+                  {
+                    // Includes only one of the fields `date`, `lang`, `format`
+                    "date": "string",
+                    "lang": "string",
+                    "format": "DocFormat"
+                    // end of the list of possible fields
+                  }
+                ]
+              },
+              "description": "string"
             }
             // end of the list of possible fields
           }
@@ -294,12 +326,17 @@ Represents a general tool that can be one of several types.
 
 SearchIndexTool tool that performs search across specified indexes.
 
-Includes only one of the fields `search_index`, `function`. ||
+Includes only one of the fields `search_index`, `function`, `gen_search`. ||
 || function | **[FunctionTool](#yandex.cloud.ai.assistants.v1.FunctionTool)**
 
 Function tool that can be invoked by the assistant.
 
-Includes only one of the fields `search_index`, `function`. ||
+Includes only one of the fields `search_index`, `function`, `gen_search`. ||
+|| gen_search | **[GenSearchTool](#yandex.cloud.ai.assistants.v1.GenSearchTool)**
+
+Performs web retrieval and generative synthesis.
+
+Includes only one of the fields `search_index`, `function`, `gen_search`. ||
 |#
 
 ## SearchIndexTool {#yandex.cloud.ai.assistants.v1.SearchIndexTool}
@@ -399,6 +436,114 @@ A description of the function's purpose or behavior. ||
 
 A JSON Schema that defines the expected parameters for the function.
 The schema should describe the required fields, their types, and any constraints or default values. ||
+|#
+
+## GenSearchTool {#yandex.cloud.ai.assistants.v1.GenSearchTool}
+
+#|
+||Field | Description ||
+|| options | **[GenSearchOptions](#yandex.cloud.ai.assistants.v1.GenSearchOptions)**
+
+Scoping and filtering rules for the search query ||
+|| description | **string**
+
+Required field. description of the purpose ||
+|#
+
+## GenSearchOptions {#yandex.cloud.ai.assistants.v1.GenSearchOptions}
+
+#|
+||Field | Description ||
+|| site | **[SiteOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.SiteOption)**
+
+Includes only one of the fields `site`, `host`, `url`.
+
+Restricts the search to the specific websites, hosts or pages.
+Includes only one of the fields site, host, url. ||
+|| host | **[HostOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.HostOption)**
+
+Includes only one of the fields `site`, `host`, `url`.
+
+Restricts the search to the specific websites, hosts or pages.
+Includes only one of the fields site, host, url. ||
+|| url | **[UrlOption](#yandex.cloud.ai.assistants.v1.GenSearchOptions.UrlOption)**
+
+Includes only one of the fields `site`, `host`, `url`.
+
+Restricts the search to the specific websites, hosts or pages.
+Includes only one of the fields site, host, url. ||
+|| enable_nrfm_docs | **bool**
+
+Use the documents inaccessible from the front page. ||
+|| search_filters[] | **[SearchFilter](#yandex.cloud.ai.assistants.v1.GenSearchOptions.SearchFilter)**
+
+Restricts the search by date, document formats or language. ||
+|#
+
+## SiteOption {#yandex.cloud.ai.assistants.v1.GenSearchOptions.SiteOption}
+
+Restricts the search to the specific websites.
+
+#|
+||Field | Description ||
+|| site[] | **string** ||
+|#
+
+## HostOption {#yandex.cloud.ai.assistants.v1.GenSearchOptions.HostOption}
+
+Restricts the search to the specific hosts.
+
+#|
+||Field | Description ||
+|| host[] | **string** ||
+|#
+
+## UrlOption {#yandex.cloud.ai.assistants.v1.GenSearchOptions.UrlOption}
+
+Restricts the search to the specific pages.
+
+#|
+||Field | Description ||
+|| url[] | **string** ||
+|#
+
+## SearchFilter {#yandex.cloud.ai.assistants.v1.GenSearchOptions.SearchFilter}
+
+#|
+||Field | Description ||
+|| date | **string**
+
+Restrict by document date
+
+Includes only one of the fields `date`, `lang`, `format`.
+
+Includes only one of the fields date, lang, format. ||
+|| lang | **string**
+
+Restrict by document language. Use ISO 639-1 language codes.
+
+Includes only one of the fields `date`, `lang`, `format`.
+
+Includes only one of the fields date, lang, format. ||
+|| format | enum **DocFormat**
+
+Restrict by document format.
+
+Includes only one of the fields `date`, `lang`, `format`.
+
+Includes only one of the fields date, lang, format.
+
+- `DOC_FORMAT_UNSPECIFIED`
+- `DOC_FORMAT_PDF`
+- `DOC_FORMAT_XLS`
+- `DOC_FORMAT_ODS`
+- `DOC_FORMAT_RTF`
+- `DOC_FORMAT_PPT`
+- `DOC_FORMAT_ODP`
+- `DOC_FORMAT_SWF`
+- `DOC_FORMAT_ODT`
+- `DOC_FORMAT_ODG`
+- `DOC_FORMAT_DOC` ||
 |#
 
 ## ResponseFormat {#yandex.cloud.ai.assistants.v1.ResponseFormat}

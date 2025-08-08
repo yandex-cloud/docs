@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}:listDeviceTopicAliases
+    method: get
+    path:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the registry to list aliases for device topic.
+            To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request.
+          type: string
+      required:
+        - registryId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `page_size`, the service returns a [ListDeviceTopicAliasesResponse.nextPageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListDeviceTopicAliasesResponse.nextPageToken](/docs/iot-core/api-ref/Registry/listDeviceTopicAliases#yandex.cloud.iot.devices.v1.ListDeviceTopicAliasesResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/listDeviceTopicAliases.md
 ---
 

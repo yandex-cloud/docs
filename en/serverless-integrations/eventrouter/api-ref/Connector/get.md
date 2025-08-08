@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors/{connectorId}
+    method: get
+    path:
+      type: object
+      properties:
+        connectorId:
+          description: |-
+            **string**
+            Required field. ID of the connector to return.
+          type: string
+      required:
+        - connectorId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/get.md
 ---
 
@@ -38,7 +55,7 @@ Required field. ID of the connector to return. ||
   "description": "string",
   "labels": "object",
   "source": {
-    // Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`
+    // Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`
     "dataStream": {
       "database": "string",
       "streamName": "string",
@@ -57,7 +74,8 @@ Required field. ID of the connector to return. ||
       "timeZone": "string",
       "payload": "string"
     },
-    "eventServiceSource": "object"
+    "eventServiceSource": "object",
+    "auditTrails": "object"
     // end of the list of possible fields
   },
   "deletionProtection": "boolean",
@@ -124,16 +142,19 @@ Status of the connector.
 ||Field | Description ||
 || dataStream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
 || messageQueue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
 || timer | **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer)**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
 || eventServiceSource | **object**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
+|| auditTrails | **object**
+
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream}

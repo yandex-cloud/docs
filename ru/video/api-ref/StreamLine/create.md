@@ -1,11 +1,93 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/streamLines
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        channelId:
+          description: |-
+            **string**
+            Required field. ID of the channel.
+          type: string
+        title:
+          description: |-
+            **string**
+            Required field. Line title.
+          type: string
+        rtmpPush:
+          description: |-
+            **object**
+            RTMP push input type.
+            Includes only one of the fields `rtmpPush`, `rtmpPull`.
+            Video signal settings.
+          $ref: '#/definitions/RTMPPushParams'
+        rtmpPull:
+          description: |-
+            **[RTMPPullParams](/docs/video/api-ref/StreamLine/create#yandex.cloud.video.v1.RTMPPullParams)**
+            RTMP pull input type.
+            Includes only one of the fields `rtmpPush`, `rtmpPull`.
+            Video signal settings.
+          $ref: '#/definitions/RTMPPullParams'
+        manualLine:
+          description: |-
+            **object**
+            Manual stream control.
+            Includes only one of the fields `manualLine`, `autoLine`.
+            Line type.
+          $ref: '#/definitions/ManualLineParams'
+        autoLine:
+          description: |-
+            **object**
+            Automatic stream control.
+            Includes only one of the fields `manualLine`, `autoLine`.
+            Line type.
+          $ref: '#/definitions/AutoLineParams'
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom user-defined labels as key:value pairs.
+            Maximum 64 labels per stream line.
+            Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
+            Values can contain alphanumeric characters and various symbols.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+      required:
+        - channelId
+        - title
+      additionalProperties: false
+    definitions:
+      RTMPPushParams:
+        type: object
+        properties: {}
+      RTMPPullParams:
+        type: object
+        properties:
+          url:
+            description: |-
+              **string**
+              Required field. The RTMP URL from which to pull the video stream.
+              Must be a valid RTMP URL starting with "rtmp://".
+            pattern: rtmp://.*
+            type: string
+        required:
+          - url
+      ManualLineParams:
+        type: object
+        properties: {}
+      AutoLineParams:
+        type: object
+        properties: {}
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/create.md
 ---
 
 # Video API, REST: StreamLine.Create
 
-Create stream line.
+Creates a new stream line in the specified channel with the provided configuration.
+Stream lines define the technical settings for receiving and processing video signals.
 
 ## HTTP request
 
@@ -19,8 +101,6 @@ POST https://video.{{ api-host }}/video/v1/streamLines
 {
   "channelId": "string",
   "title": "string",
-  "thumbnailId": "string",
-  "labels": "object",
   // Includes only one of the fields `rtmpPush`, `rtmpPull`
   "rtmpPush": "object",
   "rtmpPull": {
@@ -29,8 +109,9 @@ POST https://video.{{ api-host }}/video/v1/streamLines
   // end of the list of possible fields
   // Includes only one of the fields `manualLine`, `autoLine`
   "manualLine": "object",
-  "autoLine": "object"
+  "autoLine": "object",
   // end of the list of possible fields
+  "labels": "object"
 }
 ```
 
@@ -42,12 +123,6 @@ Required field. ID of the channel. ||
 || title | **string**
 
 Required field. Line title. ||
-|| thumbnailId | **string**
-
-ID of the thumbnail. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 || rtmpPush | **object**
 
 RTMP push input type.
@@ -64,27 +139,36 @@ Includes only one of the fields `rtmpPush`, `rtmpPull`.
 Video signal settings. ||
 || manualLine | **object**
 
-Manual control of stream.
+Manual stream control.
 
 Includes only one of the fields `manualLine`, `autoLine`.
 
 Line type. ||
 || autoLine | **object**
 
-Automatic control of stream.
+Automatic stream control.
 
 Includes only one of the fields `manualLine`, `autoLine`.
 
 Line type. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Custom user-defined labels as key:value pairs.
+Maximum 64 labels per stream line.
+Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
+Values can contain alphanumeric characters and various symbols. ||
 |#
 
 ## RTMPPullParams {#yandex.cloud.video.v1.RTMPPullParams}
+
+Parameters for creating an RTMP pull input type stream line.
 
 #|
 ||Field | Description ||
 || url | **string**
 
-Required field. URL of a RTMP streaming server. ||
+Required field. The RTMP URL from which to pull the video stream.
+Must be a valid RTMP URL starting with "rtmp://". ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -114,7 +198,6 @@ Required field. URL of a RTMP streaming server. ||
     "id": "string",
     "channelId": "string",
     "title": "string",
-    "thumbnailId": "string",
     // Includes only one of the fields `rtmpPush`, `rtmpPull`
     "rtmpPush": {
       "url": "string"
@@ -212,7 +295,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || streamLineId | **string**
 
-ID of the line. ||
+ID of the stream line. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -234,7 +317,7 @@ A list of messages that carry the error details. ||
 
 ## StreamLine {#yandex.cloud.video.v1.StreamLine}
 
-Entity that is responsible for the incoming video signal settings.
+Entity representing the incoming video signal settings.
 
 #|
 ||Field | Description ||
@@ -247,12 +330,9 @@ ID of the channel to which this stream line belongs. ||
 || title | **string**
 
 Title of the stream line. ||
-|| thumbnailId | **string**
-
-ID of the thumbnail image associated with the stream line.. ||
 || rtmpPush | **[RTMPPushInput](#yandex.cloud.video.v1.RTMPPushInput)**
 
-Real-Time Messaging Protocol (RTMP) push input settings.
+Real-Time Messaging Protocol (RTMP) push input type.
 
 Includes only one of the fields `rtmpPush`, `rtmpPull`.
 
@@ -266,21 +346,21 @@ Includes only one of the fields `rtmpPush`, `rtmpPull`.
 Specifies the input type and settings for the video signal source. ||
 || manualLine | **object**
 
-Manual control of stream.
+Manual stream control.
 
 Includes only one of the fields `manualLine`, `autoLine`.
 
 Specifies the control type of the stream line. ||
 || autoLine | **[AutoLine](#yandex.cloud.video.v1.AutoLine)**
 
-Automatic control of stream.
+Automatic stream control.
 
 Includes only one of the fields `manualLine`, `autoLine`.
 
 Specifies the control type of the stream line. ||
 || createdAt | **string** (date-time)
 
-Time when the stream line was created.
+Timestamp when the stream line was initially created in the system.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -290,7 +370,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || updatedAt | **string** (date-time)
 
-Time when the stream line was last updated.
+Timestamp of the last modification to the stream line or its metadata.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -300,7 +380,9 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per stream line.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
 ## RTMPPushInput {#yandex.cloud.video.v1.RTMPPushInput}

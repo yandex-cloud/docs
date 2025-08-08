@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://marketplace.{{ api-host }}/marketplace/pim/saas/v1/instances/{productInstanceId}
+    method: get
+    path:
+      type: object
+      properties:
+        productInstanceId:
+          description: |-
+            **string**
+            Required field. ID of the product instance to return.
+          type: string
+      required:
+        - productInstanceId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/marketplace/pim/v1/saas/pim/saas/api-ref/ProductInstance/get.md
 ---
 

@@ -1,5 +1,75 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{certificateId}
+    method: patch
+    path:
+      type: object
+      properties:
+        certificateId:
+          description: |-
+            **string**
+            Required field. ID of the certificate to update.
+            To get the ID of a certificate use a [CertificateService.List](/docs/certificate-manager/api-ref/Certificate/list#List) request.
+          type: string
+      required:
+        - certificateId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the certificate.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description for the certificate.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New labels for the certificate as `key:value` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        certificate:
+          description: |-
+            **string**
+            New PEM-encoded certificate content for the certificate. Used only for imported certificates.
+          type: string
+        chain:
+          description: |-
+            **string**
+            New PEM-encoded certificate chain content for the certificate. Used only for imported certificates.
+          type: string
+        privateKey:
+          description: |-
+            **string**
+            New PEM-encoded private key content for the certificate. Used only for imported certificates.
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that protects deletion of the certificate
+          type: boolean
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/update.md
 ---
 

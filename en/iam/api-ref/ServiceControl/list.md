@@ -1,5 +1,56 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/services
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        resource:
+          description: |-
+            **[Resource](/docs/iam/api-ref/ServiceControl/get#yandex.cloud.iam.v1.Resource)**
+            Required field. Resource container to list a services.
+            It is supported only resource-manager.cloud resource container now.
+          $ref: '#/definitions/Resource'
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListServicesResponse.nextPageToken](/docs/iam/api-ref/ServiceControl/list#yandex.cloud.iam.v1.ListServicesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken`
+            to the [ListServicesResponse.nextPageToken](/docs/iam/api-ref/ServiceControl/list#yandex.cloud.iam.v1.ListServicesResponse)
+            returned by a previous list request.
+          type: string
+      required:
+        - resource
+      additionalProperties: false
+    body: null
+    definitions:
+      Resource:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              Required field. ID of the resource.
+            type: string
+          type:
+            description: |-
+              **string**
+              Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+            type: string
+        required:
+          - id
+          - type
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceControl/list.md
 ---
 

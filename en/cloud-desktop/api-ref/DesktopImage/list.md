@@ -1,5 +1,53 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/images
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list desktop images in.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListDesktopImagesRequest.next_page_token]
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListDesktopImagesRequest.next_page_token] returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [DesktopImage.name](/docs/cloud-desktop/api-ref/DesktopImage/list#yandex.cloud.clouddesktop.v1.api.DesktopImage) field.
+            2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+            3. Value or a list of values to compare against the values of the field.
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            Sorting the list by [DesktopImage.name](/docs/cloud-desktop/api-ref/DesktopImage/list#yandex.cloud.clouddesktop.v1.api.DesktopImage), [DesktopImage.createdAt](/docs/cloud-desktop/api-ref/DesktopImage/list#yandex.cloud.clouddesktop.v1.api.DesktopImage) and [DesktopImage.status](/docs/cloud-desktop/api-ref/DesktopImage/list#yandex.cloud.clouddesktop.v1.api.DesktopImage) fields.
+            The default sorting order is ascending.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopImage/list.md
 ---
 

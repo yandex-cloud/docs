@@ -1,5 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/workload/federatedCredentials
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            **string**
+            Required field. ID of the service account to list federated credentials for.
+            To get the the service account ID make a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListFederatedCredentialsResponse.nextPageToken](/docs/iam/workload/workload-identity/api-ref/FederatedCredential/list#yandex.cloud.iam.v1.workload.ListFederatedCredentialsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken`
+            to the [ListFederatedCredentialsResponse.nextPageToken](/docs/iam/workload/workload-identity/api-ref/FederatedCredential/list#yandex.cloud.iam.v1.workload.ListFederatedCredentialsResponse)
+            returned by a previous list request.
+          type: string
+      required:
+        - serviceAccountId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/workload/workload-identity/api-ref/FederatedCredential/list.md
 ---
 

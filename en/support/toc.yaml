@@ -4,7 +4,7 @@ items:
   - name: Technical support procedure
     href: overview.md
   - name: Support in Cloud Center
-    href: support-center.md
+    href: cloud-center.md
   - name: Notifications from {{ yandex-cloud }}
     href: notify.md
   - name: Telegram chat

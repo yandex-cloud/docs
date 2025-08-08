@@ -5,7 +5,9 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Channel/listAccessBindings.md
 
 # Video API, gRPC: ChannelService.ListAccessBindings
 
-List existing access bindings for the specified channel.
+Lists all access bindings for a specific channel.
+Access bindings define which users or service accounts have access to the channel
+and what actions they can perform.
 
 ## gRPC request
 

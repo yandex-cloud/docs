@@ -1,5 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}:move
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to move.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            **string**
+            Required field. ID of the destination folder.
+            To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+      required:
+        - destinationFolderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/move.md
 ---
 
@@ -180,7 +209,8 @@ To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/doc
           "auditLogPolicy": "string",
           "innodbLruScanDepth": "string",
           "mdbForceSsl": "boolean",
-          "innodbChangeBuffering": "string"
+          "innodbChangeBuffering": "string",
+          "maxWriteLockCount": "string"
         },
         "userConfig": {
           "innodbBufferPoolSize": "string",
@@ -277,7 +307,8 @@ To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/doc
           "auditLogPolicy": "string",
           "innodbLruScanDepth": "string",
           "mdbForceSsl": "boolean",
-          "innodbChangeBuffering": "string"
+          "innodbChangeBuffering": "string",
+          "maxWriteLockCount": "string"
         },
         "defaultConfig": {
           "innodbBufferPoolSize": "string",
@@ -374,7 +405,8 @@ To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/doc
           "auditLogPolicy": "string",
           "innodbLruScanDepth": "string",
           "mdbForceSsl": "boolean",
-          "innodbChangeBuffering": "string"
+          "innodbChangeBuffering": "string",
+          "maxWriteLockCount": "string"
         }
       },
       "mysqlConfig_8_0": {
@@ -472,7 +504,8 @@ To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/doc
           "innodbLruScanDepth": "string",
           "sqlRequirePrimaryKey": "boolean",
           "mdbForceSsl": "boolean",
-          "innodbChangeBuffering": "string"
+          "innodbChangeBuffering": "string",
+          "maxWriteLockCount": "string"
         },
         "userConfig": {
           "innodbBufferPoolSize": "string",
@@ -568,7 +601,8 @@ To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/doc
           "innodbLruScanDepth": "string",
           "sqlRequirePrimaryKey": "boolean",
           "mdbForceSsl": "boolean",
-          "innodbChangeBuffering": "string"
+          "innodbChangeBuffering": "string",
+          "maxWriteLockCount": "string"
         },
         "defaultConfig": {
           "innodbBufferPoolSize": "string",
@@ -664,7 +698,8 @@ To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/doc
           "innodbLruScanDepth": "string",
           "sqlRequirePrimaryKey": "boolean",
           "mdbForceSsl": "boolean",
-          "innodbChangeBuffering": "string"
+          "innodbChangeBuffering": "string",
+          "maxWriteLockCount": "string"
         }
       },
       // end of the list of possible fields
@@ -682,14 +717,20 @@ To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/doc
       "access": {
         "dataLens": "boolean",
         "webSql": "boolean",
-        "dataTransfer": "boolean"
+        "dataTransfer": "boolean",
+        "yandexQuery": "boolean"
       },
       "performanceDiagnostics": {
         "enabled": "boolean",
         "sessionsSamplingInterval": "string",
         "statementsSamplingInterval": "string"
       },
-      "backupRetainPeriodDays": "string"
+      "backupRetainPeriodDays": "string",
+      "diskSizeAutoscaling": {
+        "plannedUsageThreshold": "string",
+        "emergencyUsageThreshold": "string",
+        "diskSizeLimit": "string"
+      }
     },
     "networkId": "string",
     "health": "string",
@@ -713,7 +754,8 @@ To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/doc
     "deletionProtection": "boolean",
     "hostGroupIds": [
       "string"
-    ]
+    ],
+    "diskEncryptionKeyId": "string"
   }
   // end of the list of possible fields
 }
@@ -909,6 +951,9 @@ This option prevents unintended deletion of the cluster. ||
 || hostGroupIds[] | **string**
 
 Host groups hosting VMs of the cluster. ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.mysql.v1.Monitoring}
@@ -964,6 +1009,9 @@ Configuration of the performance diagnostics service. ||
 || backupRetainPeriodDays | **string** (int64)
 
 Retention policy of automated backups. ||
+|| diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mysql.v1.DiskSizeAutoscaling)**
+
+Disk size autoscaling ||
 |#
 
 ## MysqlConfigSet5_7 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet5_7}
@@ -1521,6 +1569,12 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 - `INNODB_CHANGE_BUFFERING_CHANGES`
 - `INNODB_CHANGE_BUFFERING_PURGES`
 - `INNODB_CHANGE_BUFFERING_ALL` ||
+|| maxWriteLockCount | **string** (int64)
+
+Permit some pending read lock requests interval
+P.S. Should be UInt64, but java fails to handle UInt64 limits
+
+For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_write_lock_count). ||
 |#
 
 ## MysqlConfigSet8_0 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet8_0}
@@ -2063,6 +2117,12 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 - `INNODB_CHANGE_BUFFERING_CHANGES`
 - `INNODB_CHANGE_BUFFERING_PURGES`
 - `INNODB_CHANGE_BUFFERING_ALL` ||
+|| maxWriteLockCount | **string** (int64)
+
+Permit some pending read lock requests interval
+P.S. Should be UInt64, but java fails to handle UInt64 limits
+
+For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_write_lock_count). ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mysql.v1.Resources}
@@ -2133,6 +2193,9 @@ See [the documentation](/docs/managed-mysql/operations/web-sql-query) for detail
 || dataTransfer | **boolean**
 
 Allow access for DataTransfer. ||
+|| yandexQuery | **boolean**
+
+Allow access for YandexQuery. ||
 |#
 
 ## PerformanceDiagnostics {#yandex.cloud.mdb.mysql.v1.PerformanceDiagnostics}
@@ -2148,6 +2211,21 @@ Interval (in seconds) for `my_session` sampling. ||
 || statementsSamplingInterval | **string** (int64)
 
 Interval (in seconds) for `my_statements` sampling. ||
+|#
+
+## DiskSizeAutoscaling {#yandex.cloud.mdb.mysql.v1.DiskSizeAutoscaling}
+
+#|
+||Field | Description ||
+|| plannedUsageThreshold | **string** (int64)
+
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+|| emergencyUsageThreshold | **string** (int64)
+
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+|| diskSizeLimit | **string** (int64)
+
+Limit on how large the storage for database instances can automatically grow, in bytes. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.mysql.v1.MaintenanceWindow}

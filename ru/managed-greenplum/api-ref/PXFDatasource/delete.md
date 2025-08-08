@@ -1,5 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/pxf_datasource/{datasourceName}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+        datasourceName:
+          description: |-
+            **string**
+            Required field. 
+          pattern: ^[^\|/*?.,;'<>]+$
+          type: string
+      required:
+        - clusterId
+        - datasourceName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/PXFDatasource/delete.md
 ---
 

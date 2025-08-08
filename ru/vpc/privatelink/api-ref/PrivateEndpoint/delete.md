@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/endpoints/{privateEndpointId}
+    method: delete
+    path:
+      type: object
+      properties:
+        privateEndpointId:
+          description: |-
+            **string**
+            Required field. ID of the private endpoint to delete.
+            To get a private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/privatelink/api-ref/PrivateEndpoint/list#List) request.
+          type: string
+      required:
+        - privateEndpointId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/privatelink/api-ref/PrivateEndpoint/delete.md
 ---
 

@@ -6,19 +6,21 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/StreamLine/index.md
 # Video API, gRPC: StreamLineService
 
 Stream line management service.
+Provides methods for creating, retrieving, updating, and deleting stream lines,
+which define the technical configuration for receiving and processing video signals.
 
 ## Methods
 
 #|
 ||Method | Description ||
-|| [Get](get.md) | Get the specific stream line. ||
-|| [List](list.md) | List lines for channel. ||
-|| [BatchGet](batchGet.md) | Batch get lines for channel. ||
-|| [Create](create.md) | Create stream line. ||
-|| [Update](update.md) | Update stream line. ||
-|| [Delete](delete.md) | Delete stream line. ||
-|| [BatchDelete](batchDelete.md) | Batch delete stream lines. ||
-|| [PerformAction](performAction.md) | Perform an action on the line. ||
-|| [GetStreamKey](getStreamKey.md) | Get unique stream key. ||
-|| [UpdateStreamKey](updateStreamKey.md) | Update stream key. ||
+|| [Get](get.md) | Retrieves detailed information about a specific stream line by its ID. ||
+|| [List](list.md) | Lists all stream lines in a specific channel with pagination support. ||
+|| [BatchGet](batchGet.md) | Retrieves multiple stream lines by their IDs in a specific channel in a single request. ||
+|| [Create](create.md) | Creates a new stream line in the specified channel with the provided configuration. ||
+|| [Update](update.md) | Updates an existing stream line's metadata and configuration. ||
+|| [Delete](delete.md) | Deletes a specific stream line by its ID. ||
+|| [BatchDelete](batchDelete.md) | Deletes multiple stream lines in a specific channel in a single request. ||
+|| [PerformAction](performAction.md) | Performs a specific action on a stream line, such as activation or deactivation. ||
+|| [GetStreamKey](getStreamKey.md) | Retrieves the unique stream key for a push-type stream line. ||
+|| [UpdateStreamKey](updateStreamKey.md) | Regenerates and updates the stream key for a push-type stream line. ||
 |#

@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/apiKeys/{apiKeyId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        apiKeyId:
+          description: |-
+            **string**
+            Required field. ID of the key to list operations for.
+          type: string
+      required:
+        - apiKeyId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListApiKeyOperationsResponse.nextPageToken](/docs/iam/api-ref/ApiKey/listOperations#yandex.cloud.iam.v1.ListApiKeyOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListApiKeyOperationsResponse.nextPageToken](/docs/iam/api-ref/ApiKey/listOperations#yandex.cloud.iam.v1.ListApiKeyOperationsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/ApiKey/listOperations.md
 ---
 

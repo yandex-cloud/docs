@@ -1,5 +1,89 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/users
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Redis cluster to create a user in.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        userSpec:
+          description: |-
+            **[UserSpec](/docs/managed-redis/api-ref/Cluster/create#yandex.cloud.mdb.redis.v1.UserSpec)**
+            Properties of the user to be created.
+          $ref: '#/definitions/UserSpec'
+      additionalProperties: false
+    definitions:
+      Permissions:
+        type: object
+        properties:
+          patterns:
+            description: |-
+              **string**
+              Keys patterns user has permission to.
+            type: string
+          pubSubChannels:
+            description: |-
+              **string**
+              Channel patterns user has permissions to.
+            type: string
+          categories:
+            description: |-
+              **string**
+              Command categories user has permissions to.
+            type: string
+          commands:
+            description: |-
+              **string**
+              Commands user can execute.
+            type: string
+          sanitizePayload:
+            description: |-
+              **string**
+              SanitizePayload parameter.
+            type: string
+      UserSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the Redis user.
+            pattern: ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$
+            type: string
+          passwords:
+            description: |-
+              **string**
+              Password of the Redis user.
+            uniqueItems: true
+            pattern: ^[a-zA-Z0-9@=+?*.,!&#$^<>_-]*$
+            type: array
+            items:
+              type: string
+          permissions:
+            description: |-
+              **[Permissions](/docs/managed-redis/api-ref/Cluster/create#yandex.cloud.mdb.redis.v1.Permissions)**
+              Set of permissions to grant to the user.
+            $ref: '#/definitions/Permissions'
+          enabled:
+            description: |-
+              **boolean**
+              Is Redis user enabled
+            type: boolean
+        required:
+          - name
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/User/create.md
 ---
 

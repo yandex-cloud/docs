@@ -1,5 +1,64 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/scans
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        imageId:
+          description: |-
+            **string**
+            Includes only one of the fields `imageId`, `repositoryId`.
+            ID of the Image or Repository to list ScanResults for.
+            To get the image ID use a [yandex.cloud.containerregistry.v1.ImageService.List](/docs/container-registry/api-ref/Image/list#List) request.
+            To get the repository ID use a [yandex.cloud.containerregistry.v1.RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request.
+          type: string
+        repositoryId:
+          description: |-
+            **string**
+            Includes only one of the fields `imageId`, `repositoryId`.
+            ID of the Image or Repository to list ScanResults for.
+            To get the image ID use a [yandex.cloud.containerregistry.v1.ImageService.List](/docs/container-registry/api-ref/Image/list#List) request.
+            To get the repository ID use a [yandex.cloud.containerregistry.v1.RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [ScanResult.status](/docs/container-registry/api-ref/Scanner/get#yandex.cloud.containerregistry.v1.ScanResult) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`).
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            An order expression that orders resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [ScanResult.status](/docs/container-registry/api-ref/Scanner/get#yandex.cloud.containerregistry.v1.ScanResult) field.
+            2. Order selector. Currently you can use ordering only on `ScanResult.status` field (critical first).
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/list.md
 ---
 

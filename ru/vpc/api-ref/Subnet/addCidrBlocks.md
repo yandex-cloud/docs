@@ -1,5 +1,30 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}:add-cidr-blocks
+    method: post
+    path:
+      type: object
+      properties:
+        subnetId:
+          description: |-
+            **string**
+            Required field. ID of the Subnet resource that is being updated.
+          type: string
+      required:
+        - subnetId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        v4CidrBlocks:
+          description: "**string**\nCIDR block.\nThe range of internal addresses that should be added to this subnet.\nFor example,\_10.0.0.0/22\_or\_192.168.0.0/24.\nMinimum subnet size is /28, maximum subnet size is /16."
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/addCidrBlocks.md
 ---
 

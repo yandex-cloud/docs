@@ -1,5 +1,25 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/extensions
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: '**string** (int64)'
+          type: string
+          format: int64
+        pageToken:
+          description: '**string**'
+          type: string
+        folderId:
+          description: '**string**'
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Extension/list.md
 ---
 

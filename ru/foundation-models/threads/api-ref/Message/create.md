@@ -1,5 +1,79 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/assistants/v1/messages
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        threadId:
+          description: |-
+            **string**
+            Required field. ID of the thread to which the message will be added.
+          type: string
+        author:
+          description: |-
+            **[Author](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.Author)**
+            Author of the message, containing details about the message's creator.
+            If not provided, the default author ID specified in the corresponding thread will be used.
+          $ref: '#/definitions/Author'
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Set of key-value pairs to label the message.
+          type: string
+        content:
+          description: |-
+            **[MessageContent](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.MessageContent)**
+            Required field. Content of the message.
+          $ref: '#/definitions/MessageContent'
+      required:
+        - threadId
+        - content
+      additionalProperties: false
+    definitions:
+      Author:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              Unique identifier of the author. This could be either the user's ID or the assistant's ID, depending on the role.
+            type: string
+          role:
+            description: |-
+              **string**
+              Role of the author, indicating whether the message was created by a "user" or an "assistant".
+            type: string
+      Text:
+        type: object
+        properties:
+          content:
+            description: |-
+              **string**
+              Text content of the message.
+            type: string
+      MessageContent:
+        type: object
+        properties:
+          content:
+            description: |-
+              **[ContentPart](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.ContentPart)**
+              A list of content parts that make up the message.
+            type: array
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    text:
+                      description: |-
+                        **[Text](/docs/assistants/api-ref/Message/create#yandex.cloud.ai.assistants.v1.threads.Text)**
+                        Text content of the message part.
+                        Includes only one of the fields `text`.
+                        Specifies the type of content that the part contains.
+                      $ref: '#/definitions/Text'
 sourcePath: en/_api-ref/ai/assistants/v1/threads/api-ref/Message/create.md
 ---
 

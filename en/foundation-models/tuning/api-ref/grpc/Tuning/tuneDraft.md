@@ -122,7 +122,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 - `COMPLETED`
 - `FAILED`
 - `CANCELED`
-- `DRAFT` ||
+- `DRAFT`
+- `ARCHIVED`
+- `PAID` ||
 || total_steps | **int64** ||
 || current_step | **int64** ||
 |#
@@ -141,6 +143,8 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 - `COMPLETED`
 - `FAILED`
 - `CANCELED`
-- `DRAFT` ||
+- `DRAFT`
+- `ARCHIVED`
+- `PAID` ||
 || target_model_uri | **string** ||
 |#

@@ -1,5 +1,111 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://logging.{{ api-host }}/logging/v1/run-export
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        groupId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+        sinkId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+        params:
+          description: |-
+            **[ExportParams](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.ExportParams)**
+            Required field. 
+          $ref: '#/definitions/ExportParams'
+        resultFilename:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+        since:
+          description: |-
+            **string** (date-time)
+            Required field. String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+        until:
+          description: |-
+            **string** (date-time)
+            Required field. String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+      required:
+        - groupId
+        - sinkId
+        - params
+        - resultFilename
+        - since
+        - until
+      additionalProperties: false
+    definitions:
+      ExportParams:
+        type: object
+        properties:
+          resourceTypes:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          resourceIds:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          streamNames:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          levels:
+            description: |-
+              **enum** (Level)
+              - `LEVEL_UNSPECIFIED`: Default log level.
+                Equivalent to not specifying log level at all.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: array
+            items:
+              type: string
+              enum:
+                - LEVEL_UNSPECIFIED
+                - TRACE
+                - DEBUG
+                - INFO
+                - WARN
+                - ERROR
+                - FATAL
+          filter:
+            description: '**string**'
+            type: string
 sourcePath: en/_api-ref/logging/v1/api-ref/Export/run.md
 ---
 

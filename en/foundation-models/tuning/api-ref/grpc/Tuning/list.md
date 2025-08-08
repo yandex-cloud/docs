@@ -40,7 +40,9 @@ Token to retrieve the next page of results. ||
 - `COMPLETED`
 - `FAILED`
 - `CANCELED`
-- `DRAFT` ||
+- `DRAFT`
+- `ARCHIVED`
+- `PAID` ||
 |#
 
 ## ListTuningsResponse {#yandex.cloud.ai.tuning.v1.ListTuningsResponse}
@@ -93,7 +95,9 @@ Token to retrieve the next page of results. ||
 - `COMPLETED`
 - `FAILED`
 - `CANCELED`
-- `DRAFT` ||
+- `DRAFT`
+- `ARCHIVED`
+- `PAID` ||
 || folder_id | **string** ||
 || created_by | **string** ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||

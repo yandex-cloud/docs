@@ -1,5 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}:spec
+    method: get
+    path:
+      type: object
+      properties:
+        apiGatewayId:
+          description: |-
+            **string**
+            Required field. ID of the API gateway to get specification from.
+          type: string
+      required:
+        - apiGatewayId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        format:
+          description: |-
+            **enum** (Format)
+            Format of returned specification. Default is the original format used in [CreateApiGatewayRequest](/docs/api-gateway/apigateway/api-ref/ApiGateway/create#yandex.cloud.serverless.apigateway.v1.CreateApiGatewayRequest).
+            - `FORMAT_UNSPECIFIED`
+            - `JSON`
+            - `YAML`
+          type: string
+          enum:
+            - FORMAT_UNSPECIFIED
+            - JSON
+            - YAML
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/getOpenapiSpec.md
 ---
 

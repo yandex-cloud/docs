@@ -1,5 +1,135 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/projects
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        communityId:
+          description: |-
+            **string**
+            Required field. ID of the community to create a project in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the project. 0-63 characters long.
+          pattern: '[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the project. 0-256 characters long.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Labels of the project.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        settings:
+          description: |-
+            **[Settings](/docs/datasphere/api-ref/Project/create#yandex.cloud.datasphere.v2.Project.Settings)**
+            Settings of the project.
+          $ref: '#/definitions/Settings'
+        limits:
+          description: |-
+            **[Limits](/docs/datasphere/api-ref/Project/create#yandex.cloud.datasphere.v2.Project.Limits)**
+            Limits of the project.
+          $ref: '#/definitions/Limits'
+      required:
+        - communityId
+      additionalProperties: false
+    definitions:
+      Settings:
+        type: object
+        properties:
+          serviceAccountId:
+            description: |-
+              **string**
+              ID of the service account, on whose behalf all operations with clusters will be performed.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet where the DataProc cluster resides.
+              Currently only subnets created in the availability zone ru-central1-a are supported.
+            type: string
+          dataProcClusterId:
+            description: |-
+              **string**
+              ID of the DataProc cluster.
+            type: string
+          securityGroupIds:
+            description: |-
+              **string**
+              Network interfaces security groups.
+            type: array
+            items:
+              type: string
+          earlyAccess:
+            description: |-
+              **boolean**
+              Is early access preview enabled for the project.
+            type: boolean
+          ide:
+            description: |-
+              **enum** (Ide)
+              Project IDE.
+              - `IDE_UNSPECIFIED`
+              - `JUPYTER_LAB`: Project running on JupyterLab IDE.
+            type: string
+            enum:
+              - IDE_UNSPECIFIED
+              - JUPYTER_LAB
+          defaultFolderId:
+            description: |-
+              **string**
+              Default project folder ID.
+            type: string
+          staleExecTimeoutMode:
+            description: |-
+              **enum** (StaleExecutionTimeoutMode)
+              Timeout to automatically stop stale executions.
+              - `STALE_EXECUTION_TIMEOUT_MODE_UNSPECIFIED`
+              - `ONE_HOUR`: Setting to automatically stop stale execution after one hour with low consumption.
+              - `THREE_HOURS`: Setting to automatically stop stale execution after three hours with low consumption.
+              - `NO_TIMEOUT`: Setting to never automatically stop stale executions.
+            type: string
+            enum:
+              - STALE_EXECUTION_TIMEOUT_MODE_UNSPECIFIED
+              - ONE_HOUR
+              - THREE_HOURS
+              - NO_TIMEOUT
+          vmInactivityTimeout:
+            description: |-
+              **string** (duration)
+              Timeout for VM deallocation.
+            type: string
+            format: duration
+          defaultDedicatedSpec:
+            description: |-
+              **string**
+              Default VM configuration for DEDICATED mode.
+            type: string
+      Limits:
+        type: object
+        properties:
+          maxUnitsPerHour:
+            description: |-
+              **string** (int64)
+              The number of units that can be spent per hour.
+            type: string
+            format: int64
+          maxUnitsPerExecution:
+            description: |-
+              **string** (int64)
+              The number of units that can be spent on the one execution.
+            type: string
+            format: int64
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/create.md
 ---
 

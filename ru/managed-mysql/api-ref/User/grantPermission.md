@@ -1,5 +1,100 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}:grantPermission
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to grant permission to the user in.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+          type: string
+        userName:
+          description: |-
+            **string**
+            Required field. Name of the user to grant permission to.
+            To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/list#List) request.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - userName
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        permission:
+          description: |-
+            **[Permission](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.Permission)**
+            Required field. Permission that should be granted to the specified user.
+          $ref: '#/definitions/Permission'
+      required:
+        - permission
+      additionalProperties: false
+    definitions:
+      Permission:
+        type: object
+        properties:
+          databaseName:
+            description: |-
+              **string**
+              Name of the database that the permission grants access to.
+            type: string
+          roles:
+            description: |-
+              **enum** (Privilege)
+              Roles granted to the user within the database.
+              See [the documentation](/docs/managed-mysql/operations/grant) for details.
+              - `PRIVILEGE_UNSPECIFIED`
+              - `ALL_PRIVILEGES`: All privileges that can be made available to the user.
+              - `ALTER`: Altering tables.
+              - `ALTER_ROUTINE`: Altering stored routines and functions.
+              - `CREATE`: Creating tables or indexes.
+              - `CREATE_ROUTINE`: Creating stored routines.
+              - `CREATE_TEMPORARY_TABLES`: Creating temporary tables.
+              - `CREATE_VIEW`: Creating views.
+              - `DELETE`: Deleting tables.
+              - `DROP`: Removing tables or views.
+              - `EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.
+              - `EXECUTE`: Executing stored routines.
+              - `INDEX`: Creating and removing indexes.
+              - `INSERT`: Inserting rows into the database.
+              - `LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.
+              - `SELECT`: Selecting rows from tables.
+                Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege.
+                See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.
+              - `SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.
+              - `TRIGGER`: Creating, removing, executing, or displaying triggers for a table.
+              - `UPDATE`: Updating rows in the database.
+              - `REFERENCES`: Creation of a foreign key constraint for the parent table.
+            type: array
+            items:
+              type: string
+              enum:
+                - PRIVILEGE_UNSPECIFIED
+                - ALL_PRIVILEGES
+                - ALTER
+                - ALTER_ROUTINE
+                - CREATE
+                - CREATE_ROUTINE
+                - CREATE_TEMPORARY_TABLES
+                - CREATE_VIEW
+                - DELETE
+                - DROP
+                - EVENT
+                - EXECUTE
+                - INDEX
+                - INSERT
+                - LOCK_TABLES
+                - SELECT
+                - SHOW_VIEW
+                - TRIGGER
+                - UPDATE
+                - REFERENCES
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/User/grantPermission.md
 ---
 
@@ -274,7 +369,8 @@ This access includes:
 The contents of the Information Schema `ROUTINES` table.
 The `SHOW CREATE FUNCTION` and `SHOW CREATE PROCEDURE` statements.
 The `SHOW FUNCTION CODE` and `SHOW PROCEDURE CODE` statements.
-The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements. ||
+The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements.
+- `MDB_ADMIN`: Enables use of the KILL command, creating and dropping databases and users, granting privileges to tables and databases. ||
 || connectionLimits | **[ConnectionLimits](#yandex.cloud.mdb.mysql.v1.ConnectionLimits)**
 
 Set of user connection limits. ||

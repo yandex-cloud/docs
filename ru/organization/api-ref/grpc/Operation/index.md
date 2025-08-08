@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Operation/index.md
 ---
 
-# Cloud Organization API, gRPC: OperationService
+# Identity Hub API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.
 

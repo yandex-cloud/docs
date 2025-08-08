@@ -1,5 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/certificates/{fingerprint}
+    method: delete
+    path:
+      type: object
+      properties:
+        deviceId:
+          description: |-
+            **string**
+            Required field. ID of the device to delete a certificate for.
+            To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request.
+          type: string
+        fingerprint:
+          description: |-
+            **string**
+            Required field. Fingerprint of the certificate to delete.
+          type: string
+      required:
+        - deviceId
+        - fingerprint
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/deleteCertificate.md
 ---
 

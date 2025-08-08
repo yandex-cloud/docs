@@ -61,7 +61,7 @@ The text descriptions and weights that the model uses to generate an image.
 Text describing the image. ||
 || weight | **double**
 
-Message weight. Negative values indicate negative messages. ||
+Message weight. Negative values indicate negative messages. Note: Currently not supported. ||
 |#
 
 ## ImageGenerationOptions {#yandex.cloud.ai.foundation_models.v1.image_generation.ImageGenerationOptions}
@@ -74,7 +74,7 @@ The [MIME type](https://en.wikipedia.org/wiki/Media_type) of generated image for
 For possible specifications, see [documentation](/docs/foundation-models/concepts). ||
 || seed | **int64**
 
-Seed for image generation. It serves as a starting point for image generation from noise. ||
+Seed for image generation. It serves as a starting point for image generation from noise. If set to 0 or not provided, a randomly generated value will be used. ||
 || aspect_ratio | **[AspectRatio](#yandex.cloud.ai.foundation_models.v1.image_generation.AspectRatio)**
 
 Aspect ratio of generated image. ||

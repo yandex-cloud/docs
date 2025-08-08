@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cic.{{ api-host }}/cic/v1/partners/{partnerId}
+    method: get
+    path:
+      type: object
+      properties:
+        partnerId:
+          description: |-
+            **string**
+            Required field. ID of the Partner resource to return.
+            To get the partner ID use a [PartnerService.List](/docs/interconnect/api-ref/Partner/list#List) request.
+          type: string
+      required:
+        - partnerId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cic/v1/api-ref/Partner/get.md
 ---
 

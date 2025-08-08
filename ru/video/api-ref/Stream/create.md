@@ -1,11 +1,122 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/streams
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        channelId:
+          description: |-
+            **string**
+            Required field. ID of the channel where the stream will be created.
+          type: string
+        lineId:
+          description: |-
+            **string**
+            Required field. ID of the stream line to which this stream will be linked.
+            Stream lines define the technical configuration for streaming.
+          type: string
+        title:
+          description: |-
+            **string**
+            Required field. Title of the stream to be displayed in interfaces and players.
+          type: string
+        description:
+          description: |-
+            **string**
+            Detailed description of the stream content and context.
+            Optional field that can provide additional information about the stream.
+          type: string
+        thumbnailId:
+          description: |-
+            **string**
+            ID of the thumbnail image to be used for the stream.
+          type: string
+        autoPublish:
+          description: |-
+            **boolean**
+            Controls whether the stream is automatically published when ready.
+            When set to true, the stream's status will automatically change from
+            READY to ONAIR when the streaming infrastructure is prepared,
+            making it available for viewing without manual intervention.
+          type: boolean
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom user-defined labels as `key:value` pairs.
+            Maximum 64 labels per stream.
+            Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
+            Values can contain alphanumeric characters and various symbols.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        onDemand:
+          description: |-
+            **object**
+            On-demand stream that starts immediately when a video signal appears.
+            This type of stream has no predetermined start or end time.
+            Includes only one of the fields `onDemand`, `schedule`.
+            Specifies the stream scheduling type (exactly one must be chosen).
+          $ref: '#/definitions/OnDemandParams'
+        schedule:
+          description: |-
+            **[ScheduleParams](/docs/video/api-ref/Stream/create#yandex.cloud.video.v1.ScheduleParams)**
+            Scheduled stream that starts and finishes at specified time.
+            This type of stream has predetermined start and end time.
+            Includes only one of the fields `onDemand`, `schedule`.
+            Specifies the stream scheduling type (exactly one must be chosen).
+          $ref: '#/definitions/ScheduleParams'
+      required:
+        - channelId
+        - lineId
+        - title
+      additionalProperties: false
+    definitions:
+      OnDemandParams:
+        type: object
+        properties: {}
+      ScheduleParams:
+        type: object
+        properties:
+          startTime:
+            description: |-
+              **string** (date-time)
+              Required field. Scheduled time when the stream should automatically start.
+              The streaming infrastructure will be prepared at this time
+              and will begin accepting the video signal.
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+              `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+              To work with values in this field, use the APIs described in the
+              [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+            type: string
+            format: date-time
+          finishTime:
+            description: |-
+              **string** (date-time)
+              Required field. Scheduled time when the stream should automatically finish.
+              The streaming infrastructure will be shut down at this time
+              and the stream will be marked as FINISHED.
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+              `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+              To work with values in this field, use the APIs described in the
+              [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+            type: string
+            format: date-time
+        required:
+          - startTime
+          - finishTime
 sourcePath: en/_api-ref/video/v1/api-ref/Stream/create.md
 ---
 
 # Video API, REST: Stream.Create
 
-Create stream.
+Creates a new stream in the specified channel.
+Streams can be created as on-demand (starting when a signal appears)
+or scheduled (starting and finishing at specified time).
 
 ## HTTP request
 
@@ -38,40 +149,49 @@ POST https://video.{{ api-host }}/video/v1/streams
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel where the stream will be created. ||
 || lineId | **string**
 
-Required field. ID of the line. ||
+Required field. ID of the stream line to which this stream will be linked.
+Stream lines define the technical configuration for streaming. ||
 || title | **string**
 
-Required field. Stream title. ||
+Required field. Title of the stream to be displayed in interfaces and players. ||
 || description | **string**
 
-Stream description. ||
+Detailed description of the stream content and context.
+Optional field that can provide additional information about the stream. ||
 || thumbnailId | **string**
 
-ID of the thumbnail. ||
+ID of the thumbnail image to be used for the stream. ||
 || autoPublish | **boolean**
 
-Automatically publish stream when ready.
-Switches status from READY to ONAIR. ||
+Controls whether the stream is automatically published when ready.
+When set to true, the stream's status will automatically change from
+READY to ONAIR when the streaming infrastructure is prepared,
+making it available for viewing without manual intervention. ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per stream.
+Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
+Values can contain alphanumeric characters and various symbols. ||
 || onDemand | **object**
 
-On-demand stream. Starts immediately when a signal appears.
+On-demand stream that starts immediately when a video signal appears.
+This type of stream has no predetermined start or end time.
 
 Includes only one of the fields `onDemand`, `schedule`.
 
-Stream type. ||
+Specifies the stream scheduling type (exactly one must be chosen). ||
 || schedule | **[ScheduleParams](#yandex.cloud.video.v1.ScheduleParams)**
 
-Schedule stream. Starts or finishes at the specified time.
+Scheduled stream that starts and finishes at specified time.
+This type of stream has predetermined start and end time.
 
 Includes only one of the fields `onDemand`, `schedule`.
 
-Stream type. ||
+Specifies the stream scheduling type (exactly one must be chosen). ||
 |#
 
 ## ScheduleParams {#yandex.cloud.video.v1.ScheduleParams}
@@ -80,7 +200,11 @@ Stream type. ||
 ||Field | Description ||
 || startTime | **string** (date-time)
 
-Required field. String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+Required field. Scheduled time when the stream should automatically start.
+The streaming infrastructure will be prepared at this time
+and will begin accepting the video signal.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
 
 To work with values in this field, use the APIs described in the
@@ -88,7 +212,11 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || finishTime | **string** (date-time)
 
-Required field. String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+Required field. Scheduled time when the stream should automatically finish.
+The streaming infrastructure will be shut down at this time
+and the stream will be marked as FINISHED.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
 
 To work with values in this field, use the APIs described in the
@@ -221,7 +349,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || streamId | **string**
 
-ID of the stream. ||
+ID of the stream being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -243,39 +371,42 @@ A list of messages that carry the error details. ||
 
 ## Stream {#yandex.cloud.video.v1.Stream}
 
+Entity representing a live video stream.
+A stream is a real-time video broadcast linked to a specific stream line.
+
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the stream. ||
+Unique identifier of the stream. ||
 || channelId | **string**
 
-ID of the channel where the stream was created. ||
+Identifier of the channel where the stream is created and managed. ||
 || lineId | **string**
 
-ID of the line to which stream is linked. ||
+Identifier of the stream line to which this stream is linked. ||
 || title | **string**
 
-Stream title. ||
+Title of the stream displayed in interfaces and players. ||
 || description | **string**
 
-Stream description. ||
+Detailed description of the stream content and context. ||
 || thumbnailId | **string**
 
-ID of the thumbnail. ||
+Identifier of the thumbnail image used to represent the stream visually. ||
 || status | **enum** (StreamStatus)
 
-Stream status.
+Current status of the stream.
 
-- `STREAM_STATUS_UNSPECIFIED`: Stream status unspecified.
-- `OFFLINE`: Stream offline.
-- `PREPARING`: Preparing the infrastructure for receiving video signal.
-- `READY`: Everything is ready to launch stream.
-- `ONAIR`: Stream onair.
-- `FINISHED`: Stream finished. ||
+- `STREAM_STATUS_UNSPECIFIED`: The stream status is not specified.
+- `OFFLINE`: The stream is offline and not broadcasting.
+- `PREPARING`: The system is preparing the infrastructure for receiving the video signal.
+- `READY`: The infrastructure is ready to launch the stream.
+- `ONAIR`: The stream is currently broadcasting live.
+- `FINISHED`: The stream has completed and is no longer broadcasting. ||
 || startTime | **string** (date-time)
 
-Stream start time.
+Timestamp when the stream was initiated.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -285,7 +416,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || publishTime | **string** (date-time)
 
-Stream publish time. Time when stream switched to ONAIR status.
+Timestamp when the stream was published (switched to ONAIR status).
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -295,7 +426,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || finishTime | **string** (date-time)
 
-Stream finish time.
+Timestamp when the stream was completed.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -305,25 +436,25 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || autoPublish | **boolean**
 
-Automatically publish stream when ready.
-Switches status from READY to ONAIR. ||
+Controls automatic publishing of the stream when it's ready.
+When set to true, automatically switches status from READY to ONAIR. ||
 || onDemand | **object**
 
-On-demand stream. Starts immediately when a signal appears.
+On-demand stream starts immediately when a video signal appears.
 
 Includes only one of the fields `onDemand`, `schedule`.
 
-Stream type. ||
+Specifies the stream scheduling type. ||
 || schedule | **[Schedule](#yandex.cloud.video.v1.Schedule)**
 
-Schedule stream. Starts or finished at the specified time.
+Scheduled stream starts and finishes at specified time.
 
 Includes only one of the fields `onDemand`, `schedule`.
 
-Stream type. ||
+Specifies the stream scheduling type. ||
 || createdAt | **string** (date-time)
 
-Time when stream was created.
+Timestamp when the stream was initially created in the system.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -333,7 +464,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || updatedAt | **string** (date-time)
 
-Time of last stream update.
+Timestamp of the last modification to the stream or its metadata.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -343,17 +474,22 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per stream.
+Used for organization, filtering, and metadata purposes.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
 ## Schedule {#yandex.cloud.video.v1.Schedule}
 
-Schedule stream type.
-This type of streams start and finish automatically at the specified time.
+Represents a scheduled stream type.
+This type of stream starts and finishes automatically at specified time.
 
 #|
 ||Field | Description ||
 || startTime | **string** (date-time)
+
+Scheduled time when the stream should automatically start.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -362,6 +498,8 @@ To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || finishTime | **string** (date-time)
+
+Scheduled time when the stream should automatically finish.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

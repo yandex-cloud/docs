@@ -1,5 +1,84 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/hosts:batchCreate
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the ClickHouse cluster to add hosts to.
+            To get the ClickHouse cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        hostSpecs:
+          description: |-
+            **[HostSpec](/docs/managed-clickhouse/api-ref/Cluster/create#yandex.cloud.mdb.clickhouse.v1.HostSpec)**
+            Configurations for ClickHouse hosts that should be added to the cluster.
+          type: array
+          items:
+            $ref: '#/definitions/HostSpec'
+        copySchema:
+          description: |-
+            **boolean**
+            Whether to copy schema to new ClickHouse hosts from replicas.
+          type: boolean
+      additionalProperties: false
+    definitions:
+      HostSpec:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              ID of the availability zone where the host resides.
+              To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+            type: string
+          type:
+            description: |-
+              **enum** (Type)
+              Required field. Type of the host to be deployed.
+              - `TYPE_UNSPECIFIED`: Host type is unspecified. Default value.
+              - `CLICKHOUSE`: ClickHouse host.
+              - `ZOOKEEPER`: ZooKeeper host.
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - CLICKHOUSE
+              - ZOOKEEPER
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet that the host should belong to. This subnet should be a part
+              of the network that the cluster belongs to.
+              The ID of the network is set in the [Cluster.networkId](/docs/managed-clickhouse/api-ref/Cluster/get#yandex.cloud.mdb.clickhouse.v1.Cluster) field.
+            type: string
+          assignPublicIp:
+            description: |-
+              **boolean**
+              Whether the host should get a public IP address on creation.
+              After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
+              a public IP to a host without one, recreate the host with [assignPublicIp](/docs/managed-clickhouse/api-ref/Cluster/updateHosts#yandex.cloud.mdb.clickhouse.v1.UpdateHostSpec) set as needed.
+              Possible values:
+              * false - don't assign a public IP to the host.
+              * true - the host should have a public IP address.
+            type: boolean
+          shardName:
+            description: |-
+              **string**
+              Name of the shard that the host is assigned to.
+            pattern: '[a-zA-Z0-9_-]*'
+            type: string
+        required:
+          - type
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/addHosts.md
 ---
 

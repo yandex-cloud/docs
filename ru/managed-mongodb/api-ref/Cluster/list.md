@@ -1,5 +1,47 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mongodb/v1/clusters
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list MongoDB clusters in.
+            To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](/docs/managed-mongodb/api-ref/Cluster/list#yandex.cloud.mdb.mongodb.v1.ListClustersResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken`
+            to the [ListClustersResponse.nextPageToken](/docs/managed-mongodb/api-ref/Cluster/list#yandex.cloud.mdb.mongodb.v1.ListClustersResponse) returned by the previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can only use filtering with the [Cluster.name](/docs/managed-mongodb/api-ref/Cluster/get#yandex.cloud.mdb.mongodb.v1.Cluster) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-zA-Z0-9_-]+`.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/list.md
 ---
 
@@ -2967,7 +3009,8 @@ The expression must specify:
                 "storage": {
                   "wiredTiger": {
                     "engineConfig": {
-                      "cacheSizeGb": "number"
+                      "cacheSizeGb": "number",
+                      "cacheSize": "number"
                     },
                     "collectionConfig": {
                       "blockCompressor": "string"
@@ -3010,14 +3053,31 @@ The expression must specify:
                 "setParameter": {
                   "auditAuthorizationSuccess": "boolean",
                   "enableFlowControl": "boolean",
-                  "minSnapshotHistoryWindowInSeconds": "string"
+                  "minSnapshotHistoryWindowInSeconds": "string",
+                  "flowControlTargetLagSeconds": "string",
+                  "flowControlWarnThresholdSeconds": "string",
+                  "migrateCloneInsertionBatchDelayMs": "string",
+                  "migrateCloneInsertionBatchSize": "string",
+                  "orphanCleanupDelaySecs": "string",
+                  "persistedChunkCacheUpdateMaxBatchSize": "string",
+                  "rangeDeleterBatchDelayMs": "string",
+                  "rangeDeleterBatchSize": "string",
+                  "mirrorReads": {
+                    "samplingRate": "number",
+                    "maxTimeMs": "string"
+                  }
+                },
+                "oplog": {
+                  "maxSizePercent": "string",
+                  "minRetentionHours": "number"
                 }
               },
               "userConfig": {
                 "storage": {
                   "wiredTiger": {
                     "engineConfig": {
-                      "cacheSizeGb": "number"
+                      "cacheSizeGb": "number",
+                      "cacheSize": "number"
                     },
                     "collectionConfig": {
                       "blockCompressor": "string"
@@ -3060,14 +3120,31 @@ The expression must specify:
                 "setParameter": {
                   "auditAuthorizationSuccess": "boolean",
                   "enableFlowControl": "boolean",
-                  "minSnapshotHistoryWindowInSeconds": "string"
+                  "minSnapshotHistoryWindowInSeconds": "string",
+                  "flowControlTargetLagSeconds": "string",
+                  "flowControlWarnThresholdSeconds": "string",
+                  "migrateCloneInsertionBatchDelayMs": "string",
+                  "migrateCloneInsertionBatchSize": "string",
+                  "orphanCleanupDelaySecs": "string",
+                  "persistedChunkCacheUpdateMaxBatchSize": "string",
+                  "rangeDeleterBatchDelayMs": "string",
+                  "rangeDeleterBatchSize": "string",
+                  "mirrorReads": {
+                    "samplingRate": "number",
+                    "maxTimeMs": "string"
+                  }
+                },
+                "oplog": {
+                  "maxSizePercent": "string",
+                  "minRetentionHours": "number"
                 }
               },
               "defaultConfig": {
                 "storage": {
                   "wiredTiger": {
                     "engineConfig": {
-                      "cacheSizeGb": "number"
+                      "cacheSizeGb": "number",
+                      "cacheSize": "number"
                     },
                     "collectionConfig": {
                       "blockCompressor": "string"
@@ -3110,7 +3187,23 @@ The expression must specify:
                 "setParameter": {
                   "auditAuthorizationSuccess": "boolean",
                   "enableFlowControl": "boolean",
-                  "minSnapshotHistoryWindowInSeconds": "string"
+                  "minSnapshotHistoryWindowInSeconds": "string",
+                  "flowControlTargetLagSeconds": "string",
+                  "flowControlWarnThresholdSeconds": "string",
+                  "migrateCloneInsertionBatchDelayMs": "string",
+                  "migrateCloneInsertionBatchSize": "string",
+                  "orphanCleanupDelaySecs": "string",
+                  "persistedChunkCacheUpdateMaxBatchSize": "string",
+                  "rangeDeleterBatchDelayMs": "string",
+                  "rangeDeleterBatchSize": "string",
+                  "mirrorReads": {
+                    "samplingRate": "number",
+                    "maxTimeMs": "string"
+                  }
+                },
+                "oplog": {
+                  "maxSizePercent": "string",
+                  "minRetentionHours": "number"
                 }
               }
             },
@@ -3131,7 +3224,8 @@ The expression must specify:
                 "storage": {
                   "wiredTiger": {
                     "engineConfig": {
-                      "cacheSizeGb": "number"
+                      "cacheSizeGb": "number",
+                      "cacheSize": "number"
                     },
                     "indexConfig": {
                       "prefixCompression": "boolean"
@@ -3156,13 +3250,18 @@ The expression must specify:
                 },
                 "auditLog": {
                   "filter": "string"
+                },
+                "oplog": {
+                  "maxSizePercent": "string",
+                  "minRetentionHours": "number"
                 }
               },
               "userConfig": {
                 "storage": {
                   "wiredTiger": {
                     "engineConfig": {
-                      "cacheSizeGb": "number"
+                      "cacheSizeGb": "number",
+                      "cacheSize": "number"
                     },
                     "indexConfig": {
                       "prefixCompression": "boolean"
@@ -3187,13 +3286,18 @@ The expression must specify:
                 },
                 "auditLog": {
                   "filter": "string"
+                },
+                "oplog": {
+                  "maxSizePercent": "string",
+                  "minRetentionHours": "number"
                 }
               },
               "defaultConfig": {
                 "storage": {
                   "wiredTiger": {
                     "engineConfig": {
-                      "cacheSizeGb": "number"
+                      "cacheSizeGb": "number",
+                      "cacheSize": "number"
                     },
                     "indexConfig": {
                       "prefixCompression": "boolean"
@@ -3218,6 +3322,10 @@ The expression must specify:
                 },
                 "auditLog": {
                   "filter": "string"
+                },
+                "oplog": {
+                  "maxSizePercent": "string",
+                  "minRetentionHours": "number"
                 }
               }
             },
@@ -3244,11 +3352,24 @@ The expression must specify:
                   }
                 },
                 "setParameter": {
-                  "auditAuthorizationSuccess": "boolean"
+                  "auditAuthorizationSuccess": "boolean",
+                  "readHedgingMode": "string",
+                  "shardingTaskExecutorPoolMaxSize": "string",
+                  "shardingTaskExecutorPoolMaxConnecting": "string",
+                  "shardingTaskExecutorPoolMinSize": "string",
+                  "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                  "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                  "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                  "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                  "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                  "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                  "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                  "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
                 },
                 "auditLog": {
                   "filter": "string"
-                }
+                },
+                "chunkSize": "string"
               },
               "userConfig": {
                 "net": {
@@ -3260,11 +3381,24 @@ The expression must specify:
                   }
                 },
                 "setParameter": {
-                  "auditAuthorizationSuccess": "boolean"
+                  "auditAuthorizationSuccess": "boolean",
+                  "readHedgingMode": "string",
+                  "shardingTaskExecutorPoolMaxSize": "string",
+                  "shardingTaskExecutorPoolMaxConnecting": "string",
+                  "shardingTaskExecutorPoolMinSize": "string",
+                  "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                  "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                  "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                  "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                  "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                  "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                  "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                  "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
                 },
                 "auditLog": {
                   "filter": "string"
-                }
+                },
+                "chunkSize": "string"
               },
               "defaultConfig": {
                 "net": {
@@ -3276,11 +3410,24 @@ The expression must specify:
                   }
                 },
                 "setParameter": {
-                  "auditAuthorizationSuccess": "boolean"
+                  "auditAuthorizationSuccess": "boolean",
+                  "readHedgingMode": "string",
+                  "shardingTaskExecutorPoolMaxSize": "string",
+                  "shardingTaskExecutorPoolMaxConnecting": "string",
+                  "shardingTaskExecutorPoolMinSize": "string",
+                  "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                  "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                  "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                  "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                  "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                  "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                  "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                  "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
                 },
                 "auditLog": {
                   "filter": "string"
-                }
+                },
+                "chunkSize": "string"
               }
             },
             "resources": {
@@ -3306,11 +3453,24 @@ The expression must specify:
                   }
                 },
                 "setParameter": {
-                  "auditAuthorizationSuccess": "boolean"
+                  "auditAuthorizationSuccess": "boolean",
+                  "readHedgingMode": "string",
+                  "shardingTaskExecutorPoolMaxSize": "string",
+                  "shardingTaskExecutorPoolMaxConnecting": "string",
+                  "shardingTaskExecutorPoolMinSize": "string",
+                  "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                  "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                  "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                  "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                  "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                  "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                  "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                  "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
                 },
                 "auditLog": {
                   "filter": "string"
-                }
+                },
+                "chunkSize": "string"
               },
               "userConfig": {
                 "net": {
@@ -3322,11 +3482,24 @@ The expression must specify:
                   }
                 },
                 "setParameter": {
-                  "auditAuthorizationSuccess": "boolean"
+                  "auditAuthorizationSuccess": "boolean",
+                  "readHedgingMode": "string",
+                  "shardingTaskExecutorPoolMaxSize": "string",
+                  "shardingTaskExecutorPoolMaxConnecting": "string",
+                  "shardingTaskExecutorPoolMinSize": "string",
+                  "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                  "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                  "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                  "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                  "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                  "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                  "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                  "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
                 },
                 "auditLog": {
                   "filter": "string"
-                }
+                },
+                "chunkSize": "string"
               },
               "defaultConfig": {
                 "net": {
@@ -3338,11 +3511,24 @@ The expression must specify:
                   }
                 },
                 "setParameter": {
-                  "auditAuthorizationSuccess": "boolean"
+                  "auditAuthorizationSuccess": "boolean",
+                  "readHedgingMode": "string",
+                  "shardingTaskExecutorPoolMaxSize": "string",
+                  "shardingTaskExecutorPoolMaxConnecting": "string",
+                  "shardingTaskExecutorPoolMinSize": "string",
+                  "shardingTaskExecutorPoolReplicaSetMatching": "string",
+                  "shardingTaskExecutorPoolHostTimeoutMs": "string",
+                  "shardingTaskExecutorPoolRefreshRequirementMs": "string",
+                  "shardingTaskExecutorPoolRefreshTimeoutMs": "string",
+                  "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
+                  "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
+                  "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
+                  "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
                 },
                 "auditLog": {
                   "filter": "string"
-                }
+                },
+                "chunkSize": "string"
               }
             },
             "configMongocfg": {
@@ -3350,7 +3536,8 @@ The expression must specify:
                 "storage": {
                   "wiredTiger": {
                     "engineConfig": {
-                      "cacheSizeGb": "number"
+                      "cacheSizeGb": "number",
+                      "cacheSize": "number"
                     },
                     "indexConfig": {
                       "prefixCompression": "boolean"
@@ -3375,13 +3562,18 @@ The expression must specify:
                 },
                 "auditLog": {
                   "filter": "string"
+                },
+                "oplog": {
+                  "maxSizePercent": "string",
+                  "minRetentionHours": "number"
                 }
               },
               "userConfig": {
                 "storage": {
                   "wiredTiger": {
                     "engineConfig": {
-                      "cacheSizeGb": "number"
+                      "cacheSizeGb": "number",
+                      "cacheSize": "number"
                     },
                     "indexConfig": {
                       "prefixCompression": "boolean"
@@ -3406,13 +3598,18 @@ The expression must specify:
                 },
                 "auditLog": {
                   "filter": "string"
+                },
+                "oplog": {
+                  "maxSizePercent": "string",
+                  "minRetentionHours": "number"
                 }
               },
               "defaultConfig": {
                 "storage": {
                   "wiredTiger": {
                     "engineConfig": {
-                      "cacheSizeGb": "number"
+                      "cacheSizeGb": "number",
+                      "cacheSize": "number"
                     },
                     "indexConfig": {
                       "prefixCompression": "boolean"
@@ -3437,6 +3634,10 @@ The expression must specify:
                 },
                 "auditLog": {
                   "filter": "string"
+                },
+                "oplog": {
+                  "maxSizePercent": "string",
+                  "minRetentionHours": "number"
                 }
               }
             },
@@ -3473,7 +3674,8 @@ The expression must specify:
       "securityGroupIds": [
         "string"
       ],
-      "deletionProtection": "boolean"
+      "deletionProtection": "boolean",
+      "diskEncryptionKeyId": "string"
     }
   ],
   "nextPageToken": "string"
@@ -3579,6 +3781,9 @@ User security groups ||
 || deletionProtection | **boolean**
 
 Deletion Protection inhibits deletion of the cluster ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.mongodb.v1.Monitoring}
@@ -7430,6 +7635,9 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || setParameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter)**
 
 `SetParameter` section of mongod configuration. ||
+|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog)**
+
+`Oplog` section of mongod configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage}
@@ -7468,6 +7676,9 @@ Index configuration for WiredTiger ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|| cacheSize | **number** (double)
+
+The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## CollectionConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig}
@@ -7620,6 +7831,57 @@ lag under a configurable maximum value. ||
 || minSnapshotHistoryWindowInSeconds | **string** (int64)
 
 The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+|| flowControlTargetLagSeconds | **string** (int64)
+
+The target maximum majority committed lag when running with flow control ||
+|| flowControlWarnThresholdSeconds | **string** (int64)
+
+The amount of time to wait to log a warning once the flow control mechanism detects the majority commit point has not moved. ||
+|| migrateCloneInsertionBatchDelayMs | **string** (int64)
+
+Time in milliseconds to wait between batches of insertions during cloning step of the migration process. ||
+|| migrateCloneInsertionBatchSize | **string** (int64)
+
+The maximum number of documents to insert in a single batch during the cloning step of the migration process. ||
+|| orphanCleanupDelaySecs | **string** (int64)
+
+Minimum delay before a migrated chunk is deleted from the source shard. ||
+|| persistedChunkCacheUpdateMaxBatchSize | **string** (int64)
+
+Specifies the maximum batch size used for updating the persisted chunk cache. ||
+|| rangeDeleterBatchDelayMs | **string** (int64)
+
+The amount of time in milliseconds to wait before the next batch of deletion during the cleanup stage of chunk migration (or the cleanupOrphaned command). ||
+|| rangeDeleterBatchSize | **string** (int64)
+
+The maximum number of documents in each batch to delete during the cleanup stage of chunk migration (or the cleanupOrphaned command). ||
+|| mirrorReads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads)**
+
+Specifies the settings for mirrored reads for the mongod instance ||
+|#
+
+## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads}
+
+#|
+||Field | Description ||
+|| samplingRate | **number** (double)
+
+The sampling rate used to mirror a subset of operations that support mirroring to a subset of electable secondaries ||
+|| maxTimeMs | **string** (int64)
+
+The maximum time in milliseconds for the mirrored reads ||
+|#
+
+## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog}
+
+#|
+||Field | Description ||
+|| maxSizePercent | **string** (int64)
+
+Oplog maxsize in percents. ||
+|| minRetentionHours | **number** (double)
+
+The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoCfg}
@@ -7672,6 +7934,9 @@ Default mongocfg configuration for a MongoDB cluster. ||
 || auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog)**
 
 `AuditLog` section of mongocfg configuration. ||
+|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog)**
+
+`Oplog` section of mongod configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage}
@@ -7704,6 +7969,9 @@ Index configuration for WiredTiger. ||
 || cacheSizeGb | **number** (double)
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|| cacheSize | **number** (double)
+
+The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## IndexConfig {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.IndexConfig}
@@ -7789,6 +8057,18 @@ https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-para
 Audit filter, should be valid JSON object string ||
 |#
 
+## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog}
+
+#|
+||Field | Description ||
+|| maxSizePercent | **string** (int64)
+
+Oplog maxsize in percents. ||
+|| minRetentionHours | **number** (double)
+
+The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
+|#
+
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb.Mongos}
 
 #|
@@ -7833,6 +8113,9 @@ Network settings for mongos. ||
 || auditLog | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog)**
 
 `AuditLog` section of mongos configuration. ||
+|| chunkSize | **string** (int64)
+
+`ChunkSize` parameter of mongos configuration. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -7874,6 +8157,42 @@ MongoDB supports the following compressors:
 
 Enables the auditing of authorization successes
 https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|| readHedgingMode | **string**
+
+Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option. ||
+|| shardingTaskExecutorPoolMaxSize | **string** (int64)
+
+Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
+|| shardingTaskExecutorPoolMaxConnecting | **string** (int64)
+
+Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance. ||
+|| shardingTaskExecutorPoolMinSize | **string** (int64)
+
+Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
+|| shardingTaskExecutorPoolReplicaSetMatching | **string**
+
+On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets. ||
+|| shardingTaskExecutorPoolHostTimeoutMs | **string** (int64)
+
+Maximum time that mongos goes without communication to a host before mongos drops all connections to the host. ||
+|| shardingTaskExecutorPoolRefreshRequirementMs | **string** (int64)
+
+Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool. ||
+|| shardingTaskExecutorPoolRefreshTimeoutMs | **string** (int64)
+
+Maximum time the mongos waits for a heartbeat before timing out the heartbeat. ||
+|| warmMinConnectionsInShardingTaskExecutorPoolOnStartup | **boolean**
+
+Configures a mongos instance to prewarm its connection pool on startup. ||
+|| warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs | **string** (int64)
+
+Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter. ||
+|| shardingTaskExecutorPoolMaxSizeForConfigServers | **string** (int64)
+
+Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|| shardingTaskExecutorPoolMinSizeForConfigServers | **string** (int64)
+
+Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
 |#
 
 ## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog}

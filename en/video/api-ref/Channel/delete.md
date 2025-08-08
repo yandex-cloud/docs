@@ -1,11 +1,30 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/channels/{channelId}
+    method: delete
+    path:
+      type: object
+      properties:
+        channelId:
+          description: |-
+            **string**
+            Required field. ID of the channel to delete.
+            Deleting a channel will also delete all its content,
+            including videos, streams, and related resources.
+          type: string
+      required:
+        - channelId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Channel/delete.md
 ---
 
 # Video API, REST: Channel.Delete
 
-Delete channel.
+Deletes a specific channel by its ID.
 
 ## HTTP request
 
@@ -19,7 +38,9 @@ DELETE https://video.{{ api-host }}/video/v1/channels/{channelId}
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel to delete.
+Deleting a channel will also delete all its content,
+including videos, streams, and related resources. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -109,7 +130,8 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || channelId | **string**
 
-ID of the channel. ||
+ID of the channel being deleted.
+This identifier can be used to track the channel deletion operation. ||
 |#
 
 ## Status {#google.rpc.Status}

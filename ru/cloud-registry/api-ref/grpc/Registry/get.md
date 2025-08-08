@@ -69,7 +69,9 @@ Kind of the registry.
 - `MAVEN`: Registry kind is maven.
 - `NPM`: Registry kind is npm.
 - `DOCKER`: Registry kind is docker.
-- `NUGET`: Registry kind is nuget. ||
+- `NUGET`: Registry kind is nuget.
+- `DEBIAN`: Registry kind is debian.
+- `PYPI`: Registry kind is pypi. ||
 || type | enum **Type**
 
 Type of the registry.

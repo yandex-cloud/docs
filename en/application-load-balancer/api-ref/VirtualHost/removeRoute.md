@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}:removeRoute
+    method: post
+    path:
+      type: object
+      properties:
+        httpRouterId:
+          description: |-
+            **string**
+            Required field. ID of the HTTP router to delete a route from.
+            To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/HttpRouter/list#List) request.
+          type: string
+        virtualHostName:
+          description: |-
+            **string**
+            Required field. Name of the virtual host to delete a route from.
+            To get the virtual host name, make a [VirtualHostService.List](/docs/application-load-balancer/api-ref/VirtualHost/list#List) request.
+          type: string
+      required:
+        - httpRouterId
+        - virtualHostName
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        routeName:
+          description: |-
+            **string**
+            Required field. Name of the route to delete.
+            To get the route name, make a [VirtualHostService.Get](/docs/application-load-balancer/api-ref/VirtualHost/get#Get) request.
+          type: string
+      required:
+        - routeName
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/removeRoute.md
 ---
 
@@ -259,7 +295,8 @@ To get the route name, make a [VirtualHostService.Get](/docs/application-load-ba
             ]
           },
           "securityProfileId": "string"
-        }
+        },
+        "disableSecurityProfile": "boolean"
       }
     ],
     "modifyRequestHeaders": [
@@ -525,6 +562,9 @@ Includes only one of the fields `http`, `grpc`.
 
 Route configuration. ||
 || routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)** ||
+|| disableSecurityProfile | **boolean**
+
+Whether set to 'true' disables security profile for the route. ||
 |#
 
 ## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute}

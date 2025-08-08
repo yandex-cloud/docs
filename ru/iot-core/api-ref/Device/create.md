@@ -1,5 +1,68 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/devices
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the registry to create a device in.
+            To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the device. The name must be unique within the registry.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the device.
+          type: string
+        certificates:
+          description: |-
+            **[Certificate](/docs/iot-core/api-ref/Device/create#yandex.cloud.iot.devices.v1.CreateDeviceRequest.Certificate)**
+            Device certificate.
+          type: array
+          items:
+            $ref: '#/definitions/Certificate'
+        topicAliases:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Alias of a device topic.
+            Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`.
+          type: string
+        password:
+          description: |-
+            **string**
+            Device password.
+            The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+      required:
+        - registryId
+        - name
+      additionalProperties: false
+    definitions:
+      Certificate:
+        type: object
+        properties:
+          certificateData:
+            description: |-
+              **string**
+              Public part of the device certificate.
+            type: string
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/create.md
 ---
 

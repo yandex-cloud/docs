@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/groups/{groupId}
+    method: delete
+    path:
+      type: object
+      properties:
+        groupId:
+          description: |-
+            **string**
+            Required field. ID of the group to delete.
+            To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/list#List) request.
+          type: string
+      required:
+        - groupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/delete.md
 ---
 
-# Cloud Organization API, REST: Group.Delete
+# Identity Hub API, REST: Group.Delete
 
 Deletes the specified group.
 

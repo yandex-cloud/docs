@@ -397,10 +397,18 @@ The name of the Object Storage bucket that stores DAG files used in the cluster.
 
 #|
 ||Field | Description ||
-|| repo | **string** ||
-|| branch | **string** ||
-|| sub_path | **string** ||
-|| ssh_key | **string** ||
+|| repo | **string**
+
+Required field. Git repository URL. ||
+|| branch | **string**
+
+Required field. Git branch name to sync from. ||
+|| sub_path | **string**
+
+Subdirectory path within the repository containing DAG files. ||
+|| ssh_key | **string**
+
+SSH private key for repository authentication. ||
 |#
 
 ## LoggingConfig {#yandex.cloud.airflow.v1.LoggingConfig}

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/GroupMapping/get.md
 ---
 
-# Cloud Organization API, gRPC: GroupMappingService.Get
+# Identity Hub API, gRPC: GroupMappingService.Get
 
 Returns a group mapping configured for the specific federation
 If a federation does not exist this call will return an error

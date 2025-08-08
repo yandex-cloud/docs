@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Organization/setAccessBindings.md
 ---
 
-# Cloud Organization API, gRPC: OrganizationService.SetAccessBindings
+# Identity Hub API, gRPC: OrganizationService.SetAccessBindings
 
 Sets access bindings for the specified organization.
 

@@ -16,6 +16,8 @@ Actions are performed by making RPC calls. For more information about API archit
 || [ApiKey](ApiKey/index.md) | A set of methods for managing API keys. ||
 || [IamToken](IamToken/index.md) | A set of methods for managing IAM tokens. ||
 || [Key](Key/index.md) | A set of methods for managing Key resources. ||
+|| [OAuthClientSecret](OAuthClientSecret/index.md) | A set of methods for managing OAuthClientSecret resources. ||
+|| [OAuthClient](OAuthClient/index.md) | A set of methods for managing OAuthClient resources. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [RefreshToken](RefreshToken/index.md) | A set of methods for managing Refresh Tokens. ||
 || [Role](Role/index.md) | A set of methods for managing Role resources. ||

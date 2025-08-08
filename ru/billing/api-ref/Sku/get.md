@@ -1,5 +1,44 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://billing.{{ api-host }}/billing/v1/skus/{id}
+    method: get
+    path:
+      type: object
+      properties:
+        id:
+          description: |-
+            **string**
+            Required field. ID of the SKU to return.
+            To get the SKU ID, use [SkuService.List](/docs/billing/api-ref/Sku/list#List) request.
+          type: string
+      required:
+        - id
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        currency:
+          description: |-
+            **string**
+            Required field. Currency of the SKU.
+            Can be one of the following:
+            * `RUB`
+            * `USD`
+            * `KZT`
+          type: string
+        billingAccountId:
+          description: |-
+            **string**
+            Optional ID of the billing account.
+            If specified, contract prices for a particular billing account are included in the response.
+            To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+          type: string
+      required:
+        - currency
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/billing/v1/api-ref/Sku/get.md
 ---
 

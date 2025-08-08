@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ydb.{{ api-host }}/ydb/v1/databases/{databaseId}:stop
+    method: post
+    path:
+      type: object
+      properties:
+        databaseId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - databaseId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ydb/v1/api-ref/Database/stop.md
 ---
 

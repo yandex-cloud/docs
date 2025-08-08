@@ -1,5 +1,251 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Elasticsearch cluster to update.
+            To get the Elasticsearch cluster ID, make a [ClusterService.List](/docs/managed-elasticsearch/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        description:
+          description: |-
+            **string**
+            New description of the Elasticsearch cluster.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the Elasticsearch cluster as `key:value` pairs.
+            For example, "project": "mvp" or "source": "dictionary".
+            The new set of labels will completely replace the old ones.
+            To add a label, request the current set with the [ClusterService.Get](/docs/managed-elasticsearch/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        configSpec:
+          description: |-
+            **[ConfigSpecUpdate](/docs/managed-elasticsearch/api-ref/Cluster/update#yandex.cloud.mdb.elasticsearch.v1.ConfigSpecUpdate)**
+            New configuration and resources for hosts in the Elasticsearch cluster.
+            Use `updateMask` to prevent reverting all cluster settings that are not listed in `config_spec` to their default values.
+          $ref: '#/definitions/ConfigSpecUpdate'
+        name:
+          description: |-
+            **string**
+            New name for the Elasticsearch cluster.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        securityGroupIds:
+          description: |-
+            **string**
+            User security groups
+          type: array
+          items:
+            type: string
+        serviceAccountId:
+          description: |-
+            **string**
+            ID of the service account used for access to Object Storage.
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Deletion Protection inhibits deletion of the cluster
+          type: boolean
+        maintenanceWindow:
+          description: |-
+            **[MaintenanceWindow](/docs/managed-elasticsearch/api-ref/Cluster/get#yandex.cloud.mdb.elasticsearch.v1.MaintenanceWindow)**
+            Window of maintenance operations.
+          oneOf:
+            - type: object
+              properties:
+                anytime:
+                  description: |-
+                    **object**
+                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+                  $ref: '#/definitions/AnytimeMaintenanceWindow'
+                weeklyMaintenanceWindow:
+                  description: |-
+                    **[WeeklyMaintenanceWindow](/docs/managed-elasticsearch/api-ref/Cluster/get#yandex.cloud.mdb.elasticsearch.v1.WeeklyMaintenanceWindow)**
+                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+        networkId:
+          description: |-
+            **string**
+            ID of the network to move the cluster to.
+          type: string
+      additionalProperties: false
+    definitions:
+      ElasticsearchConfig7:
+        type: object
+        properties:
+          maxClauseCount:
+            description: |-
+              **string** (int64)
+              The maximum number of clauses a boolean query can contain.
+              The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory.
+              It affects not only Elasticsearch's `bool` query, but many other queries that are implicitly converted to `bool` query by Elastcsearch.
+              Default value: `1024`.
+              See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
+            type: string
+            format: int64
+          fielddataCacheSize:
+            description: |-
+              **string**
+              The maximum percentage or absolute value (10%, 512mb) of heap space that is allocated to field data cache.
+              All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values.
+              Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.
+              Default value: unbounded.
+              See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
+            type: string
+          reindexRemoteWhitelist:
+            description: |-
+              **string**
+              Remote hosts for reindex have to be explicitly allowed in elasticsearch.yml using the reindex.remote.whitelist property.
+              It can be set to a comma delimited list of allowed remote host and port combinations.
+              Scheme is ignored, only the host and port are used.
+            type: string
+          reindexSslCaPath:
+            description: |-
+              **string**
+              List of paths to PEM encoded certificate files that should be trusted.
+              See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html#reindex-ssl)
+            type: string
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the preset for computational resources available to a host (CPU, memory etc.).
+              All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types).
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage available to a host, in bytes.
+            type: string
+            format: int64
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage environment for the host.
+              All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage).
+            type: string
+      MasterNode:
+        type: object
+        properties:
+          resources:
+            description: |-
+              **[Resources](/docs/managed-elasticsearch/api-ref/Cluster/get#yandex.cloud.mdb.elasticsearch.v1.Resources)**
+              Resources allocated to Elasticsearch master nodes.
+            $ref: '#/definitions/Resources'
+      ElasticsearchSpec:
+        type: object
+        properties:
+          dataNode:
+            description: |-
+              **[DataNode](/docs/managed-elasticsearch/api-ref/Cluster/create#yandex.cloud.mdb.elasticsearch.v1.ElasticsearchSpec.DataNode)**
+              Configuration and resource allocation for Elasticsearch data nodes.
+            oneOf:
+              - type: object
+                properties:
+                  elasticsearchConfig_7:
+                    description: |-
+                      **`ElasticsearchConfig7`**
+                      Includes only one of the fields `elasticsearchConfig_7`.
+                      Elasticsearch data node configuration.
+                    $ref: '#/definitions/ElasticsearchConfig7'
+          masterNode:
+            description: |-
+              **[MasterNode](/docs/managed-elasticsearch/api-ref/Cluster/create#yandex.cloud.mdb.elasticsearch.v1.ElasticsearchSpec.MasterNode)**
+              Configuration and resource allocation for Elasticsearch master nodes.
+            $ref: '#/definitions/MasterNode'
+          plugins:
+            description: |-
+              **string**
+              Cluster wide plugins
+            type: array
+            items:
+              type: string
+      ConfigSpecUpdate:
+        type: object
+        properties:
+          version:
+            description: |-
+              **string**
+              Elasticsearch version.
+            type: string
+          elasticsearchSpec:
+            description: |-
+              **[ElasticsearchSpec](/docs/managed-elasticsearch/api-ref/Cluster/create#yandex.cloud.mdb.elasticsearch.v1.ElasticsearchSpec)**
+              Configuration and resource allocation for Elasticsearch nodes.
+            $ref: '#/definitions/ElasticsearchSpec'
+          edition:
+            description: |-
+              **string**
+              ElasticSearch edition.
+            type: string
+          adminPassword:
+            description: |-
+              **string**
+              ElasticSearch admin password.
+            type: string
+      AnytimeMaintenanceWindow:
+        type: object
+        properties: {}
+      WeeklyMaintenanceWindow:
+        type: object
+        properties:
+          day:
+            description: |-
+              **enum** (WeekDay)
+              - `WEEK_DAY_UNSPECIFIED`
+              - `MON`
+              - `TUE`
+              - `WED`
+              - `THU`
+              - `FRI`
+              - `SAT`
+              - `SUN`
+            type: string
+            enum:
+              - WEEK_DAY_UNSPECIFIED
+              - MON
+              - TUE
+              - WED
+              - THU
+              - FRI
+              - SAT
+              - SUN
+          hour:
+            description: |-
+              **string** (int64)
+              Hour of the day in UTC.
+            type: string
+            format: int64
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/update.md
 ---
 

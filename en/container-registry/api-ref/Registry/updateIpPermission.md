@@ -1,5 +1,72 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/registries/{registryId}:updateIpPermission
+    method: post
+    path:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the registry for which ip permissions are being updated.
+          type: string
+      required:
+        - registryId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        ipPermissionDeltas:
+          description: |-
+            **[IpPermissionDelta](/docs/container-registry/api-ref/Registry/updateIpPermission#yandex.cloud.containerregistry.v1.IpPermissionDelta)**
+            Updates to IP permissions.
+          type: array
+          items:
+            $ref: '#/definitions/IpPermissionDelta'
+      additionalProperties: false
+    definitions:
+      IpPermission:
+        type: object
+        properties:
+          action:
+            description: |-
+              **enum** (Action)
+              - `ACTION_UNSPECIFIED`
+              - `PULL`
+              - `PUSH`
+            type: string
+            enum:
+              - ACTION_UNSPECIFIED
+              - PULL
+              - PUSH
+          ip:
+            description: '**string**'
+            type: string
+      IpPermissionDelta:
+        type: object
+        properties:
+          action:
+            description: |-
+              **enum** (IpPermissionAction)
+              Required field. The action that is being performed on an ip permission.
+              - `IP_PERMISSION_ACTION_UNSPECIFIED`
+              - `ADD`: Addition of an ip permission.
+              - `REMOVE`: Removal of an ip permission.
+            type: string
+            enum:
+              - IP_PERMISSION_ACTION_UNSPECIFIED
+              - ADD
+              - REMOVE
+          ipPermission:
+            description: |-
+              **[IpPermission](/docs/container-registry/api-ref/Registry/listIpPermission#yandex.cloud.containerregistry.v1.IpPermission)**
+              Required field. Ip permission.
+            $ref: '#/definitions/IpPermission'
+        required:
+          - action
+          - ipPermission
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/updateIpPermission.md
 ---
 

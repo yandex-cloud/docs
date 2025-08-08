@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts
+    method: get
+    path:
+      type: object
+      properties:
+        httpRouterId:
+          description: |-
+            **string**
+            Required field. ID of the HTTP router to list virtual hosts in.
+            To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/HttpRouter/list#List) request.
+          type: string
+      required:
+        - httpRouterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListVirtualHostsResponse.nextPageToken](/docs/application-load-balancer/api-ref/VirtualHost/list#yandex.cloud.apploadbalancer.v1.ListVirtualHostsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListVirtualHostsResponse.nextPageToken](/docs/application-load-balancer/api-ref/VirtualHost/list#yandex.cloud.apploadbalancer.v1.ListVirtualHostsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/list.md
 ---
 
@@ -235,7 +271,8 @@ Page token. To get the next page of results, set `page_token` to the
               ]
             },
             "securityProfileId": "string"
-          }
+          },
+          "disableSecurityProfile": "boolean"
         }
       ],
       "modifyRequestHeaders": [
@@ -415,6 +452,9 @@ Includes only one of the fields `http`, `grpc`.
 
 Route configuration. ||
 || routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)** ||
+|| disableSecurityProfile | **boolean**
+
+Whether set to 'true' disables security profile for the route. ||
 |#
 
 ## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute}

@@ -1,5 +1,90 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/users/{userName}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Redis cluster the user belongs to.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+          type: string
+        userName:
+          description: |-
+            **string**
+            Required field. Name of the Redis user to be updated.
+          pattern: ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$
+          type: string
+      required:
+        - clusterId
+        - userName
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        passwords:
+          description: |-
+            **string**
+            New passwords the Redis user.
+          type: array
+          items:
+            type: string
+        permissions:
+          description: |-
+            **[Permissions](/docs/managed-redis/api-ref/Cluster/create#yandex.cloud.mdb.redis.v1.Permissions)**
+            New set of permissions to grant to the user.
+          $ref: '#/definitions/Permissions'
+        enabled:
+          description: |-
+            **boolean**
+            Is Redis user enabled
+          type: boolean
+      additionalProperties: false
+    definitions:
+      Permissions:
+        type: object
+        properties:
+          patterns:
+            description: |-
+              **string**
+              Keys patterns user has permission to.
+            type: string
+          pubSubChannels:
+            description: |-
+              **string**
+              Channel patterns user has permissions to.
+            type: string
+          categories:
+            description: |-
+              **string**
+              Command categories user has permissions to.
+            type: string
+          commands:
+            description: |-
+              **string**
+              Commands user can execute.
+            type: string
+          sanitizePayload:
+            description: |-
+              **string**
+              SanitizePayload parameter.
+            type: string
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/User/update.md
 ---
 

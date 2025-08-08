@@ -1,5 +1,125 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create an API gateway in.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the API gateway.
+            The name must be unique within the folder.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the API gateway.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        openapiSpec:
+          description: |-
+            **string**
+            The text of specification, JSON or YAML.
+            Includes only one of the fields `openapiSpec`.
+            OpenAPI specification of API gateway.
+          type: string
+        connectivity:
+          description: |-
+            **[Connectivity](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.Connectivity)**
+            Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s).
+          $ref: '#/definitions/Connectivity'
+        logOptions:
+          description: |-
+            **[LogOptions](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.LogOptions)**
+            Options for logging from the API gateway.
+          oneOf:
+            - type: object
+              properties:
+                logGroupId:
+                  description: |-
+                    **string**
+                    Entry should be written to log group resolved by ID.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                    Log entries destination.
+                  type: string
+                folderId:
+                  description: |-
+                    **string**
+                    Entry should be written to default log group for specified folder.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                    Log entries destination.
+                  type: string
+        variables:
+          description: |-
+            **object** (map<**string**, **[VariableInput](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
+            Values of variables defined in the specification.
+          type: object
+          additionalProperties:
+            type: string
+        canary:
+          description: |-
+            **[Canary](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.Canary)**
+            Canary release of the gateway.
+          $ref: '#/definitions/Canary'
+        executionTimeout:
+          description: |-
+            **string** (duration)
+            Timeout for gateway call execution
+          type: string
+          format: duration
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      Connectivity:
+        type: object
+        properties:
+          networkId:
+            description: |-
+              **string**
+              Network the gateway will have access to.
+              It's essential to specify network with subnets in all availability zones.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              Complete list of subnets (from the same network) the gateway can be attached to.
+              It's essential to specify at least one subnet for each availability zones.
+            type: array
+            items:
+              type: string
+      Canary:
+        type: object
+        properties:
+          weight:
+            description: |-
+              **string** (int64)
+              It describes percentage of requests, which will be processed by canary.
+            type: string
+            format: int64
+          variables:
+            description: |-
+              **object** (map<**string**, **[VariableInput](/docs/api-gateway/apigateway/api-ref/ApiGateway/get#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
+              Values specification variables, associated with canary.
+            type: object
+            additionalProperties:
+              type: string
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/create.md
 ---
 

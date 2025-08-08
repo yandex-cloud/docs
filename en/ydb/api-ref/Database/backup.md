@@ -1,5 +1,220 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ydb.{{ api-host }}/ydb/v1/databases:backup
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        databaseId:
+          description: '**string**'
+          type: string
+        backupSettings:
+          description: |-
+            **[BackupSettings](/docs/ydb/api-ref/Backup/get#yandex.cloud.ydb.v1.BackupSettings)**
+            custom backup options, if required.
+          $ref: '#/definitions/BackupSettings'
+      additionalProperties: false
+    definitions:
+      TimeOfDay:
+        type: object
+        properties:
+          hours:
+            description: |-
+              **integer** (int32)
+              Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+              to allow the value "24:00:00" for scenarios like business closing time.
+            type: integer
+            format: int32
+          minutes:
+            description: |-
+              **integer** (int32)
+              Minutes of hour of day. Must be from 0 to 59.
+            type: integer
+            format: int32
+          seconds:
+            description: |-
+              **integer** (int32)
+              Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+              allow the value 60 if it allows leap-seconds.
+            type: integer
+            format: int32
+          nanos:
+            description: |-
+              **integer** (int32)
+              Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+            type: integer
+            format: int32
+      DailyBackupSchedule:
+        type: object
+        properties:
+          executeTime:
+            description: |-
+              **`TimeOfDay`**
+              Required field. 
+            $ref: '#/definitions/TimeOfDay'
+        required:
+          - executeTime
+      DaysOfWeekBackupSchedule:
+        type: object
+        properties:
+          days:
+            description: |-
+              **enum** (DayOfWeek)
+              - `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+              - `MONDAY`: The day-of-week of Monday.
+              - `TUESDAY`: The day-of-week of Tuesday.
+              - `WEDNESDAY`: The day-of-week of Wednesday.
+              - `THURSDAY`: The day-of-week of Thursday.
+              - `FRIDAY`: The day-of-week of Friday.
+              - `SATURDAY`: The day-of-week of Saturday.
+              - `SUNDAY`: The day-of-week of Sunday.
+            type: array
+            items:
+              type: string
+              enum:
+                - DAY_OF_WEEK_UNSPECIFIED
+                - MONDAY
+                - TUESDAY
+                - WEDNESDAY
+                - THURSDAY
+                - FRIDAY
+                - SATURDAY
+                - SUNDAY
+          executeTime:
+            description: |-
+              **`TimeOfDay`**
+              Required field. 
+            $ref: '#/definitions/TimeOfDay'
+        required:
+          - executeTime
+      WeeklyBackupSchedule:
+        type: object
+        properties:
+          daysOfWeek:
+            description: '**[DaysOfWeekBackupSchedule](/docs/ydb/api-ref/Backup/get#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule)**'
+            type: array
+            items:
+              $ref: '#/definitions/DaysOfWeekBackupSchedule'
+      RecurringBackupSchedule:
+        type: object
+        properties:
+          startTime:
+            description: |-
+              **string** (date-time)
+              Required field. Timestamp of the first recurrence.
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+              `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+              To work with values in this field, use the APIs described in the
+              [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+            type: string
+            format: date-time
+          recurrence:
+            description: |-
+              **string**
+              Required field. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how
+              this backup reccurs.
+              The FREQ values of MINUTELY, and SECONDLY are not supported.
+            type: string
+        required:
+          - startTime
+          - recurrence
+      BackupSettings:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              name of backup settings
+            type: string
+          description:
+            description: |-
+              **string**
+              human readable description.
+            type: string
+          backupSchedule:
+            description: |-
+              **[BackupSchedule](/docs/ydb/api-ref/Backup/get#yandex.cloud.ydb.v1.BackupSchedule)**
+              provide schedule. if empty, backup will be disabled.
+            oneOf:
+              - type: object
+                properties:
+                  dailyBackupSchedule:
+                    description: |-
+                      **[DailyBackupSchedule](/docs/ydb/api-ref/Backup/get#yandex.cloud.ydb.v1.DailyBackupSchedule)**
+                      Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`.
+                    $ref: '#/definitions/DailyBackupSchedule'
+                  weeklyBackupSchedule:
+                    description: |-
+                      **[WeeklyBackupSchedule](/docs/ydb/api-ref/Backup/get#yandex.cloud.ydb.v1.WeeklyBackupSchedule)**
+                      Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`.
+                    $ref: '#/definitions/WeeklyBackupSchedule'
+                  recurringBackupSchedule:
+                    description: |-
+                      **[RecurringBackupSchedule](/docs/ydb/api-ref/Backup/get#yandex.cloud.ydb.v1.RecurringBackupSchedule)**
+                      Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`.
+                    $ref: '#/definitions/RecurringBackupSchedule'
+          backupTimeToLive:
+            description: |-
+              **string** (duration)
+              provide time to live of backup.
+            type: string
+            format: duration
+          sourcePaths:
+            description: |-
+              **string**
+              provide a list of source paths. Each path can be directory, table or even database itself.
+              Each directory (or database) will be traversed recursively and all childs of directory will be included to backup.
+              By default, backup will be created for full database.
+            type: array
+            items:
+              type: string
+          sourcePathsToExclude:
+            description: |-
+              **string**
+              provide a list of paths to exclude from backup.
+              Each path is a directory, table, or database.
+              Each directory (or database) will be traversed recursively and all childs of directory will be excluded.
+            type: array
+            items:
+              type: string
+          type:
+            description: |-
+              **enum** (Type)
+              - `TYPE_UNSPECIFIED`
+              - `SYSTEM`
+              - `USER`
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - SYSTEM
+              - USER
+          storageClass:
+            description: |-
+              **enum** (StorageClass)
+              - `STORAGE_CLASS_UNSPECIFIED`
+              - `STANDARD`
+              - `REDUCED_REDUNDANCY`
+              - `STANDARD_IA`
+              - `ONEZONE_IA`
+              - `INTELLIGENT_TIERING`
+              - `GLACIER`
+              - `DEEP_ARCHIVE`
+              - `OUTPOSTS`
+            type: string
+            enum:
+              - STORAGE_CLASS_UNSPECIFIED
+              - STANDARD
+              - REDUCED_REDUNDANCY
+              - STANDARD_IA
+              - ONEZONE_IA
+              - INTELLIGENT_TIERING
+              - GLACIER
+              - DEEP_ARCHIVE
+              - OUTPOSTS
 sourcePath: en/_api-ref/ydb/v1/api-ref/Database/backup.md
 ---
 

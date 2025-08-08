@@ -1,5 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/assistants/v1/searchIndexFile/{searchIndexId}
+    method: get
+    path:
+      type: object
+      properties:
+        searchIndexId:
+          description: |-
+            **string**
+            Required field. ID of the search index whose files will be listed.
+          type: string
+      required:
+        - searchIndexId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            Maximum number of files to return per page.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Token to retrieve the next page of results.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/SearchIndexFile/list.md
 ---
 

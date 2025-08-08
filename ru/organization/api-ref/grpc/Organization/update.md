@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Organization/update.md
 ---
 
-# Cloud Organization API, gRPC: OrganizationService.Update
+# Identity Hub API, gRPC: OrganizationService.Update
 
 Updates the specified organization.
 

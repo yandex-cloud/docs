@@ -1,5 +1,84 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}
+    method: patch
+    path:
+      type: object
+      properties:
+        routeTableId:
+          description: |-
+            **string**
+            Required field. ID of the RouteTable resource to update.
+          type: string
+      required:
+        - routeTableId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the route table.
+            The name must be unique within the folder.
+          pattern: '|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the route table.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        staticRoutes:
+          description: |-
+            **[StaticRoute](/docs/vpc/api-ref/Network/listRouteTables#yandex.cloud.vpc.v1.StaticRoute)**
+            List of static routes.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  destinationPrefix:
+                    description: |-
+                      **string**
+                      Destination subnet in CIDR notation
+                      Includes only one of the fields `destinationPrefix`.
+                    type: string
+              - type: object
+                properties:
+                  nextHopAddress:
+                    description: |-
+                      **string**
+                      Next hop IP address
+                      Includes only one of the fields `nextHopAddress`, `gatewayId`.
+                    type: string
+                  gatewayId:
+                    description: |-
+                      **string**
+                      Next hop gateway id
+                      Includes only one of the fields `nextHopAddress`, `gatewayId`.
+                    type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/update.md
 ---
 

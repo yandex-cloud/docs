@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Episode/batchDelete.md
 
 # Video API, gRPC: EpisodeService.BatchDelete
 
-Batch delete episodes.
+Deletes multiple episodes associated with a specific stream or stream line in a single request.
+This is more efficient than making multiple Delete requests when removing several episodes.
 
 ## gRPC request
 
@@ -29,15 +30,22 @@ Batch delete episodes.
 ||Field | Description ||
 || stream_id | **string**
 
-ID of the stream.
+ID of the stream containing the episodes to delete.
 
-Includes only one of the fields `stream_id`, `line_id`. ||
+Includes only one of the fields `stream_id`, `line_id`.
+
+Specifies the parent resource containing the episodes to delete (exactly one must be chosen). ||
 || line_id | **string**
 
-ID of the line.
+ID of the stream line containing the episodes to delete.
 
-Includes only one of the fields `stream_id`, `line_id`. ||
-|| episode_ids[] | **string** ||
+Includes only one of the fields `stream_id`, `line_id`.
+
+Specifies the parent resource containing the episodes to delete (exactly one must be chosen). ||
+|| episode_ids[] | **string**
+
+List of episode IDs to delete.
+All episodes must exist and be linked to the specified parent resource. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -121,5 +129,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| episode_ids[] | **string** ||
+|| episode_ids[] | **string**
+
+List of episode IDs being deleted.
+This list can be used to track which episodes are included
+in the batch deletion operation. ||
 |#

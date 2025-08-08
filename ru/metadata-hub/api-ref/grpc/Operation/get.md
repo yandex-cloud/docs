@@ -1,9 +1,9 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/connectionmanager/v1/api-ref/grpc/Operation/get.md
+sourcePath: en/_api-ref-grpc/metastore/v1/api-ref/grpc/Operation/get.md
 ---
 
-# Connection Manager API, gRPC: OperationService.Get
+# Managed Service for Hive Metastore™ API, gRPC: OperationService.Get
 
 Returns the specified Operation resource.
 

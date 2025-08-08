@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://audittrails.{{ api-host }}/audit-trails/v1/trails/{trailId}
+    method: get
+    path:
+      type: object
+      properties:
+        trailId:
+          description: |-
+            **string**
+            Required field. ID of the trail to return.
+            To get a trail ID make a [List](/docs/audit-trails/api-ref/Trail/list#List) request.
+          type: string
+      required:
+        - trailId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/get.md
 ---
 
@@ -143,7 +161,8 @@ To get a trail ID make a [List](/docs/audit-trails/api-ref/Trail/list#List) requ
         // end of the list of possible fields
         // Includes only one of the fields `dnsFilter`
         "dnsFilter": {
-          "onlyRecursiveQueries": "boolean"
+          "onlyRecursiveQueries": "boolean",
+          "includeNonrecursiveQueries": "boolean"
         },
         // end of the list of possible fields
         "resourceScopes": [
@@ -474,5 +493,8 @@ Policy with explicitly specified event group
 ||Field | Description ||
 || onlyRecursiveQueries | **boolean**
 
-Only recursive queries will be delivered ||
+deprecated: use all_dns_queries instead ||
+|| includeNonrecursiveQueries | **boolean**
+
+Not only recursive queries will be delivered ||
 |#

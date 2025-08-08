@@ -1,5 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/apiKeys
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            **string**
+            ID of the service account to list API keys for.
+            To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+            If not specified, it defaults to the subject that made the request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListApiKeysResponse.nextPageToken](/docs/iam/api-ref/ApiKey/list#yandex.cloud.iam.v1.ListApiKeysResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken`
+            to the [ListApiKeysResponse.nextPageToken](/docs/iam/api-ref/ApiKey/list#yandex.cloud.iam.v1.ListApiKeysResponse)
+            returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/ApiKey/list.md
 ---
 

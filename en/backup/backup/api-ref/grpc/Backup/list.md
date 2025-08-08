@@ -87,7 +87,9 @@ Type of resource. Could be compute VM or baremetal server.
 
 - `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
-- `BMS`: Resource is baremetal server ||
+- `BMS`: Resource is baremetal server
+- `EXTERNAL_VM`: Resource is VM
+- `EXTERNAL_SERVER`: Resource is server ||
 || page_size | **int64**
 
 Number of results per page. ||

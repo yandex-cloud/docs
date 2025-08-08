@@ -1,5 +1,56 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/databases
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the ClickHouse cluster to create a database in.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        databaseSpec:
+          description: |-
+            **[DatabaseSpec](/docs/managed-clickhouse/api-ref/Cluster/create#yandex.cloud.mdb.clickhouse.v1.DatabaseSpec)**
+            Required field. Configuration of the database to create.
+          $ref: '#/definitions/DatabaseSpec'
+      required:
+        - databaseSpec
+      additionalProperties: false
+    definitions:
+      DatabaseSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the ClickHouse database. 1-63 characters long.
+            pattern: '[a-zA-Z0-9_-]*'
+            type: string
+          engine:
+            description: |-
+              **enum** (DatabaseEngine)
+              Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
+              - `DATABASE_ENGINE_UNSPECIFIED`
+              - `DATABASE_ENGINE_ATOMIC`
+              - `DATABASE_ENGINE_REPLICATED`
+            type: string
+            enum:
+              - DATABASE_ENGINE_UNSPECIFIED
+              - DATABASE_ENGINE_ATOMIC
+              - DATABASE_ENGINE_REPLICATED
+        required:
+          - name
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Database/create.md
 ---
 
@@ -28,7 +79,8 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-
 ```json
 {
   "databaseSpec": {
-    "name": "string"
+    "name": "string",
+    "engine": "string"
   }
 }
 ```
@@ -47,6 +99,13 @@ Required field. Configuration of the database to create. ||
 || name | **string**
 
 Required field. Name of the ClickHouse database. 1-63 characters long. ||
+|| engine | **enum** (DatabaseEngine)
+
+Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
+
+- `DATABASE_ENGINE_UNSPECIFIED`
+- `DATABASE_ENGINE_ATOMIC`
+- `DATABASE_ENGINE_REPLICATED` ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -75,7 +134,8 @@ Required field. Name of the ClickHouse database. 1-63 characters long. ||
   },
   "response": {
     "name": "string",
-    "clusterId": "string"
+    "clusterId": "string",
+    "engine": "string"
   }
   // end of the list of possible fields
 }
@@ -192,4 +252,11 @@ Name of the database. ||
 || clusterId | **string**
 
 ID of the ClickHouse cluster that the database belongs to. ||
+|| engine | **enum** (DatabaseEngine)
+
+Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
+
+- `DATABASE_ENGINE_UNSPECIFIED`
+- `DATABASE_ENGINE_ATOMIC`
+- `DATABASE_ENGINE_REPLICATED` ||
 |#

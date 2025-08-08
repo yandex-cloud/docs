@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/zones/{zoneId}
+    method: get
+    path:
+      type: object
+      properties:
+        zoneId:
+          description: |-
+            **string**
+            Required field. ID of the availability zone to return information about.
+          type: string
+      required:
+        - zoneId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Zone/get.md
 ---
 

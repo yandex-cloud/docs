@@ -1,5 +1,82 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://logging.{{ api-host }}/logging/v1/sinks
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a sink in.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the sink.
+            The name must be unique within the folder.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the sink.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Sink labels as `key:value` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        serviceAccountId:
+          description: |-
+            **string**
+            Logs will be written to the sink on behalf of this service account
+          type: string
+        yds:
+          description: |-
+            **[Yds](/docs/logging/api-ref/Sink/get#yandex.cloud.logging.v1.Sink.Yds)**
+            Yandex data stream
+            Includes only one of the fields `yds`, `s3`.
+            Logs destination
+          $ref: '#/definitions/Yds'
+        s3:
+          description: |-
+            **[S3](/docs/logging/api-ref/Sink/get#yandex.cloud.logging.v1.Sink.S3)**
+            Object storage
+            Includes only one of the fields `yds`, `s3`.
+            Logs destination
+          $ref: '#/definitions/S3'
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      Yds:
+        type: object
+        properties:
+          streamName:
+            description: |-
+              **string**
+              Fully qualified name of data stream
+            type: string
+      S3:
+        type: object
+        properties:
+          bucket:
+            description: |-
+              **string**
+              Object storage bucket
+            pattern: '[a-zA-Z0-9][-a-zA-Z0-9.]{2,62}'
+            type: string
+          prefix:
+            description: |-
+              **string**
+              Prefix to use for saved log object names
+            type: string
 sourcePath: en/_api-ref/logging/v1/api-ref/Sink/create.md
 ---
 

@@ -1,5 +1,62 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/communities/{communityId}:setRestrictions
+    method: post
+    path:
+      type: object
+      properties:
+        communityId:
+          description: |-
+            **string**
+            Required field. ID of the community.
+          type: string
+      required:
+        - communityId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        restrictions:
+          description: |-
+            **[Restriction](/docs/datasphere/api-ref/Community/getRestrictions#yandex.cloud.datasphere.v2.Restriction)**
+            List of restrictions to set.
+          type: array
+          items:
+            $ref: '#/definitions/Restriction'
+      additionalProperties: false
+    definitions:
+      Restriction:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of restriction.
+            type: string
+          boolValue:
+            description: |-
+              **boolean**
+              List of boolean restriction values. Empty if value type is not boolean.
+            type: array
+            items:
+              type: boolean
+          longValue:
+            description: |-
+              **string** (int64)
+              List of long restriction values. Empty if value type is not long.
+            type: array
+            items:
+              type: string
+              format: int64
+          stringValue:
+            description: |-
+              **string**
+              List of string restriction values. Empty if value type is not string.
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/setRestrictions.md
 ---
 

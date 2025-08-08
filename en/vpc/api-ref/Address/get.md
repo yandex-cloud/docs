@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/addresses/{addressId}
+    method: get
+    path:
+      type: object
+      properties:
+        addressId:
+          description: |-
+            **string**
+            Required field. ID of the Address resource to return.
+            To get Address resource ID make a [AddressService.List](/docs/vpc/api-ref/Address/list#List) request.
+          type: string
+      required:
+        - addressId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/get.md
 ---
 

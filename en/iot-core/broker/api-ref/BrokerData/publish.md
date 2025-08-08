@@ -1,5 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-data.{{ api-host }}/iot-broker/v1/brokers/{brokerId}/publish
+    method: post
+    path:
+      type: object
+      properties:
+        brokerId:
+          description: |-
+            **string**
+            Required field. ID of broker publishing message
+          type: string
+      required:
+        - brokerId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        topic:
+          description: |-
+            **string**
+            Required field. Topic where message should be published
+          type: string
+        data:
+          description: |-
+            **string** (bytes)
+            Content of the message
+          type: string
+          format: bytes
+      required:
+        - topic
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/BrokerData/publish.md
 ---
 

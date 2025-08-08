@@ -1,5 +1,46 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the registry to list operations for.
+          type: string
+      required:
+        - registryId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `page_size`, the service returns a [ListRegistryOperationsResponse.nextPageToken](/docs/iot-core/api-ref/Registry/listOperations#yandex.cloud.iot.devices.v1.ListRegistryOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListRegistryOperationsResponse.nextPageToken](/docs/iot-core/api-ref/Registry/listOperations#yandex.cloud.iot.devices.v1.ListRegistryOperationsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            Currently you can use filtering only on [Registry.name](/docs/iot-core/api-ref/Registry/get#yandex.cloud.iot.devices.v1.Registry) field.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/listOperations.md
 ---
 

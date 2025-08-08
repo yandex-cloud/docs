@@ -1,5 +1,406 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/versions
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        functionId:
+          description: |-
+            **string**
+            Required field. ID of the function to create a version for.
+            To get a function ID, make a [FunctionService.List](/docs/functions/functions/api-ref/Function/list#List) request.
+          type: string
+        runtime:
+          description: |-
+            **string**
+            Required field. Runtime environment for the version.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the version
+          type: string
+        entrypoint:
+          description: |-
+            **string**
+            Required field. Entrypoint of the version.
+          type: string
+        resources:
+          description: |-
+            **[Resources](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.Resources)**
+            Required field. Resources allocated to the version.
+          $ref: '#/definitions/Resources'
+        executionTimeout:
+          description: |-
+            **string** (duration)
+            Required field. Timeout for the execution of the version.
+            If the timeout is exceeded, Cloud Functions responds with a 504 HTTP code.
+          type: string
+          format: duration
+        serviceAccountId:
+          description: |-
+            **string**
+            ID of the service account to associate with the version.
+          type: string
+        package:
+          description: |-
+            **[Package](/docs/functions/functions/api-ref/Function/createVersion#yandex.cloud.serverless.functions.v1.Package)**
+            Functions deployment package.
+            Includes only one of the fields `package`, `content`, `versionId`.
+            Source of the deployment package for the version.
+          $ref: '#/definitions/Package'
+        content:
+          description: |-
+            **string** (bytes)
+            Content of the deployment package.
+            Includes only one of the fields `package`, `content`, `versionId`.
+            Source of the deployment package for the version.
+          type: string
+          format: bytes
+        versionId:
+          description: |-
+            **string**
+            ID of the version to be copied from. Source version must belong to the same folder as the created version
+            and the user must have read permissions to the source version.
+            Includes only one of the fields `package`, `content`, `versionId`.
+            Source of the deployment package for the version.
+          type: string
+        environment:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Environment settings for the version.
+          pattern: '[a-zA-Z][a-zA-Z0-9_]*'
+          type: string
+        tag:
+          description: |-
+            **string**
+            Function version tags. For details, see [Version tag](/docs/functions/concepts/function#tag).
+          pattern: '[a-z][-_0-9a-z]*'
+          type: array
+          items:
+            type: string
+        connectivity:
+          description: |-
+            **[Connectivity](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.Connectivity)**
+            Function version connectivity. If specified the version will be attached to specified network/subnet(s).
+          $ref: '#/definitions/Connectivity'
+        namedServiceAccounts:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Additional service accounts to be used by the version.
+          type: string
+        secrets:
+          description: |-
+            **[Secret](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.Secret)**
+            Yandex Lockbox secrets to be used by the version.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  environmentVariable:
+                    description: |-
+                      **string**
+                      environment variable in which secret's value to be delivered.
+                      Includes only one of the fields `environmentVariable`.
+                    type: string
+        logOptions:
+          description: |-
+            **[LogOptions](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.LogOptions)**
+            Options for logging from the function
+          oneOf:
+            - type: object
+              properties:
+                logGroupId:
+                  description: |-
+                    **string**
+                    Entry should be written to log group resolved by ID.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                    Log entries destination.
+                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+                  type: string
+                folderId:
+                  description: |-
+                    **string**
+                    Entry should be written to default log group for specified folder.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                    Log entries destination.
+                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+                  type: string
+        storageMounts:
+          description: |-
+            **[StorageMount](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.StorageMount)**
+            S3 mounts to be used by the version.
+          type: array
+          items:
+            $ref: '#/definitions/StorageMount'
+        asyncInvocationConfig:
+          description: |-
+            **[AsyncInvocationConfig](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig)**
+            Config for asynchronous invocations of the version
+          $ref: '#/definitions/AsyncInvocationConfig'
+        tmpfsSize:
+          description: |-
+            **string** (int64)
+            Optional size of in-memory mounted /tmp directory in bytes.
+            Available for versions with resources.memory greater or equal to 1024 MiB.
+            0 or in range from 512 MiB to 3/4 of resources.memory.
+          type: string
+          format: int64
+        concurrency:
+          description: |-
+            **string** (int64)
+            The maximum number of requests processed by a function instance at the same time
+          type: string
+          format: int64
+        mounts:
+          description: |-
+            **[Mount](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.Mount)**
+            Mounts to be used by the version.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  objectStorage:
+                    description: |-
+                      **[ObjectStorage](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage)**
+                      Object storage mounts
+                      Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+                      Target mount option
+                    $ref: '#/definitions/ObjectStorage'
+                  ephemeralDiskSpec:
+                    description: |-
+                      **[DiskSpec](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.Mount.DiskSpec)**
+                      Working disk (worker-local non-shared read-write NBS disk templates)
+                      Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+                      Target mount option
+                    $ref: '#/definitions/DiskSpec'
+        metadataOptions:
+          description: |-
+            **[MetadataOptions](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.MetadataOptions)**
+            Metadata options for the version.
+          $ref: '#/definitions/MetadataOptions'
+      required:
+        - functionId
+        - runtime
+        - entrypoint
+        - resources
+        - executionTimeout
+      additionalProperties: false
+    definitions:
+      Resources:
+        type: object
+        properties:
+          memory:
+            description: |-
+              **string** (int64)
+              Amount of memory available to the version, specified in bytes, multiple of 128MB.
+            type: string
+            format: int64
+      Package:
+        type: object
+        properties:
+          bucketName:
+            description: |-
+              **string**
+              Required field. Name of the bucket that stores the code for the version.
+            type: string
+          objectName:
+            description: |-
+              **string**
+              Required field. Name of the object in the bucket that stores the code for the version.
+            type: string
+          sha256:
+            description: |-
+              **string**
+              SHA256 hash of the version deployment package.
+            type: string
+        required:
+          - bucketName
+          - objectName
+      Connectivity:
+        type: object
+        properties:
+          networkId:
+            description: |-
+              **string**
+              Network the version will have access to.
+              It's essential to specify network with subnets in all availability zones.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              Complete list of subnets (from the same network) the version can be attached to.
+              It's essential to specify at least one subnet for each availability zones.
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      StorageMount:
+        type: object
+        properties:
+          bucketId:
+            description: |-
+              **string**
+              Required field. S3 bucket name for mounting.
+            pattern: '[-.0-9a-zA-Z]*'
+            type: string
+          prefix:
+            description: |-
+              **string**
+              S3 bucket prefix for mounting.
+            type: string
+          mountPointName:
+            description: |-
+              **string**
+              Required field. Mount point directory name (not path) for mounting.
+            pattern: '[-_0-9a-zA-Z]*'
+            type: string
+          readOnly:
+            description: |-
+              **boolean**
+              Is mount read only.
+            type: boolean
+        required:
+          - bucketId
+          - mountPointName
+      EmptyTarget:
+        type: object
+        properties: {}
+      YMQTarget:
+        type: object
+        properties:
+          queueArn:
+            description: |-
+              **string**
+              Required field. Queue ARN
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Required field. Service account which has write permission on the queue.
+            type: string
+        required:
+          - queueArn
+          - serviceAccountId
+      AsyncInvocationConfig:
+        type: object
+        properties:
+          retriesCount:
+            description: |-
+              **string** (int64)
+              Number of retries of version invocation
+            type: string
+            format: int64
+          successTarget:
+            description: |-
+              **[ResponseTarget](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
+              Required field. Target for successful result of the version's invocation
+            oneOf:
+              - type: object
+                properties:
+                  emptyTarget:
+                    description: |-
+                      **object**
+                      Target to ignore a result
+                      Includes only one of the fields `emptyTarget`, `ymqTarget`.
+                    $ref: '#/definitions/EmptyTarget'
+                  ymqTarget:
+                    description: |-
+                      **[YMQTarget](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.YMQTarget)**
+                      Target to send a result to ymq
+                      Includes only one of the fields `emptyTarget`, `ymqTarget`.
+                    $ref: '#/definitions/YMQTarget'
+          failureTarget:
+            description: |-
+              **[ResponseTarget](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.AsyncInvocationConfig.ResponseTarget)**
+              Required field. Target for unsuccessful result, if all retries failed
+            oneOf:
+              - type: object
+                properties:
+                  emptyTarget:
+                    description: |-
+                      **object**
+                      Target to ignore a result
+                      Includes only one of the fields `emptyTarget`, `ymqTarget`.
+                    $ref: '#/definitions/EmptyTarget'
+                  ymqTarget:
+                    description: |-
+                      **[YMQTarget](/docs/functions/functions/api-ref/Function/getVersion#yandex.cloud.serverless.functions.v1.YMQTarget)**
+                      Target to send a result to ymq
+                      Includes only one of the fields `emptyTarget`, `ymqTarget`.
+                    $ref: '#/definitions/YMQTarget'
+          serviceAccountId:
+            description: |-
+              **string**
+              Service account which can invoke version
+            type: string
+        required:
+          - successTarget
+          - failureTarget
+      ObjectStorage:
+        type: object
+        properties:
+          bucketId:
+            description: |-
+              **string**
+              Required field. ObjectStorage bucket name for mounting.
+            pattern: '[-.0-9a-zA-Z]*'
+            type: string
+          prefix:
+            description: |-
+              **string**
+              ObjectStorage bucket prefix for mounting.
+            type: string
+        required:
+          - bucketId
+      DiskSpec:
+        type: object
+        properties:
+          size:
+            description: |-
+              **string** (int64)
+              The size of disk for mount in bytes
+            type: string
+            format: int64
+          blockSize:
+            description: |-
+              **string** (int64)
+              Optional block size of disk for mount in bytes
+            type: string
+            format: int64
+      MetadataOptions:
+        type: object
+        properties:
+          gceHttpEndpoint:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to GCE flavored metadata
+              - `METADATA_OPTION_UNSPECIFIED`: Option is default
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
+          awsV1HttpEndpoint:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to AWS flavored metadata (IMDSv1)
+              - `METADATA_OPTION_UNSPECIFIED`: Option is default
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/createVersion.md
 ---
 

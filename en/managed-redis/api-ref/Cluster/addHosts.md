@@ -1,5 +1,72 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/hosts:batchCreate
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Redis cluster to add hosts to.
+            To get the Redis cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        hostSpecs:
+          description: |-
+            **[HostSpec](/docs/managed-redis/api-ref/Cluster/create#yandex.cloud.mdb.redis.v1.HostSpec)**
+            Configurations for Redis hosts that should be added to the cluster.
+          type: array
+          items:
+            $ref: '#/definitions/HostSpec'
+      additionalProperties: false
+    definitions:
+      HostSpec:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              ID of the availability zone where the host resides.
+              To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet that the host should belong to. This subnet should be a part
+              of the network that the cluster belongs to.
+              The ID of the network is set in the field [Cluster.networkId](/docs/managed-redis/api-ref/Cluster/get#yandex.cloud.mdb.redis.v1.Cluster).
+            type: string
+          shardName:
+            description: |-
+              **string**
+              ID of the Redis shard the host belongs to.
+              To get the shard ID use a [ClusterService.ListShards](/docs/managed-redis/api-ref/Cluster/listShards#ListShards) request.
+            pattern: '[a-zA-Z0-9_-]*'
+            type: string
+          replicaPriority:
+            description: |-
+              **string** (int64)
+              A replica with a low priority number is considered better for promotion.
+              A replica with priority of 0 will never be selected by Redis Sentinel for promotion.
+              Works only for non-sharded clusters. Default value is 100.
+            type: string
+            format: int64
+          assignPublicIp:
+            description: |-
+              **boolean**
+              Whether the host should get a public IP address on creation.
+              Possible values:
+              * false - don't assign a public IP to the host.
+              * true - the host should have a public IP address.
+            type: boolean
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/addHosts.md
 ---
 

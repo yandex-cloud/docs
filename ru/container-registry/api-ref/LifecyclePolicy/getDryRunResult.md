@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/dryRunLifecyclePolicyResults/{dryRunLifecyclePolicyResultId}
+    method: get
+    path:
+      type: object
+      properties:
+        dryRunLifecyclePolicyResultId:
+          description: |-
+            **string**
+            Required field. ID of the dry run result of the lifecycle policy.
+          type: string
+      required:
+        - dryRunLifecyclePolicyResultId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/getDryRunResult.md
 ---
 

@@ -75,7 +75,7 @@ description: На странице представлены вопросы и о
 
 {% include [change-plan-roles](../_includes/support/pricing-roles.md) %}
 
-См. детали в инструкции [Изменение тарифного плана](support-center.md#change-pricing).
+См. детали в инструкции [Изменение тарифного плана](cloud-center.md#change-pricing).
 Ознакомьтесь с [Порядком оказания технической поддержки](overview.md). Повышение тарифного плана происходит сразу, а понижение — первого числа следующего месяца
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

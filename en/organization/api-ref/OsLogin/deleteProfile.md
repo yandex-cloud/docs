@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/osLoginProfiles/{id}
+    method: delete
+    path:
+      type: object
+      properties:
+        id:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - id
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/deleteProfile.md
 ---
 
-# Cloud Organization API, REST: OsLogin.DeleteProfile
+# Identity Hub API, REST: OsLogin.DeleteProfile
 
 ## HTTP request
 

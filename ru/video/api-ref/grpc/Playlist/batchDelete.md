@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Playlist/batchDelete.md
 
 # Video API, gRPC: PlaylistService.BatchDelete
 
-Batch delete playlists.
+Deletes multiple playlists in a specific channel in a single request.
+This is more efficient than making multiple Delete requests when removing several playlists.
 
 ## gRPC request
 
@@ -26,10 +27,11 @@ Batch delete playlists.
 ||Field | Description ||
 || channel_id | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel containing the playlists to delete. ||
 || playlist_ids[] | **string**
 
-List of playlist IDs. ||
+List of playlist IDs to delete.
+All playlists must exist in the specified channel. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -115,5 +117,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || playlist_ids[] | **string**
 
-List of playlist IDs. ||
+List of playlist IDs being deleted.
+This list can be used to track which playlists are included
+in the batch deletion operation. ||
 |#

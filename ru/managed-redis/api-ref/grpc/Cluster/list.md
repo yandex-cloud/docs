@@ -458,7 +458,8 @@ The expression must specify:
       "deletion_protection": "bool",
       "persistence_mode": "PersistenceMode",
       "announce_hostnames": "bool",
-      "auth_sentinel": "bool"
+      "auth_sentinel": "bool",
+      "disk_encryption_key_id": "google.protobuf.StringValue"
     }
   ],
   "next_page_token": "string"
@@ -573,6 +574,9 @@ Enable FQDN instead of ip ||
 || auth_sentinel | **bool**
 
 Allows to use ACL users to auth in sentinel ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}

@@ -1,5 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/originGroups
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the origin group belongs to..
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListOriginGroupsResponse.nextPageToken](/docs/cdn/api-ref/OriginGroup/list#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results,
+            set `pageToken` to the [ListOriginGroupsResponse.nextPageToken](/docs/cdn/api-ref/OriginGroup/list#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
+            returned by a previous list request.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/list.md
 ---
 
@@ -67,9 +100,11 @@ returned by a previous list request. ||
               "id": "string"
             }
             // end of the list of possible fields
-          }
+          },
+          "providerType": "string"
         }
-      ]
+      ],
+      "providerType": "string"
     }
   ],
   "nextPageToken": "string"
@@ -114,6 +149,9 @@ false - the option is disabled. ||
 || origins[] | **[Origin](#yandex.cloud.cdn.v1.Origin)**
 
 List of origins. ||
+|| providerType | **string**
+
+RESERVED: This field is reserved for future use and should not be used at this time. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}
@@ -148,6 +186,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
 
 Set up origin of the content. ||
+|| providerType | **string**
+
+RESERVED: This field is reserved for future use and should not be used at this time. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}

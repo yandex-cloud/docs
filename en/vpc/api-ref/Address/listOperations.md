@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/addresses/{addressId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        addressId:
+          description: |-
+            **string**
+            Required field. ID of the address to list operations for.
+            To get a address ID make a [AddressService.List](/docs/vpc/api-ref/Address/list#List) request.
+          type: string
+      required:
+        - addressId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListAddressOperationsResponse.nextPageToken](/docs/vpc/api-ref/Address/listOperations#yandex.cloud.vpc.v1.ListAddressOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListAddressOperationsResponse.nextPageToken](/docs/vpc/api-ref/Address/listOperations#yandex.cloud.vpc.v1.ListAddressOperationsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/listOperations.md
 ---
 

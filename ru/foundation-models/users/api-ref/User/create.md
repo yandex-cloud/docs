@@ -1,5 +1,63 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/users/v1/users
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the user.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the user.
+          type: string
+        source:
+          description: '**string**'
+          type: string
+        expirationConfig:
+          description: |-
+            **`ExpirationConfig`**
+            Expiration configuration for the user.
+          $ref: '#/definitions/ExpirationConfig'
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Set of key-value pairs to label the user.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      ExpirationConfig:
+        type: object
+        properties:
+          expirationPolicy:
+            description: |-
+              **enum** (ExpirationPolicy)
+              - `EXPIRATION_POLICY_UNSPECIFIED`
+              - `STATIC`
+              - `SINCE_LAST_ACTIVE`
+            type: string
+            enum:
+              - EXPIRATION_POLICY_UNSPECIFIED
+              - STATIC
+              - SINCE_LAST_ACTIVE
+          ttlDays:
+            description: '**string** (int64)'
+            type: string
+            format: int64
 sourcePath: en/_api-ref/ai/assistants/v1/users/api-ref/User/create.md
 ---
 

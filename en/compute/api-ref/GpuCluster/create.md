@@ -1,5 +1,53 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/gpuClusters
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to create a GPU cluster in.
+            To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the GPU cluster.
+            The name must be unique within the folder.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the GPU cluster.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            GPU cluster labels as `key:value` pairs.
+          type: string
+        zoneId:
+          description: |-
+            **string**
+            ID of the availability zone where the GPU cluster resides.
+            To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+          type: string
+        interconnectType:
+          description: |-
+            **enum** (GpuInterconnectType)
+            Type of interconnect to use for this GPU cluster.
+            - `GPU_INTERCONNECT_TYPE_UNSPECIFIED`
+            - `INFINIBAND`: InfiniBand interconnect.
+          type: string
+          enum:
+            - GPU_INTERCONNECT_TYPE_UNSPECIFIED
+            - INFINIBAND
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/create.md
 ---
 

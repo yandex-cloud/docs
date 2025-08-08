@@ -1,5 +1,33 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloudapps.{{ api-host }}/cloudapps/workload/v1/cloud-applications:resolve-by-workload
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        workloadType:
+          description: |-
+            **enum** (WorkloadType)
+            Required field. Type of workload. See WorkloadType.
+            - `WORKLOAD_TYPE_UNSPECIFIED`
+            - `COMPUTE_INSTANCE`: Compute Instance
+          type: string
+          enum:
+            - WORKLOAD_TYPE_UNSPECIFIED
+            - COMPUTE_INSTANCE
+        workloadId:
+          description: |-
+            **string**
+            Required field. Identifier of workload
+          type: string
+      required:
+        - workloadType
+        - workloadId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/cloudapps/workload/v1/workload/api-ref/CloudApplication/resolveByWorkload.md
 ---
 

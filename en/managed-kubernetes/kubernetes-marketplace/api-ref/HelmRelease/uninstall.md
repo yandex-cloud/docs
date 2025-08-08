@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://mks.{{ api-host }}/managed-kubernetes/marketplace/v1/helm-releases/uninstall/{id}:uninstall
+    method: post
+    path:
+      type: object
+      properties:
+        id:
+          description: |-
+            **string**
+            Required field. The ID of the Helm release to retrieve.
+          type: string
+      required:
+        - id
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/HelmRelease/uninstall.md
 ---
 

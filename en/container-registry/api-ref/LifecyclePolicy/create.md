@@ -1,5 +1,85 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePolicies
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        repositoryId:
+          description: |-
+            **string**
+            Required field. ID of the lifecycle policy repository.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of lifecycle policy.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of lifecycle policy.
+          type: string
+        status:
+          description: |-
+            **enum** (Status)
+            Required field. Status of the lifecycle policy.
+            - `STATUS_UNSPECIFIED`
+            - `ACTIVE`: Policy is active and regularly deletes Docker images according to the established rules.
+            - `DISABLED`: Policy is disabled and does not delete Docker images in the repository.
+            Policies in this status can be used for preparing and testing rules.
+          type: string
+          enum:
+            - STATUS_UNSPECIFIED
+            - ACTIVE
+            - DISABLED
+        rules:
+          description: |-
+            **[LifecycleRule](/docs/container-registry/api-ref/LifecyclePolicy/get#yandex.cloud.containerregistry.v1.LifecycleRule)**
+            The rules of the lifecycle policy.
+          type: array
+          items:
+            $ref: '#/definitions/LifecycleRule'
+      required:
+        - repositoryId
+        - status
+      additionalProperties: false
+    definitions:
+      LifecycleRule:
+        type: object
+        properties:
+          description:
+            description: |-
+              **string**
+              Description of the lifecycle policy rule.
+            type: string
+          expirePeriod:
+            description: |-
+              **string** (duration)
+              Period of time for automatic deletion.
+              Period must be a multiple of 24 hours.
+            type: string
+            format: duration
+          tagRegexp:
+            description: |-
+              **string**
+              Tag for specifying a filter in the form of a regular expression.
+            type: string
+          untagged:
+            description: |-
+              **boolean**
+              Tag for applying the rule to Docker images without tags.
+            type: boolean
+          retainedTop:
+            description: |-
+              **string** (int64)
+              Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired.
+            type: string
+            format: int64
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/create.md
 ---
 

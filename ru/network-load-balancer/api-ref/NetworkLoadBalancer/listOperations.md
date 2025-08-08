@@ -1,5 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        networkLoadBalancerId:
+          description: |-
+            **string**
+            Required field. ID of the NetworkLoadBalancer resource to list operations for.
+          type: string
+      required:
+        - networkLoadBalancerId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`, the service returns a [ListNetworkLoadBalancerOperationsResponse.nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#yandex.cloud.loadbalancer.v1.ListNetworkLoadBalancerOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListNetworkLoadBalancerOperationsResponse.nextPageToken](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/listOperations#yandex.cloud.loadbalancer.v1.ListNetworkLoadBalancerOperationsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/listOperations.md
 ---
 

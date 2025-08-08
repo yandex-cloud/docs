@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Video/delete.md
 
 # Video API, gRPC: VideoService.Delete
 
-Delete video.
+Deletes a specific video by its ID.
 
 ## gRPC request
 
@@ -23,7 +23,7 @@ Delete video.
 ||Field | Description ||
 || video_id | **string**
 
-Required field. ID of the video. ||
+Required field. ID of the video to delete. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -107,5 +107,6 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || video_id | **string**
 
-ID of the video. ||
+ID of the video.
+This identifier can be used to track the video deletion operation. ||
 |#

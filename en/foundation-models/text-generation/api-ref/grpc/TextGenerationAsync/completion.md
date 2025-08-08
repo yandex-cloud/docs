@@ -64,7 +64,8 @@ A method for generating text completions in [asynchronous mode](/docs/foundation
       "function": {
         "name": "string",
         "description": "string",
-        "parameters": "google.protobuf.Struct"
+        "parameters": "google.protobuf.Struct",
+        "strict": "bool"
       }
       // end of the list of possible fields
     }
@@ -73,8 +74,15 @@ A method for generating text completions in [asynchronous mode](/docs/foundation
   "json_object": "bool",
   "json_schema": {
     "schema": "google.protobuf.Struct"
-  }
+  },
   // end of the list of possible fields
+  "parallel_tool_calls": "google.protobuf.BoolValue",
+  "tool_choice": {
+    // Includes only one of the fields `mode`, `function_name`
+    "mode": "ToolChoiceMode",
+    "function_name": "string"
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -111,6 +119,12 @@ Enforces a specific JSON structure for the model's response based on a provided 
 Includes only one of the fields `json_object`, `json_schema`.
 
 Specifies the format of the model's response. ||
+|| parallel_tool_calls | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Controls whether the model can generate multiple tool calls in a single response. Defaults to true. ||
+|| tool_choice | **[ToolChoice](#yandex.cloud.ai.foundation_models.v1.ToolChoice)**
+
+Specifies how the model should select which tool (or tools) to use when generating a response. ||
 |#
 
 ## CompletionOptions {#yandex.cloud.ai.foundation_models.v1.CompletionOptions}
@@ -295,6 +309,9 @@ A description of the function's purpose or behavior. ||
 
 A JSON Schema that defines the expected parameters for the function.
 The schema should describe the required fields, their types, and any constraints or default values. ||
+|| strict | **bool**
+
+Enforces strict adherence to the function schema, ensuring only defined parameters are used. ||
 |#
 
 ## JsonSchema {#yandex.cloud.ai.foundation_models.v1.JsonSchema}
@@ -306,6 +323,31 @@ Represents the expected structure of the model's response using a JSON Schema.
 || schema | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
 
 The JSON Schema that the model's output must conform to. ||
+|#
+
+## ToolChoice {#yandex.cloud.ai.foundation_models.v1.ToolChoice}
+
+Specifies how the model should select which tool (or tools) to use when generating a response.
+
+#|
+||Field | Description ||
+|| mode | enum **ToolChoiceMode**
+
+Specifies the overall tool-calling mode.
+
+Includes only one of the fields `mode`, `function_name`.
+
+- `TOOL_CHOICE_MODE_UNSPECIFIED`: The server will choose the default behavior, which is AUTO.
+- `NONE`: The model will not call any tool and will generate a standard text response.
+- `AUTO`: The model can choose between generating a text response or calling one or more tools.
+This is the default behavior.
+- `REQUIRED`: The model is required to call one or more tools. ||
+|| function_name | **string**
+
+Forces the model to call a specific function.
+The provided string must match the name of a function in the API request.
+
+Includes only one of the fields `mode`, `function_name`. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

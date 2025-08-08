@@ -1,5 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://billing.{{ api-host }}/billing/v1/budgets
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        billingAccountId:
+          description: |-
+            **string**
+            Required field. ID of the billing account to list budgets corresponding to.
+            To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListBudgetsResponse.nextPageToken](/docs/billing/api-ref/Budget/list#yandex.cloud.billing.v1.ListBudgetsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results,
+            set `pageToken` to the [ListBudgetsResponse.nextPageToken](/docs/billing/api-ref/Budget/list#yandex.cloud.billing.v1.ListBudgetsResponse)
+            returned by a previous list request.
+          type: string
+      required:
+        - billingAccountId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/billing/v1/api-ref/Budget/list.md
 ---
 

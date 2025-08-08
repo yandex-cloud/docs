@@ -1,5 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/communities
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Name of the community.
+          pattern: '[a-zA-Z0-9040104510410-044f]\S{1,61}[a-zA-Z0-9040104510410-044f]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the community.
+          type: string
+        organizationId:
+          description: |-
+            **string**
+            Required field. ID of the organization where community should be created.
+          type: string
+        billingAccountId:
+          description: |-
+            **string**
+            ID of the billing account for the created community. Optional, billing account could be bound to community later.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Labels of the community.
+          type: string
+        zoneId:
+          description: |-
+            **string**
+            Required field. ID of the zone where community will be created (all projects and other resources will be in this zone)
+          type: string
+      required:
+        - organizationId
+        - zoneId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/create.md
 ---
 

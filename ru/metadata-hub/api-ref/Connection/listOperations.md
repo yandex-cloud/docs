@@ -1,5 +1,25 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://connman.{{ api-host }}/v1/operations
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        connectionId:
+          description: '**string**'
+          type: string
+        pageSize:
+          description: '**string** (int64)'
+          type: string
+          format: int64
+        pageToken:
+          description: '**string**'
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/connectionmanager/v1/api-ref/Connection/listOperations.md
 ---
 

@@ -1,11 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}
+    method: delete
+    path:
+      type: object
+      properties:
+        streamLineId:
+          description: |-
+            **string**
+            Required field. ID of the stream line to delete.
+          type: string
+      required:
+        - streamLineId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/delete.md
 ---
 
 # Video API, REST: StreamLine.Delete
 
-Delete stream line.
+Deletes a specific stream line by its ID.
 
 ## HTTP request
 
@@ -19,7 +36,7 @@ DELETE https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}
 ||Field | Description ||
 || streamLineId | **string**
 
-Required field. ID of the line. ||
+Required field. ID of the stream line to delete. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -109,7 +126,8 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || streamLineId | **string**
 
-ID of the line. ||
+ID of the stream line.
+This identifier can be used to track the stream line deletion operation. ||
 |#
 
 ## Status {#google.rpc.Status}

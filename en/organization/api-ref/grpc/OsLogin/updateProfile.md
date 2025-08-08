@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/updateProfile.md
 ---
 
-# Cloud Organization API, gRPC: OsLoginService.UpdateProfile
+# Identity Hub API, gRPC: OsLoginService.UpdateProfile
 
 ## gRPC request
 

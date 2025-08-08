@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/StreamLine/delete.md
 
 # Video API, gRPC: StreamLineService.Delete
 
-Delete stream line.
+Deletes a specific stream line by its ID.
 
 ## gRPC request
 
@@ -23,7 +23,7 @@ Delete stream line.
 ||Field | Description ||
 || stream_line_id | **string**
 
-Required field. ID of the line. ||
+Required field. ID of the stream line to delete. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -107,5 +107,6 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || stream_line_id | **string**
 
-ID of the line. ||
+ID of the stream line.
+This identifier can be used to track the stream line deletion operation. ||
 |#

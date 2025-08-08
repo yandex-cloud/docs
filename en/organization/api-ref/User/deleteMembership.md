@@ -1,9 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}/users/{subjectId}
+    method: delete
+    path:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. ID of the organization to delete membership.
+          type: string
+        subjectId:
+          description: |-
+            **string**
+            ID of the subject that is being deleted from organization.
+            By default equals to authenticated subject.
+          type: string
+      required:
+        - organizationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/User/deleteMembership.md
 ---
 
-# Cloud Organization API, REST: User.DeleteMembership
+# Identity Hub API, REST: User.DeleteMembership
 
 Delete user membership.
 

@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}
+    method: delete
+    path:
+      type: object
+      properties:
+        loadBalancerId:
+          description: |-
+            **string**
+            Required field. ID of the application load balancer to delete.
+            To get the application load balancer ID, make a [LoadBalancerService.List](/docs/application-load-balancer/api-ref/LoadBalancer/list#List) request.
+          type: string
+      required:
+        - loadBalancerId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/delete.md
 ---
 

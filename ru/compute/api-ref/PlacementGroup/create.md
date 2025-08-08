@@ -1,5 +1,59 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/placementGroups
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to create a placement group in.
+            To get a folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the placement group.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the placement group.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          type: string
+        spreadPlacementStrategy:
+          description: |-
+            **object**
+            Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains.
+            Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+            Placement strategy.
+          $ref: '#/definitions/SpreadPlacementStrategy'
+        partitionPlacementStrategy:
+          description: |-
+            **[PartitionPlacementStrategy](/docs/compute/api-ref/PlacementGroup/get#yandex.cloud.compute.v1.PartitionPlacementStrategy)**
+            Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+            Placement strategy.
+          $ref: '#/definitions/PartitionPlacementStrategy'
+      additionalProperties: false
+    definitions:
+      SpreadPlacementStrategy:
+        type: object
+        properties: {}
+      PartitionPlacementStrategy:
+        type: object
+        properties:
+          partitions:
+            description: '**string** (int64)'
+            type: string
+            format: int64
 sourcePath: en/_api-ref/compute/v1/api-ref/PlacementGroup/create.md
 ---
 

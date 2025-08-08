@@ -1,5 +1,25 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://llm.{{ api-host }}/foundationModels/v1/tokenize
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        modelUri:
+          description: |-
+            **string**
+            The identifier of the model to be used for tokenization.
+          type: string
+        text:
+          description: |-
+            **string**
+            Text to be tokenized.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/ai/foundation_models/v1/text_generation/text-generation/api-ref/Tokenizer/tokenize.md
 ---
 

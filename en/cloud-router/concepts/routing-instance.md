@@ -6,7 +6,7 @@ The `Routing Instance` (RI) object is a core resource in the [{{ cr-name }}](./i
 
 When using [{{ cr-name }}](./index.md) and [{{ interconnect-name }}](../../interconnect/concepts/index.md), we strongly recommend to follow these rules and guidelines:
 
-1. All network segments (both cloud and on-prem sides) connected via `Routing Instance (RI)` must use non-overlapping, coordinated IP addressing. [Subnet](../../vpc/concepts/network.md#subnet) IP prefixes you add to an RI must be coordinated between themselves. You cannot add two identical IP prefixes to a single RI. IP addressing on `On-Prem` side must be coordinated with IP addressing in the virtual cloud networks. IP address overlapping will cause IP connectivity problems. **Plan IP addressing carefully**.
+1. All network segments (both cloud and on-prem sides) connected via `Routing Instance (RI)` must use non-overlapping, coordinated IP addressing. [Subnet](../../vpc/concepts/network.md#subnet) IP prefixes you add to an RI must be coordinated between themselves. You cannot add two identical IP prefixes to a single RI. `On-Prem` IP addressing must be aligned with IP addressing in the virtual cloud networks. IP address overlapping will cause IP connectivity problems. **Plan IP addressing carefully**.
 
 1. Network communication across [virtual networks](../../vpc/concepts/network.md) is strictly confined to a single cloud [organization](../../organization/concepts/organization.md). All {{ cr-name }} and {{ interconnect-name }} resources, as well as the virtual cloud networks that are going to be integrated into a network topology using an `RI`, must reside in [cloud folders](../../resource-manager/concepts/resources-hierarchy.md#folder) within the same cloud organization. For network connectivity between virtual cloud networks belonging to different cloud organizations, consider migrating clouds from several organizations into a single one.
 
@@ -15,6 +15,11 @@ When using [{{ cr-name }}](./index.md) and [{{ interconnect-name }}](../../inter
 1. No direct exchange of routing info between any [private connections](../../interconnect/concepts/priv-con.md) (PRCs) within an `RI` is allowed.
 
 1. The IP prefixes announced by the customer’s network hardware also get into the `RI` and from there to the virtual networks connected to that `RI`. Currently, you cannot view these IP prefixes at the `RI` level. We recommend getting this information from the customer's network hardware. In some cases, if routing issues arise, you may want to contact [support]({{ link-console-support }}) for this information.
+
+1. You can only add a [VPC network ID](../../vpc/operations/network-get-info.md), `vpc_network_id`, to one `Routing Instance` at a time. An attempt to add the same ID to another `Routing Instance` will fail.
+
+1. You can only add a [private connection ID](../../interconnect/operations/priv-con-get-info.md), `cic_private_connection_id`, to one `Routing Instance` at a time. An attempt to add the same ID to another `Routing Instance` will fail.
+
 
 ## Tips for configuring private connections {#prc} 
 
@@ -51,7 +56,6 @@ You cannot use matching prefixes in {{ vpc-short-name }} route tables and custom
 [Security groups](../../vpc/concepts/security-groups.md) are used to protect {{ yandex-cloud }} resources and cannot be used for filtering traffic outside {{ yandex-cloud }}.
 
 Security group rules should be set up for the prefixes announced by customer edge routers to {{ yandex-cloud }}. For example, to allow access from the customer infrastructure to a web application (port 443) deployed in {{ yandex-cloud }}, set up a security group as follows:
-
 ```json
 ingress {
       protocol       = "TCP"

@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://marketplace.{{ api-host }}/marketplace/license-manager/saas/v1/instances/{instanceId}/user_info
+    method: get
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            Required field. ID of the subscription instance.
+          type: string
+      required:
+        - instanceId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/marketplace/licensemanager/saas/v1/license-manager/saas/api-ref/Instance/getUserInfo.md
 ---
 

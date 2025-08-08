@@ -1,5 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/refreshTokens
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        subjectId:
+          description: '**string**'
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListRefreshTokensResponse.nextPageToken](/docs/iam/api-ref/RefreshToken/list#yandex.cloud.iam.v1.ListRefreshTokensResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken`
+            to the [ListRefreshTokensResponse.nextPageToken](/docs/iam/api-ref/RefreshToken/list#yandex.cloud.iam.v1.ListRefreshTokensResponse)
+            returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters refresh tokens listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [RefreshToken.clientInstanceInfo](/docs/iam/api-ref/RefreshToken/list#yandex.cloud.iam.v1.RefreshToken), [RefreshToken.clientId](/docs/iam/api-ref/RefreshToken/list#yandex.cloud.iam.v1.RefreshToken) or [RefreshToken.protectionLevel](/docs/iam/api-ref/RefreshToken/list#yandex.cloud.iam.v1.RefreshToken) fields.
+            2. The operator. An `=` operator can be used for all fields. An 'IN' operator can be used for [RefreshToken.protectionLevel](/docs/iam/api-ref/RefreshToken/list#yandex.cloud.iam.v1.RefreshToken).
+            3. The value. The value must be in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-zA-Z][_-a-zA-Z0-9]{1,61}[a-z0-9]`.
+            Example of a filter: `client_instance_info="clientInstanceInfo" AND protection_level IN ("INSECURE_KEY_DPOP", "SECURE_KEY_DPOP")`.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/RefreshToken/list.md
 ---
 

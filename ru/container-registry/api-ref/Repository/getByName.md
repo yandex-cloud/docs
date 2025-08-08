@@ -1,5 +1,24 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/repositories/{repositoryName}:byName
+    method: get
+    path:
+      type: object
+      properties:
+        repositoryName:
+          description: |-
+            **string**
+            Required field. Name of the Repository resource to return.
+            To get the repository name use a [RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request.
+          pattern: '[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))*'
+          type: string
+      required:
+        - repositoryName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Repository/getByName.md
 ---
 

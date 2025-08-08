@@ -1,5 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/resource_groups/at_rev
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Greenplum cluster.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        revision:
+          description: |-
+            **string** (int64)
+            Cluster revision
+          type: string
+          format: int64
+        resourceGroupName:
+          description: |-
+            **string**
+            Required field. 
+          pattern: ^[^\|/*?.,;'<>]+$
+          type: string
+      required:
+        - resourceGroupName
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/ResourceGroup/getAtRevision.md
 ---
 

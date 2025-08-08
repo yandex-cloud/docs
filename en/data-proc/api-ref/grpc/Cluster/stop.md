@@ -97,7 +97,8 @@ Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
     ],
     "deletion_protection": "bool",
     "log_group_id": "string",
-    "environment": "Environment"
+    "environment": "Environment",
+    "autoscaling_service_account_id": "string"
   }
   // end of the list of possible fields
 }
@@ -248,6 +249,9 @@ Environment of the cluster
 - `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`
 - `PRESTABLE` ||
+|| autoscaling_service_account_id | **string**
+
+ID of service account for working with the Instance Groups service. ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}

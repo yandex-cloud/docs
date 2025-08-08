@@ -409,12 +409,22 @@ items:
                 href: api-ref/grpc/Group/index.md
               - name: Get
                 href: api-ref/grpc/Group/get.md
+              - name: ResolveExternal
+                href: api-ref/grpc/Group/resolveExternal.md
               - name: List
                 href: api-ref/grpc/Group/list.md
+              - name: ListExternal
+                href: api-ref/grpc/Group/listExternal.md
               - name: Create
                 href: api-ref/grpc/Group/create.md
+              - name: CreateExternal
+                href: api-ref/grpc/Group/createExternal.md
               - name: Update
                 href: api-ref/grpc/Group/update.md
+              - name: ConvertToExternal
+                href: api-ref/grpc/Group/convertToExternal.md
+              - name: ConvertAllToBasic
+                href: api-ref/grpc/Group/convertAllToBasic.md
               - name: Delete
                 href: api-ref/grpc/Group/delete.md
               - name: ListOperations
@@ -503,6 +513,82 @@ items:
                 href: api-ref/grpc/UserSshKey/update.md
               - name: Delete
                 href: api-ref/grpc/UserSshKey/delete.md
+          - name: Identity Provider API
+            items:
+              - name: Overview
+                href: idp/api-ref/grpc/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: idp/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: idp/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: idp/api-ref/grpc/Operation/cancel.md
+              - name: Userpool
+                items:
+                  - name: Overview
+                    href: idp/api-ref/grpc/Userpool/index.md
+                  - name: Get
+                    href: idp/api-ref/grpc/Userpool/get.md
+                  - name: List
+                    href: idp/api-ref/grpc/Userpool/list.md
+                  - name: Create
+                    href: idp/api-ref/grpc/Userpool/create.md
+                  - name: Update
+                    href: idp/api-ref/grpc/Userpool/update.md
+                  - name: Delete
+                    href: idp/api-ref/grpc/Userpool/delete.md
+                  - name: GetDomain
+                    href: idp/api-ref/grpc/Userpool/getDomain.md
+                  - name: ListDomains
+                    href: idp/api-ref/grpc/Userpool/listDomains.md
+                  - name: AddDomain
+                    href: idp/api-ref/grpc/Userpool/addDomain.md
+                  - name: ValidateDomain
+                    href: idp/api-ref/grpc/Userpool/validateDomain.md
+                  - name: DeleteDomain
+                    href: idp/api-ref/grpc/Userpool/deleteDomain.md
+                  - name: ListOperations
+                    href: idp/api-ref/grpc/Userpool/listOperations.md
+                  - name: ListAccessBindings
+                    href: idp/api-ref/grpc/Userpool/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: idp/api-ref/grpc/Userpool/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: idp/api-ref/grpc/Userpool/updateAccessBindings.md
+              - name: User
+                items:
+                  - name: Overview
+                    href: idp/api-ref/grpc/User/index.md
+                  - name: Get
+                    href: idp/api-ref/grpc/User/get.md
+                  - name: List
+                    href: idp/api-ref/grpc/User/list.md
+                  - name: Create
+                    href: idp/api-ref/grpc/User/create.md
+                  - name: Update
+                    href: idp/api-ref/grpc/User/update.md
+                  - name: Delete
+                    href: idp/api-ref/grpc/User/delete.md
+                  - name: SetOwnPassword
+                    href: idp/api-ref/grpc/User/setOwnPassword.md
+                  - name: SetOthersPassword
+                    href: idp/api-ref/grpc/User/setOthersPassword.md
+                  - name: Suspend
+                    href: idp/api-ref/grpc/User/suspend.md
+                  - name: Reactivate
+                    href: idp/api-ref/grpc/User/reactivate.md
+                  - name: GeneratePassword
+                    href: idp/api-ref/grpc/User/generatePassword.md
+                  - name: GetSelfPasswordMetadata
+                    href: idp/api-ref/grpc/User/getSelfPasswordMetadata.md
+                  - name: ConvertToExternal
+                    href: idp/api-ref/grpc/User/convertToExternal.md
+                  - name: SetPasswordHash
+                    href: idp/api-ref/grpc/User/setPasswordHash.md
+                  - name: ResolveExternalIds
+                    href: idp/api-ref/grpc/User/resolveExternalIds.md
           - name: SAML Federation API
             items:
               - name: Overview
@@ -545,6 +631,16 @@ items:
                     href: saml/api-ref/grpc/Federation/listUserAccounts.md
                   - name: ListOperations
                     href: saml/api-ref/grpc/Federation/listOperations.md
+                  - name: GetDomain
+                    href: saml/api-ref/grpc/Federation/getDomain.md
+                  - name: ListDomains
+                    href: saml/api-ref/grpc/Federation/listDomains.md
+                  - name: AddDomain
+                    href: saml/api-ref/grpc/Federation/addDomain.md
+                  - name: ValidateDomain
+                    href: saml/api-ref/grpc/Federation/validateDomain.md
+                  - name: DeleteDomain
+                    href: saml/api-ref/grpc/Federation/deleteDomain.md
               - name: Operation
                 items:
                   - name: Overview
@@ -563,12 +659,22 @@ items:
                 href: api-ref/Group/index.md
               - name: Get
                 href: api-ref/Group/get.md
+              - name: ResolveExternal
+                href: api-ref/Group/resolveExternal.md
               - name: List
                 href: api-ref/Group/list.md
+              - name: ListExternal
+                href: api-ref/Group/listExternal.md
               - name: Create
                 href: api-ref/Group/create.md
+              - name: CreateExternal
+                href: api-ref/Group/createExternal.md
               - name: Update
                 href: api-ref/Group/update.md
+              - name: ConvertToExternal
+                href: api-ref/Group/convertToExternal.md
+              - name: ConvertAllToBasic
+                href: api-ref/Group/convertAllToBasic.md
               - name: Delete
                 href: api-ref/Group/delete.md
               - name: ListOperations
@@ -657,6 +763,82 @@ items:
                 href: api-ref/UserSshKey/update.md
               - name: Delete
                 href: api-ref/UserSshKey/delete.md
+          - name: Identity Provider API
+            items:
+              - name: Overview
+                href: idp/api-ref/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: idp/api-ref/Operation/index.md
+                  - name: Get
+                    href: idp/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: idp/api-ref/Operation/cancel.md
+              - name: Userpool
+                items:
+                  - name: Overview
+                    href: idp/api-ref/Userpool/index.md
+                  - name: Get
+                    href: idp/api-ref/Userpool/get.md
+                  - name: List
+                    href: idp/api-ref/Userpool/list.md
+                  - name: Create
+                    href: idp/api-ref/Userpool/create.md
+                  - name: Update
+                    href: idp/api-ref/Userpool/update.md
+                  - name: Delete
+                    href: idp/api-ref/Userpool/delete.md
+                  - name: GetDomain
+                    href: idp/api-ref/Userpool/getDomain.md
+                  - name: ListDomains
+                    href: idp/api-ref/Userpool/listDomains.md
+                  - name: AddDomain
+                    href: idp/api-ref/Userpool/addDomain.md
+                  - name: ValidateDomain
+                    href: idp/api-ref/Userpool/validateDomain.md
+                  - name: DeleteDomain
+                    href: idp/api-ref/Userpool/deleteDomain.md
+                  - name: ListOperations
+                    href: idp/api-ref/Userpool/listOperations.md
+                  - name: ListAccessBindings
+                    href: idp/api-ref/Userpool/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: idp/api-ref/Userpool/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: idp/api-ref/Userpool/updateAccessBindings.md
+              - name: User
+                items:
+                  - name: Overview
+                    href: idp/api-ref/User/index.md
+                  - name: Get
+                    href: idp/api-ref/User/get.md
+                  - name: List
+                    href: idp/api-ref/User/list.md
+                  - name: Create
+                    href: idp/api-ref/User/create.md
+                  - name: Update
+                    href: idp/api-ref/User/update.md
+                  - name: Delete
+                    href: idp/api-ref/User/delete.md
+                  - name: SetOwnPassword
+                    href: idp/api-ref/User/setOwnPassword.md
+                  - name: SetOthersPassword
+                    href: idp/api-ref/User/setOthersPassword.md
+                  - name: Suspend
+                    href: idp/api-ref/User/suspend.md
+                  - name: Reactivate
+                    href: idp/api-ref/User/reactivate.md
+                  - name: GeneratePassword
+                    href: idp/api-ref/User/generatePassword.md
+                  - name: GetSelfPasswordMetadata
+                    href: idp/api-ref/User/getSelfPasswordMetadata.md
+                  - name: ConvertToExternal
+                    href: idp/api-ref/User/convertToExternal.md
+                  - name: SetPasswordHash
+                    href: idp/api-ref/User/setPasswordHash.md
+                  - name: ResolveExternalIds
+                    href: idp/api-ref/User/resolveExternalIds.md
           - name: SAML Federation API
             items:
               - name: Overview
@@ -699,6 +881,16 @@ items:
                     href: saml/api-ref/Federation/listUserAccounts.md
                   - name: ListOperations
                     href: saml/api-ref/Federation/listOperations.md
+                  - name: GetDomain
+                    href: saml/api-ref/Federation/getDomain.md
+                  - name: ListDomains
+                    href: saml/api-ref/Federation/listDomains.md
+                  - name: AddDomain
+                    href: saml/api-ref/Federation/addDomain.md
+                  - name: ValidateDomain
+                    href: saml/api-ref/Federation/validateDomain.md
+                  - name: DeleteDomain
+                    href: saml/api-ref/Federation/deleteDomain.md
               - name: Operation
                 items:
                   - name: Overview

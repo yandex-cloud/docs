@@ -1,5 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/templates
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder where the template will be created.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the certificate template.
+            The name must follow the name pattern.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        data:
+          description: |-
+            **string**
+            Required field. Certificate template data.
+          type: string
+      required:
+        - folderId
+        - name
+        - data
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/Template/create.md
 ---
 

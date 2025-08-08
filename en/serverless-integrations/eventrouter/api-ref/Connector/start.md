@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors/{connectorId}:start
+    method: post
+    path:
+      type: object
+      properties:
+        connectorId:
+          description: |-
+            **string**
+            Required field. ID of the connector to start.
+          type: string
+      required:
+        - connectorId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/start.md
 ---
 

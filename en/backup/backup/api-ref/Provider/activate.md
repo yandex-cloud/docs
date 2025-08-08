@@ -1,5 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/providers/{name}:activate
+    method: post
+    path:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Required field. Activate specific provider by name.
+            For more information, please see [activate-provider](/docs/backup/quickstart#activate-provider)
+          type: string
+      required:
+        - name
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. Activate provider for Folder iD.
+          type: string
+        skipDefaultPolicy:
+          description: |-
+            **boolean**
+            Don't create default policies while activating the provider.
+          type: boolean
+      required:
+        - folderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Provider/activate.md
 ---
 

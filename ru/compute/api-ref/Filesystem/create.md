@@ -1,5 +1,73 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/filesystems
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a filesystem in.
+            To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the filesystem. The name must be unique within the folder.
+          pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the filesystem.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Filesystem labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        typeId:
+          description: |-
+            **string**
+            ID of the filesystem type.
+            To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request.
+            The filesystem type cannot be updated after the filesystem creation.
+          type: string
+        zoneId:
+          description: |-
+            **string**
+            Required field. ID of the availability zone where the filesystem resides.
+            To get a list of available zones, make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+            A filesystem can be attached only to virtual machines residing in the same availability zone.
+            The filesystem availability zone cannot be updated after the filesystem creation.
+          type: string
+        size:
+          description: |-
+            **string** (int64)
+            Required field. Size of the filesystem, specified in bytes.
+            The size of the filesystem cannot be updated after the filesystem creation.
+          type: string
+          format: int64
+        blockSize:
+          description: |-
+            **string** (int64)
+            Block size used for the filesystem, specified in bytes.
+            The block size cannot be updated after the filesystem creation.
+            Default value: 4096.
+          type: string
+          format: int64
+      required:
+        - folderId
+        - zoneId
+        - size
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Filesystem/create.md
 ---
 

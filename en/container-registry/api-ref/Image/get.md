@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/images/{imageId}
+    method: get
+    path:
+      type: object
+      properties:
+        imageId:
+          description: |-
+            **string**
+            Required field. ID of the Docker image resource to return.
+            To get the Docker image ID use a [ImageService.List](/docs/container-registry/api-ref/Image/list#List) request.
+          type: string
+      required:
+        - imageId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Image/get.md
 ---
 

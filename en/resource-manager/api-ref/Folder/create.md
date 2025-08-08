@@ -1,5 +1,42 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://resource-manager.{{ api-host }}/resource-manager/v1/folders
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        cloudId:
+          description: |-
+            **string**
+            Required field. ID of the cloud to create a folder in.
+            To get the cloud ID, use a [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the folder.
+            The name must be unique within the cloud.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the folder.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+      required:
+        - cloudId
+        - name
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/create.md
 ---
 

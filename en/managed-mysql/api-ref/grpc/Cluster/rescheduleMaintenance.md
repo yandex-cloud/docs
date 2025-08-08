@@ -173,7 +173,8 @@ The value can also point to the past moment of time if `IMMEDIATE` reschedule ty
           "audit_log_policy": "AuditLogPolicy",
           "innodb_lru_scan_depth": "google.protobuf.Int64Value",
           "mdb_force_ssl": "google.protobuf.BoolValue",
-          "innodb_change_buffering": "InnodbChangeBuffering"
+          "innodb_change_buffering": "InnodbChangeBuffering",
+          "max_write_lock_count": "google.protobuf.Int64Value"
         },
         "user_config": {
           "innodb_buffer_pool_size": "google.protobuf.Int64Value",
@@ -270,7 +271,8 @@ The value can also point to the past moment of time if `IMMEDIATE` reschedule ty
           "audit_log_policy": "AuditLogPolicy",
           "innodb_lru_scan_depth": "google.protobuf.Int64Value",
           "mdb_force_ssl": "google.protobuf.BoolValue",
-          "innodb_change_buffering": "InnodbChangeBuffering"
+          "innodb_change_buffering": "InnodbChangeBuffering",
+          "max_write_lock_count": "google.protobuf.Int64Value"
         },
         "default_config": {
           "innodb_buffer_pool_size": "google.protobuf.Int64Value",
@@ -367,7 +369,8 @@ The value can also point to the past moment of time if `IMMEDIATE` reschedule ty
           "audit_log_policy": "AuditLogPolicy",
           "innodb_lru_scan_depth": "google.protobuf.Int64Value",
           "mdb_force_ssl": "google.protobuf.BoolValue",
-          "innodb_change_buffering": "InnodbChangeBuffering"
+          "innodb_change_buffering": "InnodbChangeBuffering",
+          "max_write_lock_count": "google.protobuf.Int64Value"
         }
       },
       "mysql_config_8_0": {
@@ -465,7 +468,8 @@ The value can also point to the past moment of time if `IMMEDIATE` reschedule ty
           "innodb_lru_scan_depth": "google.protobuf.Int64Value",
           "sql_require_primary_key": "google.protobuf.BoolValue",
           "mdb_force_ssl": "google.protobuf.BoolValue",
-          "innodb_change_buffering": "InnodbChangeBuffering"
+          "innodb_change_buffering": "InnodbChangeBuffering",
+          "max_write_lock_count": "google.protobuf.Int64Value"
         },
         "user_config": {
           "innodb_buffer_pool_size": "google.protobuf.Int64Value",
@@ -561,7 +565,8 @@ The value can also point to the past moment of time if `IMMEDIATE` reschedule ty
           "innodb_lru_scan_depth": "google.protobuf.Int64Value",
           "sql_require_primary_key": "google.protobuf.BoolValue",
           "mdb_force_ssl": "google.protobuf.BoolValue",
-          "innodb_change_buffering": "InnodbChangeBuffering"
+          "innodb_change_buffering": "InnodbChangeBuffering",
+          "max_write_lock_count": "google.protobuf.Int64Value"
         },
         "default_config": {
           "innodb_buffer_pool_size": "google.protobuf.Int64Value",
@@ -657,7 +662,8 @@ The value can also point to the past moment of time if `IMMEDIATE` reschedule ty
           "innodb_lru_scan_depth": "google.protobuf.Int64Value",
           "sql_require_primary_key": "google.protobuf.BoolValue",
           "mdb_force_ssl": "google.protobuf.BoolValue",
-          "innodb_change_buffering": "InnodbChangeBuffering"
+          "innodb_change_buffering": "InnodbChangeBuffering",
+          "max_write_lock_count": "google.protobuf.Int64Value"
         }
       },
       // end of the list of possible fields
@@ -670,14 +676,20 @@ The value can also point to the past moment of time if `IMMEDIATE` reschedule ty
       "access": {
         "data_lens": "bool",
         "web_sql": "bool",
-        "data_transfer": "bool"
+        "data_transfer": "bool",
+        "yandex_query": "bool"
       },
       "performance_diagnostics": {
         "enabled": "bool",
         "sessions_sampling_interval": "int64",
         "statements_sampling_interval": "int64"
       },
-      "backup_retain_period_days": "google.protobuf.Int64Value"
+      "backup_retain_period_days": "google.protobuf.Int64Value",
+      "disk_size_autoscaling": {
+        "planned_usage_threshold": "int64",
+        "emergency_usage_threshold": "int64",
+        "disk_size_limit": "int64"
+      }
     },
     "network_id": "string",
     "health": "Health",
@@ -701,7 +713,8 @@ The value can also point to the past moment of time if `IMMEDIATE` reschedule ty
     "deletion_protection": "bool",
     "host_group_ids": [
       "string"
-    ]
+    ],
+    "disk_encryption_key_id": "google.protobuf.StringValue"
   }
   // end of the list of possible fields
 }
@@ -856,6 +869,9 @@ This option prevents unintended deletion of the cluster. ||
 || host_group_ids[] | **string**
 
 Host groups hosting VMs of the cluster. ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.mysql.v1.Monitoring}
@@ -911,6 +927,9 @@ Configuration of the performance diagnostics service. ||
 || backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Retention policy of automated backups. ||
+|| disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mysql.v1.DiskSizeAutoscaling)**
+
+Disk size autoscaling ||
 |#
 
 ## MysqlConfigSet5_7 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet5_7}
@@ -1468,6 +1487,12 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 - `INNODB_CHANGE_BUFFERING_CHANGES`
 - `INNODB_CHANGE_BUFFERING_PURGES`
 - `INNODB_CHANGE_BUFFERING_ALL` ||
+|| max_write_lock_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Permit some pending read lock requests interval
+P.S. Should be UInt64, but java fails to handle UInt64 limits
+
+For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_write_lock_count). ||
 |#
 
 ## MysqlConfigSet8_0 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet8_0}
@@ -2010,6 +2035,12 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 - `INNODB_CHANGE_BUFFERING_CHANGES`
 - `INNODB_CHANGE_BUFFERING_PURGES`
 - `INNODB_CHANGE_BUFFERING_ALL` ||
+|| max_write_lock_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Permit some pending read lock requests interval
+P.S. Should be UInt64, but java fails to handle UInt64 limits
+
+For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_write_lock_count). ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mysql.v1.Resources}
@@ -2056,6 +2087,9 @@ See [the documentation](/docs/managed-mysql/operations/web-sql-query) for detail
 || data_transfer | **bool**
 
 Allow access for DataTransfer. ||
+|| yandex_query | **bool**
+
+Allow access for YandexQuery. ||
 |#
 
 ## PerformanceDiagnostics {#yandex.cloud.mdb.mysql.v1.PerformanceDiagnostics}
@@ -2071,6 +2105,21 @@ Interval (in seconds) for `my_session` sampling. ||
 || statements_sampling_interval | **int64**
 
 Interval (in seconds) for `my_statements` sampling. ||
+|#
+
+## DiskSizeAutoscaling {#yandex.cloud.mdb.mysql.v1.DiskSizeAutoscaling}
+
+#|
+||Field | Description ||
+|| planned_usage_threshold | **int64**
+
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+|| emergency_usage_threshold | **int64**
+
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+|| disk_size_limit | **int64**
+
+Limit on how large the storage for database instances can automatically grow, in bytes. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.mysql.v1.MaintenanceWindow}

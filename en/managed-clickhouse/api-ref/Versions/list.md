@@ -1,5 +1,30 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/versions
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`, the service returns a [ListVersionsResponse.nextPageToken](/docs/managed-clickhouse/api-ref/Versions/list#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) that can be used
+            to get the next page of results in subsequent ListVersions requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. Set `pageToken` to the [ListVersionsResponse.nextPageToken](/docs/managed-clickhouse/api-ref/Versions/list#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) returned by a previous ListVersions
+            request to get the next page of results.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Versions/list.md
 ---
 

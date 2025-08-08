@@ -5,7 +5,9 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Subtitle/create.md
 
 # Video API, gRPC: SubtitleService.Create
 
-Create a new subtitle.
+Creates a new subtitle record for a specific video.
+This method only creates the metadata record; the actual subtitle file must be uploaded
+using the URL obtained from the GenerateUploadURL method.
 
 ## gRPC request
 
@@ -58,7 +60,7 @@ Source type. ||
 ||Field | Description ||
 || filename | **string**
 
-Required field.  ||
+Required field. Original filename of the subtitle file being uploaded. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -154,48 +156,54 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || subtitle_id | **string**
 
-ID of the subtitle. ||
+ID of the subtitle being created. ||
 |#
 
 ## Subtitle {#yandex.cloud.video.v1.Subtitle}
+
+Entity representing a subtitle track that can be associated with a video.
+Subtitles provide text versions of the audio content, enabling accessibility
+and multilingual support for video content.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the subtitle. ||
+Unique identifier of the subtitle track. ||
 || language | **string**
 
-Subtitle language represented as a three-letter code according to ISO 639-2/T. ||
+Language of the subtitle content according to ISO 639-2/T. ||
 || label | **string**
 
-Subtitle caption to be displayed on screen during video playback. ||
+Display label for the subtitle track shown in the video player's subtitle selection menu. ||
 || status | enum **SubtitleStatus**
 
-Subtitle status.
+Current processing status of the subtitle.
 
-- `SUBTITLE_STATUS_UNSPECIFIED`: Subtitle status unspecified.
-- `WAIT_UPLOADING`: Waiting for all the bytes to be loaded.
-- `UPLOADED`: Uploading is complete. ||
+- `SUBTITLE_STATUS_UNSPECIFIED`: The subtitle status is not specified.
+- `WAIT_UPLOADING`: The subtitle file upload is in progress, waiting for all bytes to be received.
+- `UPLOADED`: The subtitle file has been fully uploaded and is ready for use. ||
 || source_type | enum **SubtitleSourceType**
 
-Source type.
+Indicates how the subtitle was created or obtained.
 
-- `SUBTITLE_SOURCE_TYPE_UNSPECIFIED`: Subtitle source type unspecified.
-- `MANUAL`: Manually uploaded subtitle.
-- `GENERATED`: Automatically generated subtitle. ||
+- `SUBTITLE_SOURCE_TYPE_UNSPECIFIED`: The subtitle source type is not specified.
+- `MANUAL`: The subtitle was manually created and uploaded by a user.
+- `GENERATED`: The subtitle was automatically generated through speech recognition. ||
 || filename | **string**
 
-Subtitle filename. ||
+Original filename of the subtitle file. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time when subtitle was created. ||
+Timestamp when the subtitle was initially created in the system. ||
 || updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time of last subtitle update. ||
+Timestamp of the last modification to the subtitle or its metadata. ||
 || video_id | **string**
 
-ID of the video.
+Identifier of the video this subtitle belongs to.
 
-Includes only one of the fields `video_id`. ||
+Includes only one of the fields `video_id`.
+
+Specifies the parent content this subtitle is associated with. ||
 |#

@@ -19,7 +19,7 @@ description: Follow this guide to get a list of metadata sources in {{ data-cata
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. In the list that opens, select the metadata catalog where your sources were created.
-    1. Go to the ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Sources** tab.
+    1. Navigate to the ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}** tab.
 
 {% endlist %}
 
@@ -39,11 +39,11 @@ In the search bar above the list of sources, enter the ID, name, or type of sour
 Click the relevant column header:
 
 * **{{ ui-key.yacloud.common.name }}**: Sorting by source name in alphabetical order.
-* **Number of uploads**: Sorting by number of uploads in ascending order.
+* **{{ ui-key.yacloud.data-catalog.label_ingestion-count }}**: Sorting by number of ingestions in ascending order.
 * **{{ ui-key.yacloud.common.created-at }}**: Sorting by creation date in ascending date order.
 * **{{ ui-key.yacloud.common.label_author }}**: Sorting by author name in alphabetical order.
 
-A second click on the same header reverses the sorting order. A third click cancels the sorting.
+Clicking the same header a second time reverses the sorting order. Clicking a third time clears the applied sorting.
 
 ### Customizing column display {#setting-columns}
 
@@ -56,4 +56,4 @@ To customize the columns:
     * Check the hidden columns you want displayed.
     * To reorder columns, click ![image](../../../_assets/console-icons/grip.svg) to the left of the column name and drag the column up or down to a new position in the list.
 
-1. Click **Apply**.
+1. Click **{{ ui-key.yacloud.common.apply }}**.

@@ -1,5 +1,33 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/privateCertificates
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        certificateAuthorityId:
+          description: |-
+            **string**
+            Required field. The ID of the Certificate Authority issuing the certificates.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            Maximum number of certificates to return per page, optional. Default is 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token, allows request for the next page of results from a previous list call.
+          type: string
+      required:
+        - certificateAuthorityId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCaCertificate/list.md
 ---
 

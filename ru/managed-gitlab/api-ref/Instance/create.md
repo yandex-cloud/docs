@@ -1,5 +1,87 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://gitlab.{{ api-host }}/gitlab/v1/instances
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to create instance in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the instance (must be unique within the folder).
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the instance.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the instance as `` key:value `` pairs. For example, "env": "prod".
+          type: string
+        resourcePresetId:
+          description: |-
+            **string**
+            ID of the resource preset for computational resources.
+          type: string
+        diskSize:
+          description: |-
+            **string** (int64)
+            Disk size in bytes.
+          type: string
+          format: int64
+        adminLogin:
+          description: |-
+            **string**
+            Admin user login.
+          type: string
+        adminEmail:
+          description: |-
+            **string**
+            Admin user email.
+          type: string
+        domainPrefix:
+          description: |-
+            **string**
+            Domain prefix for the GitLab instance.
+          type: string
+        subnetId:
+          description: |-
+            **string**
+            ID of the subnet where instance will be created.
+          type: string
+        backupRetainPeriodDays:
+          description: |-
+            **string** (int64)
+            Number of days to retain backups.
+          type: string
+          format: int64
+        maintenanceDeleteUntagged:
+          description: |-
+            **boolean**
+            Whether to delete untagged resources during maintenance.
+          type: boolean
+        deletionProtection:
+          description: |-
+            **boolean**
+            Whether deletion protection is enabled.
+          type: boolean
+        approvalRulesId:
+          description: |-
+            **string**
+            ID of approval rules for the instance.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/gitlab/v1/api-ref/Instance/create.md
 ---
 

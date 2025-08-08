@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/{cloudId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        cloudId:
+          description: |-
+            **string**
+            Required field. ID of the Cloud resource to list operations for.
+          type: string
+      required:
+        - cloudId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListCloudOperationsResponse.nextPageToken](/docs/resource-manager/api-ref/Cloud/listOperations#yandex.cloud.resourcemanager.v1.ListCloudOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. Set `pageToken`
+            to the [ListCloudOperationsResponse.nextPageToken](/docs/resource-manager/api-ref/Cloud/listOperations#yandex.cloud.resourcemanager.v1.ListCloudOperationsResponse)
+            returned by a previous list request to get the next page of results.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/listOperations.md
 ---
 

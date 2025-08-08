@@ -15,6 +15,7 @@ Updates the specified private subnet.
 
 ```json
 {
+  "private_subnet_id": "string",
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
@@ -27,13 +28,17 @@ Updates the specified private subnet.
     },
     "gateway_ip": "string"
   },
-  "private_subnet_id": "string",
   "labels": "map<string, string>"
 }
 ```
 
 #|
 ||Field | Description ||
+|| private_subnet_id | **string**
+
+ID of the PrivateSubnet resource to update.
+
+To get the private subnet ID, use a [PrivateSubnetService.List](/docs/baremetal/api-ref/grpc/PrivateSubnet/list#List) request. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the PrivateSubnet resource are going to be updated. ||
@@ -47,11 +52,6 @@ Description of the private subnet. ||
 || vrf_options_spec | **[VrfOptionsSpec](#yandex.cloud.baremetal.v1alpha.VrfOptionsSpec)**
 
 VRF options. Optional. ||
-|| private_subnet_id | **string**
-
-ID of the PrivateSubnet resource to update.
-
-To get the private subnet ID, use a [PrivateSubnetService.List](/docs/baremetal/api-ref/grpc/PrivateSubnet/list#List) request. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.

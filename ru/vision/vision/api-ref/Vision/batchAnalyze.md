@@ -1,5 +1,48 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vision.{{ api-host }}/vision/v1/batchAnalyze
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        analyzeSpecs:
+          description: |-
+            **[AnalyzeSpec](/docs/vision/vision/api-ref/Vision/batchAnalyze#yandex.cloud.ai.vision.v1.AnalyzeSpec)**
+            A list of specifications. Each specification contains the file to analyze and features to use for analysis.
+            Restrictions:
+            * Supported file formats: `JPEG`, `PNG`.
+            * Maximum file size: 1 MB.
+            * Image size should not exceed 20M pixels (length x width).
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  content:
+                    description: |-
+                      **string** (bytes)
+                      Image content, represented as a stream of bytes.
+                      Note: As with all bytes fields, protobuffers use a pure binary representation, whereas JSON representations use base64.
+                      Includes only one of the fields `content`, `signature`.
+                    type: string
+                    format: bytes
+                  signature:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `content`, `signature`.
+                    type: string
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to which you have access.
+            Required for authorization with a user account.
+            Don't specify this field if you make the request on behalf of a service account.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/ai/vision/v1/vision/api-ref/Vision/batchAnalyze.md
 ---
 
@@ -59,9 +102,7 @@ Restrictions:
 || folderId | **string**
 
 ID of the folder to which you have access.
-
 Required for authorization with a user account.
-
 Don't specify this field if you make the request on behalf of a service account. ||
 |#
 

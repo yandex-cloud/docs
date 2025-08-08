@@ -1,5 +1,124 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}
+    method: patch
+    path:
+      type: object
+      properties:
+        securityGroupId:
+          description: |-
+            **string**
+            Required field. ID of the security group to update.
+            To get the security group ID make a [SecurityGroupService.List](/docs/vpc/api-ref/SecurityGroup/list#List) request.
+          type: string
+      required:
+        - securityGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the security group.
+            The name must be unique within the folder.
+          pattern: '|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the security group.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Security group labels as `key:value` pairs.
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [SecurityGroupService.Get](/docs/vpc/api-ref/SecurityGroup/get#Get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        ruleSpecs:
+          description: |-
+            **[SecurityGroupRuleSpec](/docs/vpc/api-ref/SecurityGroup/create#yandex.cloud.vpc.v1.SecurityGroupRuleSpec)**
+            Updated rule list. All existing rules will be replaced with given list.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  protocolName:
+                    description: |-
+                      **string**
+                      Protocol name.
+                      Includes only one of the fields `protocolName`, `protocolNumber`.
+                      Values from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+                      Null value means any protocol.
+                    type: string
+                  protocolNumber:
+                    description: |-
+                      **string** (int64)
+                      Protocol number from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+                      Includes only one of the fields `protocolName`, `protocolNumber`.
+                      Values from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+                      Null value means any protocol.
+                    type: string
+                    format: int64
+              - type: object
+                properties:
+                  cidrBlocks:
+                    description: |-
+                      **[CidrBlocks](/docs/vpc/api-ref/Network/listSecurityGroups#yandex.cloud.vpc.v1.CidrBlocks)**
+                      CIDR blocks to allow to recieve or send traffic.
+                      Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+                    $ref: '#/definitions/CidrBlocks'
+                  securityGroupId:
+                    description: |-
+                      **string**
+                      ID of the security group to add rule to.
+                      Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+                    type: string
+                  predefinedTarget:
+                    description: |-
+                      **string**
+                      Predefined target. See [security groups rules](/docs/vpc/concepts/security-groups#security-groups-rules) for more information.
+                      Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+                    type: string
+      additionalProperties: false
+    definitions:
+      CidrBlocks:
+        type: object
+        properties:
+          v4CidrBlocks:
+            description: |-
+              **string**
+              IPv4 CIDR blocks to allow traffic to.
+            type: array
+            items:
+              type: string
+          v6CidrBlocks:
+            description: |-
+              **string**
+              IPv6 CIDR blocks to allow traffic to.
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/update.md
 ---
 

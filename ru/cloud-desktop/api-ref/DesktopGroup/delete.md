@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}
+    method: delete
+    path:
+      type: object
+      properties:
+        desktopGroupId:
+          description: |-
+            **string**
+            Required field. ID of the desktop group to delete.
+            To get a desktop group ID make a [DesktopGroupService.List](/docs/cloud-desktop/api-ref/DesktopGroup/list#List) request.
+          type: string
+      required:
+        - desktopGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/delete.md
 ---
 

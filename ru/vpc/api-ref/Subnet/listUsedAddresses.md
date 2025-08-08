@@ -1,5 +1,35 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}/addresses
+    method: get
+    path:
+      type: object
+      properties:
+        subnetId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - subnetId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: '**string** (int64)'
+          type: string
+          format: int64
+        pageToken:
+          description: '**string**'
+          type: string
+        filter:
+          description: '**string**'
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/listUsedAddresses.md
 ---
 

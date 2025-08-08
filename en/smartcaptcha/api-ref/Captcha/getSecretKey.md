@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://smartcaptcha.{{ api-host }}/smartcaptcha/v1/captchas/{captchaId}:getSecretKey
+    method: get
+    path:
+      type: object
+      properties:
+        captchaId:
+          description: |-
+            **string**
+            Required field. ID of the Captcha resource to return.
+          type: string
+      required:
+        - captchaId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/smartcaptcha/v1/api-ref/Captcha/getSecretKey.md
 ---
 

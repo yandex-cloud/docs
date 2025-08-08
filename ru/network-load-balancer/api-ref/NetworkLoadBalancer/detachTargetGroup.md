@@ -1,5 +1,33 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:detachTargetGroup
+    method: post
+    path:
+      type: object
+      properties:
+        networkLoadBalancerId:
+          description: |-
+            **string**
+            Required field. ID of the network load balancer to detach the target group from.
+            To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#List) request.
+          type: string
+      required:
+        - networkLoadBalancerId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        targetGroupId:
+          description: |-
+            **string**
+            Required field. ID of the target group.
+          type: string
+      required:
+        - targetGroupId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/detachTargetGroup.md
 ---
 
@@ -108,7 +136,13 @@ Required field. ID of the target group. ||
       }
     ],
     "deletionProtection": "boolean",
-    "allowZonalShift": "boolean"
+    "allowZonalShift": "boolean",
+    "disableZoneStatuses": [
+      {
+        "zoneId": "string",
+        "disabledUntil": "string"
+      }
+    ]
   }
   // end of the list of possible fields
 }
@@ -285,6 +319,9 @@ Specifies if network load balancer protected from deletion. ||
 || allowZonalShift | **boolean**
 
 Specifies if network load balancer available to zonal shift. ||
+|| disableZoneStatuses[] | **[DisableZoneStatus](#yandex.cloud.loadbalancer.v1.DisableZoneStatus)**
+
+List of disabled zones for the network load balancer. ||
 |#
 
 ## Listener {#yandex.cloud.loadbalancer.v1.Listener}
@@ -400,4 +437,26 @@ Port to use for HTTP health checks. ||
 
 URL path to set for health checking requests for every target in the target group.
 For example `` /ping ``. The default path is `` / ``. ||
+|#
+
+## DisableZoneStatus {#yandex.cloud.loadbalancer.v1.DisableZoneStatus}
+
+Status of the disabled zone.
+
+#|
+||Field | Description ||
+|| zoneId | **string**
+
+Required field. ID of zone. ||
+|| disabledUntil | **string** (date-time)
+
+Timestamp until which the zone will be disabled.
+If not present then zone will be disabled until it is removed through a separate call.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

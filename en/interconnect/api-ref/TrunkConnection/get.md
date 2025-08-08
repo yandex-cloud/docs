@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cic.{{ api-host }}/cic/v1/trunkConnections/{trunkConnectionId}
+    method: get
+    path:
+      type: object
+      properties:
+        trunkConnectionId:
+          description: |-
+            **string**
+            Required field. ID of the TrunkConnection resource to return.
+            To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/interconnect/api-ref/TrunkConnection/list#List) request.
+          type: string
+      required:
+        - trunkConnectionId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cic/v1/api-ref/TrunkConnection/get.md
 ---
 

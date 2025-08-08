@@ -1,5 +1,50 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        functionId:
+          description: |-
+            **string**
+            Required field. ID of the function to list operations for.
+          type: string
+      required:
+        - functionId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`, the service returns a [ListFunctionOperationsResponse.nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#yandex.cloud.serverless.functions.v1.ListFunctionOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListFunctionOperationsResponse.nextPageToken](/docs/functions/functions/api-ref/Function/listOperations#yandex.cloud.serverless.functions.v1.ListFunctionOperationsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently filtering can be applied to the [operation.Operation.done](/docs/operation/api-ref/Operation/get#yandex.cloud.operation.Operation), [operation.Operation.createdBy](/docs/operation/api-ref/Operation/get#yandex.cloud.operation.Operation) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            Examples of a filter: `done=false`, `created_by='John.Doe'`.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/listOperations.md
 ---
 

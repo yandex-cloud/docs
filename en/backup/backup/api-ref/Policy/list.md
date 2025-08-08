@@ -1,5 +1,25 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/policies
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Folder ID. Either Folder ID or Compute Cloud instance ID should be set.
+          type: string
+        computeInstanceId:
+          description: |-
+            **string**
+            Compute Cloud instance ID. Either Folder ID or Compute Cloud instance ID should be set.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/list.md
 ---
 

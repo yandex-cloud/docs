@@ -1,5 +1,20 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/tests/{testId}:stop
+    method: post
+    path:
+      type: object
+      properties:
+        testId:
+          description: |-
+            **string**
+            ID of the test to stop.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Test/stop.md
 ---
 

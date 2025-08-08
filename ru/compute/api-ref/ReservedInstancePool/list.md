@@ -1,5 +1,56 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/reservedInstancePools
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the Folder to list reserved instance pools in.
+            To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListReservedInstancePoolsResponse.nextPageToken](/docs/compute/api-ref/ReservedInstancePool/list#yandex.cloud.compute.v1.ListReservedInstancePoolsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results,
+            set `pageToken` to the [ListReservedInstancePoolsResponse.nextPageToken](/docs/compute/api-ref/ReservedInstancePool/list#yandex.cloud.compute.v1.ListReservedInstancePoolsResponse)
+            returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
+            Each condition has the form `<field> <operator> <value>`, where:
+            1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
+            2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
+            3. `<value>` represents a value.
+            String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            By which column the listing should be ordered and in which direction,
+            format is "createdAt desc". "id asc" if omitted.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/ReservedInstancePool/list.md
 ---
 
@@ -80,7 +131,19 @@ format is "createdAt desc". "id asc" if omitted. ||
       "networkSettings": {
         "type": "string"
       },
-      "size": "string"
+      "size": "string",
+      "committedSize": "string",
+      "allowOversubscription": "boolean",
+      "slotStats": {
+        "total": "string",
+        "used": "string",
+        "available": "string",
+        "unavailable": "string",
+        "pending": "string"
+      },
+      "instanceStats": {
+        "total": "string"
+      }
     }
   ],
   "nextPageToken": "string"
@@ -156,6 +219,20 @@ Network Settings. ||
 || size | **string** (int64)
 
 Desired size of the pool (number of slots for instances in this pool). ||
+|| committedSize | **string** (int64)
+
+Equals to the size field except when updates occur with allow_pending=true. In those cases, committed_size equals only the number of non-pending slots. ||
+|| allowOversubscription | **boolean**
+
+Allows the pool to contain more linked instances than the number of available slots (size without pending or unavailable slots).
+While running instances are still limited by available slots, stopped instances can exceed this limit.
+Warning: When this option is enabled, attempting to start more instances than the number of available slots will result in a "Not Enough Resources" error. ||
+|| slotStats | **[SlotStats](#yandex.cloud.compute.v1.ReservedInstancePool.SlotStats)**
+
+Statuses of the pool slots ||
+|| instanceStats | **[InstanceStats](#yandex.cloud.compute.v1.ReservedInstancePool.InstanceStats)**
+
+Stats for instances of the pool ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.compute.v1.ResourcesSpec}
@@ -201,4 +278,34 @@ Network Type
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
 - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||
+|#
+
+## SlotStats {#yandex.cloud.compute.v1.ReservedInstancePool.SlotStats}
+
+#|
+||Field | Description ||
+|| total | **string** (int64)
+
+Equals to pool size (and equals to the sum of the following fields) ||
+|| used | **string** (int64)
+
+Number of slots used by running instances ||
+|| available | **string** (int64)
+
+Number of slots available for instances (but not currently used) ||
+|| unavailable | **string** (int64)
+
+Number of slots unavailable for some reason (for example because of underlying host failure) ||
+|| pending | **string** (int64)
+
+Number of slots requested for async update, but still waiting for resources and not yet available for usage ||
+|#
+
+## InstanceStats {#yandex.cloud.compute.v1.ReservedInstancePool.InstanceStats}
+
+#|
+||Field | Description ||
+|| total | **string** (int64)
+
+Total number of instances linked to the pool ||
 |#

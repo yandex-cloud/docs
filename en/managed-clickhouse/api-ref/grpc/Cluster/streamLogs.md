@@ -40,7 +40,8 @@ Columns from logs table to get in the response. ||
 Required field. 
 
 - `SERVICE_TYPE_UNSPECIFIED`
-- `CLICKHOUSE`: Logs of ClickHouse activity. ||
+- `CLICKHOUSE`: Logs of ClickHouse activity.
+- `CLICKHOUSE_KEEPER`: Logs of ClickHouse Keeper activity. ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request. ||

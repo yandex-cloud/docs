@@ -184,8 +184,8 @@ items:
       - name: '{{ objstorage-full-name }} integration with Nextcloud'
         href: tutorials/integrate-nextcloud.md
       - name: >-
-          Deploying a web app on {{ baremetal-name }} servers with an L7 load
-          balancer and {{ sws-name }} protection
+          Deploying a web application on {{ baremetal-name }} servers with an L7
+          load balancer and {{ sws-name }} protection
         href: tutorials/webapp-on-bms-behind-sws.md
   - name: Concepts
     items:

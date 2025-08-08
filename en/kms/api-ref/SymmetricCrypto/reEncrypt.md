@@ -1,5 +1,60 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:reEncrypt
+    method: post
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the new key to be used for encryption.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            **string**
+            ID of the version of the new key to be used for encryption.
+            Defaults to the primary version if not specified.
+          type: string
+        aadContext:
+          description: |-
+            **string** (bytes)
+            Additional authenticated data to be required for decryption.
+            Should be encoded with base64.
+          type: string
+          format: bytes
+        sourceKeyId:
+          description: |-
+            **string**
+            Required field. ID of the key that the ciphertext is currently encrypted with. May be the same as for the new key.
+          type: string
+        sourceAadContext:
+          description: |-
+            **string** (bytes)
+            Additional authenticated data provided with the initial encryption request.
+            Should be encoded with base64.
+          type: string
+          format: bytes
+        ciphertext:
+          description: |-
+            **string** (bytes)
+            Required field. Ciphertext to re-encrypt.
+            Should be encoded with base64.
+          type: string
+          format: bytes
+      required:
+        - sourceKeyId
+        - ciphertext
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricCrypto/reEncrypt.md
 ---
 

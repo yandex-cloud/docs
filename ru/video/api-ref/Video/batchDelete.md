@@ -1,11 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/videos:batchDelete
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        channelId:
+          description: |-
+            **string**
+            Required field. ID of the channel containing the videos to delete.
+          type: string
+        videoIds:
+          description: |-
+            **string**
+            List of video IDs to delete.
+          type: array
+          items:
+            type: string
+      required:
+        - channelId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Video/batchDelete.md
 ---
 
 # Video API, REST: Video.BatchDelete
 
-Batch delete videos.
+Deletes multiple videos in a specific channel in a single request.
+This is more efficient than making multiple Delete requests when removing several videos.
 
 ## HTTP request
 
@@ -28,10 +53,10 @@ POST https://video.{{ api-host }}/video/v1/videos:batchDelete
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel containing the videos to delete. ||
 || videoIds[] | **string**
 
-List of video IDs. ||
+List of video IDs to delete. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -123,7 +148,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || videoIds[] | **string**
 
-List of video IDs. ||
+List of video IDs being deleted.
+This list can be used to track which videos are included
+in the batch deletion operation. ||
 |#
 
 ## Status {#google.rpc.Status}

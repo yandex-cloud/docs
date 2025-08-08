@@ -1,5 +1,60 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://mks.{{ api-host }}/managed-kubernetes/marketplace/v1/helm-releases/{id}
+    method: patch
+    path:
+      type: object
+      properties:
+        id:
+          description: |-
+            **string**
+            Required field. The ID of the Helm release to update.
+          type: string
+      required:
+        - id
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        productVersionId:
+          description: |-
+            **string**
+            The ID of the new product version for the release.
+          type: string
+        userValues:
+          description: |-
+            **[ValueWithKey](/docs/managed-kubernetes/kubernetes-marketplace/api-ref/HelmRelease/install#yandex.cloud.k8s.marketplace.v1.ValueWithKey)**
+            Custom user values to apply during the update.
+          type: array
+          items:
+            $ref: '#/definitions/ValueWithKey'
+      additionalProperties: false
+    definitions:
+      ValueWithKey:
+        type: object
+        properties:
+          key:
+            description: |-
+              **string**
+              Required field. The key associated with the value.
+            type: string
+          value:
+            description: |-
+              **[Value](/docs/managed-kubernetes/kubernetes-marketplace/api-ref/HelmRelease/install#yandex.cloud.k8s.marketplace.v1.Value)**
+              The value associated with the key.
+            oneOf:
+              - type: object
+                properties:
+                  typedValue:
+                    description: |-
+                      **string**
+                      The typed string value.
+                      Includes only one of the fields `typedValue`.
+                    type: string
+        required:
+          - key
 sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/HelmRelease/update.md
 ---
 

@@ -1,5 +1,111 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshotSchedules
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to create a snapshot schedule in.
+            Snapshots are created in the same folder as the schedule, even if disks from other folders are attached
+            to the schedule.
+            To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the snapshot schedule.
+            The name must be unique within the folder.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the snapshot schedule.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Snapshot schedule labels as `key:value` pairs.
+          type: string
+        schedulePolicy:
+          description: |-
+            **[SchedulePolicy](/docs/compute/api-ref/SnapshotSchedule/get#yandex.cloud.compute.v1.SchedulePolicy)**
+            Frequency settings of the snapshot schedule.
+          $ref: '#/definitions/SchedulePolicy'
+        retentionPeriod:
+          description: |-
+            **string** (duration)
+            Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is
+            automatically deleted.
+            Includes only one of the fields `retentionPeriod`, `snapshotCount`.
+            Retention policy of the snapshot schedule.
+          type: string
+          format: duration
+        snapshotCount:
+          description: |-
+            **string** (int64)
+            Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this
+            number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted
+            after the sixth one is created, the second is deleted after the seventh one is created, and so on.
+            Includes only one of the fields `retentionPeriod`, `snapshotCount`.
+            Retention policy of the snapshot schedule.
+          type: string
+          format: int64
+        snapshotSpec:
+          description: |-
+            **[SnapshotSpec](/docs/compute/api-ref/SnapshotSchedule/get#yandex.cloud.compute.v1.SnapshotSpec)**
+            Attributes of snapshots created by the snapshot schedule.
+          $ref: '#/definitions/SnapshotSpec'
+        diskIds:
+          description: |-
+            **string**
+            List of IDs of the disks attached to the snapshot schedule.
+            To get a disk ID, make a [yandex.cloud.compute.v1.DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions:
+      SchedulePolicy:
+        type: object
+        properties:
+          startAt:
+            description: |-
+              **string** (date-time)
+              Timestamp for creating the first snapshot.
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+              `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+              To work with values in this field, use the APIs described in the
+              [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+            type: string
+            format: date-time
+          expression:
+            description: |-
+              **string**
+              Cron expression for the snapshot schedule (UTC+0).
+              The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of
+              nonstandard predefined expressions (e.g. `@hourly`). For details about the format,
+              see [documentation](/docs/compute/concepts/snapshot-schedule#cron)
+            type: string
+      SnapshotSpec:
+        type: object
+        properties:
+          description:
+            description: |-
+              **string**
+              Description of the created snapshot.
+            type: string
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Snapshot labels as `key:value` pairs.
+            type: string
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/create.md
 ---
 

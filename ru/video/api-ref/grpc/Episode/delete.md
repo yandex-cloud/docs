@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Episode/delete.md
 
 # Video API, gRPC: EpisodeService.Delete
 
-Delete episode.
+Deletes a specific episode by its ID.
 
 ## gRPC request
 
@@ -23,7 +23,7 @@ Delete episode.
 ||Field | Description ||
 || episode_id | **string**
 
-Required field. ID of the episode. ||
+Required field. ID of the episode to delete. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -107,5 +107,6 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || episode_id | **string**
 
-ID of the episode. ||
+ID of the episode being deleted.
+This identifier can be used to track the episode deletion operation. ||
 |#

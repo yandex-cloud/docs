@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://billing.{{ api-host }}/billing/v1/budgets/{id}
+    method: get
+    path:
+      type: object
+      properties:
+        id:
+          description: |-
+            **string**
+            Required field. ID of the budget to return.
+            To get the budget ID, use [BudgetService.List](/docs/billing/api-ref/Budget/list#List) request.
+          type: string
+      required:
+        - id
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/billing/v1/api-ref/Budget/get.md
 ---
 

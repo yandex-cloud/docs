@@ -1,5 +1,70 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://searchapi.{{ api-host }}/v2/image/search_by_image
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        site:
+          description: |-
+            **string**
+            Restricts the search to the specific website.
+          type: string
+        folderId:
+          description: |-
+            **string**
+            ID of the folder.
+          type: string
+        url:
+          description: |-
+            **string**
+            Required field. The image url to use for the search.
+            Includes only one of the fields `url`, `data`, `id`.
+          type: string
+        data:
+          description: |-
+            **string** (bytes)
+            Required field. The image data to use for the search.
+            Includes only one of the fields `url`, `data`, `id`.
+          type: string
+          format: bytes
+        id:
+          description: |-
+            **string**
+            Required field. CBIR ID of the image to use for the search.
+            Includes only one of the fields `url`, `data`, `id`.
+          type: string
+        page:
+          description: |-
+            **string** (int64)
+            The number of a requested page with search results.
+          type: string
+          format: int64
+        familyMode:
+          description: |-
+            **enum** (FamilyMode)
+            Rule for filtering search results and determines whether any documents should be excluded.
+            - `FAMILY_MODE_UNSPECIFIED`
+            - `FAMILY_MODE_NONE`: Filtering is disabled. Search results include any documents regardless of their contents.
+            - `FAMILY_MODE_MODERATE`: Moderate filter (default value). Documents of the Adult category are excluded from search results
+            unless a query is explicitly made for searching resources of this category.
+            - `FAMILY_MODE_STRICT`: Regardless of a search query, documents of the Adult category
+            and those with profanity are excluded from search results.
+          type: string
+          enum:
+            - FAMILY_MODE_UNSPECIFIED
+            - FAMILY_MODE_NONE
+            - FAMILY_MODE_MODERATE
+            - FAMILY_MODE_STRICT
+      required:
+        - url
+        - data
+        - id
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/searchapi/v2/api-ref/ImageSearch/searchByImage.md
 ---
 

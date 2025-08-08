@@ -1,5 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://translate.{{ api-host }}/translate/v2/detect
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        text:
+          description: |-
+            **string**
+            Required field. The text to detect the language for.
+          type: string
+        languageCodeHints:
+          description: |-
+            **string**
+            List of the most likely languages. These languages will be given preference when detecting the text language.
+            Most languages are specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``), but the field are not limited to it.
+            To get the list of supported languages, use a [TranslationService.ListLanguages](/docs/translate/api-ref/Translation/listLanguages#ListLanguages) request.
+          type: array
+          items:
+            type: string
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to which you have access.
+            Required for authorization with a user account.
+            Don't specify this field if you make the request on behalf of a service account.
+          type: string
+      required:
+        - text
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/detectLanguage.md
 ---
 
@@ -39,9 +72,7 @@ To get the list of supported languages, use a [TranslationService.ListLanguages]
 || folderId | **string**
 
 ID of the folder to which you have access.
-
 Required for authorization with a user account.
-
 Don't specify this field if you make the request on behalf of a service account. ||
 |#
 

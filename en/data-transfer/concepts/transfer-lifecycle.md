@@ -68,6 +68,10 @@ The current transfer status determines available actions with transfers. For mor
 
 * {{ dt-status-copy }} (`SNAPSHOTTING`): Assigned to _{{ dt-type-copy }}_ and _{{ dt-type-copy-repl }}_ transfers while copying data from the source.
 
+
+* {{ dt-type-preparing }} (`PREPARING`): Assigned to _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers when initiating replication. At this point, the data transfer has not started yet.
+
+
 * {{ dt-status-repl }} (`RUNNING`): Assigned to _{{ dt-type-repl }}_ and _{{ dt-type-copy-repl }}_ transfers.
   
   * _{{ dt-type-repl }}_: After a successful [activation](../operations/transfer.md#activate).

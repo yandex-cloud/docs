@@ -1,5 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-containers.{{ api-host }}/containers/v1/containers/{containerId}:rollback
+    method: post
+    path:
+      type: object
+      properties:
+        containerId:
+          description: |-
+            **string**
+            Required field. ID of the container to rollback to an old revision.
+            To get a container ID, make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/Container/list#List) request.
+          type: string
+      required:
+        - containerId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        revisionId:
+          description: |-
+            **string**
+            Required field. ID of the revision to rollback to.
+            To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless-containers/containers/api-ref/Container/listRevisions#ListRevisions) request.
+          type: string
+      required:
+        - revisionId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/rollback.md
 ---
 

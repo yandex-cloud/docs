@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/disks/{diskId}
+    method: delete
+    path:
+      type: object
+      properties:
+        diskId:
+          description: |-
+            **string**
+            Required field. ID of the disk to delete.
+            To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+          type: string
+      required:
+        - diskId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Disk/delete.md
 ---
 

@@ -169,6 +169,8 @@ items:
                     href: api-ref/WebSearch/search.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes/index.md
   - name: Applications
     items:
       - name: Error codes

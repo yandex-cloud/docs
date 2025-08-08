@@ -1,5 +1,191 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cic.{{ api-host }}/cic/v1/trunkConnections
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Name of the trunkConnection.
+            The name must be unique within the folder.
+            Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``.
+          type: string
+        description:
+          description: |-
+            **string**
+            Optional description of the trunkConnection. 0-256 characters long.
+          type: string
+        folderId:
+          description: |-
+            **string**
+            ID of the folder that the trunkConnection belongs to.
+          type: string
+        regionId:
+          description: |-
+            **string**
+            ID of the region that the trunkConnection belongs to.
+          type: string
+        singlePortDirectJoint:
+          description: |-
+            **[SinglePortDirectJoint](/docs/interconnect/api-ref/TrunkConnection/create#yandex.cloud.cic.v1.CreateTrunkConnectionRequest.SinglePortDirectJoint)**
+            Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`.
+            Special trunkConnection config
+          $ref: '#/definitions/SinglePortDirectJoint'
+        lagDirectJoint:
+          description: |-
+            **[LagDirectJoint](/docs/interconnect/api-ref/TrunkConnection/create#yandex.cloud.cic.v1.CreateTrunkConnectionRequest.LagDirectJoint)**
+            Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`.
+            Special trunkConnection config
+          $ref: '#/definitions/LagDirectJoint'
+        partnerJointInfo:
+          description: |-
+            **[PartnerJoint](/docs/interconnect/api-ref/TrunkConnection/create#yandex.cloud.cic.v1.CreateTrunkConnectionRequest.PartnerJoint)**
+            Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`.
+            Special trunkConnection config
+          $ref: '#/definitions/PartnerJoint'
+        pointOfPresenceId:
+          description: |-
+            **string**
+            ID of pointOfPresence that the trunkConnection is deployed on.
+            Optional.
+            If is not set scheduler selects it by himself.
+          type: string
+        capacity:
+          description: |-
+            **enum** (Capacity)
+            Capacity of the trunkConnection
+            - `CAPACITY_UNSPECIFIED`
+            - `CAPACITY_50_MBPS`
+            - `CAPACITY_100_MBPS`
+            - `CAPACITY_200_MBPS`
+            - `CAPACITY_300_MBPS`
+            - `CAPACITY_400_MBPS`
+            - `CAPACITY_500_MBPS`
+            - `CAPACITY_1_GBPS`
+            - `CAPACITY_2_GBPS`
+            - `CAPACITY_3_GBPS`
+            - `CAPACITY_4_GBPS`
+            - `CAPACITY_5_GBPS`
+            - `CAPACITY_10_GBPS`
+            - `CAPACITY_20_GBPS`
+            - `CAPACITY_30_GBPS`
+            - `CAPACITY_40_GBPS`
+            - `CAPACITY_50_GBPS`
+            - `CAPACITY_100_GBPS`
+            - `CAPACITY_200_GBPS`
+          type: string
+          enum:
+            - CAPACITY_UNSPECIFIED
+            - CAPACITY_50_MBPS
+            - CAPACITY_100_MBPS
+            - CAPACITY_200_MBPS
+            - CAPACITY_300_MBPS
+            - CAPACITY_400_MBPS
+            - CAPACITY_500_MBPS
+            - CAPACITY_1_GBPS
+            - CAPACITY_2_GBPS
+            - CAPACITY_3_GBPS
+            - CAPACITY_4_GBPS
+            - CAPACITY_5_GBPS
+            - CAPACITY_10_GBPS
+            - CAPACITY_20_GBPS
+            - CAPACITY_30_GBPS
+            - CAPACITY_40_GBPS
+            - CAPACITY_50_GBPS
+            - CAPACITY_100_GBPS
+            - CAPACITY_200_GBPS
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels, `key:value` pairs.
+            No more than 64 per resource.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `[-_0-9a-z]*`.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `[a-z][-_0-9a-z]*`.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Deletion protection flag.
+            Optional.
+            If set prohibits deletion of the trunkConnection.
+          type: boolean
+      additionalProperties: false
+    definitions:
+      SinglePortDirectJoint:
+        type: object
+        properties:
+          transceiverType:
+            description: |-
+              **enum** (TransceiverType)
+              Type of transceiver that the trunkConnection is deployed on.
+              - `TRANSCEIVER_TYPE_UNSPECIFIED`
+              - `TRANSCEIVER_TYPE_1000BASE_LX`
+              - `TRANSCEIVER_TYPE_10GBASE_LR`
+              - `TRANSCEIVER_TYPE_10GBASE_ER`
+              - `TRANSCEIVER_TYPE_100GBASE_LR4`
+              - `TRANSCEIVER_TYPE_100GBASE_ER4`
+            type: string
+            enum:
+              - TRANSCEIVER_TYPE_UNSPECIFIED
+              - TRANSCEIVER_TYPE_1000BASE_LX
+              - TRANSCEIVER_TYPE_10GBASE_LR
+              - TRANSCEIVER_TYPE_10GBASE_ER
+              - TRANSCEIVER_TYPE_100GBASE_LR4
+              - TRANSCEIVER_TYPE_100GBASE_ER4
+      LagDirectJoint:
+        type: object
+        properties:
+          transceiverType:
+            description: |-
+              **enum** (TransceiverType)
+              Type of transceiver that the trunkConnection is deployed on.
+              - `TRANSCEIVER_TYPE_UNSPECIFIED`
+              - `TRANSCEIVER_TYPE_1000BASE_LX`
+              - `TRANSCEIVER_TYPE_10GBASE_LR`
+              - `TRANSCEIVER_TYPE_10GBASE_ER`
+              - `TRANSCEIVER_TYPE_100GBASE_LR4`
+              - `TRANSCEIVER_TYPE_100GBASE_ER4`
+            type: string
+            enum:
+              - TRANSCEIVER_TYPE_UNSPECIFIED
+              - TRANSCEIVER_TYPE_1000BASE_LX
+              - TRANSCEIVER_TYPE_10GBASE_LR
+              - TRANSCEIVER_TYPE_10GBASE_ER
+              - TRANSCEIVER_TYPE_100GBASE_LR4
+              - TRANSCEIVER_TYPE_100GBASE_ER4
+          lagAllocationSettings:
+            description: |-
+              **`LagAllocationSettingsRequest`**
+              LAG allocation settings that the trunkConnection is deployed on.
+            oneOf:
+              - type: object
+                properties:
+                  lagSize:
+                    description: |-
+                      **string** (int64)
+                      Size of LAG.
+                      Must be from 1 to 10 inclusively.
+                      Includes only one of the fields `lagSize`.
+                    type: string
+                    format: int64
+      PartnerJoint:
+        type: object
+        properties:
+          partnerId:
+            description: |-
+              **string**
+              ID of partner that the trunkConnection is deployed on.
+              Optional.
+              If is not set scheduler selects it by himself.
+            type: string
 sourcePath: en/_api-ref/cic/v1/api-ref/TrunkConnection/create.md
 ---
 

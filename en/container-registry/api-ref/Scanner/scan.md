@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/scans
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        imageId:
+          description: |-
+            **string**
+            Required field. ID of the Image to be scanned for vulnerabilities.
+          type: string
+      required:
+        - imageId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/scan.md
 ---
 

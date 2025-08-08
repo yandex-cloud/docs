@@ -1,5 +1,42 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:decrypt
+    method: post
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the symmetric KMS key to use for decryption.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        aadContext:
+          description: |-
+            **string** (bytes)
+            Additional authenticated data, must be the same as was provided
+            in the corresponding [SymmetricEncryptRequest](/docs/kms/api-ref/SymmetricCrypto/encrypt#yandex.cloud.kms.v1.SymmetricEncryptRequest).
+            Should be encoded with base64.
+          type: string
+          format: bytes
+        ciphertext:
+          description: |-
+            **string** (bytes)
+            Required field. Ciphertext to be decrypted.
+            Should be encoded with base64.
+          type: string
+          format: bytes
+      required:
+        - ciphertext
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricCrypto/decrypt.md
 ---
 

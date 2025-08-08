@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/buses
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list buses in.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            Maximum number of buses to return.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListBusesResponse.nextPageToken](/docs/serverless-integrations/eventrouter/api-ref/Bus/list#yandex.cloud.serverless.eventrouter.v1.ListBusesResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            Supported fields for filter:
+            name
+            created_at
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/list.md
 ---
 

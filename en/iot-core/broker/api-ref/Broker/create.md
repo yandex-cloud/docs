@@ -1,5 +1,85 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-iot-broker }}/iot-broker/v1/brokers
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a broker in.
+            To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the broker. The name must be unique within the folder.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the broker.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        certificates:
+          description: |-
+            **[Certificate](/docs/iot-core/broker/api-ref/Broker/create#yandex.cloud.iot.broker.v1.CreateBrokerRequest.Certificate)**
+            Broker certificates.
+          type: array
+          items:
+            $ref: '#/definitions/Certificate'
+        password:
+          description: |-
+            **string**
+            Broker passwords.
+            The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
+          type: string
+        logOptions:
+          description: |-
+            **[LogOptions](/docs/iot-core/broker/api-ref/Broker/get#yandex.cloud.iot.broker.v1.LogOptions)**
+            Options for logging broker events
+          oneOf:
+            - type: object
+              properties:
+                logGroupId:
+                  description: |-
+                    **string**
+                    Entry should be written to log group resolved by ID.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                    Log entries destination.
+                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+                  type: string
+                folderId:
+                  description: |-
+                    **string**
+                    Entry should be written to default log group for specified folder.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                    Log entries destination.
+                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+                  type: string
+      required:
+        - folderId
+        - name
+      additionalProperties: false
+    definitions:
+      Certificate:
+        type: object
+        properties:
+          certificateData:
+            description: |-
+              **string**
+              Public part of the broker certificate.
+            type: string
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/create.md
 ---
 

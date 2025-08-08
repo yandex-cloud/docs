@@ -19,11 +19,11 @@ description: Follow this guide to create a metadata source in {{ data-catalog-fu
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. In the list that opens, select the metadata catalog you want to create a source in.
-    1. Go to the ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Sources** tab.
-    1. Click **Create data source**.
-    1. Enter a unique name for the source. Once the source is created, you cannot rename it.
+    1. Navigate to the ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}** tab.
+    1. Click **{{ ui-key.yacloud.data-catalog.label_create-source-button }}**.
+    1. Enter a unique name for the source. Once you create the source, you cannot rename it.
     1. Optionally, describe the source.
-    1. Select the backend type to supply metadata from. Once the source is created, you cannot change the database type.
+    1. Select the backend type to provide metadata from. Once you create the source, you cannot change the database type.
 
        Available backends: {{ PG }}, {{ MY }}, {{ MG }}, {{ CH }}, {{ OS }}, {{ GP }}, and {{ data-transfer-name }}.
        

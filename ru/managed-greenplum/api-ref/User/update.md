@@ -1,5 +1,66 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/users/{user.name}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        user:
+          description: |-
+            **[User](/docs/managed-greenplum/api-ref/User/list#yandex.cloud.mdb.greenplum.v1.User)**
+            Required field. 
+          $ref: '#/definitions/User'
+      required:
+        - user
+      additionalProperties: false
+    definitions:
+      User:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. User name
+            pattern: ^[a-zA-Z_][a-zA-Z0-9_]{0,62}$
+            type: string
+          password:
+            description: |-
+              **string**
+              User password. Used only in create and update requests
+            type: string
+          resourceGroup:
+            description: |-
+              **string**
+              Resource group for user's queries
+            pattern: ^[^\|/*?.,;'<>]+$
+            type: string
+        required:
+          - name
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/User/update.md
 ---
 

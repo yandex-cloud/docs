@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/buses/{busId}
+    method: delete
+    path:
+      type: object
+      properties:
+        busId:
+          description: |-
+            **string**
+            Required field. ID of the bus to delete.
+          type: string
+      required:
+        - busId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/delete.md
 ---
 

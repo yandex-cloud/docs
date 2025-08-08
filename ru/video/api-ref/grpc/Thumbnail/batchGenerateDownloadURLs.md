@@ -5,7 +5,9 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Thumbnail/batchGenerateDownlo
 
 # Video API, gRPC: ThumbnailService.BatchGenerateDownloadURLs
 
-Generate urls for downloading images.
+Generates download URLs for multiple thumbnails in a single request.
+The response includes URLs for both original and scaled versions of each thumbnail.
+This is useful for efficiently retrieving multiple thumbnails at once.
 
 ## gRPC request
 
@@ -26,10 +28,10 @@ Generate urls for downloading images.
 ||Field | Description ||
 || channel_id | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel containing the thumbnails. ||
 || thumbnail_ids[] | **string**
 
-List of thumbnails IDs. ||
+List of thumbnail IDs for which to generate download URLs. ||
 |#
 
 ## BatchGenerateDownloadURLsResponse {#yandex.cloud.video.v1.BatchGenerateDownloadURLsResponse}
@@ -57,7 +59,8 @@ List of thumbnails IDs. ||
 ||Field | Description ||
 || download_urls[] | **[ThumbnailDownloadURL](#yandex.cloud.video.v1.ThumbnailDownloadURL)**
 
-List of download urls. ||
+List of download URLs for the requested thumbnails.
+Each entry contains URLs for both the original image and various scaled versions. ||
 |#
 
 ## ThumbnailDownloadURL {#yandex.cloud.video.v1.ThumbnailDownloadURL}
@@ -66,33 +69,44 @@ List of download urls. ||
 ||Field | Description ||
 || thumbnail_id | **string**
 
-ID of the thumbnail. ||
+ID of the thumbnail for which download URLs are provided. ||
 || original_url | **string**
 
-Original download url. ||
+URL for downloading the original, unmodified thumbnail image.
+This provides access to the image at its original resolution and format. ||
 || scaled_urls[] | **[ScaledURL](#yandex.cloud.video.v1.ThumbnailDownloadURL.ScaledURL)**
 
-List of download urls, one per each available image size. ||
+List of URLs for downloading scaled versions of the thumbnail.
+Different scaled versions are optimized for different display sizes and purposes. ||
 |#
 
 ## ScaledURL {#yandex.cloud.video.v1.ThumbnailDownloadURL.ScaledURL}
+
+Represents a URL for a specific scaled version of a thumbnail image.
 
 #|
 ||Field | Description ||
 || url | **string**
 
-Download url. ||
+URL for downloading this scaled version of the thumbnail. ||
 || max_width | **int64**
 
-Maximum width of the rectangle to inscribe the thumbnail into. ||
+Maximum width in pixels of the scaled image.
+The actual width may be smaller to maintain the aspect ratio. ||
 || max_height | **int64**
 
-Maximum height of the rectangle to inscribe the thumbnail into. ||
+Maximum height in pixels of the scaled image.
+The actual height may be smaller to maintain the aspect ratio. ||
 || image_format | enum **ImageFormat**
 
-Image format.
+Format of the scaled image (JPEG, WebP, etc.).
+Different formats offer different trade-offs between quality and file size.
 
-- `IMAGE_FORMAT_UNSPECIFIED`: Image format unspecified.
+- `IMAGE_FORMAT_UNSPECIFIED`: The image format is not specified.
 - `JPEG`: JPEG image format.
-- `WEBP`: WebP image format. ||
+Provides good compression with some quality loss.
+Widely supported across all platforms and browsers.
+- `WEBP`: WebP image format.
+Provides better compression than JPEG with similar quality.
+May not be supported on all platforms and older browsers. ||
 |#

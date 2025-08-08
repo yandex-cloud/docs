@@ -1,5 +1,105 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/addresses/{addressId}
+    method: patch
+    path:
+      type: object
+      properties:
+        addressId:
+          description: |-
+            **string**
+            Required field. ID of the address to update.
+            To get the address ID make a [AddressService.List](/docs/vpc/api-ref/Address/list#List) request.
+          type: string
+      required:
+        - addressId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the address.
+            The name must be unique within the folder.
+          pattern: '|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the address.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Address labels as `key:value` pairs.
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [AddressService.Get](/docs/vpc/api-ref/Address/get#Get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        reserved:
+          description: |-
+            **boolean**
+            Specifies if address is reserved or not.
+          type: boolean
+        deletionProtection:
+          description: |-
+            **boolean**
+            Specifies if address protected from deletion.
+          type: boolean
+        dnsRecordSpecs:
+          description: |-
+            **[DnsRecordSpec](/docs/vpc/api-ref/Address/create#yandex.cloud.vpc.v1.DnsRecordSpec)**
+            Optional DNS record specifications
+          type: array
+          items:
+            $ref: '#/definitions/DnsRecordSpec'
+      additionalProperties: false
+    definitions:
+      DnsRecordSpec:
+        type: object
+        properties:
+          fqdn:
+            description: |-
+              **string**
+              Required field. Required. DNS record name (absolute or relative to the DNS zone in use).
+            type: string
+          dnsZoneId:
+            description: |-
+              **string**
+              Required field. Required. ID of the public DNS zone. The maximum string length in characters is 20.
+            type: string
+          ttl:
+            description: |-
+              **string** (int64)
+              TTL of record. Acceptable values are 0 to 86400, inclusive.
+            type: string
+            format: int64
+          ptr:
+            description: |-
+              **boolean**
+              Optional. If the PTR record is required, this parameter must be set to "true".
+            type: boolean
+        required:
+          - fqdn
+          - dnsZoneId
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/update.md
 ---
 

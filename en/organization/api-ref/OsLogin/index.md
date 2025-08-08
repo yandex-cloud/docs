@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/index.md
 ---
 
-# Cloud Organization API, REST: OsLogin
+# Identity Hub API, REST: OsLogin
 
 ## Methods
 

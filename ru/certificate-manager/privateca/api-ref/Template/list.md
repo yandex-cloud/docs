@@ -1,5 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/templates
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder into which list templates.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results to return per page. Couldn't exceed 100, default value is 100
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Token to retrieve specific pages of results.
+            If this is set, the service will return the next page of results based on this token.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/Template/list.md
 ---
 

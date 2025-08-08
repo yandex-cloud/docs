@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/hbaRules/atRevision
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Greenplum cluster.
+            To get the Greenplum cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        revision:
+          description: |-
+            **string** (int64)
+            Cluster revision
+          type: string
+          format: int64
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/HBARule/listAtRevision.md
 ---
 
@@ -88,5 +115,6 @@ https://gpdb.docs.pivotal.io/6-6/security-guide/topics/Authenticate.html
 - `AUTH_METHOD_UNSPECIFIED`
 - `MD5`: Perform SCRAM-SHA-256 or MD5 authentication to verify the user's password.
 - `LDAP`: Perform LDAP authentication, if MDB_GREENPLUM_LDAP flag is set
-- `REJECT`: Disable authentication ||
+- `REJECT`: Disable authentication
+- `IAM`: Perform authentication with IAM token ||
 |#

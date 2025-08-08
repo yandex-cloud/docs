@@ -1,5 +1,58 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/scans/{scanResultId}:listVulnerabilities
+    method: get
+    path:
+      type: object
+      properties:
+        scanResultId:
+          description: |-
+            **string**
+            Required field. ID of the ScanResult to get list of vulnerabilities for.
+          type: string
+      required:
+        - scanResultId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [Vulnerability.severity](/docs/container-registry/api-ref/Scanner/listVulnerabilities#yandex.cloud.containerregistry.v1.Vulnerability) and [PackageVulnerability.name](/docs/container-registry/api-ref/Scanner/listVulnerabilities#yandex.cloud.containerregistry.v1.PackageVulnerability) fields.
+            2. An `=` operator.
+            3. The value in double quotes (`"`).
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            An order expression that orders resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [Vulnerability.severity](/docs/container-registry/api-ref/Scanner/listVulnerabilities#yandex.cloud.containerregistry.v1.Vulnerability) and [PackageVulnerability.name](/docs/container-registry/api-ref/Scanner/listVulnerabilities#yandex.cloud.containerregistry.v1.PackageVulnerability) fields.
+            2. Order selector. Currently you can use ordering only on `Vulnerability.severity` field (recent first).
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/listVulnerabilities.md
 ---
 

@@ -14,11 +14,11 @@
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog where you want to create a classification.
-  1. Go to the ![image](../../../_assets/console-icons/tag.svg) **Tags and classifications** tab.
-  1. Click **Create classification**.
+  1. Navigate to the ![image](../../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}** tab.
+  1. Click **{{ ui-key.yacloud.data-catalog.label_create-classification-action }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify a unique name for the classification.
   1. Optionally, describe the classification.
-  1. Optionally, select *Mutually exclusive**.
+  1. Optionally, select **{{ ui-key.yacloud.data-catalog.label_tag-mutual-exclusion }}**.
 
       With this option on, not more than one classification tag can be assigned to any {{ data-catalog-name }} resource.
 

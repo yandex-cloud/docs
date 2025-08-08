@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Group/list.md
 ---
 
-# Cloud Organization API, gRPC: GroupService.List
+# Identity Hub API, gRPC: GroupService.List
 
 Retrieves the list of group resources.
 
@@ -59,7 +59,9 @@ The expression must specify:
       "organization_id": "string",
       "created_at": "google.protobuf.Timestamp",
       "name": "string",
-      "description": "string"
+      "description": "string",
+      "subject_container_id": "string",
+      "external_id": "string"
     }
   ],
   "next_page_token": "string"
@@ -103,4 +105,10 @@ Name of the group. ||
 || description | **string**
 
 Description of the group. ||
+|| subject_container_id | **string**
+
+Id of the subject container that external group belongs to. It is set if group is external. ||
+|| external_id | **string**
+
+Id of the group from external system. It is set if group is external. ||
 |#

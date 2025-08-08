@@ -196,7 +196,10 @@ Includes only one of the fields `date`, `lang`, `format`.
   ],
   "fixed_misspell_query": "string",
   "is_answer_rejected": "bool",
-  "is_bullet_answer": "bool"
+  "is_bullet_answer": "bool",
+  "hints": [
+    "string"
+  ]
 }
 ```
 
@@ -220,6 +223,9 @@ The model failed to answer due to the ethical concerns. ||
 || is_bullet_answer | **bool**
 
 A bullet answer in case the model cannot give a proper response and returns a set of bullets with various data. ||
+|| hints[] | **string**
+
+Search hints ||
 |#
 
 ## GenSearchMessage {#yandex.cloud.searchapi.v2.GenSearchMessage2}

@@ -1,5 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates/{certificateId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        certificateId:
+          description: |-
+            **string**
+            ID of the certificate to list operations for.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListCertificateOperationsResponse.nextPageToken](/docs/organization/saml/api-ref/Certificate/listOperations#yandex.cloud.organizationmanager.v1.saml.ListCertificateOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken`
+            to the [ListCertificateOperationsResponse.nextPageToken](/docs/organization/saml/api-ref/Certificate/listOperations#yandex.cloud.organizationmanager.v1.saml.ListCertificateOperationsResponse)
+            returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Certificate/listOperations.md
 ---
 

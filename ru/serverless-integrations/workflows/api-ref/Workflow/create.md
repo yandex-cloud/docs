@@ -1,5 +1,89 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-workflows.{{ api-host }}/workflows/v1/workflow
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create Workflow in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of Workflow.
+            The name must be unique within the folder.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of Workflow.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Workflow labels as `key:value` pairs.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        specification:
+          description: |-
+            **[WorkflowSpecification](/docs/functions/workflows/api-ref/Workflow/create#yandex.cloud.serverless.workflows.v1.WorkflowSpecification)**
+            Required field. Specification of Workflow
+          oneOf:
+            - type: object
+              properties:
+                specYaml:
+                  description: |-
+                    **string**
+                    Workflow specification in YAML format.
+                    Includes only one of the fields `specYaml`.
+                  type: string
+        logOptions:
+          description: |-
+            **[LogOptions](/docs/functions/workflows/api-ref/Workflow/create#yandex.cloud.serverless.workflows.v1.LogOptions)**
+            Options for logging from Workflow.
+          oneOf:
+            - type: object
+              properties:
+                logGroupId:
+                  description: |-
+                    **string**
+                    ID of the logging group which should be used for Workflows logs.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                  type: string
+                folderId:
+                  description: |-
+                    **string**
+                    ID of the folder which default logging group should be used for Workflows.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                  type: string
+        networkId:
+          description: |-
+            **string**
+            ID of the VPC network Workflow will be executed in, in order to access private resources.
+          type: string
+        serviceAccountId:
+          description: |-
+            **string**
+            ID of the Service Account which will be used for resources access in Workflow execution.
+          type: string
+        express:
+          description: |-
+            **boolean**
+            Express execution mode.
+          type: boolean
+      required:
+        - folderId
+        - name
+        - specification
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/create.md
 ---
 

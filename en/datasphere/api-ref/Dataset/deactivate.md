@@ -1,5 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/dataset/deactivate
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        datasetId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+        projectId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - datasetId
+        - projectId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Dataset/deactivate.md
 ---
 

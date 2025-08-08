@@ -1,5 +1,66 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/workload/oidc/federations
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create an OIDC workload identity federation in.
+            To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the OIDC workload identity federation.
+            The name must be unique within the folder.
+          pattern: '[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the OIDC workload identity federation.
+          type: string
+        disabled:
+          description: |-
+            **boolean**
+            True - the OIDC workload identity federation is disabled and cannot be used for authentication.
+            False - the OIDC workload identity federation is enabled and can be used for authentication.
+          type: boolean
+        audiences:
+          description: |-
+            **string**
+            List of trusted values for aud claim.
+          type: array
+          items:
+            type: string
+        issuer:
+          description: |-
+            **string**
+            Required field. URL of the external IdP server to be used for authentication.
+          type: string
+        jwksUrl:
+          description: |-
+            **string**
+            Required field. URL reference to trusted keys in format of JSON Web Key Set.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs
+          type: string
+      required:
+        - folderId
+        - name
+        - issuer
+        - jwksUrl
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/create.md
 ---
 

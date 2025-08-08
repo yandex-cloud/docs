@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/workload/federatedCredentials/{federatedCredentialId}
+    method: get
+    path:
+      type: object
+      properties:
+        federatedCredentialId:
+          description: |-
+            **string**
+            Required field. ID of the federated credential to return.
+            To get the federated credential ID, make a [FederatedCredentialService.List](/docs/iam/workload/workload-identity/api-ref/FederatedCredential/list#List) request.
+          type: string
+      required:
+        - federatedCredentialId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/workload/workload-identity/api-ref/FederatedCredential/get.md
 ---
 

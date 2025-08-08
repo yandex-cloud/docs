@@ -1,5 +1,595 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-redis/v1/clusters:restore
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            **string**
+            Required field. ID of the backup to create a cluster from.
+            To get the backup ID, use a [ClusterService.ListBackups](/docs/managed-redis/api-ref/Cluster/listBackups#ListBackups) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the new Redis cluster. The name must be unique within the folder.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the new Redis cluster.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the Redis cluster as `` key:value `` pairs. Maximum 64 per cluster.
+            For example, "project": "mvp" or "source": "dictionary".
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        environment:
+          description: |-
+            **enum** (Environment)
+            Required field. Deployment environment of the new Redis cluster.
+            - `ENVIRONMENT_UNSPECIFIED`
+            - `PRODUCTION`: Stable environment with a conservative update policy:
+            only hotfixes are applied during regular maintenance.
+            - `PRESTABLE`: Environment with more aggressive update policy: new versions
+            are rolled out irrespective of backward compatibility.
+          type: string
+          enum:
+            - ENVIRONMENT_UNSPECIFIED
+            - PRODUCTION
+            - PRESTABLE
+        configSpec:
+          description: |-
+            **[ConfigSpec](/docs/managed-redis/api-ref/Cluster/create#yandex.cloud.mdb.redis.v1.ConfigSpec)**
+            Required field. Configuration for the Redis cluster to be created.
+          oneOf:
+            - type: object
+              properties:
+                redisConfig_5_0:
+                  description: |-
+                    **`RedisConfig5_0`**
+                    Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+                    Configuration of a Redis cluster.
+                  $ref: '#/definitions/RedisConfig5_0'
+                redisConfig_6_0:
+                  description: |-
+                    **`RedisConfig6_0`**
+                    Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+                    Configuration of a Redis cluster.
+                  $ref: '#/definitions/RedisConfig6_0'
+                redisConfig_6_2:
+                  description: |-
+                    **`RedisConfig6_2`**
+                    Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+                    Configuration of a Redis cluster.
+                  $ref: '#/definitions/RedisConfig6_2'
+                redisConfig_7_0:
+                  description: |-
+                    **`RedisConfig7_0`**
+                    Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
+                    Configuration of a Redis cluster.
+                  $ref: '#/definitions/RedisConfig7_0'
+        hostSpecs:
+          description: |-
+            **[HostSpec](/docs/managed-redis/api-ref/Cluster/create#yandex.cloud.mdb.redis.v1.HostSpec)**
+            Configurations for Redis hosts that should be created for
+            the cluster that is being created from the backup.
+          type: array
+          items:
+            $ref: '#/definitions/HostSpec'
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the network to create the Redis cluster in.
+          type: string
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to create the Redis cluster in.
+          type: string
+        securityGroupIds:
+          description: |-
+            **string**
+            User security groups
+          type: array
+          items:
+            type: string
+        tlsEnabled:
+          description: |-
+            **boolean**
+            TLS port and functionality on\off
+          type: boolean
+        persistenceMode:
+          description: |-
+            **enum** (PersistenceMode)
+            Persistence mode
+            - `ON`: cluster persistence mode on
+            - `OFF`: cluster persistence mode off
+            - `ON_REPLICAS`: cluster persistence on replicas only
+          type: string
+          enum:
+            - 'ON'
+            - 'OFF'
+            - ON_REPLICAS
+        deletionProtection:
+          description: |-
+            **boolean**
+            Deletion Protection inhibits deletion of the cluster
+          type: boolean
+        announceHostnames:
+          description: |-
+            **boolean**
+            Enable FQDN instead of ip
+          type: boolean
+        maintenanceWindow:
+          description: |-
+            **[MaintenanceWindow](/docs/managed-redis/api-ref/Cluster/get#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
+            Window of maintenance operations.
+          oneOf:
+            - type: object
+              properties:
+                anytime:
+                  description: |-
+                    **object**
+                    Maintenance operation can be scheduled anytime.
+                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+                    The maintenance policy in effect.
+                  $ref: '#/definitions/AnytimeMaintenanceWindow'
+                weeklyMaintenanceWindow:
+                  description: |-
+                    **[WeeklyMaintenanceWindow](/docs/managed-redis/api-ref/Cluster/get#yandex.cloud.mdb.redis.v1.WeeklyMaintenanceWindow)**
+                    Maintenance operation can be scheduled on a weekly basis.
+                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+                    The maintenance policy in effect.
+                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+        authSentinel:
+          description: |-
+            **boolean**
+            Allows to use ACL users to auth in sentinel
+          type: boolean
+        diskEncryptionKeyId:
+          description: |-
+            **string**
+            ID of the key to encrypt cluster disks.
+          type: string
+      required:
+        - backupId
+        - name
+        - environment
+        - configSpec
+        - networkId
+      additionalProperties: false
+    definitions:
+      ClientOutputBufferLimit:
+        type: object
+        properties:
+          hardLimit:
+            description: |-
+              **string** (int64)
+              Total limit in bytes.
+            type: string
+            format: int64
+          softLimit:
+            description: |-
+              **string** (int64)
+              Limit in bytes during certain time period.
+            type: string
+            format: int64
+          softSeconds:
+            description: |-
+              **string** (int64)
+              Seconds for soft limit.
+            type: string
+            format: int64
+      RedisConfig5_0:
+        type: object
+        properties:
+          maxmemoryPolicy:
+            description: |-
+              **enum** (MaxmemoryPolicy)
+              Redis key eviction policy for a dataset that reaches maximum memory,
+              available to the host. Redis maxmemory setting depends on Managed
+              Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+              All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+              - `MAXMEMORY_POLICY_UNSPECIFIED`
+              - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+              - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+              - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+              - `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+              - `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+              - `ALLKEYS_RANDOM`: Remove keys randomly.
+              - `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+              and shorter TTL first.
+              - `NOEVICTION`: Return errors when memory limit was reached and commands could require
+              more memory to be used.
+            type: string
+            enum:
+              - MAXMEMORY_POLICY_UNSPECIFIED
+              - VOLATILE_LRU
+              - ALLKEYS_LRU
+              - VOLATILE_LFU
+              - ALLKEYS_LFU
+              - VOLATILE_RANDOM
+              - ALLKEYS_RANDOM
+              - VOLATILE_TTL
+              - NOEVICTION
+          timeout:
+            description: |-
+              **string** (int64)
+              Time that Redis keeps the connection open while the client is idle.
+              If no new command is sent during that time, the connection is closed.
+            type: string
+            format: int64
+          password:
+            description: |-
+              **string**
+              Authentication password.
+            pattern: '[a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128}'
+            type: string
+          databases:
+            description: |-
+              **string** (int64)
+              Number of database buckets on a single redis-server process.
+            type: string
+            format: int64
+          slowlogLogSlowerThan:
+            description: |-
+              **string** (int64)
+              Threshold for logging slow requests to server in microseconds (log only slower than it).
+            type: string
+            format: int64
+          slowlogMaxLen:
+            description: |-
+              **string** (int64)
+              Max slow requests number to log.
+            type: string
+            format: int64
+          notifyKeyspaceEvents:
+            description: |-
+              **string**
+              String setting for pub\sub functionality.
+            pattern: '[KEg$lshzxeAtm]{0,12}'
+            type: string
+          clientOutputBufferLimitPubsub:
+            description: |-
+              **`ClientOutputBufferLimit`**
+              Redis connection output buffers limits for pubsub operations.
+            $ref: '#/definitions/ClientOutputBufferLimit'
+          clientOutputBufferLimitNormal:
+            description: |-
+              **`ClientOutputBufferLimit`**
+              Redis connection output buffers limits for clients.
+            $ref: '#/definitions/ClientOutputBufferLimit'
+      RedisConfig6_0:
+        type: object
+        properties:
+          maxmemoryPolicy:
+            description: |-
+              **enum** (MaxmemoryPolicy)
+              Redis key eviction policy for a dataset that reaches maximum memory,
+              available to the host. Redis maxmemory setting depends on Managed
+              Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+              All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+              - `MAXMEMORY_POLICY_UNSPECIFIED`
+              - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+              - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+              - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+              - `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+              - `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+              - `ALLKEYS_RANDOM`: Remove keys randomly.
+              - `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+              and shorter TTL first.
+              - `NOEVICTION`: Return errors when memory limit was reached and commands could require
+              more memory to be used.
+            type: string
+            enum:
+              - MAXMEMORY_POLICY_UNSPECIFIED
+              - VOLATILE_LRU
+              - ALLKEYS_LRU
+              - VOLATILE_LFU
+              - ALLKEYS_LFU
+              - VOLATILE_RANDOM
+              - ALLKEYS_RANDOM
+              - VOLATILE_TTL
+              - NOEVICTION
+          timeout:
+            description: |-
+              **string** (int64)
+              Time that Redis keeps the connection open while the client is idle.
+              If no new command is sent during that time, the connection is closed.
+            type: string
+            format: int64
+          password:
+            description: |-
+              **string**
+              Authentication password.
+            pattern: '[a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128}'
+            type: string
+          databases:
+            description: |-
+              **string** (int64)
+              Number of database buckets on a single redis-server process.
+            type: string
+            format: int64
+          slowlogLogSlowerThan:
+            description: |-
+              **string** (int64)
+              Threshold for logging slow requests to server in microseconds (log only slower than it).
+            type: string
+            format: int64
+          slowlogMaxLen:
+            description: |-
+              **string** (int64)
+              Max slow requests number to log.
+            type: string
+            format: int64
+          notifyKeyspaceEvents:
+            description: |-
+              **string**
+              String setting for pub\sub functionality.
+            pattern: '[KEg$lshzxeAtm]{0,13}'
+            type: string
+          clientOutputBufferLimitPubsub:
+            description: |-
+              **`ClientOutputBufferLimit`**
+              Redis connection output buffers limits for pubsub operations.
+            $ref: '#/definitions/ClientOutputBufferLimit'
+          clientOutputBufferLimitNormal:
+            description: |-
+              **`ClientOutputBufferLimit`**
+              Redis connection output buffers limits for clients.
+            $ref: '#/definitions/ClientOutputBufferLimit'
+      RedisConfig6_2:
+        type: object
+        properties:
+          maxmemoryPolicy:
+            description: |-
+              **enum** (MaxmemoryPolicy)
+              Redis key eviction policy for a dataset that reaches maximum memory,
+              available to the host. Redis maxmemory setting depends on Managed
+              Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+              All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+              - `MAXMEMORY_POLICY_UNSPECIFIED`
+              - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+              - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+              - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+              - `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+              - `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+              - `ALLKEYS_RANDOM`: Remove keys randomly.
+              - `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+              and shorter TTL first.
+              - `NOEVICTION`: Return errors when memory limit was reached and commands could require
+              more memory to be used.
+            type: string
+            enum:
+              - MAXMEMORY_POLICY_UNSPECIFIED
+              - VOLATILE_LRU
+              - ALLKEYS_LRU
+              - VOLATILE_LFU
+              - ALLKEYS_LFU
+              - VOLATILE_RANDOM
+              - ALLKEYS_RANDOM
+              - VOLATILE_TTL
+              - NOEVICTION
+          timeout:
+            description: |-
+              **string** (int64)
+              Time that Redis keeps the connection open while the client is idle.
+              If no new command is sent during that time, the connection is closed.
+            type: string
+            format: int64
+          password:
+            description: |-
+              **string**
+              Authentication password.
+            pattern: '[a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128}'
+            type: string
+          databases:
+            description: |-
+              **string** (int64)
+              Number of database buckets on a single redis-server process.
+            type: string
+            format: int64
+          slowlogLogSlowerThan:
+            description: |-
+              **string** (int64)
+              Threshold for logging slow requests to server in microseconds (log only slower than it).
+            type: string
+            format: int64
+          slowlogMaxLen:
+            description: |-
+              **string** (int64)
+              Max slow requests number to log.
+            type: string
+            format: int64
+          notifyKeyspaceEvents:
+            description: |-
+              **string**
+              String setting for pub\sub functionality.
+            pattern: '[KEg$lshzxeAtm]{0,13}'
+            type: string
+          clientOutputBufferLimitPubsub:
+            description: |-
+              **`ClientOutputBufferLimit`**
+              Redis connection output buffers limits for pubsub operations.
+            $ref: '#/definitions/ClientOutputBufferLimit'
+          clientOutputBufferLimitNormal:
+            description: |-
+              **`ClientOutputBufferLimit`**
+              Redis connection output buffers limits for clients.
+            $ref: '#/definitions/ClientOutputBufferLimit'
+          maxmemoryPercent:
+            description: |-
+              **string** (int64)
+              Redis maxmemory percent
+            type: string
+            format: int64
+      RedisConfig7_0:
+        type: object
+        properties:
+          maxmemoryPolicy:
+            description: |-
+              **enum** (MaxmemoryPolicy)
+              Redis key eviction policy for a dataset that reaches maximum memory,
+              available to the host. Redis maxmemory setting depends on Managed
+              Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
+              All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+              - `MAXMEMORY_POLICY_UNSPECIFIED`
+              - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
+              - `ALLKEYS_LRU`: Remove less recently used (LRU) keys.
+              - `VOLATILE_LFU`: Try to remove least frequently used (LFU) keys with `expire set`.
+              - `ALLKEYS_LFU`: Remove least frequently used (LFU) keys.
+              - `VOLATILE_RANDOM`: Try to remove keys with `expire set` randomly.
+              - `ALLKEYS_RANDOM`: Remove keys randomly.
+              - `VOLATILE_TTL`: Try to remove less recently used (LRU) keys with `expire set`
+              and shorter TTL first.
+              - `NOEVICTION`: Return errors when memory limit was reached and commands could require
+              more memory to be used.
+            type: string
+            enum:
+              - MAXMEMORY_POLICY_UNSPECIFIED
+              - VOLATILE_LRU
+              - ALLKEYS_LRU
+              - VOLATILE_LFU
+              - ALLKEYS_LFU
+              - VOLATILE_RANDOM
+              - ALLKEYS_RANDOM
+              - VOLATILE_TTL
+              - NOEVICTION
+          timeout:
+            description: |-
+              **string** (int64)
+              Time that Redis keeps the connection open while the client is idle.
+              If no new command is sent during that time, the connection is closed.
+            type: string
+            format: int64
+          password:
+            description: |-
+              **string**
+              Authentication password.
+            pattern: '[a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128}'
+            type: string
+          databases:
+            description: |-
+              **string** (int64)
+              Number of database buckets on a single redis-server process.
+            type: string
+            format: int64
+          slowlogLogSlowerThan:
+            description: |-
+              **string** (int64)
+              Threshold for logging slow requests to server in microseconds (log only slower than it).
+            type: string
+            format: int64
+          slowlogMaxLen:
+            description: |-
+              **string** (int64)
+              Max slow requests number to log.
+            type: string
+            format: int64
+          notifyKeyspaceEvents:
+            description: |-
+              **string**
+              String setting for pub\sub functionality.
+            pattern: '[KEg$lshzxeAtm]{0,13}'
+            type: string
+          clientOutputBufferLimitPubsub:
+            description: |-
+              **`ClientOutputBufferLimit`**
+              Redis connection output buffers limits for pubsub operations.
+            $ref: '#/definitions/ClientOutputBufferLimit'
+          clientOutputBufferLimitNormal:
+            description: |-
+              **`ClientOutputBufferLimit`**
+              Redis connection output buffers limits for clients.
+            $ref: '#/definitions/ClientOutputBufferLimit'
+          maxmemoryPercent:
+            description: |-
+              **string** (int64)
+              Redis maxmemory percent
+            type: string
+            format: int64
+      HostSpec:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              ID of the availability zone where the host resides.
+              To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet that the host should belong to. This subnet should be a part
+              of the network that the cluster belongs to.
+              The ID of the network is set in the field [Cluster.networkId](/docs/managed-redis/api-ref/Cluster/get#yandex.cloud.mdb.redis.v1.Cluster).
+            type: string
+          shardName:
+            description: |-
+              **string**
+              ID of the Redis shard the host belongs to.
+              To get the shard ID use a [ClusterService.ListShards](/docs/managed-redis/api-ref/Cluster/listShards#ListShards) request.
+            pattern: '[a-zA-Z0-9_-]*'
+            type: string
+          replicaPriority:
+            description: |-
+              **string** (int64)
+              A replica with a low priority number is considered better for promotion.
+              A replica with priority of 0 will never be selected by Redis Sentinel for promotion.
+              Works only for non-sharded clusters. Default value is 100.
+            type: string
+            format: int64
+          assignPublicIp:
+            description: |-
+              **boolean**
+              Whether the host should get a public IP address on creation.
+              Possible values:
+              * false - don't assign a public IP to the host.
+              * true - the host should have a public IP address.
+            type: boolean
+      AnytimeMaintenanceWindow:
+        type: object
+        properties: {}
+      WeeklyMaintenanceWindow:
+        type: object
+        properties:
+          day:
+            description: |-
+              **enum** (WeekDay)
+              Day of the week (in `DDD` format).
+              - `WEEK_DAY_UNSPECIFIED`
+              - `MON`
+              - `TUE`
+              - `WED`
+              - `THU`
+              - `FRI`
+              - `SAT`
+              - `SUN`
+            type: string
+            enum:
+              - WEEK_DAY_UNSPECIFIED
+              - MON
+              - TUE
+              - WED
+              - THU
+              - FRI
+              - SAT
+              - SUN
+          hour:
+            description: |-
+              **string** (int64)
+              Hour of the day in UTC (in `HH` format).
+            type: string
+            format: int64
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/restore.md
 ---
 
@@ -187,7 +777,8 @@ POST https://{{ api-host-mdb }}/managed-redis/v1/clusters:restore
     }
     // end of the list of possible fields
   },
-  "authSentinel": "boolean"
+  "authSentinel": "boolean",
+  "diskEncryptionKeyId": "string"
 }
 ```
 
@@ -254,6 +845,9 @@ Window of maintenance operations. ||
 || authSentinel | **boolean**
 
 Allows to use ACL users to auth in sentinel ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.redis.v1.ConfigSpec}
@@ -1275,7 +1869,8 @@ Hour of the day in UTC (in `HH` format). ||
     "deletionProtection": "boolean",
     "persistenceMode": "string",
     "announceHostnames": "boolean",
-    "authSentinel": "boolean"
+    "authSentinel": "boolean",
+    "diskEncryptionKeyId": "string"
   }
   // end of the list of possible fields
 }
@@ -1481,6 +2076,9 @@ Enable FQDN instead of ip ||
 || authSentinel | **boolean**
 
 Allows to use ACL users to auth in sentinel ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}

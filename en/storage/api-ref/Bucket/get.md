@@ -1,5 +1,46 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://storage.{{ api-host }}/storage/v1/buckets/{name}
+    method: get
+    path:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Required field. Name of the bucket to return.
+            To get the bucket name, make a [BucketService.List](/docs/storage/api-ref/Bucket/list#List) request.
+          type: string
+      required:
+        - name
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        view:
+          description: |-
+            **enum** (View)
+            Scope of information about the bucket to return.
+            Access to scopes is managed via [Identity and Access Management roles](/docs/storage/security),
+            bucket [ACL](/docs/storage/concepts/acl) and [policies](/docs/storage/concepts/policy).
+            - `VIEW_UNSPECIFIED`
+            - `VIEW_BASIC`: Returns basic information about a bucket.
+              The following fields will _not_ be returned: [Bucket.acl](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket), [Bucket.cors](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket), [Bucket.websiteSettings](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket),
+            [Bucket.lifecycleRules](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket), [Bucket.tags](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket).
+            - `VIEW_ACL`: Returns basic information and access control list (ACL) for the bucket.
+              The following fields will _not_ be returned: [Bucket.cors](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket), [Bucket.websiteSettings](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket), [Bucket.lifecycleRules](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket),
+            [Bucket.tags](/docs/storage/api-ref/Bucket/list#yandex.cloud.storage.v1.Bucket).
+            - `VIEW_FULL`: Returns full information about a bucket.
+          type: string
+          enum:
+            - VIEW_UNSPECIFIED
+            - VIEW_BASIC
+            - VIEW_ACL
+            - VIEW_FULL
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/get.md
 ---
 

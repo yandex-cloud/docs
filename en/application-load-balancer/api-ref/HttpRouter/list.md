@@ -1,5 +1,48 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list HTTP routers in.
+            To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListHttpRoutersResponse.nextPageToken](/docs/application-load-balancer/api-ref/HttpRouter/list#yandex.cloud.apploadbalancer.v1.ListHttpRoutersResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListHttpRoutersResponse.nextPageToken](/docs/application-load-balancer/api-ref/HttpRouter/list#yandex.cloud.apploadbalancer.v1.ListHttpRoutersResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters HTTP routers listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [HttpRouter.name](/docs/application-load-balancer/api-ref/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HttpRouter) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            Example of a filter: `name=my-http-router`.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/HttpRouter/list.md
 ---
 
@@ -245,7 +288,8 @@ Example of a filter: `name=my-http-router`. ||
                   ]
                 },
                 "securityProfileId": "string"
-              }
+              },
+              "disableSecurityProfile": "boolean"
             }
           ],
           "modifyRequestHeaders": [
@@ -520,6 +564,9 @@ Includes only one of the fields `http`, `grpc`.
 
 Route configuration. ||
 || routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)** ||
+|| disableSecurityProfile | **boolean**
+
+Whether set to 'true' disables security profile for the route. ||
 |#
 
 ## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute}

@@ -1,5 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/certificates/{fingerprint}
+    method: delete
+    path:
+      type: object
+      properties:
+        brokerId:
+          description: |-
+            **string**
+            Required field. ID of the broker to delete a certificate for.
+            To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request.
+          type: string
+        fingerprint:
+          description: |-
+            **string**
+            Required field. Fingerprint of the certificate that is being deleted.
+          type: string
+      required:
+        - brokerId
+        - fingerprint
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/deleteCertificate.md
 ---
 

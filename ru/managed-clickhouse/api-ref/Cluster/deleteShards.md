@@ -1,5 +1,35 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shards:batchDelete
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the ClickHouse cluster the shards belong to.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        shardNames:
+          description: |-
+            **string**
+            Names of the shards to be deleted.
+            To get the name of a shard, use a [ClusterService.ListShards](/docs/managed-clickhouse/api-ref/Cluster/listShards#ListShards) request.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/deleteShards.md
 ---
 

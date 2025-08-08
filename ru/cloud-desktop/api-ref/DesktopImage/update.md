@@ -1,5 +1,48 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/images/{imageId}
+    method: patch
+    path:
+      type: object
+      properties:
+        imageId:
+          description: |-
+            **string**
+            Required field. Id of image to update.
+          type: string
+      required:
+        - imageId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New desktop image name.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New desktop image labels.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopImage/update.md
 ---
 
@@ -19,7 +62,7 @@ PATCH https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/images/{imageId}
 ||Field | Description ||
 || imageId | **string**
 
-Required field.  ||
+Required field. Id of image to update. ||
 |#
 
 ## Body parameters {#yandex.cloud.clouddesktop.v1.api.UpdateDesktopImageRequest}
@@ -44,8 +87,12 @@ the field's value will be reset to the default. The default value for most field
 If `` updateMask `` is not sent in the request, all fields' values will be updated.
 Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
-|| name | **string** ||
-|| labels | **object** (map<**string**, **string**>) ||
+|| name | **string**
+
+New desktop image name. ||
+|| labels | **object** (map<**string**, **string**>)
+
+New desktop image labels. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

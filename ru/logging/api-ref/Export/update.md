@@ -1,5 +1,124 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://logging.{{ api-host }}/logging/v1/exports/{exportId}
+    method: patch
+    path:
+      type: object
+      properties:
+        exportId:
+          description: |-
+            **string**
+            Required field. ID of the export to update.
+            To get a export ID make a [ExportService.List](/docs/logging/api-ref/Export/list#List) request.
+          type: string
+      required:
+        - exportId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name of the export.
+            The name must be unique within the folder.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            New Description of the export.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New export labels as `key:value` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        groupId:
+          description: |-
+            **string**
+            Required field. New logging Group ID logs exported from
+          type: string
+        sinkId:
+          description: |-
+            **string**
+            Required field. New logging Sink ID logs exported to
+          type: string
+        params:
+          description: |-
+            **[ExportParams](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.ExportParams)**
+            Required field. New parameters for logs filtration
+          $ref: '#/definitions/ExportParams'
+      required:
+        - groupId
+        - sinkId
+        - params
+      additionalProperties: false
+    definitions:
+      ExportParams:
+        type: object
+        properties:
+          resourceTypes:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          resourceIds:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          streamNames:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          levels:
+            description: |-
+              **enum** (Level)
+              - `LEVEL_UNSPECIFIED`: Default log level.
+                Equivalent to not specifying log level at all.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: array
+            items:
+              type: string
+              enum:
+                - LEVEL_UNSPECIFIED
+                - TRACE
+                - DEBUG
+                - INFO
+                - WARN
+                - ERROR
+                - FATAL
+          filter:
+            description: '**string**'
+            type: string
 sourcePath: en/_api-ref/logging/v1/api-ref/Export/update.md
 ---
 

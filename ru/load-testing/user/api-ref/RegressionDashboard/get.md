@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/regressionDashboards/{dashboardId}
+    method: get
+    path:
+      type: object
+      properties:
+        dashboardId:
+          description: |-
+            **string**
+            Required field. ID of the dashboard to return.
+          type: string
+      required:
+        - dashboardId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/RegressionDashboard/get.md
 ---
 

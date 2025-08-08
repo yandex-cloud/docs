@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/gateways/{gatewayId}
+    method: get
+    path:
+      type: object
+      properties:
+        gatewayId:
+          description: |-
+            **string**
+            Required field. ID of the Gateway resource to return.
+            To get Gateway resource ID make a [GatewayService.List](/docs/vpc/api-ref/Gateway/list#List) request.
+          type: string
+      required:
+        - gatewayId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/get.md
 ---
 

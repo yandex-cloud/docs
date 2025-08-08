@@ -1,5 +1,95 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}/rules
+    method: patch
+    path:
+      type: object
+      properties:
+        securityGroupId:
+          description: |-
+            **string**
+            Required field. ID of the SecurityGroup that is being updated with new rules.
+          type: string
+      required:
+        - securityGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        deletionRuleIds:
+          description: |-
+            **string**
+            List of rules IDs to delete.
+          type: array
+          items:
+            type: string
+        additionRuleSpecs:
+          description: |-
+            **[SecurityGroupRuleSpec](/docs/vpc/api-ref/SecurityGroup/create#yandex.cloud.vpc.v1.SecurityGroupRuleSpec)**
+            Security rules specifications.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  protocolName:
+                    description: |-
+                      **string**
+                      Protocol name.
+                      Includes only one of the fields `protocolName`, `protocolNumber`.
+                      Values from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+                      Null value means any protocol.
+                    type: string
+                  protocolNumber:
+                    description: |-
+                      **string** (int64)
+                      Protocol number from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+                      Includes only one of the fields `protocolName`, `protocolNumber`.
+                      Values from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+                      Null value means any protocol.
+                    type: string
+                    format: int64
+              - type: object
+                properties:
+                  cidrBlocks:
+                    description: |-
+                      **[CidrBlocks](/docs/vpc/api-ref/Network/listSecurityGroups#yandex.cloud.vpc.v1.CidrBlocks)**
+                      CIDR blocks to allow to recieve or send traffic.
+                      Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+                    $ref: '#/definitions/CidrBlocks'
+                  securityGroupId:
+                    description: |-
+                      **string**
+                      ID of the security group to add rule to.
+                      Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+                    type: string
+                  predefinedTarget:
+                    description: |-
+                      **string**
+                      Predefined target. See [security groups rules](/docs/vpc/concepts/security-groups#security-groups-rules) for more information.
+                      Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+                    type: string
+      additionalProperties: false
+    definitions:
+      CidrBlocks:
+        type: object
+        properties:
+          v4CidrBlocks:
+            description: |-
+              **string**
+              IPv4 CIDR blocks to allow traffic to.
+            type: array
+            items:
+              type: string
+          v6CidrBlocks:
+            description: |-
+              **string**
+              IPv6 CIDR blocks to allow traffic to.
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/updateRules.md
 ---
 

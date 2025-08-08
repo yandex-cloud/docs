@@ -1,5 +1,25 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://llm.{{ api-host }}/foundationModels/v1/textClassification
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        modelUri:
+          description: |-
+            **string**
+            The [URI](/docs/foundation-models/concepts/classifier/models) of your tuned classifier model.
+          type: string
+        text:
+          description: |-
+            **string**
+            Text for classification.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/ai/foundation_models/v1/text_classification/text-classification/api-ref/TextClassification/classify.md
 ---
 

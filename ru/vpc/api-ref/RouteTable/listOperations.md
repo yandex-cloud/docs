@@ -1,5 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        routeTableId:
+          description: |-
+            **string**
+            Required field. ID of the RouteTable resource to list operations for.
+          type: string
+      required:
+        - routeTableId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`, the service returns a [ListRouteTableOperationsResponse.nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#yandex.cloud.vpc.v1.ListRouteTableOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests. Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListRouteTableOperationsResponse.nextPageToken](/docs/vpc/api-ref/RouteTable/listOperations#yandex.cloud.vpc.v1.ListRouteTableOperationsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/listOperations.md
 ---
 

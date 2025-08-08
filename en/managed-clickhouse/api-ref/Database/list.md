@@ -1,5 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/databases
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the ClickHouse cluster to list databases in.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListDatabasesResponse.nextPageToken](/docs/managed-clickhouse/api-ref/Database/list#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token.  to get the next page of results, set `pageToken` to the [ListDatabasesResponse.nextPageToken](/docs/managed-clickhouse/api-ref/Database/list#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse)
+            returned by the previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Database/list.md
 ---
 
@@ -47,7 +82,8 @@ returned by the previous list request. ||
   "databases": [
     {
       "name": "string",
-      "clusterId": "string"
+      "clusterId": "string",
+      "engine": "string"
     }
   ],
   "nextPageToken": "string"
@@ -80,4 +116,11 @@ Name of the database. ||
 || clusterId | **string**
 
 ID of the ClickHouse cluster that the database belongs to. ||
+|| engine | **enum** (DatabaseEngine)
+
+Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
+
+- `DATABASE_ENGINE_UNSPECIFIED`
+- `DATABASE_ENGINE_ATOMIC`
+- `DATABASE_ENGINE_REPLICATED` ||
 |#

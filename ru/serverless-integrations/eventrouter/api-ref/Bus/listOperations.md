@@ -1,5 +1,47 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/buses/{busId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        busId:
+          description: |-
+            **string**
+            Required field. ID of the bus to list operations for.
+          type: string
+      required:
+        - busId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            Maximum number of operations to return.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListBusesResponse.nextPageToken](/docs/serverless-integrations/eventrouter/api-ref/Bus/list#yandex.cloud.serverless.eventrouter.v1.ListBusesResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            Supported attributes for filter:
+            description
+            created_at
+            modified_at
+            created_by
+            done
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Bus/listOperations.md
 ---
 

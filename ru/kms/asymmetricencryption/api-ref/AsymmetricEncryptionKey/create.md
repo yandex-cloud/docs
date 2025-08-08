@@ -1,5 +1,58 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/asymmetricEncryptionKeys
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a asymmetric KMS key in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the key.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the key.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
+            For example, `"project": "mvp"` or `"source": "dictionary"`.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        encryptionAlgorithm:
+          description: |-
+            **enum** (AsymmetricEncryptionAlgorithm)
+            Asymmetric encryption algorithm.
+            - `ASYMMETRIC_ENCRYPTION_ALGORITHM_UNSPECIFIED`
+            - `RSA_2048_ENC_OAEP_SHA_256`: RSA-2048 encryption with OAEP padding and SHA-256
+            - `RSA_3072_ENC_OAEP_SHA_256`: RSA-3072 encryption with OAEP padding and SHA-256
+            - `RSA_4096_ENC_OAEP_SHA_256`: RSA-4096 encryption with OAEP padding and SHA-256
+          type: string
+          enum:
+            - ASYMMETRIC_ENCRYPTION_ALGORITHM_UNSPECIFIED
+            - RSA_2048_ENC_OAEP_SHA_256
+            - RSA_3072_ENC_OAEP_SHA_256
+            - RSA_4096_ENC_OAEP_SHA_256
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that inhibits deletion of the symmetric KMS key
+          type: boolean
+      required:
+        - folderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/AsymmetricEncryptionKey/create.md
 ---
 
