@@ -18,7 +18,8 @@ Retrieves the list of Configuration resources.
   "page_size": "int64",
   "page_token": "string",
   "order_by": "string",
-  "filter": "string"
+  "filter": "string",
+  "folder_id": "string"
 }
 ```
 
@@ -55,6 +56,11 @@ Example: "key1='value' AND key2='value'"
 Supported operators: ["AND"].
 Supported fields: ["id", "name"].
 Both snake_case and camelCase are supported for fields. ||
+|| folder_id | **string**
+
+ID of the folder to return a Configuration resource for.
+
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
 |#
 
 ## ListConfigurationsResponse {#yandex.cloud.baremetal.v1alpha.ListConfigurationsResponse}
@@ -153,8 +159,9 @@ Number of cores. ||
 Type of the disk drive.
 
 - `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
-- `HDD`: Hard disk drive.
-- `SSD`: Solid state drive. ||
+- `HDD`: Hard disk drive (magnetic storage).
+- `SSD`: Solid state drive with SATA/SAS interface.
+- `NVME`: Solid state drive with NVMe interface. ||
 || disk_count | **int64**
 
 Number of disk drives. ||

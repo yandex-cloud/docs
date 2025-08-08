@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/assistants/v1/messages/{messageId}
+    method: get
+    path:
+      type: object
+      properties:
+        messageId:
+          description: |-
+            **string**
+            Required field. ID of the message to retrieve.
+          type: string
+      required:
+        - messageId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        threadId:
+          description: |-
+            **string**
+            Required field. ID of the thread that contains the message.
+          type: string
+      required:
+        - threadId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ai/assistants/v1/threads/api-ref/Message/get.md
 ---
 

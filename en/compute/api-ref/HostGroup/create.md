@@ -1,5 +1,83 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/hostGroups
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a host group in.
+            To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the group.
+          pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the group.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        zoneId:
+          description: |-
+            **string**
+            Required field. Availability zone where all dedicated hosts will be allocated.
+          type: string
+        typeId:
+          description: |-
+            **string**
+            Required field. ID of host type. Resources provided by each host of the group.
+          type: string
+        maintenancePolicy:
+          description: |-
+            **enum** (MaintenancePolicy)
+            Behaviour on maintenance events.
+            - `MAINTENANCE_POLICY_UNSPECIFIED`
+            - `RESTART`: Restart instance to move it to another host during maintenance
+            - `MIGRATE`: Use live migration to move instance to another host during maintenance
+          type: string
+          enum:
+            - MAINTENANCE_POLICY_UNSPECIFIED
+            - RESTART
+            - MIGRATE
+        scalePolicy:
+          description: |-
+            **[ScalePolicy](/docs/compute/api-ref/HostGroup/get#yandex.cloud.compute.v1.ScalePolicy)**
+            Scale policy. Only fixed number of hosts are supported at this moment.
+          oneOf:
+            - type: object
+              properties:
+                fixedScale:
+                  description: |-
+                    **[FixedScale](/docs/compute/api-ref/HostGroup/get#yandex.cloud.compute.v1.ScalePolicy.FixedScale)**
+                    Includes only one of the fields `fixedScale`.
+                  $ref: '#/definitions/FixedScale'
+      required:
+        - folderId
+        - zoneId
+        - typeId
+      additionalProperties: false
+    definitions:
+      FixedScale:
+        type: object
+        properties:
+          size:
+            description: '**string** (int64)'
+            type: string
+            format: int64
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/create.md
 ---
 

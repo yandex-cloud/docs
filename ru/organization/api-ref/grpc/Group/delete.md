@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Group/delete.md
 ---
 
-# Cloud Organization API, gRPC: GroupService.Delete
+# Identity Hub API, gRPC: GroupService.Delete
 
 Deletes the specified group.
 

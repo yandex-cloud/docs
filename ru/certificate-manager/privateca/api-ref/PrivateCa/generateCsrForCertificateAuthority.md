@@ -1,5 +1,308 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/generateCsr
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. Folder ID where the CA is being created.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Unique name for the Certificate Authority.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Optional description of the Certificate Authority for users to add additional context.
+          type: string
+        issuer:
+          description: |-
+            **[Issuer](/docs/certificate-manager/private-ca/api-ref/PrivateCa/generateCsrForCertificateAuthority#yandex.cloud.certificatemanager.v1.privateca.Issuer)**
+            Required field. Specifies the Certificate Authority issuer.
+            Required to define the issuer attributes for the CSR.
+          $ref: '#/definitions/Issuer'
+        subjectSpec:
+          description: |-
+            **[Subject](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.Subject)**
+            Required field. Subject specifies the distinguished name (DN) fields for the CA (e.g., CN, O, etc.).
+            This is a required field that defines the identity information of the certificate.
+          $ref: '#/definitions/Subject'
+        algorithm:
+          description: |-
+            **enum** (Algorithm)
+            Required field. The cryptographic algorithm to generate the CSR with (e.g., RSA, ECC).
+            - `ALGORITHM_UNSPECIFIED`
+            - `RSA_2048_PSS_SHA_256`
+            - `RSA_2048_PSS_SHA_384`
+            - `RSA_2048_PSS_SHA_512`
+            - `RSA_3072_PSS_SHA_256`
+            - `RSA_3072_PSS_SHA_384`
+            - `RSA_3072_PSS_SHA_512`
+            - `RSA_4096_PSS_SHA_256`
+            - `RSA_4096_PSS_SHA_384`
+            - `RSA_4096_PSS_SHA_512`
+            - `ECDSA_NIST_P256_SHA_256`
+            - `ECDSA_NIST_P384_SHA_384`
+            - `ECDSA_NIST_P521_SHA_512`
+            - `ECDSA_SECP256_K1_SHA_256`
+            - `RSA_2048_PKCS1_5_SHA_256`: RSA PKCS 1.5
+            - `RSA_2048_PKCS1_5_SHA_384`
+            - `RSA_2048_PKCS1_5_SHA_512`
+            - `RSA_3072_PKCS1_5_SHA_256`
+            - `RSA_3072_PKCS1_5_SHA_384`
+            - `RSA_3072_PKCS1_5_SHA_512`
+            - `RSA_4096_PKCS1_5_SHA_256`
+            - `RSA_4096_PKCS1_5_SHA_384`
+            - `RSA_4096_PKCS1_5_SHA_512`
+          type: string
+          enum:
+            - ALGORITHM_UNSPECIFIED
+            - RSA_2048_PSS_SHA_256
+            - RSA_2048_PSS_SHA_384
+            - RSA_2048_PSS_SHA_512
+            - RSA_3072_PSS_SHA_256
+            - RSA_3072_PSS_SHA_384
+            - RSA_3072_PSS_SHA_512
+            - RSA_4096_PSS_SHA_256
+            - RSA_4096_PSS_SHA_384
+            - RSA_4096_PSS_SHA_512
+            - ECDSA_NIST_P256_SHA_256
+            - ECDSA_NIST_P384_SHA_384
+            - ECDSA_NIST_P521_SHA_512
+            - ECDSA_SECP256_K1_SHA_256
+            - RSA_2048_PKCS1_5_SHA_256
+            - RSA_2048_PKCS1_5_SHA_384
+            - RSA_2048_PKCS1_5_SHA_512
+            - RSA_3072_PKCS1_5_SHA_256
+            - RSA_3072_PKCS1_5_SHA_384
+            - RSA_3072_PKCS1_5_SHA_512
+            - RSA_4096_PKCS1_5_SHA_256
+            - RSA_4096_PKCS1_5_SHA_384
+            - RSA_4096_PKCS1_5_SHA_512
+        pathLen:
+          description: |-
+            **string** (int64)
+            Path length constraint, defining the depth to which the CA can sign child certificates.
+          type: string
+          format: int64
+        keyUsage:
+          description: |-
+            **enum** (KeyUsageExtension)
+            Specifies the key usage extensions, such as digitalSignature, keyEncipherment, etc.
+            - `KEY_USAGE_EXTENSION_UNSPECIFIED`
+            - `DIGITAL_SIGNATURE`
+            - `CONTENT_COMMITMENT`
+            - `KEY_ENCIPHERMENT`
+            - `DATA_ENCIPHERMENT`
+            - `KEY_AGREEMENT`
+            - `KEY_CERT_SIGN`
+            - `CRL_SIGN`
+            - `ENCIPHER_ONLY`
+            - `DECIPHER_ONLY`
+          type: array
+          items:
+            type: string
+            enum:
+              - KEY_USAGE_EXTENSION_UNSPECIFIED
+              - DIGITAL_SIGNATURE
+              - CONTENT_COMMITMENT
+              - KEY_ENCIPHERMENT
+              - DATA_ENCIPHERMENT
+              - KEY_AGREEMENT
+              - KEY_CERT_SIGN
+              - CRL_SIGN
+              - ENCIPHER_ONLY
+              - DECIPHER_ONLY
+        extendedKeyUsage:
+          description: |-
+            **enum** (ExtendedKeyUsageExtension)
+            Specifies the extended key usage extensions, such as serverAuth or clientAuth.
+            - `EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED`
+            - `SERVER_AUTH`
+            - `CLIENT_AUTH`
+            - `CODE_SIGNING`
+            - `EMAIL_PROTECTION`
+            - `TIME_STAMPING`
+            - `OCSP_SIGNING`
+            - `IPSEC_IKE`
+            - `MS_CODE_IND`
+            - `MS_CODE_COM`
+            - `MS_CTL_SIGN`
+            - `MS_EFS`
+          type: array
+          items:
+            type: string
+            enum:
+              - EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED
+              - SERVER_AUTH
+              - CLIENT_AUTH
+              - CODE_SIGNING
+              - EMAIL_PROTECTION
+              - TIME_STAMPING
+              - OCSP_SIGNING
+              - IPSEC_IKE
+              - MS_CODE_IND
+              - MS_CODE_COM
+              - MS_CTL_SIGN
+              - MS_EFS
+        ttlDays:
+          description: |-
+            **string** (int64)
+            Time-to-Live (TTL) in days for the Certificate Authority.
+            Defines the validity period of the CA certificate.
+          type: string
+          format: int64
+        endEntitiesTtlLimitDays:
+          description: |-
+            **string** (int64)
+            TTL limit in days for end-entity certificates (e.g., server certs) issued by this CA.
+            This limit ensures the lifetime of signed end-entity certificates doesn't exceed this value.
+          type: string
+          format: int64
+        templateId:
+          description: |-
+            **string**
+            Optional template ID for applying predefined configurations for generating the keys.
+          type: string
+        enableCrl:
+          description: |-
+            **boolean**
+            Enables support for Certificate Revocation Lists (CRL).
+            If enabled, the CA will support revocation and produce CRLs.
+          type: boolean
+        enableOcsp:
+          description: |-
+            **boolean**
+            Enables support for the Online Certificate Status Protocol (OCSP).
+            If enabled, OCSP responses will be generated for certificates signed by this CA.
+          type: boolean
+        deletionProtection:
+          description: |-
+            **boolean**
+            Protection flag that prevents accidental deletion of the Certificate Authority.
+            If set to true, the CA cannot be deleted unless this flag is removed.
+          type: boolean
+      required:
+        - folderId
+        - name
+        - issuer
+        - subjectSpec
+        - algorithm
+      additionalProperties: false
+    definitions:
+      BaseRDN:
+        type: object
+        properties:
+          country:
+            description: |-
+              **string**
+              Two letter county code
+            type: string
+          organization:
+            description: |-
+              **string**
+              Organization name in arbitrary form
+            type: string
+          organizationalUnit:
+            description: |-
+              **string**
+              Organizational unit name in arbitrary form
+            type: string
+          distinguishedNameQualifier:
+            description: |-
+              **string**
+              Distinguished name qualifier
+            type: string
+          stateOrProvince:
+            description: |-
+              **string**
+              State or province name in arbitrary form
+            type: string
+          commonName:
+            description: |-
+              **string**
+              Common name. For tls certificates it is domain usually.
+            type: string
+          emailAddress:
+            description: |-
+              **string**
+              Email address of certificate owner
+            type: string
+      AdditionalRDN:
+        type: object
+        properties:
+          serialNumber:
+            description: |-
+              **string**
+              Serial number of certificate subject in arbitrary form. Don't confuse with certificate serial number.
+            type: string
+          locality:
+            description: |-
+              **string**
+              Locality of certificate subject in arbitrary form.
+            type: string
+          title:
+            description: |-
+              **string**
+              Title of certificate subject in arbitrary form.
+            type: string
+          surname:
+            description: |-
+              **string**
+              Surname of certificate subject in arbitrary form.
+            type: string
+          givenName:
+            description: |-
+              **string**
+              Given name of certificate subject in arbitrary form.
+            type: string
+          initials:
+            description: |-
+              **string**
+              Initials of certificate subject in arbitrary form.
+            type: string
+          generationQualifier:
+            description: |-
+              **string**
+              Generation qualifier of certificate subject in arbitrary form.
+            type: string
+      Issuer:
+        type: object
+        properties:
+          baseRdn:
+            description: |-
+              **[BaseRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
+              Required field. 
+            $ref: '#/definitions/BaseRDN'
+          additionalRdn:
+            description: '**[AdditionalRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**'
+            $ref: '#/definitions/AdditionalRDN'
+        required:
+          - baseRdn
+      Subject:
+        type: object
+        properties:
+          baseRdn:
+            description: |-
+              **[BaseRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
+              Required field. Most used field of subject
+            $ref: '#/definitions/BaseRDN'
+          additionalRdn:
+            description: |-
+              **[AdditionalRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**
+              Additional fields of subject
+            $ref: '#/definitions/AdditionalRDN'
+        required:
+          - baseRdn
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCa/generateCsrForCertificateAuthority.md
 ---
 

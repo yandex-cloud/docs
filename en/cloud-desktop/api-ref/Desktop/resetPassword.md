@@ -1,5 +1,48 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:resetPassword
+    method: post
+    path:
+      type: object
+      properties:
+        desktopId:
+          description: |-
+            **string**
+            Required field. ID of the desktop.
+          type: string
+      required:
+        - desktopId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        user:
+          description: |-
+            **[User](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#yandex.cloud.clouddesktop.v1.api.User)**
+            Required field. User of the desktop.
+          $ref: '#/definitions/User'
+      required:
+        - user
+      additionalProperties: false
+    definitions:
+      User:
+        type: object
+        properties:
+          subjectId:
+            description: |-
+              **string**
+              Required field. Identity of the access binding.
+            type: string
+          subjectType:
+            description: |-
+              **string**
+              Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+            type: string
+        required:
+          - subjectId
+          - subjectType
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/resetPassword.md
 ---
 

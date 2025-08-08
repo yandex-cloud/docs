@@ -1,5 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://registry.{{ api-host }}/cloud-registry/v1/registries
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list registries in.
+            To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListRegistriesResponse.nextPageToken](/docs/cloud-registry/api-ref/Registry/list#yandex.cloud.cloudregistry.v1.ListRegistriesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 10.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListRegistriesResponse.nextPageToken](/docs/cloud-registry/api-ref/Registry/list#yandex.cloud.cloudregistry.v1.ListRegistriesResponse) returned by a previous list request.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cloudregistry/v1/api-ref/Registry/list.md
 ---
 
@@ -98,7 +132,9 @@ Kind of the registry.
 - `MAVEN`: Registry kind is maven.
 - `NPM`: Registry kind is npm.
 - `DOCKER`: Registry kind is docker.
-- `NUGET`: Registry kind is nuget. ||
+- `NUGET`: Registry kind is nuget.
+- `DEBIAN`: Registry kind is debian.
+- `PYPI`: Registry kind is pypi. ||
 || type | **enum** (Type)
 
 Type of the registry.

@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Playlist/delete.md
 
 # Video API, gRPC: PlaylistService.Delete
 
-Delete playlist.
+Deletes a specific playlist by its ID.
+This removes the playlist but does not affect the videos or episodes it contains.
 
 ## gRPC request
 
@@ -23,7 +24,7 @@ Delete playlist.
 ||Field | Description ||
 || playlist_id | **string**
 
-Required field. ID of the playlist. ||
+Required field. ID of the playlist to delete. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -107,5 +108,6 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || playlist_id | **string**
 
-ID of the playlist. ||
+ID of the playlist being deleted.
+This identifier can be used to track the playlist deletion operation. ||
 |#

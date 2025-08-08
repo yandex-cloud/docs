@@ -1,5 +1,52 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloudrouter.{{ api-host }}/cloudrouter/v1/routingInstances/{routingInstanceId}:upsertPrefixes
+    method: post
+    path:
+      type: object
+      properties:
+        routingInstanceId:
+          description: |-
+            **string**
+            Required field. ID of the RoutingInstance resource.
+          type: string
+      required:
+        - routingInstanceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        vpcNetworkId:
+          description: |-
+            **string**
+            ID of the VpcNetwork to update.
+          type: string
+        vpcAzInfoPrefixes:
+          description: |-
+            **[VpcAzInfoPrefixes](/docs/cloud-router/api-ref/RoutingInstance/upsertPrefixes#yandex.cloud.cloudrouter.v1.VpcAzInfoPrefixes)**
+            List of VpcAzInfoPrefixes to upsert.
+          type: array
+          items:
+            $ref: '#/definitions/VpcAzInfoPrefixes'
+      additionalProperties: false
+    definitions:
+      VpcAzInfoPrefixes:
+        type: object
+        properties:
+          azId:
+            description: |-
+              **string**
+              ID of the AZ.
+            type: string
+          prefixes:
+            description: |-
+              **string**
+              List of prefixes.
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/cloudrouter/v1/api-ref/RoutingInstance/upsertPrefixes.md
 ---
 

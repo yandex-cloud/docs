@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/keys/{keyId}:cancelVersionDestruction
+    method: post
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the key to cancel a version's destruction for.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            **string**
+            Required field. ID of the version whose scheduled destruction should be cancelled.
+          type: string
+      required:
+        - versionId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/cancelVersionDestruction.md
 ---
 

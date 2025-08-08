@@ -1,5 +1,121 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}
+    method: patch
+    path:
+      type: object
+      properties:
+        snapshotScheduleId:
+          description: |-
+            **string**
+            ID of the snapshot schedule to update.
+            To get the snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/compute/api-ref/SnapshotSchedule/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the snapshot schedule.
+            The name must be unique within the folder.
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the snapshot schedule.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Snapshot schedule labels as `key:value` pairs.
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [SnapshotScheduleService.Get](/docs/compute/api-ref/SnapshotSchedule/get#Get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+          type: string
+        schedulePolicy:
+          description: |-
+            **[SchedulePolicy](/docs/compute/api-ref/SnapshotSchedule/get#yandex.cloud.compute.v1.SchedulePolicy)**
+            New frequency settings of the snapshot schedule.
+          $ref: '#/definitions/SchedulePolicy'
+        retentionPeriod:
+          description: |-
+            **string** (duration)
+            Retention period of the snapshot schedule. Once a snapshot created by the schedule reaches this age, it is
+            automatically deleted.
+            Includes only one of the fields `retentionPeriod`, `snapshotCount`.
+            New retention policy of the snapshot schedule.
+          type: string
+          format: duration
+        snapshotCount:
+          description: |-
+            **string** (int64)
+            Retention count of the snapshot schedule. Once the number of snapshots created by the schedule exceeds this
+            number, the oldest ones are automatically deleted. E.g. if the number is 5, the first snapshot is deleted
+            after the sixth one is created, the second is deleted after the seventh one is created, and so on.
+            Includes only one of the fields `retentionPeriod`, `snapshotCount`.
+            New retention policy of the snapshot schedule.
+          type: string
+          format: int64
+        snapshotSpec:
+          description: |-
+            **[SnapshotSpec](/docs/compute/api-ref/SnapshotSchedule/get#yandex.cloud.compute.v1.SnapshotSpec)**
+            New attributes of snapshots created by the snapshot schedule.
+          $ref: '#/definitions/SnapshotSpec'
+      additionalProperties: false
+    definitions:
+      SchedulePolicy:
+        type: object
+        properties:
+          startAt:
+            description: |-
+              **string** (date-time)
+              Timestamp for creating the first snapshot.
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+              `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+              To work with values in this field, use the APIs described in the
+              [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+            type: string
+            format: date-time
+          expression:
+            description: |-
+              **string**
+              Cron expression for the snapshot schedule (UTC+0).
+              The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of
+              nonstandard predefined expressions (e.g. `@hourly`). For details about the format,
+              see [documentation](/docs/compute/concepts/snapshot-schedule#cron)
+            type: string
+      SnapshotSpec:
+        type: object
+        properties:
+          description:
+            description: |-
+              **string**
+              Description of the created snapshot.
+            type: string
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Snapshot labels as `key:value` pairs.
+            type: string
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/update.md
 ---
 

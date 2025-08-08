@@ -1,5 +1,176 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://billing.{{ api-host }}/billing/v1/budgets
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        billingAccountId:
+          description: |-
+            **string**
+            Required field. ID of the billing account to list budgets corresponding to.
+            To get the billing account ID, use [yandex.cloud.billing.v1.BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the budget.
+          type: string
+        costBudgetSpec:
+          description: |-
+            **[CostBudgetSpec](/docs/billing/api-ref/Budget/get#yandex.cloud.billing.v1.CostBudgetSpec)**
+            Cost budget specification.
+            Includes only one of the fields `costBudgetSpec`, `expenseBudgetSpec`, `balanceBudgetSpec`.
+            Specification of the budget.
+          oneOf:
+            - type: object
+              properties:
+                resetPeriod:
+                  description: |-
+                    **enum** (ResetPeriodType)
+                    Periodic start type that resets budget after specified period is finished.
+                    First time budget is calculated in the current period, i.e. current month, quarter or year.
+                    Includes only one of the fields `resetPeriod`, `startDate`.
+                    Start type of the budget.
+                    - `RESET_PERIOD_TYPE_UNSPECIFIED`
+                    - `MONTHLY`: Reset budget every month.
+                    - `QUARTER`: Reset budget every quarter.
+                    - `ANNUALLY`: Reset budget every year.
+                  type: string
+                  enum:
+                    - RESET_PERIOD_TYPE_UNSPECIFIED
+                    - MONTHLY
+                    - QUARTER
+                    - ANNUALLY
+                startDate:
+                  description: |-
+                    **string**
+                    Custom start date of the budget.
+                    Must be the first day of a month and must be formatted like YYYY-MM-DD.
+                    Includes only one of the fields `resetPeriod`, `startDate`.
+                    Start type of the budget.
+                  type: string
+        expenseBudgetSpec:
+          description: |-
+            **[ExpenseBudgetSpec](/docs/billing/api-ref/Budget/get#yandex.cloud.billing.v1.ExpenseBudgetSpec)**
+            Expense budget specification.
+            Includes only one of the fields `costBudgetSpec`, `expenseBudgetSpec`, `balanceBudgetSpec`.
+            Specification of the budget.
+          oneOf:
+            - type: object
+              properties:
+                resetPeriod:
+                  description: |-
+                    **enum** (ResetPeriodType)
+                    Periodic start type that resets budget after specified period is finished.
+                    First time budget is calculated in the current period, i.e. current month, quarter or year.
+                    Includes only one of the fields `resetPeriod`, `startDate`.
+                    Start type of the budget.
+                    - `RESET_PERIOD_TYPE_UNSPECIFIED`
+                    - `MONTHLY`: Reset budget every month.
+                    - `QUARTER`: Reset budget every quarter.
+                    - `ANNUALLY`: Reset budget every year.
+                  type: string
+                  enum:
+                    - RESET_PERIOD_TYPE_UNSPECIFIED
+                    - MONTHLY
+                    - QUARTER
+                    - ANNUALLY
+                startDate:
+                  description: |-
+                    **string**
+                    Custom start date of the budget.
+                    Must be the first day of a month and must be formatted like YYYY-MM-DD.
+                    Includes only one of the fields `resetPeriod`, `startDate`.
+                    Start type of the budget.
+                  type: string
+        balanceBudgetSpec:
+          description: |-
+            **[BalanceBudgetSpec](/docs/billing/api-ref/Budget/get#yandex.cloud.billing.v1.BalanceBudgetSpec)**
+            Balance budget specification.
+            Includes only one of the fields `costBudgetSpec`, `expenseBudgetSpec`, `balanceBudgetSpec`.
+            Specification of the budget.
+          $ref: '#/definitions/BalanceBudgetSpec'
+      required:
+        - billingAccountId
+        - name
+      additionalProperties: false
+    definitions:
+      ThresholdRule:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (ThresholdType)
+              Required field. Type of the rule.
+              - `THRESHOLD_TYPE_UNSPECIFIED`
+              - `PERCENT`: Percent.
+              - `AMOUNT`: The same as budget amount.
+            type: string
+            enum:
+              - THRESHOLD_TYPE_UNSPECIFIED
+              - PERCENT
+              - AMOUNT
+          amount:
+            description: |-
+              **string**
+              Required field. Amount of the rule.
+              * Must be less than 100 if type is PERCENT.
+              * Must be less than budget's amount if type is AMOUNT.
+            type: string
+          notificationUserAccountIds:
+            description: |-
+              **string**
+              User account IDs.
+              Specified users will be be notified if the threshold exceeds.
+            type: array
+            items:
+              type: string
+        required:
+          - type
+          - amount
+      BalanceBudgetSpec:
+        type: object
+        properties:
+          amount:
+            description: |-
+              **string**
+              Required field. Max balance threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount).
+            type: string
+          notificationUserAccountIds:
+            description: |-
+              **string**
+              User account IDs.
+              Specified users will be be notified if the budget exceeds.
+            type: array
+            items:
+              type: string
+          thresholdRules:
+            description: |-
+              **[ThresholdRule](/docs/billing/api-ref/Budget/get#yandex.cloud.billing.v1.ThresholdRule)**
+              List of the [ThresholdRule](/docs/billing/api-ref/Budget/get#yandex.cloud.billing.v1.ThresholdRule).
+              Rules define intermediate balance thresholds of the budget.
+            type: array
+            items:
+              $ref: '#/definitions/ThresholdRule'
+          startDate:
+            description: |-
+              **string**
+              Start_date of the budget.
+              Must be the first day of a month and must be formatted like YYYY-MM-DD.
+            type: string
+          endDate:
+            description: |-
+              **string**
+              Required field. End date of the budget.
+              Must be the last day of a month and must be formatted like YYYY-MM-DD.
+            type: string
+        required:
+          - amount
+          - endDate
 sourcePath: en/_api-ref/billing/v1/api-ref/Budget/create.md
 ---
 

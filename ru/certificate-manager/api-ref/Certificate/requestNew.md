@@ -1,5 +1,63 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/requestNew
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a certificate in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the certificate.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the certificate.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Labels for the certificate as `key:value` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        domains:
+          description: |-
+            **string**
+            Fully qualified domain names of the certificate.
+          type: array
+          items:
+            type: string
+        challengeType:
+          description: |-
+            **enum** (ChallengeType)
+            Type of the domain validation challenge.
+            - `CHALLENGE_TYPE_UNSPECIFIED`
+            - `DNS`: Domain validation type that using DNS-records.
+            - `HTTP`: Domain validation type that using HTTP-files.
+          type: string
+          enum:
+            - CHALLENGE_TYPE_UNSPECIFIED
+            - DNS
+            - HTTP
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that protects deletion of the certificate
+          type: boolean
+      required:
+        - folderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/requestNew.md
 ---
 

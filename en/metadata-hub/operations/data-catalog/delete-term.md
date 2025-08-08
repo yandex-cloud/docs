@@ -16,8 +16,8 @@ Before you delete a term, [delete](delete-term-child.md) all its child terms.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog you want to delete a term in.
-  1. Go to the ![image](../../../_assets/console-icons/book.svg) **Terms and glossaries** tab and select the glossary containing the term.
-  1. In the term list, click ![image](../../../_assets/console-icons/ellipsis.svg) in the line with the term and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Go to the ![image](../../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}** tab and select the glossary containing the term.
+  1. In the term list, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the term and select **{{ ui-key.yacloud.common.delete }}**.
 
       {% include [search-tip](../../../_includes/metadata-hub/tip-search-term.md) %}
 

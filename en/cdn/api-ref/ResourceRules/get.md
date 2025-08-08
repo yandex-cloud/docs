@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/rules/{ruleId}
+    method: get
+    path:
+      type: object
+      properties:
+        ruleId:
+          description: |-
+            **string** (int64)
+            ID of the requested resource rule.
+          type: string
+          format: int64
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of resource.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/ResourceRules/get.md
 ---
 

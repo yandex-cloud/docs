@@ -1,5 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/policies
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        certificateAuthorityId:
+          description: |-
+            **string**
+            Required field. ID of the certificate authority to list policies for.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `page_size`,
+            the service returns a next_page_token.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListPolicyResponse.nextPageToken](/docs/certificate-manager/private-ca/api-ref/Policy/list#yandex.cloud.certificatemanager.v1.privateca.ListPolicyResponse) returned by a previous list request.
+          type: string
+      required:
+        - certificateAuthorityId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/Policy/list.md
 ---
 

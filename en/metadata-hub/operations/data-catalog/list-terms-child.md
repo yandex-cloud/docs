@@ -14,12 +14,12 @@
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog the terms were created in.
-  1. Go to the ![image](../../../_assets/console-icons/book.svg) **Terms and glossaries** tab and select the glossary the terms were created in.
+  1. Go to the ![image](../../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}** tab and select the glossary the terms were created in.
   1. In the term list, select the term you want to get a list of child terms for.
 
      {% include [search-tip](../../../_includes/metadata-hub/tip-search-term.md) %}
 
-  1. On the term page, go to the **Terms** tab.
+  1. On the term page, go to the **{{ ui-key.yacloud.data-catalog.label_subterms }}** tab.
 
 {% endlist %}
 

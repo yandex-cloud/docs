@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/users/{userName}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Redis cluster the user belongs to.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+          type: string
+        userName:
+          description: |-
+            **string**
+            Required field. Name of the user to delete.
+            To get the name of the user use a [UserService.List](/docs/managed-redis/api-ref/User/list#List) request.
+          pattern: ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$
+          type: string
+      required:
+        - clusterId
+        - userName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/User/delete.md
 ---
 

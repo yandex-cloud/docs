@@ -1,5 +1,110 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/endpoints/{privateEndpointId}
+    method: patch
+    path:
+      type: object
+      properties:
+        privateEndpointId:
+          description: |-
+            **string**
+            Required field. ID of the private endpoint to update.
+            To get the private endpoint ID make a [PrivateEndpointService.List](/docs/vpc/privatelink/api-ref/PrivateEndpoint/list#List)
+            request.
+          type: string
+      required:
+        - privateEndpointId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the private endpoint.
+            The name must be unique within the folder.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the private endpoint.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Private endpoint labels as `key:value` pairs.
+            Existing set of labels is completely replaced by the provided set, so if
+            you just want to add or remove a label:
+            1. Get the current set of labels with a [PrivateEndpointService.Get](/docs/vpc/privatelink/api-ref/PrivateEndpoint/get#Get)
+            request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        addressSpec:
+          description: |-
+            **[AddressSpec](/docs/vpc/privatelink/api-ref/PrivateEndpoint/create#yandex.cloud.vpc.v1.privatelink.AddressSpec)**
+            Private endpoint address specification.
+          oneOf:
+            - type: object
+              properties:
+                addressId:
+                  description: |-
+                    **string**
+                    ID of IP address to associate with private endpoint.
+                    Includes only one of the fields `addressId`, `internalIpv4AddressSpec`.
+                  type: string
+                internalIpv4AddressSpec:
+                  description: |-
+                    **[InternalIpv4AddressSpec](/docs/vpc/privatelink/api-ref/PrivateEndpoint/create#yandex.cloud.vpc.v1.privatelink.InternalIpv4AddressSpec)**
+                    Internal ipv4 address specification.
+                    Includes only one of the fields `addressId`, `internalIpv4AddressSpec`.
+                  $ref: '#/definitions/InternalIpv4AddressSpec'
+        dnsOptions:
+          description: |-
+            **[DnsOptions](/docs/vpc/privatelink/api-ref/PrivateEndpoint/get#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.DnsOptions)**
+            Private endpoint dns options.
+          $ref: '#/definitions/DnsOptions'
+      additionalProperties: false
+    definitions:
+      InternalIpv4AddressSpec:
+        type: object
+        properties:
+          subnetId:
+            description: |-
+              **string**
+              Required field. ID of the subnet that address belongs to.
+            type: string
+          address:
+            description: |-
+              **string**
+              Value of address.
+            type: string
+        required:
+          - subnetId
+      DnsOptions:
+        type: object
+        properties:
+          privateDnsRecordsEnabled:
+            description: |-
+              **boolean**
+              If enabled - vpc will create private dns records for specified service.
+            type: boolean
 sourcePath: en/_api-ref/vpc/v1/privatelink/api-ref/PrivateEndpoint/update.md
 ---
 

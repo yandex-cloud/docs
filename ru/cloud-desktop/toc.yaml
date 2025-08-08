@@ -206,6 +206,12 @@ items:
                 href: api-ref/grpc/Desktop/resetPassword.md
               - name: Restart
                 href: api-ref/grpc/Desktop/restart.md
+              - name: Update
+                href: api-ref/grpc/Desktop/update.md
+              - name: Start
+                href: api-ref/grpc/Desktop/start.md
+              - name: Stop
+                href: api-ref/grpc/Desktop/stop.md
           - name: Operation
             items:
               - name: Overview
@@ -278,6 +284,14 @@ items:
                 href: api-ref/Desktop/delete.md
               - name: ResetPassword
                 href: api-ref/Desktop/resetPassword.md
+              - name: Restart
+                href: api-ref/Desktop/restart.md
+              - name: Update
+                href: api-ref/Desktop/update.md
+              - name: Start
+                href: api-ref/Desktop/start.md
+              - name: Stop
+                href: api-ref/Desktop/stop.md
           - name: Operation
             items:
               - name: Overview

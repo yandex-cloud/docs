@@ -31,13 +31,13 @@ The diagram below presents the payment cycle for bank cards held by individuals 
 1. Your personal account balance is checked throughout the reporting period.
 
    8.1. If the billing threshold has not been reached and the reporting period has not ended, go back to step 7 or [top up](../operations/pay-the-bill.md) your personal account (step 4).
-   <br/>8.2. If the reporting period has ended, the system [calculates](payment-methods-individual.md#payment-amount) the total amount due and submits a charge to the linked bank card. Go to step 9.
+   <br/>8.2. Once the reporting period is over, the system [calculates](payment-methods-individual.md#payment-amount) the total amount due and initiates a payment from the linked bank card. Go to step 9.
 
    {% include [pay-by-card-note](../_includes/pay-by-card-note.md) %}
 
 1. Verification of payment for consumed resources:
-   - If the funds are debited from the bank card within one day, go back to step 4.
-   - If your bank card balance is insufficient on the day when funds are to be debited and you failed to [top up](../operations/pay-the-bill.md) your personal account, the debit transaction will be repeated later. If the funds cannot be debited within one day, they may be debited from one of the bank cards linked to your Yandex account. <br/>If the funds cannot be debited from any of your bank cards, {{ yandex-cloud }} reserves the right to change the status of your billing account to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md). For more information, see step 10.
+   - If the card was debited within one day, go back to step 4.
+   - If there are not sufficient funds in your bank card account and you have not [topped it up](../operations/pay-the-bill.md), the debiting transaction will be retried. <br/>If debiting is unsuccessful, {{ yandex-cloud }} reserves the right to suspend your billing account or change its status to [PAYMENT_REQUIRED](../concepts/billing-account-statuses.md). For more information, see step 10.
 
      {% include [suspended](../_includes/billing-suspended.md) %}
 

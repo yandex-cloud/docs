@@ -1,5 +1,355 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/privateCertificates:issue
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        certificateAuthorityId:
+          description: |-
+            **string**
+            Required field. The ID of the Certificate Authority (CA) that will issue this certificate.
+          type: string
+        name:
+          description: |-
+            **string**
+            The name of the certificate.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            A description of the certificate.
+          type: string
+        subject:
+          description: |-
+            **[Subject](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.Subject)**
+            Details about the certificate subject (e.g., CN, O, etc.).
+          $ref: '#/definitions/Subject'
+        signingAlgorithm:
+          description: |-
+            **enum** (Algorithm)
+            The algorithm the CA will use to sign and issue the certificate.
+            - `ALGORITHM_UNSPECIFIED`
+            - `RSA_2048_PSS_SHA_256`
+            - `RSA_2048_PSS_SHA_384`
+            - `RSA_2048_PSS_SHA_512`
+            - `RSA_3072_PSS_SHA_256`
+            - `RSA_3072_PSS_SHA_384`
+            - `RSA_3072_PSS_SHA_512`
+            - `RSA_4096_PSS_SHA_256`
+            - `RSA_4096_PSS_SHA_384`
+            - `RSA_4096_PSS_SHA_512`
+            - `ECDSA_NIST_P256_SHA_256`
+            - `ECDSA_NIST_P384_SHA_384`
+            - `ECDSA_NIST_P521_SHA_512`
+            - `ECDSA_SECP256_K1_SHA_256`
+            - `RSA_2048_PKCS1_5_SHA_256`: RSA PKCS 1.5
+            - `RSA_2048_PKCS1_5_SHA_384`
+            - `RSA_2048_PKCS1_5_SHA_512`
+            - `RSA_3072_PKCS1_5_SHA_256`
+            - `RSA_3072_PKCS1_5_SHA_384`
+            - `RSA_3072_PKCS1_5_SHA_512`
+            - `RSA_4096_PKCS1_5_SHA_256`
+            - `RSA_4096_PKCS1_5_SHA_384`
+            - `RSA_4096_PKCS1_5_SHA_512`
+          type: string
+          enum:
+            - ALGORITHM_UNSPECIFIED
+            - RSA_2048_PSS_SHA_256
+            - RSA_2048_PSS_SHA_384
+            - RSA_2048_PSS_SHA_512
+            - RSA_3072_PSS_SHA_256
+            - RSA_3072_PSS_SHA_384
+            - RSA_3072_PSS_SHA_512
+            - RSA_4096_PSS_SHA_256
+            - RSA_4096_PSS_SHA_384
+            - RSA_4096_PSS_SHA_512
+            - ECDSA_NIST_P256_SHA_256
+            - ECDSA_NIST_P384_SHA_384
+            - ECDSA_NIST_P521_SHA_512
+            - ECDSA_SECP256_K1_SHA_256
+            - RSA_2048_PKCS1_5_SHA_256
+            - RSA_2048_PKCS1_5_SHA_384
+            - RSA_2048_PKCS1_5_SHA_512
+            - RSA_3072_PKCS1_5_SHA_256
+            - RSA_3072_PKCS1_5_SHA_384
+            - RSA_3072_PKCS1_5_SHA_512
+            - RSA_4096_PKCS1_5_SHA_256
+            - RSA_4096_PKCS1_5_SHA_384
+            - RSA_4096_PKCS1_5_SHA_512
+        keyUsage:
+          description: |-
+            **enum** (KeyUsageExtension)
+            List of purposes of the certificate, such as digitalSignature or keyEncipherment.
+            - `KEY_USAGE_EXTENSION_UNSPECIFIED`
+            - `DIGITAL_SIGNATURE`
+            - `CONTENT_COMMITMENT`
+            - `KEY_ENCIPHERMENT`
+            - `DATA_ENCIPHERMENT`
+            - `KEY_AGREEMENT`
+            - `KEY_CERT_SIGN`
+            - `CRL_SIGN`
+            - `ENCIPHER_ONLY`
+            - `DECIPHER_ONLY`
+          type: array
+          items:
+            type: string
+            enum:
+              - KEY_USAGE_EXTENSION_UNSPECIFIED
+              - DIGITAL_SIGNATURE
+              - CONTENT_COMMITMENT
+              - KEY_ENCIPHERMENT
+              - DATA_ENCIPHERMENT
+              - KEY_AGREEMENT
+              - KEY_CERT_SIGN
+              - CRL_SIGN
+              - ENCIPHER_ONLY
+              - DECIPHER_ONLY
+        extendedKeyUsage:
+          description: |-
+            **enum** (ExtendedKeyUsageExtension)
+            List of extended purposes of the certificate, such as serverAuth or clientAuth.
+            - `EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED`
+            - `SERVER_AUTH`
+            - `CLIENT_AUTH`
+            - `CODE_SIGNING`
+            - `EMAIL_PROTECTION`
+            - `TIME_STAMPING`
+            - `OCSP_SIGNING`
+            - `IPSEC_IKE`
+            - `MS_CODE_IND`
+            - `MS_CODE_COM`
+            - `MS_CTL_SIGN`
+            - `MS_EFS`
+          type: array
+          items:
+            type: string
+            enum:
+              - EXTENDED_KEY_USAGE_EXTENSION_UNSPECIFIED
+              - SERVER_AUTH
+              - CLIENT_AUTH
+              - CODE_SIGNING
+              - EMAIL_PROTECTION
+              - TIME_STAMPING
+              - OCSP_SIGNING
+              - IPSEC_IKE
+              - MS_CODE_IND
+              - MS_CODE_COM
+              - MS_CTL_SIGN
+              - MS_EFS
+        subjectAlternativeNames:
+          description: |-
+            **[SubjectAlternativeName](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.SubjectAlternativeName)**
+            Subject Alternative Names (SANs) for the certificate, such as DNS entries or IP addresses.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  otherName:
+                    description: |-
+                      **[OtherName](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.OtherName)**
+                      Local defined identifier in arbitrary form
+                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+                    $ref: '#/definitions/OtherName'
+                  rfc_822Name:
+                    description: |-
+                      **string**
+                      Encoded email address
+                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+                    type: string
+                  dnsName:
+                    description: |-
+                      **string**
+                      Widely used in tls certificates for domains
+                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+                    type: string
+                  x_400Name:
+                    description: |-
+                      **string**
+                      x400 name https://en.wikipedia.org/wiki/X.400
+                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+                    type: string
+                  directoryName:
+                    description: |-
+                      **string**
+                      Represents sequence of rdn for uniquely identifying entities
+                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+                    type: string
+                  ediPartyName:
+                    description: |-
+                      **[EdiPartyName](/docs/certificate-manager/private-ca/api-ref/Policy/create#yandex.cloud.certificatemanager.v1.privateca.EdiPartyName)**
+                      Electronic Data Interchange entity
+                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+                    $ref: '#/definitions/EdiPartyName'
+                  uniformResourceIdentifier:
+                    description: |-
+                      **string**
+                      URI
+                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+                    type: string
+                  ipAddress:
+                    description: |-
+                      **string**
+                      ip address of certificate subject. May be used in tls certificates
+                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+                    type: string
+                  registeredId:
+                    description: |-
+                      **string**
+                      Object Identifier (OID)
+                      Includes only one of the fields `otherName`, `rfc_822Name`, `dnsName`, `x_400Name`, `directoryName`, `ediPartyName`, `uniformResourceIdentifier`, `ipAddress`, `registeredId`.
+                      https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.6
+                    type: string
+        templateId:
+          description: |-
+            **string**
+            Optional certificate template ID. Issue certificate with template's fields if non-empty.
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag to protect the certificate from being accidentally deleted.
+          type: boolean
+        desiredTtlDays:
+          description: |-
+            **string** (int64)
+            Desired time-to-live (TTL) of the certificate in days.
+          type: string
+          format: int64
+      required:
+        - certificateAuthorityId
+      additionalProperties: false
+    definitions:
+      BaseRDN:
+        type: object
+        properties:
+          country:
+            description: |-
+              **string**
+              Two letter county code
+            type: string
+          organization:
+            description: |-
+              **string**
+              Organization name in arbitrary form
+            type: string
+          organizationalUnit:
+            description: |-
+              **string**
+              Organizational unit name in arbitrary form
+            type: string
+          distinguishedNameQualifier:
+            description: |-
+              **string**
+              Distinguished name qualifier
+            type: string
+          stateOrProvince:
+            description: |-
+              **string**
+              State or province name in arbitrary form
+            type: string
+          commonName:
+            description: |-
+              **string**
+              Common name. For tls certificates it is domain usually.
+            type: string
+          emailAddress:
+            description: |-
+              **string**
+              Email address of certificate owner
+            type: string
+      AdditionalRDN:
+        type: object
+        properties:
+          serialNumber:
+            description: |-
+              **string**
+              Serial number of certificate subject in arbitrary form. Don't confuse with certificate serial number.
+            type: string
+          locality:
+            description: |-
+              **string**
+              Locality of certificate subject in arbitrary form.
+            type: string
+          title:
+            description: |-
+              **string**
+              Title of certificate subject in arbitrary form.
+            type: string
+          surname:
+            description: |-
+              **string**
+              Surname of certificate subject in arbitrary form.
+            type: string
+          givenName:
+            description: |-
+              **string**
+              Given name of certificate subject in arbitrary form.
+            type: string
+          initials:
+            description: |-
+              **string**
+              Initials of certificate subject in arbitrary form.
+            type: string
+          generationQualifier:
+            description: |-
+              **string**
+              Generation qualifier of certificate subject in arbitrary form.
+            type: string
+      Subject:
+        type: object
+        properties:
+          baseRdn:
+            description: |-
+              **[BaseRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
+              Required field. Most used field of subject
+            $ref: '#/definitions/BaseRDN'
+          additionalRdn:
+            description: |-
+              **[AdditionalRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**
+              Additional fields of subject
+            $ref: '#/definitions/AdditionalRDN'
+        required:
+          - baseRdn
+      OtherName:
+        type: object
+        properties:
+          typeOid:
+            description: |-
+              **string**
+              Object identifier for name type
+            type: string
+          name:
+            description: |-
+              **string**
+              DER encoded value of type with type_oid
+            type: string
+      EdiPartyName:
+        type: object
+        properties:
+          nameAssigner:
+            description: |-
+              **string**
+              Specifies the entity or authority that assigned the partyName
+            type: string
+          partyName:
+            description: |-
+              **string**
+              The actual identifier of the EDI party
+            type: string
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCaCertificate/issueCertificate.md
 ---
 

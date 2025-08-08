@@ -1,9 +1,9 @@
 ---
 editable: false
-sourcePath: en/_api-ref-grpc/connectionmanager/v1/api-ref/grpc/Operation/index.md
+sourcePath: en/_api-ref-grpc/metastore/v1/api-ref/grpc/Operation/index.md
 ---
 
-# Connection Manager API, gRPC: OperationService
+# Managed Service for Hive Metastore™ API, gRPC: OperationService
 
 A set of methods for managing operations for asynchronous API requests.
 

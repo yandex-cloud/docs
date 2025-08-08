@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cic.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}
+    method: delete
+    path:
+      type: object
+      properties:
+        privateConnectionId:
+          description: |-
+            **string**
+            Required field. ID of the PrivateConnection resource.
+          type: string
+      required:
+        - privateConnectionId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cic/v1/api-ref/PrivateConnection/delete.md
 ---
 

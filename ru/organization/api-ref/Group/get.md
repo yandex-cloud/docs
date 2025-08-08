@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/groups/{groupId}
+    method: get
+    path:
+      type: object
+      properties:
+        groupId:
+          description: |-
+            **string**
+            Required field. ID of the Group resource to return.
+            To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/list#List) request.
+          type: string
+      required:
+        - groupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/get.md
 ---
 
-# Cloud Organization API, REST: Group.Get
+# Identity Hub API, REST: Group.Get
 
 Returns the specified Group resource.
 
@@ -35,7 +53,9 @@ To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/
   "organizationId": "string",
   "createdAt": "string",
   "name": "string",
-  "description": "string"
+  "description": "string",
+  "subjectContainerId": "string",
+  "externalId": "string"
 }
 ```
 
@@ -66,4 +86,10 @@ Name of the group. ||
 || description | **string**
 
 Description of the group. ||
+|| subjectContainerId | **string**
+
+Id of the subject container that external group belongs to. It is set if group is external. ||
+|| externalId | **string**
+
+Id of the group from external system. It is set if group is external. ||
 |#

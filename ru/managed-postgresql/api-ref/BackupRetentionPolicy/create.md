@@ -1,5 +1,61 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/retention_policies
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the PostgreSQL cluster.
+            To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        cron:
+          description: |-
+            **[CronTab](/docs/managed-postgresql/api-ref/BackupRetentionPolicy/list#yandex.cloud.mdb.postgresql.v1.CronTab)**
+            CronTab schedule.
+          $ref: '#/definitions/CronTab'
+        retainForDays:
+          description: |-
+            **string** (int64)
+            Retention duration.
+          type: string
+          format: int64
+        description:
+          description: |-
+            **string**
+            Policy description.
+          type: string
+        policyName:
+          description: |-
+            **string**
+            Required field. Required. Policy name.
+          type: string
+      required:
+        - policyName
+      additionalProperties: false
+    definitions:
+      CronTab:
+        type: object
+        properties:
+          dayOfMonth:
+            description: '**string**'
+            type: string
+          month:
+            description: '**string**'
+            type: string
+          dayOfWeek:
+            description: '**string**'
+            type: string
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/BackupRetentionPolicy/create.md
 ---
 

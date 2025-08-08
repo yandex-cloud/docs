@@ -1,5 +1,52 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://marketplace.{{ api-host }}/marketplace/license-manager/v1/instances
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the subscription instance belongs to.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListInstancesResponse.nextPageToken](/docs/marketplace/license-manager/api-ref/Instance/list#yandex.cloud.marketplace.licensemanager.v1.ListInstancesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListInstancesResponse.nextPageToken](/docs/marketplace/license-manager/api-ref/Instance/list#yandex.cloud.marketplace.licensemanager.v1.ListInstancesResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters subscription instances listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [Instance.name] field.
+            2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+            3. The value. Must be in double quotes `""`. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            Example of a filter: `name="my-subscription-instance"`.
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            Sorting order for the list of subscription instances.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/marketplace/licensemanager/v1/license-manager/api-ref/Instance/list.md
 ---
 
@@ -73,7 +120,22 @@ Sorting order for the list of subscription instances. ||
           "createdAt": "string",
           "updatedAt": "string",
           "state": "string",
-          "templateId": "string"
+          "templateId": "string",
+          "externalInstance": {
+            "name": "string",
+            "properties": "object",
+            // Includes only one of the fields `subscription`, `license`
+            "subscription": {
+              "subscriptionId": "string",
+              "licenseId": "string",
+              "activationKey": "string"
+            },
+            "license": {
+              "licenseId": "string",
+              "payload": "string"
+            }
+            // end of the list of possible fields
+          }
         }
       ],
       "licenseTemplate": {
@@ -88,6 +150,21 @@ Sorting order for the list of subscription instances. ||
         "createdAt": "string",
         "updatedAt": "string",
         "state": "string"
+      },
+      "externalInstance": {
+        "name": "string",
+        "properties": "object",
+        // Includes only one of the fields `subscription`, `license`
+        "subscription": {
+          "subscriptionId": "string",
+          "licenseId": "string",
+          "activationKey": "string"
+        },
+        "license": {
+          "licenseId": "string",
+          "payload": "string"
+        }
+        // end of the list of possible fields
       }
     }
   ],
@@ -188,6 +265,9 @@ List of subscription locks. ||
 || licenseTemplate | **[Template](#yandex.cloud.marketplace.licensemanager.v1.Template)**
 
 Subscription template. ||
+|| externalInstance | **[ExternalInstance](#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance)**
+
+External subscription instance (optional). ||
 |#
 
 ## Lock {#yandex.cloud.marketplace.licensemanager.v1.Lock}
@@ -254,6 +334,57 @@ Subscription lock state.
 || templateId | **string**
 
 ID of the subscription template. ||
+|| externalInstance | **[ExternalInstance](#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance)**
+
+External subscription instance (optional), for usage convenience propagated
+from parent subscription instance. ||
+|#
+
+## ExternalInstance {#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance}
+
+ExternalInstance attachment to external service subscription.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Optional external subscription name. ||
+|| properties | **object** (map<**string**, **string**>)
+
+Mapping of vendor defined properties in key, value format. ||
+|| subscription | **[ExternalSubscription](#yandex.cloud.marketplace.licensemanager.v1.ExternalSubscription)**
+
+Includes only one of the fields `subscription`, `license`. ||
+|| license | **[ExternalLicense](#yandex.cloud.marketplace.licensemanager.v1.ExternalLicense)**
+
+Includes only one of the fields `subscription`, `license`. ||
+|#
+
+## ExternalSubscription {#yandex.cloud.marketplace.licensemanager.v1.ExternalSubscription}
+
+#|
+||Field | Description ||
+|| subscriptionId | **string**
+
+External subscription id. ||
+|| licenseId | **string**
+
+Optional: paired license id for external subscription. ||
+|| activationKey | **string**
+
+Optional: default activation key for external subscription. ||
+|#
+
+## ExternalLicense {#yandex.cloud.marketplace.licensemanager.v1.ExternalLicense}
+
+#|
+||Field | Description ||
+|| licenseId | **string**
+
+External license bound to subscription instance. ||
+|| payload | **string** (bytes)
+
+License (vendor specific) payload. ||
 |#
 
 ## Template {#yandex.cloud.marketplace.licensemanager.v1.Template}

@@ -1,5 +1,61 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}
+    method: patch
+    path:
+      type: object
+      properties:
+        deviceId:
+          description: |-
+            **string**
+            Required field. ID of the device to update.
+            To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request.
+          type: string
+      required:
+        - deviceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the device. The name must be unique within the registry.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the device.
+          type: string
+        topicAliases:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Alias of a device topic.
+            Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/update.md
 ---
 

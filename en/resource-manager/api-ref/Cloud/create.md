@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. ID of the organization to create a cloud in.
+            To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the cloud.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the cloud.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+      required:
+        - organizationId
+        - name
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/create.md
 ---
 

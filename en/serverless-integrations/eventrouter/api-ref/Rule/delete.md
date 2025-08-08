@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/rules/{ruleId}
+    method: delete
+    path:
+      type: object
+      properties:
+        ruleId:
+          description: |-
+            **string**
+            Required field. ID of the rule to delete.
+          type: string
+      required:
+        - ruleId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/delete.md
 ---
 

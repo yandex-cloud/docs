@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/images/{imageId}
+    method: delete
+    path:
+      type: object
+      properties:
+        imageId:
+          description: |-
+            **string**
+            Required field. ID of the image to delete.
+            To get the image ID, use a [ImageService.List](/docs/compute/api-ref/Image/list#List) request.
+          type: string
+      required:
+        - imageId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Image/delete.md
 ---
 

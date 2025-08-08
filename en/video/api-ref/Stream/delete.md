@@ -1,11 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/streams/{streamId}
+    method: delete
+    path:
+      type: object
+      properties:
+        streamId:
+          description: |-
+            **string**
+            Required field. ID of the stream to delete.
+          type: string
+      required:
+        - streamId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Stream/delete.md
 ---
 
 # Video API, REST: Stream.Delete
 
-Delete stream.
+Deletes a specific stream by its ID.
 
 ## HTTP request
 
@@ -19,7 +36,7 @@ DELETE https://video.{{ api-host }}/video/v1/streams/{streamId}
 ||Field | Description ||
 || streamId | **string**
 
-Required field. ID of the stream. ||
+Required field. ID of the stream to delete. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -109,7 +126,8 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || streamId | **string**
 
-ID of the stream. ||
+ID of the stream.
+This identifier can be used to track the stream deletion operation. ||
 |#
 
 ## Status {#google.rpc.Status}

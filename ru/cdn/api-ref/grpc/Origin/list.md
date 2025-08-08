@@ -56,7 +56,8 @@ ID of the group to request origins from. ||
           "id": "string"
         }
         // end of the list of possible fields
-      }
+      },
+      "provider_type": "string"
     }
   ]
 }
@@ -101,6 +102,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
 
 Set up origin of the content. ||
+|| provider_type | **string**
+
+RESERVED: This field is reserved for future use and should not be used at this time. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}

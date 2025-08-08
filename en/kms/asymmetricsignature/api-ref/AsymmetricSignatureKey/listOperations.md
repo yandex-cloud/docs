@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the symmetric KMS key to get operations for.
+            To get the key ID, use a [AsymmetricSignatureKeyService.List](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/list#List) request.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`, the service returns a [ListAsymmetricSignatureKeyOperationsResponse.nextPageToken](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/listOperations#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeyOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListAsymmetricSignatureKeyOperationsResponse.nextPageToken](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/listOperations#yandex.cloud.kms.v1.asymmetricsignature.ListAsymmetricSignatureKeyOperationsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/listOperations.md
 ---
 

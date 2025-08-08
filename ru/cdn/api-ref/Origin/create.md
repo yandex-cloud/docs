@@ -1,5 +1,108 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/origins
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the origin belongs to.
+          type: string
+        originGroupId:
+          description: |-
+            **string** (int64)
+            `originGroupId` group ID to request origins from.
+          type: string
+          format: int64
+        source:
+          description: |-
+            **string**
+            Required field. IP address or Domain name of your origin and the port (if custom).
+            Used if `meta` variant is `common`.
+          type: string
+        enabled:
+          description: |-
+            **boolean**
+            The setting allows to enable or disable an Origin source in the Origins group.
+            It has two possible values:
+            True - The origin is enabled and used as a source for the CDN. An origins
+            group must contain at least one enabled origin. Default value.
+            False - The origin is disabled and the CDN is not using it to pull content.
+          type: boolean
+        backup:
+          description: |-
+            **boolean**
+            Specifies whether the origin is used in its origin group as backup.
+            A backup origin is used when one of active origins becomes unavailable.
+            Default value: False.
+          type: boolean
+        meta:
+          description: |-
+            **[OriginMeta](/docs/cdn/api-ref/OriginGroup/get#yandex.cloud.cdn.v1.OriginMeta)**
+            Set up origin of the content.
+          oneOf:
+            - type: object
+              properties:
+                common:
+                  description: |-
+                    **[OriginNamedMeta](/docs/cdn/api-ref/OriginGroup/get#yandex.cloud.cdn.v1.OriginNamedMeta)**
+                    A server with a domain name linked to it
+                    Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+                    Type of the origin.
+                  $ref: '#/definitions/OriginNamedMeta'
+                bucket:
+                  description: |-
+                    **[OriginNamedMeta](/docs/cdn/api-ref/OriginGroup/get#yandex.cloud.cdn.v1.OriginNamedMeta)**
+                    An Object Storage bucket not configured as a static site hosting.
+                    Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+                    Type of the origin.
+                  $ref: '#/definitions/OriginNamedMeta'
+                website:
+                  description: |-
+                    **[OriginNamedMeta](/docs/cdn/api-ref/OriginGroup/get#yandex.cloud.cdn.v1.OriginNamedMeta)**
+                    An Object Storage bucket configured as a static site hosting.
+                    Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+                    Type of the origin.
+                  $ref: '#/definitions/OriginNamedMeta'
+                balancer:
+                  description: |-
+                    **[OriginBalancerMeta](/docs/cdn/api-ref/OriginGroup/get#yandex.cloud.cdn.v1.OriginBalancerMeta)**
+                    An L7 load balancer from Application Load Balancer.
+                    CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
+                    Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+                    Type of the origin.
+                  $ref: '#/definitions/OriginBalancerMeta'
+        providerType:
+          description: |-
+            **string**
+            RESERVED: This field is reserved for future use and should not be used at this time.
+          type: string
+      required:
+        - folderId
+        - source
+      additionalProperties: false
+    definitions:
+      OriginNamedMeta:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the origin.
+            type: string
+      OriginBalancerMeta:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of the origin.
+            type: string
 sourcePath: en/_api-ref/cdn/v1/api-ref/Origin/create.md
 ---
 
@@ -37,7 +140,8 @@ POST https://cdn.{{ api-host }}/cdn/v1/origins
       "id": "string"
     }
     // end of the list of possible fields
-  }
+  },
+  "providerType": "string"
 }
 ```
 
@@ -71,6 +175,9 @@ Default value: False. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
 
 Set up origin of the content. ||
+|| providerType | **string**
+
+RESERVED: This field is reserved for future use and should not be used at this time. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}
@@ -177,7 +284,8 @@ ID of the origin. ||
         "id": "string"
       }
       // end of the list of possible fields
-    }
+    },
+    "providerType": "string"
   }
   // end of the list of possible fields
 }
@@ -313,6 +421,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta2)**
 
 Set up origin of the content. ||
+|| providerType | **string**
+
+RESERVED: This field is reserved for future use and should not be used at this time. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta2}

@@ -1,5 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:move
+    method: post
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            Required field. ID of the instance to move.
+            To get the instance ID, make a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request.
+          type: string
+      required:
+        - instanceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to move the instance to.
+            To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+      required:
+        - destinationFolderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/move.md
 ---
 

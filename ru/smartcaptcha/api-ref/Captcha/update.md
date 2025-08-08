@@ -1,5 +1,456 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://smartcaptcha.{{ api-host }}/smartcaptcha/v1/captchas/{captchaId}
+    method: patch
+    path:
+      type: object
+      properties:
+        captchaId:
+          description: |-
+            **string**
+            Required field. ID of the captcha to update.
+          type: string
+      required:
+        - captchaId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the captcha.
+            The name must be unique within the folder.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        allowedSites:
+          description: |-
+            **string**
+            List of allowed host names, see [Domain validation](/docs/smartcaptcha/concepts/domain-validation).
+          type: array
+          items:
+            type: string
+        complexity:
+          description: |-
+            **enum** (CaptchaComplexity)
+            Complexity of the captcha.
+            - `CAPTCHA_COMPLEXITY_UNSPECIFIED`
+            - `EASY`: High chance to pass pre-check and easy advanced challenge.
+            - `MEDIUM`: Medium chance to pass pre-check and normal advanced challenge.
+            - `HARD`: Little chance to pass pre-check and hard advanced challenge.
+            - `FORCE_HARD`: Impossible to pass pre-check and hard advanced challenge.
+          type: string
+          enum:
+            - CAPTCHA_COMPLEXITY_UNSPECIFIED
+            - EASY
+            - MEDIUM
+            - HARD
+            - FORCE_HARD
+        styleJson:
+          description: |-
+            **string**
+            JSON with variables to define the captcha appearance. For more details see generated JSON in cloud console.
+          type: string
+        turnOffHostnameCheck:
+          description: |-
+            **boolean**
+            Turn off host name check, see [Domain validation](/docs/smartcaptcha/concepts/domain-validation).
+          type: boolean
+        preCheckType:
+          description: |-
+            **enum** (CaptchaPreCheckType)
+            Basic check type of the captcha.
+            - `CAPTCHA_PRE_CHECK_TYPE_UNSPECIFIED`
+            - `CHECKBOX`: User must click the "I am not a robot" button.
+            - `SLIDER`: User must move the slider from left to right.
+          type: string
+          enum:
+            - CAPTCHA_PRE_CHECK_TYPE_UNSPECIFIED
+            - CHECKBOX
+            - SLIDER
+        challengeType:
+          description: |-
+            **enum** (CaptchaChallengeType)
+            Additional task type of the captcha.
+            - `CAPTCHA_CHALLENGE_TYPE_UNSPECIFIED`
+            - `IMAGE_TEXT`: Text recognition: The user has to type a distorted text from the picture into a special field.
+            - `SILHOUETTES`: Silhouettes: The user has to mark several icons from the picture in a particular order.
+            - `KALEIDOSCOPE`: Kaleidoscope: The user has to build a picture from individual parts by shuffling them using a slider.
+          type: string
+          enum:
+            - CAPTCHA_CHALLENGE_TYPE_UNSPECIFIED
+            - IMAGE_TEXT
+            - SILHOUETTES
+            - KALEIDOSCOPE
+        securityRules:
+          description: |-
+            **[SecurityRule](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.SecurityRule)**
+            List of security rules.
+          type: array
+          items:
+            $ref: '#/definitions/SecurityRule'
+        deletionProtection:
+          description: |-
+            **boolean**
+            Determines whether captcha is protected from being deleted.
+          type: boolean
+        overrideVariants:
+          description: |-
+            **[OverrideVariant](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.OverrideVariant)**
+            List of variants to use in security_rules
+          type: array
+          items:
+            $ref: '#/definitions/OverrideVariant'
+      additionalProperties: false
+    definitions:
+      HostMatcher:
+        type: object
+        properties:
+          hosts:
+            description: |-
+              **[StringMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
+              List of hosts. OR semantics implied.
+            type: array
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    exactMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    exactNotMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    prefixMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    prefixNotMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    pireRegexMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+                    pireRegexNotMatch:
+                      description: |-
+                        **string**
+                        Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                      type: string
+      QueryMatcher:
+        type: object
+        properties:
+          key:
+            description: |-
+              **string**
+              Required field. Key of the query parameter.
+            type: string
+          value:
+            description: |-
+              **[StringMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
+              Required field. Value of the query parameter.
+            oneOf:
+              - type: object
+                properties:
+                  exactMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  exactNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  prefixMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  prefixNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  pireRegexMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  pireRegexNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+        required:
+          - key
+          - value
+      UriMatcher:
+        type: object
+        properties:
+          path:
+            description: |-
+              **[StringMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
+              Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
+            oneOf:
+              - type: object
+                properties:
+                  exactMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  exactNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  prefixMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  prefixNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  pireRegexMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  pireRegexNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+          queries:
+            description: |-
+              **[QueryMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.QueryMatcher)**
+              List of query matchers. AND semantics implied.
+            type: array
+            items:
+              $ref: '#/definitions/QueryMatcher'
+      HeaderMatcher:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of header (case insensitive).
+            type: string
+          value:
+            description: |-
+              **[StringMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
+              Required field. Value of the header.
+            oneOf:
+              - type: object
+                properties:
+                  exactMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  exactNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  prefixMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  prefixNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  pireRegexMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+                  pireRegexNotMatch:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+                    type: string
+        required:
+          - name
+          - value
+      IpRangesMatcher:
+        type: object
+        properties:
+          ipRanges:
+            description: |-
+              **string**
+              List of IP ranges. OR semantics implied.
+            type: array
+            items:
+              type: string
+      GeoIpMatcher:
+        type: object
+        properties:
+          locations:
+            description: |-
+              **string**
+              ISO 3166-1 alpha 2. OR semantics implied.
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      IpMatcher:
+        type: object
+        properties:
+          ipRangesMatch:
+            description: '**[IpRangesMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)**'
+            $ref: '#/definitions/IpRangesMatcher'
+          ipRangesNotMatch:
+            description: '**[IpRangesMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)**'
+            $ref: '#/definitions/IpRangesMatcher'
+          geoIpMatch:
+            description: '**[GeoIpMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)**'
+            $ref: '#/definitions/GeoIpMatcher'
+          geoIpNotMatch:
+            description: '**[GeoIpMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)**'
+            $ref: '#/definitions/GeoIpMatcher'
+      Condition:
+        type: object
+        properties:
+          host:
+            description: |-
+              **[HostMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.HostMatcher)**
+              Host where captcha placed.
+            $ref: '#/definitions/HostMatcher'
+          uri:
+            description: |-
+              **[UriMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.UriMatcher)**
+              URI where captcha placed.
+            $ref: '#/definitions/UriMatcher'
+          headers:
+            description: |-
+              **[HeaderMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.HeaderMatcher)**
+              Captcha request headers.
+            type: array
+            items:
+              $ref: '#/definitions/HeaderMatcher'
+          sourceIp:
+            description: |-
+              **[IpMatcher](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition.IpMatcher)**
+              The IP address of the requester.
+            $ref: '#/definitions/IpMatcher'
+      SecurityRule:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the rule. The name is unique within the captcha. 1-50 characters long.
+            pattern: '[a-zA-Z0-9][a-zA-Z0-9-_.]*'
+            type: string
+          priority:
+            description: |-
+              **string** (int64)
+              Priority of the rule. Lower value means higher priority.
+            type: string
+            format: int64
+          description:
+            description: |-
+              **string**
+              Optional description of the rule. 0-512 characters long.
+            type: string
+          condition:
+            description: |-
+              **[Condition](/docs/smartcaptcha/api-ref/Captcha/get#yandex.cloud.smartcaptcha.v1.Condition)**
+              The condition for matching the rule.
+            $ref: '#/definitions/Condition'
+          overrideVariantUuid:
+            description: |-
+              **string**
+              Variant UUID to show in case of match the rule. Keep empty to use defaults.
+            type: string
+        required:
+          - name
+      OverrideVariant:
+        type: object
+        properties:
+          uuid:
+            description: |-
+              **string**
+              Unique identifier of the variant.
+            pattern: '[a-zA-Z0-9][a-zA-Z0-9-_.]*'
+            type: string
+          description:
+            description: |-
+              **string**
+              Optional description of the rule. 0-512 characters long.
+            type: string
+          complexity:
+            description: |-
+              **enum** (CaptchaComplexity)
+              Complexity of the captcha.
+              - `CAPTCHA_COMPLEXITY_UNSPECIFIED`
+              - `EASY`: High chance to pass pre-check and easy advanced challenge.
+              - `MEDIUM`: Medium chance to pass pre-check and normal advanced challenge.
+              - `HARD`: Little chance to pass pre-check and hard advanced challenge.
+              - `FORCE_HARD`: Impossible to pass pre-check and hard advanced challenge.
+            type: string
+            enum:
+              - CAPTCHA_COMPLEXITY_UNSPECIFIED
+              - EASY
+              - MEDIUM
+              - HARD
+              - FORCE_HARD
+          preCheckType:
+            description: |-
+              **enum** (CaptchaPreCheckType)
+              Basic check type of the captcha.
+              - `CAPTCHA_PRE_CHECK_TYPE_UNSPECIFIED`
+              - `CHECKBOX`: User must click the "I am not a robot" button.
+              - `SLIDER`: User must move the slider from left to right.
+            type: string
+            enum:
+              - CAPTCHA_PRE_CHECK_TYPE_UNSPECIFIED
+              - CHECKBOX
+              - SLIDER
+          challengeType:
+            description: |-
+              **enum** (CaptchaChallengeType)
+              Additional task type of the captcha.
+              - `CAPTCHA_CHALLENGE_TYPE_UNSPECIFIED`
+              - `IMAGE_TEXT`: Text recognition: The user has to type a distorted text from the picture into a special field.
+              - `SILHOUETTES`: Silhouettes: The user has to mark several icons from the picture in a particular order.
+              - `KALEIDOSCOPE`: Kaleidoscope: The user has to build a picture from individual parts by shuffling them using a slider.
+            type: string
+            enum:
+              - CAPTCHA_CHALLENGE_TYPE_UNSPECIFIED
+              - IMAGE_TEXT
+              - SILHOUETTES
+              - KALEIDOSCOPE
 sourcePath: en/_api-ref/smartcaptcha/v1/api-ref/Captcha/update.md
 ---
 

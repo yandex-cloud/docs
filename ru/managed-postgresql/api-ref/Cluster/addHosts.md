@@ -1,5 +1,7303 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/hosts:batchCreate
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the PostgreSQL cluster to add hosts to.
+            To get the PostgreSQL cluster ID, use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        hostSpecs:
+          description: |-
+            **[HostSpec](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.HostSpec)**
+            Configurations for PostgreSQL hosts that should be added to the cluster.
+          type: array
+          items:
+            $ref: '#/definitions/HostSpec'
+      additionalProperties: false
+    definitions:
+      PostgresqlHostConfig9_6:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          replacementSortTuples:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          forceParallelMode:
+            description: |-
+              **enum** (ForceParallelMode)
+              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
+              - `FORCE_PARALLEL_MODE_ON`
+              - `FORCE_PARALLEL_MODE_OFF`
+              - `FORCE_PARALLEL_MODE_REGRESS`
+            type: string
+            enum:
+              - FORCE_PARALLEL_MODE_UNSPECIFIED
+              - FORCE_PARALLEL_MODE_ON
+              - FORCE_PARALLEL_MODE_OFF
+              - FORCE_PARALLEL_MODE_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          operatorPrecedenceWarning:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          sqlInheritance:
+            description: |-
+              **boolean**
+              This option has been removed in PostgreSQL 10.
+            type: boolean
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig10_1C:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          replacementSortTuples:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          forceParallelMode:
+            description: |-
+              **enum** (ForceParallelMode)
+              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
+              - `FORCE_PARALLEL_MODE_ON`
+              - `FORCE_PARALLEL_MODE_OFF`
+              - `FORCE_PARALLEL_MODE_REGRESS`
+            type: string
+            enum:
+              - FORCE_PARALLEL_MODE_UNSPECIFIED
+              - FORCE_PARALLEL_MODE_ON
+              - FORCE_PARALLEL_MODE_OFF
+              - FORCE_PARALLEL_MODE_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          operatorPrecedenceWarning:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig10:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          replacementSortTuples:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          forceParallelMode:
+            description: |-
+              **enum** (ForceParallelMode)
+              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
+              - `FORCE_PARALLEL_MODE_ON`
+              - `FORCE_PARALLEL_MODE_OFF`
+              - `FORCE_PARALLEL_MODE_REGRESS`
+            type: string
+            enum:
+              - FORCE_PARALLEL_MODE_UNSPECIFIED
+              - FORCE_PARALLEL_MODE_ON
+              - FORCE_PARALLEL_MODE_OFF
+              - FORCE_PARALLEL_MODE_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          operatorPrecedenceWarning:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig11:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          forceParallelMode:
+            description: |-
+              **enum** (ForceParallelMode)
+              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
+              - `FORCE_PARALLEL_MODE_ON`
+              - `FORCE_PARALLEL_MODE_OFF`
+              - `FORCE_PARALLEL_MODE_REGRESS`
+            type: string
+            enum:
+              - FORCE_PARALLEL_MODE_UNSPECIFIED
+              - FORCE_PARALLEL_MODE_ON
+              - FORCE_PARALLEL_MODE_OFF
+              - FORCE_PARALLEL_MODE_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          operatorPrecedenceWarning:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig11_1C:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          forceParallelMode:
+            description: |-
+              **enum** (ForceParallelMode)
+              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
+              - `FORCE_PARALLEL_MODE_ON`
+              - `FORCE_PARALLEL_MODE_OFF`
+              - `FORCE_PARALLEL_MODE_REGRESS`
+            type: string
+            enum:
+              - FORCE_PARALLEL_MODE_UNSPECIFIED
+              - FORCE_PARALLEL_MODE_ON
+              - FORCE_PARALLEL_MODE_OFF
+              - FORCE_PARALLEL_MODE_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          operatorPrecedenceWarning:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig12:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          forceParallelMode:
+            description: |-
+              **enum** (ForceParallelMode)
+              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
+              - `FORCE_PARALLEL_MODE_ON`
+              - `FORCE_PARALLEL_MODE_OFF`
+              - `FORCE_PARALLEL_MODE_REGRESS`
+            type: string
+            enum:
+              - FORCE_PARALLEL_MODE_UNSPECIFIED
+              - FORCE_PARALLEL_MODE_ON
+              - FORCE_PARALLEL_MODE_OFF
+              - FORCE_PARALLEL_MODE_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          operatorPrecedenceWarning:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig12_1C:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          forceParallelMode:
+            description: |-
+              **enum** (ForceParallelMode)
+              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
+              - `FORCE_PARALLEL_MODE_ON`
+              - `FORCE_PARALLEL_MODE_OFF`
+              - `FORCE_PARALLEL_MODE_REGRESS`
+            type: string
+            enum:
+              - FORCE_PARALLEL_MODE_UNSPECIFIED
+              - FORCE_PARALLEL_MODE_ON
+              - FORCE_PARALLEL_MODE_OFF
+              - FORCE_PARALLEL_MODE_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          operatorPrecedenceWarning:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig13:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          forceParallelMode:
+            description: |-
+              **enum** (ForceParallelMode)
+              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
+              - `FORCE_PARALLEL_MODE_ON`
+              - `FORCE_PARALLEL_MODE_OFF`
+              - `FORCE_PARALLEL_MODE_REGRESS`
+            type: string
+            enum:
+              - FORCE_PARALLEL_MODE_UNSPECIFIED
+              - FORCE_PARALLEL_MODE_ON
+              - FORCE_PARALLEL_MODE_OFF
+              - FORCE_PARALLEL_MODE_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          operatorPrecedenceWarning:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig13_1C:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          forceParallelMode:
+            description: |-
+              **enum** (ForceParallelMode)
+              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
+              - `FORCE_PARALLEL_MODE_ON`
+              - `FORCE_PARALLEL_MODE_OFF`
+              - `FORCE_PARALLEL_MODE_REGRESS`
+            type: string
+            enum:
+              - FORCE_PARALLEL_MODE_UNSPECIFIED
+              - FORCE_PARALLEL_MODE_ON
+              - FORCE_PARALLEL_MODE_OFF
+              - FORCE_PARALLEL_MODE_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          operatorPrecedenceWarning:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig14:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          forceParallelMode:
+            description: |-
+              **enum** (ForceParallelMode)
+              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
+              - `FORCE_PARALLEL_MODE_ON`
+              - `FORCE_PARALLEL_MODE_OFF`
+              - `FORCE_PARALLEL_MODE_REGRESS`
+            type: string
+            enum:
+              - FORCE_PARALLEL_MODE_UNSPECIFIED
+              - FORCE_PARALLEL_MODE_ON
+              - FORCE_PARALLEL_MODE_OFF
+              - FORCE_PARALLEL_MODE_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig14_1C:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          forceParallelMode:
+            description: |-
+              **enum** (ForceParallelMode)
+              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
+              - `FORCE_PARALLEL_MODE_ON`
+              - `FORCE_PARALLEL_MODE_OFF`
+              - `FORCE_PARALLEL_MODE_REGRESS`
+            type: string
+            enum:
+              - FORCE_PARALLEL_MODE_UNSPECIFIED
+              - FORCE_PARALLEL_MODE_ON
+              - FORCE_PARALLEL_MODE_OFF
+              - FORCE_PARALLEL_MODE_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig15:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          forceParallelMode:
+            description: |-
+              **enum** (ForceParallelMode)
+              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
+              - `FORCE_PARALLEL_MODE_ON`
+              - `FORCE_PARALLEL_MODE_OFF`
+              - `FORCE_PARALLEL_MODE_REGRESS`
+            type: string
+            enum:
+              - FORCE_PARALLEL_MODE_UNSPECIFIED
+              - FORCE_PARALLEL_MODE_ON
+              - FORCE_PARALLEL_MODE_OFF
+              - FORCE_PARALLEL_MODE_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig15_1C:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          forceParallelMode:
+            description: |-
+              **enum** (ForceParallelMode)
+              - `FORCE_PARALLEL_MODE_UNSPECIFIED`
+              - `FORCE_PARALLEL_MODE_ON`
+              - `FORCE_PARALLEL_MODE_OFF`
+              - `FORCE_PARALLEL_MODE_REGRESS`
+            type: string
+            enum:
+              - FORCE_PARALLEL_MODE_UNSPECIFIED
+              - FORCE_PARALLEL_MODE_ON
+              - FORCE_PARALLEL_MODE_OFF
+              - FORCE_PARALLEL_MODE_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig16:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          debugParallelQuery:
+            description: |-
+              **enum** (DebugParallelQuery)
+              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
+              - `DEBUG_PARALLEL_QUERY_ON`
+              - `DEBUG_PARALLEL_QUERY_OFF`
+              - `DEBUG_PARALLEL_QUERY_REGRESS`
+            type: string
+            enum:
+              - DEBUG_PARALLEL_QUERY_UNSPECIFIED
+              - DEBUG_PARALLEL_QUERY_ON
+              - DEBUG_PARALLEL_QUERY_OFF
+              - DEBUG_PARALLEL_QUERY_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig16_1C:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          oldSnapshotThreshold:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          debugParallelQuery:
+            description: |-
+              **enum** (DebugParallelQuery)
+              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
+              - `DEBUG_PARALLEL_QUERY_ON`
+              - `DEBUG_PARALLEL_QUERY_OFF`
+              - `DEBUG_PARALLEL_QUERY_REGRESS`
+            type: string
+            enum:
+              - DEBUG_PARALLEL_QUERY_UNSPECIFIED
+              - DEBUG_PARALLEL_QUERY_ON
+              - DEBUG_PARALLEL_QUERY_OFF
+              - DEBUG_PARALLEL_QUERY_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig17:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          debugParallelQuery:
+            description: |-
+              **enum** (DebugParallelQuery)
+              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
+              - `DEBUG_PARALLEL_QUERY_ON`
+              - `DEBUG_PARALLEL_QUERY_OFF`
+              - `DEBUG_PARALLEL_QUERY_REGRESS`
+            type: string
+            enum:
+              - DEBUG_PARALLEL_QUERY_UNSPECIFIED
+              - DEBUG_PARALLEL_QUERY_ON
+              - DEBUG_PARALLEL_QUERY_OFF
+              - DEBUG_PARALLEL_QUERY_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      PostgresqlHostConfig17_1C:
+        type: object
+        properties:
+          recoveryMinApplyDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          sharedBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempBuffers:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          workMem:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          backendFlushAfter:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxStandbyStreamingDelay:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          constraintExclusion:
+            description: |-
+              **enum** (ConstraintExclusion)
+              - `CONSTRAINT_EXCLUSION_UNSPECIFIED`
+              - `CONSTRAINT_EXCLUSION_ON`
+              - `CONSTRAINT_EXCLUSION_OFF`
+              - `CONSTRAINT_EXCLUSION_PARTITION`
+            type: string
+            enum:
+              - CONSTRAINT_EXCLUSION_UNSPECIFIED
+              - CONSTRAINT_EXCLUSION_ON
+              - CONSTRAINT_EXCLUSION_OFF
+              - CONSTRAINT_EXCLUSION_PARTITION
+          cursorTupleFraction:
+            description: '**number** (double)'
+            type: number
+            format: double
+          fromCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          joinCollapseLimit:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          debugParallelQuery:
+            description: |-
+              **enum** (DebugParallelQuery)
+              - `DEBUG_PARALLEL_QUERY_UNSPECIFIED`
+              - `DEBUG_PARALLEL_QUERY_ON`
+              - `DEBUG_PARALLEL_QUERY_OFF`
+              - `DEBUG_PARALLEL_QUERY_REGRESS`
+            type: string
+            enum:
+              - DEBUG_PARALLEL_QUERY_UNSPECIFIED
+              - DEBUG_PARALLEL_QUERY_ON
+              - DEBUG_PARALLEL_QUERY_OFF
+              - DEBUG_PARALLEL_QUERY_REGRESS
+          clientMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinMessages:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinErrorStatement:
+            description: |-
+              **enum** (LogLevel)
+              - `LOG_LEVEL_UNSPECIFIED`
+              - `LOG_LEVEL_DEBUG5`
+              - `LOG_LEVEL_DEBUG4`
+              - `LOG_LEVEL_DEBUG3`
+              - `LOG_LEVEL_DEBUG2`
+              - `LOG_LEVEL_DEBUG1`
+              - `LOG_LEVEL_LOG`
+              - `LOG_LEVEL_NOTICE`
+              - `LOG_LEVEL_WARNING`
+              - `LOG_LEVEL_ERROR`
+              - `LOG_LEVEL_FATAL`
+              - `LOG_LEVEL_PANIC`
+            type: string
+            enum:
+              - LOG_LEVEL_UNSPECIFIED
+              - LOG_LEVEL_DEBUG5
+              - LOG_LEVEL_DEBUG4
+              - LOG_LEVEL_DEBUG3
+              - LOG_LEVEL_DEBUG2
+              - LOG_LEVEL_DEBUG1
+              - LOG_LEVEL_LOG
+              - LOG_LEVEL_NOTICE
+              - LOG_LEVEL_WARNING
+              - LOG_LEVEL_ERROR
+              - LOG_LEVEL_FATAL
+              - LOG_LEVEL_PANIC
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          logCheckpoints:
+            description: '**boolean**'
+            type: boolean
+          logConnections:
+            description: '**boolean**'
+            type: boolean
+          logDisconnections:
+            description: '**boolean**'
+            type: boolean
+          logDuration:
+            description: '**boolean**'
+            type: boolean
+          logErrorVerbosity:
+            description: |-
+              **enum** (LogErrorVerbosity)
+              - `LOG_ERROR_VERBOSITY_UNSPECIFIED`
+              - `LOG_ERROR_VERBOSITY_TERSE`
+              - `LOG_ERROR_VERBOSITY_DEFAULT`
+              - `LOG_ERROR_VERBOSITY_VERBOSE`
+            type: string
+            enum:
+              - LOG_ERROR_VERBOSITY_UNSPECIFIED
+              - LOG_ERROR_VERBOSITY_TERSE
+              - LOG_ERROR_VERBOSITY_DEFAULT
+              - LOG_ERROR_VERBOSITY_VERBOSE
+          logLockWaits:
+            description: '**boolean**'
+            type: boolean
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              - `LOG_STATEMENT_UNSPECIFIED`
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          logTempFiles:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          searchPath:
+            description: '**string**'
+            type: string
+          rowSecurity:
+            description: '**boolean**'
+            type: boolean
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              - `TRANSACTION_ISOLATION_UNSPECIFIED`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          byteaOutput:
+            description: |-
+              **enum** (ByteaOutput)
+              - `BYTEA_OUTPUT_UNSPECIFIED`
+              - `BYTEA_OUTPUT_HEX`
+              - `BYTEA_OUTPUT_ESCAPED`
+            type: string
+            enum:
+              - BYTEA_OUTPUT_UNSPECIFIED
+              - BYTEA_OUTPUT_HEX
+              - BYTEA_OUTPUT_ESCAPED
+          xmlbinary:
+            description: |-
+              **enum** (XmlBinary)
+              - `XML_BINARY_UNSPECIFIED`
+              - `XML_BINARY_BASE64`
+              - `XML_BINARY_HEX`
+            type: string
+            enum:
+              - XML_BINARY_UNSPECIFIED
+              - XML_BINARY_BASE64
+              - XML_BINARY_HEX
+          xmloption:
+            description: |-
+              **enum** (XmlOption)
+              - `XML_OPTION_UNSPECIFIED`
+              - `XML_OPTION_DOCUMENT`
+              - `XML_OPTION_CONTENT`
+            type: string
+            enum:
+              - XML_OPTION_UNSPECIFIED
+              - XML_OPTION_DOCUMENT
+              - XML_OPTION_CONTENT
+          ginPendingListLimit:
+            description: |-
+              **string** (int64)
+              in bytes.
+            type: string
+            format: int64
+          deadlockTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds.
+            type: string
+            format: int64
+          maxLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxPredLocksPerTransaction:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          arrayNulls:
+            description: '**boolean**'
+            type: boolean
+          backslashQuote:
+            description: |-
+              **enum** (BackslashQuote)
+              - `BACKSLASH_QUOTE_UNSPECIFIED`
+              - `BACKSLASH_QUOTE`
+              - `BACKSLASH_QUOTE_ON`
+              - `BACKSLASH_QUOTE_OFF`
+              - `BACKSLASH_QUOTE_SAFE_ENCODING`
+            type: string
+            enum:
+              - BACKSLASH_QUOTE_UNSPECIFIED
+              - BACKSLASH_QUOTE
+              - BACKSLASH_QUOTE_ON
+              - BACKSLASH_QUOTE_OFF
+              - BACKSLASH_QUOTE_SAFE_ENCODING
+          defaultWithOids:
+            description: '**boolean**'
+            type: boolean
+          escapeStringWarning:
+            description: '**boolean**'
+            type: boolean
+          loCompatPrivileges:
+            description: '**boolean**'
+            type: boolean
+          quoteAllIdentifiers:
+            description: '**boolean**'
+            type: boolean
+          standardConformingStrings:
+            description: '**boolean**'
+            type: boolean
+          synchronizeSeqscans:
+            description: '**boolean**'
+            type: boolean
+          transformNullEquals:
+            description: '**boolean**'
+            type: boolean
+          exitOnError:
+            description: '**boolean**'
+            type: boolean
+          seqPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          randomPageCost:
+            description: '**number** (double)'
+            type: number
+            format: double
+          enableBitmapscan:
+            description: '**boolean**'
+            type: boolean
+          enableHashagg:
+            description: '**boolean**'
+            type: boolean
+          enableHashjoin:
+            description: '**boolean**'
+            type: boolean
+          enableIndexscan:
+            description: '**boolean**'
+            type: boolean
+          enableIndexonlyscan:
+            description: '**boolean**'
+            type: boolean
+          enableMaterial:
+            description: '**boolean**'
+            type: boolean
+          enableMergejoin:
+            description: '**boolean**'
+            type: boolean
+          enableNestloop:
+            description: '**boolean**'
+            type: boolean
+          enableSeqscan:
+            description: '**boolean**'
+            type: boolean
+          enableSort:
+            description: '**boolean**'
+            type: boolean
+          enableTidscan:
+            description: '**boolean**'
+            type: boolean
+          maxParallelWorkers:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxParallelWorkersPerGather:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          timezone:
+            description: '**string**'
+            type: string
+          effectiveIoConcurrency:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          effectiveCacheSize:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      HostSpec:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              ID of the availability zone where the host resides.
+              To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet that the host should belong to. This subnet should be a part
+              of the network that the cluster belongs to.
+              The ID of the network is set in the field [Cluster.networkId](/docs/managed-postgresql/api-ref/Cluster/get#yandex.cloud.mdb.postgresql.v1.Cluster).
+            type: string
+          assignPublicIp:
+            description: |-
+              **boolean**
+              Whether the host should get a public IP address on creation.
+              After a host has been created, this setting cannot be changed. To remove an assigned public IP, or to assign
+              a public IP to a host without one, recreate the host with [assignPublicIp](/docs/managed-postgresql/api-ref/Cluster/updateHosts#yandex.cloud.mdb.postgresql.v1.UpdateHostSpec) set as needed.
+              Possible values:
+              * false - don't assign a public IP to the host.
+              * true - the host should have a public IP address.
+            type: boolean
+          replicationSource:
+            description: |-
+              **string**
+              [Host.name](/docs/managed-postgresql/api-ref/Cluster/listHosts#yandex.cloud.mdb.postgresql.v1.Host) of the host to be used as the replication source (for cascading replication).
+            type: string
+          priority:
+            description: |-
+              **string** (int64)
+              Priority of the host as a replica. A higher value corresponds to higher priority.
+              The host with the highest priority is the synchronous replica. All others are asynchronous.
+              The synchronous replica replaces the master when needed.
+              When a replica becomes the master, its priority is ignored.
+            type: string
+            format: int64
+          configSpec:
+            description: |-
+              **[ConfigHostSpec](/docs/managed-postgresql/api-ref/Cluster/create#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec)**
+              Configuration of a PostgreSQL server for the host.
+            oneOf:
+              - type: object
+                properties:
+                  postgresqlConfig_9_6:
+                    description: |-
+                      **`PostgresqlHostConfig9_6`**
+                      Configuration for a host with PostgreSQL 9.6 server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig9_6'
+                  postgresqlConfig_10_1c:
+                    description: |-
+                      **`PostgresqlHostConfig10_1C`**
+                      Configuration for a host with PostgreSQL 10 1C server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig10_1C'
+                  postgresqlConfig_10:
+                    description: |-
+                      **`PostgresqlHostConfig10`**
+                      Configuration for a host with PostgreSQL 10 server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig10'
+                  postgresqlConfig_11:
+                    description: |-
+                      **`PostgresqlHostConfig11`**
+                      Configuration for a host with PostgreSQL 11 server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig11'
+                  postgresqlConfig_11_1c:
+                    description: |-
+                      **`PostgresqlHostConfig11_1C`**
+                      Configuration for a host with PostgreSQL 11 1C server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig11_1C'
+                  postgresqlConfig_12:
+                    description: |-
+                      **`PostgresqlHostConfig12`**
+                      Configuration for a host with PostgreSQL 12 server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig12'
+                  postgresqlConfig_12_1c:
+                    description: |-
+                      **`PostgresqlHostConfig12_1C`**
+                      Configuration for a host with PostgreSQL 12 1C server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig12_1C'
+                  postgresqlConfig_13:
+                    description: |-
+                      **`PostgresqlHostConfig13`**
+                      Configuration for a host with PostgreSQL 13 server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig13'
+                  postgresqlConfig_13_1c:
+                    description: |-
+                      **`PostgresqlHostConfig13_1C`**
+                      Configuration for a host with PostgreSQL 13 1C server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig13_1C'
+                  postgresqlConfig_14:
+                    description: |-
+                      **`PostgresqlHostConfig14`**
+                      Configuration for a host with PostgreSQL 14 server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig14'
+                  postgresqlConfig_14_1c:
+                    description: |-
+                      **`PostgresqlHostConfig14_1C`**
+                      Configuration for a host with PostgreSQL 14 1C server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig14_1C'
+                  postgresqlConfig_15:
+                    description: |-
+                      **`PostgresqlHostConfig15`**
+                      Configuration for a host with PostgreSQL 15 server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig15'
+                  postgresqlConfig_15_1c:
+                    description: |-
+                      **`PostgresqlHostConfig15_1C`**
+                      Configuration for a host with PostgreSQL 15 1C server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig15_1C'
+                  postgresqlConfig_16:
+                    description: |-
+                      **`PostgresqlHostConfig16`**
+                      Configuration for a host with PostgreSQL 16 server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig16'
+                  postgresqlConfig_16_1c:
+                    description: |-
+                      **`PostgresqlHostConfig16_1C`**
+                      Configuration for a host with PostgreSQL 16 1C server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig16_1C'
+                  postgresqlConfig_17:
+                    description: |-
+                      **`PostgresqlHostConfig17`**
+                      Configuration for a host with PostgreSQL 17 1C server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig17'
+                  postgresqlConfig_17_1c:
+                    description: |-
+                      **`PostgresqlHostConfig17_1C`**
+                      Configuration for a host with PostgreSQL 17 1C server deployed.
+                      Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`.
+                    $ref: '#/definitions/PostgresqlHostConfig17_1C'
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/addHosts.md
 ---
 

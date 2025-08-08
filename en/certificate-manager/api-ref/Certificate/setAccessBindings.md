@@ -1,5 +1,141 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{resourceId}:setAccessBindings
+    method: post
+    path:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of the resource for which access bindings are being set.
+            To get the resource ID, use a corresponding List request.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        accessBindings:
+          description: |-
+            **`AccessBinding`**
+            Access bindings to be set. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+          type: array
+          items:
+            $ref: '#/definitions/AccessBinding'
+      additionalProperties: false
+    definitions:
+      BaseRDN:
+        type: object
+        properties:
+          country:
+            description: |-
+              **string**
+              Two letter county code
+            type: string
+          organization:
+            description: |-
+              **string**
+              Organization name in arbitrary form
+            type: string
+          organizationalUnit:
+            description: |-
+              **string**
+              Organizational unit name in arbitrary form
+            type: string
+          distinguishedNameQualifier:
+            description: |-
+              **string**
+              Distinguished name qualifier
+            type: string
+          stateOrProvince:
+            description: |-
+              **string**
+              State or province name in arbitrary form
+            type: string
+          commonName:
+            description: |-
+              **string**
+              Common name. For tls certificates it is domain usually.
+            type: string
+          emailAddress:
+            description: |-
+              **string**
+              Email address of certificate owner
+            type: string
+      AdditionalRDN:
+        type: object
+        properties:
+          serialNumber:
+            description: |-
+              **string**
+              Serial number of certificate subject in arbitrary form. Don't confuse with certificate serial number.
+            type: string
+          locality:
+            description: |-
+              **string**
+              Locality of certificate subject in arbitrary form.
+            type: string
+          title:
+            description: |-
+              **string**
+              Title of certificate subject in arbitrary form.
+            type: string
+          surname:
+            description: |-
+              **string**
+              Surname of certificate subject in arbitrary form.
+            type: string
+          givenName:
+            description: |-
+              **string**
+              Given name of certificate subject in arbitrary form.
+            type: string
+          initials:
+            description: |-
+              **string**
+              Initials of certificate subject in arbitrary form.
+            type: string
+          generationQualifier:
+            description: |-
+              **string**
+              Generation qualifier of certificate subject in arbitrary form.
+            type: string
+      Subject:
+        type: object
+        properties:
+          baseRdn:
+            description: |-
+              **[BaseRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.BaseRDN)**
+              Required field. Most used field of subject
+            $ref: '#/definitions/BaseRDN'
+          additionalRdn:
+            description: |-
+              **[AdditionalRDN](/docs/certificate-manager/private-ca/api-ref/PrivateCaCertificate/issueCertificate#yandex.cloud.certificatemanager.v1.privateca.AdditionalRDN)**
+              Additional fields of subject
+            $ref: '#/definitions/AdditionalRDN'
+        required:
+          - baseRdn
+      AccessBinding:
+        type: object
+        properties:
+          roleId:
+            description: |-
+              **string**
+              Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
+            type: string
+          subject:
+            description: |-
+              **`Subject`**
+              Required field. Identity for which access binding is being created.
+              It can represent an account with a unique ID or several accounts with a system identifier.
+            $ref: '#/definitions/Subject'
+        required:
+          - roleId
+          - subject
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/setAccessBindings.md
 ---
 

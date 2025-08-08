@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/{certificateAuthorityId}
+    method: delete
+    path:
+      type: object
+      properties:
+        certificateAuthorityId:
+          description: |-
+            **string**
+            Required field. The ID of the Certificate Authority to delete.
+          type: string
+      required:
+        - certificateAuthorityId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCa/delete.md
 ---
 

@@ -1,5 +1,33 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}/removeOneToOneNat
+    method: post
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            ID of the instance to remove One-to-one NAT.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        networkInterfaceIndex:
+          description: |-
+            **string**
+            The index of the network interface to remove One-to-One NAT from.
+          type: string
+        internalAddress:
+          description: |-
+            **string**
+            The network address that is assigned to the instance for this network interface.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/removeOneToOneNat.md
 ---
 

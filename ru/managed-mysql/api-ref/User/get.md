@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster the user belongs to.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+          type: string
+        userName:
+          description: |-
+            **string**
+            Required field. Name of the user to return information about.
+            To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/list#List) request.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - userName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/User/get.md
 ---
 
@@ -94,7 +120,8 @@ This access includes:
 The contents of the Information Schema `ROUTINES` table.
 The `SHOW CREATE FUNCTION` and `SHOW CREATE PROCEDURE` statements.
 The `SHOW FUNCTION CODE` and `SHOW PROCEDURE CODE` statements.
-The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements. ||
+The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements.
+- `MDB_ADMIN`: Enables use of the KILL command, creating and dropping databases and users, granting privileges to tables and databases. ||
 || connectionLimits | **[ConnectionLimits](#yandex.cloud.mdb.mysql.v1.ConnectionLimits)**
 
 Set of user connection limits. ||

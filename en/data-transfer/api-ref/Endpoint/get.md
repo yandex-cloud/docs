@@ -1,5 +1,21 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-data-transfer }}/v1/endpoint/{endpointId}
+    method: get
+    path:
+      type: object
+      properties:
+        endpointId:
+          description: |-
+            **string**
+            Identifier of the endpoint to return.
+            To get the endpoint ID, make an [EndpointService.List](/docs/data-transfer/api-ref/Endpoint/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/get.md
 ---
 

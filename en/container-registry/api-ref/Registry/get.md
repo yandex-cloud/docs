@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/registries/{registryId}
+    method: get
+    path:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the Registry resource to return.
+            To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/Registry/list#List) request.
+          type: string
+      required:
+        - registryId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/get.md
 ---
 

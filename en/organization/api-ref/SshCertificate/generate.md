@@ -1,9 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/sshCertificates:generate
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        cloudId:
+          description: |-
+            **string**
+            the cloud must be attached to an organization
+            Includes only one of the fields `cloudId`, `organizationId`.
+          type: string
+        organizationId:
+          description: |-
+            **string**
+            Includes only one of the fields `cloudId`, `organizationId`.
+          type: string
+        subjectId:
+          description: |-
+            **string**
+            specify subject to generate certificate for default login
+            Includes only one of the fields `subjectId`, `osLogin`.
+          type: string
+        osLogin:
+          description: |-
+            **string**
+            specify os_login for a specific login
+            Includes only one of the fields `subjectId`, `osLogin`.
+          type: string
+        publicKey:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - publicKey
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/SshCertificate/generate.md
 ---
 
-# Cloud Organization API, REST: SshCertificate.Generate
+# Identity Hub API, REST: SshCertificate.Generate
 
 Members of an organization can generate certificates for themselves
 Signing certificates for other users requires a special permission

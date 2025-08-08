@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}
+    method: delete
+    path:
+      type: object
+      properties:
+        filesystemId:
+          description: |-
+            **string**
+            Required field. ID of the filesystem to delete.
+            To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request.
+          type: string
+      required:
+        - filesystemId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Filesystem/delete.md
 ---
 

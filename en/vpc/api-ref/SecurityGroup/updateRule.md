@@ -1,5 +1,58 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}/rules/{ruleId}
+    method: patch
+    path:
+      type: object
+      properties:
+        securityGroupId:
+          description: |-
+            **string**
+            Required field. ID of the SecurityGroup to update rule in.
+          type: string
+        ruleId:
+          description: |-
+            **string**
+            Required field. ID of the rule to update.
+          type: string
+      required:
+        - securityGroupId
+        - ruleId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        description:
+          description: |-
+            **string**
+            New description of the rule.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Rule labels as `key:value` pairs.
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [AddressService.Get](/docs/vpc/api-ref/Address/get#Get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/updateRule.md
 ---
 

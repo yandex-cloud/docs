@@ -1,5 +1,204 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://searchapi.{{ api-host }}/v2/web/search
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        query:
+          description: |-
+            **[SearchQuery](/docs/searchapi/api-ref/ImageSearch/search#yandex.cloud.searchapi.v2.SearchQuery)**
+            Required field. Search query.
+          $ref: '#/definitions/SearchQuery'
+        sortSpec:
+          description: |-
+            **[SortSpec](/docs/searchapi/api-ref/WebSearchAsync/search#yandex.cloud.searchapi.v2.SortSpec)**
+            The rules for sorting search results that define the sequence of the returned search results.
+          $ref: '#/definitions/SortSpec'
+        groupSpec:
+          description: |-
+            **[GroupSpec](/docs/searchapi/api-ref/WebSearchAsync/search#yandex.cloud.searchapi.v2.GroupSpec)**
+            Grouping settings that are used to group documents from a single domain into a container.
+          $ref: '#/definitions/GroupSpec'
+        maxPassages:
+          description: |-
+            **string** (int64)
+            The maximum number of passages that can be used when generating a document snippet.
+          type: string
+          format: int64
+        region:
+          description: |-
+            **string**
+            ID of the search country or region that impacts the document ranking rules.
+          type: string
+        l10n:
+          description: |-
+            **enum** (Localization)
+            The notification language for a search response.
+            - `LOCALIZATION_UNSPECIFIED`
+            - `LOCALIZATION_RU`: Russian (default value)
+            - `LOCALIZATION_UK`: Ukrainian
+            - `LOCALIZATION_BE`: Belarusian
+            - `LOCALIZATION_KK`: Kazakh
+            - `LOCALIZATION_TR`: Turkish
+            - `LOCALIZATION_EN`: English
+          type: string
+          enum:
+            - LOCALIZATION_UNSPECIFIED
+            - LOCALIZATION_RU
+            - LOCALIZATION_UK
+            - LOCALIZATION_BE
+            - LOCALIZATION_KK
+            - LOCALIZATION_TR
+            - LOCALIZATION_EN
+        folderId:
+          description: |-
+            **string**
+            ID of the folder.
+          type: string
+        responseFormat:
+          description: |-
+            **enum** (Format)
+            Search results format.
+            - `FORMAT_UNSPECIFIED`
+            - `FORMAT_XML`: XML format (default value)
+            - `FORMAT_HTML`: HTML format
+          type: string
+          enum:
+            - FORMAT_UNSPECIFIED
+            - FORMAT_XML
+            - FORMAT_HTML
+        userAgent:
+          description: |-
+            **string**
+            User-Agent request header value.
+          type: string
+      required:
+        - query
+      additionalProperties: false
+    definitions:
+      SearchQuery:
+        type: object
+        properties:
+          searchType:
+            description: |-
+              **enum** (SearchType)
+              Required field. Search type that determines the domain name that will be used for the search queries.
+              - `SEARCH_TYPE_UNSPECIFIED`
+              - `SEARCH_TYPE_RU`: Russian search type (default), yandex.ru search domain name will be used.
+              - `SEARCH_TYPE_TR`: Turkish search type, yandex.tr search domain name will be used.
+              - `SEARCH_TYPE_COM`: International search type, yandex.com search domain name will be used.
+              - `SEARCH_TYPE_KK`: Kazakh search type, yandex.kz search domain name will be used.
+              - `SEARCH_TYPE_BE`: Belarusian search type, yandex.by search domain name will be used.
+              - `SEARCH_TYPE_UZ`: Uzbek search type, yandex.uz search domain name will be used.
+            type: string
+            enum:
+              - SEARCH_TYPE_UNSPECIFIED
+              - SEARCH_TYPE_RU
+              - SEARCH_TYPE_TR
+              - SEARCH_TYPE_COM
+              - SEARCH_TYPE_KK
+              - SEARCH_TYPE_BE
+              - SEARCH_TYPE_UZ
+          queryText:
+            description: |-
+              **string**
+              Required field. Search query text
+            type: string
+          familyMode:
+            description: |-
+              **enum** (FamilyMode)
+              Rule for filtering search results and determines whether any documents should be excluded.
+              - `FAMILY_MODE_UNSPECIFIED`
+              - `FAMILY_MODE_NONE`: Filtering is disabled. Search results include any documents regardless of their contents.
+              - `FAMILY_MODE_MODERATE`: Moderate filter (default value). Documents of the Adult category are excluded from search results
+              unless a query is explicitly made for searching resources of this category.
+              - `FAMILY_MODE_STRICT`: Regardless of a search query, documents of the Adult category
+              and those with profanity are excluded from search results.
+            type: string
+            enum:
+              - FAMILY_MODE_UNSPECIFIED
+              - FAMILY_MODE_NONE
+              - FAMILY_MODE_MODERATE
+              - FAMILY_MODE_STRICT
+          page:
+            description: |-
+              **string** (int64)
+              The number of a requested page with search results
+            type: string
+            format: int64
+          fixTypoMode:
+            description: |-
+              **enum** (FixTypoMode)
+              Typos autocorrections mode
+              - `FIX_TYPO_MODE_UNSPECIFIED`
+              - `FIX_TYPO_MODE_ON`: Automatically correct typos (default value).
+              - `FIX_TYPO_MODE_OFF`: Autocorrection is off.
+            type: string
+            enum:
+              - FIX_TYPO_MODE_UNSPECIFIED
+              - FIX_TYPO_MODE_ON
+              - FIX_TYPO_MODE_OFF
+        required:
+          - searchType
+          - queryText
+      SortSpec:
+        type: object
+        properties:
+          sortMode:
+            description: |-
+              **enum** (SortMode)
+              Documents sorting mode.
+              - `SORT_MODE_UNSPECIFIED`
+              - `SORT_MODE_BY_RELEVANCE`: Sort documents by relevance (default value).
+              - `SORT_MODE_BY_TIME`: Sort documents by update time.
+            type: string
+            enum:
+              - SORT_MODE_UNSPECIFIED
+              - SORT_MODE_BY_RELEVANCE
+              - SORT_MODE_BY_TIME
+          sortOrder:
+            description: |-
+              **enum** (SortOrder)
+              Documents sorting order.
+              - `SORT_ORDER_UNSPECIFIED`
+              - `SORT_ORDER_ASC`: Reverse order from oldest to most recent.
+              - `SORT_ORDER_DESC`: Direct order from most recent to oldest (default).
+            type: string
+            enum:
+              - SORT_ORDER_UNSPECIFIED
+              - SORT_ORDER_ASC
+              - SORT_ORDER_DESC
+      GroupSpec:
+        type: object
+        properties:
+          groupMode:
+            description: |-
+              **enum** (GroupMode)
+              Grouping method.
+              - `GROUP_MODE_UNSPECIFIED`
+              - `GROUP_MODE_FLAT`: Flat grouping. Each group contains a single document.
+              - `GROUP_MODE_DEEP`: Grouping by domain. Each group contains documents from one domain.
+            type: string
+            enum:
+              - GROUP_MODE_UNSPECIFIED
+              - GROUP_MODE_FLAT
+              - GROUP_MODE_DEEP
+          groupsOnPage:
+            description: |-
+              **string** (int64)
+              Maximum number of groups that can be returned per page with search results.
+            type: string
+            format: int64
+          docsInGroup:
+            description: |-
+              **string** (int64)
+              Maximum number of documents that can be returned per group.
+            type: string
+            format: int64
 sourcePath: en/_api-ref/searchapi/v2/api-ref/WebSearch/search.md
 ---
 

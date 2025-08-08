@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/templates/{id}
+    method: get
+    path:
+      type: object
+      properties:
+        id:
+          description: |-
+            **string**
+            Required field. ID of the template to retrieve.
+          type: string
+      required:
+        - id
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/Template/get.md
 ---
 

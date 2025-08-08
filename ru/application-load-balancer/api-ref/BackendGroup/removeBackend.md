@@ -1,5 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}:removeBackend
+    method: post
+    path:
+      type: object
+      properties:
+        backendGroupId:
+          description: |-
+            **string**
+            Required field. ID of the backend group to remove a backend from.
+            To get the backend group ID, make a [BackendGroupService.List](/docs/application-load-balancer/api-ref/BackendGroup/list#List) request.
+          type: string
+      required:
+        - backendGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        backendName:
+          description: |-
+            **string**
+            Required field. Name of the backend to remove.
+            To get the backend name, make a [BackendGroupService.Get](/docs/application-load-balancer/api-ref/BackendGroup/get#Get) request.
+          type: string
+      required:
+        - backendName
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/removeBackend.md
 ---
 

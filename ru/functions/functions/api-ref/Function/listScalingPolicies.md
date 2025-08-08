@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}/scalingPolicies
+    method: get
+    path:
+      type: object
+      properties:
+        functionId:
+          description: |-
+            **string**
+            Required field. ID of the function to retrieve scaling policies for.
+            To get a function ID, make a [FunctionService.List](/docs/functions/functions/api-ref/Function/list#List) request.
+          type: string
+      required:
+        - functionId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`, the service returns a [ListScalingPoliciesResponse.nextPageToken](/docs/functions/functions/api-ref/Function/listScalingPolicies#yandex.cloud.serverless.functions.v1.ListScalingPoliciesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListScalingPoliciesResponse.nextPageToken](/docs/functions/functions/api-ref/Function/listScalingPolicies#yandex.cloud.serverless.functions.v1.ListScalingPoliciesResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/listScalingPolicies.md
 ---
 

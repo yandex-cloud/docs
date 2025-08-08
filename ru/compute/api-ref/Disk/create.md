@@ -1,5 +1,144 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/disks
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a disk in.
+            To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the disk.
+          pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the disk.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        typeId:
+          description: |-
+            **string**
+            ID of the disk type.
+            To get a list of available disk types use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request.
+          type: string
+        zoneId:
+          description: |-
+            **string**
+            Required field. ID of the availability zone where the disk resides.
+            To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+          type: string
+        size:
+          description: |-
+            **string** (int64)
+            Required field. Size of the disk, specified in bytes.
+            If the disk was created from a image, this value should be more than the
+            [yandex.cloud.compute.v1.Image.minDiskSize](/docs/compute/api-ref/Image/get#yandex.cloud.compute.v1.Image) value.
+          type: string
+          format: int64
+        imageId:
+          description: |-
+            **string**
+            ID of the image to create the disk from.
+            Includes only one of the fields `imageId`, `snapshotId`.
+          type: string
+        snapshotId:
+          description: |-
+            **string**
+            ID of the snapshot to restore the disk from.
+            Includes only one of the fields `imageId`, `snapshotId`.
+          type: string
+        blockSize:
+          description: |-
+            **string** (int64)
+            Block size used for disk, specified in bytes. The default is 4096.
+          type: string
+          format: int64
+        diskPlacementPolicy:
+          description: |-
+            **[DiskPlacementPolicy](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+            Placement policy configuration.
+          $ref: '#/definitions/DiskPlacementPolicy'
+        snapshotScheduleIds:
+          description: |-
+            **string**
+            List of IDs of the snapshot schedules to attach the disk to.
+          type: array
+          items:
+            type: string
+        hardwareGeneration:
+          description: |-
+            **[HardwareGeneration](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.HardwareGeneration)**
+            Specify the overrides to hardware_generation of a source disk, image or snapshot,
+            or to the default values if the source does not define it.
+          oneOf:
+            - type: object
+              properties:
+                legacyFeatures:
+                  description: |-
+                    **[LegacyHardwareFeatures](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
+                    Includes only one of the fields `legacyFeatures`, `generation2Features`.
+                  $ref: '#/definitions/LegacyHardwareFeatures'
+                generation2Features:
+                  description: |-
+                    **object**
+                    Includes only one of the fields `legacyFeatures`, `generation2Features`.
+                  $ref: '#/definitions/Generation2HardwareFeatures'
+        kmsKeyId:
+          description: |-
+            **string**
+            ID of KMS key for disk encryption.
+          type: string
+      required:
+        - folderId
+        - zoneId
+        - size
+      additionalProperties: false
+    definitions:
+      DiskPlacementPolicy:
+        type: object
+        properties:
+          placementGroupId:
+            description: |-
+              **string**
+              Placement group ID.
+            type: string
+          placementGroupPartition:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      LegacyHardwareFeatures:
+        type: object
+        properties:
+          pciTopology:
+            description: |-
+              **enum** (PCITopology)
+              - `PCI_TOPOLOGY_UNSPECIFIED`
+              - `PCI_TOPOLOGY_V1`
+              - `PCI_TOPOLOGY_V2`
+            type: string
+            enum:
+              - PCI_TOPOLOGY_UNSPECIFIED
+              - PCI_TOPOLOGY_V1
+              - PCI_TOPOLOGY_V2
+      Generation2HardwareFeatures:
+        type: object
+        properties: {}
 sourcePath: en/_api-ref/compute/v1/api-ref/Disk/create.md
 ---
 

@@ -1,5 +1,56 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users/{userName}:grantPermission
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the MongoDB cluster the user belongs to.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+          type: string
+        userName:
+          description: |-
+            **string**
+            Required field. Name of the user to grant the permission to.
+            To get the name of the user, use a [UserService.List](/docs/managed-mongodb/api-ref/User/list#List) request.
+          pattern: '[a-zA-Z0-9_]*'
+          type: string
+      required:
+        - clusterId
+        - userName
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        permission:
+          description: |-
+            **[Permission](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.Permission)**
+            Required field. Permission that should be granted to the specified user.
+          $ref: '#/definitions/Permission'
+      required:
+        - permission
+      additionalProperties: false
+    definitions:
+      Permission:
+        type: object
+        properties:
+          databaseName:
+            description: |-
+              **string**
+              Name of the database that the permission grants access to.
+            type: string
+          roles:
+            description: |-
+              **string**
+              MongoDB roles for the [databaseName](/docs/managed-mongodb/api-ref/Cluster/create#yandex.cloud.mdb.mongodb.v1.Permission) database that the permission grants.
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/User/grantPermission.md
 ---
 

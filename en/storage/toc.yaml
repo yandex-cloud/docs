@@ -742,6 +742,12 @@ items:
                     href: api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: api-ref/grpc/Operation/cancel.md
+              - name: Presign
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Presign/index.md
+                  - name: Create
+                    href: api-ref/grpc/Presign/create.md
           - name: REST
             items:
               - name: Overview

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/User/listMembers.md
 ---
 
-# Cloud Organization API, gRPC: UserService.ListMembers
+# Identity Hub API, gRPC: UserService.ListMembers
 
 List organization active members.
 

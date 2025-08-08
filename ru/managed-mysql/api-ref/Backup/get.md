@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/backups/{backupId}
+    method: get
+    path:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            **string**
+            Required field. ID of the backup to return information about.
+            To get this ID, make a [BackupService.List](/docs/managed-mysql/api-ref/Backup/list#List) request (lists all backups in a folder) or a [ClusterService.ListBackups](/docs/managed-mysql/api-ref/Cluster/listBackups#ListBackups) request (lists all backups for an existing cluster).
+          type: string
+      required:
+        - backupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Backup/get.md
 ---
 

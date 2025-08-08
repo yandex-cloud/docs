@@ -1,5 +1,50 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/gateways
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a gateway in.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the gateway.
+            The name must be unique within the folder.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the gateway.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Gateway labels as `key:value` pairs.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        sharedEgressGatewaySpec:
+          description: |-
+            **object**
+            Includes only one of the fields `sharedEgressGatewaySpec`.
+            Gateway configuration specification
+          $ref: '#/definitions/SharedEgressGatewaySpec'
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      SharedEgressGatewaySpec:
+        type: object
+        properties: {}
 sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/create.md
 ---
 

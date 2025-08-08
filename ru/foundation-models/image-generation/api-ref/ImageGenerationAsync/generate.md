@@ -1,5 +1,80 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        modelUri:
+          description: |-
+            **string**
+            The [model URI](/docs/foundation-models/concepts/yandexart/models) to be used for image generation.
+          type: string
+        messages:
+          description: |-
+            **[Message](/docs/foundation-models/image-generation/api-ref/ImageGenerationAsync/generate#yandex.cloud.ai.foundation_models.v1.image_generation.Message)**
+            A list of messages representing the context for the image generation model.
+          type: array
+          items:
+            $ref: '#/definitions/Message'
+        generationOptions:
+          description: |-
+            **[ImageGenerationOptions](/docs/foundation-models/image-generation/api-ref/ImageGenerationAsync/generate#yandex.cloud.ai.foundation_models.v1.image_generation.ImageGenerationOptions)**
+            Image generation options.
+          $ref: '#/definitions/ImageGenerationOptions'
+      additionalProperties: false
+    definitions:
+      Message:
+        type: object
+        properties:
+          text:
+            description: |-
+              **string**
+              Text describing the image.
+            type: string
+          weight:
+            description: |-
+              **string**
+              Message weight. Negative values indicate negative messages. Note: Currently not supported.
+            type: string
+      AspectRatio:
+        type: object
+        properties:
+          widthRatio:
+            description: |-
+              **string** (int64)
+              Weight of width in image.
+            type: string
+            format: int64
+          heightRatio:
+            description: |-
+              **string** (int64)
+              Weight of height in image.
+            type: string
+            format: int64
+      ImageGenerationOptions:
+        type: object
+        properties:
+          mimeType:
+            description: |-
+              **string**
+              The [MIME type](https://en.wikipedia.org/wiki/Media_type) of generated image format.
+              For possible specifications, see [documentation](/docs/foundation-models/concepts).
+            type: string
+          seed:
+            description: |-
+              **string** (int64)
+              Seed for image generation. It serves as a starting point for image generation from noise. If set to 0 or not provided, a randomly generated value will be used.
+            type: string
+            format: int64
+          aspectRatio:
+            description: |-
+              **[AspectRatio](/docs/foundation-models/image-generation/api-ref/ImageGenerationAsync/generate#yandex.cloud.ai.foundation_models.v1.image_generation.AspectRatio)**
+              Aspect ratio of generated image.
+            $ref: '#/definitions/AspectRatio'
 sourcePath: en/_api-ref/ai/foundation_models/v1/image_generation/image-generation/api-ref/ImageGenerationAsync/generate.md
 ---
 
@@ -63,7 +138,7 @@ The text descriptions and weights that the model uses to generate an image.
 Text describing the image. ||
 || weight | **string**
 
-Message weight. Negative values indicate negative messages. ||
+Message weight. Negative values indicate negative messages. Note: Currently not supported. ||
 |#
 
 ## ImageGenerationOptions {#yandex.cloud.ai.foundation_models.v1.image_generation.ImageGenerationOptions}
@@ -76,7 +151,7 @@ The [MIME type](https://en.wikipedia.org/wiki/Media_type) of generated image for
 For possible specifications, see [documentation](/docs/foundation-models/concepts). ||
 || seed | **string** (int64)
 
-Seed for image generation. It serves as a starting point for image generation from noise. ||
+Seed for image generation. It serves as a starting point for image generation from noise. If set to 0 or not provided, a randomly generated value will be used. ||
 || aspectRatio | **[AspectRatio](#yandex.cloud.ai.foundation_models.v1.image_generation.AspectRatio)**
 
 Aspect ratio of generated image. ||

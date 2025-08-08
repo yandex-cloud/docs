@@ -1,5 +1,101 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-workflows.{{ api-host }}/workflows/v1/workflow/{workflowId}
+    method: patch
+    path:
+      type: object
+      properties:
+        workflowId:
+          description: |-
+            **string**
+            Required field. ID of the Workflow.
+          type: string
+      required:
+        - workflowId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Name of the Workflow. The name is unique within the folder.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the Workflow.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Workflow labels as `key:value` pairs.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        specification:
+          description: |-
+            **[WorkflowSpecification](/docs/functions/workflows/api-ref/Workflow/create#yandex.cloud.serverless.workflows.v1.WorkflowSpecification)**
+            Specification of the Workflow.
+          oneOf:
+            - type: object
+              properties:
+                specYaml:
+                  description: |-
+                    **string**
+                    Workflow specification in YAML format.
+                    Includes only one of the fields `specYaml`.
+                  type: string
+        logOptions:
+          description: |-
+            **[LogOptions](/docs/functions/workflows/api-ref/Workflow/create#yandex.cloud.serverless.workflows.v1.LogOptions)**
+            Options for logging from the Workflow.
+          oneOf:
+            - type: object
+              properties:
+                logGroupId:
+                  description: |-
+                    **string**
+                    ID of the logging group which should be used for Workflows logs.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                  type: string
+                folderId:
+                  description: |-
+                    **string**
+                    ID of the folder which default logging group should be used for Workflows.
+                    Includes only one of the fields `logGroupId`, `folderId`.
+                  type: string
+        networkId:
+          description: |-
+            **string**
+            ID of the VPC network Workflow will be executed in, in order to access private resources.
+          type: string
+        serviceAccountId:
+          description: |-
+            **string**
+            ID of the Service Account which will be used for resources access in Workflow execution.
+          type: string
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        express:
+          description: |-
+            **boolean**
+            Express execution mode.
+          type: boolean
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/update.md
 ---
 

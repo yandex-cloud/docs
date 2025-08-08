@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/versions/{functionVersionId}
+    method: get
+    path:
+      type: object
+      properties:
+        functionVersionId:
+          description: |-
+            **string**
+            Required field. ID of the version to return.
+            To get a version ID make a [FunctionService.ListVersions](/docs/functions/functions/api-ref/Function/listVersions#ListVersions) request.
+          type: string
+      required:
+        - functionVersionId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/getVersion.md
 ---
 

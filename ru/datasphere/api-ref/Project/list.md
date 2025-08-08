@@ -1,5 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/projects
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        communityId:
+          description: |-
+            **string**
+            Required field. ID of the community to list projects in.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListProjectsResponse.nextPageToken](/docs/datasphere/api-ref/Project/list#yandex.cloud.datasphere.v2.ListProjectsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListProjectsResponse.nextPageToken](/docs/datasphere/api-ref/Project/list#yandex.cloud.datasphere.v2.ListProjectsResponse) returned by a previous list request.
+          type: string
+        projectNamePattern:
+          description: |-
+            **string**
+            Name pattern to filter projects that are returned.
+            Only projects with names matching the pattern will be returned.
+          type: string
+        ownedById:
+          description: |-
+            **string**
+            User ID to filter projects that are returned.
+            Only projects that are owned by specified user will be returned.
+          type: string
+      required:
+        - communityId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/list.md
 ---
 

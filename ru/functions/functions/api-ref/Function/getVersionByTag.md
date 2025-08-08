@@ -1,5 +1,30 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/versions:byTag
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        functionId:
+          description: |-
+            **string**
+            Required field. ID of the function whose versions should be listed.
+            To get a function ID use a [FunctionService.List](/docs/functions/functions/api-ref/Function/list#List) request.
+          type: string
+        tag:
+          description: |-
+            **string**
+            Version tag.
+            To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory#ListTagHistory) request.
+          pattern: '[a-z][-_0-9a-z]*|[$]latest'
+          type: string
+      required:
+        - functionId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/getVersionByTag.md
 ---
 

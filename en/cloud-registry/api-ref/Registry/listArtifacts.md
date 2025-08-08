@@ -1,5 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}:listArtifacts
+    method: get
+    path:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            ID of the registry artifact to list repositories in.
+            To get the registry ID use a [ArtifactService.List](/docs/cloud-registry/api-ref/Registry/list#List) request.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        path:
+          description: |-
+            **string**
+            The path to a specific node where the registry artifact is located.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListRepositoriesResponse.next_page_token]
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 10.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListArtifactsResponse.nextPageToken](/docs/cloud-registry/api-ref/Registry/listArtifacts#yandex.cloud.cloudregistry.v1.ListArtifactsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cloudregistry/v1/api-ref/Registry/listArtifacts.md
 ---
 

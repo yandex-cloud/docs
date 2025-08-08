@@ -44,15 +44,11 @@ resource "yandex_vpc_subnet" "<имя_подсети>" {
 
 * `coordinator` — конфигурация [координатора](../../../managed-trino/concepts/index.md#coordinator):
 
-    * `resource_preset_id` — класс вычислительных ресурсов координатора. Возможные значения:
-
-        {% include [resource-preset-id](../resource-preset-id.md) %}
+    * `resource_preset_id` — [класс вычислительных ресурсов](../../../managed-trino/concepts/instance-types.md) координатора.
 
 * `worker` — конфигурация [воркера](../../../managed-trino/concepts/index.md#workers):
 
-    * `resource_preset_id` — класс вычислительных ресурсов воркера. Возможные значения:
-
-        {% include [resource-preset-id](../resource-preset-id.md) %}
+    * `resource_preset_id` — [класс вычислительных ресурсов](../../../managed-trino/concepts/instance-types.md) воркера.
 
     * `fixed_scale` — фиксированная политика масштабирования воркеров.
 

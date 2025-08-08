@@ -1,5 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/resourcePresets/{resourcePresetId}
+    method: get
+    path:
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            **string**
+            Required field. ID of the resource preset to return.
+            To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-greenplum/api-ref/ResourcePreset/list#List) request.
+          type: string
+      required:
+        - resourcePresetId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        type:
+          description: |-
+            **enum** (Type)
+            Required field. Required. ResourcePreset type - master or segment.
+            - `TYPE_UNSPECIFIED`
+            - `MASTER`: Greenplum® master host.
+            - `SEGMENT`: Greenplum® segment host.
+          type: string
+          enum:
+            - TYPE_UNSPECIFIED
+            - MASTER
+            - SEGMENT
+      required:
+        - type
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/ResourcePreset/get.md
 ---
 

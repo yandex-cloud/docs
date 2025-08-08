@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://translate.{{ api-host }}/translate/v2/languages
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to which you have access.
+            Required for authorization with a [user account](/docs/iam/concepts/users/accounts).
+            Do not specify this field if you make the request on behalf of a [service account](/docs/iam/concepts/users/accounts#sa).
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/listLanguages.md
 ---
 

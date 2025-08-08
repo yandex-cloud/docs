@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}/passwords
+    method: post
+    path:
+      type: object
+      properties:
+        deviceId:
+          description: |-
+            **string**
+            Required field. ID of the device to add a password for.
+            To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request.
+          type: string
+      required:
+        - deviceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        password:
+          description: |-
+            **string**
+            Passwords for the device.
+            The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/addPassword.md
 ---
 

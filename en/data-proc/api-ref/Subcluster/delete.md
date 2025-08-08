@@ -1,5 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclusters/{subclusterId}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to remove a subcluster from.
+            To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+          type: string
+        subclusterId:
+          description: |-
+            **string**
+            Required field. ID of the subcluster to delete.
+          type: string
+      required:
+        - clusterId
+        - subclusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        decommissionTimeout:
+          description: |-
+            **string** (int64)
+            Timeout to gracefully decommission nodes. In seconds. Default value: 0
+          type: string
+          format: int64
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Subcluster/delete.md
 ---
 

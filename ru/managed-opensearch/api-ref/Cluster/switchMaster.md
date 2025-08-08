@@ -1,7 +1,33 @@
 ---
 editable: false
 apiPlayground:
-  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:switch_master","method":"post","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. Required. ID of the OpenSearch cluster.","type":"string"}},"required":["clusterId"],"additionalProperties":false},"query":null,"body":{"type":"object","properties":{"fromHosts":{"description":"**string**\n\nHosts list which are forbidden to be masters after operation.\nIf no hosts given, then current master will be switched.","type":"array","items":{"type":"string"}}},"additionalProperties":false},"definitions":null}'
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:switch_master
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. Required. ID of the OpenSearch cluster.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        fromHosts:
+          description: |-
+            **string**
+            Hosts list which are forbidden to be masters after operation.
+            If no hosts given, then current master will be switched.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/switchMaster.md
 ---
 

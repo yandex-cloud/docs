@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}:listResources
+    method: get
+    path:
+      type: object
+      properties:
+        logGroupId:
+          description: |-
+            **string**
+            Required field. ID of the log group to list resources for.
+            To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGroup/list#List) request.
+          type: string
+      required:
+        - logGroupId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        type:
+          description: |-
+            **string**
+            Resource type to return resources for.
+            If not specified, [ListResourcesResponse](/docs/logging/api-ref/LogGroup/listResources#yandex.cloud.logging.v1.ListResourcesResponse) will contain information about all resource types.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/listResources.md
 ---
 

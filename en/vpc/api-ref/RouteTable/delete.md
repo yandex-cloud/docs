@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}
+    method: delete
+    path:
+      type: object
+      properties:
+        routeTableId:
+          description: |-
+            **string**
+            Required field. ID of the route table to delete.
+            To get the route table ID use a [RouteTableService.List](/docs/vpc/api-ref/RouteTable/list#List) request.
+          type: string
+      required:
+        - routeTableId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/delete.md
 ---
 

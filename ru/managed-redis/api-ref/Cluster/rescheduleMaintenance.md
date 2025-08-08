@@ -1,5 +1,52 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:rescheduleMaintenance
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Redis cluster to reschedule the maintenance operation for.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        rescheduleType:
+          description: |-
+            **enum** (RescheduleType)
+            Required field. The type of reschedule request.
+            - `RESCHEDULE_TYPE_UNSPECIFIED`
+            - `IMMEDIATE`: Start the maintenance operation immediately.
+            - `NEXT_AVAILABLE_WINDOW`: Start the maintenance operation within the next available maintenance window.
+            - `SPECIFIC_TIME`: Start the maintenance operation at the specific time.
+          type: string
+          enum:
+            - RESCHEDULE_TYPE_UNSPECIFIED
+            - IMMEDIATE
+            - NEXT_AVAILABLE_WINDOW
+            - SPECIFIC_TIME
+        delayedUntil:
+          description: |-
+            **string** (date-time)
+            The time until which this maintenance operation should be delayed. The value should be ahead of the first time when the maintenance operation has been scheduled for no more than two weeks. The value can also point to the past moment of time if [rescheduleType.IMMEDIATE](/docs/managed-redis/api-ref/Cluster/rescheduleMaintenance#yandex.cloud.mdb.redis.v1.RescheduleMaintenanceRequest.RescheduleType) reschedule type is chosen.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+      required:
+        - rescheduleType
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/rescheduleMaintenance.md
 ---
 
@@ -488,7 +535,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
     "deletionProtection": "boolean",
     "persistenceMode": "string",
     "announceHostnames": "boolean",
-    "authSentinel": "boolean"
+    "authSentinel": "boolean",
+    "diskEncryptionKeyId": "string"
   }
   // end of the list of possible fields
 }
@@ -701,6 +749,9 @@ Enable FQDN instead of ip ||
 || authSentinel | **boolean**
 
 Allows to use ACL users to auth in sentinel ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.redis.v1.Monitoring}

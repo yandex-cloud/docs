@@ -1,5 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloudrouter.{{ api-host }}/cloudrouter/v1/routingInstances/{routingInstanceId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        routingInstanceId:
+          description: |-
+            **string**
+            Required field. ID of the RoutingInstance resource.
+          type: string
+      required:
+        - routingInstanceId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListRoutingInstanceOperationsResponse.nextPageToken](/docs/cloud-router/api-ref/RoutingInstance/listOperations#yandex.cloud.cloudrouter.v1.ListRoutingInstanceOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests. Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListRoutingInstanceOperationsResponse.nextPageToken](/docs/cloud-router/api-ref/RoutingInstance/listOperations#yandex.cloud.cloudrouter.v1.ListRoutingInstanceOperationsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cloudrouter/v1/api-ref/RoutingInstance/listOperations.md
 ---
 

@@ -1,11 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/thumbnails
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        channelId:
+          description: |-
+            **string**
+            [Deprecated] ID of the channel.
+          type: string
+        episodeId:
+          description: |-
+            **string**
+            ID of the episode to associate the thumbnail with.
+            Includes only one of the fields `episodeId`, `videoId`.
+          type: string
+        videoId:
+          description: |-
+            **string**
+            ID of the video to associate the thumbnail with.
+            Includes only one of the fields `episodeId`, `videoId`.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/create.md
 ---
 
 # Video API, REST: Thumbnail.Create
 
-Create thumbnail.
+Creates a new thumbnail record for a specific resource.
+This method only creates the metadata record; the actual image must be uploaded
+using the URL obtained from the GenerateUploadURL method.
 
 ## HTTP request
 
@@ -17,7 +46,11 @@ POST https://video.{{ api-host }}/video/v1/thumbnails
 
 ```json
 {
-  "channelId": "string"
+  "channelId": "string",
+  // Includes only one of the fields `episodeId`, `videoId`
+  "episodeId": "string",
+  "videoId": "string"
+  // end of the list of possible fields
 }
 ```
 
@@ -25,7 +58,17 @@ POST https://video.{{ api-host }}/video/v1/thumbnails
 ||Field | Description ||
 || channelId | **string**
 
-ID of the channel. ||
+[Deprecated] ID of the channel. ||
+|| episodeId | **string**
+
+ID of the episode to associate the thumbnail with.
+
+Includes only one of the fields `episodeId`, `videoId`. ||
+|| videoId | **string**
+
+ID of the video to associate the thumbnail with.
+
+Includes only one of the fields `episodeId`, `videoId`. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -54,6 +97,10 @@ ID of the channel. ||
   "response": {
     "id": "string",
     "channelId": "string",
+    // Includes only one of the fields `episodeId`, `videoId`
+    "episodeId": "string",
+    "videoId": "string",
+    // end of the list of possible fields
     "createdAt": "string"
   }
   // end of the list of possible fields
@@ -135,7 +182,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || thumbnailId | **string**
 
-ID of the thumbnail. ||
+ID of the thumbnail being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -157,17 +204,30 @@ A list of messages that carry the error details. ||
 
 ## Thumbnail {#yandex.cloud.video.v1.Thumbnail}
 
+Entity representing an image used as a visual representation for various content entities.
+Thumbnails provide preview images for channels, streams, episodes, videos, and stream lines.
+
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the thumbnail. ||
+Unique identifier of the thumbnail. ||
 || channelId | **string**
 
-ID of the channel where the thumbnail was created. ||
+Identifier of the channel where the thumbnail is created and managed. ||
+|| episodeId | **string**
+
+ID of the episode which the thumbnail is associated with.
+
+Includes only one of the fields `episodeId`, `videoId`. ||
+|| videoId | **string**
+
+ID of the video which the thumbnail is associated with.
+
+Includes only one of the fields `episodeId`, `videoId`. ||
 || createdAt | **string** (date-time)
 
-Time when thumbnail was created.
+Timestamp when the thumbnail was initially created in the system.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

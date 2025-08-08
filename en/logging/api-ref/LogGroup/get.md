@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        logGroupId:
+          description: |-
+            **string**
+            Required field. ID of the log group to return.
+            To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGroup/list#List) request.
+          type: string
+      required:
+        - logGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/get.md
 ---
 

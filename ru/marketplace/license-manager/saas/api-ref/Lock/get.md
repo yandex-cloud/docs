@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://marketplace.{{ api-host }}/marketplace/license-manager/saas/v1/locks/{lockId}
+    method: get
+    path:
+      type: object
+      properties:
+        lockId:
+          description: |-
+            **string**
+            Required field. ID of the subscription lock.
+          type: string
+      required:
+        - lockId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/marketplace/licensemanager/saas/v1/license-manager/saas/api-ref/Lock/get.md
 ---
 
@@ -36,7 +53,22 @@ Required field. ID of the subscription lock. ||
   "createdAt": "string",
   "updatedAt": "string",
   "state": "string",
-  "templateId": "string"
+  "templateId": "string",
+  "externalInstance": {
+    "name": "string",
+    "properties": "object",
+    // Includes only one of the fields `subscription`, `license`
+    "subscription": {
+      "subscriptionId": "string",
+      "licenseId": "string",
+      "activationKey": "string"
+    },
+    "license": {
+      "licenseId": "string",
+      "payload": "string"
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -102,4 +134,55 @@ Subscription lock state.
 || templateId | **string**
 
 ID of the subscription template. ||
+|| externalInstance | **[ExternalInstance](#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance)**
+
+External subscription instance (optional), for usage convenience propagated
+from parent subscription instance. ||
+|#
+
+## ExternalInstance {#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance}
+
+ExternalInstance attachment to external service subscription.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Optional external subscription name. ||
+|| properties | **object** (map<**string**, **string**>)
+
+Mapping of vendor defined properties in key, value format. ||
+|| subscription | **[ExternalSubscription](#yandex.cloud.marketplace.licensemanager.v1.ExternalSubscription)**
+
+Includes only one of the fields `subscription`, `license`. ||
+|| license | **[ExternalLicense](#yandex.cloud.marketplace.licensemanager.v1.ExternalLicense)**
+
+Includes only one of the fields `subscription`, `license`. ||
+|#
+
+## ExternalSubscription {#yandex.cloud.marketplace.licensemanager.v1.ExternalSubscription}
+
+#|
+||Field | Description ||
+|| subscriptionId | **string**
+
+External subscription id. ||
+|| licenseId | **string**
+
+Optional: paired license id for external subscription. ||
+|| activationKey | **string**
+
+Optional: default activation key for external subscription. ||
+|#
+
+## ExternalLicense {#yandex.cloud.marketplace.licensemanager.v1.ExternalLicense}
+
+#|
+||Field | Description ||
+|| licenseId | **string**
+
+External license bound to subscription instance. ||
+|| payload | **string** (bytes)
+
+License (vendor specific) payload. ||
 |#

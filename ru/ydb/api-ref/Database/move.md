@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ydb.{{ api-host }}/ydb/v1/databases/{databaseId}:move
+    method: post
+    path:
+      type: object
+      properties:
+        databaseId:
+          description: |-
+            **string**
+            Required field. ID of the YDB instance to move.
+          type: string
+      required:
+        - databaseId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            **string**
+            Required field. ID of the destination folder.
+          type: string
+      required:
+        - destinationFolderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/ydb/v1/api-ref/Database/move.md
 ---
 

@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/backups/{backupId}
+    method: get
+    path:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            **string**
+            Required field. ID of the backup to return information about.
+            To get the backup ID, use a [ClusterService.ListBackups](/docs/managed-clickhouse/api-ref/Cluster/listBackups#ListBackups) request.
+          type: string
+      required:
+        - backupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Backup/get.md
 ---
 

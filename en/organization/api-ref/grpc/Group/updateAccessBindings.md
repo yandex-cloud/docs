@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Group/updateAccessBindings.md
 ---
 
-# Cloud Organization API, gRPC: GroupService.UpdateAccessBindings
+# Identity Hub API, gRPC: GroupService.UpdateAccessBindings
 
 Updates access bindings for the specified group.
 

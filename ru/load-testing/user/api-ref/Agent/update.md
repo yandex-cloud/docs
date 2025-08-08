@@ -1,5 +1,290 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent/{agentId}
+    method: patch
+    path:
+      type: object
+      properties:
+        agentId:
+          description: |-
+            **string**
+            Required field. ID of the agent to update.
+          type: string
+      required:
+        - agentId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            Required field. A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name of the agent.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the agent.
+          type: string
+        computeInstanceParams:
+          description: |-
+            **`CreateComputeInstance`**
+            New parameters of compute instance managed by the agent.
+          $ref: '#/definitions/CreateComputeInstance'
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New labels of the agent.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+      required:
+        - updateMask
+      additionalProperties: false
+    definitions:
+      ResourcesSpec:
+        type: object
+        properties:
+          memory:
+            description: |-
+              **string** (int64)
+              Required field. The amount of memory available to the instance, specified in bytes.
+            type: string
+            format: int64
+          cores:
+            description: |-
+              **string** (int64)
+              Required field. The number of cores available to the instance.
+            type: string
+            format: int64
+          coreFraction:
+            description: |-
+              **string** (int64)
+              Baseline level of CPU performance with the ability to burst performance above that baseline level.
+              This field sets baseline performance for each core.
+              For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
+              For more information, see [Levels of core performance](/docs/compute/concepts/performance-levels).
+            type: string
+            format: int64
+          gpus:
+            description: |-
+              **string** (int64)
+              The number of GPUs available to the instance.
+            type: string
+            format: int64
+        required:
+          - memory
+          - cores
+      DnsRecordSpec:
+        type: object
+        properties:
+          fqdn:
+            description: |-
+              **string**
+              Required field. FQDN (required)
+            type: string
+          dnsZoneId:
+            description: |-
+              **string**
+              DNS zone id (optional, if not set, private zone used)
+            type: string
+          ttl:
+            description: |-
+              **string** (int64)
+              DNS record ttl, values in 0-86400 (optional)
+            type: string
+            format: int64
+          ptr:
+            description: |-
+              **boolean**
+              When set to true, also create PTR DNS record (optional)
+            type: boolean
+        required:
+          - fqdn
+      OneToOneNatSpec:
+        type: object
+        properties:
+          ipVersion:
+            description: |-
+              **enum** (IpVersion)
+              External IP address version.
+              - `IP_VERSION_UNSPECIFIED`
+              - `IPV4`: IPv4 address, for example 192.0.2.235.
+              - `IPV6`: IPv6 address. Not available yet.
+            type: string
+            enum:
+              - IP_VERSION_UNSPECIFIED
+              - IPV4
+              - IPV6
+          address:
+            description: |-
+              **string**
+              set static IP by value
+            type: string
+          dnsRecordSpecs:
+            description: |-
+              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              External DNS configuration
+            type: array
+            items:
+              $ref: '#/definitions/DnsRecordSpec'
+      PrimaryAddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              An IPv4 internal network address that is assigned to the instance for this network interface.
+              If not specified by the user, an unused internal IP is assigned by the system.
+            type: string
+          oneToOneNatSpec:
+            description: |-
+              **[OneToOneNatSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.OneToOneNatSpec)**
+              An external IP address configuration.
+              If not specified, then this instance will have no external internet access.
+            $ref: '#/definitions/OneToOneNatSpec'
+          dnsRecordSpecs:
+            description: |-
+              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              Internal DNS configuration
+            type: array
+            items:
+              $ref: '#/definitions/DnsRecordSpec'
+      NetworkInterfaceSpec:
+        type: object
+        properties:
+          subnetId:
+            description: |-
+              **string**
+              Required field. ID of the subnet.
+            type: string
+          primaryV4AddressSpec:
+            description: |-
+              **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+              Primary IPv4 address that will be assigned to the instance for this network interface.
+            $ref: '#/definitions/PrimaryAddressSpec'
+          primaryV6AddressSpec:
+            description: |-
+              **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+              Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet.
+            $ref: '#/definitions/PrimaryAddressSpec'
+          securityGroupIds:
+            description: |-
+              **string**
+              ID's of security groups attached to the interface
+            type: array
+            items:
+              type: string
+          index:
+            description: |-
+              **string**
+              The index of the network interface, will be generated by the server, 0,1,2... etc if not specified.
+            type: string
+        required:
+          - subnetId
+      CreateComputeInstance:
+        type: object
+        properties:
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Resource labels as `key:value` pairs.
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            type: string
+          zoneId:
+            description: |-
+              **string**
+              Required field. ID of the availability zone where the instance resides.
+              To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request
+            type: string
+          resourcesSpec:
+            description: |-
+              **[ResourcesSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.ResourcesSpec)**
+              Required field. Computing resources of the instance, such as the amount of memory and number of cores.
+              To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels).
+            $ref: '#/definitions/ResourcesSpec'
+          metadata:
+            description: |-
+              **object** (map<**string**, **string**>)
+              The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys.
+              The total size of all keys and values must be less than 512 KB.
+              Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance.
+              The values must be 256 KB or less.
+              For example, you may use the metadata in order to provide your public SSH key to the instance.
+              For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+            type: string
+          bootDiskSpec:
+            description: |-
+              **[AttachedDiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec)**
+              Required field. Boot disk to attach to the instance.
+            oneOf:
+              - type: object
+                properties:
+                  diskSpec:
+                    description: |-
+                      **[DiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
+                      Disk specification.
+                      Includes only one of the fields `diskSpec`, `diskId`.
+                    oneOf:
+                      - type: object
+                        properties:
+                          imageId:
+                            description: |-
+                              **string**
+                              ID of the image to create the disk from.
+                              Includes only one of the fields `imageId`, `snapshotId`.
+                            type: string
+                          snapshotId:
+                            description: |-
+                              **string**
+                              ID of the snapshot to restore the disk from.
+                              Includes only one of the fields `imageId`, `snapshotId`.
+                            type: string
+                  diskId:
+                    description: |-
+                      **string**
+                      ID of the disk that should be attached.
+                      Includes only one of the fields `diskSpec`, `diskId`.
+                    type: string
+          networkInterfaceSpecs:
+            description: |-
+              **[NetworkInterfaceSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.NetworkInterfaceSpec)**
+              Network configuration for the instance. Specifies how the network interface is configured
+              to interact with other services on the internal network and on the internet.
+              Currently only one network interface is supported per instance.
+            type: array
+            items:
+              $ref: '#/definitions/NetworkInterfaceSpec'
+          serviceAccountId:
+            description: |-
+              **string**
+              ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm).
+              To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+            type: string
+          platformId:
+            description: |-
+              **string**
+              ID of the [Compute VM platform](/docs/compute/concepts/vm-platforms) on which the agent will be created.
+              Default value: "standard-v2"
+            type: string
+        required:
+          - zoneId
+          - resourcesSpec
+          - bootDiskSpec
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Agent/update.md
 ---
 

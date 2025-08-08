@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://trino.{{ api-host }}/managed-trino/v1/clusters/{clusterId}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Trino Cluster resource to return.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/trino/v1/api-ref/Cluster/get.md
 ---
 

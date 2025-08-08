@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/shards/{shardName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the MongoDB cluster that the shard belongs to.
+            To get the cluster ID use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+          type: string
+        shardName:
+          description: |-
+            **string**
+            Required field. Name of the MongoDB shard to return.
+            To get the name of the shard use a [ClusterService.ListShards](/docs/managed-mongodb/api-ref/Cluster/listShards#ListShards) request.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - shardName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/getShard.md
 ---
 

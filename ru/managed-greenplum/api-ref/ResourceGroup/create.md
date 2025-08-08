@@ -1,5 +1,72 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/resource_groups
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        resourceGroup:
+          description: '**[ResourceGroup](/docs/managed-greenplum/api-ref/ResourceGroup/list#yandex.cloud.mdb.greenplum.v1.ResourceGroup)**'
+          $ref: '#/definitions/ResourceGroup'
+      additionalProperties: false
+    definitions:
+      ResourceGroup:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. 
+            pattern: ^[^\|/*?.,;'<>]+$
+            type: string
+          isUserDefined:
+            description: '**boolean**'
+            type: boolean
+          concurrency:
+            description: |-
+              **string** (int64)
+              References to CONCURRENCY from gp resource group parameter
+            type: string
+            format: int64
+          cpuRateLimit:
+            description: |-
+              **string** (int64)
+              References to CPU_RATE_LIMIT from gp resource group parameter
+            type: string
+            format: int64
+          memoryLimit:
+            description: |-
+              **string** (int64)
+              References to MEMORY_LIMIT from gp resource group parameter
+            type: string
+            format: int64
+          memorySharedQuota:
+            description: |-
+              **string** (int64)
+              References to MEMORY_SHARED_QUOTA from gp resource group parameter
+            type: string
+            format: int64
+          memorySpillRatio:
+            description: |-
+              **string** (int64)
+              References to MEMORY_SPILL_RATIO from gp resource group parameter
+            type: string
+            format: int64
+        required:
+          - name
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/ResourceGroup/create.md
 ---
 

@@ -1,5 +1,21 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/addresses:byValue
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        externalIpv4Address:
+          description: |-
+            **string**
+            Includes only one of the fields `externalIpv4Address`.
+            External ipv4 address specification.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/getByValue.md
 ---
 

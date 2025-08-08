@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cic.{{ api-host }}/cic/v1/trunkConnections/{trunkConnectionId}
+    method: delete
+    path:
+      type: object
+      properties:
+        trunkConnectionId:
+          description: |-
+            **string**
+            Required field. ID of the TrunkConnection resource.
+          type: string
+      required:
+        - trunkConnectionId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cic/v1/api-ref/TrunkConnection/delete.md
 ---
 

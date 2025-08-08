@@ -1,5 +1,35 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:stopInstances
+    method: post
+    path:
+      type: object
+      properties:
+        instanceGroupId:
+          description: |-
+            **string**
+            Required field. ID of the instance group that the instances are being stopped from.
+            To get the ID of the instance group, use the [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+          type: string
+      required:
+        - instanceGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        managedInstanceIds:
+          description: |-
+            **string**
+            IDs of the instances to stop. After stopping, the instance can be updated, started, or deleted
+            according to scale and deploy policies.
+            Only IDs from the ManagedInstance.id field are allowed, not ManagedInstance.instance_id.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/stopInstances.md
 ---
 

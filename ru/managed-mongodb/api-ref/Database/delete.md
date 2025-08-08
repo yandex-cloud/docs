@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/databases/{databaseName}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the MongoDB cluster to delete a database in.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+          type: string
+        databaseName:
+          description: |-
+            **string**
+            Required field. Name of the database to delete.
+            To get the name of the database, use a [DatabaseService.List](/docs/managed-mongodb/api-ref/Database/list#List) request.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - databaseName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Database/delete.md
 ---
 

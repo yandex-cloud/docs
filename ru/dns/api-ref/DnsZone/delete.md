@@ -1,5 +1,21 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}
+    method: delete
+    path:
+      type: object
+      properties:
+        dnsZoneId:
+          description: |-
+            **string**
+            ID of the DNS zone to delete.
+            To get a DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/DnsZone/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/delete.md
 ---
 

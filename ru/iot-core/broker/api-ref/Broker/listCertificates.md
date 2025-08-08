@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/certificates
+    method: get
+    path:
+      type: object
+      properties:
+        brokerId:
+          description: |-
+            **string**
+            Required field. ID of the broker to list certificates for.
+          type: string
+      required:
+        - brokerId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/listCertificates.md
 ---
 

@@ -1,5 +1,352 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://audittrails.{{ api-host }}/audit-trails/v1/trails
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a trail in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the trail.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the trail.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
+            For example, `"type": "critical"` or `"source": "dictionary"`.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        destination:
+          description: |-
+            **[Destination](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.Destination)**
+            Required field. Destination configuration for the trail
+          oneOf:
+            - type: object
+              properties:
+                objectStorage:
+                  description: |-
+                    **[ObjectStorage](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.ObjectStorage)**
+                    Configuration for event delivery to Object Storage
+                    Uploaded objects will have prefix <trail_id>/ by default
+                    Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`.
+                  $ref: '#/definitions/ObjectStorage'
+                cloudLogging:
+                  description: |-
+                    **[CloudLogging](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
+                    Configuration for event delivery to Cloud Logging
+                    Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`.
+                  oneOf:
+                    - type: object
+                      properties:
+                        logGroupId:
+                          description: |-
+                            **string**
+                            ID of the Cloud Logging destination group
+                            Includes only one of the fields `logGroupId`.
+                          type: string
+                dataStream:
+                  description: |-
+                    **[DataStream](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.DataStream)**
+                    Configuration for event delivery to YDS
+                    Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`.
+                  $ref: '#/definitions/DataStream'
+        serviceAccountId:
+          description: |-
+            **string**
+            Required field. Service account ID of the trail
+          type: string
+        filter:
+          description: |-
+            **[Filter](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.Filter)**
+            Event filtering configuration of the trail
+            deprecated: use filtering_policy instead
+          deprecated: true
+          $ref: '#/definitions/Filter'
+        filteringPolicy:
+          description: |-
+            **[FilteringPolicy](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.FilteringPolicy)**
+            Event filtering policy of the trail
+          $ref: '#/definitions/FilteringPolicy'
+      required:
+        - folderId
+        - destination
+        - serviceAccountId
+      additionalProperties: false
+    definitions:
+      ObjectStorage:
+        type: object
+        properties:
+          bucketId:
+            description: |-
+              **string**
+              Name of the destination bucket
+            type: string
+          objectPrefix:
+            description: |-
+              **string**
+              Prefix for exported objects. Optional
+              If specified, uploaded objects will have prefix <object_prefix>/<trail_id>/
+            type: string
+      DataStream:
+        type: object
+        properties:
+          databaseId:
+            description: |-
+              **string**
+              ID of the database hosting the destination YDS
+            type: string
+          streamName:
+            description: |-
+              **string**
+              Name of the destination YDS
+            type: string
+      Resource:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              Required field. ID of the resource
+            type: string
+          type:
+            description: |-
+              **string**
+              Required field. Type of the resource
+            type: string
+        required:
+          - id
+          - type
+      PathFilterElementAny:
+        type: object
+        properties:
+          resource:
+            description: |-
+              **[Resource](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.Resource)**
+              Required field. Resource definition
+            $ref: '#/definitions/Resource'
+        required:
+          - resource
+      PathFilterElementSome:
+        type: object
+        properties:
+          resource:
+            description: |-
+              **[Resource](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.Resource)**
+              Required field. Definition of the resource that contains nested resources
+            $ref: '#/definitions/Resource'
+          filters:
+            description: |-
+              **[PathFilterElement](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilterElement)**
+              Filters for the resources contained in the parent resource
+            type: array
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    anyFilter:
+                      description: |-
+                        **[PathFilterElementAny](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny)**
+                        Filter element with ANY type. If used, configures the trail to gather any events from the resource
+                        Includes only one of the fields `anyFilter`, `someFilter`.
+                      $ref: '#/definitions/PathFilterElementAny'
+                    someFilter:
+                      description: |-
+                        **[PathFilterElementSome](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilterElementSome)**
+                        Filter element with SOME type. If used, configures the trail to gather some of the events from the resource
+                        Includes only one of the fields `anyFilter`, `someFilter`.
+                      $ref: '#/definitions/PathFilterElementSome'
+        required:
+          - resource
+      PathFilter:
+        type: object
+        properties:
+          root:
+            description: |-
+              **[PathFilterElement](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilterElement)**
+              Required field. Root element of the resource path filter for the trail
+              Resource described in that filter node must contain the trail itself
+            oneOf:
+              - type: object
+                properties:
+                  anyFilter:
+                    description: |-
+                      **[PathFilterElementAny](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny)**
+                      Filter element with ANY type. If used, configures the trail to gather any events from the resource
+                      Includes only one of the fields `anyFilter`, `someFilter`.
+                    $ref: '#/definitions/PathFilterElementAny'
+                  someFilter:
+                    description: |-
+                      **[PathFilterElementSome](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilterElementSome)**
+                      Filter element with SOME type. If used, configures the trail to gather some of the events from the resource
+                      Includes only one of the fields `anyFilter`, `someFilter`.
+                    $ref: '#/definitions/PathFilterElementSome'
+        required:
+          - root
+      EventFilterElementCategory:
+        type: object
+        properties:
+          plane:
+            description: |-
+              **enum** (EventCategoryFilter)
+              Required field. Plane of the gathered category
+              - `EVENT_CATEGORY_FILTER_UNSPECIFIED`
+              - `CONTROL_PLANE`: The events that are generated during the interaction with the service's resources
+              - `DATA_PLANE`: Events that are generated during interaction with data within the service's resources
+            type: string
+            enum:
+              - EVENT_CATEGORY_FILTER_UNSPECIFIED
+              - CONTROL_PLANE
+              - DATA_PLANE
+          type:
+            description: |-
+              **enum** (EventAccessTypeFilter)
+              Required field. Type of the gathered category
+              - `EVENT_ACCESS_TYPE_FILTER_UNSPECIFIED`
+              - `WRITE`: Events for operations that do perform some modification
+              - `READ`: Events for operations that do not perform any modifications
+            type: string
+            enum:
+              - EVENT_ACCESS_TYPE_FILTER_UNSPECIFIED
+              - WRITE
+              - READ
+        required:
+          - plane
+          - type
+      EventFilterElement:
+        type: object
+        properties:
+          service:
+            description: |-
+              **string**
+              Required field. Service ID of the gathered events
+            type: string
+          categories:
+            description: |-
+              **[EventFilterElementCategory](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.EventFilterElementCategory)**
+              List of the event categories gathered for a specified service
+            type: array
+            items:
+              $ref: '#/definitions/EventFilterElementCategory'
+          pathFilter:
+            description: |-
+              **[PathFilter](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilter)**
+              Required field. Resource path filter for a specified service
+            $ref: '#/definitions/PathFilter'
+        required:
+          - service
+          - pathFilter
+      EventFilter:
+        type: object
+        properties:
+          filters:
+            description: |-
+              **[EventFilterElement](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.EventFilterElement)**
+              List of filters for services
+            type: array
+            items:
+              $ref: '#/definitions/EventFilterElement'
+      Filter:
+        type: object
+        properties:
+          pathFilter:
+            description: |-
+              **[PathFilter](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.PathFilter)**
+              Configuration of default events gathering for the trail
+              If not specified, default events won't be gathered for the trail
+            $ref: '#/definitions/PathFilter'
+          eventFilter:
+            description: |-
+              **[EventFilter](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.EventFilter)**
+              Required field. Configuration of additional events gathering from specific services
+            $ref: '#/definitions/EventFilter'
+        required:
+          - eventFilter
+      ManagementEventsFiltering:
+        type: object
+        properties:
+          resourceScopes:
+            description: |-
+              **[Resource](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.Resource)**
+              A list of resources which will be monitored by the trail
+            type: array
+            items:
+              $ref: '#/definitions/Resource'
+      EventTypes:
+        type: object
+        properties:
+          eventTypes:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      DnsDataEventsFilter:
+        type: object
+        properties:
+          onlyRecursiveQueries:
+            description: |-
+              **boolean**
+              deprecated: use all_dns_queries instead
+            deprecated: true
+            type: boolean
+          includeNonrecursiveQueries:
+            description: |-
+              **boolean**
+              Not only recursive queries will be delivered
+            type: boolean
+      FilteringPolicy:
+        type: object
+        properties:
+          managementEventsFilter:
+            description: |-
+              **[ManagementEventsFiltering](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.ManagementEventsFiltering)**
+              Singular filter describing gathering management events
+            $ref: '#/definitions/ManagementEventsFiltering'
+          dataEventsFilters:
+            description: |-
+              **[DataEventsFiltering](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.DataEventsFiltering)**
+              List of filters describing gathering data events
+            type: array
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    includedEvents:
+                      description: |-
+                        **[EventTypes](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.EventTypes)**
+                        Explicitly included events of specified service
+                        New events of the service won't be delivered by default
+                        Includes only one of the fields `includedEvents`, `excludedEvents`.
+                      $ref: '#/definitions/EventTypes'
+                    excludedEvents:
+                      description: |-
+                        **[EventTypes](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.EventTypes)**
+                        Explicitly excluded events of specified service
+                        New events of the service will be delivered by default
+                        Includes only one of the fields `includedEvents`, `excludedEvents`.
+                      $ref: '#/definitions/EventTypes'
+                - type: object
+                  properties:
+                    dnsFilter:
+                      description: |-
+                        **[DnsDataEventsFilter](/docs/audit-trails/api-ref/Trail/get#yandex.cloud.audittrails.v1.Trail.DnsDataEventsFilter)**
+                        Filter is allowed only if service = dns
+                        Includes only one of the fields `dnsFilter`.
+                      $ref: '#/definitions/DnsDataEventsFilter'
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/create.md
 ---
 
@@ -122,7 +469,8 @@ POST https://audittrails.{{ api-host }}/audit-trails/v1/trails
         // end of the list of possible fields
         // Includes only one of the fields `dnsFilter`
         "dnsFilter": {
-          "onlyRecursiveQueries": "boolean"
+          "onlyRecursiveQueries": "boolean",
+          "includeNonrecursiveQueries": "boolean"
         },
         // end of the list of possible fields
         "resourceScopes": [
@@ -414,7 +762,10 @@ Policy with explicitly specified event group
 ||Field | Description ||
 || onlyRecursiveQueries | **boolean**
 
-Only recursive queries will be delivered ||
+deprecated: use all_dns_queries instead ||
+|| includeNonrecursiveQueries | **boolean**
+
+Not only recursive queries will be delivered ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -552,7 +903,8 @@ Only recursive queries will be delivered ||
           // end of the list of possible fields
           // Includes only one of the fields `dnsFilter`
           "dnsFilter": {
-            "onlyRecursiveQueries": "boolean"
+            "onlyRecursiveQueries": "boolean",
+            "includeNonrecursiveQueries": "boolean"
           },
           // end of the list of possible fields
           "resourceScopes": [
@@ -982,5 +1334,8 @@ Policy with explicitly specified event group
 ||Field | Description ||
 || onlyRecursiveQueries | **boolean**
 
-Only recursive queries will be delivered ||
+deprecated: use all_dns_queries instead ||
+|| includeNonrecursiveQueries | **boolean**
+
+Not only recursive queries will be delivered ||
 |#

@@ -1,5 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/keys/{keyId}/versions
+    method: get
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the symmetric KMS key to list versions for.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListSymmetricKeyVersionsResponse.nextPageToken](/docs/kms/api-ref/SymmetricKey/listVersions#yandex.cloud.kms.v1.ListSymmetricKeyVersionsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListSymmetricKeyVersionsResponse.nextPageToken](/docs/kms/api-ref/SymmetricKey/listVersions#yandex.cloud.kms.v1.ListSymmetricKeyVersionsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/listVersions.md
 ---
 

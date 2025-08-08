@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/policies/{policyId}
+    method: delete
+    path:
+      type: object
+      properties:
+        policyId:
+          description: |-
+            **string**
+            Required field. Policy ID.
+          type: string
+      required:
+        - policyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/delete.md
 ---
 

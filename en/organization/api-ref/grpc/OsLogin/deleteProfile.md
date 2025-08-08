@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/deleteProfile.md
 ---
 
-# Cloud Organization API, gRPC: OsLoginService.DeleteProfile
+# Identity Hub API, gRPC: OsLoginService.DeleteProfile
 
 ## gRPC request
 

@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:unitBalance
+    method: post
+    path:
+      type: object
+      properties:
+        projectId:
+          description: |-
+            **string**
+            Required field. ID of the project to set the unit balance for.
+          type: string
+      required:
+        - projectId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        unitBalance:
+          description: |-
+            **string** (int64)
+            The number of units available to the project.
+          type: string
+          format: int64
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/setUnitBalance.md
 ---
 

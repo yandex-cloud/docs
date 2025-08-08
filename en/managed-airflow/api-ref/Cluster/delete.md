@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://airflow.{{ api-host }}/managed-airflow/v1/clusters/{clusterId}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Apache Airflow cluster to delete.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/airflow/v1/api-ref/Cluster/delete.md
 ---
 

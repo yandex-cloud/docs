@@ -2955,7 +2955,8 @@ Required field. ID of the MongoDB cluster to start. ||
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   },
                   "collection_config": {
                     "block_compressor": "Compressor"
@@ -2998,14 +2999,31 @@ Required field. ID of the MongoDB cluster to start. ||
               "set_parameter": {
                 "audit_authorization_success": "google.protobuf.BoolValue",
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
+                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value",
+                "flow_control_target_lag_seconds": "google.protobuf.Int64Value",
+                "flow_control_warn_threshold_seconds": "google.protobuf.Int64Value",
+                "migrate_clone_insertion_batch_delay_ms": "google.protobuf.Int64Value",
+                "migrate_clone_insertion_batch_size": "google.protobuf.Int64Value",
+                "orphan_cleanup_delay_secs": "google.protobuf.Int64Value",
+                "persisted_chunk_cache_update_max_batch_size": "google.protobuf.Int64Value",
+                "range_deleter_batch_delay_ms": "google.protobuf.Int64Value",
+                "range_deleter_batch_size": "google.protobuf.Int64Value",
+                "mirror_reads": {
+                  "sampling_rate": "google.protobuf.DoubleValue",
+                  "max_time_ms": "google.protobuf.Int64Value"
+                }
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
               }
             },
             "user_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   },
                   "collection_config": {
                     "block_compressor": "Compressor"
@@ -3048,14 +3066,31 @@ Required field. ID of the MongoDB cluster to start. ||
               "set_parameter": {
                 "audit_authorization_success": "google.protobuf.BoolValue",
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
+                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value",
+                "flow_control_target_lag_seconds": "google.protobuf.Int64Value",
+                "flow_control_warn_threshold_seconds": "google.protobuf.Int64Value",
+                "migrate_clone_insertion_batch_delay_ms": "google.protobuf.Int64Value",
+                "migrate_clone_insertion_batch_size": "google.protobuf.Int64Value",
+                "orphan_cleanup_delay_secs": "google.protobuf.Int64Value",
+                "persisted_chunk_cache_update_max_batch_size": "google.protobuf.Int64Value",
+                "range_deleter_batch_delay_ms": "google.protobuf.Int64Value",
+                "range_deleter_batch_size": "google.protobuf.Int64Value",
+                "mirror_reads": {
+                  "sampling_rate": "google.protobuf.DoubleValue",
+                  "max_time_ms": "google.protobuf.Int64Value"
+                }
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
               }
             },
             "default_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   },
                   "collection_config": {
                     "block_compressor": "Compressor"
@@ -3098,7 +3133,23 @@ Required field. ID of the MongoDB cluster to start. ||
               "set_parameter": {
                 "audit_authorization_success": "google.protobuf.BoolValue",
                 "enable_flow_control": "google.protobuf.BoolValue",
-                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value"
+                "min_snapshot_history_window_in_seconds": "google.protobuf.Int64Value",
+                "flow_control_target_lag_seconds": "google.protobuf.Int64Value",
+                "flow_control_warn_threshold_seconds": "google.protobuf.Int64Value",
+                "migrate_clone_insertion_batch_delay_ms": "google.protobuf.Int64Value",
+                "migrate_clone_insertion_batch_size": "google.protobuf.Int64Value",
+                "orphan_cleanup_delay_secs": "google.protobuf.Int64Value",
+                "persisted_chunk_cache_update_max_batch_size": "google.protobuf.Int64Value",
+                "range_deleter_batch_delay_ms": "google.protobuf.Int64Value",
+                "range_deleter_batch_size": "google.protobuf.Int64Value",
+                "mirror_reads": {
+                  "sampling_rate": "google.protobuf.DoubleValue",
+                  "max_time_ms": "google.protobuf.Int64Value"
+                }
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
               }
             }
           },
@@ -3119,7 +3170,8 @@ Required field. ID of the MongoDB cluster to start. ||
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   },
                   "index_config": {
                     "prefix_compression": "google.protobuf.BoolValue"
@@ -3144,13 +3196,18 @@ Required field. ID of the MongoDB cluster to start. ||
               },
               "audit_log": {
                 "filter": "string"
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
               }
             },
             "user_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   },
                   "index_config": {
                     "prefix_compression": "google.protobuf.BoolValue"
@@ -3175,13 +3232,18 @@ Required field. ID of the MongoDB cluster to start. ||
               },
               "audit_log": {
                 "filter": "string"
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
               }
             },
             "default_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   },
                   "index_config": {
                     "prefix_compression": "google.protobuf.BoolValue"
@@ -3206,6 +3268,10 @@ Required field. ID of the MongoDB cluster to start. ||
               },
               "audit_log": {
                 "filter": "string"
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
               }
             }
           },
@@ -3232,11 +3298,24 @@ Required field. ID of the MongoDB cluster to start. ||
                 }
               },
               "set_parameter": {
-                "audit_authorization_success": "google.protobuf.BoolValue"
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "read_hedging_mode": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
               },
               "audit_log": {
                 "filter": "string"
-              }
+              },
+              "chunk_size": "google.protobuf.Int64Value"
             },
             "user_config": {
               "net": {
@@ -3248,11 +3327,24 @@ Required field. ID of the MongoDB cluster to start. ||
                 }
               },
               "set_parameter": {
-                "audit_authorization_success": "google.protobuf.BoolValue"
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "read_hedging_mode": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
               },
               "audit_log": {
                 "filter": "string"
-              }
+              },
+              "chunk_size": "google.protobuf.Int64Value"
             },
             "default_config": {
               "net": {
@@ -3264,11 +3356,24 @@ Required field. ID of the MongoDB cluster to start. ||
                 }
               },
               "set_parameter": {
-                "audit_authorization_success": "google.protobuf.BoolValue"
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "read_hedging_mode": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
               },
               "audit_log": {
                 "filter": "string"
-              }
+              },
+              "chunk_size": "google.protobuf.Int64Value"
             }
           },
           "resources": {
@@ -3294,11 +3399,24 @@ Required field. ID of the MongoDB cluster to start. ||
                 }
               },
               "set_parameter": {
-                "audit_authorization_success": "google.protobuf.BoolValue"
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "read_hedging_mode": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
               },
               "audit_log": {
                 "filter": "string"
-              }
+              },
+              "chunk_size": "google.protobuf.Int64Value"
             },
             "user_config": {
               "net": {
@@ -3310,11 +3428,24 @@ Required field. ID of the MongoDB cluster to start. ||
                 }
               },
               "set_parameter": {
-                "audit_authorization_success": "google.protobuf.BoolValue"
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "read_hedging_mode": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
               },
               "audit_log": {
                 "filter": "string"
-              }
+              },
+              "chunk_size": "google.protobuf.Int64Value"
             },
             "default_config": {
               "net": {
@@ -3326,11 +3457,24 @@ Required field. ID of the MongoDB cluster to start. ||
                 }
               },
               "set_parameter": {
-                "audit_authorization_success": "google.protobuf.BoolValue"
+                "audit_authorization_success": "google.protobuf.BoolValue",
+                "read_hedging_mode": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_max_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_connecting": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_replica_set_matching": "google.protobuf.StringValue",
+                "sharding_task_executor_pool_host_timeout_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_requirement_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_refresh_timeout_ms": "google.protobuf.Int64Value",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup": "google.protobuf.BoolValue",
+                "warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_max_size_for_config_servers": "google.protobuf.Int64Value",
+                "sharding_task_executor_pool_min_size_for_config_servers": "google.protobuf.Int64Value"
               },
               "audit_log": {
                 "filter": "string"
-              }
+              },
+              "chunk_size": "google.protobuf.Int64Value"
             }
           },
           "config_mongocfg": {
@@ -3338,7 +3482,8 @@ Required field. ID of the MongoDB cluster to start. ||
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   },
                   "index_config": {
                     "prefix_compression": "google.protobuf.BoolValue"
@@ -3363,13 +3508,18 @@ Required field. ID of the MongoDB cluster to start. ||
               },
               "audit_log": {
                 "filter": "string"
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
               }
             },
             "user_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   },
                   "index_config": {
                     "prefix_compression": "google.protobuf.BoolValue"
@@ -3394,13 +3544,18 @@ Required field. ID of the MongoDB cluster to start. ||
               },
               "audit_log": {
                 "filter": "string"
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
               }
             },
             "default_config": {
               "storage": {
                 "wired_tiger": {
                   "engine_config": {
-                    "cache_size_gb": "google.protobuf.DoubleValue"
+                    "cache_size_gb": "google.protobuf.DoubleValue",
+                    "cache_size": "google.protobuf.DoubleValue"
                   },
                   "index_config": {
                     "prefix_compression": "google.protobuf.BoolValue"
@@ -3425,6 +3580,10 @@ Required field. ID of the MongoDB cluster to start. ||
               },
               "audit_log": {
                 "filter": "string"
+              },
+              "oplog": {
+                "max_size_percent": "google.protobuf.Int64Value",
+                "min_retention_hours": "google.protobuf.DoubleValue"
               }
             }
           },
@@ -3461,7 +3620,8 @@ Required field. ID of the MongoDB cluster to start. ||
     "security_group_ids": [
       "string"
     ],
-    "deletion_protection": "bool"
+    "deletion_protection": "bool",
+    "disk_encryption_key_id": "google.protobuf.StringValue"
   }
   // end of the list of possible fields
 }
@@ -3610,6 +3770,9 @@ User security groups ||
 || deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster ||
+|| disk_encryption_key_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.mongodb.v1.Monitoring}
@@ -7437,6 +7600,9 @@ options described in [MongoDB documentation](https://docs.mongodb.com/v7.0/refer
 || set_parameter | **[SetParameter](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter)**
 
 `SetParameter` section of mongod configuration. ||
+|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog)**
+
+`Oplog` section of mongod configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage}
@@ -7475,6 +7641,9 @@ Index configuration for WiredTiger ||
 || cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|| cache_size | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## CollectionConfig {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Storage.WiredTiger.CollectionConfig}
@@ -7627,6 +7796,57 @@ lag under a configurable maximum value. ||
 || min_snapshot_history_window_in_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The minimum time window in seconds for which the storage engine keeps the snapshot history. ||
+|| flow_control_target_lag_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The target maximum majority committed lag when running with flow control ||
+|| flow_control_warn_threshold_seconds | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The amount of time to wait to log a warning once the flow control mechanism detects the majority commit point has not moved. ||
+|| migrate_clone_insertion_batch_delay_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Time in milliseconds to wait between batches of insertions during cloning step of the migration process. ||
+|| migrate_clone_insertion_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of documents to insert in a single batch during the cloning step of the migration process. ||
+|| orphan_cleanup_delay_secs | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Minimum delay before a migrated chunk is deleted from the source shard. ||
+|| persisted_chunk_cache_update_max_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Specifies the maximum batch size used for updating the persisted chunk cache. ||
+|| range_deleter_batch_delay_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The amount of time in milliseconds to wait before the next batch of deletion during the cleanup stage of chunk migration (or the cleanupOrphaned command). ||
+|| range_deleter_batch_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of documents in each batch to delete during the cleanup stage of chunk migration (or the cleanupOrphaned command). ||
+|| mirror_reads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads)**
+
+Specifies the settings for mirrored reads for the mongod instance ||
+|#
+
+## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads}
+
+#|
+||Field | Description ||
+|| sampling_rate | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The sampling rate used to mirror a subset of operations that support mirroring to a subset of electable secondaries ||
+|| max_time_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum time in milliseconds for the mirrored reads ||
+|#
+
+## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.Oplog}
+
+#|
+||Field | Description ||
+|| max_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Oplog maxsize in percents. ||
+|| min_retention_hours | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
 |#
 
 ## MongoCfg {#yandex.cloud.mdb.mongodb.v1.Mongodb.MongoCfg}
@@ -7679,6 +7899,9 @@ Default mongocfg configuration for a MongoDB cluster. ||
 || audit_log | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog)**
 
 `AuditLog` section of mongocfg configuration. ||
+|| oplog | **[Oplog](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog)**
+
+`Oplog` section of mongod configuration. ||
 |#
 
 ## Storage {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage}
@@ -7711,6 +7934,9 @@ Index configuration for WiredTiger. ||
 || cache_size_gb | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 The maximum size of the internal cache that WiredTiger will use for all data. ||
+|| cache_size | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The maximum size of the internal cache that WiredTiger will use for all data in percents. ||
 |#
 
 ## IndexConfig {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Storage.WiredTiger.IndexConfig}
@@ -7796,6 +8022,18 @@ https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-para
 Audit filter, should be valid JSON object string ||
 |#
 
+## Oplog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.Oplog}
+
+#|
+||Field | Description ||
+|| max_size_percent | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Oplog maxsize in percents. ||
+|| min_retention_hours | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+The minimum number of hours to preserve an oplog entry, where decimal values represent the fractions of an hour. ||
+|#
+
 ## Mongos {#yandex.cloud.mdb.mongodb.v1.Mongodb.Mongos}
 
 #|
@@ -7840,6 +8078,9 @@ Network settings for mongos. ||
 || audit_log | **[AuditLog](#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog)**
 
 `AuditLog` section of mongos configuration. ||
+|| chunk_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+`ChunkSize` parameter of mongos configuration. ||
 |#
 
 ## Network {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.Network}
@@ -7881,6 +8122,42 @@ MongoDB supports the following compressors:
 
 Enables the auditing of authorization successes
 https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|| read_hedging_mode | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Specifies whether mongos supports hedged reads for those read operations whose read preference have enabled the hedged read option. ||
+|| sharding_task_executor_pool_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
+|| sharding_task_executor_pool_max_connecting | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum number of simultaneous initiating connections (including pending connections in setup/refresh state) each TaskExecutor connection pool can have to a mongod instance. ||
+|| sharding_task_executor_pool_min_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Minimum number of outbound connections each TaskExecutor connection pool can open to any given mongod instance. ||
+|| sharding_task_executor_pool_replica_set_matching | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+On a mongos instance, this parameter sets the policy that determines the minimum size limit of its connection pools to nodes within replica sets. ||
+|| sharding_task_executor_pool_host_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum time that mongos goes without communication to a host before mongos drops all connections to the host. ||
+|| sharding_task_executor_pool_refresh_requirement_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum time the mongos waits before attempting to heartbeat an idle connection in the pool. ||
+|| sharding_task_executor_pool_refresh_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum time the mongos waits for a heartbeat before timing out the heartbeat. ||
+|| warm_min_connections_in_sharding_task_executor_pool_on_startup | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Configures a mongos instance to prewarm its connection pool on startup. ||
+|| warm_min_connections_in_sharding_task_executor_pool_on_startup_wait_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Sets the timeout threshold in milliseconds for a mongos to wait for ShardingTaskExecutorPoolMinSize connections to be established per shard host when using the warmMinConnectionsInShardingTaskExecutorPoolOnStartup parameter. ||
+|| sharding_task_executor_pool_max_size_for_config_servers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|| sharding_task_executor_pool_min_size_for_config_servers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
 |#
 
 ## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog}

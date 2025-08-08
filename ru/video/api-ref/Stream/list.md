@@ -1,11 +1,64 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/streams
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        channelId:
+          description: |-
+            **string**
+            Required field. ID of the channel containing the streams to list.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of streams to return per page.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token for retrieving the next page of results.
+            This token is obtained from the next_page_token field in the previous ListStreamsResponse.
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            Specifies the ordering of results.
+            Format is "<field> <order>" (e.g., "startTime desc").
+            Default: "id asc".
+            Supported fields: ["id", "title", "startTime", "finishTime", "createdAt", "updatedAt"].
+            Both snake_case and camelCase field names are supported.
+          type: string
+        filter:
+          description: |-
+            **string**
+            Filter expression to narrow down the list of returned streams.
+            Expressions consist of terms connected by logical operators.
+            Values containing spaces or quotes must be enclosed in quotes (`'` or `"`)
+            with inner quotes being backslash-escaped.
+            Supported logical operators: ["AND", "OR"].
+            Supported comparison operators: ["=", "!=", ":"] where ":" enables substring matching.
+            Parentheses can be used to group logical expressions.
+            Example: `title:'live' AND (status='READY' OR status='ONAIR')`
+            Filterable fields: ["id", "title", "lineId", "status"].
+            Both snake_case and camelCase field names are supported.
+          type: string
+      required:
+        - channelId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Stream/list.md
 ---
 
 # Video API, REST: Stream.List
 
-List streams for channel.
+Lists all streams in a specific channel with pagination support.
+Results can be filtered and sorted using the provided parameters.
 
 ## HTTP request
 
@@ -19,34 +72,36 @@ GET https://video.{{ api-host }}/video/v1/streams
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel containing the streams to list. ||
 || pageSize | **string** (int64)
 
-The maximum number of the results per page to return.
-Default value: 100. ||
+The maximum number of streams to return per page. ||
 || pageToken | **string**
 
-Page token for getting the next page of the result. ||
+Page token for retrieving the next page of results.
+This token is obtained from the next_page_token field in the previous ListStreamsResponse. ||
 || orderBy | **string**
 
-By which column the listing should be ordered and in which direction,
-format is "<field> <order>" (e.g. "createdAt desc").
+Specifies the ordering of results.
+Format is "<field> <order>" (e.g., "startTime desc").
 Default: "id asc".
-Possible fields: ["id", "title", "startTime", "finishTime", "createdAt", "updatedAt"].
-Both snake_case and camelCase are supported for fields. ||
+Supported fields: ["id", "title", "startTime", "finishTime", "createdAt", "updatedAt"].
+Both snake_case and camelCase field names are supported. ||
 || filter | **string**
 
-Filter expression that filters resources listed in the response.
-Expressions are composed of terms connected by logic operators.
-If value contains spaces or quotes,
-it should be in quotes (`'` or `"`) with the inner quotes being backslash escaped.
+Filter expression to narrow down the list of returned streams.
+Expressions consist of terms connected by logical operators.
+Values containing spaces or quotes must be enclosed in quotes (`'` or `"`)
+with inner quotes being backslash-escaped.
+
 Supported logical operators: ["AND", "OR"].
-Supported string match operators: ["=", "!=", ":"].
-Operator ":" stands for substring matching.
-Filter expressions may also contain parentheses to group logical operands.
-Example: `key1='value' AND (key2!='\'value\'' OR key2:"\"value\"")`
-Supported fields: ["id", "title", "lineId", "status"].
-Both snake_case and camelCase are supported for fields. ||
+Supported comparison operators: ["=", "!=", ":"] where ":" enables substring matching.
+Parentheses can be used to group logical expressions.
+
+Example: `title:'live' AND (status='READY' OR status='ONAIR')`
+
+Filterable fields: ["id", "title", "lineId", "status"].
+Both snake_case and camelCase field names are supported. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.ListStreamsResponse}
@@ -88,47 +143,52 @@ Both snake_case and camelCase are supported for fields. ||
 ||Field | Description ||
 || streams[] | **[Stream](#yandex.cloud.video.v1.Stream)**
 
-List of streams for channel. ||
+List of streams matching the request criteria.
+May be empty if no streams match the criteria or if the channel has no streams. ||
 || nextPageToken | **string**
 
-Token for getting the next page. ||
+Token for retrieving the next page of results.
+Empty if there are no more results available. ||
 |#
 
 ## Stream {#yandex.cloud.video.v1.Stream}
+
+Entity representing a live video stream.
+A stream is a real-time video broadcast linked to a specific stream line.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the stream. ||
+Unique identifier of the stream. ||
 || channelId | **string**
 
-ID of the channel where the stream was created. ||
+Identifier of the channel where the stream is created and managed. ||
 || lineId | **string**
 
-ID of the line to which stream is linked. ||
+Identifier of the stream line to which this stream is linked. ||
 || title | **string**
 
-Stream title. ||
+Title of the stream displayed in interfaces and players. ||
 || description | **string**
 
-Stream description. ||
+Detailed description of the stream content and context. ||
 || thumbnailId | **string**
 
-ID of the thumbnail. ||
+Identifier of the thumbnail image used to represent the stream visually. ||
 || status | **enum** (StreamStatus)
 
-Stream status.
+Current status of the stream.
 
-- `STREAM_STATUS_UNSPECIFIED`: Stream status unspecified.
-- `OFFLINE`: Stream offline.
-- `PREPARING`: Preparing the infrastructure for receiving video signal.
-- `READY`: Everything is ready to launch stream.
-- `ONAIR`: Stream onair.
-- `FINISHED`: Stream finished. ||
+- `STREAM_STATUS_UNSPECIFIED`: The stream status is not specified.
+- `OFFLINE`: The stream is offline and not broadcasting.
+- `PREPARING`: The system is preparing the infrastructure for receiving the video signal.
+- `READY`: The infrastructure is ready to launch the stream.
+- `ONAIR`: The stream is currently broadcasting live.
+- `FINISHED`: The stream has completed and is no longer broadcasting. ||
 || startTime | **string** (date-time)
 
-Stream start time.
+Timestamp when the stream was initiated.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -138,7 +198,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || publishTime | **string** (date-time)
 
-Stream publish time. Time when stream switched to ONAIR status.
+Timestamp when the stream was published (switched to ONAIR status).
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -148,7 +208,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || finishTime | **string** (date-time)
 
-Stream finish time.
+Timestamp when the stream was completed.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -158,25 +218,25 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || autoPublish | **boolean**
 
-Automatically publish stream when ready.
-Switches status from READY to ONAIR. ||
+Controls automatic publishing of the stream when it's ready.
+When set to true, automatically switches status from READY to ONAIR. ||
 || onDemand | **object**
 
-On-demand stream. Starts immediately when a signal appears.
+On-demand stream starts immediately when a video signal appears.
 
 Includes only one of the fields `onDemand`, `schedule`.
 
-Stream type. ||
+Specifies the stream scheduling type. ||
 || schedule | **[Schedule](#yandex.cloud.video.v1.Schedule)**
 
-Schedule stream. Starts or finished at the specified time.
+Scheduled stream starts and finishes at specified time.
 
 Includes only one of the fields `onDemand`, `schedule`.
 
-Stream type. ||
+Specifies the stream scheduling type. ||
 || createdAt | **string** (date-time)
 
-Time when stream was created.
+Timestamp when the stream was initially created in the system.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -186,7 +246,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || updatedAt | **string** (date-time)
 
-Time of last stream update.
+Timestamp of the last modification to the stream or its metadata.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -196,17 +256,22 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per stream.
+Used for organization, filtering, and metadata purposes.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
 ## Schedule {#yandex.cloud.video.v1.Schedule}
 
-Schedule stream type.
-This type of streams start and finish automatically at the specified time.
+Represents a scheduled stream type.
+This type of stream starts and finishes automatically at specified time.
 
 #|
 ||Field | Description ||
 || startTime | **string** (date-time)
+
+Scheduled time when the stream should automatically start.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -215,6 +280,8 @@ To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || finishTime | **string** (date-time)
+
+Scheduled time when the stream should automatically finish.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

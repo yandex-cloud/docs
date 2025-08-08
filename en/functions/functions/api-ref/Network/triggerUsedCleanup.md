@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/networks/used/{networkId}:triggerCleanup
+    method: post
+    path:
+      type: object
+      properties:
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the obsolete network to start the cleanup process for.
+          type: string
+      required:
+        - networkId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Network/triggerUsedCleanup.md
 ---
 

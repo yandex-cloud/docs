@@ -1,5 +1,53 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/privateCertificates/{certificateId}:revoke
+    method: post
+    path:
+      type: object
+      properties:
+        certificateId:
+          description: |-
+            **string**
+            Required field. The ID of the certificate to revoke.
+          type: string
+      required:
+        - certificateId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        crlReason:
+          description: |-
+            **enum** (CrlReason)
+            Required field. The reason for revoking the certificate (must be one of the reasons defined above).
+            - `CRL_REASON_UNSPECIFIED`
+            - `KEY_COMPROMISE`: Key used in the certificate has been compromised.
+            - `CA_COMPROMISE`: The Certificate Authority (CA) has been compromised.
+            - `AFFILIATION_CHANGED`: Change in affiliation, such as an organization restructure.
+            - `SUPERSEDED`: Certificate superseded by a newer one.
+            - `CESSATION_OF_OPERATION`: Operations relying on this certificate have ceased.
+            - `CERTIFICATE_HOLD`: Temporarily hold the certificate. Can be restored later.
+            - `REMOVE_FROM_CRL`: The certificate was removed from the Certificate Revocation List (CRL).
+            - `PRIVILEGE_WITHDRAWN`: Privileges associated with the certificate were withdrawn.
+            - `AA_COMPROMISE`: Certificate Authority or administrative compromise.
+          type: string
+          enum:
+            - CRL_REASON_UNSPECIFIED
+            - KEY_COMPROMISE
+            - CA_COMPROMISE
+            - AFFILIATION_CHANGED
+            - SUPERSEDED
+            - CESSATION_OF_OPERATION
+            - CERTIFICATE_HOLD
+            - REMOVE_FROM_CRL
+            - PRIVILEGE_WITHDRAWN
+            - AA_COMPROMISE
+      required:
+        - crlReason
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCaCertificate/revokeCertificate.md
 ---
 

@@ -1,5 +1,123 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cic.{{ api-host }}/cic/v1/trunkConnections/{trunkConnectionId}
+    method: patch
+    path:
+      type: object
+      properties:
+        trunkConnectionId:
+          description: |-
+            **string**
+            Required field. ID of the TrunkConnection resource to return.
+          type: string
+      required:
+        - trunkConnectionId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the trunkConnection.
+            The name must be unique within the folder.
+            Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``.
+          type: string
+        description:
+          description: |-
+            **string**
+            Optional description of the trunkConnection. 0-256 characters long.
+          type: string
+        regionId:
+          description: |-
+            **string**
+            ID of the region that the trunkConnection belongs to.
+          type: string
+        pointOfPresenceId:
+          description: |-
+            **string**
+            ID of pointOfPresence that the trunkConnection is deployed on.
+            Optional.
+            If is not set scheduler selects it by himself.
+          type: string
+        capacity:
+          description: |-
+            **enum** (Capacity)
+            Capacity of the trunkConnection
+            - `CAPACITY_UNSPECIFIED`
+            - `CAPACITY_50_MBPS`
+            - `CAPACITY_100_MBPS`
+            - `CAPACITY_200_MBPS`
+            - `CAPACITY_300_MBPS`
+            - `CAPACITY_400_MBPS`
+            - `CAPACITY_500_MBPS`
+            - `CAPACITY_1_GBPS`
+            - `CAPACITY_2_GBPS`
+            - `CAPACITY_3_GBPS`
+            - `CAPACITY_4_GBPS`
+            - `CAPACITY_5_GBPS`
+            - `CAPACITY_10_GBPS`
+            - `CAPACITY_20_GBPS`
+            - `CAPACITY_30_GBPS`
+            - `CAPACITY_40_GBPS`
+            - `CAPACITY_50_GBPS`
+            - `CAPACITY_100_GBPS`
+            - `CAPACITY_200_GBPS`
+          type: string
+          enum:
+            - CAPACITY_UNSPECIFIED
+            - CAPACITY_50_MBPS
+            - CAPACITY_100_MBPS
+            - CAPACITY_200_MBPS
+            - CAPACITY_300_MBPS
+            - CAPACITY_400_MBPS
+            - CAPACITY_500_MBPS
+            - CAPACITY_1_GBPS
+            - CAPACITY_2_GBPS
+            - CAPACITY_3_GBPS
+            - CAPACITY_4_GBPS
+            - CAPACITY_5_GBPS
+            - CAPACITY_10_GBPS
+            - CAPACITY_20_GBPS
+            - CAPACITY_30_GBPS
+            - CAPACITY_40_GBPS
+            - CAPACITY_50_GBPS
+            - CAPACITY_100_GBPS
+            - CAPACITY_200_GBPS
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels, `key:value` pairs.
+            No more than 64 per resource.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `[-_0-9a-z]*`.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `[a-z][-_0-9a-z]*`.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Deletion protection flag.
+            Optional.
+            If set prohibits deletion of the trunkConnection.
+          type: boolean
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/cic/v1/api-ref/TrunkConnection/update.md
 ---
 

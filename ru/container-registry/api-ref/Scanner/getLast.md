@@ -1,5 +1,20 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/images/{imageId}:lastScanResult
+    method: get
+    path:
+      type: object
+      properties:
+        imageId:
+          description: |-
+            **string**
+            ID of the Image to get last finished ScanResult.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/getLast.md
 ---
 

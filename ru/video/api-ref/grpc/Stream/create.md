@@ -5,7 +5,9 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Stream/create.md
 
 # Video API, gRPC: StreamService.Create
 
-Create stream.
+Creates a new stream in the specified channel.
+Streams can be created as on-demand (starting when a signal appears)
+or scheduled (starting and finishing at specified time).
 
 ## gRPC request
 
@@ -36,43 +38,55 @@ Create stream.
 ||Field | Description ||
 || channel_id | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel where the stream will be created. ||
 || line_id | **string**
 
-Required field. ID of the line. ||
+Required field. ID of the stream line to which this stream will be linked.
+Stream lines define the technical configuration for streaming. ||
 || title | **string**
 
-Required field. Stream title. ||
+Required field. Title of the stream to be displayed in interfaces and players. ||
 || description | **string**
 
-Stream description. ||
+Detailed description of the stream content and context.
+Optional field that can provide additional information about the stream. ||
 || thumbnail_id | **string**
 
-ID of the thumbnail. ||
+ID of the thumbnail image to be used for the stream. ||
 || auto_publish | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Automatically publish stream when ready.
-Switches status from READY to ONAIR. ||
+Controls whether the stream is automatically published when ready.
+When set to true, the stream's status will automatically change from
+READY to ONAIR when the streaming infrastructure is prepared,
+making it available for viewing without manual intervention. ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per stream.
+Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
+Values can contain alphanumeric characters and various symbols. ||
 || on_demand | **[OnDemandParams](#yandex.cloud.video.v1.OnDemandParams)**
 
-On-demand stream. Starts immediately when a signal appears.
+On-demand stream that starts immediately when a video signal appears.
+This type of stream has no predetermined start or end time.
 
 Includes only one of the fields `on_demand`, `schedule`.
 
-Stream type. ||
+Specifies the stream scheduling type (exactly one must be chosen). ||
 || schedule | **[ScheduleParams](#yandex.cloud.video.v1.ScheduleParams)**
 
-Schedule stream. Starts or finishes at the specified time.
+Scheduled stream that starts and finishes at specified time.
+This type of stream has predetermined start and end time.
 
 Includes only one of the fields `on_demand`, `schedule`.
 
-Stream type. ||
+Specifies the stream scheduling type (exactly one must be chosen). ||
 |#
 
 ## OnDemandParams {#yandex.cloud.video.v1.OnDemandParams}
+
+On-demand streams start automatically when a video signal is detected
+and must be manually stopped when no longer needed.
 
 #|
 ||Field | Description ||
@@ -85,10 +99,14 @@ Stream type. ||
 ||Field | Description ||
 || start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Required field.  ||
+Required field. Scheduled time when the stream should automatically start.
+The streaming infrastructure will be prepared at this time
+and will begin accepting the video signal. ||
 || finish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Required field.  ||
+Required field. Scheduled time when the stream should automatically finish.
+The streaming infrastructure will be shut down at this time
+and the stream will be marked as FINISHED. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -194,83 +212,90 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || stream_id | **string**
 
-ID of the stream. ||
+ID of the stream being created. ||
 |#
 
 ## Stream {#yandex.cloud.video.v1.Stream}
+
+Entity representing a live video stream.
+A stream is a real-time video broadcast linked to a specific stream line.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the stream. ||
+Unique identifier of the stream. ||
 || channel_id | **string**
 
-ID of the channel where the stream was created. ||
+Identifier of the channel where the stream is created and managed. ||
 || line_id | **string**
 
-ID of the line to which stream is linked. ||
+Identifier of the stream line to which this stream is linked. ||
 || title | **string**
 
-Stream title. ||
+Title of the stream displayed in interfaces and players. ||
 || description | **string**
 
-Stream description. ||
+Detailed description of the stream content and context. ||
 || thumbnail_id | **string**
 
-ID of the thumbnail. ||
+Identifier of the thumbnail image used to represent the stream visually. ||
 || status | enum **StreamStatus**
 
-Stream status.
+Current status of the stream.
 
-- `STREAM_STATUS_UNSPECIFIED`: Stream status unspecified.
-- `OFFLINE`: Stream offline.
-- `PREPARING`: Preparing the infrastructure for receiving video signal.
-- `READY`: Everything is ready to launch stream.
-- `ONAIR`: Stream onair.
-- `FINISHED`: Stream finished. ||
+- `STREAM_STATUS_UNSPECIFIED`: The stream status is not specified.
+- `OFFLINE`: The stream is offline and not broadcasting.
+- `PREPARING`: The system is preparing the infrastructure for receiving the video signal.
+- `READY`: The infrastructure is ready to launch the stream.
+- `ONAIR`: The stream is currently broadcasting live.
+- `FINISHED`: The stream has completed and is no longer broadcasting. ||
 || start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Stream start time. ||
+Timestamp when the stream was initiated. ||
 || publish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Stream publish time. Time when stream switched to ONAIR status. ||
+Timestamp when the stream was published (switched to ONAIR status). ||
 || finish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Stream finish time. ||
+Timestamp when the stream was completed. ||
 || auto_publish | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Automatically publish stream when ready.
-Switches status from READY to ONAIR. ||
+Controls automatic publishing of the stream when it's ready.
+When set to true, automatically switches status from READY to ONAIR. ||
 || on_demand | **[OnDemand](#yandex.cloud.video.v1.OnDemand)**
 
-On-demand stream. Starts immediately when a signal appears.
+On-demand stream starts immediately when a video signal appears.
 
 Includes only one of the fields `on_demand`, `schedule`.
 
-Stream type. ||
+Specifies the stream scheduling type. ||
 || schedule | **[Schedule](#yandex.cloud.video.v1.Schedule)**
 
-Schedule stream. Starts or finished at the specified time.
+Scheduled stream starts and finishes at specified time.
 
 Includes only one of the fields `on_demand`, `schedule`.
 
-Stream type. ||
+Specifies the stream scheduling type. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time when stream was created. ||
+Timestamp when the stream was initially created in the system. ||
 || updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time of last stream update. ||
+Timestamp of the last modification to the stream or its metadata. ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per stream.
+Used for organization, filtering, and metadata purposes.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
 ## OnDemand {#yandex.cloud.video.v1.OnDemand}
 
-On-demand stream type.
-This type of streams should be started and finished explicitly.
+Represents an on-demand stream type.
+This type of stream must be started and finished explicitly by the user.
+It begins broadcasting immediately when a video signal is detected.
 
 #|
 ||Field | Description ||
@@ -279,11 +304,15 @@ This type of streams should be started and finished explicitly.
 
 ## Schedule {#yandex.cloud.video.v1.Schedule}
 
-Schedule stream type.
-This type of streams start and finish automatically at the specified time.
+Represents a scheduled stream type.
+This type of stream starts and finishes automatically at specified time.
 
 #|
 ||Field | Description ||
-|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| finish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Scheduled time when the stream should automatically start. ||
+|| finish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Scheduled time when the stream should automatically finish. ||
 |#

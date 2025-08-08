@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/backups
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the MongoDB cluster.
+            To get the MongoDB cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListClusterBackupsResponse.nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listBackups#yandex.cloud.mdb.mongodb.v1.ListClusterBackupsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token.  To get the next page of results, set `pageToken` to the
+            [ListClusterBackupsResponse.nextPageToken](/docs/managed-mongodb/api-ref/Cluster/listBackups#yandex.cloud.mdb.mongodb.v1.ListClusterBackupsResponse) returned by the previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/Cluster/listBackups.md
 ---
 

@@ -1,5 +1,42 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users/{userName}:revokePermission
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the MongoDB cluster the user belongs to.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-mongodb/api-ref/Cluster/list#List) request.
+          type: string
+        userName:
+          description: |-
+            **string**
+            Required field. Name of the user to revoke a permission from.
+            To get the name of the user, use a [UserService.List](/docs/managed-mongodb/api-ref/User/list#List) request.
+          pattern: '[a-zA-Z0-9_]*'
+          type: string
+      required:
+        - clusterId
+        - userName
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        databaseName:
+          description: |-
+            **string**
+            Required field. Name of the database that the user should lose access to.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - databaseName
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/mdb/mongodb/v1/api-ref/User/revokePermission.md
 ---
 

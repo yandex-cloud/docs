@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}
+    method: delete
+    path:
+      type: object
+      properties:
+        subnetId:
+          description: |-
+            **string**
+            Required field. ID of the subnet to delete.
+            To get the subnet ID use a [SubnetService.List](/docs/vpc/api-ref/Subnet/list#List) request.
+          type: string
+      required:
+        - subnetId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/delete.md
 ---
 

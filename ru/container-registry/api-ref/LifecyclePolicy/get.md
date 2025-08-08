@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePolicies/{lifecyclePolicyId}
+    method: get
+    path:
+      type: object
+      properties:
+        lifecyclePolicyId:
+          description: |-
+            **string**
+            Required field. ID of the lifecycle policy.
+          type: string
+      required:
+        - lifecyclePolicyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/get.md
 ---
 

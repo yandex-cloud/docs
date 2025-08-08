@@ -206,7 +206,9 @@ Required field. ID of the requested resource. ||
       // end of the list of possible fields
     }
   },
-  "labels": "map<string, string>"
+  "labels": "map<string, string>",
+  "provider_type": "string",
+  "provider_cname": "string"
 }
 ```
 
@@ -261,6 +263,12 @@ SSL certificate options. ||
 || labels | **object** (map<**string**, **string**>)
 
 Labels of the resource. ||
+|| provider_type | **string**
+
+RESERVED: This field is reserved for future use and should not be used at this time. ||
+|| provider_cname | **string**
+
+RESERVED: Provider CNAME. ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions}

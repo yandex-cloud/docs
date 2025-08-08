@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/policies/{policyId}/applications
+    method: get
+    path:
+      type: object
+      properties:
+        policyId:
+          description: |-
+            **string**
+            Policy ID.
+            Includes only one of the fields `folderId`, `policyId`, `computeInstanceId`.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Folder ID.
+            Includes only one of the fields `folderId`, `policyId`, `computeInstanceId`.
+          type: string
+        computeInstanceId:
+          description: |-
+            **string**
+            Compute Cloud instance ID.
+            Includes only one of the fields `folderId`, `policyId`, `computeInstanceId`.
+          type: string
+        showProcessing:
+          description: |-
+            **boolean**
+            If true, also returns applications that in the process of binding.
+          type: boolean
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/listApplications.md
 ---
 

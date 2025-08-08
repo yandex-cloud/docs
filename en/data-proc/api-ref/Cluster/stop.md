@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}:stop
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to stop.
+            To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        decommissionTimeout:
+          description: |-
+            **string** (int64)
+            Timeout to gracefully decommission nodes. In seconds. Default value: 0
+          type: string
+          format: int64
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/stop.md
 ---
 
@@ -112,7 +139,8 @@ Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
     ],
     "deletionProtection": "boolean",
     "logGroupId": "string",
-    "environment": "string"
+    "environment": "string",
+    "autoscalingServiceAccountId": "string"
   }
   // end of the list of possible fields
 }
@@ -301,6 +329,9 @@ Environment of the cluster
 - `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`
 - `PRESTABLE` ||
+|| autoscalingServiceAccountId | **string**
+
+ID of service account for working with the Instance Groups service. ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}

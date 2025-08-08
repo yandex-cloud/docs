@@ -1,11 +1,53 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/videos/{videoId}:performAction
+    method: post
+    path:
+      type: object
+      properties:
+        videoId:
+          description: |-
+            **string**
+            Required field. ID of the video on which to perform the action.
+          type: string
+      required:
+        - videoId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        publish:
+          description: |-
+            **object**
+            Publish the video, making it available for watching.
+            Changes the video's visibility status to PUBLISHED.
+            Includes only one of the fields `publish`, `unpublish`.
+            Specifies the action to perform on the video (exactly one must be chosen).
+          $ref: '#/definitions/PublishVideoAction'
+        unpublish:
+          description: |-
+            **object**
+            Unpublish the video, making it unavailable for watching.
+            Changes the video's visibility status to UNPUBLISHED.
+            Includes only one of the fields `publish`, `unpublish`.
+            Specifies the action to perform on the video (exactly one must be chosen).
+          $ref: '#/definitions/UnpublishVideoAction'
+      additionalProperties: false
+    definitions:
+      PublishVideoAction:
+        type: object
+        properties: {}
+      UnpublishVideoAction:
+        type: object
+        properties: {}
 sourcePath: en/_api-ref/video/v1/api-ref/Video/performAction.md
 ---
 
 # Video API, REST: Video.PerformAction
 
-Perform an action on the video.
+Performs a specific action on a video, such as publishing or unpublishing.
 
 ## HTTP request
 
@@ -19,7 +61,7 @@ POST https://video.{{ api-host }}/video/v1/videos/{videoId}:performAction
 ||Field | Description ||
 || videoId | **string**
 
-Required field. ID of the video. ||
+Required field. ID of the video on which to perform the action. ||
 |#
 
 ## Body parameters {#yandex.cloud.video.v1.PerformVideoActionRequest}
@@ -37,10 +79,20 @@ Required field. ID of the video. ||
 ||Field | Description ||
 || publish | **object**
 
-Includes only one of the fields `publish`, `unpublish`. ||
+Publish the video, making it available for watching.
+Changes the video's visibility status to PUBLISHED.
+
+Includes only one of the fields `publish`, `unpublish`.
+
+Specifies the action to perform on the video (exactly one must be chosen). ||
 || unpublish | **object**
 
-Includes only one of the fields `publish`, `unpublish`. ||
+Unpublish the video, making it unavailable for watching.
+Changes the video's visibility status to UNPUBLISHED.
+
+Includes only one of the fields `publish`, `unpublish`.
+
+Specifies the action to perform on the video (exactly one must be chosen). ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -77,6 +129,7 @@ Includes only one of the fields `publish`, `unpublish`. ||
     "visibilityStatus": "string",
     "duration": "string",
     "autoTranscode": "string",
+    "stylePresetId": "string",
     "enableAd": "boolean",
     "subtitleIds": [
       "string"
@@ -186,7 +239,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || videoId | **string**
 
-ID of the video. ||
+ID of the video on which the action is being performed.
+This identifier can be used to track the action operation
+and to verify that the action is being applied to the correct video. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -208,91 +263,98 @@ A list of messages that carry the error details. ||
 
 ## Video {#yandex.cloud.video.v1.Video}
 
+Main entity representing a video in the platform.
+
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the video. ||
+Unique identifier of the video. ||
 || channelId | **string**
 
-ID of the channel where the video was created. ||
+Identifier of the channel where the video is created and managed. ||
 || title | **string**
 
-Video title displayed to users. ||
+Title of the video displayed to users in interfaces and players. ||
 || description | **string**
 
-Detailed description of the video. ||
+Detailed description of the video content and context. ||
 || thumbnailId | **string**
 
-ID of the video's thumbnail image. ||
+Identifier of the thumbnail image used to represent the video visually. ||
 || status | **enum** (VideoStatus)
 
-Video status.
+Current processing status of the video.
 
-- `VIDEO_STATUS_UNSPECIFIED`: Video status unspecified.
-- `WAIT_UPLOADING`: Waiting for all the bytes to be loaded.
-- `UPLOADED`: Fully uploaded, ready to be transcoded.
-- `PROCESSING`: Video is being processed.
-- `READY`: Successfully processed and ready for use.
-- `ERROR`: Video processing has failed. ||
+- `VIDEO_STATUS_UNSPECIFIED`: The video status is not specified.
+- `WAIT_UPLOADING`: The video upload is in progress, waiting for all bytes to be received.
+- `UPLOADED`: The video has been fully uploaded and is ready for transcoding.
+- `PROCESSING`: The video is currently being processed.
+- `READY`: The video has been successfully processed and is ready for watching.
+- `ERROR`: An error occurred during video processing. ||
 || errorMessage | **string**
 
 Error message describing the reason for video processing failure, if any. ||
 || visibilityStatus | **enum** (VisibilityStatus)
 
-Visibility status of the video.
+Current visibility status controlling whether the video is publicly available.
 
-- `VISIBILITY_STATUS_UNSPECIFIED`: Visibility status unspecified.
-- `PUBLISHED`: Video published and available for public viewing.
-- `UNPUBLISHED`: Video unpublished, available only to administrators. ||
+- `VISIBILITY_STATUS_UNSPECIFIED`: The visibility status is not specified.
+- `PUBLISHED`: The video is publicly available, subject to its access permission settings.
+- `UNPUBLISHED`: The video is available only to administrators. ||
 || duration | **string** (duration)
 
-Video duration. Optional, may be empty until the transcoding result is ready. ||
+Total duration of the video.
+Optional, may be empty until the transcoding result is ready. ||
 || autoTranscode | **enum** (AutoTranscode)
 
-Auto-transcoding setting.
+Auto-transcoding setting that controls the video processing workflow.
 Set ENABLE to automatically initiate transcoding after upload,
 or DISABLE for manual initiation via the Transcode() method.
 
-- `AUTO_TRANSCODE_UNSPECIFIED`: Unspecified auto transcoding value.
-- `ENABLE`: Enable auto transcoding.
-- `DISABLE`: Disable auto transcoding. ||
+- `AUTO_TRANSCODE_UNSPECIFIED`: The auto-transcoding setting is not specified.
+- `ENABLE`: Automatically start transcoding after the video upload is complete.
+- `DISABLE`: Do not automatically transcode; requires manual initiation via the Transcode() method. ||
+|| stylePresetId | **string**
+
+Identifier of the style preset applied to the video during processing. ||
 || enableAd | **boolean**
 
-Enable advertisement for this video.
+Controls the ability to display advertisements for this video.
 Default: true.
 Set explicitly to false to disable advertisements for a specific video. ||
 || subtitleIds[] | **string**
 
-List of IDs defining the active subtitles for the video. ||
+List of identifiers defining the active subtitles available for the video. ||
 || features | **[VideoFeatures](#yandex.cloud.video.v1.VideoFeatures)**
 
-Additional video processing features and their results. ||
+Additional video processing features and their results, such as summarization. ||
 || tusd | **[VideoTUSDSource](#yandex.cloud.video.v1.VideoTUSDSource)**
 
-Upload video using the tus protocol.
+Upload video using the TUS (Tus Resumable Upload Protocol) protocol.
+@see https://tus.io/
 
 Includes only one of the fields `tusd`.
 
-Video upload source definition (one source variant must be chosen). ||
+Specifies the video upload source method (one source variant must be chosen). ||
 || publicAccess | **object**
 
-Publicly accessible video available for viewing by anyone with the direct link.
+Allows unrestricted public access to the video via direct link.
 No additional authorization or access control is applied.
 
 Includes only one of the fields `publicAccess`, `signUrlAccess`.
 
-Video access permission settings. ||
+Specifies the video access permission settings. ||
 || signUrlAccess | **object**
 
-Checking access rights using url's signature.
+Restricts video access using URL signatures for secure time-limited access.
 
 Includes only one of the fields `publicAccess`, `signUrlAccess`.
 
-Video access permission settings. ||
+Specifies the video access permission settings. ||
 || createdAt | **string** (date-time)
 
-Time when video was created.
+Timestamp when the video was initially created in the system.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -302,7 +364,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || updatedAt | **string** (date-time)
 
-Time of last video update.
+Timestamp of the last modification to the video or its metadata.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -312,56 +374,71 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per video.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
 ## VideoFeatures {#yandex.cloud.video.v1.VideoFeatures}
+
+Contains additional processing features and their results for the video.
 
 #|
 ||Field | Description ||
 || summary | **[Summary](#yandex.cloud.video.v1.VideoFeatures.Summary)**
 
-Summarization result. ||
+Results of the video content summarization process. ||
 |#
 
 ## Summary {#yandex.cloud.video.v1.VideoFeatures.Summary}
+
+Contains the results of video summarization.
 
 #|
 ||Field | Description ||
 || result | **enum** (FeatureResult)
 
-- `FEATURE_RESULT_UNSPECIFIED`
-- `NOT_REQUESTED`: Feature has not been requested.
-- `PROCESSING`: Feature is being processed.
-- `SUCCESS`: Feature processing completed successfully.
-- `FAILED`: Feature processing has failed. ||
-|| urls[] | **[SummaryURL](#yandex.cloud.video.v1.VideoFeatures.Summary.SummaryURL)** ||
+Current status of the summarization process.
+
+- `FEATURE_RESULT_UNSPECIFIED`: The feature result status is not specified.
+- `NOT_REQUESTED`: The feature processing has not been requested.
+- `PROCESSING`: The feature is currently being processed.
+- `SUCCESS`: The feature processing has completed successfully.
+- `FAILED`: The feature processing has failed. ||
+|| urls[] | **[SummaryURL](#yandex.cloud.video.v1.VideoFeatures.Summary.SummaryURL)**
+
+List of URLs to summarization results for different audio tracks. ||
 |#
 
 ## SummaryURL {#yandex.cloud.video.v1.VideoFeatures.Summary.SummaryURL}
 
-#|
-||Field | Description ||
-|| url | **string** ||
-|| trackIndex | **string** (int64)
-
-Input audio track index (one-based). ||
-|| srcLang | **string**
-
-Source track language represented as a three-letter code according to ISO 639-2/T.
-Either provided in transcoding settings earlier or automatically deduced. ||
-|#
-
-## VideoTUSDSource {#yandex.cloud.video.v1.VideoTUSDSource}
-
-Video upload source via tus protocol.
+Contains a URL to a summarization result for a specific audio track.
 
 #|
 ||Field | Description ||
 || url | **string**
 
-URL for uploading video via the tus protocol. ||
+URL to the summarization result file. ||
+|| trackIndex | **string** (int64)
+
+Input audio track index (one-based) that was summarized. ||
+|| srcLang | **string**
+
+Source track language represented as a three-letter code according to ISO 639-2/T. ||
+|#
+
+## VideoTUSDSource {#yandex.cloud.video.v1.VideoTUSDSource}
+
+Represents a video upload source using the TUS (Tus Resumable Upload Protocol) protocol.
+This is a push-based upload method where the client pushes data to the server.
+@see https://tus.io/
+
+#|
+||Field | Description ||
+|| url | **string**
+
+URL endpoint for uploading the video via the TUS protocol. ||
 || fileSize | **string** (int64)
 
-Size of the uploaded file, in bytes. ||
+Total size of the uploaded file, in bytes. ||
 |#

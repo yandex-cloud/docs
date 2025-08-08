@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/index.md
 ---
 
-# Cloud Organization API, REST: Organization
+# Identity Hub API, REST: Organization
 
 A set of methods for managing Organization resources.
 

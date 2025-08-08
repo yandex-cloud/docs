@@ -1,5 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/assistants/v1/searchIndexFile/{searchIndexId}/{fileId}
+    method: get
+    path:
+      type: object
+      properties:
+        fileId:
+          description: |-
+            **string**
+            Required field. ID of the file to retrieve.
+          type: string
+        searchIndexId:
+          description: |-
+            **string**
+            Required field. ID of the search index that contains the file.
+          type: string
+      required:
+        - fileId
+        - searchIndexId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/SearchIndexFile/get.md
 ---
 

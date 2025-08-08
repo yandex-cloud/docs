@@ -1,5 +1,51 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/disks/{diskId}:relocate
+    method: post
+    path:
+      type: object
+      properties:
+        diskId:
+          description: |-
+            **string**
+            Required field. ID of the disk to move.
+            To get the disk ID, make a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+          type: string
+      required:
+        - diskId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationZoneId:
+          description: |-
+            **string**
+            Required field. ID of the availability zone to move the disk to.
+            To get the zone ID, make a [ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+          type: string
+        diskPlacementPolicy:
+          description: |-
+            **[DiskPlacementPolicy](/docs/compute/api-ref/DiskPlacementGroup/listDisks#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+            Placement policy configuration in target zone. Must be specified if disk has placement policy.
+          $ref: '#/definitions/DiskPlacementPolicy'
+      required:
+        - destinationZoneId
+      additionalProperties: false
+    definitions:
+      DiskPlacementPolicy:
+        type: object
+        properties:
+          placementGroupId:
+            description: |-
+              **string**
+              Placement group ID.
+            type: string
+          placementGroupPartition:
+            description: '**string** (int64)'
+            type: string
+            format: int64
 sourcePath: en/_api-ref/compute/v1/api-ref/Disk/relocate.md
 ---
 

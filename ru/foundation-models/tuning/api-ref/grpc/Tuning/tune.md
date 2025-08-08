@@ -26,6 +26,16 @@ sourcePath: en/_api-ref-grpc/ai/tuning/v1/tuning/api-ref/grpc/Tuning/tune.md
       "weight": "double"
     }
   ],
+  "validation_dataset": {
+    "dataset_id": "string",
+    "weight": "double"
+  },
+  "test_datasets": [
+    {
+      "dataset_id": "string",
+      "weight": "double"
+    }
+  ],
   // Includes only one of the fields `text_to_text_completion`, `text_classification_multilabel`, `text_classification_multiclass`, `text_embedding_pair_params`, `text_embedding_triplet_params`
   "text_to_text_completion": {
     "seed": "int64",
@@ -246,6 +256,8 @@ sourcePath: en/_api-ref-grpc/ai/tuning/v1/tuning/api-ref/grpc/Tuning/tune.md
 Required field. Format like a `gpt://{folder_id}/yandex-gpt/latest` ||
 || train_datasets[] | **[WeightedDataset](#yandex.cloud.ai.tuning.v1.TuningRequest.WeightedDataset)** ||
 || validation_datasets[] | **[WeightedDataset](#yandex.cloud.ai.tuning.v1.TuningRequest.WeightedDataset)** ||
+|| validation_dataset | **[WeightedDataset](#yandex.cloud.ai.tuning.v1.TuningRequest.WeightedDataset)** ||
+|| test_datasets[] | **[WeightedDataset](#yandex.cloud.ai.tuning.v1.TuningRequest.WeightedDataset)** ||
 || text_to_text_completion | **[TextToTextCompletionTuningParams](#yandex.cloud.ai.tuning.v1.TextToTextCompletionTuningParams)**
 
 Includes only one of the fields `text_to_text_completion`, `text_classification_multilabel`, `text_classification_multiclass`, `text_embedding_pair_params`, `text_embedding_triplet_params`. ||
@@ -647,7 +659,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 - `COMPLETED`
 - `FAILED`
 - `CANCELED`
-- `DRAFT` ||
+- `DRAFT`
+- `ARCHIVED`
+- `PAID` ||
 || total_steps | **int64** ||
 || current_step | **int64** ||
 |#
@@ -666,6 +680,8 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 - `COMPLETED`
 - `FAILED`
 - `CANCELED`
-- `DRAFT` ||
+- `DRAFT`
+- `ARCHIVED`
+- `PAID` ||
 || target_model_uri | **string** ||
 |#

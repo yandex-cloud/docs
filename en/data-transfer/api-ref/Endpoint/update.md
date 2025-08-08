@@ -1,5 +1,2104 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-data-transfer }}/v1/endpoint/{endpointId}
+    method: patch
+    path:
+      type: object
+      properties:
+        endpointId:
+          description: |-
+            **string**
+            Identifier of the endpoint to be updated.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            The new endpoint name. Must be unique within the folder.
+          type: string
+        description:
+          description: |-
+            **string**
+            The new description for the endpoint.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Endpoint labels as `key:value` pairs.
+            For details about the concept, see [documentation]({{ api-url-prefix }}/resource-manager/concepts/labels).
+          type: string
+        settings:
+          description: |-
+            **[EndpointSettings](/docs/data-transfer/api-ref/Endpoint/get#yandex.cloud.datatransfer.v1.EndpointSettings)**
+            The new endpoint settings.
+          oneOf:
+            - type: object
+              properties:
+                mysqlSource:
+                  description: |-
+                    **`MysqlSource`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/MysqlSource'
+                postgresSource:
+                  description: |-
+                    **`PostgresSource`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/PostgresSource'
+                ydbSource:
+                  description: |-
+                    **`YdbSource`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/YdbSource'
+                ydsSource:
+                  description: |-
+                    **`YDSSource`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/YDSSource'
+                kafkaSource:
+                  description: |-
+                    **`KafkaSource`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/KafkaSource'
+                mongoSource:
+                  description: |-
+                    **`MongoSource`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/MongoSource'
+                clickhouseSource:
+                  description: |-
+                    **`ClickhouseSource`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/ClickhouseSource'
+                mysqlTarget:
+                  description: |-
+                    **`MysqlTarget`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/MysqlTarget'
+                postgresTarget:
+                  description: |-
+                    **`PostgresTarget`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/PostgresTarget'
+                clickhouseTarget:
+                  description: |-
+                    **`ClickhouseTarget`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/ClickhouseTarget'
+                ydbTarget:
+                  description: |-
+                    **`YdbTarget`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/YdbTarget'
+                kafkaTarget:
+                  description: |-
+                    **`KafkaTarget`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/KafkaTarget'
+                mongoTarget:
+                  description: |-
+                    **`MongoTarget`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/MongoTarget'
+                metrikaSource:
+                  description: |-
+                    **`MetrikaSource`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/MetrikaSource'
+                ydsTarget:
+                  description: |-
+                    **`YDSTarget`**
+                    Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+                  $ref: '#/definitions/YDSTarget'
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+      additionalProperties: false
+    definitions:
+      TLSConfig:
+        type: object
+        properties:
+          caCertificate:
+            description: |-
+              **string**
+              CA certificate
+              X.509 certificate of the certificate authority which issued the server's
+              certificate, in PEM format. When CA certificate is specified TLS is used to
+              connect to the server.
+            type: string
+      OnPremiseMysql:
+        type: object
+        properties:
+          port:
+            description: |-
+              **string** (int64)
+              Database port
+            type: string
+            format: int64
+          subnetId:
+            description: |-
+              **string**
+              Network interface for endpoint. If none will assume public ipv4
+            type: string
+          hosts:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          tlsMode:
+            description: |-
+              **`TLSMode`**
+              TLS settings for server connection. Disabled by default.
+            oneOf:
+              - type: object
+                properties:
+                  disabled:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `enabled`.
+                    type: undefined
+                    format: empty
+                  enabled:
+                    description: |-
+                      **`TLSConfig`**
+                      Includes only one of the fields `enabled`.
+                    $ref: '#/definitions/TLSConfig'
+      ConnectionManagerConnection:
+        type: object
+        properties:
+          connectionId:
+            description: '**string**'
+            type: string
+      MysqlObjectTransferSettings:
+        type: object
+        properties:
+          view:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Views
+              CREATE VIEW ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          routine:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Routines
+              CREATE PROCEDURE ... ; CREATE FUNCTION ... ;
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          trigger:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Triggers
+              CREATE TRIGGER ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          tables:
+            description: |-
+              **enum** (ObjectTransferStage)
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+      MysqlSource:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **`MysqlConnection`**
+              Database connection settings
+            oneOf:
+              - type: object
+                properties:
+                  mdbClusterId:
+                    description: |-
+                      **string**
+                      Managed Service for MySQL cluster ID
+                      Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                    type: string
+                  onPremise:
+                    description: |-
+                      **`OnPremiseMysql`**
+                      Connection options for on-premise MySQL
+                      Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                    $ref: '#/definitions/OnPremiseMysql'
+                  connectionManagerConnection:
+                    description: |-
+                      **`ConnectionManagerConnection`**
+                      Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                    $ref: '#/definitions/ConnectionManagerConnection'
+          database:
+            description: |-
+              **string**
+              Database name
+              You can leave it empty, then it will be possible to transfer tables from several
+              databases at the same time from this source.
+            type: string
+          user:
+            description: |-
+              **string**
+              User for database access. not required as may be in connection
+            type: string
+          password:
+            description: |-
+              **`Secret`**
+              Password for database access.
+            oneOf:
+              - type: object
+                properties:
+                  raw:
+                    description: |-
+                      **string**
+                      Raw secret value
+                      Includes only one of the fields `raw`.
+                    type: string
+          timezone:
+            description: |-
+              **string**
+              Database timezone
+              Is used for parsing timestamps for saving source timezones. Accepts values from
+              IANA timezone database. Default: local timezone.
+            type: string
+          objectTransferSettings:
+            description: |-
+              **`MysqlObjectTransferSettings`**
+              Schema migration
+              Select database objects to be transferred during activation or deactivation.
+            $ref: '#/definitions/MysqlObjectTransferSettings'
+          includeTablesRegex:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          excludeTablesRegex:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          serviceDatabase:
+            description: |-
+              **string**
+              Database for service tables
+              Default: data source database. Here created technical tables (__tm_keeper,
+              __tm_gtid_keeper).
+            type: string
+      OnPremisePostgres:
+        type: object
+        properties:
+          port:
+            description: |-
+              **string** (int64)
+              Will be used if the cluster ID is not specified.
+            type: string
+            format: int64
+          subnetId:
+            description: |-
+              **string**
+              Network interface for endpoint. If none will assume public ipv4
+            type: string
+          hosts:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          tlsMode:
+            description: |-
+              **`TLSMode`**
+              TLS settings for server connection. Disabled by default.
+            oneOf:
+              - type: object
+                properties:
+                  disabled:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `enabled`.
+                    type: undefined
+                    format: empty
+                  enabled:
+                    description: |-
+                      **`TLSConfig`**
+                      Includes only one of the fields `enabled`.
+                    $ref: '#/definitions/TLSConfig'
+      PostgresObjectTransferSettings:
+        type: object
+        properties:
+          sequence:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Sequences
+              CREATE SEQUENCE ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          sequenceOwnedBy:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Owned sequences
+              CREATE SEQUENCE ... OWNED BY ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          table:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Tables
+              CREATE TABLE ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          primaryKey:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Primary keys
+              ALTER TABLE ... ADD PRIMARY KEY ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          fkConstraint:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Foreign keys
+              ALTER TABLE ... ADD FOREIGN KEY ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          defaultValues:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Default values
+              ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          constraint:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Constraints
+              ALTER TABLE ... ADD CONSTRAINT ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          index:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Indexes
+              CREATE INDEX ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          view:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Views
+              CREATE VIEW ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          function:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Functions
+              CREATE FUNCTION ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          trigger:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Triggers
+              CREATE TRIGGER ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          type:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Types
+              CREATE TYPE ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          rule:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Rules
+              CREATE RULE ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          collation:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Collations
+              CREATE COLLATION ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          policy:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Policies
+              CREATE POLICY ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          cast:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Casts
+              CREATE CAST ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          materializedView:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Materialized views
+              CREATE MATERIALIZED VIEW ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          sequenceSet:
+            description: |-
+              **enum** (ObjectTransferStage)
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+      PostgresSource:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **`PostgresConnection`**
+              Database connection settings
+            oneOf:
+              - type: object
+                properties:
+                  mdbClusterId:
+                    description: |-
+                      **string**
+                      Managed Service for PostgreSQL cluster ID
+                      Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                    type: string
+                  onPremise:
+                    description: |-
+                      **`OnPremisePostgres`**
+                      Connection options for on-premise PostgreSQL
+                      Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                    $ref: '#/definitions/OnPremisePostgres'
+                  connectionManagerConnection:
+                    description: |-
+                      **`ConnectionManagerConnection`**
+                      Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                    $ref: '#/definitions/ConnectionManagerConnection'
+          database:
+            description: |-
+              **string**
+              Database name
+            type: string
+          user:
+            description: |-
+              **string**
+              User for database access. not required as may be in connection
+            type: string
+          password:
+            description: |-
+              **`Secret`**
+              Password for database access.
+            oneOf:
+              - type: object
+                properties:
+                  raw:
+                    description: |-
+                      **string**
+                      Raw secret value
+                      Includes only one of the fields `raw`.
+                    type: string
+          includeTables:
+            description: |-
+              **string**
+              Included tables
+              If none or empty list is presented, all tables are replicated. Full table name
+              with schema. Can contain schema_name.* patterns.
+            type: array
+            items:
+              type: string
+          excludeTables:
+            description: |-
+              **string**
+              Excluded tables
+              If none or empty list is presented, all tables are replicated. Full table name
+              with schema. Can contain schema_name.* patterns.
+            type: array
+            items:
+              type: string
+          slotByteLagLimit:
+            description: |-
+              **string** (int64)
+              Maximum lag of replication slot (in bytes); after exceeding this limit
+              replication will be aborted.
+            type: string
+            format: int64
+          serviceSchema:
+            description: |-
+              **string**
+              Database schema for service tables (__consumer_keeper,
+              __data_transfer_mole_finder). Default is public
+            type: string
+          objectTransferSettings:
+            description: |-
+              **`PostgresObjectTransferSettings`**
+              Select database objects to be transferred during activation or deactivation.
+            $ref: '#/definitions/PostgresObjectTransferSettings'
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+      YdbSource:
+        type: object
+        properties:
+          database:
+            description: |-
+              **string**
+              Path in YDB where to store tables
+            type: string
+          instance:
+            description: |-
+              **string**
+              Instance of YDB. example: ydb-ru-prestable.yandex.net:2135
+            type: string
+          paths:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          serviceAccountId:
+            description: '**string**'
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              Network interface for endpoint. If none will assume public ipv4
+            type: string
+          saKeyContent:
+            description: |-
+              **string**
+              Authorization Key
+            type: string
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          changefeedCustomName:
+            description: |-
+              **string**
+              Pre-created change feed
+            type: string
+          changefeedCustomConsumerName:
+            description: '**string**'
+            type: string
+      ColSchema:
+        type: object
+        properties:
+          name:
+            description: '**string**'
+            type: string
+          type:
+            description: |-
+              **enum** (ColumnType)
+              - `COLUMN_TYPE_UNSPECIFIED`
+              - `INT32`
+              - `INT16`
+              - `INT8`
+              - `UINT64`
+              - `UINT32`
+              - `UINT16`
+              - `UINT8`
+              - `DOUBLE`
+              - `BOOLEAN`
+              - `STRING`
+              - `UTF8`
+              - `ANY`
+              - `DATETIME`
+              - `INT64`
+            type: string
+            enum:
+              - COLUMN_TYPE_UNSPECIFIED
+              - INT32
+              - INT16
+              - INT8
+              - UINT64
+              - UINT32
+              - UINT16
+              - UINT8
+              - DOUBLE
+              - BOOLEAN
+              - STRING
+              - UTF8
+              - ANY
+              - DATETIME
+              - INT64
+          key:
+            description: '**boolean**'
+            type: boolean
+          required:
+            description: '**boolean**'
+            type: boolean
+          path:
+            description: '**string**'
+            type: string
+      FieldList:
+        type: object
+        properties:
+          fields:
+            description: |-
+              **`ColSchema`**
+              Column schema
+            type: array
+            items:
+              $ref: '#/definitions/ColSchema'
+      GenericParserCommon:
+        type: object
+        properties:
+          dataSchema:
+            description: '**`DataSchema`**'
+            oneOf:
+              - type: object
+                properties:
+                  jsonFields:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `jsonFields`, `fields`.
+                    type: string
+                  fields:
+                    description: |-
+                      **`FieldList`**
+                      Includes only one of the fields `jsonFields`, `fields`.
+                    $ref: '#/definitions/FieldList'
+          nullKeysAllowed:
+            description: |-
+              **boolean**
+              Allow null keys, if no - null keys will be putted to unparsed data
+            type: boolean
+          addRestColumn:
+            description: |-
+              **boolean**
+              Will add _rest column for all unknown fields
+            type: boolean
+          unescapeStringValues:
+            description: |-
+              **boolean**
+              Unescape string values
+            type: boolean
+      AuditTrailsV1Parser:
+        type: object
+        properties: {}
+      CloudLoggingParser:
+        type: object
+        properties: {}
+      YDSSource:
+        type: object
+        properties:
+          database:
+            description: |-
+              **string**
+              Database
+            type: string
+          stream:
+            description: |-
+              **string**
+              Stream
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              SA which has read access to the stream.
+            type: string
+          supportedCodecs:
+            description: |-
+              **enum** (YdsCompressionCodec)
+              Compression codec
+              - `YDS_COMPRESSION_CODEC_UNSPECIFIED`
+              - `YDS_COMPRESSION_CODEC_RAW`
+              - `YDS_COMPRESSION_CODEC_GZIP`
+              - `YDS_COMPRESSION_CODEC_ZSTD`
+            type: array
+            items:
+              type: string
+              enum:
+                - YDS_COMPRESSION_CODEC_UNSPECIFIED
+                - YDS_COMPRESSION_CODEC_RAW
+                - YDS_COMPRESSION_CODEC_GZIP
+                - YDS_COMPRESSION_CODEC_ZSTD
+          parser:
+            description: |-
+              **`Parser`**
+              Data parsing rules
+            oneOf:
+              - type: object
+                properties:
+                  jsonParser:
+                    description: |-
+                      **`GenericParserCommon`**
+                      Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
+                    $ref: '#/definitions/GenericParserCommon'
+                  auditTrailsV1Parser:
+                    description: |-
+                      **object**
+                      Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
+                    $ref: '#/definitions/AuditTrailsV1Parser'
+                  cloudLoggingParser:
+                    description: |-
+                      **object**
+                      Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
+                    $ref: '#/definitions/CloudLoggingParser'
+                  tskvParser:
+                    description: |-
+                      **`GenericParserCommon`**
+                      Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
+                    $ref: '#/definitions/GenericParserCommon'
+          allowTtlRewind:
+            description: |-
+              **boolean**
+              Should continue working, if consumer read lag exceed TTL of topic
+              False: stop the transfer in error state, if detected lost data. True: continue
+              working with losing part of data
+            type: boolean
+          endpoint:
+            description: |-
+              **string**
+              for dedicated db
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              Network interface for endpoint. If none will assume public ipv4
+            type: string
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          consumer:
+            description: |-
+              **string**
+              for important streams
+            type: string
+      OnPremiseKafka:
+        type: object
+        properties:
+          brokerUrls:
+            description: |-
+              **string**
+              Kafka broker URLs
+            type: array
+            items:
+              type: string
+          subnetId:
+            description: |-
+              **string**
+              Network interface for endpoint. If none will assume public ipv4
+            type: string
+          tlsMode:
+            description: |-
+              **`TLSMode`**
+              TLS settings for broker connection. Disabled by default.
+            oneOf:
+              - type: object
+                properties:
+                  disabled:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `enabled`.
+                    type: undefined
+                    format: empty
+                  enabled:
+                    description: |-
+                      **`TLSConfig`**
+                      Includes only one of the fields `enabled`.
+                    $ref: '#/definitions/TLSConfig'
+      KafkaSaslSecurity:
+        type: object
+        properties:
+          user:
+            description: |-
+              **string**
+              User name
+            type: string
+          mechanism:
+            description: |-
+              **enum** (KafkaMechanism)
+              SASL mechanism for authentication
+              - `KAFKA_MECHANISM_UNSPECIFIED`
+              - `KAFKA_MECHANISM_SHA256`
+              - `KAFKA_MECHANISM_SHA512`
+            type: string
+            enum:
+              - KAFKA_MECHANISM_UNSPECIFIED
+              - KAFKA_MECHANISM_SHA256
+              - KAFKA_MECHANISM_SHA512
+          password:
+            description: |-
+              **`Secret`**
+              Password for user
+            oneOf:
+              - type: object
+                properties:
+                  raw:
+                    description: |-
+                      **string**
+                      Raw secret value
+                      Includes only one of the fields `raw`.
+                    type: string
+      NoAuth:
+        type: object
+        properties: {}
+      DataTransformationOptions:
+        type: object
+        properties:
+          cloudFunction:
+            description: |-
+              **string**
+              Cloud function
+            type: string
+          numberOfRetries:
+            description: |-
+              **string** (int64)
+              Number of retries
+            type: string
+            format: int64
+          bufferSize:
+            description: |-
+              **string**
+              Buffer size for function
+            type: string
+          bufferFlushInterval:
+            description: |-
+              **string**
+              Flush interval
+            type: string
+          invocationTimeout:
+            description: |-
+              **string**
+              Invocation timeout
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Service account
+            type: string
+      KafkaSource:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **`KafkaConnectionOptions`**
+              Connection settings
+            oneOf:
+              - type: object
+                properties:
+                  clusterId:
+                    description: |-
+                      **string**
+                      Managed Service for Kafka cluster ID
+                      Includes only one of the fields `clusterId`, `onPremise`.
+                    type: string
+                  onPremise:
+                    description: |-
+                      **`OnPremiseKafka`**
+                      Connection options for on-premise Kafka
+                      Includes only one of the fields `clusterId`, `onPremise`.
+                    $ref: '#/definitions/OnPremiseKafka'
+          auth:
+            description: |-
+              **`KafkaAuth`**
+              Authentication settings
+            oneOf:
+              - type: object
+                properties:
+                  sasl:
+                    description: |-
+                      **`KafkaSaslSecurity`**
+                      Authentication with SASL
+                      Includes only one of the fields `sasl`, `noAuth`.
+                    $ref: '#/definitions/KafkaSaslSecurity'
+                  noAuth:
+                    description: |-
+                      **object**
+                      No authentication
+                      Includes only one of the fields `sasl`, `noAuth`.
+                    $ref: '#/definitions/NoAuth'
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          topicName:
+            description: |-
+              **string**
+              Full source topic name
+              Deprecated in favor of topic names
+            deprecated: true
+            type: string
+          transformer:
+            description: |-
+              **`DataTransformationOptions`**
+              Data transformation rules
+            $ref: '#/definitions/DataTransformationOptions'
+          parser:
+            description: |-
+              **`Parser`**
+              Data parsing rules
+            oneOf:
+              - type: object
+                properties:
+                  jsonParser:
+                    description: |-
+                      **`GenericParserCommon`**
+                      Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
+                    $ref: '#/definitions/GenericParserCommon'
+                  auditTrailsV1Parser:
+                    description: |-
+                      **object**
+                      Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
+                    $ref: '#/definitions/AuditTrailsV1Parser'
+                  cloudLoggingParser:
+                    description: |-
+                      **object**
+                      Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
+                    $ref: '#/definitions/CloudLoggingParser'
+                  tskvParser:
+                    description: |-
+                      **`GenericParserCommon`**
+                      Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
+                    $ref: '#/definitions/GenericParserCommon'
+          topicNames:
+            description: |-
+              **string**
+              List of topic names to read
+            type: array
+            items:
+              type: string
+      OnPremiseMongo:
+        type: object
+        properties:
+          hosts:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          port:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          replicaSet:
+            description: '**string**'
+            type: string
+          tlsMode:
+            description: '**`TLSMode`**'
+            oneOf:
+              - type: object
+                properties:
+                  disabled:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `enabled`.
+                    type: undefined
+                    format: empty
+                  enabled:
+                    description: |-
+                      **`TLSConfig`**
+                      Includes only one of the fields `enabled`.
+                    $ref: '#/definitions/TLSConfig'
+      MongoConnectionManagerConnection:
+        type: object
+        properties:
+          connectionId:
+            description: '**string**'
+            type: string
+          replicaSet:
+            description: |-
+              **string**
+              Used only for on-premise connections
+            type: string
+      MongoCollection:
+        type: object
+        properties:
+          databaseName:
+            description: '**string**'
+            type: string
+          collectionName:
+            description: '**string**'
+            type: string
+      MongoSource:
+        type: object
+        properties:
+          connection:
+            description: '**`MongoConnection`**'
+            oneOf:
+              - type: object
+                properties:
+                  connectionOptions:
+                    description: |-
+                      **`MongoConnectionOptions`**
+                      Includes only one of the fields `connectionOptions`.
+                    oneOf:
+                      - type: object
+                        properties:
+                          mdbClusterId:
+                            description: |-
+                              **string**
+                              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                            type: string
+                          onPremise:
+                            description: |-
+                              **`OnPremiseMongo`**
+                              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                            $ref: '#/definitions/OnPremiseMongo'
+                          connectionManagerConnection:
+                            description: |-
+                              **`MongoConnectionManagerConnection`**
+                              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                            $ref: '#/definitions/MongoConnectionManagerConnection'
+          subnetId:
+            description: '**string**'
+            type: string
+          collections:
+            description: |-
+              **`MongoCollection`**
+              List of collections for replication. Empty list implies replication of all
+              tables on the deployment. Allowed to use * as collection name.
+            type: array
+            items:
+              $ref: '#/definitions/MongoCollection'
+          excludedCollections:
+            description: |-
+              **`MongoCollection`**
+              List of forbidden collections for replication. Allowed to use * as collection
+              name for forbid all collections of concrete schema.
+            type: array
+            items:
+              $ref: '#/definitions/MongoCollection'
+          secondaryPreferredMode:
+            description: |-
+              **boolean**
+              Read mode for mongo client
+            type: boolean
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+      ClickhouseShard:
+        type: object
+        properties:
+          name:
+            description: '**string**'
+            type: string
+          hosts:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      OnPremiseClickhouse:
+        type: object
+        properties:
+          shards:
+            description: '**`ClickhouseShard`**'
+            type: array
+            items:
+              $ref: '#/definitions/ClickhouseShard'
+          httpPort:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          nativePort:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          tlsMode:
+            description: '**`TLSMode`**'
+            oneOf:
+              - type: object
+                properties:
+                  disabled:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `enabled`.
+                    type: undefined
+                    format: empty
+                  enabled:
+                    description: |-
+                      **`TLSConfig`**
+                      Includes only one of the fields `enabled`.
+                    $ref: '#/definitions/TLSConfig'
+      ClickhouseSource:
+        type: object
+        properties:
+          connection:
+            description: '**`ClickhouseConnection`**'
+            oneOf:
+              - type: object
+                properties:
+                  connectionOptions:
+                    description: |-
+                      **`ClickhouseConnectionOptions`**
+                      Includes only one of the fields `connectionOptions`.
+                    oneOf:
+                      - type: object
+                        properties:
+                          onPremise:
+                            description: |-
+                              **`OnPremiseClickhouse`**
+                              Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`.
+                            $ref: '#/definitions/OnPremiseClickhouse'
+                          connectionManagerConnection:
+                            description: |-
+                              **`ConnectionManagerConnection`**
+                              Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`.
+                            $ref: '#/definitions/ConnectionManagerConnection'
+                          mdbClusterId:
+                            description: |-
+                              **string**
+                              Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`.
+                            type: string
+          includeTables:
+            description: |-
+              **string**
+              White list of tables for replication. If none or empty list is presented - will
+              replicate all tables. Can contain * patterns.
+            type: array
+            items:
+              type: string
+          excludeTables:
+            description: |-
+              **string**
+              Exclude list of tables for replication. If none or empty list is presented -
+              will replicate all tables. Can contain * patterns.
+            type: array
+            items:
+              type: string
+          subnetId:
+            description: '**string**'
+            type: string
+          securityGroups:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          clickhouseClusterName:
+            description: |-
+              **string**
+              Name of the ClickHouse cluster. For Managed ClickHouse that is name of
+              ShardGroup.
+            type: string
+      MysqlTarget:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **`MysqlConnection`**
+              Database connection settings
+            oneOf:
+              - type: object
+                properties:
+                  mdbClusterId:
+                    description: |-
+                      **string**
+                      Managed Service for MySQL cluster ID
+                      Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                    type: string
+                  onPremise:
+                    description: |-
+                      **`OnPremiseMysql`**
+                      Connection options for on-premise MySQL
+                      Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                    $ref: '#/definitions/OnPremiseMysql'
+                  connectionManagerConnection:
+                    description: |-
+                      **`ConnectionManagerConnection`**
+                      Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                    $ref: '#/definitions/ConnectionManagerConnection'
+          database:
+            description: |-
+              **string**
+              Database name
+              Allowed to leave it empty, then the tables will be created in databases with the
+              same names as on the source. If this field is empty, then you must fill below db
+              schema for service table.
+            type: string
+          user:
+            description: |-
+              **string**
+              User for database access. not required as may be in connection
+            type: string
+          password:
+            description: |-
+              **`Secret`**
+              Password for database access.
+            oneOf:
+              - type: object
+                properties:
+                  raw:
+                    description: |-
+                      **string**
+                      Raw secret value
+                      Includes only one of the fields `raw`.
+                    type: string
+          sqlMode:
+            description: |-
+              **string**
+              Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION.
+            type: string
+          skipConstraintChecks:
+            description: |-
+              **boolean**
+              Disable constraints checks
+              Recommend to disable for increase replication speed, but if schema contain
+              cascading operations we don't recommend to disable. This option set
+              FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0.
+            type: boolean
+          timezone:
+            description: |-
+              **string**
+              Database timezone
+              Is used for parsing timestamps for saving source timezones. Accepts values from
+              IANA timezone database. Default: local timezone.
+            type: string
+          cleanupPolicy:
+            description: |-
+              **enum** (CleanupPolicy)
+              Cleanup policy
+              Cleanup policy for activate, reactivate and reupload processes. Default is
+              DISABLED.
+              - `CLEANUP_POLICY_UNSPECIFIED`
+              - `DISABLED`: Don't cleanup
+              - `DROP`: Drop
+              - `TRUNCATE`: Truncate
+            type: string
+            enum:
+              - CLEANUP_POLICY_UNSPECIFIED
+              - DISABLED
+              - DROP
+              - TRUNCATE
+          serviceDatabase:
+            description: |-
+              **string**
+              Database schema for service table
+              Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).
+            type: string
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          isSchemaMigrationDisabled:
+            description: '**boolean**'
+            type: boolean
+      PostgresTarget:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **`PostgresConnection`**
+              Database connection settings
+            oneOf:
+              - type: object
+                properties:
+                  mdbClusterId:
+                    description: |-
+                      **string**
+                      Managed Service for PostgreSQL cluster ID
+                      Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                    type: string
+                  onPremise:
+                    description: |-
+                      **`OnPremisePostgres`**
+                      Connection options for on-premise PostgreSQL
+                      Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                    $ref: '#/definitions/OnPremisePostgres'
+                  connectionManagerConnection:
+                    description: |-
+                      **`ConnectionManagerConnection`**
+                      Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                    $ref: '#/definitions/ConnectionManagerConnection'
+          database:
+            description: |-
+              **string**
+              Database name
+            type: string
+          user:
+            description: |-
+              **string**
+              User for database access. not required as may be in connection
+            type: string
+          password:
+            description: |-
+              **`Secret`**
+              Password for database access.
+            oneOf:
+              - type: object
+                properties:
+                  raw:
+                    description: |-
+                      **string**
+                      Raw secret value
+                      Includes only one of the fields `raw`.
+                    type: string
+          cleanupPolicy:
+            description: |-
+              **enum** (CleanupPolicy)
+              Cleanup policy for activate, reactivate and reupload processes. Default is
+              truncate.
+              - `CLEANUP_POLICY_UNSPECIFIED`
+              - `DISABLED`: Don't cleanup
+              - `DROP`: Drop
+              - `TRUNCATE`: Truncate
+            type: string
+            enum:
+              - CLEANUP_POLICY_UNSPECIFIED
+              - DISABLED
+              - DROP
+              - TRUNCATE
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          isSchemaMigrationDisabled:
+            description: '**boolean**'
+            type: boolean
+      AltName:
+        type: object
+        properties:
+          fromName:
+            description: |-
+              **string**
+              Source table name
+            type: string
+          toName:
+            description: |-
+              **string**
+              Target table name
+            type: string
+      ColumnValueHash:
+        type: object
+        properties:
+          columnName:
+            description: '**string**'
+            type: string
+      ValueToShard:
+        type: object
+        properties:
+          columnValue:
+            description: '**`ColumnValue`**'
+            oneOf:
+              - type: object
+                properties:
+                  stringValue:
+                    description: |-
+                      **string**
+                      Includes only one of the fields `stringValue`.
+                    type: string
+          shardName:
+            description: '**string**'
+            type: string
+      ColumnValueMapping:
+        type: object
+        properties:
+          columnName:
+            description: '**string**'
+            type: string
+          mapping:
+            description: '**`ValueToShard`**'
+            type: array
+            items:
+              $ref: '#/definitions/ValueToShard'
+      ClickhouseTarget:
+        type: object
+        properties:
+          connection:
+            description: '**`ClickhouseConnection`**'
+            oneOf:
+              - type: object
+                properties:
+                  connectionOptions:
+                    description: |-
+                      **`ClickhouseConnectionOptions`**
+                      Includes only one of the fields `connectionOptions`.
+                    oneOf:
+                      - type: object
+                        properties:
+                          onPremise:
+                            description: |-
+                              **`OnPremiseClickhouse`**
+                              Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`.
+                            $ref: '#/definitions/OnPremiseClickhouse'
+                          connectionManagerConnection:
+                            description: |-
+                              **`ConnectionManagerConnection`**
+                              Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`.
+                            $ref: '#/definitions/ConnectionManagerConnection'
+                          mdbClusterId:
+                            description: |-
+                              **string**
+                              Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`.
+                            type: string
+          subnetId:
+            description: '**string**'
+            type: string
+          altNames:
+            description: |-
+              **`AltName`**
+              Alternative table names in target
+            type: array
+            items:
+              $ref: '#/definitions/AltName'
+          cleanupPolicy:
+            description: |-
+              **enum** (ClickhouseCleanupPolicy)
+              - `CLICKHOUSE_CLEANUP_POLICY_UNSPECIFIED`
+              - `CLICKHOUSE_CLEANUP_POLICY_DISABLED`
+              - `CLICKHOUSE_CLEANUP_POLICY_DROP`
+              - `CLICKHOUSE_CLEANUP_POLICY_TRUNCATE`
+            type: string
+            enum:
+              - CLICKHOUSE_CLEANUP_POLICY_UNSPECIFIED
+              - CLICKHOUSE_CLEANUP_POLICY_DISABLED
+              - CLICKHOUSE_CLEANUP_POLICY_DROP
+              - CLICKHOUSE_CLEANUP_POLICY_TRUNCATE
+          sharding:
+            description: '**`ClickhouseSharding`**'
+            oneOf:
+              - type: object
+                properties:
+                  columnValueHash:
+                    description: |-
+                      **`ColumnValueHash`**
+                      Includes only one of the fields `columnValueHash`, `customMapping`.
+                    $ref: '#/definitions/ColumnValueHash'
+                  customMapping:
+                    description: |-
+                      **`ColumnValueMapping`**
+                      Includes only one of the fields `columnValueHash`, `customMapping`.
+                    $ref: '#/definitions/ColumnValueMapping'
+                  transferId:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `columnValueHash`, `customMapping`.
+                    type: undefined
+                    format: empty
+                  roundRobin:
+                    description: |-
+                      **undefined** (empty)
+                      Empty JSON object `` {} ``.
+                      Includes only one of the fields `columnValueHash`, `customMapping`.
+                    type: undefined
+                    format: empty
+          isSchemaMigrationDisabled:
+            description: '**boolean**'
+            type: boolean
+          clickhouseClusterName:
+            description: |-
+              **string**
+              Name of the ClickHouse cluster. For Managed ClickHouse that is name of
+              ShardGroup.
+            type: string
+          securityGroups:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      YdbTarget:
+        type: object
+        properties:
+          database:
+            description: |-
+              **string**
+              Path in YDB where to store tables
+            type: string
+          instance:
+            description: |-
+              **string**
+              Instance of YDB. example: ydb-ru-prestable.yandex.net:2135
+            type: string
+          path:
+            description: |-
+              **string**
+              Path extension for database, each table will be layouted into this path
+            type: string
+          serviceAccountId:
+            description: '**string**'
+            type: string
+          cleanupPolicy:
+            description: |-
+              **enum** (YdbCleanupPolicy)
+              Cleanup policy
+              - `YDB_CLEANUP_POLICY_UNSPECIFIED`
+              - `YDB_CLEANUP_POLICY_DISABLED`
+              - `YDB_CLEANUP_POLICY_DROP`
+            type: string
+            enum:
+              - YDB_CLEANUP_POLICY_UNSPECIFIED
+              - YDB_CLEANUP_POLICY_DISABLED
+              - YDB_CLEANUP_POLICY_DROP
+          subnetId:
+            description: |-
+              **string**
+              Network interface for endpoint. If none will assume public ipv4
+            type: string
+          saKeyContent:
+            description: |-
+              **string**
+              SA content
+            type: string
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          isTableColumnOriented:
+            description: |-
+              **boolean**
+              Should create column-oriented table (OLAP). By default it creates row-oriented
+              (OLTP)
+            type: boolean
+          defaultCompression:
+            description: |-
+              **enum** (YdbDefaultCompression)
+              Compression that will be used for default columns family on YDB table creation
+              - `YDB_DEFAULT_COMPRESSION_UNSPECIFIED`
+              - `YDB_DEFAULT_COMPRESSION_DISABLED`
+              - `YDB_DEFAULT_COMPRESSION_LZ4`
+            type: string
+            enum:
+              - YDB_DEFAULT_COMPRESSION_UNSPECIFIED
+              - YDB_DEFAULT_COMPRESSION_DISABLED
+              - YDB_DEFAULT_COMPRESSION_LZ4
+          isSchemaMigrationDisabled:
+            description: '**boolean**'
+            type: boolean
+      KafkaTargetTopic:
+        type: object
+        properties:
+          topicName:
+            description: |-
+              **string**
+              Topic name
+            type: string
+          saveTxOrder:
+            description: |-
+              **boolean**
+              Save transactions order
+              Not to split events queue into separate per-table queues.
+            type: boolean
+      SerializerAuto:
+        type: object
+        properties: {}
+      SerializerJSON:
+        type: object
+        properties: {}
+      DebeziumSerializerParameter:
+        type: object
+        properties:
+          key:
+            description: |-
+              **string**
+              Name of the serializer parameter
+            type: string
+          value:
+            description: |-
+              **string**
+              Value of the serializer parameter
+            type: string
+      SerializerDebezium:
+        type: object
+        properties:
+          serializerParameters:
+            description: |-
+              **`DebeziumSerializerParameter`**
+              Settings of sterilization parameters as key-value pairs
+            type: array
+            items:
+              $ref: '#/definitions/DebeziumSerializerParameter'
+      KafkaTarget:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **`KafkaConnectionOptions`**
+              Connection settings
+            oneOf:
+              - type: object
+                properties:
+                  clusterId:
+                    description: |-
+                      **string**
+                      Managed Service for Kafka cluster ID
+                      Includes only one of the fields `clusterId`, `onPremise`.
+                    type: string
+                  onPremise:
+                    description: |-
+                      **`OnPremiseKafka`**
+                      Connection options for on-premise Kafka
+                      Includes only one of the fields `clusterId`, `onPremise`.
+                    $ref: '#/definitions/OnPremiseKafka'
+          auth:
+            description: |-
+              **`KafkaAuth`**
+              Authentication settings
+            oneOf:
+              - type: object
+                properties:
+                  sasl:
+                    description: |-
+                      **`KafkaSaslSecurity`**
+                      Authentication with SASL
+                      Includes only one of the fields `sasl`, `noAuth`.
+                    $ref: '#/definitions/KafkaSaslSecurity'
+                  noAuth:
+                    description: |-
+                      **object**
+                      No authentication
+                      Includes only one of the fields `sasl`, `noAuth`.
+                    $ref: '#/definitions/NoAuth'
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          topicSettings:
+            description: |-
+              **`KafkaTargetTopicSettings`**
+              Target topic settings
+            oneOf:
+              - type: object
+                properties:
+                  topic:
+                    description: |-
+                      **`KafkaTargetTopic`**
+                      Full topic name
+                      Includes only one of the fields `topic`, `topicPrefix`.
+                    $ref: '#/definitions/KafkaTargetTopic'
+                  topicPrefix:
+                    description: |-
+                      **string**
+                      Topic prefix
+                      Analogue of the Debezium setting database.server.name.
+                      Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>.
+                      Includes only one of the fields `topic`, `topicPrefix`.
+                    type: string
+          serializer:
+            description: |-
+              **`Serializer`**
+              Data serialization format settings
+            oneOf:
+              - type: object
+                properties:
+                  serializerAuto:
+                    description: |-
+                      **object**
+                      Select the serialization format automatically
+                      Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`.
+                    $ref: '#/definitions/SerializerAuto'
+                  serializerJson:
+                    description: |-
+                      **object**
+                      Serialize data in json format
+                      Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`.
+                    $ref: '#/definitions/SerializerJSON'
+                  serializerDebezium:
+                    description: |-
+                      **`SerializerDebezium`**
+                      Serialize data in debezium format
+                      Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`.
+                    $ref: '#/definitions/SerializerDebezium'
+      MongoTarget:
+        type: object
+        properties:
+          connection:
+            description: '**`MongoConnection`**'
+            oneOf:
+              - type: object
+                properties:
+                  connectionOptions:
+                    description: |-
+                      **`MongoConnectionOptions`**
+                      Includes only one of the fields `connectionOptions`.
+                    oneOf:
+                      - type: object
+                        properties:
+                          mdbClusterId:
+                            description: |-
+                              **string**
+                              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                            type: string
+                          onPremise:
+                            description: |-
+                              **`OnPremiseMongo`**
+                              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                            $ref: '#/definitions/OnPremiseMongo'
+                          connectionManagerConnection:
+                            description: |-
+                              **`MongoConnectionManagerConnection`**
+                              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+                            $ref: '#/definitions/MongoConnectionManagerConnection'
+          database:
+            description: |-
+              **string**
+              Database name
+            type: string
+          cleanupPolicy:
+            description: |-
+              **enum** (CleanupPolicy)
+              - `CLEANUP_POLICY_UNSPECIFIED`
+              - `DISABLED`: Don't cleanup
+              - `DROP`: Drop
+              - `TRUNCATE`: Truncate
+            type: string
+            enum:
+              - CLEANUP_POLICY_UNSPECIFIED
+              - DISABLED
+              - DROP
+              - TRUNCATE
+          subnetId:
+            description: '**string**'
+            type: string
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+      MetrikaStream:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (MetrikaStreamType)
+              - `METRIKA_STREAM_TYPE_UNSPECIFIED`
+              - `METRIKA_STREAM_TYPE_HITS`
+              - `METRIKA_STREAM_TYPE_VISITS`
+              - `METRIKA_STREAM_TYPE_HITS_V2`
+            type: string
+            enum:
+              - METRIKA_STREAM_TYPE_UNSPECIFIED
+              - METRIKA_STREAM_TYPE_HITS
+              - METRIKA_STREAM_TYPE_VISITS
+              - METRIKA_STREAM_TYPE_HITS_V2
+          columns:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      MetrikaSource:
+        type: object
+        properties:
+          counterIds:
+            description: '**string** (int64)'
+            type: array
+            items:
+              type: string
+              format: int64
+          token:
+            description: '**`Secret`**'
+            oneOf:
+              - type: object
+                properties:
+                  raw:
+                    description: |-
+                      **string**
+                      Raw secret value
+                      Includes only one of the fields `raw`.
+                    type: string
+          streams:
+            description: '**`MetrikaStream`**'
+            type: array
+            items:
+              $ref: '#/definitions/MetrikaStream'
+      YDSTarget:
+        type: object
+        properties:
+          database:
+            description: |-
+              **string**
+              Database
+            type: string
+          stream:
+            description: |-
+              **string**
+              Stream
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              SA which has read access to the stream.
+            type: string
+          saveTxOrder:
+            description: |-
+              **boolean**
+              Save transaction order
+              Not to split events queue into separate per-table queues.
+              Incompatible with setting Topic prefix, only with Topic full name.
+            type: boolean
+          compressionCodec:
+            description: |-
+              **enum** (YdsCompressionCodec)
+              - `YDS_COMPRESSION_CODEC_UNSPECIFIED`
+              - `YDS_COMPRESSION_CODEC_RAW`
+              - `YDS_COMPRESSION_CODEC_GZIP`
+              - `YDS_COMPRESSION_CODEC_ZSTD`
+            type: string
+            enum:
+              - YDS_COMPRESSION_CODEC_UNSPECIFIED
+              - YDS_COMPRESSION_CODEC_RAW
+              - YDS_COMPRESSION_CODEC_GZIP
+              - YDS_COMPRESSION_CODEC_ZSTD
+          serializer:
+            description: |-
+              **`Serializer`**
+              Data serialization format
+            oneOf:
+              - type: object
+                properties:
+                  serializerAuto:
+                    description: |-
+                      **object**
+                      Select the serialization format automatically
+                      Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`.
+                    $ref: '#/definitions/SerializerAuto'
+                  serializerJson:
+                    description: |-
+                      **object**
+                      Serialize data in json format
+                      Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`.
+                    $ref: '#/definitions/SerializerJSON'
+                  serializerDebezium:
+                    description: |-
+                      **`SerializerDebezium`**
+                      Serialize data in debezium format
+                      Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`.
+                    $ref: '#/definitions/SerializerDebezium'
+          endpoint:
+            description: |-
+              **string**
+              for dedicated db
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              Network interface for endpoint. If none will assume public ipv4
+            type: string
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/update.md
 ---
 

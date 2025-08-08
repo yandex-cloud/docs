@@ -1,5 +1,48 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://quota-manager.{{ api-host }}/quota-manager/v1/quotaLimits/{quotaId}
+    method: get
+    path:
+      type: object
+      properties:
+        quotaId:
+          description: |-
+            **string**
+            Required field. The id of the quota to retrieve.
+          type: string
+      required:
+        - quotaId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        resource:
+          description: |-
+            **[Resource](/docs/quota-manager/api-ref/QuotaLimit/get#yandex.cloud.quotamanager.v1.Resource)**
+            Required field. The resource for which the quota limit is being requested.
+          $ref: '#/definitions/Resource'
+      required:
+        - resource
+      additionalProperties: false
+    body: null
+    definitions:
+      Resource:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              Required field. The id if the resource.
+            type: string
+          type:
+            description: |-
+              **string**
+              Required field. The type of the resource, e.g. resource-manager.cloud, billing.account.
+            type: string
+        required:
+          - id
+          - type
 sourcePath: en/_api-ref/quotamanager/v1/api-ref/QuotaLimit/get.md
 ---
 

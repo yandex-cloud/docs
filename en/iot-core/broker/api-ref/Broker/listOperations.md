@@ -1,5 +1,46 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        brokerId:
+          description: |-
+            **string**
+            Required field. ID of the broker to list operations for.
+          type: string
+      required:
+        - brokerId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `page_size`, the service returns a [ListBrokerOperationsResponse.nextPageToken](/docs/iot-core/broker/api-ref/Broker/listOperations#yandex.cloud.iot.broker.v1.ListBrokerOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListBrokerOperationsResponse.nextPageToken](/docs/iot-core/broker/api-ref/Broker/listOperations#yandex.cloud.iot.broker.v1.ListBrokerOperationsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            Currently you can use filtering only on [Broker.name](/docs/iot-core/broker/api-ref/Broker/get#yandex.cloud.iot.broker.v1.Broker) field.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/listOperations.md
 ---
 

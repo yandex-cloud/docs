@@ -1,5 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/extensions/{extensionId}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster.
+          type: string
+        extensionId:
+          description: |-
+            **string**
+            Required field. ID of the extension to update.
+          type: string
+      required:
+        - clusterId
+        - extensionId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        active:
+          description: |-
+            **boolean**
+            The flag shows whether to make the extension active.
+          type: boolean
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Extension/update.md
 ---
 

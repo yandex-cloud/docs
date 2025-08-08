@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/assistants/v1/searchIndex/{searchIndexId}
+    method: get
+    path:
+      type: object
+      properties:
+        searchIndexId:
+          description: |-
+            **string**
+            Required field. ID of the search index to retrieve.
+          type: string
+      required:
+        - searchIndexId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ai/assistants/v1/searchindex/api-ref/SearchIndex/get.md
 ---
 

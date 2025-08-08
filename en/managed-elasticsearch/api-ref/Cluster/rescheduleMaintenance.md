@@ -1,5 +1,52 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}:rescheduleMaintenance
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. Required. ID of the Elasticsearch cluster to maintenance reschedule.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        rescheduleType:
+          description: |-
+            **enum** (RescheduleType)
+            Required field. Required. The type of reschedule request.
+            - `RESCHEDULE_TYPE_UNSPECIFIED`
+            - `IMMEDIATE`
+            - `NEXT_AVAILABLE_WINDOW`
+            - `SPECIFIC_TIME`
+          type: string
+          enum:
+            - RESCHEDULE_TYPE_UNSPECIFIED
+            - IMMEDIATE
+            - NEXT_AVAILABLE_WINDOW
+            - SPECIFIC_TIME
+        delayedUntil:
+          description: |-
+            **string** (date-time)
+            The time for SPECIFIC_TIME reschedule. Limited by two weeks since first time scheduled.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+      required:
+        - rescheduleType
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/rescheduleMaintenance.md
 ---
 

@@ -51,7 +51,22 @@ Required field. ID of the subscription instance. ||
       "created_at": "google.protobuf.Timestamp",
       "updated_at": "google.protobuf.Timestamp",
       "state": "State",
-      "template_id": "string"
+      "template_id": "string",
+      "external_instance": {
+        "name": "string",
+        "properties": "map<string, string>",
+        // Includes only one of the fields `subscription`, `license`
+        "subscription": {
+          "subscription_id": "string",
+          "license_id": "string",
+          "activation_key": "string"
+        },
+        "license": {
+          "license_id": "string",
+          "payload": "bytes"
+        }
+        // end of the list of possible fields
+      }
     }
   ],
   "license_template": {
@@ -66,6 +81,21 @@ Required field. ID of the subscription instance. ||
     "created_at": "google.protobuf.Timestamp",
     "updated_at": "google.protobuf.Timestamp",
     "state": "State"
+  },
+  "external_instance": {
+    "name": "string",
+    "properties": "map<string, string>",
+    // Includes only one of the fields `subscription`, `license`
+    "subscription": {
+      "subscription_id": "string",
+      "license_id": "string",
+      "activation_key": "string"
+    },
+    "license": {
+      "license_id": "string",
+      "payload": "bytes"
+    }
+    // end of the list of possible fields
   }
 }
 ```
@@ -119,6 +149,9 @@ List of subscription locks. ||
 || license_template | **[Template](#yandex.cloud.marketplace.licensemanager.v1.Template)**
 
 Subscription template. ||
+|| external_instance | **[ExternalInstance](#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance)**
+
+External subscription instance (optional). ||
 |#
 
 ## Lock {#yandex.cloud.marketplace.licensemanager.v1.Lock}
@@ -157,6 +190,57 @@ Subscription lock state.
 || template_id | **string**
 
 ID of the subscription template. ||
+|| external_instance | **[ExternalInstance](#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance)**
+
+External subscription instance (optional), for usage convenience propagated
+from parent subscription instance. ||
+|#
+
+## ExternalInstance {#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance}
+
+ExternalInstance attachment to external service subscription.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Optional external subscription name. ||
+|| properties | **object** (map<**string**, **string**>)
+
+Mapping of vendor defined properties in key, value format. ||
+|| subscription | **[ExternalSubscription](#yandex.cloud.marketplace.licensemanager.v1.ExternalSubscription)**
+
+Includes only one of the fields `subscription`, `license`. ||
+|| license | **[ExternalLicense](#yandex.cloud.marketplace.licensemanager.v1.ExternalLicense)**
+
+Includes only one of the fields `subscription`, `license`. ||
+|#
+
+## ExternalSubscription {#yandex.cloud.marketplace.licensemanager.v1.ExternalSubscription}
+
+#|
+||Field | Description ||
+|| subscription_id | **string**
+
+External subscription id. ||
+|| license_id | **string**
+
+Optional: paired license id for external subscription. ||
+|| activation_key | **string**
+
+Optional: default activation key for external subscription. ||
+|#
+
+## ExternalLicense {#yandex.cloud.marketplace.licensemanager.v1.ExternalLicense}
+
+#|
+||Field | Description ||
+|| license_id | **string**
+
+External license bound to subscription instance. ||
+|| payload | **bytes**
+
+License (vendor specific) payload. ||
 |#
 
 ## Template {#yandex.cloud.marketplace.licensemanager.v1.Template}

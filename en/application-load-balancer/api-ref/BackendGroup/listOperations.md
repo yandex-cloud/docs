@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        backendGroupId:
+          description: |-
+            **string**
+            Required field. ID of the backend group to get operations for.
+            To get the backend group ID, use a [BackendGroupService.List](/docs/application-load-balancer/api-ref/BackendGroup/list#List) request.
+          type: string
+      required:
+        - backendGroupId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`, the service returns a [ListBackendGroupOperationsResponse.nextPageToken](/docs/application-load-balancer/api-ref/BackendGroup/listOperations#yandex.cloud.apploadbalancer.v1.ListBackendGroupOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListBackendGroupOperationsResponse.nextPageToken](/docs/application-load-balancer/api-ref/BackendGroup/listOperations#yandex.cloud.apploadbalancer.v1.ListBackendGroupOperationsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/listOperations.md
 ---
 

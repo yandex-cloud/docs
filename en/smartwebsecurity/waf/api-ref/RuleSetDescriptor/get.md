@@ -1,5 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/wafRuleSetDescriptors/{name}/{version}
+    method: get
+    path:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Required field. Name of the RuleSetDescriptor resource to return.
+          type: string
+        version:
+          description: |-
+            **string**
+            Required field. Version of the RuleSetDescriptor resource to return.
+          type: string
+      required:
+        - name
+        - version
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/RuleSetDescriptor/get.md
 ---
 

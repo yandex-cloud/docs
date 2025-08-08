@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cic.{{ api-host }}/cic/v1/pointOfPresences/{pointOfPresenceId}
+    method: get
+    path:
+      type: object
+      properties:
+        pointOfPresenceId:
+          description: |-
+            **string**
+            Required field. ID of the PointOfPresence resource to return.
+            To get the pointOfPresence ID use a [PointOfPresenceService.List](/docs/interconnect/api-ref/PointOfPresence/list#List) request.
+          type: string
+      required:
+        - pointOfPresenceId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cic/v1/api-ref/PointOfPresence/get.md
 ---
 

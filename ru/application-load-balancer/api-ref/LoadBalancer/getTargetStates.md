@@ -1,5 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}/targetStates/{backendGroupId}/{targetGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        loadBalancerId:
+          description: |-
+            **string**
+            Required field. ID of the application load balancer that the backend group is attributed to.
+          type: string
+        backendGroupId:
+          description: |-
+            **string**
+            Required field. ID of the backend group that the target group is attributed to.
+          type: string
+        targetGroupId:
+          description: |-
+            **string**
+            Required field. ID of the target group to get target states of.
+          type: string
+      required:
+        - loadBalancerId
+        - backendGroupId
+        - targetGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/getTargetStates.md
 ---
 

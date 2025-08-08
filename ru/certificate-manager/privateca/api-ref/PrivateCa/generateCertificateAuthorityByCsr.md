@@ -1,5 +1,82 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities:generateByCsr
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. Folder ID where the CA is being created.
+          type: string
+        parentCertificateAuthorityId:
+          description: |-
+            **string**
+            Optional. If set intermediate CA would be generated and signed on parent CA
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. The name of the Certificate Authority.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            An optional description of the Certificate Authority.
+          type: string
+        csr:
+          description: |-
+            **string**
+            Required field. The PEM-encoded Certificate Signing Request (CSR) content.
+          type: string
+        privateKey:
+          description: |-
+            **string**
+            Optional. The PEM-encoded private key linked to the certificate. If absent CA would be issued with server side generated key pair
+          type: string
+        ttlDays:
+          description: |-
+            **string** (int64)
+            The Time-To-Live (TTL) in days for the CA.
+          type: string
+          format: int64
+        endEntitiesTtlLimitDays:
+          description: |-
+            **string** (int64)
+            TTL limit in days for end-entities signed by the CA.
+          type: string
+          format: int64
+        templateId:
+          description: |-
+            **string**
+            Optional template ID to fill certificate fields with template data. Explicitly defined parameters is preferred
+          type: string
+        enableCrl:
+          description: |-
+            **boolean**
+            Enable Certificate Revocation List (CRL) support.
+          type: boolean
+        enableOcsp:
+          description: |-
+            **boolean**
+            Enable Online Certificate Status Protocol (OCSP) support.
+          type: boolean
+        deletionProtection:
+          description: |-
+            **boolean**
+            Protect the CA from accidental deletion.
+          type: boolean
+      required:
+        - folderId
+        - name
+        - csr
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCa/generateCertificateAuthorityByCsr.md
 ---
 

@@ -1,5 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/configs
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a config in.
+          type: string
+        yamlString:
+          description: |-
+            **string**
+            Config content provided as a string in YAML format.
+            Includes only one of the fields `yamlString`.
+            Config content.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the config.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Config/create.md
 ---
 

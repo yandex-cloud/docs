@@ -269,6 +269,10 @@ items:
                 href: api-ref/grpc/NetworkLoadBalancer/removeListener.md
               - name: ListOperations
                 href: api-ref/grpc/NetworkLoadBalancer/listOperations.md
+              - name: DisableZones
+                href: api-ref/grpc/NetworkLoadBalancer/disableZones.md
+              - name: EnableZones
+                href: api-ref/grpc/NetworkLoadBalancer/enableZones.md
           - name: Operation
             items:
               - name: Overview
@@ -331,6 +335,10 @@ items:
                 href: api-ref/NetworkLoadBalancer/removeListener.md
               - name: ListOperations
                 href: api-ref/NetworkLoadBalancer/listOperations.md
+              - name: DisableZones
+                href: api-ref/NetworkLoadBalancer/disableZones.md
+              - name: EnableZones
+                href: api-ref/NetworkLoadBalancer/enableZones.md
           - name: Operation
             items:
               - name: Overview

@@ -1,5 +1,35 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}/updateMetadata
+    method: post
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            ID of the instance that is being updated.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        delete:
+          description: |-
+            **string**
+            List of keys to be deleted.
+          type: array
+          items:
+            type: string
+        upsert:
+          description: |-
+            **object** (map<**string**, **string**>)
+            The metadata `key:value` pairs that will be added or updated to this instance.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/updateMetadata.md
 ---
 

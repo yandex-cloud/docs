@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-workflows.{{ api-host }}/workflows/v1/execution/{executionId}
+    method: get
+    path:
+      type: object
+      properties:
+        executionId:
+          description: |-
+            **string**
+            Required field. ID of the Workflow execution.
+          type: string
+      required:
+        - executionId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Execution/get.md
 ---
 

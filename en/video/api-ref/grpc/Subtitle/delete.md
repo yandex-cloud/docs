@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Subtitle/delete.md
 
 # Video API, gRPC: SubtitleService.Delete
 
-Delete a specific subtitle.
+Deletes a specific subtitle by its ID.
+This removes both the metadata record and the associated subtitle file.
 
 ## gRPC request
 
@@ -23,7 +24,7 @@ Delete a specific subtitle.
 ||Field | Description ||
 || subtitle_id | **string**
 
-Required field. ID of the subtitle. ||
+Required field. ID of the subtitle to delete. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -107,5 +108,6 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || subtitle_id | **string**
 
-ID of the subtitle. ||
+ID of the subtitle being deleted.
+This identifier can be used to track the subtitle deletion operation. ||
 |#

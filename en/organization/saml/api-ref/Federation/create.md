@@ -1,5 +1,111 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            ID of the organization to create a federation in.
+            To get the organization ID, make a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the federation.
+            The name must be unique within the organization.
+          pattern: '[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the federation.
+          type: string
+        cookieMaxAge:
+          description: |-
+            **string** (duration)
+            Browser cookie lifetime in seconds.
+            If the cookie is still valid, the management console
+            authenticates the user immediately and redirects them to the home page.
+            The default value is `8h`.
+          type: string
+          format: duration
+        autoCreateAccountOnLogin:
+          description: |-
+            **boolean**
+            Add new users automatically on successful authentication.
+            The user becomes member of the organization automatically,
+            but you need to grant other roles to them.
+            If the value is `false`, users who aren't added to the organization
+            can't log in, even if they have authenticated on your server.
+          type: boolean
+        issuer:
+          description: |-
+            **string**
+            Required field. ID of the IdP server to be used for authentication.
+            The IdP server also responds to IAM with this ID after the user authenticates.
+          type: string
+        ssoBinding:
+          description: |-
+            **enum** (BindingType)
+            Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
+            SAML Binding is a mapping of a SAML protocol message onto standard messaging
+            formats and/or communications protocols.
+            - `BINDING_TYPE_UNSPECIFIED`
+            - `POST`: HTTP POST binding.
+            - `REDIRECT`: HTTP redirect binding.
+            - `ARTIFACT`: HTTP artifact binding.
+          type: string
+          enum:
+            - BINDING_TYPE_UNSPECIFIED
+            - POST
+            - REDIRECT
+            - ARTIFACT
+        ssoUrl:
+          description: |-
+            **string**
+            Required field. Single sign-on endpoint URL.
+            Specify the link to the IdP login page here.
+          type: string
+        securitySettings:
+          description: |-
+            **[FederationSecuritySettings](/docs/organization/saml/api-ref/Federation/get#yandex.cloud.organizationmanager.v1.saml.FederationSecuritySettings)**
+            Federation security settings.
+          $ref: '#/definitions/FederationSecuritySettings'
+        caseInsensitiveNameIds:
+          description: |-
+            **boolean**
+            Use case insensitive Name IDs.
+          type: boolean
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+      required:
+        - issuer
+        - ssoUrl
+      additionalProperties: false
+    definitions:
+      FederationSecuritySettings:
+        type: object
+        properties:
+          encryptedAssertions:
+            description: |-
+              **boolean**
+              Enable encrypted assertions.
+            type: boolean
+          forceAuthn:
+            description: |-
+              **boolean**
+              Value parameter ForceAuthn in SAMLRequest.
+            type: boolean
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/create.md
 ---
 

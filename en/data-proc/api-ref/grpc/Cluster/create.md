@@ -76,7 +76,8 @@ Creates a cluster in the specified folder.
   ],
   "deletion_protection": "bool",
   "log_group_id": "string",
-  "environment": "Environment"
+  "environment": "Environment",
+  "autoscaling_service_account_id": "string"
 }
 ```
 
@@ -133,6 +134,9 @@ Environment of the cluster
 - `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`
 - `PRESTABLE` ||
+|| autoscaling_service_account_id | **string**
+
+ID of the service account to be used by the Instance Groups service. ||
 |#
 
 ## CreateClusterConfigSpec {#yandex.cloud.dataproc.v1.CreateClusterConfigSpec}
@@ -378,7 +382,8 @@ Timeout to gracefully decommission nodes during downscaling. In seconds. Default
     ],
     "deletion_protection": "bool",
     "log_group_id": "string",
-    "environment": "Environment"
+    "environment": "Environment",
+    "autoscaling_service_account_id": "string"
   }
   // end of the list of possible fields
 }
@@ -529,6 +534,9 @@ Environment of the cluster
 - `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`
 - `PRESTABLE` ||
+|| autoscaling_service_account_id | **string**
+
+ID of service account for working with the Instance Groups service. ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}

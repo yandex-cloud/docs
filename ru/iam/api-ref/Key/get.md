@@ -1,5 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/keys/{keyId}
+    method: get
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the Key resource to return.
+            To get the ID use a [KeyService.List](/docs/iam/api-ref/Key/list#List) request.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        format:
+          description: |-
+            **enum** (KeyFormat)
+            Output format of the key.
+            - `PEM_FILE`: Privacy-Enhanced Mail (PEM) format. Default value.
+          type: string
+          enum:
+            - PEM_FILE
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/Key/get.md
 ---
 

@@ -1,5 +1,117 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/addresses
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a address in.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the address.
+            The name must be unique within the folder.
+          pattern: '|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the address.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Address labels as `key:value` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        externalIpv4AddressSpec:
+          description: |-
+            **[ExternalIpv4AddressSpec](/docs/vpc/api-ref/Address/create#yandex.cloud.vpc.v1.ExternalIpv4AddressSpec)**
+            Includes only one of the fields `externalIpv4AddressSpec`.
+            External ipv4 address specification.
+          $ref: '#/definitions/ExternalIpv4AddressSpec'
+        deletionProtection:
+          description: |-
+            **boolean**
+            Specifies if address protected from deletion.
+          type: boolean
+        dnsRecordSpecs:
+          description: |-
+            **[DnsRecordSpec](/docs/vpc/api-ref/Address/create#yandex.cloud.vpc.v1.DnsRecordSpec)**
+            Optional DNS record specifications
+          type: array
+          items:
+            $ref: '#/definitions/DnsRecordSpec'
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      AddressRequirements:
+        type: object
+        properties:
+          ddosProtectionProvider:
+            description: |-
+              **string**
+              DDoS protection provider ID.
+            type: string
+          outgoingSmtpCapability:
+            description: |-
+              **string**
+              Capability to send SMTP traffic.
+            type: string
+      ExternalIpv4AddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              Value of address.
+            type: string
+          zoneId:
+            description: |-
+              **string**
+              Availability zone from which the address will be allocated.
+            type: string
+          requirements:
+            description: |-
+              **[AddressRequirements](/docs/vpc/api-ref/Address/get#yandex.cloud.vpc.v1.AddressRequirements)**
+              Parameters of the allocated address, for example DDoS Protection.
+            $ref: '#/definitions/AddressRequirements'
+      DnsRecordSpec:
+        type: object
+        properties:
+          fqdn:
+            description: |-
+              **string**
+              Required field. Required. DNS record name (absolute or relative to the DNS zone in use).
+            type: string
+          dnsZoneId:
+            description: |-
+              **string**
+              Required field. Required. ID of the public DNS zone. The maximum string length in characters is 20.
+            type: string
+          ttl:
+            description: |-
+              **string** (int64)
+              TTL of record. Acceptable values are 0 to 86400, inclusive.
+            type: string
+            format: int64
+          ptr:
+            description: |-
+              **boolean**
+              Optional. If the PTR record is required, this parameter must be set to "true".
+            type: boolean
+        required:
+          - fqdn
+          - dnsZoneId
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/create.md
 ---
 

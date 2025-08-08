@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}:addUserAccounts
+    method: post
+    path:
+      type: object
+      properties:
+        federationId:
+          description: |-
+            **string**
+            ID of the federation to add users.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        nameIds:
+          description: |-
+            **string**
+            Name IDs returned by the Identity Provider (IdP) on successful authentication.
+            These may be UPNs or user email addresses.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/addUserAccounts.md
 ---
 

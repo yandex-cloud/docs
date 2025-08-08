@@ -1,5 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-iot-data }}/iot-devices/v1/registries/{registryId}/publish
+    method: post
+    path:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of registry publishing message
+          type: string
+      required:
+        - registryId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        topic:
+          description: |-
+            **string**
+            Required field. Topic where message should be published
+          type: string
+        data:
+          description: |-
+            **string** (bytes)
+            Content of the message
+          type: string
+          format: bytes
+      required:
+        - topic
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/RegistryData/publish.md
 ---
 

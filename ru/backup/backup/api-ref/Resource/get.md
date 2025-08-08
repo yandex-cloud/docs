@@ -1,5 +1,30 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/resources/{computeInstanceId}
+    method: get
+    path:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            **string**
+            Required field. Compute Cloud instance ID.
+          type: string
+      required:
+        - computeInstanceId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        includeTenantInfo:
+          description: |-
+            **boolean**
+            If flag is set tenant informantion would be added to the response.
+          type: boolean
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Resource/get.md
 ---
 
@@ -164,7 +189,9 @@ Type of resource. Could be compute VM or baremetal server.
 
 - `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
-- `BMS`: Resource is baremetal server ||
+- `BMS`: Resource is baremetal server
+- `EXTERNAL_VM`: Resource is VM
+- `EXTERNAL_SERVER`: Resource is server ||
 || tenantInfo | **[TenantInfo](#yandex.cloud.backup.v1.TenantInfo)**
 
 Additional info about tenant which resource belongs to ||

@@ -274,8 +274,9 @@ ID of the disk. ||
 Type of the disk drive.
 
 - `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
-- `HDD`: Hard disk drive.
-- `SSD`: Solid state drive. ||
+- `HDD`: Hard disk drive (magnetic storage).
+- `SSD`: Solid state drive with SATA/SAS interface.
+- `NVME`: Solid state drive with NVMe interface. ||
 || size_gib | **int64**
 
 Size of the disk in gibibytes (2^30 bytes). ||
@@ -622,8 +623,9 @@ ID of the disk. ||
 Type of the disk drive.
 
 - `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
-- `HDD`: Hard disk drive.
-- `SSD`: Solid state drive. ||
+- `HDD`: Hard disk drive (magnetic storage).
+- `SSD`: Solid state drive with SATA/SAS interface.
+- `NVME`: Solid state drive with NVMe interface. ||
 || size_gib | **int64**
 
 Size of the disk in gibibytes (2^30 bytes). ||

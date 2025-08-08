@@ -1,5 +1,48 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/rules
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        busId:
+          description: |-
+            **string**
+            ID of the bus to list rules in.
+            Includes only one of the fields `busId`, `folderId`.
+            ID of the folder on bus to list rules in.
+          type: string
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to list rules in.
+            Includes only one of the fields `busId`, `folderId`.
+            ID of the folder on bus to list rules in.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per response.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            `next_page_token` returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            Supported fields for filter:
+            name
+            created_at
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/list.md
 ---
 

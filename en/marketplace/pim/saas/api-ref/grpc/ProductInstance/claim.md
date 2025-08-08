@@ -62,7 +62,8 @@ Additional data about the SaaS resource. ||
   "metadata": {
     "product_id": "string",
     "product_instance_id": "string",
-    "license_instance_id": "string"
+    "license_instance_id": "string",
+    "lock_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -153,6 +154,9 @@ ID of the product instance. ||
 || license_instance_id | **string**
 
 ID of the subscription. ||
+|| lock_id | **string**
+
+ID of the subscription lock. ||
 |#
 
 ## ProductInstance {#yandex.cloud.marketplace.pim.v1.saas.ProductInstance}

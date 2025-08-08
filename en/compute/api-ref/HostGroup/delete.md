@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
+    method: delete
+    path:
+      type: object
+      properties:
+        hostGroupId:
+          description: |-
+            **string**
+            Required field. ID of the host group to delete.
+            To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request.
+          type: string
+      required:
+        - hostGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/delete.md
 ---
 

@@ -1,5 +1,12 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloudapps.{{ api-host }}/cloudapps/workload/v1/cloud-applications
+    method: get
+    path: null
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cloudapps/workload/v1/workload/api-ref/CloudApplication/get.md
 ---
 

@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors/{connectorName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Apache Kafka® cluster the connector belongs to.
+            To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+          type: string
+        connectorName:
+          description: |-
+            **string**
+            Required field. Name of the Apache Kafka® connector to return information about.
+            To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Connector/list#List) request.
+          pattern: '[-_.a-zA-Z0-9]*'
+          type: string
+      required:
+        - clusterId
+        - connectorName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Connector/get.md
 ---
 

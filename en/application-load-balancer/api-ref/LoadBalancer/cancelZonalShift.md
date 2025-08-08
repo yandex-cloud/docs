@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}:cancelZonalShift
+    method: post
+    path:
+      type: object
+      properties:
+        loadBalancerId:
+          description: |-
+            **string**
+            Required field. ID of the application load balancer to cancel zonal shift.
+          type: string
+      required:
+        - loadBalancerId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        zoneIds:
+          description: |-
+            **string**
+            Zone IDs to cancel zonal shift.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/cancelZonalShift.md
 ---
 

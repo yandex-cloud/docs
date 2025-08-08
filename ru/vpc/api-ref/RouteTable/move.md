@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}:move
+    method: post
+    path:
+      type: object
+      properties:
+        routeTableId:
+          description: |-
+            **string**
+            Required field. ID of the RouteTable resource to move.
+          type: string
+      required:
+        - routeTableId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            **string**
+            Required field. ID of the destination folder.
+          type: string
+      required:
+        - destinationFolderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/move.md
 ---
 

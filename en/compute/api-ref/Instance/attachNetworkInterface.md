@@ -1,5 +1,126 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:attachNetworkInterface
+    method: post
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            Required field. ID of the instance that in which network interface is being attached to.
+          type: string
+      required:
+        - instanceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        networkInterfaceIndex:
+          description: |-
+            **string**
+            Required field. The index of the network interface
+          type: string
+        subnetId:
+          description: |-
+            **string**
+            Required field. ID of the subnet.
+          type: string
+        primaryV4AddressSpec:
+          description: |-
+            **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+            Primary IPv4 address that will be assigned to the instance for this network interface.
+          $ref: '#/definitions/PrimaryAddressSpec'
+        securityGroupIds:
+          description: |-
+            **string**
+            Required field. ID's of security groups attached to the interface.
+          type: array
+          items:
+            type: string
+      required:
+        - networkInterfaceIndex
+        - subnetId
+        - securityGroupIds
+      additionalProperties: false
+    definitions:
+      DnsRecordSpec:
+        type: object
+        properties:
+          fqdn:
+            description: |-
+              **string**
+              Required field. FQDN (required)
+            type: string
+          dnsZoneId:
+            description: |-
+              **string**
+              DNS zone id (optional, if not set, private zone used)
+            type: string
+          ttl:
+            description: |-
+              **string** (int64)
+              DNS record ttl, values in 0-86400 (optional)
+            type: string
+            format: int64
+          ptr:
+            description: |-
+              **boolean**
+              When set to true, also create PTR DNS record (optional)
+            type: boolean
+        required:
+          - fqdn
+      OneToOneNatSpec:
+        type: object
+        properties:
+          ipVersion:
+            description: |-
+              **enum** (IpVersion)
+              External IP address version.
+              - `IP_VERSION_UNSPECIFIED`
+              - `IPV4`: IPv4 address, for example 192.0.2.235.
+              - `IPV6`: IPv6 address. Not available yet.
+            type: string
+            enum:
+              - IP_VERSION_UNSPECIFIED
+              - IPV4
+              - IPV6
+          address:
+            description: |-
+              **string**
+              set static IP by value
+            type: string
+          dnsRecordSpecs:
+            description: |-
+              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              External DNS configuration
+            type: array
+            items:
+              $ref: '#/definitions/DnsRecordSpec'
+      PrimaryAddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              An IPv4 internal network address that is assigned to the instance for this network interface.
+              If not specified by the user, an unused internal IP is assigned by the system.
+            type: string
+          oneToOneNatSpec:
+            description: |-
+              **[OneToOneNatSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.OneToOneNatSpec)**
+              An external IP address configuration.
+              If not specified, then this instance will have no external internet access.
+            $ref: '#/definitions/OneToOneNatSpec'
+          dnsRecordSpecs:
+            description: |-
+              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              Internal DNS configuration
+            type: array
+            items:
+              $ref: '#/definitions/DnsRecordSpec'
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/attachNetworkInterface.md
 ---
 

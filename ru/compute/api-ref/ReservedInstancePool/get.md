@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/reservedInstancePools/{reservedInstancePoolId}
+    method: get
+    path:
+      type: object
+      properties:
+        reservedInstancePoolId:
+          description: |-
+            **string**
+            Required field. ID of the reserved instance pool resource to return.
+            To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/ReservedInstancePool/list#List) request.
+          type: string
+      required:
+        - reservedInstancePoolId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/ReservedInstancePool/get.md
 ---
 
@@ -55,7 +73,19 @@ To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/
   "networkSettings": {
     "type": "string"
   },
-  "size": "string"
+  "size": "string",
+  "committedSize": "string",
+  "allowOversubscription": "boolean",
+  "slotStats": {
+    "total": "string",
+    "used": "string",
+    "available": "string",
+    "unavailable": "string",
+    "pending": "string"
+  },
+  "instanceStats": {
+    "total": "string"
+  }
 }
 ```
 
@@ -111,6 +141,20 @@ Network Settings. ||
 || size | **string** (int64)
 
 Desired size of the pool (number of slots for instances in this pool). ||
+|| committedSize | **string** (int64)
+
+Equals to the size field except when updates occur with allow_pending=true. In those cases, committed_size equals only the number of non-pending slots. ||
+|| allowOversubscription | **boolean**
+
+Allows the pool to contain more linked instances than the number of available slots (size without pending or unavailable slots).
+While running instances are still limited by available slots, stopped instances can exceed this limit.
+Warning: When this option is enabled, attempting to start more instances than the number of available slots will result in a "Not Enough Resources" error. ||
+|| slotStats | **[SlotStats](#yandex.cloud.compute.v1.ReservedInstancePool.SlotStats)**
+
+Statuses of the pool slots ||
+|| instanceStats | **[InstanceStats](#yandex.cloud.compute.v1.ReservedInstancePool.InstanceStats)**
+
+Stats for instances of the pool ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.compute.v1.ResourcesSpec}
@@ -156,4 +200,34 @@ Network Type
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
 - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||
+|#
+
+## SlotStats {#yandex.cloud.compute.v1.ReservedInstancePool.SlotStats}
+
+#|
+||Field | Description ||
+|| total | **string** (int64)
+
+Equals to pool size (and equals to the sum of the following fields) ||
+|| used | **string** (int64)
+
+Number of slots used by running instances ||
+|| available | **string** (int64)
+
+Number of slots available for instances (but not currently used) ||
+|| unavailable | **string** (int64)
+
+Number of slots unavailable for some reason (for example because of underlying host failure) ||
+|| pending | **string** (int64)
+
+Number of slots requested for async update, but still waiting for resources and not yet available for usage ||
+|#
+
+## InstanceStats {#yandex.cloud.compute.v1.ReservedInstancePool.InstanceStats}
+
+#|
+||Field | Description ||
+|| total | **string** (int64)
+
+Total number of instances linked to the pool ||
 |#

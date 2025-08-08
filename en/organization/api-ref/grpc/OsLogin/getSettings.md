@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/getSettings.md
 ---
 
-# Cloud Organization API, gRPC: OsLoginService.GetSettings
+# Identity Hub API, gRPC: OsLoginService.GetSettings
 
 OsLogin settings
 

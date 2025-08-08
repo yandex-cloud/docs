@@ -1,5 +1,278 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters:restore
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            **string**
+            Required field. Required. ID of the backup to restore from.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the ElasticSearch cluster. The name must be unique within the folder.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the ElasticSearch cluster.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the ElasticSearch cluster as `` key:value `` pairs. Maximum 64 per resource.
+            For example, "project": "mvp" or "source": "dictionary".
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        environment:
+          description: |-
+            **enum** (Environment)
+            Deployment environment of the ElasticSearch cluster.
+            - `ENVIRONMENT_UNSPECIFIED`
+            - `PRODUCTION`: Stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.
+            - `PRESTABLE`: Environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility.
+          type: string
+          enum:
+            - ENVIRONMENT_UNSPECIFIED
+            - PRODUCTION
+            - PRESTABLE
+        configSpec:
+          description: |-
+            **[ConfigSpec](/docs/managed-elasticsearch/api-ref/Cluster/create#yandex.cloud.mdb.elasticsearch.v1.ConfigSpec)**
+            Required field. Configuration and resources for hosts that should be created for the ElasticSearch cluster.
+          $ref: '#/definitions/ConfigSpec'
+        hostSpecs:
+          description: |-
+            **[HostSpec](/docs/managed-elasticsearch/api-ref/Cluster/create#yandex.cloud.mdb.elasticsearch.v1.HostSpec)**
+            Required. Configuration of ElasticSearch hosts.
+          type: array
+          items:
+            $ref: '#/definitions/HostSpec'
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the network to create the cluster in.
+          type: string
+        securityGroupIds:
+          description: |-
+            **string**
+            User security groups
+          type: array
+          items:
+            type: string
+        serviceAccountId:
+          description: |-
+            **string**
+            ID of the service account used for access to Object Storage.
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Deletion Protection inhibits deletion of the cluster
+          type: boolean
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create the ElasticSearch cluster in.
+          type: string
+        extensionSpecs:
+          description: |-
+            **[ExtensionSpec](/docs/managed-elasticsearch/api-ref/Cluster/create#yandex.cloud.mdb.elasticsearch.v1.ExtensionSpec)**
+            optional
+          type: array
+          items:
+            $ref: '#/definitions/ExtensionSpec'
+      required:
+        - backupId
+        - name
+        - configSpec
+        - networkId
+        - folderId
+      additionalProperties: false
+    definitions:
+      ElasticsearchConfig7:
+        type: object
+        properties:
+          maxClauseCount:
+            description: |-
+              **string** (int64)
+              The maximum number of clauses a boolean query can contain.
+              The limit is in place to prevent searches from becoming too large and taking up too much CPU and memory.
+              It affects not only Elasticsearch's `bool` query, but many other queries that are implicitly converted to `bool` query by Elastcsearch.
+              Default value: `1024`.
+              See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/search-settings.html).
+            type: string
+            format: int64
+          fielddataCacheSize:
+            description: |-
+              **string**
+              The maximum percentage or absolute value (10%, 512mb) of heap space that is allocated to field data cache.
+              All the field values that are placed in this cache, get loaded to memory in order to provide fast document based access to those values.
+              Building the field data cache for a field can be an expensive operations, so its recommended to have enough memory for this cache, and to keep it loaded.
+              Default value: unbounded.
+              See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-fielddata.html).
+            type: string
+          reindexRemoteWhitelist:
+            description: |-
+              **string**
+              Remote hosts for reindex have to be explicitly allowed in elasticsearch.yml using the reindex.remote.whitelist property.
+              It can be set to a comma delimited list of allowed remote host and port combinations.
+              Scheme is ignored, only the host and port are used.
+            type: string
+          reindexSslCaPath:
+            description: |-
+              **string**
+              List of paths to PEM encoded certificate files that should be trusted.
+              See in-depth description in [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html#reindex-ssl)
+            type: string
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the preset for computational resources available to a host (CPU, memory etc.).
+              All available presets are listed in the [documentation](/docs/managed-elasticsearch/concepts/instance-types).
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage available to a host, in bytes.
+            type: string
+            format: int64
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage environment for the host.
+              All available types are listed in the [documentation](/docs/managed-elasticsearch/concepts/storage).
+            type: string
+      MasterNode:
+        type: object
+        properties:
+          resources:
+            description: |-
+              **[Resources](/docs/managed-elasticsearch/api-ref/Cluster/get#yandex.cloud.mdb.elasticsearch.v1.Resources)**
+              Resources allocated to Elasticsearch master nodes.
+            $ref: '#/definitions/Resources'
+      ElasticsearchSpec:
+        type: object
+        properties:
+          dataNode:
+            description: |-
+              **[DataNode](/docs/managed-elasticsearch/api-ref/Cluster/create#yandex.cloud.mdb.elasticsearch.v1.ElasticsearchSpec.DataNode)**
+              Configuration and resource allocation for Elasticsearch data nodes.
+            oneOf:
+              - type: object
+                properties:
+                  elasticsearchConfig_7:
+                    description: |-
+                      **`ElasticsearchConfig7`**
+                      Includes only one of the fields `elasticsearchConfig_7`.
+                      Elasticsearch data node configuration.
+                    $ref: '#/definitions/ElasticsearchConfig7'
+          masterNode:
+            description: |-
+              **[MasterNode](/docs/managed-elasticsearch/api-ref/Cluster/create#yandex.cloud.mdb.elasticsearch.v1.ElasticsearchSpec.MasterNode)**
+              Configuration and resource allocation for Elasticsearch master nodes.
+            $ref: '#/definitions/MasterNode'
+          plugins:
+            description: |-
+              **string**
+              Cluster wide plugins
+            type: array
+            items:
+              type: string
+      ConfigSpec:
+        type: object
+        properties:
+          version:
+            description: |-
+              **string**
+              Elasticsearch version.
+            type: string
+          elasticsearchSpec:
+            description: |-
+              **[ElasticsearchSpec](/docs/managed-elasticsearch/api-ref/Cluster/create#yandex.cloud.mdb.elasticsearch.v1.ElasticsearchSpec)**
+              Configuration and resource allocation for Elasticsearch nodes.
+            $ref: '#/definitions/ElasticsearchSpec'
+          edition:
+            description: |-
+              **string**
+              ElasticSearch edition.
+            type: string
+          adminPassword:
+            description: |-
+              **string**
+              Required field. ElasticSearch admin password.
+            type: string
+        required:
+          - adminPassword
+      HostSpec:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              ID of the availability zone where the host resides.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet the host resides in.
+            type: string
+          assignPublicIp:
+            description: |-
+              **boolean**
+              The flag that defines whether a public IP address is assigned to the host.
+              If the value is `true`, then this host is available on the Internet via it's public IP address.
+            type: boolean
+          type:
+            description: |-
+              **enum** (Type)
+              Required field. Host type.
+              - `TYPE_UNSPECIFIED`: Host type is unspecified. Default value.
+              - `DATA_NODE`: The host is an Elasticsearch data node.
+              - `MASTER_NODE`: The host is an Elasticsearch master node.
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - DATA_NODE
+              - MASTER_NODE
+          shardName:
+            description: |-
+              **string**
+              The shard name to create on the host.
+            pattern: '[a-zA-Z0-9_-]*'
+            type: string
+        required:
+          - type
+      ExtensionSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the extension.
+            type: string
+          uri:
+            description: |-
+              **string**
+              URI of the zip archive to create the new extension from. Currently only supports links that are stored in Object Storage.
+            type: string
+          disabled:
+            description: |-
+              **boolean**
+              The flag shows whether to create the extension in disabled state.
+            type: boolean
+        required:
+          - name
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/restore.md
 ---
 

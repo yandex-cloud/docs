@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacementGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        diskPlacementGroupId:
+          description: |-
+            **string**
+            Required field. ID of the placement group to return.
+            To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request.
+          type: string
+      required:
+        - diskPlacementGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/get.md
 ---
 

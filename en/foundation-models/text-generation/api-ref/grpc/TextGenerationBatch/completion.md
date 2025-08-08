@@ -26,7 +26,13 @@ Note: Not implemented yet
     }
   },
   // Includes only one of the fields `source_dataset_id`
-  "source_dataset_id": "string"
+  "source_dataset_id": "string",
+  // end of the list of possible fields
+  // Includes only one of the fields `json_object`, `json_schema`
+  "json_object": "bool",
+  "json_schema": {
+    "schema": "google.protobuf.Struct"
+  }
   // end of the list of possible fields
 }
 ```
@@ -48,6 +54,22 @@ ID of the dataset containing the context for the completion model.
 Includes only one of the fields `source_dataset_id`.
 
 Specifies the format of the request. ||
+|| json_object | **bool**
+
+When set to true, the model will respond with a valid JSON object.
+Be sure to explicitly ask the model for JSON.
+Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
+
+Includes only one of the fields `json_object`, `json_schema`.
+
+Specifies the format of the model's response. ||
+|| json_schema | **[JsonSchema](#yandex.cloud.ai.foundation_models.v1.JsonSchema)**
+
+Enforces a specific JSON structure for the model's response based on a provided schema.
+
+Includes only one of the fields `json_object`, `json_schema`.
+
+Specifies the format of the model's response. ||
 |#
 
 ## CompletionOptions {#yandex.cloud.ai.foundation_models.v1.CompletionOptions}
@@ -86,6 +108,17 @@ Specifies the reasoning mode to be used.
 - `REASONING_MODE_UNSPECIFIED`: Unspecified reasoning mode.
 - `DISABLED`: Disables reasoning. The model will generate a response without performing any internal reasoning.
 - `ENABLED_HIDDEN`: Enables reasoning in a hidden manner without exposing the reasoning steps to the user. ||
+|#
+
+## JsonSchema {#yandex.cloud.ai.foundation_models.v1.JsonSchema}
+
+Represents the expected structure of the model's response using a JSON Schema.
+
+#|
+||Field | Description ||
+|| schema | **[google.protobuf.Struct](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/struct)**
+
+The JSON Schema that the model's output must conform to. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

@@ -1,5 +1,51 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/mlModels
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to create a model in.
+            To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        mlModelName:
+          description: |-
+            **string**
+            Required field. Model name. The model name is one of the arguments of the modelEvaluate() function, which is used to call the model in ClickHouse.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        type:
+          description: |-
+            **enum** (MlModelType)
+            Required field. Type of the model.
+            - `ML_MODEL_TYPE_UNSPECIFIED`
+            - `ML_MODEL_TYPE_CATBOOST`: CatBoost model.
+          type: string
+          enum:
+            - ML_MODEL_TYPE_UNSPECIFIED
+            - ML_MODEL_TYPE_CATBOOST
+        uri:
+          description: |-
+            **string**
+            Required field. Model file URL. You can only use models stored in Object Storage.
+          type: string
+      required:
+        - mlModelName
+        - type
+        - uri
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/MlModel/create.md
 ---
 

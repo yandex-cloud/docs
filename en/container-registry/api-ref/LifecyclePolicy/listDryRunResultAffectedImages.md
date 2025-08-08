@@ -1,5 +1,54 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/dryRunLifecyclePolicyResults/{dryRunLifecyclePolicyResultId}:affectedImages
+    method: get
+    path:
+      type: object
+      properties:
+        dryRunLifecyclePolicyResultId:
+          description: |-
+            **string**
+            Required field. ID of the dry run result of the lifecycle policy
+          type: string
+      required:
+        - dryRunLifecyclePolicyResultId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListDryRunLifecyclePolicyResultAffectedImagesResponse.nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultAffectedImagesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListDryRunLifecyclePolicyResultAffectedImagesResponse.nextPageToken](/docs/container-registry/api-ref/LifecyclePolicy/listDryRunResultAffectedImages#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultAffectedImagesResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters affected images listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [LifecyclePolicy.name](/docs/container-registry/api-ref/LifecyclePolicy/get#yandex.cloud.containerregistry.v1.LifecyclePolicy) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            Sorting the list by [LifecyclePolicy.name](/docs/container-registry/api-ref/LifecyclePolicy/get#yandex.cloud.containerregistry.v1.LifecyclePolicy) and [LifecyclePolicy.createdAt](/docs/container-registry/api-ref/LifecyclePolicy/get#yandex.cloud.containerregistry.v1.LifecyclePolicy) fields.
+            The default sorting order is ascending.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/listDryRunResultAffectedImages.md
 ---
 

@@ -1,7 +1,22 @@
 ---
 editable: false
 apiPlayground:
-  - '{"url":"https://{{ api-host-mdb-operation }}/operations/{operationId}","method":"get","path":{"type":"object","properties":{"operationId":{"description":"**string**\n\nRequired field. ID of the Operation resource to return.","type":"string"}},"required":["operationId"],"additionalProperties":false},"query":null,"body":null,"definitions":null}'
+  - url: https://{{ api-host-mdb-operation }}/operations/{operationId}
+    method: get
+    path:
+      type: object
+      properties:
+        operationId:
+          description: |-
+            **string**
+            Required field. ID of the Operation resource to return.
+          type: string
+      required:
+        - operationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Operation/get.md
 ---
 

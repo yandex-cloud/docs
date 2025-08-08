@@ -1,5 +1,18 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ydb.{{ api-host }}/ydb/v1/backups/{backupId}
+    method: delete
+    path:
+      type: object
+      properties:
+        backupId:
+          description: '**string**'
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ydb/v1/api-ref/Backup/delete.md
 ---
 

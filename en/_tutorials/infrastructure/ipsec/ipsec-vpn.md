@@ -23,9 +23,23 @@ To connect to a [VM](../../../compute/concepts/vm.md) over SSH, you will need a 
 
 {% include [vm-connect-ssh-linux-note](../../../_includes/vm-connect-ssh-linux-note.md) %}
 
-To create a keypair:
+To create a key pair:
 
-{% include [vm-ssh-prepare-key](../../../_includes/vm-ssh-prepare-key.md) %}
+{% list tabs group=operating_system %}
+
+- Linux/macOS {#linux-macos}
+
+  {% include [vm-ssh-prepare-key-linux-macos](../../../_includes/vm-ssh-prepare-key-linux-macos.md) %}
+
+- Windows 10/11 {#windows}
+
+  {% include [vm-ssh-prepare-key-win-10-11](../../../_includes/vm-ssh-prepare-key-win-10-11.md) %}
+
+- Windows 7/8 {#windows7-8}
+
+  {% include [vm-ssh-prepare-key-win-7-8](../../../_includes/vm-ssh-prepare-key-win-7-8.md) %}
+
+{% endlist %}
 
 ## Set up your cloud site {#cloud-setup}
 
@@ -42,8 +56,8 @@ At this stage, you will reserve two static IP addresses for IPsec gateways and c
 
 #### Create your cloud network with subnets {#cloud-net}
 
-1. [Create](../../../vpc/operations/network-create.md) the `cloud-net` network with the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option disabled.
-1. In the `cloud-net` network, [create subnets](../../../vpc/operations/subnet-create.md) with the following parameters:
+1. [Create a network](../../../vpc/operations/network-create.md) named `cloud-net` with the **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** option disabled.
+1. In the `cloud-net` network, manually [create subnets](../../../vpc/operations/subnet-create.md) with the following parameters:
 
     1. The `cloud-gw` main IPsec gateway subnet:
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `ipsec-subnet`
@@ -125,9 +139,7 @@ At this stage, you will reserve two static IP addresses for IPsec gateways and c
         * Upload the [previously created](#create-ssh-keys) public SSH key or paste its contents into the appropriate field.
         * Click **{{ ui-key.yacloud.common.add }}**.
 
-        The system will add the SSH key to your organization user profile.
-
-        If adding SSH keys by users to their profiles is disabled in the organization, the public SSH key will be saved only to the new VM's user profile.
+        {% include [ssh-add-to-org-profile](../../../_includes/compute/create/ssh-add-to-org-profile.md) %}
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cloud-gw`.
 1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -374,9 +386,7 @@ Create a VM you will use as a remote IPsec gateway.
         * Upload the [previously created](#create-ssh-keys) public SSH key or paste its contents into the appropriate field.
         * Click **{{ ui-key.yacloud.common.add }}**.
 
-        The system will add the SSH key to your organization user profile.
-
-        If, due to restrictions, you cannot add SSH keys to your profile, the system will save the key to the VM user profile.
+        {% include [ssh-add-to-org-profile](../../../_includes/compute/create/ssh-add-to-org-profile.md) %}
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `remote-gw`. Follow these naming requirements:
 

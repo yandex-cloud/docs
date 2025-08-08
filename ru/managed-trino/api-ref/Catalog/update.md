@@ -1,5 +1,470 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://trino.{{ api-host }}/managed-trino/v1/clusters/{clusterId}/catalogs/{catalogId}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Trino Cluster that contains the catalog to update.
+          type: string
+        catalogId:
+          description: |-
+            **string**
+            Required field. ID of the catalog to update.
+          type: string
+      required:
+        - clusterId
+        - catalogId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            Required field. A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        catalog:
+          description: |-
+            **[CatalogUpdateSpec](/docs/managed-trino/api-ref/Catalog/update#yandex.cloud.trino.v1.CatalogUpdateSpec)**
+            Required field. New values for the specified fields.
+          $ref: '#/definitions/CatalogUpdateSpec'
+      required:
+        - updateMask
+        - catalog
+      additionalProperties: false
+    definitions:
+      S3FileSystem:
+        type: object
+        properties: {}
+      ExternalS3FileSystem:
+        type: object
+        properties:
+          awsAccessKey:
+            description: |-
+              **string**
+              Required field. 
+            type: string
+          awsSecretKey:
+            description: |-
+              **string**
+              Required field. 
+            type: string
+          awsEndpoint:
+            description: |-
+              **string**
+              Required field. 
+            type: string
+          awsRegion:
+            description: |-
+              **string**
+              Required field. 
+            type: string
+        required:
+          - awsAccessKey
+          - awsSecretKey
+          - awsEndpoint
+          - awsRegion
+      HiveConnector:
+        type: object
+        properties:
+          metastore:
+            description: |-
+              **[Metastore](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.Metastore)**
+              Required field. Metastore configuration.
+            oneOf:
+              - type: object
+                properties:
+                  hive:
+                    description: |-
+                      **[HiveMetastore](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
+                      Includes only one of the fields `hive`.
+                    oneOf:
+                      - type: object
+                        properties:
+                          uri:
+                            description: |-
+                              **string**
+                              URI or cluster ID of the Hive Metastore.
+                              Includes only one of the fields `uri`.
+                            type: string
+          filesystem:
+            description: |-
+              **[FileSystem](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.FileSystem)**
+              Required field. File system configuration.
+            oneOf:
+              - type: object
+                properties:
+                  s3:
+                    description: |-
+                      **object**
+                      Includes only one of the fields `s3`, `externalS3`.
+                    $ref: '#/definitions/S3FileSystem'
+                  externalS3:
+                    description: |-
+                      **[ExternalS3FileSystem](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.FileSystem.ExternalS3FileSystem)**
+                      Includes only one of the fields `s3`, `externalS3`.
+                    $ref: '#/definitions/ExternalS3FileSystem'
+          additionalProperties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional properties.
+            pattern: '[a-z][-_0-9a-z.]*'
+            type: string
+        required:
+          - metastore
+          - filesystem
+      IcebergConnector:
+        type: object
+        properties:
+          metastore:
+            description: |-
+              **[Metastore](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.Metastore)**
+              Required field. Metastore configuration.
+            oneOf:
+              - type: object
+                properties:
+                  hive:
+                    description: |-
+                      **[HiveMetastore](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
+                      Includes only one of the fields `hive`.
+                    oneOf:
+                      - type: object
+                        properties:
+                          uri:
+                            description: |-
+                              **string**
+                              URI or cluster ID of the Hive Metastore.
+                              Includes only one of the fields `uri`.
+                            type: string
+          filesystem:
+            description: |-
+              **[FileSystem](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.FileSystem)**
+              Required field. File system configuration.
+            oneOf:
+              - type: object
+                properties:
+                  s3:
+                    description: |-
+                      **object**
+                      Includes only one of the fields `s3`, `externalS3`.
+                    $ref: '#/definitions/S3FileSystem'
+                  externalS3:
+                    description: |-
+                      **[ExternalS3FileSystem](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.FileSystem.ExternalS3FileSystem)**
+                      Includes only one of the fields `s3`, `externalS3`.
+                    $ref: '#/definitions/ExternalS3FileSystem'
+          additionalProperties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional properties.
+            pattern: '[a-z][-_0-9a-z.]*'
+            type: string
+        required:
+          - metastore
+          - filesystem
+      DeltaLakeConnector:
+        type: object
+        properties:
+          metastore:
+            description: |-
+              **[Metastore](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.Metastore)**
+              Required field. Metastore configuration.
+            oneOf:
+              - type: object
+                properties:
+                  hive:
+                    description: |-
+                      **[HiveMetastore](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.Metastore.HiveMetastore)**
+                      Includes only one of the fields `hive`.
+                    oneOf:
+                      - type: object
+                        properties:
+                          uri:
+                            description: |-
+                              **string**
+                              URI or cluster ID of the Hive Metastore.
+                              Includes only one of the fields `uri`.
+                            type: string
+          filesystem:
+            description: |-
+              **[FileSystem](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.FileSystem)**
+              Required field. File system configuration.
+            oneOf:
+              - type: object
+                properties:
+                  s3:
+                    description: |-
+                      **object**
+                      Includes only one of the fields `s3`, `externalS3`.
+                    $ref: '#/definitions/S3FileSystem'
+                  externalS3:
+                    description: |-
+                      **[ExternalS3FileSystem](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.FileSystem.ExternalS3FileSystem)**
+                      Includes only one of the fields `s3`, `externalS3`.
+                    $ref: '#/definitions/ExternalS3FileSystem'
+          additionalProperties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional properties.
+            pattern: '[a-z][-_0-9a-z.]*'
+            type: string
+        required:
+          - metastore
+          - filesystem
+      OnPremise:
+        type: object
+        properties:
+          connectionUrl:
+            description: |-
+              **string**
+              Required field. Connection to the Postgresql.
+            pattern: ^jdbc:[a-z0-9]+://(?:.+:\d+)/(?:.*)$
+            type: string
+          userName:
+            description: |-
+              **string**
+              Required field. Name of the Postgresql user.
+            pattern: '[a-zA-Z0-9_-]*'
+            type: string
+          password:
+            description: |-
+              **string**
+              Required field. Password of the Postgresql user.
+            type: string
+        required:
+          - connectionUrl
+          - userName
+          - password
+      ConnectionManager:
+        type: object
+        properties:
+          connectionId:
+            description: |-
+              **string**
+              Required field. Connection ID.
+            type: string
+          database:
+            description: |-
+              **string**
+              Required field. Database.
+            pattern: '[a-zA-Z0-9_-]*'
+            type: string
+          connectionProperties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional connection properties.
+            pattern: '[a-zA-Z]*'
+            type: string
+        required:
+          - connectionId
+          - database
+      PostgresqlConnector:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **[PostgresqlConnection](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.PostgresqlConnection)**
+              Connection configuration.
+            oneOf:
+              - type: object
+                properties:
+                  onPremise:
+                    description: |-
+                      **[OnPremise](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
+                      Includes only one of the fields `onPremise`, `connectionManager`.
+                    $ref: '#/definitions/OnPremise'
+                  connectionManager:
+                    description: |-
+                      **[ConnectionManager](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager)**
+                      Includes only one of the fields `onPremise`, `connectionManager`.
+                    $ref: '#/definitions/ConnectionManager'
+          additionalProperties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional properties.
+            pattern: '[a-z][-_0-9a-z.]*'
+            type: string
+      ClickhouseConnector:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **[ClickhouseConnection](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.ClickhouseConnection)**
+              Connection configuration.
+            oneOf:
+              - type: object
+                properties:
+                  onPremise:
+                    description: |-
+                      **[OnPremise](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
+                      Includes only one of the fields `onPremise`, `connectionManager`.
+                    $ref: '#/definitions/OnPremise'
+                  connectionManager:
+                    description: |-
+                      **[ConnectionManager](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.PostgresqlConnection.ConnectionManager)**
+                      Includes only one of the fields `onPremise`, `connectionManager`.
+                    $ref: '#/definitions/ConnectionManager'
+          additionalProperties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional properties.
+            pattern: '[a-z][-_0-9a-z.]*'
+            type: string
+      TPCHConnector:
+        type: object
+        properties:
+          additionalProperties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional properties.
+            pattern: '[a-z][-_0-9a-z.]*'
+            type: string
+      TPCDSConnector:
+        type: object
+        properties:
+          additionalProperties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional properties.
+            pattern: '[a-z][-_0-9a-z.]*'
+            type: string
+      OracleConnector:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **[OracleConnection](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.OracleConnection)**
+              Connection configuration.
+            oneOf:
+              - type: object
+                properties:
+                  onPremise:
+                    description: |-
+                      **[OnPremise](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
+                      Includes only one of the fields `onPremise`.
+                    $ref: '#/definitions/OnPremise'
+          additionalProperties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional properties.
+            pattern: '[a-z][-_0-9a-z.]*'
+            type: string
+      SQLServerConnector:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **[SQLServerConnection](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.SQLServerConnection)**
+              Connection configuration.
+            oneOf:
+              - type: object
+                properties:
+                  onPremise:
+                    description: |-
+                      **[OnPremise](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.PostgresqlConnection.OnPremise)**
+                      Includes only one of the fields `onPremise`.
+                    $ref: '#/definitions/OnPremise'
+          additionalProperties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional properties.
+            pattern: '[a-z][-_0-9a-z.]*'
+            type: string
+      CatalogUpdateSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              New name of the catalog.
+            pattern: '[a-zA-Z0-9_-]*'
+            type: string
+          connector:
+            description: |-
+              **[Connector](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.Connector)**
+              Updated connector configuration.
+              If specified, replaces the existing connector.
+            oneOf:
+              - type: object
+                properties:
+                  hive:
+                    description: |-
+                      **[HiveConnector](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.HiveConnector)**
+                      Hive connector configuration.
+                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`.
+                    $ref: '#/definitions/HiveConnector'
+                  iceberg:
+                    description: |-
+                      **[IcebergConnector](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.IcebergConnector)**
+                      Iceberg connector configuration.
+                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`.
+                    $ref: '#/definitions/IcebergConnector'
+                  deltaLake:
+                    description: |-
+                      **[DeltaLakeConnector](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.DeltaLakeConnector)**
+                      Delta Lake connector configuration.
+                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`.
+                    $ref: '#/definitions/DeltaLakeConnector'
+                  postgresql:
+                    description: |-
+                      **[PostgresqlConnector](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.PostgresqlConnector)**
+                      PostgreSQL connector configuration.
+                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`.
+                    $ref: '#/definitions/PostgresqlConnector'
+                  clickhouse:
+                    description: |-
+                      **[ClickhouseConnector](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.ClickhouseConnector)**
+                      ClickHouse connector configuration.
+                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`.
+                    $ref: '#/definitions/ClickhouseConnector'
+                  tpch:
+                    description: |-
+                      **[TPCHConnector](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.TPCHConnector)**
+                      TPC-H connector for synthetic benchmarking.
+                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`.
+                    $ref: '#/definitions/TPCHConnector'
+                  tpcds:
+                    description: |-
+                      **[TPCDSConnector](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.TPCDSConnector)**
+                      TPC-DS connector for synthetic benchmarking.
+                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`.
+                    $ref: '#/definitions/TPCDSConnector'
+                  oracle:
+                    description: |-
+                      **[OracleConnector](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.OracleConnector)**
+                      Oracle connector configuration for connecting to Oracle Database instances.
+                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`.
+                    $ref: '#/definitions/OracleConnector'
+                  sqlserver:
+                    description: |-
+                      **[SQLServerConnector](/docs/managed-trino/api-ref/Catalog/get#yandex.cloud.trino.v1.SQLServerConnector)**
+                      SQLServer connector configuration for connecting to SQLServer Database instances.
+                      Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `clickhouse`, `tpch`, `tpcds`, `oracle`, `sqlserver`.
+                    $ref: '#/definitions/SQLServerConnector'
+          description:
+            description: |-
+              **string**
+              Description of the catalog.
+            type: string
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Labels associated with the catalog.
+            pattern: '[a-z][-_0-9a-z]*'
+            type: string
 sourcePath: en/_api-ref/trino/v1/api-ref/Catalog/update.md
 ---
 

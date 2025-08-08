@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/GroupMapping/delete.md
 ---
 
-# Cloud Organization API, gRPC: GroupMappingService.Delete
+# Identity Hub API, gRPC: GroupMappingService.Delete
 
 Deletes a group mapping. This will remove all the mapping items
 cascade.

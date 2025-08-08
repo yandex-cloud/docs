@@ -1,5 +1,55 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/{cloudId}
+    method: patch
+    path:
+      type: object
+      properties:
+        cloudId:
+          description: |-
+            **string**
+            Required field. ID of the cloud to update.
+            To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request.
+          type: string
+      required:
+        - cloudId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the cloud.
+          pattern: '[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the cloud.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/update.md
 ---
 

@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloudrouter.{{ api-host }}/cloudrouter/v1/routingInstances/{routingInstanceId}
+    method: delete
+    path:
+      type: object
+      properties:
+        routingInstanceId:
+          description: |-
+            **string**
+            Required field. ID of the RoutingInstance resource.
+          type: string
+      required:
+        - routingInstanceId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cloudrouter/v1/api-ref/RoutingInstance/delete.md
 ---
 

@@ -1,5 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instanceGroups:yaml
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create an instance group in.
+            To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        instanceGroupYaml:
+          description: |-
+            **string**
+            Required field. [InstanceGroupService.Create](/docs/compute/instancegroup/api-ref/InstanceGroup/create#Create) request in YAML format.
+          type: string
+      required:
+        - folderId
+        - instanceGroupYaml
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/createFromYaml.md
 ---
 

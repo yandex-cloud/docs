@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://registry.{{ api-host }}/cloud-registry/v1/artifacts/{artifactId}
+    method: get
+    path:
+      type: object
+      properties:
+        artifactId:
+          description: |-
+            **string**
+            Required field. ID of the artifact resource to return.
+          type: string
+      required:
+        - artifactId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cloudregistry/v1/api-ref/Artifact/get.md
 ---
 

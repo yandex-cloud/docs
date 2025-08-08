@@ -1,11 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/subtitles/{subtitleId}
+    method: delete
+    path:
+      type: object
+      properties:
+        subtitleId:
+          description: |-
+            **string**
+            Required field. ID of the subtitle to delete.
+          type: string
+      required:
+        - subtitleId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Subtitle/delete.md
 ---
 
 # Video API, REST: Subtitle.Delete
 
-Delete a specific subtitle.
+Deletes a specific subtitle by its ID.
+This removes both the metadata record and the associated subtitle file.
 
 ## HTTP request
 
@@ -19,7 +37,7 @@ DELETE https://video.{{ api-host }}/video/v1/subtitles/{subtitleId}
 ||Field | Description ||
 || subtitleId | **string**
 
-Required field. ID of the subtitle. ||
+Required field. ID of the subtitle to delete. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -109,7 +127,8 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || subtitleId | **string**
 
-ID of the subtitle. ||
+ID of the subtitle being deleted.
+This identifier can be used to track the subtitle deletion operation. ||
 |#
 
 ## Status {#google.rpc.Status}

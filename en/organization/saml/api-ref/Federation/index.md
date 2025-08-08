@@ -20,4 +20,9 @@ A set of methods for managing federations.
 || [DeleteUserAccounts](deleteUserAccounts.md) | Deletes users from the specified federation. ||
 || [ListUserAccounts](listUserAccounts.md) | Lists users for the specified federation. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified federation. ||
+|| [GetDomain](getDomain.md) | Returns the specified domain in the federation. ||
+|| [ListDomains](listDomains.md) | Retrieves the list of domains in the specified federation. ||
+|| [AddDomain](addDomain.md) | Adds a domain to the specified federation. ||
+|| [ValidateDomain](validateDomain.md) | Validates a domain in the specified federation. ||
+|| [DeleteDomain](deleteDomain.md) | Deletes the specified domain from the federation. ||
 |#

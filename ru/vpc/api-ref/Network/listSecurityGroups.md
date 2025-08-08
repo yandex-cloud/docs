@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}/security_groups
+    method: get
+    path:
+      type: object
+      properties:
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the Network resource to list security groups for.
+          type: string
+      required:
+        - networkId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListNetworkSecurityGroupsResponse.nextPageToken](/docs/vpc/api-ref/Network/listSecurityGroups#yandex.cloud.vpc.v1.ListNetworkSecurityGroupsResponse)
+            that can be used to get the next page of results in subsequent list requests. Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. Set `pageToken`
+            to the [ListNetworkSecurityGroupsResponse.nextPageToken](/docs/vpc/api-ref/Network/listSecurityGroups#yandex.cloud.vpc.v1.ListNetworkSecurityGroupsResponse)
+            returned by a previous list request to get the next page of results.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/listSecurityGroups.md
 ---
 

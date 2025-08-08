@@ -1,5 +1,203 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to create the user in.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        userSpec:
+          description: |-
+            **[UserSpec](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.UserSpec)**
+            Required field. Configuration of the user.
+          $ref: '#/definitions/UserSpec'
+      required:
+        - userSpec
+      additionalProperties: false
+    definitions:
+      Permission:
+        type: object
+        properties:
+          databaseName:
+            description: |-
+              **string**
+              Name of the database that the permission grants access to.
+            type: string
+          roles:
+            description: |-
+              **enum** (Privilege)
+              Roles granted to the user within the database.
+              See [the documentation](/docs/managed-mysql/operations/grant) for details.
+              - `PRIVILEGE_UNSPECIFIED`
+              - `ALL_PRIVILEGES`: All privileges that can be made available to the user.
+              - `ALTER`: Altering tables.
+              - `ALTER_ROUTINE`: Altering stored routines and functions.
+              - `CREATE`: Creating tables or indexes.
+              - `CREATE_ROUTINE`: Creating stored routines.
+              - `CREATE_TEMPORARY_TABLES`: Creating temporary tables.
+              - `CREATE_VIEW`: Creating views.
+              - `DELETE`: Deleting tables.
+              - `DROP`: Removing tables or views.
+              - `EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.
+              - `EXECUTE`: Executing stored routines.
+              - `INDEX`: Creating and removing indexes.
+              - `INSERT`: Inserting rows into the database.
+              - `LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.
+              - `SELECT`: Selecting rows from tables.
+                Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege.
+                See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.
+              - `SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.
+              - `TRIGGER`: Creating, removing, executing, or displaying triggers for a table.
+              - `UPDATE`: Updating rows in the database.
+              - `REFERENCES`: Creation of a foreign key constraint for the parent table.
+            type: array
+            items:
+              type: string
+              enum:
+                - PRIVILEGE_UNSPECIFIED
+                - ALL_PRIVILEGES
+                - ALTER
+                - ALTER_ROUTINE
+                - CREATE
+                - CREATE_ROUTINE
+                - CREATE_TEMPORARY_TABLES
+                - CREATE_VIEW
+                - DELETE
+                - DROP
+                - EVENT
+                - EXECUTE
+                - INDEX
+                - INSERT
+                - LOCK_TABLES
+                - SELECT
+                - SHOW_VIEW
+                - TRIGGER
+                - UPDATE
+                - REFERENCES
+      ConnectionLimits:
+        type: object
+        properties:
+          maxQuestionsPerHour:
+            description: |-
+              **string** (int64)
+              The maximum permitted number of user questions per hour.
+            type: string
+            format: int64
+          maxUpdatesPerHour:
+            description: |-
+              **string** (int64)
+              The maximum permitted number of user updates per hour.
+            type: string
+            format: int64
+          maxConnectionsPerHour:
+            description: |-
+              **string** (int64)
+              The maximum permitted number of simultaneous client connections per hour.
+            type: string
+            format: int64
+          maxUserConnections:
+            description: |-
+              **string** (int64)
+              The maximum number of simultaneous connections permitted to any given MySQL user account.
+            type: string
+            format: int64
+      UserSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the user.
+            pattern: '[a-zA-Z0-9_-]*'
+            type: string
+          password:
+            description: |-
+              **string**
+              Required field. Password of the user.
+            type: string
+          permissions:
+            description: |-
+              **[Permission](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.Permission)**
+              Set of permissions granted to the user to access specific databases.
+              One permission per database.
+              When a permission for a database is set, the user will have access to the database.
+            type: array
+            items:
+              $ref: '#/definitions/Permission'
+          globalPermissions:
+            description: |-
+              **enum** (GlobalPermission)
+              Set of global permissions to grant to the user.
+              - `GLOBAL_PERMISSION_UNSPECIFIED`
+              - `REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.
+              - `REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server,
+              using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.
+              - `PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server).
+                The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users.
+              You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.
+              - `FLUSH_OPTIMIZER_COSTS`: Enables use of the `FLUSH OPTIMIZER_COSTS` statement.
+              - `SHOW_ROUTINE`: Enables a user to access definitions and properties of all stored routines (stored procedures and functions), even those for which the user is not named as the routine DEFINER.
+              This access includes:
+              The contents of the Information Schema `ROUTINES` table.
+              The `SHOW CREATE FUNCTION` and `SHOW CREATE PROCEDURE` statements.
+              The `SHOW FUNCTION CODE` and `SHOW PROCEDURE CODE` statements.
+              The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements.
+              - `MDB_ADMIN`: Enables use of the KILL command, creating and dropping databases and users, granting privileges to tables and databases.
+            type: array
+            items:
+              type: string
+              enum:
+                - GLOBAL_PERMISSION_UNSPECIFIED
+                - REPLICATION_CLIENT
+                - REPLICATION_SLAVE
+                - PROCESS
+                - FLUSH_OPTIMIZER_COSTS
+                - SHOW_ROUTINE
+                - MDB_ADMIN
+          connectionLimits:
+            description: |-
+              **[ConnectionLimits](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.ConnectionLimits)**
+              Set of user connection limits.
+            $ref: '#/definitions/ConnectionLimits'
+          authenticationPlugin:
+            description: |-
+              **enum** (AuthPlugin)
+              User authentication plugin.
+              - `AUTH_PLUGIN_UNSPECIFIED`
+              - `MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
+              - `CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
+              - `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
+              - `MYSQL_NO_LOGIN`: Use [MYSQL_NO_LOGIN Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/no-login-pluggable-authentication.html).
+              - `MDB_IAMPROXY_AUTH`: Use [IAM Pluggable Authentication](https://yandex.cloud/en/docs/iam/concepts/authorization/).
+            type: string
+            enum:
+              - AUTH_PLUGIN_UNSPECIFIED
+              - MYSQL_NATIVE_PASSWORD
+              - CACHING_SHA2_PASSWORD
+              - SHA256_PASSWORD
+              - MYSQL_NO_LOGIN
+              - MDB_IAMPROXY_AUTH
+          generatePassword:
+            description: |-
+              **boolean**
+              Generate password using Connection Manager.
+            type: boolean
+        required:
+          - name
+          - password
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/User/create.md
 ---
 
@@ -95,7 +293,8 @@ This access includes:
 The contents of the Information Schema `ROUTINES` table.
 The `SHOW CREATE FUNCTION` and `SHOW CREATE PROCEDURE` statements.
 The `SHOW FUNCTION CODE` and `SHOW PROCEDURE CODE` statements.
-The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements. ||
+The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements.
+- `MDB_ADMIN`: Enables use of the KILL command, creating and dropping databases and users, granting privileges to tables and databases. ||
 || connectionLimits | **[ConnectionLimits](#yandex.cloud.mdb.mysql.v1.ConnectionLimits)**
 
 Set of user connection limits. ||
@@ -357,7 +556,8 @@ This access includes:
 The contents of the Information Schema `ROUTINES` table.
 The `SHOW CREATE FUNCTION` and `SHOW CREATE PROCEDURE` statements.
 The `SHOW FUNCTION CODE` and `SHOW PROCEDURE CODE` statements.
-The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements. ||
+The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements.
+- `MDB_ADMIN`: Enables use of the KILL command, creating and dropping databases and users, granting privileges to tables and databases. ||
 || connectionLimits | **[ConnectionLimits](#yandex.cloud.mdb.mysql.v1.ConnectionLimits2)**
 
 Set of user connection limits. ||

@@ -1,5 +1,72 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/hosts:batchCreate
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Elasticsearch cluster.
+            To get the Elasticsearch cluster ID, make a [ClusterService.List](/docs/managed-elasticsearch/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        hostSpecs:
+          description: |-
+            **[HostSpec](/docs/managed-elasticsearch/api-ref/Cluster/create#yandex.cloud.mdb.elasticsearch.v1.HostSpec)**
+            One or more configurations of hosts to be added to the Elasticsearch cluster.
+          type: array
+          items:
+            $ref: '#/definitions/HostSpec'
+      additionalProperties: false
+    definitions:
+      HostSpec:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              ID of the availability zone where the host resides.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet the host resides in.
+            type: string
+          assignPublicIp:
+            description: |-
+              **boolean**
+              The flag that defines whether a public IP address is assigned to the host.
+              If the value is `true`, then this host is available on the Internet via it's public IP address.
+            type: boolean
+          type:
+            description: |-
+              **enum** (Type)
+              Required field. Host type.
+              - `TYPE_UNSPECIFIED`: Host type is unspecified. Default value.
+              - `DATA_NODE`: The host is an Elasticsearch data node.
+              - `MASTER_NODE`: The host is an Elasticsearch master node.
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - DATA_NODE
+              - MASTER_NODE
+          shardName:
+            description: |-
+              **string**
+              The shard name to create on the host.
+            pattern: '[a-zA-Z0-9_-]*'
+            type: string
+        required:
+          - type
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Cluster/addHosts.md
 ---
 

@@ -1,5 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/extensions/{extension_spec.name}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        extensionSpec:
+          description: |-
+            **[ExtensionSpec](/docs/managed-clickhouse/api-ref/ClusterExtension/create#yandex.cloud.mdb.clickhouse.v1.ExtensionSpec)**
+            Required field. 
+          $ref: '#/definitions/ExtensionSpec'
+      required:
+        - extensionSpec
+      additionalProperties: false
+    definitions:
+      ExtensionSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. 
+            type: string
+          version:
+            description: '**string**'
+            type: string
+        required:
+          - name
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/ClusterExtension/update.md
 ---
 

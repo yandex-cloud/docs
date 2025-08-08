@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        backendGroupId:
+          description: |-
+            **string**
+            Required field. ID of the backend group to return.
+            To get the backend group ID, make a [BackendGroupService.List](/docs/application-load-balancer/api-ref/BackendGroup/list#List) request.
+          type: string
+      required:
+        - backendGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/get.md
 ---
 

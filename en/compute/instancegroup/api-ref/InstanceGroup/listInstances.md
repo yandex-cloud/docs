@@ -1,5 +1,48 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}/instances
+    method: get
+    path:
+      type: object
+      properties:
+        instanceGroupId:
+          description: |-
+            **string**
+            Required field. ID of the InstanceGroup resource to list instances for.
+            To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+          type: string
+      required:
+        - instanceGroupId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListInstanceGroupInstancesResponse.nextPageToken](/docs/compute/instancegroup/api-ref/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results,
+            set `pageToken` to the [ListInstanceGroupInstancesResponse.nextPageToken](/docs/compute/instancegroup/api-ref/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupInstancesResponse)
+            returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            Currently you can use filtering only on the [ManagedInstance.name](/docs/compute/instancegroup/api-ref/InstanceGroup/listInstances#yandex.cloud.compute.v1.instancegroup.ManagedInstance) field.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/listInstances.md
 ---
 

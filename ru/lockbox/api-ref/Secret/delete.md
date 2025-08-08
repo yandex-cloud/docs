@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}
+    method: delete
+    path:
+      type: object
+      properties:
+        secretId:
+          description: |-
+            **string**
+            Required field. ID of the secret to be deleted.
+          type: string
+      required:
+        - secretId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/delete.md
 ---
 

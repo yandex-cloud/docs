@@ -1,5 +1,42 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{folderId}
+    method: delete
+    path:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to delete.
+            To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        deleteAfter:
+          description: |-
+            **string** (date-time)
+            The timestamp after which the process of deleting the folder should begin.
+            Until this timestamp, the folder goes into the [Folder.Status.PENDING_DELETION](/docs/resource-manager/api-ref/Folder/get#yandex.cloud.resourcemanager.v1.Folder.Status) state and all resources in this
+            folder are stopped. In this state, it is possible to cancel the delete operation without any loss.
+            After this timestamp, the status of the folder will become [Folder.Status.DELETING](/docs/resource-manager/api-ref/Folder/get#yandex.cloud.resourcemanager.v1.Folder.Status) and the process of deleting
+            all the resources  of the folder will be started. If `deleteAfter` is not specified it will be
+            (now + 24 hours). To initiate an immediate deletion `deleteAfter` must be <= now.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/delete.md
 ---
 

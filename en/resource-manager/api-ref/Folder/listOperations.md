@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{folderId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the Folder resource to list operations for.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListFolderOperationsResponse.nextPageToken](/docs/resource-manager/api-ref/Folder/listOperations#yandex.cloud.resourcemanager.v1.ListFolderOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. Set `pageToken`
+            to the [ListFolderOperationsResponse.nextPageToken](/docs/resource-manager/api-ref/Folder/listOperations#yandex.cloud.resourcemanager.v1.ListFolderOperationsResponse)
+            returned by a previous list request to get the next page of results.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/listOperations.md
 ---
 

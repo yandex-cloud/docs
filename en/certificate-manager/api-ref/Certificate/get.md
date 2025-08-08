@@ -1,5 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{certificateId}
+    method: get
+    path:
+      type: object
+      properties:
+        certificateId:
+          description: |-
+            **string**
+            Required field. ID of the certificate to return.
+            To get the ID of a certificate use a [CertificateService.List](/docs/certificate-manager/api-ref/Certificate/list#List) request.
+          type: string
+      required:
+        - certificateId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        view:
+          description: |-
+            **enum** (CertificateView)
+            The output type of the certificate.
+            - `BASIC`: Output basic information about the certificate.
+            - `FULL`: Output full information about the certificate including domain challenges.
+          type: string
+          enum:
+            - BASIC
+            - FULL
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/get.md
 ---
 

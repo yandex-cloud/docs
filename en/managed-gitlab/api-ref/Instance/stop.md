@@ -1,5 +1,18 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://gitlab.{{ api-host }}/gitlab/v1/instances/{instanceId}:stop
+    method: post
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: '**string**'
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/gitlab/v1/api-ref/Instance/stop.md
 ---
 

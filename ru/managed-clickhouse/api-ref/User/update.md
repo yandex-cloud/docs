@@ -1,5 +1,1723 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/users/{userName}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the ClickHouse cluster the user belongs to.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+          type: string
+        userName:
+          description: |-
+            **string**
+            Required field. Name of the user to be updated.
+            To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/api-ref/User/list#List) request.
+          pattern: '[a-zA-Z0-9_]*'
+          type: string
+      required:
+        - clusterId
+        - userName
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        password:
+          description: |-
+            **string**
+            New password for the user.
+          type: string
+        permissions:
+          description: |-
+            **[Permission](/docs/managed-clickhouse/api-ref/Cluster/create#yandex.cloud.mdb.clickhouse.v1.Permission)**
+            New set of permissions for the user.
+          type: array
+          items:
+            $ref: '#/definitions/Permission'
+        settings:
+          description: '**[UserSettings](/docs/managed-clickhouse/api-ref/Cluster/create#yandex.cloud.mdb.clickhouse.v1.UserSettings)**'
+          $ref: '#/definitions/UserSettings'
+        quotas:
+          description: '**[UserQuota](/docs/managed-clickhouse/api-ref/Cluster/create#yandex.cloud.mdb.clickhouse.v1.UserQuota)**'
+          type: array
+          items:
+            $ref: '#/definitions/UserQuota'
+        generatePassword:
+          description: |-
+            **boolean**
+            Generate password using Connection Manager.
+          type: boolean
+      additionalProperties: false
+    definitions:
+      Permission:
+        type: object
+        properties:
+          databaseName:
+            description: |-
+              **string**
+              Name of the database that the permission grants access to.
+            type: string
+      UserSettings:
+        type: object
+        properties:
+          readonly:
+            description: |-
+              **string** (int64)
+              Restricts permissions for non-DDL queries. To restrict permissions for DDL queries, use **allow_ddl** instead.
+              * **0** - no restrictions.
+              * **1** - only read data queries are allowed.
+              * **2** - read data and change settings queries are allowed.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/permissions-for-queries#readonly).
+            type: string
+            format: int64
+          allowDdl:
+            description: |-
+              **boolean**
+              Allows or denies DDL queries (e.g., **CREATE**, **ALTER**, **RENAME**, etc).
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/permissions-for-queries#allow_ddl).
+            type: boolean
+          allowIntrospectionFunctions:
+            description: |-
+              **boolean**
+              Enables or disables introspection functions for query profiling.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#allow_introspection_functions).
+            type: boolean
+          connectTimeout:
+            description: |-
+              **string** (int64)
+              Connection timeout in milliseconds.
+              Default value: **10000** (10 seconds).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout).
+            type: string
+            format: int64
+          connectTimeoutWithFailover:
+            description: |-
+              **string** (int64)
+              The timeout in milliseconds for connecting to a remote server for a Distributed table engine.
+              Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+              Default value: **1000** (1 second).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_ms).
+            type: string
+            format: int64
+          receiveTimeout:
+            description: |-
+              **string** (int64)
+              Receive timeout in milliseconds.
+              Default value: **300000** (5 minutes).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#receive_timeout).
+            type: string
+            format: int64
+          sendTimeout:
+            description: |-
+              **string** (int64)
+              Send timeout in milliseconds.
+              Default value: **300000** (5 minutes).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#send_timeout).
+            type: string
+            format: int64
+          idleConnectionTimeout:
+            description: |-
+              **string** (int64)
+              Timeout to close idle TCP connections after specified time has elapsed, in milliseconds.
+              Default value: **3600000** (1 hour).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#idle_connection_timeout).
+            type: string
+            format: int64
+          timeoutBeforeCheckingExecutionSpeed:
+            description: |-
+              **string** (int64)
+              Checks that the speed is not too low after the specified time has elapsed, in milliseconds. It is checked that execution speed
+              is not less that specified in **min_execution_speed** parameter.
+              Default value: **60000** (1 minute).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#timeout_before_checking_execution_speed).
+            type: string
+            format: int64
+          insertQuorum:
+            description: |-
+              **string** (int64)
+              Enables or disables the quorum writes. If the value is less than **2**, then the quorum writes is disabled, otherwise it is enabled.
+              When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors
+              until the **insert_quorum_timeout** expires. All replicas in the quorum are in the consistent state, meaning that they contain
+              linearized data from the previous **INSERT** queries. Employ write quorum, if you need the guarantees that the written data
+              would not be lost in case of one or more replicas failure.
+              You can use **select_sequential_consistency** setting to read the data written with write quorum.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_quorum).
+            type: string
+            format: int64
+          insertQuorumTimeout:
+            description: |-
+              **string** (int64)
+              Quorum write timeout in milliseconds.
+              If the write quorum is enabled in the cluster, this timeout expires and some data is not written to the **insert_quorum** replicas,
+              then ClickHouse will abort the execution of **INSERT** query and return an error. In this case, the client must send the query again
+              to write the data block into the same or another replica.
+              Default value: **600000** (10 minutes).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_quorum_timeout).
+            type: string
+            format: int64
+          insertQuorumParallel:
+            description: |-
+              **boolean**
+              Enables or disables parallelism for quorum **INSERT** queries.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_quorum_parallel).
+            type: boolean
+          selectSequentialConsistency:
+            description: |-
+              **boolean**
+              Determines the behavior of **SELECT** queries from replicated tables. If enabled, ClickHouse will terminate a query with error message in case
+              the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#select_sequential_consistency).
+            type: boolean
+          replicationAlterPartitionsSync:
+            description: |-
+              **string** (int64)
+              Wait mode for asynchronous actions in **ALTER** queries on replicated tables.
+              * **0** - do not wait for replicas.
+              * **1** - only wait for own execution.
+              * **2** - wait for all replicas.
+              Default value: **1**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#alter_sync).
+            type: string
+            format: int64
+          maxReplicaDelayForDistributedQueries:
+            description: |-
+              **string** (int64)
+              Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one.
+              Default value: **300000** (5 minutes).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_replica_delay_for_distributed_queries).
+            type: string
+            format: int64
+          fallbackToStaleReplicasForDistributedQueries:
+            description: |-
+              **boolean**
+              Enables or disables query forcing to a stale replica in case the actual data is unavailable.
+              If enabled, ClickHouse will choose the most up-to-date replica and force the query to use the data in this replica.
+              This setting can be used when doing **SELECT** query from a distributed table that points to replicated tables.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#fallback_to_stale_replicas_for_distributed_queries).
+            type: boolean
+          distributedProductMode:
+            description: |-
+              **enum** (DistributedProductMode)
+              Determines the behavior of distributed subqueries.
+              Default value: **DISTRIBUTED_PRODUCT_MODE_DENY**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_product_mode).
+              - `DISTRIBUTED_PRODUCT_MODE_UNSPECIFIED`
+              - `DISTRIBUTED_PRODUCT_MODE_DENY`: Prohibits using these types of subqueries (returns the "Double-distributed in/JOIN subqueries is denied" exception).
+              - `DISTRIBUTED_PRODUCT_MODE_LOCAL`: Replaces the database and table in the subquery with local ones for the destination server (shard), leaving the normal IN/JOIN.
+              - `DISTRIBUTED_PRODUCT_MODE_GLOBAL`: Replaces the IN/JOIN query with GLOBAL IN/GLOBAL JOIN.
+              - `DISTRIBUTED_PRODUCT_MODE_ALLOW`: Allows the use of these types of subqueries.
+            type: string
+            enum:
+              - DISTRIBUTED_PRODUCT_MODE_UNSPECIFIED
+              - DISTRIBUTED_PRODUCT_MODE_DENY
+              - DISTRIBUTED_PRODUCT_MODE_LOCAL
+              - DISTRIBUTED_PRODUCT_MODE_GLOBAL
+              - DISTRIBUTED_PRODUCT_MODE_ALLOW
+          distributedAggregationMemoryEfficient:
+            description: |-
+              **boolean**
+              Enables of disables memory saving mode when doing distributed aggregation.
+              When ClickHouse works with a distributed query, external aggregation is done on remote servers.
+              Enable this setting to achieve a smaller memory footprint on the server that sourced such a distributed query.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_aggregation_memory_efficient).
+            type: boolean
+          distributedDdlTaskTimeout:
+            description: |-
+              **string** (int64)
+              Timeout for DDL queries, in milliseconds.
+              Default value: **180000** (3 minutes).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_ddl_task_timeout).
+            type: string
+            format: int64
+          distributedDdlOutputMode:
+            description: |-
+              **enum** (DistributedDdlOutputMode)
+              Determines the format of distributed DDL query result.
+              Default value: **DISTRIBUTED_DDL_OUTPUT_MODE_THROW**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_ddl_output_mode).
+              - `DISTRIBUTED_DDL_OUTPUT_MODE_UNSPECIFIED`
+              - `DISTRIBUTED_DDL_OUTPUT_MODE_THROW`: Returns result set with query execution status for all hosts where query is finished. If query has failed on some hosts, then it will rethrow the first exception.
+              If query is not finished yet on some hosts and **distributed_ddl_task_timeout** exceeded, then it throws **TIMEOUT_EXCEEDED** exception.
+              - `DISTRIBUTED_DDL_OUTPUT_MODE_NONE`: Like **DISTRIBUTED_DDL_OUTPUT_MODE_THROW**, but distributed DDL query returns no result set.
+              - `DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT`: Returns **NULL** as execution status in some rows of result set instead of throwing **TIMEOUT_EXCEEDED** if query is not finished on the corresponding hosts.
+              - `DISTRIBUTED_DDL_OUTPUT_MODE_NEVER_THROW`: Do not throw **TIMEOUT_EXCEEDED** and do not rethrow exceptions if query has failed on some hosts.
+              - `DISTRIBUTED_DDL_OUTPUT_MODE_NONE_ONLY_ACTIVE`: Like **DISTRIBUTED_DDL_OUTPUT_MODE_NONE**, but doesn't wait for inactive replicas of the **Replicated** database.
+              With this mode it's impossible to figure out that the query was not executed on some replica and will be executed in background.
+              - `DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT_ONLY_ACTIVE`: Like **DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT**, but doesn't wait for inactive replicas of the **Replicated** database.
+              - `DISTRIBUTED_DDL_OUTPUT_MODE_THROW_ONLY_ACTIVE`: Like **DISTRIBUTED_DDL_OUTPUT_MODE_THROW**, but doesn't wait for inactive replicas of the **Replicated** database.
+            type: string
+            enum:
+              - DISTRIBUTED_DDL_OUTPUT_MODE_UNSPECIFIED
+              - DISTRIBUTED_DDL_OUTPUT_MODE_THROW
+              - DISTRIBUTED_DDL_OUTPUT_MODE_NONE
+              - DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT
+              - DISTRIBUTED_DDL_OUTPUT_MODE_NEVER_THROW
+              - DISTRIBUTED_DDL_OUTPUT_MODE_NONE_ONLY_ACTIVE
+              - DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT_ONLY_ACTIVE
+              - DISTRIBUTED_DDL_OUTPUT_MODE_THROW_ONLY_ACTIVE
+          skipUnavailableShards:
+            description: |-
+              **boolean**
+              Enables or disables silent skipping of unavailable shards.
+              A shard is considered unavailable if all its replicas are also unavailable.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#skip_unavailable_shards).
+            type: boolean
+          useHedgedRequests:
+            description: |-
+              **boolean**
+              Enables or disables hedged requests logic for remote queries.
+              It allows to establish many connections with different replicas for query. New connection is enabled in case existent connection(s) with replica(s)
+              were not established within **hedged_connection_timeout** or no data was received within **receive_data_timeout**. Query uses the first connection
+              which send non empty progress packet, other connections are cancelled.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#use_hedged_requests).
+            type: boolean
+          hedgedConnectionTimeoutMs:
+            description: |-
+              **string** (int64)
+              Connection timeout for establishing connection with replica for Hedged requests.
+              Default value: **50**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#hedged_connection_timeout_ms).
+            type: string
+            format: int64
+          loadBalancing:
+            description: |-
+              **enum** (LoadBalancing)
+              Algorithm of replicas selection that is used for distributed query processing.
+              Default value: **LOAD_BALANCING_RANDOM**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#load_balancing).
+              - `LOAD_BALANCING_UNSPECIFIED`
+              - `LOAD_BALANCING_RANDOM`
+              - `LOAD_BALANCING_NEAREST_HOSTNAME`
+              - `LOAD_BALANCING_IN_ORDER`
+              - `LOAD_BALANCING_FIRST_OR_RANDOM`
+              - `LOAD_BALANCING_ROUND_ROBIN`
+            type: string
+            enum:
+              - LOAD_BALANCING_UNSPECIFIED
+              - LOAD_BALANCING_RANDOM
+              - LOAD_BALANCING_NEAREST_HOSTNAME
+              - LOAD_BALANCING_IN_ORDER
+              - LOAD_BALANCING_FIRST_OR_RANDOM
+              - LOAD_BALANCING_ROUND_ROBIN
+          preferLocalhostReplica:
+            description: |-
+              **boolean**
+              Enable or disable preferable using the localhost replica when processing distributed queries.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#prefer_localhost_replica).
+            type: boolean
+          compileExpressions:
+            description: |-
+              **boolean**
+              Enable or disable expression compilation to native code.
+              If you execute a lot of queries that contain identical expressions, then enable this setting.
+              As a result, such queries may be executed faster due to use of compiled expressions.
+              Use this setting in combination with **min_count_to_compile_expression** setting.
+              Default value: **true** for versions 25.5 and higher, **false** for versions 25.4 and lower.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#compile_expressions).
+            type: boolean
+          minCountToCompileExpression:
+            description: |-
+              **string** (int64)
+              How many identical expressions ClickHouse has to encounter before they are compiled.
+              For the **0** value compilation is synchronous: a query waits for expression compilation process to complete prior to continuing execution.
+              It is recommended to set this value only for testing purposes.
+              For all other values, compilation is asynchronous: the compilation process executes in a separate thread.
+              When a compiled expression is ready, it will be used by ClickHouse for eligible queries, including the ones that are currently running.
+              Default value: **3**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_count_to_compile_expression).
+            type: string
+            format: int64
+          maxBlockSize:
+            description: |-
+              **string** (int64)
+              Sets the recommended maximum number of rows to include in a single block when loading data from tables.
+              Blocks the size of **max_block_size** are not always loaded from the table: if ClickHouse determines that less data needs to be retrieved,
+              a smaller block is processed.
+              The block size should not be too small to avoid noticeable costs when processing each block. It should also not be too large to ensure that
+              queries with a **LIMIT** clause execute quickly after processing the first block. When setting **max_block_size**, the goal should be to avoid
+              consuming too much memory when extracting a large number of columns in multiple threads and to preserve at least some cache locality.
+              Default value: **65409**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_block_size).
+            type: string
+            format: int64
+          minInsertBlockSizeRows:
+            description: |-
+              **string** (int64)
+              Limits the minimum number of rows in a block to be inserted in a table by **INSERT** query. Blocks that are smaller than the specified value,
+              will be squashed together into the bigger blocks. If set to **0**, block squashing is disabled.
+              Default value: **1048449**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_insert_block_size_rows).
+            type: string
+            format: int64
+          minInsertBlockSizeBytes:
+            description: |-
+              **string** (int64)
+              Limits the minimum number of bytes in a block to be inserted in a table by **INSERT** query. Blocks that are smaller than the specified value,
+              will be squashed together into the bigger blocks. If set to **0**, block squashing is disabled.
+              Default value: **268402944**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_insert_block_size_bytes).
+            type: string
+            format: int64
+          maxInsertBlockSize:
+            description: |-
+              **string** (int64)
+              The size of blocks (in a count of rows) to form for insertion into a table.
+              This setting only applies in cases when the server forms the blocks. For example, for an **INSERT** via the HTTP interface, the server parses
+              the data format and forms blocks of the specified size. But when using clickhouse-client, the client parses the data itself, and
+              the **max_insert_block_size** setting on the server does not affect the size of the inserted blocks. The setting also does not have a purpose
+              when using **INSERT SELECT**, since data is inserted using the same blocks that are formed after **SELECT**.
+              Default value: **1048449**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_insert_block_size).
+            type: string
+            format: int64
+          maxPartitionsPerInsertBlock:
+            description: |-
+              **string** (int64)
+              When inserting data, ClickHouse calculates the number of partitions in the inserted block.
+              If the number of partitions is more than **max_partitions_per_insert_block**, ClickHouse throws an exception.
+              Default value: **100**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#settings-max_partitions_per_insert_block).
+            type: string
+            format: int64
+          minBytesToUseDirectIo:
+            description: |-
+              **string** (int64)
+              Limits the minimum number of bytes to enable unbuffered direct reads from disk (Direct I/O). If set to **0**, Direct I/O is disabled.
+              By default, ClickHouse does not read data directly from disk, but relies on the filesystem and its cache instead. Such reading strategy
+              is effective when the data volume is small. If the amount of the data to read is huge, it is more effective to read directly from the disk,
+              bypassing the filesystem cache.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_bytes_to_use_direct_io).
+            type: string
+            format: int64
+          useUncompressedCache:
+            description: |-
+              **boolean**
+              Determines whether to use the cache of uncompressed blocks, or not.
+              Using this cache can significantly reduce latency and increase the throughput when a huge amount of small queries is to be processed.
+              Enable this setting for the users who instantiates small queries frequently.
+              This setting has effect only for tables of the MergeTree family.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#use_uncompressed_cache).
+            type: boolean
+          mergeTreeMaxRowsToUseCache:
+            description: |-
+              **string** (int64)
+              Limits the maximum size in rows of the request that can use the cache of uncompressed data. The cache is not used for requests larger than the specified value.
+              Use this setting in combination with **use_uncompressed_cache** setting.
+              Default value: **1048576**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#merge_tree_max_rows_to_use_cache).
+            type: string
+            format: int64
+          mergeTreeMaxBytesToUseCache:
+            description: |-
+              **string** (int64)
+              Limits the maximum size in bytes of the request that can use the cache of uncompressed data. The cache is not used for requests larger than the specified value.
+              Use this setting in combination with **use_uncompressed_cache** setting.
+              Default value: **2013265920** (1920 MiB).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#merge_tree_max_bytes_to_use_cache).
+            type: string
+            format: int64
+          mergeTreeMinRowsForConcurrentRead:
+            description: |-
+              **string** (int64)
+              Limits the minimum number of rows to be read from a file to enable concurrent read.
+              If the number of rows to be read exceeds this value, then ClickHouse will try to use a few threads to read from a file concurrently.
+              This setting has effect only for tables of the MergeTree family.
+              Default value: **163840**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#merge_tree_min_rows_for_concurrent_read).
+            type: string
+            format: int64
+          mergeTreeMinBytesForConcurrentRead:
+            description: |-
+              **string** (int64)
+              Limits the number of bytes to be read from a file to enable concurrent read.
+              If the number of bytes to be read exceeds this value, then ClickHouse will try to use a few threads to read from a file concurrently.
+              This setting has effect only for tables of the MergeTree family.
+              Default value: **251658240** (240 MiB).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#merge_tree_min_bytes_for_concurrent_read).
+            type: string
+            format: int64
+          maxBytesBeforeExternalGroupBy:
+            description: |-
+              **string** (int64)
+              Sets the threshold of RAM consumption (in bytes) after that the temporary data, collected during the **GROUP BY** operation,
+              should be flushed to disk to limit the RAM consumption. If set to **0**, **GROUP BY** in the external memory is disabled.
+              By default, aggregation is done by employing hash table that resides in RAM. A query can result in aggregation of huge data
+              volumes that can lead to memory exhaustion and abortion of the query (see the **max_memory_usage** setting). For such queries,
+              you can use this setting to force ClickHouse to do flushing and complete aggregation successfully.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_before_external_group_by).
+            type: string
+            format: int64
+          maxBytesBeforeExternalSort:
+            description: |-
+              **string** (int64)
+              Sets the threshold of RAM consumption (in bytes) after that the temporary data, collected during the **ORDER BY** operation,
+              should be flushed to disk to limit the RAM consumption. If set to **0**, **ORDER BY** in the external memory is disabled.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_before_external_sort).
+            type: string
+            format: int64
+          groupByTwoLevelThreshold:
+            description: |-
+              **string** (int64)
+              Sets the threshold of the number of keys, after that the two-level aggregation should be used. **0** means threshold is not set.
+              Default value: **100000**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#group_by_two_level_threshold).
+            type: string
+            format: int64
+          groupByTwoLevelThresholdBytes:
+            description: |-
+              **string** (int64)
+              Sets the threshold of the number of bytes, after that the two-level aggregation should be used. **0** means threshold is not set.
+              Default value: **50000000**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#group_by_two_level_threshold_bytes).
+            type: string
+            format: int64
+          deduplicateBlocksInDependentMaterializedViews:
+            description: |-
+              **boolean**
+              Enables or disables the deduplication check for materialized views that receive data from replicated tables.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#deduplicate_blocks_in_dependent_materialized_views).
+            type: boolean
+          localFilesystemReadMethod:
+            description: |-
+              **enum** (LocalFilesystemReadMethod)
+              Method of reading data from local filesystem.
+              The LOCAL_FILESYSTEM_READ_METHOD_IO_URING is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and
+              other tables with append-able files in presence of concurrent reads and writes.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#local_filesystem_read_method).
+              - `LOCAL_FILESYSTEM_READ_METHOD_UNSPECIFIED`
+              - `LOCAL_FILESYSTEM_READ_METHOD_READ`
+              - `LOCAL_FILESYSTEM_READ_METHOD_PREAD_THREADPOOL`
+              - `LOCAL_FILESYSTEM_READ_METHOD_PREAD`
+              - `LOCAL_FILESYSTEM_READ_METHOD_NMAP`
+              - `LOCAL_FILESYSTEM_READ_METHOD_IO_URING`
+            type: string
+            enum:
+              - LOCAL_FILESYSTEM_READ_METHOD_UNSPECIFIED
+              - LOCAL_FILESYSTEM_READ_METHOD_READ
+              - LOCAL_FILESYSTEM_READ_METHOD_PREAD_THREADPOOL
+              - LOCAL_FILESYSTEM_READ_METHOD_PREAD
+              - LOCAL_FILESYSTEM_READ_METHOD_NMAP
+              - LOCAL_FILESYSTEM_READ_METHOD_IO_URING
+          remoteFilesystemReadMethod:
+            description: |-
+              **enum** (RemoteFilesystemReadMethod)
+              Method of reading data from remote filesystem.
+              Default value: **REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#remote_filesystem_read_method).
+              - `REMOTE_FILESYSTEM_READ_METHOD_UNSPECIFIED`
+              - `REMOTE_FILESYSTEM_READ_METHOD_READ`
+              - `REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL`
+            type: string
+            enum:
+              - REMOTE_FILESYSTEM_READ_METHOD_UNSPECIFIED
+              - REMOTE_FILESYSTEM_READ_METHOD_READ
+              - REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL
+          priority:
+            description: |-
+              **string** (int64)
+              Sets the priority of a query.
+              * **0** - priorities are not used.
+              * **1** - the highest priority.
+              * and so on. The higher the number, the lower a query's priority.
+              If ClickHouse is working with the high-priority queries, and a low-priority query enters, then the low-priority query
+              is paused until higher-priority queries are completed.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#priority).
+            type: string
+            format: int64
+          maxThreads:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of threads to process the request. If set to **0**, the number of threads is calculated automatically based on the number of available CPU cores.
+              The setting applies to threads that perform the same stages of the query processing pipeline in parallel. It does not take threads that read data from remote servers into account.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_threads).
+            type: string
+            format: int64
+          maxInsertThreads:
+            description: |-
+              **string** (int64)
+              The maximum number of threads to execute the **INSERT SELECT** query.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_insert_threads).
+            type: string
+            format: int64
+          maxMemoryUsage:
+            description: |-
+              **string** (int64)
+              Limits the maximum memory usage (in bytes) for processing of a single user's query on a single server. **0** means unlimited.
+              This limitation is enforced for any user's single query on a single server.
+              If you use **max_bytes_before_external_group_by** or **max_bytes_before_external_sort** setting, then it is recommended to set
+              their values twice as low as **max_memory_usage** setting value.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_memory_usage).
+            type: string
+            format: int64
+          maxMemoryUsageForUser:
+            description: |-
+              **string** (int64)
+              Limits the maximum memory usage (in bytes) for processing of user's queries on a single server. **0** means unlimited.
+              This limitation is enforced for all queries that belong to one user and run simultaneously on a single server.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_memory_usage_for_user).
+            type: string
+            format: int64
+          memoryOvercommitRatioDenominator:
+            description: |-
+              **string** (int64)
+              It represents the soft memory limit when the hard limit is reached on the global level.
+              This value is used to compute the overcommit ratio for the query. **0** means skip the query.
+              Default value: **1073741824** (1 GiB).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_overcommit_ratio_denominator).
+            type: string
+            format: int64
+          memoryOvercommitRatioDenominatorForUser:
+            description: |-
+              **string** (int64)
+              It represents the soft memory limit when the hard limit is reached on the user level.
+              This value is used to compute the overcommit ratio for the user. **0** means skip the query.
+              Default value: **1073741824** (1 GiB).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_overcommit_ratio_denominator_for_user).
+            type: string
+            format: int64
+          memoryUsageOvercommitMaxWaitMicroseconds:
+            description: |-
+              **string** (int64)
+              Maximum time thread will wait for memory to be freed in the case of memory overcommit. If the timeout is reached and memory is not freed, an exception is thrown.
+              Default value: **5000000** (5 seconds).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds).
+            type: string
+            format: int64
+          maxNetworkBandwidth:
+            description: |-
+              **string** (int64)
+              The maximum speed of data exchange over the network in bytes per second for a query. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth).
+            type: string
+            format: int64
+          maxNetworkBandwidthForUser:
+            description: |-
+              **string** (int64)
+              The maximum speed of data exchange over the network in bytes per second for all concurrently running user queries. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth-for-user).
+            type: string
+            format: int64
+          maxTemporaryDataOnDiskSizeForQuery:
+            description: |-
+              **string** (int64)
+              The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query).
+            type: string
+            format: int64
+          maxTemporaryDataOnDiskSizeForUser:
+            description: |-
+              **string** (int64)
+              The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running user queries. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user).
+            type: string
+            format: int64
+          maxConcurrentQueriesForUser:
+            description: |-
+              **string** (int64)
+              The maximum number of simultaneously processed queries per user. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_concurrent_queries_for_user).
+            type: string
+            format: int64
+          forceIndexByDate:
+            description: |-
+              **boolean**
+              Disables query execution if the index cannot be used by date.
+              This setting has effect only for tables of the MergeTree family.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#force_index_by_date).
+            type: boolean
+          forcePrimaryKey:
+            description: |-
+              **boolean**
+              Disables query execution if indexing by the primary key cannot be used.
+              This setting has effect only for tables of the MergeTree family.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#force_primary_key).
+            type: boolean
+          maxRowsToRead:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of rows that can be read from a table when running a query.  **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#max-rows-to-read).
+            type: string
+            format: int64
+          maxBytesToRead:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of bytes (uncompressed data) that can be read from a table when running a query.  **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#max-bytes-to-read).
+            type: string
+            format: int64
+          readOverflowMode:
+            description: |-
+              **enum** (OverflowMode)
+              Determines the behavior on exceeding limits while reading the data.
+              Default value: **OVERFLOW_MODE_THROW**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#read_overflow_mode).
+              - `OVERFLOW_MODE_UNSPECIFIED`
+              - `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+              - `OVERFLOW_MODE_BREAK`: Return a partial result.
+            type: string
+            enum:
+              - OVERFLOW_MODE_UNSPECIFIED
+              - OVERFLOW_MODE_THROW
+              - OVERFLOW_MODE_BREAK
+          maxRowsToGroupBy:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of unique keys received from aggregation. **0** means unlimited.
+              This setting lets you limit RAM consumption when aggregating.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_to_group_by).
+            type: string
+            format: int64
+          groupByOverflowMode:
+            description: |-
+              **enum** (GroupByOverflowMode)
+              Determines the behavior on exceeding limits while doing aggregation.
+              Default value: **GROUP_BY_OVERFLOW_MODE_THROW**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#group_by_overflow_mode).
+              - `GROUP_BY_OVERFLOW_MODE_UNSPECIFIED`
+              - `GROUP_BY_OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+              - `GROUP_BY_OVERFLOW_MODE_BREAK`: Return a partial result.
+              - `GROUP_BY_OVERFLOW_MODE_ANY`: Continuing aggregation for the keys that got into the set, but do not add new keys to the set.
+            type: string
+            enum:
+              - GROUP_BY_OVERFLOW_MODE_UNSPECIFIED
+              - GROUP_BY_OVERFLOW_MODE_THROW
+              - GROUP_BY_OVERFLOW_MODE_BREAK
+              - GROUP_BY_OVERFLOW_MODE_ANY
+          maxRowsToSort:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of rows that can be read from a table for sorting. **0** means unlimited.
+              This setting lets you to limit RAM consumption when sorting
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_to_sort).
+            type: string
+            format: int64
+          maxBytesToSort:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of bytes (uncompressed data) that can be read from a table for sorting. **0** means unlimited.
+              This setting lets you to limit RAM consumption when sorting
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_to_sort).
+            type: string
+            format: int64
+          sortOverflowMode:
+            description: |-
+              **enum** (OverflowMode)
+              Determines the behavior on exceeding limits while sorting.
+              Default value: **OVERFLOW_MODE_THROW**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#sort_overflow_mode).
+              - `OVERFLOW_MODE_UNSPECIFIED`
+              - `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+              - `OVERFLOW_MODE_BREAK`: Return a partial result.
+            type: string
+            enum:
+              - OVERFLOW_MODE_UNSPECIFIED
+              - OVERFLOW_MODE_THROW
+              - OVERFLOW_MODE_BREAK
+          maxResultRows:
+            description: |-
+              **string** (int64)
+              Limits the number of rows in the result. **0** means unlimited.
+              This limitation is also checked for subqueries and parts of distributed queries that run on remote servers.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_result_rows).
+            type: string
+            format: int64
+          maxResultBytes:
+            description: |-
+              **string** (int64)
+              Limits the result size in bytes (uncompressed data). **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_result_bytes).
+            type: string
+            format: int64
+          resultOverflowMode:
+            description: |-
+              **enum** (OverflowMode)
+              Determines the behavior on exceeding limits while forming result.
+              Default value: **OVERFLOW_MODE_THROW**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#result_overflow_mode).
+              - `OVERFLOW_MODE_UNSPECIFIED`
+              - `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+              - `OVERFLOW_MODE_BREAK`: Return a partial result.
+            type: string
+            enum:
+              - OVERFLOW_MODE_UNSPECIFIED
+              - OVERFLOW_MODE_THROW
+              - OVERFLOW_MODE_BREAK
+          maxRowsInDistinct:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of different rows in the state, which is used for performing **DISTINCT**. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_in_distinct).
+            type: string
+            format: int64
+          maxBytesInDistinct:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of bytes (uncompressed data) in the state, which is used for performing **DISTINCT**. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_in_distinct).
+            type: string
+            format: int64
+          distinctOverflowMode:
+            description: |-
+              **enum** (OverflowMode)
+              Determines the behavior on exceeding limits while performing **DISTINCT**.
+              Default value: **OVERFLOW_MODE_THROW**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distinct_overflow_mode).
+              - `OVERFLOW_MODE_UNSPECIFIED`
+              - `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+              - `OVERFLOW_MODE_BREAK`: Return a partial result.
+            type: string
+            enum:
+              - OVERFLOW_MODE_UNSPECIFIED
+              - OVERFLOW_MODE_THROW
+              - OVERFLOW_MODE_BREAK
+          maxRowsToTransfer:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of rows that can be passed to a remote server or saved in a temporary table when using **GLOBAL IN|JOIN**. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_to_transfer).
+            type: string
+            format: int64
+          maxBytesToTransfer:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of bytes (uncompressed data) that can be passed to a remote server or saved in a temporary table when using **GLOBAL IN|JOIN**.
+              **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_to_transfer).
+            type: string
+            format: int64
+          transferOverflowMode:
+            description: |-
+              **enum** (OverflowMode)
+              Determines the behavior on exceeding limits while transfering data.
+              Default value: **OVERFLOW_MODE_THROW**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#transfer_overflow_mode).
+              - `OVERFLOW_MODE_UNSPECIFIED`
+              - `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+              - `OVERFLOW_MODE_BREAK`: Return a partial result.
+            type: string
+            enum:
+              - OVERFLOW_MODE_UNSPECIFIED
+              - OVERFLOW_MODE_THROW
+              - OVERFLOW_MODE_BREAK
+          maxExecutionTime:
+            description: |-
+              **string** (int64)
+              Limits the maximum query execution time in milliseconds. **0** means unlimited.
+              The timeout is checked and the query can stop only in designated places during data processing.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_execution_time).
+            type: string
+            format: int64
+          timeoutOverflowMode:
+            description: |-
+              **enum** (OverflowMode)
+              Determines the behavior on exceeding limits of execution time.
+              Default value: **OVERFLOW_MODE_THROW**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#timeout_overflow_mode).
+              - `OVERFLOW_MODE_UNSPECIFIED`
+              - `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+              - `OVERFLOW_MODE_BREAK`: Return a partial result.
+            type: string
+            enum:
+              - OVERFLOW_MODE_UNSPECIFIED
+              - OVERFLOW_MODE_THROW
+              - OVERFLOW_MODE_BREAK
+          maxRowsInSet:
+            description: |-
+              **string** (int64)
+              Limits on the maximum number of rows in the set resulting from the execution of the **IN** section. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_in_set).
+            type: string
+            format: int64
+          maxBytesInSet:
+            description: |-
+              **string** (int64)
+              Limits on the maximum number of bytes (uncompressed data) in the set resulting from the execution of the **IN** section. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_in_set).
+            type: string
+            format: int64
+          setOverflowMode:
+            description: |-
+              **enum** (OverflowMode)
+              Determines the behavior on exceeding max_rows_in_set or max_bytes_in_set limit.
+              Default value: **OVERFLOW_MODE_THROW**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#set_overflow_mode).
+              - `OVERFLOW_MODE_UNSPECIFIED`
+              - `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+              - `OVERFLOW_MODE_BREAK`: Return a partial result.
+            type: string
+            enum:
+              - OVERFLOW_MODE_UNSPECIFIED
+              - OVERFLOW_MODE_THROW
+              - OVERFLOW_MODE_BREAK
+          maxRowsInJoin:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of rows in the hash table that is used when joining tables. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_in_join).
+            type: string
+            format: int64
+          maxBytesInJoin:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of bytes in the hash table that is used when joining tables. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_in_join).
+            type: string
+            format: int64
+          joinOverflowMode:
+            description: |-
+              **enum** (OverflowMode)
+              Determines the behavior on exceeding max_rows_in_join or max_bytes_in_join limit.
+              Default value: **OVERFLOW_MODE_THROW**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_overflow_mode).
+              - `OVERFLOW_MODE_UNSPECIFIED`
+              - `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+              - `OVERFLOW_MODE_BREAK`: Return a partial result.
+            type: string
+            enum:
+              - OVERFLOW_MODE_UNSPECIFIED
+              - OVERFLOW_MODE_THROW
+              - OVERFLOW_MODE_BREAK
+          maxColumnsToRead:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of columns that can be read from a table in a single query. **0** means unlimited.
+              If the query requires to read more columns to complete, then it will be aborted.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_columns_to_read).
+            type: string
+            format: int64
+          maxTemporaryColumns:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of temporary columns that must be kept in RAM simultaneously when running a query, including constant columns. **0** means unlimited.
+              If the query generates more than the specified number of temporary columns in memory as a result of intermediate calculation, then it will be aborted.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_temporary_columns).
+            type: string
+            format: int64
+          maxTemporaryNonConstColumns:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of temporary columns that must be kept in RAM simultaneously when running a query, not including constant columns. **0** means unlimited.
+              If the query generates more than the specified number of temporary columns in memory as a result of intermediate calculation, then it will be aborted.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_temporary_non_const_columns).
+            type: string
+            format: int64
+          maxQuerySize:
+            description: |-
+              **string** (int64)
+              Limits the size of the part of a query that can be transferred to RAM for parsing with the SQL parser, in bytes.
+              Data in the **VALUES** clause of **INSERT** queries is processed by a separate stream parser (that consumes O(1) RAM) and not affected by this restriction.
+              Default value: **262144** (256 KiB).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_query_size).
+            type: string
+            format: int64
+          maxAstDepth:
+            description: |-
+              **string** (int64)
+              Limits the maximum depth of query syntax tree.
+              Executing a big and complex query may result in building a syntax tree of enormous depth.
+              By using this setting, you can prohibit execution of over-sized or non-optimized queries for huge tables.
+              Default value: **1000**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_ast_depth).
+            type: string
+            format: int64
+          maxAstElements:
+            description: |-
+              **string** (int64)
+              Limits the maximum size of query syntax tree in number of nodes.
+              Executing a big and complex query may result in building a syntax tree of enormous size.
+              By using this setting, you can prohibit execution of over-sized or non-optimized queries for huge tables.
+              Default value: **50000**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_ast_elements).
+            type: string
+            format: int64
+          maxExpandedAstElements:
+            description: |-
+              **string** (int64)
+              Limits the maximum size of query syntax tree in number of nodes after expansion of aliases and the asterisk values.
+              Executing a big and complex query may result in building a syntax tree of enormous size.
+              By using this setting, you can prohibit execution of over-sized or non-optimized queries for huge tables.
+              Default value: **500000**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_expanded_ast_elements).
+            type: string
+            format: int64
+          maxParserDepth:
+            description: |-
+              **string** (int64)
+              Limits maximum recursion depth in the recursive descent parser. Allows controlling the stack size. If set to **0**, recursion depth is unlimited.
+              Default value: **1000**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_parser_depth).
+            type: string
+            format: int64
+          minExecutionSpeed:
+            description: |-
+              **string** (int64)
+              Minimal execution speed in rows per second. Checked on every data block when timeout_before_checking_execution_speed expires.
+              If the execution speed is lower, an exception is thrown. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_execution_speed).
+            type: string
+            format: int64
+          minExecutionSpeedBytes:
+            description: |-
+              **string** (int64)
+              Minimal execution speed in bytes per second. Checked on every data block when timeout_before_checking_execution_speed expires.
+              If the execution speed is lower, an exception is thrown. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_execution_speed_bytes).
+            type: string
+            format: int64
+          inputFormatValuesInterpretExpressions:
+            description: |-
+              **boolean**
+              Enables or disables SQL parser if the fast stream parser cannot parse the data.
+              Enable this setting, if the data that you want to insert into a table contains SQL expressions.
+              For example, the stream parser is unable to parse a value that contains **now()** expression; therefore an **INSERT** query for this value
+              will fail and no data will be inserted into a table. With enabled SQL parser, this expression is parsed correctly: the **now()** expression
+              will be parsed as SQL function, interpreted, and the current date and time will be inserted into the table as a result.
+              This setting has effect only if you use [Values](https://clickhouse.com/docs/en/interfaces/formats/#data-format-values) format when inserting data.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_values_interpret_expressions).
+            type: boolean
+          inputFormatDefaultsForOmittedFields:
+            description: |-
+              **boolean**
+              Enables or disables replacing omitted input values with default values of the respective columns when performing **INSERT** queries.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_defaults_for_omitted_fields).
+            type: boolean
+          inputFormatNullAsDefault:
+            description: |-
+              **boolean**
+              Enables or disables the initialization of **NULL** fields with default values, if data type of these fields is not nullable.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_null_as_default).
+            type: boolean
+          inputFormatWithNamesUseHeader:
+            description: |-
+              **boolean**
+              Enables or disables checking the column order when inserting data.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_with_names_use_header).
+            type: boolean
+          outputFormatJsonQuote_64bitIntegers:
+            description: |-
+              **boolean**
+              Enables or disables quoting of 64-bit integers in JSON output format.
+              If this setting is enabled, then 64-bit integers (**UInt64** and **Int64**) will be quoted when written to JSON output
+              in order to maintain compatibility with the most of the JavaScript engines. Otherwise, such integers will not be quoted.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#output_format_json_quote_64bit_integers).
+            type: boolean
+          outputFormatJsonQuoteDenormals:
+            description: |-
+              **boolean**
+              Enables special floating-point values (**+nan**, **-nan**, **+inf** and **-inf**) in JSON output format.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#output_format_json_quote_denormals).
+            type: boolean
+          dateTimeInputFormat:
+            description: |-
+              **enum** (DateTimeInputFormat)
+              Specifies which of date time parsers to use.
+              Default value: **DATE_TIME_INPUT_FORMAT_BASIC**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#date_time_input_format).
+              - `DATE_TIME_INPUT_FORMAT_UNSPECIFIED`
+              - `DATE_TIME_INPUT_FORMAT_BEST_EFFORT`
+              - `DATE_TIME_INPUT_FORMAT_BASIC`
+              - `DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US`
+            type: string
+            enum:
+              - DATE_TIME_INPUT_FORMAT_UNSPECIFIED
+              - DATE_TIME_INPUT_FORMAT_BEST_EFFORT
+              - DATE_TIME_INPUT_FORMAT_BASIC
+              - DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US
+          dateTimeOutputFormat:
+            description: |-
+              **enum** (DateTimeOutputFormat)
+              Specifies which of date time output formats to use.
+              Default value: **DATE_TIME_OUTPUT_FORMAT_SIMPLE**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#date_time_output_format).
+              - `DATE_TIME_OUTPUT_FORMAT_UNSPECIFIED`
+              - `DATE_TIME_OUTPUT_FORMAT_SIMPLE`
+              - `DATE_TIME_OUTPUT_FORMAT_ISO`
+              - `DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP`
+            type: string
+            enum:
+              - DATE_TIME_OUTPUT_FORMAT_UNSPECIFIED
+              - DATE_TIME_OUTPUT_FORMAT_SIMPLE
+              - DATE_TIME_OUTPUT_FORMAT_ISO
+              - DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP
+          lowCardinalityAllowInNativeFormat:
+            description: |-
+              **boolean**
+              Allows or restricts using the LowCardinality data type with the Native format.
+              LowCardinality columns (aka sparse columns) store data in more effective way, compared to regular columns, by using hash tables.
+              If data to insert suits this storage format, ClickHouse will place them into LowCardinality column.
+              If you use a third-party ClickHouse client that can't work with LowCardinality columns, then this client will not be able to correctly interpret
+              the result of the query that asks for data stored in LowCardinality column. Disable this setting to convert LowCardinality column to regular column
+              when creating the result, so such clients will be able to process the result.
+              Official ClickHouse client works with LowCardinality columns out-of-the-box.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#low_cardinality_allow_in_native_format).
+            type: boolean
+          emptyResultForAggregationByEmptySet:
+            description: |-
+              **boolean**
+              Enables or disables returning of empty result when aggregating without keys (with **GROUP BY** operation absent) on empty set (e.g., **SELECT count(*) FROM table WHERE 0**).
+              * **true** - ClickHouse will return an empty result for such queries.
+              * **false** - ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#empty_result_for_aggregation_by_empty_set).
+            type: boolean
+          formatRegexp:
+            description: |-
+              **string**
+              Regular expression (for Regexp format).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_regexp).
+            type: string
+          formatRegexpEscapingRule:
+            description: |-
+              **enum** (FormatRegexpEscapingRule)
+              Field escaping rule (for Regexp format).
+              Default value: **FORMAT_REGEXP_ESCAPING_RULE_RAW**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_regexp_escaping_rule).
+              - `FORMAT_REGEXP_ESCAPING_RULE_UNSPECIFIED`
+              - `FORMAT_REGEXP_ESCAPING_RULE_ESCAPED`
+              - `FORMAT_REGEXP_ESCAPING_RULE_QUOTED`
+              - `FORMAT_REGEXP_ESCAPING_RULE_CSV`
+              - `FORMAT_REGEXP_ESCAPING_RULE_JSON`
+              - `FORMAT_REGEXP_ESCAPING_RULE_XML`
+              - `FORMAT_REGEXP_ESCAPING_RULE_RAW`
+            type: string
+            enum:
+              - FORMAT_REGEXP_ESCAPING_RULE_UNSPECIFIED
+              - FORMAT_REGEXP_ESCAPING_RULE_ESCAPED
+              - FORMAT_REGEXP_ESCAPING_RULE_QUOTED
+              - FORMAT_REGEXP_ESCAPING_RULE_CSV
+              - FORMAT_REGEXP_ESCAPING_RULE_JSON
+              - FORMAT_REGEXP_ESCAPING_RULE_XML
+              - FORMAT_REGEXP_ESCAPING_RULE_RAW
+          formatRegexpSkipUnmatched:
+            description: |-
+              **boolean**
+              Skip lines unmatched by regular expression (for Regexp format)
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_regexp_skip_unmatched).
+            type: boolean
+          inputFormatParallelParsing:
+            description: |-
+              **boolean**
+              Enables or disables order-preserving parallel parsing of data formats. Supported only for TSV, TSKV, CSV and JSONEachRow formats.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#input_format_parallel_parsing).
+            type: boolean
+          inputFormatImportNestedJson:
+            description: |-
+              **boolean**
+              Enables or disables the insertion of JSON data with nested objects.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_import_nested_json).
+            type: boolean
+          formatAvroSchemaRegistryUrl:
+            description: |-
+              **string**
+              Avro schema registry URL.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_avro_schema_registry_url).
+            type: string
+          dataTypeDefaultNullable:
+            description: |-
+              **boolean**
+              Allows data types without explicit modifiers **NULL** or **NOT NULL** in column definition will be Nullable.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#data_type_default_nullable).
+            type: boolean
+          httpConnectionTimeout:
+            description: |-
+              **string** (int64)
+              HTTP connection timeout, in milliseconds.
+              Default value: **1000** (1 second).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_connection_timeout).
+            type: string
+            format: int64
+          httpReceiveTimeout:
+            description: |-
+              **string** (int64)
+              HTTP receive timeout, in milliseconds.
+              Default value: **30000** (30 seconds).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_receive_timeout).
+            type: string
+            format: int64
+          httpSendTimeout:
+            description: |-
+              **string** (int64)
+              HTTP send timeout, in milliseconds.
+              Default value: **30000** (30 seconds).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_send_timeout).
+            type: string
+            format: int64
+          enableHttpCompression:
+            description: |-
+              **boolean**
+              Enables or disables data compression in HTTP responses.
+              By default, ClickHouse stores data compressed. When executing a query, its result is uncompressed.
+              Use this setting to command ClickHouse to compress the result when sending it via HTTP.
+              Enable this setting and add the **Accept-Encoding: <compression method>** HTTP header in a HTTP request to force compression of HTTP response from ClickHouse.
+              ClickHouse support the following compression methods: **gzip**, **br** and **deflate**.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#enable_http_compression).
+            type: boolean
+          sendProgressInHttpHeaders:
+            description: |-
+              **boolean**
+              Enables or disables progress notifications using **X-ClickHouse-Progress** HTTP header.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#send_progress_in_http_headers).
+            type: boolean
+          httpHeadersProgressInterval:
+            description: |-
+              **string** (int64)
+              Minimum interval between progress notifications with **X-ClickHouse-Progress** HTTP header, in milliseconds.
+              Default value: **100**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_headers_progress_interval_ms).
+            type: string
+            format: int64
+          addHttpCorsHeader:
+            description: |-
+              **boolean**
+              Adds CORS header in HTTP responses.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#add_http_cors_header).
+            type: boolean
+          cancelHttpReadonlyQueriesOnClientClose:
+            description: |-
+              **boolean**
+              Cancels HTTP read-only queries (e.g. **SELECT**) when a client closes the connection without waiting for the response.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#cancel_http_readonly_queries_on_client_close).
+            type: boolean
+          maxHttpGetRedirects:
+            description: |-
+              **string** (int64)
+              Limits the maximum number of HTTP GET redirect hops. If set to **0**, no hops is allowed.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_http_get_redirects).
+            type: string
+            format: int64
+          httpMaxFieldNameSize:
+            description: |-
+              **string** (int64)
+              Maximum length of field name in HTTP header.
+              Default value: **131072**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_max_field_name_size).
+            type: string
+            format: int64
+          httpMaxFieldValueSize:
+            description: |-
+              **string** (int64)
+              Maximum length of field value in HTTP header.
+              Default value: **131072**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_max_field_value_size).
+            type: string
+            format: int64
+          quotaMode:
+            description: |-
+              **enum** (QuotaMode)
+              Quota accounting mode.
+              Default value: **QUOTA_MODE_DEFAULT**.
+              - `QUOTA_MODE_UNSPECIFIED`
+              - `QUOTA_MODE_DEFAULT`
+              - `QUOTA_MODE_KEYED`
+              - `QUOTA_MODE_KEYED_BY_IP`
+            type: string
+            enum:
+              - QUOTA_MODE_UNSPECIFIED
+              - QUOTA_MODE_DEFAULT
+              - QUOTA_MODE_KEYED
+              - QUOTA_MODE_KEYED_BY_IP
+          asyncInsert:
+            description: |-
+              **boolean**
+              If enabled, data from **INSERT** query is stored in queue and later flushed to table in background.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert).
+            type: boolean
+          waitForAsyncInsert:
+            description: |-
+              **boolean**
+              Enables or disables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#wait_for_async_insert).
+            type: boolean
+          waitForAsyncInsertTimeout:
+            description: |-
+              **string** (int64)
+              Timeout for waiting for processing asynchronous inserts, in seconds.
+              Default value: **120** (2 minutes).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#wait_for_async_insert_timeout).
+            type: string
+            format: int64
+          asyncInsertMaxDataSize:
+            description: |-
+              **string** (int64)
+              The maximum size of the unparsed data in bytes collected per query before being inserted.
+              Default value: **10485760** (10 MiB).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert_max_data_size).
+            type: string
+            format: int64
+          asyncInsertBusyTimeout:
+            description: |-
+              **string** (int64)
+              Maximum time to wait before dumping collected data per query since the first data appeared.
+              Default value: **200**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert_busy_timeout_max_ms).
+            type: string
+            format: int64
+          asyncInsertUseAdaptiveBusyTimeout:
+            description: |-
+              **boolean**
+              Enables of disables adaptive busy timeout for asynchronous inserts.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert_use_adaptive_busy_timeout).
+            type: boolean
+          logQueryThreads:
+            description: |-
+              **boolean**
+              Enables or disables query threads logging to the the system.query_thread_log table.
+              This setting has effect only when **log_queries** setting is enabled.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#log_query_threads).
+            type: boolean
+          logQueryViews:
+            description: |-
+              **boolean**
+              Enables or disables query views logging to the the system.query_views_log table.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#log_query_views).
+            type: boolean
+          logQueriesProbability:
+            description: |-
+              **number** (double)
+              Log queries with the specified probability.
+              Default value: **1**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#log_queries_probability).
+            type: number
+            format: double
+          logProcessorsProfiles:
+            description: |-
+              **boolean**
+              Enables or disables logging of processors level profiling data to the the system.processors_profile_log table.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#log_processors_profiles).
+            type: boolean
+          useQueryCache:
+            description: |-
+              **boolean**
+              If turned on, **SELECT** queries may utilize the query cache.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#use_query_cache).
+            type: boolean
+          enableReadsFromQueryCache:
+            description: |-
+              **boolean**
+              If turned on, results of **SELECT** queries are retrieved from the query cache.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#enable_reads_from_query_cache).
+            type: boolean
+          enableWritesToQueryCache:
+            description: |-
+              **boolean**
+              If turned on, results of **SELECT** queries are stored in the query cache.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#enable_writes_to_query_cache).
+            type: boolean
+          queryCacheMinQueryRuns:
+            description: |-
+              **string** (int64)
+              Minimum number of times a **SELECT** query must run before its result is stored in the query cache.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_min_query_runs).
+            type: string
+            format: int64
+          queryCacheMinQueryDuration:
+            description: |-
+              **string** (int64)
+              Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_min_query_duration).
+            type: string
+            format: int64
+          queryCacheTtl:
+            description: |-
+              **string** (int64)
+              After this time in seconds entries in the query cache become stale.
+              Default value: **60** (1 minute).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_ttl).
+            type: string
+            format: int64
+          queryCacheMaxEntries:
+            description: |-
+              **string** (int64)
+              The maximum number of query results the current user may store in the query cache. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_max_entries).
+            type: string
+            format: int64
+          queryCacheMaxSizeInBytes:
+            description: |-
+              **string** (int64)
+              The maximum amount of memory (in bytes) the current user may allocate in the query cache. **0** means unlimited.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_max_size_in_bytes).
+            type: string
+            format: int64
+          queryCacheTag:
+            description: |-
+              **string**
+              A string which acts as a label for query cache entries. The same queries with different tags are considered different by the query cache.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_tag).
+            type: string
+          queryCacheShareBetweenUsers:
+            description: |-
+              **boolean**
+              If turned on, the result of **SELECT** queries cached in the query cache can be read by other users.
+              It is not recommended to enable this setting due to security reasons.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_share_between_users).
+            type: boolean
+          queryCacheNondeterministicFunctionHandling:
+            description: |-
+              **enum** (QueryCacheNondeterministicFunctionHandling)
+              Controls how the query cache handles **SELECT** queries with non-deterministic functions like rand() or now().
+              Default value: **QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_THROW**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_nondeterministic_function_handling).
+              - `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_UNSPECIFIED`
+              - `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_THROW`: Throw an exception and don't cache the query result.
+              - `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_SAVE`: Cache the query result.
+              - `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_IGNORE`: Don't cache the query result and don't throw an exception.
+            type: string
+            enum:
+              - QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_UNSPECIFIED
+              - QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_THROW
+              - QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_SAVE
+              - QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_IGNORE
+          queryCacheSystemTableHandling:
+            description: |-
+              **enum** (QueryCacheSystemTableHandling)
+              Controls how the query cache handles **SELECT** queries against system tables.
+              Default value: **QUERY_CACHE_SYSTEM_TABLE_HANDLING_THROW**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_system_table_handling).
+              - `QUERY_CACHE_SYSTEM_TABLE_HANDLING_UNSPECIFIED`
+              - `QUERY_CACHE_SYSTEM_TABLE_HANDLING_THROW`: Throw an exception and don't cache the query result.
+              - `QUERY_CACHE_SYSTEM_TABLE_HANDLING_SAVE`: Cache the query result.
+              - `QUERY_CACHE_SYSTEM_TABLE_HANDLING_IGNORE`: Don't cache the query result and don't throw an exception.
+            type: string
+            enum:
+              - QUERY_CACHE_SYSTEM_TABLE_HANDLING_UNSPECIFIED
+              - QUERY_CACHE_SYSTEM_TABLE_HANDLING_THROW
+              - QUERY_CACHE_SYSTEM_TABLE_HANDLING_SAVE
+              - QUERY_CACHE_SYSTEM_TABLE_HANDLING_IGNORE
+          countDistinctImplementation:
+            description: |-
+              **enum** (CountDistinctImplementation)
+              Specifies which of the uniq* functions should be used to perform the **COUNT(DISTINCT ...)** construction.
+              Default value: **COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#count_distinct_implementation).
+              - `COUNT_DISTINCT_IMPLEMENTATION_UNSPECIFIED`
+              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ`
+              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED`
+              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64`
+              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12`
+              - `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT`
+            type: string
+            enum:
+              - COUNT_DISTINCT_IMPLEMENTATION_UNSPECIFIED
+              - COUNT_DISTINCT_IMPLEMENTATION_UNIQ
+              - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED
+              - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64
+              - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12
+              - COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT
+          joinedSubqueryRequiresAlias:
+            description: |-
+              **boolean**
+              Force joined subqueries and table functions to have aliases for correct name qualification.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#joined_subquery_requires_alias).
+            type: boolean
+          joinUseNulls:
+            description: |-
+              **boolean**
+              Determines **JOIN** behavior on filling empty cells when merging tables. If enabled, the empty cells are filled with **NULL**.
+              Otherwise, the empty cells are filled with the default value of the corresponding field type.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_use_nulls).
+            type: boolean
+          transformNullIn:
+            description: |-
+              **boolean**
+              Enables equality of **NULL** values for **IN** operator.
+              By default, **NULL** values can't be compared because **NULL** means undefined value. Thus, comparison **expr = NULL** must always return false.
+              With this setting enabled **NULL = NULL** returns true for **IN** operator.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#transform_null_in).
+            type: boolean
+          insertNullAsDefault:
+            description: |-
+              **boolean**
+              Enables or disables the insertion of default values instead of **NULL** into columns with not nullable data type.
+              If column type is not nullable and this setting is disabled, then inserting NULL causes an exception.
+              If column type is nullable, then NULL values are inserted as is, regardless of this setting.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_null_as_default).
+            type: boolean
+          joinAlgorithm:
+            description: |-
+              **enum** (JoinAlgorithm)
+              Specifies which JOIN algorithm to use.
+              Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions from 23.8 to 24.11, **JOIN_ALGORITHM_AUTO** for versions 23.7 and lower.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_algorithm).
+              - `JOIN_ALGORITHM_UNSPECIFIED`
+              - `JOIN_ALGORITHM_HASH`
+              - `JOIN_ALGORITHM_PARALLEL_HASH`
+              - `JOIN_ALGORITHM_PARTIAL_MERGE`
+              - `JOIN_ALGORITHM_DIRECT`
+              - `JOIN_ALGORITHM_AUTO`
+              - `JOIN_ALGORITHM_FULL_SORTING_MERGE`
+              - `JOIN_ALGORITHM_PREFER_PARTIAL_MERGE`
+            type: array
+            items:
+              type: string
+              enum:
+                - JOIN_ALGORITHM_UNSPECIFIED
+                - JOIN_ALGORITHM_HASH
+                - JOIN_ALGORITHM_PARALLEL_HASH
+                - JOIN_ALGORITHM_PARTIAL_MERGE
+                - JOIN_ALGORITHM_DIRECT
+                - JOIN_ALGORITHM_AUTO
+                - JOIN_ALGORITHM_FULL_SORTING_MERGE
+                - JOIN_ALGORITHM_PREFER_PARTIAL_MERGE
+          anyJoinDistinctRightTableKeys:
+            description: |-
+              **boolean**
+              Enables legacy ClickHouse server behaviour in **ANY INNER|LEFT JOIN** operations.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#any_join_distinct_right_table_keys).
+            type: boolean
+          allowSuspiciousLowCardinalityTypes:
+            description: |-
+              **boolean**
+              Allows or restricts using LowCardinality with data types with fixed size of 8 bytes or less.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#allow_suspicious_low_cardinality_types).
+            type: boolean
+          flattenNested:
+            description: |-
+              **boolean**
+              Sets the data format of nested columns.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#flatten_nested).
+            type: boolean
+          memoryProfilerStep:
+            description: |-
+              **string** (int64)
+              Sets the step of memory profiler. Whenever query memory usage becomes larger than every next step in number of bytes the memory profiler
+              will collect the allocating stacktrace and will write it into trace_log. If set to **0**, memory profiler is disabled.
+              Default value: **4194304**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_profiler_step).
+            type: string
+            format: int64
+          memoryProfilerSampleProbability:
+            description: |-
+              **number** (double)
+              Collect random allocations and deallocations and write them into system.trace_log with MemorySample trace_type.
+              The probability is for every alloc/free regardless to the size of the allocation.
+              Default value: **0**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_profiler_sample_probability).
+            type: number
+            format: double
+          maxFinalThreads:
+            description: |-
+              **string** (int64)
+              Sets the maximum number of parallel threads for the **SELECT** query data read phase with the **FINAL** modifier.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_final_threads).
+            type: string
+            format: int64
+          maxReadBufferSize:
+            description: |-
+              **string** (int64)
+              The maximum size of the buffer to read from the filesystem.
+              Default value: **1048576** (1 MiB).
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_read_buffer_size).
+            type: string
+            format: int64
+          insertKeeperMaxRetries:
+            description: |-
+              **string** (int64)
+              The setting sets the maximum number of retries for ClickHouse Keeper (or ZooKeeper) requests during insert into replicated MergeTree tables.
+              Only Keeper requests which failed due to network error, Keeper session timeout or request timeout are considered for retries.
+              Default value: **20**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_keeper_max_retries).
+            type: string
+            format: int64
+          doNotMergeAcrossPartitionsSelectFinal:
+            description: |-
+              **boolean**
+              Enable or disable independent processing of partitions for **SELECT** queries with **FINAL**.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree).
+            type: boolean
+          ignoreMaterializedViewsWithDroppedTargetTable:
+            description: |-
+              **boolean**
+              Ignore materialized views with dropped target table during pushing to views.
+              Default value: **false**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#ignore_materialized_views_with_dropped_target_table).
+            type: boolean
+          enableAnalyzer:
+            description: |-
+              **boolean**
+              Enables or disables new query analyzer.
+              Default value: **true** for versions 25.5 and higher, **false** for versions 25.4 and lower.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/developer/understanding-query-execution-with-the-analyzer#analyzer).
+            type: boolean
+          s3UseAdaptiveTimeouts:
+            description: |-
+              **boolean**
+              Enables or disables adaptive timeouts for S3 requests.
+              * **true** - for all S3 requests first two attempts are made with low send and receive timeouts.
+              * **false** - all attempts are made with identical timeouts.
+              Default value: **true**.
+              For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#s3_use_adaptive_timeouts).
+            type: boolean
+          compile:
+            description: |-
+              **boolean**
+              The setting is deprecated and has no effect.
+            deprecated: true
+            type: boolean
+          minCountToCompile:
+            description: |-
+              **string** (int64)
+              The setting is deprecated and has no effect.
+            deprecated: true
+            type: string
+            format: int64
+          asyncInsertThreads:
+            description: |-
+              **string** (int64)
+              The setting is deprecated and has no effect.
+            deprecated: true
+            type: string
+            format: int64
+          asyncInsertStaleTimeout:
+            description: |-
+              **string** (int64)
+              The setting is deprecated and has no effect.
+            deprecated: true
+            type: string
+            format: int64
+      UserQuota:
+        type: object
+        properties:
+          intervalDuration:
+            description: |-
+              **string** (int64)
+              Duration of interval for quota in milliseconds.
+            type: string
+            format: int64
+          queries:
+            description: |-
+              **string** (int64)
+              The total number of queries. **0** means unlimited.
+            type: string
+            format: int64
+          errors:
+            description: |-
+              **string** (int64)
+              The number of queries that threw exception. **0** means unlimited.
+            type: string
+            format: int64
+          resultRows:
+            description: |-
+              **string** (int64)
+              The total number of rows given as the result. **0** means unlimited.
+            type: string
+            format: int64
+          readRows:
+            description: |-
+              **string** (int64)
+              The total number of source rows read from tables for running the query, on all remote servers. **0** means unlimited.
+            type: string
+            format: int64
+          executionTime:
+            description: |-
+              **string** (int64)
+              The total query execution time, in milliseconds (wall time). **0** means unlimited.
+            type: string
+            format: int64
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/User/update.md
 ---
 
@@ -46,26 +1764,31 @@ To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/a
     "connectTimeoutWithFailover": "string",
     "receiveTimeout": "string",
     "sendTimeout": "string",
+    "idleConnectionTimeout": "string",
     "timeoutBeforeCheckingExecutionSpeed": "string",
     "insertQuorum": "string",
     "insertQuorumTimeout": "string",
     "insertQuorumParallel": "boolean",
-    "insertNullAsDefault": "boolean",
     "selectSequentialConsistency": "boolean",
-    "deduplicateBlocksInDependentMaterializedViews": "boolean",
     "replicationAlterPartitionsSync": "string",
     "maxReplicaDelayForDistributedQueries": "string",
     "fallbackToStaleReplicasForDistributedQueries": "boolean",
     "distributedProductMode": "string",
     "distributedAggregationMemoryEfficient": "boolean",
     "distributedDdlTaskTimeout": "string",
+    "distributedDdlOutputMode": "string",
     "skipUnavailableShards": "boolean",
+    "useHedgedRequests": "boolean",
+    "hedgedConnectionTimeoutMs": "string",
+    "loadBalancing": "string",
+    "preferLocalhostReplica": "boolean",
     "compileExpressions": "boolean",
     "minCountToCompileExpression": "string",
     "maxBlockSize": "string",
     "minInsertBlockSizeRows": "string",
     "minInsertBlockSizeBytes": "string",
     "maxInsertBlockSize": "string",
+    "maxPartitionsPerInsertBlock": "string",
     "minBytesToUseDirectIo": "string",
     "useUncompressedCache": "boolean",
     "mergeTreeMaxRowsToUseCache": "string",
@@ -76,13 +1799,21 @@ To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/a
     "maxBytesBeforeExternalSort": "string",
     "groupByTwoLevelThreshold": "string",
     "groupByTwoLevelThresholdBytes": "string",
+    "deduplicateBlocksInDependentMaterializedViews": "boolean",
+    "localFilesystemReadMethod": "string",
+    "remoteFilesystemReadMethod": "string",
     "priority": "string",
     "maxThreads": "string",
+    "maxInsertThreads": "string",
     "maxMemoryUsage": "string",
     "maxMemoryUsageForUser": "string",
+    "memoryOvercommitRatioDenominator": "string",
+    "memoryOvercommitRatioDenominatorForUser": "string",
+    "memoryUsageOvercommitMaxWaitMicroseconds": "string",
     "maxNetworkBandwidth": "string",
     "maxNetworkBandwidthForUser": "string",
-    "maxPartitionsPerInsertBlock": "string",
+    "maxTemporaryDataOnDiskSizeForQuery": "string",
+    "maxTemporaryDataOnDiskSizeForUser": "string",
     "maxConcurrentQueriesForUser": "string",
     "forceIndexByDate": "boolean",
     "forcePrimaryKey": "boolean",
@@ -111,10 +1842,6 @@ To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/a
     "maxRowsInJoin": "string",
     "maxBytesInJoin": "string",
     "joinOverflowMode": "string",
-    "joinAlgorithm": [
-      "string"
-    ],
-    "anyJoinDistinctRightTableKeys": "boolean",
     "maxColumnsToRead": "string",
     "maxTemporaryColumns": "string",
     "maxTemporaryNonConstColumns": "string",
@@ -122,20 +1849,26 @@ To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/a
     "maxAstDepth": "string",
     "maxAstElements": "string",
     "maxExpandedAstElements": "string",
+    "maxParserDepth": "string",
     "minExecutionSpeed": "string",
     "minExecutionSpeedBytes": "string",
-    "countDistinctImplementation": "string",
     "inputFormatValuesInterpretExpressions": "boolean",
     "inputFormatDefaultsForOmittedFields": "boolean",
     "inputFormatNullAsDefault": "boolean",
-    "dateTimeInputFormat": "string",
     "inputFormatWithNamesUseHeader": "boolean",
     "outputFormatJsonQuote_64bitIntegers": "boolean",
     "outputFormatJsonQuoteDenormals": "boolean",
+    "dateTimeInputFormat": "string",
     "dateTimeOutputFormat": "string",
     "lowCardinalityAllowInNativeFormat": "boolean",
-    "allowSuspiciousLowCardinalityTypes": "boolean",
     "emptyResultForAggregationByEmptySet": "boolean",
+    "formatRegexp": "string",
+    "formatRegexpEscapingRule": "string",
+    "formatRegexpSkipUnmatched": "boolean",
+    "inputFormatParallelParsing": "boolean",
+    "inputFormatImportNestedJson": "boolean",
+    "formatAvroSchemaRegistryUrl": "string",
+    "dataTypeDefaultNullable": "boolean",
     "httpConnectionTimeout": "string",
     "httpReceiveTimeout": "string",
     "httpSendTimeout": "string",
@@ -147,38 +1880,13 @@ To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/a
     "maxHttpGetRedirects": "string",
     "httpMaxFieldNameSize": "string",
     "httpMaxFieldValueSize": "string",
-    "joinedSubqueryRequiresAlias": "boolean",
-    "joinUseNulls": "boolean",
-    "transformNullIn": "boolean",
     "quotaMode": "string",
-    "flattenNested": "boolean",
-    "formatRegexp": "string",
-    "formatRegexpEscapingRule": "string",
-    "formatRegexpSkipUnmatched": "boolean",
     "asyncInsert": "boolean",
-    "asyncInsertThreads": "string",
     "waitForAsyncInsert": "boolean",
     "waitForAsyncInsertTimeout": "string",
     "asyncInsertMaxDataSize": "string",
     "asyncInsertBusyTimeout": "string",
     "asyncInsertUseAdaptiveBusyTimeout": "boolean",
-    "memoryProfilerStep": "string",
-    "memoryProfilerSampleProbability": "number",
-    "maxFinalThreads": "string",
-    "inputFormatParallelParsing": "boolean",
-    "inputFormatImportNestedJson": "boolean",
-    "formatAvroSchemaRegistryUrl": "string",
-    "dataTypeDefaultNullable": "boolean",
-    "localFilesystemReadMethod": "string",
-    "maxReadBufferSize": "string",
-    "insertKeeperMaxRetries": "string",
-    "maxTemporaryDataOnDiskSizeForUser": "string",
-    "maxTemporaryDataOnDiskSizeForQuery": "string",
-    "maxParserDepth": "string",
-    "remoteFilesystemReadMethod": "string",
-    "memoryOvercommitRatioDenominator": "string",
-    "memoryOvercommitRatioDenominatorForUser": "string",
-    "memoryUsageOvercommitMaxWaitMicroseconds": "string",
     "logQueryThreads": "boolean",
     "logQueryViews": "boolean",
     "logQueriesProbability": "number",
@@ -194,16 +1902,30 @@ To get the name of the user, use a [UserService.List](/docs/managed-clickhouse/a
     "queryCacheTag": "string",
     "queryCacheShareBetweenUsers": "boolean",
     "queryCacheNondeterministicFunctionHandling": "string",
-    "maxInsertThreads": "string",
-    "useHedgedRequests": "boolean",
-    "idleConnectionTimeout": "string",
-    "hedgedConnectionTimeoutMs": "string",
-    "loadBalancing": "string",
-    "preferLocalhostReplica": "boolean",
+    "queryCacheSystemTableHandling": "string",
+    "countDistinctImplementation": "string",
+    "joinedSubqueryRequiresAlias": "boolean",
+    "joinUseNulls": "boolean",
+    "transformNullIn": "boolean",
+    "insertNullAsDefault": "boolean",
+    "joinAlgorithm": [
+      "string"
+    ],
+    "anyJoinDistinctRightTableKeys": "boolean",
+    "allowSuspiciousLowCardinalityTypes": "boolean",
+    "flattenNested": "boolean",
+    "memoryProfilerStep": "string",
+    "memoryProfilerSampleProbability": "number",
+    "maxFinalThreads": "string",
+    "maxReadBufferSize": "string",
+    "insertKeeperMaxRetries": "string",
     "doNotMergeAcrossPartitionsSelectFinal": "boolean",
     "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
+    "enableAnalyzer": "boolean",
+    "s3UseAdaptiveTimeouts": "boolean",
     "compile": "boolean",
     "minCountToCompile": "string",
+    "asyncInsertThreads": "string",
     "asyncInsertStaleTimeout": "string"
   },
   "quotas": [
@@ -256,129 +1978,156 @@ Name of the database that the permission grants access to. ||
 
 ## UserSettings {#yandex.cloud.mdb.clickhouse.v1.UserSettings}
 
-ClickHouse user settings. Supported settings are a limited subset of all settings
-described in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/).
+ClickHouse user settings. Supported settings are a subset of settings described
+in [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/).
 
 #|
 ||Field | Description ||
 || readonly | **string** (int64)
 
-Restricts permissions for non-DDL queries. To restrict permissions for DDL queries, use `allowDdl` instead.
-* **0** (default)-no restrictions.
-* **1**-only read data queries are allowed.
-* **2**-read data and change settings queries are allowed.
+Restricts permissions for non-DDL queries. To restrict permissions for DDL queries, use **allow_ddl** instead.
+* **0** - no restrictions.
+* **1** - only read data queries are allowed.
+* **2** - read data and change settings queries are allowed.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/permissions-for-queries/#settings_readonly). ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/permissions-for-queries#readonly). ||
 || allowDdl | **boolean**
 
-Determines whether DDL queries are allowed (e.g., **CREATE**, **ALTER**, **RENAME**, etc).
+Allows or denies DDL queries (e.g., **CREATE**, **ALTER**, **RENAME**, etc).
 
 Default value: **true**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/permissions-for-queries#allow_ddl). ||
 || allowIntrospectionFunctions | **boolean**
 
-Enables [introspections functions](https://clickhouse.com/docs/en/sql-reference/functions/introspection) for query profiling.
+Enables or disables introspection functions for query profiling.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-allow_introspection_functions). ||
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#allow_introspection_functions). ||
 || connectTimeout | **string** (int64)
 
 Connection timeout in milliseconds.
 
-Value must be greater than **0** (default: **10000**, 10 seconds). ||
+Default value: **10000** (10 seconds).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout). ||
 || connectTimeoutWithFailover | **string** (int64)
 
-The timeout in milliseconds for connecting to a remote server for a Distributed table engine. Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+The timeout in milliseconds for connecting to a remote server for a Distributed table engine.
 
-Default value: **50**.
+Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#connect-timeout-with-failover-ms). ||
+Default value: **1000** (1 second).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_ms). ||
 || receiveTimeout | **string** (int64)
 
 Receive timeout in milliseconds.
 
-Value must be greater than **0** (default: **300000**, 300 seconds or 5 minutes). ||
+Default value: **300000** (5 minutes).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#receive_timeout). ||
 || sendTimeout | **string** (int64)
 
 Send timeout in milliseconds.
 
-Value must be greater than **0** (default: **300000**, 300 seconds or 5 minutes). ||
+Default value: **300000** (5 minutes).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#send_timeout). ||
+|| idleConnectionTimeout | **string** (int64)
+
+Timeout to close idle TCP connections after specified time has elapsed, in milliseconds.
+
+Default value: **3600000** (1 hour).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#idle_connection_timeout). ||
 || timeoutBeforeCheckingExecutionSpeed | **string** (int64)
 
-Timeout (in seconds) between checks of execution speed. It is checked that execution speed is not less that specified in `minExecutionSpeed` parameter.
+Checks that the speed is not too low after the specified time has elapsed, in milliseconds. It is checked that execution speed
+is not less that specified in **min_execution_speed** parameter.
 
-Default value: **10**. ||
+Default value: **60000** (1 minute).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#timeout_before_checking_execution_speed). ||
 || insertQuorum | **string** (int64)
 
-Enables or disables write quorum for ClickHouse cluster.
-If the value is less than **2**, then write quorum is disabled, otherwise it is enabled.
+Enables or disables the quorum writes. If the value is less than **2**, then the quorum writes is disabled, otherwise it is enabled.
 
-When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors until the `insertQuorumTimeout` expires.
-All replicas in the quorum are in the consistent state, meaning that they contain linearized data from the previous **INSERT** queries.
-Employ write quorum, if you need the guarantees that the written data would not be lost in case of one or more replicas failure.
+When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors
+until the **insert_quorum_timeout** expires. All replicas in the quorum are in the consistent state, meaning that they contain
+linearized data from the previous **INSERT** queries. Employ write quorum, if you need the guarantees that the written data
+would not be lost in case of one or more replicas failure.
 
-You can use `selectSequentialConsistency` setting to read the data written with write quorum.
+You can use **select_sequential_consistency** setting to read the data written with write quorum.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum). ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_quorum). ||
 || insertQuorumTimeout | **string** (int64)
 
 Quorum write timeout in milliseconds.
 
-If the write quorum is enabled in the cluster, this timeout expires and some data is not written to the `insertQuorum` replicas, then ClickHouse will abort the execution of **INSERT** query and return an error.
-In this case, the client must send the query again to write the data block into the same or another replica.
+If the write quorum is enabled in the cluster, this timeout expires and some data is not written to the **insert_quorum** replicas,
+then ClickHouse will abort the execution of **INSERT** query and return an error. In this case, the client must send the query again
+to write the data block into the same or another replica.
 
-Minimum value: **1000**, 1 second (default: **60000**, 1 minute). ||
+Default value: **600000** (10 minutes).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_quorum_timeout). ||
 || insertQuorumParallel | **boolean**
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum_parallel). ||
-|| insertNullAsDefault | **boolean**
-
-Enables the insertion of default values instead of NULL into columns with not nullable data type.
+Enables or disables parallelism for quorum **INSERT** queries.
 
 Default value: **true**.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#insert_null_as_default). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_quorum_parallel). ||
 || selectSequentialConsistency | **boolean**
 
-Determines the behavior of **SELECT** queries from the replicated table: if enabled, ClickHouse will terminate a query with error message in case the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum.
+Determines the behavior of **SELECT** queries from replicated tables. If enabled, ClickHouse will terminate a query with error message in case
+the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum.
 
-Default value: **false** (sequential consistency is disabled). ||
-|| deduplicateBlocksInDependentMaterializedViews | **boolean**
+Default value: **true**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#select_sequential_consistency). ||
 || replicationAlterPartitionsSync | **string** (int64)
 
-Wait mode for asynchronous actions in **ALTER** queries on replicated tables:
+Wait mode for asynchronous actions in **ALTER** queries on replicated tables.
+* **0** - do not wait for replicas.
+* **1** - only wait for own execution.
+* **2** - wait for all replicas.
 
-* **0**-do not wait for replicas.
-* **1**-only wait for own execution (default).
-* **2**-wait for all replicas.
+Default value: **1**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#alter_sync). ||
 || maxReplicaDelayForDistributedQueries | **string** (int64)
 
 Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one.
 
-Minimum value: **1000**, 1 second (default: **300000**, 300 seconds or 5 minutes).
+Default value: **300000** (5 minutes).
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_replica_delay_for_distributed_queries). ||
 || fallbackToStaleReplicasForDistributedQueries | **boolean**
 
 Enables or disables query forcing to a stale replica in case the actual data is unavailable.
 If enabled, ClickHouse will choose the most up-to-date replica and force the query to use the data in this replica.
 This setting can be used when doing **SELECT** query from a distributed table that points to replicated tables.
 
-Default value: **true** (query forcing is enabled).
+Default value: **true**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#fallback_to_stale_replicas_for_distributed_queries). ||
 || distributedProductMode | **enum** (DistributedProductMode)
 
-Determine the behavior of distributed subqueries.
+Determines the behavior of distributed subqueries.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#distributed-product-mode).
+Default value: **DISTRIBUTED_PRODUCT_MODE_DENY**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_product_mode).
 
 - `DISTRIBUTED_PRODUCT_MODE_UNSPECIFIED`
-- `DISTRIBUTED_PRODUCT_MODE_DENY`: Default value. Prohibits using these types of subqueries (returns the "Double-distributed in/JOIN subqueries is denied" exception).
+- `DISTRIBUTED_PRODUCT_MODE_DENY`: Prohibits using these types of subqueries (returns the "Double-distributed in/JOIN subqueries is denied" exception).
 - `DISTRIBUTED_PRODUCT_MODE_LOCAL`: Replaces the database and table in the subquery with local ones for the destination server (shard), leaving the normal IN/JOIN.
 - `DISTRIBUTED_PRODUCT_MODE_GLOBAL`: Replaces the IN/JOIN query with GLOBAL IN/GLOBAL JOIN.
 - `DISTRIBUTED_PRODUCT_MODE_ALLOW`: Allows the use of these types of subqueries. ||
@@ -389,111 +2138,198 @@ Enables of disables memory saving mode when doing distributed aggregation.
 When ClickHouse works with a distributed query, external aggregation is done on remote servers.
 Enable this setting to achieve a smaller memory footprint on the server that sourced such a distributed query.
 
-Default value: **false** (memory saving mode is disabled).
+Default value: **true**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_aggregation_memory_efficient). ||
 || distributedDdlTaskTimeout | **string** (int64)
 
-Timeout for DDL queries, in milliseconds. ||
+Timeout for DDL queries, in milliseconds.
+
+Default value: **180000** (3 minutes).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_ddl_task_timeout). ||
+|| distributedDdlOutputMode | **enum** (DistributedDdlOutputMode)
+
+Determines the format of distributed DDL query result.
+
+Default value: **DISTRIBUTED_DDL_OUTPUT_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_ddl_output_mode).
+
+- `DISTRIBUTED_DDL_OUTPUT_MODE_UNSPECIFIED`
+- `DISTRIBUTED_DDL_OUTPUT_MODE_THROW`: Returns result set with query execution status for all hosts where query is finished. If query has failed on some hosts, then it will rethrow the first exception.
+If query is not finished yet on some hosts and **distributed_ddl_task_timeout** exceeded, then it throws **TIMEOUT_EXCEEDED** exception.
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NONE`: Like **DISTRIBUTED_DDL_OUTPUT_MODE_THROW**, but distributed DDL query returns no result set.
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT`: Returns **NULL** as execution status in some rows of result set instead of throwing **TIMEOUT_EXCEEDED** if query is not finished on the corresponding hosts.
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NEVER_THROW`: Do not throw **TIMEOUT_EXCEEDED** and do not rethrow exceptions if query has failed on some hosts.
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NONE_ONLY_ACTIVE`: Like **DISTRIBUTED_DDL_OUTPUT_MODE_NONE**, but doesn't wait for inactive replicas of the **Replicated** database.
+With this mode it's impossible to figure out that the query was not executed on some replica and will be executed in background.
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT_ONLY_ACTIVE`: Like **DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT**, but doesn't wait for inactive replicas of the **Replicated** database.
+- `DISTRIBUTED_DDL_OUTPUT_MODE_THROW_ONLY_ACTIVE`: Like **DISTRIBUTED_DDL_OUTPUT_MODE_THROW**, but doesn't wait for inactive replicas of the **Replicated** database. ||
 || skipUnavailableShards | **boolean**
 
 Enables or disables silent skipping of unavailable shards.
 
 A shard is considered unavailable if all its replicas are also unavailable.
 
-Default value: **false** (silent skipping is disabled).
+Default value: **false**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-skip_unavailable_shards). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#skip_unavailable_shards). ||
+|| useHedgedRequests | **boolean**
+
+Enables or disables hedged requests logic for remote queries.
+
+It allows to establish many connections with different replicas for query. New connection is enabled in case existent connection(s) with replica(s)
+were not established within **hedged_connection_timeout** or no data was received within **receive_data_timeout**. Query uses the first connection
+which send non empty progress packet, other connections are cancelled.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#use_hedged_requests). ||
+|| hedgedConnectionTimeoutMs | **string** (int64)
+
+Connection timeout for establishing connection with replica for Hedged requests.
+
+Default value: **50**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#hedged_connection_timeout_ms). ||
+|| loadBalancing | **enum** (LoadBalancing)
+
+Algorithm of replicas selection that is used for distributed query processing.
+
+Default value: **LOAD_BALANCING_RANDOM**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#load_balancing).
+
+- `LOAD_BALANCING_UNSPECIFIED`
+- `LOAD_BALANCING_RANDOM`
+- `LOAD_BALANCING_NEAREST_HOSTNAME`
+- `LOAD_BALANCING_IN_ORDER`
+- `LOAD_BALANCING_FIRST_OR_RANDOM`
+- `LOAD_BALANCING_ROUND_ROBIN` ||
+|| preferLocalhostReplica | **boolean**
+
+Enable or disable preferable using the localhost replica when processing distributed queries.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#prefer_localhost_replica). ||
 || compileExpressions | **boolean**
 
-Enables or disables expression compilation.
+Enable or disable expression compilation to native code.
+
 If you execute a lot of queries that contain identical expressions, then enable this setting.
 As a result, such queries may be executed faster due to use of compiled expressions.
 
-Use this setting in combination with `minCountToCompileExpression` setting.
+Use this setting in combination with **min_count_to_compile_expression** setting.
 
-Default value: **false** (expression compilation is disabled). ||
+Default value: **true** for versions 25.5 and higher, **false** for versions 25.4 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#compile_expressions). ||
 || minCountToCompileExpression | **string** (int64)
 
 How many identical expressions ClickHouse has to encounter before they are compiled.
-
-Minimum value: **0** (default: **3**).
 
 For the **0** value compilation is synchronous: a query waits for expression compilation process to complete prior to continuing execution.
 It is recommended to set this value only for testing purposes.
 
 For all other values, compilation is asynchronous: the compilation process executes in a separate thread.
-When a compiled expression is ready, it will be used by ClickHouse for eligible queries, including the ones that are currently running. ||
+When a compiled expression is ready, it will be used by ClickHouse for eligible queries, including the ones that are currently running.
+
+Default value: **3**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_count_to_compile_expression). ||
 || maxBlockSize | **string** (int64)
 
-The maximum block size for reading.
+Sets the recommended maximum number of rows to include in a single block when loading data from tables.
 
-Data in ClickHouse is organized and processed by blocks (block is a set of columns' parts).
-The internal processing cycles for a single block are efficient enough, but there are noticeable expenditures on each block.
+Blocks the size of **max_block_size** are not always loaded from the table: if ClickHouse determines that less data needs to be retrieved,
+a smaller block is processed.
 
-This setting is a recommendation for size of block (in a count of rows) that should be loaded from tables.
+The block size should not be too small to avoid noticeable costs when processing each block. It should also not be too large to ensure that
+queries with a **LIMIT** clause execute quickly after processing the first block. When setting **max_block_size**, the goal should be to avoid
+consuming too much memory when extracting a large number of columns in multiple threads and to preserve at least some cache locality.
 
-Value must be greater than **0** (default: **65536**).
+Default value: **65409**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_block_size). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_block_size). ||
 || minInsertBlockSizeRows | **string** (int64)
 
-Limits the minimum number of rows in a block to be inserted in a table by **INSERT** query.
-Blocks that are smaller than the specified value, will be squashed together into the bigger blocks.
+Limits the minimum number of rows in a block to be inserted in a table by **INSERT** query. Blocks that are smaller than the specified value,
+will be squashed together into the bigger blocks. If set to **0**, block squashing is disabled.
 
-Minimal value: **0**, block squashing is disabled (default: **1048576**). ||
+Default value: **1048449**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_insert_block_size_rows). ||
 || minInsertBlockSizeBytes | **string** (int64)
 
-Limits the minimum number of bytes in a block to be inserted in a table by **INSERT** query.
-Blocks that are smaller than the specified value, will be squashed together into the bigger blocks.
+Limits the minimum number of bytes in a block to be inserted in a table by **INSERT** query. Blocks that are smaller than the specified value,
+will be squashed together into the bigger blocks. If set to **0**, block squashing is disabled.
 
-Minimal value: **0**, block squashing is disabled (default: **268435456**, 256 MB). ||
+Default value: **268402944**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_insert_block_size_bytes). ||
 || maxInsertBlockSize | **string** (int64)
 
-Allows to form blocks of the specified size (in bytes) when inserting data in a table.
-This setting has effect only if server is creating such blocks by itself.
+The size of blocks (in a count of rows) to form for insertion into a table.
 
-Value must be greater than **0** (default: **1048576**).
+This setting only applies in cases when the server forms the blocks. For example, for an **INSERT** via the HTTP interface, the server parses
+the data format and forms blocks of the specified size. But when using clickhouse-client, the client parses the data itself, and
+the **max_insert_block_size** setting on the server does not affect the size of the inserted blocks. The setting also does not have a purpose
+when using **INSERT SELECT**, since data is inserted using the same blocks that are formed after **SELECT**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-max_insert_block_size). ||
+Default value: **1048449**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_insert_block_size). ||
+|| maxPartitionsPerInsertBlock | **string** (int64)
+
+When inserting data, ClickHouse calculates the number of partitions in the inserted block.
+If the number of partitions is more than **max_partitions_per_insert_block**, ClickHouse throws an exception.
+
+Default value: **100**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#settings-max_partitions_per_insert_block). ||
 || minBytesToUseDirectIo | **string** (int64)
 
-Limits the minimum number of bytes to enable unbuffered direct reads from disk (Direct I/O).
+Limits the minimum number of bytes to enable unbuffered direct reads from disk (Direct I/O). If set to **0**, Direct I/O is disabled.
 
-By default, ClickHouse does not read data directly from disk, but relies on the filesystem and its cache instead.
-Such reading strategy is effective when the data volume is small.
-If the amount of the data to read is huge, it is more effective to read directly from the disk, bypassing the filesystem cache.
+By default, ClickHouse does not read data directly from disk, but relies on the filesystem and its cache instead. Such reading strategy
+is effective when the data volume is small. If the amount of the data to read is huge, it is more effective to read directly from the disk,
+bypassing the filesystem cache.
 
-If the total amount of the data to read is greater than the value of this setting, then ClickHouse will fetch this data directly from the disk.
+Default value: **0**.
 
-Minimal value and default value: **0**, Direct I/O is disabled. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_bytes_to_use_direct_io). ||
 || useUncompressedCache | **boolean**
 
 Determines whether to use the cache of uncompressed blocks, or not.
+
 Using this cache can significantly reduce latency and increase the throughput when a huge amount of small queries is to be processed.
 Enable this setting for the users who instantiates small queries frequently.
 
 This setting has effect only for tables of the MergeTree family.
 
-Default value: **false** (uncompressed cache is disabled).
+Default value: **false**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-use_uncompressed_cache). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#use_uncompressed_cache). ||
 || mergeTreeMaxRowsToUseCache | **string** (int64)
 
-Limits the maximum size in rows of the request that can use the cache of uncompressed data. The cache is not used for requests larger
-than the specified value.
+Limits the maximum size in rows of the request that can use the cache of uncompressed data. The cache is not used for requests larger than the specified value.
 
-Use this setting in combination with `useUncompressedCache` setting.
+Use this setting in combination with **use_uncompressed_cache** setting.
 
-Value must be greater than **0** (default: **128x8192**). ||
+Default value: **1048576**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#merge_tree_max_rows_to_use_cache). ||
 || mergeTreeMaxBytesToUseCache | **string** (int64)
 
-Limits the maximum size in bytes of the request that can use the cache of uncompressed data. The cache is not used for requests larger
-than the specified value.
+Limits the maximum size in bytes of the request that can use the cache of uncompressed data. The cache is not used for requests larger than the specified value.
 
-Use this setting in combination with `useUncompressedCache` setting.
+Use this setting in combination with **use_uncompressed_cache** setting.
 
-Value must be greater than **0** (default: **192x10x1024x1024**). ||
+Default value: **2013265920** (1920 MiB).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#merge_tree_max_bytes_to_use_cache). ||
 || mergeTreeMinRowsForConcurrentRead | **string** (int64)
 
 Limits the minimum number of rows to be read from a file to enable concurrent read.
@@ -501,7 +2337,9 @@ If the number of rows to be read exceeds this value, then ClickHouse will try to
 
 This setting has effect only for tables of the MergeTree family.
 
-Value must be greater than **0** (default: **20x8192**). ||
+Default value: **163840**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#merge_tree_min_rows_for_concurrent_read). ||
 || mergeTreeMinBytesForConcurrentRead | **string** (int64)
 
 Limits the number of bytes to be read from a file to enable concurrent read.
@@ -509,316 +2347,453 @@ If the number of bytes to be read exceeds this value, then ClickHouse will try t
 
 This setting has effect only for tables of the MergeTree family.
 
-Value must be greater than **0** (default: **24x10x1024x1024**). ||
+Default value: **251658240** (240 MiB).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#merge_tree_min_bytes_for_concurrent_read). ||
 || maxBytesBeforeExternalGroupBy | **string** (int64)
 
-Sets the threshold of RAM consumption (in bytes) after that the temporary data, collected during the **GROUP BY** operation, should be flushed to disk to limit the RAM comsumption.
+Sets the threshold of RAM consumption (in bytes) after that the temporary data, collected during the **GROUP BY** operation,
+should be flushed to disk to limit the RAM consumption. If set to **0**, **GROUP BY** in the external memory is disabled.
 
-By default, aggregation is done by employing hash table that resides in RAM.
-A query can result in aggregation of huge data volumes that can lead to memory exhaustion and abortion of the query (see the `maxMemoryUsage` setting).
-For such queries, you can use this setting to force ClickHouse to do flushing and complete aggregation successfully.
+By default, aggregation is done by employing hash table that resides in RAM. A query can result in aggregation of huge data
+volumes that can lead to memory exhaustion and abortion of the query (see the **max_memory_usage** setting). For such queries,
+you can use this setting to force ClickHouse to do flushing and complete aggregation successfully.
 
-Minimal value and default value: **0**, **GROUP BY** in the external memory is disabled.
+Default value: **0**.
 
-When using aggregation in external memory, it is recommended to set the value of this setting twice as low as the `maxMemoryUsage` setting value (by default, the maximum memory usage is limited to ten gigabytes).
-
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory).
-
-See also: the `distributedAggregationMemoryEfficient` setting. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_before_external_group_by). ||
 || maxBytesBeforeExternalSort | **string** (int64)
 
-This setting is equivalent of the `maxBytesBeforeExternalGroupBy` setting, except for it is for sort operation (**ORDER BY**), not aggregation. ||
+Sets the threshold of RAM consumption (in bytes) after that the temporary data, collected during the **ORDER BY** operation,
+should be flushed to disk to limit the RAM consumption. If set to **0**, **ORDER BY** in the external memory is disabled.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_before_external_sort). ||
 || groupByTwoLevelThreshold | **string** (int64)
 
-Sets the threshold of the number of keys, after that the two-level aggregation should be used.
+Sets the threshold of the number of keys, after that the two-level aggregation should be used. **0** means threshold is not set.
 
-Minimal value: **0**, threshold is not set (default: **10000**). ||
+Default value: **100000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#group_by_two_level_threshold). ||
 || groupByTwoLevelThresholdBytes | **string** (int64)
 
-Sets the threshold of the number of bytes, after that the two-level aggregation should be used.
+Sets the threshold of the number of bytes, after that the two-level aggregation should be used. **0** means threshold is not set.
 
-Minimal value: **0**, threshold is not set (default: **100000000**). ||
+Default value: **50000000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#group_by_two_level_threshold_bytes). ||
+|| deduplicateBlocksInDependentMaterializedViews | **boolean**
+
+Enables or disables the deduplication check for materialized views that receive data from replicated tables.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#deduplicate_blocks_in_dependent_materialized_views). ||
+|| localFilesystemReadMethod | **enum** (LocalFilesystemReadMethod)
+
+Method of reading data from local filesystem.
+
+The LOCAL_FILESYSTEM_READ_METHOD_IO_URING is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and
+other tables with append-able files in presence of concurrent reads and writes.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#local_filesystem_read_method).
+
+- `LOCAL_FILESYSTEM_READ_METHOD_UNSPECIFIED`
+- `LOCAL_FILESYSTEM_READ_METHOD_READ`
+- `LOCAL_FILESYSTEM_READ_METHOD_PREAD_THREADPOOL`
+- `LOCAL_FILESYSTEM_READ_METHOD_PREAD`
+- `LOCAL_FILESYSTEM_READ_METHOD_NMAP`
+- `LOCAL_FILESYSTEM_READ_METHOD_IO_URING` ||
+|| remoteFilesystemReadMethod | **enum** (RemoteFilesystemReadMethod)
+
+Method of reading data from remote filesystem.
+
+Default value: **REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#remote_filesystem_read_method).
+
+- `REMOTE_FILESYSTEM_READ_METHOD_UNSPECIFIED`
+- `REMOTE_FILESYSTEM_READ_METHOD_READ`
+- `REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL` ||
 || priority | **string** (int64)
 
 Sets the priority of a query.
-
-* **0**-priority is not used.
-* **1**-the highest priority.
+* **0** - priorities are not used.
+* **1** - the highest priority.
 * and so on. The higher the number, the lower a query's priority.
 
-This setting should be set up for each query individually.
+If ClickHouse is working with the high-priority queries, and a low-priority query enters, then the low-priority query
+is paused until higher-priority queries are completed.
 
-If ClickHouse is working with the high-priority queries, and a low-priority query enters, then the low-priority query is paused until higher-priority queries are completed.
+Default value: **0**.
 
-Minimal value and default value: **0**, priority is not used. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#priority). ||
 || maxThreads | **string** (int64)
 
-Limits the maximum number of threads to process the request (setting does not take threads that read data from remote servers into account).
+Limits the maximum number of threads to process the request. If set to **0**, the number of threads is calculated automatically based on the number of available CPU cores.
 
-This setting applies to threads that perform the same stages of the query processing pipeline in parallel.
+The setting applies to threads that perform the same stages of the query processing pipeline in parallel. It does not take threads that read data from remote servers into account.
 
-Minimal value and default value: **0** (the thread number is calculated automatically based on the number of physical CPU cores, no HyperThreading cores are taken into account).
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_threads). ||
+|| maxInsertThreads | **string** (int64)
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-max_threads). ||
+The maximum number of threads to execute the **INSERT SELECT** query.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_insert_threads). ||
 || maxMemoryUsage | **string** (int64)
 
-Limits the maximum memory usage (in bytes) for processing of a single user's query on a single server.
-This setting does not take server's free RAM amount or total RAM amount into account.
+Limits the maximum memory usage (in bytes) for processing of a single user's query on a single server. **0** means unlimited.
 
 This limitation is enforced for any user's single query on a single server.
 
-Minimal value: **0**, no limitation is set.
-Value that is set in the ClickHouse default config file: **10737418240** (10 GB).
+If you use **max_bytes_before_external_group_by** or **max_bytes_before_external_sort** setting, then it is recommended to set
+their values twice as low as **max_memory_usage** setting value.
 
-If you use `maxBytesBeforeExternalGroupBy` or `maxBytesBeforeExternalSort` setting, then it is recommended to set their values twice as low as `maxMemoryUsage` setting value.
+Default value: **0**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/query-complexity/#settings_max_memory_usage). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_memory_usage). ||
 || maxMemoryUsageForUser | **string** (int64)
 
-Limits the maximum memory usage (in bytes) for processing of user's queries on a single server.
-This setting does not take server's free RAM amount or total RAM amount into account.
+Limits the maximum memory usage (in bytes) for processing of user's queries on a single server. **0** means unlimited.
 
 This limitation is enforced for all queries that belong to one user and run simultaneously on a single server.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_memory_usage_for_user). ||
+|| memoryOvercommitRatioDenominator | **string** (int64)
+
+It represents the soft memory limit when the hard limit is reached on the global level.
+This value is used to compute the overcommit ratio for the query. **0** means skip the query.
+
+Default value: **1073741824** (1 GiB).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_overcommit_ratio_denominator). ||
+|| memoryOvercommitRatioDenominatorForUser | **string** (int64)
+
+It represents the soft memory limit when the hard limit is reached on the user level.
+This value is used to compute the overcommit ratio for the user. **0** means skip the query.
+
+Default value: **1073741824** (1 GiB).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_overcommit_ratio_denominator_for_user). ||
+|| memoryUsageOvercommitMaxWaitMicroseconds | **string** (int64)
+
+Maximum time thread will wait for memory to be freed in the case of memory overcommit. If the timeout is reached and memory is not freed, an exception is thrown.
+
+Default value: **5000000** (5 seconds).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds). ||
 || maxNetworkBandwidth | **string** (int64)
 
-The maximum speed of data exchange over the network in bytes per second for a query.
+The maximum speed of data exchange over the network in bytes per second for a query. **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth). ||
 || maxNetworkBandwidthForUser | **string** (int64)
 
-The maximum speed of data exchange over the network in bytes per second for all concurrently running user queries.
+The maximum speed of data exchange over the network in bytes per second for all concurrently running user queries. **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
-|| maxPartitionsPerInsertBlock | **string** (int64)
+Default value: **0**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/operations/settings/query-complexity/#max-partitions-per-insert-block). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth-for-user). ||
+|| maxTemporaryDataOnDiskSizeForQuery | **string** (int64)
+
+The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query). ||
+|| maxTemporaryDataOnDiskSizeForUser | **string** (int64)
+
+The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running user queries. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user). ||
 || maxConcurrentQueriesForUser | **string** (int64)
 
-The maximum number of concurrent requests per user.
-Default value: 0 (no limit). ||
+The maximum number of simultaneously processed queries per user. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_concurrent_queries_for_user). ||
 || forceIndexByDate | **boolean**
 
-If enabled, query is not executed if the ClickHouse can't use index by date.
+Disables query execution if the index cannot be used by date.
+
 This setting has effect only for tables of the MergeTree family.
 
-Default value: **false** (setting is disabled, query executes even if ClickHouse can't use index by date).
+Default value: **false**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-force_index_by_date). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#force_index_by_date). ||
 || forcePrimaryKey | **boolean**
 
-If enabled, query is not executed if the ClickHouse can't use index by primary key.
+Disables query execution if indexing by the primary key cannot be used.
+
 This setting has effect only for tables of the MergeTree family.
 
-Default value: **false** (setting is disabled, query executes even if ClickHouse can't use index by primary key).
+Default value: **false**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#force-primary-key). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#force_primary_key). ||
 || maxRowsToRead | **string** (int64)
 
-Limits the maximum number of rows that can be read from a table when running a query.
+Limits the maximum number of rows that can be read from a table when running a query.  **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set.
+Default value: **0**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/query-complexity/#max-rows-to-read). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#max-rows-to-read). ||
 || maxBytesToRead | **string** (int64)
 
-Limits the maximum number of bytes (uncompressed data) that can be read from a table when running a query.
+Limits the maximum number of bytes (uncompressed data) that can be read from a table when running a query.  **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#max-bytes-to-read). ||
 || readOverflowMode | **enum** (OverflowMode)
 
-Determines the behavior on exceeding [limits](https://clickhouse.com/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity) while reading the data.
+Determines the behavior on exceeding limits while reading the data.
 
-* **throw**-abort query execution, return an error.
-* **break**-stop query execution, return partial result.
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#read_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxRowsToGroupBy | **string** (int64)
 
-Limits the maximum number of unique keys received from aggregation function.
-This setting helps to reduce RAM consumption while doing aggregation.
+Limits the maximum number of unique keys received from aggregation. **0** means unlimited.
+This setting lets you limit RAM consumption when aggregating.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_to_group_by). ||
 || groupByOverflowMode | **enum** (GroupByOverflowMode)
 
-Determines the behavior on exceeding [limits](https://clickhouse.com/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity) while doing aggregation.
+Determines the behavior on exceeding limits while doing aggregation.
 
-* **throw**-abort query execution, return an error.
-* **break**-stop query execution, return partial result.
-* **any**-perform approximate **GROUP BY** operation by continuing aggregation for the keys that got into the set, but don't add new keys to the set.
+Default value: **GROUP_BY_OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#group_by_overflow_mode).
 
 - `GROUP_BY_OVERFLOW_MODE_UNSPECIFIED`
-- `GROUP_BY_OVERFLOW_MODE_THROW`
-- `GROUP_BY_OVERFLOW_MODE_BREAK`
-- `GROUP_BY_OVERFLOW_MODE_ANY` ||
+- `GROUP_BY_OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `GROUP_BY_OVERFLOW_MODE_BREAK`: Return a partial result.
+- `GROUP_BY_OVERFLOW_MODE_ANY`: Continuing aggregation for the keys that got into the set, but do not add new keys to the set. ||
 || maxRowsToSort | **string** (int64)
 
-Limits the maximum number of rows that can be read from a table for sorting.
-This setting helps to reduce RAM consumption.
+Limits the maximum number of rows that can be read from a table for sorting. **0** means unlimited.
+This setting lets you to limit RAM consumption when sorting
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_to_sort). ||
 || maxBytesToSort | **string** (int64)
 
-Limits the maximum number of bytes (uncompressed data) that can be read from a table for sorting.
-This setting helps to reduce RAM consumption.
+Limits the maximum number of bytes (uncompressed data) that can be read from a table for sorting. **0** means unlimited.
+This setting lets you to limit RAM consumption when sorting
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_to_sort). ||
 || sortOverflowMode | **enum** (OverflowMode)
 
-Determines the behavior on exceeding [limits](https://clickhouse.com/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity) while sorting.
+Determines the behavior on exceeding limits while sorting.
 
-* **throw**-abort query execution, return an error.
-* **break**-stop query execution, return partial result.
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#sort_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxResultRows | **string** (int64)
 
-Limits the number of rows in the result.
+Limits the number of rows in the result. **0** means unlimited.
+
 This limitation is also checked for subqueries and parts of distributed queries that run on remote servers.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_result_rows). ||
 || maxResultBytes | **string** (int64)
 
-Limits the number of bytes in the result.
-This limitation is also checked for subqueries and parts of distributed queries that run on remote servers.
+Limits the result size in bytes (uncompressed data). **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_result_bytes). ||
 || resultOverflowMode | **enum** (OverflowMode)
 
-Determines the behavior on exceeding [limits](https://clickhouse.com/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity) while forming result.
+Determines the behavior on exceeding limits while forming result.
 
-* **throw**-abort query execution, return an error.
-* **break**-stop query execution, return partial result.
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#result_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxRowsInDistinct | **string** (int64)
 
-Limits the maximum number of different rows when using **DISTINCT**.
+Limits the maximum number of different rows in the state, which is used for performing **DISTINCT**. **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_in_distinct). ||
 || maxBytesInDistinct | **string** (int64)
 
-Limits the maximum size of a hash table in bytes (uncompressed data) when using **DISTINCT**. ||
+Limits the maximum number of bytes (uncompressed data) in the state, which is used for performing **DISTINCT**. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_in_distinct). ||
 || distinctOverflowMode | **enum** (OverflowMode)
 
-Determines the behavior on exceeding [limits](https://clickhouse.com/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity) while doing **DISCTINCT**.
+Determines the behavior on exceeding limits while performing **DISTINCT**.
 
-* **throw**-abort query execution, return an error.
-* **break**-stop query execution, return partial result.
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distinct_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxRowsToTransfer | **string** (int64)
 
-Limits the maximum number of rows that can be passed to a remote server or saved in a temporary table when using **GLOBAL IN**.
+Limits the maximum number of rows that can be passed to a remote server or saved in a temporary table when using **GLOBAL IN\|JOIN**. **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_to_transfer). ||
 || maxBytesToTransfer | **string** (int64)
 
-Limits the maximum number of bytes (uncompressed data) that can be passed to a remote server or saved in a temporary
-table when using **GLOBAL IN**.
+Limits the maximum number of bytes (uncompressed data) that can be passed to a remote server or saved in a temporary table when using **GLOBAL IN\|JOIN**.
+**0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_to_transfer). ||
 || transferOverflowMode | **enum** (OverflowMode)
 
-Determines the behavior on exceeding [limits](https://clickhouse.com/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity) while doing transfers.
+Determines the behavior on exceeding limits while transfering data.
 
-* **throw**-abort query execution, return an error.
-* **break**-stop query execution, return partial result.
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#transfer_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxExecutionTime | **string** (int64)
 
-Limits the maximum query execution time in milliseconds.
-At this moment, this limitation is not checked when passing one of the sorting stages, as well as merging and finalizing aggregation funictions.
+Limits the maximum query execution time in milliseconds. **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
+The timeout is checked and the query can stop only in designated places during data processing.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_execution_time). ||
 || timeoutOverflowMode | **enum** (OverflowMode)
 
-Determines the behavior on exceeding [limits](https://clickhouse.com/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity) of execution time.
+Determines the behavior on exceeding limits of execution time.
 
-* **throw**-abort query execution, return an error.
-* **break**-stop query execution, return partial result.
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#timeout_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxRowsInSet | **string** (int64)
 
-Limit on the number of rows in the set resulting from the execution of the IN section. ||
+Limits on the maximum number of rows in the set resulting from the execution of the **IN** section. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_in_set). ||
 || maxBytesInSet | **string** (int64)
 
-Limit on the number of bytes in the set resulting from the execution of the IN section. ||
+Limits on the maximum number of bytes (uncompressed data) in the set resulting from the execution of the **IN** section. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_in_set). ||
 || setOverflowMode | **enum** (OverflowMode)
 
-Determine the behavior on exceeding max_rows_in_set or max_bytes_in_set limit.
-Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK.
+Determines the behavior on exceeding max_rows_in_set or max_bytes_in_set limit.
+
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#set_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxRowsInJoin | **string** (int64)
 
-Limit on maximum size of the hash table for JOIN, in rows. ||
+Limits the maximum number of rows in the hash table that is used when joining tables. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_in_join). ||
 || maxBytesInJoin | **string** (int64)
 
-Limit on maximum size of the hash table for JOIN, in bytes. ||
+Limits the maximum number of bytes in the hash table that is used when joining tables. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_in_join). ||
 || joinOverflowMode | **enum** (OverflowMode)
 
-Determine the behavior on exceeding max_rows_in_join or max_bytes_in_join limit.
-Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK.
+Determines the behavior on exceeding max_rows_in_join or max_bytes_in_join limit.
+
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
-|| joinAlgorithm[] | **enum** (JoinAlgorithm)
-
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-join_algorithm).
-
-- `JOIN_ALGORITHM_UNSPECIFIED`
-- `JOIN_ALGORITHM_HASH`
-- `JOIN_ALGORITHM_PARALLEL_HASH`
-- `JOIN_ALGORITHM_PARTIAL_MERGE`
-- `JOIN_ALGORITHM_DIRECT`
-- `JOIN_ALGORITHM_AUTO`
-- `JOIN_ALGORITHM_FULL_SORTING_MERGE`
-- `JOIN_ALGORITHM_PREFER_PARTIAL_MERGE` ||
-|| anyJoinDistinctRightTableKeys | **boolean**
-
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#any_join_distinct_right_table_keys). ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxColumnsToRead | **string** (int64)
 
-Limits the maximum number of columns that can be read from a table in a single query.
+Limits the maximum number of columns that can be read from a table in a single query. **0** means unlimited.
 If the query requires to read more columns to complete, then it will be aborted.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_columns_to_read). ||
 || maxTemporaryColumns | **string** (int64)
 
-Limits the maximum number of temporary columns that must be kept in RAM at the same time when running a query, including constant columns.
+Limits the maximum number of temporary columns that must be kept in RAM simultaneously when running a query, including constant columns. **0** means unlimited.
+If the query generates more than the specified number of temporary columns in memory as a result of intermediate calculation, then it will be aborted.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_temporary_columns). ||
 || maxTemporaryNonConstColumns | **string** (int64)
 
-Limits the maximum number of temporary columns that must be kept in RAM at the same time when running a query, excluding constant columns.
+Limits the maximum number of temporary columns that must be kept in RAM simultaneously when running a query, not including constant columns. **0** means unlimited.
+If the query generates more than the specified number of temporary columns in memory as a result of intermediate calculation, then it will be aborted.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_temporary_non_const_columns). ||
 || maxQuerySize | **string** (int64)
 
 Limits the size of the part of a query that can be transferred to RAM for parsing with the SQL parser, in bytes.
 
-Value must be greater than **0** (default: **262144**).
+Data in the **VALUES** clause of **INSERT** queries is processed by a separate stream parser (that consumes O(1) RAM) and not affected by this restriction.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-max_query_size). ||
+Default value: **262144** (256 KiB).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_query_size). ||
 || maxAstDepth | **string** (int64)
 
 Limits the maximum depth of query syntax tree.
@@ -826,13 +2801,9 @@ Limits the maximum depth of query syntax tree.
 Executing a big and complex query may result in building a syntax tree of enormous depth.
 By using this setting, you can prohibit execution of over-sized or non-optimized queries for huge tables.
 
-For example, the **SELECT *** query may result in more complex and deeper syntax tree, compared to the **SELECT ... WHERE ...** query, containing constraints and conditions, in the most cases.
-A user can be forced to construct more optimized queries, if this setting is used.
+Default value: **1000**.
 
-Value must be greater than **0** (default: **1000**).
-If a too small value is set, it may render ClickHouse unable to execute even simple queries.
-
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/query-complexity/#max-ast-depth). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_ast_depth). ||
 || maxAstElements | **string** (int64)
 
 Limits the maximum size of query syntax tree in number of nodes.
@@ -840,10 +2811,9 @@ Limits the maximum size of query syntax tree in number of nodes.
 Executing a big and complex query may result in building a syntax tree of enormous size.
 By using this setting, you can prohibit execution of over-sized or non-optimized queries for huge tables.
 
-Value must be greater than **0** (default: **50000**).
-If a too small value is set, it may render ClickHouse unable to execute even simple queries.
+Default value: **50000**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/query-complexity/#max-ast-elements). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_ast_elements). ||
 || maxExpandedAstElements | **string** (int64)
 
 Limits the maximum size of query syntax tree in number of nodes after expansion of aliases and the asterisk values.
@@ -851,73 +2821,104 @@ Limits the maximum size of query syntax tree in number of nodes after expansion 
 Executing a big and complex query may result in building a syntax tree of enormous size.
 By using this setting, you can prohibit execution of over-sized or non-optimized queries for huge tables.
 
-Value must be greater than **0** (default: **500000**).
-If a too small value is set, it may render ClickHouse unable to execute even simple queries. ||
+Default value: **500000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_expanded_ast_elements). ||
+|| maxParserDepth | **string** (int64)
+
+Limits maximum recursion depth in the recursive descent parser. Allows controlling the stack size. If set to **0**, recursion depth is unlimited.
+
+Default value: **1000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_parser_depth). ||
 || minExecutionSpeed | **string** (int64)
 
-Minimal execution speed in rows per second. ||
+Minimal execution speed in rows per second. Checked on every data block when timeout_before_checking_execution_speed expires.
+If the execution speed is lower, an exception is thrown. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_execution_speed). ||
 || minExecutionSpeedBytes | **string** (int64)
 
-Minimal execution speed in bytes per second. ||
-|| countDistinctImplementation | **enum** (CountDistinctImplementation)
+Minimal execution speed in bytes per second. Checked on every data block when timeout_before_checking_execution_speed expires.
+If the execution speed is lower, an exception is thrown. **0** means unlimited.
 
-Aggregate function to use for implementation of count(DISTINCT ...).
+Default value: **0**.
 
-- `COUNT_DISTINCT_IMPLEMENTATION_UNSPECIFIED`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT` ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_execution_speed_bytes). ||
 || inputFormatValuesInterpretExpressions | **boolean**
 
 Enables or disables SQL parser if the fast stream parser cannot parse the data.
 
 Enable this setting, if the data that you want to insert into a table contains SQL expressions.
 
-For example, the stream parser is unable to parse a value that contains **now()** expression; therefore an **INSERT** query for this value will fail and no data will be inserted into a table.
-With enabled SQL parser, this expression is parsed correctly: the **now()** expression will be parsed as SQL function, interpreted, and the current date and time will be inserted into the table as a result.
+For example, the stream parser is unable to parse a value that contains **now()** expression; therefore an **INSERT** query for this value
+will fail and no data will be inserted into a table. With enabled SQL parser, this expression is parsed correctly: the **now()** expression
+will be parsed as SQL function, interpreted, and the current date and time will be inserted into the table as a result.
 
 This setting has effect only if you use [Values](https://clickhouse.com/docs/en/interfaces/formats/#data-format-values) format when inserting data.
 
-Default value: **true** (SQL parser is enabled).
+Default value: **true**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_values_interpret_expressions). ||
 || inputFormatDefaultsForOmittedFields | **boolean**
 
 Enables or disables replacing omitted input values with default values of the respective columns when performing **INSERT** queries.
 
-Default value: **true** (replacing is enabled). ||
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_defaults_for_omitted_fields). ||
 || inputFormatNullAsDefault | **boolean**
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#input_format_null_as_default). ||
+Enables or disables the initialization of **NULL** fields with default values, if data type of these fields is not nullable.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_null_as_default). ||
+|| inputFormatWithNamesUseHeader | **boolean**
+
+Enables or disables checking the column order when inserting data.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_with_names_use_header). ||
+|| outputFormatJsonQuote_64bitIntegers | **boolean**
+
+Enables or disables quoting of 64-bit integers in JSON output format.
+
+If this setting is enabled, then 64-bit integers (**UInt64** and **Int64**) will be quoted when written to JSON output
+in order to maintain compatibility with the most of the JavaScript engines. Otherwise, such integers will not be quoted.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#output_format_json_quote_64bit_integers). ||
+|| outputFormatJsonQuoteDenormals | **boolean**
+
+Enables special floating-point values (**+nan**, **-nan**, **+inf** and **-inf**) in JSON output format.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#output_format_json_quote_denormals). ||
 || dateTimeInputFormat | **enum** (DateTimeInputFormat)
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#date_time_input_format).
+Specifies which of date time parsers to use.
+
+Default value: **DATE_TIME_INPUT_FORMAT_BASIC**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#date_time_input_format).
 
 - `DATE_TIME_INPUT_FORMAT_UNSPECIFIED`
 - `DATE_TIME_INPUT_FORMAT_BEST_EFFORT`
 - `DATE_TIME_INPUT_FORMAT_BASIC`
 - `DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US` ||
-|| inputFormatWithNamesUseHeader | **boolean**
-
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#input_format_with_names_use_header). ||
-|| outputFormatJsonQuote_64bitIntegers | **boolean**
-
-Enables quoting of 64-bit integers in JSON output format.
-
-If this setting is enabled, then 64-bit integers (**UInt64** and **Int64**) will be quoted when written to JSON output in order to maintain compatibility with the most of the JavaScript engines.
-Otherwise, such integers will not be quoted.
-
-Default value: **false** (quoting 64-bit integers is disabled). ||
-|| outputFormatJsonQuoteDenormals | **boolean**
-
-Enables special floating-point values (**+nan**, **-nan**, **+inf** and **-inf**) in JSON output format.
-
-Default value: **false** (special values do not present in output). ||
 || dateTimeOutputFormat | **enum** (DateTimeOutputFormat)
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#date_time_output_format).
+Specifies which of date time output formats to use.
+
+Default value: **DATE_TIME_OUTPUT_FORMAT_SIMPLE**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#date_time_output_format).
 
 - `DATE_TIME_OUTPUT_FORMAT_UNSPECIFIED`
 - `DATE_TIME_OUTPUT_FORMAT_SIMPLE`
@@ -925,46 +2926,103 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 - `DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP` ||
 || lowCardinalityAllowInNativeFormat | **boolean**
 
-Determines whether to use LowCardinality type in Native format.
-
-* **true** (default)-yes, use.
-* **false**-convert LowCardinality columns to regular columns when doing **SELECT**, and convert regular columns to LowCardinality when doing **INSERT**.
+Allows or restricts using the LowCardinality data type with the Native format.
 
 LowCardinality columns (aka sparse columns) store data in more effective way, compared to regular columns, by using hash tables.
 If data to insert suits this storage format, ClickHouse will place them into LowCardinality column.
 
-If you use a third-party ClickHouse client that can't work with LowCardinality columns, then this client will not be able to correctly interpret the result of the query that asks for data stored in LowCardinality column.
-Disable this setting to convert LowCardinality column to regular column when creating the result, so such clients will be able to process the result.
+If you use a third-party ClickHouse client that can't work with LowCardinality columns, then this client will not be able to correctly interpret
+the result of the query that asks for data stored in LowCardinality column. Disable this setting to convert LowCardinality column to regular column
+when creating the result, so such clients will be able to process the result.
 
 Official ClickHouse client works with LowCardinality columns out-of-the-box.
 
-Default value: **true** (LowCardinality columns are used in Native format). ||
-|| allowSuspiciousLowCardinalityTypes | **boolean**
+Default value: **true**.
 
-Allows specifying **LowCardinality** modifier for types of small fixed size (8 or less) in CREATE TABLE statements. Enabling this may increase merge times and memory consumption.
-
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#allow_suspicious_low_cardinality_types). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#low_cardinality_allow_in_native_format). ||
 || emptyResultForAggregationByEmptySet | **boolean**
 
-Enables returning of empty result when aggregating without keys (with **GROUP BY** operation absent) on empty set (e.g., **SELECT count(*) FROM table WHERE 0**).
+Enables or disables returning of empty result when aggregating without keys (with **GROUP BY** operation absent) on empty set (e.g., **SELECT count(*) FROM table WHERE 0**).
+* **true** - ClickHouse will return an empty result for such queries.
+* **false** - ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.
 
-* **true**-ClickHouse will return an empty result for such queries.
-* **false** (default)-ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard. ||
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#empty_result_for_aggregation_by_empty_set). ||
+|| formatRegexp | **string**
+
+Regular expression (for Regexp format).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_regexp). ||
+|| formatRegexpEscapingRule | **enum** (FormatRegexpEscapingRule)
+
+Field escaping rule (for Regexp format).
+
+Default value: **FORMAT_REGEXP_ESCAPING_RULE_RAW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_regexp_escaping_rule).
+
+- `FORMAT_REGEXP_ESCAPING_RULE_UNSPECIFIED`
+- `FORMAT_REGEXP_ESCAPING_RULE_ESCAPED`
+- `FORMAT_REGEXP_ESCAPING_RULE_QUOTED`
+- `FORMAT_REGEXP_ESCAPING_RULE_CSV`
+- `FORMAT_REGEXP_ESCAPING_RULE_JSON`
+- `FORMAT_REGEXP_ESCAPING_RULE_XML`
+- `FORMAT_REGEXP_ESCAPING_RULE_RAW` ||
+|| formatRegexpSkipUnmatched | **boolean**
+
+Skip lines unmatched by regular expression (for Regexp format)
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_regexp_skip_unmatched). ||
+|| inputFormatParallelParsing | **boolean**
+
+Enables or disables order-preserving parallel parsing of data formats. Supported only for TSV, TSKV, CSV and JSONEachRow formats.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#input_format_parallel_parsing). ||
+|| inputFormatImportNestedJson | **boolean**
+
+Enables or disables the insertion of JSON data with nested objects.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_import_nested_json). ||
+|| formatAvroSchemaRegistryUrl | **string**
+
+Avro schema registry URL.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_avro_schema_registry_url). ||
+|| dataTypeDefaultNullable | **boolean**
+
+Allows data types without explicit modifiers **NULL** or **NOT NULL** in column definition will be Nullable.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#data_type_default_nullable). ||
 || httpConnectionTimeout | **string** (int64)
 
 HTTP connection timeout, in milliseconds.
 
-Value must be greater than **0** (default: **1000**, 1 second). ||
+Default value: **1000** (1 second).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_connection_timeout). ||
 || httpReceiveTimeout | **string** (int64)
 
 HTTP receive timeout, in milliseconds.
 
-Value must be greater than **0** (default: **1800000**, 1800 seconds, 30 minutes). ||
+Default value: **30000** (30 seconds).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_receive_timeout). ||
 || httpSendTimeout | **string** (int64)
 
 HTTP send timeout, in milliseconds.
 
-Value must be greater than **0** (default: **1800000**, 1800 seconds, 30 minutes). ||
+Default value: **30000** (30 seconds).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_send_timeout). ||
 || enableHttpCompression | **boolean**
 
 Enables or disables data compression in HTTP responses.
@@ -976,337 +3034,392 @@ Enable this setting and add the **Accept-Encoding: <compression method>** HTTP h
 
 ClickHouse support the following compression methods: **gzip**, **br** and **deflate**.
 
-Default value: **false** (compression is disabled).
+Default value: **false**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/interfaces/http/). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#enable_http_compression). ||
 || sendProgressInHttpHeaders | **boolean**
 
-Enables progress notifications using **X-ClickHouse-Progress** HTTP header.
+Enables or disables progress notifications using **X-ClickHouse-Progress** HTTP header.
 
-Default value: **false** (notifications disabled). ||
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#send_progress_in_http_headers). ||
 || httpHeadersProgressInterval | **string** (int64)
 
 Minimum interval between progress notifications with **X-ClickHouse-Progress** HTTP header, in milliseconds.
 
-Value must be greater than **0** (default: **100**). ||
+Default value: **100**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_headers_progress_interval_ms). ||
 || addHttpCorsHeader | **boolean**
 
 Adds CORS header in HTTP responses.
 
-Default value: **false** (header is not added). ||
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#add_http_cors_header). ||
 || cancelHttpReadonlyQueriesOnClientClose | **boolean**
 
-Cancels HTTP read-only queries (e.g. SELECT) when a client closes the connection without waiting for the response.
+Cancels HTTP read-only queries (e.g. **SELECT**) when a client closes the connection without waiting for the response.
 
 Default value: **false**.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#cancel-http-readonly-queries-on-client-close). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#cancel_http_readonly_queries_on_client_close). ||
 || maxHttpGetRedirects | **string** (int64)
 
-Limits the maximum number of HTTP GET redirect hops for [URL-engine](https://clickhouse.com/docs/en/engines/table-engines/special/url) tables.
+Limits the maximum number of HTTP GET redirect hops. If set to **0**, no hops is allowed.
 
-If the parameter is set to **0** (default), no hops is allowed.
+Default value: **0**.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_http_get_redirects). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_http_get_redirects). ||
 || httpMaxFieldNameSize | **string** (int64)
 
 Maximum length of field name in HTTP header.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#http_max_field_name_size). ||
+
+Default value: **131072**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_max_field_name_size). ||
 || httpMaxFieldValueSize | **string** (int64)
 
 Maximum length of field value in HTTP header.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#http_max_field_value_size). ||
-|| joinedSubqueryRequiresAlias | **boolean** ||
-|| joinUseNulls | **boolean** ||
-|| transformNullIn | **boolean** ||
+
+Default value: **131072**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_max_field_value_size). ||
 || quotaMode | **enum** (QuotaMode)
 
-Quota accounting mode. Possible values: QUOTA_MODE_DEFAULT, QUOTA_MODE_KEYED and QUOTA_MODE_KEYED_BY_IP.
+Quota accounting mode.
+
+Default value: **QUOTA_MODE_DEFAULT**.
 
 - `QUOTA_MODE_UNSPECIFIED`
 - `QUOTA_MODE_DEFAULT`
 - `QUOTA_MODE_KEYED`
 - `QUOTA_MODE_KEYED_BY_IP` ||
-|| flattenNested | **boolean**
-
-Sets the data format of a [nested](https://clickhouse.com/docs/en/sql-reference/data-types/nested-data-structures/nested) columns.
-
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#flatten-nested). ||
-|| formatRegexp | **string**
-
-Regular expression (for Regexp format) ||
-|| formatRegexpEscapingRule | **enum** (FormatRegexpEscapingRule)
-
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#format_regexp_escaping_rule).
-
-- `FORMAT_REGEXP_ESCAPING_RULE_UNSPECIFIED`
-- `FORMAT_REGEXP_ESCAPING_RULE_ESCAPED`
-- `FORMAT_REGEXP_ESCAPING_RULE_QUOTED`
-- `FORMAT_REGEXP_ESCAPING_RULE_CSV`
-- `FORMAT_REGEXP_ESCAPING_RULE_JSON`
-- `FORMAT_REGEXP_ESCAPING_RULE_XML`
-- `FORMAT_REGEXP_ESCAPING_RULE_RAW` ||
-|| formatRegexpSkipUnmatched | **boolean**
-
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#format_regexp_skip_unmatched). ||
 || asyncInsert | **boolean**
 
-Enables asynchronous inserts.
+If enabled, data from **INSERT** query is stored in queue and later flushed to table in background.
 
-Disabled by default.
+Default value: **false**.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert). ||
-|| asyncInsertThreads | **string** (int64)
-
-The maximum number of threads for background data parsing and insertion.
-
-If the parameter is set to **0**, asynchronous insertions are disabled. Default value: **16**.
-
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-threads). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert). ||
 || waitForAsyncInsert | **boolean**
 
-Enables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.
+Enables or disables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert). ||
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#wait_for_async_insert). ||
 || waitForAsyncInsertTimeout | **string** (int64)
 
-The timeout (in seconds) for waiting for processing of asynchronous insertion.
+Timeout for waiting for processing asynchronous inserts, in seconds.
 
-Default value: **120**.
+Default value: **120** (2 minutes).
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert-timeout). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#wait_for_async_insert_timeout). ||
 || asyncInsertMaxDataSize | **string** (int64)
 
 The maximum size of the unparsed data in bytes collected per query before being inserted.
 
-If the parameter is set to **0**, asynchronous insertions are disabled. Default value: **100000**.
+Default value: **10485760** (10 MiB).
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-max-data-size). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert_max_data_size). ||
 || asyncInsertBusyTimeout | **string** (int64)
 
-The maximum timeout in milliseconds since the first INSERT query before inserting collected data.
+Maximum time to wait before dumping collected data per query since the first data appeared.
 
-If the parameter is set to **0**, the timeout is disabled. Default value: **200**.
+Default value: **200**.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-busy-timeout-ms). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert_busy_timeout_max_ms). ||
 || asyncInsertUseAdaptiveBusyTimeout | **boolean**
 
-If it is set to true, use adaptive busy timeout for asynchronous inserts.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#async_insert_use_adaptive_busy_timeout). ||
-|| memoryProfilerStep | **string** (int64)
+Enables of disables adaptive busy timeout for asynchronous inserts.
 
-Memory profiler step (in bytes).
+Default value: **true**.
 
-If the next query step requires more memory than this parameter specifies, the memory profiler collects the allocating stack trace. Values lower than a few megabytes slow down query processing.
-
-Default value: **4194304** (4 MB). Zero means disabled memory profiler. ||
-|| memoryProfilerSampleProbability | **number** (double)
-
-Collect random allocations and deallocations and write them into system.trace_log with 'MemorySample' trace_type. The probability is for every alloc/free regardless to the size of the allocation.
-
-Possible values: from **0** to **1**. Default: **0**. ||
-|| maxFinalThreads | **string** (int64)
-
-Sets the maximum number of parallel threads for the SELECT query data read phase with the FINAL modifier.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#max-final-threads). ||
-|| inputFormatParallelParsing | **boolean**
-
-Enables or disables order-preserving parallel parsing of data formats. Supported only for [TSV](https://clickhouse.com/docs/en/interfaces/formats#tabseparated), [TKSV](https://clickhouse.com/docs/en/interfaces/formats#tskv), [CSV](https://clickhouse.com/docs/en/interfaces/formats#csv) and [JSONEachRow](https://clickhouse.com/docs/en/interfaces/formats#jsoneachrow) formats.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#input-format-parallel-parsing) ||
-|| inputFormatImportNestedJson | **boolean**
-
-Enables or disables the insertion of JSON data with nested objects.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#input-format-parallel-parsing) ||
-|| formatAvroSchemaRegistryUrl | **string**
-
-Avro schema registry URL.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/formats#format_avro_schema_registry_url). ||
-|| dataTypeDefaultNullable | **boolean**
-
-Allows data types without explicit modifiers NULL or NOT NULL in column definition will be Nullable.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#data_type_default_nullable). ||
-|| localFilesystemReadMethod | **enum** (LocalFilesystemReadMethod)
-
-Method of reading data from local filesystem, one of: read, pread, mmap, io_uring, pread_threadpool. The 'io_uring' method is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and other tables with append-able files in presence of concurrent reads and writes.
-
-- `LOCAL_FILESYSTEM_READ_METHOD_UNSPECIFIED`
-- `LOCAL_FILESYSTEM_READ_METHOD_READ`
-- `LOCAL_FILESYSTEM_READ_METHOD_PREAD_THREADPOOL`
-- `LOCAL_FILESYSTEM_READ_METHOD_PREAD`
-- `LOCAL_FILESYSTEM_READ_METHOD_NMAP` ||
-|| maxReadBufferSize | **string** (int64)
-
-The maximum size of the buffer to read from the filesystem.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/codebrowser/ClickHouse/src/Core/Settings.h.html#DB::SettingsTraits::Data::max_read_buffer_size) ||
-|| insertKeeperMaxRetries | **string** (int64)
-
-The setting sets the maximum number of retries for ClickHouse Keeper (or ZooKeeper) requests during insert into replicated MergeTree. Only Keeper requests which failed due to network error, Keeper session timeout, or request timeout are considered for retries.
-Default: 20 from 23.2, 0(disabled) before
-Min_version: 22.11
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#insert_keeper_max_retries) ||
-|| maxTemporaryDataOnDiskSizeForUser | **string** (int64)
-
-The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running user queries. Zero means unlimited.
-Default: 0 - unlimited
-Min_version: 22.10
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user) ||
-|| maxTemporaryDataOnDiskSizeForQuery | **string** (int64)
-
-The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. Zero means unlimited.
-Default: 0 - unlimited
-Min_version: 22.10
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query) ||
-|| maxParserDepth | **string** (int64)
-
-Limits maximum recursion depth in the recursive descent parser. Allows controlling the stack size.
-Default: 1000
-Special: 0 - unlimited
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#max_parser_depth) ||
-|| remoteFilesystemReadMethod | **enum** (RemoteFilesystemReadMethod)
-
-Method of reading data from remote filesystem, one of: read, threadpool.
-Default: read
-Min_version: 21.11
-See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/f9558345e886876b9132d9c018e357f7fa9b22a3/src/Core/Settings.h#L660)
-
-- `REMOTE_FILESYSTEM_READ_METHOD_UNSPECIFIED`
-- `REMOTE_FILESYSTEM_READ_METHOD_READ`
-- `REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL` ||
-|| memoryOvercommitRatioDenominator | **string** (int64)
-
-It represents soft memory limit in case when hard limit is reached on user level. This value is used to compute overcommit ratio for the query. Zero means skip the query.
-Default: 1GiB
-Min_version: 22.5
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator) ||
-|| memoryOvercommitRatioDenominatorForUser | **string** (int64)
-
-It represents soft memory limit in case when hard limit is reached on global level. This value is used to compute overcommit ratio for the query. Zero means skip the query.
-Default: 1GiB
-Min_version: 22.5
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator_for_user) ||
-|| memoryUsageOvercommitMaxWaitMicroseconds | **string** (int64)
-
-Maximum time thread will wait for memory to be freed in the case of memory overcommit on a user level. If the timeout is reached and memory is not freed, an exception is thrown.
-Default: 5000000
-Min_version: 22.5
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds) ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert_use_adaptive_busy_timeout). ||
 || logQueryThreads | **boolean**
 
-Setting up query threads logging. Query threads log into the [system.query_thread_log](https://clickhouse.com/docs/en/operations/system-tables/query_thread_log) table. This setting has effect only when [log_queries](https://clickhouse.com/docs/en/operations/settings/settings#log-queries) is true. Queries threads run by ClickHouse with this setup are logged according to the rules in the [query_thread_log](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#server_configuration_parameters-query_thread_log) server configuration parameter.
-Default: false
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_query_threads) ||
+Enables or disables query threads logging to the the system.query_thread_log table.
+This setting has effect only when **log_queries** setting is enabled.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#log_query_threads). ||
 || logQueryViews | **boolean**
 
-Enables or disables query views logging to the the system.query_view_log table.
-Default: true
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_query_views) ||
+Enables or disables query views logging to the the system.query_views_log table.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#log_query_views). ||
 || logQueriesProbability | **number** (double)
 
 Log queries with the specified probability.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_queries_probability). ||
+
+Default value: **1**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#log_queries_probability). ||
 || logProcessorsProfiles | **boolean**
 
-Enabled or disable logging of processors level profiling data to the the system.log_processors_profiles table.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_processors_profiles). ||
+Enables or disables logging of processors level profiling data to the the system.processors_profile_log table.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#log_processors_profiles). ||
 || useQueryCache | **boolean**
 
-If turned on, SELECT queries may utilize the query cache.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#use_query_cache). ||
+If turned on, **SELECT** queries may utilize the query cache.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#use_query_cache). ||
 || enableReadsFromQueryCache | **boolean**
 
-If turned on, results of SELECT queries are retrieved from the query cache.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#enable_reads_from_query_cache). ||
+If turned on, results of **SELECT** queries are retrieved from the query cache.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#enable_reads_from_query_cache). ||
 || enableWritesToQueryCache | **boolean**
 
-If turned on, results of SELECT queries are stored in the query cache.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#enable_writes_to_query_cache). ||
+If turned on, results of **SELECT** queries are stored in the query cache.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#enable_writes_to_query_cache). ||
 || queryCacheMinQueryRuns | **string** (int64)
 
-Minimum number of times a SELECT query must run before its result is stored in the query cache.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_min_query_runs). ||
+Minimum number of times a **SELECT** query must run before its result is stored in the query cache.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_min_query_runs). ||
 || queryCacheMinQueryDuration | **string** (int64)
 
 Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_min_query_duration). ||
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_min_query_duration). ||
 || queryCacheTtl | **string** (int64)
 
 After this time in seconds entries in the query cache become stale.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_ttl). ||
+
+Default value: **60** (1 minute).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_ttl). ||
 || queryCacheMaxEntries | **string** (int64)
 
-The maximum number of query results the current user may store in the query cache. 0 means unlimited.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_max_entries). ||
+The maximum number of query results the current user may store in the query cache. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_max_entries). ||
 || queryCacheMaxSizeInBytes | **string** (int64)
 
-The maximum amount of memory (in bytes) the current user may allocate in the query cache. 0 means unlimited.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_max_size_in_bytes). ||
+The maximum amount of memory (in bytes) the current user may allocate in the query cache. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_max_size_in_bytes). ||
 || queryCacheTag | **string**
 
 A string which acts as a label for query cache entries. The same queries with different tags are considered different by the query cache.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_tag). ||
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_tag). ||
 || queryCacheShareBetweenUsers | **boolean**
 
-If turned on, the result of SELECT queries cached in the query cache can be read by other users. It is not recommended to enable this setting due to security reasons.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_share_between_users). ||
+If turned on, the result of **SELECT** queries cached in the query cache can be read by other users.
+
+It is not recommended to enable this setting due to security reasons.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_share_between_users). ||
 || queryCacheNondeterministicFunctionHandling | **enum** (QueryCacheNondeterministicFunctionHandling)
 
-Controls how the query cache handles SELECT queries with non-deterministic functions like rand() or now().
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_nondeterministic_function_handling).
+Controls how the query cache handles **SELECT** queries with non-deterministic functions like rand() or now().
+
+Default value: **QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_nondeterministic_function_handling).
 
 - `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_UNSPECIFIED`
 - `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_THROW`: Throw an exception and don't cache the query result.
 - `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_SAVE`: Cache the query result.
 - `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_IGNORE`: Don't cache the query result and don't throw an exception. ||
-|| maxInsertThreads | **string** (int64)
+|| queryCacheSystemTableHandling | **enum** (QueryCacheSystemTableHandling)
 
-The maximum number of threads to execute the INSERT SELECT query.
-Default: 0
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#max_insert_threads) ||
-|| useHedgedRequests | **boolean**
+Controls how the query cache handles **SELECT** queries against system tables.
 
-Enables hedged requests logic for remote queries. It allows to establish many connections with different replicas for query. New connection is enabled in case existent connection(s) with replica(s) were not established within hedged_connection_timeout or no data was received within receive_data_timeout. Query uses the first connection which send non empty progress packet (or data packet, if allow_changing_replica_until_first_data_packet); other connections are cancelled. Queries with max_parallel_replicas > 1 are supported.
-Default: true
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#use_hedged_requests) ||
-|| idleConnectionTimeout | **string** (int64)
+Default value: **QUERY_CACHE_SYSTEM_TABLE_HANDLING_THROW**.
 
-Timeout to close idle TCP connections after specified number of milliseconds.
-Default: 360000 (3600 seconds)
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout) ||
-|| hedgedConnectionTimeoutMs | **string** (int64)
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_system_table_handling).
 
-Connection timeout for establishing connection with replica for Hedged requests.
-Default: 50
-See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/f9558345e886876b9132d9c018e357f7fa9b22a3/src/Core/Settings.h#L64) ||
-|| loadBalancing | **enum** (LoadBalancing)
+- `QUERY_CACHE_SYSTEM_TABLE_HANDLING_UNSPECIFIED`
+- `QUERY_CACHE_SYSTEM_TABLE_HANDLING_THROW`: Throw an exception and don't cache the query result.
+- `QUERY_CACHE_SYSTEM_TABLE_HANDLING_SAVE`: Cache the query result.
+- `QUERY_CACHE_SYSTEM_TABLE_HANDLING_IGNORE`: Don't cache the query result and don't throw an exception. ||
+|| countDistinctImplementation | **enum** (CountDistinctImplementation)
 
-Specifies the algorithm of replicas selection that is used for distributed query processing, one of: random, nearest_hostname, in_order, first_or_random, round_robin.
-Default: random
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#load_balancing)
+Specifies which of the uniq* functions should be used to perform the **COUNT(DISTINCT ...)** construction.
 
-- `LOAD_BALANCING_UNSPECIFIED`
-- `LOAD_BALANCING_RANDOM`
-- `LOAD_BALANCING_NEAREST_HOSTNAME`
-- `LOAD_BALANCING_IN_ORDER`
-- `LOAD_BALANCING_FIRST_OR_RANDOM`
-- `LOAD_BALANCING_ROUND_ROBIN` ||
-|| preferLocalhostReplica | **boolean**
+Default value: **COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT**.
 
-Enables or disables preferable using the localhost replica when processing distributed queries.
-Default: true
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#prefer_localhost_replica) ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#count_distinct_implementation).
+
+- `COUNT_DISTINCT_IMPLEMENTATION_UNSPECIFIED`
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ`
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED`
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64`
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12`
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT` ||
+|| joinedSubqueryRequiresAlias | **boolean**
+
+Force joined subqueries and table functions to have aliases for correct name qualification.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#joined_subquery_requires_alias). ||
+|| joinUseNulls | **boolean**
+
+Determines **JOIN** behavior on filling empty cells when merging tables. If enabled, the empty cells are filled with **NULL**.
+Otherwise, the empty cells are filled with the default value of the corresponding field type.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_use_nulls). ||
+|| transformNullIn | **boolean**
+
+Enables equality of **NULL** values for **IN** operator.
+
+By default, **NULL** values can't be compared because **NULL** means undefined value. Thus, comparison **expr = NULL** must always return false.
+With this setting enabled **NULL = NULL** returns true for **IN** operator.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#transform_null_in). ||
+|| insertNullAsDefault | **boolean**
+
+Enables or disables the insertion of default values instead of **NULL** into columns with not nullable data type.
+
+If column type is not nullable and this setting is disabled, then inserting NULL causes an exception.
+If column type is nullable, then NULL values are inserted as is, regardless of this setting.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_null_as_default). ||
+|| joinAlgorithm[] | **enum** (JoinAlgorithm)
+
+Specifies which JOIN algorithm to use.
+
+Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions from 23.8 to 24.11, **JOIN_ALGORITHM_AUTO** for versions 23.7 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_algorithm).
+
+- `JOIN_ALGORITHM_UNSPECIFIED`
+- `JOIN_ALGORITHM_HASH`
+- `JOIN_ALGORITHM_PARALLEL_HASH`
+- `JOIN_ALGORITHM_PARTIAL_MERGE`
+- `JOIN_ALGORITHM_DIRECT`
+- `JOIN_ALGORITHM_AUTO`
+- `JOIN_ALGORITHM_FULL_SORTING_MERGE`
+- `JOIN_ALGORITHM_PREFER_PARTIAL_MERGE` ||
+|| anyJoinDistinctRightTableKeys | **boolean**
+
+Enables legacy ClickHouse server behaviour in **ANY INNER\|LEFT JOIN** operations.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#any_join_distinct_right_table_keys). ||
+|| allowSuspiciousLowCardinalityTypes | **boolean**
+
+Allows or restricts using LowCardinality with data types with fixed size of 8 bytes or less.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#allow_suspicious_low_cardinality_types). ||
+|| flattenNested | **boolean**
+
+Sets the data format of nested columns.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#flatten_nested). ||
+|| memoryProfilerStep | **string** (int64)
+
+Sets the step of memory profiler. Whenever query memory usage becomes larger than every next step in number of bytes the memory profiler
+will collect the allocating stacktrace and will write it into trace_log. If set to **0**, memory profiler is disabled.
+
+Default value: **4194304**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_profiler_step). ||
+|| memoryProfilerSampleProbability | **number** (double)
+
+Collect random allocations and deallocations and write them into system.trace_log with MemorySample trace_type.
+The probability is for every alloc/free regardless to the size of the allocation.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_profiler_sample_probability). ||
+|| maxFinalThreads | **string** (int64)
+
+Sets the maximum number of parallel threads for the **SELECT** query data read phase with the **FINAL** modifier.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_final_threads). ||
+|| maxReadBufferSize | **string** (int64)
+
+The maximum size of the buffer to read from the filesystem.
+
+Default value: **1048576** (1 MiB).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_read_buffer_size). ||
+|| insertKeeperMaxRetries | **string** (int64)
+
+The setting sets the maximum number of retries for ClickHouse Keeper (or ZooKeeper) requests during insert into replicated MergeTree tables.
+Only Keeper requests which failed due to network error, Keeper session timeout or request timeout are considered for retries.
+
+Default value: **20**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_keeper_max_retries). ||
 || doNotMergeAcrossPartitionsSelectFinal | **boolean**
 
-Enables or disable independent processing of partitions for SELECT queries with FINAL.
-Default: false
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree) ||
+Enable or disable independent processing of partitions for **SELECT** queries with **FINAL**.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree). ||
 || ignoreMaterializedViewsWithDroppedTargetTable | **boolean**
 
 Ignore materialized views with dropped target table during pushing to views.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#ignore_materialized_views_with_dropped_target_table). ||
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#ignore_materialized_views_with_dropped_target_table). ||
+|| enableAnalyzer | **boolean**
+
+Enables or disables new query analyzer.
+
+Default value: **true** for versions 25.5 and higher, **false** for versions 25.4 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/developer/understanding-query-execution-with-the-analyzer#analyzer). ||
+|| s3UseAdaptiveTimeouts | **boolean**
+
+Enables or disables adaptive timeouts for S3 requests.
+* **true** - for all S3 requests first two attempts are made with low send and receive timeouts.
+* **false** - all attempts are made with identical timeouts.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#s3_use_adaptive_timeouts). ||
 || compile | **boolean**
 
 The setting is deprecated and has no effect. ||
 || minCountToCompile | **string** (int64)
+
+The setting is deprecated and has no effect. ||
+|| asyncInsertThreads | **string** (int64)
 
 The setting is deprecated and has no effect. ||
 || asyncInsertStaleTimeout | **string** (int64)
@@ -1317,34 +3430,28 @@ The setting is deprecated and has no effect. ||
 ## UserQuota {#yandex.cloud.mdb.clickhouse.v1.UserQuota}
 
 ClickHouse quota representation. Each quota associated with an user and limits it resource usage for an interval.
-See in-depth description [ClickHouse documentation](https://clickhouse.com/docs/en/operations/quotas/).
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/quotas/).
 
 #|
 ||Field | Description ||
 || intervalDuration | **string** (int64)
 
-Duration of interval for quota in milliseconds.
-Minimal value is 1 second. ||
+Duration of interval for quota in milliseconds. ||
 || queries | **string** (int64)
 
-The total number of queries.
-0 - unlimited. ||
+The total number of queries. **0** means unlimited. ||
 || errors | **string** (int64)
 
-The number of queries that threw exception.
-0 - unlimited. ||
+The number of queries that threw exception. **0** means unlimited. ||
 || resultRows | **string** (int64)
 
-The total number of rows given as the result..
-0 - unlimited. ||
+The total number of rows given as the result. **0** means unlimited. ||
 || readRows | **string** (int64)
 
-The total number of source rows read from tables for running the query, on all remote servers.
-0 - unlimited. ||
+The total number of source rows read from tables for running the query, on all remote servers. **0** means unlimited. ||
 || executionTime | **string** (int64)
 
-The total query execution time, in milliseconds (wall time).
-0 - unlimited. ||
+The total query execution time, in milliseconds (wall time). **0** means unlimited. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -1387,26 +3494,31 @@ The total query execution time, in milliseconds (wall time).
       "connectTimeoutWithFailover": "string",
       "receiveTimeout": "string",
       "sendTimeout": "string",
+      "idleConnectionTimeout": "string",
       "timeoutBeforeCheckingExecutionSpeed": "string",
       "insertQuorum": "string",
       "insertQuorumTimeout": "string",
       "insertQuorumParallel": "boolean",
-      "insertNullAsDefault": "boolean",
       "selectSequentialConsistency": "boolean",
-      "deduplicateBlocksInDependentMaterializedViews": "boolean",
       "replicationAlterPartitionsSync": "string",
       "maxReplicaDelayForDistributedQueries": "string",
       "fallbackToStaleReplicasForDistributedQueries": "boolean",
       "distributedProductMode": "string",
       "distributedAggregationMemoryEfficient": "boolean",
       "distributedDdlTaskTimeout": "string",
+      "distributedDdlOutputMode": "string",
       "skipUnavailableShards": "boolean",
+      "useHedgedRequests": "boolean",
+      "hedgedConnectionTimeoutMs": "string",
+      "loadBalancing": "string",
+      "preferLocalhostReplica": "boolean",
       "compileExpressions": "boolean",
       "minCountToCompileExpression": "string",
       "maxBlockSize": "string",
       "minInsertBlockSizeRows": "string",
       "minInsertBlockSizeBytes": "string",
       "maxInsertBlockSize": "string",
+      "maxPartitionsPerInsertBlock": "string",
       "minBytesToUseDirectIo": "string",
       "useUncompressedCache": "boolean",
       "mergeTreeMaxRowsToUseCache": "string",
@@ -1417,13 +3529,21 @@ The total query execution time, in milliseconds (wall time).
       "maxBytesBeforeExternalSort": "string",
       "groupByTwoLevelThreshold": "string",
       "groupByTwoLevelThresholdBytes": "string",
+      "deduplicateBlocksInDependentMaterializedViews": "boolean",
+      "localFilesystemReadMethod": "string",
+      "remoteFilesystemReadMethod": "string",
       "priority": "string",
       "maxThreads": "string",
+      "maxInsertThreads": "string",
       "maxMemoryUsage": "string",
       "maxMemoryUsageForUser": "string",
+      "memoryOvercommitRatioDenominator": "string",
+      "memoryOvercommitRatioDenominatorForUser": "string",
+      "memoryUsageOvercommitMaxWaitMicroseconds": "string",
       "maxNetworkBandwidth": "string",
       "maxNetworkBandwidthForUser": "string",
-      "maxPartitionsPerInsertBlock": "string",
+      "maxTemporaryDataOnDiskSizeForQuery": "string",
+      "maxTemporaryDataOnDiskSizeForUser": "string",
       "maxConcurrentQueriesForUser": "string",
       "forceIndexByDate": "boolean",
       "forcePrimaryKey": "boolean",
@@ -1452,10 +3572,6 @@ The total query execution time, in milliseconds (wall time).
       "maxRowsInJoin": "string",
       "maxBytesInJoin": "string",
       "joinOverflowMode": "string",
-      "joinAlgorithm": [
-        "string"
-      ],
-      "anyJoinDistinctRightTableKeys": "boolean",
       "maxColumnsToRead": "string",
       "maxTemporaryColumns": "string",
       "maxTemporaryNonConstColumns": "string",
@@ -1463,20 +3579,26 @@ The total query execution time, in milliseconds (wall time).
       "maxAstDepth": "string",
       "maxAstElements": "string",
       "maxExpandedAstElements": "string",
+      "maxParserDepth": "string",
       "minExecutionSpeed": "string",
       "minExecutionSpeedBytes": "string",
-      "countDistinctImplementation": "string",
       "inputFormatValuesInterpretExpressions": "boolean",
       "inputFormatDefaultsForOmittedFields": "boolean",
       "inputFormatNullAsDefault": "boolean",
-      "dateTimeInputFormat": "string",
       "inputFormatWithNamesUseHeader": "boolean",
       "outputFormatJsonQuote_64bitIntegers": "boolean",
       "outputFormatJsonQuoteDenormals": "boolean",
+      "dateTimeInputFormat": "string",
       "dateTimeOutputFormat": "string",
       "lowCardinalityAllowInNativeFormat": "boolean",
-      "allowSuspiciousLowCardinalityTypes": "boolean",
       "emptyResultForAggregationByEmptySet": "boolean",
+      "formatRegexp": "string",
+      "formatRegexpEscapingRule": "string",
+      "formatRegexpSkipUnmatched": "boolean",
+      "inputFormatParallelParsing": "boolean",
+      "inputFormatImportNestedJson": "boolean",
+      "formatAvroSchemaRegistryUrl": "string",
+      "dataTypeDefaultNullable": "boolean",
       "httpConnectionTimeout": "string",
       "httpReceiveTimeout": "string",
       "httpSendTimeout": "string",
@@ -1488,38 +3610,13 @@ The total query execution time, in milliseconds (wall time).
       "maxHttpGetRedirects": "string",
       "httpMaxFieldNameSize": "string",
       "httpMaxFieldValueSize": "string",
-      "joinedSubqueryRequiresAlias": "boolean",
-      "joinUseNulls": "boolean",
-      "transformNullIn": "boolean",
       "quotaMode": "string",
-      "flattenNested": "boolean",
-      "formatRegexp": "string",
-      "formatRegexpEscapingRule": "string",
-      "formatRegexpSkipUnmatched": "boolean",
       "asyncInsert": "boolean",
-      "asyncInsertThreads": "string",
       "waitForAsyncInsert": "boolean",
       "waitForAsyncInsertTimeout": "string",
       "asyncInsertMaxDataSize": "string",
       "asyncInsertBusyTimeout": "string",
       "asyncInsertUseAdaptiveBusyTimeout": "boolean",
-      "memoryProfilerStep": "string",
-      "memoryProfilerSampleProbability": "number",
-      "maxFinalThreads": "string",
-      "inputFormatParallelParsing": "boolean",
-      "inputFormatImportNestedJson": "boolean",
-      "formatAvroSchemaRegistryUrl": "string",
-      "dataTypeDefaultNullable": "boolean",
-      "localFilesystemReadMethod": "string",
-      "maxReadBufferSize": "string",
-      "insertKeeperMaxRetries": "string",
-      "maxTemporaryDataOnDiskSizeForUser": "string",
-      "maxTemporaryDataOnDiskSizeForQuery": "string",
-      "maxParserDepth": "string",
-      "remoteFilesystemReadMethod": "string",
-      "memoryOvercommitRatioDenominator": "string",
-      "memoryOvercommitRatioDenominatorForUser": "string",
-      "memoryUsageOvercommitMaxWaitMicroseconds": "string",
       "logQueryThreads": "boolean",
       "logQueryViews": "boolean",
       "logQueriesProbability": "number",
@@ -1535,16 +3632,30 @@ The total query execution time, in milliseconds (wall time).
       "queryCacheTag": "string",
       "queryCacheShareBetweenUsers": "boolean",
       "queryCacheNondeterministicFunctionHandling": "string",
-      "maxInsertThreads": "string",
-      "useHedgedRequests": "boolean",
-      "idleConnectionTimeout": "string",
-      "hedgedConnectionTimeoutMs": "string",
-      "loadBalancing": "string",
-      "preferLocalhostReplica": "boolean",
+      "queryCacheSystemTableHandling": "string",
+      "countDistinctImplementation": "string",
+      "joinedSubqueryRequiresAlias": "boolean",
+      "joinUseNulls": "boolean",
+      "transformNullIn": "boolean",
+      "insertNullAsDefault": "boolean",
+      "joinAlgorithm": [
+        "string"
+      ],
+      "anyJoinDistinctRightTableKeys": "boolean",
+      "allowSuspiciousLowCardinalityTypes": "boolean",
+      "flattenNested": "boolean",
+      "memoryProfilerStep": "string",
+      "memoryProfilerSampleProbability": "number",
+      "maxFinalThreads": "string",
+      "maxReadBufferSize": "string",
+      "insertKeeperMaxRetries": "string",
       "doNotMergeAcrossPartitionsSelectFinal": "boolean",
       "ignoreMaterializedViewsWithDroppedTargetTable": "boolean",
+      "enableAnalyzer": "boolean",
+      "s3UseAdaptiveTimeouts": "boolean",
       "compile": "boolean",
       "minCountToCompile": "string",
+      "asyncInsertThreads": "string",
       "asyncInsertStaleTimeout": "string"
     },
     "quotas": [
@@ -1665,27 +3776,28 @@ A list of messages that carry the error details. ||
 
 ## User {#yandex.cloud.mdb.clickhouse.v1.User}
 
-A ClickHouse User resource. For more information, see
-the [Developer's guide](/docs/managed-clickhouse/concepts).
+A ClickHouse User resource. For more information, see the [Developer's guide](/docs/managed-clickhouse/concepts).
 
 #|
 ||Field | Description ||
 || name | **string**
 
-Name of the ClickHouse user. ||
+Required field. User name. ||
 || clusterId | **string**
 
-ID of the ClickHouse cluster the user belongs to. ||
+Required field. Cluster ID. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.clickhouse.v1.Permission2)**
 
-Set of permissions granted to the user. ||
-|| settings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings2)** ||
+User permissions. ||
+|| settings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings2)**
+
+User settings. ||
 || quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota2)**
 
-Set of quotas assigned to the user. ||
+Quotas assigned to the user. ||
 || connectionManager | **[ConnectionManager](#yandex.cloud.mdb.clickhouse.v1.ConnectionManager)**
 
-Connection Manager connection configuration. Read only field. ||
+Connection Manager connection configuration. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.clickhouse.v1.Permission2}
@@ -1699,129 +3811,156 @@ Name of the database that the permission grants access to. ||
 
 ## UserSettings {#yandex.cloud.mdb.clickhouse.v1.UserSettings2}
 
-ClickHouse user settings. Supported settings are a limited subset of all settings
-described in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/).
+ClickHouse user settings. Supported settings are a subset of settings described
+in [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/).
 
 #|
 ||Field | Description ||
 || readonly | **string** (int64)
 
-Restricts permissions for non-DDL queries. To restrict permissions for DDL queries, use `allowDdl` instead.
-* **0** (default)-no restrictions.
-* **1**-only read data queries are allowed.
-* **2**-read data and change settings queries are allowed.
+Restricts permissions for non-DDL queries. To restrict permissions for DDL queries, use **allow_ddl** instead.
+* **0** - no restrictions.
+* **1** - only read data queries are allowed.
+* **2** - read data and change settings queries are allowed.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/permissions-for-queries/#settings_readonly). ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/permissions-for-queries#readonly). ||
 || allowDdl | **boolean**
 
-Determines whether DDL queries are allowed (e.g., **CREATE**, **ALTER**, **RENAME**, etc).
+Allows or denies DDL queries (e.g., **CREATE**, **ALTER**, **RENAME**, etc).
 
 Default value: **true**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/permissions-for-queries/#settings_allow_ddl). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/permissions-for-queries#allow_ddl). ||
 || allowIntrospectionFunctions | **boolean**
 
-Enables [introspections functions](https://clickhouse.com/docs/en/sql-reference/functions/introspection) for query profiling.
+Enables or disables introspection functions for query profiling.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-allow_introspection_functions). ||
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#allow_introspection_functions). ||
 || connectTimeout | **string** (int64)
 
 Connection timeout in milliseconds.
 
-Value must be greater than **0** (default: **10000**, 10 seconds). ||
+Default value: **10000** (10 seconds).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout). ||
 || connectTimeoutWithFailover | **string** (int64)
 
-The timeout in milliseconds for connecting to a remote server for a Distributed table engine. Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+The timeout in milliseconds for connecting to a remote server for a Distributed table engine.
 
-Default value: **50**.
+Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#connect-timeout-with-failover-ms). ||
+Default value: **1000** (1 second).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_ms). ||
 || receiveTimeout | **string** (int64)
 
 Receive timeout in milliseconds.
 
-Value must be greater than **0** (default: **300000**, 300 seconds or 5 minutes). ||
+Default value: **300000** (5 minutes).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#receive_timeout). ||
 || sendTimeout | **string** (int64)
 
 Send timeout in milliseconds.
 
-Value must be greater than **0** (default: **300000**, 300 seconds or 5 minutes). ||
+Default value: **300000** (5 minutes).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#send_timeout). ||
+|| idleConnectionTimeout | **string** (int64)
+
+Timeout to close idle TCP connections after specified time has elapsed, in milliseconds.
+
+Default value: **3600000** (1 hour).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#idle_connection_timeout). ||
 || timeoutBeforeCheckingExecutionSpeed | **string** (int64)
 
-Timeout (in seconds) between checks of execution speed. It is checked that execution speed is not less that specified in `minExecutionSpeed` parameter.
+Checks that the speed is not too low after the specified time has elapsed, in milliseconds. It is checked that execution speed
+is not less that specified in **min_execution_speed** parameter.
 
-Default value: **10**. ||
+Default value: **60000** (1 minute).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#timeout_before_checking_execution_speed). ||
 || insertQuorum | **string** (int64)
 
-Enables or disables write quorum for ClickHouse cluster.
-If the value is less than **2**, then write quorum is disabled, otherwise it is enabled.
+Enables or disables the quorum writes. If the value is less than **2**, then the quorum writes is disabled, otherwise it is enabled.
 
-When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors until the `insertQuorumTimeout` expires.
-All replicas in the quorum are in the consistent state, meaning that they contain linearized data from the previous **INSERT** queries.
-Employ write quorum, if you need the guarantees that the written data would not be lost in case of one or more replicas failure.
+When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors
+until the **insert_quorum_timeout** expires. All replicas in the quorum are in the consistent state, meaning that they contain
+linearized data from the previous **INSERT** queries. Employ write quorum, if you need the guarantees that the written data
+would not be lost in case of one or more replicas failure.
 
-You can use `selectSequentialConsistency` setting to read the data written with write quorum.
+You can use **select_sequential_consistency** setting to read the data written with write quorum.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum). ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_quorum). ||
 || insertQuorumTimeout | **string** (int64)
 
 Quorum write timeout in milliseconds.
 
-If the write quorum is enabled in the cluster, this timeout expires and some data is not written to the `insertQuorum` replicas, then ClickHouse will abort the execution of **INSERT** query and return an error.
-In this case, the client must send the query again to write the data block into the same or another replica.
+If the write quorum is enabled in the cluster, this timeout expires and some data is not written to the **insert_quorum** replicas,
+then ClickHouse will abort the execution of **INSERT** query and return an error. In this case, the client must send the query again
+to write the data block into the same or another replica.
 
-Minimum value: **1000**, 1 second (default: **60000**, 1 minute). ||
+Default value: **600000** (10 minutes).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_quorum_timeout). ||
 || insertQuorumParallel | **boolean**
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-insert_quorum_parallel). ||
-|| insertNullAsDefault | **boolean**
-
-Enables the insertion of default values instead of NULL into columns with not nullable data type.
+Enables or disables parallelism for quorum **INSERT** queries.
 
 Default value: **true**.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#insert_null_as_default). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_quorum_parallel). ||
 || selectSequentialConsistency | **boolean**
 
-Determines the behavior of **SELECT** queries from the replicated table: if enabled, ClickHouse will terminate a query with error message in case the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum.
+Determines the behavior of **SELECT** queries from replicated tables. If enabled, ClickHouse will terminate a query with error message in case
+the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum.
 
-Default value: **false** (sequential consistency is disabled). ||
-|| deduplicateBlocksInDependentMaterializedViews | **boolean**
+Default value: **true**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-deduplicate-blocks-in-dependent-materialized-views). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#select_sequential_consistency). ||
 || replicationAlterPartitionsSync | **string** (int64)
 
-Wait mode for asynchronous actions in **ALTER** queries on replicated tables:
+Wait mode for asynchronous actions in **ALTER** queries on replicated tables.
+* **0** - do not wait for replicas.
+* **1** - only wait for own execution.
+* **2** - wait for all replicas.
 
-* **0**-do not wait for replicas.
-* **1**-only wait for own execution (default).
-* **2**-wait for all replicas.
+Default value: **1**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/alter/#synchronicity-of-alter-queries). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#alter_sync). ||
 || maxReplicaDelayForDistributedQueries | **string** (int64)
 
 Max replica delay in milliseconds. If a replica lags more than the set value, this replica is not used and becomes a stale one.
 
-Minimum value: **1000**, 1 second (default: **300000**, 300 seconds or 5 minutes).
+Default value: **300000** (5 minutes).
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-max_replica_delay_for_distributed_queries). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_replica_delay_for_distributed_queries). ||
 || fallbackToStaleReplicasForDistributedQueries | **boolean**
 
 Enables or disables query forcing to a stale replica in case the actual data is unavailable.
 If enabled, ClickHouse will choose the most up-to-date replica and force the query to use the data in this replica.
 This setting can be used when doing **SELECT** query from a distributed table that points to replicated tables.
 
-Default value: **true** (query forcing is enabled).
+Default value: **true**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-fallback_to_stale_replicas_for_distributed_queries). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#fallback_to_stale_replicas_for_distributed_queries). ||
 || distributedProductMode | **enum** (DistributedProductMode)
 
-Determine the behavior of distributed subqueries.
+Determines the behavior of distributed subqueries.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#distributed-product-mode).
+Default value: **DISTRIBUTED_PRODUCT_MODE_DENY**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_product_mode).
 
 - `DISTRIBUTED_PRODUCT_MODE_UNSPECIFIED`
-- `DISTRIBUTED_PRODUCT_MODE_DENY`: Default value. Prohibits using these types of subqueries (returns the "Double-distributed in/JOIN subqueries is denied" exception).
+- `DISTRIBUTED_PRODUCT_MODE_DENY`: Prohibits using these types of subqueries (returns the "Double-distributed in/JOIN subqueries is denied" exception).
 - `DISTRIBUTED_PRODUCT_MODE_LOCAL`: Replaces the database and table in the subquery with local ones for the destination server (shard), leaving the normal IN/JOIN.
 - `DISTRIBUTED_PRODUCT_MODE_GLOBAL`: Replaces the IN/JOIN query with GLOBAL IN/GLOBAL JOIN.
 - `DISTRIBUTED_PRODUCT_MODE_ALLOW`: Allows the use of these types of subqueries. ||
@@ -1832,111 +3971,198 @@ Enables of disables memory saving mode when doing distributed aggregation.
 When ClickHouse works with a distributed query, external aggregation is done on remote servers.
 Enable this setting to achieve a smaller memory footprint on the server that sourced such a distributed query.
 
-Default value: **false** (memory saving mode is disabled).
+Default value: **true**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_aggregation_memory_efficient). ||
 || distributedDdlTaskTimeout | **string** (int64)
 
-Timeout for DDL queries, in milliseconds. ||
+Timeout for DDL queries, in milliseconds.
+
+Default value: **180000** (3 minutes).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_ddl_task_timeout). ||
+|| distributedDdlOutputMode | **enum** (DistributedDdlOutputMode)
+
+Determines the format of distributed DDL query result.
+
+Default value: **DISTRIBUTED_DDL_OUTPUT_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_ddl_output_mode).
+
+- `DISTRIBUTED_DDL_OUTPUT_MODE_UNSPECIFIED`
+- `DISTRIBUTED_DDL_OUTPUT_MODE_THROW`: Returns result set with query execution status for all hosts where query is finished. If query has failed on some hosts, then it will rethrow the first exception.
+If query is not finished yet on some hosts and **distributed_ddl_task_timeout** exceeded, then it throws **TIMEOUT_EXCEEDED** exception.
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NONE`: Like **DISTRIBUTED_DDL_OUTPUT_MODE_THROW**, but distributed DDL query returns no result set.
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT`: Returns **NULL** as execution status in some rows of result set instead of throwing **TIMEOUT_EXCEEDED** if query is not finished on the corresponding hosts.
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NEVER_THROW`: Do not throw **TIMEOUT_EXCEEDED** and do not rethrow exceptions if query has failed on some hosts.
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NONE_ONLY_ACTIVE`: Like **DISTRIBUTED_DDL_OUTPUT_MODE_NONE**, but doesn't wait for inactive replicas of the **Replicated** database.
+With this mode it's impossible to figure out that the query was not executed on some replica and will be executed in background.
+- `DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT_ONLY_ACTIVE`: Like **DISTRIBUTED_DDL_OUTPUT_MODE_NULL_STATUS_ON_TIMEOUT**, but doesn't wait for inactive replicas of the **Replicated** database.
+- `DISTRIBUTED_DDL_OUTPUT_MODE_THROW_ONLY_ACTIVE`: Like **DISTRIBUTED_DDL_OUTPUT_MODE_THROW**, but doesn't wait for inactive replicas of the **Replicated** database. ||
 || skipUnavailableShards | **boolean**
 
 Enables or disables silent skipping of unavailable shards.
 
 A shard is considered unavailable if all its replicas are also unavailable.
 
-Default value: **false** (silent skipping is disabled).
+Default value: **false**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-skip_unavailable_shards). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#skip_unavailable_shards). ||
+|| useHedgedRequests | **boolean**
+
+Enables or disables hedged requests logic for remote queries.
+
+It allows to establish many connections with different replicas for query. New connection is enabled in case existent connection(s) with replica(s)
+were not established within **hedged_connection_timeout** or no data was received within **receive_data_timeout**. Query uses the first connection
+which send non empty progress packet, other connections are cancelled.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#use_hedged_requests). ||
+|| hedgedConnectionTimeoutMs | **string** (int64)
+
+Connection timeout for establishing connection with replica for Hedged requests.
+
+Default value: **50**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#hedged_connection_timeout_ms). ||
+|| loadBalancing | **enum** (LoadBalancing)
+
+Algorithm of replicas selection that is used for distributed query processing.
+
+Default value: **LOAD_BALANCING_RANDOM**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#load_balancing).
+
+- `LOAD_BALANCING_UNSPECIFIED`
+- `LOAD_BALANCING_RANDOM`
+- `LOAD_BALANCING_NEAREST_HOSTNAME`
+- `LOAD_BALANCING_IN_ORDER`
+- `LOAD_BALANCING_FIRST_OR_RANDOM`
+- `LOAD_BALANCING_ROUND_ROBIN` ||
+|| preferLocalhostReplica | **boolean**
+
+Enable or disable preferable using the localhost replica when processing distributed queries.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#prefer_localhost_replica). ||
 || compileExpressions | **boolean**
 
-Enables or disables expression compilation.
+Enable or disable expression compilation to native code.
+
 If you execute a lot of queries that contain identical expressions, then enable this setting.
 As a result, such queries may be executed faster due to use of compiled expressions.
 
-Use this setting in combination with `minCountToCompileExpression` setting.
+Use this setting in combination with **min_count_to_compile_expression** setting.
 
-Default value: **false** (expression compilation is disabled). ||
+Default value: **true** for versions 25.5 and higher, **false** for versions 25.4 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#compile_expressions). ||
 || minCountToCompileExpression | **string** (int64)
 
 How many identical expressions ClickHouse has to encounter before they are compiled.
-
-Minimum value: **0** (default: **3**).
 
 For the **0** value compilation is synchronous: a query waits for expression compilation process to complete prior to continuing execution.
 It is recommended to set this value only for testing purposes.
 
 For all other values, compilation is asynchronous: the compilation process executes in a separate thread.
-When a compiled expression is ready, it will be used by ClickHouse for eligible queries, including the ones that are currently running. ||
+When a compiled expression is ready, it will be used by ClickHouse for eligible queries, including the ones that are currently running.
+
+Default value: **3**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_count_to_compile_expression). ||
 || maxBlockSize | **string** (int64)
 
-The maximum block size for reading.
+Sets the recommended maximum number of rows to include in a single block when loading data from tables.
 
-Data in ClickHouse is organized and processed by blocks (block is a set of columns' parts).
-The internal processing cycles for a single block are efficient enough, but there are noticeable expenditures on each block.
+Blocks the size of **max_block_size** are not always loaded from the table: if ClickHouse determines that less data needs to be retrieved,
+a smaller block is processed.
 
-This setting is a recommendation for size of block (in a count of rows) that should be loaded from tables.
+The block size should not be too small to avoid noticeable costs when processing each block. It should also not be too large to ensure that
+queries with a **LIMIT** clause execute quickly after processing the first block. When setting **max_block_size**, the goal should be to avoid
+consuming too much memory when extracting a large number of columns in multiple threads and to preserve at least some cache locality.
 
-Value must be greater than **0** (default: **65536**).
+Default value: **65409**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_block_size). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_block_size). ||
 || minInsertBlockSizeRows | **string** (int64)
 
-Limits the minimum number of rows in a block to be inserted in a table by **INSERT** query.
-Blocks that are smaller than the specified value, will be squashed together into the bigger blocks.
+Limits the minimum number of rows in a block to be inserted in a table by **INSERT** query. Blocks that are smaller than the specified value,
+will be squashed together into the bigger blocks. If set to **0**, block squashing is disabled.
 
-Minimal value: **0**, block squashing is disabled (default: **1048576**). ||
+Default value: **1048449**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_insert_block_size_rows). ||
 || minInsertBlockSizeBytes | **string** (int64)
 
-Limits the minimum number of bytes in a block to be inserted in a table by **INSERT** query.
-Blocks that are smaller than the specified value, will be squashed together into the bigger blocks.
+Limits the minimum number of bytes in a block to be inserted in a table by **INSERT** query. Blocks that are smaller than the specified value,
+will be squashed together into the bigger blocks. If set to **0**, block squashing is disabled.
 
-Minimal value: **0**, block squashing is disabled (default: **268435456**, 256 MB). ||
+Default value: **268402944**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_insert_block_size_bytes). ||
 || maxInsertBlockSize | **string** (int64)
 
-Allows to form blocks of the specified size (in bytes) when inserting data in a table.
-This setting has effect only if server is creating such blocks by itself.
+The size of blocks (in a count of rows) to form for insertion into a table.
 
-Value must be greater than **0** (default: **1048576**).
+This setting only applies in cases when the server forms the blocks. For example, for an **INSERT** via the HTTP interface, the server parses
+the data format and forms blocks of the specified size. But when using clickhouse-client, the client parses the data itself, and
+the **max_insert_block_size** setting on the server does not affect the size of the inserted blocks. The setting also does not have a purpose
+when using **INSERT SELECT**, since data is inserted using the same blocks that are formed after **SELECT**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-max_insert_block_size). ||
+Default value: **1048449**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_insert_block_size). ||
+|| maxPartitionsPerInsertBlock | **string** (int64)
+
+When inserting data, ClickHouse calculates the number of partitions in the inserted block.
+If the number of partitions is more than **max_partitions_per_insert_block**, ClickHouse throws an exception.
+
+Default value: **100**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#settings-max_partitions_per_insert_block). ||
 || minBytesToUseDirectIo | **string** (int64)
 
-Limits the minimum number of bytes to enable unbuffered direct reads from disk (Direct I/O).
+Limits the minimum number of bytes to enable unbuffered direct reads from disk (Direct I/O). If set to **0**, Direct I/O is disabled.
 
-By default, ClickHouse does not read data directly from disk, but relies on the filesystem and its cache instead.
-Such reading strategy is effective when the data volume is small.
-If the amount of the data to read is huge, it is more effective to read directly from the disk, bypassing the filesystem cache.
+By default, ClickHouse does not read data directly from disk, but relies on the filesystem and its cache instead. Such reading strategy
+is effective when the data volume is small. If the amount of the data to read is huge, it is more effective to read directly from the disk,
+bypassing the filesystem cache.
 
-If the total amount of the data to read is greater than the value of this setting, then ClickHouse will fetch this data directly from the disk.
+Default value: **0**.
 
-Minimal value and default value: **0**, Direct I/O is disabled. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_bytes_to_use_direct_io). ||
 || useUncompressedCache | **boolean**
 
 Determines whether to use the cache of uncompressed blocks, or not.
+
 Using this cache can significantly reduce latency and increase the throughput when a huge amount of small queries is to be processed.
 Enable this setting for the users who instantiates small queries frequently.
 
 This setting has effect only for tables of the MergeTree family.
 
-Default value: **false** (uncompressed cache is disabled).
+Default value: **false**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-use_uncompressed_cache). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#use_uncompressed_cache). ||
 || mergeTreeMaxRowsToUseCache | **string** (int64)
 
-Limits the maximum size in rows of the request that can use the cache of uncompressed data. The cache is not used for requests larger
-than the specified value.
+Limits the maximum size in rows of the request that can use the cache of uncompressed data. The cache is not used for requests larger than the specified value.
 
-Use this setting in combination with `useUncompressedCache` setting.
+Use this setting in combination with **use_uncompressed_cache** setting.
 
-Value must be greater than **0** (default: **128x8192**). ||
+Default value: **1048576**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#merge_tree_max_rows_to_use_cache). ||
 || mergeTreeMaxBytesToUseCache | **string** (int64)
 
-Limits the maximum size in bytes of the request that can use the cache of uncompressed data. The cache is not used for requests larger
-than the specified value.
+Limits the maximum size in bytes of the request that can use the cache of uncompressed data. The cache is not used for requests larger than the specified value.
 
-Use this setting in combination with `useUncompressedCache` setting.
+Use this setting in combination with **use_uncompressed_cache** setting.
 
-Value must be greater than **0** (default: **192x10x1024x1024**). ||
+Default value: **2013265920** (1920 MiB).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#merge_tree_max_bytes_to_use_cache). ||
 || mergeTreeMinRowsForConcurrentRead | **string** (int64)
 
 Limits the minimum number of rows to be read from a file to enable concurrent read.
@@ -1944,7 +4170,9 @@ If the number of rows to be read exceeds this value, then ClickHouse will try to
 
 This setting has effect only for tables of the MergeTree family.
 
-Value must be greater than **0** (default: **20x8192**). ||
+Default value: **163840**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#merge_tree_min_rows_for_concurrent_read). ||
 || mergeTreeMinBytesForConcurrentRead | **string** (int64)
 
 Limits the number of bytes to be read from a file to enable concurrent read.
@@ -1952,316 +4180,453 @@ If the number of bytes to be read exceeds this value, then ClickHouse will try t
 
 This setting has effect only for tables of the MergeTree family.
 
-Value must be greater than **0** (default: **24x10x1024x1024**). ||
+Default value: **251658240** (240 MiB).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#merge_tree_min_bytes_for_concurrent_read). ||
 || maxBytesBeforeExternalGroupBy | **string** (int64)
 
-Sets the threshold of RAM consumption (in bytes) after that the temporary data, collected during the **GROUP BY** operation, should be flushed to disk to limit the RAM comsumption.
+Sets the threshold of RAM consumption (in bytes) after that the temporary data, collected during the **GROUP BY** operation,
+should be flushed to disk to limit the RAM consumption. If set to **0**, **GROUP BY** in the external memory is disabled.
 
-By default, aggregation is done by employing hash table that resides in RAM.
-A query can result in aggregation of huge data volumes that can lead to memory exhaustion and abortion of the query (see the `maxMemoryUsage` setting).
-For such queries, you can use this setting to force ClickHouse to do flushing and complete aggregation successfully.
+By default, aggregation is done by employing hash table that resides in RAM. A query can result in aggregation of huge data
+volumes that can lead to memory exhaustion and abortion of the query (see the **max_memory_usage** setting). For such queries,
+you can use this setting to force ClickHouse to do flushing and complete aggregation successfully.
 
-Minimal value and default value: **0**, **GROUP BY** in the external memory is disabled.
+Default value: **0**.
 
-When using aggregation in external memory, it is recommended to set the value of this setting twice as low as the `maxMemoryUsage` setting value (by default, the maximum memory usage is limited to ten gigabytes).
-
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/sql-reference/statements/select/group-by/#select-group-by-in-external-memory).
-
-See also: the `distributedAggregationMemoryEfficient` setting. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_before_external_group_by). ||
 || maxBytesBeforeExternalSort | **string** (int64)
 
-This setting is equivalent of the `maxBytesBeforeExternalGroupBy` setting, except for it is for sort operation (**ORDER BY**), not aggregation. ||
+Sets the threshold of RAM consumption (in bytes) after that the temporary data, collected during the **ORDER BY** operation,
+should be flushed to disk to limit the RAM consumption. If set to **0**, **ORDER BY** in the external memory is disabled.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_before_external_sort). ||
 || groupByTwoLevelThreshold | **string** (int64)
 
-Sets the threshold of the number of keys, after that the two-level aggregation should be used.
+Sets the threshold of the number of keys, after that the two-level aggregation should be used. **0** means threshold is not set.
 
-Minimal value: **0**, threshold is not set (default: **10000**). ||
+Default value: **100000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#group_by_two_level_threshold). ||
 || groupByTwoLevelThresholdBytes | **string** (int64)
 
-Sets the threshold of the number of bytes, after that the two-level aggregation should be used.
+Sets the threshold of the number of bytes, after that the two-level aggregation should be used. **0** means threshold is not set.
 
-Minimal value: **0**, threshold is not set (default: **100000000**). ||
+Default value: **50000000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#group_by_two_level_threshold_bytes). ||
+|| deduplicateBlocksInDependentMaterializedViews | **boolean**
+
+Enables or disables the deduplication check for materialized views that receive data from replicated tables.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#deduplicate_blocks_in_dependent_materialized_views). ||
+|| localFilesystemReadMethod | **enum** (LocalFilesystemReadMethod)
+
+Method of reading data from local filesystem.
+
+The LOCAL_FILESYSTEM_READ_METHOD_IO_URING is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and
+other tables with append-able files in presence of concurrent reads and writes.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#local_filesystem_read_method).
+
+- `LOCAL_FILESYSTEM_READ_METHOD_UNSPECIFIED`
+- `LOCAL_FILESYSTEM_READ_METHOD_READ`
+- `LOCAL_FILESYSTEM_READ_METHOD_PREAD_THREADPOOL`
+- `LOCAL_FILESYSTEM_READ_METHOD_PREAD`
+- `LOCAL_FILESYSTEM_READ_METHOD_NMAP`
+- `LOCAL_FILESYSTEM_READ_METHOD_IO_URING` ||
+|| remoteFilesystemReadMethod | **enum** (RemoteFilesystemReadMethod)
+
+Method of reading data from remote filesystem.
+
+Default value: **REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#remote_filesystem_read_method).
+
+- `REMOTE_FILESYSTEM_READ_METHOD_UNSPECIFIED`
+- `REMOTE_FILESYSTEM_READ_METHOD_READ`
+- `REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL` ||
 || priority | **string** (int64)
 
 Sets the priority of a query.
-
-* **0**-priority is not used.
-* **1**-the highest priority.
+* **0** - priorities are not used.
+* **1** - the highest priority.
 * and so on. The higher the number, the lower a query's priority.
 
-This setting should be set up for each query individually.
+If ClickHouse is working with the high-priority queries, and a low-priority query enters, then the low-priority query
+is paused until higher-priority queries are completed.
 
-If ClickHouse is working with the high-priority queries, and a low-priority query enters, then the low-priority query is paused until higher-priority queries are completed.
+Default value: **0**.
 
-Minimal value and default value: **0**, priority is not used. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#priority). ||
 || maxThreads | **string** (int64)
 
-Limits the maximum number of threads to process the request (setting does not take threads that read data from remote servers into account).
+Limits the maximum number of threads to process the request. If set to **0**, the number of threads is calculated automatically based on the number of available CPU cores.
 
-This setting applies to threads that perform the same stages of the query processing pipeline in parallel.
+The setting applies to threads that perform the same stages of the query processing pipeline in parallel. It does not take threads that read data from remote servers into account.
 
-Minimal value and default value: **0** (the thread number is calculated automatically based on the number of physical CPU cores, no HyperThreading cores are taken into account).
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_threads). ||
+|| maxInsertThreads | **string** (int64)
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-max_threads). ||
+The maximum number of threads to execute the **INSERT SELECT** query.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_insert_threads). ||
 || maxMemoryUsage | **string** (int64)
 
-Limits the maximum memory usage (in bytes) for processing of a single user's query on a single server.
-This setting does not take server's free RAM amount or total RAM amount into account.
+Limits the maximum memory usage (in bytes) for processing of a single user's query on a single server. **0** means unlimited.
 
 This limitation is enforced for any user's single query on a single server.
 
-Minimal value: **0**, no limitation is set.
-Value that is set in the ClickHouse default config file: **10737418240** (10 GB).
+If you use **max_bytes_before_external_group_by** or **max_bytes_before_external_sort** setting, then it is recommended to set
+their values twice as low as **max_memory_usage** setting value.
 
-If you use `maxBytesBeforeExternalGroupBy` or `maxBytesBeforeExternalSort` setting, then it is recommended to set their values twice as low as `maxMemoryUsage` setting value.
+Default value: **0**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/query-complexity/#settings_max_memory_usage). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_memory_usage). ||
 || maxMemoryUsageForUser | **string** (int64)
 
-Limits the maximum memory usage (in bytes) for processing of user's queries on a single server.
-This setting does not take server's free RAM amount or total RAM amount into account.
+Limits the maximum memory usage (in bytes) for processing of user's queries on a single server. **0** means unlimited.
 
 This limitation is enforced for all queries that belong to one user and run simultaneously on a single server.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_memory_usage_for_user). ||
+|| memoryOvercommitRatioDenominator | **string** (int64)
+
+It represents the soft memory limit when the hard limit is reached on the global level.
+This value is used to compute the overcommit ratio for the query. **0** means skip the query.
+
+Default value: **1073741824** (1 GiB).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_overcommit_ratio_denominator). ||
+|| memoryOvercommitRatioDenominatorForUser | **string** (int64)
+
+It represents the soft memory limit when the hard limit is reached on the user level.
+This value is used to compute the overcommit ratio for the user. **0** means skip the query.
+
+Default value: **1073741824** (1 GiB).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_overcommit_ratio_denominator_for_user). ||
+|| memoryUsageOvercommitMaxWaitMicroseconds | **string** (int64)
+
+Maximum time thread will wait for memory to be freed in the case of memory overcommit. If the timeout is reached and memory is not freed, an exception is thrown.
+
+Default value: **5000000** (5 seconds).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds). ||
 || maxNetworkBandwidth | **string** (int64)
 
-The maximum speed of data exchange over the network in bytes per second for a query.
+The maximum speed of data exchange over the network in bytes per second for a query. **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth). ||
 || maxNetworkBandwidthForUser | **string** (int64)
 
-The maximum speed of data exchange over the network in bytes per second for all concurrently running user queries.
+The maximum speed of data exchange over the network in bytes per second for all concurrently running user queries. **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
-|| maxPartitionsPerInsertBlock | **string** (int64)
+Default value: **0**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/ru/operations/settings/query-complexity/#max-partitions-per-insert-block). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth-for-user). ||
+|| maxTemporaryDataOnDiskSizeForQuery | **string** (int64)
+
+The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query). ||
+|| maxTemporaryDataOnDiskSizeForUser | **string** (int64)
+
+The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running user queries. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user). ||
 || maxConcurrentQueriesForUser | **string** (int64)
 
-The maximum number of concurrent requests per user.
-Default value: 0 (no limit). ||
+The maximum number of simultaneously processed queries per user. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_concurrent_queries_for_user). ||
 || forceIndexByDate | **boolean**
 
-If enabled, query is not executed if the ClickHouse can't use index by date.
+Disables query execution if the index cannot be used by date.
+
 This setting has effect only for tables of the MergeTree family.
 
-Default value: **false** (setting is disabled, query executes even if ClickHouse can't use index by date).
+Default value: **false**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-force_index_by_date). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#force_index_by_date). ||
 || forcePrimaryKey | **boolean**
 
-If enabled, query is not executed if the ClickHouse can't use index by primary key.
+Disables query execution if indexing by the primary key cannot be used.
+
 This setting has effect only for tables of the MergeTree family.
 
-Default value: **false** (setting is disabled, query executes even if ClickHouse can't use index by primary key).
+Default value: **false**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#force-primary-key). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#force_primary_key). ||
 || maxRowsToRead | **string** (int64)
 
-Limits the maximum number of rows that can be read from a table when running a query.
+Limits the maximum number of rows that can be read from a table when running a query.  **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set.
+Default value: **0**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/query-complexity/#max-rows-to-read). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#max-rows-to-read). ||
 || maxBytesToRead | **string** (int64)
 
-Limits the maximum number of bytes (uncompressed data) that can be read from a table when running a query.
+Limits the maximum number of bytes (uncompressed data) that can be read from a table when running a query.  **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#max-bytes-to-read). ||
 || readOverflowMode | **enum** (OverflowMode)
 
-Determines the behavior on exceeding [limits](https://clickhouse.com/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity) while reading the data.
+Determines the behavior on exceeding limits while reading the data.
 
-* **throw**-abort query execution, return an error.
-* **break**-stop query execution, return partial result.
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#read_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxRowsToGroupBy | **string** (int64)
 
-Limits the maximum number of unique keys received from aggregation function.
-This setting helps to reduce RAM consumption while doing aggregation.
+Limits the maximum number of unique keys received from aggregation. **0** means unlimited.
+This setting lets you limit RAM consumption when aggregating.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_to_group_by). ||
 || groupByOverflowMode | **enum** (GroupByOverflowMode)
 
-Determines the behavior on exceeding [limits](https://clickhouse.com/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity) while doing aggregation.
+Determines the behavior on exceeding limits while doing aggregation.
 
-* **throw**-abort query execution, return an error.
-* **break**-stop query execution, return partial result.
-* **any**-perform approximate **GROUP BY** operation by continuing aggregation for the keys that got into the set, but don't add new keys to the set.
+Default value: **GROUP_BY_OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#group_by_overflow_mode).
 
 - `GROUP_BY_OVERFLOW_MODE_UNSPECIFIED`
-- `GROUP_BY_OVERFLOW_MODE_THROW`
-- `GROUP_BY_OVERFLOW_MODE_BREAK`
-- `GROUP_BY_OVERFLOW_MODE_ANY` ||
+- `GROUP_BY_OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `GROUP_BY_OVERFLOW_MODE_BREAK`: Return a partial result.
+- `GROUP_BY_OVERFLOW_MODE_ANY`: Continuing aggregation for the keys that got into the set, but do not add new keys to the set. ||
 || maxRowsToSort | **string** (int64)
 
-Limits the maximum number of rows that can be read from a table for sorting.
-This setting helps to reduce RAM consumption.
+Limits the maximum number of rows that can be read from a table for sorting. **0** means unlimited.
+This setting lets you to limit RAM consumption when sorting
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_to_sort). ||
 || maxBytesToSort | **string** (int64)
 
-Limits the maximum number of bytes (uncompressed data) that can be read from a table for sorting.
-This setting helps to reduce RAM consumption.
+Limits the maximum number of bytes (uncompressed data) that can be read from a table for sorting. **0** means unlimited.
+This setting lets you to limit RAM consumption when sorting
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_to_sort). ||
 || sortOverflowMode | **enum** (OverflowMode)
 
-Determines the behavior on exceeding [limits](https://clickhouse.com/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity) while sorting.
+Determines the behavior on exceeding limits while sorting.
 
-* **throw**-abort query execution, return an error.
-* **break**-stop query execution, return partial result.
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#sort_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxResultRows | **string** (int64)
 
-Limits the number of rows in the result.
+Limits the number of rows in the result. **0** means unlimited.
+
 This limitation is also checked for subqueries and parts of distributed queries that run on remote servers.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_result_rows). ||
 || maxResultBytes | **string** (int64)
 
-Limits the number of bytes in the result.
-This limitation is also checked for subqueries and parts of distributed queries that run on remote servers.
+Limits the result size in bytes (uncompressed data). **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_result_bytes). ||
 || resultOverflowMode | **enum** (OverflowMode)
 
-Determines the behavior on exceeding [limits](https://clickhouse.com/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity) while forming result.
+Determines the behavior on exceeding limits while forming result.
 
-* **throw**-abort query execution, return an error.
-* **break**-stop query execution, return partial result.
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#result_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxRowsInDistinct | **string** (int64)
 
-Limits the maximum number of different rows when using **DISTINCT**.
+Limits the maximum number of different rows in the state, which is used for performing **DISTINCT**. **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_in_distinct). ||
 || maxBytesInDistinct | **string** (int64)
 
-Limits the maximum size of a hash table in bytes (uncompressed data) when using **DISTINCT**. ||
+Limits the maximum number of bytes (uncompressed data) in the state, which is used for performing **DISTINCT**. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_in_distinct). ||
 || distinctOverflowMode | **enum** (OverflowMode)
 
-Determines the behavior on exceeding [limits](https://clickhouse.com/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity) while doing **DISCTINCT**.
+Determines the behavior on exceeding limits while performing **DISTINCT**.
 
-* **throw**-abort query execution, return an error.
-* **break**-stop query execution, return partial result.
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distinct_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxRowsToTransfer | **string** (int64)
 
-Limits the maximum number of rows that can be passed to a remote server or saved in a temporary table when using **GLOBAL IN**.
+Limits the maximum number of rows that can be passed to a remote server or saved in a temporary table when using **GLOBAL IN\|JOIN**. **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_to_transfer). ||
 || maxBytesToTransfer | **string** (int64)
 
-Limits the maximum number of bytes (uncompressed data) that can be passed to a remote server or saved in a temporary
-table when using **GLOBAL IN**.
+Limits the maximum number of bytes (uncompressed data) that can be passed to a remote server or saved in a temporary table when using **GLOBAL IN\|JOIN**.
+**0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_to_transfer). ||
 || transferOverflowMode | **enum** (OverflowMode)
 
-Determines the behavior on exceeding [limits](https://clickhouse.com/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity) while doing transfers.
+Determines the behavior on exceeding limits while transfering data.
 
-* **throw**-abort query execution, return an error.
-* **break**-stop query execution, return partial result.
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#transfer_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxExecutionTime | **string** (int64)
 
-Limits the maximum query execution time in milliseconds.
-At this moment, this limitation is not checked when passing one of the sorting stages, as well as merging and finalizing aggregation funictions.
+Limits the maximum query execution time in milliseconds. **0** means unlimited.
 
-Minimal value and default value: **0**, no limitation is set. ||
+The timeout is checked and the query can stop only in designated places during data processing.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_execution_time). ||
 || timeoutOverflowMode | **enum** (OverflowMode)
 
-Determines the behavior on exceeding [limits](https://clickhouse.com/docs/en/operations/settings/query-complexity/#restrictions-on-query-complexity) of execution time.
+Determines the behavior on exceeding limits of execution time.
 
-* **throw**-abort query execution, return an error.
-* **break**-stop query execution, return partial result.
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#timeout_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxRowsInSet | **string** (int64)
 
-Limit on the number of rows in the set resulting from the execution of the IN section. ||
+Limits on the maximum number of rows in the set resulting from the execution of the **IN** section. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_in_set). ||
 || maxBytesInSet | **string** (int64)
 
-Limit on the number of bytes in the set resulting from the execution of the IN section. ||
+Limits on the maximum number of bytes (uncompressed data) in the set resulting from the execution of the **IN** section. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_in_set). ||
 || setOverflowMode | **enum** (OverflowMode)
 
-Determine the behavior on exceeding max_rows_in_set or max_bytes_in_set limit.
-Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK.
+Determines the behavior on exceeding max_rows_in_set or max_bytes_in_set limit.
+
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#set_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxRowsInJoin | **string** (int64)
 
-Limit on maximum size of the hash table for JOIN, in rows. ||
+Limits the maximum number of rows in the hash table that is used when joining tables. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_rows_in_join). ||
 || maxBytesInJoin | **string** (int64)
 
-Limit on maximum size of the hash table for JOIN, in bytes. ||
+Limits the maximum number of bytes in the hash table that is used when joining tables. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_in_join). ||
 || joinOverflowMode | **enum** (OverflowMode)
 
-Determine the behavior on exceeding max_rows_in_join or max_bytes_in_join limit.
-Possible values: OVERFLOW_MODE_THROW, OVERFLOW_MODE_BREAK.
+Determines the behavior on exceeding max_rows_in_join or max_bytes_in_join limit.
+
+Default value: **OVERFLOW_MODE_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_overflow_mode).
 
 - `OVERFLOW_MODE_UNSPECIFIED`
-- `OVERFLOW_MODE_THROW`
-- `OVERFLOW_MODE_BREAK` ||
-|| joinAlgorithm[] | **enum** (JoinAlgorithm)
-
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-join_algorithm).
-
-- `JOIN_ALGORITHM_UNSPECIFIED`
-- `JOIN_ALGORITHM_HASH`
-- `JOIN_ALGORITHM_PARALLEL_HASH`
-- `JOIN_ALGORITHM_PARTIAL_MERGE`
-- `JOIN_ALGORITHM_DIRECT`
-- `JOIN_ALGORITHM_AUTO`
-- `JOIN_ALGORITHM_FULL_SORTING_MERGE`
-- `JOIN_ALGORITHM_PREFER_PARTIAL_MERGE` ||
-|| anyJoinDistinctRightTableKeys | **boolean**
-
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#any_join_distinct_right_table_keys). ||
+- `OVERFLOW_MODE_THROW`: Abort query execution and return an error.
+- `OVERFLOW_MODE_BREAK`: Return a partial result. ||
 || maxColumnsToRead | **string** (int64)
 
-Limits the maximum number of columns that can be read from a table in a single query.
+Limits the maximum number of columns that can be read from a table in a single query. **0** means unlimited.
 If the query requires to read more columns to complete, then it will be aborted.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_columns_to_read). ||
 || maxTemporaryColumns | **string** (int64)
 
-Limits the maximum number of temporary columns that must be kept in RAM at the same time when running a query, including constant columns.
+Limits the maximum number of temporary columns that must be kept in RAM simultaneously when running a query, including constant columns. **0** means unlimited.
+If the query generates more than the specified number of temporary columns in memory as a result of intermediate calculation, then it will be aborted.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_temporary_columns). ||
 || maxTemporaryNonConstColumns | **string** (int64)
 
-Limits the maximum number of temporary columns that must be kept in RAM at the same time when running a query, excluding constant columns.
+Limits the maximum number of temporary columns that must be kept in RAM simultaneously when running a query, not including constant columns. **0** means unlimited.
+If the query generates more than the specified number of temporary columns in memory as a result of intermediate calculation, then it will be aborted.
 
-Minimal value and default value: **0**, no limitation is set. ||
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_temporary_non_const_columns). ||
 || maxQuerySize | **string** (int64)
 
 Limits the size of the part of a query that can be transferred to RAM for parsing with the SQL parser, in bytes.
 
-Value must be greater than **0** (default: **262144**).
+Data in the **VALUES** clause of **INSERT** queries is processed by a separate stream parser (that consumes O(1) RAM) and not affected by this restriction.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-max_query_size). ||
+Default value: **262144** (256 KiB).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_query_size). ||
 || maxAstDepth | **string** (int64)
 
 Limits the maximum depth of query syntax tree.
@@ -2269,13 +4634,9 @@ Limits the maximum depth of query syntax tree.
 Executing a big and complex query may result in building a syntax tree of enormous depth.
 By using this setting, you can prohibit execution of over-sized or non-optimized queries for huge tables.
 
-For example, the **SELECT *** query may result in more complex and deeper syntax tree, compared to the **SELECT ... WHERE ...** query, containing constraints and conditions, in the most cases.
-A user can be forced to construct more optimized queries, if this setting is used.
+Default value: **1000**.
 
-Value must be greater than **0** (default: **1000**).
-If a too small value is set, it may render ClickHouse unable to execute even simple queries.
-
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/query-complexity/#max-ast-depth). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_ast_depth). ||
 || maxAstElements | **string** (int64)
 
 Limits the maximum size of query syntax tree in number of nodes.
@@ -2283,10 +4644,9 @@ Limits the maximum size of query syntax tree in number of nodes.
 Executing a big and complex query may result in building a syntax tree of enormous size.
 By using this setting, you can prohibit execution of over-sized or non-optimized queries for huge tables.
 
-Value must be greater than **0** (default: **50000**).
-If a too small value is set, it may render ClickHouse unable to execute even simple queries.
+Default value: **50000**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/query-complexity/#max-ast-elements). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_ast_elements). ||
 || maxExpandedAstElements | **string** (int64)
 
 Limits the maximum size of query syntax tree in number of nodes after expansion of aliases and the asterisk values.
@@ -2294,73 +4654,104 @@ Limits the maximum size of query syntax tree in number of nodes after expansion 
 Executing a big and complex query may result in building a syntax tree of enormous size.
 By using this setting, you can prohibit execution of over-sized or non-optimized queries for huge tables.
 
-Value must be greater than **0** (default: **500000**).
-If a too small value is set, it may render ClickHouse unable to execute even simple queries. ||
+Default value: **500000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_expanded_ast_elements). ||
+|| maxParserDepth | **string** (int64)
+
+Limits maximum recursion depth in the recursive descent parser. Allows controlling the stack size. If set to **0**, recursion depth is unlimited.
+
+Default value: **1000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_parser_depth). ||
 || minExecutionSpeed | **string** (int64)
 
-Minimal execution speed in rows per second. ||
+Minimal execution speed in rows per second. Checked on every data block when timeout_before_checking_execution_speed expires.
+If the execution speed is lower, an exception is thrown. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_execution_speed). ||
 || minExecutionSpeedBytes | **string** (int64)
 
-Minimal execution speed in bytes per second. ||
-|| countDistinctImplementation | **enum** (CountDistinctImplementation)
+Minimal execution speed in bytes per second. Checked on every data block when timeout_before_checking_execution_speed expires.
+If the execution speed is lower, an exception is thrown. **0** means unlimited.
 
-Aggregate function to use for implementation of count(DISTINCT ...).
+Default value: **0**.
 
-- `COUNT_DISTINCT_IMPLEMENTATION_UNSPECIFIED`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12`
-- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT` ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_execution_speed_bytes). ||
 || inputFormatValuesInterpretExpressions | **boolean**
 
 Enables or disables SQL parser if the fast stream parser cannot parse the data.
 
 Enable this setting, if the data that you want to insert into a table contains SQL expressions.
 
-For example, the stream parser is unable to parse a value that contains **now()** expression; therefore an **INSERT** query for this value will fail and no data will be inserted into a table.
-With enabled SQL parser, this expression is parsed correctly: the **now()** expression will be parsed as SQL function, interpreted, and the current date and time will be inserted into the table as a result.
+For example, the stream parser is unable to parse a value that contains **now()** expression; therefore an **INSERT** query for this value
+will fail and no data will be inserted into a table. With enabled SQL parser, this expression is parsed correctly: the **now()** expression
+will be parsed as SQL function, interpreted, and the current date and time will be inserted into the table as a result.
 
 This setting has effect only if you use [Values](https://clickhouse.com/docs/en/interfaces/formats/#data-format-values) format when inserting data.
 
-Default value: **true** (SQL parser is enabled).
+Default value: **true**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#settings-input_format_values_interpret_expressions). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_values_interpret_expressions). ||
 || inputFormatDefaultsForOmittedFields | **boolean**
 
 Enables or disables replacing omitted input values with default values of the respective columns when performing **INSERT** queries.
 
-Default value: **true** (replacing is enabled). ||
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_defaults_for_omitted_fields). ||
 || inputFormatNullAsDefault | **boolean**
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#input_format_null_as_default). ||
+Enables or disables the initialization of **NULL** fields with default values, if data type of these fields is not nullable.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_null_as_default). ||
+|| inputFormatWithNamesUseHeader | **boolean**
+
+Enables or disables checking the column order when inserting data.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_with_names_use_header). ||
+|| outputFormatJsonQuote_64bitIntegers | **boolean**
+
+Enables or disables quoting of 64-bit integers in JSON output format.
+
+If this setting is enabled, then 64-bit integers (**UInt64** and **Int64**) will be quoted when written to JSON output
+in order to maintain compatibility with the most of the JavaScript engines. Otherwise, such integers will not be quoted.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#output_format_json_quote_64bit_integers). ||
+|| outputFormatJsonQuoteDenormals | **boolean**
+
+Enables special floating-point values (**+nan**, **-nan**, **+inf** and **-inf**) in JSON output format.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#output_format_json_quote_denormals). ||
 || dateTimeInputFormat | **enum** (DateTimeInputFormat)
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#date_time_input_format).
+Specifies which of date time parsers to use.
+
+Default value: **DATE_TIME_INPUT_FORMAT_BASIC**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#date_time_input_format).
 
 - `DATE_TIME_INPUT_FORMAT_UNSPECIFIED`
 - `DATE_TIME_INPUT_FORMAT_BEST_EFFORT`
 - `DATE_TIME_INPUT_FORMAT_BASIC`
 - `DATE_TIME_INPUT_FORMAT_BEST_EFFORT_US` ||
-|| inputFormatWithNamesUseHeader | **boolean**
-
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#input_format_with_names_use_header). ||
-|| outputFormatJsonQuote_64bitIntegers | **boolean**
-
-Enables quoting of 64-bit integers in JSON output format.
-
-If this setting is enabled, then 64-bit integers (**UInt64** and **Int64**) will be quoted when written to JSON output in order to maintain compatibility with the most of the JavaScript engines.
-Otherwise, such integers will not be quoted.
-
-Default value: **false** (quoting 64-bit integers is disabled). ||
-|| outputFormatJsonQuoteDenormals | **boolean**
-
-Enables special floating-point values (**+nan**, **-nan**, **+inf** and **-inf**) in JSON output format.
-
-Default value: **false** (special values do not present in output). ||
 || dateTimeOutputFormat | **enum** (DateTimeOutputFormat)
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#date_time_output_format).
+Specifies which of date time output formats to use.
+
+Default value: **DATE_TIME_OUTPUT_FORMAT_SIMPLE**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#date_time_output_format).
 
 - `DATE_TIME_OUTPUT_FORMAT_UNSPECIFIED`
 - `DATE_TIME_OUTPUT_FORMAT_SIMPLE`
@@ -2368,46 +4759,103 @@ See in-depth description in [ClickHouse documentation](https://clickhouse.com/do
 - `DATE_TIME_OUTPUT_FORMAT_UNIX_TIMESTAMP` ||
 || lowCardinalityAllowInNativeFormat | **boolean**
 
-Determines whether to use LowCardinality type in Native format.
-
-* **true** (default)-yes, use.
-* **false**-convert LowCardinality columns to regular columns when doing **SELECT**, and convert regular columns to LowCardinality when doing **INSERT**.
+Allows or restricts using the LowCardinality data type with the Native format.
 
 LowCardinality columns (aka sparse columns) store data in more effective way, compared to regular columns, by using hash tables.
 If data to insert suits this storage format, ClickHouse will place them into LowCardinality column.
 
-If you use a third-party ClickHouse client that can't work with LowCardinality columns, then this client will not be able to correctly interpret the result of the query that asks for data stored in LowCardinality column.
-Disable this setting to convert LowCardinality column to regular column when creating the result, so such clients will be able to process the result.
+If you use a third-party ClickHouse client that can't work with LowCardinality columns, then this client will not be able to correctly interpret
+the result of the query that asks for data stored in LowCardinality column. Disable this setting to convert LowCardinality column to regular column
+when creating the result, so such clients will be able to process the result.
 
 Official ClickHouse client works with LowCardinality columns out-of-the-box.
 
-Default value: **true** (LowCardinality columns are used in Native format). ||
-|| allowSuspiciousLowCardinalityTypes | **boolean**
+Default value: **true**.
 
-Allows specifying **LowCardinality** modifier for types of small fixed size (8 or less) in CREATE TABLE statements. Enabling this may increase merge times and memory consumption.
-
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#allow_suspicious_low_cardinality_types). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#low_cardinality_allow_in_native_format). ||
 || emptyResultForAggregationByEmptySet | **boolean**
 
-Enables returning of empty result when aggregating without keys (with **GROUP BY** operation absent) on empty set (e.g., **SELECT count(*) FROM table WHERE 0**).
+Enables or disables returning of empty result when aggregating without keys (with **GROUP BY** operation absent) on empty set (e.g., **SELECT count(*) FROM table WHERE 0**).
+* **true** - ClickHouse will return an empty result for such queries.
+* **false** - ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard.
 
-* **true**-ClickHouse will return an empty result for such queries.
-* **false** (default)-ClickHouse will return a single-line result consisting of **NULL** values for aggregation functions, in accordance with SQL standard. ||
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#empty_result_for_aggregation_by_empty_set). ||
+|| formatRegexp | **string**
+
+Regular expression (for Regexp format).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_regexp). ||
+|| formatRegexpEscapingRule | **enum** (FormatRegexpEscapingRule)
+
+Field escaping rule (for Regexp format).
+
+Default value: **FORMAT_REGEXP_ESCAPING_RULE_RAW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_regexp_escaping_rule).
+
+- `FORMAT_REGEXP_ESCAPING_RULE_UNSPECIFIED`
+- `FORMAT_REGEXP_ESCAPING_RULE_ESCAPED`
+- `FORMAT_REGEXP_ESCAPING_RULE_QUOTED`
+- `FORMAT_REGEXP_ESCAPING_RULE_CSV`
+- `FORMAT_REGEXP_ESCAPING_RULE_JSON`
+- `FORMAT_REGEXP_ESCAPING_RULE_XML`
+- `FORMAT_REGEXP_ESCAPING_RULE_RAW` ||
+|| formatRegexpSkipUnmatched | **boolean**
+
+Skip lines unmatched by regular expression (for Regexp format)
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_regexp_skip_unmatched). ||
+|| inputFormatParallelParsing | **boolean**
+
+Enables or disables order-preserving parallel parsing of data formats. Supported only for TSV, TSKV, CSV and JSONEachRow formats.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#input_format_parallel_parsing). ||
+|| inputFormatImportNestedJson | **boolean**
+
+Enables or disables the insertion of JSON data with nested objects.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_import_nested_json). ||
+|| formatAvroSchemaRegistryUrl | **string**
+
+Avro schema registry URL.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#format_avro_schema_registry_url). ||
+|| dataTypeDefaultNullable | **boolean**
+
+Allows data types without explicit modifiers **NULL** or **NOT NULL** in column definition will be Nullable.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#data_type_default_nullable). ||
 || httpConnectionTimeout | **string** (int64)
 
 HTTP connection timeout, in milliseconds.
 
-Value must be greater than **0** (default: **1000**, 1 second). ||
+Default value: **1000** (1 second).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_connection_timeout). ||
 || httpReceiveTimeout | **string** (int64)
 
 HTTP receive timeout, in milliseconds.
 
-Value must be greater than **0** (default: **1800000**, 1800 seconds, 30 minutes). ||
+Default value: **30000** (30 seconds).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_receive_timeout). ||
 || httpSendTimeout | **string** (int64)
 
 HTTP send timeout, in milliseconds.
 
-Value must be greater than **0** (default: **1800000**, 1800 seconds, 30 minutes). ||
+Default value: **30000** (30 seconds).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_send_timeout). ||
 || enableHttpCompression | **boolean**
 
 Enables or disables data compression in HTTP responses.
@@ -2419,337 +4867,392 @@ Enable this setting and add the **Accept-Encoding: <compression method>** HTTP h
 
 ClickHouse support the following compression methods: **gzip**, **br** and **deflate**.
 
-Default value: **false** (compression is disabled).
+Default value: **false**.
 
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/interfaces/http/). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#enable_http_compression). ||
 || sendProgressInHttpHeaders | **boolean**
 
-Enables progress notifications using **X-ClickHouse-Progress** HTTP header.
+Enables or disables progress notifications using **X-ClickHouse-Progress** HTTP header.
 
-Default value: **false** (notifications disabled). ||
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#send_progress_in_http_headers). ||
 || httpHeadersProgressInterval | **string** (int64)
 
 Minimum interval between progress notifications with **X-ClickHouse-Progress** HTTP header, in milliseconds.
 
-Value must be greater than **0** (default: **100**). ||
+Default value: **100**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_headers_progress_interval_ms). ||
 || addHttpCorsHeader | **boolean**
 
 Adds CORS header in HTTP responses.
 
-Default value: **false** (header is not added). ||
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#add_http_cors_header). ||
 || cancelHttpReadonlyQueriesOnClientClose | **boolean**
 
-Cancels HTTP read-only queries (e.g. SELECT) when a client closes the connection without waiting for the response.
+Cancels HTTP read-only queries (e.g. **SELECT**) when a client closes the connection without waiting for the response.
 
 Default value: **false**.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#cancel-http-readonly-queries-on-client-close). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#cancel_http_readonly_queries_on_client_close). ||
 || maxHttpGetRedirects | **string** (int64)
 
-Limits the maximum number of HTTP GET redirect hops for [URL-engine](https://clickhouse.com/docs/en/engines/table-engines/special/url) tables.
+Limits the maximum number of HTTP GET redirect hops. If set to **0**, no hops is allowed.
 
-If the parameter is set to **0** (default), no hops is allowed.
+Default value: **0**.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#setting-max_http_get_redirects). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_http_get_redirects). ||
 || httpMaxFieldNameSize | **string** (int64)
 
 Maximum length of field name in HTTP header.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#http_max_field_name_size). ||
+
+Default value: **131072**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_max_field_name_size). ||
 || httpMaxFieldValueSize | **string** (int64)
 
 Maximum length of field value in HTTP header.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#http_max_field_value_size). ||
-|| joinedSubqueryRequiresAlias | **boolean** ||
-|| joinUseNulls | **boolean** ||
-|| transformNullIn | **boolean** ||
+
+Default value: **131072**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_max_field_value_size). ||
 || quotaMode | **enum** (QuotaMode)
 
-Quota accounting mode. Possible values: QUOTA_MODE_DEFAULT, QUOTA_MODE_KEYED and QUOTA_MODE_KEYED_BY_IP.
+Quota accounting mode.
+
+Default value: **QUOTA_MODE_DEFAULT**.
 
 - `QUOTA_MODE_UNSPECIFIED`
 - `QUOTA_MODE_DEFAULT`
 - `QUOTA_MODE_KEYED`
 - `QUOTA_MODE_KEYED_BY_IP` ||
-|| flattenNested | **boolean**
-
-Sets the data format of a [nested](https://clickhouse.com/docs/en/sql-reference/data-types/nested-data-structures/nested) columns.
-
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#flatten-nested). ||
-|| formatRegexp | **string**
-
-Regular expression (for Regexp format) ||
-|| formatRegexpEscapingRule | **enum** (FormatRegexpEscapingRule)
-
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#format_regexp_escaping_rule).
-
-- `FORMAT_REGEXP_ESCAPING_RULE_UNSPECIFIED`
-- `FORMAT_REGEXP_ESCAPING_RULE_ESCAPED`
-- `FORMAT_REGEXP_ESCAPING_RULE_QUOTED`
-- `FORMAT_REGEXP_ESCAPING_RULE_CSV`
-- `FORMAT_REGEXP_ESCAPING_RULE_JSON`
-- `FORMAT_REGEXP_ESCAPING_RULE_XML`
-- `FORMAT_REGEXP_ESCAPING_RULE_RAW` ||
-|| formatRegexpSkipUnmatched | **boolean**
-
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#format_regexp_skip_unmatched). ||
 || asyncInsert | **boolean**
 
-Enables asynchronous inserts.
+If enabled, data from **INSERT** query is stored in queue and later flushed to table in background.
 
-Disabled by default.
+Default value: **false**.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert). ||
-|| asyncInsertThreads | **string** (int64)
-
-The maximum number of threads for background data parsing and insertion.
-
-If the parameter is set to **0**, asynchronous insertions are disabled. Default value: **16**.
-
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-threads). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert). ||
 || waitForAsyncInsert | **boolean**
 
-Enables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.
+Enables or disables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert). ||
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#wait_for_async_insert). ||
 || waitForAsyncInsertTimeout | **string** (int64)
 
-The timeout (in seconds) for waiting for processing of asynchronous insertion.
+Timeout for waiting for processing asynchronous inserts, in seconds.
 
-Default value: **120**.
+Default value: **120** (2 minutes).
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#wait-for-async-insert-timeout). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#wait_for_async_insert_timeout). ||
 || asyncInsertMaxDataSize | **string** (int64)
 
 The maximum size of the unparsed data in bytes collected per query before being inserted.
 
-If the parameter is set to **0**, asynchronous insertions are disabled. Default value: **100000**.
+Default value: **10485760** (10 MiB).
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-max-data-size). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert_max_data_size). ||
 || asyncInsertBusyTimeout | **string** (int64)
 
-The maximum timeout in milliseconds since the first INSERT query before inserting collected data.
+Maximum time to wait before dumping collected data per query since the first data appeared.
 
-If the parameter is set to **0**, the timeout is disabled. Default value: **200**.
+Default value: **200**.
 
-More info see in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings/#async-insert-busy-timeout-ms). ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert_busy_timeout_max_ms). ||
 || asyncInsertUseAdaptiveBusyTimeout | **boolean**
 
-If it is set to true, use adaptive busy timeout for asynchronous inserts.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#async_insert_use_adaptive_busy_timeout). ||
-|| memoryProfilerStep | **string** (int64)
+Enables of disables adaptive busy timeout for asynchronous inserts.
 
-Memory profiler step (in bytes).
+Default value: **true**.
 
-If the next query step requires more memory than this parameter specifies, the memory profiler collects the allocating stack trace. Values lower than a few megabytes slow down query processing.
-
-Default value: **4194304** (4 MB). Zero means disabled memory profiler. ||
-|| memoryProfilerSampleProbability | **number** (double)
-
-Collect random allocations and deallocations and write them into system.trace_log with 'MemorySample' trace_type. The probability is for every alloc/free regardless to the size of the allocation.
-
-Possible values: from **0** to **1**. Default: **0**. ||
-|| maxFinalThreads | **string** (int64)
-
-Sets the maximum number of parallel threads for the SELECT query data read phase with the FINAL modifier.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#max-final-threads). ||
-|| inputFormatParallelParsing | **boolean**
-
-Enables or disables order-preserving parallel parsing of data formats. Supported only for [TSV](https://clickhouse.com/docs/en/interfaces/formats#tabseparated), [TKSV](https://clickhouse.com/docs/en/interfaces/formats#tskv), [CSV](https://clickhouse.com/docs/en/interfaces/formats#csv) and [JSONEachRow](https://clickhouse.com/docs/en/interfaces/formats#jsoneachrow) formats.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#input-format-parallel-parsing) ||
-|| inputFormatImportNestedJson | **boolean**
-
-Enables or disables the insertion of JSON data with nested objects.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#input-format-parallel-parsing) ||
-|| formatAvroSchemaRegistryUrl | **string**
-
-Avro schema registry URL.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/formats#format_avro_schema_registry_url). ||
-|| dataTypeDefaultNullable | **boolean**
-
-Allows data types without explicit modifiers NULL or NOT NULL in column definition will be Nullable.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#data_type_default_nullable). ||
-|| localFilesystemReadMethod | **enum** (LocalFilesystemReadMethod)
-
-Method of reading data from local filesystem, one of: read, pread, mmap, io_uring, pread_threadpool. The 'io_uring' method is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and other tables with append-able files in presence of concurrent reads and writes.
-
-- `LOCAL_FILESYSTEM_READ_METHOD_UNSPECIFIED`
-- `LOCAL_FILESYSTEM_READ_METHOD_READ`
-- `LOCAL_FILESYSTEM_READ_METHOD_PREAD_THREADPOOL`
-- `LOCAL_FILESYSTEM_READ_METHOD_PREAD`
-- `LOCAL_FILESYSTEM_READ_METHOD_NMAP` ||
-|| maxReadBufferSize | **string** (int64)
-
-The maximum size of the buffer to read from the filesystem.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/codebrowser/ClickHouse/src/Core/Settings.h.html#DB::SettingsTraits::Data::max_read_buffer_size) ||
-|| insertKeeperMaxRetries | **string** (int64)
-
-The setting sets the maximum number of retries for ClickHouse Keeper (or ZooKeeper) requests during insert into replicated MergeTree. Only Keeper requests which failed due to network error, Keeper session timeout, or request timeout are considered for retries.
-Default: 20 from 23.2, 0(disabled) before
-Min_version: 22.11
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#insert_keeper_max_retries) ||
-|| maxTemporaryDataOnDiskSizeForUser | **string** (int64)
-
-The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running user queries. Zero means unlimited.
-Default: 0 - unlimited
-Min_version: 22.10
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_user) ||
-|| maxTemporaryDataOnDiskSizeForQuery | **string** (int64)
-
-The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. Zero means unlimited.
-Default: 0 - unlimited
-Min_version: 22.10
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/query-complexity#settings_max_temporary_data_on_disk_size_for_query) ||
-|| maxParserDepth | **string** (int64)
-
-Limits maximum recursion depth in the recursive descent parser. Allows controlling the stack size.
-Default: 1000
-Special: 0 - unlimited
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#max_parser_depth) ||
-|| remoteFilesystemReadMethod | **enum** (RemoteFilesystemReadMethod)
-
-Method of reading data from remote filesystem, one of: read, threadpool.
-Default: read
-Min_version: 21.11
-See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/f9558345e886876b9132d9c018e357f7fa9b22a3/src/Core/Settings.h#L660)
-
-- `REMOTE_FILESYSTEM_READ_METHOD_UNSPECIFIED`
-- `REMOTE_FILESYSTEM_READ_METHOD_READ`
-- `REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL` ||
-|| memoryOvercommitRatioDenominator | **string** (int64)
-
-It represents soft memory limit in case when hard limit is reached on user level. This value is used to compute overcommit ratio for the query. Zero means skip the query.
-Default: 1GiB
-Min_version: 22.5
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator) ||
-|| memoryOvercommitRatioDenominatorForUser | **string** (int64)
-
-It represents soft memory limit in case when hard limit is reached on global level. This value is used to compute overcommit ratio for the query. Zero means skip the query.
-Default: 1GiB
-Min_version: 22.5
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#memory_overcommit_ratio_denominator_for_user) ||
-|| memoryUsageOvercommitMaxWaitMicroseconds | **string** (int64)
-
-Maximum time thread will wait for memory to be freed in the case of memory overcommit on a user level. If the timeout is reached and memory is not freed, an exception is thrown.
-Default: 5000000
-Min_version: 22.5
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#memory_usage_overcommit_max_wait_microseconds) ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#async_insert_use_adaptive_busy_timeout). ||
 || logQueryThreads | **boolean**
 
-Setting up query threads logging. Query threads log into the [system.query_thread_log](https://clickhouse.com/docs/en/operations/system-tables/query_thread_log) table. This setting has effect only when [log_queries](https://clickhouse.com/docs/en/operations/settings/settings#log-queries) is true. Queries threads run by ClickHouse with this setup are logged according to the rules in the [query_thread_log](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#server_configuration_parameters-query_thread_log) server configuration parameter.
-Default: false
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_query_threads) ||
+Enables or disables query threads logging to the the system.query_thread_log table.
+This setting has effect only when **log_queries** setting is enabled.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#log_query_threads). ||
 || logQueryViews | **boolean**
 
-Enables or disables query views logging to the the system.query_view_log table.
-Default: true
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_query_views) ||
+Enables or disables query views logging to the the system.query_views_log table.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#log_query_views). ||
 || logQueriesProbability | **number** (double)
 
 Log queries with the specified probability.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_queries_probability). ||
+
+Default value: **1**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#log_queries_probability). ||
 || logProcessorsProfiles | **boolean**
 
-Enabled or disable logging of processors level profiling data to the the system.log_processors_profiles table.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#log_processors_profiles). ||
+Enables or disables logging of processors level profiling data to the the system.processors_profile_log table.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#log_processors_profiles). ||
 || useQueryCache | **boolean**
 
-If turned on, SELECT queries may utilize the query cache.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#use_query_cache). ||
+If turned on, **SELECT** queries may utilize the query cache.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#use_query_cache). ||
 || enableReadsFromQueryCache | **boolean**
 
-If turned on, results of SELECT queries are retrieved from the query cache.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#enable_reads_from_query_cache). ||
+If turned on, results of **SELECT** queries are retrieved from the query cache.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#enable_reads_from_query_cache). ||
 || enableWritesToQueryCache | **boolean**
 
-If turned on, results of SELECT queries are stored in the query cache.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#enable_writes_to_query_cache). ||
+If turned on, results of **SELECT** queries are stored in the query cache.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#enable_writes_to_query_cache). ||
 || queryCacheMinQueryRuns | **string** (int64)
 
-Minimum number of times a SELECT query must run before its result is stored in the query cache.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_min_query_runs). ||
+Minimum number of times a **SELECT** query must run before its result is stored in the query cache.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_min_query_runs). ||
 || queryCacheMinQueryDuration | **string** (int64)
 
 Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_min_query_duration). ||
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_min_query_duration). ||
 || queryCacheTtl | **string** (int64)
 
 After this time in seconds entries in the query cache become stale.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_ttl). ||
+
+Default value: **60** (1 minute).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_ttl). ||
 || queryCacheMaxEntries | **string** (int64)
 
-The maximum number of query results the current user may store in the query cache. 0 means unlimited.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_max_entries). ||
+The maximum number of query results the current user may store in the query cache. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_max_entries). ||
 || queryCacheMaxSizeInBytes | **string** (int64)
 
-The maximum amount of memory (in bytes) the current user may allocate in the query cache. 0 means unlimited.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_max_size_in_bytes). ||
+The maximum amount of memory (in bytes) the current user may allocate in the query cache. **0** means unlimited.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_max_size_in_bytes). ||
 || queryCacheTag | **string**
 
 A string which acts as a label for query cache entries. The same queries with different tags are considered different by the query cache.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_tag). ||
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_tag). ||
 || queryCacheShareBetweenUsers | **boolean**
 
-If turned on, the result of SELECT queries cached in the query cache can be read by other users. It is not recommended to enable this setting due to security reasons.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_share_between_users). ||
+If turned on, the result of **SELECT** queries cached in the query cache can be read by other users.
+
+It is not recommended to enable this setting due to security reasons.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_share_between_users). ||
 || queryCacheNondeterministicFunctionHandling | **enum** (QueryCacheNondeterministicFunctionHandling)
 
-Controls how the query cache handles SELECT queries with non-deterministic functions like rand() or now().
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#query_cache_nondeterministic_function_handling).
+Controls how the query cache handles **SELECT** queries with non-deterministic functions like rand() or now().
+
+Default value: **QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_THROW**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_nondeterministic_function_handling).
 
 - `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_UNSPECIFIED`
 - `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_THROW`: Throw an exception and don't cache the query result.
 - `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_SAVE`: Cache the query result.
 - `QUERY_CACHE_NONDETERMINISTIC_FUNCTION_HANDLING_IGNORE`: Don't cache the query result and don't throw an exception. ||
-|| maxInsertThreads | **string** (int64)
+|| queryCacheSystemTableHandling | **enum** (QueryCacheSystemTableHandling)
 
-The maximum number of threads to execute the INSERT SELECT query.
-Default: 0
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#max_insert_threads) ||
-|| useHedgedRequests | **boolean**
+Controls how the query cache handles **SELECT** queries against system tables.
 
-Enables hedged requests logic for remote queries. It allows to establish many connections with different replicas for query. New connection is enabled in case existent connection(s) with replica(s) were not established within hedged_connection_timeout or no data was received within receive_data_timeout. Query uses the first connection which send non empty progress packet (or data packet, if allow_changing_replica_until_first_data_packet); other connections are cancelled. Queries with max_parallel_replicas > 1 are supported.
-Default: true
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#use_hedged_requests) ||
-|| idleConnectionTimeout | **string** (int64)
+Default value: **QUERY_CACHE_SYSTEM_TABLE_HANDLING_THROW**.
 
-Timeout to close idle TCP connections after specified number of milliseconds.
-Default: 360000 (3600 seconds)
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout) ||
-|| hedgedConnectionTimeoutMs | **string** (int64)
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_system_table_handling).
 
-Connection timeout for establishing connection with replica for Hedged requests.
-Default: 50
-See in-depth description in [ClickHouse GitHub](https://github.com/ClickHouse/ClickHouse/blob/f9558345e886876b9132d9c018e357f7fa9b22a3/src/Core/Settings.h#L64) ||
-|| loadBalancing | **enum** (LoadBalancing)
+- `QUERY_CACHE_SYSTEM_TABLE_HANDLING_UNSPECIFIED`
+- `QUERY_CACHE_SYSTEM_TABLE_HANDLING_THROW`: Throw an exception and don't cache the query result.
+- `QUERY_CACHE_SYSTEM_TABLE_HANDLING_SAVE`: Cache the query result.
+- `QUERY_CACHE_SYSTEM_TABLE_HANDLING_IGNORE`: Don't cache the query result and don't throw an exception. ||
+|| countDistinctImplementation | **enum** (CountDistinctImplementation)
 
-Specifies the algorithm of replicas selection that is used for distributed query processing, one of: random, nearest_hostname, in_order, first_or_random, round_robin.
-Default: random
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#load_balancing)
+Specifies which of the uniq* functions should be used to perform the **COUNT(DISTINCT ...)** construction.
 
-- `LOAD_BALANCING_UNSPECIFIED`
-- `LOAD_BALANCING_RANDOM`
-- `LOAD_BALANCING_NEAREST_HOSTNAME`
-- `LOAD_BALANCING_IN_ORDER`
-- `LOAD_BALANCING_FIRST_OR_RANDOM`
-- `LOAD_BALANCING_ROUND_ROBIN` ||
-|| preferLocalhostReplica | **boolean**
+Default value: **COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT**.
 
-Enables or disables preferable using the localhost replica when processing distributed queries.
-Default: true
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#prefer_localhost_replica) ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#count_distinct_implementation).
+
+- `COUNT_DISTINCT_IMPLEMENTATION_UNSPECIFIED`
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ`
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED`
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_COMBINED_64`
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_HLL_12`
+- `COUNT_DISTINCT_IMPLEMENTATION_UNIQ_EXACT` ||
+|| joinedSubqueryRequiresAlias | **boolean**
+
+Force joined subqueries and table functions to have aliases for correct name qualification.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#joined_subquery_requires_alias). ||
+|| joinUseNulls | **boolean**
+
+Determines **JOIN** behavior on filling empty cells when merging tables. If enabled, the empty cells are filled with **NULL**.
+Otherwise, the empty cells are filled with the default value of the corresponding field type.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_use_nulls). ||
+|| transformNullIn | **boolean**
+
+Enables equality of **NULL** values for **IN** operator.
+
+By default, **NULL** values can't be compared because **NULL** means undefined value. Thus, comparison **expr = NULL** must always return false.
+With this setting enabled **NULL = NULL** returns true for **IN** operator.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#transform_null_in). ||
+|| insertNullAsDefault | **boolean**
+
+Enables or disables the insertion of default values instead of **NULL** into columns with not nullable data type.
+
+If column type is not nullable and this setting is disabled, then inserting NULL causes an exception.
+If column type is nullable, then NULL values are inserted as is, regardless of this setting.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_null_as_default). ||
+|| joinAlgorithm[] | **enum** (JoinAlgorithm)
+
+Specifies which JOIN algorithm to use.
+
+Default value: **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_PARALLEL_HASH,JOIN_ALGORITHM_HASH** for versions 24.12 and higher, **JOIN_ALGORITHM_DIRECT,JOIN_ALGORITHM_AUTO** for versions from 23.8 to 24.11, **JOIN_ALGORITHM_AUTO** for versions 23.7 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_algorithm).
+
+- `JOIN_ALGORITHM_UNSPECIFIED`
+- `JOIN_ALGORITHM_HASH`
+- `JOIN_ALGORITHM_PARALLEL_HASH`
+- `JOIN_ALGORITHM_PARTIAL_MERGE`
+- `JOIN_ALGORITHM_DIRECT`
+- `JOIN_ALGORITHM_AUTO`
+- `JOIN_ALGORITHM_FULL_SORTING_MERGE`
+- `JOIN_ALGORITHM_PREFER_PARTIAL_MERGE` ||
+|| anyJoinDistinctRightTableKeys | **boolean**
+
+Enables legacy ClickHouse server behaviour in **ANY INNER\|LEFT JOIN** operations.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#any_join_distinct_right_table_keys). ||
+|| allowSuspiciousLowCardinalityTypes | **boolean**
+
+Allows or restricts using LowCardinality with data types with fixed size of 8 bytes or less.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#allow_suspicious_low_cardinality_types). ||
+|| flattenNested | **boolean**
+
+Sets the data format of nested columns.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#flatten_nested). ||
+|| memoryProfilerStep | **string** (int64)
+
+Sets the step of memory profiler. Whenever query memory usage becomes larger than every next step in number of bytes the memory profiler
+will collect the allocating stacktrace and will write it into trace_log. If set to **0**, memory profiler is disabled.
+
+Default value: **4194304**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_profiler_step). ||
+|| memoryProfilerSampleProbability | **number** (double)
+
+Collect random allocations and deallocations and write them into system.trace_log with MemorySample trace_type.
+The probability is for every alloc/free regardless to the size of the allocation.
+
+Default value: **0**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#memory_profiler_sample_probability). ||
+|| maxFinalThreads | **string** (int64)
+
+Sets the maximum number of parallel threads for the **SELECT** query data read phase with the **FINAL** modifier.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_final_threads). ||
+|| maxReadBufferSize | **string** (int64)
+
+The maximum size of the buffer to read from the filesystem.
+
+Default value: **1048576** (1 MiB).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_read_buffer_size). ||
+|| insertKeeperMaxRetries | **string** (int64)
+
+The setting sets the maximum number of retries for ClickHouse Keeper (or ZooKeeper) requests during insert into replicated MergeTree tables.
+Only Keeper requests which failed due to network error, Keeper session timeout or request timeout are considered for retries.
+
+Default value: **20**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_keeper_max_retries). ||
 || doNotMergeAcrossPartitionsSelectFinal | **boolean**
 
-Enables or disable independent processing of partitions for SELECT queries with FINAL.
-Default: false
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree) ||
+Enable or disable independent processing of partitions for **SELECT** queries with **FINAL**.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/replacing-merge-tree#exploiting-partitions-with-replacingmergetree). ||
 || ignoreMaterializedViewsWithDroppedTargetTable | **boolean**
 
 Ignore materialized views with dropped target table during pushing to views.
-See in-depth description in [ClickHouse documentation](https://clickhouse.com/docs/en/operations/settings/settings#ignore_materialized_views_with_dropped_target_table). ||
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#ignore_materialized_views_with_dropped_target_table). ||
+|| enableAnalyzer | **boolean**
+
+Enables or disables new query analyzer.
+
+Default value: **true** for versions 25.5 and higher, **false** for versions 25.4 and lower.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/guides/developer/understanding-query-execution-with-the-analyzer#analyzer). ||
+|| s3UseAdaptiveTimeouts | **boolean**
+
+Enables or disables adaptive timeouts for S3 requests.
+* **true** - for all S3 requests first two attempts are made with low send and receive timeouts.
+* **false** - all attempts are made with identical timeouts.
+
+Default value: **true**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#s3_use_adaptive_timeouts). ||
 || compile | **boolean**
 
 The setting is deprecated and has no effect. ||
 || minCountToCompile | **string** (int64)
+
+The setting is deprecated and has no effect. ||
+|| asyncInsertThreads | **string** (int64)
 
 The setting is deprecated and has no effect. ||
 || asyncInsertStaleTimeout | **string** (int64)
@@ -2760,34 +5263,28 @@ The setting is deprecated and has no effect. ||
 ## UserQuota {#yandex.cloud.mdb.clickhouse.v1.UserQuota2}
 
 ClickHouse quota representation. Each quota associated with an user and limits it resource usage for an interval.
-See in-depth description [ClickHouse documentation](https://clickhouse.com/docs/en/operations/quotas/).
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/quotas/).
 
 #|
 ||Field | Description ||
 || intervalDuration | **string** (int64)
 
-Duration of interval for quota in milliseconds.
-Minimal value is 1 second. ||
+Duration of interval for quota in milliseconds. ||
 || queries | **string** (int64)
 
-The total number of queries.
-0 - unlimited. ||
+The total number of queries. **0** means unlimited. ||
 || errors | **string** (int64)
 
-The number of queries that threw exception.
-0 - unlimited. ||
+The number of queries that threw exception. **0** means unlimited. ||
 || resultRows | **string** (int64)
 
-The total number of rows given as the result..
-0 - unlimited. ||
+The total number of rows given as the result. **0** means unlimited. ||
 || readRows | **string** (int64)
 
-The total number of source rows read from tables for running the query, on all remote servers.
-0 - unlimited. ||
+The total number of source rows read from tables for running the query, on all remote servers. **0** means unlimited. ||
 || executionTime | **string** (int64)
 
-The total query execution time, in milliseconds (wall time).
-0 - unlimited. ||
+The total query execution time, in milliseconds (wall time). **0** means unlimited. ||
 |#
 
 ## ConnectionManager {#yandex.cloud.mdb.clickhouse.v1.ConnectionManager}

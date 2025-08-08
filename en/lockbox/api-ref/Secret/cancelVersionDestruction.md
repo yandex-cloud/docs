@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:cancelVersionDestruction
+    method: post
+    path:
+      type: object
+      properties:
+        secretId:
+          description: |-
+            **string**
+            Required field. ID of the secret to cancel a version's destruction for.
+          type: string
+      required:
+        - secretId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            **string**
+            Required field. ID of the secret whose scheduled destruction should be cancelled.
+          type: string
+      required:
+        - versionId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/cancelVersionDestruction.md
 ---
 

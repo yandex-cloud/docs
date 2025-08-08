@@ -1,5 +1,50 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/users
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Elasticsearch cluster to create a user in.
+            To get the cluster ID, make a [ClusterService.List](/docs/managed-elasticsearch/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        userSpec:
+          description: |-
+            **[UserSpec](/docs/managed-elasticsearch/api-ref/Cluster/create#yandex.cloud.mdb.elasticsearch.v1.UserSpec)**
+            Required field. Configuration of the user to create.
+          $ref: '#/definitions/UserSpec'
+      required:
+        - userSpec
+      additionalProperties: false
+    definitions:
+      UserSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the Elasticsearch user.
+            pattern: '[a-zA-Z0-9_]*'
+            type: string
+          password:
+            description: |-
+              **string**
+              Required field. Password of the Elasticsearch user.
+            type: string
+        required:
+          - name
+          - password
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/User/create.md
 ---
 

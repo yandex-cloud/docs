@@ -1,5 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/passwords
+    method: post
+    path:
+      type: object
+      properties:
+        brokerId:
+          description: |-
+            **string**
+            Required field. ID of the broker to add a password for.
+            To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request.
+          type: string
+      required:
+        - brokerId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        password:
+          description: |-
+            **string**
+            Passwords for the broker.
+            The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/addPassword.md
 ---
 

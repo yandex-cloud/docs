@@ -1,11 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/thumbnails/{thumbnailId}
+    method: delete
+    path:
+      type: object
+      properties:
+        thumbnailId:
+          description: |-
+            **string**
+            Required field. ID of the thumbnail to delete.
+          type: string
+      required:
+        - thumbnailId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Thumbnail/delete.md
 ---
 
 # Video API, REST: Thumbnail.Delete
 
-Delete thumbnail.
+Deletes a specific thumbnail by its ID.
+This removes both the metadata record and the associated image file.
 
 ## HTTP request
 
@@ -19,7 +37,7 @@ DELETE https://video.{{ api-host }}/video/v1/thumbnails/{thumbnailId}
 ||Field | Description ||
 || thumbnailId | **string**
 
-Required field. ID of the thumbnail. ||
+Required field. ID of the thumbnail to delete. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -109,7 +127,8 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || thumbnailId | **string**
 
-ID of the thumbnail. ||
+ID of the thumbnail being deleted.
+This identifier can be used to track the thumbnail deletion operation. ||
 |#
 
 ## Status {#google.rpc.Status}

@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://llm.{{ api-host }}/foundationModels/v1/textEmbedding
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        modelUri:
+          description: |-
+            **string**
+            The [model URI](/docs/foundation-models/concepts/embeddings) to be used for obtaining text embeddings.
+          type: string
+        text:
+          description: |-
+            **string**
+            The input text for which the embedding is requested.
+          type: string
+        dim:
+          description: |-
+            **string** (int64)
+            Optional parameter to specify embedding dimension for models that support multi-dimensional outputs
+          type: string
+          format: int64
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/ai/foundation_models/v1/embedding/embeddings/api-ref/Embeddings/textEmbedding.md
 ---
 

@@ -1436,6 +1436,16 @@ items:
                 href: api-ref/grpc/Instance/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Instance/updateAccessBindings.md
+          - name: Maintenance
+            items:
+              - name: Overview
+                href: api-ref/grpc/Maintenance/index.md
+              - name: List
+                href: api-ref/grpc/Maintenance/list.md
+              - name: Get
+                href: api-ref/grpc/Maintenance/get.md
+              - name: Reschedule
+                href: api-ref/grpc/Maintenance/reschedule.md
           - name: Operation
             items:
               - name: Overview
@@ -1482,6 +1492,10 @@ items:
                 href: api-ref/grpc/ReservedInstancePool/update.md
               - name: Delete
                 href: api-ref/grpc/ReservedInstancePool/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/ReservedInstancePool/listOperations.md
+              - name: ListInstances
+                href: api-ref/grpc/ReservedInstancePool/listInstances.md
           - name: SnapshotSchedule
             items:
               - name: Overview
@@ -1832,6 +1846,16 @@ items:
                 href: api-ref/Instance/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Instance/updateAccessBindings.md
+          - name: Maintenance
+            items:
+              - name: Overview
+                href: api-ref/Maintenance/index.md
+              - name: List
+                href: api-ref/Maintenance/list.md
+              - name: Get
+                href: api-ref/Maintenance/get.md
+              - name: Reschedule
+                href: api-ref/Maintenance/reschedule.md
           - name: Operation
             items:
               - name: Overview
@@ -1878,6 +1902,10 @@ items:
                 href: api-ref/ReservedInstancePool/update.md
               - name: Delete
                 href: api-ref/ReservedInstancePool/delete.md
+              - name: ListOperations
+                href: api-ref/ReservedInstancePool/listOperations.md
+              - name: ListInstances
+                href: api-ref/ReservedInstancePool/listInstances.md
           - name: SnapshotSchedule
             items:
               - name: Overview

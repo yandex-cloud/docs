@@ -1,5 +1,20 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-api.speechsense.yandexcloud.net/speechsense/v1/classifiers/list
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        projectId:
+          description: |-
+            **string**
+            Project id
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/speechsense/v1/api-ref/Classifiers/list.md
 ---
 

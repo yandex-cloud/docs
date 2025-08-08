@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/UserSshKey/delete.md
 ---
 
-# Cloud Organization API, gRPC: UserSshKeyService.Delete
+# Identity Hub API, gRPC: UserSshKeyService.Delete
 
 ## gRPC request
 

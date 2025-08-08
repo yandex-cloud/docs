@@ -1,7 +1,30 @@
 ---
 editable: false
 apiPlayground:
-  - '{"url":"https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/dashboards/node_groups/{name}","method":"delete","path":{"type":"object","properties":{"clusterId":{"description":"**string**\n\nRequired field. ID of the OpenSearch cluster to delete the Dashboards type host group in.\n\nTo get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.","type":"string"},"name":{"description":"**string**\n\nRequired field. Name of the Dashboards type host group to delete.","pattern":"[a-zA-Z0-9_-]*","type":"string"}},"required":["clusterId","name"],"additionalProperties":false},"query":null,"body":null,"definitions":null}'
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/dashboards/node_groups/{name}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the OpenSearch cluster to delete the Dashboards type host group in.
+            To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the Dashboards type host group to delete.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - name
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/deleteDashboardsNodeGroup.md
 ---
 

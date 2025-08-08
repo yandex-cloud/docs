@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Organization/list.md
 ---
 
-# Cloud Organization API, gRPC: OrganizationService.List
+# Identity Hub API, gRPC: OrganizationService.List
 
 Retrieves the list of Organization resources.
 

@@ -1,5 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs/{jobId}:cancel
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. Required. ID of the Yandex Data Processing cluster.
+          type: string
+        jobId:
+          description: |-
+            **string**
+            Required field. Required. ID of the Yandex Data Processing job to cancel.
+          type: string
+      required:
+        - clusterId
+        - jobId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/cancel.md
 ---
 

@@ -1,5 +1,21 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/placementGroups/{placementGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        placementGroupId:
+          description: |-
+            **string**
+            ID of the placement group to return.
+            To get a placement group ID make a [PlacementGroupService.List](/docs/compute/api-ref/PlacementGroup/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/PlacementGroup/get.md
 ---
 

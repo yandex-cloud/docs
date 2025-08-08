@@ -17,6 +17,7 @@ Actions are performed by making RPC calls. For more information about API archit
 || [HardwarePool](HardwarePool/index.md) | A set of methods to retrieve information about HardwarePool resources. ||
 || [Image](Image/index.md) | A set of methods for managing Image resources. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
+|| [PrivateCloudConnection](PrivateCloudConnection/index.md) | A set of methods for managing Private cloud connection resources. ||
 || [PrivateSubnet](PrivateSubnet/index.md) | A set of methods for managing PrivateSubnet resources. ||
 || [PublicSubnet](PublicSubnet/index.md) | A set of methods for managing PublicSubnet resources. ||
 || [Server](Server/index.md) | A set of methods for managing Server resources. ||

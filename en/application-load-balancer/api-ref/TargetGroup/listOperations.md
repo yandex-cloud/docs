@@ -1,5 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups/{targetGroupId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        targetGroupId:
+          description: |-
+            **string**
+            Required field. ID of the target group to get operations for.
+            To get the target group ID, use a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request.
+          type: string
+      required:
+        - targetGroupId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`, the service returns a [ListTargetGroupOperationsResponse.nextPageToken](/docs/application-load-balancer/api-ref/TargetGroup/listOperations#yandex.cloud.apploadbalancer.v1.ListTargetGroupOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListTargetGroupOperationsResponse.nextPageToken](/docs/application-load-balancer/api-ref/TargetGroup/listOperations#yandex.cloud.apploadbalancer.v1.ListTargetGroupOperationsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/listOperations.md
 ---
 

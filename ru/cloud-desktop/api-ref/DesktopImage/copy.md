@@ -1,5 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/images:copy
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to copy the image to.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the image.
+          type: string
+        imageId:
+          description: |-
+            **string**
+            Required field. ID of the compute image to copy the image from.
+          type: string
+      required:
+        - folderId
+        - name
+        - imageId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopImage/copy.md
 ---
 

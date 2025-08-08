@@ -1,5 +1,319 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/rules/{ruleId}
+    method: patch
+    path:
+      type: object
+      properties:
+        ruleId:
+          description: |-
+            **string**
+            Required field. ID of the rule to update.
+          type: string
+      required:
+        - ruleId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name of the rule.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the rule.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New labels for the rule.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        filter:
+          description: |-
+            **[Filter](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.Filter)**
+            New filter for the rule.
+          oneOf:
+            - type: object
+              properties:
+                jqFilter:
+                  description: |-
+                    **string**
+                    JQ filter for matching events.
+                    Includes only one of the fields `jqFilter`.
+                  type: string
+        targets:
+          description: |-
+            **[Target](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.Target)**
+            New targets for the rule.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  yds:
+                    description: |-
+                      **[YdsTarget](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.YdsTarget)**
+                      Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
+                    $ref: '#/definitions/YdsTarget'
+                  ymq:
+                    description: |-
+                      **[YmqTarget](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.YmqTarget)**
+                      Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
+                    $ref: '#/definitions/YmqTarget'
+                  function:
+                    description: |-
+                      **[FunctionTarget](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.FunctionTarget)**
+                      Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
+                    $ref: '#/definitions/FunctionTarget'
+                  container:
+                    description: |-
+                      **[ContainerTarget](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.ContainerTarget)**
+                      Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
+                    $ref: '#/definitions/ContainerTarget'
+                  gatewayWsBroadcast:
+                    description: |-
+                      **[GatewayWebsocketBroadcastTarget](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.GatewayWebsocketBroadcastTarget)**
+                      Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
+                    $ref: '#/definitions/GatewayWebsocketBroadcastTarget'
+                  logging:
+                    description: |-
+                      **[LoggingTarget](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.LoggingTarget)**
+                      Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
+                    oneOf:
+                      - type: object
+                        properties:
+                          logGroupId:
+                            description: |-
+                              **string**
+                              Includes only one of the fields `logGroupId`, `folderId`.
+                              Log group ID or folder ID.
+                            type: string
+                          folderId:
+                            description: |-
+                              **string**
+                              Includes only one of the fields `logGroupId`, `folderId`.
+                              Log group ID or folder ID.
+                            type: string
+                  workflow:
+                    description: |-
+                      **[WorkflowTarget](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.WorkflowTarget)**
+                      Includes only one of the fields `yds`, `ymq`, `function`, `container`, `gatewayWsBroadcast`, `logging`, `workflow`.
+                    $ref: '#/definitions/WorkflowTarget'
+              - type: object
+                properties:
+                  deadLetterQueue:
+                    description: |-
+                      **[PutQueueMessage](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.PutQueueMessage)**
+                      Dead letter queue.
+                      Includes only one of the fields `deadLetterQueue`.
+                      Dead letter settings of the target.
+                    $ref: '#/definitions/PutQueueMessage'
+        deletionProtection:
+          description: |-
+            **boolean**
+            New flag that disallow deletion of the rule.
+          type: boolean
+      additionalProperties: false
+    definitions:
+      YdsTarget:
+        type: object
+        properties:
+          database:
+            description: |-
+              **string**
+              Required field. Stream database.
+            type: string
+          streamName:
+            description: |-
+              **string**
+              Required field. Full stream name, like /ru-central1/aoegtvhtp8ob********/cc8004q4lbo6********/test.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Required field. Service account, which has write permission on the stream.
+            type: string
+        required:
+          - database
+          - streamName
+          - serviceAccountId
+      YmqTarget:
+        type: object
+        properties:
+          queueArn:
+            description: |-
+              **string**
+              Required field. Queue ARN.
+              Example: yrn:yc:ymq:ru-central1:aoe***:test
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Required field. Service account which has write access to the queue.
+            type: string
+        required:
+          - queueArn
+          - serviceAccountId
+      BatchSettings:
+        type: object
+        properties:
+          maxCount:
+            description: |-
+              **string** (int64)
+              Maximum batch size: trigger will send a batch if number of events exceeds this value.
+            type: string
+            format: int64
+          maxBytes:
+            description: |-
+              **string** (int64)
+              Maximum batch size: trigger will send a batch if total size of events exceeds this value.
+            type: string
+            format: int64
+          cutoff:
+            description: |-
+              **string** (duration)
+              Required field. Maximum batch size: trigger will send a batch if its lifetime exceeds this value.
+            type: string
+            format: duration
+        required:
+          - cutoff
+      FunctionTarget:
+        type: object
+        properties:
+          functionId:
+            description: |-
+              **string**
+              Required field. Function ID.
+            type: string
+          functionTag:
+            description: |-
+              **string**
+              Function tag, optional.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Service account which has call permission on the function, optional.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+              Batch settings.
+            $ref: '#/definitions/BatchSettings'
+        required:
+          - functionId
+      ContainerTarget:
+        type: object
+        properties:
+          containerId:
+            description: |-
+              **string**
+              Required field. Container ID.
+            type: string
+          containerRevisionId:
+            description: |-
+              **string**
+              Container revision ID.
+            type: string
+          path:
+            description: |-
+              **string**
+              Endpoint HTTP path to invoke.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Service account which should be used to call a container, optional.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+              Batch settings.
+            $ref: '#/definitions/BatchSettings'
+        required:
+          - containerId
+      GatewayWebsocketBroadcastTarget:
+        type: object
+        properties:
+          gatewayId:
+            description: |-
+              **string**
+              Required field. Gateway ID.
+            type: string
+          path:
+            description: |-
+              **string**
+              Required field. Path.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Required field. Service account which has permission for writing to websockets.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+              Batch settings.
+            $ref: '#/definitions/BatchSettings'
+        required:
+          - gatewayId
+          - path
+          - serviceAccountId
+      WorkflowTarget:
+        type: object
+        properties:
+          workflowId:
+            description: |-
+              **string**
+              Required field. Workflow ID.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Required field. SA which should be used to start workflow.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](/docs/serverless-integrations/eventrouter/api-ref/Rule/get#yandex.cloud.serverless.eventrouter.v1.BatchSettings)**
+              Batch settings.
+            $ref: '#/definitions/BatchSettings'
+        required:
+          - workflowId
+          - serviceAccountId
+      PutQueueMessage:
+        type: object
+        properties:
+          queueArn:
+            description: |-
+              **string**
+              ID of the queue.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Required field. Service account which has write permission on the queue.
+            type: string
+        required:
+          - serviceAccountId
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Rule/update.md
 ---
 

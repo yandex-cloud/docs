@@ -1,5 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/origins
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the origin belongs to.
+          type: string
+        originGroupId:
+          description: |-
+            **string** (int64)
+            ID of the group to request origins from.
+          type: string
+          format: int64
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/Origin/list.md
 ---
 
@@ -53,7 +76,8 @@ ID of the group to request origins from. ||
           "id": "string"
         }
         // end of the list of possible fields
-      }
+      },
+      "providerType": "string"
     }
   ]
 }
@@ -98,6 +122,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
 
 Set up origin of the content. ||
+|| providerType | **string**
+
+RESERVED: This field is reserved for future use and should not be used at this time. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}

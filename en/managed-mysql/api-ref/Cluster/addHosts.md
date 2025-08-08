@@ -1,5 +1,75 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/hosts:batchCreate
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to add hosts to.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        hostSpecs:
+          description: |-
+            **[HostSpec](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.HostSpec)**
+            Configuration of the newly added hosts.
+          type: array
+          items:
+            $ref: '#/definitions/HostSpec'
+      additionalProperties: false
+    definitions:
+      HostSpec:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              ID of the availability zone where the host resides.
+              To get a list of available zones, make the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet to assign to the host.
+              This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.networkId](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.CreateClusterRequest)).
+            type: string
+          assignPublicIp:
+            description: |-
+              **boolean**
+              Option that enables public IP address for the host so that the host can be accessed from the internet.
+              After a host has been created, this setting cannot be changed.
+              To remove an assigned public IP address, or to assign a public IP address to a host without one, recreate the host with the appropriate [assignPublicIp](/docs/managed-mysql/api-ref/Cluster/updateHosts#yandex.cloud.mdb.mysql.v1.UpdateHostSpec) value set.
+              Possible values:
+              * `false` - don't assign a public IP address to the host.
+              * `true` - assign a public IP address to the host.
+            type: boolean
+          replicationSource:
+            description: |-
+              **string**
+              [Host.name](/docs/managed-mysql/api-ref/Cluster/listHosts#yandex.cloud.mdb.mysql.v1.Host) of the host to be used as the replication source (for cascading replication).
+            type: string
+          backupPriority:
+            description: |-
+              **string** (int64)
+              Host backup priority
+            type: string
+            format: int64
+          priority:
+            description: |-
+              **string** (int64)
+              Host master promotion priority
+            type: string
+            format: int64
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/addHosts.md
 ---
 

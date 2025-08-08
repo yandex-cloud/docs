@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/originGroups/{originGroupId}
+    method: delete
+    path:
+      type: object
+      properties:
+        originGroupId:
+          description: |-
+            **string** (int64)
+            ID of the origin group.
+          type: string
+          format: int64
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the origin group belongs to.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/delete.md
 ---
 

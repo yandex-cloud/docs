@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/{certificateAuthorityId}:getPrivateKey
+    method: get
+    path:
+      type: object
+      properties:
+        certificateAuthorityId:
+          description: |-
+            **string**
+            Required field. ID of the certificate authority to get the private key for.
+          type: string
+      required:
+        - certificateAuthorityId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCaContent/getPrivateKey.md
 ---
 

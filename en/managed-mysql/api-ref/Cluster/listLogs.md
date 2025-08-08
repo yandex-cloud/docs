@@ -1,5 +1,93 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}:logs
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to request logs for.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        columnFilter:
+          description: |-
+            **string**
+            Columns from the logs table to request.
+            If no columns are specified, complete log records are returned.
+          type: array
+          items:
+            type: string
+        serviceType:
+          description: |-
+            **enum** (ServiceType)
+            The log type.
+            - `SERVICE_TYPE_UNSPECIFIED`
+            - `MYSQL_ERROR`: MySQL error log.
+            - `MYSQL_GENERAL`: MySQL general query log.
+            - `MYSQL_SLOW_QUERY`: MySQL slow query log.
+            - `MYSQL_AUDIT`: MySQL audit log.
+          type: string
+          enum:
+            - SERVICE_TYPE_UNSPECIFIED
+            - MYSQL_ERROR
+            - MYSQL_GENERAL
+            - MYSQL_SLOW_QUERY
+            - MYSQL_AUDIT
+        fromTime:
+          description: |-
+            **string** (date-time)
+            Start timestamp for the logs request.
+            The logs in the response will be within `fromTime` to `toTime` range.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+        toTime:
+          description: |-
+            **string** (date-time)
+            End timestamp for the logs request.
+            The logs in the response will be within `fromTime` to `toTime` range.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `pageSize`, the API returns a [ListClusterLogsResponse.nextPageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListLogs](#ListLogs) requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token that can be used to iterate through multiple pages of results.
+            To get the next page of results, set `pageToken` to the [ListClusterLogsResponse.nextPageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) returned by the previous [ClusterService.ListLogs](#ListLogs) request.
+          type: string
+        alwaysNextPageToken:
+          description: |-
+            **boolean**
+            Option that controls the behavior of result pagination.
+            If it is set to `true`, then [ListClusterLogsResponse.nextPageToken](/docs/managed-mysql/api-ref/Cluster/listLogs#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) will always be returned, even if the current page is empty.
+          type: boolean
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/listLogs.md
 ---
 

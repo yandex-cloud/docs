@@ -711,6 +711,10 @@ items:
                     href: tuning/api-ref/grpc/Tuning/deleteDraft.md
                   - name: TuneDraft
                     href: tuning/api-ref/grpc/Tuning/tuneDraft.md
+                  - name: Archive
+                    href: tuning/api-ref/grpc/Tuning/archive.md
+                  - name: EnableBilling
+                    href: tuning/api-ref/grpc/Tuning/enableBilling.md
   - name: '{{ ml-sdk-full-name }}'
     href: sdk/index.md
   - name: Compatibility with {{ openai }}

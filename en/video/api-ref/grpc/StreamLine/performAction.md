@@ -5,7 +5,8 @@ sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/StreamLine/performAction.md
 
 # Video API, gRPC: StreamLineService.PerformAction
 
-Perform an action on the line.
+Performs a specific action on a stream line, such as activation or deactivation.
+Actions change the stream line's state without modifying its configuration.
 
 ## gRPC request
 
@@ -27,16 +28,28 @@ Perform an action on the line.
 ||Field | Description ||
 || stream_line_id | **string**
 
-Required field. ID of the line. ||
+Required field. ID of the stream line on which to perform the action. ||
 || activate | **[ActivateAction](#yandex.cloud.video.v1.ActivateAction)**
 
-Includes only one of the fields `activate`, `deactivate`. ||
+Activate the stream line, enabling it to receive and process video signals.
+This is typically used for automatic stream lines.
+
+Includes only one of the fields `activate`, `deactivate`.
+
+Specifies which action to perform on the stream line. ||
 || deactivate | **[DeactivateAction](#yandex.cloud.video.v1.DeactivateAction)**
 
-Includes only one of the fields `activate`, `deactivate`. ||
+Deactivate the stream line, disabling it from receiving and processing video signals.
+This is typically used for automatic stream lines.
+
+Includes only one of the fields `activate`, `deactivate`.
+
+Specifies which action to perform on the stream line. ||
 |#
 
 ## ActivateAction {#yandex.cloud.video.v1.ActivateAction}
+
+Parameters for the activate action.
 
 #|
 ||Field | Description ||
@@ -44,6 +57,8 @@ Includes only one of the fields `activate`, `deactivate`. ||
 |#
 
 ## DeactivateAction {#yandex.cloud.video.v1.DeactivateAction}
+
+Parameters for the deactivate action.
 
 #|
 ||Field | Description ||
@@ -69,7 +84,6 @@ Includes only one of the fields `activate`, `deactivate`. ||
     "id": "string",
     "channel_id": "string",
     "title": "string",
-    "thumbnail_id": "string",
     // Includes only one of the fields `rtmp_push`, `rtmp_pull`
     "rtmp_push": {
       "url": "string"
@@ -153,12 +167,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || stream_line_id | **string**
 
-ID of the line. ||
+ID of the stream line on which the action is being performed.
+This identifier can be used to track the action operation
+and to verify that the action is being applied to the correct stream line. ||
 |#
 
 ## StreamLine {#yandex.cloud.video.v1.StreamLine}
 
-Entity that is responsible for the incoming video signal settings.
+Entity representing the incoming video signal settings.
 
 #|
 ||Field | Description ||
@@ -171,12 +187,9 @@ ID of the channel to which this stream line belongs. ||
 || title | **string**
 
 Title of the stream line. ||
-|| thumbnail_id | **string**
-
-ID of the thumbnail image associated with the stream line.. ||
 || rtmp_push | **[RTMPPushInput](#yandex.cloud.video.v1.RTMPPushInput)**
 
-Real-Time Messaging Protocol (RTMP) push input settings.
+Real-Time Messaging Protocol (RTMP) push input type.
 
 Includes only one of the fields `rtmp_push`, `rtmp_pull`.
 
@@ -190,27 +203,29 @@ Includes only one of the fields `rtmp_push`, `rtmp_pull`.
 Specifies the input type and settings for the video signal source. ||
 || manual_line | **[ManualLine](#yandex.cloud.video.v1.ManualLine)**
 
-Manual control of stream.
+Manual stream control.
 
 Includes only one of the fields `manual_line`, `auto_line`.
 
 Specifies the control type of the stream line. ||
 || auto_line | **[AutoLine](#yandex.cloud.video.v1.AutoLine)**
 
-Automatic control of stream.
+Automatic stream control.
 
 Includes only one of the fields `manual_line`, `auto_line`.
 
 Specifies the control type of the stream line. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time when the stream line was created. ||
+Timestamp when the stream line was initially created in the system. ||
 || updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time when the stream line was last updated. ||
+Timestamp of the last modification to the stream line or its metadata. ||
 || labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per stream line.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
 ## RTMPPushInput {#yandex.cloud.video.v1.RTMPPushInput}

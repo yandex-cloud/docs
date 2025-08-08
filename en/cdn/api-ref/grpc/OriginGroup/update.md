@@ -203,9 +203,11 @@ ID of the origin. ||
             "id": "string"
           }
           // end of the list of possible fields
-        }
+        },
+        "provider_type": "string"
       }
-    ]
+    ],
+    "provider_type": "string"
   }
   // end of the list of possible fields
 }
@@ -299,6 +301,9 @@ false - the option is disabled. ||
 || origins[] | **[Origin](#yandex.cloud.cdn.v1.Origin)**
 
 List of origins. ||
+|| provider_type | **string**
+
+RESERVED: This field is reserved for future use and should not be used at this time. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}
@@ -333,6 +338,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta2)**
 
 Set up origin of the content. ||
+|| provider_type | **string**
+
+RESERVED: This field is reserved for future use and should not be used at this time. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta2}

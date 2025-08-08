@@ -1,5 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/shards/{shardName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Redis cluster the shard belongs to.
+            To get the cluster ID use a [ClusterService.List](/docs/managed-redis/api-ref/Cluster/list#List) request.
+          type: string
+        shardName:
+          description: |-
+            **string**
+            Required field. Name of Redis shard to return.
+            To get the shard name use a [ClusterService.ListShards](/docs/managed-redis/api-ref/Cluster/listShards#ListShards) request.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - shardName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/redis/v1/api-ref/Cluster/getShard.md
 ---
 

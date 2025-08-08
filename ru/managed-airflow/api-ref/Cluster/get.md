@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://airflow.{{ api-host }}/managed-airflow/v1/clusters/{clusterId}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Apache Airflow Cluster resource to return.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/airflow/v1/api-ref/Cluster/get.md
 ---
 
@@ -402,10 +419,18 @@ The name of the Object Storage bucket that stores DAG files used in the cluster.
 
 #|
 ||Field | Description ||
-|| repo | **string** ||
-|| branch | **string** ||
-|| subPath | **string** ||
-|| sshKey | **string** ||
+|| repo | **string**
+
+Required field. Git repository URL. ||
+|| branch | **string**
+
+Required field. Git branch name to sync from. ||
+|| subPath | **string**
+
+Subdirectory path within the repository containing DAG files. ||
+|| sshKey | **string**
+
+SSH private key for repository authentication. ||
 |#
 
 ## LoggingConfig {#yandex.cloud.airflow.v1.LoggingConfig}

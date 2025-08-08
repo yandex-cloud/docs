@@ -1,5 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/backups
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the PostgreSQL cluster.
+            To get the PostgreSQL cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListClusterBackupsResponse.nextPageToken](/docs/managed-postgresql/api-ref/Cluster/listBackups#yandex.cloud.mdb.postgresql.v1.ListClusterBackupsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token.  To get the next page of results, set `pageToken` to the [ListClusterBackupsResponse.nextPageToken](/docs/managed-postgresql/api-ref/Cluster/listBackups#yandex.cloud.mdb.postgresql.v1.ListClusterBackupsResponse)
+            returned by the previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Cluster/listBackups.md
 ---
 

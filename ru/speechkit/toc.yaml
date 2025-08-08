@@ -205,6 +205,8 @@ items:
                     href: tts-v3/api-ref/grpc/Synthesizer/index.md
                   - name: UtteranceSynthesis
                     href: tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md
+                  - name: StreamSynthesis
+                    href: tts-v3/api-ref/grpc/Synthesizer/streamSynthesis.md
           - name: API v3 REST (англ.)
             items:
               - name: Overview

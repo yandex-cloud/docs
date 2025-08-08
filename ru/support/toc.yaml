@@ -4,7 +4,7 @@ items:
   - name: Порядок оказания технической поддержки
     href: overview.md
   - name: Поддержка в Cloud Center
-    href: support-center.md
+    href: cloud-center.md
   - name: Оповещения от {{ yandex-cloud }}
     href: notify.md
   - name: Чат в Telegram

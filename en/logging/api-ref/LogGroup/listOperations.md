@@ -1,5 +1,51 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        logGroupId:
+          description: |-
+            **string**
+            Required field. ID of the log group to list operations for.
+            To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGroup/list#List) request.
+          type: string
+      required:
+        - logGroupId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListOperationsResponse.nextPageToken](/docs/logging/api-ref/LogGroup/listOperations#yandex.cloud.logging.v1.ListOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListOperationsResponse.nextPageToken](/docs/logging/api-ref/LogGroup/listOperations#yandex.cloud.logging.v1.ListOperationsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently filtering can be applied to the [operation.Operation.description](/docs/operation/api-ref/Operation/get#yandex.cloud.operation.Operation), [operation.Operation.createdAt](/docs/operation/api-ref/Operation/get#yandex.cloud.operation.Operation), [operation.Operation.modifiedAt](/docs/operation/api-ref/Operation/get#yandex.cloud.operation.Operation), [operation.Operation.createdBy](/docs/operation/api-ref/Operation/get#yandex.cloud.operation.Operation), [operation.Operation.done](/docs/operation/api-ref/Operation/get#yandex.cloud.operation.Operation) fields.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            Examples of a filter: `done=false`, `created_by='John.Doe'`.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/listOperations.md
 ---
 

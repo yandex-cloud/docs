@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/rawLogs/{resourceId}
+    method: post
+    path:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of CDN resource to deactivate Raw Logs for.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/RawLogs/deactivate.md
 ---
 

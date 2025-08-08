@@ -1,5 +1,48 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        busId:
+          description: |-
+            **string**
+            ID of the bus to list connectors in.
+            Includes only one of the fields `busId`, `folderId`.
+            ID of the folder or bus to list connectors in.
+          type: string
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to list connectors in.
+            Includes only one of the fields `busId`, `folderId`.
+            ID of the folder or bus to list connectors in.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per response.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            `next_page_token` returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            Supported fields for filter:
+            name
+            created_at
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/list.md
 ---
 
@@ -62,7 +105,7 @@ created_at ||
       "description": "string",
       "labels": "object",
       "source": {
-        // Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`
+        // Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`
         "dataStream": {
           "database": "string",
           "streamName": "string",
@@ -81,7 +124,8 @@ created_at ||
           "timeZone": "string",
           "payload": "string"
         },
-        "eventServiceSource": "object"
+        "eventServiceSource": "object",
+        "auditTrails": "object"
         // end of the list of possible fields
       },
       "deletionProtection": "boolean",
@@ -163,16 +207,19 @@ Status of the connector.
 ||Field | Description ||
 || dataStream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
 || messageQueue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
 || timer | **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer)**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
 || eventServiceSource | **object**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
+|| auditTrails | **object**
+
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream}

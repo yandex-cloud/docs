@@ -1,5 +1,103 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Apache Kafka® cluster to create a user in.
+            To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        userSpec:
+          description: |-
+            **[UserSpec](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.UserSpec)**
+            Required field. Configuration of the user to create.
+          $ref: '#/definitions/UserSpec'
+      required:
+        - userSpec
+      additionalProperties: false
+    definitions:
+      Permission:
+        type: object
+        properties:
+          topicName:
+            description: |-
+              **string**
+              Name or prefix-pattern with wildcard for the topic that the permission grants access to.
+              With roles SCHEMA_READER and SCHEMA_WRITER: string that contains set of schema registry subjects, separated by ';'.
+              To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/Topic/list#List) request.
+            type: string
+          role:
+            description: |-
+              **enum** (AccessRole)
+              Access role type to grant to the user.
+              - `ACCESS_ROLE_UNSPECIFIED`
+              - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
+              - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
+              - `ACCESS_ROLE_ADMIN`: Admin role for the user.
+              - `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user.
+              - `ACCESS_ROLE_TOPIC_PRODUCER`
+              - `ACCESS_ROLE_TOPIC_CONSUMER`
+              - `ACCESS_ROLE_SCHEMA_READER`
+              - `ACCESS_ROLE_SCHEMA_WRITER`
+            type: string
+            enum:
+              - ACCESS_ROLE_UNSPECIFIED
+              - ACCESS_ROLE_PRODUCER
+              - ACCESS_ROLE_CONSUMER
+              - ACCESS_ROLE_ADMIN
+              - ACCESS_ROLE_TOPIC_ADMIN
+              - ACCESS_ROLE_TOPIC_PRODUCER
+              - ACCESS_ROLE_TOPIC_CONSUMER
+              - ACCESS_ROLE_SCHEMA_READER
+              - ACCESS_ROLE_SCHEMA_WRITER
+          allowHosts:
+            description: |-
+              **string**
+              Lists hosts allowed for this permission.
+              Only ip-addresses allowed as value of single host.
+              When not defined, access from any host is allowed.
+              Bare in mind that the same host might appear in multiple permissions at the same time,
+              hence removing individual permission doesn't automatically restricts access from the [allowHosts](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.Permission) of the permission.
+              If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed.
+            type: array
+            items:
+              type: string
+      UserSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the Kafka user.
+            pattern: '[a-zA-Z0-9_]*'
+            type: string
+          password:
+            description: |-
+              **string**
+              Required field. Password of the Kafka user.
+            type: string
+          permissions:
+            description: |-
+              **[Permission](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.Permission)**
+              Set of permissions granted to the user.
+            type: array
+            items:
+              $ref: '#/definitions/Permission'
+        required:
+          - name
+          - password
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/create.md
 ---
 

@@ -12,4 +12,5 @@ A set of methods for voice synthesis.
 #|
 ||Method | Description ||
 || [UtteranceSynthesis](utteranceSynthesis.md) | Synthesizing text into speech. ||
+|| [StreamSynthesis](streamSynthesis.md) | Bidirectional streaming RPC for real-time synthesis. ||
 |#

@@ -20,7 +20,7 @@ Creates a connector in the specified folder.
   "description": "string",
   "labels": "map<string, string>",
   "source": {
-    // Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`
+    // Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`
     "data_stream": {
       "database": "string",
       "stream_name": "string",
@@ -39,7 +39,8 @@ Creates a connector in the specified folder.
       "time_zone": "string",
       "payload": "string"
     },
-    "event_service_source": "EventServiceSource"
+    "event_service_source": "EventServiceSource",
+    "audit_trails": "AuditTrails"
     // end of the list of possible fields
   },
   "deletion_protection": "bool"
@@ -74,16 +75,19 @@ Flag that disallow deletion of the connector. ||
 ||Field | Description ||
 || data_stream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
 || message_queue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
 || timer | **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
 || event_service_source | **[EventServiceSource](#yandex.cloud.serverless.eventrouter.v1.EventServiceSource)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
+|| audit_trails | **[AuditTrails](#yandex.cloud.serverless.eventrouter.v1.AuditTrails)**
+
+Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream}
@@ -149,6 +153,13 @@ payload to send to target ||
 || Empty | > ||
 |#
 
+## AuditTrails {#yandex.cloud.serverless.eventrouter.v1.AuditTrails}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -175,7 +186,7 @@ payload to send to target ||
     "description": "string",
     "labels": "map<string, string>",
     "source": {
-      // Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`
+      // Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`
       "data_stream": {
         "database": "string",
         "stream_name": "string",
@@ -194,7 +205,8 @@ payload to send to target ||
         "time_zone": "string",
         "payload": "string"
       },
-      "event_service_source": "EventServiceSource"
+      "event_service_source": "EventServiceSource",
+      "audit_trails": "AuditTrails"
       // end of the list of possible fields
     },
     "deletion_protection": "bool",
@@ -325,16 +337,19 @@ Status of the connector.
 ||Field | Description ||
 || data_stream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream2)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
 || message_queue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue2)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
 || timer | **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer2)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
 || event_service_source | **[EventServiceSource](#yandex.cloud.serverless.eventrouter.v1.EventServiceSource2)**
 
-Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`. ||
+Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
+|| audit_trails | **[AuditTrails](#yandex.cloud.serverless.eventrouter.v1.AuditTrails2)**
+
+Includes only one of the fields `data_stream`, `message_queue`, `timer`, `event_service_source`, `audit_trails`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream2}
@@ -394,6 +409,13 @@ payload to send to target ||
 |#
 
 ## EventServiceSource {#yandex.cloud.serverless.eventrouter.v1.EventServiceSource2}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## AuditTrails {#yandex.cloud.serverless.eventrouter.v1.AuditTrails2}
 
 #|
 ||Field | Description ||

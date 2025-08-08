@@ -1,5 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}:updatePrivateNetworks
+    method: patch
+    path:
+      type: object
+      properties:
+        dnsZoneId:
+          description: |-
+            **string**
+            ID of the DNS zone which private networks will be updated
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        privateNetworkIdAdditions:
+          description: |-
+            **string**
+            Network IDs to remove
+          type: array
+          items:
+            type: string
+        privateNetworkIdDeletions:
+          description: |-
+            **string**
+            Network IDs to add
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/updatePrivateNetworks.md
 ---
 

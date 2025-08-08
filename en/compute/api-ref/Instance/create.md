@@ -1,5 +1,567 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create an instance in.
+            To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the instance.
+          pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the instance.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        zoneId:
+          description: |-
+            **string**
+            Required field. ID of the availability zone where the instance resides.
+            To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request
+          type: string
+        platformId:
+          description: |-
+            **string**
+            Required field. ID of the hardware platform configuration for the instance.
+            This field affects the available values in `resourcesSpec` field.
+            Platforms allows you to create various types of instances: with a large amount of memory,
+            with a large number of cores, with a burstable performance.
+            For more information, see [Platforms](/docs/compute/concepts/vm-platforms).
+          type: string
+        resourcesSpec:
+          description: |-
+            **[ResourcesSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.ResourcesSpec)**
+            Required field. Computing resources of the instance, such as the amount of memory and number of cores.
+            To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels).
+          $ref: '#/definitions/ResourcesSpec'
+        metadata:
+          description: |-
+            **object** (map<**string**, **string**>)
+            The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys.
+            The total size of all keys and values must be less than 512 KB.
+            Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance.
+            The values must be 256 KB or less.
+            For example, you may use the metadata in order to provide your public SSH key to the instance.
+            For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+          type: string
+        metadataOptions:
+          description: |-
+            **[MetadataOptions](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.MetadataOptions)**
+            Options allow user to configure access to instance's metadata
+          $ref: '#/definitions/MetadataOptions'
+        bootDiskSpec:
+          description: |-
+            **[AttachedDiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec)**
+            Required field. Boot disk to attach to the instance.
+          oneOf:
+            - type: object
+              properties:
+                diskSpec:
+                  description: |-
+                    **[DiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
+                    Disk specification.
+                    Includes only one of the fields `diskSpec`, `diskId`.
+                  oneOf:
+                    - type: object
+                      properties:
+                        imageId:
+                          description: |-
+                            **string**
+                            ID of the image to create the disk from.
+                            Includes only one of the fields `imageId`, `snapshotId`.
+                          type: string
+                        snapshotId:
+                          description: |-
+                            **string**
+                            ID of the snapshot to restore the disk from.
+                            Includes only one of the fields `imageId`, `snapshotId`.
+                          type: string
+                diskId:
+                  description: |-
+                    **string**
+                    ID of the disk that should be attached.
+                    Includes only one of the fields `diskSpec`, `diskId`.
+                  type: string
+        secondaryDiskSpecs:
+          description: |-
+            **[AttachedDiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec)**
+            Array of secondary disks to attach to the instance.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  diskSpec:
+                    description: |-
+                      **[DiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
+                      Disk specification.
+                      Includes only one of the fields `diskSpec`, `diskId`.
+                    oneOf:
+                      - type: object
+                        properties:
+                          imageId:
+                            description: |-
+                              **string**
+                              ID of the image to create the disk from.
+                              Includes only one of the fields `imageId`, `snapshotId`.
+                            type: string
+                          snapshotId:
+                            description: |-
+                              **string**
+                              ID of the snapshot to restore the disk from.
+                              Includes only one of the fields `imageId`, `snapshotId`.
+                            type: string
+                  diskId:
+                    description: |-
+                      **string**
+                      ID of the disk that should be attached.
+                      Includes only one of the fields `diskSpec`, `diskId`.
+                    type: string
+        localDiskSpecs:
+          description: |-
+            **[AttachedLocalDiskSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedLocalDiskSpec)**
+            Array of local disks to attach to the instance.
+          type: array
+          items:
+            $ref: '#/definitions/AttachedLocalDiskSpec'
+        filesystemSpecs:
+          description: |-
+            **[AttachedFilesystemSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.AttachedFilesystemSpec)**
+            Array of filesystems to attach to the instance.
+            The filesystems must reside in the same availability zone as the instance.
+            To use the instance with an attached filesystem, the latter must be mounted.
+            For details, see [documentation](/docs/compute/operations/filesystem/attach-to-vm).
+          type: array
+          items:
+            $ref: '#/definitions/AttachedFilesystemSpec'
+        networkInterfaceSpecs:
+          description: |-
+            **[NetworkInterfaceSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.NetworkInterfaceSpec)**
+            Required field. Network configuration for the instance. Specifies how the network interface is configured
+            to interact with other services on the internal network and on the internet.
+          type: array
+          items:
+            $ref: '#/definitions/NetworkInterfaceSpec'
+        hostname:
+          description: |-
+            **string**
+            Host name for the instance.
+            This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.Instance) value.
+            The host name must be unique within the network and region.
+            If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.Instance) of the instance
+            and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`.
+          pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        schedulingPolicy:
+          description: |-
+            **[SchedulingPolicy](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.SchedulingPolicy)**
+            Scheduling policy configuration.
+          $ref: '#/definitions/SchedulingPolicy'
+        serviceAccountId:
+          description: |-
+            **string**
+            ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm).
+            To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+          type: string
+        networkSettings:
+          description: |-
+            **[NetworkSettings](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.NetworkSettings)**
+            Network settings.
+          $ref: '#/definitions/NetworkSettings'
+        placementPolicy:
+          description: |-
+            **[PlacementPolicy](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.PlacementPolicy)**
+            Placement policy configuration.
+          $ref: '#/definitions/PlacementPolicy'
+        gpuSettings:
+          description: |-
+            **[GpuSettings](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.GpuSettings)**
+            GPU settings.
+          $ref: '#/definitions/GpuSettings'
+        maintenancePolicy:
+          description: |-
+            **enum** (MaintenancePolicy)
+            Behaviour on maintenance events
+            - `MAINTENANCE_POLICY_UNSPECIFIED`
+            - `RESTART`: Restart instance to move it to another host during maintenance
+            - `MIGRATE`: Use live migration to move instance to another host during maintenance
+          type: string
+          enum:
+            - MAINTENANCE_POLICY_UNSPECIFIED
+            - RESTART
+            - MIGRATE
+        maintenanceGracePeriod:
+          description: |-
+            **string** (duration)
+            Time between notification via metadata service and maintenance
+          type: string
+          format: duration
+        serialPortSettings:
+          description: |-
+            **[SerialPortSettings](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.SerialPortSettings)**
+            Serial port settings
+          $ref: '#/definitions/SerialPortSettings'
+        reservedInstancePoolId:
+          description: |-
+            **string**
+            ID of the reserved instance pool that the instance should belong to.
+            Instance will be created using resources from the reserved instance pool.
+            Reserved instance pool resource configuration must match the resource configuration of the instance.
+          type: string
+      required:
+        - folderId
+        - zoneId
+        - platformId
+        - resourcesSpec
+        - bootDiskSpec
+        - networkInterfaceSpecs
+      additionalProperties: false
+    definitions:
+      ResourcesSpec:
+        type: object
+        properties:
+          memory:
+            description: |-
+              **string** (int64)
+              Required field. The amount of memory available to the instance, specified in bytes.
+            type: string
+            format: int64
+          cores:
+            description: |-
+              **string** (int64)
+              Required field. The number of cores available to the instance.
+            type: string
+            format: int64
+          coreFraction:
+            description: |-
+              **string** (int64)
+              Baseline level of CPU performance with the ability to burst performance above that baseline level.
+              This field sets baseline performance for each core.
+              For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
+              For more information, see [Levels of core performance](/docs/compute/concepts/performance-levels).
+            type: string
+            format: int64
+          gpus:
+            description: |-
+              **string** (int64)
+              The number of GPUs available to the instance.
+            type: string
+            format: int64
+        required:
+          - memory
+          - cores
+      MetadataOptions:
+        type: object
+        properties:
+          gceHttpEndpoint:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to GCE flavored metadata
+              - `METADATA_OPTION_UNSPECIFIED`
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
+          awsV1HttpEndpoint:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to AWS flavored metadata (IMDSv1)
+              - `METADATA_OPTION_UNSPECIFIED`
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
+          gceHttpToken:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to IAM credentials with GCE flavored metadata
+              - `METADATA_OPTION_UNSPECIFIED`
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
+          awsV1HttpToken:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
+              - `METADATA_OPTION_UNSPECIFIED`
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
+      AttachedLocalDiskSpec:
+        type: object
+        properties:
+          size:
+            description: |-
+              **string** (int64)
+              Required field. Size of the disk, specified in bytes.
+            type: string
+            format: int64
+        required:
+          - size
+      AttachedFilesystemSpec:
+        type: object
+        properties:
+          mode:
+            description: |-
+              **enum** (Mode)
+              Mode of access to the filesystem that should be attached.
+              - `MODE_UNSPECIFIED`
+              - `READ_ONLY`: Read-only access.
+              - `READ_WRITE`: Read/Write access.
+            type: string
+            enum:
+              - MODE_UNSPECIFIED
+              - READ_ONLY
+              - READ_WRITE
+          deviceName:
+            description: |-
+              **string**
+              Name of the device representing the filesystem on the instance.
+              The name should be used for referencing the filesystem from within the instance
+              when it's being mounted, resized etc.
+              If not specified, a random value will be generated.
+            pattern: '[a-z][a-z0-9-_]{,19}'
+            type: string
+          filesystemId:
+            description: |-
+              **string**
+              ID of the filesystem that should be attached.
+            type: string
+      DnsRecordSpec:
+        type: object
+        properties:
+          fqdn:
+            description: |-
+              **string**
+              Required field. FQDN (required)
+            type: string
+          dnsZoneId:
+            description: |-
+              **string**
+              DNS zone id (optional, if not set, private zone used)
+            type: string
+          ttl:
+            description: |-
+              **string** (int64)
+              DNS record ttl, values in 0-86400 (optional)
+            type: string
+            format: int64
+          ptr:
+            description: |-
+              **boolean**
+              When set to true, also create PTR DNS record (optional)
+            type: boolean
+        required:
+          - fqdn
+      OneToOneNatSpec:
+        type: object
+        properties:
+          ipVersion:
+            description: |-
+              **enum** (IpVersion)
+              External IP address version.
+              - `IP_VERSION_UNSPECIFIED`
+              - `IPV4`: IPv4 address, for example 192.0.2.235.
+              - `IPV6`: IPv6 address. Not available yet.
+            type: string
+            enum:
+              - IP_VERSION_UNSPECIFIED
+              - IPV4
+              - IPV6
+          address:
+            description: |-
+              **string**
+              set static IP by value
+            type: string
+          dnsRecordSpecs:
+            description: |-
+              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              External DNS configuration
+            type: array
+            items:
+              $ref: '#/definitions/DnsRecordSpec'
+      PrimaryAddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              An IPv4 internal network address that is assigned to the instance for this network interface.
+              If not specified by the user, an unused internal IP is assigned by the system.
+            type: string
+          oneToOneNatSpec:
+            description: |-
+              **[OneToOneNatSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.OneToOneNatSpec)**
+              An external IP address configuration.
+              If not specified, then this instance will have no external internet access.
+            $ref: '#/definitions/OneToOneNatSpec'
+          dnsRecordSpecs:
+            description: |-
+              **[DnsRecordSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.DnsRecordSpec)**
+              Internal DNS configuration
+            type: array
+            items:
+              $ref: '#/definitions/DnsRecordSpec'
+      NetworkInterfaceSpec:
+        type: object
+        properties:
+          subnetId:
+            description: |-
+              **string**
+              Required field. ID of the subnet.
+            type: string
+          primaryV4AddressSpec:
+            description: |-
+              **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+              Primary IPv4 address that will be assigned to the instance for this network interface.
+            $ref: '#/definitions/PrimaryAddressSpec'
+          primaryV6AddressSpec:
+            description: |-
+              **[PrimaryAddressSpec](/docs/compute/api-ref/Instance/create#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+              Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet.
+            $ref: '#/definitions/PrimaryAddressSpec'
+          securityGroupIds:
+            description: |-
+              **string**
+              ID's of security groups attached to the interface
+            type: array
+            items:
+              type: string
+          index:
+            description: |-
+              **string**
+              The index of the network interface, will be generated by the server, 0,1,2... etc if not specified.
+            type: string
+        required:
+          - subnetId
+      SchedulingPolicy:
+        type: object
+        properties:
+          preemptible:
+            description: |-
+              **boolean**
+              True for short-lived compute instances. For more information, see [Preemptible VMs](/docs/compute/concepts/preemptible-vm).
+            type: boolean
+      NetworkSettings:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (Type)
+              Network Type
+              - `TYPE_UNSPECIFIED`
+              - `STANDARD`: Standard network.
+              - `SOFTWARE_ACCELERATED`: Software accelerated network.
+              - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use).
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - STANDARD
+              - SOFTWARE_ACCELERATED
+              - HARDWARE_ACCELERATED
+      HostAffinityRule:
+        type: object
+        properties:
+          key:
+            description: |-
+              **string**
+              Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId'
+            type: string
+          op:
+            description: |-
+              **enum** (Operator)
+              Include or exclude action
+              - `OPERATOR_UNSPECIFIED`
+              - `IN`
+              - `NOT_IN`
+            type: string
+            enum:
+              - OPERATOR_UNSPECIFIED
+              - IN
+              - NOT_IN
+          values:
+            description: |-
+              **string**
+              Affinity value or host ID or host group ID
+            type: array
+            items:
+              type: string
+      PlacementPolicy:
+        type: object
+        properties:
+          placementGroupId:
+            description: |-
+              **string**
+              Placement group ID.
+            type: string
+          hostAffinityRules:
+            description: |-
+              **[HostAffinityRule](/docs/compute/api-ref/GpuCluster/listInstances#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)**
+              List of affinity rules. Scheduler will attempt to allocate instances according to order of rules.
+            type: array
+            items:
+              $ref: '#/definitions/HostAffinityRule'
+          placementGroupPartition:
+            description: |-
+              **string** (int64)
+              Placement group partition
+            type: string
+            format: int64
+      GpuSettings:
+        type: object
+        properties:
+          gpuClusterId:
+            description: |-
+              **string**
+              Attach instance to specified GPU cluster.
+            type: string
+      SerialPortSettings:
+        type: object
+        properties:
+          sshAuthorization:
+            description: |-
+              **enum** (SSHAuthorization)
+              Authentication and authorization in serial console when using SSH protocol
+              - `SSH_AUTHORIZATION_UNSPECIFIED`
+              - `INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata
+              - `OS_LOGIN`: Authentication and authorization using Oslogin service
+            type: string
+            enum:
+              - SSH_AUTHORIZATION_UNSPECIFIED
+              - INSTANCE_METADATA
+              - OS_LOGIN
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/create.md
 ---
 

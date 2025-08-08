@@ -1,5 +1,141 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-lockbox }}/lockbox/v1/secrets
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a secret in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the secret.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the secret.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
+            For example, `"project": "mvp"` or `"source": "dictionary"`.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        kmsKeyId:
+          description: |-
+            **string**
+            Optional ID of the KMS key will be used to encrypt and decrypt the secret.
+          type: string
+        versionDescription:
+          description: |-
+            **string**
+            Description of the first version.
+          type: string
+        versionPayloadEntries:
+          description: |-
+            **[PayloadEntryChange](/docs/lockbox/api-ref/Secret/create#yandex.cloud.lockbox.v1.PayloadEntryChange)**
+            Payload entries added to the first version.
+          type: array
+          items:
+            oneOf:
+              - type: object
+                properties:
+                  textValue:
+                    description: |-
+                      **string**
+                      Use the field to set a text value.
+                      Includes only one of the fields `textValue`, `binaryValue`.
+                      Confidential value of the entry.
+                    type: string
+                  binaryValue:
+                    description: |-
+                      **string** (bytes)
+                      Use the field to set a binary value.
+                      Includes only one of the fields `textValue`, `binaryValue`.
+                      Confidential value of the entry.
+                    type: string
+                    format: bytes
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that inhibits deletion of the secret.
+          type: boolean
+        passwordPayloadSpecification:
+          description: |-
+            **[PasswordPayloadSpecification](/docs/lockbox/api-ref/Secret/get#yandex.cloud.lockbox.v1.PasswordPayloadSpecification)**
+            Includes only one of the fields `passwordPayloadSpecification`.
+          $ref: '#/definitions/PasswordPayloadSpecification'
+        createVersion:
+          description: |-
+            **boolean**
+            If true: a version will be created with either version_payload_entries or password_payload_specification (one is required).
+            If false: a version is NOT created, no matter version_payload_entries or password_payload_specification.
+            Default: a version is created IF either version_payload_entries or password_payload_specification are specified.
+            It's never allowed to set both version_payload_entries and password_payload_specification.
+          type: boolean
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      PasswordPayloadSpecification:
+        type: object
+        properties:
+          passwordKey:
+            description: |-
+              **string**
+              Required field. key of the entry to store generated password value
+            pattern: '[-_./\\@0-9a-zA-Z]+'
+            type: string
+          length:
+            description: |-
+              **string** (int64)
+              password length; by default, a reasonable length will be decided
+            type: string
+            format: int64
+          includeUppercase:
+            description: |-
+              **boolean**
+              whether at least one A..Z character is included in the password, true by default
+            type: boolean
+          includeLowercase:
+            description: |-
+              **boolean**
+              whether at least one a..z character is included in the password, true by default
+            type: boolean
+          includeDigits:
+            description: |-
+              **boolean**
+              whether at least one 0..9 character is included in the password, true by default
+            type: boolean
+          includePunctuation:
+            description: |-
+              **boolean**
+              whether at least one punctuation character is included in the password, true by default
+              punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+              to customize the punctuation characters, see included_punctuation and excluded_punctuation below
+            type: boolean
+          includedPunctuation:
+            description: |-
+              **string**
+              If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
+              a string of specific punctuation characters to use (at most, all the 32)
+            type: string
+          excludedPunctuation:
+            description: |-
+              **string**
+              a string of punctuation characters to exclude from the default (at most 31, it's not allowed to exclude all the 32)
+            type: string
+        required:
+          - passwordKey
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/create.md
 ---
 

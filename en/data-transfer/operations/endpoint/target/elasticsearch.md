@@ -34,6 +34,8 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 ## Preparing the target database {#prepare}
 
+{% include [elastic-version](../../../../_includes/data-transfer/elastic-version-note.md) %}
+
 {% include [prepare db](../../../../_includes/data-transfer/endpoints/targets/elasticsearch-prepare.md) %}
 
 ## Configuring the {{ ES }} target endpoint {#endpoint-settings}
@@ -81,11 +83,15 @@ After configuring the data source and target, [create and start the transfer](..
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-* [Transfer failure](#ambiguous-resolution-es)
+* [Transfer interrupted with an error message](#ambiguous-resolution-es)
 * [Document duplication on the target](#duplication)
+* [{{ ES }} version not supported](#elastic-version).
 
 For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [ambiguous-object-resolution-es](../../../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-es.md) %}
 
 {% include [duplication](../../../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
+
+{% include [elastic-version](../../../../_includes/data-transfer/troubles/elastic-opensearch/elastic-version.md) %}
+

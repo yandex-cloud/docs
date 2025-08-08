@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/SshCertificate/generate.md
 ---
 
-# Cloud Organization API, gRPC: SshCertificateService.Generate
+# Identity Hub API, gRPC: SshCertificateService.Generate
 
 Members of an organization can generate certificates for themselves
 Signing certificates for other users requires a special permission

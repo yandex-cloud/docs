@@ -1,5 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/keys/{keyId}:scheduleVersionDestruction
+    method: post
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the key whose version should be scheduled for destruction.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            **string**
+            Required field. ID of the version to be destroyed.
+          type: string
+        pendingPeriod:
+          description: |-
+            **string** (duration)
+            Time interval between the version destruction request and actual destruction.
+            Default value: 7 days.
+          type: string
+          format: duration
+      required:
+        - versionId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/scheduleVersionDestruction.md
 ---
 

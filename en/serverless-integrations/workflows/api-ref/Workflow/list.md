@@ -1,5 +1,47 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-workflows.{{ api-host }}/workflows/v1/workflow
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list Workflows in.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListWorkflowsResponse.nextPageToken](/docs/functions/workflows/api-ref/Workflow/list#yandex.cloud.serverless.workflows.v1.ListWorkflowsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListWorkflowsResponse.nextPageToken](/docs/functions/workflows/api-ref/Workflow/list#yandex.cloud.serverless.workflows.v1.ListWorkflowsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters functions listed in the response.
+            The expression must specify:
+            1. The field name. Currently filtering can only be applied to following fields: name, created_at.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{0,61}[a-z0-9])?`.
+            Example of a filter: `name=my-workflow`.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/workflows/v1/workflows/api-ref/Workflow/list.md
 ---
 

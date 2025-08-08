@@ -1,5 +1,50 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        desktopId:
+          description: |-
+            **string**
+            Required field. ID of the desktop.
+          type: string
+      required:
+        - desktopId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListDesktopOperationsResponse.nextPageToken](/docs/cloud-desktop/api-ref/Desktop/listOperations#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListDesktopOperationsResponse.nextPageToken](/docs/cloud-desktop/api-ref/Desktop/listOperations#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [Desktop.name](/docs/cloud-desktop/api-ref/DesktopGroup/listDesktops#yandex.cloud.clouddesktop.v1.api.Desktop) field.
+            2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+            3. Value or a list of values to compare against the values of the field.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/listOperations.md
 ---
 

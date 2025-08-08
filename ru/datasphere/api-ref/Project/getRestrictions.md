@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:restrictions
+    method: get
+    path:
+      type: object
+      properties:
+        projectId:
+          description: |-
+            **string**
+            Required field. ID of the project.
+          type: string
+      required:
+        - projectId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/getRestrictions.md
 ---
 

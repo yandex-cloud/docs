@@ -1,5 +1,77 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-elasticsearch/v1/clusters/{clusterId}/auth/providers/{name}
+    method: put
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. Required. ID of the ElasticSearch cluster.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Required. Name of the provider to update.
+          pattern: '[a-z][a-z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - name
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        provider:
+          description: |-
+            **[AuthProvider](/docs/managed-elasticsearch/api-ref/Auth/listProviders#yandex.cloud.mdb.elasticsearch.v1.AuthProvider)**
+            Required field. Required. New provider defenition.
+          oneOf:
+            - type: object
+              properties:
+                saml:
+                  description: |-
+                    **[SamlSettings](/docs/managed-elasticsearch/api-ref/Auth/listProviders#yandex.cloud.mdb.elasticsearch.v1.SamlSettings)**
+                    Includes only one of the fields `saml`.
+                  $ref: '#/definitions/SamlSettings'
+      required:
+        - provider
+      additionalProperties: false
+    definitions:
+      SamlSettings:
+        type: object
+        properties:
+          idpEntityId:
+            description: '**string**'
+            type: string
+          idpMetadataFile:
+            description: '**string** (bytes)'
+            type: string
+            format: bytes
+          spEntityId:
+            description: '**string**'
+            type: string
+          kibanaUrl:
+            description: '**string**'
+            type: string
+          attributePrincipal:
+            description: '**string**'
+            type: string
+          attributeGroups:
+            description: '**string**'
+            type: string
+          attributeName:
+            description: '**string**'
+            type: string
+          attributeEmail:
+            description: '**string**'
+            type: string
+          attributeDn:
+            description: '**string**'
+            type: string
 sourcePath: en/_api-ref/mdb/elasticsearch/v1/api-ref/Auth/updateProvider.md
 ---
 

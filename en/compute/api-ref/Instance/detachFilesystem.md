@@ -1,5 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:detachFilesystem
+    method: post
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            Required field. ID of the instance to detach the filesystem from.
+            To get the instance ID, make a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request.
+          type: string
+      required:
+        - instanceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        filesystemId:
+          description: |-
+            **string**
+            ID of the filesystem that should be detached.
+            Includes only one of the fields `filesystemId`, `deviceName`.
+          type: string
+        deviceName:
+          description: |-
+            **string**
+            Name of the device used for mounting the filesystem that should be detached.
+            Includes only one of the fields `filesystemId`, `deviceName`.
+          pattern: '[a-z][a-z0-9-_]{,19}'
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/detachFilesystem.md
 ---
 

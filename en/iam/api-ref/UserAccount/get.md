@@ -1,5 +1,22 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/userAccounts/{userAccountId}
+    method: get
+    path:
+      type: object
+      properties:
+        userAccountId:
+          description: |-
+            **string**
+            Required field. ID of the UserAccount resource to return.
+          type: string
+      required:
+        - userAccountId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/UserAccount/get.md
 ---
 

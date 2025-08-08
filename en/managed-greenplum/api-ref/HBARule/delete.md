@@ -1,5 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/hbaRule/{priority}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Greenplum cluster.
+            To get the Greenplum cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/Cluster/list#List) request.
+          type: string
+        priority:
+          description: |-
+            **string** (int64)
+            Priority of the Greenplum cluster rule.
+          type: string
+          format: int64
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/HBARule/delete.md
 ---
 

@@ -1,5 +1,59 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors/{connectorId}
+    method: patch
+    path:
+      type: object
+      properties:
+        connectorId:
+          description: |-
+            **string**
+            Required field. ID of the connector to update.
+          type: string
+      required:
+        - connectorId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name of the connector.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the connector.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New labels of the connector.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            New flag that disallow deletion of the connector.
+          type: boolean
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/eventrouter/v1/eventrouter/api-ref/Connector/update.md
 ---
 
@@ -93,7 +147,7 @@ New flag that disallow deletion of the connector. ||
     "description": "string",
     "labels": "object",
     "source": {
-      // Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`
+      // Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`
       "dataStream": {
         "database": "string",
         "streamName": "string",
@@ -112,7 +166,8 @@ New flag that disallow deletion of the connector. ||
         "timeZone": "string",
         "payload": "string"
       },
-      "eventServiceSource": "object"
+      "eventServiceSource": "object",
+      "auditTrails": "object"
       // end of the list of possible fields
     },
     "deletionProtection": "boolean",
@@ -278,16 +333,19 @@ Status of the connector.
 ||Field | Description ||
 || dataStream | **[DataStream](#yandex.cloud.serverless.eventrouter.v1.DataStream)**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
 || messageQueue | **[MessageQueue](#yandex.cloud.serverless.eventrouter.v1.MessageQueue)**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
 || timer | **[Timer](#yandex.cloud.serverless.eventrouter.v1.Timer)**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
 || eventServiceSource | **object**
 
-Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`. ||
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
+|| auditTrails | **object**
+
+Includes only one of the fields `dataStream`, `messageQueue`, `timer`, `eventServiceSource`, `auditTrails`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.eventrouter.v1.DataStream}

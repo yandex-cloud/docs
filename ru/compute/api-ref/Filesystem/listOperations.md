@@ -1,5 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        filesystemId:
+          description: |-
+            **string**
+            Required field. ID of the filesystem to list operations for.
+            To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request.
+          type: string
+      required:
+        - filesystemId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListFilesystemOperationsResponse.nextPageToken](/docs/compute/api-ref/Filesystem/listOperations#yandex.cloud.compute.v1.ListFilesystemOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListFilesystemOperationsResponse.nextPageToken](/docs/compute/api-ref/Filesystem/listOperations#yandex.cloud.compute.v1.ListFilesystemOperationsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Filesystem/listOperations.md
 ---
 

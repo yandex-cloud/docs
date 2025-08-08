@@ -1,5 +1,24 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}:start
+    method: post
+    path:
+      type: object
+      properties:
+        loadBalancerId:
+          description: |-
+            **string**
+            Required field. ID of the application load balancer to start.
+            The application load balancer must have a `STOPPED` status ([LoadBalancer.status](/docs/application-load-balancer/api-ref/LoadBalancer/get#yandex.cloud.apploadbalancer.v1.LoadBalancer)).
+            To get the application load balancer ID, make a [LoadBalancerService.List](/docs/application-load-balancer/api-ref/LoadBalancer/list#List) request.
+          type: string
+      required:
+        - loadBalancerId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/start.md
 ---
 

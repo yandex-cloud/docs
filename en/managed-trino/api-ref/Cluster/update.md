@@ -1,5 +1,302 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://trino.{{ api-host }}/managed-trino/v1/clusters/{clusterId}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Trino cluster.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the Trino cluster. The name must be unique within the folder.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the Trino cluster.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the Trino cluster as `` key:value `` pairs.
+            For example: {"env": "prod"}.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Deletion Protection inhibits deletion of the cluster.
+          type: boolean
+        trino:
+          description: |-
+            **[UpdateTrinoConfigSpec](/docs/managed-trino/api-ref/Cluster/update#yandex.cloud.trino.v1.UpdateTrinoConfigSpec)**
+            Configuration of Trino components.
+          $ref: '#/definitions/UpdateTrinoConfigSpec'
+        networkSpec:
+          description: |-
+            **[UpdateNetworkConfigSpec](/docs/managed-trino/api-ref/Cluster/update#yandex.cloud.trino.v1.UpdateNetworkConfigSpec)**
+            Network related configuration options.
+          $ref: '#/definitions/UpdateNetworkConfigSpec'
+        serviceAccountId:
+          description: |-
+            **string**
+            Service account used to access Cloud resources.
+          type: string
+        logging:
+          description: |-
+            **[LoggingConfig](/docs/managed-trino/api-ref/Cluster/get#yandex.cloud.trino.v1.LoggingConfig)**
+            Cloud logging configuration.
+          oneOf:
+            - type: object
+              properties:
+                folderId:
+                  description: |-
+                    **string**
+                    Logs should be written to default log group for specified folder.
+                    Includes only one of the fields `folderId`, `logGroupId`.
+                    Destination of log records.
+                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+                  type: string
+                logGroupId:
+                  description: |-
+                    **string**
+                    Logs should be written to log group resolved by ID.
+                    Includes only one of the fields `folderId`, `logGroupId`.
+                    Destination of log records.
+                  pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+                  type: string
+        maintenanceWindow:
+          description: |-
+            **[MaintenanceWindow](/docs/managed-trino/api-ref/Cluster/get#yandex.cloud.trino.v1.MaintenanceWindow)**
+            Window of maintenance operations.
+          oneOf:
+            - type: object
+              properties:
+                anytime:
+                  description: |-
+                    **object**
+                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+                  $ref: '#/definitions/AnytimeMaintenanceWindow'
+                weeklyMaintenanceWindow:
+                  description: |-
+                    **[WeeklyMaintenanceWindow](/docs/managed-trino/api-ref/Cluster/get#yandex.cloud.trino.v1.WeeklyMaintenanceWindow)**
+                    Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+                  $ref: '#/definitions/WeeklyMaintenanceWindow'
+      additionalProperties: false
+    definitions:
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              Required field. ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.).
+            type: string
+        required:
+          - resourcePresetId
+      UpdateCoordinatorConfig:
+        type: object
+        properties:
+          resources:
+            description: |-
+              **[Resources](/docs/managed-trino/api-ref/Cluster/get#yandex.cloud.trino.v1.Resources)**
+              Configuration for computational resources assigned to the coordinator instance.
+            $ref: '#/definitions/Resources'
+      FixedScalePolicy:
+        type: object
+        properties:
+          count:
+            description: |-
+              **string** (int64)
+              Specifies the number of worker instances.
+            type: string
+            format: int64
+      AutoScalePolicy:
+        type: object
+        properties:
+          minCount:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          maxCount:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      UpdateWorkerConfig:
+        type: object
+        properties:
+          resources:
+            description: |-
+              **[Resources](/docs/managed-trino/api-ref/Cluster/get#yandex.cloud.trino.v1.Resources)**
+              Configuration for computational resources for worker instances.
+            $ref: '#/definitions/Resources'
+          scalePolicy:
+            description: |-
+              **[WorkerScalePolicy](/docs/managed-trino/api-ref/Cluster/update#yandex.cloud.trino.v1.UpdateWorkerConfig.WorkerScalePolicy)**
+              Configuration for scaling policy for worker instances.
+            oneOf:
+              - type: object
+                properties:
+                  fixedScale:
+                    description: |-
+                      **[FixedScalePolicy](/docs/managed-trino/api-ref/Cluster/get#yandex.cloud.trino.v1.FixedScalePolicy)**
+                      A fixed scaling policy that specifies a fixed number of worker instances.
+                      Includes only one of the fields `fixedScale`, `autoScale`.
+                      Defines the scaling type for worker instances.
+                      Only one type of scaling can be specified at a time.
+                    $ref: '#/definitions/FixedScalePolicy'
+                  autoScale:
+                    description: |-
+                      **[AutoScalePolicy](/docs/managed-trino/api-ref/Cluster/get#yandex.cloud.trino.v1.AutoScalePolicy)**
+                      A scaling policy that dynamically adjusts the number of worker instances
+                      based on the cluster's workload. The system automatically increases or
+                      decreases the number of instances within the defined range.
+                      Includes only one of the fields `fixedScale`, `autoScale`.
+                      Defines the scaling type for worker instances.
+                      Only one type of scaling can be specified at a time.
+                    $ref: '#/definitions/AutoScalePolicy'
+      ServiceS3:
+        type: object
+        properties: {}
+      ExchangeManagerConfig:
+        type: object
+        properties:
+          additionalProperties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional properties.
+            pattern: '[a-z][-_0-9a-z.]*'
+            type: string
+          storage:
+            description: '**[ExchangeManagerStorage](/docs/managed-trino/api-ref/Cluster/get#yandex.cloud.trino.v1.ExchangeManagerStorage)**'
+            oneOf:
+              - type: object
+                properties:
+                  serviceS3:
+                    description: |-
+                      **object**
+                      Use service side s3 bucket for exchange manager.
+                      Includes only one of the fields `serviceS3`.
+                    $ref: '#/definitions/ServiceS3'
+      RetryPolicyConfig:
+        type: object
+        properties:
+          policy:
+            description: |-
+              **enum** (RetryPolicy)
+              Retry policy level.
+              - `RETRY_POLICY_UNSPECIFIED`
+              - `QUERY`
+              - `TASK`
+            type: string
+            enum:
+              - RETRY_POLICY_UNSPECIFIED
+              - QUERY
+              - TASK
+          exchangeManager:
+            description: |-
+              **[ExchangeManagerConfig](/docs/managed-trino/api-ref/Cluster/get#yandex.cloud.trino.v1.ExchangeManagerConfig)**
+              Configuration for exchange manager.
+            $ref: '#/definitions/ExchangeManagerConfig'
+          additionalProperties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional properties.
+            pattern: '[a-z][-_0-9a-z.]*'
+            type: string
+      UpdateTrinoConfigSpec:
+        type: object
+        properties:
+          coordinatorConfig:
+            description: |-
+              **[UpdateCoordinatorConfig](/docs/managed-trino/api-ref/Cluster/update#yandex.cloud.trino.v1.UpdateCoordinatorConfig)**
+              Configuration for the coordinator, specifying computational resources and other settings.
+            $ref: '#/definitions/UpdateCoordinatorConfig'
+          workerConfig:
+            description: |-
+              **[UpdateWorkerConfig](/docs/managed-trino/api-ref/Cluster/update#yandex.cloud.trino.v1.UpdateWorkerConfig)**
+              Configuration for worker nodes, including scaling policy and computational resources.
+            $ref: '#/definitions/UpdateWorkerConfig'
+          version:
+            description: |-
+              **string**
+              Trino version.
+              Format: "Number".
+            type: string
+          retryPolicy:
+            description: |-
+              **[RetryPolicyConfig](/docs/managed-trino/api-ref/Cluster/get#yandex.cloud.trino.v1.RetryPolicyConfig)**
+              Configuration for retry policy, specifying the spooling storage destination and other settings.
+            $ref: '#/definitions/RetryPolicyConfig'
+      UpdateNetworkConfigSpec:
+        type: object
+        properties:
+          securityGroupIds:
+            description: |-
+              **string**
+              User security groups.
+            type: array
+            items:
+              type: string
+      AnytimeMaintenanceWindow:
+        type: object
+        properties: {}
+      WeeklyMaintenanceWindow:
+        type: object
+        properties:
+          day:
+            description: |-
+              **enum** (WeekDay)
+              - `WEEK_DAY_UNSPECIFIED`
+              - `MON`
+              - `TUE`
+              - `WED`
+              - `THU`
+              - `FRI`
+              - `SAT`
+              - `SUN`
+            type: string
+            enum:
+              - WEEK_DAY_UNSPECIFIED
+              - MON
+              - TUE
+              - WED
+              - THU
+              - FRI
+              - SAT
+              - SUN
+          hour:
+            description: |-
+              **string** (int64)
+              Hour of the day in UTC.
+            type: string
+            format: int64
 sourcePath: en/_api-ref/trino/v1/api-ref/Cluster/update.md
 ---
 
@@ -53,6 +350,7 @@ Required field. ID of the Trino cluster. ||
         // end of the list of possible fields
       }
     },
+    "version": "string",
     "retryPolicy": {
       "policy": "string",
       "exchangeManager": {
@@ -144,6 +442,10 @@ Configuration for the coordinator, specifying computational resources and other 
 || workerConfig | **[UpdateWorkerConfig](#yandex.cloud.trino.v1.UpdateWorkerConfig)**
 
 Configuration for worker nodes, including scaling policy and computational resources. ||
+|| version | **string**
+
+Trino version.
+Format: "Number". ||
 || retryPolicy | **[RetryPolicyConfig](#yandex.cloud.trino.v1.RetryPolicyConfig)**
 
 Configuration for retry policy, specifying the spooling storage destination and other settings. ||

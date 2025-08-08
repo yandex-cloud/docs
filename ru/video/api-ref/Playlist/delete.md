@@ -1,11 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/playlists/{playlistId}
+    method: delete
+    path:
+      type: object
+      properties:
+        playlistId:
+          description: |-
+            **string**
+            Required field. ID of the playlist to delete.
+          type: string
+      required:
+        - playlistId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Playlist/delete.md
 ---
 
 # Video API, REST: Playlist.Delete
 
-Delete playlist.
+Deletes a specific playlist by its ID.
+This removes the playlist but does not affect the videos or episodes it contains.
 
 ## HTTP request
 
@@ -19,7 +37,7 @@ DELETE https://video.{{ api-host }}/video/v1/playlists/{playlistId}
 ||Field | Description ||
 || playlistId | **string**
 
-Required field. ID of the playlist. ||
+Required field. ID of the playlist to delete. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -109,7 +127,8 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || playlistId | **string**
 
-ID of the playlist. ||
+ID of the playlist being deleted.
+This identifier can be used to track the playlist deletion operation. ||
 |#
 
 ## Status {#google.rpc.Status}

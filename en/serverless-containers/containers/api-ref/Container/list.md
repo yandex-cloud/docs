@@ -1,5 +1,48 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-containers.{{ api-host }}/containers/v1/containers
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list containers in.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListContainersResponse.nextPageToken](/docs/serverless-containers/containers/api-ref/Container/list#yandex.cloud.serverless.containers.v1.ListContainersResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListContainersResponse.nextPageToken](/docs/serverless-containers/containers/api-ref/Container/list#yandex.cloud.serverless.containers.v1.ListContainersResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters containers listed in the response.
+            The expression must specify:
+            1. The field name. Currently filtering can only be applied to the [Container.name](/docs/serverless-containers/containers/api-ref/Container/get#yandex.cloud.serverless.containers.v1.Container) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            Example of a filter: `name="my-container"`.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/list.md
 ---
 

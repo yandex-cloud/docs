@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloudrouter.{{ api-host }}/cloudrouter/v1/routingInstances/{routingInstanceId}
+    method: get
+    path:
+      type: object
+      properties:
+        routingInstanceId:
+          description: |-
+            **string**
+            Required field. ID of the RoutingInstance resource to return.
+            To get the routingInstance ID use a [RoutingInstanceService.List](/docs/cloud-router/api-ref/RoutingInstance/list#List) request.
+          type: string
+      required:
+        - routingInstanceId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cloudrouter/v1/api-ref/RoutingInstance/get.md
 ---
 

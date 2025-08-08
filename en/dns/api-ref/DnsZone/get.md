@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}
+    method: get
+    path:
+      type: object
+      properties:
+        dnsZoneId:
+          description: |-
+            **string**
+            Required field. ID of the DNS zone to return.
+            To get a DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/DnsZone/list#List) request.
+          type: string
+      required:
+        - dnsZoneId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/get.md
 ---
 

@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://logging.{{ api-host }}/logging/v1/sinks/{sinkId}
+    method: delete
+    path:
+      type: object
+      properties:
+        sinkId:
+          description: |-
+            **string**
+            Required field. ID of the sink to delete.
+            To get a sink ID make a [SinkService.List](/docs/logging/api-ref/Sink/list#List) request.
+          type: string
+      required:
+        - sinkId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/logging/v1/api-ref/Sink/delete.md
 ---
 

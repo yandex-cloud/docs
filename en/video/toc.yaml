@@ -291,6 +291,20 @@ items:
                 href: api-ref/grpc/Stream/batchDelete.md
               - name: PerformAction
                 href: api-ref/grpc/Stream/performAction.md
+          - name: StylePreset
+            items:
+              - name: Overview
+                href: api-ref/grpc/StylePreset/index.md
+              - name: Get
+                href: api-ref/grpc/StylePreset/get.md
+              - name: List
+                href: api-ref/grpc/StylePreset/list.md
+              - name: Create
+                href: api-ref/grpc/StylePreset/create.md
+              - name: Update
+                href: api-ref/grpc/StylePreset/update.md
+              - name: Delete
+                href: api-ref/grpc/StylePreset/delete.md
           - name: Subtitle
             items:
               - name: Overview
@@ -467,6 +481,20 @@ items:
                 href: api-ref/Stream/batchDelete.md
               - name: PerformAction
                 href: api-ref/Stream/performAction.md
+          - name: StylePreset
+            items:
+              - name: Overview
+                href: api-ref/StylePreset/index.md
+              - name: Get
+                href: api-ref/StylePreset/get.md
+              - name: List
+                href: api-ref/StylePreset/list.md
+              - name: Create
+                href: api-ref/StylePreset/create.md
+              - name: Update
+                href: api-ref/StylePreset/update.md
+              - name: Delete
+                href: api-ref/StylePreset/delete.md
           - name: Subtitle
             items:
               - name: Overview

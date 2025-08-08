@@ -1,5 +1,18 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://connman.{{ api-host }}/v1/connection/resolveCluster/{connectionId}
+    method: get
+    path:
+      type: object
+      properties:
+        connectionId:
+          description: '**string**'
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/connectionmanager/v1/api-ref/Connection/resolveCluster.md
 ---
 

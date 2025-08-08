@@ -1,5 +1,311 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-sk-stt }}/stt/v3/recognizeFileAsync
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        content:
+          description: |-
+            **string** (bytes)
+            Bytes with data
+            Includes only one of the fields `content`, `uri`.
+          type: string
+          format: bytes
+        uri:
+          description: |-
+            **string**
+            S3 data url
+            Includes only one of the fields `content`, `uri`.
+          type: string
+        recognitionModel:
+          description: |-
+            **[RecognitionModelOptions](/docs/ai/stt/stt-v3/api-ref/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RecognitionModelOptions)**
+            Configuration for speech recognition model.
+          $ref: '#/definitions/RecognitionModelOptions'
+        recognitionClassifier:
+          description: |-
+            **[RecognitionClassifierOptions](/docs/ai/stt/stt-v3/api-ref/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RecognitionClassifierOptions)**
+            Configuration for classifiers over speech recognition.
+          $ref: '#/definitions/RecognitionClassifierOptions'
+        speechAnalysis:
+          description: |-
+            **[SpeechAnalysisOptions](/docs/ai/stt/stt-v3/api-ref/AsyncRecognizer/recognizeFile#speechkit.stt.v3.SpeechAnalysisOptions)**
+            Configuration for speech analysis over speech recognition.
+          $ref: '#/definitions/SpeechAnalysisOptions'
+        speakerLabeling:
+          description: |-
+            **[SpeakerLabelingOptions](/docs/ai/stt/stt-v3/api-ref/AsyncRecognizer/recognizeFile#speechkit.stt.v3.SpeakerLabelingOptions)**
+            Configuration for speaker labeling
+          $ref: '#/definitions/SpeakerLabelingOptions'
+        summarization:
+          description: |-
+            **[SummarizationOptions](/docs/ai/stt/stt-v3/api-ref/AsyncRecognizer/recognizeFile#speechkit.stt.v3.SummarizationOptions)**
+            Summarization options
+          $ref: '#/definitions/SummarizationOptions'
+      additionalProperties: false
+    definitions:
+      RawAudio:
+        type: object
+        properties:
+          audioEncoding:
+            description: |-
+              **enum** (AudioEncoding)
+              Type of audio encoding
+              - `AUDIO_ENCODING_UNSPECIFIED`
+              - `LINEAR16_PCM`: Audio bit depth 16-bit signed little-endian (Linear PCM).
+            type: string
+            enum:
+              - AUDIO_ENCODING_UNSPECIFIED
+              - LINEAR16_PCM
+          sampleRateHertz:
+            description: |-
+              **string** (int64)
+              PCM sample rate
+            type: string
+            format: int64
+          audioChannelCount:
+            description: |-
+              **string** (int64)
+              PCM channel count. Currently only single channel audio is supported in real-time recognition.
+            type: string
+            format: int64
+      ContainerAudio:
+        type: object
+        properties:
+          containerAudioType:
+            description: |-
+              **enum** (ContainerAudioType)
+              Type of audio container.
+              - `CONTAINER_AUDIO_TYPE_UNSPECIFIED`
+              - `WAV`: Audio bit depth 16-bit signed little-endian (Linear PCM).
+              - `OGG_OPUS`: Data is encoded using the OPUS audio codec and compressed using the OGG container format.
+              - `MP3`: Data is encoded using MPEG-1/2 Layer III and compressed using the MP3 container format.
+            type: string
+            enum:
+              - CONTAINER_AUDIO_TYPE_UNSPECIFIED
+              - WAV
+              - OGG_OPUS
+              - MP3
+      TextNormalizationOptions:
+        type: object
+        properties:
+          textNormalization:
+            description: |-
+              **enum** (TextNormalization)
+              - `TEXT_NORMALIZATION_UNSPECIFIED`
+              - `TEXT_NORMALIZATION_ENABLED`: Enable normalization
+              - `TEXT_NORMALIZATION_DISABLED`: Disable normalization
+            type: string
+            enum:
+              - TEXT_NORMALIZATION_UNSPECIFIED
+              - TEXT_NORMALIZATION_ENABLED
+              - TEXT_NORMALIZATION_DISABLED
+          profanityFilter:
+            description: |-
+              **boolean**
+              Profanity filter (default: false).
+            type: boolean
+          literatureText:
+            description: |-
+              **boolean**
+              Rewrite text in literature style (default: false).
+            type: boolean
+          phoneFormattingMode:
+            description: |-
+              **enum** (PhoneFormattingMode)
+              Define phone formatting mode
+              - `PHONE_FORMATTING_MODE_UNSPECIFIED`
+              - `PHONE_FORMATTING_MODE_DISABLED`: Disable phone formatting
+            type: string
+            enum:
+              - PHONE_FORMATTING_MODE_UNSPECIFIED
+              - PHONE_FORMATTING_MODE_DISABLED
+      LanguageRestrictionOptions:
+        type: object
+        properties:
+          restrictionType:
+            description: |-
+              **enum** (LanguageRestrictionType)
+              Language restriction type
+              - `LANGUAGE_RESTRICTION_TYPE_UNSPECIFIED`
+              - `WHITELIST`: The allowing list. The incoming audio can contain only the listed languages.
+              - `BLACKLIST`: The forbidding list. The incoming audio cannot contain the listed languages.
+            type: string
+            enum:
+              - LANGUAGE_RESTRICTION_TYPE_UNSPECIFIED
+              - WHITELIST
+              - BLACKLIST
+          languageCode:
+            description: |-
+              **string**
+              The list of language codes to restrict recognition in the case of an auto model
+            type: array
+            items:
+              type: string
+      RecognitionModelOptions:
+        type: object
+        properties:
+          model:
+            description: |-
+              **string**
+              Sets the recognition model for the cloud version of SpeechKit. Possible values: 'general', 'general:rc', 'general:deprecated'.
+              The model is ignored for SpeechKit Hybrid.
+            type: string
+          audioFormat:
+            description: |-
+              **[AudioFormatOptions](/docs/ai/stt/stt-v3/api-ref/AsyncRecognizer/recognizeFile#speechkit.stt.v3.AudioFormatOptions)**
+              Specified input audio.
+            oneOf:
+              - type: object
+                properties:
+                  rawAudio:
+                    description: |-
+                      **[RawAudio](/docs/ai/stt/stt-v3/api-ref/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RawAudio)**
+                      Audio without container.
+                      Includes only one of the fields `rawAudio`, `containerAudio`.
+                    $ref: '#/definitions/RawAudio'
+                  containerAudio:
+                    description: |-
+                      **[ContainerAudio](/docs/ai/stt/stt-v3/api-ref/AsyncRecognizer/recognizeFile#speechkit.stt.v3.ContainerAudio)**
+                      Audio is wrapped in container.
+                      Includes only one of the fields `rawAudio`, `containerAudio`.
+                    $ref: '#/definitions/ContainerAudio'
+          textNormalization:
+            description: |-
+              **[TextNormalizationOptions](/docs/ai/stt/stt-v3/api-ref/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions)**
+              Text normalization options.
+            $ref: '#/definitions/TextNormalizationOptions'
+          languageRestriction:
+            description: |-
+              **[LanguageRestrictionOptions](/docs/ai/stt/stt-v3/api-ref/AsyncRecognizer/recognizeFile#speechkit.stt.v3.LanguageRestrictionOptions)**
+              Possible languages in audio.
+            $ref: '#/definitions/LanguageRestrictionOptions'
+          audioProcessingType:
+            description: |-
+              **enum** (AudioProcessingType)
+              How to deal with audio data (in real time, after all data is received, etc). Default is REAL_TIME.
+              - `AUDIO_PROCESSING_TYPE_UNSPECIFIED`
+              - `REAL_TIME`: Process audio in mode optimized for real-time recognition, i.e. send partials and final responses as soon as possible
+              - `FULL_DATA`: Process audio after all data was received
+            type: string
+            enum:
+              - AUDIO_PROCESSING_TYPE_UNSPECIFIED
+              - REAL_TIME
+              - FULL_DATA
+      RecognitionClassifier:
+        type: object
+        properties:
+          classifier:
+            description: |-
+              **string**
+              Classifier name
+            type: string
+          triggers:
+            description: |-
+              **enum** (TriggerType)
+              Describes the types of responses to which the classification results will come
+              - `TRIGGER_TYPE_UNSPECIFIED`
+              - `ON_UTTERANCE`: Apply classifier to utterance responses
+              - `ON_FINAL`: Apply classifier to final responses
+              - `ON_PARTIAL`: Apply classifier to partial responses
+            type: array
+            items:
+              type: string
+              enum:
+                - TRIGGER_TYPE_UNSPECIFIED
+                - ON_UTTERANCE
+                - ON_FINAL
+                - ON_PARTIAL
+      RecognitionClassifierOptions:
+        type: object
+        properties:
+          classifiers:
+            description: |-
+              **[RecognitionClassifier](/docs/ai/stt/stt-v3/api-ref/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RecognitionClassifier)**
+              List of classifiers to use
+            type: array
+            items:
+              $ref: '#/definitions/RecognitionClassifier'
+      SpeechAnalysisOptions:
+        type: object
+        properties:
+          enableSpeakerAnalysis:
+            description: |-
+              **boolean**
+              Analyse speech for every speaker
+            type: boolean
+          enableConversationAnalysis:
+            description: |-
+              **boolean**
+              Analyse conversation of two speakers
+            type: boolean
+          descriptiveStatisticsQuantiles:
+            description: |-
+              **string**
+              Quantile levels in range (0, 1) for descriptive statistics
+            type: array
+            items:
+              type: string
+      SpeakerLabelingOptions:
+        type: object
+        properties:
+          speakerLabeling:
+            description: |-
+              **enum** (SpeakerLabeling)
+              Specifies the execution of speaker labeling. Default is SPEAKER_LABELING_DISABLED.
+              - `SPEAKER_LABELING_UNSPECIFIED`
+              - `SPEAKER_LABELING_ENABLED`: Enable speaker labeling
+              - `SPEAKER_LABELING_DISABLED`: Disable speaker labeling
+            type: string
+            enum:
+              - SPEAKER_LABELING_UNSPECIFIED
+              - SPEAKER_LABELING_ENABLED
+              - SPEAKER_LABELING_DISABLED
+      JsonSchema:
+        type: object
+        properties:
+          schema:
+            description: |-
+              **object**
+              The JSON Schema that the model's output must conform to.
+            type: object
+      SummarizationOptions:
+        type: object
+        properties:
+          modelUri:
+            description: |-
+              **string**
+              The [ID of the model](/docs/foundation-models/concepts/yandexgpt/models) to be used for completion generation.
+            type: string
+          properties:
+            description: |-
+              **[SummarizationProperty](/docs/ai/stt/stt-v3/api-ref/AsyncRecognizer/recognizeFile#speechkit.stt.v3.SummarizationProperty)**
+              A list of suimmarizations to perform with transcription.
+            type: array
+            items:
+              oneOf:
+                - type: object
+                  properties:
+                    jsonObject:
+                      description: |-
+                        **boolean**
+                        When set to true, the model will respond with a valid JSON object.
+                        Be sure to explicitly ask the model for JSON.
+                        Otherwise, it may generate excessive whitespace and run indefinitely until it reaches the token limit.
+                        Includes only one of the fields `jsonObject`, `jsonSchema`.
+                        Specifies the format of the model's response.
+                      type: boolean
+                    jsonSchema:
+                      description: |-
+                        **[JsonSchema](/docs/ai/stt/stt-v3/api-ref/AsyncRecognizer/recognizeFile#speechkit.stt.v3.JsonSchema)**
+                        Enforces a specific JSON structure for the model's response based on a provided schema.
+                        Includes only one of the fields `jsonObject`, `jsonSchema`.
+                        Specifies the format of the model's response.
+                      $ref: '#/definitions/JsonSchema'
 sourcePath: en/_api-ref/ai/stt/v3/stt-v3/api-ref/AsyncRecognizer/recognizeFile.md
 ---
 

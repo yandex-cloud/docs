@@ -1,5 +1,57 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list agents in.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListAgentsResponse.nextPageToken](/docs/load-testing/user/api-ref/Agent/list#yandex.cloud.loadtesting.api.v1.ListAgentsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListAgentsResponse.nextPageToken](/docs/load-testing/user/api-ref/Agent/list#yandex.cloud.loadtesting.api.v1.ListAgentsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters agents listed in the response.
+            The filter expression may contain multiple field expressions joined by `AND`.
+            The field expression must specify:
+            1. The field name.
+            2. An operator:
+            - `=`, `!=`, `CONTAINS`, for single values.
+            - `IN` or `NOT IN` for lists of values.
+            3. The value. String values must be encosed in `"`, boolean values are {`true`, `false`}, timestamp values in ISO-8601.
+            Currently supported fields:
+            - `id` `yandex.cloud.loadtesting.api.v1.agent.Agent.id`
+            - operators: `=`, `!=`, `IN`, `NOT IN`
+            - `name` `yandex.cloud.loadtesting.api.v1.agent.Agent.name`
+            - operators: `=`, `!=`, `IN`, `NOT IN`, `CONTAINS`
+            Examples:
+            - `id IN ("1", "2", "3")`
+            - `name CONTAINS "compute-agent-large" AND id NOT IN ("4", "5")`
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Agent/list.md
 ---
 

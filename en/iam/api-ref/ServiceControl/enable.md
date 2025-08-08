@@ -1,5 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/service/{serviceId}:enable
+    method: post
+    path:
+      type: object
+      properties:
+        serviceId:
+          description: |-
+            **string**
+            Required field. ID of the Service.
+          type: string
+      required:
+        - serviceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        resource:
+          description: |-
+            **[Resource](/docs/iam/api-ref/ServiceControl/get#yandex.cloud.iam.v1.Resource)**
+            Required field. Resource container to enable a service in.
+            It is supported only resource-manager.cloud resource container now.
+          $ref: '#/definitions/Resource'
+      required:
+        - resource
+      additionalProperties: false
+    definitions:
+      Resource:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              Required field. ID of the resource.
+            type: string
+          type:
+            description: |-
+              **string**
+              Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+            type: string
+        required:
+          - id
+          - type
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceControl/enable.md
 ---
 

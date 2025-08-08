@@ -1,5 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs/{jobId}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to request a job from.
+          type: string
+        jobId:
+          description: |-
+            **string**
+            Required field. ID of the job to return.
+            To get a job ID make a [JobService.List](/docs/data-proc/api-ref/Job/list#List) request.
+          type: string
+      required:
+        - clusterId
+        - jobId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/get.md
 ---
 

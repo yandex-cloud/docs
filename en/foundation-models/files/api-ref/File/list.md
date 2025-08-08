@@ -1,5 +1,33 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://rest-assistant.{{ api-host }}/files/v1/files
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. Folder ID from which to list files.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            Maximum number of files to return per page.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Token to retrieve the next page of results.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ai/files/v1/files/api-ref/File/list.md
 ---
 

@@ -42,7 +42,8 @@ If no columns are specified, entire log records are returned. ||
 Required field. Type of the service to request logs about.
 
 - `SERVICE_TYPE_UNSPECIFIED`
-- `CLICKHOUSE`: Logs of ClickHouse activity. ||
+- `CLICKHOUSE`: Logs of ClickHouse activity.
+- `CLICKHOUSE_KEEPER`: Logs of ClickHouse Keeper activity. ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request, in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||

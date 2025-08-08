@@ -1,5 +1,42 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://billing.{{ api-host }}/billing/v1/billingAccounts/{billingAccountId}/billableObjectBindings
+    method: get
+    path:
+      type: object
+      properties:
+        billingAccountId:
+          description: |-
+            **string**
+            Required field. ID of the billing account to list associated billable object bindings.
+            To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+          type: string
+      required:
+        - billingAccountId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListBillableObjectBindingsResponse.nextPageToken](/docs/billing/api-ref/BillingAccount/listBillableObjectBindings#yandex.cloud.billing.v1.ListBillableObjectBindingsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results,
+            set `pageToken` to the [ListBillableObjectBindingsResponse.nextPageToken](/docs/billing/api-ref/BillingAccount/listBillableObjectBindings#yandex.cloud.billing.v1.ListBillableObjectBindingsResponse)
+            returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/billing/v1/api-ref/BillingAccount/listBillableObjectBindings.md
 ---
 

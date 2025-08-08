@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cic.{{ api-host }}/cic/v1/publicConnections/{publicConnectionId}
+    method: get
+    path:
+      type: object
+      properties:
+        publicConnectionId:
+          description: |-
+            **string**
+            Required field. ID of the PublicConnection resource to return.
+            To get the publicConnection ID use a [PublicConnectionService.List](/docs/interconnect/api-ref/PublicConnection/list#List) request.
+          type: string
+      required:
+        - publicConnectionId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cic/v1/api-ref/PublicConnection/get.md
 ---
 

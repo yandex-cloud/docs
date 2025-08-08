@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
+    method: get
+    path:
+      type: object
+      properties:
+        desktopId:
+          description: |-
+            **string**
+            Required field. ID of the desktop resource to return.
+            To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request.
+          type: string
+      required:
+        - desktopId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/get.md
 ---
 

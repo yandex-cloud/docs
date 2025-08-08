@@ -1,5 +1,23 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshots/{snapshotId}
+    method: delete
+    path:
+      type: object
+      properties:
+        snapshotId:
+          description: |-
+            **string**
+            Required field. ID of the snapshot to delete.
+            To get the snapshot ID, use a [SnapshotService.List](/docs/compute/api-ref/Snapshot/list#List) request.
+          type: string
+      required:
+        - snapshotId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/delete.md
 ---
 

@@ -1,5 +1,111 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}:addBackend
+    method: post
+    path:
+      type: object
+      properties:
+        backendGroupId:
+          description: |-
+            **string**
+            Required field. ID of the backend group to add a backend to.
+            To get the backend group ID, make a [BackendGroupService.List](/docs/application-load-balancer/api-ref/BackendGroup/list#List) request.
+          type: string
+      required:
+        - backendGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        http:
+          description: |-
+            **[HttpBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend)**
+            HTTP backend to add to the backend group.
+            Includes only one of the fields `http`, `grpc`, `stream`.
+            Backend to add to the backend group.
+          oneOf:
+            - type: object
+              properties:
+                targetGroups:
+                  description: |-
+                    **[TargetGroupsBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+                    Target groups that belong to the backend. For details about target groups, see
+                    [documentation](/docs/application-load-balancer/concepts/target-group).
+                    Includes only one of the fields `targetGroups`, `storageBucket`.
+                    Reference to targets that belong to the backend.
+                    A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see
+                    [documentation](/docs/application-load-balancer/concepts/backend-group#types).
+                  $ref: '#/definitions/TargetGroupsBackend'
+                storageBucket:
+                  description: |-
+                    **[StorageBucketBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.StorageBucketBackend)**
+                    Object Storage bucket to use as the backend. For details about buckets, see
+                    [documentation](/docs/storage/concepts/bucket).
+                    If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly
+                    accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability).
+                    Includes only one of the fields `targetGroups`, `storageBucket`.
+                    Reference to targets that belong to the backend.
+                    A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see
+                    [documentation](/docs/application-load-balancer/concepts/backend-group#types).
+                  $ref: '#/definitions/StorageBucketBackend'
+        grpc:
+          description: |-
+            **[GrpcBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackend)**
+            gRPC backend to add to the backend group.
+            Includes only one of the fields `http`, `grpc`, `stream`.
+            Backend to add to the backend group.
+          oneOf:
+            - type: object
+              properties:
+                targetGroups:
+                  description: |-
+                    **[TargetGroupsBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+                    Target groups that belong to the backend.
+                    Includes only one of the fields `targetGroups`.
+                    Reference to targets that belong to the backend. For now, targets are referenced via target groups.
+                  $ref: '#/definitions/TargetGroupsBackend'
+        stream:
+          description: |-
+            **[StreamBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.StreamBackend)**
+            New settings for the Stream backend.
+            Includes only one of the fields `http`, `grpc`, `stream`.
+            Backend to add to the backend group.
+          oneOf:
+            - type: object
+              properties:
+                targetGroups:
+                  description: |-
+                    **[TargetGroupsBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+                    Target groups that belong to the backend. For details about target groups, see
+                    [documentation](/docs/application-load-balancer/concepts/target-group).
+                    Includes only one of the fields `targetGroups`.
+                    Reference to targets that belong to the backend.
+                  $ref: '#/definitions/TargetGroupsBackend'
+      additionalProperties: false
+    definitions:
+      TargetGroupsBackend:
+        type: object
+        properties:
+          targetGroupIds:
+            description: |-
+              **string**
+              List of ID's of target groups that belong to the backend.
+              To get the ID's of all available target groups, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request.
+            type: array
+            items:
+              type: string
+      StorageBucketBackend:
+        type: object
+        properties:
+          bucket:
+            description: |-
+              **string**
+              Required field. Name of the bucket.
+            type: string
+        required:
+          - bucket
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/addBackend.md
 ---
 

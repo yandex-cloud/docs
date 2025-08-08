@@ -1,5 +1,139 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cic.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}
+    method: patch
+    path:
+      type: object
+      properties:
+        privateConnectionId:
+          description: |-
+            **string**
+            Required field. ID of the PrivateConnection resource.
+          type: string
+      required:
+        - privateConnectionId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the privateConnection.
+            The name must be unique within the folder.
+            Value must match the regular expression ``\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``.
+          type: string
+        description:
+          description: |-
+            **string**
+            Optional description of the privateConnection. 0-256 characters long.
+          type: string
+        regionId:
+          description: |-
+            **string**
+            ID of the region that the privateConnection belongs to.
+          type: string
+        trunkConnectionId:
+          description: |-
+            **string**
+            ID of the trunk_connection that the privateConnection belongs to.
+          type: string
+        vlanId:
+          description: |-
+            **string** (int64)
+            VLAN_ID that the privateConnection uses in multiplexing.
+            Not used in connections over partners-II
+            Value range: [1, 4095]
+          type: string
+          format: int64
+        ipv4Peering:
+          description: |-
+            **[Peering](/docs/interconnect/api-ref/PrivateConnection/get#yandex.cloud.cic.v1.Peering)**
+            IPv4 peering config of connection
+          $ref: '#/definitions/Peering'
+        ipv4StaticRoutes:
+          description: |-
+            **[StaticRoute](/docs/interconnect/api-ref/PrivateConnection/get#yandex.cloud.cic.v1.PrivateConnection.StaticRoute)**
+            IPv4 StaticRoute config of connection
+          type: array
+          items:
+            $ref: '#/definitions/StaticRoute'
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels, `key:value` pairs.
+            No more than 64 per resource.
+            The maximum string length in characters for each value is 63.
+            Each value must match the regular expression `[-_0-9a-z]*`.
+            The string length in characters for each key must be 1-63.
+            Each key must match the regular expression `[a-z][-_0-9a-z]*`.
+          pattern: '[a-z][-_0-9a-z]*'
+          type: string
+      additionalProperties: false
+    definitions:
+      Peering:
+        type: object
+        properties:
+          peeringSubnet:
+            description: |-
+              **string**
+              PeeringSubnet.
+              It's an ip with format ipPrefix/length where address part of ipPrefix is 0.
+            type: string
+          peerIp:
+            description: |-
+              **string**
+              PeerIp.
+              It's an ip with just an ipAddress format without mask.
+            type: string
+          cloudIp:
+            description: |-
+              **string**
+              CloudIp.
+              It's an ip with just an ipAddress format without mask.
+            type: string
+          peerBgpAsn:
+            description: |-
+              **string** (int64)
+              PeerBgpAsn.
+              PeerAsn excluding rfc5398 (excluding 64496 - 64511 and 65536 - 65551).
+            type: string
+            format: int64
+          cloudBgpAsn:
+            description: |-
+              **string** (int64)
+              CloudBgpAsn.
+            type: string
+            format: int64
+          peerBgpMd5Key:
+            description: |-
+              **string**
+              PeerBgpMd5Key.
+              Optional.
+            type: string
+      StaticRoute:
+        type: object
+        properties:
+          prefix:
+            description: |-
+              **string**
+              Prefix.
+              It's an ip with format ipPrefix/length where address part of ipPrefix is 0.
+            type: string
 sourcePath: en/_api-ref/cic/v1/api-ref/PrivateConnection/update.md
 ---
 

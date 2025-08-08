@@ -1,5 +1,33 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/{certificateAuthorityId}:sendSignedCertificate
+    method: post
+    path:
+      type: object
+      properties:
+        certificateAuthorityId:
+          description: |-
+            **string**
+            Required field. The ID of the created but not activated Certificate Authority.
+          type: string
+      required:
+        - certificateAuthorityId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        pemContent:
+          description: |-
+            **string**
+            Required field. The PEM-encoded content of the signed certificate.
+            This signed certificate is derived externally from the CSR and needs to complete the CA creation.
+          type: string
+      required:
+        - pemContent
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/privateca/api-ref/PrivateCa/sendSignedCertificateOfCertificateAuthority.md
 ---
 

@@ -1,5 +1,219 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}
+    method: patch
+    path:
+      type: object
+      properties:
+        backendGroupId:
+          description: |-
+            **string**
+            Required field. ID of the backend group to update.
+            To get the backend group ID, make a [BackendGroupService.List](/docs/application-load-balancer/api-ref/BackendGroup/list#List) request.
+          type: string
+      required:
+        - backendGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the backend group.
+            The name must be unique within the folder.
+          pattern: ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)?
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the backend group.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Backend group labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [BackendGroupService.Get](/docs/application-load-balancer/api-ref/BackendGroup/get#Get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+          pattern: '[a-z][-_./\@0-9a-z]*'
+          type: string
+        http:
+          description: |-
+            **[HttpBackendGroup](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackendGroup)**
+            New list of HTTP backends that the backend group will consist of.
+            Includes only one of the fields `http`, `grpc`, `stream`.
+            New list of backends in the backend group.
+            Existing list of backends is completely replaced by the specified list, so if you just want to add or remove
+            a target, make a [BackendGroupService.AddBackend](/docs/application-load-balancer/api-ref/BackendGroup/addBackend#AddBackend) request or a [BackendGroupService.RemoveBackend](/docs/application-load-balancer/api-ref/BackendGroup/removeBackend#RemoveBackend) request.
+          oneOf:
+            - type: object
+              properties:
+                connection:
+                  description: |-
+                    **[ConnectionSessionAffinity](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.ConnectionSessionAffinity)**
+                    Connection-based session affinity configuration.
+                    For now, a connection is defined only by an IP address of the client.
+                    Includes only one of the fields `connection`, `header`, `cookie`.
+                    Session affinity configuration for the backend group.
+                    For details about the concept, see
+                    [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
+                    If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
+                    [HttpBackend.backendWeight](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend), and its
+                    [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
+                    affinity will not work.
+                  $ref: '#/definitions/ConnectionSessionAffinity'
+                header:
+                  description: |-
+                    **[HeaderSessionAffinity](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HeaderSessionAffinity)**
+                    HTTP-header-field-based session affinity configuration.
+                    Includes only one of the fields `connection`, `header`, `cookie`.
+                    Session affinity configuration for the backend group.
+                    For details about the concept, see
+                    [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
+                    If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
+                    [HttpBackend.backendWeight](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend), and its
+                    [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
+                    affinity will not work.
+                  $ref: '#/definitions/HeaderSessionAffinity'
+                cookie:
+                  description: |-
+                    **[CookieSessionAffinity](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.CookieSessionAffinity)**
+                    Cookie-based session affinity configuration.
+                    Includes only one of the fields `connection`, `header`, `cookie`.
+                    Session affinity configuration for the backend group.
+                    For details about the concept, see
+                    [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
+                    If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
+                    [HttpBackend.backendWeight](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend), and its
+                    [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
+                    affinity will not work.
+                  $ref: '#/definitions/CookieSessionAffinity'
+        grpc:
+          description: |-
+            **[GrpcBackendGroup](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackendGroup)**
+            New list of gRPC backends that the backend group will consist of.
+            Includes only one of the fields `http`, `grpc`, `stream`.
+            New list of backends in the backend group.
+            Existing list of backends is completely replaced by the specified list, so if you just want to add or remove
+            a target, make a [BackendGroupService.AddBackend](/docs/application-load-balancer/api-ref/BackendGroup/addBackend#AddBackend) request or a [BackendGroupService.RemoveBackend](/docs/application-load-balancer/api-ref/BackendGroup/removeBackend#RemoveBackend) request.
+          oneOf:
+            - type: object
+              properties:
+                connection:
+                  description: |-
+                    **[ConnectionSessionAffinity](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.ConnectionSessionAffinity)**
+                    Connection-based session affinity configuration.
+                    For now, a connection is defined only by an IP address of the client.
+                    Includes only one of the fields `connection`, `header`, `cookie`.
+                    Session affinity configuration for the backend group.
+                    For details about the concept, see
+                    [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
+                    If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
+                    [GrpcBackend.backendWeight](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackend)), and its [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of
+                    these conditions are not met, session affinity will not work.
+                  $ref: '#/definitions/ConnectionSessionAffinity'
+                header:
+                  description: |-
+                    **[HeaderSessionAffinity](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HeaderSessionAffinity)**
+                    HTTP-header-field-based session affinity configuration.
+                    Includes only one of the fields `connection`, `header`, `cookie`.
+                    Session affinity configuration for the backend group.
+                    For details about the concept, see
+                    [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
+                    If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
+                    [GrpcBackend.backendWeight](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackend)), and its [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of
+                    these conditions are not met, session affinity will not work.
+                  $ref: '#/definitions/HeaderSessionAffinity'
+                cookie:
+                  description: |-
+                    **[CookieSessionAffinity](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.CookieSessionAffinity)**
+                    Cookie-based session affinity configuration.
+                    Includes only one of the fields `connection`, `header`, `cookie`.
+                    Session affinity configuration for the backend group.
+                    For details about the concept, see
+                    [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
+                    If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
+                    [GrpcBackend.backendWeight](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackend)), and its [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of
+                    these conditions are not met, session affinity will not work.
+                  $ref: '#/definitions/CookieSessionAffinity'
+        stream:
+          description: |-
+            **[StreamBackendGroup](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.StreamBackendGroup)**
+            New list of stream (TCP) backends that the backend group will consist of.
+            Includes only one of the fields `http`, `grpc`, `stream`.
+            New list of backends in the backend group.
+            Existing list of backends is completely replaced by the specified list, so if you just want to add or remove
+            a target, make a [BackendGroupService.AddBackend](/docs/application-load-balancer/api-ref/BackendGroup/addBackend#AddBackend) request or a [BackendGroupService.RemoveBackend](/docs/application-load-balancer/api-ref/BackendGroup/removeBackend#RemoveBackend) request.
+          oneOf:
+            - type: object
+              properties:
+                connection:
+                  description: |-
+                    **[ConnectionSessionAffinity](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.ConnectionSessionAffinity)**
+                    Connection-based session affinity configuration.
+                    For now, a connection is defined only by an IP address of the client.
+                    Includes only one of the fields `connection`.
+                    Session affinity configuration for the backend group.
+                    For details about the concept, see
+                    [documentation](/docs/application-load-balancer/concepts/backend-group#session-affinity).
+                    If session affinity is configured, the backend group should contain exactly one active backend (i.e. with positive
+                    [HttpBackend.backendWeight](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend)), its [HttpBackend.backendType](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend.backendType) should be [TargetGroupsBackend](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend), and its
+                    [LoadBalancingConfig.load_balancing_mode] should be `MAGLEV_HASH`. If any of these conditions are not met, session
+                    affinity will not work.
+                  $ref: '#/definitions/ConnectionSessionAffinity'
+      additionalProperties: false
+    definitions:
+      ConnectionSessionAffinity:
+        type: object
+        properties:
+          sourceIp:
+            description: |-
+              **boolean**
+              Specifies whether an IP address of the client is used to define a connection for session affinity.
+            type: boolean
+      HeaderSessionAffinity:
+        type: object
+        properties:
+          headerName:
+            description: |-
+              **string**
+              Name of the HTTP header field that is used for session affinity.
+            type: string
+      CookieSessionAffinity:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the cookie that is used for session affinity.
+            type: string
+          ttl:
+            description: |-
+              **string** (duration)
+              Maximum age of cookies that are generated for sessions.
+              If set to `0`, session cookies are used, which are stored by clients in temporary memory and are deleted
+              on client restarts.
+              If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity.
+            type: string
+            format: duration
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/update.md
 ---
 

@@ -1,5 +1,62 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:execute
+    method: post
+    path:
+      type: object
+      properties:
+        projectId:
+          description: |-
+            **string**
+            Required field. ID of the project to execute notebook/cell in.
+          type: string
+      required:
+        - projectId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        notebookId:
+          description: |-
+            **string**
+            The path to the executable notebook in the project storage. The maximum string length is 200 characters.
+            To get the path, right-click on the notebook in JupyterLab and select `Copy path`.
+            Includes only one of the fields `notebookId`, `cellId`.
+          type: string
+        cellId:
+          description: |-
+            **string**
+            ID of the cell to execute.
+            Deprecated
+            Includes only one of the fields `notebookId`, `cellId`.
+          deprecated: true
+          type: string
+        inputVariables:
+          description: |-
+            **object**
+            Values of input variables. Input variables will be available in the project as environment variables.
+          type: object
+        outputVariableNames:
+          description: |-
+            **string**
+            Names of output variables.
+          type: array
+          items:
+            type: string
+        spec:
+          description: |-
+            **string**
+            Specification of the VM
+          type: string
+        sparkConnectorId:
+          description: |-
+            **string**
+            ID of the Spark Connector
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/execute.md
 ---
 
