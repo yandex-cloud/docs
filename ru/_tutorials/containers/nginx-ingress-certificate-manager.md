@@ -143,22 +143,23 @@
      -o json | jq -r '.spec.versions[].name'
    ```
 
-1. Создайте хранилище секретов с именем `secret-store`, содержащее секрет `yc-auth`, указав поддерживаемую `apiVersion`:
+1. Создайте хранилище секретов с именем `yc-cert-manager`, содержащее секрет `yc-auth`, указав поддерживаемую `apiVersion`:
 
 
    ```bash
    kubectl --namespace ns apply -f - <<< '
    apiVersion: external-secrets.io/v1beta1
-   kind: SecretStore
+   kind: ClusterSecretStore
    metadata:
-     name: secret-store
+     name: yc-cert-manager
    spec:
      provider:
        yandexcertificatemanager:
          auth:
            authorizedKeySecretRef:
              name: yc-auth
-             key: authorized-key'
+             key: authorized-key.json
+             namespace: ns'
    ```
 
 
@@ -183,8 +184,8 @@
    spec:
      refreshInterval: 1h
      secretStoreRef:
-       name: secret-store
-       kind: SecretStore
+       name: yc-cert-manager
+       kind: ClusterSecretStore
      target:
        name: k8s-secret
        template:
