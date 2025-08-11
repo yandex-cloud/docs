@@ -25,6 +25,8 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
 
+{% include [security-profile-sa-roles](../../_includes/smartwebsecurity/security-profile-sa-roles.md) %}
+
 Чтобы подключить профиль безопасности к виртуальному хосту:
 
 {% list tabs group=instructions %}

@@ -7,6 +7,18 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.156.0 (28/07/25) {#version0.156.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ managed-k8s-name }}
+
+* Added the `--master-scale-policy` parameter to the `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update` commands for managing computing resources in the cluster masters.
+* Added the `scale_policy` field to the `yc managed-kubernetes cluster get` command output to indicate the computing resource configuration for the cluster masters.
+* Added the following commands for getting available computing resource configurations for the cluster masters: `yc managed-kubernetes resource-preset get` and `yc managed-kubernetes resource-preset list`.
+
+## Previous releases {#previous-release}
+
 ### Version 0.155.0 (23/07/25) {#version0.155.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -65,8 +77,6 @@ In the `yc managed-mongodb cluster create` and `yc managed-mongodb cluster resto
 ##### {{ mrd-name }}
 
 In the `yc managed-redis cluster create` and `yc managed-redis cluster restore` commands, added the `--disk-encryption-key-id` parameter for specifying a disk encryption key.
-
-## Previous releases {#previous-release}
 
 ### Version 0.154.0 (09/07/25) {#version0.154.0}
 
@@ -1660,7 +1670,7 @@ Fixed the `yc compute instance-group update` command issue where the instance gr
 
 ##### {{ compute-name }} {#compute}
 
-* Added the `--strategy` parameter to the `yc compute disk-placement-group create` command to specify a placement strategy. It can either be `SPREAD` or `PARTITION`.
+* Added the `--strategy` parameter to the `yc compute disk-placement-group create` command to specify a placement strategy. It can be either `SPREAD` or `PARTITION`.
 * Added the `--partition-count` parameter to the `yc compute disk-placement-group create` command. The flag sets the number of partitions for a group with the `PARTITION` strategy.
 * Added the `--disk-placement-group-partition` parameter to the `yc compute disk create` command to specify the partition number in a placement group.
 * Added the `PLACEMENT GROUP` column to the table with a list of disks you get using the `yc compute disk list` command.

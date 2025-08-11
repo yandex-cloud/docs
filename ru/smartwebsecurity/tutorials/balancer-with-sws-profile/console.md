@@ -32,6 +32,7 @@
 
 Сохраните публичный IP-адрес L7-балансировщика, он понадобится для проверки профиля безопасности.
 
+
 {% include [auto-scaling-tip](../../../_includes/smartwebsecurity/auto-scaling-tip.md) %}
 
 ## Создайте профиль безопасности {#profile-create}

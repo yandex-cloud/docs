@@ -82,6 +82,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 ## Using a VM {#vm-use}
 
 * [{#T}](vm-connect/ssh.md)
+* [{#T}](vm-connect/cloud-shell.md)
 * [{#T}](vm-connect/rdp.md)
 * [{#T}](vm-connect/powershell.md)
 * [{#T}](vm-connect/os-login-create-vm.md)

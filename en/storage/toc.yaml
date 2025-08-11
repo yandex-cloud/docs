@@ -121,19 +121,19 @@ items:
         items:
           - name: Overview
             href: tutorials/search-events-audit-logs/index.md
-          - name: Tools for operations with audit logs
+          - name: Audit log management tools
             href: tutorials/search-events-audit-logs/tools.md
-          - name: Sample requests for searching events
+          - name: Sample queries for event search
             href: tutorials/search-events-audit-logs/examples.md
           - name: Configuring {{ yq-full-name }}
             href: tutorials/search-events-audit-logs/query.md
-      - name: Mounting buckets to the file system of {{ dataproc-full-name }} hosts
+      - name: Mounting buckets to {{ dataproc-full-name }} host filesystems
         href: tutorials/data-processing-init-actions-geesefs.md
       - name: Using {{ objstorage-name }} in {{ dataproc-name }}
         href: tutorials/copy-files-from-object-storage.md
       - name: >-
-          Importing data from {{ objstorage-name }}, processing and exporting to
-          {{ mch-name }}
+          Importing data from {{ objstorage-name }}, processing, and exporting
+          to {{ mch-name }}
         href: tutorials/s3-data-processing-ch.md
       - name: Connecting a bucket as a disk in Windows
         href: tutorials/s3-disk-connect.md
@@ -272,7 +272,7 @@ items:
         href: tutorials/replicate-logs-to-storage-via-data-streams.md
       - name: Uploading audit logs to ArcSight SIEM
         href: tutorials/export-logs-to-arcsight.md
-      - name: Exporting audit logs to SIEM Splunk systems
+      - name: Uploading audit logs to Splunk SIEM
         href: tutorials/export-logs-to-splunk.md
       - name: Creating an MLFlow server for logging experiments and artifacts
         href: tutorials/mlflow-datasphere.md

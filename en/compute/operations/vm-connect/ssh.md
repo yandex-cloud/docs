@@ -73,45 +73,44 @@ You can also copy the key using the command line:
 {% list tabs group=operating_system %}
 
 - Linux/macOS {#linux-macos}
-  
+
   In the terminal, use one of the following methods to copy the key:
 
-   * Manually. To do this, output the file content to the screen:
+    * Manually. To do this, output the file content to the screen:
 
-      ```bash
-      cat <key_file_path>/<key_name>.pub
-      ```
+        ```bash
+        cat <key_file_path>/<key_name>.pub
+        ```
 
-      This will display the public key. Copy it to the clipboard.
+        This will display the public key. Copy it to the clipboard.
 
-   * Use the appropriate command:
+    * Use the appropriate command:
 
-       * For Linux: `cat <key_file_path>/<key_name>.pub | xclip -selection clipboard`.
+        * For Linux: `cat <key_file_path>/<key_name>.pub | xclip -selection clipboard`.
+        * For macOS: `cat <key_file_path>/<key_name>.pub | pbcopy`.
 
-       * For macOS: `cat <key_file_path>/<key_name>.pub | pbcopy`.
-
-       The above-mentioned commands copy the entire content of the file, including the optional comment.
+        The above-mentioned commands copy the entire content of the file, including the optional comment.
 
 - Windows {#windows}
 
   1. Run `cmd.exe` or `powershell.exe`.
   1. Use one of the following methods to copy the key:
 
-     * Manually. To do this, output the file content to the screen:
+      * Manually. To do this, output the file content to the screen:
 
-        ```shell
-        type <key_file_path>\<key_name>.pub
-        ```
+          ```shell
+          type <key_file_path>\<key_name>.pub
+          ```
 
-        This will display the public key. Copy it to the clipboard.
+          This will display the public key. Copy it to the clipboard.
 
-     * Use the appropriate command:
+      * Use the appropriate command:
 
-        ```shell
-        type <key_file_path>\<key_name>.pub | clip
-        ```
+          ```shell
+          type <key_file_path>\<key_name>.pub | clip
+          ```
 
-        The above-mentioned command copies the entire content of the file, including the optional comment.
+          The above-mentioned command copies the entire content of the file, including the optional comment.
 
 {% endlist %}
 
@@ -226,6 +225,10 @@ You can also use [internal IP addresses](../../../vpc/concepts/address.md#intern
   1. Select **Saved sessions**.
   1. In the saved sessions list, select the session you need.
 
+- {{ cloud-shell-full-name }} {#console}
+
+  {% include [cloud-shell-connect](../../_includes_service/cloud-shell-connect.md) %}
+
 {% endlist %}
 
 For more information on how to solve connection issues, see [FAQ](../../qa/connection.md).
@@ -240,52 +243,52 @@ To configure users from within the VM, follow these steps:
 
 1. [Connect](#vm-connect) to the VM under the username you specified when creating the VM in the management console.
 
-   {% note info %}
+    {% note info %}
 
-   To get info on a VM with custom metadata, run this command:
+    To get info on a VM with custom metadata, run this command:
 
-   ```bash
-   yc compute instance get --full <VM_name>
-   ```
+    ```bash
+    yc compute instance get --full <VM_name>
+    ```
 
-   {% endnote %}
+    {% endnote %}
 
 1. Create a new user named `testuser` and specify `bash` as the default shell for this user:
 
-   ```bash
-   sudo useradd -m -d /home/testuser -s /bin/bash testuser
-   ```
+    ```bash
+    sudo useradd -m -d /home/testuser -s /bin/bash testuser
+    ```
 
 1. Switch to the new user:
 
-   ```bash
-   sudo su - testuser
-   ```
+    ```bash
+    sudo su - testuser
+    ```
 
 1. Create a folder named `.ssh` in the new user's home directory:
 
-   ```bash
-   mkdir .ssh
-   ```
+    ```bash
+    mkdir .ssh
+    ```
 
 1. In the `.ssh` folder, create a file named `authorized_keys`:
 
-   ```bash
-   touch .ssh/authorized_keys
-   ```
+    ```bash
+    touch .ssh/authorized_keys
+    ```
 
 1. Add the public key of the new user to the `authorized_keys` file:
 
-   ```bash
-   echo "<public_key>" >> /home/testuser/.ssh/authorized_keys
-   ```
+    ```bash
+    echo "<public_key>" >> /home/testuser/.ssh/authorized_keys
+    ```
 
 1. Update access permissions for the `authorized_keys` file and `.ssh` folder:
 
-   ```bash
-   chmod 700 ~/.ssh
-   chmod 600 ~/.ssh/authorized_keys
-   ```
+    ```bash
+    chmod 700 ~/.ssh
+    chmod 600 ~/.ssh/authorized_keys
+    ```
 
 1. Disconnect from the VM by running `exit`.
 1. [Restart the VM](../vm-control/vm-stop-and-start.md#restart).
@@ -301,6 +304,7 @@ To configure users from within the VM, follow these steps:
 
 #### See also {#see-also}
 
+* [{#T}](cloud-shell.md)
 * [{#T}](rdp.md)
 * [{#T}](powershell.md)
 * [{#T}](os-login.md)

@@ -1,5 +1,7 @@
 # Справочник {{ TF }} для {{ msp-full-name }}
 
+{% include notitle [preview](../_includes/note-preview.md) %}
+
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
 ## Ресурсы {#resources}

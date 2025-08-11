@@ -70,7 +70,7 @@ Below is an example of establishing network connectivity over the [WireGuard](ht
 
     {% endlist %}    
 
-1. [Add](../../vpc/operations/security-group-add-rule.md) the following rule to the security group of the {{ managed-k8s-name }} cluster and node group:
+1. [Add](../../vpc/operations/security-group-add-rule.md) the following rule to the security group of the {{ managed-k8s-name }} cluster and node groups:
 
     {% list tabs group=traffic %}
 

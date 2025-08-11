@@ -37,10 +37,6 @@ Syntax:
 |`--expires`|<b>`timestamp`</b><br/>The date and time at which the object is no longer cacheable.|
 |`--ssekms-key-id`|<b>`string`</b><br/>The ID of the KMS key for encrypting an uploaded object.|
 |`--request-payer`|<b>`string`</b><br/>Confirms that the requester knows that she or he will be charged for the request.|
-|`--sse-c`|<b>`string`</b><br/>Specifies server-side encryption using customer provided keys of the the object in S3. AES256 is the only valid value.|
-|`--sse-c-key`|<b>`string`</b><br/>The customer-provided encryption key to use to server-side encrypt the object in S3.|
-|`--sse-c-copy-source`|<b>`string`</b><br/>This parameter should only be specified when copying an S3 object that was encrypted server-side with a customer-provided key. It specifies the algorithm to use when decrypting the source object.|
-|`--sse-c-copy-source-keys`|<b>`string`</b><br/>This parameter should only be specified when copying an S3 object that was encrypted server-side with a customer-provided key. Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object.|
 |`--content-language`|<b>`string`</b><br/>The language the content is in.|
 |`--grants`|<b>`value[,value]`</b><br/>Grant specific permissions to individual users or groups.|
 |`--checksum-algorithm`|<b>`string`</b><br/>Indicates the algorithm used to create the checksum for the object.|

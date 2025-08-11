@@ -277,6 +277,89 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
+  To edit a bucket ACL, you can use these resources:
+  * [yandex_storage_bucket_grant](#tf-storage-bucket-grant)
+  * [yandex_storage_bucket](#tf-yandex_storage_bucket) (obsolete)
+
+  {% include [tf-iam-binding-warning](../../../_includes/storage/tf-bucket-grant-warning.md) %}
+
+  **yandex_storage_bucket_grant** {#tf-storage-bucket-grant}
+
+  1. In the configuration file, describe the parameters of resources you want to create:
+
+     ```hcl
+     resource "yandex_storage_bucket_grant" "my_bucket_grant" {
+       bucket = "<existing_bucket_name>"
+       grant {
+         id          = "<user_1_ID>"
+         permissions = ["READ", "WRITE"]
+         type        = "CanonicalUser"
+       }
+       grant {
+         id          = "<user_2_ID>"
+         permissions = ["FULL_CONTROL"]
+         type        = "CanonicalUser"
+       }
+       grant {
+         uri         = "http://acs.amazonaws.com/groups/global/AuthenticatedUsers"
+         permissions = ["READ"]
+         type        = "Group"
+       }
+     }
+     ```
+
+     Where:
+
+     * `bucket`: Existing bucket’s name.
+     * `grant`: [ACL](../../concepts/acl.md) settings. To manage it, the service account with static access keys must have the `storage.admin` [role](../../security/index.md#roles-list) for the bucket or folder.
+       * `type`: Permission grantee type. The possible values are:
+         * `CanonicalUser`: For a user, [service account](../../../iam/concepts/users/service-accounts.md), or [user group](../../../organization/concepts/groups.md).
+         * `Group`: For a [public group](../../concepts/acl.md#public-groups).
+       * `permissions`: Type of ACL [permissions](../../concepts/acl.md#permissions-types). It can take the following values:
+         * `READ`: Permission to access the list of objects in the bucket, read various bucket settings (lifecycle, CORS, and static hosting), and read all objects in the bucket.
+         * `WRITE`: Permission to write, overwrite, and delete objects in the bucket. It can only be used together with `READ`, e.g., `permissions = ["READ", "WRITE"]`.
+         * `FULL_CONTROL`: Full access to the bucket and objects in it.
+
+         For more information about permissions, see [{#T}](../../concepts/acl.md#permissions-types).
+
+       * `id`: ID of the user, service account, or user group:
+
+         {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
+
+         It is used with the `CanonicalUser` type of permission grantee.
+
+       * `uri`: Public group ID. It is used with the `Group` type of permission grantee. The possible values are:
+         * `http://acs.amazonaws.com/groups/global/AllUsers`: All internet users.
+         * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: All authenticated {{ yandex-cloud }} users.
+
+     Instead of `grant`, you can specify `acl`, i.e., the [predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of the bucket. The default value is `private`: {{ yandex-cloud }} users get permissions according to their roles in {{ iam-short-name }}.
+
+     For more information about `yandex_storage_bucket_grant` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket_grant).
+
+  1. If you plan to use the [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding) resource together with [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant) for the same bucket, we recommend creating them sequentially. To do this, add a dependency on the `yandex_storage_bucket_grant` resource to the `yandex_storage_bucket_iam_binding` section.
+
+      ```hcl
+      resource "yandex_storage_bucket_iam_binding" "mybucket-viewers" {
+        ...
+      
+        depends_on = [
+          yandex_storage_bucket_grant.my_bucket_grant
+        ]
+      }
+      ```
+
+  1. Apply the configuration:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the resource updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
+
+     ```bash
+     yc storage bucket get <bucket_name> --full
+     ```
+
+  **yandex_storage_bucket (obsolete)** {#tf-yandex_storage_bucket}
+
   1. In the configuration file, describe the parameters of resources you want to create:
 
      ```hcl
@@ -324,32 +407,19 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
          * `http://acs.amazonaws.com/groups/global/AllUsers`: All internet users.
          * `http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: All authenticated {{ yandex-cloud }} users.
 
-     Instead of `grant`, you can specify `acl`, i.e., the [predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of the bucket. The default value is `private`: {{ yandex-cloud }} users get permissions based on their roles in {{ iam-short-name }}.
+     Instead of `grant`, you can specify `acl`, i.e., the [predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of the bucket. The default value is `private`: {{ yandex-cloud }} users get permissions according to their roles in {{ iam-short-name }}.
 
-     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
+     For more information about `yandex_storage_bucket` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
-  1. Make sure the configuration files are correct.
+  1. Apply the configuration:
 
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        ```bash
-        terraform plan
-        ```
+     You can check the resource updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
-
-  1. Deploy the cloud resources.
-
-     1. If the configuration does not contain any errors, run this command:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Confirm creating the resources.
-
-     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     ```bash
+     yc storage bucket get <bucket_name> --full
+     ```
 
 - API {#api}
 

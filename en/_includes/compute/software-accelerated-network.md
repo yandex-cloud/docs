@@ -1,6 +1,6 @@
 ## Regular VM network {#reg-vm}
 
-In the {{ yandex-cloud }} infrastructure, all VMs run in the [QEMU-KVM](https://en.wikipedia.org/wiki/QEMU) virtualization environment. A *hypervisor* proportionally distributes the computing load across all processor cores allocated to a VM.
+In the {{ yandex-cloud }} infrastructure, all VMs run in the [QEMU-KVM](https://en.wikipedia.org/wiki/QEMU) virtualization environment. The *hypervisor* proportionally distributes compute load across all CPU cores allocated to the VM.
 
 The computing load can be logically divided into three parts:
 

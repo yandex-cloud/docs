@@ -9,6 +9,12 @@ description: Follow this guide to update a {{ managed-k8s-name }} cluster.
 
 ## Changing {{ managed-k8s-name }} clusters {#update-cluster}
 
+{% note warning %}
+
+You can only assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) when [creating](kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster. You cannot assign a public IP address to an existing cluster.
+
+{% endnote %}
+
 You can change the following parameters of a [{{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) cluster:
 * Name.
 * Description.

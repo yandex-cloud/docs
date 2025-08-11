@@ -2,6 +2,8 @@
 
 Static configuration files allow you to access a [{{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) cluster without using the CLI, e.g., from continuous integration systems.
 
+{% include [tip-gitlab](../../../_includes/managed-kubernetes/tip-gitlab-integration.md) %}
+
 You can also use a static configuration file to configure access to multiple {{ managed-k8s-name }} clusters. You can quickly switch between {{ managed-k8s-name }} clusters described in configuration files using the `kubectl config use-context` command. For more information about how to configure access to multiple {{ managed-k8s-name }} clusters, see the [{{ k8s }}](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) documentation.
 
 To create a configuration file:
@@ -17,7 +19,7 @@ To run bash commands, you will need a JSON parser: [jq](https://stedolan.github.
 ## Getting started {#before-you-begin}
 
 1. [Create a service account](../../../iam/operations/sa/create.md).
-1. [Create a {{ managed-k8s-name }}](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) cluster with any suitable configuration.
+1. [Create a {{ managed-k8s-name }}](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) cluster in any suitable configuration.
 1. [Create a node group](../node-group/node-group-create.md) of any suitable configuration.
 1. [Install kubect]({{ k8s-docs }}/tasks/tools/install-kubectl) and [configure it to work with the new cluster](index.md#kubectl-connect). Add the credentials to the `test.kubeconfig` configuration file using the `--kubeconfig=test.kubeconfig` parameter.
 
@@ -390,3 +392,11 @@ Result:
 NAME     STATUS  AGE
 default  Active  9d
 ```
+
+The `test.kubeconfig` file enables you to connect to the cluster without the CLI, e.g., from continuous integration systems, and also use the `kubectl config use-context` command to switch between clusters.
+
+{% note warning %}
+
+To store the static configuration file, use a storage for secrets or encryption.
+
+{% endnote %}
