@@ -18,6 +18,7 @@ The security group's setup determines the {{ mgl-name }} instance performance an
 
 {% endnote %}
 
+To configure a security group for a {{ mgl-name }} instance:
 1. [Add](../../vpc/operations/security-group-add-rule.md) rules for [incoming](#ingress-rules) and [outgoing](#egress-rules) traffic to the existing security group or [create](../../vpc/operations/security-group-create.md) a new group with such rules.
 1. Apply the security group to the {{ GL }} instance when [creating](instance/instance-create.md) or [modifying](instance/instance-update.md) it.
 
@@ -54,7 +55,7 @@ This certificate is [used by default]({{ gl.docs }}/omnibus/settings/ssl/#enable
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: `0.0.0.0/0`
 ||
-|| For creating instance backups |
+|| For creating instance backups. |
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-https }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
@@ -77,19 +78,17 @@ This certificate is [used by default]({{ gl.docs }}/omnibus/settings/ssl/#enable
 
 ## Rules for outgoing traffic {#egress-rules}
 
-{{ mgl-name }} relies on third-party integrations to provide its services. If you limit the outgoing traffic in the instance's security group, the instance may work incorrectly. To avoid this, add one of the rules presented in the table to the security group. You need them to create [backups](../concepts/backup.md) and store user objects in {{ objstorage-full-name }}.
-
-Your choice of rule depends on the certificate you are using: Let's Encrypt (default) or self-signed.
+{{ mgl-name }} relies on third-party integrations to provide its services. If you limit the outgoing traffic in the instance's security group, the instance may work incorrectly. To avoid this, add the following rules to the security group:
 
 #|
 || **Rule purpose** | **Rule settings** ||
-|| To enable Let’s Encrypt certificate |
+|| To enable Let’s Encrypt certificate. |
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-https }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: `0.0.0.0/0`
 ||
-|| For creating instance backups |
+|| For creating instance backups. |
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-https }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
@@ -114,5 +113,11 @@ Your choice of rule depends on the certificate you are using: Let's Encrypt (def
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_udp }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: `0.0.0.0/0`
+||
+|| For access to workers managed by a runner [created via the management console](../tutorials/install-gitlab-runner.md#create-runner). |
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `22`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: CIDR of the subnet containing the {{ mgl-name }} instance (and hosting the workers), e.g., `10.128.0.0/24`.
 ||
 |#

@@ -34,7 +34,7 @@ Each action you take with pagination re-runs the query and is logged in the [que
 
 ## Multi-queries {#multiple-queries}
 
-In the query editor, you can use multi-queries, enabling you to run multiple queries as a single batch.
+In the query editor, you can use multi-queries, enabling you to run multiple queries as a single batch. These queries are executed within a single database session.
 
 Multi-query example:
 
@@ -43,16 +43,14 @@ SELECT * FROM <table_1_name> LIMIT 10;
 INSERT INTO <table_2_name>;
 ```
 
-The **Experiments** section in {{ websql-full-name }} settings contains the **Multi-queries** option that enables separate subqueries within a multi-query. To do this, highlight one or more subqueries and click **Run current query**. The editor will display the progress status of the highlighted queries.
-
-By default, the **Multi-queries** option is enabled for all {{ websql-name }} users by default. To disable it, go to the settings and disable **Multi-queries** under **Experiments**.
+To run individual subqueries within a multi-query, highlight one or more subqueries and click **Run current query**. The editor will display the progress status of the highlighted queries.
 
 ## Exporting query execution results {#export-results}
 
 To save the results in a format you like:
 
 1. Click **Export** in the top-right corner of the panel with the results table.
-1. Select the format: `JSON`,`CSV`, or `TSV`.
+1. Select the format: `JSON`,`CSV` or `TSV`.
 
 A file with the results will be added to your browser's downloads section.
 

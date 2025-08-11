@@ -28,17 +28,22 @@ Aliases:
 	- [yc organization-manager federation group-mapping remove-mapping-items](group-mapping/remove-mapping-items.md) — Remove group mapping items from the specified federation
 	- [yc organization-manager federation group-mapping update](group-mapping/update.md) — Update a group mapping for specified federation
 - [yc organization-manager federation saml](saml/index.md) — Manage SAML-compatible identity federations
+	- [yc organization-manager federation saml add-domain](saml/add-domain.md) — Add a domain to the specified federation
 	- [yc organization-manager federation saml add-labels](saml/add-labels.md) — Add labels to specified federation
 	- [yc organization-manager federation saml add-user-accounts](saml/add-user-accounts.md) — Add user accounts to the specified federation
 	- [yc organization-manager federation saml create](saml/create.md) — Create a federation
 	- [yc organization-manager federation saml delete](saml/delete.md) — Delete the specified federation
+	- [yc organization-manager federation saml delete-domain](saml/delete-domain.md) — Delete a domain from the specified federation
 	- [yc organization-manager federation saml delete-user-accounts](saml/delete-user-accounts.md) — Delete user accounts from the specified federation
 	- [yc organization-manager federation saml get](saml/get.md) — Show information about the specified federation
+	- [yc organization-manager federation saml get-domain](saml/get-domain.md) — Show information about the specified domain in the federation
 	- [yc organization-manager federation saml list](saml/list.md) — List federations
+	- [yc organization-manager federation saml list-domains](saml/list-domains.md) — List domains in the specified federation
 	- [yc organization-manager federation saml list-operations](saml/list-operations.md) — List operations for the specified federation
 	- [yc organization-manager federation saml list-user-accounts](saml/list-user-accounts.md) — List user accounts of the specified federation
 	- [yc organization-manager federation saml remove-labels](saml/remove-labels.md) — Remove labels from specified federation
 	- [yc organization-manager federation saml update](saml/update.md) — Update the specified federation
+	- [yc organization-manager federation saml validate-domain](saml/validate-domain.md) — Validate a domain in the specified federation
 
 #### Global Flags
 

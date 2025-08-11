@@ -5,7 +5,7 @@ sourcePath: en/_cli-ref/cli-ref/serverless/cli-ref/eventrouter/connector/create/
 
 # yc serverless eventrouter connector create event-service
 
-Create a event service connector
+Create an event service connector
 
 #### Command Usage
 

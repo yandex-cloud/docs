@@ -249,7 +249,7 @@ Select automatic update mode for your {{ managed-k8s-name }} cluster and set the
 
 ### Manually updating the cluster version {#cluster-manual-upgrade}
 
-If necessary, update the {{ managed-k8s-name }} cluster version manually. You can only update your {{ managed-k8s-name }} cluster in a single step to the next minor version from the current one. Updating to newer versions is done in steps, e.g.: 1.19 → 1.20 → 1.21.
+If necessary, update the {{ managed-k8s-name }} cluster version manually. You can only upgrade your {{ managed-k8s-name }} cluster in a single step to the next minor version from the current one. Upgrading to newer versions is done in steps, e.g.: 1.19 → 1.20 → 1.21.
 
 {% list tabs group=instructions %}
 
@@ -321,8 +321,11 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
   You can specify update settings when [creating a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/node-group/node-group-create.md) or [updating its settings](../../managed-kubernetes/operations/node-group/node-group-update.md).
 
   In the **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}** field, specify scaling settings of the {{ managed-k8s-name }} node group:
-  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-expansion }}**: Set the maximum number of instances by which you can exceed the size of the {{ managed-k8s-name }} node group when updating it.
-  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-unavailable }}**: Set the maximum number of instances by which you can reduce the size of the {{ managed-k8s-name }} node group when updating it.
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-expansion }}**: Specify the maximum number of nodes by which you can exceed the size of the group when updating it.
+
+    {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-unavailable }}**: Specify the maximum number of unavailable nodes the group may have during updates.
 
   In the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** field, select the {{ managed-k8s-name }} node group update policy:
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Select this option not to use automatic updates.
@@ -337,8 +340,8 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
   ```bash
   {{ yc-k8s }} node-group <create_or_update> <node_group_name_or_ID> \
   ...
-    --max-expansion <number_of_VMs> \
-    --max-unavailable <number_of_VMs> \
+    --max-expansion <increasing_group_size_when_updating> \
+    --max-unavailable <number_of_unavailable_nodes_when_updating> \
     --auto-upgrade <automatic_update_mode> \
     --auto-repair <recreation_mode> \
     --anytime-maintenance-window \
@@ -348,8 +351,11 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
 
   Where:
 
-  * `--max-expansion`: Maximum number of instances by which you can exceed the size of the {{ managed-k8s-name }} node group when updating it.
-  * `--max-unavailable`: Maximum number of instances by which you can reduce the size of the {{ managed-k8s-name }} node group when updating it.
+  * `--max-expansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
+
+    {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+  * `--max-unavailable`: Maximum number of unavailable nodes in the group when updating it.
 
     {% note info %}
 
@@ -444,18 +450,26 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
        ```
 
      * To enable the random update time mode, do not add the `maintenance_policy` parameter section to the {{ managed-k8s-name }} node group description. If you omit automatic update settings in the {{ managed-k8s-name }} node group description, updates will take place at a random time.
-     * To configure the {{ managed-k8s-name }} node group scaling settings applied at updates:
+     * To configure the settings for {{ managed-k8s-name }} node group deployment during updates:
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<node_group_name>" {
          name = <node_group_name>
          ...
          deploy_policy {
-           max_expansion   = <maximum_number_of_instances_by_which_you_can_exceed_node_group_size>
-           max_unavailable = <maximum_number_of_instances_by_which_you_can_reduce_node_group_size>
+           max_expansion   = <increasing_group_size_when_updating>
+           max_unavailable = <number_of_unavailable_nodes_when_updating>
          }
        }
        ```
+
+       Where:
+       * `max_expansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
+
+         {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+       * `max_unavailable`: Maximum number of unavailable nodes in the group when updating it.
+
 
        {% note info %}
 
@@ -483,7 +497,7 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
@@ -548,19 +562,21 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
     * `nanos`: Fraction of a second of update start, in nanoseconds.
     * `duration`: Duration of update period, hours.
 
-  To set the scaling of a {{ managed-k8s-name }} node group, add the `deployPolicy` section:
+  To configure the settings for {{ managed-k8s-name }} node group deployment during updates, add the `deployPolicy` section:
 
   ```json
   "deployPolicy": {
-    "maxUnavailable": "<maximum_number_of_instances>",
-    "maxExpansion": "<maximum_number_of_instances>"
+    "maxUnavailable": "<number_of_unavailable_nodes_when_updating>",
+    "maxExpansion": "<increasing_group_size_when_updating>"
   }
   ```
 
-    Where:
+  Where:
 
-    * `maxUnavailable`: Maximum number of instances by which you can reduce the size of the node group.
-    * `maxExpansion`: Maximum number of instances by which you can exceed the size of the node group.
+  * `maxUnavailable`: Maximum number of unavailable nodes in the group when updating it.
+  * `maxExpansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
+
+    {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
 {% endlist %}
 
@@ -621,7 +637,7 @@ Update the {{ managed-k8s-name }} cluster version before updating the node group
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 

@@ -5,6 +5,24 @@ description: This section contains {{ websql-name }} release notes.
 
 # {{ websql-full-name }} release notes: 2025
 
+## July {#july}
+
+### New features {#new-features-july}
+
+1. Added a notification with a link to a survey that collects {{ websql-name }} feedback. Please, complete [it](https://forms.yandex.ru/cloud/686f7470eb614649fe8f8cb2/).
+
+1. The trial feature to run subqueries within a [muli-query](../operations/query-executor.md#multiple-queries) became basic for all {{ websql-name }} users.
+
+1. The query editor now stores the last query written to keep the query in the editor in case of service overloads or after a long break.
+
+1. Added the automatic substitution of the default CA certificate for external connections.
+
+### Improvements {#improvements-july}
+
+1. Improved the query performance reliability.
+
+1. Fixed the appearance of large data amounts in the query results.
+
 ## June {#june}
 
 ### New features {#new-features-june}

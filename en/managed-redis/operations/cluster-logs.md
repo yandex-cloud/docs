@@ -11,7 +11,7 @@
 - Management console {#console}
 
     1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.redis.cluster.switch_logs }}** tab.
+    1. Click the name of the cluster you need and select the ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mdb.cluster.logs.label_title }}** tab.
     1. Specify the time period you want the log info for: enter it manually or select in the calendar using the date input field.
     1. Select the hosts in the line with the date input field if needed.
 

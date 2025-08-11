@@ -12,7 +12,7 @@
 
    {% endnote %}
 
-1. Заполните анкету на [странице {{ marketplace-full-name }}](../marketplace#marketplace-form).
+1. Заполните анкету на [странице {{ marketplace-full-name }}](/marketplace).
 1. [Зарегистрируйте](../operations/registration.md) аккаунт.
 1. [Создайте](../operations/create-product.md) продукт типа **{{ cloud-apps-name }}**.
 

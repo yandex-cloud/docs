@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменить правило в профиле безопасности
 
-В [профиле безопасности](../concepts/profiles.md) можно изменить базовые [правила](../concepts/rules.md), а также правила Smart Protection и WAF. Правила ARL [изменяются в профиле ARL](arl-rule-update.md).
+В [профиле безопасности](../concepts/profiles.md) можно изменить базовые [правила](../concepts/rules.md), а также правила Smart Protection и WAF. Правила ARL [изменяются в профиле ARL](arl-rule-update.md). Если при редактировании правил возникает ошибка, проверьте, что сервисному аккаунту назначена роль `logging.writer`.
 
 {% list tabs group=instructions %}
 

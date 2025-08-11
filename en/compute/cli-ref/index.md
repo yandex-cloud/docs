@@ -166,6 +166,10 @@ Syntax:
 	- [yc compute instance-group stop](instance-group/stop.md) — Stop the specified instance group
 	- [yc compute instance-group stop-instances](instance-group/stop-instances.md) — Stop instances of the specified instance group
 	- [yc compute instance-group update](instance-group/update.md) — Update the specified instance group
+- [yc compute maintenance](maintenance/index.md) — Manage maintenances
+	- [yc compute maintenance get](maintenance/get.md) — Show information about the specified maintenance
+	- [yc compute maintenance list](maintenance/list.md) — List maintenances
+	- [yc compute maintenance reschedule](maintenance/reschedule.md) — Reschedule the maintenance
 - [yc compute placement-group](placement-group/index.md) — Manage placement groups
 	- [yc compute placement-group add-access-binding](placement-group/add-access-binding.md) — Add access binding for the specified placement group
 	- [yc compute placement-group add-labels](placement-group/add-labels.md) — Add labels to the specified placement group

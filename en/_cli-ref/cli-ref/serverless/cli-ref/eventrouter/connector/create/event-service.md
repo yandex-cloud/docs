@@ -4,7 +4,7 @@ editable: false
 
 # yc serverless eventrouter connector create event-service
 
-Create a event service connector
+Create an event service connector
 
 #### Command Usage
 

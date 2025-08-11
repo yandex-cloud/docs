@@ -1070,6 +1070,16 @@ items:
             href: cli-ref/instance-group/stop-instances.md
           - name: update
             href: cli-ref/instance-group/update.md
+      - name: maintenance
+        items:
+          - name: Overview
+            href: cli-ref/maintenance/index.md
+          - name: get
+            href: cli-ref/maintenance/get.md
+          - name: list
+            href: cli-ref/maintenance/list.md
+          - name: reschedule
+            href: cli-ref/maintenance/reschedule.md
       - name: placement-group
         items:
           - name: Overview

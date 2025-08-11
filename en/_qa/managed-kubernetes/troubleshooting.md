@@ -135,9 +135,9 @@ Make sure the new configuration of {{ managed-k8s-name }} nodes is within the [q
 
 To run your {{ managed-k8s-name }} cluster, [increase the quotas](../../managed-kubernetes/concepts/limits.md).
 
-#### After changing the node subnet mask in the cluster settings, the number of pods placed on the nodes is not as expected {#count-pods}
+#### After changing the node subnet mask in the cluster settings, the number of pods on the nodes does not match the estimated count {#count-pods}
 
-**Solution**: Create the node group from scratch.
+**Solution**: Create the node group one more time.
 
 #### Error renewing ingress controller certificate {#ingress-certificate}
 
@@ -439,3 +439,7 @@ For more information, see [{#T}](../../application-load-balancer/concepts/best-p
    Updating network parameters may cause the services within the cluster to become unavailable for a few minutes.
 
    {% endnote %}
+
+#### What should I do if I have deleted my {{ network-load-balancer-full-name }} or target groups that were automatically created for a LoadBalancer service?{#deleted-loadbalancer-service}
+
+You cannot manually restore a {{ network-load-balancer-name }} or target groups. [Recreate](../../managed-kubernetes/operations/create-load-balancer.md#lb-create) your `LoadBalancer` service. This will automatically create a load balancer and target groups.

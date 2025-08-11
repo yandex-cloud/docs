@@ -147,6 +147,8 @@ items:
         items:
           - name: Connecting to a VM over SSH
             href: operations/vm-connect/ssh.md
+          - name: Connecting to a VM over SSH using {{ cloud-shell-name }}
+            href: operations/vm-connect/cloud-shell.md
           - name: Exchanging files with VMs
             href: operations/vm-connect/scp-sftp.md
           - name: Connecting to a VM via RDP
@@ -1066,6 +1068,16 @@ items:
             href: cli-ref/instance-group/stop-instances.md
           - name: update
             href: cli-ref/instance-group/update.md
+      - name: maintenance
+        items:
+          - name: Overview
+            href: cli-ref/maintenance/index.md
+          - name: get
+            href: cli-ref/maintenance/get.md
+          - name: list
+            href: cli-ref/maintenance/list.md
+          - name: reschedule
+            href: cli-ref/maintenance/reschedule.md
       - name: placement-group
         items:
           - name: Overview

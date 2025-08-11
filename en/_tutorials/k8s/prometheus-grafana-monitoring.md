@@ -18,8 +18,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ managed-k8s-name }} cluster fee: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for the public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
@@ -68,83 +68,149 @@ The {{ prometheus-name }} monitoring system scans {{ managed-k8s-name }} cluster
 ## Install the Trickster caching proxy {#install-trickster}
 
 The Trickster caching proxy [speeds up reading](https://github.com/trickstercache/trickster#time-series-database-accelerator) from a {{ prometheus-name }} database, which enables the display of near real-time {{ grafana-name }} metrics and reduces the load on {{ prometheus-name }}.
-1. Add a repository containing the Trickster distribution:
-
-   ```bash
-   helm repo add tricksterproxy https://helm.tricksterproxy.io && \
-   helm repo update
-   ```
 
 1. Create a configuration file named `trickster.yaml` that contains Trickster settings:
 
    {% cut "trickster.yaml" %}
 
    ```yaml
-   frontend:
-     listenAddress: ""
-     tlsListenAddress: ""
-     tlsListenPort: ""
-     connectionsLimit: "0"
-   origins:
-     - name: default
-       originType: prometheus
-       originURL: http://my-prom-prometheus-server:80
-   profiler:
-     enabled: false
-     port: 6060
-   prometheusScrape: false
-   prometheus:
-     serviceMonitor:
-       enabled: false
-       interval: 30s
-       labels: {}
-   replicaCount: 1
-   image:
-     repository: tricksterproxy/trickster
-     tag: "1.1"
-     pullPolicy: IfNotPresent
-   service:
-     annotations: {}
-     labels: {}
-     clusterIP: ""
-     externalIPs: []
-     loadBalancerIP: ""
-     loadBalancerSourceRanges: []
-     metricsPort: 8481
-     servicePort: 8480
-     type: ClusterIP
-   ingress:
-     enabled: false
-     annotations: {}
-     extraLabels: {}
-     hosts: []
-     tls: []
-   volumes:
-     persistent:
-       type: "persistentVolume"
-       enabled: false
-       mountPath: "/tmp/trickster"
-       accessModes:
-         - ReadWriteOnce
-       annotations: {}
-       existingClaim: ""
-       size: 15Gi
-     generic:
-       type: "generic"
-       enabled: true
-       mountPath: "/tmp/trickster"
-   podAnnotations: {}
-   resources: {}
-   securityContext: {}
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: trickster-pvc
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      storageClassName: yc-network-hdd
+      resources:
+        requests:
+          storage: 15Gi
+    
+    ---
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: trickster-conf
+      labels:
+        name: trickster-conf
+    
+    data:
+      trickster.conf: |-
+        [frontend]
+        listen_port = 8480
+        tls_listener = false
+        connections_limit = 0
+        [logging]
+        log_level = "info"
+    
+        [caching]
+        cache_type = "filesystem"
+        filesystem_path = "/tmp/trickster"
+    
+        [proxy]
+        origin = "default"
+    
+        [origins.default]
+        origin_type = "prometheus"
+        origin_url = "http://my-prom-prometheus-server:80"
+        is_default = true
+    
+        [metrics]
+        listen_port = 8481
+        listen_address = ""
+    
+        [health]
+        listen_port = 8481
+        listen_address = ""
+    
+        [telemetry]
+        prometheus_metrics = false
+    
+        [logging.profiler]
+        enabled = false
+        port = 6060
+    
+    ---
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: trickster
+      labels:
+        app: trickster
+    spec:
+      replicas: 1
+      selector:
+        matchLabels:
+          app: trickster
+      template:
+        metadata:
+          labels:
+            app: trickster
+        spec:
+          containers:
+            - name: trickster
+              image: tricksterproxy/trickster:1.1
+              imagePullPolicy: IfNotPresent
+              args:
+                - -config
+                - /etc/trickster/trickster.conf
+              ports:
+                - name: http
+                  containerPort: 8480
+                  protocol: TCP
+                - name: metrics
+                  containerPort: 8481
+                  protocol: TCP
+              volumeMounts:
+                - name: config-volume
+                  mountPath: /etc/trickster
+                  readOnly: true
+                - name: cache-volume
+                  mountPath: /tmp/trickster
+              env:
+                - name: NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.namespace
+          volumes:
+            - name: config-volume
+              configMap:
+                name: trickster-conf
+                items:
+                  - key: trickster.conf
+                    path: trickster.conf
+            - name: cache-volume
+              persistentVolumeClaim:
+                claimName: trickster-pvc
+    
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8481"
+        prometheus.io/path: "/metrics"
+      name: trickster
+    spec:
+      ports:
+        - name: http
+          port: 8480
+          targetPort: http
+        - name: metrics
+          port: 8481
+          targetPort: metrics
+      selector:
+        app: trickster
    ```
 
    {% endcut %}
 
-   You can change the size of the storage allocated to the caching proxy. Specify the storage size you need in the `volumes.persistent.size` parameter.
+   You can change the size of the storage allocated to the caching proxy. Specify the storage size you need in the `PersistentVolumeClaim.spec.resources.requests.storage` parameter.
 1. Install Trickster:
 
    ```bash
-   helm install trickster tricksterproxy/trickster --namespace default -f trickster.yaml
+   kubectl apply -f trickster.yaml
    ```
 
 1. Make sure the Trickster pod has entered the `Running` state:
@@ -301,3 +367,4 @@ To install {{ grafana-name }}:
 Delete the resources you no longer need to avoid paying for them:
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Delete](../../vpc/operations/address-delete.md) the {{ managed-k8s-name }} cluster's [public static IP address](../../vpc/concepts/address.md#public-addresses) if you had reserved one.
+1. [Delete the disk](../../compute/operations/disk-control/delete.md) created for the `trickster` storage. You can find it by the label in the disk description, which you can check using the `kubectl describe pvc trickster-pvc` command: the label will match the value in the `Volume` field.

@@ -29,6 +29,7 @@ The cert-manager app with the {{ dns-full-name }} ACME webhook plugin supports [
 
     {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
+1. {% include [configure-cert-manager](../../../_includes/managed-kubernetes/security-groups/configure-cert-manager.md) %}
 1. {% include [kubectl-install](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Create](../../../iam/operations/sa/create.md) a service account to run cert-manager.
 1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the service account the `dns.editor` role for the folder hosting the public DNS zone.

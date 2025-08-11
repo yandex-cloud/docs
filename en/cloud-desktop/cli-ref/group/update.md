@@ -28,6 +28,7 @@ Syntax:
 |`--boot-disk-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>New boot disk specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>disk-type</code>:     Disk type (required)</li> <li><code>disk-size</code>:     Disk size (required)</li> </ul>|
 |`--data-disk-spec`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>New data disk specification for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>disk-type</code>:     Disk type (required)</li> <li><code>disk-size</code>:     Disk size (required)</li> </ul>|
 |`--group-config`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>New configuration for desktop group.<br/><br/>Possible property names:<br/><ul> <li><code>max-group-size</code>:     Max group size (required)</li> <li><code>hot-standby</code>:     Hot standby (required)</li> <li><code>user-account-id</code>:     User account ids</li> </ul>|
+|`--update-policy`|<b>`string`</b><br/>New desktop group update policy.|
 
 #### Global Flags
 

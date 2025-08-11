@@ -18,8 +18,8 @@ description: This section contains {{ objstorage-name }} release notes.
   * [yc storage s3 mv](./cli-ref/s3/mv.md): Moving objects.
   * [yc storage s3 rm](./cli-ref/s3/rm.md): Removing objects.
 * Added new resources to the [{{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md) provider:
-  * [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant): Managing a bucket [ACL](./security/acl.md) with a separate resource.
-  * [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding): Assigning users {{ iam-full-name }} [roles](./security/index.md) for a specific bucket.
+  * [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant): [Managing](./operations/buckets/edit-acl.md) a bucket [ACL](./security/acl.md) using a separate resource.
+  * [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding): [Assigning](./operations/buckets/iam-access.md) users {{ iam-full-name }} [roles](./security/index.md) for a specific bucket.
 * You can now make your bucket accessible only from [{{ vpc-short-name }}](../vpc/concepts/private-endpoint.md) service connections.
 * Added the ability to view bucket [labels](./concepts/tags.md) for users with the `storage.configViewer` [role](./security/index.md#storage-config-viewer).
 

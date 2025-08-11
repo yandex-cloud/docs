@@ -27,3 +27,5 @@
 * [Traffic loss when deploying app updates in a cluster with {{ alb-full-name }}](#alb-traffic-lost)
 
 * [System time displayed incorrectly in the Linux console, as well as in container and {{ managed-k8s-name }} cluster pod logs](#time)
+
+* [What should I do if I have deleted my {{ network-load-balancer-full-name }} or target groups that were automatically created for a LoadBalancer service?](#deleted-loadbalancer-service)
