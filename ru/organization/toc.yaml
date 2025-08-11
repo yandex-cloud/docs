@@ -271,6 +271,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/federation/saml/index.md
+              - name: add-domain
+                href: cli-ref/federation/saml/add-domain.md
               - name: add-labels
                 href: cli-ref/federation/saml/add-labels.md
               - name: add-user-accounts
@@ -295,12 +297,18 @@ items:
                 href: cli-ref/federation/saml/create.md
               - name: delete
                 href: cli-ref/federation/saml/delete.md
+              - name: delete-domain
+                href: cli-ref/federation/saml/delete-domain.md
               - name: delete-user-accounts
                 href: cli-ref/federation/saml/delete-user-accounts.md
               - name: get
                 href: cli-ref/federation/saml/get.md
+              - name: get-domain
+                href: cli-ref/federation/saml/get-domain.md
               - name: list
                 href: cli-ref/federation/saml/list.md
+              - name: list-domains
+                href: cli-ref/federation/saml/list-domains.md
               - name: list-operations
                 href: cli-ref/federation/saml/list-operations.md
               - name: list-user-accounts
@@ -309,6 +317,8 @@ items:
                 href: cli-ref/federation/saml/remove-labels.md
               - name: update
                 href: cli-ref/federation/saml/update.md
+              - name: validate-domain
+                href: cli-ref/federation/saml/validate-domain.md
       - name: group
         items:
           - name: Overview

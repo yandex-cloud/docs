@@ -15,17 +15,22 @@ Syntax:
 
 #### Command Tree
 
+- [yc organization-manager federation saml add-domain](add-domain.md) — Add a domain to the specified federation
 - [yc organization-manager federation saml add-labels](add-labels.md) — Add labels to specified federation
 - [yc organization-manager federation saml add-user-accounts](add-user-accounts.md) — Add user accounts to the specified federation
 - [yc organization-manager federation saml create](create.md) — Create a federation
 - [yc organization-manager federation saml delete](delete.md) — Delete the specified federation
+- [yc organization-manager federation saml delete-domain](delete-domain.md) — Delete a domain from the specified federation
 - [yc organization-manager federation saml delete-user-accounts](delete-user-accounts.md) — Delete user accounts from the specified federation
 - [yc organization-manager federation saml get](get.md) — Show information about the specified federation
+- [yc organization-manager federation saml get-domain](get-domain.md) — Show information about the specified domain in the federation
 - [yc organization-manager federation saml list](list.md) — List federations
+- [yc organization-manager federation saml list-domains](list-domains.md) — List domains in the specified federation
 - [yc organization-manager federation saml list-operations](list-operations.md) — List operations for the specified federation
 - [yc organization-manager federation saml list-user-accounts](list-user-accounts.md) — List user accounts of the specified federation
 - [yc organization-manager federation saml remove-labels](remove-labels.md) — Remove labels from specified federation
 - [yc organization-manager federation saml update](update.md) — Update the specified federation
+- [yc organization-manager federation saml validate-domain](validate-domain.md) — Validate a domain in the specified federation
 - [yc organization-manager federation saml certificate](certificate/index.md) — Manage certificates for the SAML-compatible identity federation
 	- [yc organization-manager federation saml certificate create](certificate/create.md) — Create a certificate
 	- [yc organization-manager federation saml certificate delete](certificate/delete.md) — Delete the specified certificate

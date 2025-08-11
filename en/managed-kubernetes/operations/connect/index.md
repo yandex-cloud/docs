@@ -15,6 +15,8 @@ To connect to a cluster, you can use:
 
 To connect to cluster nodes, follow the instructions in [{#T}](../node-connect-ssh.md).
 
+{% include [tip-gitlab](../../../_includes/managed-kubernetes/tip-gitlab-integration.md) %}
+
 ## Configuring security groups {#configuring-security-groups}
 
 [Security groups](security-groups.md) may block cluster connections. To manage a cluster using `kubectl`, you must have rules in security groups that allow access to the {{ k8s }} API. If you need a step-by-step guide on setting up rules, see [Rules to access the {{ k8s }} API](security-groups.md#rules-master).

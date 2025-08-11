@@ -31,6 +31,12 @@ description: Follow this guide to set up security groups.
 
 You can specify more detailed rules for your security groups, e.g., to allow traffic only in specific [subnets](../../../vpc/concepts/network.md#subnet).
 
+  {% note warning %}
+
+  Some products require applying additional rules in security groups. For more information, see guides for the products at hand.
+
+  {% endnote %}
+
 Security groups must be correctly configured for all subnets that will host the [cluster](../../concepts/index.md#kubernetes-cluster). This determines the performance and availability of the cluster and the services running there.
 
 Prior to editing security groups or the settings of any included rules, make sure this is not going to disrupt the cluster or its node groups.

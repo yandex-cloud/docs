@@ -16,7 +16,7 @@ Updates appear in the service's [release channels](./concepts/release-channels-a
 
 * Implemented a mechanism for forced removal of an [autoscaling](./concepts/node-group/cluster-autoscaler.md) group node if for any reason it was unable to connect to the cluster within 15 minutes. Once deleted, the node is automatically recreated.
 * In accordance with [CIS {{ k8s }} Benchmarks](https://www.cisecurity.org/benchmark/kubernetes), disabled profiling for master components.
-* In [tunnel mode](concepts/network-policy.md#cilium) clusters, added support for [Topology Aware Routing](https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/) to localize traffic in one [availability zone](../overview/concepts/geo-scope.md) to reduce network latency.
+* In [tunnel mode](./concepts/network-policy.md#cilium) clusters, added support for [Topology Aware Routing](https://kubernetes.io/docs/concepts/services-networking/topology-aware-routing/) to localize traffic in one [availability zone](../overview/concepts/geo-scope.md) to reduce network latency.
 * Made cluster node registration more secure: now you can use a bootstrap configuration to issue a certificate for a node only from that node itself, not from any other node or pod.
 
 ### Fixes {#q2-2025-problems-solved}
@@ -37,7 +37,7 @@ Updates appear in the service's [release channels](./concepts/release-channels-a
   * _Highly available in one availability zone_: Contains three master hosts in one availability zone and one subnet. New configuration.
 
   For more information, see the [master description](./concepts/index.md#master).
-  
+
 ### Fixes and improvements {#q1-2025-problems-solved}
 
 * Encrypting cluster secrets in [etcd](https://kubernetes.io/docs/concepts/architecture/#etcd) is switched to [KMS v2](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/#kms-v2).

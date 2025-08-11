@@ -202,6 +202,48 @@ All actions with {{ mgl-name }} instances are logged as a list of operations. Ea
 
 {% endlist %}
 
+## Getting operation details {#get-operation-info}
+
+1. [Get a list of operations](#list-operations) for an instance.
+1. Copy the operation ID.
+1. Get operation details:
+
+    {% list tabs group=instructions %}
+
+    - CLI {#cli}
+
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+      Run this command:
+
+      ```bash
+      yc operation get <operation_ID>
+      ```
+
+      Result:
+
+      ```text
+      id: c17de7epmui********
+      description: Create automatic GitLab backup
+      created_at: "2025-07-24T22:01:24.352Z"
+      created_by: yc.managed-gitlab.serviceAccount
+      modified_at: "2025-07-25T03:07:17.092Z"
+      done: true
+      metadata:
+        '@type': type.googleapis.com/google.protobuf.Empty
+      value: {}
+      response:
+        '@type': type.googleapis.com/yandex.cloud.gitlab.v1.Instance
+      ...
+      ```
+
+    - API {#api}
+
+      Use the [Get](../../api-ref/Operation/get.md) REST API method for the [Operation](../../api-ref/Operation/index.md) resource or the [OperationService/Get](../../api-ref/grpc/Operation/get.md) gRPC API call.
+
+    {% endlist %}
 
 #### See also {#see-also}
 

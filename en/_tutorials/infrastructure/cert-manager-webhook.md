@@ -51,6 +51,12 @@ The support cost includes:
 
    * `sa-dns-editor` with the `dns.editor` role for the folder containing the [public zone](../../dns/concepts/dns-zone.md#public-zones). This service account will be used to create DNS [resource records](../../dns/concepts/resource-record.md).
 
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+1. {% include [configure-cert-manager](../../_includes/managed-kubernetes/security-groups/configure-cert-manager.md) %}
+
 ## Prepare your {{ managed-k8s-name }} cluster {#before-managed-kubernetes}
 
 ### Create a {{ managed-k8s-name }} cluster {#kubernetes-cluster-create}

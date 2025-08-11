@@ -7,6 +7,30 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.158.0 (11.08.25) {#version0.158.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ mos-name }}
+В команду `yc managed-opensearch` добавлена поддержка `ExtensionService`.
+
+##### {{ alb-name }}
+
+В команду `yc apploadbalancer disable-zones` добавлена возможность управлять временем отключения зоны.
+
+##### {{ alb-name }}
+* В команды управления маршрутами добавлен параметр `disable_security_profile`:
+  * yc application-load-balancer virtual-host append-http-route
+  * yc application-load-balancer virtual-host prepend-http-route
+  * yc application-load-balancer virtual-host insert-http-route
+  * yc application-load-balancer virtual-host update-http-route
+  * yc application-load-balancer virtual-host append-grpc-route
+  * yc application-load-balancer virtual-host prepend-grpc-route
+  * yc application-load-balancer virtual-host insert-grpc-route
+  * yc application-load-balancer virtual-host update-grpc-route
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.157.0 (04.08.25) {#version0.157.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -37,8 +61,6 @@ description: На странице представлены релизы CLI, а
 * `--visibility-timeout`;
 * `--polling-timeout`;
 * `--batch-size`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.156.0 (28.07.25) {#version0.156.0}
 

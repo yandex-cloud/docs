@@ -6,8 +6,6 @@ editable: false
 
 # Правила тарификации для {{ msp-name }}
 
-
-
 {% note info %}
 
 На стадии [Preview](../overview/concepts/launch-stages.md) использование сервиса {{ msp-name }} не тарифицируется.

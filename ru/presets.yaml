@@ -7584,7 +7584,7 @@ default:
           title_additional-section: Дополнительно
           title_incremental-backup-card: Инкрементальные
           title_retention-section: Настройки хранения
-          title_schedule-section: Расписание запуска
+          title_schedule-section: Настройки запуска
           value_periodicity-daily: Каждый день
           value_periodicity-monthly: По месяцам
           value_periodicity-weekly: Каждую неделю
@@ -8329,7 +8329,6 @@ default:
             label_public-ipv4: Публичный IPv4-адрес
             label_ssh-connect-card-title: Подключиться с помощью SSH-клиента
             label_title: Обзор
-            label_zone: Зона доступности
             popup-confirm_button_remove-one-to-one-nat: Удалить
             section_monitoring: Мониторинг
             section_network: Сеть
@@ -9519,6 +9518,7 @@ default:
           logs:
             label_hosts: Хосты
             label_severity: Уровень логирования
+            label_title: Логи
           overview:
             button_action-delete: Удалить
             button_action-edit: Изменить
@@ -9709,6 +9709,7 @@ default:
           section_user: Пользователь
           section_zookeeper-disk: Размер хранилища ZooKeeper
           section_zookeeper-resource: Класс хоста ZooKeeper
+          title_deb-packages: Deb-пакеты
           title_pip-packages: Pip-пакеты
           value_maintenance-type-anytime: произвольное
           value_maintenance-type-weekly: по расписанию
@@ -9836,7 +9837,6 @@ default:
         switch_operations: Операции
       redis:
         cluster:
-          switch_logs: Логи
           switch_monitoring: Мониторинг
           switch_shards: Шарды
         field_announce-hostnames: Использовать FQDN вместо IP-адресов
@@ -10282,6 +10282,7 @@ default:
           create_action: Создать задание
           popup-action_label_cancel-msg: Отменить задание
         label_history-server: History Server
+        label_metastore: Metastore-сервер
       speechkit-common:
         brand-voice_51nd8: Brand Voice Lite
         brand-voice_button_activate_47zAB: Активировать
@@ -10630,7 +10631,7 @@ default:
         switch_gateways: Шлюзы
         switch_list: Облачные сети
         switch_networks: Подсети
-        switch_route-tables: Таблица маршрутизации
+        switch_route-tables: Таблицы маршрутизации
         title_network-map-page: Карта облачной сети
       yagpt:
         foundation-models:
@@ -12082,6 +12083,7 @@ default:
         billing: Биллинг
         bucket: Бакет
         build: Собрать
+        clear-cache: Очистить кеш
         clone: Клонировать
         communication: Общение
         copy-link: Копировать ссылку

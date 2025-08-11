@@ -40,6 +40,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        --disk-size <storage_size_in_GB> \
        --disk-type <storage_type> \
        --fixed-size <fixed_number_of_nodes_in_group> \
+       --max-expansion <expanding_group_size_when_updating> \
+       --max-unavailable <number_of_unavailable_nodes_when_updating> \
        --location zone=[<availability_zone>],subnet-id=[<subnet_ID>] \
        --memory <amount_of_RAM_in_GB> \
        --name <node_group_name> \
@@ -76,6 +78,11 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
        You cannot change the scaling type after you create a node group.
 
+     * `--max-expansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
+
+       {% include [note-expansion-group-vm](../../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+     * `--max-unavailable`: Maximum number of unavailable nodes in the group when updating it.
      * `--location`: [Availability zone](../../../overview/concepts/geo-scope.md) and [subnet](../../../vpc/concepts/network.md#subnet) to host {{ managed-k8s-name }} nodes. You can specify more than one option but only a single subnet per zone. Use a separate `--location` parameter for each of the availability zones.
 
        {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
@@ -186,6 +193,10 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        scale_policy {
          <node_group_scaling_settings>
        }
+       deploy_policy {
+         max_expansion   = <expanding_group_size_when_updating>
+         max_unavailable = <number_of_unavailable_nodes_when_updating>
+       }
        ...
        allocation_policy {
          location {
@@ -216,6 +227,13 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        * `scale_policy`: Scaling settings.
 
          You cannot change the scaling type after you create a node group.
+
+       * `deploy_policy`: Group deployment settings:
+         * `max_expansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
+
+           {% include [note-expansion-group-vm](../../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+         * `max_unavailable`: Maximum number of unavailable nodes in the group when updating it.
 
        * `allocation_policy`: Placement settings. These contain the `location` section with the `zone` parameter that represents the [availability zone](../../../overview/concepts/geo-scope.md) you want to place the group nodes in. You can place nodes of a group with the fixed scaling type in multiple availability zones. To do this, specify each of the availability zones you need in a separate `location` section.
 
@@ -248,7 +266,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          }
        }
        ```
-
+       
      * To add metadata for nodes, provide it in the `instance_template.metadata` parameter.
 
         {% include [connect-metadata-list](../../../_includes/managed-kubernetes/connect-metadata-list.md) %}
@@ -314,6 +332,14 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
   * [Scaling settings](../../concepts/autoscale.md#ca) in the `scalePolicy` parameter.
   
     You cannot change the scaling type after you create a node group.
+
+  * Node group deployment settings in the `deployPolicy` parameter:
+    * `maxExpansion`: Maximum number of nodes by which you can increase the size of the group when updating it.
+
+      {% include [note-expansion-group-vm](../../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+    * `maxUnavailable`: Maximum number of unavailable nodes in the group when updating it.
+
   * {{ managed-k8s-name }} node group [placement settings](../../../overview/concepts/geo-scope.md) in the `allocationPolicy` parameters.
 
     {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}

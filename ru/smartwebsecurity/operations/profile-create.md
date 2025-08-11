@@ -9,6 +9,8 @@ description: Следуя данной инструкции, вы сможете
 
 ![profiles-rules](../../_assets/smartwebsecurity/profiles-rules.svg)
 
+{% include [security-profile-sa-roles](../../_includes/smartwebsecurity/security-profile-sa-roles.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

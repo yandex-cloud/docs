@@ -57,17 +57,23 @@ keywords:
        * Конфигурация драйвера — количество хостов и [их класс](../concepts/instance-types.md) для драйвера (driver). Может быть фиксированным или автомасштабируемым.
        * Конфигурация исполнителя — количество хостов и [их класс](../concepts/instance-types.md) для исполнителя (executor). Может быть фиксированным или автомасштабируемым.
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+    1. При необходимости задайте дополнительные настройки кластера:
         
-        1. Укажите названия pip- и deb-пакетов, чтобы установить в кластер дополнительные библиотеки и приложения.
+        1. **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** и **{{ ui-key.yacloud.mdb.forms.title_deb-packages }}** — названия pip- и deb-пакетов, чтобы установить в кластер дополнительные библиотеки и приложения.
            
            Чтобы указать более одного пакета, нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
            Формат названия пакета и выбор версии определены командой установки: `pip install` — для pip-пакетов, `apt install` — для deb-пакетов.
+        
+        1. **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени технического обслуживания:
 
-        1. (Опционально) Включите защиту от удаления кластера.
-        1. (Опционально) Включите **{{ ui-key.yacloud.spark.label_history-server }}**. Опция позволит использовать сервис для мониторинга приложений [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html). После создания кластера сервис будет доступен по ссылке.
-        1. (Опционально) Настройте логирование:
+           {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+
+        1. **{{ ui-key.yacloud.spark.label_metastore }}** — [metastore-сервер](../../metadata-hub/concepts/metastore.md), подключенный к вашему кластеру.
+
+        1.  **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — управляет защитой кластера от непреднамеренного удаления.
+        1. Чтобы использовать сервис для мониторинга приложений [Spark History Server](https://spark.apache.org/docs/latest/monitoring.html), включите настройку **{{ ui-key.yacloud.spark.label_history-server }}**. После создания кластера сервис будет доступен по ссылке.
+        1. Настройте логирование:
 
             1. Включите настройку **{{ ui-key.yacloud.logging.field_logging }}**.
             1. Выберите место записи логов:
@@ -226,7 +232,7 @@ keywords:
 
                * `metastore` — параметры метахранилища.
 
-                   * `cluster_id` — идентификатор кластера метахранилища.
+                   * `cluster_id` — идентификатор кластера [{{ metastore-name }}](../../metadata-hub/concepts/metastore.md).
 
            * `network` — сетевые настройки:
 
@@ -240,7 +246,7 @@ keywords:
            * `service_account_id` — идентификатор сервисного аккаунта.
 
                * `logging` — параметры логирования:
-               * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ AF }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
+               * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ SPRK }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
                * `folder_id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
                * `log_group_id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
 

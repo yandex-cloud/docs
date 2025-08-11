@@ -7583,7 +7583,7 @@ default:
           title_additional-section: Additional
           title_incremental-backup-card: Incremental
           title_retention-section: Retention settings
-          title_schedule-section: Schedule
+          title_schedule-section: Launch settings
           value_periodicity-daily: Every day
           value_periodicity-monthly: Monthly
           value_periodicity-weekly: Weekly
@@ -8324,7 +8324,6 @@ default:
             label_public-ipv4: Public IPv4 address
             label_ssh-connect-card-title: Connect via the client SSH
             label_title: Overview
-            label_zone: Availability zone
             popup-confirm_button_remove-one-to-one-nat: Delete
             section_monitoring: Monitoring
             section_network: Network
@@ -9512,6 +9511,7 @@ default:
           logs:
             label_hosts: Hosts
             label_severity: "\_Severity"
+            label_title: Logs
           overview:
             button_action-delete: Delete
             button_action-edit: Edit
@@ -9702,6 +9702,7 @@ default:
           section_user: User
           section_zookeeper-disk: ZooKeeper storage size
           section_zookeeper-resource: ZooKeeper host class
+          title_deb-packages: Deb packages
           title_pip-packages: Pip packages
           value_maintenance-type-anytime: arbitrary
           value_maintenance-type-weekly: by schedule
@@ -9829,7 +9830,6 @@ default:
         switch_operations: Operations
       redis:
         cluster:
-          switch_logs: Logs
           switch_monitoring: Monitoring
           switch_shards: Shards
         field_announce-hostnames: Use FQDN instead of IP addresses
@@ -10275,6 +10275,7 @@ default:
           create_action: Create job
           popup-action_label_cancel-msg: Cancel job
         label_history-server: History Server
+        label_metastore: Metastore
       speechkit-common:
         brand-voice_51nd8: Brand Voice Lite
         brand-voice_button_activate_47zAB: Activate
@@ -10623,7 +10624,7 @@ default:
         switch_gateways: Gateways
         switch_list: Cloud networks
         switch_networks: Subnets
-        switch_route-tables: Route table
+        switch_route-tables: Routing tables
         title_network-map-page: Cloud network map
       yagpt:
         foundation-models:
@@ -12075,6 +12076,7 @@ default:
         billing: Billing
         bucket: Bucket
         build: Build
+        clear-cache: Clear cache
         clone: Clone
         communication: Communications
         copy-link: Copy link
