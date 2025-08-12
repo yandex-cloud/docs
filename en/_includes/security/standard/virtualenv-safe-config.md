@@ -1268,8 +1268,6 @@ For the gateway to have access not just to the internet but to the user resource
 
 If you specify a network in the API gateway settings, this will create an auxiliary subnet with addresses from the `198.19.0.0/16` range in each availability zone. The API gateway will get an IP address from the respective subnet and will have access to all network resources.
 
-{% include [network](../../../_includes/functions/network-note.md) %}
-
 {% list tabs group=instructions %}
 
 - Performing a check in the management console {#console}

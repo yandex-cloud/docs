@@ -35,7 +35,8 @@ description: Следуя данной инструкции, вы сможете
    {% endnote %}
 
    * **Время жизни кеша в секундах**. Укажите время жизни кеша или оставьте значение по умолчанию. Рекомендованное значение — 300 секунд (5 минут).
-   * **Уровень доступа SQL запросов**. Позволяет использовать произвольный SQL-запрос для [формирования датасета](../../dataset/settings.md#sql-request-in-datatset).
+   
+   {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
    
    ![image](../../../_assets/datalens/operations/connection/connection-ydb.png)

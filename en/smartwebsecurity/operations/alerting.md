@@ -3,7 +3,7 @@ title: How to configure {{ sws-full-name }} alerts
 description: Follow this guide to configure {{ sws-full-name }} alerts.
 ---
 
-# Configuring {{ sws-full-name }} alerts
+# Configuring alerts for the service
 
 [Alerting](../../monitoring/concepts/alerting/alert.md) allows you to monitor changes in metrics and notifies you when they hit critical levels using periodic queries known as _alerts_. When metrics reach threshold values, the system sends a notification via the specified communication channel, e.g., by email or messenger.
 
@@ -27,7 +27,7 @@ Let's take a look how you can create some alerts to detect anomalies:
 
 ## Alert for increased percentage of blocked requests {#increased-deny-requests}
 
-The alert will trigger when the number of blocked requests reaches 50% or more of the total requests. This alert helps detect different types of attacks, e.g., DDoS or bot-based hack attempts.
+The alert will be triggered when the number of blocked requests reaches 50% or more of the total requests. This alert helps detect different types of attacks, e.g., DDoS or bot-based hack attempts.
 
 Let's use letters to indicate the number of incoming requests per second:
 
@@ -43,7 +43,7 @@ Let's set up our alerts:
 
 1. In the [management console]({{ link-console-main }}), select the folder on the left.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
+1. Go to the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}** section.
 1. Click **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Specify the channel name, notification method, and recipients.
 
@@ -99,7 +99,7 @@ Let's set up our alerts:
      * `Evaluation delay`: `15 seconds`
 
 1. Leave the default values under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}**.
-1. Optionally, under [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md), add the information to log when the alert triggers.
+1. Optionally, under [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md), add the information to log when the alert is triggered.
 1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}**, add the notification channel.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -108,9 +108,9 @@ Let's set up our alerts:
 Let's use letters to indicate the number of incoming requests per second:
 
 * `A`: Allowed by the security profile.
-* `B`: Allowed the ARL profile.
+* `B`: Allowed by the ARL profile.
 
-Normally `A` must be slightly greater or equal to `B`. In other words, the number of requests allowed by the security profile slightly exceeds the limit set in the ARL profile. This means that most requests allowed by the security profile reach the virtual host. In this case, the system load remains within normal limits.
+Normally, `A` must be slightly greater or equal to `B`. In other words, the number of requests allowed by the security profile slightly exceeds the limit set in the ARL profile. This means that most requests allowed by the security profile reach the virtual host. In this case, the system load remains within normal limits.
 
 A significant difference in the number of requests means the system cannot handle the load and blocks potentially legitimate requests. This can be due to insufficient capacity or an attack. If this situation persists, we recommend reviewing your security profile settings or rate limits.
 
@@ -123,7 +123,7 @@ Let's set up alerts to detect exceeded rate limits:
 
 1. In the [management console]({{ link-console-main }}), select the folder on the left.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Go to **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
+1. Go to the **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}** section.
 1. Click **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Specify the channel name, notification method, and recipients.
 
@@ -180,7 +180,7 @@ Let's set up alerts to detect exceeded rate limits:
      * `Evaluation delay`: `15 seconds`
 
 1. Leave the default values under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}**.
-1. Optionally, under [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md), add the information to log when the alert triggers.
+1. Optionally, under [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md), add the information to log when the alert is triggered.
 1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}**, add the notification channel.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 

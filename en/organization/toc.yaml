@@ -112,6 +112,14 @@ items:
                 href: operations/applications/saml-update.md
               - name: Deactivating and deleting an app
                 href: operations/applications/saml-deactivate-remove.md
+          - name: OIDC apps
+            items:
+              - name: Creating an app
+                href: operations/applications/oidc-create.md
+              - name: Updating an app
+                href: operations/applications/oidc-update.md
+              - name: Deactivating and deleting an app
+                href: operations/applications/oidc-deactivate-remove.md
       - name: Authentication
         items:
           - name: Adding an SSH key

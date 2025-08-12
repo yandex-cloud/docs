@@ -1,0 +1,4 @@
+* `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}`: Unique application ID.
+* `{{ ui-key.yacloud_org.application.overview.oauth_field_auth_endpoint }}`: Address in {{ yandex-cloud }} to which the service provider will redirect the user for authentication.
+* `{{ ui-key.yacloud_org.application.overview.oauth_field_token_endpoint }}`: Address to which the external application sends a request to obtain an ID token and access token.
+* `{{ ui-key.yacloud_org.application.overview.oauth_field_user_info_endpoint }}`: Address the external application can use to obtain user attributes.

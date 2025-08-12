@@ -1,5 +1,5 @@
 1. In the [management console]({{ link-console-main }}), select a folder to create your VM group in.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
 1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
@@ -28,7 +28,7 @@
      * Enter the required number of vCPUs, [guaranteed vCPU share](../../compute/concepts/performance-levels.md), and the amount of RAM.
 
      * {% include [include](specify-preemptible-vm.md) %}
-     
+
      * (Optional) Enable a [software-accelerated network](../../compute/concepts/software-accelerated-network.md).
    * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 

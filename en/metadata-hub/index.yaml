@@ -8,17 +8,23 @@ description:
     database connections, store data exchange schemas and dataset descriptions,
     as well as manage metadata.
 links:
-  - title: Getting started
+  - title: '{{ connection-manager-name }}'
+    description: Automatically creating and managing database connection settings.
+    href: concepts/connection-manager
+  - title: '{{ metastore-full-name }}'
+    description: Creating and managing Hive Metastore clusters.
+    href: concepts/metastore
+  - title: '{{ schema-registry-name }}'
+    description: Centralized repository for managing and validating data schemas.
+    href: concepts/schema-registry
+  - title: '{{ data-catalog-name }}'
     description: >-
-      Create your first connection, data schema registry, {{ metastore-name }}
-      cluster, or metadata catalog
-    href: quickstart/
-  - title: Step-by-step guides
+      Tool for collecting, analyzing, and marking up metadata from various
+      sources.
+    href: concepts/data-catalog
+  - title: All step-by-step guides
     description: How to perform routine operations
     href: operations/
-  - title: Concepts
-    description: Learn more about how it works
-    href: concepts/
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits

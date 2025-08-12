@@ -258,7 +258,7 @@ items:
             href: tutorials/replicate-logs-to-storage.md
   - name: Concepts
     items:
-      - name: Resource relationships
+      - name: Service resource interdependencies
         href: concepts/index.md
       - name: Transfer types and lifecycles
         href: concepts/transfer-lifecycle.md
@@ -278,7 +278,7 @@ items:
         href: concepts/delivery-configuration.md
       - name: Operations on transfers
         href: concepts/operations.md
-      - name: Networking in {{ data-transfer-full-name }}
+      - name: '{{ data-transfer-full-name }} network'
         href: concepts/network.md
       - name: Speed for copying data in {{ data-transfer-full-name }}
         href: concepts/copy-speed.md
@@ -478,6 +478,8 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
+      - name: July 2025
+        href: release-notes/2507.md
       - name: June 2025
         href: release-notes/2506.md
       - name: May 2025

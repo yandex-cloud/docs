@@ -102,8 +102,12 @@ After configuring the data source and target, [create and start the transfer](..
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-* [Transfer failure](#ambiguous-resolution-os)
+* [Transfer interrupted with an error message](#ambiguous-resolution-es)
 * [Document duplication on the target](#duplication)
+* [Exceeding the limit on the maximum number of fields](#exceeding-fields-limit)
+* [Transfer failure with the mapper_parsing_exception error](#data-types)
+* [SSL is required error](#ssl-required)
+* [No tables found](#no-tables)
 
 For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
@@ -111,3 +115,10 @@ For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/in
 
 {% include [duplication](../../../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
 
+{% include [exceeding-fields-limit](../../../../_includes/data-transfer/troubles/elastic-opensearch/exceeding-fields-limit.md) %}
+
+{% include [mapper-parsing-exception](../../../../_includes/data-transfer/troubles/elastic-opensearch/mapper-parsing-exception.md) %}
+
+{% include [ssl-is-required](../../../../_includes/data-transfer/troubles/elastic-opensearch/ssl-is-required.md) %}
+
+{% include [no-tables](../../../../_includes/data-transfer/troubles/elastic-opensearch/no-tables.md) %}

@@ -5,7 +5,7 @@ description: In this section, you will learn how to work with the {{ video-name 
 
 # How to get started with the {{ video-full-name }} API
 
-In this section, you will learn how to create [channels](../concepts/index.md#channels), upload [videos](../concepts/videos.md), and get links to the [video player](../concepts/player.md) for the uploaded videos using the {{ video-name }} [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/).
+In this section, you will learn how to create [channels](../concepts/index.md#channels), upload [videos](../concepts/videos.md), and get links to the [video player](../concepts/player.md) for uploaded videos using the {{ video-name }} [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/).
 
 To get started with the {{ video-name }} API:
 
@@ -81,7 +81,7 @@ Create a service account you will use to authenticate in the {{ video-name }} AP
 
 #### Assign a role to the service account {#assign-role}
 
-Assign the service account the `video.admin` or `video.editor` role for the organization. To learn more, see [{#T}](../security/index.md).
+Assign the service account the `video.admin` or `video.editor` role for the organization. For more information, see [{#T}](../security/index.md).
 
 To grant a service account permissions to access an organization, you need the `{{ roles-organization-admin }}` role or higher.
 

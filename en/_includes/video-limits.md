@@ -18,6 +18,8 @@
 `video.parallelStreams.count` | 1 ||
 || Number of [episodes](../video/concepts/streams.md#episodes) in all broadcasts
 `video.episodes.count` | 500 ||
+|| Total number of video [thumbnails](../video/operations/video/add-thumbnail.md) in all channels
+`video.thumbnails.count` | 20,000 ||
 |#
 
 #### Limits {#limits}

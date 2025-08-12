@@ -1,16 +1,16 @@
 ---
-title: Authentication with the {{ metadata-hub-full-name }} API
+title: '{{ metadata-hub-full-name }} API authentication'
 description: To perform operations through the API in {{ metadata-hub-full-name }}, get an IAM token for your account.
 ---
 
-# Authentication with the {{ metadata-hub-full-name }} API
+# {{ metadata-hub-full-name }} API authentication
 
 
-To perform operations via the API, get an [IAM token](../../iam/concepts/authorization/iam-token.md):
+Before you can work with the API, you need to get an [IAM token](../../iam/concepts/authorization/iam-token.md):
 
-* [How to get a token](../../iam/operations/iam-token/create.md) for a Yandex account.
-* [Guide](../../iam/operations/iam-token/create-for-sa.md) for a service account.
-* [Guide](../../iam/operations/iam-token/create-for-federation.md) for a federated account.
+* [Guide](../../iam/operations/iam-token/create.md) for Yandex accounts.
+* [Guide](../../iam/operations/iam-token/create-for-sa.md) for service accounts.
+* [Guide](../../iam/operations/iam-token/create-for-federation.md) for federated accounts.
 
 {% include [iam-token-usage](../../_includes/iam-token-usage.md) %}
 

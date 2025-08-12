@@ -12,7 +12,7 @@ To mitigate the risks associated with automated attacks on applications, we reco
 
 - Performing a check in the management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. In the [management console]({{ link-console-main }}), select your folder.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
   1. Make sure at least one CAPTCHA is [created](../../../smartcaptcha/operations/create-captcha.md) for your application.
 
@@ -39,8 +39,8 @@ When creating a new [registry](../../../container-registry/concepts/registry.md)
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create a registry in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a registry.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. In the **{{ ui-key.yacloud.cr.overview.popup-create_field_name }}** field, enter a name for the registry, The naming requirements are as follows:
       
@@ -155,7 +155,7 @@ In a nutshell, the service checks the HTTP requests sent to the protected resour
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check the {{ sws-name }} status.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Make sure you have security profiles created.
   1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
@@ -186,7 +186,7 @@ You can manage the web application firewall using a [WAF profile](../../../smart
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check a security profile for a WAF rule.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Make sure your security profile has a security rule of the **web application firewall** type.
 
 {% endlist %}
@@ -197,7 +197,7 @@ You can manage the web application firewall using a [WAF profile](../../../smart
 
 #### 6.12 Advanced Rate Limiter is used {#use-arl}
 
-[Advanced Rate Limiter (ARL)](../../../smartwebsecurity/concepts/arl.md) is a {{ sws-full-name }} module used to monitor and limit web app loads. The module allows you to set a limit on the number of HTTP requests over a certain period of time. All requests above the limit will be blocked. You can set a single limit for all traffic or configure specific limits to segment requests by certain parameters. For the purposes of limits, you can count requests one by one or group them together based on specified characteristics.
+[Advanced Rate Limiter (ARL)](../../../smartwebsecurity/concepts/arl.md) is a {{ sws-full-name }} module used to monitor and limit web app loads. It allows you to set a limit on the number of HTTP requests over a certain period of time. All requests above the limit will get blocked. You can set a single limit for all traffic or configure specific limits to segment requests by certain parameters. For the purpose of limits, you can count requests one by one or group them together based on specified property.
 
 You need to connect your ARL profile to the [security profile](../../../smartwebsecurity/concepts/profiles.md) in {{ sws-name }}.
 
@@ -206,7 +206,7 @@ You need to connect your ARL profile to the [security profile](../../../smartweb
 - Performing a check in the management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you want to check for ARL profiles.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../../_assets/smartwebsecurity/arl.svg) **ARL profiles** and make sure you have ARL profiles connected to your security profile.
 
 {% endlist %}
@@ -217,7 +217,7 @@ You need to connect your ARL profile to the [security profile](../../../smartweb
 
 #### 6.13 Approval rules are configured {#setup-code-review}
 
-With [{{ mgl-full-name }}](../../../managed-gitlab/index.yaml), you can flexibly set up mandatory [approval rules](../../../managed-gitlab/concepts/approval-rules.md) for adding code to the target project branch. This feature is an alternative to the GitLab Enterprise Edition’s [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) tool and is available regardless of the GitLab [version](https://about.gitlab.com/pricing).
+With [{{ mgl-full-name }}](../../../managed-gitlab/index.yaml), you can flexibly set up required [approval rules](../../../managed-gitlab/concepts/approval-rules.md) before the code can be added to the target project branch. This feature is an alternative to the GitLab Enterprise Edition’s [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) tool and is available regardless of the GitLab [version](https://about.gitlab.com/pricing).
 
 If a [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) has the approval rules enabled, {{ mgl-name }} analyzes approvals from reviewers for compliance with the specified rules. If there are not enough approvals, a thread is created in a merge request that blocks it from being merged to the target branch. Editing the merge request creates or updates a comment in the thread with its current compliance status. Once all the required approvals are obtained, the thread is closed.
 
@@ -248,8 +248,8 @@ If you close a thread manually, it will be created again. If a merge request is 
 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Go to **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Navigate to **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
   1. Check that the lists have been created.
   1. If there are such lists, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -261,4 +261,4 @@ If you close a thread manually, it will be created again. If a merge request is 
 
 **Guides and solutions to use:**
 
-Whitelist and blacklist IP addresses to filter traffic. To learn more, see [{#T}](../../../smartwebsecurity/operations/list-create.md).
+Whitelist and blacklist IP addresses to filter traffic. For more information, see [{#T}](../../../smartwebsecurity/operations/list-create.md).

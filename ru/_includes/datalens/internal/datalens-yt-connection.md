@@ -12,7 +12,9 @@
    * **Алиас клики**. Укажите алиас запущенной клики. По умолчанию используется публичная клика `*ch_public`.
    * **Токен {{ ytsaurus-name }}**. Укажите вручную OAuth-токен для работы с {{ ytsaurus-name }}. Подробнее см. в [документации {{ ytsaurus-name }}](https://ytsaurus.tech/docs/ru/user-guide/storage/auth).
    * **Время жизни кеша в секундах**. Укажите время жизни кеша или оставьте значение по умолчанию. Рекомендованное значение — 300 секунд (5 минут).
-   * **Уровень доступа SQL запросов**. Выберите уровень доступа к SQL-запросам для пользователя.
+
+   {% include [datalens-db-sql-level](../datalens-db-connection-sql-level.md) %}
+
    * **HTTPS**. Активируйте опцию безопасного подключения, если ваш сервер поддерживает протокол HTTPS.
 
    ![image](../../../_assets/datalens/operations/connection/connection-ytsaurus.png)

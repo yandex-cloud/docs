@@ -146,7 +146,7 @@ This guide assumes that you already have a configured web resource. If your reso
 
   {% endlist %}
 
-{% endlist %}  
+{% endlist %}
 
 ## Set up DDoS and anti-bot protection {#antiddos-antibot-protection}
 
@@ -495,8 +495,8 @@ You can use [{{ load-testing-name }}](../../load-testing/) to perform a load tes
       * Show requests blocked by the ARL profile rules (in logging mode):
         ```
         json_payload.smartwebsecurity.dry_run_advanced_rate_limiter.verdict = DENY
-        ```     
-      * Similar request without the logging mode:  
+        ```
+      * Similar request without the logging mode:
         ```
         json_payload.smartwebsecurity.advanced_rate_limiter.verdict = DENY
         ```
@@ -533,7 +533,7 @@ In the WAF rule, you must configure two parameters:
 * **Anomaly threshold**: Total threat score of a request. The score grows with each triggered rule, and once it exceeds the threshold, the request gets blocked. Start from the threshold of `25` and gradually reduce it.
 
   You can set any rule you deem critical for the serivce as a blocking rule. In this case, requests that trigger this rule get blocked regardless of the total score.
-  
+
 To avoid false positives for your service, you can create exclusions for all or specific rules.
 
 ### Create a WAF profile {#waf-create}
