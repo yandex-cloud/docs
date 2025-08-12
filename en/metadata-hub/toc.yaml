@@ -2,27 +2,13 @@ title: Yandex MetaData Hub
 href: index.yaml
 stage: preview
 items:
-  - name: Getting started
+  - name: About {{ metadata-hub-full-name }}
+    href: concepts/index.md
+  - name: '{{ connection-manager-name }}'
     items:
-      - name: Overview
-        href: quickstart/index.md
-      - name: Connection Manager
+      - name: Getting started
         href: quickstart/connection-manager.md
-      - name: '{{ metastore-full-name }}'
-        href: quickstart/metastore.md
-      - name: Schema Registry
-        href: quickstart/schema-registry.md
-      - name: Data Catalog
-        items:
-          - name: Getting started as a metadata steward
-            href: quickstart/data-steward-quickstart.md
-          - name: Getting started as a metadata analyst
-            href: quickstart/data-analyst-quickstart.md
-  - name: Step-by-step guides
-    items:
-      - name: All guides
-        href: operations/index.md
-      - name: Connection Manager
+      - name: Step-by-step guides
         items:
           - name: Creating a connection
             href: operations/create-connection.md
@@ -34,7 +20,83 @@ items:
             href: operations/delete-connection.md
           - name: Configuring connection access permissions
             href: operations/connection-access.md
-      - name: '{{ metastore-full-name }}'
+      - name: Concepts
+        items:
+          - name: Connection
+            href: concepts/connection-manager.md
+          - name: Secret
+            href: concepts/secret.md
+      - name: Service roles for access management
+        href: security/connection-manager-roles.md
+      - name: API reference
+        items:
+          - name: API authentication
+            href: api-ref/authentication-connman.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: api-ref/grpc/index.md
+              - name: Connection
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Connection/index.md
+                  - name: Get
+                    href: api-ref/grpc/Connection/get.md
+                  - name: ResolveCluster
+                    href: api-ref/grpc/Connection/resolveCluster.md
+                  - name: List
+                    href: api-ref/grpc/Connection/list.md
+                  - name: Create
+                    href: api-ref/grpc/Connection/create.md
+                  - name: Update
+                    href: api-ref/grpc/Connection/update.md
+                  - name: Delete
+                    href: api-ref/grpc/Connection/delete.md
+                  - name: ListOperations
+                    href: api-ref/grpc/Connection/listOperations.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/grpc/Operation/cancel.md
+          - name: REST
+            items:
+              - name: Overview
+                href: api-ref/index.md
+              - name: Connection
+                items:
+                  - name: Overview
+                    href: api-ref/Connection/index.md
+                  - name: Get
+                    href: api-ref/Connection/get.md
+                  - name: ResolveCluster
+                    href: api-ref/Connection/resolveCluster.md
+                  - name: List
+                    href: api-ref/Connection/list.md
+                  - name: Create
+                    href: api-ref/Connection/create.md
+                  - name: Update
+                    href: api-ref/Connection/update.md
+                  - name: Delete
+                    href: api-ref/Connection/delete.md
+                  - name: ListOperations
+                    href: api-ref/Connection/listOperations.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/Operation/index.md
+                  - name: Get
+                    href: api-ref/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/Operation/cancel.md
+  - name: '{{ metastore-full-name }}'
+    items:
+      - name: Getting started
+        href: quickstart/metastore.md
+      - name: Step-by-step guides
         items:
           - name: Creating a {{ metastore-name }} cluster
             href: operations/metastore/cluster-create.md
@@ -54,7 +116,33 @@ items:
             href: operations/metastore/logging.md
           - name: Deleting a {{ metastore-name }} cluster
             href: operations/metastore/cluster-delete.md
-      - name: Schema Registry
+      - name: Tutorials
+        items:
+          - name: >-
+              Shared use of {{ dataproc-name }} tables through {{ metastore-name
+              }}
+            href: tutorials/sharing-tables.md
+          - name: >-
+              Transferring metadata between {{ dataproc-name }} clusters using
+              {{ metastore-name }}
+            href: tutorials/metastore-import.md
+      - name: Concepts
+        items:
+          - name: '{{ metastore-name }} clusters'
+            href: concepts/metastore.md
+          - name: Impersonation in {{ metastore-name }}
+            href: concepts/metastore-impersonation.md
+      - name: Service roles for access management
+        href: security/metastore-roles.md
+      - name: Troubleshooting
+        href: qa/metastore-qa.md
+      - name: '{{ at-name }} events'
+        href: at-ref.md
+  - name: '{{ schema-registry-name }}'
+    items:
+      - name: Getting started
+        href: quickstart/schema-registry.md
+      - name: Step-by-step guides
         items:
           - name: Namespace
             items:
@@ -84,7 +172,37 @@ items:
                 href: operations/update-subject.md
               - name: Deleting a subject
                 href: operations/delete-subject.md
-      - name: '{{ data-catalog-name }}'
+      - name: Tutorials
+        items:
+          - name: Delivering data in Debezium CDC format from {{ KF }}
+            href: tutorials/schema-registry-cdc-debezium-kafka.md
+      - name: Concepts
+        items:
+          - name: Schema registry
+            href: concepts/schema-registry.md
+          - name: Content models and JSON schema evolution issues
+            href: concepts/schema-registry-content-model.md
+          - name: Compatibility policies
+            href: concepts/compatibility-check-policy.md
+      - name: Service roles for access management
+        href: security/schema-registry-roles.md
+      - name: Troubleshooting
+        href: qa/schema-registry-qa.md
+      - name: API reference
+        items:
+          - name: API authentication
+            href: api-ref/authentication.md
+          - name: Schema Registry
+            href: api-ref/schema-registry/index.md
+  - name: '{{ data-catalog-name }}'
+    items:
+      - name: Getting started
+        items:
+          - name: Getting started as a metadata steward
+            href: quickstart/data-steward-quickstart.md
+          - name: Getting started as a metadata analyst
+            href: quickstart/data-analyst-quickstart.md
+      - name: Step-by-step guides
         items:
           - name: Metadata catalogs
             items:
@@ -176,77 +294,32 @@ items:
                 href: operations/data-catalog/update-source.md
               - name: Deleting an origin
                 href: operations/data-catalog/delete-source.md
-  - name: Tutorials
-    items:
-      - name: All tutorials
-        href: tutorials/index.md
-      - name: '{{ metastore-name }}'
+      - name: Concepts
         items:
-          - name: >-
-              Shared use of {{ dataproc-name }} tables through {{ metastore-name
-              }}
-            href: tutorials/sharing-tables.md
-          - name: >-
-              Transferring metadata between {{ dataproc-name }} clusters using
-              {{ metastore-name }}
-            href: tutorials/metastore-import.md
-      - name: '{{ schema-registry-name }}'
-        items:
-          - name: Delivering data in Debezium CDC format from {{ KF }}
-            href: tutorials/schema-registry-cdc-debezium-kafka.md
-  - name: Concepts
-    items:
-      - name: About {{ metadata-hub-full-name }}
-        href: concepts/index.md
-      - name: Connection Manager
-        items:
-          - name: Connection
-            href: concepts/connection-manager.md
-          - name: Secret
-            href: concepts/secret.md
-      - name: '{{ metastore-full-name }}'
-        items:
-          - name: '{{ metastore-name }} clusters'
-            href: concepts/metastore.md
-          - name: Impersonation in {{ metastore-name }}
-            href: concepts/metastore-impersonation.md
-      - name: Schema Registry
-        items:
-          - name: Schema registry
-            href: concepts/schema-registry.md
-          - name: Content models and JSON schema evolution issues
-            href: concepts/schema-registry-content-model.md
-          - name: Compatibility policies
-            href: concepts/compatibility-check-policy.md
-      - name: '{{ data-catalog-full-name }}'
-        href: concepts/data-catalog.md
-      - name: Quotas and limits
-        href: concepts/limits.md
-  - name: Access management
-    items:
-      - name: Overview
-        href: security/index.md
-      - name: '{{ connection-manager-name }} roles'
-        href: security/connection-manager-roles.md
-      - name: '{{ metastore-name }} roles'
-        href: security/metastore-roles.md
-      - name: '{{ schema-registry-name }} roles'
-        href: security/schema-registry-roles.md
-      - name: '{{ data-catalog-full-name }} roles'
+          - name: Metadata catalogs
+            href: concepts/data-catalog.md
+      - name: Service roles for access management
         href: security/data-catalog-roles.md
-  - name: API reference
-    items:
-      - name: API authentication
-        href: api-ref/authentication.md
-      - name: Schema Registry
-        href: api-ref/schema-registry/index.md
-  - name: '{{ at-name }} events'
-    href: at-ref.md
+  - name: Access management
+    href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: Troubleshooting
-    href: qa/index.md
   - name: Public materials
     href: public-talks.md
   - name: Release notes
     href: release-notes/index.md
+  - name: Troubleshooting
+    href: qa/index.md
+    hidden: true
+  - name: Service quotas and limits
+    href: concepts/limits.md
+    hidden: true
+  - name: Getting started with the service
+    href: quickstart/index.md
+    hidden: true
+  - name: All step-by-step guides
+    href: operations/index.md
+    hidden: true
+  - name: All tutorials
+    href: tutorials/index.md
+    hidden: true

@@ -87,7 +87,6 @@ Billable service costs are calculated based on the amount of consumed resources 
 * [{{ speechsense-full-name }}](../speechsense/pricing.md)
     * [Audio dialog analysis](../speechsense/pricing.md#speech)
     * [Text dialog analysis](../speechsense/pricing.md#text)
-* [{{ tracker-full-name }}]({{ link-tracker-cloudless }})
 * [{{ translate-full-name }}](../translate/pricing.md)
 * [{{ vpc-full-name }}](../vpc/pricing.md)
 * [{{ vision-full-name }}](../vision/pricing.md)
@@ -104,7 +103,6 @@ The following services are always free of charge:
 * {{ preview-stage }} [{{ quota-manager-full-name }}](../quota-manager/pricing.md)
 * {{ preview-stage }} [{{ video-full-name }}](../video/pricing.md)
 * {{ preview-stage }} [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/pricing)
-* [{{ forms-full-name }}]({{ link-forms-cloudless }})
 * [{{ iam-full-name }}](../iam/pricing.md)
 * {{ preview-stage }} [{{ msp-full-name }}](../managed-spark/pricing.md)
 * {{ preview-stage }} [{{ metadata-hub-full-name }}](../metadata-hub/pricing.md)
@@ -112,6 +110,5 @@ The following services are always free of charge:
 * [{{ resmgr-full-name }}](../resource-manager/pricing.md)
 * {{ preview-stage }} [{{ si-full-name }}](../serverless-integrations/pricing.md)
 * [{{ websql-full-name }}](../websql/pricing.md)
-* [{{ wiki-full-name }}]({{ link-wiki-cloudless }})
 
  Services at the [Preview](../overview/concepts/launch-stages.md) stage are labeled as {{ preview-stage }}.

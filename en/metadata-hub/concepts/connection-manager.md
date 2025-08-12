@@ -1,6 +1,6 @@
 ---
-title: Connecting {{ metadata-hub-name }} to a database
-description: With {{ connection-manager-full-name }}, you can manage database connection parameters.
+title: Connecting {{ connection-manager-name }} to a database
+description: With {{ connection-manager-name }}, you can manage database connection parameters.
 ---
 
 # Connection

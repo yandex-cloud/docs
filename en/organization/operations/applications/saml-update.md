@@ -18,7 +18,7 @@ To update the [SAML app's basic settings](../../concepts/applications.md#saml):
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
   1. On the top right, click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** and in the window that opens:
 
       1. Change the app's name in the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-name_d22aF }}** field. The name must be unique within the organization and follow the naming requirements:
@@ -40,7 +40,7 @@ To update the service provider configuration in a SAML app:
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
   1. {% include [saml-app-update-sp-settings](../../../_includes/organization/saml-app-update-sp-settings.md) %}
 
 {% endlist %}
@@ -56,7 +56,7 @@ You can issue any number of new digital signature verification key certificates 
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
   1. Under **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}**, click **{{ ui-key.yacloud_org.application.overview.certificate_action_manage_certs }}** on the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab and in the window that opens:
 
       1. Click **{{ ui-key.yacloud_org.cloud-components.manage-cert-dialog.action-generate-new-certificate }}**. This will create a new certificate which will appear in the list.
@@ -87,5 +87,5 @@ Update the list of your [organization's](../../concepts/organization.md) users p
 * [{#T}](./saml-create.md)
 * [{#T}](./saml-deactivate-remove.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md)
+* [{#T}](../../concepts/applications.md#saml)
 * [{#T}](../manage-groups.md)

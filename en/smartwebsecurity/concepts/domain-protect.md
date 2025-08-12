@@ -32,7 +32,7 @@ For the proxy server to receive requests sent to your domain, you need to set up
 
 It usually takes a few minutes to activate redirection. In some cases, this may take up to 24 hours.
 
-You can add multiple proxy servers, for example, to separate the application's stable version from a version under development.
+You can add multiple proxy servers, for example, to separate a stable version of an application from a version that is under development.
 
 You can configure logging for each proxy server. You can write all logs or filter them to save space in the storage.
 

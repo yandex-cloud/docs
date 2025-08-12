@@ -75,6 +75,12 @@ items:
             href: sources-and-sinks/data-streams-binding.md
           - name: Writing data
             href: sources-and-sinks/data-streams-write.md
+      - name: Working with {{ monitoring-full-name }}
+        items:
+          - name: Reading data using connections
+            href: sources-and-sinks/monitoring.md
+          - name: Writing data
+            href: sources-and-sinks/monitoring-write.md
       - name: Working with {{ mch-name }} databases
         href: sources-and-sinks/clickhouse.md
       - name: Working with {{ mgp-name }} databases
@@ -85,15 +91,13 @@ items:
         href: sources-and-sinks/postgresql.md
       - name: Working with {{ ydb-name }} databases
         href: sources-and-sinks/ydb.md
-      - name: Writing metrics to {{ monitoring-full-name }}
-        href: sources-and-sinks/monitoring.md
   - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
       - name: Processing {{ cloud-logging-name }} logs
         href: tutorials/cloud-logging.md
-      - name: Processing CDC Debezium streams
+      - name: Processing Debezium CDC streams
         href: tutorials/debezium.md
       - name: Visualizing {{ objstorage-name }} data in {{ datalens-name }}
         href: tutorials/datalens.md

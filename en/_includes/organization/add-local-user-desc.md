@@ -1,3 +1,3 @@
 You must add [local users](../../iam/concepts/users/accounts.md#local) to your organization manually. Each user is assigned a unique username within the selected [user pool](../../organization/concepts/user-pools.md).
 
-Users with any of the following [roles](../../organization/security/index.md) can add or remove local users from the organization: `organization-manager.userpools.usersAdmin`, `organization-manager.userpools.admin`, `organization-manager.admin`, or `organization-manager.organizations.owner`.
+Users with any of the following [roles](../../organization/security/index.md) can add or remove local users from the organization: `organization-manager.userpools.userAdmin`, `organization-manager.userpools.admin`, `organization-manager.admin`, or `organization-manager.organizations.owner`.

@@ -21,7 +21,7 @@ To authenticate your [organization](../../concepts/organization.md)'s users to e
   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
   1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
       1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}** single sign-on method.
-      1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app. The name must be unique within the organization and follow the naming requirements:
+      1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app. The name must be unique within the organization and follow these naming requirements:
 
           {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
@@ -50,7 +50,7 @@ Depending on the options supported by your service provider, you can set the req
 - Manual setup
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
   1. On the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab, under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}**, copy the parameter values to use on the service provider side:
 
       {% include [saml-app-sp-parameter-list](../../../_includes/organization/saml-app-sp-parameter-list.md) %}
@@ -61,7 +61,7 @@ Depending on the options supported by your service provider, you can set the req
 - Metadata file
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
   1. On the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab, under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}**, click **{{ ui-key.yacloud_org.application.overview.idp_section_download_metadata_action }}**.
 
       The downloaded [XML](https://en.wikipedia.org/wiki/XML) file contains the values of all the required settings and a certificate to verify the signature of SAML responses. Upload the file to your service provider’s platform if the provider supports using metadata files to configure the application. If you need help, refer to your service provider's documentation or support team.
@@ -69,7 +69,7 @@ Depending on the options supported by your service provider, you can set the req
 - Metadata URL
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
   1. On the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab, under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}**, copy the **{{ ui-key.yacloud_org.application.overview.saml_field_metadata }}** field value.
 
       Follow the link to get values for all the required settings and a certificate to verify the signature of SAML responses. Specify the link in the settings on the service provider side if the provider supports using a metadata URL to configure the application. If you need help, refer to your service provider's documentation or support team.
@@ -85,7 +85,7 @@ Before configuring your SAML application in {{ org-name }}, get the required set
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and select the app.
+  1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
   1. {% include [saml-app-update-sp-settings](../../../_includes/organization/saml-app-update-sp-settings.md) %}
 
 {% endlist %}
@@ -102,7 +102,7 @@ To permit your organization's users to authenticate in external app with {{ org-
 
 {% note info %}
 
-Users and groups added to a SAML application can be managed by a user with the `organization-manager.samlApplications.usersAdmin` [role](../../security/index.md#organization-manager-samlApplications-usersAdmin) or higher.
+Users and groups added to a SAML application can be managed by a user with the `organization-manager.samlApplications.userAdmin` [role](../../security/index.md#organization-manager-samlApplications-userAdmin) or higher.
 
 {% endnote %}
 
@@ -117,5 +117,5 @@ To make sure both your SAML application and service provider integration work co
 * [{#T}](./saml-update.md)
 * [{#T}](./saml-deactivate-remove.md)
 * [{#T}](../add-account.md)
-* [{#T}](../../concepts/applications.md)
+* [{#T}](../../concepts/applications.md#saml)
 * [{#T}](../manage-groups.md)

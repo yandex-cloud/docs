@@ -5,11 +5,13 @@ description: This page describes the parameters you can use when initializing Cl
 
 # Player initialization parameters
 
-You can provide initial parameters to [Cloud Video Player](./index.md#initialize-player) when [initializing](../../concepts/player.md) it.
+You can provide starting parameters to [Cloud Video Player](../../concepts/player.md) when [initializing](./index.md#initialize-player) it.
+
+## Playback controls {#playback-controls}
 
 #### element {#element}
 
-Embed element. This is a required parameter. This can be either a pointer to a certain `HTMLElement` or an ID selector.
+Embed element. This is a required parameter. This can be either an `HTMLElement` pointer or an ID selector.
 
 Player creation examples:
 
@@ -53,7 +55,7 @@ var player = Ya.playerSdk.init({ ..., autoplay: false, ...});
 
 #### muted {#muted}
 
-`muted` status when creating a player. `true` to disable sound, `false` to enable sound.
+`muted` status when creating a player. If `true`, sound is off; if `false`, sound is on.
 
 If the sound is on, autoplay may [fail](https://developer.chrome.com/blog/autoplay/).
 
@@ -118,7 +120,7 @@ Examples:
     var player = Ya.playerSdk.init({ ..., hiddenControls: '*', ...});
     ```
 
-* You can hide all interface elements except a specific one using the `!` operator. For example, the following code will hide all controls except the play/pause button:
+* To hide all interface elements except the specified one, you can use the `!` operator. For example, the following code will hide all controls except the play/pause button:
 
     ```javascript
     var player = Ya.playerSdk.init({ ..., hiddenControls: '*,!play', ...});
@@ -127,7 +129,7 @@ Examples:
 Interface elements you can hide:
 
 * `*`: All interface elements.
-* `play`: Interface element displaying the **Play**, **Pause**, and **Repeat** buttons. It turns off play or pause when clicking the player.
+* `play`: Interface element displaying the **Play**, **Pause**, and **Repeat** buttons. It turns off play/pause when clicking on the player.
 * `contextMenu`: Context menu.
 * `fullscreen`: Full screen toggle button.
 * `live`: **Go back to live** button.
@@ -139,8 +141,8 @@ Interface elements you can hide:
 * `settings`: Settings button.
 * `startScreen`: Start screen.
 * `startScreenPlay`: Play button on the start screen.
-* `subtitlesToggle`: Button to toggle subtitles.
-* `timeline`: Timeline. It turns off rewinding and fast forwarding from the keyboard or by touching the sensor screen.
+* `subtitlesToggle`: Subtitles toggle button.
+* `timeline`: Timeline. Disables rewinding and fast forwarding from the keyboard or by touching the sensor screen.
 * `timelinePreview`: Preview on the timeline.
 * `time`: Current playback time.
 * `title`: Video title.
@@ -149,5 +151,5 @@ Interface elements you can hide:
 
 #### See also {#see-also}
 
-* [Interface: PlayerSdkInitConfig](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) API reference
-* [Interface: PlayerSdkSourceParams](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) API reference
+* [Interface: PlayerSdkInitConfig](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) in the API reference
+* [Interface: PlayerSdkSourceParams](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) in the API reference

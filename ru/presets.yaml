@@ -335,7 +335,6 @@ default:
   link-tracker-cloudless: https://yandex.ru/support/tracker/ru/
   link-video-main: https://video.yandex.cloud/
   link-wiki: https://wiki.yandex.ru/
-  link-wiki-cloudless: https://yandex.ru/support/wiki/ru
   link-yadisk-doc: https://yandex.ru/dev/disk-api/doc/ru/
   link-yandex: https://yandex.ru
   links:
@@ -11802,18 +11801,12 @@ default:
             RenameTablesTransformer:
               rename_tables:
                 array_item_label: Таблица
-            ToStringTransformer:
-              columns:
-                title: Список колонок
             Transformation:
               transformers:
                 array_item_label: Преобразование
             Transformer:
               convert_to_string:
                 title: Преобразовать значения в строки
-              table_splitter:
-                title: Трансформер разделения на подтаблицы
-              title: Трансформер
     yc-eventrouter:
       dynamic-forms:
         event_service_name: API EventRouter

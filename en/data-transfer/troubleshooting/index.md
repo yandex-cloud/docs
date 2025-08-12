@@ -63,6 +63,8 @@ After solving the problem, depending on the status of the transfer, activate it 
 {% include [unknown-user](../../_includes/data-transfer/troubles/unknown-user.md) %}
 
 
+{% include [no-such-host](../../_includes/data-transfer/troubles/no-such-host.md) %}
+
 ### Decrease in transfer speed {#speed-degrade}
 
 **Issue**:
@@ -204,8 +206,6 @@ Error example:
 {% include [exceeding-fields-limit](../../_includes/data-transfer/troubles/elastic-opensearch/exceeding-fields-limit.md) %}
 
 {% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
-
-{% include [indexation](../../_includes/data-transfer/troubles/elastic-opensearch/indexation.md) %}
 
 {% include [mapper-parsing-exception](../../_includes/data-transfer/troubles/elastic-opensearch/mapper-parsing-exception.md) %}
 

@@ -13,14 +13,14 @@ description: '{{ data-catalog-name }} allows you to collect, analyze, and mark u
 
 {% include [data-catalog](../../_includes/metadata-hub/data-catalog-definition.md) %}
 
-The main entity in {{ data-catalog-name }} is a _metadata catalog_. The catalog is simultaneously:
+The main entity in {{ data-catalog-name }} is a _metadata catalog_. A catalog serves as:
 
-* Space for collecting and storing metadata from various sources.
+* Hub for collecting and storing metadata from various sources.
 * Workspace for marking up metadata. 
 
 You can upload metadata into a catalog using [sources and ingestions](#metadata-upload). Metadata resides in internal storage.
 
-For initial distribution of metadata, e.g., by company departments, use [domains and subdomains](#domains-and-subdomains). For more detailed metadata markup, you can use:
+At the very basic level, you can use [domains and subdomains](#domains-and-subdomains), e.g., to arrange metadata by company departments. For a more complex markup, use these resources:
 
 * [Classifications and tags](#classifications-and-tags)
 * [Glossaries and terms](#glossaries-and-terms)
@@ -31,7 +31,7 @@ For initial distribution of metadata, e.g., by company departments, use [domains
 
 To upload metadata, use _sources_ and _ingestions_.
 
-A source is a connection through which the metadata is uploaded. This connection stores information about the database or service metadata is injested from as well as authentication data. [Learn more about available backends](../operations/data-catalog/create-source.md).
+A source is a connection through which the metadata is uploaded. This connection stores information about the database or service metadata is ingested from as well as authentication data. [Learn more about available backends](../operations/data-catalog/create-source.md).
 
 A source can connect to both clusters of managed databases in {{ yandex-cloud }} and to custom installations of these databases. It can also fetch object links based on ongoing data delivery in {{ data-transfer-full-name }}.
 
@@ -52,7 +52,7 @@ You can run an ingestion manually or configure it to run on a schedule. A schedu
 
 ### Domains and subdomains {#domains-and-subdomains}
 
-A _domain_ is a group of metadata. Domains allow you to group metadata to meet your workflow needs, e.g., aggregate metadata by departments or business units. For each domain, you can create a subdomain for more granular grouping.
+A _domain_ represents a group of metadata. You can use domains to arrange metadata to meet your business process needs, e.g., by departments or business units. For each domain, you can create a subdomain for more granular grouping.
 
 You can only assign one domain or subdomain to each metadata set or its individual element. At the same time, you can assign different domains or subdomains to separate elements within a single metadata set.
 
@@ -84,7 +84,7 @@ A _glossary_ is a dictionary of domain-specific terms and their definitions. Glo
 
 {{ data-catalog-name }} has quotas for the maximum number of glossaries in a catalog.
 
-_Terms_ are concepts used to label data based on its semantic meaning within a business, such as revenue, expenses, etc. For each term, you can specify a synonym for it or create a child term for more granular data markup. You can assign multiple terms to the same metadata set or its individual element. These may include:
+_Terms_ are used to label data based on how a business defines certain concepts, such as revenue, expenses, etc. For each term, you can specify a synonym or create a child term for more granular data markup. You can assign multiple terms to the same metadata set or its individual element. These may include:
 
 * Terms from different glossaries
 * Child terms of different parent terms
