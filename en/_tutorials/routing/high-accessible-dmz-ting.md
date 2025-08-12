@@ -78,7 +78,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    | Disks                               | 5                |
    | SSD size                            | 200 GB           |
    | HDD size                            | 30 GB            |
-   | Cloud networks                      | 3                |
+   | Networks                            | 3                |
    | Subnets                             | 6                |
    | Route tables                        | 2                |
    | Security groups                     | 6                |
@@ -625,7 +625,7 @@ terraform plan
 terraform apply
 ```
 
-Within five minutes, the `route-switcher` module will start operating to ensure fault tolerance of outbound traffic in segments.
+Within five minutes, the `route-switcher` module will start working, providing outbound traffic fault tolerance.
 
 ## Test the solution for performance and fault tolerance {#test-accessibility}
 

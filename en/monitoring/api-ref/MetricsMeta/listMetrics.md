@@ -18,18 +18,18 @@ Parameter | Description
 --- | ---
 folderId | This is a required field. Metric folder ID. The maximum string length is 50 characters.
 selectors | Label selectors for metrics.
-fromTime | An optional parameter that selects metrics that contain data within the time interval. Indicates the start of the interval. A <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format is used.
-toTime | An optional parameter that selects metrics that contain data within the time interval. Indicates the end of the interval. A <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format is used.
+fromTime | Optional parameter for selecting metrics from a specified time interval. It specifies the time interval start point in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format.
+toTime | Optional parameter for selecting metrics from a specified time interval. It specifies the time interval endpoint in <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC3339</a> format.
 
-The `fromTime` and `toTime` parameters only work if both are specified. When used, only metrics that have data in the specified time interval are returned. To keep the index compact and performant for such queries, the following assumptions are made:
+The `fromTime` and `toTime` parameters are only used together. The response returns metrics that have data in the specified interval. To keep the index for such queries concise and efficient, the system:
 
-- Only the metric creation time and the time of the last data point are used to build the index. This means that irregular data recording will lead to false positives.
-- The index is updated every 4-6 hours for existing metrics. New metric records are displayed immediately.
+- Ensures each response contains metric data for the period between the metric’s creation and its last record, even if there are gaps in the data.
+- Updates the index every four to six hours for existing metrics. Adds new metrics immediately.
  
 ## Response {#responses}
 **HTTP Code: 200 - OK**
 
-```json
+```json 
 {
   "metrics": [
     {

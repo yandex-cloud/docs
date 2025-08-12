@@ -253,7 +253,7 @@ items:
             href: archive/vm-with-backup-policy/console.md
           - name: '{{ TF }}'
             href: archive/vm-with-backup-policy/terraform.md
-      - name: Log replication to {{ objstorage-name }} via {{ yds-name }}
+      - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
         href: archive/replicate-logs-to-storage-via-data-streams.md
       - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
         href: archive/replicate-logs-to-storage.md
@@ -343,7 +343,7 @@ items:
               Integrating an L7 load balancer with {{ cdn-name }} and {{
               objstorage-name }}
             href: web/cdn-storage-integration.md
-          - name: Working with an instance group with autoscaling
+          - name: Working with an autoscaling instance group
             items:
               - name: Overview
                 href: infrastructure-management/vm-autoscale/index.md
@@ -415,7 +415,7 @@ items:
         items:
           - name: Configuring time synchronization using NTP
             href: infrastructure-management/ntp.md
-          - name: DHCP settings for working with a corporate DNS server
+          - name: DHCP settings for interfacing with a corporate DNS server
             href: routing/dhcp-options.md
           - name: Routing through a NAT instance
             items:
@@ -703,6 +703,8 @@ items:
               Creating a cluster of 1C:Enterprise Linux servers with a {{
               mpg-name }} cluster
             href: infrastructure-management/1c-postgresql-linux.md
+          - name: Monitoring 1C:Enterprise Linux cluster
+            href: infrastructure-management/collect-metrics-1c-cluster.md
       - name: Internet of Things (IoT)
         items:
           - name: Working with Mosquitto
@@ -818,9 +820,7 @@ items:
           Delivering data from {{ yds-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
         href: dataplatform/yds-to-kafka.md
-      - name: >-
-          Change data capture (CDC) from {{ ydb-short-name }} and delivery to {{
-          DS }}
+      - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
         href: dataplatform/ydb-to-yds.md
       - name: Configuring Kafka Connect to work with a {{ mkf-name }} cluster
         href: dataplatform/kafka-connect.md
@@ -1150,19 +1150,19 @@ items:
         href: dataplatform/audit-log-processing.md
       - name: Processing {{ cloud-logging-name }} logs
         href: dataplatform/cloud-logging-processing.md
-      - name: Debezium Change Data Capture (CDC) stream processing
+      - name: Processing Debezium CDC streams
         href: dataplatform/debezium-yq.md
       - name: Analyzing data with {{ jlab }}
         href: dataplatform/jupyter-yq.md
       - name: Processing files with usage details in {{ billing-name }}
         href: dataplatform/billing-detail-files-processing.md
-      - name: Data ingestion into storage systems
+      - name: Ingesting data into storage systems
         href: dataplatform/data-ingestion.md
       - name: Smart log processing
         href: dataplatform/log-ingestion.md
       - name: Data transfer in microservice architectures
         href: dataplatform/message-broker.md
-      - name: Data migration to {{ objstorage-name }} using {{ data-transfer-name }}
+      - name: Migrating data to {{ objstorage-name }} using {{ data-transfer-name }}
         href: dataplatform/yds-obj-migration.md
       - name: >-
           Migrating data from a third-party {{ GP }} or {{ PG }} cluster to {{
@@ -1384,7 +1384,7 @@ items:
         href: serverless/index.md
       - name: URL shortener
         href: serverless/serverless-url-shortener.md
-      - name: Data ingestion into storage systems
+      - name: Ingesting data into storage systems
         href: serverless/data-ingestion.md
       - name: Storing application runtime logs
         href: serverless/log-ingestion.md
@@ -1474,7 +1474,7 @@ items:
           Creating a {{ postbox-full-name }} address and checking domain
           ownership with {{ TF }}
         href: serverless/domain-identity-creating.md
-      - name: Sending emails in {{ postbox-full-name }} using AWS SDK
+      - name: Sending emails in {{ postbox-full-name }} using the AWS SDK
         items:
           - name: .NET Core
             href: serverless/send-emails-aws-sdk-csharp.md

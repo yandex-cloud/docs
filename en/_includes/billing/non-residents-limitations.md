@@ -1,5 +1,5 @@
 {% note info %}
 
-At the moment {{ yandex-cloud }} cannot provide registration to users from a number of countries for technical reasons.
+Currently, {{ yandex-cloud }} does not support user sign-ups from certain countries due to technical reasons.
 
 {% endnote %}

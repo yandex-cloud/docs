@@ -67,23 +67,31 @@ The following viewing statistics are currently available:
 
     On the heat map, the fact of video fragment playback is counted as a view regardless of playback duration. For example, if you start a video and stop it right away, a view will be counted for the first fragment of the video.
 
-## Summarization {#summarization}
+## AI features {#ai-capabilities}
 
-Summarization automatically creates a short summary of your video conveying its main points and key message.
+To provide users with more options and expand your video audience, enable AI features built on Yandex ML models. For more information about AI features, see [this article](https://habr.com/ru/companies/yandex/articles/792608/) in the Yandex blog. 
 
-## Neural translation {#stranslation}
+### Summarization {#summarization}
 
-Neural translation automatically translates videos into multiple languages and does the voice over. View the list of supported languages in [{{ video-name }}]({{ link-video-main }}) interface.
+Summarization automatically creates a short summary of your video conveying its main points and key message. With summarization enabled, the system automatically adds timecodes to videos. You can adjust the suggested timecodes or manually add your own ones if required.
 
-## Subtitles {#subtitles}
+### Neural translation {#stranslation}
 
-Supported subtitle formats: SRT and VTT. The maximum subtitle file size is 500 MB. You can load several subtitle files in one or more languages for one video. View the list of supported languages in [{{ video-name }}]({{ link-video-main }}) interface.
+Neural translation enables the automatic translation of video content into multiple languages and voiceover with [diverse voice options](https://habr.com/ru/news/905118/). View the list of supported languages in the [{{ video-name }} interface]({{ link-video-main }}).
+
+### Subtitles {#subtitles}
+
+Neural subtitles not only include spoken text but also provide speaker differentiation. Each speaker switch is indicated by a dash and new line, making the dialogue easier to follow. View the list of supported languages in the [{{ video-name }} interface]({{ link-video-main }}).
+
+You can also upload custom subtitles in SRT and VTT formats. The maximum subtitle file size is 500 MB. You can load several subtitle files in one or more languages for one video.
 
 ## Timecodes {#timecodes}
 
 You can [split your video into chapters](../operations/video/add-timecodes.md). The time and chapter name formats are as follows:
 
 {% include [video-timecodes](../../_includes/video/video-timecodes.md) %}
+
+You can also generate timecodes automatically by enabling video [summarization](#summarization).
 
 ## See also {#see-also}
 

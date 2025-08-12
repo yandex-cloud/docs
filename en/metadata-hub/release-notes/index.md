@@ -7,6 +7,16 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 ## 2025 {#2025}
 
+### July {#july25}
+
+#### New features {#new-features-july25}
+
+
+* Improved the [{{ data-catalog-name }}](../concepts/data-catalog.md) UI; made the tool more stable.
+
+
+* Now you can manage database connection settings in {{ connection-manager-name }} using the [API](../api-ref/authentication-connman.md).
+
 ### June {#june25}
 
 #### New features {#new-features-june25}

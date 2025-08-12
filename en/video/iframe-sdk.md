@@ -24,7 +24,7 @@ You can also set up [video size](#size) and the player [startup options](#parame
 
 To specify video size, set the following parameters in the `iframe` tag: `height` for height and `width` for width. 
 
-Example:
+Here is an example:
 
 ```html
 <iframe width="560" height="315" 
@@ -59,7 +59,7 @@ Customize your player appearance and video playback using special parameters.
 Add `parameter=value` pairs separated by `&` to the embed code URL after `?`:
 
 ```http
-https://runtime.video.cloud.yandex.net/player/...?{param1=value1}&...&{paramN=valueN}
+https://runtime.video.cloud.yandex.net/player/...?param1=value1&...&paramN=valueN
 ```
 
 You can see the list of parameters and their possible values in the table below. If you do not specify the parameters, the player will start with default parameters.
@@ -98,6 +98,7 @@ With this parameter, you can hide the player's interface elements. All of them a
 {% cut "List of interface elements" %}
 
 * `*`: All interface elements.
+* `*,!<excluded_item>`: All interface elements except the excluded one. For example, use `*,!play` to hide all interface elements except the play button.
 * `contextMenu`: Context menu.
 * `fullscreen`: Full screen toggle button.
 * `live`: **Go back to live** button.
@@ -120,6 +121,13 @@ With this parameter, you can hide the player's interface elements. All of them a
 {% endcut %}
 
 To hide several interface elements, provide a string of comma-separated values, e.g., `hidden=startScreenPlay,play`.
+
+{% note info %}
+  
+We do not recommend using `autoplay=0` and `hidden=*` together, since you cannot start a video with both.
+  
+{% endnote %}
+
 ||
 || `lang` |
 Player interface language.
@@ -195,6 +203,61 @@ Volume at startup.
 The values range from `0` to `1` inclusive, e.g., `volume=0.5`.
 
 If set to `mute=1`, the parameter is ignored.
+||
+|| `background_color` |
+Background color of the player and widgets.
+
+Supports all colors in [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) format consisting of three and six characters as well as standard HTML [color names](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+||
+||  `widget_text_color_primary`  |
+Color of widget body text.
+
+Supports all colors in [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) format consisting of three and six characters as well as standard HTML [color names](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+||
+||  `widget_text_color_secondary`  |
+Color of auxiliary widget text.
+
+Supports all colors in [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) format consisting of three and six characters as well as standard HTML [color names](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+||
+||  `widget_accent_color`  |
+Accent color of widget text.
+
+Supports all colors in [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) format consisting of three and six characters as well as standard HTML [color names](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+||
+||  `playlist_selected_item_background_color`  |
+Background color of an active playlist element.
+
+Supports all colors in [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) format consisting of three and six characters as well as standard HTML [color names](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+||
+||  `player_color`  |
+Color of the player interface elements, i.e., the loading indicator, time scale, and play button on the start screen with `autoplay=0`.
+
+Supports all colors in [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) format consisting of three and six characters as well as standard HTML [color names](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+||
+||  `widget_block_separator_color`  |
+Color of widget section separators.
+
+Supports all colors in [HEX](https://developer.mozilla.org/en-US/docs/Web/CSS/hex-color) format consisting of three and six characters as well as standard HTML [color names](https://www.w3.org/wiki/CSS/Properties/color/keywords).
+||
+||  `player_border_radius`  |
+Rounding of the player section corners.
+
+The default value is `3`.
+||
+||  `playlist_item_border_radius`  |
+Rounding of the playlist element corners.
+
+The default value is `3`.
+||
+||  `widget_block_gap`  |
+Padding between the player and playlist section.
+
+The default value is `0`.
+||
+||  `playlist_item_gap`  |
+Padding between playlist elements.
+
+The default value is `10`.
 ||
 |#
 

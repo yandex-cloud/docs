@@ -27,7 +27,7 @@ All {{ dns-name }} zone activities are logged as a list of operations. Each oper
   yc dns zone list-operations <zone_name_or_ID>
   ```
 
-  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc dns zone list-operations dns3fh7phb04******** --format yaml

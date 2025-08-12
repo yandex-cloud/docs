@@ -16,7 +16,7 @@ You can assign a role for individual resources within the service using the [{{ 
 
 {% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
 
-## Roles existing in this service {#roles-list}
+## What roles exist in this service {#roles-list}
 
 ### Service roles {#service-roles}
 
@@ -148,7 +148,7 @@ You can assign a role for individual resources within the service using the [{{ 
 
 ### Assigning a user as an organization administrator {#add-admin}
 
-To grant a user permissions to manage an organization, [assign](#add-role) them the `organization-manager.admin` role .
+To grant a user permissions to manage an organization, [assign](#add-role) them the `organization-manager.admin` role.
 
 ### Assigning a role to a user {#add-role}
 

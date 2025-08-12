@@ -11,7 +11,7 @@ items:
     href: standarts.md
   - name: Security tools available to cloud service users
     href: user-side.md
-  - name: Recommendations for securing your cloud infrastructure
+  - name: Best practices for securing your cloud infrastructure
     items:
       - name: All recommendations
         href: domains/index.md
@@ -228,7 +228,7 @@ items:
             href: tutorials/audit-logs/export-logs-to-splunk.md
           - name: Uploading audit logs to ArcSight SIEM
             href: tutorials/audit-logs/export-logs-to-arcsight.md
-          - name: Uploading {{ at-name }} audit logs to KUMA SIEM
+          - name: Uploading {{ at-name }} events to KUMA SIEM
             items:
               - name: Overview
                 href: tutorials/audit-logs/audit-trails-events-to-kuma/index.md

@@ -129,6 +129,8 @@ items:
         href: concepts/limits.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Autoscaling an instance group to process messages from a queue
         href: tutorials/autoscale-monitoring.md
       - name: Sensor reading monitoring and event notifications
@@ -137,6 +139,8 @@ items:
         href: tutorials/alerts-monitoring.md
       - name: Searching for the {{ mpg-name }} cluster performance issues
         href: tutorials/mpg-performance-problems.md
+      - name: Collecting 1C:Enterprise Linux cluster metrics
+        href: tutorials/collect-metrics-1c-cluster.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Overview

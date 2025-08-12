@@ -182,6 +182,8 @@ items:
         href: dataset/data-model.md
       - name: Настройки датасета
         href: dataset/settings.md
+      - name: Параметризация источников
+        href: dataset/parametrisation.md
       - name: Типы данных
         href: dataset/data-types.md
       - name: Соответствие типов данных
