@@ -5,6 +5,8 @@ description: The component configuration determines the computing power allocate
 
 # Configuration options for {{ myt-name }} cluster components
 
+{% include [preview](../../_includes/managed-ytsaurus/note-preview.md) %}
+
 The component configuration determines the computing power allocated for each component in a cluster.
 
 For more information on limits, see [Quotas and limits](limits.md).

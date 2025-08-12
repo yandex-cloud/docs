@@ -10,9 +10,7 @@ If necessary, you can specify a [cloud network](../../vpc/concepts/network.md#ne
 
 If the user specifies a network in the container settings, this will create a service subnet with addresses from the 198.19.0.0/16 range for each [availability zone](../../overview/concepts/geo-scope.md). Once run, the container will be assigned an IP address from the respective subnet and will have access to all network resources.
 
-{% include [network](../../_includes/functions/network-note.md) %}
-
-Networking between two containers and between containers and user resources is limited:
+Networking between two containers, as well as between containers and user resources, is limited:
 * Outbound connections over TCP, UDP, and ICMP are supported. For example, a container may access a {{ compute-name }} VM or {{ ydb-name }} database in the user network.
 * Inbound connections are not supported. For example, there is no way to access the application port inside a container even if you know the IP address of a container instance.
 

@@ -27,7 +27,7 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 
 ## Cluster status {#running-stopped}
 
-Prices apply differently depending on the cluster status:
+The prices apply differently depending on the cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -224,17 +224,17 @@ For cost details, contact [technical support]({{ link-console-support }}).
 
 
 
-{% include notitle [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-kraft-dedicated.md) %}
+{% include [USD: dedicated broker hosts](../_pricing/managed-kafka/usd-hosts-kraft-dedicated.md) %}
 
 
 
 
 
-### Computing resources for {{ kafka-ui }} {#prices-kafka-ui}
+### {{ kafka-ui }} computing resources {#prices-kafka-ui}
 
 {% note info %}
 
-The prices listed below will take effect on August 9, 2025.
+The prices listed below will come into effect starting August 9, 2025.
 
 {% endnote %}
 

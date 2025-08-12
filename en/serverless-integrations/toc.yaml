@@ -2,6 +2,8 @@ title: '{{ si-full-name }}'
 stage: preview
 href: index.yaml
 items:
+  - name: Comparison with other {{ yandex-cloud }} services
+    href: service-comparison.md
   - name: Getting started
     items:
       - name: Overview
@@ -138,6 +140,8 @@ items:
                 href: operations/eventrouter/bus/create.md
               - name: Updating a bus
                 href: operations/eventrouter/bus/update.md
+              - name: Writing logs
+                href: operations/eventrouter/bus/logs-write.md
               - name: Managing labels
                 items:
                   - name: Adding a label
@@ -336,6 +340,12 @@ items:
             href: concepts/eventrouter/sending-events.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Access management
+    items:
+      - name: Overview
+        href: security/index.md
+      - name: '{{ er-name }} roles'
+        href: security/eventrouter.md
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference

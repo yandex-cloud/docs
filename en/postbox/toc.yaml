@@ -27,8 +27,12 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Email delivery notifications
+      - name: Email event notifications
         href: concepts/notification.md
+      - name: Tracking email openings
+        href: concepts/mail-opened.md
+      - name: Unsubscribe mechanism
+        href: concepts/unsubscribe.md
       - name: Terms and definitions
         href: concepts/glossary.md
       - name: Limitations on email attachments
@@ -47,7 +51,7 @@ items:
           Creating a {{ postbox-full-name }} address and verifying domain
           ownership with {{ TF }}
         href: tutorials/domain-identity-creating.md
-      - name: Sending emails using AWS SDK
+      - name: Sending emails using the AWS SDK
         items:
           - name: .NET Core
             href: tutorials/send-emails-aws-sdk-csharp.md

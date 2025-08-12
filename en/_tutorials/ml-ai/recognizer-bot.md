@@ -3,9 +3,10 @@
 
 In this tutorial, you will create a Telegram bot that can:
 
-* [Synthesize speech](../../speechkit/tts/index.md) from a message text using the {{ speechkit-full-name }} [API v1](../../speechkit/tts/request.md).
-* [Recognize speech](../../speechkit/stt/index.md) in voice messages and convert it into text using the {{ speechkit-full-name }} [synchronous recognition API](../../speechkit/stt/api/request-api.md).
+* [Synthesize speech](../../speechkit/tts/index.md) from a message text and [recognize speech](../../speechkit/stt/index.md) in voice messages using the {{ speechkit-full-name }} [Python SDK](../../speechkit/sdk/python/index.md).
 * [Recognize text](../../vision/concepts/ocr/index.md) in images using {{ vision-full-name }}.
+
+Authentication in {{ yandex-cloud }} services is performed under a service account using an [IAM token](../../iam/concepts/authorization/iam-token.md). The IAM token is contained in the handler context of the [function](../../functions/operations/function-sa.md) which manages user conversation with the bot.
 
 The {{ api-gw-full-name }} will receive requests from your bot and forward them to {{ sf-full-name }} for processing.
 
@@ -37,6 +38,7 @@ The cost of Telegram bot support includes:
 ## Set up resources {#prepare}
 
 1. [Create a service account](../../iam/operations/sa/create.md) named `recognizer-bot-sa` and assign it the `ai.editor` and `{{ roles-functions-editor }}` [roles](../../iam/operations/sa/assign-role-for-sa.md) for your folder.
+1. [Download](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linuxarm64-gpl.tar.xz) the archive with the FFmpeg package for the {{ speechkit-name }} Python SDK to work correctly in the [function execution environment](../../functions/concepts/runtime/index.md).
 1. Create a ZIP archive with the function code:
 
    1. Create a file named `index.py` and paste the code below to it.
@@ -50,15 +52,19 @@ The cost of Telegram bot support includes:
       import json
       import os
       import base64
+      from speechkit import model_repository, configure_credentials, creds
+      from speechkit.stt import AudioProcessingType
+
       
       # Service endpoints and authentication credentials
 
       API_TOKEN = os.environ['TELEGRAM_TOKEN']
       vision_url = 'https://ocr.{{ api-host }}/ocr/v1/recognizeText'
-      speechkit_url = 'https://stt.{{ api-host }}/speech/v1/stt:recognize'
-      speechkit_synthesis_url = 'https://tts.{{ api-host }}/speech/v1/tts:synthesize'
       folder_id = ""
       iam_token = ''
+      path = os.environ.get("PATH")
+      os.environ["PATH"] = path + ':/function/code'
+
 
       logger = telebot.logger
       telebot.logger.setLevel(logging.INFO)
@@ -91,6 +97,14 @@ The cost of Telegram bot support includes:
           iam_token = context.token["access_token"]
           version_id = context.function_version
           folder_id = get_folder_id(iam_token, version_id)
+
+          # Authenticating in SpeechKit with an IAM token
+          configure_credentials(
+              yandex_credentials=creds.YandexCredentials(
+                  iam_token=iam_token
+              )
+          )
+
           process_event(event)
           return {
               'statusCode': 200
@@ -105,11 +119,9 @@ The cost of Telegram bot support includes:
 
       @bot.message_handler(func=lambda message: True, content_types=['text'])
       def echo_message(message):
-          global iam_token, folder_id
-          with open('/tmp/audio.ogg', "wb") as f:
-              for audio_content in synthesize(folder_id, iam_token, message.text):
-                  f.write(audio_content)
-          voice = open('/tmp/audio.ogg', 'rb')
+          export_path = '/tmp/audio.ogg'
+          synthesize(message.text, export_path)
+          voice = open(export_path, 'rb')
           bot.send_voice(message.chat.id, voice)
 
       @bot.message_handler(func=lambda message: True, content_types=['voice'])
@@ -117,7 +129,7 @@ The cost of Telegram bot support includes:
           file_id = message.voice.file_id
           file_info = bot.get_file(file_id)
           downloaded_file = bot.download_file(file_info.file_path)
-          response_text = audio_analyze(speechkit_url, iam_token, folder_id, downloaded_file)
+          response_text = audio_analyze(downloaded_file)
           bot.reply_to(message, response_text)
 
       @bot.message_handler(func=lambda message: True, content_types=['photo'])
@@ -149,51 +161,44 @@ The cost of Telegram bot support includes:
       
       # Speech recognition
 
-      def audio_analyze(speechkit_url, iam_token, folder_id, audio_data):
-          headers = {'Authorization': f'Bearer {iam_token}'}
-          params = {
-              "topic": "general",
-              "folderId": f"{folder_id}",
-              "lang": "ru-RU"}
+      def audio_analyze(audio_data):
+          model = model_repository.recognition_model()
 
-          audio_request = requests.post(speechkit_url, params=params, headers=headers, data=audio_data)
-          responseData = audio_request.json()
-          response = 'error'
-          if responseData.get("error_code") is None:
-              response = (responseData.get("result"))
-          return response
+          # Recognition settings
+          model.model = 'general'
+          model.language = 'ru-RU'
+          model.audio_processing_type = AudioProcessingType.Full
+
+          try:
+              result = model.transcribe(audio_data)
+              speech_text = [res.normalized_text for res in result]
+              return ' '.join(speech_text)
+          except:
+              return 'Cannot recognize message'
       
       # Speech synthesis
 
       def synthesize(folder_id, iam_token, text):
-         headers = {
-             'Authorization': 'Bearer ' + iam_token,
-         }
+          model = model_repository.synthesis_model()
 
-         data = {
-             'text': text,
-             'lang': 'ru-RU',
-             'voice': 'filipp',
-             'folderId': folder_id
-         }
+          # Synthesis settings
+          model.voice = 'kirill'
 
-         with requests.post(speechkit_synthesis_url, headers=headers, data=data, stream=True) as resp:
-             if resp.status_code != 200:
-                 raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
-
-             for chunk in resp.iter_content(chunk_size=None):
-                 yield chunk
+          result = model.synthesize(text, raw_format=False)
+          result.export(export_path, 'ogg')
       ```
 
       {% endcut %}
 
-   1. Create a file named `requirements.txt`. In this file, specify a library to use for the bot.
+   1. Create a file named `requirements.txt`. In this file, specify a library to use for the bot and the Python SDK library.
 
       ```text
       telebot
+      yandex-speechkit
       ```
 
-   1. Add both files to the `index.zip` archive.
+   1. Add the `index.py` and `requirements.txt` files and the `ffmpeg` and `ffprobe` binary files from the FFMpeg utility into the `index.zip` ZIP archive.
+   1. Create an [{{ objstorage-name }} bucket](../../storage/operations/buckets/create.md) and [upload the created ZIP archive into it](../../storage/operations/objects/upload.md).
 
 ## Register your Telegram bot {#bot-register}
 
@@ -229,7 +234,7 @@ Create a function to process user actions in the chat.
   1. Create a function version:
 
      1. Select `Python` as the runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-     1. Specify `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` as the upload method and select the `index.zip` archive [created](#prepare) earlier.
+     1. Specify the upload method `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` and select the bucket you [created earlier](#prepare). In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_object}}** field, specify the file name: `index.zip`.
      1. Specify the entry point: `index.handler`.
      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
@@ -242,7 +247,7 @@ Create a function to process user actions in the chat.
 
      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- CLI {#cli}
 
   1. Create a function named `for-recognizer-bot`:
 
@@ -273,7 +278,8 @@ Create a function to process user actions in the chat.
        --entrypoint=index.handler \
        --service-account-id=<service_account_ID> \
        --environment TELEGRAM_TOKEN=<bot_token> \
-       --source-path=./index.zip
+       --package-bucket-name=<bucket_name> \
+       --package-object-name=index.zip
      ```
 
      Where:
@@ -285,7 +291,8 @@ Create a function to process user actions in the chat.
      * `--entrypoint`: Entry point.
      * `--service-account-id`: `recognizer-bot-sa` service account ID.
      * `--environment`: Environment variables.
-     * `--source-path`: Path to the `index.zip` archive.
+     * `--package-bucket-name`: Bucket name.
+     * `--package-object-name`: File key in the `index.zip` bucket.
 
      Result:
 
@@ -293,7 +300,7 @@ Create a function to process user actions in the chat.
      done (1s)
      id: d4e6qqlh53nu********
      function_id: d4emc80mnp5n********
-     created_at: "2023-03-22T16:49:41.800Z"
+     created_at: "2025-03-22T16:49:41.800Z"
      runtime: python312
      entrypoint: index.handler
      resources:
@@ -327,8 +334,9 @@ Create a function to process user actions in the chat.
        environment = {
          TELEGRAM_TOKEN = <bot_token>
        }
-       content {
-         zip_filename = "./index.zip"
+       package {
+         bucket_name = <bucket_name>
+         object_name = "index.zip"
        }
      }
      ```
@@ -343,7 +351,7 @@ Create a function to process user actions in the chat.
      * `execution_timeout`: Function execution timeout.
      * `service_account_id`: `recognizer-bot-sa` service account ID.
      * `environment`: Environment variables.
-     * `content`: Path to the `index.zip` archive with the function source code.
+     * `package`: Name of the bucket containing the uploaded `index.zip` archive with the function source code.
 
      For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
 

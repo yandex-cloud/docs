@@ -15,4 +15,21 @@ description: Follow this guide to delete a catalog from a {{ mtr-name }} cluster
   1. Next to the {{ TR }} catalog, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To delete the {{ TR }} catalog, run this command:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog delete <{{ TR }}_catalog_name_or_ID> \
+      --cluster-id <cluster_ID>
+    ```
+
+	You can get the {{ TR }} catalog ID and name together with the [list of {{ TR }} catalogs in the cluster](catalog-list.md#list-catalogs).
+
+  You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+
 {% endlist %}

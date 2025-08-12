@@ -48,7 +48,7 @@ The daily cost of storing the video streaming content and original files is calc
 
 
 
-{% include notitle [usd.md](../_pricing/cdn/usd.md) %}
+{% include notitle [usd.md](../_pricing/video/usd-cdn.md) %}
 
 
 ### Cost calculation example {#price-example}

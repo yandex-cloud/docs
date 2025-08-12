@@ -1,6 +1,6 @@
 ---
 title: Uploading audio data via API
-description: Follow this guide to upload audio data to {{ speechsense-name }} via gRPC API.
+description: Follow this guide to upload audio data to {{ speechsense-name }} via the gRPC API.
 ---
 
 # Uploading audio data via the gRPC API
@@ -22,7 +22,7 @@ If you want to upload the chat text instead of voice call audio, follow [this gu
 
 To prepare for uploading audio recordings:
 
-1. [Create a connection](../connection/create.md) of the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** or **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}** type. You do not need to use advanced settings for splitting dialogs.
+1. [Create a connection](../connection/create.md) of the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** or **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}** type (without additional dialog splitting settings).
 
    If you want to upload [linked dialogs](../../concepts/dialogs.md#related-dialogs), add the `ticket_id` string key to the connection's general metadata. The dialogs will be linked by this key.
 

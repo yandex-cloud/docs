@@ -7,7 +7,7 @@ description: In this article, you will learn how to work with {{ mtr-full-name }
 
 ## Clusters {#clusters}
 
-* [Information about existing clusters](cluster-list.md)
+* [Getting information on existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
 * [Updating a cluster](cluster-update.md)
 * [Stopping and starting a cluster](cluster-stop.md)
@@ -16,7 +16,7 @@ description: In this article, you will learn how to work with {{ mtr-full-name }
 
 ## {{ TR }} catalogs {#catalogs}
 
-* [Getting a list of {{ TR }} catalogs in a cluster](catalog-list.md)
+* [Getting information on existing catalogs](catalog-list.md)
 * [Creating a {{ TR }} catalog](catalog-create.md)
 * [Updating a {{ TR }} catalog](catalog-update.md)
 * [Deleting a {{ TR }} catalog](catalog-delete.md)

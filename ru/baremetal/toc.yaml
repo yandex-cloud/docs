@@ -22,7 +22,7 @@ items:
             href: operations/servers/server-stop-and-start.md
           - name: Отказаться от аренды серверы
             href: operations/servers/server-lease-cancel.md
-          - name: Загрузить образ
+          - name: Загрузить свой образ ОС
             href: operations/image-upload.md
           - name: >-
               Подключить существующий сервер {{ baremetal-name }} к {{
@@ -36,6 +36,8 @@ items:
                 href: operations/servers/reinstall-os-from-marketplace.md
               - name: Переустановить ОС из своего ISO-образа
                 href: operations/servers/reinstall-os-from-own-image.md
+          - name: Настроить группу агрегирования MC-LAG
+            href: operations/servers/set-up-mc-lag.md
           - name: Сбросить пароль на сервере
             href: operations/servers/reset-password.md
           - name: Заменить диск в RAID-массиве
@@ -79,6 +81,8 @@ items:
             href: concepts/network.md
           - name: DHCP
             href: concepts/dhcp.md
+          - name: MC-LAG
+            href: concepts/mc-lag.md
           - name: Заблокированные сетевые порты
             hidden: true
             href: concepts/traffic-restrictions.md

@@ -168,6 +168,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         --assign-public-ip <public_access> \
         --security-group-ids <list_of_security_group_IDs> \
         --deletion-protection
+        --kafka-ui-enabled <true_or_false>
      ```
 
 
@@ -195,6 +196,8 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
+    
+     * {% include [kafka-ui-enabled](../../_includes/mdb/cli/kafka-ui-enabled.md) %}
 
      {% note tip %}
 
@@ -257,7 +260,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
   To create a {{ mkf-name }} cluster:
   1. In the configuration file, describe the resources you are creating:
-     * {{ mkf-name }} cluster: Description of a cluster and its hosts. You can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here, if required.
+     * {{ mkf-name }} cluster: Description of the cluster and its hosts. You can also configure the [{{ KF }} settings](../concepts/settings-list.md#cluster-settings) here, if required.
 
      * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -281,6 +284,9 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
          brokers_count    = <number_of_broker_hosts>
          assign_public_ip = "<public_access>"
          schema_registry  = "<data_schema_management>"
+         kafka_ui {
+           enabled = <true_or_false>
+         }
          kafka {
            resources {
              disk_size          = <storage_size_in_GB>
@@ -325,6 +331,8 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      * `schema_registry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`. The default value is `false`.
 
        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
+      
+     * `kafka_ui`: This setting defines whether to use [{{ kafka-ui }} for {{ KF }}](../concepts/kafka-ui.md) and can be `true` or `false`. The default value is `false`.
 
      {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
@@ -405,6 +413,9 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 "diskSizeAutoscaling": {
                   <automatic_storage_size_increase_parameters>
                 },
+                "kafkaUiConfig": {
+                  "enabled": <use_{{ kafka-ui }}:_true_or_false>
+                }
               },
               "topicSpecs": [
                 {
@@ -484,7 +495,9 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
 
-            * `topicSpecs`: The topic settings as an array of elements. Each element is for a separate topic and has the following structure:
+                * `kafkaUiConfig`: Use [{{ kafka-ui }}](../concepts/kafka-ui.md). Specify `enabled: true` to access {{ kafka-ui }}.
+
+            * `topicSpecs`: Topic settings as an array of elements. Each element is for a separate topic and has the following structure:
 
                 {% include [rest-topic-specs](../../_includes/mdb/mkf/api/rest-topic-specs.md) %}
 
@@ -593,6 +606,9 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 "disk_size_autoscaling": {
                   <automatic_storage_size_increase_parameters>
                 },
+                "kafka_ui_config": {
+                  "enabled": <use_{{ kafka-ui }}:_true_or_false>
+                }
               },
               "topic_specs": [
                 {
@@ -675,6 +691,8 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 * `disk_size_autoscaling`: To prevent the cluster disk space from running out, set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) (as a percentage of the total storage size) that will trigger an increase in storage size when reached:
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
+                
+                * `kafka_ui_config`: Use [{{ kafka-ui }}](../concepts/kafka-ui.md). Specify `enabled: true` to access {{ kafka-ui }}.
 
             * `topic_specs`: Topic settings as an array of elements. Each element is for a separate topic and has the following structure:
 

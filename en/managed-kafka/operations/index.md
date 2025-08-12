@@ -7,15 +7,15 @@ description: This page provides a list of step-by-step guides for {{ mkf-name }}
 
 ## Clusters {#clusters}
 
-- [Information about existing clusters](cluster-list.md)
-- [Creating a cluster](cluster-create.md)
-- [Updating cluster settings](cluster-update.md)
-- [{#T}](cluster-version-update.md)
-- [{#T}](storage-space.md)
-- [Stopping and starting a cluster](cluster-stop.md)
-- [Getting a list of cluster hosts](cluster-hosts.md)
-- [Migrating cluster hosts to a different availability zone](host-migration.md)
-- [Deleting a cluster](cluster-delete.md)
+* [Information about existing clusters](cluster-list.md)
+* [Creating a cluster](cluster-create.md)
+* [Updating cluster settings](cluster-update.md)
+* [{#T}](cluster-version-update.md)
+* [{#T}](storage-space.md)
+* [Stopping and starting a cluster](cluster-stop.md)
+* [Getting a list of cluster hosts](cluster-hosts.md)
+* [Migrating cluster hosts to a different availability zone](host-migration.md)
+* [Deleting a cluster](cluster-delete.md)
 
 ## Connecting to a cluster {#connect}
 
@@ -25,17 +25,21 @@ description: This page provides a list of step-by-step guides for {{ mkf-name }}
 
 ## Topics {#topics}
 
-- [Managing topics](cluster-topics.md)
+* [Managing topics](cluster-topics.md)
 
 ## {{ KF }} users {#accounts}
 
-- [Managing users](cluster-accounts.md)
+* [User management](cluster-accounts.md)
 
 ## {{ KF }} connectors {#connectors}
 
-- [Managing connectors](cluster-connector.md)
+* [Managing connectors](cluster-connector.md)
+
+## Interfaces
+
+* [{{ kafka-ui }} web interface](kafka-ui-enable.md)
 
 ## Logs and monitoring {#monitoring-and-logs}
 
-- [Viewing cluster logs](cluster-logs.md)
-- [Monitoring the state of clusters and hosts](monitoring.md)
+* [Viewing cluster logs](cluster-logs.md)
+* [Monitoring the state of clusters and hosts](monitoring.md)

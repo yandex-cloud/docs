@@ -12,6 +12,8 @@ Recognition requests per hour | 500
 Operation status check requests via API v2 per hour | 2,500
 Operation status check requests via API v3 per second | 5
 Billable hours of audio per day^1^ | 10,000
+[**Queries accessing an LLM**](../speechkit/stt/llm-results.md) |
+Concurrent queries accessing generative text models | 2
 [**Speech synthesis**](../{{ speechkit-slug }}/tts/request.md) |
 Requests per second | 40
 
@@ -42,3 +44,5 @@ Minimum duration of a pattern for synthesis | 1 second
 Maximum request size for the API v1 | 5,000 characters
 Maximum request size for the API v3 | {{ tts-v3-count }} and {{ tts-v3-time }}
 Maximum request size for the API v3 in unsafe mode | 5,000 characters
+[**Queries accessing an LLM**](../speechkit/stt/llm-results.md) |
+Number of instructions for the generative text model per session | 16
