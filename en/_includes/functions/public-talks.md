@@ -8,6 +8,7 @@
   * Secure use of {{ lockbox-full-name }} secrets in serverless environments, 2023. Read our [article](https://yandex.cloud/ru/blog/posts/2023/06/serverless-and-secrets).
   * Implementing FinOps with budgets and serverless, 2023. Read our [article](https://yandex.cloud/ru/blog/posts/2023/01/finops-how-to-save-money).
   * Serverless that works, 2022: Watch the video on [YouTube](https://youtu.be/dPOfjX-cLhE) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplv4i6kyzlzzfo7oumi).
+  * Serverless made easy, 2022: Watch the video on [YouTube](https://youtu.be/7gl7ECjXdIs) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplvkv4q5uldhz52ss25).
   * Creating a Telegram chatbot using functions: Step-by-step guide, 2021. Read our [article](https://yandex.cloud/ru/blog/posts/2021/06/telegram-chat-bot).
   * Messaging vs. streaming: Comparing {{ message-queue-full-name }} and {{ yds-full-name }}, 2021. Read our [article](https://yandex.cloud/ru/blog/posts/2021/12/ymq-yds).
   * Yandex Database Serverless, 2020: Watch the video on [YouTube](https://youtu.be/o0-IpbkQKjc) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplvvxkic7x5rumfmdfb).

@@ -1,9 +1,13 @@
 ---
 title: '{{ foundation-models-full-name }} release notes'
-description: This page presents {{ foundation-models-full-name }} release notes.
+description: This page presents the {{ foundation-models-full-name }} release notes.
 ---
 
 # {{ foundation-models-full-name }} release notes
+
+## Release as of 24/07/2025 {#240725}
+
+Updated the Qwen3 235B model by increasing its context length to 256,000 tokens.
 
 ## Release as of 03/07/2025 {#030725}
 
@@ -11,7 +15,7 @@ Qwen3 235B is now available in synchronous mode. The model works only through th
 
 ## Release as of 15/05/2025 {#150525}
 
-According to the lifecycle, updated the [text generation model](../concepts/yandexgpt/models.md#generation) versions available in synchronous and asynchronous mode. Discontinued support of {{ yagpt-name }} version 3 models and models fine-tuned in {{ ml-platform-full-name }}.
+In line with the lifecycle, updated the [text generation model](../concepts/yandexgpt/models.md#generation) versions available in synchronous and asynchronous mode. Discontinued support of {{ yagpt-name }} version 3 models and models fine-tuned in {{ ml-platform-full-name }}.
 
 ## Release as of 30/04/2025 {#290425}
 
@@ -49,21 +53,21 @@ The {{ yagpt-name }} 5th generation model is available for testing (`RC` branch)
 	* Added the `validation_errors` field that stores dataset validation errors.
 	* Replaced the `grpc_credentials` field with `verify` in the SDK builder.
 
-## Release as of 7/02/25 {#070225}
+## Release as of 07/02/25 {#070225}
 
 Added support for the [reasoning mode](../concepts/yandexgpt/chain-of-thought.md) in the {{ gpt-pro }} model.
 
-## Release as of 9/12/24 {#091224}
+## Release as of 09/12/24 {#091224}
 
 Upon request, {{ lora }}-based model and classifier [tuning](../concepts/tuning/index.md) has been added in Preview.
 
 {{ yagpt-name }}-based classifiers are now [publicly available](../../overview/concepts/launch-stages.md). 
 
-## Release as of 4/12/24 {#041224}
+## Release as of 04/12/24 {#041224}
 
 [{{ llama }} 3.1 models](../concepts/yandexgpt/models.md) are now available in {{ foundation-models-name }}. For model usage costs, see [{#T}](../pricing.md). 
 
-## Release as of 2/12/24 {#021224}
+## Release as of 02/12/24 {#021224}
 
 The {{ yagpt-name }} 4th generation model is now available in the main branch (`Latest`). Version 3 will remain available in the `Deprecated` branch as per the models' [lifecycle](../concepts/yandexgpt/models.md#model-lifecycle).
 
@@ -73,7 +77,7 @@ The [{{ assistant-api }}](../concepts/assistant/index.md) functionality is now a
 
 ## Release as of 01/11/24 {#011124}
 
-1. Image generation with {{ yandexart-name }} is now [publicly available](../../overview/concepts/launch-stages.md). Starting November 1, 2024, {{ yandexart-name }} is billed according to the rules described on the [{{ foundation-models-name }} pricing policy](../pricing.md#rules-image-generation) page.
+1. Image generation with {{ yandexart-name }} is now [publicly available](../../overview/concepts/launch-stages.md). Starting November 1, 2024, {{ yandexart-name }} is billed as per the rules described on the [{{ foundation-models-name }} pricing policy](../pricing.md#rules-image-generation) page.
 1. Increased the {{ yandexart-name }} quotas for the number of generation requests per minute and full day (24 hours).
 1. Increased the {{ yagpt-name }} quota for the number of concurrent generations. For information on the restrictions in place, refer to [{#T}](../concepts/limits.md).
 1. Starting December 2, 2024, the {{ yagpt-name }} model's test version (`RC` branch) will become the main version (`Latest` branch). The current version will remain available in the `Deprecated` branch as per the models' [lifecycle](../concepts/yandexgpt/models.md#model-lifecycle).
@@ -85,7 +89,7 @@ The [{{ assistant-api }}](../concepts/assistant/index.md) functionality is now a
 
 ## Release as of 10/10/24 {#101024}
 
-Updated the {{ yandexart-name }} model. The updated version has better understanding of requests, considers more details, and can generate text in Latin characters on the image.
+Updated the {{ yandexart-name }} model. The updated version has better understanding of prompts, considers more details, and can generate text in Latin characters on the image.
 
 ## Release as of 21/06/24 {#210624}
 
@@ -94,8 +98,8 @@ Starting June 24, 2024, the {{ gpt-lite }} model based on {{ yagpt-name }} 3 is 
 ## Release as of 07/06/24 {#070624}
 
 Updated the {{ yandexart-name }} model:
-* Compared to the previous version, the updated model understands text requests better and creates more realistic images.
-* Added the optional `aspectRatio` parameter for image aspect ratio.
+* Compared to the previous version, the updated model understands text prompts better and creates more realistic images.
+* Added the optional `aspectRatio` parameter for the image aspect ratio.
 
 ## Release as of 29/05/24 {#280524}
 
@@ -107,11 +111,11 @@ The {{ yagpt-name }} 3-based {{ gpt-lite }} RC model is now available in Release
 
 ## Release as of 19/04/24 {#190424}
 
-Added the ability to send asynchronous requests to {{ yagpt-name }} models fine-tuned in {{ ml-platform-name }}.
+Now you can send asynchronous requests to {{ yagpt-name }} models fine-tuned in {{ ml-platform-name }}.
 
 ## Release as of 09/04/24 {#090424}
 
-1. Added [generation of images](../concepts/yandexart/index.md) based on text description. The {{ yandexart-name }} model works in asynchronous mode and is available in the management console in [{{ foundation-models-name }} Playground]({{ link-console-main }}/link/foundation-models) and via the [API](../image-generation/api-ref/index.md). 
+1. Added the [generation of images](../concepts/yandexart/index.md) based on a text description. The {{ yandexart-name }} model works in asynchronous mode and is available in the management console in [{{ foundation-models-name }} Playground]({{ link-console-main }}/link/foundation-models) and via the [API](../image-generation/api-ref/index.md). 
 1. Added examples of requests to {{ yandexart-name }} in the documentation.
 
 ## Release as of 25/03/24 {#250324}

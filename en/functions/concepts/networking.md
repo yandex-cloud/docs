@@ -10,8 +10,6 @@ If necessary, you can specify a [cloud network](../../vpc/concepts/network.md#ne
 
 If the user specifies a network in the function settings, this will create a service subnet with addresses from the 198.19.0.0/16 range for each [availability zone](../../overview/concepts/geo-scope.md). Once run, the function will be assigned an IP address from the respective subnet and will have access to all network resources.
 
-{% include [network](../../_includes/functions/network-note.md) %}
-
 Networking between two functions, as well as between functions and user resources, is limited:
 * Outbound connections over TCP, UDP, and ICMP are supported. For example, a function may access a {{ compute-name }} VM or {{ ydb-name }} database in the user network.
 * Inbound connections are not supported. For example, there is no way to access internal function components over the network even if you know the IP address of its instance.

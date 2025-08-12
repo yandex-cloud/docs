@@ -614,8 +614,14 @@ items:
           Доставка USB-устройств на виртуальную машину или сервер {{
           baremetal-name }}
         href: tutorials/usb-over-ip.md
-      - name: Интеграция {{ objstorage-full-name }} с Nextcloud
-        href: tutorials/integrate-nextcloud.md
+      - name: Развертывание Nextcloud в интеграции с {{ objstorage-name }}
+        items:
+          - name: Обзор
+            href: tutorials/integrate-nextcloud/index.md
+          - name: Развертывание Nextcloud на ВМ из образа {{ coi }}
+            href: tutorials/integrate-nextcloud/coi-based.md
+          - name: Развертывание Nextcloud на ВМ или в группе ВМ вручную
+            href: tutorials/integrate-nextcloud/fault-tolerant.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов

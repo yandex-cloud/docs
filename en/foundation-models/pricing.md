@@ -29,21 +29,20 @@ Text generation cost is based on the total number of [prompt](concepts/index.md#
 * [Model](concepts/yandexgpt/models.md) that gets the request.
 * The model's [operating mode](concepts/index.md#working-mode).
 
-The number of [prompt](concepts/yandexgpt/tokens.md) and response [tokens](concepts/index.md) for the same text may vary depending on model.
+The number of [prompt](concepts/index.md) and response [tokens](concepts/yandexgpt/tokens.md) for the same text may vary depending on the model.
 
 With models in batch mode, the minimum cost per run is 200,000 tokens.
 
-The total number of billing units is based on the overall number of prompt and response tokens and is rounded up to a whole number.
+The total number of billing units is based on the overall number of prompt and response tokens and is rounded up to an integer.
 
 #### Tokenization {#rules-tokens}
 
-The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenizer/index.md) calls and [Tokenizer](./text-generation/api-ref/Tokenizer/index.md) methods) is not charged.
+The use of tokenizer ([TokenizerService](./text-generation/api-ref/grpc/Tokenizer/index.md) calls and [Tokenizer](./text-generation/api-ref/Tokenizer/index.md) methods) is free of charge.
 
 #### Fine-tuned models {#rules-tuned-generating}
 
 At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune models free of charge. The use of fine-tuned models is charged according to the base model's pricing policy:
 
-* The use of models fine-tuned in {{ ml-platform-full-name }} is charged according to the {{ gpt-pro }} policy.
 * The use of a fine-tuned {{ gpt-lite }} model is charged according to the {{ gpt-lite }} policy.
 * The use of a fine-tuned {{ llama }} 8B model is charged according to the {{ llama }} 8B policy^1^.
 
@@ -65,13 +64,13 @@ Requests with less than one billing unit are rounded up to the next integer. Lar
 
 The cost of text [vectorization](./concepts/embeddings.md) (getting text embeddings) depends on the size of the text submitted for vectorization.
 
-### Work of assistants {#rules-assistant}
+### Assistants {#rules-assistant}
 
 At the [Preview](../overview/concepts/launch-stages.md) stage, you can use {{ assistant-api }} and store files free of charge; however, you will be charged for models according to the [text generation](#rules-generating) rules.
 
 ### Image generation {#rules-image-generation}
 
-You are charged for each generation request in {{ yandexart-name }}. The requests are not idempotent; therefore, two requests with the same settings and generation prompt are two separate requests.
+You are charged for each generation request in {{ yandexart-name }}. Requests are not idempotent; therefore, two requests with the same settings and generation prompt are two separate requests.
 
 ### Internal server errors {#error-request}
 
@@ -125,9 +124,9 @@ With models in batch mode, the minimum cost per run is 200,000 tokens.
 {% include [usd-embedding.md](../_pricing/yandexgpt/usd-image.md) %}
 
 
-## Examples of {{ gpt-lite }} and {{ gpt-pro }} usage cost calculation {#price-examples}
+## Examples of the {{ gpt-lite }} and {{ gpt-pro }} usage cost calculation {#price-examples}
 
-### Calculating text generation cost {#price-example-generating}
+### Calculating the text generation cost {#price-example-generating}
 
 #### Example 1 {#example-generating-1}
 
@@ -169,7 +168,7 @@ Cost of using {{ gpt-pro }} and {{ ml-platform-name }} for text generation with 
 {% include [usd-generating-pro-ml](../_pricing_examples/foundation-models/usd-generating-pro-ml.md) %}
 
 
-### Calculating text vectorization cost {#price-example-embedding}
+### Calculating the text vectorization cost {#price-example-embedding}
 
 Cost of using {{ foundation-models-full-name }} for text vectorization with the following parameter:
 

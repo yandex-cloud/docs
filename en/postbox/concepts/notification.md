@@ -1,6 +1,6 @@
-# Email delivery notifications
+# Email event notifications
 
-To get email delivery notifications, [create a configuration](../operations/create-configuration.md) and [link it to your address](../operations/bind-configuration.md).
+To get email event notifications, [create a configuration](../operations/create-configuration.md) and [associate it with your address](../operations/bind-configuration.md).
 
 ## Notification types {#types}
 
@@ -57,6 +57,14 @@ Notification example:
             "to":[ "Recipient Name <recipient@example.com>" ],
             "messageId":"vgAyRUls8591ybPKeH-Ov",
             "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ],
         }
     },
     "bounce": null,
@@ -90,6 +98,14 @@ Notification example:
             "to":[ "Recipient Name <recipient@example.com>" ],
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ],
         }
     },
     "bounce": {
@@ -110,6 +126,123 @@ Notification example:
 }
 ```
 
+### Email open notification {#open}
+
+You get this type of notification when the recipient opens the email.
+
+Notification example:
+
+```json
+{
+    "eventType": "Open",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ],
+        }
+    },
+    "open": {
+        "ipAddress": "192.0.2.1",
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60"
+    },
+    "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
+}
+```
+
+### Delayed email delivery notification {#delayed-delivery}
+
+Once successfully accepted by {{ postbox-name }}, the email is normally sent it right away. However, a slight delay in delivery may sometimes occur. It is in this case that you receive this type of notification.
+
+Notification example:
+
+```json
+{
+    "eventType": "DeliveryDelay",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ],
+        }
+    },
+    "deliveryDelay": {
+        "delayType": "General",
+        "delayedRecipients": [
+            {
+                "emailAddress": "recipient@example.com"
+            }
+        ],
+        "timestamp": "2024-04-25T18:10:04.973666+03:00"
+    },
+    "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
+}
+```
+
+### Recipient unsubscribe notification {#subscription}
+
+You get this type of notification when the recipient uses `one-click unsubscribe` that {{ postbox-name }} adds to emails.
+
+Notification example:
+
+```json
+{
+    "eventType": "Unsubscribe",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ],
+        }
+    },
+    "subscription": {
+        "contactList": "my-list",
+        "timestamp": "2024-04-25T18:08:04.973666+03:00",
+        "source": "UnsubscribeHeader"
+    }
+}
+```
+
 ## Notification format {#format}
 
 The notification is written to the {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) in JSON format. The list and sequence of fields may differ from those described below.
@@ -122,6 +255,8 @@ Name | Type | Description
 `mail` | [Mail](#mail-object) object | Object containing general information about the sent email.
 `bounce` | [Bounce](#bounce-object) object | Object containing information that the email has not been delivered. Required if the `notificationType` is `Bounce`; otherwise, not present.
 `delivery` | [Delivery](#delivery-object) object | Object containing information about the email being delivered to an individual recipient. Required if the `notificationType` is `Delivery`; otherwise, not present.
+`subscription` | [Subscription](#subscription-object) object | Object containing information that the recipient has unsubscribed from the mailing list. Required if the `notificationType` is `Subscription`; otherwise, not present.
+`open` | [Open](#open-object) object | Object containing information that the email has been opened. Required if the `notificationType` is `Open`; otherwise, not present.
 `eventId` | String | Unique ID of the event.
 
 ### Mail object {#mail-object}
@@ -132,6 +267,7 @@ Name | Type | Description
 `messageId` | String | Unique ID of the email. One email can have multiple recipients. Sent by {{ postbox-name }} when accepting the email for processing.
 `identityId` | String | ID of the {{ postbox-name }} address used when sending the email.
 `commonHeaders` | [CommonHeaders](#common-headers-object) object | Object containing the main headers of the email.
+`tags` | Object | Object containing tags added to the email.
 
 ### CommonHeaders object {#common-headers-object}
 
@@ -172,6 +308,36 @@ Name | Type | Description
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time when {{ postbox-name }} sent the email and received a successful response from the recipient's email client.
 `processingTimeMillis` | Integer | Time spent to process the email in milliseconds.
 `recipients` | Array of strings | Addresses of recipients.
+
+### DeliveryDelay object {#delivery-delay-object}
+
+Name | Type | Description
+--- | --- | ---
+`delayType` | String | Delay type. The possible value is `General`.
+`delayedRecipients` | [DelayedRecipient](#delayed-recipient-object) object array | Array containing information about the email recipient and the related delivery delay.
+`timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Delivery delay timestamp.
+
+### DelayedRecipient object {#delayed-recipient-object}
+
+Name | Type | Description
+--- | --- | ---
+`emailAddress` | String | Recipient's email address.
+
+### Subscription object {#subscription-object}
+
+Name | Type | Description
+--- | --- | ---
+`contactList` | String | Name of the contact list associated with the email.
+`timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Recipient unsubscribe timestamp.
+`source` | String | Unsubscribe source. The possible value is `UnsubscribeHeader`.
+
+### Open object {#open-object}
+
+Name | Type | Description
+--- | --- | ---
+`ipAddress` | String | Recipient IP address.
+`timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Email opening timestamp.
+`userAgent` | String | Identification string (`User-Agent`) of the device or email the client used to open the email.
 
 ## Quality of service (QoS) level {#qos}
 

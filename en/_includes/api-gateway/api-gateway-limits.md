@@ -4,6 +4,7 @@
 || Type of limit | Value ||
 || Number of [triggers](../../serverless-containers/concepts/trigger/index.md) per cloud^1^ 
 `serverless.triggers.count` | 100 ||
+|| Number of [user networks](../../api-gateway/concepts/networking.md#user-network) per cloud | 10 ||
 |#
 
 {% include [quota-trigger-count](../quota-trigger-count.md) %}
@@ -22,7 +23,6 @@ Maximum time-to-live of an idle web socket connection | 10 minutes
 Maximum number of triggers per [message queue](../../message-queue/concepts/queue.md) | 1
 Maximum message size per trigger^2^ | 230 KB
 Maximum number of [domains](../../api-gateway/concepts/index.md#domains) you can connect to a single API gateway | 20
-Number of [user networks](../../api-gateway/concepts/networking.md#user-network) per cloud | 1
 
 ^1^ Default value: 5 minutes.
 ^2^ The message may include service metadata, which will reduce the maximum message size.

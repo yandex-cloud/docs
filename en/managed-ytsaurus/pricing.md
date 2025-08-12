@@ -8,11 +8,7 @@ editable: false
 
 
 
-{% note info %}
-
-{{ myt-full-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage and can be used free of charge.
-
-{% endnote %}
+{% include [preview](../_includes/managed-ytsaurus/note-preview.md) %}
 
 In this section, you can find the {{ myt-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using the service are charged based on their pricing plans.
 

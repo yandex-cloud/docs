@@ -80,6 +80,7 @@ description: In this tutorial, you will learn how to work with {{ si-full-name }
 
 * [{#T}](eventrouter/bus/create.md)
 * [{#T}](eventrouter/bus/update.md)
+* [{#T}](eventrouter/bus/logs-write.md)
 * [Adding a label](eventrouter/bus/label-add.md)
 * [Updating a label](eventrouter/bus/label-update.md)
 * [Deleting a label](eventrouter/bus/label-delete.md)

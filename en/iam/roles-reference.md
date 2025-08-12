@@ -256,7 +256,6 @@ For more information, see [{#T}](../backup/security/index.md).
 #### billing.accounts.accountant {#billing-accounts-accountant}
 
 {% include [billing.accounts.accountant](../_roles/billing/accounts/accountant.md) %}
-
 #### billing.accounts.editor {#billing-accounts-editor}
 
 {% include [billing.accounts.editor](../_roles/billing/accounts/editor.md) %}
@@ -298,6 +297,14 @@ For more information, see [{#T}](../cdn/security/index.md).
 #### vdi.viewer {#vdi-viewer}
 
 {% include [vdi.viewer](../_roles/vdi/viewer.md) %}
+
+#### vdi.desktopGroups.maintainer {#vdi-desktopGroups-maintainer}
+
+{% include [vdi.desktopGroups.maintainer](../_roles/vdi/desktopGroups/maintainer.md) %}
+
+#### vdi.desktopGroups.user {#vdi-desktopGroups-user}
+
+{% include [vdi.desktopGroups.maintainer](../_roles/vdi/desktopGroups/user.md) %}
 
 #### vdi.editor {#vdi-editor}
 

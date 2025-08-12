@@ -77,6 +77,8 @@ items:
         href: stt/analysis.md
       - name: Speaker labeling
         href: stt/speaker-labeling.md
+      - name: Using LLMs to process recognition results
+        href: stt/llm-results.md
       - name: Extending a speech recognition model
         href: stt/additional-training.md
       - name: Uploading fine-tuning data for a speech recognition model

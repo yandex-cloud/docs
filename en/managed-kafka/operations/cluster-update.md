@@ -21,6 +21,7 @@ Learn more about other cluster updates:
 * [{#T}](cluster-version-update.md).
 * [{#T}](storage-space.md).
 * [{#T}](host-migration.md).
+* [{#T}](kafka-ui-enable.md).
 
 ## Changing cluster name and description {#change-name-and-description}
 
@@ -225,7 +226,7 @@ We recommend changing broker host class only when there is no active workload on
      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
      ```
 
-  1. View the description of the CLI command for updating the cluster:
+  1. View the description of the CLI command to update a cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster update --help
@@ -452,7 +453,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
      ```
 
-  1. View the description of the CLI command for updating the cluster:
+  1. View the description of the CLI command to update a cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster update --help

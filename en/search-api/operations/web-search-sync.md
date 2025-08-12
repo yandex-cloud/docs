@@ -5,7 +5,7 @@ description: Follow this guide to learn how to use {{ search-api-name }} API v2 
 
 # Performing text search queries via API v2 in synchronous mode
 
-With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can perform text search through the Yandex search database and get search results in [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) format in synchronous mode. You can run queries using [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
+With {{ search-api-name }}'s [API v2](../concepts/index.md#api-v2), you can perform text search through the Yandex search database and get search results in [XML](../concepts/response.md) or [HTML](../concepts/html-response.md) format in synchronous mode. You can run queries using the [REST API](../api-ref/) and [gRPC API](../api-ref/grpc/). The search results you get depend on the parameters specified in your query.
 
 ## Getting started {#before-you-begin}
 
@@ -38,7 +38,7 @@ To use the examples, install the [cURL](https://curl.haxx.se) and [jq](https://s
 
           {% endcut %}
 
-      1. Run an http query by specifying the IAM token you got earlier:
+      1. Run an http request by specifying the IAM token you got earlier:
 
           ```bash
           curl \

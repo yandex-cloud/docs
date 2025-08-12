@@ -66,6 +66,8 @@ Each version is supported for at least 18 months from the date it was added to {
 
 A {{ mkf-name }} cluster running a discontinued version is updated to the nearest supported version.
 
+![image](../../_assets/mdb/mak-update-policy.svg)
+
 {% note warning "Update notifications" %}
 
 The notification system provides the following notifications:

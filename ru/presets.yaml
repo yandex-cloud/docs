@@ -1132,7 +1132,6 @@ default:
     api:
       network:
         inet:
-          egress|number: 5.184
           egress|string: "5,1840\_₸"
     logs:
       raw|string: "27\_000,00\_₸"
@@ -2578,6 +2577,11 @@ default:
             ram:
               v2|month|string: "1\_546,6464\_₸"
               v2|string: "2,1481\_₸"
+  sku|KZT|video:
+    cdn:
+      traffic:
+        egress|number: 5.184
+        egress|string: "5,1840\_₸"
   sku|KZT|vision_ocr:
     driver_license_text_detection:
       v1|string: "3,50\_₸"
@@ -2893,7 +2897,6 @@ default:
     api:
       network:
         inet:
-          egress|number: 1.0368
           egress|string: "1,0368\_₽"
     logs:
       raw|string: "5\_400,00\_₽"
@@ -4343,6 +4346,11 @@ default:
             ram:
               v2|month|string: "309,3293\_₽"
               v2|string: "0,4296\_₽"
+  sku|RUB|video:
+    cdn:
+      traffic:
+        egress|number: 1.0368
+        egress|string: "1,0368\_₽"
   sku|RUB|vision_ocr:
     driver_license_text_detection:
       v1|string: "0,70\_₽"
@@ -4649,7 +4657,6 @@ default:
     api:
       network:
         inet:
-          egress|number: 0.00864
           egress|string: "0,008640\_$"
     logs:
       raw|string: "44,999982\_$"
@@ -6135,6 +6142,11 @@ default:
                 gold|string: "0,012600\_$"
                 platinum|month|string: "10,432796\_$"
                 platinum|string: "0,014490\_$"
+  sku|USD|video:
+    cdn:
+      traffic:
+        egress|number: 0.00864
+        egress|string: "0,008640\_$"
   sku|USD|vision_ocr:
     driver_license_text_detection:
       v1|string: "0,005833\_$"
@@ -7628,6 +7640,7 @@ default:
         field_gateway: Шлюз по умолчанию
         field_interconnect-direct-id: Указать идентификатор
         field_interconnect-from-folder: Выбрать из каталога
+        field_mac-address: MAC-адрес
         field_name: Имя
         field_needed-public-ip: Публичный адрес
         field_network-id: Виртуальный сетевой сегмент (VRF)

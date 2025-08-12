@@ -82,7 +82,7 @@ POST /v2/email/outbound-emails HTTP/2
 Address the email is sent from. The address must be verified. ||
 || `FromEmailAddressIdentityArn` | **Type**: String.
 
-Used exclusively for compatibility with AWS. ||
+This parameter is not used. It is provided for compatibility with AWS. ||
 || `Destination` | **Type**: Object.
 
 Object containing the address for sending the letter. 
