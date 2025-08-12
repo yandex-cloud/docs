@@ -41,6 +41,8 @@ items:
         href: operations/cluster-accounts.md
       - name: Managing connectors
         href: operations/cluster-connector.md
+      - name: '{{ kafka-ui }} for {{ KF }}'
+        href: operations/kafka-ui-enable.md
       - name: Logs and monitoring
         items:
           - name: Viewing cluster logs
@@ -127,6 +129,8 @@ items:
         href: concepts/account-roles.md
       - name: Managing data schemas
         href: concepts/managed-schema-registry.md
+      - name: '{{ KF }} web UI'
+        href: concepts/kafka-ui.md
       - name: APIs in {{ mkf-name }}
         href: concepts/available-apis.md
       - name: Host classes

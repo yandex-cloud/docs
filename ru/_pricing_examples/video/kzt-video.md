@@ -10,8 +10,8 @@
 
 Стоимость исходящего трафика — `50 ГБ`:
 
-> 50 × {{ sku|KZT|cdn.api.network.inet.egress|string }} = {% calc [currency=KZT] 50  × {{ sku|KZT|cdn.api.network.inet.egress|number }} %}
+> 50 × {{ sku|KZT|video.cdn.traffic.egress|string }} = {% calc [currency=KZT] 50  × {{ sku|KZT|video.cdn.traffic.egress|number }} %}
 
 Общая стоимость услуг сервиса за месяц составит:
 
-> 540 ₸ + {% calc [currency=KZT] 5 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }} %} + {% calc [currency=KZT] 8 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|number }} %} + {% calc [currency=KZT] 50 × {{ sku|KZT|cdn.api.network.inet.egress|number }} %} = {% calc [currency=KZT] 540 + 5 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }} + 8 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|number }} + 50 × {{ sku|KZT|cdn.api.network.inet.egress|number }} %}
+> 540 ₸ + {% calc [currency=KZT] 5 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }} %} + {% calc [currency=KZT] 8 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|number }} %} + {% calc [currency=KZT] 50 × {{ sku|KZT|video.cdn.traffic.egress|number }} %} = {% calc [currency=KZT] 540 + 5 × {{ sku|KZT|storage.bucket.used_space.ice|month|number }} + 8 × {{ sku|KZT|storage.bucket.used_space.standard|pricingRate.720|month|number }} + 50 × {{ sku|KZT|video.cdn.traffic.egress|number }} %}

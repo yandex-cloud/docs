@@ -22,7 +22,7 @@ For {{ search-api-name }} prices, see [{#T}](../pricing.md).
 
 The following examples use [API key](../../iam/concepts/authorization/api-key.md) authentication. To use an [IAM token](../../iam/concepts/authorization/iam-token.md) for authentication, edit the `Authorization` header in the request examples. For more information, see [{#T}](../../search-api/api-ref/authentication.md).
 
-In the provided examples, requests to {{ search-api-name }} are [REST API](../api-ref/) requests. For [gRPC API](../api-ref/grpc/) request examples, see [{#T}](../operations/web-search.md).
+In the provided examples, requests to {{ search-api-name }} are [REST API](../api-ref/) requests. For sample [gRPC API](../api-ref/grpc/) request, see [{#T}](../operations/web-search.md).
 
 ## Create a search query {#form-request}
 

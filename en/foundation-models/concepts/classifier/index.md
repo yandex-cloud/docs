@@ -9,7 +9,9 @@ There are three types of classification available in {{ foundation-models-name }
 
 Classification models are only available in [synchronous mode](../index.md#working-mode).
 
-{{ foundation-models-name }} provides classifiers of two types: [promt](#readymade) classifiers based on {{ gpt-lite }} and {{ gpt-pro }} and [trainable](#trainable) classifiers based on {{ gpt-lite }}.
+{{ foundation-models-name }} provides two types of classifiers: 
+* [Prompt-based](#readymade) classifier built on {{ gpt-lite }} and {{ gpt-pro }}: Binary and multi-class classifications are available.
+* [Fine-tunable](#trainable) classifiers based on {{ gpt-lite }}: All supported classification types are available.
 
 To use the {{ foundation-models-full-name }} classifier models, you need the `ai.languageModels.user` [role](../../security/index.md#languageModels-user) or higher for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 

@@ -28,6 +28,32 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
   1. Configure [{{ TR }} catalog settings](#catalog-settings).
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    1. View the description of the CLI command for creating a {{ TR }} catalog:
+
+        ```bash
+        {{ yc-mdb-tr }} catalog create --help
+        ```
+
+    1. View the description of the CLI command for creating a {{ TR }} catalog with a specific connector:
+
+        ```bash
+        {{ yc-mdb-tr }} catalog create <connector_type> --help
+        ```
+
+    1. To create a {{ TR }} catalog, run this command:
+
+        ```bash
+        {{ yc-mdb-tr }} catalog create <connector_type> <{{ TR }}_catalog_name>
+        ```
+
+        In the command, you also need to provide the settings for your {{ TR }} catalog depending on the connector type. [Learn more about settings for various connector types](#catalog-settings).
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
@@ -37,8 +63,8 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
     1. Add the `yandex_trino_catalog` resource:
 
         ```hcl
-        resource "yandex_trino_catalog" "<folder_name>" {
-          name        = "<folder_name>"
+        resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
+          name        = "<{{ TR }}_catalog_name>"
           cluster_id  = yandex_trino_cluster.mytr.id
           <connector_type> = {
             <{{ TR }}_catalog_settings>
@@ -91,12 +117,41 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/clickhouse.html).
 
+- CLI {#cli}
+
+    Example command:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create clickhouse <{{ TR }}_catalog_name> \
+      --cluster-id <cluster_ID> \
+      --connection-manager-connection-id <connection_ID> \
+      --connection-manager-database <DB_name> \
+      --connection-manager-connection-properties <list_of_{{ CH }}_client_parameters> \
+      --additional-properties <list_of_additional_settings>
+    ```
+
+    Where:
+
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--connection-manager-connection-id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ CH }} cluster.
+
+      To find out the connection ID:
+        1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.   
+
+    * `--connection-manager-database`: DB name in the {{ CH }} cluster.
+    * `--connection-manager-connection-properties`: {{ CH }} client parameters in `key=value` format.
+
+        {% include [client-parameters-ch](../../_includes/managed-trino/client-parameters-ch.md) %}
+
+    * `additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/clickhouse.html).
+
 - {{ TF }} {#tf}
 
     Configuration example:
 
     ```hcl
-    resource "yandex_trino_catalog" "<folder_name>" {
+    resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
       ...
       clickhouse = {
         connection_manager = {
@@ -143,17 +198,38 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
     * **Password**: User password for connecting to the {{ CH }} DB.
     * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/clickhouse.html).
 
+- CLI {#cli}
+
+    Example command:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create clickhouse <{{ TR }}_catalog_name> \
+      --cluster-id <cluster_ID> \
+      --on-premise-connection-url <URL_for_connection> \
+      --on-premise-user-name <username> \
+      --on-premise-password <user_password> \
+      --additional-properties <list_of_additional_settings>
+    ```
+
+    Where:
+
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url`: URL for connecting to the {{ CH }} DB, in the following format: `jdbc:clickhouse://<host_address>:<port>/<DB_name>`.
+    * `--on-premise-user-name`: Username for connection to the {{ CH }} DB.
+    * `--on-premise-password`: User password for connecting to the {{ CH }} DB.
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/clickhouse.html).
+
 - {{ TF }} {#tf}
 
     Configuration example:
 
     ```hcl
-    resource "yandex_trino_catalog" "<folder_name>" {
+    resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
       ...
       clickhouse = {
         on_premise = {
           connection_url = "<URL_for_connection>"
-          user_name      = "<user_name>"
+          user_name      = "<username>"
           password       = "<user_password>"
         }
         additional_properties = {
@@ -185,12 +261,34 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/delta-lake.html).
 
+- CLI {#cli}
+
+    Example command:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create delta-lake <{{ TR }}_catalog_name> \
+      --cluster-id <cluster_ID> \
+      --metastore-hive-uri <URI_for_connection> \
+      --filesystem-native-s3 \
+      --filesystem-external-s3-aws-access-key <access_key_ID> \
+      --filesystem-external-s3-aws-secret-key <secret_key> \
+      --filesystem-external-s3-aws-endpoint <endpoint> \
+      --filesystem-external-s3-aws-region <region> \
+      --additional-properties <list_of_additional_settings>
+    ```
+
+    Where:
+
+    {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
+
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/delta-lake.html).
+
 - {{ TF }} {#tf}
 
     Configuration example:
 
     ```hcl
-    resource "yandex_trino_catalog" "<folder_name>" {
+    resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
       ...
       delta_lake = {
         file_system = {
@@ -224,12 +322,34 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/hive.html).
 
+- CLI {#cli}
+
+    Example command:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create hive <{{ TR }}_catalog_name> \
+      --cluster-id <cluster_ID> \
+      --metastore-hive-uri <URI_for_connection> \
+      --filesystem-native-s3 \
+      --filesystem-external-s3-aws-access-key <access_key_ID> \
+      --filesystem-external-s3-aws-secret-key <secret_key> \
+      --filesystem-external-s3-aws-endpoint <endpoint> \
+      --filesystem-external-s3-aws-region <region> \
+      --additional-properties <list_of_additional_settings>
+    ```
+
+    Where:
+
+    {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
+
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/hive.html).
+
 - {{ TF }} {#tf}
 
     Configuration example:
 
     ```hcl
-    resource "yandex_trino_catalog" "<folder_name>" {
+    resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
       ...
       hive = {
         file_system = {
@@ -263,12 +383,34 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
 
     * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/iceberg.html).
 
+- CLI {#cli}
+
+    Example command:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create iceberg <{{ TR }}_catalog_name> \
+      --cluster-id <cluster_ID> \
+      --metastore-hive-uri <URI_for_connection> \
+      --filesystem-native-s3 \
+      --filesystem-external-s3-aws-access-key <access_key_ID> \
+      --filesystem-external-s3-aws-secret-key <secret_key> \
+      --filesystem-external-s3-aws-endpoint <endpoint> \
+      --filesystem-external-s3-aws-region <region> \
+      --additional-properties <list_of_additional_settings>
+    ```
+
+    Where:
+
+    {% include [cli-connector-settings](../../_includes/managed-trino/cli-connector-settings.md) %}
+
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/iceberg.html).
+
 - {{ TF }} {#tf}
 
     Configuration example:
 
     ```hcl
-    resource "yandex_trino_catalog" "<folder_name>" {
+    resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
       ...
       iceberg = {
         file_system = {
@@ -304,17 +446,38 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
     * **Password**: User password for connecting to the Oracle DB.
     * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/oracle.html).
 
+- CLI {#cli}
+
+    Example command:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create oracle <{{ TR }}_catalog_name> \
+      --cluster-id <cluster_ID> \
+      --on-premise-connection-url <URL_for_connection> \
+      --on-premise-user-name <username> \
+      --on-premise-password <user_password> \
+      --additional-properties <list_of_additional_settings>
+    ```
+
+    Where:
+
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url`: URL for connecting to the Oracle DB, in `jdbc:oracle:thin:@<host_address>:<port>:<SID>`. `SID` format, Oracle system ID.
+    * `--on-premise-user-name`: Username for connection to the Oracle DB.
+    * `--on-premise-password`: User password for connection to the Oracle DB.
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/oracle.html).
+
 - {{ TF }} {#tf}
 
     Configuration example:
 
     ```hcl
-    resource "yandex_trino_catalog" "<folder_name>" {
+    resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
       ...
       oracle = {
         on_premise = {
           connection_url = "<URL_for_connection>"
-          user_name      = "<user_name>"
+          user_name      = "<username>"
           password       = "<user_password>"
         }
         additional_properties = {
@@ -355,12 +518,41 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
     * **Database**: DB name in the {{ PG }} cluster.
     * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/postgresql.html).
 
+- CLI {#cli}
+
+    Example command:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create postgresql <{{ TR }}_catalog_name> \
+      --cluster-id <cluster_ID> \
+      --connection-manager-connection-id <connection_ID> \
+      --connection-manager-database <DB_name> \
+      --connection-manager-connection-properties <list_of_{{ PG }}_client_parameters> \
+      --additional-properties <list_of_additional_settings>
+    ```
+
+    Where:
+
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--connection-manager-connection-id`: Connection ID in {{ connection-manager-name }} for connecting to the {{ PG }} cluster.
+
+        To find out the connection ID:
+        1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Click the cluster name and go to the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab.
+
+    * `--connection-manager-database`: DB name in the {{ PG }} cluster.
+    * `--connection-manager-connection-properties`: List of {{ PG }} client settings in `key=value` format.
+
+        {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
+
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/postgresql.html).
+
 - {{ TF }} {#tf}
 
     Configuration example:
 
     ```hcl
-    resource "yandex_trino_catalog" "<folder_name>" {
+    resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
       ...
       postgresql = {
         connection_manager = {
@@ -407,17 +599,38 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
     * **Password**: User password for connecting to the {{ PG }} DB.
     * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/postgresql.html).
 
+- CLI {#cli}
+
+    Example command:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create postgresql <{{ TR }}_catalog_name> \
+      --cluster-id <cluster_ID> \
+      --on-premise-connection-url <URL_for_connection> \
+      --on-premise-user-name <username> \
+      --on-premise-password <user_password> \
+      --additional-properties <list_of_additional_settings>
+    ```
+
+    Where:
+
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url`: URL for connecting to the {{ PG }} DB, in `jdbc:postgresql://<host_address>:<port>/<DB_name>` format.
+    * `--on-premise-user-name`: Username for connection to the {{ PG }} DB.
+    * `--on-premise-password`: User password for connecting to the {{ PG }} DB.
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/postgresql.html).
+
 - {{ TF }} {#tf}
 
     Configuration example:
 
     ```hcl
-    resource "yandex_trino_catalog" "<folder_name>" {
+    resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
       ...
       postgresql = {
         on_premise = {
           connection_url = "<URL_for_connection>"
-          user_name      = "<user_name>"
+          user_name      = "<username>"
           password       = "<user_password>"
         }
         additional_properties = {
@@ -451,17 +664,38 @@ Adjust the settings according to your connection type: [{{ connection-manager-na
     * **Password**: User password for connecting to the Microsoft SQL Server DB.
     * **Additional settings**: Provide in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/sqlserver.html).
 
+- CLI {#cli}
+
+    Example command:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create sqlserver <{{ TR }}_catalog_name> \
+      --cluster-id <cluster_ID> \
+      --on-premise-connection-url <URL_for_connection> \
+      --on-premise-user-name <username> \
+      --on-premise-password <user_password> \
+      --additional-properties <list_of_additional_settings>
+    ```
+
+    Where:
+
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url`: URL for connecting to the Microsoft SQL Server DB, in `jdbc:sqlserver://<host_address>:<port>;databaseName=<DB_name>` format.
+    * `--on-premise-user-name`: Username for connecting to the Microsoft SQL Server DB.
+    * `--on-premise-password`: User password for connecting to the Microsoft SQL Server DB.
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/sqlserver.html).
+
 - {{ TF }} {#tf}
 
     Configuration example:
 
     ```hcl
-    resource "yandex_trino_catalog" "<folder_name>" {
+    resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
       ...
       sqlserver = {
         on_premise = {
           connection_url = "<URL_for_connection>"
-          user_name      = "<user_name>"
+          user_name      = "<username>"
           password       = "<user_password>"
         }
         additional_properties = {
@@ -493,12 +727,27 @@ The TPC-DS connector has no required settings. Optionally, you can configure adv
 
     You can specify additional settings in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/tpcds.html).
 
+- CLI {#cli}
+
+    Example command:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create tpcds <{{ TR }}_catalog_name> \
+      --cluster-id <cluster_ID> \
+      --additional-properties <list_of_additional_settings>
+    ```  
+
+    Where:
+
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/tpcds.html).  
+
 - {{ TF }} {#tf}
 
     Configuration example:
 
     ```hcl
-    resource "yandex_trino_catalog" "<folder_name>" {
+    resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
       ...
       tpcds = {
         additional_properties = {
@@ -522,12 +771,27 @@ The TPC-H connector has no required settings. Optionally, you can configure adva
 
     You can specify additional settings in `key: value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/tpch.html).
 
+- CLI {#cli}
+
+    Example command:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create tpch <{{ TR }}_catalog_name> \
+      --cluster-id <cluster_ID> \
+      --additional-properties <list_of_additional_settings>
+    ```  
+
+    Where:
+
+    * `--cluster-id`: ID of the cluster you are creating the {{ TR }} catalog in. You can request the cluster ID with a [list of clusters](cluster-list.md#list-clusters).
+    * `--additional-properties`: Additional settings in `key=value` format. For a list of available settings, see the [official documentation]({{ tr.docs}}/connector/tpch.html).      
+
 - {{ TF }} {#tf}
 
     Configuration example:
 
     ```hcl
-    resource "yandex_trino_catalog" "<folder_name>" {
+    resource "yandex_trino_catalog" "<{{ TR }}_catalog_name>" {
       ...
       tpch = {
         additional_properties = {

@@ -1,9 +1,9 @@
 ---
-title: Information about clusters in {{ mtr-name }}
+title: Getting information about {{ mtr-name }} clusters
 description: You can request detailed information about each {{ mtr-name }} cluster you created. To get a list of clusters in a folder, go to the folder dashboard and select {{ mtr-name }}.
 ---
 
-# Information about existing clusters in {{ mtr-name }}
+# Getting information on existing {{ mtr-name }} clusters
 
 You can request detailed information about each {{ mtr-name }} cluster you created.
 

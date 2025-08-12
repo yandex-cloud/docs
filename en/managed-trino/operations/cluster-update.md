@@ -39,7 +39,7 @@ After creating a cluster, you can edit its basic and advanced settings.
         * Enable or disable cluster deletion protection.
         * Enable or disable logging. If logging is enabled, select:
 
-            * Log destination: custom [log group](../../logging/concepts/log-group.md) or default log group in the selected folder.  
+            * Log destination: custom [log group](../../logging/concepts/log-group.md) or default log group in the selected folder.
             * Minimum logging level.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -68,15 +68,15 @@ After creating a cluster, you can edit its basic and advanced settings.
             --retry-policy <object_type_for_retry> \
             --retry-policy-additional-properties <list_of_additional_parameters> \
             --retry-policy-exchange-manager-service-s3 \
-            --retry-policy-exchange-manager-additional-properties <list_of_additional_parameters> \     
+            --retry-policy-exchange-manager-additional-properties <list_of_additional_parameters> \
             --coordinator resource-preset-id=<host_class> \
             --worker min-count=<minimum_number_of_instances>,`
-                    `max-count=<maximum_number_of_instances>,`    
+                    `max-count=<maximum_number_of_instances>,`
                     `resource-preset-id=<host_class> \
             --deletion-protection \
             --maintenance-window type=<maintenance_type>,`
                                 `day=<day_of_week>,`
-                                `hour=<hour> \                 
+                                `hour=<hour> \
             --log-enabled \
             --log-folder-id <folder_ID> \
             --log-min-level <logging_level>

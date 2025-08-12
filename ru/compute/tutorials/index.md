@@ -48,7 +48,7 @@ description: Различные сценарии использования {{ c
 * [{#T}](bm-vrf-and-vpc-interconnect.md)
 * [{#T}](pvc-snapshot-restore.md)
 * [{#T}](usb-over-ip.md)
-* [{#T}](integrate-nextcloud.md)
+* [{#T}](integrate-nextcloud/index.md)
 
 ## {{ coi }} {#coi}
 

@@ -296,7 +296,7 @@ Before running the example, specify the folder ID and {{ yandex-cloud }} [API ke
 
 ### Embeddings {#embeddings}
 
-Supported embeddings for single strings with the `encoding_format` parameter set to `float`.
+{{ foundation-models-name }} supports embeddings for single strings with `encoding_format` set to `float`.
 
 {% list tabs group=programming_language %}
 
@@ -388,7 +388,7 @@ Supported embeddings for single strings with the `encoding_format` parameter set
 
 ### Models {#models}
 
-Supported method for getting a list of available models:
+{{ foundation-models-name }} supports a method for getting a list of available models:
 
 {% list tabs group=programming_language %}
 

@@ -26,6 +26,16 @@ The data in the tables is for the Russian language only:
    | **Speech synthesis** |
    | Speech synthesis | 200 | 64 | 200 | 8 | 16 |
 
+- Containers with GPU L4 {#l4}
+
+   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Boolean cores <br>Intel Gold 6230R <br>per card, pcs |
+   |---|---|---|---|---|---|
+   | **Speech recognition** |
+   | Streaming recognition | 66 | 64 | 200 | 8 | 16 |
+   | Audio file recognition | 330 | 64 | 200 | 8 | 16 |
+   | **Speech synthesis** |
+   | Speech synthesis | 383 | 64 | 200 | 8 | 16 |
+
 - Containers with GPU A100 {#a100}
 
    | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Boolean cores <br>Intel Gold 6230R <br>per card, pcs |
@@ -35,6 +45,7 @@ The data in the tables is for the Russian language only:
    | Audio file recognition | 1,000 | 64 | 200 | 14 | 28 |
    | **Speech synthesis** |
    | Speech synthesis | 480 | 64 | 200 | 14 | 28 |
+
 
 {% endlist %}
 

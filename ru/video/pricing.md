@@ -52,11 +52,11 @@ editable: false
 
 - Цены в рублях {#prices-rub}
 
-  {% include notitle [rub.md](../_pricing/cdn/rub.md) %}
+  {% include notitle [rub.md](../_pricing/video/rub-cdn.md) %}
 
 - Цены в тенге {#prices-kzt}
 
-  {% include notitle [kzt.md](../_pricing/cdn/kzt.md) %}
+  {% include notitle [kzt.md](../_pricing/video/kzt-cdn.md) %}
 
 {% endlist %}
 

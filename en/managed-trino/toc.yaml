@@ -9,7 +9,7 @@ items:
         href: operations/index.md
       - name: Clusters
         items:
-          - name: Information about existing clusters
+          - name: Getting information on existing clusters
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md

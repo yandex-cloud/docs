@@ -27,6 +27,14 @@ You can assign a role for a [desktop group](../concepts/desktops-and-groups.md) 
 
 {% include [vdi.viewer](../../_roles/vdi/viewer.md) %}
 
+#### vdi.desktopGroups.maintainer {#vdi-desktopGroups-maintainer}
+
+{% include [vdi.desktopGroups.maintainer](../../_roles/vdi/desktopGroups/maintainer.md) %}
+
+#### vdi.desktopGroups.user {#vdi-desktopGroups-user}
+
+{% include [vdi.desktopGroups.maintainer](../../_roles/vdi/desktopGroups/user.md) %}
+
 #### vdi.editor {#vdi-editor}
 
 {% include [vdi.editor](../../_roles/vdi/editor.md) %}

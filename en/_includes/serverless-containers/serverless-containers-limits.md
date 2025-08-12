@@ -18,6 +18,7 @@
 `serverless.containersCpu.count` | 10 ||
 || Number of [provisioned container instances](../../serverless-containers/concepts/container.md#provisioned-instances) per cloud 
 `serverless.containersWorkersProvisioned.count` | 2 ||
+|| Number of [user networks](../../serverless-containers/concepts/networking.md#user-network) per cloud | 10 ||
 |#
 
 {% include [quota-trigger-count](../quota-trigger-count.md) %}
@@ -26,7 +27,7 @@
 
 Type of limit | Value
 ----- | -----
-Maximum size of the container image | 10 GB
+Maximum size of the container image | 10 GB
 Maximum RAM per container instance | 8 GB
 Maximum size of an HTTP request to the container, including HTTP headers and the request body | 3.5 MB
 Maximum size of the container HTTP response, including HTTP headers and the response body | 3.5 MB
@@ -35,7 +36,6 @@ Maximum time for request processing by the container before timeout, including t
 Maximum total environment variable storage, including variable names^2^ | 4 KB
 Maximum number of triggers per [message queue](../../message-queue/concepts/queue.md) | 1
 Maximum message size per trigger^3^ | 230 KB
-Number of [user networks](../../serverless-containers/concepts/networking.md#user-network) per cloud | 1
 
 ^1^ A timeout of over 10 minutes is only available for [long-lived containers](../../serverless-containers/concepts/long-lived-containers.md).
 ^2^ {{ lockbox-short-name }} secrets are provided via environment variables and are also counted towards this limit.

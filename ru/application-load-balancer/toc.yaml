@@ -189,8 +189,14 @@ items:
           Создание L7-балансировщика {{ alb-name }} с профилем безопасности {{
           sws-name }}
         href: tutorials/balancer-with-sws-profile.md
-      - name: Интеграция {{ objstorage-full-name }} с Nextcloud
-        href: tutorials/integrate-nextcloud.md
+      - name: Развертывание Nextcloud в интеграции с {{ objstorage-name }}
+        items:
+          - name: Обзор
+            href: tutorials/integrate-nextcloud/index.md
+          - name: Развертывание Nextcloud на ВМ из образа {{ coi }}
+            href: tutorials/integrate-nextcloud/coi-based.md
+          - name: Развертывание Nextcloud на ВМ или в группе ВМ вручную
+            href: tutorials/integrate-nextcloud/fault-tolerant.md
       - name: >-
           Развертывание веб-приложения на серверах {{ baremetal-name }} с
           L7-балансировщиком и защитой {{ sws-name }}

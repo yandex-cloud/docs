@@ -1,6 +1,6 @@
 # Using fine-tuned classifiers based on {{ yagpt-name }}
 
-To run a request to a [fine-tuned](../../concepts/tuning/index.md) classifier, use the [classify](../../text-classification/api-ref/TextClassification/classify.md) text classification API method or [{{ ml-sdk-full-name }}](../../sdk/index.md).
+To run a request to a [fine-tuned](../../concepts/tuning/index.md) classifier of any type, use the [classify](../../text-classification/api-ref/TextClassification/classify.md) Text Classification API method or [{{ ml-sdk-full-name }}](../../sdk/index.md).
 
 ## Getting started {#before-begin}
 
@@ -43,7 +43,7 @@ To send a request to the classifier:
 
       The names of the classes between which the model will be distributing queries must be specified during model tuning; therefore, they are not provided in the request.
 
-  1. Run the created file:
+  1. Run the file you created:
 
       ```bash
       python3 classify.py

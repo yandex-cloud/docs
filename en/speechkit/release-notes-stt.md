@@ -6,6 +6,10 @@ For more information about speech recognition methods, see [About technology](st
 
 
 
+## Release as of 31/07/2025 {#310725}
+
+Added a feature for accessing generative text models in recognition requests. Learn more about this feature in [{#T}](./stt/llm-results.md).
+
 ## Release as of 24/04/2025 {#240425}
 
 Updates to `general:rc`:

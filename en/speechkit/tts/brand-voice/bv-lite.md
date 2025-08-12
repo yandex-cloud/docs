@@ -15,9 +15,9 @@ The result of {{ brand-voice-lite-name }} voice model training directly depends 
 
 {% endnote %}
 
-At least 30% of the training data should contain questions so that the trained voice could reproduce the interrogative tone in texts. You can use ready-made [phrases](https://storage.yandexcloud.net/doc-files/ml/brand_voice_lite_text_example.txt) from the {{ speechkit-name }} team or prepare your texts by yourself. For tips on creating and formatting training texts, see [Text requirements](#text-technical-requirements).
+At least 30% of the training data should contain questions so that the trained voice could reproduce the interrogative tone in texts. You can use ready-made [phrases](https://storage.yandexcloud.net/doc-files/ml/brand_voice_lite_text_example-txt.zip) from the {{ speechkit-name }} team or prepare your texts by yourself. For tips on creating and formatting training texts, see [Text requirements](#text-technical-requirements).
 
-You can upload a dataset with all the audio recordings and transcripts [as a single archive](#zip) or record an audio for each phrase [in the management console](#console-record) using your browser. In either case, make sure you follow the [audio recording recommendations](#audiotips) and listen through all your audios to ensure high quality of source data for voice model training. Once you start training, you will no longer be able to edit your dataset. 
+You can upload a dataset with all audio recordings and transcripts [as a single archive](#zip), upload audio files one by one, or record an audio for each phrase [in the management console](#console-record) using your browser. In either case, make sure you follow the [audio recording recommendations](#audiotips) and listen through all your audios to ensure high quality of source data for voice model training. Once you start training, you will no longer be able to edit your dataset. 
 
 ## Text requirements {#text-technical-requirements}
 
@@ -55,7 +55,7 @@ If you are using special sound recording software instead the management console
 | Requirement | Value |
 | --- | --- |
 | Sampling frequency | 48 kHz |
-| Audio bit depth |  16 bit PCM |
+| Audio bit depth | 16 bit PCM |
 | Number of channels | 1 (mono) |
 | Format | [WAV](https://en.wikipedia.org/wiki/WAV) |
 | Duration | ≤ 15 seconds |
@@ -130,7 +130,7 @@ Such audio recordings will have distortions and are not suitable for model train
 
   1. Click **{{ ui-key.yacloud.speechkit-common.button_create-voice_nkMBz }}** to start creating a voice.
   
-  If using [texts](https://storage.yandexcloud.net/doc-files/ml/brand_voice_lite_text_example.tsv) from the {{ speechkit-name }} team, add the name of the audio file to the beginning of each line and delete the line with the table header.
+  If using a [template](https://storage.yandexcloud.net/doc-files/ml/brand_voice_lite_text_example-tsv.zip) by the {{ speechkit-name }} team, add the audio file name to the beginning of each line and delete the table header line.
 
   **Prepared data example**
 
@@ -138,8 +138,23 @@ Such audio recordings will have distortions and are not suitable for model train
 
   | recordings | text |
   |---|---|
-  | 1.wav | Books are a uniquely portable magic. |
+  | 1.wav | Books accumulate pearls of human thought and preserve them for posterity. |
   | 2.wav | We have an amazing book for you! |
   | 3.wav | This book is suitable for children from the age of five. |
 
 {% endlist %}
+
+## Voice statuses {#statuses}
+
+As soon as you start voice creation, the voice will appear in the list of available voices under **{{ ui-key.yacloud.speechkit-common.brand-voice_51nd8 }}**. The creation process will take several days. During this period, the voice have the `Creating` status. Once the process is complete, the voice will become available for testing and its status will switch to `Trial`. You will have seven days to use the voice for free in {{ speechkit-name }} Playground and synthesize speech via the API, only paying for the requests (see [pricing](../../pricing.md)). Once the trial period expires, the voice will be archived, its status will switch to `Archived`, and you will no longer be able to use it. Hosting archived voices is free of charge.
+
+If you like the voice you created, you can activate it without waiting for the trial period to end. Also, you can activate an archived voice:
+
+1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you are going to use to work with {{ speechkit-name }}.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_speechkit }}**.
+1. In the left-hand panel, click **{{ ui-key.yacloud.speechkit-common.brand-voice_51nd8 }}**.
+1. Select a voice and navigate to its page.
+1. In the top-right corner, click **{{ ui-key.yacloud.speechkit-common.brand-voice_button_activate_47zAB }}**. 
+   Once activated, the voice will switch its status to `Active` and become available via the API and in {{ speechkit-name }} Playground without limitations. The hosting will become chargeable. 
+
+If you no longer need the voice, you can archive it.

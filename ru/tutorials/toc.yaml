@@ -279,8 +279,14 @@ items:
         href: archive/copy-files-from-object-storage.md
       - name: Подключить сервер {{ baremetal-name }} к {{ backup-name }}
         href: archive/backup-baremetal.md
-      - name: Интеграция {{ objstorage-name }} с Nextcloud
-        href: archive/integrate-nextcloud.md
+      - name: Развертывание Nextcloud в интеграции с {{ objstorage-name }}
+        items:
+          - name: Обзор
+            href: archive/integrate-nextcloud/index.md
+          - name: Развертывание Nextcloud на ВМ из образа {{ coi }}
+            href: archive/integrate-nextcloud/coi-based.md
+          - name: Развертывание Nextcloud на ВМ или в группе ВМ вручную
+            href: archive/integrate-nextcloud/fault-tolerant.md
   - name: Разработка и тестирование
     items:
       - name: Все руководства

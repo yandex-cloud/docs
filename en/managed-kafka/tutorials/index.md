@@ -37,10 +37,8 @@ You can use {{ mkf-name }} to transfer data between databases. Sources and targe
 * [From {{ KF }} to {{ CH }}](send-data-to-mch.md)
 * [From {{ KF }} to ksqlDB](use-ksqldb-with-mkf.md)
 
+
 ## Other {#other}
-
-* [{#T}](deploy-kafka-ui.md)
-
 
 * [{#T}](data-processing.md)
 
