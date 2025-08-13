@@ -7,12 +7,12 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Подключиться к провайдеру {{ cdn-name }}
-        href: operations/enable-provider.md
       - name: Ресурсы
         items:
           - name: Создать ресурс
             href: operations/resources/create-resource.md
+          - name: Копировать конфигурацию одного ресурса в другой
+            href: operations/resources/copy-resource.md
           - name: Изменить основные настройки ресурса
             href: operations/resources/configure-basics.md
           - name: Получить информацию о ресурсе
@@ -95,7 +95,6 @@ items:
         href: concepts/index.md
       - name: Провайдеры
         href: concepts/providers.md
-        hidden: true
       - name: Ресурс
         href: concepts/resource.md
       - name: Источники и их группы
@@ -418,11 +417,10 @@ items:
                 href: api-ref/Resource/delete.md
               - name: GetProviderCName
                 href: api-ref/Resource/getProviderCName.md
-  - name: Метрики {{ monitoring-name }}
+  - name: Метрики {{ monitoring-name }} для провайдера EdgeCDN
     href: metrics.md
   - name: Метрики {{ monitoring-name }} для провайдера {{ cdn-full-name }}
     href: metrics-yc.md
-    hidden: true
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

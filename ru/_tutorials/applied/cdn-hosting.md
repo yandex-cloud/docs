@@ -89,18 +89,15 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
-
-  1. Создайте CDN-ресурс:
-
-     1.	Справа сверху нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-     1. Включите **{{ ui-key.yacloud.cdn.label_access }}**.
-     1. Задайте основные параметры CDN-ресурса:
-
-        * **{{ ui-key.yacloud.cdn.label_content-query-type }}** — `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
-        * **{{ ui-key.yacloud.cdn.label_source-type }}** — `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
-        * **{{ ui-key.yacloud.cdn.label_bucket }}** — выберите нужный бакет из списка.
-        * **{{ ui-key.yacloud.cdn.label_personal-domain }}** — `cdn.yandexcloud.example`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+  1. Задайте основные настройки CDN-ресурса:
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        * Включите **{{ ui-key.yacloud.cdn.label_access }}**.
+        * В поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_source-type }}** выберите `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_bucket }}** выберите нужный бакет из списка.
+        * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_http }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите `cdn.yandexcloud.example`.
 
           {% note alert %}
 
@@ -108,22 +105,12 @@
 
           {% endnote %}
 
-        * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
-
-          * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_http }}`. 
-          * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
-          * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** укажите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и выберите [сертификат](#add-certificate) для доменного имени `cdn.yandexcloud.example`.
-          * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}` и в **{{ ui-key.yacloud.cdn.label_custom-host-header }}** укажите доменное имя источника в формате: `<имя_бакета_с_файлами>.{{ s3-web-host }}`, чтобы бакет-источник корректно отвечал на запросы CDN-серверов.
-
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-
-  1. Включите переадресацию клиентов с HTTP на HTTPS:
-
-     1. Выберите ресурс CDN, созданный ранее.
-     1. Убедитесь, что в блоке **{{ ui-key.yacloud.cdn.label_additional }}** статус сертификата изменился на `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
-     1. Справа сверху нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-     1. В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}** в поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** укажите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и выберите [сертификат](#add-certificate) для доменного имени `cdn.yandexcloud.example`.
+        * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}` и в **{{ ui-key.yacloud.cdn.label_custom-host-header }}** укажите доменное имя источника в формате: `<имя_бакета_с_файлами>.{{ s3-web-host }}`, чтобы бакет-источник корректно отвечал на запросы CDN-серверов.
+  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
+  1. В разделах **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и **Дополнительно** оставьте настройки по умолчанию и нажмите **Продолжить**.
 
 {% endlist %}
 
@@ -142,7 +129,7 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. В списке CDN-ресурсов выберите ресурс с основным доменным именем `cdn.yandexcloud.example`.
-     1. Из блока **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** внизу страницы скопируйте доменное имя вида `cl-********.edgecdn.ru`.
+     1. Из блока **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** внизу страницы скопируйте доменное имя вида `{{ cname-example-yc }}` или `{{ cname-example-edge }}`в зависимости от используемого [провайдера CDN](../../cdn/concepts/providers.md).
 
    {% endlist %}
 
@@ -150,7 +137,7 @@
 1. Создайте или измените CNAME-запись для `cdn.yandexcloud.example` так, чтобы она указывала на скопированное доменное имя:
 
    ```text
-   cdn CNAME cl-********.edgecdn.ru
+   cdn CNAME {{ cname-example-yc }}
    ```
 
    {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
@@ -178,7 +165,7 @@
         1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. В поле **{{ ui-key.yacloud.common.name }}** укажите `cdn`.
         1. В поле **{{ ui-key.yacloud.common.type }}** укажите `CNAME`.
-        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированное значение вида `cl-********.edgecdn.ru.` с точкой на конце.
+        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированное значение вида `{{ cname-example-yc }}.` или `{{ cname-example-edge }}.` (в зависимости от используемого [провайдера CDN](../../cdn/concepts/providers.md)) с точкой на конце.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    {% endlist %}

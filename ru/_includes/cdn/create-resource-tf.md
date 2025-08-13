@@ -29,8 +29,6 @@ resource "yandex_cdn_resource" "my_resource" {
 * `secondary_hostnames` — (опционально) дополнительные доменные имена.
 * `ssl_certificate` — (опционально) параметры SSL-сертификата:
 
-    {% include [lets-encrypt-over](lets-encrypt-over.md) %}
-
     * `type` — тип сертификата, возможные значения:
 
         * `not_used` — без сертификата. Значение по умолчанию.

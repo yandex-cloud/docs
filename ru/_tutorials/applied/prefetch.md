@@ -295,15 +295,15 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
-
-  1. Создайте CDN-ресурс:
-     1. На вкладке ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-     1. Задайте основные параметры CDN-ресурса следующим образом:
-        * **{{ ui-key.yacloud.cdn.label_content-query-type }}** — `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
-        * **{{ ui-key.yacloud.cdn.label_source-type }}** — `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
-        * **{{ ui-key.yacloud.cdn.label_bucket }}** — `<имя_бакета_с_файлами>`.
-        * **{{ ui-key.yacloud.cdn.label_section-domain }}** — основное доменное имя, которое вы будете использовать для публикации патчей, например `cdn.ycprojectblue.example`.
+  1. На вкладке ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+  1. Задайте основные настройки CDN-ресурса:
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        * Включите **{{ ui-key.yacloud.cdn.label_access }}**.
+        * В поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_source-type }}** выберите `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_bucket }}** выберите `<имя_бакета_с_файлами>`.
+        * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_https }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите основное доменное имя, которое вы будете использовать для публикации патчей, например `cdn.ycprojectblue.example`.
 
           {% note alert %}
 
@@ -311,38 +311,23 @@
 
           {% endnote %}
 
-        * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
-          * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_https }}`.
-          * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
-          * Выберите опцию **{{ ui-key.yacloud.cdn.field_access }}**.
-          * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** укажите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и выберите [сертификат](#add-certificate) для доменного имени `cdn.ycprojectblue.example`.
-          * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. В поле **{{ ui-key.yacloud.cdn.label_custom-host-header }}** укажите доменное имя источника, `<имя_бакета_с_файлами>.{{ s3-storage-host }}`, чтобы бакет-источник корректно отвечал на запросы CDN-серверов.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** укажите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и выберите [сертификат](#add-certificate) для доменного имени `cdn.ycprojectblue.example`.
+        * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. В поле **{{ ui-key.yacloud.cdn.label_custom-host-header }}** укажите доменное имя источника, `<имя_бакета_с_файлами>.{{ s3-storage-host }}`, чтобы бакет-источник корректно отвечал на запросы CDN-серверов.
+  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
+  1. В разделе **{{ ui-key.yacloud.cdn.label_resource-cache }}** в блоке **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache }}** включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
 
-  1. Включите переадресацию клиентов с HTTP на HTTPS:
-     1. На вкладке ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** выберите ресурс, созданный ранее.
-     1. Убедитесь, что в блоке **{{ ui-key.yacloud.cdn.label_section-additional }}** статус сертификата изменился на `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
-     1. Справа сверху нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-     1. В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}** в поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-  1. Включите для ресурса [кеширование](../../cdn/concepts/caching.md) на CDN-серверах:
-     1. На вкладке ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** выберите ресурс, созданный ранее.
-     1. Перейдите в раздел **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
-     1. Справа сверху нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-     1. Включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      [Подробнее о кешировании](../../cdn/concepts/caching.md)
+
+  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
+  1. В разделах **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и **Дополнительно** оставьте настройки по умолчанию и нажмите **Продолжить**.
 
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  1. Если CDN-провайдер еще не активирован, выполните команду:
-
-     ```bash
-     yc cdn provider activate --folder-id <идентификатор_каталога> --type gcore
-     ```
 
   1. Создайте CDN-ресурс:
 
@@ -457,7 +442,7 @@
 
 ## Настройте DNS для своего домена {#dns-setup}
 
-1. Получите доменное имя в домене `.edgecdn.ru`, сгенерированное для созданного CDN-ресурса:
+1. Получите доменное имя, сгенерированное для созданного CDN-ресурса:
 
    {% list tabs group=instructions %}
 
@@ -465,15 +450,15 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.ycprojectblue.example`).
-     1. На вкладке **{{ ui-key.yacloud.common.overview }}** в разделе **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** скопируйте в буфер обмена сгенерированное сервисом имя в домене `.edgecdn.ru`.
+     1. На вкладке **{{ ui-key.yacloud.common.overview }}** в разделе **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** скопируйте в буфер обмена сгенерированное сервисом доменное имя вида `{{ cname-example-yc }}` или `{{ cname-example-edge }}`в зависимости от используемого [провайдера CDN](../../cdn/concepts/providers.md).
 
    {% endlist %}
 
 1. Перейдите в настройки DNS вашего домена на сайте компании, которая предоставляет вам услуги DNS-хостинга.
-1. Измените [CNAME-запись](../../dns/concepts/resource-record.md#cname) для `cdn` таким образом, чтобы она указывала на скопированный ранее адрес в домене `.edgecdn.ru`, например:
+1. Измените [CNAME-запись](../../dns/concepts/resource-record.md#cname) для `cdn` таким образом, чтобы она указывала на скопированный ранее адрес в домене `.yccdn.cloud.yandex.net` или `.edgecdn.ru`, например:
 
    ```http
-   cdn CNAME cl-********.edgecdn.ru.
+   cdn CNAME {{ cname-example-yc }}.
    ```
 
    {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
@@ -498,7 +483,7 @@
         1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. В поле **{{ ui-key.yacloud.common.name }}** укажите `cdn`, чтобы запись соответствовала доменному имени `cdn.ycprojectblue.example`.
         1. Выберите **{{ ui-key.yacloud.common.type }}** записи — `CNAME`.
-        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированный адрес в домене `.edgecdn.ru` с точкой на конце.
+        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированный адрес в домене `.yccdn.cloud.yandex.net` или `.edgecdn.ru` с точкой на конце.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    - CLI {#cli}
@@ -528,7 +513,7 @@
      1. Создайте [запись](../../dns/concepts/resource-record.md) в зоне:
 
         ```bash
-        yc dns zone add-records --name cdn-dns-a --record "cdn CNAME cl-********.edgecdn.ru."
+        yc dns zone add-records --name cdn-dns-a --record "cdn CNAME {{ cname-example-yc }}."
         ```
 
         Где:
@@ -543,16 +528,16 @@
         Результат:
 
         ```text
-        +----------------------------+------+-------+------------------------------+
-        |            NAME            | TTL  | TYPE  |             DATA             |
-        +----------------------------+------+-------+------------------------------+
-        | ycprojectblue.example.     | 3600 | NS    | ns1.{{ dns-ns-host-sld }}.         |
-        |                            |      |       | ns2.{{ dns-ns-host-sld }}.         |
-        | ycprojectblue.example.     | 3600 | SOA   | ns1.{{ dns-ns-host-sld }}.         |
-        |                            |      |       | {{ dns-mx-host }}. 1 10800 |
-        |                            |      |       | 900 604800 86400             |
-        | cdn.ycprojectblue.example. |  600 | CNAME | cl-********.edgecdn.ru.      |
-        +----------------------------+------+-------+------------------------------+
+        +----------------------------+------+-------+--------------------------------------------+
+        |            NAME            | TTL  | TYPE  |                    DATA                    |
+        +----------------------------+------+-------+--------------------------------------------+
+        | ycprojectblue.example.     | 3600 | NS    | ns1.{{ dns-ns-host-sld }}.                       |
+        |                            |      |       | ns2.{{ dns-ns-host-sld }}.                       |
+        | ycprojectblue.example.     | 3600 | SOA   | ns1.{{ dns-ns-host-sld }}.                       |
+        |                            |      |       | {{ dns-mx-host }}. 1 10800               |
+        |                            |      |       | 900 604800 86400                           |
+        | cdn.ycprojectblue.example. |  600 | CNAME | {{ cname-example-yc }}. |
+        +----------------------------+------+-------+--------------------------------------------+
         ```
 
         В списке должна быть запись с именем `cdn.ycprojectblue.example.`
@@ -560,7 +545,7 @@
    - API {#api}
 
      1. Если у вас нет публичной зоны DNS, создайте ее с помощью вызова gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md) или метода REST API [create](../../dns/api-ref/DnsZone/create.md). Чтобы сделать зону публичной, добавьте в тело запроса поле `public_visibility` (gRPC) или `publicVisibility` (REST).
-     1. Создайте в зоне [запись](../../dns/concepts/resource-record.md) `cdn CNAME cl-********.edgecdn.ru.` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
+     1. Создайте в зоне [запись](../../dns/concepts/resource-record.md) `cdn CNAME {{ cname-example-yc }}.` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
 
    {% endlist %}
 

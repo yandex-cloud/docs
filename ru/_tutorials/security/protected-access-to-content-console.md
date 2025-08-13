@@ -801,49 +801,27 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
-
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-
-  1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
-
   1. Нажмите **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-
-  1. В блоке **{{ ui-key.yacloud.cdn.label_section-content }}** укажите:
-
-      * **{{ ui-key.yacloud.cdn.label_content-query-type }}** — `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
-      * **{{ ui-key.yacloud.cdn.label_source-type }}** — `{{ ui-key.yacloud.cdn.value_source-type-url }}`.
-      * В поле **{{ ui-key.yacloud.cdn.field_origin }}** укажите `<имя_бакета>.{{ s3-web-host }}`, где `<имя_бакета>` — имя созданного ранее бакета, использующегося CDN-ресурсом в качестве источника.
-
-  1. В блоке **{{ ui-key.yacloud.cdn.label_section-domain }}** в поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите доменное имя, которое вы присвоите вашему CDN-ресурсу: например `cdn.example.com`.
-
-      {% note info %}
-
-      Внизу блока **{{ ui-key.yacloud.cdn.label_section-domain }}** отобразилось значение доменного имени {{ cdn-name }} провайдера. Скопируйте это значение, оно потребуется при создании CNAME-записи для CDN-ресурса.
-
-      {% endnote %}
-
-  1. В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
-
-      1. В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.cdn.value_protocol-match }}`.
-      1. В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
-      1. В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и в появившемся списке выберите созданный ранее сертификат `mymanagedcert`.
-      1. В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}` и появившемся поле **{{ ui-key.yacloud.cdn.label_custom-host-header }}** укажите `<имя_бакета>.{{ s3-web-host }}`, где `<имя_бакета>` — имя созданного ранее бакета, использующегося CDN-ресурсом в качестве источника.
-      1. Включите опцию **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**.
-      1. В появившемся поле **{{ ui-key.yacloud.cdn.field_secure-key }}** укажите секретный ключ — произвольную строку длиной от 6 до 32 символов. Он будет передан в конфигурацию CDN-ресурса и будет использоваться для формирования и проверки подписанных ссылок.
-      1. В поле **{{ ui-key.yacloud.cdn.field_secure-key-type }}** выберите `{{ ui-key.yacloud.cdn.value_secure-key-type-enable }}`.
-
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Задайте основные настройки CDN-ресурса:
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        * Включите **{{ ui-key.yacloud.cdn.label_access }}**.
+        * В поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_source-type }}** выберите `{{ ui-key.yacloud.cdn.value_source-type-url }}`.
+        * В поле **{{ ui-key.yacloud.cdn.field_origin }}** укажите `<имя_бакета>.{{ s3-web-host }}`, где `<имя_бакета>` — имя созданного ранее бакета, используемого CDN-ресурсом в качестве источника.
+        * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.cdn.value_protocol-match }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите доменное имя, которое вы присвоите вашему CDN-ресурсу: например `cdn.example.com`.
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и в появившемся списке выберите созданный ранее сертификат `mymanagedcert`.
+        * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-custom }}` и в появившемся поле **{{ ui-key.yacloud.cdn.label_custom-host-header }}** укажите `<имя_бакета>.{{ s3-web-host }}`, где `<имя_бакета>` — имя созданного ранее бакета, использующегося CDN-ресурсом в качестве источника.
+        * Включите опцию **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
+          1. В появившемся поле **{{ ui-key.yacloud.cdn.field_secure-key }}** укажите секретный ключ — произвольную строку длиной от 6 до 32 символов. Он будет передан в конфигурацию CDN-ресурса и будет использоваться для формирования и проверки подписанных ссылок.
+          1. В поле **{{ ui-key.yacloud.cdn.field_secure-key-type }}** выберите `{{ ui-key.yacloud.cdn.value_secure-key-type-enable }}`.
+  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
+  1. В разделах **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и **Дополнительно** оставьте настройки по умолчанию и нажмите **Продолжить**.
 
 - {{ yandex-cloud }} CLI {#cli}
-
-  1. Если вы создаете свой первый CDN-ресурс, сначала подключитесь к провайдеру:
-
-      ```bash
-      yc cdn provider activate \
-        --type gcore
-      ```
-
-      Подробнее о команде `yc cdn provider activate` читайте в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/provider/activate.md).
 
   1. Создайте ресурс:
   
@@ -922,6 +900,7 @@
 
 - Консоль управления {#console}
 
+  1. [Получите](../../cdn/operations/resources/get-resources-info.md#get-cname) значение доменного имени провайдера CDN.
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать ресурсы.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Выберите созданную ранее DNS-зону.
@@ -930,29 +909,13 @@
 
         * В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_create-subdomain }}` и укажите имя, которое вы присвоили поддомену CDN-ресурса. Например: если доменное имя вашего CDN-ресурса — `cdn.example.com`, укажите только `cdn`.
         * В поле **{{ ui-key.yacloud.common.type }}** выберите [тип записи](../../dns/concepts/resource-record.md#rr-types) `CNAME`.
-        * В поле **{{ ui-key.yacloud.dns.label_records }}** укажите скопированное при создании CDN-ресурса, значение [доменного имени](../../cdn/operations/resources/get-resources-info.md#get-cname) {{ cdn-name }} провайдера.
+        * В поле **{{ ui-key.yacloud.dns.label_records }}** укажите значение [доменного имени](../../cdn/operations/resources/get-resources-info.md#get-cname) провайдера CDN.
 
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. Получите значение [доменного имени](../../cdn/operations/resources/get-resources-info.md#get-cname) {{ cdn-name }} провайдера:  
-
-      ```bash
-      yc cdn resource get-provider-cname
-      ```
-
-      Результат:
-
-      ```text
-      cname: cl-ms6*****90.edgecdn.ru
-      folder_id: b1gt6g8ht345********
-      ```
-
-      Подробнее о команде `yc cdn resource get-provider-cname` читайте в [справочнике CLI](../../cli/cli-ref/cdn/cli-ref/resource/get-provider-cname.md).
-
-      Сохраните полученное значение `cname`: оно пригодится на следующем шаге.
-
+  1. [Получите](../../cdn/operations/resources/get-resources-info.md#get-cname) значение доменного имени провайдера CDN.
   1. Создайте ресурсную запись CNAME в сервисе {{ dns-name }}:
 
       ```bash
@@ -968,11 +931,11 @@
       Результат:
 
       ```text
-      +--------+------------------+-------+--------------------------+-----+
-      | ACTION |       NAME       | TYPE  |           DATA           | TTL |
-      +--------+------------------+-------+--------------------------+-----+
-      | +      | cdn.example.com. | CNAME | cl-ms6*****90.edgecdn.ru | 600 |
-      +--------+------------------+-------+--------------------------+-----+
+      +--------+------------------+-------+-------------------------------------------+-----+
+      | ACTION |       NAME       | TYPE  |           DATA                            | TTL |
+      +--------+------------------+-------+-------------------------------------------+-----+
+      | +      | cdn.example.com. | CNAME | {{ cname-example-yc }} | 600 |
+      +--------+------------------+-------+-------------------------------------------+-----+
       ```
 
       Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).

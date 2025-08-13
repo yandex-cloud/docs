@@ -46,7 +46,11 @@
 
 ## Не удается настроить TLS-сертификат {#tls-certificate}
 
-{% include [lets-encrypt-over](../_includes/cdn/lets-encrypt-over.md) %}
+{% note info %}
+
+Прекращена поддержка _автоматического_ выпуска сертификатов от Let’s Encrypt® для CDN-ресурсов.
+
+{% endnote %}
 
 {% include [certificate-usage](../_includes/cdn/certificate-usage.md) %}
 

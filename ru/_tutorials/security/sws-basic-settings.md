@@ -297,7 +297,12 @@
 
 ### Настройте разрешающее правило для капчи {#captcha-rule}
 
-{% include [allow-captcha](../../_includes/smartwebsecurity/allow-captcha.md) %}
+Разрешающее правило для {{ captcha-name }} необходимо, когда для базового правила по умолчанию установлено действие `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}` и запросы отправляются на проверку в {{ captcha-name }}.
+
+1. На панели слева нажмите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и выберите `site-protection`.
+1. {% include [allow-captcha](../../_includes/smartwebsecurity/allow-captcha.md) %}
+
+{% include [allow-path-captcha](../../_includes/smartwebsecurity/allow-patch-captcha.md) %}
 
 ### Проверьте порядок выполнения правил {#rules-execution-order}
 

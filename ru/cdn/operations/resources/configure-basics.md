@@ -40,8 +40,6 @@ description: Следуя данной инструкции, вы сможете
 
           * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат. Ресурс будет доступен по протоколам HTTP и HTTPS.
 
-              {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
-
               {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
 
           Подробнее см. в разделе [{#T}](../../concepts/clients-to-servers-tls.md).

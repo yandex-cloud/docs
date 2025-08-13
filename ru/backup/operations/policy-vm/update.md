@@ -28,9 +28,21 @@ description: Из статьи вы узнаете, как изменить по
   1. Напротив политики резервного копирования, которую нужно изменить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените параметры политики резервного копирования:
 
-     {% include [policy-options](../../../_includes/backup/policy-options.md) %}
+      * Введите имя. Требования к имени:
 
-       {% include [policy-options-extra](../../../_includes/backup/policy-options-extra.md) %}
+        {% include [name-format](../../../_includes/name-format.md) %}
+
+      * В блоке **{{ ui-key.yacloud.backup.policy-form.title_schedule-section }}** в зависимости от выбранного при создании типа расписания запуска:
+
+          {% include [policy-options-schedule-type](../../../_includes/backup/policy-options-schedule-type.md) %}
+
+      {% include [policy-options-retention](../../../_includes/backup/policy-options-retention.md) %}
+
+      * В блоке **{{ ui-key.yacloud.backup.policy-form.title_additional-section }}**:
+
+          {% include [policy-options-additional](../../../_includes/backup/policy-options-additional.md) %}
+
+          {% include [policy-options-extra](../../../_includes/backup/policy-options-extra.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
