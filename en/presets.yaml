@@ -2223,8 +2223,6 @@ default:
         v1|string: ₸0.80
       v3_bvprem_request:
         v1|string: ₸0.80
-      v3_bvss_request:
-        v1|string: ₸0.80
       v3_request:
         v1|number: 0.8
         v1|string: ₸0.80
@@ -3991,8 +3989,6 @@ default:
       v3_bvcc_request:
         v1|string: ₽0.16
       v3_bvprem_request:
-        v1|string: ₽0.16
-      v3_bvss_request:
         v1|string: ₽0.16
       v3_request:
         v1|number: 0.16
@@ -7586,6 +7582,7 @@ default:
           field_lvm-snapshotting-enabled: Via LVM
           field_retention: Copy retention
           field_run-later: Run missed tasks after uploading
+          field_schedule-type: Launch schedule
           field_sector-by-sector: Sector-by-sector backup
           field_snapshot-reaatempt: Retry in case of an error while creating a snapshot
           field_start-time: Start time
@@ -7600,6 +7597,8 @@ default:
           value_periodicity-weekly: Weekly
           value_retention-variant-save-all: Retain all copies
           value_retention-variant-save-last-f: Only the last
+          value_schedule-type-fixed: Fixed schedule
+          value_schedule-type-interval: Interval between backups
           value_weekly-full-copy: Create a full copy once a week
         policy-overview:
           field_compression: Compression

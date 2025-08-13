@@ -1871,6 +1871,31 @@ For more information, see [Access management in DSPM](../security-deck/security/
 
 For more information, see [{#T}](../serverless-containers/security/index.md).
 
+## {{ si-full-name }} {#serverless-integrations-roles}
+
+### {{ er-full-name }} roles {#eventrouter-roles}
+
+#### serverless.eventrouter.auditor {#serverless-eventrouter-auditor}
+
+{% include [serverless.eventrouter.auditor](../_roles/serverless/eventrouter/auditor.md) %}
+
+#### serverless.eventrouter.viewer {#serverless-eventrouter-viewer}
+
+{% include [serverless.eventrouter.viewer](../_roles/serverless/eventrouter/viewer.md) %}
+
+#### serverless.eventrouter.supplier {#serverless-eventrouter-supplier}
+
+{% include [serverless.eventrouter.supplier](../_roles/serverless/eventrouter/supplier.md) %}
+
+#### serverless.eventrouter.editor {#serverless-eventrouter-editor}
+
+{% include [serverless.eventrouter.editor](../_roles/serverless/eventrouter/editor.md) %}
+
+#### serverless.eventrouter.admin {#serverless-eventrouter-admin}
+
+{% include [serverless.eventrouter.admin](../_roles/serverless/eventrouter/admin.md) %}
+
+For more information, see [Access management in {{ er-name }}](../serverless-integrations/security/eventrouter.md).
 
 ## {{ captcha-full-name }} {#captcha-roles}
 

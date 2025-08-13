@@ -24,6 +24,7 @@
 `serverless.concurrentCloudOperations.count` | 20 ||
 || Number of network packets per second per function instance 
 `serverless.networkPackets.rate` | 10,000 ||
+|| Number of [user networks](../functions/concepts/networking.md#user-network) per cloud | 10 ||
 |#
 
 {% include [quota-trigger-count](quota-trigger-count.md) %}
@@ -46,7 +47,6 @@ Maximum RAM per function instance | 8 GB
 Maximum total environment variable storage, including variable names^2^ | 4 KB
 Maximum number of triggers per [message queue](../message-queue/concepts/queue.md) | 1
 Maximum message size per trigger^3^ | 230 KB
-Number of [user networks](../functions/concepts/networking.md#user-network) per cloud | 1
 
 ^1^ A timeout longer than ten minutes is only available for [long-lived functions](../functions/concepts/long-lived-functions.md).
 ^2^ {{ lockbox-short-name }} secrets are provided via environment variables and are also counted towards this limit.

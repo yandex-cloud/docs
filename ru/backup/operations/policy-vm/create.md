@@ -30,17 +30,38 @@ description: Из статьи вы узнаете, как создать пол
   1. Нажмите кнопку **{{ ui-key.yacloud.backup.button_create-policy }}**.
   1. На странице создания политики резервного копирования:
 
-      {% include [policy-options](../../../_includes/backup/policy-options.md) %}
+      * Введите имя. Требования к имени:
 
-        * (Опционально) Выберите **{{ ui-key.yacloud.backup.policy-overview.field_compression }}** данных в резервной копии. Чем выше уровень сжатия, тем больше времени занимает резервное копирование, при этом созданная копия занимает меньше места. Эффективность процесса зависит от типа копируемых данных: уже сжатые файлы, такие как JPG, PDF или MP3, плохо поддаются дополнительному сжатию, в отличие, например, от DOC или XLS. 
+        {% include [name-format](../../../_includes/name-format.md) %}
 
-          {% note info %}
+      * Выберите [тип резервных копий](../../concepts/backup.md#types):
 
-          Уровень сжатия можно выбрать только при создании политики. Для существующей политики изменить его нельзя.
+          * `{{ ui-key.yacloud.backup.field_type-incremental }}` — сохраняются только отличия от предыдущей копии. При первом запуске будет создана полная копия ресурса.
+          * `{{ ui-key.yacloud.backup.field_type-full }}` — сохраняются все данные виртуальной машины или сервера {{ baremetal-name }}.
 
-          {% endnote %}
+          После создания политики изменить тип будет нельзя.
 
-        {% include [policy-options-extra](../../../_includes/backup/policy-options-extra.md) %}
+      * В блоке **{{ ui-key.yacloud.backup.policy-form.title_schedule-section }}** выберите тип расписания запуска:
+
+          {% include [policy-options-schedule-type](../../../_includes/backup/policy-options-schedule-type.md) %}
+
+          После создания политики изменить тип будет нельзя.
+
+      {% include [policy-options-retention](../../../_includes/backup/policy-options-retention.md) %}
+
+      * В блоке **{{ ui-key.yacloud.backup.policy-form.title_additional-section }}**:
+
+          {% include [policy-options-additional](../../../_includes/backup/policy-options-additional.md) %}
+
+          * (Опционально) Выберите **{{ ui-key.yacloud.backup.policy-overview.field_compression }}** данных в резервной копии. Чем выше уровень сжатия, тем больше времени занимает резервное копирование, при этом созданная копия занимает меньше места. Эффективность процесса зависит от типа копируемых данных: уже сжатые файлы, такие как JPG, PDF или MP3, плохо поддаются дополнительному сжатию, в отличие, например, от DOC или XLS. 
+
+              {% note info %}
+
+              Уровень сжатия можно выбрать только при создании политики. Для существующей политики изменить его нельзя.
+
+              {% endnote %}
+
+          {% include [policy-options-extra](../../../_includes/backup/policy-options-extra.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

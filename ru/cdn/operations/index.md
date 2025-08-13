@@ -5,11 +5,10 @@ description: На странице представлен список поша�
 
 # Пошаговые инструкции для {{ cdn-name }}
 
-* [{#T}](./enable-provider.md)
-
 ## Ресурсы {#resources}
 
 * [{#T}](resources/create-resource.md)
+* [{#T}](resources/copy-resource.md)
 * [{#T}](resources/configure-basics.md)
 * [{#T}](resources/get-resources-info.md)
 * [{#T}](resources/configure-caching.md)

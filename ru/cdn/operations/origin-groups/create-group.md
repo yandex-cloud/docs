@@ -13,7 +13,6 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать группу источников.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. {% include [activate-provider](../../../_includes/cdn/activate-provider.md) %}
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_origins-group-create }}**.
   1. Введите название группы источников.
@@ -22,6 +21,11 @@ description: Следуя данной инструкции, вы сможете
      * Укажите источник.
      * Выберите **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.value_active }}` или `{{ ui-key.yacloud.cdn.value_backup }}`. Подробнее о приоритетах см. в разделе [{#T}](../../concepts/origins.md#groups).
      * Добавьте другие источники, если необходимо.
+  1. Выберите [провайдера CDN](../../concepts/providers.md). По умолчанию выбран провайдер `{{ cdn-full-name }}`.
+
+      {% include [provider-binding](../../../_includes/cdn/provider-binding.md) %}
+
+      За CDN-ресурсом и его группой источников должен быть закреплен один и тот же провайдер CDN.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -29,12 +33,6 @@ description: Следуя данной инструкции, вы сможете
   {% include [include](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-  1. Если вы создаете первую группу источников, сначала подключитесь к провайдеру:
-
-     ```bash
-     yc cdn provider activate --type gcore
-     ```
 
   1. Посмотрите описание команды [CLI](../../../cli/) для создания группы источников:
 
@@ -77,18 +75,6 @@ description: Следуя данной инструкции, вы сможете
      Подробнее о команде `yc cdn origin-group create` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
 
 - {{ TF }} {#tf}
-
-  Провайдер CDN должен быть активирован до создания группы источников. Сделать это можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
-
-  ```bash
-  yc cdn provider activate \
-    --folder-id <идентификатор_каталога> \
-    --type gcore
-  ```
-
-  Где:
-  * `--folder-id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), в котором вы хотите активировать провайдера CDN.
-  * `--type` — тип провайдера: единственное возможное значение — `gcore`.
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 

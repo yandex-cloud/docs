@@ -117,7 +117,8 @@ default:
   cloudml-full-name: Yandex Cloud AI Hybrid
   cloudml-name: Cloud AI Hybrid
   cluster-id: cat0adul1fj0********
-  cname-example: cl-msa87*****.edgecdn.ru
+  cname-example-edge: cl-msa87*****.edgecdn.ru
+  cname-example-yc: 328938ed********.a.yccdn.cloud.yandex.net
   cns-full-name: Yandex Cloud Notification Service
   cns-host: notifications.yandexcloud.net
   cns-name: Cloud Notification Service
@@ -2224,8 +2225,6 @@ default:
         v1|string: "0,80\_₸"
       v3_bvprem_request:
         v1|string: "0,80\_₸"
-      v3_bvss_request:
-        v1|string: "0,80\_₸"
       v3_request:
         v1|number: 0.8
         v1|string: "0,80\_₸"
@@ -3992,8 +3991,6 @@ default:
       v3_bvcc_request:
         v1|string: "0,16\_₽"
       v3_bvprem_request:
-        v1|string: "0,16\_₽"
-      v3_bvss_request:
         v1|string: "0,16\_₽"
       v3_request:
         v1|number: 0.16
@@ -7587,6 +7584,7 @@ default:
           field_lvm-snapshotting-enabled: С помощью LVM
           field_retention: Хранение копий
           field_run-later: Запуск пропущенных заданий после загрузки
+          field_schedule-type: Расписание запуска
           field_sector-by-sector: Посекторное резервное копирование
           field_snapshot-reaatempt: В случае ошибки при создании снимка повторить попытку
           field_start-time: Время запуска
@@ -7601,6 +7599,8 @@ default:
           value_periodicity-weekly: Каждую неделю
           value_retention-variant-save-all: Хранить все копии
           value_retention-variant-save-last-f: Только последнюю
+          value_schedule-type-fixed: Фиксированное расписание
+          value_schedule-type-interval: Интервал между копированием
           value_weekly-full-copy: Раз в неделю создавать полную копию
         policy-overview:
           field_compression: Уровень сжатия

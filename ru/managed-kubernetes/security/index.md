@@ -20,6 +20,8 @@ description: Управление доступом в сервисе для ра
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+Вы также можете [назначить роль на отдельный кластер](../operations/kubernetes-cluster/kubernetes-cluster-access.md).
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}

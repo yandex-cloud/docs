@@ -15,10 +15,9 @@
 Чтобы перенести CDN-ресурс в {{ cdn-full-name }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Подключитесь к провайдеру {{ cdn-name }}](#enable-provider).
-1. [Создайте CNAME-запись поддомена для нового CDN-ресурса](#setup-subdomain).
 1. [Добавьте TLS-сертификат в {{ certificate-manager-full-name }}](#issue-certificate).
 1. [Создайте CDN-ресурс в {{ cdn-name }}](#setup-resource).
+1. [Создайте CNAME-запись поддомена для нового CDN-ресурса](#setup-subdomain).
 1. [Перенастройте ваш сайт на использование нового CDN-ресурса](#update-website).
 1. [Добавьте дополнительный домен к CDN-ресурсу в {{ cdn-name }}](#add-secondary-domain).
 
@@ -35,63 +34,6 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки создаваемой CDN-инфраструктуры входит плата за исходящий трафик с CDN-серверов (см. [тарифы {{ cdn-name }}](../../cdn/pricing.md)).
-
-## Подключитесь к провайдеру {{ cdn-name }} {#enable-provider}
-
-Создать в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) CDN-ресурс можно только в том случае, если этот каталог подключен к CDN-провайдеру {{ cdn-name }}. При подключении к CDN-провайдеру вашему каталогу будет присвоено уникальное значение `cname`, которое необходимо для создания [CNAME-записей](../../dns/concepts/resource-record.md#cname) для поддоменов, используемых создаваемыми в этом каталоге CDN-ресурсами.
-
-Чтобы подключить каталог к CDN-провайдеру и получить значение `cname`:
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, который нужно подключить к CDN-провайдеру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. Если CDN-провайдер еще не активирован, нажмите кнопку **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}**. Подключение произойдет автоматически.
-
-      Если кнопки **{{ ui-key.yacloud.cdn.label_activate-provider-empty-container_action-text }}** нет и вам доступно создание ресурсов и групп источников — провайдер уже активирован.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}** и в блоке **{{ ui-key.yacloud.cdn.label_section-domain }}** скопируйте значение `cname`, необходимое для создания [ресурсной записи](../../dns/concepts/resource-record.md#cname) нового поддомена для CDN-ресурса.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.cancel }}**. CDN-ресурс вы создадите позднее.
-
-- CLI {#cli}
-
-  {% include [include](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-  
-  1. Подключитесь к провайдеру:
-
-      ```bash
-      yc cdn provider activate --type gcore
-      ```
-
-  1. Получите значение CNAME-записи для CDN-ресурса:
-
-      ```bash
-      yc cdn resource get-provider-cname
-      ```
-
-      Результат:
-
-      ```yaml
-      cname: cl-ms6*****90.edgecdn.ru
-      folder_id: b1gt6g8ht345********
-      ```
-
-{% endlist %}
-
-Сохраните полученное значение CNAME-записи, оно понадобится на следующем шаге.
-
-## Создайте CNAME-запись поддомена для нового CDN-ресурса {#setup-subdomain}
-
-Для бесшовного переключения вашего сайта на новый CDN-ресурс вам понадобится новый CDN-поддомен. В публичной доменной зоне, к которой относится доменное имя вашего сайта, создайте CNAME-запись для нового CDN-поддомена, который будет использоваться новым CDN-ресурсом:
-
-* Имя записи: имя нового CDN-поддомена. Например: `cdn-new.example.com.`.
-* Тип записи: `CNAME`.
-* Значение записи: полученное [ранее](#enable-provider) значение `cname` для вашего каталога.
-
-Если домен вашего сайта делегирован {{ dns-full-name }}, для создания CNAME-записи воспользуйтесь [инструкцией](../../dns/operations/resource-record-create.md). В остальных случаях воспользуйтесь документацией вашего DNS-провайдера или обратитесь в его службу технической поддержки.
 
 ## Добавьте TLS-сертификат в {{ certificate-manager-full-name }} {#issue-certificate}
 
@@ -215,21 +157,20 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать CDN-ресурс.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Нажмите **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-  1. В блоке **{{ ui-key.yacloud.cdn.label_section-content }}** укажите:
-
-      * **{{ ui-key.yacloud.cdn.label_content-query-type }}** — `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
-      * **{{ ui-key.yacloud.cdn.label_source-type }}** — `{{ ui-key.yacloud.cdn.value_source-type-url }}`.
-      * В поле **{{ ui-key.yacloud.cdn.field_origin }}** укажите доменное имя или публичный IP-адрес вашего источника статического контента.
-  1. В блоке **{{ ui-key.yacloud.cdn.label_section-domain }}** в поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите новое доменное имя, которое вы присвоили вашему новому CDN-ресурсу. Например: `cdn-new.example.com`.
-
-  1. В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
-
-      1. В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите протокол, по которому CDN-ресурс будет взаимодействовать с источником. Если вы выбираете варианты `{{ ui-key.yacloud.common.label_https }}` или `{{ ui-key.yacloud.cdn.value_protocol-match }}`, убедитесь, что ваш источник поддерживает HTTPS.
-      1. В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
-      1. В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и в появившемся списке выберите созданный ранее сертификат, например: `my-cdn-certificate`.
-      1. В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-default }}`.
-
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Задайте основные настройки CDN-ресурса:
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        * Включите **{{ ui-key.yacloud.cdn.label_access }}**.
+        * В поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_source-type }}** выберите `{{ ui-key.yacloud.cdn.value_source-type-url }}`.
+        * В поле **{{ ui-key.yacloud.cdn.field_origin }}** укажите доменное имя или публичный IP-адрес вашего источника статического контента.
+        * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите протокол, по которому CDN-ресурс будет взаимодействовать с источником. Если вы выбираете варианты `{{ ui-key.yacloud.common.label_https }}` или `{{ ui-key.yacloud.cdn.value_protocol-match }}`, убедитесь, что ваш источник поддерживает HTTPS.
+        * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите новое доменное имя, которое вы присвоили вашему новому CDN-ресурсу. Например: `cdn-new.example.com`.
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и в появившемся списке выберите созданный ранее сертификат, например: `my-cdn-certificate`.
+        * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-default }}`.
+  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
+  1. В разделах **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и **Дополнительно** оставьте настройки по умолчанию и нажмите **Продолжить**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -303,6 +244,16 @@
 
 {% endnote %}
 
+## Создайте CNAME-запись поддомена для нового CDN-ресурса {#setup-subdomain}
+
+Для бесшовного переключения вашего сайта на новый CDN-ресурс вам понадобится новый CDN-поддомен. В публичной доменной зоне, к которой относится доменное имя вашего сайта, создайте CNAME-запись для нового CDN-поддомена, который будет использоваться новым CDN-ресурсом:
+
+* Имя записи: имя нового CDN-поддомена. Например: `cdn-new.example.com.`.
+* Тип записи: `CNAME`.
+* Значение записи: значение `cname` для нового CDN-ресурса. Вы можете получить его в [консоли управления]({{ link-console-main }}) на странице CDN-ресурса, например `{{ cname-example-yc }}`.
+
+Если домен вашего сайта [делегирован {{ dns-full-name }}](../../dns/concepts/dns-zone.md#public-zones), для создания CNAME-записи воспользуйтесь [инструкцией](../../dns/operations/resource-record-create.md). В остальных случаях воспользуйтесь документацией вашего DNS-провайдера или обратитесь в его службу технической поддержки.
+
 ## Перенастройте ваш сайт на использование нового CDN-ресурса {#update-website}
 
 После того как вы создали в {{ cdn-name }} новый CDN-ресурс и убедились в его работоспособности, вы можете переходить к перенастройке вашего сайта и удалению старого CDN-ресурса.
@@ -317,11 +268,11 @@
 
 ### Измените CNAME-запись исходного CDN-поддомена {#update-cname}
 
-Чтобы исходный CDN-поддомен вашего сайта продолжил работать на новом CDN-ресурсе {{ cdn-name }}, замените значение ресурсной CNAME-записи исходного поддомена на значение, полученное ранее при подключении к провайдеру {{ cdn-name }}:
+Чтобы исходный CDN-поддомен вашего сайта продолжил работать на новом CDN-ресурсе {{ cdn-name }}, замените значение ресурсной CNAME-записи исходного поддомена на значение, полученное ранее:
 
 * Имя записи: имя исходного CDN-поддомена. Например: `cdn.example.com.`.
 * Тип записи: `CNAME`.
-* Значение записи: [полученное ранее](#enable-provider) значение `cname` для вашего каталога.
+* Значение записи: значение `cname` для нового CDN-ресурса. Вы можете получить его в [консоли управления]({{ link-console-main }}) на странице CDN-ресурса, например `{{ cname-example-yc }}`.
 
 Если домен вашего сайта делегирован {{ dns-full-name }}, для изменения CNAME-записи воспользуйтесь [инструкцией](../../dns/operations/resource-record-update.md). В остальных случаях воспользуйтесь документацией вашего DNS-провайдера или обратитесь в его службу технической поддержки.
 
