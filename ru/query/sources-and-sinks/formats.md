@@ -309,8 +309,8 @@ WITH(
 
 |Формат сжатия|Название в {{ yq-name }}|
 |--|--|
-|[Raw](https://ru.wikipedia.org/wiki/Gzip)|raw|
-|[Snappy](https://ru.wikipedia.org/wiki/Gzip)|snappy|
+|[Raw](https://github.com/apache/parquet-format/blob/master/Compression.md)|raw|
+|[Snappy](https://en.wikipedia.org/wiki/Snappy_(compression))|snappy|
 
 ### Запись в {{ objstorage-full-name }} {#write_objstorage}
 
