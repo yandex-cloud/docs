@@ -2,7 +2,8 @@
 1. [Создайте группу безопасности](#create-security-group).
 1. [Создайте ВМ для WordPress](#create-vm).
 1. [Настройте DNS (если есть доменное имя)](#configure-dns).
-1. [Настройте WordPress](#wordpress-config).
+1. [Получите данные для авторизации в веб-интерфейсе](#get-auth-data).
+1. [Подключитесь к веб-интерфейсу WordPress](#connect-wordpress-interface).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -91,15 +92,19 @@
 
 {% include [configure-a-record-and-cname](../../_tutorials_includes/configure-a-record-and-cname.md) %}
 
-## Настройте WordPress {#wordpress-config}
+## Получите данные для авторизации в веб-интерфейсе {#get-auth-data}
 
-Чтобы настроить WordPress:
+{% include [get-auth-data](get-auth-data.md) %}
+
+## Подключитесь к веб-интерфейсу WordPress {#connect-wordpress-interface}
+
+Чтобы подключиться к веб-интерфейсу WordPress:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  {% include [wordpress-config](wordpress-config.md) %}
+  {% include [connect-wordpress-interface](connect-wordpress-interface.md) %}
 
 {% endlist %}
 

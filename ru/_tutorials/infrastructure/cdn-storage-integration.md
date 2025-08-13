@@ -980,18 +980,16 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
-
-  1. Создайте CDN-ресурс:
-
-     1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-     1. Задайте основные параметры CDN-ресурса:
-
-        * **{{ ui-key.yacloud.cdn.label_content-query-type }}** — `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
-        * **{{ ui-key.yacloud.cdn.label_source-type }}** — `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
-        * **{{ ui-key.yacloud.cdn.label_balancer }}** — `example-balancer`.
-        * **{{ ui-key.yacloud.cdn.label_ip-address }}** — IP-адрес, назначенный балансировщику (будет единственным в списке).
-        * **{{ ui-key.yacloud.cdn.label_personal-domain }}** — `cdn.yandexcloud.example`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+  1. Задайте основные настройки CDN-ресурса:
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        * Включите **{{ ui-key.yacloud.cdn.label_access }}**.
+        * В поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_source-type }}** выберите `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_balancer }}** выберите `example-balancer`.
+        * В поле **{{ ui-key.yacloud.cdn.label_ip-address }}** выберите IP-адрес, назначенный балансировщику (будет единственным в списке).
+        * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_http }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите `cdn.yandexcloud.example`.
 
           {% note alert %}
 
@@ -999,31 +997,14 @@
 
           {% endnote %}
 
-        * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
-
-          * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_http }}`. 
-          * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
-          * Выберите опцию **{{ ui-key.yacloud.cdn.field_access }}**.
-          * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** укажите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и выберите [сертификат](#add-certificate) для доменного имени `cdn.yandexcloud.example`.
-          * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-resend }}`.
-
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-
-  1. Включите переадресацию клиентов с HTTP на HTTPS:
-
-     1. Выберите ресурс, созданный ранее.
-     1. Убедитесь, что в блоке **{{ ui-key.yacloud.cdn.label_additional }}** статус сертификата изменился на `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
-     1. Справа сверху нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-     1. В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}** в поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** укажите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и выберите [сертификат](#add-certificate) для доменного имени `cdn.yandexcloud.example`.
+        * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-resend }}`.
+  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
+  1. В разделах **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и **Дополнительно** оставьте настройки по умолчанию и нажмите **Продолжить**.
 
 - {{ yandex-cloud }} CLI {#cli}
-
-  1. Если CDN-провайдер еще не активирован, выполните команду:
-
-      ```bash
-      yc cdn provider activate --folder-id <идентификатор_каталога> --type gcore
-      ```
 
   1. Создайте группу источников `example-origin-group`, указав IP-адрес балансировщика:
 
@@ -1189,7 +1170,7 @@
      1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. В списке CDN-ресурсов выберите ресурс с основным доменным именем `cdn.yandexcloud.example`.
-     1. Из блока **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** внизу страницы скопируйте доменное имя вида `cl-********.edgecdn.ru`.
+     1. Из блока **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** внизу страницы скопируйте доменное имя вида `{{ cname-example-yc }}` или `{{ cname-example-edge }}`в зависимости от используемого [провайдера CDN](../../cdn/concepts/providers.md).
 
    {% endlist %}
 
@@ -1197,7 +1178,7 @@
 1. Создайте или измените CNAME-запись для `cdn.yandexcloud.example` так, чтобы она указывала на скопированное доменное имя:
 
    ```
-   cdn CNAME cl-********.edgecdn.ru
+   cdn CNAME {{ cname-example-yc }}
    ```
 
    {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
@@ -1225,7 +1206,7 @@
         1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. В поле **{{ ui-key.yacloud.common.name }}** укажите `cdn`.
         1. В поле **{{ ui-key.yacloud.common.type }}** укажите `CNAME`.
-        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированное значение вида `cl-********.edgecdn.ru`.
+        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированное значение вида `{{ cname-example-yc }}`.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    - {{ yandex-cloud }} CLI {#cli}
@@ -1252,12 +1233,12 @@
         
         Подробнее о команде `yc dns zone create` см. в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/create.md).
         
-     1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example` со скопированным значением вида `cl-********.edgecdn.ru`:
+     1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example` со скопированным значением вида `{{ cname-example-yc }}`:
      
         ```bash
         yc dns zone add-records \
           --name example-dns-zone \
-          --record "cdn CNAME cl-********.edgecdn.ru" \
+          --record "cdn CNAME {{ cname-example-yc }}" \
         ```
 
         Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
@@ -1279,7 +1260,7 @@
           zone_id = ${yandex_dns_zone.example-dns-zone.id}
           name    = "cdn"
           type    = "CNAME"
-          data    = ["<скопированное_значение_вида_cl-********.edgecdn.ru>"]
+          data    = ["<скопированное_значение_вида_{{ cname-example-yc }}>"]
         }
         ```
 
@@ -1309,7 +1290,7 @@
    - API {#api}
     
      1. Создайте DNS-зону `example-dns-zone` с помощью вызова gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md) или метода REST API [create](../../dns/api-ref/DnsZone/create.md).
-     1. Добавьте в зону CNAME-запись `cdn` со скопированным значением вида `cl-********.edgecdn.ru` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
+     1. Добавьте в зону CNAME-запись `cdn` со скопированным значением вида `{{ cname-example-yc }}` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
         
    {% endlist %}
    

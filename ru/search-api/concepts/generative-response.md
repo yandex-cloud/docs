@@ -13,12 +13,6 @@ description: В данной статье описан формат генера
 
 Для выполнения запросов необходима [роль](../security/index.md#search-api-webSearch-user) `search-api.webSearch.user`.
 
-{% note info %}
-
-Генеративный ответ возможен только при поиске по заданной области поиска: массиву сайтов, хостов или страниц. Чтобы искать по всей поисковой базе Яндекса, укажите значение параметра `"site": ["*"]`.
-
-{% endnote %}
-
 ## Формат тела запроса {#body}
 
 Имена полей тела запроса различаются в [REST API](../api-ref/index.md) и [gRPC API](../api-ref/grpc/index.md): в REST API используется [camelCase](https://ru.wikipedia.org/wiki/CamelCase), в gRPC API — [snake_case](https://ru.wikipedia.org/wiki/Snake_case).

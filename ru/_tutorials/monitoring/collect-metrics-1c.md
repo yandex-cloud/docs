@@ -4,6 +4,8 @@
 
 Метрики кластера будут собираться с помощью свободно распространяемой утилиты [{{ prometheus-name }} 1C Exporter](https://github.com/LazarenkoA/prometheus_1C_exporter), передаваться в [{{ unified-agent-full-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md) и затем в {{ monitoring-name }}.
 
+![metrics-1c](../../_assets/monitoring/best-practices/metrics-1c.svg)
+
 Руководство предполагает, что у вас уже развернут кластер «1С:Предприятие» на виртуальной машине в сервисе [{{ compute-full-name }}](../../compute/quickstart/index.md). Пример развертывания см. в руководстве [{#T}](../../tutorials/infrastructure-management/1c-postgresql-linux.md).
 
 Чтобы начать работать с метриками в {{ monitoring-full-name }}:

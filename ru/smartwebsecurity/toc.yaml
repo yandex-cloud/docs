@@ -73,6 +73,12 @@ items:
             href: operations/validate-availability.md
       - name: Списки адресов
         href: operations/list-create.md
+      - name: Обязательные и рекомендуемые правила
+        items:
+          - name: Правило для капчи
+            href: operations/captcha-rule.md
+          - name: Правило для блокировки черных адресов
+            href: operations/black-list-rule.md
       - name: Посмотреть операции
         href: operations/operation-logs.md
       - name: Настроить мониторинг

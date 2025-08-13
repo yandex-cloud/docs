@@ -4,6 +4,8 @@ Follow this guide to configure collection of 1C:Enterprise Linux cluster metrics
 
 Cluster metrics will be collected using the freely distributed [{{ prometheus-name }} 1C Exporter](https://github.com/LazarenkoA/prometheus_1C_exporter) utility, transferred to [{{ unified-agent-full-name }}](../../monitoring/concepts/data-collection/unified-agent/index.md), and then to {{ monitoring-name }}.
 
+![metrics-1c](../../_assets/monitoring/best-practices/metrics-1c.svg)
+
 To use this tutorial, you need to have a 1C:Enterprise cluster deployed on a [{{ compute-full-name }}](../../compute/quickstart/index.md) VM. For a deployment example, see [{#T}](../../tutorials/infrastructure-management/1c-postgresql-linux.md).
 
 To get started with metrics in {{ monitoring-full-name }}:

@@ -1,6 +1,7 @@
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте инфраструктуру](#deploy).
-1. [Настройте WordPress](#wordpress-config)
+1. [Получите данные для авторизации в веб-интерфейсе](#get-auth-data).
+1. [Подключитесь к веб-интерфейсу WordPress](#connect-wordpress-interface).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -55,15 +56,19 @@
 
    {% include [terraform-validate-plan-apply](../../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-## Настройте WordPress {#wordpress-config}
+## Получите данные для авторизации в веб-интерфейсе {#get-auth-data}
 
-Чтобы настроить WordPress:
+{% include [get-auth-data](get-auth-data.md) %}
+
+## Подключитесь к веб-интерфейсу WordPress {#connect-wordpress-interface}
+
+Чтобы подключиться к веб-интерфейсу WordPress:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  {% include [wordpress-config](wordpress-config.md) %}
+  {% include [connect-wordpress-interface](connect-wordpress-interface.md) %}
 
 {% endlist %}
 

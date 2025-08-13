@@ -121,32 +121,7 @@ title: Как получить информацию о ресурсе в {{ cdn-
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится ресурс.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Выберите созданный CDN-ресурс.
-  1. На странице **{{ ui-key.yacloud.common.overview }}** в разделе **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** отобразится имя в домене `.edgecdn.ru`, сгенерированное сервисом.
-
-- CLI {#cli}
-
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-  1. Посмотрите описание команды CLI для получения информации о ресурсе:
-
-      ```bash
-      yc cdn resource get-provider-cname --help
-      ```
-
-  1. Получите информацию о ресурсе, указав его идентификатор или имя:
-
-      ```bash
-      yc cdn resource get-provider-cname
-      ```
-
-      Результат:
-
-      ```text
-      cname: cl-54b75255.edgecdn.ru
-      folder_id: b1geoelk7fld*******
-      ```
+  1. На странице **{{ ui-key.yacloud.common.overview }}** в разделе **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** отобразится доменное имя вида `{{ cname-example-yc }}` или `{{ cname-example-edge }}`в зависимости от используемого [провайдера CDN](../../concepts/providers.md).
 
 - {{ TF }} {#tf}
 
@@ -163,8 +138,8 @@ title: Как получить информацию о ресурсе в {{ cdn-
         resource_id = "<идентификатор_ресурса>"
       }
 
-      output "resource_cname" {
-        value = data.yandex_cdn_resource.my_resource.cname
+      output "provider_cname" {
+        value = data.yandex_cdn_resource.my_resource.provider_cname
       }
       ```
 
@@ -172,12 +147,12 @@ title: Как получить информацию о ресурсе в {{ cdn-
 
       * `data "yandex_cdn_resource"` — описание CDN-ресурса в качестве источника данных:
          * `resource_id` — идентификатор ресурса.
-      * `output "resource_cname"` — выходная переменная, которая содержит информацию о доменном имени:
+      * `output "provider_cname"` — выходная переменная, которая содержит информацию о доменном имени:
          * `value` — возвращаемое значение.
 
-     Вместо `cname` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_cdn_resource` см. в [документации провайдера]({{ tf-provider-datasources-link }}/cdn_resource).
+     Вместо `provider_cname` вы можете выбрать любой другой параметр для получения информации. Более подробно о параметрах источника данных `yandex_cdn_resource` см. в [документации провайдера]({{ tf-provider-datasources-link }}/cdn_resource).
 
-  1. Создайте ресурсы:
+  1. Получите информацию о ресурсах:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -190,7 +165,7 @@ title: Как получить информацию о ресурсе в {{ cdn-
       Результат:
 
       ```text
-      resource_cname = "cl-54b75255.edgecdn.ru"
+      provider_cname = "{{ cname-example-yc }}"
       ```
 
 {% endlist %}

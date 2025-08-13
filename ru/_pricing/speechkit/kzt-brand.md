@@ -2,9 +2,6 @@
 | ----- | ----- |
 | **{{ brand-voice-cc-name }}** | |
 | Запрос | {{ sku|KZT|speechkit.tts.v3_bvcc_request.v1|string }} |
-| **{{ brand-voice-core-name }}** | |
-| Хостинг, за месяц | 1 200 000 ₸ |
-| Запрос | {{ sku|KZT|speechkit.tts.v3_bvss_request.v1|string }} |
 | **{{ brand-voice-lite-name }}** | |
 | Разовый платеж за создание одного голоса | 45 000 ₸ |
 | Хостинг, первые семь дней ^1^ | Не тарифицируется |

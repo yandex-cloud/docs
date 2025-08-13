@@ -136,6 +136,8 @@ items:
           - name: Создание пространства имен в кластере {{ k8s }}
             href: >-
               operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
+          - name: Управление доступом к кластеру {{ k8s }}
+            href: operations/kubernetes-cluster/kubernetes-cluster-access.md
           - name: Мониторинг состояния кластера {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-get-stats.md
           - name: Удаление кластера {{ k8s }}
