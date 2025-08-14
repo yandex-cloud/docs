@@ -138,7 +138,13 @@ items:
       - name: Добавление HTML-страницы для работы {{ captcha-name }}
         href: security/mobile-app/website.md
       - name: Создание L7-балансировщика с профилем безопасности
-        href: security/balancer-with-sws-profile.md
+        items:
+          - name: Обзор
+            href: security/balancer-with-sws-profile/index.md
+          - name: Консоль управления
+            href: security/balancer-with-sws-profile/console.md
+          - name: '{{ TF }}'
+            href: security/balancer-with-sws-profile/terraform.md
       - name: ViPNet Coordinator в {{ yandex-cloud }}
         href: security/vipnet-to-yc.md
         hidden: true

@@ -5,6 +5,7 @@ description: Из статьи вы узнаете, что такое что т�
 
 # Реестр схем данных
 
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
 {% include [connection](../../_includes/metadata-hub/schema-registry-definition.md) %}

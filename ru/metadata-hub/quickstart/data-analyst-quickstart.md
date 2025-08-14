@@ -1,10 +1,10 @@
 # Начало работы для аналитика метаданных
 
-{% note info %}
 
-{% include [preview-tp](../../_includes/preview-tp.md) %}
 
-{% endnote %}
+{% include notitle [preview](../../_includes/note-preview.md) %}
+
+
 
 Работая с {{ data-catalog-full-name }} в роли аналитика метаданных, вы можете анализировать и визуализировать метаданные об объектах {{ yandex-cloud }} и связях между ними.
 

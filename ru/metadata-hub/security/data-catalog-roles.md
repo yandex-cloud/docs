@@ -1,10 +1,14 @@
 # Сервисные роли для работы с метаданными в {{ data-catalog-full-name }}
 
+
+
 {% note info %}
 
 {% include [preview-tp](../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
+
 
 С помощью сервисных ролей {{ data-catalog-full-name }} вы можете просматривать информацию о каталогах и управлять ими.
 

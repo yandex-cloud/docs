@@ -50,9 +50,11 @@ description: Страница содержит все инструкции дл�
 
 * [{#T}](project/tag/create-dictionary-tag.md)
 * [{#T}](project/tag/create-sense-tag.md)
+* [{#T}](project/tag/create-sense-pro-tag.md)
 * [{#T}](project/tag/create-dependent-tag.md)
 * [{#T}](project/tag/change-dictionary-tag.md)
 * [{#T}](project/tag/change-sense-tag.md)
+* [{#T}](project/tag/change-sense-pro-tag.md)
 * [{#T}](project/tag/test.md)
 * [{#T}](project/tag/delete.md)
 

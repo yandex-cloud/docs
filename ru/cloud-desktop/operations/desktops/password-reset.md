@@ -19,12 +19,7 @@ description: Из статьи вы узнаете, как сбросить па
 
 - Витрина пользовательских рабочих столов {#desktop-showcase}
 
-  1. Откройте [Витрину пользовательских рабочих столов]({{ link-cloud-desktop-showcase }}).
-  1. Если рабочий стол, к которому вы хотите подключиться, находится в статусе `Stopped`, запустите его — нажмите ![image](../../../_assets/console-icons/play.svg) и подтвердите запуск.
-
-      Дождитесь перехода рабочего стола в статус `Active`.
-  1. Нажмите ![image](../../../_assets/console-icons/lock-open.svg) и подтвердите сброс пароля.
-  1. Сохраните новый пароль из всплывающего окна и закройте его.
+  {% include [password-reset-desktop-showcase](../../../_includes/cloud-desktop/password-reset-desktop-showcase.md) %}
 
 - {{ yandex-cloud }} CLI {#cli}
 

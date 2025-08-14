@@ -2,7 +2,7 @@
 
 You can add and remove [cluster hosts](../concepts/index.md), resync the hosts, and [manage {{ MG }} settings](update.md) for individual clusters. To learn how to move your cluster hosts to a different availability zone, see [this guide](host-migration.md).
 
-## Getting a list of cluster hosts {#list-hosts}
+## Getting the list of cluster hosts {#list-hosts}
 
 {% list tabs group=instructions %}
 
@@ -112,7 +112,11 @@ Advanced | ⩾ 1 | — | ⩾ 2 | ⩾ 3
   1. Specify the host parameters:
      * [Availability zone](../../overview/concepts/geo-scope.md).
      * [Subnet](../../vpc/concepts/network.md#subnet) (if the required subnet is not on the list, create it).
+
+     
      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+
+
      * Host type and shard name, if sharding is enabled for the {{ mmg-name }} cluster.
   1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 

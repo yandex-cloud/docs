@@ -101,12 +101,6 @@ When creating a cluster, you need to specify individual parameters for each [hos
           {% endnote %}
 
 
-      {% note warning %}
-
-      After creating your cluster, you can only change the host configuration using the API. However, you can also create a new host group with a different configuration if needed.
-
-      {% endnote %}
-
   1. Configure the `Dashboards` [host group](../concepts/host-roles.md#dashboards) under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 2**, if required:
 
       1. Select the platform, host type, and host class.
@@ -752,7 +746,7 @@ To create an {{ OS }} cluster copy:
         export OPENSEARCH_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the ID with the [list of clusters in the folder](../../managed-opensearch/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-opensearch/operations/cluster-list.md#list-clusters).
 
     1. Import the initial {{ OS }} cluster’s settings into the {{ TF }} configuration:
 

@@ -10,7 +10,7 @@ In {{ mpg-short-name }} clusters, you cannot manage {{ PG }} extensions using SQ
 
 ## Enabling libraries for extensions {#libraries-connection}
 
-For some extensions, you need to enable shared libraries. To link a library when [creating](../cluster-create.md) or [editing](../update.md#change-postgresql-config) a cluster, specify its name in the [Shared preload libraries parameter](../../concepts/settings-list#setting-shared-libraries).
+For some extensions, you need to enable shared libraries. To link a library when [creating](../cluster-create.md) or [editing](../update.md#change-postgresql-config) a cluster, specify its name in the [Shared preload libraries parameter](../../concepts/settings-list.md#setting-shared-libraries).
 
 You can install the following libraries in {{ mpg-short-name }}:
 
@@ -312,7 +312,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 || <p>[pgaudit](https://www.pgaudit.org/)</p><p>The extension provides additional logging tools and enhances the audit features.</p><p>Requires [enabling the `pgaudit` shared library](#libraries-connection).</p><p>For more information, see [Using pgaudit](./pgaudit.md).</p>  | 1.0.0 | 1.0.0 | 1.0.0 | 1.0.0 | 1.7 | 16.0 | 17.0 ||
 || <p>[pgcrypto]({{ pg-docs }}/static/pgcrypto.html)</p><p>Provides cryptographic functions for {{ PG }}. For more information, see [Using pgcrypto](./pgcrypto.md).</p> | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 | 1.3 ||
 || <p>[pglogical](https://github.com/2ndQuadrant/pglogical)</p><p>Adds support for logical streaming replication using the publish-subscribe mechanism.</p> | 2.4.1 | 2.4.1 | 2.4.1 | 2.4.1 | - | 2.4.3 | 2.4.5 ||
-|| <p>[pgrouting](http://pgrouting.org/)</p><p>Extends the [PostGIS](https://www.postgis.net/) database to provide geospatial routing functionality.</p> | 2.6.2 | 2.6.2 | 3.0.2 | 3.3.0 | 3.4.1 | 3.5.0 | 3.6.2 ||
+|| <p>[pgrouting](http://pgrouting.org/)</p><p>Extends the [PostGIS](https://www.postgis.net/) database to provide geospatial routing functionality.</p> | 2.6.2 | 2.6.2 | 3.0.2 | 3.3.0 | 3.4.1 | - | - ||
 || <p>[pgrowlocks]({{ pg-docs }}/static/pgrowlocks.html)</p><p>Contains the `pgrowlocks()` function to return row locking information for the specified table.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 | 1.2 ||
 || <p>[pgstattuple]({{ pg-docs }}/pgstattuple.html)</p><p>Contains functions you need to get tuple-level statistics.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role or the [`mdb_superuser`](../../concepts/roles.md#mdb-superuser) role.</p> | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 ||
 || <p>[pgvector](https://github.com/pgvector/pgvector)</p><p>Adds a vector similarity search.</p> | 0.2.5 | 0.2.5 | 0.2.5 | 0.2.5 | 0.3.2 | 0.8.0 | 0.8.0 ||

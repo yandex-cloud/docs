@@ -101,7 +101,6 @@ items:
             href: tutorials/balancer-with-sws-profile/console.md
           - name: '{{ TF }}'
             href: tutorials/balancer-with-sws-profile/terraform.md
-        href: tutorials/balancer-with-sws-profile.md
       - name: >-
           Создание L7-балансировщика с профилем безопасности через
           Ingress-контроллер {{ alb-name }}

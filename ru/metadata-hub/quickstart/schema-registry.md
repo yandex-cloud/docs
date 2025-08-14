@@ -2,7 +2,11 @@
 
 Управляйте версиями схем со {{ schema-registry-name }}.
 
+
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
+
 
 
 ## Создайте пространство имен {#create-namespace}

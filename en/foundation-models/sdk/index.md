@@ -1,17 +1,17 @@
 # {{ ml-sdk-full-name }}
 
-{{ ai-studio-full-name }} provides {{ ml-sdk-full-name }}, a library of tools and code examples for Python development. {{ ml-sdk-name }} provides a standardized method of working with foundation models and simplifies integration with other {{ yandex-cloud }} services.
+{{ ai-studio-full-name }} provides {{ ml-sdk-full-name }}, a library of tools and code examples for Python development. {{ ml-sdk-name }} employs a standardized method of working with foundation models and simplifies integration with other {{ yandex-cloud }} services.
 
 The {{ ml-sdk-name }} library implements the synchronous and asynchronous Python interfaces based on gRPC API calls of {{ ai-studio-name }} services. {{ ml-sdk-name }} offers the following features:
 * [Text generation](../concepts/yandexgpt/index.md) based on any supported [model](../concepts/yandexgpt/models.md).
 * Working with [embeddings](../concepts/embeddings.md).
-* Working with [{{ yagpt-name }} based classifiers](../concepts/classifier/index.md).
+* Working with [{{ yagpt-name }}-based classifiers](../concepts/classifier/index.md).
 * Creating [AI assistants](../concepts/assistant/index.md).
 * [Image generation](../concepts/yandexart/index.md) by {{ yandexart-name }}.
 * [Fine-tuning](../concepts/tuning/index.md) of text generation models and classifiers.
 * Integration with [LangChain](https://www.langchain.com/).
 
-You can see the full list of supported functions, library source code, and use cases on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk).
+You can check the full list of supported functions, library source code, and use cases on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk).
 
 ## Installation {#install}
 
@@ -23,10 +23,10 @@ pip install yandex-cloud-ml-sdk
 
 ## Authentication in {{ ml-sdk-full-name }} {#authentication}
 
-To authenticate in {{ ml-sdk-full-name }}, you need to provide a `YCloudML` object to the model. This object contains the following fields:
+To authenticate in {{ ml-sdk-full-name }}, you need to provide the `YCloudML` object to the model. This object contains the following fields:
 
 * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are going to use to work with models.
-* `auth`: Key, token, or other authentication data to identify the subject. You can specify the `auth` field value explicitly or get it automatically from the environment:
+* `auth`: Key, token, or other authentication data to identify the user. You can specify the `auth` field value explicitly or get it automatically from the environment:
 
     {% list tabs %}
 
@@ -39,7 +39,7 @@ To authenticate in {{ ml-sdk-full-name }}, you need to provide a `YCloudML` obje
           * Secret part of the service account [API key](../../iam/concepts/authorization/api-key.md).
           * [OAuth token](../../iam/concepts/authorization/oauth-token.md) of a user account.
 
-          The SDK will automatically determine the type of the authentication data.
+          The SDK will automatically determine the type of authentication data.
       * Object of one of the following classes:
 
           * `APIKeyAuth`: Allows you to explicitly set authentication by the provided API key. Example: `auth = APIKeyAuth('<API_key>')`.
@@ -48,7 +48,7 @@ To authenticate in {{ ml-sdk-full-name }}, you need to provide a `YCloudML` obje
           * `MetadataAuth`: Allows you to explicitly set authentication as the service account specified in the {{ compute-full-name }} VM [metadata](../../compute/concepts/vm-metadata.md). Example: `auth = MetadataAuth()`.
           * `EnvIAMTokenAuth`: Allows you to explicitly set authentication using the IAM token specified in the `YC_TOKEN` or any other environment variable. Example: `auth = EnvIAMTokenAuth()` or `auth = EnvIAMTokenAuth("ENV_VAR")`.
 
-              The SDK obtains the IAM token from this environment variable with each request, so you can occasionally update the IAM token in the environment variable yourself outside the SDK. This authentication option is optimal for use with a [service agent](../../datasphere/operations/community/create-ssa.md) in {{ ml-platform-full-name }} if that service has [access](../../iam/concepts/service-control.md) to other resources in the user's cloud.                
+              The SDK obtains the IAM token from this environment variable with each request, so you can occasionally update the IAM token in the environment variable yourself outside the SDK. This authentication option is optimal for use with a [service agent](../../datasphere/operations/community/create-ssa.md) in {{ ml-platform-full-name }} if that service has [access](../../iam/concepts/service-control.md) to other resources in the user's cloud.
           * `YandexCloudCLIAuth`: Allows you to explicitly set authentication as a [user](../../iam/concepts/users/accounts.md) or service account [specified](../../cli/operations/index.md#auth) in the [{{ yandex-cloud }} CLI](../../cli/index.yaml) profile on the user's computer. Example: `auth = YandexCloudCLIAuth()`.
           * `NoAuth`: Specifies that no authentication data will be provided. Example: `auth = NoAuth()`.
 
@@ -87,8 +87,8 @@ As input data for the request, {{ ml-sdk-name }} can accept the following types:
 * Dictionary, a data structure similar to [JSON](https://en.wikipedia.org/wiki/JSON), e.g., `{"role": "role", "text": "text"}`.
 * {{ ml-sdk-name }} `TextMessage` [class](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/blob/master/src/yandex_cloud_ml_sdk/_models/completions/message.py) object, e.g., `result[0]`.
 
-    The `result` object of the `TextMessage` class is an array of alternatives contained in the model's responses. With such an object, you can provide the previous response of the model in your next request.
-* Array containing any combination of the above data types. Example: `["text", {"role": "role", "text": "text"}]`.
+    The `result` object of the `TextMessage` class is an array of alternatives from the model's responses. With such an object, you can provide the previous response of the model in your next request.
+* Array containing any combination of the above data types, e.g., `["text", {"role": "role", "text": "text"}]`.
 
 The example below will prompt {{ gpt-pro }} with the "What is heaven?" string.
 
@@ -118,7 +118,7 @@ print(f'{result.alternatives[0].status=}')
 Where:
 
 * `folder_id`: [Service account](../../iam/concepts/users/service-accounts.md) [folder ID](../../resource-manager/operations/folder/get-id.md).
-* `auth`: Key, token, or other [authentication](#authentication) data to identify the subject.
+* `auth`: Key, token, or other [authentication](#authentication) data to identify the user.
 
 Result:
 
@@ -135,9 +135,9 @@ Result:
     ```
 1. The `result.alternatives[0].role` field states one of these message sender roles:
 
-    * `user`: Used for sending user messages to the model.
-    * `system`: Used to set the query context and define the model's behavior.
-    * `assistant`: Used for responses generated by the model.
+    * `user`: To send user messages to the model.
+    * `system`: To set the query context and define the model's behavior.
+    * `assistant`: For responses generated by the model.
 
     ```text
     assistant
@@ -149,13 +149,13 @@ Result:
     
     The word _heaven_ can also be used figuratively to mean something sublime, ideal, or divine.
     ```
-1. The `result.alternatives[0].status` field states the message status. Possible status values:
+1. The `result.alternatives[0].status` field states the message status. The possible status values include:
 
     * `UNSPECIFIED`: Status is not defined.
     * `PARTIAL`: Part of the generated text that may change while generation is still in progress.
     * `TRUNCATED_FINAL`: Final generated text where the result exceeds the limits.
     * `FINAL`: Final generated text within the limits.
-    * `CONTENT_FILTER`: Generation was stopped because the prompt or generated text contain sensitive data or ethically inappropriate topics.
+    * `CONTENT_FILTER`: Generation was stopped because the prompt or generated text contains sensitive data or ethically inappropriate topics.
 
     ```text
     AlternativeStatus.FINAL: 3

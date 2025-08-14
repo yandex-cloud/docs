@@ -54,7 +54,7 @@ keywords:
         1. Select a platform in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** field.
         1. Specify the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** of the VM to deploy hosts on.
         1. Select **{{ ui-key.yacloud.mdb.forms.section_resource }}**.
-        1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, select the disk type and specify its size.
+        1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**, select the disk type and specify the [storage](../concepts/storage.md) size.
         1. Under **{{ ui-key.yacloud.spqr.section_hosts }}**:
 
             1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.label_title }}** to add the required number of hosts to create together with the {{ SPQR }} cluster.

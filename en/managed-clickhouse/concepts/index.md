@@ -15,6 +15,25 @@ A cluster with multiple {{ CH }} hosts is natively fault-tolerant because {{ CH 
 
 * {{ CH }} hosts and individual {{ ZK }} hosts
 
+
+The minimum number of {{ CH }} hosts per cluster depends on the following:
+    
+  * [Storage type](storage.md):
+
+    * At least three hosts for non-replicated SSDs (`network-ssd-nonreplicated`).
+
+    * At least two hosts for local SSDs (`local-ssd`).
+
+    * At least one host for the following:
+
+      * Network HDDs (`network-hdd`).
+      * Network SSDs (`network-ssd`).      * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`).
+
+  * Cluster sharding. When sharding is enabled, the minimum number of hosts for the selected disk type is multiplied by the number of shards.
+
+    For more info on the specifics and limitations of sharding in {{ CH }}, see [this section](sharding.md).
+
+
 A cluster with a single {{ CH }} host is not fault-tolerant.
 
 To implement fault-tolerance in an existing cluster with a single {{ CH }} host:
@@ -29,7 +48,7 @@ When creating a cluster, specify:
 
 * _Environment_: Environment where the cluster will be deployed:
    * `PRODUCTION`: For stable versions of your apps.
-   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+   * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
 
 You should also specify the host class when creating a [shard](sharding.md).
 

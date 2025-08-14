@@ -5,7 +5,7 @@ You can upgrade a {{ mrd-name }} cluster to any supported version.
 
 ## Supported versions {#version-supported}
 
-All {{ VLK }} versions, which were supported in {{ mrd-name }}, will remain available as long as the vendor continues to support them. Normally, this is for 24 months after a version is released. For more information, see the relevant [{{ VLK }} documentation](https://valkey.io/topics/releases/).
+All {{ VLK }} versions, which were supported in {{ mrd-name }}, will remain available as long as the vendor continues to support them. Normally, this is for 24 months after a version is released. For more information, see [this {{ VLK }} article](https://valkey.io/topics/releases/).
 
 
 ### Viewing a list of available {{ VLK }} versions {#version-list}
@@ -14,9 +14,15 @@ All {{ VLK }} versions, which were supported in {{ mrd-name }}, will remain avai
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
     1. Select a cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Open the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
+
+    {% note info %}
+
+    To specify the version number in the CLI, {{ TF }}, and the API, add the `-valkey` suffix to it, e.g., `{{ versions.cli.previous }}`.
+
+    {% endnote %}
 
 {% endlist %}
 
@@ -190,7 +196,7 @@ Make sure this does not affect your applications:
 
 ## Examples {#examples}
 
-Let's assume you need to upgrade your cluster from version {{ versions.cli.previous }} to version {{ versions.cli.latest }}.
+Let's assume you need to upgrade your cluster from version {{ versions.console.previous }} to version {{ versions.console.latest }}.
 
 {% list tabs group=instructions %}
 
@@ -224,11 +230,11 @@ Let's assume you need to upgrade your cluster from version {{ versions.cli.previ
       id: c9q8p8j2gaih********
       ...
       config:
-        version: "{{ versions.cli.previous }}"
+        version: {{ versions.cli.previous }}
         ...
       ```
 
-   1. To upgrade a cluster named `redis406` to version {{ versions.cli.latest }}, run the following command:
+   1. To upgrade a cluster named `redis406` to version `{{ versions.console.latest }}`, run the following command:
 
       ```bash
       {{ yc-mdb-rd }} cluster update redis406 --redis-version {{ versions.cli.latest }}

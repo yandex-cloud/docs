@@ -30,7 +30,7 @@ Rule settings depend on the connection method you select:
 
 - Over the internet {#internet}
 
-    [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following rule for incoming traffic:
+    [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port {{ port-mmy }} from any IP address. To do this, create the following rule for inbound traffic:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mmy }}`
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
@@ -70,7 +70,7 @@ Rule settings depend on the connection method you select:
 
 {% note info %}
 
-You can specify more granular rules for your security groups, such as allowing traffic only within specific subnets.
+You can specify more granular rules for your security groups, such as only allowing traffic within specific subnets.
 
 You must configure security groups correctly for all subnets in which the cluster hosts will reside. If security group settings are incomplete or incorrect, you may lose access to the cluster.
 
@@ -103,7 +103,7 @@ You can obtain the {{ MY }} host FQDN by doing one of the following:
 
 * Look up the FQDN in the management console:
 
-    1. Go to the cluster page.
+    1. Navigate to the cluster page.
     1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
@@ -111,17 +111,25 @@ You can obtain the {{ MY }} host FQDN by doing one of the following:
 
 * [Request a list of cluster hosts](../operations/hosts.md#list) using the CLI or API.
 
+## Special FQDNs {#special-fqdns}
+
+Alongside [regular FQDNs](connect.md#fqdn), {{ mmy-name }} provides several special FQDNs, which can also be used when connecting to a cluster.
+
+{% include [special-fqdns-info](../../_includes/mdb/special-fqdns-info.md) %}
+
+{% note warning %}
+
+If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes a new master or the most recent replica, you will not be able to access this host from the internet. To avoid this, [enable public access](hosts.md#update) for all the cluster hosts.
+
+{% endnote %}
+
 ### Current master {#fqdn-master}
 
 An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host in the cluster. You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
 When connecting to this FQDN, both read and write operations are allowed.
 
-{% note warning %}
-
-If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes a new master host, you will not be able to connect to it from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all the cluster hosts.
-
-{% endnote %}
+{% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
 ### Most recent replica {#fqdn-replica}
 
@@ -129,14 +137,8 @@ An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to a [replica](../co
 
 **Specifics:**
 
-* When connecting to this FQDN, only read operations are allowed.
+* When connected to this FQDN, you are only allowed to perform read operations.
 * If there are no active replicas in a cluster, you cannot connect to this FQDN as the respective DNS CNAME record will point to a null object (`null`).
-
-{% note warning %}
-
-If, when the [master host is changed automatically](../concepts/replication.md#master-failover), a host with no public access becomes the least lagging replica, you will not be able to connect to it from the internet. To avoid this, [enable public access](../operations/hosts.md#update) for all the cluster hosts.
-
-{% endnote %}
 
 
 ## Connecting from graphical IDEs {#connection-ide}
@@ -154,7 +156,7 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
   1. Create a data source:
      1. Select **File** → **New** → **Data Source** → **{{ MY }}**.
      1. On the **General** tab:
-        1. Specify the connection settings:
+        1. Configure the connection as follows:
            * **Host**: [Any {{ MY }}](#fqdn) host FQDN or a [special FQDN](#fqdn-master).
            * **Port**: `{{ port-mmy }}`.
            * **User**, **Password**: DB user's name and password.

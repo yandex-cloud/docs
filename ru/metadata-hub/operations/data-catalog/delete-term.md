@@ -1,10 +1,12 @@
 # Удаление термина
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 Перед удалением термина [удалите](delete-term-child.md) все его дочерние термины.
 

@@ -10,6 +10,8 @@ items:
         href: operations/index.md
       - name: Creating a cluster
         href: operations/cluster-create.md
+      - name: Connecting to a database
+        href: operations/connect.md
       - name: Updating a cluster
         href: operations/cluster-update.md
       - name: Managing shards
@@ -20,7 +22,15 @@ items:
     items:
       - name: Service resource interdependencies
         href: concepts/index.md
+      - name: Sharding
+        href: concepts/sharding.md
+      - name: Host classes
+        href: concepts/instance-types.md
+      - name: '{{ SPQR }} storage'
+        href: concepts/storage.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Pricing policy
     href: pricing.md
+  - name: Release notes
+    href: release-notes.md

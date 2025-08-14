@@ -7,13 +7,13 @@ description: In this tutorial, you will learn how to manage {{ MY }} cluster hos
 
 You can add and remove cluster hosts and manage their settings. For information about moving cluster hosts to a different [availability zone](../../overview/concepts/geo-scope.md), see [this guide](host-migration.md).
 
-## Getting a list of cluster hosts {#list}
+## Getting the list of cluster hosts {#list}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
 
 - CLI {#cli}
@@ -40,7 +40,7 @@ You can add and remove cluster hosts and manage their settings. For information 
   +----------------------------+----------------------+---------+--------+---------------+
   ```
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -48,7 +48,7 @@ You can add and remove cluster hosts and manage their settings. For information 
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.listHosts](../api-ref/Cluster/listHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.listHosts](../api-ref/Cluster/listHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -57,7 +57,7 @@ You can add and remove cluster hosts and manage their settings. For information 
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/hosts'
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) to make sure the request was successful.
 
@@ -68,7 +68,7 @@ You can add and remove cluster hosts and manage their settings. For information 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -84,7 +84,7 @@ You can add and remove cluster hosts and manage their settings. For information 
           yandex.cloud.mdb.mysql.v1.ClusterService.ListHosts
       ```
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) to make sure the request was successful.
 
@@ -98,7 +98,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
   1. Specify the host parameters:
@@ -106,10 +106,10 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
      
      * Availability zone.
      * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
-
-
      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
-     * Priority for assigning the host as a master.
+
+
+     * Host priority for assignment as a master.
      * Host priority as a {{ MY }} replica for creating backups.
 
 - CLI {#cli}
@@ -158,7 +158,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
          `assign-public-ip=<public_access_to_subcluster_host>,`
          `replication-source=<source_host_name>,`
          `backup-priority=<host_backup_priority>,`
-         `priority=<priority_for_assigning_host_as_master>
+         `priority=<host_priority_for_assignment_as_master>
      ```
 
      Where:
@@ -166,16 +166,16 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
      * `--host`: Host parameters:
        * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
-       * `assign-public-ip`: Host accessibility from the internet, `true` or `false.`.
+       * `assign-public-ip`: Internet access to the host, `true` or `false.`.
        * `replication-source`: [Replication](../concepts/replication.md) source for the host.
        * `backup-priority`: Host's [backup](../concepts/backup.md#size) priority, between `0` and `100`.
        * `priority`: Priority for assigning the host as master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
-     You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
   1. Add a `host` block to the {{ mmy-name }} cluster description:
@@ -187,7 +187,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
          zone             = "<availability_zone>"
          subnet_id        = <subnet_ID>
          assign_public_ip = <public_access_to_host>
-         priority         = <priority_for_assigning_host_as_master>
+         priority         = <host_priority_for_assignment_as_master>
          ...
        }
      }
@@ -216,7 +216,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.addHosts](../api-ref/Cluster/addHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.addHosts](../api-ref/Cluster/addHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -232,7 +232,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
                         "assignPublicIp": <public_host_address:_true_or_false>,
                         "replicationSource": "<host_FQDN>",
                         "backupPriority": "<host_backup_priority>",
-                        "priority": "<priority_for_assigning_host_as_master>"
+                        "priority": "<host_priority_for_assignment_as_master>"
                       }
                     ]
                   }'
@@ -247,7 +247,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
       * `backupPriority`: Host's [backup](../concepts/backup.md#size) priority, between `0` and `100`.
       * `priority`: Priority for assigning the host as master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -258,7 +258,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -276,7 +276,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
                     "assign_public_ip": <public_host_address:_true_or_false>,
                     "replication_source": "<host_FQDN>",
                     "backup_priority": "<host_backup_priority>",
-                    "priority": "<priority_for_assigning_host_as_master>"
+                    "priority": "<host_priority_for_assignment_as_master>"
                   }
                 ]
               }' \
@@ -293,7 +293,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
       * `backup_priority`: Host's [backup](../concepts/backup.md#size) priority, between `0` and `100`.
       * `priority`: Priority for assigning the host as master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -326,12 +326,16 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 - Management console {#console}
 
   To change the parameters of the cluster host:
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.common.edit }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.edit }}**.
   1. Set new settings for the host:
      1. Select a replication source for the host to control replication threads manually.
+
+     
      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+
+
      1. Set the value of the **{{ ui-key.yacloud.mysql.field_priority }}** field.
      1. Set the value of the **{{ ui-key.yacloud.mysql.field_backup_priority }}** field.
   1. Click **{{ ui-key.yacloud.postgresql.hosts.dialog.button_choose }}**.
@@ -350,22 +354,22 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
     --replication-source=<source_host_name> \
     --assign-public-ip=<public_access_to_host> \
     --backup-priority=<host_backup_priority> \
-    --priority=<priority_for_assigning_host_as_master>
+    --priority=<host_priority_for_assignment_as_master>
   ```
 
   Where:
   * `--cluster-name`: {{ mmy-name }} cluster name.
   * `--replication-source`: [Replication](../concepts/replication.md) source for the host.
-  * `--assign-public-ip`: Host accessibility from the internet, `true` or `false`.
+  * `--assign-public-ip`: Internet access to the host, `true` or `false`.
   * `--backup-priority`: Host's [backup](../concepts/backup.md#size) priority, between `0` and `100`.
   * `--priority`: Priority for assigning the host as master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
-  You can request the host name with a [list of cluster hosts](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the host name with the [list of cluster hosts](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
   To change the parameters of the cluster host:
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
   1. In the {{ mmy-name }} cluster description, change the attributes of the `host` block corresponding to the host you are updating.
@@ -376,7 +380,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
        host {
          replication_source_name = "<replication_source>"
          assign_public_ip        = <public_access_to_host>
-         priority                = <priority_for_assigning_host_as_master>
+         priority                = <host_priority_for_assignment_as_master>
        }
      }
      ```
@@ -404,7 +408,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -420,7 +424,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
                         "assignPublicIp": <public_host_address:_true_or_false>,
                         "replicationSource": "<host_FQDN>",
                         "backupPriority": "<host_backup_priority>",
-                        "priority": "<priority_for_assigning_host_as_master>"
+                        "priority": "<host_priority_for_assignment_as_master>"
                       }
                     ]
                   }'
@@ -435,7 +439,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
       * `backupPriority`: Host's [backup](../concepts/backup.md#size) priority, between `0` and `100`.
       * `priority`: Priority for assigning the host as master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -446,7 +450,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -468,7 +472,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
                     "assign_public_ip": <public_host_address:_true_or_false>,
                     "replication_source": "<host_FQDN>",
                     "backup_priority": "<host_backup_priority>",
-                    "priority": "<priority_for_assigning_host_as_master>"
+                    "priority": "<host_priority_for_assignment_as_master>"
                   }
                 ]
               }' \
@@ -485,7 +489,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
       * `backup_priority`: Host's [backup](../concepts/backup.md#size) priority, between `0` and `100`.
       * `priority`: Priority for assigning the host as master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -503,15 +507,15 @@ If you cannot [connect](connect.md) to the host after you changed it, check that
 
 You can remove a host from a {{ MY }} cluster if it is not the only host in it. To replace a single host, first create a new host and then remove the old one.
 
-If the host is the master when deleted, {{ mmy-name }} automatically assigns the replica of the next highest priority as the master.
+If the host is the master at the time of deletion, {{ mmy-name }} will automatically assign the next highest priority replica as the master.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.common.delete }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
@@ -526,11 +530,11 @@ If the host is the master when deleted, {{ mmy-name }} automatically assigns the
      --cluster-name=<cluster_name>
   ```
 
-  You can request the host name with a [list of cluster hosts](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the host name with the [list of cluster hosts](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
   1. Delete the `host` block from the {{ mmy-name }} cluster description.
@@ -552,7 +556,7 @@ If the host is the master when deleted, {{ mmy-name }} automatically assigns the
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Use the [Cluster.deleteHosts](../api-ref/Cluster/deleteHosts.md) method and make a request, e.g., via {{ api-examples.rest.tool }}:
+  1. Use the [Cluster.deleteHosts](../api-ref/Cluster/deleteHosts.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -567,11 +571,11 @@ If the host is the master when deleted, {{ mmy-name }} automatically assigns the
                   }'
       ```
 
-      Where `hostNames` is an array with the host to delete.
+      Where `hostNames` is the array with the host to delete.
 
-      Only one host FQDN can be provided in a single request. If you need to delete multiple hosts, run the request for each of them.
+      You can provide only one host FQDN per request. If you need to delete multiple hosts, make a separate request for each of them.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -582,7 +586,7 @@ If the host is the master when deleted, {{ mmy-name }} automatically assigns the
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Use the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+  1. Use the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -601,11 +605,11 @@ If the host is the master when deleted, {{ mmy-name }} automatically assigns the
           yandex.cloud.mdb.mysql.v1.ClusterService.DeleteHosts
       ```
 
-      Where `host_names` is an array with the host to delete.
+      Where `host_names` is the array with the host to delete.
 
-      Only one host FQDN can be provided in a single request. If you need to delete multiple hosts, run the request for each of them.
+      You can provide only one host FQDN per request. If you need to delete multiple hosts, make a separate request for each of them.
 
-      You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

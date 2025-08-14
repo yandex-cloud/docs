@@ -45,7 +45,7 @@ The error occurs because you are trying to connect to the cluster with a [public
 Connecting to cluster hosts may fail with the following error:
 
 ```text
-too many active clients for user (pool_size for user <user_name> reached <limit_value>)
+too many active clients for user (pool_size for user <username> reached <limit_value>)
 ```
 
 By default, a cluster reserves 50 connections to each host per user. If the connection limit per user is reached, any attempt to establish a new connection will fail with an error.
@@ -59,7 +59,7 @@ To learn how to update {{ PG }} settings at the user level, see [this tutorial](
 Connecting to a custom database may fail with the following error:
 
 ```text
-ERROR: odyssey: ce3ea075f4ffa: route for '<DB_name>.<user_name>' is not found
+ERROR: odyssey: ce3ea075f4ffa: route for '<DB_name>.<username>' is not found
 ```
 
 The error means that the connection parameters contain an invalid database name.
@@ -69,7 +69,7 @@ The error means that the connection parameters contain an invalid database name.
 You get this error when creating a dump using `pg_dumpall`:
 
 ```text
-ERROR: odyssey: c16b9035a1f78: route for 'template1.<user_name>' is not found
+ERROR: odyssey: c16b9035a1f78: route for 'template1.<username>' is not found
 ```
 
 This error is there because `pg_dumpall` tries to export all databases: both custom and system ones.
@@ -81,7 +81,7 @@ You cannot create a dump of all {{ mpg-name }} databases at the same time. Expor
 Connecting to the `postgres` database fails with the following error:
 
 ```text
-ERROR: odyssey: c76e2c1283a7a: route for 'postgres.<user_name>' is not found
+ERROR: odyssey: c76e2c1283a7a: route for 'postgres.<username>' is not found
 ```
 
 `postgres` is a system database; connecting to it is prohibited in {{ mpg-name }}. Specify a different database in the connection parameters.
@@ -135,8 +135,8 @@ Solution: First reduce the limits set for users so their sum is less than `<Max_
 
 [Restoring a logical dump](../../managed-postgresql/tutorials/data-migration.md#backup) may fail with one of the following errors:
 
-* `ERROR:  role "<source_username>" does not exist`
-* `ERROR:  must be member of role "<source_username>"`
+* `ERROR: role "<source_username>" does not exist`
+* `ERROR: must be member of role "<source_username>"`
 
 The errors occur because the target cluster does not have the user (or the privileges of the user) who created the logical dump in the source cluster.
 
@@ -189,7 +189,7 @@ Error message:
 cluster should have at least 2 HA hosts to use cascade host
 ```
 
-The error occurs if you specify a replication source for a single non-cascading replication.
+The error occurs if you specify a replication source for a single non-cascading replica.
 
 To ensure [high availability](../../architecture/fault-tolerance.md#mdb-ha), your cluster must have at least one replica without a replication source. During maintenance or if the master host fails, this replica will take over as the master.
 

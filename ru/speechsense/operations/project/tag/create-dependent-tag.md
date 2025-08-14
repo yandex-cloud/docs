@@ -11,8 +11,8 @@ description: Следуя данной инструкции, вы сможете
 1. Перейдите в нужное пространство, затем выберите проект.
 1. На вкладке **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** выберите нужный тег и нажмите кнопку ![icon](../../../../_assets/console-icons/ellipsis.svg).
 1. В раскрывающемся списке выберите ![icon](../../../../_assets/console-icons/link.svg) **{{ ui-key.yc-ui-talkanalytics.tags.create-dependent-tag }}**.
-1. В зависимости от типа создаваемого тега задайте настройки [смыслового](create-sense-tag.md#new-tag) или [словарного](create-dictionary-tag.md#new-tag) тега и нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
+1. В зависимости от типа создаваемого тега задайте настройки [смыслового](create-sense-tag.md#new-tag), [смыслового Pro](create-sense-pro-tag.md) или [словарного](create-dictionary-tag.md#new-tag) тега и нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.tags.create-tag-key-value }}**.
 
 Основными и зависимыми тегами могут быть как словарные, так и смысловые теги, в любой комбинации. Если для смыслового тега создается зависимый словарный тег, то для этого словарного тега нельзя указать ограничение.
 
-Зависимые теги редактируются в соответствии с их типом как обычные [смысловые](change-sense-tag.md) или [словарные](change-dictionary-tag.md) теги.
+Зависимые теги редактируются в соответствии с их типом как обычные [смысловые](change-sense-tag.md), [смысловые Pro](change-sense-pro-tag.md) или [словарные](change-dictionary-tag.md) теги.

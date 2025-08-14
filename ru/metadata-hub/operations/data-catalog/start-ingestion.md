@@ -1,10 +1,12 @@
 # Запуск и остановка загрузки
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 Загрузки запускаются автоматически по тому расписанию, которое вы установили для них при [создании](create-ingestion.md) или [изменении](update-ingestion.md). Вы можете запустить или остановить загрузку, если в ее расписании указано **{{ ui-key.data-catalog.console.form.cron.Cron.none.title }}**.
 

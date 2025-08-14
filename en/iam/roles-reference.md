@@ -1808,6 +1808,10 @@ For more information, see [Access management in Access Transparency](../security
 
 ### DSPM roles {#dspm-roles}
 
+#### dspm.worker {#dspm-worker}
+
+{% include [dspm.worker](../_roles/dspm/worker.md) %}
+
 #### dspm.inspector {#dspm-inspector}
 
 {% include [dspm.inspector](../_roles/dspm/inspector.md) %}

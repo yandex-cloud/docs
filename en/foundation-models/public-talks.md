@@ -1,6 +1,6 @@
 ---
 title: Public materials about {{ foundation-models-name }}
-description: Videos of conferences and webinars dedicated to {{ foundation-models-name }}.
+description: '{{ foundation-models-name }} conference and webinar recordings.'
 ---
 
 # Public materials about {{ foundation-models-name }}

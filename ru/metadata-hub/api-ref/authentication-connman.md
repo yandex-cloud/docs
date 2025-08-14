@@ -6,6 +6,7 @@ description: Для выполнения операций через API в се
 # Аутентификация в API {{ metadata-hub-full-name }}
 
 
+
 Для выполнения операций через [API](../../glossary/rest-api.md) необходимо получить [IAM-токен](../../iam/concepts/authorization/iam-token.md):
 
 * [Инструкция](../../iam/operations/iam-token/create.md) для аккаунта на Яндексе.
