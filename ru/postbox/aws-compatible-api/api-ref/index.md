@@ -32,6 +32,7 @@ description: Из статьи вы узнаете, какие методы API 
 || [CreateConfigurationSet](create-configuration-set.md) | Создает конфигурацию. ||
 || [PutDomainIdentityConfigurationSetAttributes](put-domain-identity-configuration-set-attributes.md) | Связывает адрес и конфигурацию. ||
 || [DeleteConfigurationSet](delete-configuration-set.md) | Удаляет конфигурацию. ||
+|| [PutConfigurationSetDeliveryOptions](put-configuration-set-delivery-options.md) | Управляет настройками доставки. ||
 |#
 
 ## Подписки {#event-destinations}

@@ -60,7 +60,7 @@ By default, a cluster reserves 50 connections to each host per user. You can cha
 If the connection limit per user is reached, any attempt to establish a new connection will fail with the following error:
 
 ```text
-too many active clients for user (pool_size for user <user_name> reached <limit_value>)
+too many active clients for user (pool_size for user <username> reached <limit_value>)
 ```
 
 To learn how to update {{ PG }} settings at the user level, see [this tutorial](../../managed-postgresql/operations/cluster-users.md#update-settings).
@@ -71,7 +71,7 @@ To connect from {{ google-looker }}, be sure to generate a client certificate fi
 
 #### How do I always connect to the master host? {#connect-to-master}
 
-To connect to the current master host, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns). It has this format: `c-<cluster_ID>.rw.{{ dns-zone }}`. When connected to this FQDN, you can perform read and write operations.
+To connect to the current master host, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns). It has this format: `c-<cluster_ID>.rw.{{ dns-zone }}`. When connected to this FQDN, you will be able to perform read and write operations.
 
 {% cut "Example of command for connection to a master" %}
 
@@ -80,7 +80,7 @@ To connect to the current master host, use a [special FQDN](../../managed-postgr
         port={{ port-mpg }} \
         sslmode=verify-full \
         dbname=<DB_name> \
-        user=<user_name>"
+        user=<username>"
   ```
 
 {% endcut %}
@@ -96,7 +96,7 @@ psql "host=c-<cluster_ID>.ro.{{ dns-zone }} \
       port={{ port-mpg }} \
       sslmode=verify-full \
       dbname=<DB_name> \
-      user=<user_name>"
+      user=<username>"
 ```
 
 {% endcut %}

@@ -7,6 +7,10 @@ description: This page enlists roles required to control access to the Data Secu
 
 With [DSPM](../concepts/dspm.md) service roles, you can manage user access to the DSPM resources and their settings, as well as to the results of scans of sources for sensitive information.
 
+#### dspm.worker {#dspm-worker}
+
+{% include [dspm.worker](../../_roles/dspm/worker.md) %}
+
 #### dspm.inspector {#dspm-inspector}
 
 {% include [dspm.inspector](../../_roles/dspm/inspector.md) %}

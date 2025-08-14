@@ -1,10 +1,12 @@
 # Удаление классификации
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 При удалении классификации удалятся все ее теги.
 

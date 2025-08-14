@@ -24,7 +24,7 @@ description: Различные сценарии использования по
 * [{#T}](wlif-k8s-integration.md)
 * [{#T}](coi-fluent-bit-logging.md)
 * [{#T}](../container-infrastructure/k8s-fluent-bit-logging.md)
-* [{#T}](balancer-with-sws-profile.md)
+* [{#T}](balancer-with-sws-profile/index.md)
 * [{#T}](different-folders-services.md)
 * [{#T}](alerts-monitoring.md)
 * [{#T}](maxpatrol.md)

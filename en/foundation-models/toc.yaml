@@ -17,7 +17,7 @@ items:
         href: operations/get-api-key.md
       - name: Text generation
         items:
-          - name: Estimating request size in tokens
+          - name: Estimating prompt size in tokens
             href: operations/yandexgpt/evaluate-request.md
           - name: Sending a request in prompt mode
             href: operations/yandexgpt/create-prompt.md

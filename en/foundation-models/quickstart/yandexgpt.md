@@ -1,10 +1,10 @@
 # Getting started with {{ gpt-lite }} and {{ gpt-pro }}
 
-In this section, you will learn how to use the {{ yagpt-name }} model to generate texts in [synchronous mode](../concepts/index.md#working-mode) without adding context. For other examples, see [Guides on how to use {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api)
+In this section, you will learn how to use the {{ yagpt-name }} model to generate texts in [synchronous mode](../concepts/index.md#working-mode) without adding any context. For other examples, see [Guides on how to use {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api)
 
 The [management console]({{ link-console-main }}/link/foundation-models/yandexgpt) provides a quick and easy way for new users without a [billing account](../../billing/concepts/billing-account.md) to try out the model with {{ gpt-freetier }} free prompts per hour. To access the API and increase usage [quotas](../concepts/limits.md), [link](../../billing/operations/pin-cloud.md) your billing account to your cloud.
 
-For information about {{ foundation-models-full-name }} pricing, see [{#T}](../pricing.md).
+For information about the {{ foundation-models-full-name }} pricing, see [{#T}](../pricing.md).
 
 ## Getting started {#before-begin}
 
@@ -28,7 +28,7 @@ To get started in {{ yandex-cloud }}:
 
 - API {#api}
 
-  To run sample requests using the API, install [cURL](https://curl.haxx.se). 
+  To use the examples of requests via the API, install [cURL](https://curl.haxx.se). 
 
   To work with the {{ yagpt-name }} API, you need to get authenticated using your account:
 
@@ -56,15 +56,15 @@ To get started in {{ yandex-cloud }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/dice-3.svg) **{{ ui-key.yacloud.yagpt.label_promt }}**.
 
      ![screen01](../../_assets/foundation-models/quickstart/yandexgpt/screen01.png)
 
   1. In the **{{ ui-key.yacloud.yagpt.label_temperature-text }}** field, enter a value between `0` and `1` for the model's response variability. With a higher value, you get a less deterministic result.
   1. Describe the request context under **{{ ui-key.yacloud.yagpt.label_instruction-text }}**.
-  1. Describe your request to the model under **{{ ui-key.yacloud.yagpt.label_request-text }}**.
-  1. Click **{{ ui-key.yacloud.yagpt.label_button-instruct-submit }}**. The answer will be shown on the right part of the screen.
+  1. Enter your prompt to the model under **{{ ui-key.yacloud.yagpt.label_request-text }}**.
+  1. Click **{{ ui-key.yacloud.yagpt.label_button-instruct-submit }}**. The response will appear on the right side of the screen.
 
      ![screen02](../../_assets/foundation-models/quickstart/yandexgpt/screen02.png)
 
@@ -122,7 +122,7 @@ To get started in {{ yandex-cloud }}:
      * `FOLDER_ID`: ID of the folder for which your account has the `{{ roles-yagpt-user }}` role or higher.
      * `IAM_TOKEN`: IAM token you got [before you started](#before-begin).
 
-     The service will respond with the generated text:
+     The service will return the generated text:
 
      ```json
      {

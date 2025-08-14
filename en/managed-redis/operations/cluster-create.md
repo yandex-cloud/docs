@@ -117,7 +117,11 @@ There are no restrictions for non-sharded clusters.
 
           * **{{ ui-key.yacloud.mdb.forms.host_column_zone }}**: Select an [availability zone](../../overview/concepts/geo-scope.md).
           * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
+
+          
           * **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**: Enables access to the host from the internet if the cluster is created with **{{ ui-key.yacloud.redis.field_tls-support }}** enabled.
+
+
           * **{{ ui-key.yacloud.mdb.forms.host_column_replica-priority }}**: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
           * **{{ ui-key.yacloud.mdb.forms.host_column_shard-name }}**: Enables you to change the shard name for the host. The field is available only if the cluster is created with **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}** enabled.
 
@@ -176,6 +180,7 @@ There are no restrictions for non-sharded clusters.
       {{ yc-mdb-rd }} cluster create \
         --name <cluster_name> \
         --environment <environment> \
+        --redis-version <{{ VLK }}_version> \
         --network-name <network_name> \
         --host zone-id=<availability_zone>,`
               `subnet-id=<subnet_ID>,`
@@ -195,6 +200,7 @@ There are no restrictions for non-sharded clusters.
 
       Where:
       * `--environment`: Environment, `prestable` or `production`.
+      * `--redis-version`: {{ VLK }} version, {{ versions.cli.str }}.
 
       
       * `--host`: Host parameters:
@@ -241,7 +247,7 @@ There are no restrictions for non-sharded clusters.
        * Database cluster: Description of the cluster and its hosts. You can also configure [DBMS settings](../concepts/settings-list.md) here if necessary.
 
        
-       * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you do not need to describe it again.
+       * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) to host the cluster. If you already have a suitable network, you do not need to describe it again.
        * Subnets: [Subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
 
 
@@ -389,7 +395,7 @@ There are no restrictions for non-sharded clusters.
         * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
         * `configSpec`: Cluster settings:
 
-            * `version`: {{ VLK }} version.
+            * `version`: {{ VLK }} version, {{ versions.cli.str }}.
             * `resources`: Cluster resources:
 
                 * `resourcePresetId`: [Host class](../concepts/instance-types.md).
@@ -521,7 +527,7 @@ There are no restrictions for non-sharded clusters.
         * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
         * `config_spec`: Cluster settings:
 
-            * `version`: {{ VLK }} version.
+            * `version`: {{ VLK }} version, {{ versions.cli.str }}.
             * `resources`: Cluster resources:
 
                 * `resource_preset_id`: [Host class](../concepts/instance-types.md).
@@ -628,7 +634,7 @@ To create a {{ VLK }} cluster copy:
         export REDIS_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the ID with the [list of clusters in the folder](../../managed-redis/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-redis/operations/cluster-list.md#list-clusters).
 
     1. Import the initial {{ VLK }} cluster’s settings into the {{ TF }} configuration:
 

@@ -87,7 +87,7 @@ items:
             href: operations/cluster-operations.md
           - name: Performance diagnostics
             href: operations/performance-diagnostics.md
-          - name: Monitoring the state of clusters and hosts
+          - name: Cluster and host status monitoring
             href: operations/monitoring.md
           - name: Transferring cluster logs to {{ cloud-logging-full-name }}
             href: operations/mgp-to-cloud-logging.md
@@ -125,15 +125,15 @@ items:
             href: tutorials/managed-kafka-to-greenplum.md
   - name: Concepts
     items:
-      - name: Resource relationships
+      - name: Service resource interdependencies
         href: concepts/index.md
       - name: Host classes
         href: concepts/instance-types.md
       - name: Calculating the cluster configuration
         href: concepts/calculate-specs.md
-      - name: Networking in {{ mgp-name }}
+      - name: '{{ mgp-name }} network'
         href: concepts/network.md
-      - name: Storage in {{ mgp-name }}
+      - name: '{{ mgp-name }} storage'
         items:
           - name: Disk types
             href: concepts/storage.md
@@ -155,6 +155,8 @@ items:
         href: concepts/user-authentication.md
       - name: Command center
         href: concepts/command-center.md
+      - name: Command center parameters
+        href: concepts/command-center-parameters.md
       - name: External tables
         href: concepts/external-tables.md
       - name: Managing connections

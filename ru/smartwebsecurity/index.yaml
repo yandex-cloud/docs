@@ -26,7 +26,7 @@ links:
     href: concepts/arl
   - title: Практические руководства
     description: Воспользуйтесь готовыми сценариями для защиты веб-приложений
-    href: tutorials/balancer-with-sws-profile
+    href: tutorials/index
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits

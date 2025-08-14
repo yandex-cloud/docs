@@ -7,13 +7,13 @@ description: In this tutorial, you will learn how to manage {{ PG }} cluster hos
 
 You can add and remove cluster hosts and manage their settings. For information about moving cluster hosts to a different [availability zone](../../overview/concepts/geo-scope.md), see [this guide](host-migration.md).
 
-## Getting a list of cluster hosts {#list}
+## Getting the list of cluster hosts {#list}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of the cluster you need and select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
 
 - CLI {#cli}
@@ -42,7 +42,7 @@ You can add and remove cluster hosts and manage their settings. For information 
   ```
 
 
-  You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -59,7 +59,7 @@ You can add and remove cluster hosts and manage their settings. For information 
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/hosts'
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.postgresql.v1.ListClusterHostsResponse) to make sure the request was successful.
 
@@ -86,7 +86,7 @@ You can add and remove cluster hosts and manage their settings. For information 
        yandex.cloud.mdb.postgresql.v1.ClusterService.ListHosts
      ```
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.postgresql.v1.ListClusterHostsResponse) to make sure the request was successful.
 
@@ -101,7 +101,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 - Management console {#console}
 
   To create a host:
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and go to the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
 
@@ -161,7 +161,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
 
      
-     The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mpg-short-name }} will automatically select a single subnet. You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     The subnet ID should be specified if the availability zone contains multiple subnets; otherwise, {{ mpg-short-name }} will automatically select a single subnet. You can request the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 
      You can also specify several additional options in the `--host` parameter to manage public access to a host and replication in a cluster:
@@ -175,7 +175,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 - {{ TF }} {#tf}
 
   To create a host:
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -259,7 +259,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
        See the [method description](../api-ref/Cluster/addHosts.md#yandex.cloud.mdb.postgresql.v1.AddClusterHostsRequest) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -314,7 +314,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
        See the [method description](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -337,12 +337,16 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 - Management console {#console}
 
   To change the parameters of the cluster host:
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row and select **{{ ui-key.yacloud.common.edit }}**.
   1. Set new settings for the host:
      1. Select the replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual).
+
+     
      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+
+
   1. Click **{{ ui-key.yacloud.postgresql.hosts.dialog.button_choose }}**.
 
 - CLI {#cli}
@@ -366,14 +370,14 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
   * `replication-source`: Source host name.
   * `assign-public-ip`: [Public access to the host](../concepts/network.md#public-access-to-a-host), `true` or `false`.
 
-  You can request the host name with a [list of cluster hosts](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the host name with the [list of cluster hosts](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   To [manually manage replication threads](../concepts/replication.md#replication-manual) in the cluster, change the host's replication source in the `--replication-source` parameter.
 
 - {{ TF }} {#tf}
 
   To change the parameters of the cluster host:
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -453,7 +457,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 
        See the [method description](../api-ref/Cluster/updateHosts.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterHostsRequest) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -514,7 +518,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
 
        See the [method description](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec) for the list of {{ PG }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -539,7 +543,7 @@ If the host is the master at the time of deletion, {{ mpg-short-name }} will aut
 - Management console {#console}
 
   To remove a host from a cluster:
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
@@ -556,12 +560,12 @@ If the host is the master at the time of deletion, {{ mpg-short-name }} will aut
     --cluster-name <cluster_name>
   ```
 
-  You can request the host name with a [list of cluster hosts](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can request the host name with the [list of cluster hosts](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
   To remove a host from a cluster:
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -600,7 +604,7 @@ If the host is the master at the time of deletion, {{ mpg-short-name }} will aut
 
      Where `hostNames` is an array of strings, each containing the [FQDN of the host being deleted](connect.md#fqdn).
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 
@@ -632,7 +636,7 @@ If the host is the master at the time of deletion, {{ mpg-short-name }} will aut
 
      Where `host_names` is an array of strings, each containing the [FQDN of the host being deleted](connect.md#fqdn).
 
-     You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.
 

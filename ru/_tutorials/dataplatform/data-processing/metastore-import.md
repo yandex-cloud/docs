@@ -1,5 +1,6 @@
 # Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{ metastore-name }}
 
+
 Вы можете перенести метаданные между [кластерами {{ dataproc-full-name }}](../../../data-proc/concepts/index.md) с СУБД Hive. Сначала метаданные экспортируются из одного кластера, затем импортируются в другой с помощью [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md).
 
 Чтобы перенести метаданные между кластерами {{ dataproc-name }}:

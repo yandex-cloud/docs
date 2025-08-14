@@ -1,17 +1,15 @@
 ---
-title: How to get started with {{ cloud-shell-full-name }}
+title: Getting started with {{ cloud-shell-full-name }}
 description: With {{ cloud-shell-name }}, you can use the {{ yandex-cloud }} CLI and other terminal tools directly in your browser, no prior setup required.
 ---
 
 # Getting started with {{ cloud-shell-full-name }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 With {{ cloud-shell-name }}, you can use the [{{ yandex-cloud }} CLI](../../cli/) and other terminal tools directly in your browser, no prior setup required. The {{ cloud-shell-name }} environment provides essential cloud management tools and popular programming language SDKs.
 
 To get started with {{ cloud-shell-name }}:
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
 
 1. In the left-hand menu, click ![Cloud Shell](../../_assets/console-icons/cloud-shell.svg) **{{ ui-key.yacloud.cloud-shell.label_service }}**.
 

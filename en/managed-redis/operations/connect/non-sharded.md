@@ -25,21 +25,19 @@ You can connect to a non-sharded {{ VLK }} cluster:
 
     To always connect to the master host in a non-sharded cluster, use a [special FQDN](#special-fqdns) that always points to the master host, or track the roles of all the cluster hosts yourself.
 
-## Special FQDNs {#special-fqdns}
+## Special FQDN {#special-fqdns}
 
-{{ mrd-name }} provides special FQDNs that can be used instead of regular [host FQDNs](index.md#fqdn) to connect to non-sharded clusters.
+{{ mrd-name }} provides a special FQDN that can be used instead of [regular host FQDNs](index.md#fqdn) to connect to non-sharded clusters.
+
+In a non-sharded cluster, an FQDN of `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host. You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters). When connecting to this FQDN, both read and write operations are allowed.
+
+In multi-host clusters, a special FQDN might temporarily point to a replica host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your write request returns an error, repeat it later.
 
 {% note warning %}
 
-If, when the [master host is changed automatically](../../concepts/replication.md#master-failover), a host with no public access becomes a new master host, you will not be able to connect to it from the internet. To avoid this, [enable public access](../hosts.md#update) for all cluster hosts.
+If, when the [master host is changed automatically](../../concepts/replication.md#master-failover), a host with no public access becomes a new master host, you will not be able to connect to it from the internet. To avoid this, [enable public access](../hosts.md#update) for all the cluster hosts.
 
 {% endnote %}
-
-### Current master {#fqdn-master}
-
-In a non-sharded cluster, an FQDN of `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the current master host. You can request  the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
-
-When connecting to this FQDN, both read and write operations are allowed.
 
 Here is an example of an SSL-encrypted connection to a master host for a cluster with the `c9qash3nb1v9********` ID:
 
@@ -50,6 +48,8 @@ redis-cli -h c-c9qash3nb1v9********.rw.{{ dns-zone }} \
   --cacert ~/.redis/{{ crt-local-file }} \
   -a <{{ VLK }}_password>
 ```
+
+{% include [special-fqdns-warning](../../../_includes/mdb/special-fqdns-warning.md) %}
 
 ## Connecting from graphical IDEs {#connection-ide}
 
@@ -65,7 +65,7 @@ You can only use graphical IDEs to connect to cluster hosts through an SSL tunne
 
     Connections to {{ VLK }} clusters are only available in [DBeaver business editions](https://dbeaver.com/buy/).
 
-    To connect to a cluster:
+    To connect to your cluster:
 
     1. Create a new DB connection:
         1. In the **Database** menu, select **New connection**.

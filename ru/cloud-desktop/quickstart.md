@@ -1,13 +1,13 @@
 ---
-title: Как начать работать с {{ cloud-desktop-name }}
+title: Начало работы с {{ cloud-desktop-name }} для администраторов
 description: Следуя данной инструкции, вы сможете создать и настроить группу рабочих столов.
 ---
 
-# Как начать работать с {{ cloud-desktop-full-name }}
+# Начало работы с {{ cloud-desktop-full-name }} для администраторов
 
 {% note info %}
 
-Инструкция содержит информацию о создании и настройке [группы рабочих столов](concepts/desktops-and-groups.md). Если вы получили от администратора ссылку на [витрину пользовательских рабочих столов](concepts/showcase.md), перейдите к подразделу [Получите данные для подключения](#get-credentials).
+Инструкция содержит информацию о создании и настройке [группы рабочих столов](concepts/desktops-and-groups.md). Если вы получили от администратора ссылку на [витрину пользовательских рабочих столов](concepts/showcase.md), перейдите к разделу [{#T}](quickstart-users.md).
 
 {% endnote %}
 
@@ -142,6 +142,6 @@ description: Следуя данной инструкции, вы сможете
 
 ## Подключитесь к рабочему столу {#connect-desktop}
 
-Для подключения к рабочему столу используется [Remote Desktop Protocol](https://ru.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP).
+{% include [rdp-is-using](../_includes/cloud-desktop/rdp-is-using.md) %}
 
 {% include [desktop-connect](../_includes/cloud-desktop/desktop-connect.md) %}

@@ -1,11 +1,10 @@
 title: Yandex Foundation Models
 description:
   - >-
-    Yandex Foundation Models is a service that provides large generative models
-    for businesses. Yandex Cloud offers YandexGPT Lite, YandexGPT, and YandexART
-    for your business apps and web services. Yandex Foundation Models will be
-    useful for everyone who seeks the ways to streamline their business with
-    machine learning.
+    Yandex Foundation Models provides large generative models for businesses.
+    Yandex Cloud offers YandexGPT Lite, YandexGPT, and YandexART for your
+    business apps and web services. Yandex Foundation Models will help you boost
+    your business with machine learning.
   - >-
     For terms of use, see the <a href
     ="https://yandex.com/legal/cloud_terms_yandex_foundation_models">Yandex
@@ -13,15 +12,15 @@ description:
   - >-
     This service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
-    service level is set out in the document titled <a
+    service level is set out in the <a
     href="https://yandex.com/legal/cloud_sla_yandex_foundation_models/">Yandex
     Foundation Models Service Level</a>.
 links:
   - title: Getting started with {{ yagpt-name }}
-    description: Send your first request to {{ yagpt-name }}.
+    description: Send your first request to {{ yagpt-name }}
     href: quickstart/yandexgpt
   - title: Getting started with {{ yandexart-name }}
-    description: Generate your first image with {{ yandexart-name }}.
+    description: Generate your first image with {{ yandexart-name }}
     href: quickstart/yandexart
   - title: Concepts
     description: Read about basic concepts
@@ -41,11 +40,10 @@ links:
 meta:
   title: Yandex Foundation Models
   description: >-
-    Yandex Foundation Models is a service that provides large generative models
-    for businesses. Yandex Cloud allows you to use neural networks that enable
-    leveraging generative models in your business apps and web services. Yandex
-    Foundation Models will be useful for everyone who seeks the ways to
-    streamline their business with machine learning.
+    Yandex Foundation Models provides large generative models for businesses.
+    Yandex Cloud allows you to use neural networks that enable leveraging
+    generative models in your business apps and web services. Yandex Foundation
+    Models will help you boost your business with machine learning.
   keywords:
     - '{{ foundation-models-full-name }}'
     - '{{ foundation-models-name }}'

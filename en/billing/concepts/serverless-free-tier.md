@@ -46,7 +46,6 @@ Free tier applies to the following services:
 * [{{ serverless-containers-full-name }}](#serverless-containers)
 * [{{ captcha-full-name }}](#smartcaptcha)
 * [{{ sws-full-name }}](#smartwebsecurity)
-* [{{ tracker-full-name }}](#tracker)
 * [{{ vpc-full-name }}](#vpc)
 
 ## {{ api-gw-full-name }} {#api-gw}
@@ -251,16 +250,6 @@ After you spend the free amount of services, you will be charged at the applicab
 {% include [not-charged-smartwebsecurity.md](../../_includes/pricing/price-formula/not-charged-smartwebsecurity.md) %}
 
 After you spend the free amount of services, you will be charged at the applicable [rate](../../smartwebsecurity/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
-
-## {{ tracker-full-name }} {#tracker}
-
-[{{ tracker-full-name }}]({{ link-tracker-cloudless }}) is a management service for your projects and processes.
-
-{% include [not-charged-tracker.md](../../_includes/pricing/price-formula/not-charged-tracker.md) %}
-
-After you spend the free amount of services, you will be charged at the applicable [rate]({{ link-tracker-cloudless }}).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 

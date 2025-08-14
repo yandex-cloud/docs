@@ -12457,6 +12457,7 @@ default:
         tags-type:
           dictionary-key-value: Dictionary
           neuro-key-value: Semantic tag
+          neuro-pro-key-value: Semantic Pro tag
         words-between-key-value: Distance between words
       team:
         add-from-organization-key-value: Add from organization

@@ -106,8 +106,8 @@
 
 Принципы маршрутизации запросов к [группам бэкендов](backend-group.md) зависят от _типа обработчика_:
 
-* **{{ ui-key.yacloud.alb.label_listener-type-http }}**: балансировщик принимает HTTP- или HTTPS-запросы и распределяет их между группами бэкендов по правилам, описанным в [HTTP-роутерах](http-router.md), либо перенаправляет HTTP-запросы на HTTPS. Группы бэкендов, получающие трафик, должны иметь [тип](backend-group.md#group-type) **{{ ui-key.yacloud.alb.label_proto-http }}** или **{{ ui-key.yacloud.alb.label_proto-grpc }}**.
-* **{{ ui-key.yacloud.alb.label_listener-type-stream }}**: балансировщик принимает входящий трафик в открытых или зашифрованных TCP-соединениях и транслирует его группам бэкендов типа **{{ ui-key.yacloud.alb.label_proto-stream }}**.
+* **{{ ui-key.yacloud.alb.label_listener-type-http }}**: балансировщик принимает HTTP- или HTTPS-запросы и распределяет их между группами бэкендов по правилам, описанным в [HTTP-роутерах](http-router.md), либо перенаправляет HTTP-запросы на HTTPS. Группы бэкендов, получающие трафик, должны иметь [тип](backend-group.md#group-type) **{{ ui-key.yacloud.alb.label_proto-http }}** или **{{ ui-key.yacloud.alb.label_proto-grpc }}**. Для обработчиков типа **{{ ui-key.yacloud.alb.label_listener-type-http }}** [статистика запросов](#stats) рассчитывается и выводится в сервисе [{{ monitoring-full-name }}](../../monitoring/).
+* **{{ ui-key.yacloud.alb.label_listener-type-stream }}**: балансировщик принимает входящий трафик в открытых или зашифрованных TCP-соединениях и транслирует его группам бэкендов типа **{{ ui-key.yacloud.alb.label_proto-stream }}**. Для обработчиков типа **{{ ui-key.yacloud.alb.label_listener-type-stream }}** сбор статистики отдельных HTTP-запросов не производится, поэтому метрики по ошибкам и обращениям не отображаются в {{ monitoring-name }}.
 
 Если обработчик принимает зашифрованный трафик, для него настраиваются _основной обработчик_ и необязательные _обработчики SNI_. В каждом обработчике SNI доменному имени, указанному при установке TLS-соединения как [Server Name Indication](https://{{ lang }}.wikipedia.org/wiki/Server_Name_Indication) (SNI), сопоставляются TLS-сертификат и HTTP-роутер (если тип обработчика — **{{ ui-key.yacloud.alb.label_listener-type-http }}**) либо группа бэкендов (если тип обработчика — **{{ ui-key.yacloud.alb.label_listener-type-stream }}**). Основной обработчик отвечает за TLS-соединения с доменными именами, которым не соответствует ни один обработчик SNI.
 
@@ -126,6 +126,12 @@
 Если используется HTTPS-обработчик, то необходимо указать [сертификат](../../certificate-manager/concepts/imported-certificate.md) из {{ certificate-manager-name }} который будет использоваться для терминирования TLS.
 
 ## Статистика {#stats}
+
+{% note info %}
+
+Для обработчиков типа **{{ ui-key.yacloud.alb.label_listener-type-stream }}** сбор статистики отдельных HTTP-запросов не производится.
+
+{% endnote %}
 
 Статистика работы балансировщика автоматически записывается в метрики сервиса [{{ monitoring-full-name }}](../../monitoring/). Доступны следующие дашборды и показатели:
 
@@ -257,7 +263,7 @@
 
 * [{#T}](../tutorials/virtual-hosting.md)
 * [{#T}](../tutorials/alb-with-ddos-protection/index.md)
-* [{#T}](../tutorials/balancer-with-sws-profile.md)
+* [{#T}](../tutorials/balancer-with-sws-profile/index.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
 * [{#T}](../tutorials/alb-ingress-controller.md)
 * [{#T}](../tutorials/application-load-balancer-website/console.md)

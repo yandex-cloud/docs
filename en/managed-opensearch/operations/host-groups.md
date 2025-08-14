@@ -27,7 +27,7 @@ For information about migrating host groups in a {{ mos-name }} cluster to a dif
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
 
 - CLI {#cli}
@@ -111,7 +111,7 @@ To create a host group:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
     1. Click **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
     1. Specify the group parameters:
@@ -176,7 +176,7 @@ To create a host group:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -306,7 +306,7 @@ To create a host group:
         * `roles` (`{{ OS }}` hosts only): List of [host roles](../concepts/host-roles.md), `DATA` or `MANAGER`. You can assign one or both roles for a group.
         * `hostsCount`: Number of hosts per group. Minimum number of `DATA` and `Dashboards` hosts: one; minimum number of `MANAGER` hosts: three.
         * `zoneIds`: List of availability zones the cluster hosts are located in.
-        * `subnetIds`: List of subnet IDs.
+        * `subnetIds`: Subnet IDs list.
 
         
         * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
@@ -414,7 +414,7 @@ To create a host group:
         * `roles` (`{{ OS }}` hosts only): List of [host roles](../concepts/host-roles.md), `DATA` or `MANAGER`. You can assign one or both roles for a group.
         * `hosts_count`: Number of hosts per group. Minimum number of `DATA` and `Dashboards` hosts: one; minimum number of `MANAGER` hosts: three.
         * `zone_ids`: List of availability zones the cluster hosts are located in.
-        * `subnet_ids`: List of subnet IDs.
+        * `subnet_ids`: Subnet IDs list.
 
         
         * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
@@ -480,7 +480,7 @@ To create a host group:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the appropriate group and select **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_edit }}**.
     1. Change host group settings:
@@ -509,7 +509,9 @@ To create a host group:
 
         * Number of hosts.
 
+        
         * Public access to hosts.
+
 
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -534,7 +536,7 @@ To create a host group:
 
     * `--node-group-name`: Name of the host group you need to update.
     * `--resource-preset-id`: New host class. that defines the configuration of virtual machines the {{ OS }} nodes will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
-    * `--disk-size`: New disk size in bytes. Minimum and maximum values depend on the selected host class.
+    * `--disk-size`: New disk size in bytes. The minimum and maximum values depend on the selected host class.
     * `--hosts-count`: New number of hosts in the group.
     * `--roles`: New [host roles](../../managed-opensearch/concepts/host-roles.md). The possible values are:
 
@@ -544,13 +546,13 @@ To create a host group:
 
 - {{ TF }} {#tf}
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
         For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
 
-    1. To update the configuration of an `{{ OS }}` host group, edit the parameters of the required `node_groups` section in the `opensearch` section:
+    1. To update the configuration of the `{{ OS }}` host group, edit the parameters of the required `node_groups` section under `opensearch`:
 
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
@@ -665,7 +667,7 @@ To create a host group:
 
             * `hostsCount`: Number of hosts per group. Minimum number of `DATA` and `Dashboards` hosts: one; minimum number of `MANAGER` hosts: three.
             * `zoneIds`: List of availability zones the cluster hosts are located in.
-            * `subnetIds`: List of subnet IDs.
+            * `subnetIds`: Subnet IDs list.
 
             
             * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
@@ -785,7 +787,7 @@ To create a host group:
 
             * `hosts_count`: Number of hosts per group. Minimum number of `DATA` and `Dashboards` hosts: one; minimum number of `MANAGER` hosts: three.
             * `zone_ids`: List of availability zones the cluster hosts are located in.
-            * `subnet_ids`: List of subnet IDs.
+            * `subnet_ids`: Subnet IDs list.
 
             
             * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
@@ -857,7 +859,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the name of the cluster you need and select the ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the appropriate group and select **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_delete }}**.
 
@@ -880,7 +882,7 @@ When deleting a host group, the following limitation applies: you cannot delete 
 
     To remove a host group from a cluster:
 
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -991,13 +993,13 @@ When deleting a host group, the following limitation applies: you cannot delete 
 
 {% endlist %}
 
-## Getting a list of cluster hosts {#list-hosts}
+## Getting the list of cluster hosts {#list-hosts}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the cluster name and select the ![hosts](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
 
 - REST API {#api}

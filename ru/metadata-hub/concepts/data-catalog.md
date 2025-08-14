@@ -5,6 +5,7 @@ description: Сервис {{ data-catalog-name }} позволяет вам со
 
 # Взаимосвязь ресурсов сервиса {{ data-catalog-full-name }}
 
+
 {% note info %}
 
 {% include [preview-tp](../../_includes/preview-tp.md) %}

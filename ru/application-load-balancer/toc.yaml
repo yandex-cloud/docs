@@ -188,7 +188,13 @@ items:
       - name: >-
           Создание L7-балансировщика {{ alb-name }} с профилем безопасности {{
           sws-name }}
-        href: tutorials/balancer-with-sws-profile.md
+        items:
+          - name: Обзор
+            href: tutorials/balancer-with-sws-profile/index.md
+          - name: Консоль управления
+            href: tutorials/balancer-with-sws-profile/console.md
+          - name: '{{ TF }}'
+            href: tutorials/balancer-with-sws-profile/terraform.md
       - name: Развертывание Nextcloud в интеграции с {{ objstorage-name }}
         items:
           - name: Обзор

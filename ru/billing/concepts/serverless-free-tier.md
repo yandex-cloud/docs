@@ -46,7 +46,6 @@ Free tier распространяется на сервисы:
 * [{{ serverless-containers-full-name }}](#serverless-containers)
 * [{{ captcha-full-name }}](#smartcaptcha)
 * [{{ sws-full-name }}](#smartwebsecurity)
-* [{{ tracker-full-name }}](#tracker)
 * [{{ vpc-full-name }}](#vpc)
 
 ## {{ api-gw-full-name }} {#api-gw}
@@ -251,16 +250,6 @@ Free tier распространяется на сервисы:
 {% include [not-charged-smartwebsecurity.md](../../_includes/pricing/price-formula/not-charged-smartwebsecurity.md) %}
 
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../smartwebsecurity/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
-
-## {{ tracker-full-name }} {#tracker}
-
-[{{ tracker-full-name }}]({{ link-tracker-cloudless }}) — это сервис для управления проектами и процессами.
-
-{% include [not-charged-tracker.md](../../_includes/pricing/price-formula/not-charged-tracker.md) %}
-
-После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами]({{ link-tracker-cloudless }}).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 

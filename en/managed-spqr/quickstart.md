@@ -85,5 +85,4 @@ To get started:
 ## What's next {#whats-next}
 
 * Read about [service concepts](concepts/index.md).
-* Learn more about [creating a cluster](operations/cluster-create.md).
-
+* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to the database](operations/connect.md).

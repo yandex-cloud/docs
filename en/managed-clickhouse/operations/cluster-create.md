@@ -133,7 +133,10 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
       * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**: Select an [availability zone](../../overview/concepts/geo-scope.md).
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}**: Specify a [subnet](../../vpc/concepts/network.md#subnet) in the selected availability zone.
+
+      
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**: Allow [access](connect/index.md) to the host from the internet.
+
 
       To add hosts to the cluster, click **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
@@ -182,7 +185,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         --clickhouse-resource-preset <host_class> \
         --clickhouse-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --clickhouse-disk-size <storage_size_in_GB> \
-        --user name=<user_name>,password=<user_password> \
+        --user name=<username>,password=<user_password> \
         --database name=<DB_name> \
         --security-group-ids <list_of_security_group_IDs> \
         --websql-access=<true_or_false> \
@@ -217,7 +220,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         You can also generate a password using {{ connection-manager-name }}. To do this, adjust the command, setting the user parameters as follows:
 
         ```bash
-          --user name=<user_name>,generate-password=true
+          --user name=<username>,generate-password=true
         ```
 
         To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
@@ -320,7 +323,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
     1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
     1. Create a configuration file describing the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet).
-        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) where the cluster will be hosted. If you already have a suitable network, you do not need to describe it again.
+        * Network: Description of the [cloud network](../../vpc/concepts/network.md#network) to host the cluster. If you already have a suitable network, you do not need to describe it again.
         * Subnets: [Subnets](../../vpc/concepts/network.md#network) to connect the cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
 
        Example structure of a configuration file describing a single-subnet cloud network:
@@ -386,9 +389,9 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
          name       = "<DB_name>"
        }
 
-       resource "yandex_mdb_clickhouse_user" "<user_name>" {
+       resource "yandex_mdb_clickhouse_user" "<username>" {
          cluster_id = yandex_mdb_clickhouse_cluster.<cluster_name>.id
-         name       = "<user_name>"
+         name       = "<username>"
          password   = "<user_password>"
          permission {
            database_name = yandex_mdb_clickhouse_database.<DB_name>.name
@@ -914,7 +917,7 @@ To create a {{ CH }} cluster copy:
         export CLICKHOUSE_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the ID with the [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
     1. Import the initial {{ CH }} cluster’s settings into the {{ TF }} configuration:
 

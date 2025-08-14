@@ -9,6 +9,7 @@ description: Различные сценарии использования {{ s
 
 * [{#T}](./schema-registry-cdc-debezium-kafka.md)
 
+
 ## {{ metastore-full-name }} {#metastore}
 
 * [{#T}](./metastore-import.md)

@@ -25,6 +25,8 @@ The Command Center allows you to analyze the following session and query data:
 * [State history](#states-history)
 * [Resource consumption history](#consumption-history)
 
+For session and query parameters, see [{{ GP }} Command Center parameters](command-center-parameters.md).
+
 The Command Center also assigns query [keys](#statement-key) and [IDs](#statement-id) to identify and group queries.
 
 For more information on how to use the Command Center, see [{#T}](../operations/command-center.md).

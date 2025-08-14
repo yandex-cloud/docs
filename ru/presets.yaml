@@ -12465,6 +12465,7 @@ default:
         tags-type:
           dictionary-key-value: Словарный
           neuro-key-value: Смысловой
+          neuro-pro-key-value: Смысловой Pro
         words-between-key-value: Дистанция между словами
       team:
         add-from-organization-key-value: Добавить из организации

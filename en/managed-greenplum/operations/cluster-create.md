@@ -48,7 +48,9 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
            {% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
 
+        
         * The **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option to enable connecting to the cluster from the internet.
+
 
     1. Optionally, enable **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
 
@@ -358,7 +360,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
           yandex_query = <allow_access_from_Yandex_Query>
         }
 
-        user_name     = "<user_name>"
+        user_name     = "<username>"
         user_password = "<password>"
 
         security_group_ids = ["<list_of_security_group_IDs>"]
@@ -472,7 +474,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             },
             "zoneId": "<availability_zone>",
             "subnetId": "<subnet_ID>",
-            "assignPublicIp": <allow_public_access_to_cluster_hosts>
+            "assignPublicIp": <enable_public_access_to_cluster_hosts>
           },
           "masterConfig": {
             "resources": {
@@ -491,7 +493,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
           "masterHostCount": "<number_of_master_hosts>",
           "segmentHostCount": "<number_of_segment_hosts>",
           "segmentInHost": "<number_of_segments_per_host>",
-          "userName": "<user_name>",
+          "userName": "<username>",
           "userPassword": "<user_password>",
           "networkId": "<network_ID>",
           "securityGroupIds": [
@@ -580,7 +582,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
             * `mode`: Operation mode, `SESSION` or `TRANSACTION`.
             * `size`: Maximum number of client connections.
-            * `clientIdleTimeout`: Idle timeout for a client connection (in ms).
+            * `clientIdleTimeout`: Idle timeout for a client connection (in seconds).
 
         * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
@@ -600,7 +602,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         * `serviceAccountId`: Service account ID.
         * `logging`: Settings for [transferring logs to {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
 
-            * `enabled`: Enables transferring logs: `true` or `false`.
+            * `enabled`: Enables transferring logs, `true` or `false`.
             * `commandCenterEnabled`: Transferring Yandex Command Center logs: `true` or `false`.
             * `greenplumEnabled`: Transferring {{ GP }} logs: `true` or `false`.
             * `poolerEnabled`: Transferring [connection pooler](../concepts/pooling.md) logs: `true` or `false`.
@@ -647,7 +649,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             },
             "zone_id": "<availability_zone>",
             "subnet_id": "<subnet_ID>",
-            "assign_public_ip": <allow_public_access_to_cluster_hosts>
+            "assign_public_ip": <enable_public_access_to_cluster_hosts>
           },
           "master_config": {
             "resources": {
@@ -666,7 +668,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
           "master_host_count": "<number_of_master_hosts>",
           "segment_host_count": "<number_of_segment_hosts>",
           "segment_in_host": "<number_of_segments_per_host>",
-          "user_name": "<user_name>",
+          "user_name": "<username>",
           "user_password": "<user_password>",
           "network_id": "<network_ID>",
           "security_group_ids": [
@@ -755,7 +757,7 @@ To create a {{ mgp-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
             * `mode`: Operation mode, `SESSION` or `TRANSACTION`.
             * `size`: Maximum number of client connections.
-            * `client_idle_timeout`: Idle timeout for a client connection (in ms).
+            * `client_idle_timeout`: Idle timeout for a client connection (in seconds).
 
         * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
@@ -831,7 +833,7 @@ To create a {{ GP }} cluster copy:
         export GREENPLUM_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Import the initial {{ GP }} cluster’s settings into the {{ TF }} configuration:
 

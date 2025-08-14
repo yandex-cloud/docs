@@ -80,4 +80,4 @@ HTTP-роутеры поддерживают два типа маршрутов 
 * [{#T}](../tutorials/cdn-storage-integration.md)
 * [{#T}](../tutorials/blue-green-canary-deployment.md)
 * [{#T}](../tutorials/logging.md)
-* [{#T}](../tutorials/balancer-with-sws-profile.md)
+* [{#T}](../tutorials/balancer-with-sws-profile/index.md)

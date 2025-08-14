@@ -5,8 +5,6 @@ description: There is a number of limits in {{ cloud-shell-full-name }}. For mor
 
 # Quotas and limits in {{ cloud-shell-full-name }}
 
-{% include notitle [preview](../../../_includes/note-preview.md) %}
-
 The {{ cloud-shell-name }} terminal has certain _limits_, i.e., technical constraints of the {{ yandex-cloud }} architecture. You cannot change the limits.
 
 {% include [limits.md](../../../_includes/console/cloud-shell-limits.md) %}

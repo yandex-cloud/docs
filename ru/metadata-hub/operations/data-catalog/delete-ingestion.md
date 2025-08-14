@@ -1,10 +1,12 @@
 # Удаление загрузки
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 
