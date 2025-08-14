@@ -5,11 +5,13 @@ description: Следуя данной инструкции, вы сможете
 
 # Получение списка глоссариев
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

@@ -73,12 +73,16 @@ items:
             href: operations/project/tag/create-dictionary-tag.md
           - name: Создать смысловой тег
             href: operations/project/tag/create-sense-tag.md
+          - name: Создать смысловой Pro-тег
+            href: operations/project/tag/create-sense-pro-tag.md
           - name: Создать зависимый тег
             href: operations/project/tag/create-dependent-tag.md
           - name: Изменить словарный тег
             href: operations/project/tag/change-dictionary-tag.md
           - name: Изменить смысловой тег
             href: operations/project/tag/change-sense-tag.md
+          - name: Изменить смысловой Pro-тег
+            href: operations/project/tag/change-sense-pro-tag.md
           - name: Протестировать тег
             href: operations/project/tag/test.md
           - name: Удалить тег

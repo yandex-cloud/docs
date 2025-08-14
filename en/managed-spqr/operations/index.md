@@ -1,6 +1,6 @@
 ---
 title: How to work with {{ mspqr-name }}
-description: In this article, you will learn how to work with {{ mspqr-name }} in {{ yandex-cloud }}.
+description: In this tutorial, you will learn how to work with {{ mspqr-name }} in {{ yandex-cloud }}.
 ---
 
 # Step-by-step guides for {{ mspqr-name }}
@@ -10,4 +10,5 @@ description: In this article, you will learn how to work with {{ mspqr-name }} i
 * [Creating a cluster](cluster-create.md)
 * [Updating a cluster](cluster-update.md)
 * [Managing shards](shards.md)
+* [Connecting to a database](connect.md)
 * [Deleting a cluster](cluster-delete.md)

@@ -1,1 +1,0 @@
-You can connect up to 5 users to {{ tracker-name }} at no charge.

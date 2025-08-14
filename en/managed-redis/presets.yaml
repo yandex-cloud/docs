@@ -9,4 +9,5 @@ default:
       str: 7.2-valkey, 8.0-valkey, or 8.1-valkey
     console:
       latest: '8.1'
+      previous: '8.0'
       str: 7.2, 8.0, or 8.1

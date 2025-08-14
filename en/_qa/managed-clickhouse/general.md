@@ -56,18 +56,24 @@ For more information, see [Getting started](../../managed-clickhouse/quickstart.
 #### How many database hosts can there be in one cluster? {#how-many-hosts}
 
 
-The minimum number of hosts depends on the selected type of [storage](../../managed-clickhouse/concepts/storage.md):
-
-  * At least three hosts for non-replicated SSDs (`network-ssd-nonreplicated`).
-
-  * At least two hosts for local SSDs (`local-ssd`).
-
-  * At least one host for the following:
-
-    * Network HDDs (`network-hdd`)
-    * Network SSDs (`network-ssd`)
-    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
+The minimum number of hosts in a cluster depends on the following:
     
+  * [Storage type](../../managed-clickhouse/concepts/storage.md):
+
+    * At least three hosts for non-replicated SSDs (`network-ssd-nonreplicated`).
+
+    * At least two hosts for local SSDs (`local-ssd`).
+
+    * At least one host for the following:
+
+      * Network HDDs (`network-hdd`).
+      * Network SSDs (`network-ssd`).
+      * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`).
+
+  * Cluster sharding. When sharding is enabled, you need to multiply the minimum number of hosts for the selected disk type by the number of shards.
+
+    For more information on the features and limitations of sharding in {{ CH }}, see [this section](../../managed-clickhouse/concepts/sharding.md).
+
 
 The maximum number of hosts per cluster is subject to the limits in place.
 

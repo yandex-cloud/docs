@@ -10,15 +10,13 @@ The {{ mgp-name }} architecture has a built-in connection pooler: [Odyssey](http
 
 Odyssey supports two modes of connection management:
 
-* Session mode (default):
-
+* Session mode:
 
     In this mode, the client connection is established at the first query to the database and maintained until the client terminates the session. This connection can then be used by that or any other client. This approach allows you to efficiently process multiple repeat client connections to the DBMS (for example, when starting applications that access databases). 
     
     This mode is less productive than transaction mode.
 
-* Transaction mode:
-
+* Transaction mode (default):
 
     In this mode, the client connection is established at the first query to the database and maintained until the transaction ends. This connection can then be used by that or any other client. This approach allows maintaining few server connections between the connection pooler and {{ GP }} hosts when there are many client connections.
 

@@ -268,6 +268,7 @@ Use the copy data schema option only if the schema is the same on all replica ho
 
 {% endnote %}
 
+
 ## Changing a host {#update}
 
 You can modify public access settings for every host in a {{ mch-name }} cluster.
@@ -429,6 +430,7 @@ You can modify public access settings for every host in a {{ mch-name }} cluster
 If you cannot [connect](connect/clients.md) to the host after you changed it, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the host's subnet.
 
 {% endnote %}
+
 
 
 ## Restarting a host {#restart}

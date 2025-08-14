@@ -103,8 +103,15 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
     To do this, disable **Client signature required**.
 
+
 1. On the **Client scopes** tab, configure role mapping for the client:
 
+   {% note info %}
+   
+   If the **Assigned Default Client Scopes** list on the **Client scopes** tab includes the `role_list` mapping, we recommend you remove it to avoid issues with SAML response validation.
+   
+   {% endnote %}
+   
     1. Click URL to connect to {{ OS }} Dashboards with the `-dedicated` suffix.
 
     1. On the **Mappers** tab, click **Configure a new mapper**. Select the **Role list** mapper from the list.
@@ -142,7 +149,7 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
     To set up a {{ keycloak }} authentication source:
 
-    1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the cluster name and open the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
     1. Click **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
     1. Specify the required values for these settings:

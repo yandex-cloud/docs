@@ -5,7 +5,11 @@ description: Следуя данной инструкции, вы сможете
 
 # Удаление пространства имен
 
+
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
+
 
 {% note warning %}
 

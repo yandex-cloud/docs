@@ -26,7 +26,7 @@ Rule settings depend on the connection method you select:
 
 - Over the internet {#internet}
 
-  [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for incoming traffic:
+  [Configure all the cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port 6432 from any IP. To do this, create the following rule for inbound traffic:
 
   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `6432`
   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
@@ -66,7 +66,7 @@ Rule settings depend on the connection method you select:
 
 {% note info %}
 
-You can specify more granular rules for your security groups, such as allowing traffic only within specific subnets.
+You can specify more granular rules for your security groups, such as only allowing traffic within specific subnets.
 
 You must configure security groups correctly for all subnets in which the cluster hosts will reside. If security group settings are incomplete or incorrect, you may lose access to the cluster if the master is switched [manually](hosts.md#update) or [automatically](../concepts/replication.md#replication-auto).
 
@@ -91,7 +91,7 @@ To connect to a host, you need its fully qualified domain name ([FQDN](../concep
 * In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 * Look up the FQDN in the management console:
 
-   1. Go to the cluster page.
+   1. Navigate to the cluster page.
    1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
    1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
@@ -101,7 +101,7 @@ Cluster hosts also use [special FQDNs](#special-fqdns).
 
 Alongside [regular FQDNs](#fqdn), {{ mpg-name }} provides several special FQDNs, which can also be used when connecting to a cluster.
 
-In multiple-host clusters, special FQDNs may for some time (up to 10 minutes) point to the old host, even if it has changed its role (e.g., from a master to a replica). If using a special FQDN which points to the current master, some write requests may fail if routed to the replica. This is because it takes time to update DNS records for special FQDNs. Therefore, if using special FQDNs, you should be able to correctly handle situations where a host fails to execute a request because its role has changed. For example, you may repeat your request a little later.
+{% include [special-fqdns-info](../../_includes/mdb/special-fqdns-info.md) %}
 
 ### Current master {#fqdn-master}
 
@@ -109,11 +109,7 @@ An FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format always points to the curren
 
 When connecting to this FQDN, both read and write operations are allowed.
 
-{% note info %}
-
-Use master host special FQDN-based connections only for processes that can cope with database being unavailable for writing for up to 10 minutes. 
-
-{% endnote %}
+{% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
 ### Most recent replica {#fqdn-replica}
 
@@ -121,7 +117,7 @@ An FQDN in `c-<cluster_ID>.ro.{{ dns-zone }}` format points to a [replica](../co
 
 **Specifics:**
 
-* When connecting to this FQDN, only read operations are allowed.
+* When connected to this FQDN, you are only allowed to perform read operations.
 * If there are no active replicas in the cluster, this FQDN will point to the current master host.
 * You cannot select replicas whose [replication source is specified manually](../concepts/replication.md#replication-manual) as most recent when using this FQDN.
 
@@ -243,7 +239,7 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
 
   1. Create a data source:
      1. Select **File** → **New** → **Data Source** → **{{ PG }}**.
-     1. Specify the connection parameters on the **General** tab:
+     1. Specify the connection settings on the **General** tab:
         * **User**, **Password**: DB user's name and password.
         * **URL**: Connection string:
 

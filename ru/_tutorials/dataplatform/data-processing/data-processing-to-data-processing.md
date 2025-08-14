@@ -1,3 +1,5 @@
+
+
 Вы можете сохранять данные из [кластера {{ dataproc-full-name }}](../../../data-proc/concepts/index.md) в [бакет {{ objstorage-full-name }}](../../../storage/concepts/bucket.md), используя отдельный [кластер {{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md) для хранения метаданных таблиц. Это позволит затем работать с сохраненными данными другому кластеру {{ dataproc-name }}, имеющему доступ к бакету и подключенному к тому же кластеру {{ metastore-name }}.
 
 Чтобы настроить совместное использование таблиц двумя кластерами {{ dataproc-name }} с помощью {{ metastore-name }}:

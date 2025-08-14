@@ -15,6 +15,8 @@ editable: false
 
 Цены за месяц использования формируются из расчета 720 часов в месяц.
 
+{% include [public-net-bandwidth-restrictions](../_includes/baremetal/public-net-bandwidth-restrictions.md) %}
+
 ## Цены для региона Россия {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}

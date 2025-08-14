@@ -57,7 +57,7 @@ For more information, see [Getting started](../../managed-redis/quickstart.md).
 The minimum number of hosts per cluster depends on the following:
 * Selected [platform and host class](../../managed-redis/concepts/instance-types.md).
 * Selected [disk type](../../managed-redis/concepts/storage.md).
-*  Whether you enabled [sharding](../../managed-redis/concepts/sharding.md) when [creating](../../managed-redis/operations/cluster-create.md) a cluster.
+* Whether you enabled [sharding](../../managed-redis/concepts/sharding.md) when [creating](../../managed-redis/operations/cluster-create.md) a cluster.
 
 The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
 
@@ -86,7 +86,6 @@ For more information, see [Maintenance](../../managed-redis/concepts/maintenance
 #### Which {{ VLK }} version does {{ mrd-short-name }} use? {#dbms-version}
 
 {{ mrd-short-name }} supports {{ VLK }} versions {{ versions.console.str }}.
-
 
 #### What happens when a new DBMS version is released? {#new-version}
 

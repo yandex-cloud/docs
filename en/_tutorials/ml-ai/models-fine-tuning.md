@@ -1,5 +1,5 @@
 
-# Model tuning in {{ ml-platform-name }}
+# Model fine-tuning in {{ ml-platform-name }}
 
 You can [fine-tune](../../foundation-models/concepts/tuning/index.md) language models enabled by {{ foundation-models-full-name }} through APIs or {{ ml-sdk-name }} to better understand the specific features of your tasks. It is convenient to run fine-tuning on [{{ ml-platform-full-name }}](../../datasphere/) notebooks.
 
@@ -10,7 +10,7 @@ To fine-tune a model:
 1. [Set up your infrastructure](#infra).
 1. [Create an API key for the service account](#create-key).
 1. [Create secrets](#create-secrets).
-1. [Tune the model](#fine-tuning).
+1. [Fine-tune your model](#fine-tuning).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -20,9 +20,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of supporting the infrastructure for fine-tuning the model includes:
+The infrastructure support cost for fine-tuning a model includes:
 
-* Fee for [{{ ml-platform-name }}](../../datasphere/pricing.md) computing resource usage.
+* Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
 * Fee for [text generation](../../foundation-models/pricing.md) by the model.
 
 ## Set up your infrastructure {#infra}
@@ -38,7 +38,7 @@ The cost of supporting the infrastructure for fine-tuning the model includes:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Give your folder a name, e.g., `data-folder`.
+   1. Name your folder, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
@@ -50,7 +50,7 @@ The cost of supporting the infrastructure for fine-tuning the model includes:
 - Management console {#console}
 
   1. Navigate to `data-folder`.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `gpt-user`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to the service account.
@@ -58,9 +58,9 @@ The cost of supporting the infrastructure for fine-tuning the model includes:
 
 {% endlist %}
 
-### Add the service account to a project {#sa-to-project}
+### Add the service account to the project {#sa-to-project}
 
-To allow the service account to access the model from the notebook, add it to the list of project members.
+To enable the service account to access the model from the notebook, add it to the list of project members.
 
 {% list tabs group=instructions %}
 
@@ -74,14 +74,14 @@ To allow the service account to access the model from the notebook, add it to th
 
 ## Create an API key for the service account {#create-key}
 
-To allow the service account to access the model, create an [API key](../../iam/concepts/authorization/api-key.md).
+To enable the service account to access the model, create an [API key](../../iam/concepts/authorization/api-key.md).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `data-folder`.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `gpt-user` service account.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
@@ -100,20 +100,20 @@ To get the API key and folder ID from the notebook, create [secrets](../../datas
 1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the name for the secret: `API_KEY`.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, paste the key ID.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. Create another secret with the `FOLDER_ID`.
+1. Create another secret named `FOLDER_ID` and containing the folder ID.
 
-## Tune the model {#fine-tuning}
+## Fine-tune the model {#fine-tuning}
 
-The code for fine-tuning is run from the {{ ml-platform-name }} notebook. [Fine-tuning data](../../foundation-models/concepts/resources/dataset.md#generating) is stored in [JSON Lines](https://jsonlines.org/) format.
+You will run the fine-tuning code from the {{ ml-platform-name }} notebook. [Fine-tuning data](../../foundation-models/concepts/resources/dataset.md#generating) is stored in [JSON Lines](https://jsonlines.org/) format.
 
 1. Open the notebook with the code by following the link below:
 
    <a href="{{ link-datasphere-main }}/import-ipynb?path=https://raw.githubusercontent.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning/main/LoRA-train-YandexGPT.ipynb"><img src="https://storage.yandexcloud.net/datasphere-assets/datasphere_badge_v2_ru.svg" 
      alt="Open in {{ ml-platform-name }}"/></a>
 
-1. Download the `generations.jsonlines` file from the [GitHub](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) repository and place it next to your notebook.
+1. Download the `generations.jsonlines` file from the [GitHub](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) repository and place it in the same directory as your notebook.
 
-1. Install the {{ ml-platform-name }} SDK by running the code in the notebook cell:
+1. Install the {{ ml-platform-name }} SDK by running this code in a notebook cell:
 
    ```python
    %pip install yandex-cloud-ml-sdk --upgrade
@@ -141,7 +141,7 @@ The code for fine-tuning is run from the {{ ml-platform-name }} notebook. [Fine-
            zip_ref.extractall("tensorboard")
    ```
 
-1. Upload data for model training:
+1. Upload data for model fine-tuning:
 
    ```python
    def local_path(path: str) -> pathlib.Path:
@@ -163,7 +163,7 @@ The code for fine-tuning is run from the {{ ml-platform-name }} notebook. [Fine-
    )
    ```
 
-1. Create a dataset to tune and run its loading and validation:
+1. Create a dataset for fine-tuning and initiate its loading and validation:
 
    ```python
    dataset_draft = sdk.datasets.draft_from_path(
@@ -178,7 +178,7 @@ The code for fine-tuning is run from the {{ ml-platform-name }} notebook. [Fine-
    print(f'New dataset {dataset=} \n')
    ```
 
-1. Select the base model you want to tune and run the tuning. In the example: {{ gpt-lite }}:
+1. Select the base model you want to fine-tune and run fine-tuning. In our example, it is {{ gpt-lite }}:
 
    ```python
    base_model = sdk.models.completions('yandexgpt-lite')
@@ -191,8 +191,8 @@ The code for fine-tuning is run from the {{ ml-platform-name }} notebook. [Fine-
    
    print(f'Tuning started {tuning_task} \n')
 
-   # Tuning can last up to several hours
-   # We wait until the tuning is complete and get a new model
+   # Fine-tuning can last up to several hours.
+   # Wait until the fine-tuning is complete to get a new model.
    new_model = tuning_task.wait()
    print(f'Tuning completed, new model = {new_model} \n')
    ```
@@ -216,7 +216,7 @@ The code for fine-tuning is run from the {{ ml-platform-name }} notebook. [Fine-
    completion_result = new_model.run("What is your name?")
    print(f'{completion_result=} \n')
 
-   # You can use the fine-tuned model by specifying its URI
+   # You can use the fine-tuned model by specifying its URI.
    tuned_uri = new_model.uri 
    model = sdk.models.completions(tuned_uri)
 
@@ -224,12 +224,12 @@ The code for fine-tuning is run from the {{ ml-platform-name }} notebook. [Fine-
    print(f'{completion_result=} \n')
    ```
 
-   The model will generate and return answers factoring in the fine-tuning.
+   The model will generate and return answers considering the fine-tuning.
 
-1. Download tuning metrics:
+1. Download fine-tuning metrics:
 
    ```python
-   # Get the link with the data for TensorBoard and download the files
+   # Get the link with the data for TensorBoard and download the files.
    metrics_url = new_model.get_metrics_url()
    download_tensorboard(metrics_url)
    ```

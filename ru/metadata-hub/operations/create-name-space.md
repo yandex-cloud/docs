@@ -5,7 +5,11 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание пространства имен
 
+
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
+
 
 {% list tabs group=instructions %}
 

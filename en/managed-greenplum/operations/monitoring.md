@@ -13,7 +13,7 @@ New data for charts is received every {{ graph-update }}.
 
 ## Monitoring cluster state {#monitoring-cluster}
 
-To view detailed information about the {{ mgp-name }} cluster state:
+To view detailed info on the state of a {{ mgp-name }} cluster:
 
 {% list tabs group=instructions %}
 
@@ -85,7 +85,7 @@ To view detailed information about the {{ mgp-name }} cluster state:
 
 ## Monitoring the state of hosts {#monitoring-hosts}
 
-To view detailed information about the state of individual {{ mgp-name }} hosts:
+To view detailed info on the state of individual {{ mgp-name }} hosts:
 
 {% list tabs group=instructions %}
 
@@ -202,6 +202,56 @@ To view detailed information about the [PXF](external-tables.md) state:
 {% endlist %}
 
 
+## Monitoring dashboard {#monitoring-dashboard}
+
+To view a dashboard for a {{ mgp-name }} cluster, do the following:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Click the cluster name and select the ![monitoring.svg](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}** → **Dashboard** tab.
+
+    This page displays the following charts:
+
+    * **Running queries**:
+        * **Test write query**: Execution time of a test write query with the `DISTRIBUTED REPLICATED` policy.
+        * **Test read query**: Execution time of a test read query where data is fetched from a random segment.
+        * **Overall cluster's query execution time**: Histogram of query execution time in the cluster.
+
+    * **Cluster liveliness**:
+        * **Cluster sessions**: Number of sessions in these states:
+            * **active**: Processing a query.
+            * **waiting**: Waiting for a command.
+            * **idle in transaction**: Started the transaction, but the query is idle (e.g., pending `COMMIT`).
+        * **Number of live segments**: Number of running segment instances including mirrors.
+        * **Queries sent to the cluster**: Number of accepted and interrupted (cancelled) queries.
+
+    * **Segments health**:
+        * **Idle CPU**: Unused CPU capacity by segment host; the lower the value, the higher the host load.
+        * **Reserved memory**: RAM usage (in bytes) by segment host. To avoid errors, remember to keep the value within the limit.
+        * **IOPS**: Total size of disk operations (in bytes) across all segment hosts.
+        * **Number of network packets**: Number of received and sent packets on network interfaces by segment host. Values close to the limit may cause delays in processing queries.
+        * **Number of network packets in queues**: Number of packets in queues on network interfaces by segment host. Values close to the limit may cause delays in processing queries.
+        * **Network traffic**: Bandwidth utilization for incoming network traffic by segment host. Values close to the limit may cause delays in processing queries.
+        * **Ping time**: Time of running a ping from the master host to the cluster's segment hosts.
+        * **Query execution time per segment**: Total execution time for query slices on each of the cluster's segment hosts.
+
+    * **Database internal metrics**:
+        * **Free memory for resource groups**: Available RAM by [resource group](../concepts/resource-groups.md).
+        * **Summary CPU usage for resource groups**: Total CPU usage by resource groups on the cluster. This value is collected from all cluster hosts and may be over 100%.
+        * **CPU throttle time for cgroups**: Indicates how long resource group processes need to wait for CPU time due to its full utilization (by host). An exponential increase in this value (from milliseconds to minutes) may cause delays in processing queries.
+        * **Summary spill size**: Total size of temporary (spill) files created as a result of RAM shortage.
+        * **Interconnect quality**: Percentage of packet retransmissions between segments ([{{ GP }} Interconnect]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-intro-arch_overview.html#arch_interconnect) traffic) in the total volume of packets sent from each segment host. The higher the value, the less stable the network.
+        * **Background activity - the number of sessions**: Number of system sessions on each segment in the following states:
+            * **active**: Processing a query.
+            * **idle**: Waiting for a command.
+            * **aborted**: Terminated with an error.
+        * **Background activity - the longest query**: Execution time of the longest system query on each segment.
+
+{% endlist %}
+
 ## Integration with {{ monitoring-full-name }} {#monitoring-integration}
 
 To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) state indicator alerts:
@@ -216,7 +266,7 @@ To configure [cluster](#monitoring-cluster) and [host](#monitoring-hosts) state 
       * **{{ mgp-name }} — Cluster Overview** to configure cluster alerts.
       * **{{ mgp-name }} — Host Overview** to configure host alerts.
   1. In the indicator chart, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. If the chart shows multiple indicators, select a data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**.  For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
+  1. If the chart shows multiple indicators, select a data query to create a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. For more information about the query language, see the [{{ monitoring-full-name }} documentation](../../monitoring/concepts/querying.md).
   1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for notifications.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
@@ -234,7 +284,7 @@ For a complete list of supported metrics, see the [{{ monitoring-name }} documen
 To view a cluster's state and status:
 
 1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-1. Hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column in the required cluster row.
+1. Hover over the indicator in the cluster row of the **{{ ui-key.yacloud.common.availability }}** column.
 
 ### Cluster states {#cluster-health}
 

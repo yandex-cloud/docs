@@ -96,7 +96,11 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/console-icons/pencil.svg) and select the parameters for the DB hosts created together with the {{ mmy-name }} cluster:
      * Availability zone.
      * Host [subnet](../../vpc/concepts/network.md#subnet): By default, each host is created in a separate subnet.
+
+     
      * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+
+
      * [Host priority for assignment as a master](../concepts/replication.md#master-failover).
      * [Host priority as a {{ MY }} replica](../concepts/backup.md#size) for creating backups.
 
@@ -151,7 +155,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
          `backup-priority=<backup_priority> \
        --mysql-version <{{ MY }}_version> \
        --resource-preset <host_class> \
-       --user name=<user_name>,password=<user_password> \
+       --user name=<username>,password=<user_password> \
        --database name=<DB_name> \
        --disk-size <storage_size_in_GB> \
        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
@@ -184,7 +188,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        You can also generate a password using {{ connection-manager-name }}. To do this, adjust the command, setting the user parameters as follows:
 
        ```bash
-         --user name=<user_name>,generate-password=true
+         --user name=<username>,generate-password=true
        ```
 
        To view the password, select the cluster you created in the [management console]({{ link-console-main }}), go to the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** in the user's row. This will open the page of the {{ lockbox-name }} secret that stores the password. To view passwords, you need the `lockbox.payloadViewer` role.
@@ -279,9 +283,9 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        name       = "<DB_name>"
      }
 
-     resource "yandex_mdb_mysql_user" "<user_name>" {
+     resource "yandex_mdb_mysql_user" "<username>" {
        cluster_id = "<cluster_ID>"
-       name       = "<user_name>"
+       name       = "<username>"
        password   = "<user_password>"
        permission {
          database_name = "<DB_name>"
@@ -735,7 +739,7 @@ To create an {{ MY }} cluster copy:
         export MYSQL_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
     1. Import the initial {{ MY }} cluster’s settings into the {{ TF }} configuration:
 
@@ -887,7 +891,7 @@ To create an {{ MY }} cluster copy:
     name       = "db1"
   }
 
-  resource "yandex_mdb_mysql_user" "<user_name>" {
+  resource "yandex_mdb_mysql_user" "<username>" {
     cluster_id = yandex_mdb_mysql_cluster.my-mysql.id
     name       = "user1"
     password   = "user1user1"

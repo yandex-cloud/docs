@@ -78,7 +78,7 @@ Rule settings depend on the connection method you select:
 
 {% note info %}
 
-You can specify more detailed rules for your security groups, e.g., to allow traffic only in specific subnets.
+You can specify more granular rules for your security groups, such as only allowing traffic within specific subnets.
 
 You must configure security groups correctly for all subnets in which the cluster hosts will reside. If security group settings are incomplete or incorrect, you may lose access to the cluster.
 
@@ -105,8 +105,8 @@ To connect to a host, you need its fully qualified domain name ([FQDN](../concep
 
   * Look up the FQDN in the management console:
 
-    1. Go to the cluster page.
-    1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Navigate to the cluster page.
+    1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
   * In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
@@ -116,6 +116,12 @@ To connect to a host, you need its fully qualified domain name ([FQDN](../concep
 * A special FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format (such as `c-{{ cluster-id }}.rw.{{ dns-zone }}`). The host to connect to is selected randomly among all the cluster hosts with the _Data node_ role.
 
   Use this approach only if you have enabled public access for all hosts with the _Data node_ role, or if you are connecting exclusively from {{ yandex-cloud }} instances.
+
+  {% note warning %}
+
+  Use special FQDN-based connections only for processes that can cope with indexes being unavailable for writing for up to 10 minutes.
+
+  {% endnote %}
 
 ## Before you connect from a Docker container {#connection-docker}
 

@@ -93,7 +93,7 @@ You can obtain the {{ GP }} host FQDN by doing one of the following:
 
 * Look up the FQDN in the management console:
 
-    1. Go to the cluster page.
+    1. Navigate to the cluster page.
     1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
     1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
@@ -105,6 +105,8 @@ You can obtain the {{ GP }} host FQDN by doing one of the following:
 
 If you do not want to manually connect to another master host when the current one becomes unavailable, use a special FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format. It always points to the primary master host in the cluster. Connection to this FQDN is permitted and both read and write operations are allowed.
 
+A special FQDN may temporarily point to an unavailable master host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your request returns an error, repeat it later.
+
 Here is an example of connecting to a primary master host in a cluster with the `{{ cluster-id }}` ID:
 
 ```bash
@@ -114,6 +116,8 @@ psql "host=c-{{ cluster-id }}.rw.{{ dns-zone }} \
       dbname=<DB_name> \
       user=<username>"
 ```
+
+{% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
 ## Connecting from graphical IDEs {#connection-ide}
 
@@ -132,7 +136,7 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
         1. Select **File** → **New** → **Data Source** → **{{ GP }}**.
         1. On the **General** tab:
 
-            1. Specify the connection settings:
+            1. Configure the connection as follows:
 
                 * **User**, **Password**: DB user's name and password.
                 * **URL**: Connection string. Use the [special primary master FQDN](#fqdn-master):

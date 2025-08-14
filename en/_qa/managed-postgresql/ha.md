@@ -24,7 +24,7 @@ To learn more about replication, see [this guide](../../managed-postgresql/conce
 
 #### How do I always connect to the master host? {#connect-to-master-ha}
 
-To connect to the current master host, use a [special FQDN](../../managed-postgresql/operations/connect.md/#special-fqdns). It has this format: `c-<cluster_ID>.rw.{{ dns-zone }}`. When connected to this FQDN, you will be able to perform read and write operations.
+To connect to the current master host, use a [special FQDN](../../managed-postgresql/operations/connect.md#special-fqdns). It has this format: `c-<cluster_ID>.rw.{{ dns-zone }}`. When connected to this FQDN, you will be able to perform read and write operations.
 
 {% cut "Example of command for connection to a master" %}
 
@@ -33,7 +33,7 @@ To connect to the current master host, use a [special FQDN](../../managed-postgr
         port={{ port-mpg }} \
         sslmode=verify-full \
         dbname=<DB_name> \
-        user=<user_name>"
+        user=<username>"
   ```
 
 {% endcut %}
@@ -49,7 +49,7 @@ psql "host=c-<cluster_ID>.ro.{{ dns-zone }} \
       port={{ port-mpg }} \
       sslmode=verify-full \
       dbname=<DB_name> \
-      user=<user_name>"
+      user=<username>"
 ```
 
 {% endcut %}

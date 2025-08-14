@@ -5,7 +5,10 @@ description: Управляйте подключениями к источник
 
 # Начало работы с {{ connection-manager-name }}
 
+
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
 
 
 Управляйте подключениями к источникам данных {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }} и {{ TR }} с {{ connection-manager-full-name }}.

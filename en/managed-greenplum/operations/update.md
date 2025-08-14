@@ -161,6 +161,7 @@ After creating a cluster, you can:
 
 {% endlist %}
 
+
 ## Change the public access setting {#change-public-access}
 
 {% list tabs group=instructions %}
@@ -285,6 +286,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 * Wait a while. It may take some time to enable public access.
 
 {% endnote %}
+
 
 ## Changing additional cluster settings {#change-additional-settings}
 
@@ -439,7 +441,7 @@ If you enabled public access to the cluster but cannot access it from the inter
                 * `ANYTIME`: Anytime.
                 * `WEEKLY`: On a schedule.
             * `day`: Day of the week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
-            * `hour`: Hour UTC in `HH` format for the `WEEKLY` type, e.g., `21`.
+            * `hour`: UTC hour in `HH` format for the `WEEKLY` type, e.g., `21`.
 
         
         * `access.data_lens`: Access to the cluster from [{{ datalens-full-name }}](../../datalens/concepts/index.md), `true` or `false`.
@@ -466,7 +468,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
             * `pooling_mode`: Operation mode, `SESSION` or `TRANSACTION`.
             * `pool_size`: Maximum number of client connections.
-            * `pool_client_idle_timeout`: Idle timeout for a client connection (in ms).
+            * `pool_client_idle_timeout`: Idle timeout for a client connection (in seconds).
 
     1. Make sure the settings are correct.
 
@@ -566,7 +568,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
             * `mode`: Operation mode, `SESSION` or `TRANSACTION`.
             * `size`: Maximum number of client connections.
-            * `clientIdleTimeout`: Idle timeout for a client connection (in ms).
+            * `clientIdleTimeout`: Idle timeout for a client connection (in seconds).
 
         * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
@@ -694,7 +696,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
             * `mode`: Operation mode, `SESSION` or `TRANSACTION`.
             * `size`: Maximum number of client connections.
-            * `client_idle_timeout`: Idle timeout for a client connection (in ms).
+            * `client_idle_timeout`: Idle timeout for a client connection (in seconds).
 
         * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket in a compressed and encrypted form. This is a [more cost-efficient storage method](../../storage/pricing.md).
 

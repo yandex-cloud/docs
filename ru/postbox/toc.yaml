@@ -109,6 +109,9 @@ items:
                   aws-compatible-api/api-ref/put-domain-identity-configuration-set-attributes.md
               - name: Метод DeleteConfigurationSet
                 href: aws-compatible-api/api-ref/delete-configuration-set.md
+              - name: Метод PutConfigurationSetDeliveryOptions
+                href: >-
+                  aws-compatible-api/api-ref/put-configuration-set-delivery-options.md
           - name: Подписки
             items:
               - name: Метод GetConfigurationSetEventDestinations

@@ -1,3 +1,5 @@
+
+
 Чтобы использовать [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr) совместно с {{ mkf-name }}:
 
 1. [Создайте скрипты производителя и потребителя на локальной машине](#create-scripts).

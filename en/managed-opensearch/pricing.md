@@ -27,7 +27,7 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 
 ## Cluster status {#running-stopped}
 
-Prices apply differently depending on the cluster status:
+The prices apply differently depending on the cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -62,9 +62,11 @@ You pay for the following:
 
 * Storage taken up by backups over specified cluster storage.
 
-    * Backups are stored free of charge as long as the combined size of the data in the cluster and all backups is smaller than the selected storage size.
+    * Backups are stored free of charge as long as the combined size of data in the cluster and all backups is smaller than the selected storage size.
 
-    * When performing automatic backups, {{ mos-short-name }} does not create a new backup but saves the data changes made since the previous copy. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+    * All automatic and [manual](operations/cluster-backups.md) backups are incremental. This means the initial backup contains all index segments, and all subsequent backups contain only the _increment_, i.e., changes made since the previous backup. This saves storage space and reduces the cost of using resources.
+
+    * When [requesting information about a backup](operations/cluster-backups.md#get-backup), you will get the full size of restorable data, but you only pay for the incremental part.
 
     * The number of hosts in a cluster does not affect the storage size and, consequently, the backup size that is free of charge.
 
@@ -118,7 +120,7 @@ CVoS discount is only available for certain resource types. For unsupported reso
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Host compute resources {#prices-hosts}
+### Host computing resources {#prices-hosts}
 
 
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}

@@ -270,7 +270,13 @@ items:
           - name: >-
               Создание L7-балансировщика {{ alb-name }} с профилем безопасности
               {{ sws-name }}
-            href: tutorials/app-security/balancer-with-sws-profile.md
+            items:
+              - name: Обзор
+                href: tutorials/app-security/balancer-with-sws-profile/index.md
+              - name: Консоль управления
+                href: tutorials/app-security/balancer-with-sws-profile/console.md
+              - name: '{{ TF }}'
+                href: tutorials/app-security/balancer-with-sws-profile/terraform.md
           - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
             href: tutorials/app-security/api-gw-sws-integration.md
           - name: Добавление HTML-страницы для работы {{ captcha-name }}
