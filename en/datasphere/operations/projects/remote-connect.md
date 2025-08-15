@@ -4,14 +4,14 @@
 
 {% note info %}
 
-You must have the `{{ roles-datasphere-communities-admin }}` [role](../../security/index.md#roles-list) in the community to enable the remote IDE feature. Only users with the `{{ roles-datasphere-project-developer }}` role or higher can get a link for connecting to a project from an IDE.
+You must have the `{{ roles-datasphere-communities-admin }}` [role](../../security/index.md#roles-list) in the community to enable the remote IDE support. Only users with the `{{ roles-datasphere-project-developer }}` role or higher can get a link for connecting to a project from an IDE.
 
 {% endnote %}
 
 Here is an example of connecting to a project using [Visual Studio Code](https://code.visualstudio.com/):
 
 1. {% include [include](../../../_includes/datasphere/ui-find-community.md) %}
-1. Select the community your project is in.
+1. Select the community your project belongs to.
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.restrictions }}** tab.
 1. Under **{{ ui-key.yc-ui-datasphere.restrictions.project-mode }}**, enable **{{ ui-key.yc-ui-datasphere.restrictions.JUPYTER_TOKEN }}**.
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.projects }}** tab and select your project.

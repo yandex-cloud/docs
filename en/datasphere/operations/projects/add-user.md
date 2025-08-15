@@ -1,5 +1,5 @@
 ---
-title: How to add users to a project
+title: How to add a user to a project
 description: Follow this guide to add a user to a project.
 ---
 
@@ -13,13 +13,13 @@ description: Follow this guide to add a user to a project.
 
 1. {% include [select-user](../../../_includes/datasphere/select-from-list.md) %}
 
-   If the required user is not on the list, click **{{ ui-key.yc-ui-datasphere.common.copy-link }}** and send them the copied link in any convenient way.
+   If the user you need is not on the list, click **{{ ui-key.yc-ui-datasphere.common.copy-link }}** and send them the copied link in any convenient way.
 
    Once the user accepts the invitation and follows the link, they become a member of the project.
 
    {% note alert %}
 
-   The link does not expire. We recommend that you sometimes recreate the link so that users who have been removed from the project could not join it again.
+   The link does not expire. We recommend recreating the link from time to time to prevent former users from rejoining the project.
 
    {% endnote %}
 

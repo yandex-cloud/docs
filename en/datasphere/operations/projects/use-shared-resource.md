@@ -2,11 +2,11 @@
 title: How to use shared resources in {{ ml-platform-full-name }}
 ---
 
-# Using shared resources
+# Using a shared resource
 
 In your project, you can use a resource available to the entire community.
 
-To share a resource in a community, you need to have the `Editor` role in the project, and `Developer`, in the community. To learn more about roles that apply in {{ ml-platform-name }}, see [{#T}](../../security/index.md).
+To share a resource within a community, you need the `Editor` role in the project and the `Developer` role in the community. To learn more about roles in {{ ml-platform-name }}, see [{#T}](../../security/index.md).
 
 To use a shared resource:
 

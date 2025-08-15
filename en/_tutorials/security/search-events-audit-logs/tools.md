@@ -1,6 +1,6 @@
 # Tools for working with audit logs
 
-You can upload audit logs to a [{{ objstorage-full-name }}](../../../storage/) bucket, [{{ cloud-logging-full-name }}](../../../logging/) log group, or [{{ yds-full-name }}](../../../data-streams/) data stream.
+You can upload audit logs to a [{{ objstorage-full-name }}](../../../storage/) bucket, [{{ cloud-logging-full-name }}](../../../logging/) log group, or data stream in [{{ yds-full-name }}](../../../data-streams/).
 
 Depending on the log location, you need to use different tools to view them and search for events:
 
@@ -23,21 +23,21 @@ To use {{ yq-full-name }}, set up a data binding based on the target object:
 
     1. [Create a service account](../../../iam/operations/sa/create.md) named `bucket-yq-sa`.
     1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `bucket-yq-sa` service account the `storage.viewer` role for the folder containing the bucket with logs.
-    1. Create a connection.
+    1. Create a connection:
 
         1. In the [management console]({{ link-console-main }}), select the folder containing the trail that delivers logs to the bucket.
         1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
         1. Select the trail that delivers logs to the bucket.
         1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
         1. Select `bucket-yq-sa` **{{ ui-key.yacloud.common.resource-acl.label_service-account }}**.
-        1. Leave other attributes as default.
+        1. Leave other parameters at their defaults.
         1. Click **{{ ui-key.yacloud.common.create }}**.
 
     1. In the window with data binding options, click **{{ ui-key.yacloud.common.create }}**.
 
     1. Run the appropriate [query](../../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
-* {{ yds-name }} data stream {#data-streams}
+* {{ yds-name }} {#data-streams}
 
     1. [Create a service account](../../../iam/operations/sa/create.md) named `bucket-yq-sa`.
     1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `yds.editor` role to the `bucket-yq-sa` service account.
@@ -56,13 +56,13 @@ You can filter logs using the [filter expression language](../../../logging/conc
 To use {{ cloud-logging-name }}:
 
 1. [Read logs in the log group](../../../logging/operations/read-logs.md).
-1. [Filter](../../../audit-trails/tutorials/search-events-audit-logs/examples.md) the logs as you need.
+1. [Filter](../../../audit-trails/tutorials/search-events-audit-logs/examples.md) the logs as needed.
 
 ## jq {#tool-jq}
 
 Use [jq](https://jqlang.github.io/jq/) to work with logs uploaded to a bucket.
 
-Buckets store logs as JSON files. This means you can analyze {{ yandex-cloud }} resource events by getting the required events from the files using `jq` [filters](https://jqlang.github.io/jq/manual/).
+Buckets store logs as JSON files. This means you can analyze {{ yandex-cloud }} resource events by retrieving the events you need from the files using `jq` [filters](https://jqlang.github.io/jq/manual/).
 
 To use `jq`:
 
@@ -70,7 +70,7 @@ To use `jq`:
 
 1. Mount a bucket with audit logs to your file system using [s3fs](../../../storage/tools/s3fs.md#mounting-bucket) or [goofys](../../../storage/tools/goofys.md#bucket-mounting).
 
-1. Install the [jq](https://stedolan.github.io/jq) utility.
+1. Install [jq](https://stedolan.github.io/jq).
 
 1. Run the [command](../../../audit-trails/tutorials/search-events-audit-logs/examples.md) with the relevant `jq` filter.
 

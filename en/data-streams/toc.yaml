@@ -5,9 +5,9 @@ items:
     items:
       - name: Preparing the environment
         href: quickstart/index.md
-      - name: Creating a stream
+      - name: Creating a data stream
         href: quickstart/create-stream.md
-      - name: Collecting and streaming data
+      - name: Data collection and delivery
         items:
           - name: Fluentd
             href: quickstart/fluentd.md
@@ -15,7 +15,7 @@ items:
             href: quickstart/logstash.md
           - name: AWS CLI
             href: quickstart/aws-cli.md
-      - name: Processing CDC streams from Debezium
+      - name: Debezium Change Data Capture (CDC) stream processing
         href: quickstart/debezium.md
   - name: Step-by-step guides
     items:
@@ -25,7 +25,7 @@ items:
         href: operations/manage-streams.md
       - name: Working with the AWS CLI
         items:
-          - name: Creating a stream
+          - name: Creating a data stream
             href: operations/aws-cli/create.md
           - name: Getting stream information
             href: operations/aws-cli/describe.md
@@ -39,7 +39,7 @@ items:
         items:
           - name: Preparing the environment
             href: operations/aws-sdk/prepare.md
-          - name: Creating a stream
+          - name: Creating a data stream
             href: operations/aws-sdk/create.md
           - name: Sending data to a stream
             href: operations/aws-sdk/send.md
@@ -53,7 +53,7 @@ items:
         href: concepts/index.md
       - name: Terms and definitions
         href: concepts/glossary.md
-      - name: Partitions and partition keys
+      - name: Shards and partition keys
         href: concepts/partition-keys.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -65,37 +65,39 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Entering data into storage systems
+      - name: Data ingestion into storage systems
         href: tutorials/data-ingestion.md
       - name: Smart log processing
         href: tutorials/log-ingestion.md
-      - name: Transferring data within microservice architectures
+      - name: Data transfer in microservice architectures
         href: tutorials/message-broker.md
-      - name: Saving data to ClickHouse®
+      - name: Storing data in ClickHouse®
         href: tutorials/send-to-clickhouse.md
-      - name: Replicating logs to Object Storage using Fluent Bit
+      - name: Log replication to Object Storage via Fluent Bit
         href: tutorials/replicate-logs-to-storage.md
-      - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
+      - name: Log replication to {{ objstorage-name }} via {{ yds-name }}
         href: tutorials/replicate-logs-to-storage-via-data-streams.md
       - name: >-
-          Migrating data to {{ objstorage-full-name }} using {{
+          Data migration to {{ objstorage-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/yds-obj-migration.md
       - name: >-
-          Delivering data from {{ mkf-full-name }} using {{
+          Data delivery from {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/kafka-to-yds.md
-      - name: Delivering data from an {{ yds-name }} queue to {{ ydb-name }}
+      - name: Data delivery from an {{ yds-name }} queue to {{ ydb-name }}
         href: tutorials/yds-to-ydb.md
       - name: >-
-          Delivering data to {{ mkf-full-name }} using {{
-          data-transfer-full-name }}
+          Data delivery to {{ mkf-full-name }} using {{ data-transfer-full-name
+          }}
         href: tutorials/yds-to-kafka.md
-      - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
+      - name: >-
+          Change data capture (CDC) from {{ ydb-short-name }} and delivery to {{
+          DS }}
         href: tutorials/ydb-to-yds.md
-      - name: '{{ PG }} change data capture and delivery to {{ DS }}'
+      - name: Change data capture (CDC) from {{ PG }} and delivery to {{ DS }}
         href: tutorials/mpg-to-yds.md
-      - name: '{{ MY }} change data capture and delivery to {{ DS }}'
+      - name: Change data capture (CDC) from {{ MY }} and delivery to {{ DS }}
         href: tutorials/mmy-to-yds.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         items:
@@ -107,25 +109,25 @@ items:
             href: tutorials/static-key-in-lockbox/terraform.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them using {{ datalens-full-name }}
+          analyzing them with {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
-      - name: Creating an interactive serverless application using WebSocket
+      - name: Building an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
       - name: Processing {{ at-name }} events
         href: tutorials/audit-trails.md
-      - name: Event search in audit logs
+      - name: Searching for events in audit logs
         items:
           - name: Overview
             href: tutorials/search-events-audit-logs/index.md
-          - name: Tools for working with audit logs
+          - name: Audit log management tools
             href: tutorials/search-events-audit-logs/tools.md
-          - name: Sample requests for searching events
+          - name: Sample queries for event search
             href: tutorials/search-events-audit-logs/examples.md
           - name: Configuring {{ yq-full-name }}
             href: tutorials/search-events-audit-logs/query.md
-      - name: Processing CDC Debezium streams
+      - name: Debezium Change Data Capture (CDC) stream processing
         href: tutorials/debezium.md
-      - name: Exporting audit logs to MaxPatrol SIEM
+      - name: Importing audit logs to MaxPatrol SIEM
         href: tutorials/maxpatrol.md
       - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
         href: tutorials/search-events-query.md
@@ -133,7 +135,7 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
-  - name: Amazon Kinesis Data Streams compatible HTTP API
+  - name: HTTP API compatible with Amazon Kinesis Data Streams
     items:
       - name: Overview
         href: kinesisapi/index.md
@@ -171,7 +173,7 @@ items:
     items:
       - name: Overview
         href: kafkaapi/index.md
-      - name: Authenticating and connecting to a database
+      - name: Authenticating and connecting to the database
         href: kafkaapi/auth.md
   - name: FAQ
     href: qa/index.md

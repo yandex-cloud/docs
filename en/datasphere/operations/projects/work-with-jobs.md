@@ -1,15 +1,15 @@
 ---
 title: How to run jobs in {{ ml-platform-name }} Jobs
-description: Follow this guide to remotely run Python and bash scripts and executable binary files on a {{ ml-platform-name }} VM.
+description: Follow this guide to remotely run Python and bash scripts, and executable binary files on a {{ ml-platform-name }} VM.
 ---
 
 # Running jobs in {{ ml-platform-name }} Jobs
 
-In {{ ml-platform-name }} Jobs, you can remotely run [jobs](../../concepts/jobs/index.md), i.e., Python and bash scripts and executable binary files, on a {{ ml-platform-full-name }} VM.
+In {{ ml-platform-name }} Jobs, you can remotely run [jobs](../../concepts/jobs/index.md), i.e., Python and bash scripts, and executable binary files, on a {{ ml-platform-full-name }} VM.
 
-Jobs are created and run within [projects](../../concepts/project.md). However, they do not depend on project notebooks and running VMs.
+You create and run jobs within [projects](../../concepts/project.md); however, they do not depend on the project notebooks and running VMs.
 
-Before running a job, [install](../../../cli/quickstart.md) and configure the [{{ yandex-cloud }} CLI](../../../cli/) to use it for authentication in {{ yandex-cloud }}. You should also install the `datasphere` library in your Python environment using the `pip install datasphere` command.
+Before running a job, [install](../../../cli/quickstart.md) and configure the [{{ yandex-cloud }} CLI](../../../cli/) to use it for authentication in {{ yandex-cloud }}. You also need to install the `datasphere` library in your Python environment using the `pip install datasphere` command.
 
 {% include [vscode-extension-info](../../../_includes/datasphere/vscode-extension-info.md) %}
 
@@ -29,7 +29,7 @@ When you run a job, the `datasphere` library analyzes the environment, collects 
 
 1. Prepare a file with inputs.
 
-1. Configure the job parameters. In the `config.yaml` file, specify the resources for running your job and its runtime configuration:
+1. Configure the job settings. In the `config.yaml` file, specify the resources for running your job and its runtime configuration:
 
     ```yaml
     name: <job_name>
@@ -53,14 +53,14 @@ When you run a job, the `datasphere` library analyzes the environment, collects 
     * `name`: Job name.
     * `desc`: Job description.
     * `cmd`: Script file and variables for inputs and outputs.
-    * `env`: Environment parameters. The `python: auto` value indicates that the code and `pip` dependencies should be provided to {{ ml-platform-name }}.
-    * `inputs`: File with inputs. You can change the `DATA` variable name.
-    * `outputs`: File with outputs. You can change the `OUTPUT` variable name.
+    * `env`: Environment parameters. `python: auto` indicates that you need to provide the code and `pip` dependencies to {{ ml-platform-name }}.
+    * `inputs`: File with inputs. You can change the name of the `DATA` variable.
+    * `outputs`: File with outputs. You can change the name of the `OUTPUT` variable.
     * `cloud-instance-types`: List of valid [computing resource configurations](../../concepts/configurations.md) to run the job, sorted by priority.
 
     For a single configuration, you may also use the old `cloud-instance-type` field, e.g., `cloud-instance-type: g1.1`; however, it is better to use the new one.
 
-1. Open the command-line shell in the folder containing the files you prepared and run your job:
+1. Open the command-line shell in the directory with the files you prepared and run your job:
 
     ```bash
     datasphere project job execute -p <project_ID> -c config.yaml
@@ -72,15 +72,15 @@ When you run a job, the `datasphere` library analyzes the environment, collects 
 
 {% list tabs %}
 
-- Interface {{ ml-platform-full-name }}
+- {{ ml-platform-full-name }} interface
 
   1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
-  1. Navigate to the **{{ ui-key.yc-ui-datasphere.project-page.project-jobs }}** ⟶ **{{ ui-key.yc-ui-datasphere.project-page.launch-history }}** tab and select the job you need.
+  1. Navigate to **{{ ui-key.yc-ui-datasphere.project-page.project-jobs }}** ⟶ **{{ ui-key.yc-ui-datasphere.project-page.launch-history }}** and select the job you need.
   1. You will see its progress bar at the top of the page.
 
 - Locally
 
-  The progress is saved to a local file, `job_progress.jsonl`, available in the directory with job [logs](../../concepts/jobs/cli.md#logs). The file is regularly appended with a JSON string stating the current progress. Here is an example:
+  The progress is saved to a local file, `job_progress.jsonl`, available in the directory with job [logs](../../concepts/jobs/cli.md#logs). The file receives periodic updates as JSON-formatted lines stating the current progress. Here is an example:
 
   ```json
   {"progress": 21, "message": "progress msg 21", "create_time": "2025-06-01T11:00:12+00:00"}
@@ -92,7 +92,7 @@ When you run a job, the `datasphere` library analyzes the environment, collects 
 
 ## Example {#example}
 
-Let's say you train a classification model on the MNIST dataset with sample handwritten digits. {{ ml-platform-name }} remotely runs training and returns the trained model file as the result. For more job run examples, see the [repository](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) on GitHub.
+Let's say you train a classification model on the MNIST dataset with handwritten digit samples. {{ ml-platform-name }} remotely runs training and returns the trained model file as the result. For more job run examples, see [this GitHub repository](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples).
 
 {% note warning %}
 
@@ -178,7 +178,7 @@ To run a job, you need Python 3.10.0 and TensorFlow 2.12.0.
         main(epoch_count, args.model)
     ```
 
-1. Prepare the `input.json` file with inputs:
+1. Create a file with inputs named `input.json`:
 
     ```python
     {
@@ -186,7 +186,7 @@ To run a job, you need Python 3.10.0 and TensorFlow 2.12.0.
     }
     ```
 
-1. Create the `config.yaml` file with job parameters:
+1. Create a file named `config.yaml` with job settings:
 
     ```yaml
     name: simple-tf-script
@@ -210,7 +210,8 @@ To run a job, you need Python 3.10.0 and TensorFlow 2.12.0.
 
     {% include [get-project-id](../../../_includes/datasphere/get-project-id.md) %}
 
-The model will be saved to the `model.zip` archive in the job folder.
+The system will save the model to the `model.zip` archive in the job folder.
+
 
 
 #### See also {#see-also}

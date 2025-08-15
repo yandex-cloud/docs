@@ -1,12 +1,12 @@
 # IncreaseStreamRetentionPeriod
 
-Increases the [message retention period](../../concepts/glossary.md#retention-time) in a stream.
+Increases the [record retention period](../../concepts/glossary.md#retention-time) in a stream.
 
-Possible values: 4 hours, 12 hours, and 24 hours.
+Available retention period options: 4 hours, 12 hours, 24 hours.
 
 ## Request {#request}
 
-The request contains data in JSON format.
+The request contains JSON-formatted data.
 
 ```json
 {
@@ -15,24 +15,24 @@ The request contains data in JSON format.
 }
 ```
 
-### Request parameters {#request-options}
+### Request options {#request-options}
 
-| Parameter | Description |
-| ----- | ----- |
-| `RetentionPeriodHours` | Message retention period, hours.<br/>Must be greater than the current time.<br/><br/>**Type**: Integer<br/>**Possible values** `12`, `24`.<br/>**Required**: Yes. |
-| `StreamName` | The name of a stream.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes |
+Option | Description
+----- | -----
+`RetentionPeriodHours` | Record retention period, hours.<br/>Must be larger than the current value.<br/><br/>**Type**: Integer<br/>**Allowed values**: `12`, `24`.<br/>**Required**: Yes
+`StreamName` | Data stream name.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**The possible values are**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes
 
 ## Response {#response}
 
-If successful, an HTTP 200 code and empty body are returned.
+Successful responses include an HTTP 200 code and an empty response body.
 
 ## Errors {#errors}
 
-| Parameter | Description | HTTP code |
-| ----- | ----- | ----- |
-| `InvalidArgumentException` | The argument is invalid. For more information, see the error message. | 400 |
-| `LimitExceededException` | The request limit is exceeded. | 400 |
-| `ResourceInUseException` | The resource is being used by another operation. | 400 |
-| `ResourceNotFoundException` | The requested resource was not found. | 400 |
+Error | Description | HTTP code
+----- | ----- | -----
+`InvalidArgumentException` | The argument is invalid. See the error message for details. | 400
+`LimitExceededException` | The request limit is exceeded. | 400
+`ResourceInUseException` | The resource is currently locked by another operation. | 400
+`ResourceNotFoundException` | The requested resource was not found. | 400
 
-[Errors](../common-errors.md) that are common to all methods may occur.
+[Errors](../common-errors.md) common to all methods may occur.

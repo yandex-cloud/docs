@@ -19,12 +19,14 @@ description: На странице представлен список поша�
 * [{#T}](desktops/password-reset.md)
 * [{#T}](desktops/start-stop.md)
 * [{#T}](desktops/update.md)
+* [{#T}](desktops/update-properties.md)
 * [{#T}](desktops/delete.md)
 
 ## Образы {#desktops}
 
 * [{#T}](images/create-from-desktop.md)
 * [{#T}](images/create-from-compute-linux.md)
+* [{#T}](images/update.md)
 * [{#T}](images/delete.md)
 
 ## Дополнительные возможности {#add-features}

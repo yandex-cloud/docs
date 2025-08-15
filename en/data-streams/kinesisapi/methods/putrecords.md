@@ -1,22 +1,22 @@
 # PutRecords
 
-Puts multiple [messages](../../concepts/glossary.md#message) into a [stream](../../concepts/glossary.md#stream-concepts) per call.
+Puts multiple [records](../../concepts/glossary.md#message) into a [data stream](../../concepts/glossary.md#stream-concepts) in a single call.
 
-The method provides greater performance as compared to [PutRecord](putrecord.md). Up to 500 messages can be sent in a single request. Each message in the request can be up to 1 MB in size. The entire request can't exceed 5 MB, including [shard keys](../../concepts/glossary.md#partition-key).
+This method delivers higher throughput compared to [PutRecord](putrecord.md). A single request can contain up to 500 records. Each record in the request can be up to 1 MB in size. The total request size cannot exceed 5 MB, including [partition keys](../../concepts/glossary.md#partition-key).
 
-The request specifies the stream name and the `Records` array of messages. For each element of the array, a shard key and an object with Base64-encoded user data are specified. To explicitly set the hash key of the shard to write messages to, use the `ExplicitHashKey` parameter.
+The request must include the stream name and an array of `Records`. Each record must contain a partition key and an object containing Base64-encoded user data. To explicitly specify the hash key determining the target shard for records, use the `ExplicitHashKey` parameter.
 
-Returns an array of elements with data about written messages. Each element of the array returned corresponds to an element of the array sent. The elements in both arrays are ordered the same way. The returned array includes data from both successfully and unsuccessfully processed messages. Failure to write any message does not stop the processing of subsequent messages.
+Returns an array of elements containing status information for each record. Each entry in the response array corresponds to a record in the request array. The response array maintains the same order as the request array. The response array provides status information for all records, whether processed successfully or not. A single record failure does not prevent processing of subsequent records.
 
-`PutRecords` ensures that messages will be written in the same order as in the sent array.
+`PutRecords` guarantees that records are written to the stream in the exact order they appear in the request array.
 
-Data about a successfully processed message contains the `ShardId` indicating the shard that the message was written to and the [message number](../../concepts/glossary.md#sequence-number) (`SequenceNumber`).
+For successfully processed records, the response includes the `ShardId` of the shard where the record was stored and the [`SequenceNumber`](../../concepts/glossary.md#sequence-number) assigned to the record.
 
-Data about a message that the service failed to process contains the `ErrorCode` and `ErrorMessage`. Possible error types: `ProvisionedThroughputExceededException` or `InternalFailure`. If the type is `ProvisionedThroughputExceededException`, the error message contains the account ID, the stream name, and the shard ID of the message that couldn't be processed.
+For records that failed processing, the response includes an `ErrorCode` and an `ErrorMessage`. Common error types include `ProvisionedThroughputExceededException` and `InternalFailure`. For `ProvisionedThroughputExceededException` errors, the error message includes the account ID, the stream name, and the shard ID of the failed record.
 
 ## Request {#request}
 
-The request contains data in JSON format.
+The request contains JSON-formatted data.
 
 ```json
 {
@@ -29,16 +29,16 @@ The request contains data in JSON format.
 }
 ```
 
-### Request parameters {#request-options}
+### Request options {#request-options}
 
-| Parameter | Description |
+Option | Description
 ----- | -----
-| `Records` | Messages to write.<br/><br/>**Type** Array of objects `PutRecordsRequestEntry`<br/>**Number of elements**: `1`-`500`<br/>**Required**: Yes |
-| `StreamName` | The name of the stream.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes |
+`Records` | Record to write<br/><br/>**Type** Array of objects `PutRecordsRequestEntry`<br/>**Number of elements**: `1`-`500`<br/>**Required**: Yes
+`StreamName` | Data stream name.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**The possible values are**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes
 
 ## Response {#response}
 
-If successful, HTTP code 200 and data in JSON format are returned.
+Successful requests return HTTP 200 with a JSON-formatted response body.
 
 ```json
 {
@@ -55,17 +55,17 @@ If successful, HTTP code 200 and data in JSON format are returned.
 
 ### Response parameters {#response-options}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `EncryptionType` | The type of encryption.<br/><br/>**Type**: String<br/>**Possible values**: `NONE`<br/>**Required**: Yes |
-| `FailedRecordCount` | The number of unprocessed messages. |
-| `Records` | The results of message processing.<br/><br/>**Type** Array of objects `PutRecordsRequestEntry`<br/>**Number of elements**: `1`-`500`<br/>**Required**: Yes |
+`EncryptionType` | Encryption type.<br/><br/>**Type**: String<br/>**Allowed values**: `NONE`<br/>**Required**: Yes
+`FailedRecordCount` | Number of failed records.
+`Records` | Record processing results.<br/><br/>**Type** Array of `PutRecordsRequestEntry` objects<br/>**Number of elements**: `1`-`500`<br/>**Required**: Yes
 
 ## Errors {#errors}
 
-| Parameter | Description | HTTP code |
+Error | Description | HTTP code
 ----- | ----- | -----
-| `InvalidArgumentException` | The argument is invalid. For more information, see the error message. | 400 |
-| `ResourceNotFoundException` | The requested resource was not found. | 400 |
+`InvalidArgumentException` | The argument is invalid. See the error message for details. | 400
+`ResourceNotFoundException` | The requested resource was not found. | 400
 
-[Errors](../common-errors.md) that are common to all methods may occur.
+[Errors](../common-errors.md) common to all methods may occur.

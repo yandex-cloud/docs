@@ -1,18 +1,18 @@
 # Opening a notebook in {{ ml-platform-name }}
 
-You can publish your {{ jlab }}Lab notebook's source file on your website and authorize users to run it in {{ ml-platform-name }}. After using a link, the user will need to log in to {{ yandex-cloud }} and select a project.
+You can publish the {{ jlab }}Lab notebook's source file on your website and enable users to run it in {{ ml-platform-name }}. After clicking the link, users will be prompted to sign in to {{ yandex-cloud }} and select a project.
 
 ## Opening a notebook {#open-notebook}
 
 To open a notebook in {{ ml-platform-name }}:
 
-1. Substitute a link to the notebook source file in the common part of the link. The file must be publicly available without any restrictions.
+1. Replace the placeholder in the provided link with the URL of your notebook's source file. Make sure the file is publicly accessible without any restrictions.
 
     ```text
     {{ link-datasphere-main }}/import-ipynb?path=<source_file_link>
     ```
 
-    For example:
+    Here is an example:
 
     ```text
     {{ link-datasphere-main }}/import-ipynb?path=https://raw.githubusercontent.com/yandex-cloud-examples/yc-datasphere-batch-execution/main/src/train_classifier.ipynb
@@ -20,11 +20,11 @@ To open a notebook in {{ ml-platform-name }}:
 
 1. Follow the link and click **{{ ui-key.yc-ui-datasphere.import-ipynb.open-in-dataSphere }}**.
 
-1. In the window that opens, select a project and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
+1. In the window that opens, select the project and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
 
-This adds a notebook copy to the project storage.
+This will add a notebook copy to the project storage.
 
-## Examples of embed code for website {#code-to-insert}
+## Code snippets to embed on your website {#code-to-insert}
 
 #|
 || **Widget** | **Embed code** ||
@@ -41,7 +41,7 @@ Open in {{ ml-platform-name }}
 ```html
 <a href="{{ link-datasphere-main }}/import-ipynb?path=<source_file_link>">
   <img src="https://storage.yandexcloud.net/datasphere-assets/datasphere_badge_v1_ru.svg"
-  alt=”Open in {{ ml-platform-name }}"/>
+  alt="Open in {{ ml-platform-name }}"/>
 </a>
 ```
 ||
@@ -59,7 +59,7 @@ Open in {{ ml-platform-name }}
 ```html
 <a href="{{ link-datasphere-main }}/import-ipynb?path=<source_file_link>">
   <img src="https://storage.yandexcloud.net/datasphere-assets/datasphere_badge_v2_ru.svg"
-  alt=”Open in {{ ml-platform-name }}"/>
+  alt="Open in {{ ml-platform-name }}"/>
 </a>
 
 ```
@@ -78,7 +78,7 @@ Open in {{ ml-platform-name }}
 ```html
 <a href="{{ link-datasphere-main }}/import-ipynb?path=<source_file_link>">
   <img src="https://storage.yandexcloud.net/datasphere-assets/datasphere_badge_v3_ru.svg"
-  alt=”Open in {{ ml-platform-name }}"/>
+  alt="Open in {{ ml-platform-name }}"/>
 </a>
 ```
 ||

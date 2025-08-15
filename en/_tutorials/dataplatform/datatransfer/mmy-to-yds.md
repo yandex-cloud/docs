@@ -1,6 +1,6 @@
 
 
-You can track data changes in a {{ mmy-name }} _source cluster_ and send them to a {{ yds-name }} _target cluster_ using [Change Data Capture](../../../data-transfer/concepts/cdc.md) (CDC).
+You can track data changes in a {{ mmy-name }} _source cluster_ and send them to a {{ yds-name }} _target cluster_ using [change data capture](../../../data-transfer/concepts/cdc.md) (CDC).
 
 To set up CDC using {{ data-transfer-name }}:
 
@@ -18,22 +18,22 @@ The support cost includes:
 * {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
 * Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+* {{ ydb-name }} database fee. The charge depends on the usage mode:
 
 	* For the serverless mode, you pay for data operations and the amount of stored data.
-	* For dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
+	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
 	
-    Learn more about the [{{ ydb-name }} pricing](../../../ydb/pricing/index.md) plans.
+    Learn more about the {{ ydb-name }} pricing plans [here](../../../ydb/pricing/index.md).
 
-* Fee for {{ yds-name }}. The fee depends on the pricing mode:
+* {{ yds-name }} fee, which depends on the pricing mode:
 
-	* Based on allocated resources: You pay for the number of units of written data and resources allocated for data streaming.
-	* By actual use:
+	* Provisioned capacity pricing mode: You pay for the number of write units and resources allocated for data streaming.
+	* On-demand pricing mode:
 		* If the DB operates in serverless mode, the data stream is charged according to the [{{ ydb-short-name }} serverless mode pricing policy](../../../ydb/pricing/serverless.md).
 
-		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../../ydb/pricing/dedicated)).
+		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../../ydb/pricing/dedicated.md)).
 
-    Learn more about the [{{ yds-name }} pricing](../../../data-streams/pricing.md) plans.
+    Learn more about the {{ yds-name }} pricing plans [here](../../../data-streams/pricing.md).
 
 
 ## Getting started {#before-you-begin}
@@ -48,7 +48,7 @@ Set up your infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy-user`
 
-    1. [Grant the user](../../../managed-mysql/concepts/settings-list#setting-administrative-privileges) the `REPLICATION CLIENT` and `REPLICATION SLAVE` administrative privileges.
+    1. [Grant the user](../../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges) the `REPLICATION CLIENT` and `REPLICATION SLAVE` admin privileges.
 
     
     1. Set up [security groups](../../../managed-mysql/operations/connect.md#configure-security-groups) and make sure they allow cluster connections.
@@ -71,14 +71,14 @@ Set up your infrastructure:
 
         * [Network](../../../vpc/concepts/network.md#network).
         * [Subnet](../../../vpc/concepts/network.md#subnet).
-        * [Security group](../../../vpc/concepts/security-groups.md) required to connect to a cluster.
+        * [Security group](../../../vpc/concepts/security-groups.md) required for cluster connection.
         * {{ mmy-name }} source cluster.
-        * Database: {{ ydb-name }}.
-        * Service account to use to access {{ yds-name }}.
+        * {{ ydb-name }} database.
+        * Service account to use for {{ yds-name }} access.
         * Source endpoint.
         * Transfer.
 
-    1. In the `mysql-yds.tf` file, specify the {{ MY }} user password.
+    1. In `mysql-yds.tf`, specify the {{ MY }} user password.
 
     1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -86,7 +86,7 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -98,9 +98,9 @@ Set up your infrastructure:
 
 ## Set up your transfer {#prepare-transfer}
 
-1. [Create a {{ yds-name }} data stream](../../../data-streams/operations/aws-cli/create.md) named `mpg-stream`.
+1. [Create a data stream in {{ yds-name }}](../../../data-streams/operations/aws-cli/create.md) named `mpg-stream`.
 
-1. [Connect to the {{ mmy-name }} cluster](../../../managed-mysql/operations/connect.md), create a table named `measurements` in the `db1` database and populate it with data:
+1. [Connect to the {{ mmy-name }} cluster](../../../managed-mysql/operations/connect.md), create a table named `measurements` in the `db1` database, and populate it with data:
 
     ```sql
     CREATE TABLE measurements (
@@ -126,7 +126,7 @@ Set up your infrastructure:
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: `mpg-stream`
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: `yds-sa`
 
-1. Create a source endpoint and transfer.
+1. Create a source endpoint and transfer:
 
     {% list tabs group=instructions %}
 
@@ -138,7 +138,7 @@ Set up your infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}**: `<source_cluster_name>` from the drop-down list.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}**: `db1`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}**: `mmy-user`
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: `mmy-user` user password.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}**: `mmy-user` password.
 
         1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
 
@@ -147,7 +147,7 @@ Set up your infrastructure:
         1. In the `mysql-yds.tf` file, specify these variables:
 
             * `yds_endpoint_id`: ID of the target endpoint.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -155,7 +155,7 @@ Set up your infrastructure:
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
@@ -179,19 +179,19 @@ Set up your infrastructure:
         ('ad02l5ck6sdt********', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 19, 45);
     ```
 
-1. Make sure the new row is shown in the {{ yds-name }} stream.
+1. Make sure you can now see the new row in your data stream.
 
 ## Delete the resources you created {#clear-out}
 
 {% include [note before delete resources](../../../_includes/mdb/note-before-delete-resources.md) %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
-1. [Delete the {{ yds-name }} stream](../../../data-streams/operations/manage-streams.md#delete-data-stream).
+1. [Delete the stream in {{ yds-name }}](../../../data-streams/operations/manage-streams.md#delete-data-stream).
 
-Delete the other resources depending on how they were created:
+Delete the other resources depending on how you created them:
 
 {% list tabs group=instructions %}
 

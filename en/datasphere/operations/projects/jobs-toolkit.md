@@ -1,12 +1,12 @@
 # Working with jobs from Visual Studio Code
 
-{{ ds-jobs }} Toolkit enables you to work with {{ ml-platform-name }} [jobs](../../concepts/jobs/index.md) from within the [Visual Studio Code](https://code.visualstudio.com/) IDE. You will need a {{ yandex-cloud }} account and a {{ ml-platform-name }} [project](../../concepts/project.md).
+{{ ds-jobs }} Toolkit enables you to work with {{ ml-platform-name }} [jobs](../../concepts/jobs/index.md) from within [Visual Studio Code](https://code.visualstudio.com/). You will need a {{ yandex-cloud }} account and a {{ ml-platform-name }} [project](../../concepts/project.md).
 
-{{ ds-jobs }} Toolkit uses the [{{ ds-cli }}](../../concepts/jobs/cli.md) to analyze the environment and identify dependencies. The CLI is automatically installed in the current virtual environment when you run your first job.
+{{ ds-jobs }} Toolkit uses [{{ ds-cli }}](../../concepts/jobs/cli.md) to analyze the environment and identify dependencies. The CLI is automatically installed in the current virtual environment when you run your first job.
 
 {% note info %}
 
-To use the extension, make sure you have installed the [Visual Studio Code](https://code.visualstudio.com/) IDE, [Python 3.10](https://www.python.org/downloads/release/python-3100/), and the [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+To use {{ ds-jobs }} Toolkit, make sure you have installed [Visual Studio Code](https://code.visualstudio.com/), [Python 3.10](https://www.python.org/downloads/release/python-3100/), and the [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 {% endnote %}
 
@@ -16,12 +16,12 @@ When you run a job, the `datasphere` library analyzes the environment, collects 
 
 ## Install {{ ds-jobs }} Toolkit {#setup}
 
-1. Open the [extension page on the marketplace](https://marketplace.visualstudio.com/items?itemName=yandex-cloud.ds-toolkit-vscode).
+1. Open the [extension page on Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=yandex-cloud.ds-toolkit-vscode).
 1. Click **Install**.
 1. The browser will prompt you to open Visual Studio Code. Click **Open app**.
 1. On the {{ ds-jobs }} Toolkit page that opens in Visual Studio Code, click **Install**.
 
-Once the extension is successfully installed, you will see **This extension is enabled globally** on its page.
+Once you go through the installation successfully, the extension page will show **This extension is enabled globally**.
 
 ## Get authenticated in {{ ds-jobs }} {#authentication}
 
@@ -33,18 +33,18 @@ To start working with {{ ds-jobs }}, get authenticated using a Yandex or federat
 
   1. Get an [OAuth token](../../../iam/concepts/authorization/oauth-token.md).
 
-     {% include [описание](../../../_includes/oauth-token-lifetime.md) %}
+     {% include [oauth-token-lifetime](../../../_includes/oauth-token-lifetime.md) %}
 
   1. In Visual Studio Code, click **Search** at the top of the window and enter this command: `> DataSphere Jobs: Set OAuth token`. In the window that opens, click **Open** to get an OAuth token.
 
       If you already have an OAuth token, click **Cancel**.
-  1. In the **Input OAuth-token** field that opens, enter the OAuth token.
+  1. In the **Input OAuth token** field that opens, enter your OAuth token.
 
   To delete the OAuth token, use this command: `> DataSphere Jobs: Remove OAuth token`.
 
 - Federated account {#federated-account}
 
-  To authenticate a federated account, you need to install and configure the [CLI](../../../cli/quickstart.md). If the CLI is installed in the default folder or the path to it is specified in the `Path` environment variable, the extension will detect it automatically. If not, specify the CLI executable path in the extension settings:
+  To authenticate a federated account, you need to install and configure the [CLI](../../../cli/quickstart.md). If the CLI is installed in the default folder or the path to it is specified in the `Path` environment variable, {{ ds-jobs }} Toolkit will detect it automatically. If not, specify the CLI executable path in the extension settings:
 
   1. In the left-hand panel, select **{{ ds-jobs }}** and click **Settings**.
   1. In the **Datasphere: Yandex Cloud Console Path** field, enter the path to the CLI executable, such as the following:
@@ -55,15 +55,15 @@ To start working with {{ ds-jobs }}, get authenticated using a Yandex or federat
 
 {% endlist %}
 
-## Run the job {#run-job}
+## Run a job {#run-job}
 
 1. In the left-hand panel, select ![logo](../../../_assets/datasphere/ds-logo.svg) **{{ ds-jobs }}** and click **Settings**.
 1. In the **Datasphere: Project** field, enter the project ID. To get the project ID, click the **ID** icon on your project page in the [{{ ml-platform-name }} interface]({{ link-datasphere-main }}/projects).
-1. Open the Python file using {{ ds-jobs }} Toolkit. To do this, in the Visual Studio Code Explorer, right-click the file you need and select **Run File in DataSphere Jobs**.
+1. Open a Python file using {{ ds-jobs }} Toolkit. To do this, in the Visual Studio Code Explorer, right-click the file you need and select **Run File in DataSphere Jobs**.
 
     You can also pre-open the file with the job code in Visual Studio Code, click **Run and Debug** in the top-right corner of the edit window, and select **Run File in DataSphere Jobs**.
 
-    You can use [this sample code](./work-with-jobs.md#example) when testing the extension. For more job run examples, see the [repository](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples) on GitHub.
+    You can use [this sample code](./work-with-jobs.md#example) when testing the extension. For more job run examples, see [this GitHub repository](https://github.com/yandex-cloud-examples/yc-datasphere-jobs-examples).
 
 1. In the **DataSphere Job Configuration** window that opens, set the following configuration:
 
@@ -73,35 +73,35 @@ To start working with {{ ds-jobs }}, get authenticated using a Yandex or federat
 
       Configure the main run parameters that match the values in the `config.yaml` [file](./work-with-jobs.md#create-job):
 
-      * **Working directory**: Working directory containing files required to run the job.
-      * **Inputs**: Files with input data in `<path>=<variable_name>` format. Specify each value pair in a separate line.
-      * **Outputs**: Files with output data in `<path>=<variable_name>` format. Specify each value pair in a separate line.
+      * **Working directory**: Working directory containing the files required to run your job.
+      * **Inputs**: Files with input data in `<path>=<variable_name>` format. Specify each value pair on a separate line.
+      * **Outputs**: Files with output data in `<path>=<variable_name>` format. Specify each value pair on a separate line.
 
     - ADVANCED
 
-      Configure additional parameters:
+      Configure additional settings:
 
       * **Project Identifier**: {{ ml-platform-name }} project ID.
       * **Configuration file path**: Path to the completed `config.yaml` configuration file.
-      * **Instance Type**: [Configuration](../../concepts/configurations.md) parameters of the VM on which the job will run.
-      * **S3 mounts**: IDs of [S3 connectors](../../concepts/s3-connector.md). In case of multiple S3 connectors, specify each ID in a separate line.
-      * **Datasets**: [Datasets](../../concepts/dataset.md) in `<dataset>=<variable_name>` format. Specify each value pair in a separate line.
+      * **Instance Type**: [Configuration](../../concepts/configurations.md) settings of the VM you will use to run your job.
+      * **S3 mounts**: IDs of [S3 connectors](../../concepts/s3-connector.md). In case of multiple S3 connectors, specify each ID on a separate line.
+      * **Datasets**: [Datasets](../../concepts/dataset.md) in `<dataset>=<variable_name>` format. Specify each value pair on a separate line.
 
     - ENVIRONMENT
 
       Configure the [Docker image](../../concepts/docker.md):
 
-      * **Variables**: Variables required to run the code in `<name>:<value>` format. Specify each value pair in a separate line.
-      * **Docker**: Docker image parameters:
+      * **Variables**: Variables required to run the code, in `<name>:<value>` format. Specify each value pair on a separate line.
+      * **Docker**: Docker image settings:
           * **Image**: Docker image URL.
-          * **User**: System account with the password or ID of the secret containing the [authorized key](../../../iam/concepts/authorization/key.md).
+          * **User**: System account with either a password or ID of the secret that holds the [authorized key](../../../iam/concepts/authorization/key.md).
 
     - PYTHON
 
-      Configure your Python working environment:
+      Set up your Python working environment:
 
       * **Environment dependency build method**: Select whether to define environment dependencies manually or automatically.
-      * **Extra root paths**: Additional root folders. Specify each value in a separate line.
+      * **Extra root paths**: Additional root folders. Specify each value on a separate line.
       * **Extra index urls**: Additional index URLs.
       * If you choose not to define environment dependencies, enable **No Dependencies**.
 
@@ -113,7 +113,7 @@ To start working with {{ ds-jobs }}, get authenticated using a Yandex or federat
 
 1. To run the configuration, click **Invoke**.
 
-    After you successfully run the job from within {{ ds-jobs }} Toolkit, the **DEBUG CONSOLE** window will open. It will contain a link to the same job in {{ ml-platform-name }}:
+    After you successfully run the job from within {{ ds-jobs }} Toolkit, the **DEBUG CONSOLE** window will open. It will contain a link to the job in {{ ml-platform-name }}:
 
     ```txt
     creating job ...

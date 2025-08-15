@@ -1,16 +1,16 @@
 # PutRecord
 
-Sends one [message](../../concepts/glossary.md#message) into a [stream](../../concepts/glossary.md#stream-concepts).
+Puts one [record](../../concepts/glossary.md#message) into a [data stream](../../concepts/glossary.md#stream-concepts).
 
-The request specifies the stream name, the [shard key](../../concepts/glossary.md#partition-key) and an object with user data in Base64 encoding.
+The request must include the stream name, the [partition key](../../concepts/glossary.md#partition-key) and an object containing the user data in Base64 encoding.
 
-Returns the ID of the shard where the message was put and the [message sequence number](../../concepts/glossary.md#sequence-number).
+Returns the ID of the shard where the record was stored and the [record’s sequence number](../../concepts/glossary.md#sequence-number).
 
-Messages are written to the stream shard strictly in the order they are sent.
+The system writes messages to the stream shard strictly in the order they are sent.
 
 ## Request {#request}
 
-The request contains data in JSON format.
+The request contains JSON-formatted data.
 
 ```json
 {
@@ -22,18 +22,18 @@ The request contains data in JSON format.
 }
 ```
 
-### Request parameters {#request-options}
+### Request options {#request-options}
 
-| Parameter | Description |
+Option | Description
 ----- | -----
-| `Data` | User data.<br/><br/>**Type**: Binary, Base64 encoding<br/>**Size**: `0`-`1048576` bytes of Base64 encoded data<br/>**Required**: Yes |
-| `ExplicitHashKey` | Shard key hash.<br/>When using the `PartitionKey` hash to specify the shard to put a message into, messages may be distributed across shards suboptimally. Use this parameter to explicitly define the shard to write messages to.<br/><br/>**Type**: String<br/>**Possible values**: `0\|([1-9]\d{0.38})`<br/>**Required**: No |
-| `PartitionKey` | Shard key.<br/>Sets the stream shard to write a message to.<br/><br/>**Type**: String<br/>**Size**: `1`-`256` characters.<br/>**Required**: Yes |
-| `StreamName` | The name of the stream.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes |
+`Data` | User data.<br/><br/>**Type**: Binary, Base64-encoded<br/>**Size**: `0`-`1048576` bytes of Base64-encoded data<br/>**Required**: Yes
+`ExplicitHashKey` | Partition key hash.<br/>Using the `PartitionKey` hash to assign records to shards may result in uneven record distribution across shards. Use this option to explicitly specify the target shard for message storage.<br/><br/>**Type**: String<br/>**Allowed values**: `0\|([1-9]\d{0.38})`<br/>**Required**: No
+`PartitionKey` | Partition key.<br/>Determines the target stream shard for record storage<br/><br/>**Type**: String<br/>**Size**: `1`-`256` characters.<br/>**Required**: Yes
+`StreamName` | Data stream name.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**The possible values are**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes
 
 ## Response {#response}
 
-If successful, HTTP code 200 and data in JSON format are returned.
+Successful requests return HTTP 200 with a JSON-formatted response body.
 
 ```json
 {
@@ -45,18 +45,18 @@ If successful, HTTP code 200 and data in JSON format are returned.
 
 ### Response parameters {#response-options}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `EncryptionType` | The type of encryption.<br/><br/>**Type**: String<br/>**Possible values**: `NONE`<br/>**Required**: Yes |
-| `SequenceNumber` | The sequence number of a message.<br/><br/>**Type**: String<br/>**Possible values**: `0\|([1-9]\d{0,128})`<br/>**Required**: Yes |
-| `ShardId` | The ID of the shard that the message was written to.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z0-9_.-]+`<br/>**Required**: Yes |
+`EncryptionType` | Encryption type.<br/><br/>**Type**: String<br/>**Allowed values**: `NONE`<br/>**Required**: Yes
+`SequenceNumber` | Record sequence number.<br/><br/>**Type**: String<br/>**Allowed values**: `0\|([1-9]\d{0.128})`<br/>**Required**: Yes
+`ShardId` | The ID of the target shard for the record storage.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**The possible values are**: `[a-zA-Z0-9_.-]+`<br/>**Required**: Yes
 
 ## Errors {#errors}
 
-| Parameter | Description | HTTP code |
+Error | Description | HTTP code
 ----- | ----- | -----
-| `InvalidArgumentException` | The argument is invalid. For more information, see the error message. | 400 |
-| `ProvisionedThroughputExceededException` | Insufficient throughput to execute the request. | 400 |
-| `ResourceNotFoundException` | The requested resource was not found. | 400 |
+`InvalidArgumentException` | The argument is invalid. See the error message for details. | 400
+`ProvisionedThroughputExceededException` | Insufficient throughput to process the request. | 400
+`ResourceNotFoundException` | The requested resource was not found. | 400
 
-[Errors](../common-errors.md) that are common to all methods may occur.
+[Errors](../common-errors.md) common to all methods may occur.

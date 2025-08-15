@@ -1,11 +1,11 @@
-# Delivering data from an {{ yds-name }} queue to {{ mkf-name }} using {{ data-transfer-name }}
+# Delivering data from a {{ yds-name }} queue to {{ mkf-name }} using {{ data-transfer-name }}
 
-With {{ data-transfer-name }}, you can deliver data from a {{ yds-name }} stream to a {{ mkf-name }} cluster.
+With {{ data-transfer-name }}, you can deliver data from a stream in {{ yds-name }} to a {{ mkf-name }} cluster.
 
 To transfer data:
 
-1. [Set up a stream in {{ yds-name }}](#prepare-source).
-1. [Set up and activate your transfer](#prepare-transfer).
+1. [Set up a data stream in {{ yds-name }}](#prepare-source).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -18,29 +18,29 @@ The support cost includes:
 * {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
-* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+* {{ ydb-name }} database fee. The charge depends on the usage mode:
 
 	* For the serverless mode, you pay for data operations and the amount of stored data.
 	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
 	
-    Learn more about the [{{ ydb-name }}](../../ydb/pricing/index.md) pricing plans.
+    Learn more about the {{ ydb-name }} pricing plans [here](../../ydb/pricing/index.md).
 
-* {{ yds-name }} fee. The fee depends on the pricing mode:
+* {{ yds-name }} fee, which depends on the pricing mode:
 
-	* Based on allocated resources: You pay for the number of units of written data and resources allocated for data streaming.
-	* Based on actual use:
-		* If the DB operates in serverless mode, the data stream is charged under the [{{ ydb-short-name }} serverless mode pricing policy](../../ydb/pricing/serverless.md).
+	* Provisioned capacity pricing mode: You pay for the number of write units and resources allocated for data streaming.
+	* On-demand pricing mode:
+		* If the DB operates in serverless mode, the data stream is charged according to the [{{ ydb-short-name }} serverless mode pricing policy](../../ydb/pricing/serverless.md).
 
-		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../ydb/pricing/dedicated)).
+		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../ydb/pricing/dedicated.md)).
 
-    Learn more about the [{{ yds-name }} pricing](../../data-streams/pricing.md) plans.
+    Learn more about the {{ yds-name }} pricing plans [here](../../data-streams/pricing.md).
     
 * Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Prepare the data transfer infrastructure:
+Set up your data transfer infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -69,18 +69,18 @@ Prepare the data transfer infrastructure:
         * [Network](../../vpc/concepts/network.md#network).
         * [Subnet](../../vpc/concepts/network.md#subnet).
         * [Security group](../../vpc/concepts/security-groups.md) and rules required to connect to a {{ mkf-name }} cluster.
-        * Database: {{ ydb-name }}.
+        * {{ ydb-name }} database.
         * {{ mkf-name }} cluster.
         * {{ mkf-name }} topic named `sensors`.
         * {{ mkf-name }} user with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions for the `sensors` topic.
         * Transfer.
 
-    1. In the `yds-to-kafka.tf` file, specify the following parameters:
+    1. In `yds-to-kafka.tf`, specify the following settings:
 
         * `mkf_version`: {{ KF }} cluster version.
         * `ydb_name`: {{ ydb-name }} database name.
-        * `mkf_user_name`: Username in {{ mkf-name }} cluster.
-        * `mkf_user_password`: User password in {{ mkf-name }} cluster.
+        * `mkf_user_name`: Username in the {{ mkf-name }} cluster.
+        * `mkf_user_password`: User password in the {{ mkf-name }} cluster.
         * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
     1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -89,7 +89,7 @@ Prepare the data transfer infrastructure:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -99,13 +99,13 @@ Prepare the data transfer infrastructure:
 
 {% endlist %}
 
-## Create a {{ yds-name }} data stream {#prepare-source}
+## Create a data stream in {{ yds-name }} {#prepare-source}
 
-[Create a {{ yds-name }} data stream](../../data-streams/quickstart/create-stream.md).
+[Create a data stream in {{ yds-name }}](../../data-streams/quickstart/create-stream.md).
 
 ## Set up and activate the transfer {#prepare-transfer}
 
-1. [Create an endpoint for the {{ yds-name }} source](../../data-transfer/operations/endpoint/index.md#create).
+1. [Create a {{ yds-name }} source endpoint](../../data-transfer/operations/endpoint/index.md#create).
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `{{ yds-full-name }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
@@ -113,7 +113,7 @@ Prepare the data transfer infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }}-enabled stream.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the stream in {{ yds-name }}.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
@@ -168,7 +168,7 @@ Prepare the data transfer infrastructure:
 
             {% endcut %}
 
-1. [Create an endpoint for the {{ mkf-name }} target](../../data-transfer/operations/endpoint/index.md#create).
+1. [Create a target endpoint in {{ mkf-name }}](../../data-transfer/operations/endpoint/index.md#create).
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Kafka`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
@@ -181,7 +181,7 @@ Prepare the data transfer infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.user.title }}**: Enter a name for the {{ mkf-name }} cluster user.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafkaSASLAuth.password.title }}**: Enter a password for the {{ mkf-name }} cluster user.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}**: Select **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: Enter a name for the topic in {{ mkf-name }} cluster.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopic.topic_name.title }}**: Enter a name for the topic in the {{ mkf-name }} cluster.
 
 1. Create a transfer:
 
@@ -194,11 +194,11 @@ Prepare the data transfer infrastructure:
 
     - {{ TF }} {#tf}
 
-        1. In the `yds-to-kafka.tf` file, specify the values of the following variables:
+        1. In the `yds-to-kafka.tf` file, specify the following variables:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -206,7 +206,7 @@ Prepare the data transfer infrastructure:
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
@@ -218,9 +218,9 @@ Prepare the data transfer infrastructure:
 
 ## Test your transfer {#verify-transfer}
 
-1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-1. [Send test data to the {{ yds-name }} stream](../../data-streams/operations/aws-cli/send.md):
+1. [Send test data to the stream in {{ yds-name }}](../../data-streams/operations/aws-cli/send.md):
 
     ```json
     {
@@ -236,10 +236,10 @@ Prepare the data transfer infrastructure:
     }
     ```
 
-1. Make sure the data has been transferred to the `sensors` topic in the {{ mkf-name }} cluster:
+1. Make sure the data has moved to the `sensors` topic in the {{ mkf-name }} cluster:
 
     1. [Get an SSL certificate](../../managed-kafka/operations/connect/index.md#get-ssl-cert) to connect to the {{ mkf-name }} cluster.
-    1. [Install](../../managed-kafka/operations/connect/clients.md#bash-zsh) the `kafkacat` utility:
+    1. [Install](../../managed-kafka/operations/connect/clients.md#bash-zsh) `kafkacat`:
     1. [Run](../../managed-kafka/operations/connect/clients.md#with-ssl_1) the command for receiving messages from a topic.
 
 ## Delete the resources you created {#clear-out}
@@ -250,13 +250,13 @@ Before deleting the resources you created, [deactivate the transfer](../../data-
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. If you had created a service account when creating the source endpoint, [delete it](../../iam/operations/sa/delete.md).
+1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
+1. If you created a service account when creating the source endpoint, [delete it](../../iam/operations/sa/delete.md).
 
-Delete the other resources depending on how they were created:
+Delete the other resources depending on how you created them:
 
 {% list tabs group=instructions %}
 

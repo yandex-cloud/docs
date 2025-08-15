@@ -1,4 +1,4 @@
-You can use a DAG operator to load the output file of one job (`result.txt`) and provide it as an input file (`INPUT_DATA`) for another:
+You can use a DAG operator to download the output file of one job (`result.txt`) and provide it as the input file (`INPUT_DATA`) for another:
 
 {% list tabs group=programming_language %}
 

@@ -5,7 +5,7 @@
 * `StreamingContext`
 * `SqlContext`
 
-The following global Spark configurations are overridden by the parameters required to run Livy jobs:
+The parameters required to run Livy jobs override the following global Spark configurations:
 * `spark.jars`
 * `spark.submit.deployMode`
 * `spark.yarn.dist.archives`

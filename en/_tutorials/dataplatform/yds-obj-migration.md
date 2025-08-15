@@ -1,9 +1,9 @@
 
 
-With {{ data-transfer-name }}, you can transfer data from a [{{ yds-name }}-enabled stream](../../data-streams/concepts/glossary.md#stream-concepts) to an {{ objstorage-full-name }} bucket.
+With {{ data-transfer-name }}, you can transfer data from a [stream in {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) to an {{ objstorage-full-name }} bucket.
 
-1. [Set up a stream in {{ yds-name }}](#prepare-source).
-1. [Set up and activate your transfer](#prepare-transfer).
+1. [Set up a data stream in {{ yds-name }}](#prepare-source).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -13,24 +13,24 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+* {{ ydb-name }} database fee. The charge depends on the usage mode:
 
 	* For the serverless mode, you pay for data operations and the amount of stored data.
 	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
 	
-    Learn more about the [{{ ydb-name }} pricing](../../ydb/pricing/index.md) plans.
+    Learn more about the {{ ydb-name }} pricing plans [here](../../ydb/pricing/index.md).
 
-* {{ yds-name }} fee. The fee depends on the pricing mode:
+* {{ yds-name }} fee, which depends on the pricing mode:
 
-	* Based on allocated resources: You pay for the number of units of written data and resources allocated for data streaming.
-	* Based on actual use:
-		* If the DB operates in serverless mode, the data stream is charged under the [{{ ydb-short-name }} serverless mode pricing policy](../../ydb/pricing/serverless.md).
+	* Provisioned capacity pricing mode: You pay for the number of write units and resources allocated for data streaming.
+	* On-demand pricing mode:
+		* If the DB operates in serverless mode, the data stream is charged according to the [{{ ydb-short-name }} serverless mode pricing policy](../../ydb/pricing/serverless.md).
 
-		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../ydb/pricing/dedicated)).
+		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../ydb/pricing/dedicated.md)).
 
-    Learn more about the [{{ yds-name }} pricing](../../data-streams/pricing.md) plans.
+    Learn more about the {{ yds-name }} pricing plans [here](../../data-streams/pricing.md).
 
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and operations with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -56,17 +56,17 @@ Set up your infrastructure:
 
         This file describes:
 
-        * Database: {{ ydb-name }}.
+        * {{ ydb-name }} database.
         * Service account with the `yds.editor`, `storage.editor`, and `storage.uploader` roles.
         * Bucket in {{ objstorage-name }}.
         * Transfer.
 
-    1. Specify the following in the `data-transfer-yds-obj.tf` file:
+    1. Specify the following in `data-transfer-yds-obj.tf`:
 
-        * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you will create the resources.
+        * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) to host new resources.
         * `sa_name`: Name of the service account for creating a bucket and for use in endpoints.
         * `source_db_name`: {{ ydb-name }} database name.
-        * `bucket_name`: Bucket name in {{ objstorage-name }}.
+        * `bucket_name`: {{ objstorage-name }} bucket name.
 
     1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -74,7 +74,7 @@ Set up your infrastructure:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -84,11 +84,11 @@ Set up your infrastructure:
 
 {% endlist %}
 
-## Set up a {{ yds-name }}-enabled stream {#prepare-source}
+## Set up a data stream in {{ yds-name }} {#prepare-source}
 
-1. [Create a {{ yds-name }}-enabled stream](../../data-streams/operations/aws-cli/create.md).
+1. [Create a data stream in {{ yds-name }}](../../data-streams/operations/aws-cli/create.md).
 
-1. [Send test data to the data stream](../../data-streams/operations/aws-cli/send.md). Use data from the vehicle sensors in JSON format as a message:
+1. [Send test data to this stream](../../data-streams/operations/aws-cli/send.md). Use data from the vehicle sensors in JSON format as a message:
 
 ```json
 {
@@ -114,7 +114,7 @@ Set up your infrastructure:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }}-enabled stream.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the stream in {{ yds-name }}.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
@@ -122,7 +122,7 @@ Set up your infrastructure:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**: `JSON`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
-                Create and upload a `json_schema.json` data schema file:
+                Create and upload a data schema file in JSON format, `json_schema.json`:
 
                 {% cut "json_schema.json" %}
 
@@ -176,7 +176,7 @@ Set up your infrastructure:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.title }}**:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: Enter the name of the bucket in {{ objstorage-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: Enter the {{ objstorage-name }} bucket name.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: Select or create a service account with the `storage.uploader` role.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: Select `JSON` or `CSV` if you have enabled **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}** in the advanced settings for the source endpoint.
@@ -196,8 +196,8 @@ Set up your infrastructure:
 
             * Variables:
 
-                * `source_endpoint_id`, and set it to the endpoint ID value for the source.
-                * `target_endpoint_id`, and set it to the endpoint ID value for the target.
+                * `source_endpoint_id`, and set it to the source endpoint ID.
+                * `target_endpoint_id`, and set it to the target endpoint ID.
 
             * `yandex_datatransfer_transfer` resource.
 
@@ -207,28 +207,28 @@ Set up your infrastructure:
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            Once created, your transfer will be activated automatically.
+            Once created, your transfer is activated automatically.
 
     {% endlist %}
 
 ## Test your transfer {#verify-transfer}
 
-1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-1. Make sure the data from the {{ yds-name }}-enabled stream has been moved to the {{ objstorage-name }} bucket:
+1. Make sure the data from the stream in {{ yds-name }} has moved to the {{ objstorage-name }} bucket:
 
-    1. In the [management console]({{ link-console-main }}), select the folder the bucket is in.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
     1. Make sure the bucket contains the `<stream_name>_0.raw` file (`.json` or `.csv`, depending on the selected output format) with the test data.
 
-1. [Send a new message to the {{ yds-name }}-enabled stream](../../data-streams/operations/aws-cli/send.md):
+1. [Send a new message to your stream in {{ yds-name }}](../../data-streams/operations/aws-cli/send.md):
 
     ```json
     {
@@ -244,10 +244,10 @@ Set up your infrastructure:
     }
     ```
 
-1. Make sure the following data has been added to the {{ objstorage-name }} bucket:
+1. Make sure the {{ objstorage-name }} bucket contains the new data:
 
-    1. In the [management console]({{ link-console-main }}), select the folder the bucket is in.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
     1. Make sure the bucket now contains the `<stream_name>_0-1_1.raw` file (`.json` or `.csv`, depending on the selected output format) with the new data.
 
@@ -259,13 +259,13 @@ Before deleting the resources you created, [deactivate the transfer](../../data-
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. [Delete](../../storage/operations/objects/delete.md) the objects from the {{ objstorage-name }} bucket:
+1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
+1. [Delete the objects](../../storage/operations/objects/delete.md) from the {{ objstorage-name }} bucket:
 
-Delete the other resources depending on how they were created:
+Delete the other resources depending on how you created them:
 
 {% list tabs group=instructions %}
 

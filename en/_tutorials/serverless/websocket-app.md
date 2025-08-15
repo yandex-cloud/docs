@@ -95,7 +95,7 @@ The infrastructure support cost for this tutorial includes:
        curl --silent --show-error --location https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash
        ```
 
-     * [Node.js](https://nodejs.org/en/) `16.16.0` or higher:
+     * [Node.js](https://nodejs.org/en/) `16.16.0`:
 
        ```bash
        sudo apt-get install curl
@@ -160,7 +160,7 @@ The infrastructure support cost for this tutorial includes:
        curl --silent --show-error --location https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash
        ```
 
-     * [Node.js](https://nodejs.org/en/) `16.16.0` or higher:
+     * [Node.js](https://nodejs.org/en/) `16.16.0`:
 
        ```bash
        brew install node@16
@@ -204,9 +204,9 @@ Create a bot in Telegram and get a token.
     /newbot
     ```
 
-1. In the `name` field, enter a name for the new bot, e.g., `Serverless Game With WebSockets`. This is the name users will see when chatting with the bot.
+1. In the `name` field, enter a name for the bot, e.g., `Serverless Game With WebSockets`. This is the name users will see when chatting with the bot.
 
-1. In the `username` field, enter a username for the bot, e.g., `ServerlessGameWithWebSocketsBot`. This will allow users to find your bot on Telegram. The username must end with `...Bot` or `..._bot`.
+1. In the `username` field, enter a username for the bot, e.g., `ServerlessGameWithWebSocketsBot`. You can use it to find the bot in Telegram. The username must end with `...Bot` or `..._bot`.
 
 1. You will get the `t.me/ServerlessGameWithWebSocketsBot` address and token in response.
 
@@ -308,7 +308,7 @@ Create a bot in Telegram and get a token.
     secret: YCNhBcdvfDdssIuBa-FDl6zZz0MSky********
     ```
 
-1. Save the `key_id` to the `AWS_ACCESS_KEY_ID` variable and the `secret` to the `AWS_SECRET_ACCESS_KEY` variable:
+1. Save the `key_id` value to the `AWS_ACCESS_KEY_ID` variable and the `secret` value to the `AWS_SECRET_ACCESS_KEY` variable:
 
     ```bash
     echo "export AWS_ACCESS_KEY_ID=<key_ID>" >> ~/.bashrc && . ~/.bashrc
@@ -326,7 +326,7 @@ Create a bot in Telegram and get a token.
 
    Specify the following:
    
-   * `AWS Access Key ID`: Service account’s access key ID (`key_id`) you got earlier.
+   * `AWS Access Key ID`: Service account `key_id` you got earlier.
    * `AWS Secret Access Key`: Service account secret key (`secret`) you got earlier.
    * `Default region name`: Use the `{{ region-id }}` value.
    * `Default output format`: Leave empty.
@@ -343,7 +343,7 @@ Create a bot in Telegram and get a token.
 
 Create a database named `game-data` to store the game data and a database named `data-streams` for a stream in {{ yds-name }}.
 
-1. Create a database named `game-data` in serverless mode:
+1. Create a serverless database named `game-data`:
    
     ```bash
     yc ydb database create game-data --serverless
@@ -379,7 +379,7 @@ Create a database named `game-data` to store the game data and a database named 
     echo $YDB_DATABASE
     ```
 
-1. Create a database named `data-streams` in serverless mode:
+1. Create a serverless database named `data-streams`:
 
     ```bash
     yc ydb database create data-streams --serverless
@@ -695,7 +695,7 @@ During project deployment, the system created these service accounts:
 
 ## Create a new secret version and deploy your project again {#secrets-update}
 
-1. Provide new values to the secret named `game-secrets`:
+1. Inject new values into the secret named `game-secrets`:
 
     1. In the [management console]({{ link-console-main }}), select your working folder.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.

@@ -5,86 +5,86 @@
 
 ### 2024 {#2024}
 
-* {{ dataproc-name }} + {{ ml-platform-name }}. New features. [Click here to view the video](https://www.youtube.com/watch?v=H97HZ4ja1-4).
+* {{ dataproc-name }} + {{ ml-platform-name }}. New features. Click [here](https://www.youtube.com/watch?v=H97HZ4ja1-4) to watch the video.
 
-* New features for working with models. [Click here to view the video](https://www.youtube.com/watch?v=3W5ePOLQg64).
+* New features for working with models. Click [here](https://www.youtube.com/watch?v=3W5ePOLQg64) to watch the video.
 
-* {{ yagpt-name }} model tuning in {{ ml-platform-full-name }}. [Click here to view the video](https://www.youtube.com/watch?v=hGrH0Shovtk).
+* {{ yagpt-name }} model tuning in {{ ml-platform-full-name }}. Click [here](https://www.youtube.com/watch?v=hGrH0Shovtk) to watch the video.
 
-* {{ ml-platform-full-name}} Jobs: Running local code in the cloud. [Click here to view the video](https://www.youtube.com/watch?v=As9b73RORTk).
+* {{ ml-platform-full-name}} Jobs: Running local code in a cloud. Click [here](https://www.youtube.com/watch?v=As9b73RORTk) to watch the video.
 
-* Running a local ML process in the cloud using {{ ds-jobs }}. [Read our article](https://habr.com/ru/companies/yandex_cloud_and_infra/articles/788872/).
+* Running a local ML process in a cloud using {{ ds-jobs }}. Read [our article](https://habr.com/ru/companies/yandex_cloud_and_infra/articles/788872/).
 
-* Capturing particles: How Yandex services help to predict the effects of volcanic eruptions. [Read our article](https://habr.com/ru/companies/yandex/articles/794883/).
+* Detectable parts: How Yandex services help predict consequences of volcanic eruptions. Read [our article](https://habr.com/ru/companies/yandex/articles/794883/).
 
 ## Conferences and webinars {#conf-and-webinars}
 
 ### 2023: Yandex Scale {#yandex-scale-2023}
 
-* ML in {{ yandex-cloud }}: The past, present, and future. [Click here for the video](https://www.youtube.com/watch?v=90jIHP2F-zA).
+* ML in {{ yandex-cloud }}: Past, present, and future. Click [here](https://www.youtube.com/watch?v=90jIHP2F-zA) to watch the recording.
 
-* Model inference and hybrid approach in {{ ml-platform-full-name }}. [Click here for the video](https://www.youtube.com/watch?v=8asQwGQdr0w).
+* Model inference and hybrid approach in {{ ml-platform-full-name }}. Click [here](https://www.youtube.com/watch?v=8asQwGQdr0w) to watch the recording.
 
 ### 2023: Practical ML Conf {#ml-conf-2023}
 
-* Remote code execution in ML: tools and approaches. [Click here for the video](https://youtu.be/iWnh2Da1RG4?si=R26ZdYqwqqQrv8rR).
+* Remote code execution in ML: Tools and approaches. Click [here](https://youtu.be/iWnh2Da1RG4?si=R26ZdYqwqqQrv8rR) to watch the recording.
 
 ### 2023: Webinar {#webinar-2023}
 
-* Webinar on the educational potential of {{ ml-platform-full-name }}. [Click here for the video](https://www.youtube.com/watch?v=pRTKbG-kaUg).
+* {{ ml-platform-full-name }} features for education. Click [here](https://www.youtube.com/watch?v=pRTKbG-kaUg) to watch the recording.
 
-* {{ ml-platform-full-name }}: Dedicated mode. [Click here for the video](https://www.youtube.com/watch?v=U4rxkHKqm2U).
+* {{ ml-platform-full-name }} Dedicated. Dedicated mode. Click [here](https://www.youtube.com/watch?v=U4rxkHKqm2U) to watch the recording.
 
-* Mathematical optimization for businesses in {{ ml-platform-full-name }}. [Click here for the video](https://www.youtube.com/watch?v=fOzDMNAGQXw).
+* Mathematical optimization for businesses in {{ ml-platform-full-name }}. Click [here](https://www.youtube.com/watch?v=fOzDMNAGQXw) to watch the recording.
 
-* Consumption management in {{ ml-platform-full-name }}. [Click here for the video](https://www.youtube.com/watch?v=NmF2L3hF7Xk).
+* Consumption management in {{ ml-platform-full-name }}. Click [here](https://www.youtube.com/watch?v=NmF2L3hF7Xk) to watch the recording.
 
 ### 2022: Webinar {#webinar-2022}
 
-* Webinar about {{ ml-platform-short-name }} features for distributed ML teams. [Click here for the video](https://youtu.be/xM0qdz5wJdE).
+* {{ ml-platform-short-name }} features for distributed ML teams. Click [here](https://youtu.be/xM0qdz5wJdE) to watch the recording.
 
 ### 2022: Yandex Scale {#yandex-scale-2022}
 
-* {{ ml-platform-full-name }}: new UI and collaborative ML development capabilities. [Click here for the video](https://youtu.be/xzEW5g7WVd4).
+* {{ ml-platform-full-name }}: New UI and collaborative ML development features. Click [here](https://youtu.be/xzEW5g7WVd4) to watch the recording.
 
 ### 2022: Announcement {#announcement-2022}
 
-* Neural network in {{ yandex-cloud }} can now draw together with the artist. [Click here to view the video](https://youtu.be/eDfMYlQv5_4)
+* Neural network in {{ yandex-cloud }} learned to co-create with an artist. Click [here](https://youtu.be/eDfMYlQv5_4) to watch the video.
 
-* New {{ ml-platform-full-name }} version 2.0 for machine learning developers. [Click here for the video](https://youtu.be/Mhjkh386Ajw).
+* New {{ ml-platform-full-name }} 2.0 for ML developers. Click [here](https://youtu.be/Mhjkh386Ajw) to watch the recording.
 
 ### 2021: Yandex Scale {#yandex-scale-2021}
 
-* Cloud generation of laptops: from notebooks to the data realm. [Click here for the video](https://youtu.be/vKLqfcKXRo8).
+* Cloud era of notebooks: Where Jupyter meets DataSphere. Click [here](https://youtu.be/vKLqfcKXRo8) to watch the recording.
 
-* Recommendation system powered by {{ ml-platform-short-name }}. [Click here for the video](https://youtu.be/oavkOOJMVK8).
+* Recommendation system powered by {{ ml-platform-short-name }}. Click [here](https://youtu.be/oavkOOJMVK8) to watch the recording.
 
-* Cloud-based tools for ML developers. [Click here for the video](https://youtu.be/euqmLppB4f0).
+* Cloud-based tools for ML developers. Click [here](https://youtu.be/euqmLppB4f0) to watch the recording.
 
 ### 2021: Meetup {#meetup-2021}
 
-* about:cloud — ML&AI. [Click here for the video](https://youtu.be/qWO2P0Mc_Bc).
+* Cloud: ML&AI. Click [here](https://youtu.be/qWO2P0Mc_Bc) to watch the recording.
 
 ### 2021: Webinar {#webinar-2021}
 
-* Webinar about new {{ ml-platform-short-name }} features for ML development. [Click here for the video](https://youtu.be/udZcoKwb6aM).
+* New {{ ml-platform-short-name }} features for ML development. Click [here](https://youtu.be/udZcoKwb6aM) to watch the recording.
 
 ### 2021: Workshop {#workshop-2021}
 
-* Creating a chat QA assistant using {{ ml-platform-full-name }}. [Click here for the video](https://youtu.be/fHQAT6rYO7c).
+* Creating a chat QA assistant using {{ ml-platform-full-name }}. Click [here](https://youtu.be/fHQAT6rYO7c) to watch the recording.
 
 ### 2020: Yandex Scale {#yandex-scale-2020}
 
-* Presentation on {{ ml-platform-short-name }} technical features at Yandex Scale 2020. [Click here for the video](https://youtu.be/5y2-x9GcITs).
+* Technical overview of {{ ml-platform-short-name }} at Yandex Scale 2020. Click [here](https://youtu.be/5y2-x9GcITs) to watch the recording.
 
-* Presentation on {{ ml-platform-short-name }} features at Yandex Scale 2020. [Click here for the video](https://youtu.be/MtXpZ4RZAjk).
+* Presentation of {{ ml-platform-short-name }} features at Yandex Scale 2020. Click [here](https://youtu.be/MtXpZ4RZAjk) to watch the recording.
 
-* Presentation on how to implement ML using {{ yandex-cloud }} at Yandex Scale 2020. [Click here for the video](https://youtu.be/MxuABVNZV38).
+* Implementing ML with {{ yandex-cloud }} at Yandex Scale 2020. Click [here](https://youtu.be/MxuABVNZV38) to watch the recording.
 
 ### 2020: Webinar {#webinar-2020}
 
-* Practical webinar about new {{ ml-platform-short-name }} features. [Click here for the video](https://youtu.be/70lIkTJjAZU).
+* Hands-on webinar: New {{ ml-platform-short-name }} features. Click [here](https://youtu.be/70lIkTJjAZU) to watch the recording.
 
-* Webinar on how to use {{ ml-platform-short-name }} to process videos and detect objects in video frames. [Click here for the video](https://youtu.be/55qc9YHbVwE).
+* Using {{ ml-platform-short-name }} to process videos and detect objects in video frames. Click [here](https://youtu.be/55qc9YHbVwE) to watch the recording.
 
-* Practical webinar on data science in {{ yandex-cloud }}. [Click here for the video](https://youtu.be/5o5OJOwDfaU).
+* Hands-on webinar: Data science in {{ yandex-cloud }}. Click [here](https://youtu.be/5o5OJOwDfaU) to watch the recording.

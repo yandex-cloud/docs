@@ -7,7 +7,7 @@ description: Follow this guide to send a request to an alias.
 
 The type of a request to an [alias](../../concepts/deploy/index.md#alias) depends on your [node](../../concepts/deploy/index.md#node). You can send a test request in the interface if you expect the response to contain simple data, such as numbers or string variables.
 
-Send the test request to the alias from the {{ ml-platform-name }} interface:
+Send a test request to the alias from the {{ ml-platform-name }} interface:
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select **{{ ui-key.yc-ui-datasphere.common.alias }}**.
@@ -20,15 +20,15 @@ Send the test request to the alias from the {{ ml-platform-name }} interface:
 
 {% note info %}
 
-The **{{ ui-key.yc-ui-datasphere.node-page.request.curl }}** section contains sample requests to an alias for the cURL and gRPCurl utilities.
+The **{{ ui-key.yc-ui-datasphere.node-page.request.curl }}** section contains examples of requests to an alias for `cURL` and `gRPCurl`.
 
 {% endnote %}
 
-To send requests to aliases, you must have the `{{ roles-datasphere-user }}` or `{{ roles-datasphere-admin }}` role for the folder where the project and the alias were created.
+To send requests to aliases, you need the `{{ roles-datasphere-user }}` or `{{ roles-datasphere-admin }}` role for the folder where the project and the alias were created.
 
-## Sample gRPC API call {#grpc-call-example}
+## Example of a gRPC API call {#grpc-call-example}
 
-You can use the [gRPCurl](https://github.com/fullstorydev/grpcurl) utility to make gRPC calls.
+You can use [gRPCurl](https://github.com/fullstorydev/grpcurl) to make gRPC calls.
 
 ```bash
 grpcurl \
@@ -47,9 +47,9 @@ Where:
 * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) used for authentication.
 * `<folder_ID>`: ID of the folder where the project and the alias were created.
 * `<alias_name>`: Alias name.
-* `<input_variables>`: Object in `{"a":2,"b":3}` format where keys are mapped to input variables.
+* `<input_variables>`: Object in `{"a":2,"b":3}` format where keys match input variables.
 
-In a successful response, the object is returned:
+The successful response will return an object:
 
 ```json
 {
@@ -59,9 +59,9 @@ In a successful response, the object is returned:
 }
 ```
 
-## Sample REST API request {#rest-query-example}
+## Example of a REST API request {#rest-query-example}
 
-You can use the [cURL](https://curl.se) utility to send REST requests.
+You can use [cURL](https://curl.se) to send REST requests.
 
 ```bash
 curl \
@@ -79,6 +79,6 @@ Where:
 * `<IAM_token>`: IAM token used for authentication.
 * `<folder_ID>`: ID of the folder where the project and the alias were created.
 * `<request_type>`: Type of the request to the alias.
-* `<input_variables>`: Object in `{"a":2,"b":3}` format where keys are mapped to input variables.
+* `<input_variables>`: Object in `{"a":2,"b":3}` format where keys match input variables.
 
 The response returns a JSON object with output variables.

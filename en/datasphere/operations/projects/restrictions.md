@@ -5,7 +5,7 @@ description: Follow this guide to set consumption limits for a project.
 
 # Setting project limits
 
-In {{ ml-platform-name }}, you can set consumption limits for a project. Project consumption limits are set in [units](../../pricing.md#unit).
+In {{ ml-platform-name }}, you can set consumption limits for your project, measured in [units](../../pricing.md#unit).
 
 1. {% include [include](../../../_includes/datasphere/ui-find-project.md) %}
 1. Go to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab and click ![pencil](../../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yc-ui-datasphere.project-page.settings.limits }}** under **{{ ui-key.yc-ui-datasphere.common.edit }}**.

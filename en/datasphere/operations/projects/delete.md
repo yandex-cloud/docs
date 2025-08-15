@@ -1,9 +1,9 @@
 ---
-title: How to delete a notebook or project in {{ ml-platform-full-name }}
-description: In this tutorial, you will learn how to delete a notebook or project in {{ ml-platform-name }}.
+title: How to delete a notebook or a project in {{ ml-platform-full-name }}
+description: In this guide, you will learn how to delete a notebook or a project in {{ ml-platform-name }}.
 ---
 
-# Deleting a notebook or project
+# Deleting a notebook or a project
 
 ## Deleting a notebook {#delete-notebook}
 
@@ -17,7 +17,7 @@ To delete a notebook from a project:
 
 {% note alert %}
 
-Once you delete the project, all notebooks and created resources will be lost.
+Once you delete a project, all its notebooks and created resources will be lost.
 
 {% endnote %}
 

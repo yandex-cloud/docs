@@ -1,12 +1,12 @@
-# Connecting to S3 using the `boto3` library
+# Connecting to S3 using boto3
 
-Follow this guide to connect to an S3 object storage in {{ jlab }} Notebook using the `boto3` library. To connect to an object storage, use an [S3 connector](s3-connectors.md):
+Follow this guide to connect to an S3 object storage in {{ jlab }} Notebook using `boto3`. To connect to an object storage, use an [S3 connector](s3-connectors.md):
 
 {% include [fuse-disclaimer](../../../_includes/datasphere/fuse-disclaimer.md) %}
 
 To set up an S3 connection from the notebook code:
 
-1. [Create the secrets](secrets.md#create): `token` (with ID) and `key_value` (with a secret part of the [static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account).
+1. [Create secrets](secrets.md#create): `token` (with ID) and `key_value` (with a secret part of the [static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account).
 1. {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 1. Import the libraries:
 
@@ -39,7 +39,7 @@ To set up an S3 connection from the notebook code:
         "s3", endpoint_url=ENDPOINT)
     ```
 
-1. Enter the bucket name and retrieve a list of objects contained in it:
+1. Enter the name of the bucket and retrieve a list of objects it contains:
 
     ```python
     for key in s3.list_objects(Bucket='<bucket_name>')['Contents']:

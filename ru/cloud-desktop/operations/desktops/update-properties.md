@@ -1,16 +1,11 @@
-# Обновить рабочий стол
+---
+title: Изменить рабочий стол {{ cloud-desktop-full-name }}
+description: Следуя данной инструкции, вы сможете изменить параметры рабочего стола {{ cloud-desktop-name }}.
+---
 
-{% include [updating-group-disclaimer](../../../_includes/cloud-desktop/updating-group-disclaimer.md) %}
+# Изменить рабочий стол
 
 {% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен рабочий стол.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/display.svg) **{{ ui-key.yacloud.vdi.label_desktops }}**.
-  1. Напротив рабочего стола, который нужно обновить, нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.button_update }}**.
-  1. Подтвердите обновление.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -18,10 +13,10 @@
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды [CLI](../../../cli/index.yaml) для обновления [рабочего стола](../../concepts/desktops-and-groups.md):
+  1. Посмотрите описание команды [CLI](../../../cli/index.yaml) для изменения [рабочего стола](../../../cloud-desktop/concepts/desktops-and-groups.md):
 
       ```bash
-      yc desktops desktop update --help
+      yc desktops desktop update-properties --help
       ```
 
   1. Получите список рабочих столов в каталоге по умолчанию:
@@ -42,10 +37,12 @@
       ```
 
   1. Выберите идентификатор (`ID`) или имя (`NAME`) нужного рабочего стола, например `my-cloud-desktop`.
-  1. Обновите рабочий стол:
+  1. Измените параметры рабочего стола, например, имя:
 
       ```bash
-      yc desktops desktop update --name <имя_рабочего_стола>
+      yc desktops desktop update-properties \
+        --name <имя_рабочего_стола> \
+        --new-name <новое_имя_рабочего_стола>
       ```
 
       Результат:
@@ -55,8 +52,8 @@
       folder_id: b1g681qpemb4********
       desktop_group_id: e3v1rbln45tl********
       created_at: "2024-10-09T22:42:28.020Z"
-      status: UPDATING
-      name: my-cloud-desktop
+      status: ACTIVE
+      name: renamed-cloud-desktop
       resources:
         memory: "4294967296"
         cores: "2"
@@ -69,5 +66,3 @@
       ```
 
 {% endlist %}
-
-После обновления рабочего стола [сбросьте пароль пользователя](password-reset.md).
