@@ -34,6 +34,8 @@ items:
             href: operations/desktops/start-stop.md
           - name: Обновить рабочий стол
             href: operations/desktops/update.md
+          - name: Изменить рабочий стол
+            href: operations/desktops/update-properties.md
           - name: Удалить рабочий стол
             href: operations/desktops/delete.md
       - name: Образы
@@ -44,6 +46,8 @@ items:
             href: operations/images/create-from-compute-linux.md
           - name: Создать образ Windows
             href: operations/images/create-from-windows.md
+          - name: Изменить образ
+            href: operations/images/update.md
           - name: Удалить пользовательский образ
             href: operations/images/delete.md
       - name: Посмотреть логи

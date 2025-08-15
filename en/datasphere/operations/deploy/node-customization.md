@@ -9,7 +9,7 @@ description: Follow this guide to configure the environment for deploying a stan
 
 1. [Create a secret](../data/secrets.md#create) with a password for your container registry.
 
-   If you are using a registry created in {{ container-registry-full-name }}, get authenticated using the authorized key for the [service account](../../../iam/concepts/users/service-accounts.md) that has the [required roles](../../../container-registry/security/index.md) and is specified in the [project settings](../projects/update.md):
+   If you are using a {{ container-registry-full-name }}, get authenticated using the authorized key for the [service account](../../../iam/concepts/users/service-accounts.md) that has the [required roles](../../../container-registry/security/index.md) and is specified in the [project settings](../projects/update.md):
 
    1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -28,7 +28,7 @@ description: Follow this guide to configure the environment for deploying a stan
       key_algorithm: RSA_2048
       ```
 
-   1. Run the following command:
+   1. Run this command:
 
       ```bash
       cat key.json | docker login \
@@ -48,7 +48,7 @@ description: Follow this guide to configure the environment for deploying a stan
       ```
    {% include [disclaimer](../../../_includes/iam/authorized-keys-disclaimer.md) %}
 
-1. [Upload](../../../container-registry/operations/docker-image/docker-image-push.md) the Docker image to the container registry. To do this, run this code in a cell:
+1. [Upload](../../../container-registry/operations/docker-image/docker-image-push.md) your Docker image to the container registry. To do this, run this code in a cell:
 
    ```text
    #!:docker-publish <image_name>:<image_tag> {{ registry }}/<image_path>:<tag>
@@ -59,6 +59,6 @@ description: Follow this guide to configure the environment for deploying a stan
    * `<image_path>`: Path to the {{ container-registry-name }} image in `cr.yandex/<registry_ID>/<image_name>` format.
    * `<tag>`: Image [tag](../../../container-registry/concepts/docker-image.md#version).
 
-   While uploading, enter the username and select the secret containing the password. When getting authorized in {{ container-registry-name }}, provide the `json_key` token type for the username and the secret for the password.
+   While uploading, enter the username and select the secret containing the password. For authorization in {{ container-registry-name }}, provide the `json_key` token type as username and the secret as password.
 
 1. In the [node](../../concepts/deploy/index.md#node) creation form, specify the path to the image in this format: `{{ registry }}/<registry_address>:<tag>`.

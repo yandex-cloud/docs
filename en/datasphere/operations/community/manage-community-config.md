@@ -12,7 +12,7 @@ You can restrict the {{ ml-platform-name }} resources and features available acr
 {% endnote %}
 
 1. {% include [ui-find-community](../../../_includes/datasphere/ui-find-community.md) %}
-1. Select the community you want to configure the {{ ml-platform-name }} features for.
+1. Select the community for which you want to configure the {{ ml-platform-name }} features.
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.restrictions }}** tab.
 1. Under **{{ ui-key.yc-ui-datasphere.restrictions.project-mode }}**:
 
@@ -23,7 +23,7 @@ You can restrict the {{ ml-platform-name }} resources and features available acr
 
     * **{{ ui-key.yc-ui-datasphere.restrictions.CHANGING_DISK_SIZE }}**: Enables project storage resizing.
     * **{{ ui-key.yc-ui-datasphere.restrictions.NODES_AND_ALIASES }}**: Enables service deployment using [nodes](../../concepts/deploy/index.md#node) and [aliases](../../concepts/deploy/index.md#alias) in community projects.
-    * **{{ ui-key.yc-ui-datasphere.restrictions.DATAPROC_TEMPLATES }}**: Enables the use of [{{ dataproc-name }}](../../concepts/data-processing-template) templates in community projects.
+    * **{{ ui-key.yc-ui-datasphere.restrictions.DATAPROC_TEMPLATES }}**: Enables the use of [{{ dataproc-name }} templates](../../concepts/data-processing-template) in community projects.
     * **{{ ui-key.yc-ui-datasphere.common.datasets }}**: Enables creating [datasets](../../concepts/dataset) in community projects.
 
-1. Under **{{ ui-key.yc-ui-datasphere.spaces-page.configurations }}**, you can select [computing resource configurations](../../concepts/configurations.md) that will available across all your community projects.
+1. Under **{{ ui-key.yc-ui-datasphere.spaces-page.configurations }}**, you can select [computing resource configurations](../../concepts/configurations.md) that will be available across all your community projects.

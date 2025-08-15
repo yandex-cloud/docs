@@ -1,3 +1,3 @@
-# Amazon Kinesis Data Streams compatible HTTP API
+# HTTP API compatible with Amazon Kinesis Data Streams
 
-{{ yds-full-name }} supports limited operations with data streams via the Amazon Kinesis Data Streams API protocol. For a list of supported methods, see [{#T}](api-ref.md).
+{{ yds-full-name }} supports limited data stream operations via the Amazon Kinesis Data Streams API protocol. See [{#T}](api-ref.md) for supported methods.

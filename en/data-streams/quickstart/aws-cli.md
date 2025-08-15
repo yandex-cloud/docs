@@ -1,19 +1,19 @@
 ---
-title: Tutorial on collecting and delivering data to {{ ydb-full-name }} using the AWS CLI
-description: In this tutorial, you'll learn how to collect and deliver data to {{ ydb-full-name }} using the AWS CLI.
+title: Guide for collecting and delivering {{ ydb-full-name }} data using the AWS CLI
+description: In this tutorial, you will learn how to collect and deliver {{ ydb-full-name }} data using the AWS CLI.
 ---
 
 # AWS CLI
 
 {% include [trigger](../../_includes/data-streams/trigger.md) %}
 
-1. In the [management console]({{ link-console-main }}), select the folder with the stream.
+1. In the [management console]({{ link-console-main }}), select the folder containing your data stream.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Select the data stream.
-1. Click **{{ ui-key.yacloud.data-streams.button_connect }}** and go to the **AWS CLI** tab.
-1. Copy the example of the command for sending messages and run it. Data will be delivered over the AWS Kinesis Data Streams protocol.
+1. Click **{{ ui-key.yacloud.data-streams.button_connect }}** and navigate to the **AWS CLI** tab.
+1. Copy and run the example command to send a message. Data delivery will be performed via AWS Kinesis Data Streams.
 
-   Command example:
+   Example command:
 
    ```bash
    aws kinesis \

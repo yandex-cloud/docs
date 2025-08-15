@@ -1,8 +1,8 @@
 # Connecting to an S3 storage
 
-You can manage your connection to an S3 object storage by using the **{{ ui-key.yc-ui-datasphere.resources.s3 }}** resource on your project page in the {{ ml-platform-name }} interface.
+You can manage your S3 object storage connection by using the **{{ ui-key.yc-ui-datasphere.resources.s3 }}** resource on your project page in the {{ ml-platform-name }} interface.
 
-To connect to an object storage from the notebook code, follow the steps given in [{#T}](connect-to-s3.md).
+To connect to an object storage from the notebook code, follow [this guide](connect-to-s3.md).
 
 {% include [fuse-disclaimer](../../../_includes/datasphere/fuse-disclaimer.md) %}
 
@@ -17,7 +17,7 @@ Get an access key from your S3 storage provider. To do this in [{{ objstorage-fu
 ## Creating an S3 connector {#create}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Optionally, in the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.secret }}** and [create a secret](secrets.md#create) with the secret part of the static access key for your service account. You can also create a secret when creating an S3 connector.
+1. Optionally, in the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.secret }}** and [create a secret](secrets.md#create) with the secret part of the static access key for your service account. You can also create a secret when creating your S3 connection.
 1. In the top-right corner, click **{{ ui-key.yc-ui-datasphere.common.create-resource }}**. In the pop-up window, select **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
 1. Fill in the fields as follows:
    * **{{ ui-key.yc-ui-datasphere.common.name }}**: Name of the new connector. Follow these naming requirements:
@@ -30,11 +30,11 @@ Get an access key from your S3 storage provider. To do this in [{{ objstorage-fu
 
      {% note warning %}
 
-     Do not use buckets with periods in their names for connection. You can learn more about buckets [here](../../../storage/concepts/bucket.md).
+     Do not use buckets with periods in their names for connection. Learn more about buckets [here](../../../storage/concepts/bucket.md).
 
      {% endnote %}
 
-   * **{{ ui-key.yc-ui-datasphere.new-s3-page.mount-name }}**: Name of the volume for mounting the bucket into the project file system. The naming requirements are as follows:
+   * **{{ ui-key.yc-ui-datasphere.new-s3-page.mount-name }}**: Name of the volume for mounting the bucket into the project file system. Make sure to follow these naming requirements:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -51,7 +51,7 @@ Go to the S3 connector page and click **{{ ui-key.yc-ui-datasphere.common.activa
 
 ## Using an S3 storage in a project {#usage}
 
-You can access files in the connected bucket from your project code. Select the file you need in the attached S3 storage on the **S3 Mounts** ![S3 Mounts](../../../_assets/datasphere/bucket.svg) tab, right-click it, and select **Copy path**. This will copy the file path to the clipboard. Paste the copied path wherever you need in the project.
+You can access files in the connected bucket from your project code. Select the file you need in the mounted S3 storage on the **S3 Mounts** ![S3 Mounts](../../../_assets/datasphere/bucket.svg) tab, right-click it, and select **Copy path**. This will copy the file path to the clipboard. Paste the copied path wherever you need in the project.
 
 ## Detaching an S3 storage {#unmount}
 
@@ -71,14 +71,14 @@ You can re-attach the S3 storage to your project whenever you need it.
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community you want to share the S3 connector with.
 
-To make an S3 connector available for use in a different project, the project admin needs to [add](../projects/use-shared-resource.md) it on the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
+To make an S3 connector available for use in a different project, the project admin needs to [add](../projects/use-shared-resource.md) that connector on the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
 
 ## Deleting an S3 connector {#delete}
 
 You can only delete a [deactivated](#unmount) connector that is not available to any community.
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/console-icons/bucket.svg)**{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![secret](../../../_assets/console-icons/bucket.svg) **{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
 1. Next to the S3 storage, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 

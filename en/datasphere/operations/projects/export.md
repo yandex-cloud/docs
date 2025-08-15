@@ -1,6 +1,6 @@
 # Exporting a project
 
-You can export a project as a ZIP archive. In this case, both the file with a notebook and all files that you see in the **File Explorer** window will be exported. This allows you to start your notebook locally as long as you have matching environments.
+You can export a project as a ZIP archive. This export will include not just the notebook file but all files you can see in the **File Explorer** window. This enables you to run your notebook locally as long as you have a matching environment.
 
 ## Getting started {#before-begin}
 
@@ -8,7 +8,7 @@ You can export a project as a ZIP archive. In this case, both the file with a no
 
 ## Exporting a project {#export-project}
 
-Make sure you've saved the changes. The last saved state is exported.
+Make sure to save the changes. The last saved state will be exported.
 
 1. In the top panel, click **File** and select **Export project as zip**.
 1. In the window that opens, click **Download**.

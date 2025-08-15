@@ -1,6 +1,6 @@
 # Using results of completed jobs
 
-Sometimes you need to process the [job](../../concepts/jobs/index.md) outputs or use them to run another job. To do this, download them using the {{ ds-jobs }} SDK `download_job_files` function or substitute them into another job using the [DAG Airflow](../../concepts/jobs/airflow.md) operator.
+Sometimes you need to process the [job](../../concepts/jobs/index.md) outputs or use them to run another job. To do this, download them using the {{ ds-jobs }} SDK `download_job_files` function or feed them into another job using the [DAG Airflow](../../concepts/jobs/airflow.md) operator.
 
 ## Downloading via {{ ds-cli }} {#cli}
 
@@ -18,11 +18,11 @@ To download job results into the working directory using [{{ ds-cli }}](../../co
 
 {% endlist %}
 
-The function has optional parameters:
+The function has the following optional parameters:
 
-* `with_logs`: Download [logs](../../concepts/jobs/cli.md#logs), `false` by default.
-* `with_diagnostics`: Download diagnostic files, `false` by default.
-* `with_diagnostics`: File download directory, the working directory by default.
+* `with_logs`: Downloads [logs](../../concepts/jobs/cli.md#logs). The default value is `false`.
+* `with_diagnostics`: Downloads diagnostic files. The default value is `false`.
+* `output_dir`: File download directory. By default, this is your working directory.
 
 To use the downloaded data in another job, specify the data in the `input` parameter in the `config.yaml` [file](../../concepts/jobs/index.md#config).
 

@@ -3,7 +3,7 @@
 ## Getting started {#before-you-begin}
 1. Install and set up [s3fs](../../storage/tools/s3fs.md) or [goofys](../../storage/tools/goofys.md) to mount {{ objstorage-name }} buckets using [FUSE](https://en.wikipedia.org/wiki/Filesystem_in_Userspace).
 1. Mount a bucket with audit logs to your file system using [s3fs](../../storage/tools/s3fs.md#mounting-bucket) or [goofys](../../storage/tools/goofys.md#bucket-mounting).
-1. Install the [jq](https://stedolan.github.io/jq) utility to search through data in JSON format.
+1. Install [jq](https://stedolan.github.io/jq) to search through data in JSON format.
 
 ## Search scenarios {#search}
 
@@ -15,7 +15,7 @@
     find <folder_path> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "{{ at-event-prefix }}.audit.iam.CreateServiceAccount")'
     ```
 
-1. To find out who deleted a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) from the cloud, search by the `eventType` (_event type_) field across all files for the period, filtered by folder ID:
+1. To find out who deleted a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) from the cloud, search by the `eventType` field across all files for the period, filtered by folder ID:
 
     ```bash
     find <folder_path> -type f -exec cat {} \; | jq  '.[] | select( .event_type == "{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and .details.folder_id == "<folder_ID>") | .authentication'
@@ -54,6 +54,6 @@
 #### See also {#see-also}
 
 * [Audit log](../../audit-trails/concepts/format.md)
-* [jq documentation](https://stedolan.github.io/jq/tutorial)
+* [jq tutorial](https://stedolan.github.io/jq/tutorial)
 * [s3fs](../../storage/tools/s3fs.md)
 * [goofys](../../storage/tools/goofys.md)

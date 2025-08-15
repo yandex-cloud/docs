@@ -1,13 +1,13 @@
 ---
-title: Authenticating and connecting to a database using the Kafka API
-description: Follow this guide to authenticate and connect to a database using the Kafka API.
+title: Authentication and database connection using the Kafka API
+description: In this tutorial, you will learn how to authenticate and establish a database connection using the Kafka API.
 ---
 
-# Authenticating and connecting to a database using the Kafka API
+# Authentication and database connection using the Kafka API
 
 ## Endpoint {#endpoint}
 
-The Kafka API endpoint is displayed in the [management console]({{ link-console-main }}) in the **Kafka API endpoint** field on the **Overview** tab on the data stream page.
+The Kafka API endpoint appears in the [management console]({{ link-console-main }}) under: **Data Streams** → [Your Stream] → **Overview** → **Kafka API endpoint**.
 
 The endpoint has the following format: `<FQDN_YDB>:PORT`. For example, `ydb-01.serverless.yandexcloud.net:9093`.
 
@@ -16,9 +16,9 @@ The endpoint has the following format: `<FQDN_YDB>:PORT`. For example, `ydb-01.s
 To authenticate, take these steps:
 
 1. [Create a service account](../../iam/operations/sa/create).
-1. [Assign roles to the service account](../../iam/operations/sa/assign-role-for-sa):
-   * For reading from a data stream: `ydb.kafkaApi.client` and `ydb.viewer`.
-   * For writing to a data stream: `ydb.kafkaApi.client` and `ydb.editor`.
+1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa):
+   * `ydb.kafkaApi.client` and `ydb.viewer`: for reading from a data stream.
+   * `ydb.kafkaApi.client` and `ydb.editor`: for writing to a data stream.
 1. [Create an API key](../../iam/operations/authentication/manage-api-keys.md) with the `yc.ydb.topics.manage` scope.
 
 
@@ -28,25 +28,25 @@ The Kafka API uses the [SASL_SSL/PLAIN](https://docs.confluent.io/platform/curre
 
 The following parameters are required:
 
-* `<database>`: Database path. The database path is displayed in the [management console]({{ link-console-main }}) after `database=` in the **Endpoint** field on the **Overview** tab.
+* `<database>`: Database path. The database path appears in the [management console]({{ link-console-main }}) under: **Data Streams** → [Your Stream] → **Overview** → **Endpoint** (a substring following `database=`).
 
-    For example, in the `{{ ydb.ep-serverless }}/?database={{ ydb.path-serverless }}` endpoint, `{{ ydb.path-serverless }}` is the database path.
+    For example, if the **Endpoint** field contains `{{ ydb.ep-serverless }}/?database={{ ydb.path-serverless }}`, the database path is `{{ ydb.path-serverless }}`.
 
 * `<api-key>`: [API key](../../iam/concepts/authorization/api-key).
 
-Parameters used for authentication when reading and writing messages:
+These parameters will be used for authentication when reading and writing messages:
 
-* `<sasl.username>` = `@<database>` (Note that you need to put `@` before the path to the database)
+* `<sasl.username>` = `@<database>` (Note that the database path must be prefixed with the `@` symbol)
 * `<sasl.password>` = `<api-key>`
 
 ## Example of writing and reading a message {#example}
 
-The example uses the following parameters:
+This example uses the following parameters:
 
  * `<kafka-api-endpoint>`: [Endpoint](#endpoint).
- * `<stream-name>`: [Stream](../concepts/glossary.md#stream-concepts) name.
+ * `<stream-name>`: [Data stream](../concepts/glossary.md#stream-concepts) name.
 
-1. Install an SSL certificate if you are using a dedicated database:
+1. If you are using a dedicated database, you need to Install an SSL certificate:
 
    ```bash
     sudo mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
@@ -57,13 +57,13 @@ The example uses the following parameters:
 
    The certificate will be saved to the `/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt` file.
 
-1. Install the `kcat` utility, which is an open source app that can function as a universal data producer or consumer:
+1. Install `kcat`, an open-source tool for producing and consuming data:
 
    ```bash
    sudo apt-get install kafkacat
    ```
 
-1. Run this command to get messages from the stream:
+1. Run the following command to get messages from the stream:
 
     {% list tabs %}
     - Serverless database
@@ -89,9 +89,9 @@ The example uses the following parameters:
       ```
     {% endlist %}
 
-    The command will continuously read new messages from the stream.
+    This command will continuously read new messages from the stream.
 
-1. In a separate terminal, run this command to send a message to the stream:
+1. In a separate terminal, run the following command to send a message to the stream:
 
     {% list tabs %}
     - Serverless database
@@ -120,4 +120,4 @@ The example uses the following parameters:
     {% endlist %}
 
 
-For core information on how to work with {{ yds-name }} using the Kafka API, see the [YDB documentation]({{ ydb.docs }}/reference/kafka-api).
+For details on working with {{ yds-name }} via the Kafka API and more examples, refer to the [YDB documentation]({{ ydb.docs }}/reference/kafka-api).

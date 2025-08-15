@@ -4,7 +4,7 @@
 
 ## Getting started {#before-begin}
 
-1. [Create](../../../managed-postgresql/operations/cluster-create.md) a new {{ mpg-short-name }} cluster with public access to the host. You can also use an existing cluster with publicly accessible hosts.
+1. [Create](../../../managed-postgresql/operations/cluster-create.md) a new {{ mpg-short-name }} cluster with public host access. You can also use an existing cluster with publicly accessible hosts.
 1. [Configure](../../../managed-postgresql/operations/connect.md#configuring-security-groups) cluster security groups.
 1. {% include [before-begin](../../../_includes/datasphere/ui-before-begin.md) %}
 
@@ -12,7 +12,7 @@
 
 {% list tabs group=connection %}
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
   To connect to {{ mpg-short-name }} cluster hosts:
 
@@ -44,7 +44,7 @@
       print(q.fetchone())
       ```
 
-      If you succeed connecting to the cluster, you will get the {{ PG }} version in response to your test query:
+      If you succeed connecting to the cluster, you will get the {{ PG }} version in response to your test request:
 
       ```text
       ('PostgreSQL 14.6 (Ubuntu 14.6-201-yandex.52665.7e82983c2c) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0, 64-bit',)
@@ -58,7 +58,7 @@
 
      * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** hosting the deployed {{ mpg-short-name }} cluster.
      * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** with the `managed-postgresql.editor` [role](../../../managed-postgresql/security/index.md#required-roles) or higher.
-     * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** the database host belongs to.
+     * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** where the database host resides.
 
        {% note info %}
 
@@ -90,7 +90,7 @@
       conn.close()
       ```
 
-      If you succeed connecting to the cluster, you will get the {{ PG }} version in response to your test query:
+      If you succeed connecting to the cluster, you will get the {{ PG }} version in response to your test request:
 
       ```text
       ('PostgreSQL 14.6 (Ubuntu 14.6-201-yandex.52665.7e82983c2c) on x86_64-pc-linux-gnu, compiled by gcc (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0, 64-bit',)

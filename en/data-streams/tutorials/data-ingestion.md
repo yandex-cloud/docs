@@ -1,6 +1,6 @@
 ---
-title: Entering data into storage systems using {{ yds-full-name }}
-description: This guide describes how to enter data into storage systems using {{ yds-full-name }}.
+title: Ingesting data into storage systems using {{ yds-full-name }}
+description: This tutorial describes how to ingest data into storage systems using {{ yds-full-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/data-ingestion'
 ---
 

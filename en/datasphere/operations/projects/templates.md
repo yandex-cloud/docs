@@ -1,31 +1,31 @@
 ---
 title: How to set up a notebook template in {{ ml-platform-full-name }}
-description: Follow this guide to start using the {{ jlab }}Lab-templates extension.
+description: Follow this guide to start using {{ jlab }}Lab-templates.
 ---
 
 # Setting up template-based {{ jlab }}Lab notebook creation
 
-To create {{ jlab }}Lab notebooks from a template, activate the {{ jlab }}Lab-templates extension. To do this:
+To create {{ jlab }}Lab notebooks from a template, activate the `{{ jlab }}Lab-templates` extension. To do this:
 
-1. Create the `datasphere-templates` folder in the root directory of your project.
+1. Create a folder named `datasphere-templates` in the root directory of your project.
 1. In `datasphere-templates`, create a nested folder with any name, e.g., `template-group-1`. In this folder, create a template notebook with any name, e.g., `template_notebook1.ipynb`.
 1. You can create multiple templates for different use cases and group them in different folders.
 
-   Sample structure of the `datasphere-templates` folder used to store {{ jlab }}Lab templates:
+    Here is a sample structure of the `datasphere-templates` folder used to store {{ jlab }}Lab templates:
 
-   ```text
-   datasphere-templates/
-                        |
-                        |_ template-group-1/
-                        |                   |
-                        |                   |_ template_notebook1.ipynb
-                        |                   |_ template_notebook2.ipynb
-                        |
-                        |_ template-group-2/
-                                            |
-                                            |_ template_notebook3.ipynb
-                                            |_ template_notebook4.ipynb
-   ```
+    ```text
+    datasphere-templates/
+                         |
+                         |_ template-group-1/
+                         |                   |
+                         |                   |_ template_notebook1.ipynb
+                         |                   |_ template_notebook2.ipynb
+                         |
+                         |_ template-group-2/
+                                             |
+                                             |_ template_notebook3.ipynb
+                                             |_ template_notebook4.ipynb
+    ```
 
-1. Refresh the page in your browser.
-1. You will see the **Template** button in the **Notebook** section on the {{ jlab }}Lab home page. Click it and select the folder and notebook you need.
+1. Refresh your browser page.
+1. You will see the **Template** button under **Notebook** on the {{ jlab }}Lab home page. Click it and select the folder and notebook.

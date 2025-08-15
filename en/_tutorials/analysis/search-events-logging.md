@@ -12,7 +12,7 @@ Searching by name:
 json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<folder_name>"
 ```
 
-## Who created/stopped/restarted/deleted a VM instance
+## Who created/stopped/restarted/deleted a VM
 
 Searching by VM ID:
 
