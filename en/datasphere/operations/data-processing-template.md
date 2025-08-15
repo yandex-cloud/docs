@@ -9,7 +9,7 @@
 1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![data-proc-template](../../_assets/data-processing/data-processing.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.data-proc.create-template }}**.
-1. In the **{{ ui-key.yc-ui-datasphere.data-proc.template-name }}** field, enter a name for the template. The naming requirements are as follows:
+1. In the **{{ ui-key.yc-ui-datasphere.data-proc.template-name }}** field, enter a name for the template. Follow these naming requirements:
 
     {% include [name-format](../../_includes/name-format.md) %}
 
@@ -31,7 +31,7 @@ The system will create a cluster based on the activated {{ dataproc-name }} temp
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community you want to share the template in.
 
-To make a template available for use in a different project, the project admin needs to [add](./projects/use-shared-resource.md) it on the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
+To make a template available for use in a different project, the project admin needs to [add](./projects/use-shared-resource.md) that template on the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
 
 ## Editing a template {#edit}
 
@@ -45,8 +45,7 @@ You can only change the name of an existing template. To update the configuratio
 ## Deleting a {{ dataproc-name }} template {#delete}
 
 1. {% include [ui-find-project](../../_includes/datasphere/ui-find-project.md) %}
-
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![data-proc-template](../../_assets/data-processing/data-processing.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![data-proc-template](../../_assets/datasphere/data-processing-template.svg) **{{ ui-key.yc-ui-datasphere.resources.dataProc }}**.
 1. In the list, select the template you want to delete.
 1. Click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.submit }}**.

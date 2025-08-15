@@ -1,12 +1,12 @@
 # Delivering data from an {{ KF }} queue to {{ DS }}
 
 
-A {{ yds-name }} stream can get data from {{ KF }} topics in real time.
+A stream in {{ yds-name }} can receive data from {{ KF }} topics in real time.
 
 To run data delivery:
 
-1. [Create a stream for the {{ yds-name }} target](#create-target-yds).
-1. [Set up and activate your transfer](#prepare-transfer).
+1. [Create a target stream in {{ yds-name }}](#create-target-yds).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -17,29 +17,29 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * {{ mkf-name }} cluster fee: using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
-* Fee for the {{ ydb-name }} database. The charge depends on the usage mode:
+* {{ ydb-name }} database fee. The charge depends on the usage mode:
 
 	* For the serverless mode, you pay for data operations and the amount of stored data.
 	* For the dedicated instance mode, you pay for the use of computing resources, dedicated DBs, and disk space.
 	
-    [Learn more about the {{ ydb-name }} pricing plans](../../ydb/pricing/index.md).
+    Learn more about the {{ ydb-name }} pricing plans [here](../../ydb/pricing/index.md).
 
-* {{ yds-name }} fee. The fee depends on the pricing mode:
+* {{ yds-name }} fee, which depends on the pricing mode:
 
-	* Based on allocated resources: You pay for the number of units of written data and resources allocated for data streaming.
-	* Based on actual use:
+	* Provisioned capacity pricing mode: You pay for the number of write units and resources allocated for data streaming.
+	* On-demand pricing mode:
 		* If the DB operates in serverless mode, the data stream is charged according to the [{{ ydb-short-name }} serverless mode pricing policy](../../ydb/pricing/serverless.md).
 
-		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../ydb/pricing/dedicated)).
+		* If the DB operates in dedicated instance mode, the data stream is not charged separately (you only pay for the DB, see the [pricing policy](../../ydb/pricing/dedicated.md)).
 
-    Learn more about the [{{ yds-name }} pricing](../../data-streams/pricing.md) plans.
+    Learn more about the {{ yds-name }} pricing plans [here](../../data-streams/pricing.md).
 
 
 ## Getting started {#before-you-begin}
 
-1. Prepare the data transfer infrastructure:
+1. Set up your data transfer infrastructure:
 
     {% list tabs group=instructions %}
 
@@ -67,7 +67,7 @@ The support cost includes:
             * {{ mkf-name }} source cluster.
             * {{ KF }} topic.
             * {{ KF }} user.
-            * Database: {{ ydb-name }}.
+            * {{ ydb-name }} database.
             * Transfer.
 
         1. In the `data-transfer-mkf-ydb.tf` file, specify these variables:
@@ -84,7 +84,7 @@ The support cost includes:
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
@@ -110,42 +110,42 @@ The support cost includes:
     }
     ```
 
-1. Install the utilities:
+1. Install these tools:
 
-    - [kafkacat](https://github.com/edenhill/kcat) to read and write data to {{ KF }} topics.
+    - [kafkacat](https://github.com/edenhill/kcat) to read and write data from and to {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    - [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
+    - [jq](https://stedolan.github.io/jq/) for stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
         ```
 
-## Create a stream for the {{ yds-name }} target {#create-target-yds}
+## Create a target stream in {{ yds-name }} {#create-target-yds}
 
-[Create a stream for the {{ yds-name }} target](../../data-streams/operations/aws-cli/create.md) in the {{ ydb-name }} database.
+[Create a target stream in {{ yds-name }}](../../data-streams/operations/aws-cli/create.md) for a {{ ydb-name }} database.
 
 ## Set up and activate the transfer {#prepare-transfer}
 
-1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
+1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md) endpoint:
 
     **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`
 
         Select a source cluster from the list and specify its connection settings.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `json`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `json`
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema in two ways:
 
-            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
+            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`
 
                 Set a list of topic fields manually:
 
@@ -161,9 +161,9 @@ The support cost includes:
                 |`cabin_temperature`| `UINT16`||
                 | `fuel_level`|`UINT16`||
 
-            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
+            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`
 
-                Create and upload a `json_schema.json` data schema file in JSON format:
+                Create and upload a data schema file in JSON format, `json_schema.json`:
 
                 {% cut "json_schema.json" %}
 
@@ -216,7 +216,7 @@ The support cost includes:
     **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }}-enabled stream.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the stream in {{ yds-name }}.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
 
 1. Create a transfer:
@@ -225,7 +225,7 @@ The support cost includes:
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
 
             If you want to transform data during the transfer, specify the relevant transformers in the transfer settings:
 
@@ -237,9 +237,9 @@ The support cost includes:
 
         1. In the `data-transfer-mkf-ydb.tf` file, specify these variables:
 
-            * `source_endpoint_id`: Source endpoint ID.
-            * `target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `source_endpoint_id`: ID of the source endpoint.
+            * `target_endpoint_id`: ID of the target endpoint.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
         1. If you want to transform data during the transfer, add the `transformation` section with a list of the transformers you need to the `yandex_datatransfer_transfer` resource:
 
@@ -265,7 +265,7 @@ The support cost includes:
 
             {% include [transformers-mkf-to-yds](../../_tutorials/_tutorials_includes/transformers-mkf-to-yds.md) %}
 
-            For more on configuring transformers, see the [{{ TF }} provider documentation]({{ tf-provider-dt-transfer }}).
+            For more information on configuring transformers, see [this {{ TF }} provider article]({{ tf-provider-dt-transfer }}).
 
         1. Make sure the {{ TF }} configuration files are correct using this command:
 
@@ -273,22 +273,22 @@ The support cost includes:
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will show any errors found in your configuration files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            Once created, your transfer will be activated automatically.
+            Once created, your transfer is activated automatically.
 
     {% endlist %}
 
 ## Test your transfer {#verify-transfer}
 
-1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
-1. Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ yds-name }} stream:
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Make sure the data from the topic in the {{ mkf-name }} source cluster moves to the specified stream in {{ yds-name }}:
 
-    1. Create a `sample.json` file with test data:
+    1. Create a file named `sample.json` with test data:
 
         ```json
         {
@@ -328,7 +328,7 @@ The support cost includes:
         }
         ```
 
-    1. Send data from the `sample.json` file to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
+    1. Send data from `sample.json` to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
 
         ```bash
         jq -rc . sample.json | kafkacat -P \
@@ -342,7 +342,7 @@ The support cost includes:
            -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
         ```
 
-        The data is sent on behalf of the [created user](#prepare-source). To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
+        The data is sent on behalf of the [created user](#prepare-source). To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
     {% include [get-yds-data](../../_includes/data-transfer/get-yds-data.md) %}
 
@@ -354,13 +354,13 @@ Before deleting the resources you created, [deactivate the transfer](../../data-
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. If you had created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
+1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
-Delete the other resources depending on how they were created:
+Delete the other resources depending on how you created them:
 
 {% list tabs group=instructions %}
 

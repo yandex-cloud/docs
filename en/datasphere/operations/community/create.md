@@ -1,5 +1,5 @@
 ---
-title: Create community
+title: Creating a community
 description: Follow this guide to create a community.
 ---
 
@@ -8,7 +8,7 @@ description: Follow this guide to create a community.
 1. {% include [ui-find-community](../../../_includes/datasphere/ui-find-community.md) %}
 1. Click **{{ ui-key.yc-ui-datasphere.common.create-community }}**.
 1. Enter a name for the community.
-1. Optionally, enter a community description.
+1. Optionally, provide a community description.
 1. Select a {{ yandex-cloud }} [billing account](../../../billing/concepts/billing-account.md).
 1. Select an [**availability zone**](../../../overview/concepts/geo-scope.md).
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.

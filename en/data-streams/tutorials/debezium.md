@@ -1,6 +1,6 @@
 ---
-title: Processing CDC Debezium streams in {{ yq-full-name }}
-description: Follow this guide to process CDC Debezium streams.
+title: Processing Debezium CDC streams in {{ yq-full-name }}
+description: Follow this tutorial to process Debezium CDC streams.
 canonical: '{{ link-docs }}/tutorials/dataplatform/debezium-yq'
 ---
 

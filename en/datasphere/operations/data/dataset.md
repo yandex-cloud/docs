@@ -1,32 +1,32 @@
 # Working with datasets
 
-Use [datasets](../../concepts/dataset.md) if you need to handle large data amounts in {{ ml-platform-name }}. For key operations with datasets, run `#pragma dataset` utility commands from the cell code.
+Use [datasets](../../concepts/dataset.md) if you need to handle large data amounts in {{ ml-platform-name }}. For key operations with datasets, run `#pragma dataset` utility commands in code cells.
 
 ## Creating and initializing a dataset {#create}
 
-To create and initialize a dataset, use a Bash or Python cell with the `#pragma dataset init` command. When initializing, specify a [project](../../concepts/project.md)-unique dataset name and the size of the [disk](../../../compute/concepts/disk.md) to host the dataset. The dataset naming requirements are as follows:
+To create and initialize a dataset, use a Bash or Python cell with the `#pragma dataset init` command. When initializing, specify a [project](../../concepts/project.md)-unique dataset name and the size of the [disk](../../../compute/concepts/disk.md) to host your dataset. Follow these dataset naming requirements:
 
 {% include [name-format](../../../_includes/name-format.md) %}
 
 {% note info %}
 
-The dataset initialization process will allocate the entire requested disk space, though a portion will be used by the file system. Specify the dataset size in GB rounded up to the nearest integer.
+When you initialize a dataset, the system will allocate the entire requested disk space, though a portion will be used by the file system. Specify the dataset size in GB, rounded up to the nearest integer.
 
 {% endnote %}
 
 {% note tip %}
 
-The more [disk](../../../compute/concepts/disk.md) space is allocated for a dataset, the higher is the data read speed.
+The larger the [disk](../../../compute/concepts/disk.md) allocated for the dataset, the higher the data read speed.
 
 {% endnote %}
 
 During initialization, the dataset gets a one-time read and write connection to the project. If the code in the dataset initialization cell runs successfully, the dataset is saved and reconnected with read-only access permissions. If initialization fails, the dataset will be disconnected and deleted.
 
-After initialization is complete, you will not be able to change the data in the dataset. To update the data, delete the dataset and create a new one.
+After initialization is complete, you will not be able to change the data in the dataset. If you need to update the data, delete the dataset and create a new one.
 
 ### Populating a dataset with files from the project storage or an attached object storage {#from-files}
 
-You can also use this method to create a dataset with data from a [{{ objstorage-full-name }}](../../../storage/) bucket or another object storage attached to the storage via an [S3 connector](connect-to-s3.md).
+You can also use this method to create a dataset with data from a [{{ objstorage-full-name }}](../../../storage/) bucket or another object storage attached to your project storage via an [S3 connector](connect-to-s3.md).
 
 {% list tabs group=programming_language %}
 
@@ -44,7 +44,7 @@ You can also use this method to create a dataset with data from a [{{ objstorage
 
 {% endlist %}
 
-### Populating a dataset from a file available at the link {#from-link}
+### Populating a dataset from a file available by a link {#from-link}
 
 To create a dataset called `<dataset_name>` from a [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html) archive, run the following code from a cell:
 
@@ -133,7 +133,7 @@ To create a dataset called `<dataset_name>` from a [CIFAR-10](https://www.cs.tor
 
 - Yandex Disk
 
-  Initialize the dataset from a cell with the following code:
+  Initialize the dataset in a code cell:
 
   ```python
   #pragma dataset init <dataset_name> --size 8Gb
@@ -160,13 +160,13 @@ To create a dataset called `<dataset_name>` from a [CIFAR-10](https://www.cs.tor
 
 - Google Drive
 
-  1. Install the [gdown](https://pypi.org/project/gdown/) package:
+  1. Install [gdown](https://pypi.org/project/gdown/):
 
      ```python
      %pip install gdown
      ```
 
-  1. Initialize the dataset from a cell with the following code:
+  1. Initialize the dataset in a code cell:
 
      ```python
      #pragma dataset init <dataset_name> --size 1Gb
@@ -179,19 +179,19 @@ To create a dataset called `<dataset_name>` from a [CIFAR-10](https://www.cs.tor
      gdown.download_folder(id=gdrive_folder_id, output=dst_path, use_cookies=False)
      ```
 
-     Where `<Google_Drive_folder_ID>` is the ID of the Google Drive folder specified in the URL after `https://drive.google.com/drive/folders/`. For example, in the `https://drive.google.com/drive/folders/exampleId` URL, the folder ID is `exampleId`.
+     Where `<Google_Drive_folder_ID>` is the Google Drive folder ID specified in the URL after `https://drive.google.com/drive/folders/`. For example, in the `https://drive.google.com/drive/folders/exampleId` URL, the folder ID is `exampleId`.
 
 {% endlist %}
 
-## Enabling a dataset {#use}
+## Activating a dataset {#use}
 
-Once initialized, the dataset becomes enabled in the project and available at `/home/jupyter/mnt/datasets/<dataset_name>`. You can have up to three datasets enabled within a project at the same time. During your work, you can enable datasets whenever needed and disable them when the data is no longer in use.
+Once initialized, the dataset becomes active within the project and available at `/home/jupyter/mnt/datasets/<dataset_name>`. You can have up to three active datasets within a project at the same time. During your work, you can activate datasets whenever needed and disable them when the data is no longer in use.
 
-To enable a dataset:
+To activate a dataset:
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/console-icons/layers.svg)**{{ ui-key.yc-ui-datasphere.resources.dataset}}**.
-1. In the line with the dataset in question, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.activate}}**.
+1. Next to the dataset in question, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.activate}}**.
 
 ## Viewing a list of datasets available in the project {#list}
 
@@ -207,25 +207,25 @@ On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-reso
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.access }}** tab.
 1. Enable the visibility option next to the name of the community you want to share the dataset with.
 
-To make a dataset available for use in another project, you need to [add](../projects/use-shared-resource.md) it in the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
+To make a dataset available for use in another project, you need to [add](../projects/use-shared-resource.md) that dataset in the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
 
-## Deactivating a dataset {#deactivate}
+## Disabling a dataset {#deactivate}
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
-1. In the line with the dataset in question, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.deactivate }}**.
+1. Next to the dataset in question, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.deactivate }}**.
 
 ## Deleting a dataset {#delete}
 
 You can delete a dataset only if it is:
 
-* Not enabled in the current project.
+* Not activated for the current project.
 * Not used in other projects.
 * Unavailable to the community.
 
 To delete a dataset:
 
 1. On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
-1. In the line with the dataset in question, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. Next the dataset in question, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 
 {% include [deletion-time](../../../_includes/datasphere/deletion-time.md) %}

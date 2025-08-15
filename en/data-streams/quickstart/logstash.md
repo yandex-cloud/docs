@@ -1,5 +1,5 @@
 ---
-title: Tutorial on collecting and delivering {{ ydb-full-name }} data using Logstash
+title: Guide for collecting and delivering {{ ydb-full-name }} data using Logstash
 description: In this tutorial, you will learn how to collect and deliver {{ ydb-full-name }} data using Logstash.
 ---
 
@@ -8,7 +8,7 @@ description: In this tutorial, you will learn how to collect and deliver {{ ydb-
 {% include [trigger](../../_includes/data-streams/trigger.md) %}
 
 1. Download and install [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html).
-1. Install the plugin to support the AWS Kinesis Data Streams protocol. This protocol will be used for streaming data.
+1. Install the plugin for AWS Kinesis Data Streams protocol support. This protocol will be used for data delivery.
 
    ```bash
    sudo /usr/share/logstash/bin/logstash-plugin install logstash-output-kinesis
@@ -16,17 +16,17 @@ description: In this tutorial, you will learn how to collect and deliver {{ ydb-
 
    {% note info %}
 
-   The plugin uses the Amazon Kinesis Producer Library. It requires the [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) to work. Download and install it for your platform. At startup, make sure that you are using JDK version 1.8.235 or higher.
+   The plugin utilizes the Amazon Kinesis Producer Library that requires [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) to operate. Download and install it for your platform. At startup, verify JDK version 1.8.235 or higher is installed.
 
    {% endnote %}
 
-1. In the [management console]({{ link-console-main }}), select the folder with the stream.
+1. In the [management console]({{ link-console-main }}), select the folder containing your data stream.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Select the data stream.
-1. Click **{{ ui-key.yacloud.data-streams.button_connect }}** and go to the **Logstash** tab.
-1. Copy the configuration file example and paste it into the `/usr/share/logstash/bin/mypipeline.conf` file.
+1. Click **{{ ui-key.yacloud.data-streams.button_connect }}** and navigate to the **Logstash** tab.
+1. Copy the example configuration and paste it into the `/usr/share/logstash/bin/mypipeline.conf` file.
 
-   Sample configuration file:
+   Example configuration:
 
    ```text
    input {
@@ -67,7 +67,7 @@ description: In this tutorial, you will learn how to collect and deliver {{ ydb-
      --data '{"user_id":"user1", "score": 100}'
    ```
 
-   If the setup was a success, a message will appear in the Logstash console about receiving data and sending it to {{ yds-name }} over the AWS Kinesis Data Streams protocol:
+   If the setup is successful, the Logstash console will show a message confirming data receipt and its transmission to {{ yds-name }} via the AWS Kinesis Data Streams protocol:
 
    ```text
    {

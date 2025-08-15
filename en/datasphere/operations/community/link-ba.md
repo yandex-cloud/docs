@@ -7,7 +7,7 @@ description: A billing account is used to identify the user who pays for computi
 
 A [billing account](../../../billing/concepts/billing-account.md) is used to identify the user who pays for computing resources, [nodes](../../concepts/deploy/index.md#node), and resource storage for all community projects.
 
-You can [create a {{ yandex-cloud }} billing account](../../../billing/operations/create-new-account.md) in advance and link it when [creating a community](./create.md). In the {{ ml-platform-name }} interface, you can also create a new billing account when selecting a billing account for the community.
+You can [create](../../../billing/operations/create-new-account.md) a {{ yandex-cloud }} billing account in advance and link it when [creating a community](./create.md). You can also create a new billing account in the {{ ml-platform-name }} interface when selecting a billing account for the community.
 
 {% note warning %}
 

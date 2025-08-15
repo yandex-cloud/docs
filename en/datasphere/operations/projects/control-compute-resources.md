@@ -5,13 +5,13 @@ description: Follow this guide to configure your computing resources.
 
 # Selecting computing resources
 
-When you run the first computations, you can select a [configuration](../../concepts/configurations.md) for a notebook from the list of configurations available in the project. You will see utilization rates for every type of VM configurations. The VMs marked green can start immediately once selected. The configurations marked yellow require additional preparation. The start time of such VMs will be longer. The configurations marked red are busy at the moment. They may take indefinite time to allocate, because another user must release the VM first.
+When you run your first computations, you can select a [configuration](../../concepts/configurations.md) for your notebook from the list of configurations available in the project. You will see utilization rates for each type of VM configurations. VMs marked in green are ready to start as soon as you select them. Those marked in yellow require further setup. The start time of such VMs will be longer. The configurations marked in red are currently in use and may take indefinite time to become available, as another user must release them first.
 
 {% include [include](../../../_includes/datasphere/ui-before-begin.md) %}
 
-## Change the configuration {#config}
+## Changing the configuration {#config}
 
-You cannot change the configuration of computing resources while preserving the interpreter status. However, you can add another configuration to a project and run computations again.
+You cannot change the configuration of computing resources while preserving the interpreter state. However, you can add another configuration to your project and rerun the computations.
 
 #### See also {#see-also}
 

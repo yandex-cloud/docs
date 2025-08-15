@@ -12,3 +12,5 @@ description: Из статьи вы узнаете, какие методы S3 A
 [delete](cors/delete.md) | Удаляет конфигурацию бакета для CORS.
 
 {% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}
+
+* [{#T}](../../operations/buckets/cors.md)

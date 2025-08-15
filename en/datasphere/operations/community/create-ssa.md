@@ -2,7 +2,7 @@
 
 With a [service agent](../../../iam/concepts/service-control.md#service-agent), you will be able to work with other services, e.g., refresh your authorization tokens for {{ ml-platform-name }} notebooks.
 
-A service agent is a special service account under which {{ ml-platform-name }} projects will perform actions in other {{ yandex-cloud }} services. Once enabled in a community, a service agent will be available for all the projects in that community.
+A service agent is a special service account under which {{ ml-platform-name }} projects will perform actions in other {{ yandex-cloud }} services. Once enabled in a community, a service agent will be available across all the projects in that community.
 
 You can also [manage a service agent](../projects/jobs-with-ssa.md) from [{{ ds-jobs }}](../../concepts/jobs/index.md).
 
@@ -29,7 +29,7 @@ You need the [admin](../../../resource-manager/security/index.md#resource-manage
     To send requests to nodes from a notebook, assign the `{{ roles-datasphere-user }}` role to the service account.       
 
 1. {% include [ui-find-community](../../../_includes/datasphere/ui-find-community.md) %}
-1. Select the community you want to create a service agent for.
+1. Select the community for which you want to create a service agent.
 1. Go to the **{{ ui-key.yc-ui-datasphere.common.settings-key-value }}** tab.
 1. Under **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.settings.title }}**, click **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.add-service-account.button }}**.
 1. In the window that opens, select the service account and click **{{ ui-key.yc-ui-datasphere.common.add }}**.

@@ -3,8 +3,8 @@
 With [{{ yds-full-name }}](../../data-streams/), you can set up automatic replication of service and user application logs to [{{ objstorage-full-name }}](../../storage/).
 
 The solution works as follows:
-1. Logs, for example, from a [VM instance](../../compute/concepts/vm.md), are sent to a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md).
-1. The log group settings specify the {{ yds-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts) to which the logs are transmitted automatically.
+1. Your {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) receives logs, e.g., from a [VM](../../compute/concepts/vm.md).
+1. The log group is set up to automatically forward logs to a specific [data stream](../../data-streams/concepts/glossary.md#stream-concepts) in {{ yds-name }}.
 1. A {{ data-transfer-name }} [transfer](../../data-transfer/concepts/#transfer) is set up to fetch data from the stream and save it to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md).
 
 To set up log replication:
@@ -36,7 +36,7 @@ The cost of data storage support includes:
 ## Set up your environment {#prepare-environment}
 
 1. [Create](../../iam/operations/sa/create.md) a service account, e.g., `logs-sa`, with the `editor` [role](../../iam/roles-reference.md#editor) for the folder.
-1. [Set up](../../logging/tutorials/) the transfer of logs to the log group. For example, you can [transfer](../../logging/tutorials/vm-fluent-bit-logging.md) logs from a VM instance or [add](../../logging/operations/write-logs.md) test records to the log group.
+1. [Set up](../../logging/tutorials/) the transfer of logs to the log group. For example, you can [transfer](../../logging/tutorials/vm-fluent-bit-logging.md) logs from a VM or [add](../../logging/operations/write-logs.md) test records to the log group.
 
 {% include [create-bucket](../_tutorials_includes/create-bucket.md) %}
 
@@ -49,8 +49,8 @@ The cost of data storage support includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-  1. Next to the log group the logs are sent to, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-  1. In the **{{ ui-key.yacloud.data-streams.label_data-stream }}** field, select the previously created `logs-stream`.
+  1. Next to the log group receiving the logs, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. In the **{{ ui-key.yacloud.data-streams.label_data-stream }}** field, select `logs-stream` you created earlier.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}

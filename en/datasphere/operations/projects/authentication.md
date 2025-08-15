@@ -1,24 +1,24 @@
 ---
-title: How to authenticate in {{ ds-jobs }}
-description: This article describes the authentication methods in {{ ds-jobs }}.
+title: How to get authenticated in {{ ds-jobs }}
+description: This article describes {{ ds-jobs }} authentication methods.
 ---
 
 # Authentication in {{ ds-jobs }}
 
-To use {{ ds-jobs }}, you need to authenticate as a user account.
+To use {{ ds-jobs }}, you need to get authenticated as a user account.
 
 {% list tabs group=authentication %}
 
 - Yandex account {#yandex-account}
 
   1. Get an [OAuth token](../../../iam/concepts/authorization/oauth-token.md).
-  1. Specify the OAuth token in one of two ways:
+  1. Provide the OAuth token in one of the following ways:
 
      * Using the `YC_TOKEN` or `YC_OAUTH_TOKEN` environment variables in the `~/.bash_profile` configuration file (`~/.bashrc` for Linux).
 
-       The OAuth token will be saved in the profile configuration and authentication will be automatic.
+       The OAuth token will be saved in the profile configuration, enabling automatic authentication.
 
-     * Using [{{ ds-cli }}](../../concepts/jobs/cli.md) and the `-t` option, e.g.:
+     * Using [{{ ds-cli }}](../../concepts/jobs/cli.md) and the `-t` option. Here is an example:
 
        ```bash
        datasphere -t <OAuth_token> project job get --id <project_ID>
@@ -26,7 +26,7 @@ To use {{ ds-jobs }}, you need to authenticate as a user account.
 
        {% include [get-project-id](../../../_includes/datasphere/get-project-id.md) %}
 
-       In this case, you will have to specify the OAuth token in each command.
+       In this case, you will have to provide the OAuth token in each command.
 
 - Federated account {#federated-account}
 

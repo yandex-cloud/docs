@@ -23,8 +23,8 @@ Name | Number of vCPUs | Number of GPUs | RAM, GB | VRAM, GB
 **Configurations with [Intel Ice Lake](../../../compute/concepts/performance-levels.md) vCPUs and [NVIDIA® Tesla® T4](https://www.nvidia.com/en-us/data-center/tesla-t4/) GPUs**
 **gt4.1** ^1^ | 4 | 1 | 16 | 16
 **Configurations with [Intel Ice Lake](../../../compute/concepts/performance-levels.md) vCPUs and [NVIDIA® Tesla® T4i](../../../compute/concepts/gpus.md#t4i) GPUs**
-**gt4i.1** ^1^ | 8 | 1 | 32 | 24 
+**gt4i.1** ^1^ | 8 | 1 | 32 | 24
 
-^1^ Available after you deposit at least $10 to your billing account or upon request to the support team.
+^1^ Available after you deposit at least $10 to your billing account or upon a request to our support.
 
-^2^ Only available for businesses and upon request to the support team.
+^2^ Only available for businesses and upon a request to our support.

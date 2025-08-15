@@ -1,18 +1,18 @@
 # GetRecords
 
-Gets [messages](../../concepts/glossary.md#message) from a stream [shard](../../concepts/glossary.md#shard).
+Retrieves [records](../../concepts/glossary.md#message) from a data stream [shard](../../concepts/glossary.md#shard).
 
-The `ShardIterator` value defines the position in a shard to start sequential message reads from. If there are no new messages in the shard, `GetRecords` returns an empty list. In this case, invoke `GetRecords` again.
+The `ShardIterator` value specifies the starting point in the shard for sequential record processing. If the shard contains no new records, `GetRecords` returns an empty list. In this case, repeat the `GetRecords` request.
 
-When reading stream messages in a loop, use `GetShardIterator` to get the shard iterator to be used in the first `GetRecords` request. For subsequent reads, you can use the `NextShardIterator` value returned by `GetRecords`. If the shard is closed, `GetRecords` returns `null` in the `NextShardIterator` value.
+When reading records from a stream in a loop, first call `GetShardIterator` to get the shard iterator for your initial `GetRecords` request. For subsequent reads, you can use the `NextShardIterator` value returned in the `GetRecords` response. If the shard has been closed, `GetRecords` returns `null` for the `NextShardIterator` value.
 
-The size of data returned by `GetRecords` is limited to 2 MB/s and you can call the method no more than 5 times per second. If a `GetRecords` method call returns more data, subsequent calls will fail with `ProvisionedThroughputExceededException` until the throughput returns to 2 MB/s. For example, if a request returns 10 MB/s, subsequent requests made within 5 seconds will fail.
+The data returned by `GetRecords` is limited to 2 MB/s, with a maximum call frequency of 5 requests per second. If a `GetRecords` call exceeds the 2 MB/s limit, subsequent calls will throw a `ProvisionedThroughputExceededException` until the throughput drops below the threshold. For example, a 10 MB/s response would block further requests for 5 seconds.
 
-To determine if your application reads all data from a shard fast enough, use the `MillisBehindLatest` metric value in a response.
+To determine if your application keeps up with all incoming shard data, check the `MillisBehindLatest` value in the response.
 
 ## Request {#request}
 
-The request contains data in JSON format.
+The request contains JSON-formatted data.
 
 ```json
 {
@@ -21,16 +21,16 @@ The request contains data in JSON format.
 }
 ```
 
-### Request parameters {#request-options}
+### Request options {#request-options}
 
-| Parameter | Description |
+Option | Description
 ----- | -----
-| `Limit` | Maximum number of returned records.<br/><br/>**Type**: Integer.<br/>**Possible values** `1` - `10000`.<br/>**Required**: No. |
-| `ShardIterator` | The position in a shard to start sequential message reads from. The iterator value is defined by the message sequence number in a shard.<br/><br/>**Type**: String.<br/>**Size**: `1`-`512` characters.<br/>**Required**: Yes. |
+`Limit` | Maximum number of records returned.<br/><br/>**Type**: Integer<br/>**Allowed values**: `1` - `10000`.<br/>**Required**: No.
+`ShardIterator` | The starting position within the shard for sequential message processing. The iterator’s position corresponds to the sequence number of a record in the shard.<br/><br/>**Type**: String<br/>**Size**: `1`-`512` characters.<br/>**Required**: Yes.
 
 ## Response {#response}
 
-If successful, HTTP code 200 and data in JSON format are returned.
+Successful requests return HTTP 200 with a JSON-formatted response body.
 
 ```json
 {
@@ -56,20 +56,20 @@ If successful, HTTP code 200 and data in JSON format are returned.
 
 ### Response parameters {#response-options}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `ChildShards` | List of the current shard's child shards. Returned when the end of the current shard is reached.<br/>**Type**: Array.<br/>**Required**: No. |
-| `MillisBehindLatest` | The number of milliseconds that the results returned by `GetRecords` lag behind the latest data in the stream. `0` means that the latest data is returned with no lag.**Type**: Long integer.<br/>**Minimum value**: `0`.<br/>**Required**: No. |
-| `NextShardIterator` | Iterator of the position in a shard to start the next sequential read from.<br/>If the shard no longer exists, `null` is returned.**Type**: String.<br/>**Size**: `1`-`512` characters.<br/>**Required**: Yes. |
-| `Records` | Messages fetched from a shard.<br/>**Type**: Array.<br/>**Required**: No. |
+`ChildShards` | List of child shards of the current shard. This parameter is returned when reaching the end of the current shard.<br/>**Type**: Array<br/>**Required**: No.
+`MillisBehindLatest` | The latency in milliseconds between the latest data written to the stream and the `GetRecords` response. If the value is `0`, it means the system returns the latest stream data with no lag.**Type**: Long integer<br/>**Minimum value**: `0`.<br/>**Required**: No.
+`NextShardIterator` | A shard iterator specifying the starting point for subsequent sequential reads.<br/>If the shard no longer exists, this parameter is set to `null`.**Type**: String<br/>**Size**: `1`-`512` characters.<br/>**Required**: Yes.
+`Records` | Records retrieved from the shard.<br/>**Type**: Array<br/>**Required**: No.
 
 ## Errors {#errors}
 
-| Parameter | Description | HTTP code |
+Error | Description | HTTP code
 ----- | ----- | -----
-| `ExpiredIteratorException` | The specified iterator's lifetime expired. | 400 |
-| `InvalidArgumentException` | The argument is invalid. For more information, see the error message. | 400 |
-| `ProvisionedThroughputExceededException` | Insufficient throughput to execute the request. | 400 |
-| `ResourceNotFoundException` | The requested resource was not found. | 400 |
+`ExpiredIteratorException` | The specified iterator has expired. | 400
+`InvalidArgumentException` | The argument is invalid. See the error message for details. | 400
+`ProvisionedThroughputExceededException` | Insufficient throughput to process the request. | 400
+`ResourceNotFoundException` | The requested resource was not found. | 400
 
-[Errors](../common-errors.md) that are common to all methods may occur.
+[Errors](../common-errors.md) common to all methods may occur.

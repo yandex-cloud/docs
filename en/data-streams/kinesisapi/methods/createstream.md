@@ -1,14 +1,14 @@
 # CreateStream
 
-Creates a [stream](../../concepts/glossary.md#stream-concepts).
+Creates a [data stream](../../concepts/glossary.md#stream-concepts).
 
-If successful, the method initiates the creation of a stream, changes its status to `CREATING`, and returns HTTP code 200. Reads and writes are only allowed for a stream in the `ACTIVE` status. To find out the status of a stream, use the [DescribeStream](describestream.md) method.
+On success, this method initiates stream creation, sets the stream status to `CREATING`, and returns an HTTP 200 response. Read and write operations are only permitted for streams with the `ACTIVE` status. To check the stream status, use the [DescribeStream](describestream.md) method.
 
-If you try to create more streams than set in the [quota](../../concepts/limits.md) for your account, the request returns `LimitExceededException`.
+If you attempt to create more streams than your account [quota](../../concepts/limits.md) allows, the request will return `LimitExceededException`.
 
 ## Request {#request}
 
-The request contains data in JSON format.
+The request contains JSON-formatted data.
 
 ```json
 {
@@ -19,25 +19,25 @@ The request contains data in JSON format.
 }
 ```
 
-### Request parameters {#request-options}
+### Request options {#request-options}
 
-| Parameter | Description |
+Option | Description
 ----- | -----
-| `StreamName` | The name of the stream being created.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes |
-| `ShardCount` | Number of [shards](../../concepts/glossary.md#shard) in a stream.<br/><br/>**Type**: Integer<br/>**Minimum value**: `1`.<br/>**Required**: Yes |
-| `WriteQuotaKbPerSec` | The limit on writing data to a stream, KB/s.<br/><br/>**Type**: Integer<br/>**Possible values**: `128`, `512`, `1024`.<br/>**Required**: No |
-| `RetentionPeriodHours` | The message retention period, hours.<br/><br/>**Type**: Integer<br/>**Possible values** `4`, `12`, `24`.<br/>**Required**: No |
+`StreamName` | Data stream name.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**The possible values are**: `[a-zA-Z][a-zA-Z0-9-]+*(?<!-)$`<br/>**Required**: Yes
+`ShardCount` | Number of stream [shards](../../concepts/glossary.md#shard).<br/><br/>**Type**: Integer<br/>**Minimum value**: `1`.<br/>**Required**: Yes
+`WriteQuotaKbPerSec` | Stream write throughput limit, KB/s.<br/><br/>**Type**: Integer<br/>**Allowed values**: `128`, `512`, `1024`.<br/>**Required**: No
+`RetentionPeriodHours` | Record retention period, hours.<br/><br/>**Type**: Integer<br/>**Allowed values**: `4`, `12`, `24`.<br/>**Required**: No
 
 ## Response {#response}
 
-If successful, HTTP 200 code and an empty body are returned.
+Successful responses include an HTTP 200 code and an empty response body.
 
 ## Errors {#errors}
 
-| Error type | Description | HTTP code |
+Error type | Description | HTTP code
 ----- | ----- | -----
-| `InvalidArgumentException` | The argument is invalid. For more information, see the error message. | 400 |
-| `LimitExceededException` | The request limit is exceeded. | 400 |
-| `ResourceInUseException` | The resource is being used by another operation. | 400 |
+`InvalidArgumentException` | The argument is invalid. See the error message for details. | 400
+`LimitExceededException` | The request limit is exceeded. | 400
+`ResourceInUseException` | The resource is currently locked by another operation. | 400
 
-[Errors](../common-errors.md) that are common to all methods may occur.
+[Errors](../common-errors.md) common to all methods may occur.

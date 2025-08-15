@@ -1,16 +1,16 @@
 # Configuring {{ yq-full-name }}
 
 
-{{ at-name }} supports [{{ yq-full-name }}](../../../query/). You can analyze events of {{ yandex-cloud }} resources by running [analytical](../../../query/concepts/batch-processing.md) and [streaming](../../../query/concepts/stream-processing.md) {{ yql-short-name }} queries.
+[{{ yq-full-name }}](../../../query/) supports {{ at-name }}. You can analyze events of {{ yandex-cloud }} resources by running [analytical](../../../query/concepts/batch-processing.md) and [streaming](../../../query/concepts/stream-processing.md) {{ yql-short-name }} queries.
 
-You can run analytical queries for logs stored in a bucket, and streaming queries for logs stored in a {{ yds-full-name }} data stream.
+You can run analytical queries for logs stored in a bucket, and streaming queries for logs stored in {{ yds-full-name }}.
 
 ![](../../../_assets/audit-trails/tutorials/audit-trails-query.png)
 
 To connect a bucket with [audit logs](../../../audit-trails/concepts/events.md) to {{ yq-full-name }} and run [{{ yql-short-name }}](../../../query/yql-tutorials/index.md) queries:
 
 1. [Set up your environment](#prepare-environment).
-1. [Create a connection between a trail and {{ yq-short-name }}](#trail-yq).
+1. [Create a connection between the trail and {{ yq-short-name }}](#trail-yq).
 1. [Run a query to logs in {{ objstorage-name }}](#perform-request).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The cost of infrastructure support includes a fee for a bucket (see [Pricing for {{ objstorage-name }}](../../../storage/pricing.md)).
+The cost of infrastructure support includes a bucket use fee (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 
 
 ## Set up your environment {#prepare-environment}
@@ -95,7 +95,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` 
 
         For more information about the `yc organization-manager organization add-access-binding` command, see the [CLI reference](../../../cli/cli-ref/organization-manager/cli-ref/organization/add-access-binding.md).
 
-    1. The `storage.uploader` role for the folder:
+    1. The `storage.uploader` role for `example-folder`:
 
         ```bash
         yc resource-manager folder add-access-binding example-folder \
@@ -115,7 +115,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` 
 
 {% endlist %}
 
-Assign the `bucket-yq-sa` service account the `storage.viewer` role for `example-folder`:
+Assign the `storage.viewer` role for `example-folder` to the `bucket-yq-sa` service account:
 
 {% list tabs group=instructions %}
 
@@ -185,7 +185,7 @@ You need to create a connection only when connecting the trail to {{ yq-short-na
     1. Click **{{ ui-key.yacloud.common.create }}**.
     1. In the window with data binding options, click **{{ ui-key.yacloud.common.create }}**.
 
-  You will go to the page for creating a query to trail logs.
+  This will take you to the page for creating a query to trail logs.
 
 {% endlist %}
 
@@ -200,12 +200,12 @@ Open the page to create an analytical query to {{ at-name }} logs:
 
     1. In the [management console]({{ link-console-main }}), select the folder with your trail.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-    1. Select the trail for which a [connection to {{ yq-short-name }}](#trail-yq) is configured.
+    1. Select the trail for which you configured a [connection to {{ yq-short-name }}](#trail-yq).
     1. Click **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}** to go to the analytical query execution page.
 
 {% endlist %}
 
-Run event queries to bind `audit-trails-logsyq-object_storage`:
+Run event queries for the `audit-trails-logsyq-object_storage` binding:
 
 1. Deleting a folder:
 
@@ -252,7 +252,7 @@ Run event queries to bind `audit-trails-logsyq-object_storage`:
 
     1. Click **Execute**.
 
-1. Assigning administrator permissions:
+1. Assigning admin permissions:
 
     1. Select this query from the list: **20. Assigning admin permissions (for a folder and cloud)**.
     1. Edit the query by specifying the number of displayed records:
@@ -269,4 +269,4 @@ Run event queries to bind `audit-trails-logsyq-object_storage`:
 
 ## How to delete the resources you created {#clear-out}
 
-If you created a separate bucket to follow these instructions, you can [delete it](../../../storage/operations/buckets/delete.md) to stop paying for [bucket use](../../../storage/pricing.md).
+If you created a separate bucket to complete this tutorial, you can [delete it](../../../storage/operations/buckets/delete.md) to stop paying a [bucket use](../../../storage/pricing.md) fee.

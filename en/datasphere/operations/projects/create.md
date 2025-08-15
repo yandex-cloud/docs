@@ -7,9 +7,9 @@ description: Follow this guide to create an empty project.
 
 {% include [include](../../../_includes/datasphere/ui-create-project.md) %}
 
-You can [change](update.md) the settings of the created project: link a network or service account, set up links with other {{ yandex-cloud }} services.
+You can [change](update.md) the settings of the project you created, e.g., link a network or a service account, or set up links with other {{ yandex-cloud }} services.
 
-[More about {{ ml-platform-name }} projects](../../concepts/project.md).
+Learn more about {{ ml-platform-name }} projects [here](../../concepts/project.md).
 
 #### What's next {#what-is-next}
 

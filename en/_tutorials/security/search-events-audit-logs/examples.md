@@ -1,6 +1,6 @@
-# Examples of requests for searching events in audit logs
+# Examples of queries for searching events in audit logs
 
-This section contains the most common search requests for events in audit logs for various {{ yandex-cloud }} resources. To get the events you need, run one of the requests below.
+This section contains the most common queries for searching events in audit logs for various {{ yandex-cloud }} resources. To get the events you need, run one of the queries below.
 
 **Infrastructure and network**   
 * [{{ compute-full-name }}](#compute)
@@ -19,11 +19,11 @@ This section contains the most common search requests for events in audit logs f
     * [Creating a federation](#create-federation)
     * [Editing a federation](#update-federation)
     * [Adding a certificate to a federation](#create-certificate)
-    * [Discovering a cloud secret in the public domain](#detect-leaked-credential)
+    * [Detecting a publicly exposed cloud secret](#detect-leaked-credential)
 
 **Containers**
 * [{{ managed-k8s-full-name }}](#k8s)
-    * [Creating a cluster with a public IP address of the master](#create-k8s-with-public-ip-for-master)
+    * [Creating a cluster with a public IP address for the master](#create-k8s-with-public-ip-for-master)
     * [Creating a cluster without a security group for the master](#create-k8s-without-security-group-for-master)
     * [Creating a cluster without master autoupdate](#create-k8s-without-autoupgrade-for-master)
     * [Creating a cluster without etcd encryption](#create-k8s-without-etcd-encryption)
@@ -35,8 +35,8 @@ This section contains the most common search requests for events in audit logs f
 
 **Data platform**
 * [{{ objstorage-full-name }}](#object-storage)
-    * [Updating a bucket access policy](#update-bucket-policy)
-    * [Opening public access when creating or updating a bucket](#public-access-bucket)
+    * [Updating a bucket policy](#update-bucket-policy)
+    * [Enabling public access when creating or updating a bucket](#public-access-bucket)
 * [Managed databases (MDB)](#mdb)
     * [Creating or changing a user for MDB](#create-user)
 
@@ -61,7 +61,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -103,7 +103,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -128,7 +128,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -157,7 +157,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -188,7 +188,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -213,7 +213,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -238,7 +238,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -269,7 +269,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -300,7 +300,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -325,7 +325,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -350,7 +350,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -369,13 +369,13 @@ This section contains the most common search requests for events in audit logs f
 
 {% endlist %}
 
-#### Discovering a cloud secret in the public domain {#detect-leaked-credential}
+#### Detecting a publicly exposed cloud secret {#detect-leaked-credential}
 
 {% list tabs group=tools %}
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -398,13 +398,13 @@ This section contains the most common search requests for events in audit logs f
 
 ### {{ managed-k8s-full-name }} {#k8s}
 
-#### Creating a cluster with a public IP address of the master {#create-k8s-with-public-ip-for-master}
+#### Creating a cluster with a public IP address for the master {#create-k8s-with-public-ip-for-master}
 
 {% list tabs group=tools %}
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -431,7 +431,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -460,7 +460,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -489,7 +489,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -516,7 +516,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -543,7 +543,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -572,7 +572,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -603,7 +603,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -628,13 +628,13 @@ This section contains the most common search requests for events in audit logs f
 
 ### {{ objstorage-full-name }} {#object-storage}
 
-#### Updating a bucket access policy {#update-bucket-policy}
+#### Updating a bucket policy {#update-bucket-policy}
 
 {% list tabs group=tools %}
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -653,13 +653,13 @@ This section contains the most common search requests for events in audit logs f
 
 {% endlist %}
 
-#### Opening public access when creating or updating a bucket {#public-access-bucket}
+#### Enabling public access when creating or updating a bucket {#public-access-bucket}
 
 {% list tabs group=tools %}
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -692,7 +692,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -727,7 +727,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -760,7 +760,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from
@@ -793,7 +793,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -822,7 +822,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from
@@ -849,7 +849,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 
@@ -874,7 +874,7 @@ This section contains the most common search requests for events in audit logs f
 
 - {{ yq-full-name }} {#yandex-query}
 
-    Run this request:
+    Run this query:
 
     ```sql
     select * from 

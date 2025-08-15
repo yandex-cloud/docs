@@ -1,22 +1,22 @@
 # Replicating logs to {{ objstorage-full-name }} using Fluent Bit
 
 
-Data aggregators enable you to transmit data, e.g., logs, from [VM instances](../../compute/concepts/vm.md) to log monitoring and data storage services.
+Data aggregators enable you to transmit data, e.g., logs, from [VMs](../../compute/concepts/vm.md) to log monitoring and data storage services.
 
-In this tutorial, you will learn how to replicate VM logs automatically to an {{ objstorage-name }} bucket using the [Fluent Bit](https://fluentbit.io) logging processor.
+In this tutorial, you will learn how to replicate VM logs automatically to an {{ objstorage-name }} bucket using [Fluent Bit](https://fluentbit.io).
 
 The solution described below works in the following way:
 1. Fluent Bit runs on an active VM as a [systemd](https://ru.wikipedia.org/wiki/Systemd) module.
-1. Fluent Bit collects logs as per the configuration settings and sends them to a {{ yds-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts) over the [Amazon Kinesis Data Streams](https://aws.amazon.com/ru/kinesis/data-streams/) protocol.
-1. In your working folder, you set up a {{ data-transfer-name }} [transfer](../../data-transfer/concepts/#transfer) that fetches data from the stream and saves it to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md).
+1. Fluent Bit collects logs as per the configuration settings and sends them to a [stream](../../data-streams/concepts/glossary.md#stream-concepts) in {{ yds-name }} over the [Amazon Kinesis Data Streams](https://aws.amazon.com/ru/kinesis/data-streams/) protocol.
+1. In your working folder, you set up a [{{ data-transfer-name }}](../../data-transfer/concepts/index.md#transfer) that fetches data from the stream and saves it to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md).
 
 To set up log replication:
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Set up your environment](#setup).
 1. [Create an {{ objstorage-name }} bucket for storing your logs](#create-bucket).
-1. [Create a {{ yds-name }} data stream](#create-stream).
-1. [Create a {{ data-transfer-name }} transfer](#create-transfer).
+1. [Create a stream in {{ yds-name }}](#create-stream).
+1. [Create a {{ data-transfer-name }}](#create-transfer).
 1. [Install Fluent Bit](#install-fluent-bit).
 1. [Connect Fluent Bit to your data stream](#connect).
 1. [Test sending and receiving data](#check-ingestion).
@@ -129,7 +129,7 @@ If running Fluent Bit version below 1.9, which comes with the `td-agent-bit` pa
     ```
     Where:
 
-    * `stream`: ID of the {{ yds-name }} data stream. 
+    * `stream`: ID of the data stream in {{ yds-name }}. 
         >For example, your stream ID will appear as `/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/logs-stream` if:
         >* `logs-stream`: Stream name.
         >* `{{ region-id }}`: Region.
@@ -142,7 +142,7 @@ If running Fluent Bit version below 1.9, which comes with the `td-agent-bit` pa
    ```bash
    sudo vim  /lib/systemd/system/fluent-bit.service
    ```
-1. Add the environment variables that include paths to the access key files to the `SERVICE` section:
+1. Add the environment variables containing to access key file paths to the `SERVICE` section:
    ```bash
    Environment=AWS_CONFIG_FILE=/home/<username>/.aws/config
    Environment=AWS_SHARED_CREDENTIALS_FILE=/home/<username>/.aws/credentials
@@ -178,7 +178,7 @@ If running Fluent Bit version below 1.9, which comes with the `td-agent-bit` pa
 
 ## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../data-transfer/operations/endpoint/index.md#delete).

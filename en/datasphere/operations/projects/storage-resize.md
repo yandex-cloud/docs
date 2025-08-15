@@ -17,10 +17,10 @@ You can [restrict](../community/manage-community-config.md) resizing the project
 1. Information about the project storage size is available on the project page in the **{{ ui-key.yc-ui-datasphere.project-page.tab.overview }}** tab, under **{{ ui-key.yc-ui-datasphere.project-page.project-disk }}**. Click ![pencil](../../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yc-ui-datasphere.common.resize }}**.
 1. Specify the size you need as an integer.
 1. Click **{{ ui-key.yc-ui-datasphere.common.resize }}**.
-1. You will be able to open the project as soon as storage resizing is completed.
+1. You will be able to open the project as soon as storage resizing is complete.
 
 {% note warning %}
 
-The project storage is used not only for storing files but also for file system operations and other technical needs.
+The project storage is used not only for storing files also for file system and other technical needs.
 
 {% endnote %}
