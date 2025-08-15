@@ -366,5 +366,51 @@ description: Следуя данной инструкции, вы сможете
         }
     }
     ```
+- Rust {#rust}
+
+    **Cargo.toml**
+    ```
+    [dependencies]
+    tracing = "0.1.*"
+    tracing-subscriber = { version = "0.3.*", features = ["std", "env-filter", "time", "json"] }
+    ```
+
+    **main.rs**
+    ```rust
+    use tracing_subscriber::{
+        fmt,
+        layer::SubscriberExt,
+        util::SubscriberInitExt,
+        EnvFilter,
+    };
+    use tracing_subscriber::fmt::time::UtcTime;
+    
+    pub fn init_tracing() {
+        let env_filter = EnvFilter::try_from_default_env()
+            .unwrap_or_else(|_| EnvFilter::new("info"));
+    
+        let fmt_layer = fmt::layer()
+            .json()
+            .flatten_event(true)
+            .with_timer(UtcTime::rfc_3339())
+            .with_ansi(false)
+            .with_target(false)
+            .with_thread_ids(false)
+            .with_thread_names(false)
+            .with_writer(std::io::stderr)
+            .with_filter(env_filter);
+    
+        tracing_subscriber::registry()
+            .with(fmt_layer)
+            .init();
+    }
+    
+    fn main() {
+        init_tracing();
+    
+        tracing::info!(my_key = "my-value", "My log message");
+        tracing::error!(error_code = 42, "Something went wrong");
+    }
+    ```
 
 {% endlist %}
