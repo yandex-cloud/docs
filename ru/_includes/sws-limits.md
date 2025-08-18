@@ -18,10 +18,10 @@
 `smart-web-security.ipMatchers.count` | 2 500 ||
 || Максимальное суммарное количество [списков IP-адресов](../smartwebsecurity/concepts/lists.md) в {{ sws-name }}
 `smart-web-security.matchLists.count` | 20 ||
-|| Максимальное суммарное количество [прокси-серверов](../smartwebsecurity/concepts/domain-protect.md#proxy) в облаке | 1 ||
-`smart-web-security.loadBalancers.count`
-|| Максимальное суммарное количество [доменов](../smartwebsecurity/concepts/domain-protect.md#domain) в облаке | 10 ||
-`smart-web-security.loadBalancerDomains.count`
+|| Максимальное суммарное количество [прокси-серверов](../smartwebsecurity/concepts/domain-protect.md#proxy) в облаке 
+`smart-web-security.loadBalancers.count` | 1 ||
+|| Максимальное суммарное количество [доменов](../smartwebsecurity/concepts/domain-protect.md#domain) в облаке 
+`smart-web-security.loadBalancerDomains.count` | 10 ||
 |#
 
 #### Лимиты {#limits}

@@ -19,15 +19,15 @@ description: Следуя данной инструкции, вы сможете
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. В основной сети [создайте](../../compute/operations/vm-create/create-linux-vm) виртуальную машину {{ compute-name }} с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses) и назовите ее `VM-1`. На этой ВМ будет настроен основной WireGuard-шлюз.
+1. В основной сети [создайте](../../compute/operations/vm-create/create-linux-vm.md) виртуальную машину {{ compute-name }} с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses) и назовите ее `VM-1`. На этой ВМ будет настроен основной WireGuard-шлюз.
 
 1. [Создайте](../../vpc/operations/network-create.md) дополнительную облачную сеть с одной подсетью.
 
-1. В дополнительной сети [создайте](../../compute/operations/vm-create/create-linux-vm) виртуальную машину {{ compute-name }} с публичным IP-адресом и назовите ее `VM-2`. На этой ВМ будет настроен дополнительный WireGuard-шлюз.
+1. В дополнительной сети [создайте](../../compute/operations/vm-create/create-linux-vm.md) виртуальную машину {{ compute-name }} с публичным IP-адресом и назовите ее `VM-2`. На этой ВМ будет настроен дополнительный WireGuard-шлюз.
 
 ## Настройка групп безопасности {#sg}
 
-1. В основной сети [создайте](../../vpc/operations/security-group-create) группу безопасности и назначьте ее `VM-1`. [Добавьте](../../vpc/operations/security-group-add-rule.md) в группу правила:
+1. В основной сети [создайте](../../vpc/operations/security-group-create.md) группу безопасности и назначьте ее `VM-1`. [Добавьте](../../vpc/operations/security-group-add-rule.md) в группу правила:
 
     {% list tabs group=traffic %}
 
@@ -80,7 +80,7 @@ description: Следуя данной инструкции, вы сможете
       --- | --- | --- | --- | ---
       `VM-2-subnet` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<CIDR_подсети_VM-2>`
 
-    {% endlist %}    
+    {% endlist %}
 
 ## Настройка маршрутизации {#rt}
 
@@ -156,13 +156,13 @@ description: Следуя данной инструкции, вы сможете
   
        [Подробнее о параметрах конфигурации](https://www.procustodibus.com/blog/2020/12/wireguard-site-to-site-config).
 
-       Сохраните изменения и закройте файл.    
+       Сохраните изменения и закройте файл.
 
     1. Примените конфигурацию:
 
         ```bash
         sudo systemctl restart wg-quick@wg0
-        ```        
+        ```
 
 1. Настройте дополнительный WireGuard-шлюз:
 
@@ -199,7 +199,7 @@ description: Следуя данной инструкции, вы сможете
 
        [Подробнее о параметрах конфигурации](https://www.procustodibus.com/blog/2020/12/wireguard-site-to-site-config).
 
-       Сохраните изменения и закройте файл.        
+       Сохраните изменения и закройте файл.
 
     1. Примените конфигурацию:
 

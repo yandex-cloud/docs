@@ -7,6 +7,31 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.159.0 (18.08.25) {#version0.159.0}
+
+####  Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ mmg-name }}
+Добавлен вывод `priority` и `hidden` в `yc managed-mongodb hosts list`.
+
+##### {{ compute-name }}
+Добавлены команды для управления пулами зарезервированных VM:
+* `compute reserved-instance-pool list-instances`;
+* `compute reserved-instance-pool list-operations`.
+
+##### {{ compute-name }}
+Расширены команды для управления пулами зарезервированных VM:
+* `compute reserved-instance-pool create`;
+* `compute reserved-instance-pool update`.
+
+##### {{ er-name }}
+* Исправлена работа флага `--deletion-protection` в команде `yc serverless eventrouter connector update`.
+
+##### {{ org-name }}
+* Исправлено отображение timestamp в листинге доменов SAML-федераций.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.158.0 (11.08.25) {#version0.158.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -20,16 +45,14 @@ description: На странице представлены релизы CLI, а
 
 ##### {{ alb-name }}
 * В команды управления маршрутами добавлен параметр `disable_security_profile`:
-  * yc application-load-balancer virtual-host append-http-route
-  * yc application-load-balancer virtual-host prepend-http-route
-  * yc application-load-balancer virtual-host insert-http-route
-  * yc application-load-balancer virtual-host update-http-route
-  * yc application-load-balancer virtual-host append-grpc-route
-  * yc application-load-balancer virtual-host prepend-grpc-route
-  * yc application-load-balancer virtual-host insert-grpc-route
-  * yc application-load-balancer virtual-host update-grpc-route
-
-## Предыдущие релизы {#previous-release}
+  * `yc application-load-balancer virtual-host append-http-route`;
+  * `yc application-load-balancer virtual-host prepend-http-route`;
+  * `yc application-load-balancer virtual-host insert-http-route`;
+  * `yc application-load-balancer virtual-host update-http-route`;
+  * `yc application-load-balancer virtual-host append-grpc-route`;
+  * `yc application-load-balancer virtual-host prepend-grpc-route`;
+  * `yc application-load-balancer virtual-host insert-grpc-route`;
+  * `yc application-load-balancer virtual-host update-grpc-route`.
 
 ### Версия 0.157.0 (04.08.25) {#version0.157.0}
 

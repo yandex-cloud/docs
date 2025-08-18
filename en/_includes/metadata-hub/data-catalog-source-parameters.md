@@ -1,2 +1,2 @@
-* **Connection ID**: Managed connection ID in [{{ connection-manager-full-name }}](../../metadata-hub/quickstart/connection-manager.md).
-* **Database name**: Name of the database to ingest metadata from.
+* **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ConnectionType.ManagedConnection.connection_id.title }}**: Managed connection ID in [{{ connection-manager-full-name }}](../../metadata-hub/quickstart/connection-manager.md).
+* **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.database_name.title }}**: Name of the database to ingest metadata from.

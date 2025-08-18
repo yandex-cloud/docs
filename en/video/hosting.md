@@ -5,8 +5,6 @@ description: Follow this guide to upload your video to {{ video-full-name }} and
 
 # Getting started with video hosting in {{ video-full-name }}
 
-{% include [preview-stage](../_includes/video/preview-stage.md) %}
-
 To upload a [video](./concepts/index.md#videos) to a service [channel](./concepts/index.md#channels):
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a channel](#create-channel).

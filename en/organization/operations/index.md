@@ -74,6 +74,15 @@ description: In this article, you will learn how to work with {{ org-full-name }
 * [{#T}](./applications/oidc-update.md)
 * [{#T}](./applications/oidc-deactivate-remove.md)
 
+## Managing MFA policies {#manage-mfa-policies}
+
+* [{#T}](./mfa/create-policy.md)
+* [{#T}](./mfa/add-users.md)
+* [{#T}](./mfa/update-policy.md)
+* [{#T}](./mfa/deactivate-reactivate-policy.md)
+* [{#T}](./mfa/delete-policy.md)
+* [{#T}](./mfa/manage-verification.md)
+
 ## Authorization and authentication {#auths}
 
 * [{#T}](./add-ssh.md)

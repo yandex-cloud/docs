@@ -1,5 +1,5 @@
 ---
-title: Getting a list of operations involving a metadata catalog
+title: Getting a list of operations with a metadata catalog
 description: Follow this guide to get a list of operations in {{ data-catalog-full-name }}.
 ---
 
@@ -31,7 +31,7 @@ In the fields above the list of sources, select the operation status or type.
 
 ### Sorting operations {#sort-operations}
 
-Click your column header:
+Click the relevant column header:
 
 * **{{ ui-key.yacloud.common.started-at }}**: Sorting by operation start date and time in ascending order.
 * **{{ ui-key.yacloud.common.updated-at }}**: Sorting by catalog update date and time in ascending order.
@@ -49,4 +49,4 @@ To customize the columns:
     * Check the hidden columns you want displayed.
     * To reorder columns, click ![image](../../../_assets/console-icons/grip.svg) to the left of the column name and drag the column up or down to a new position in the list.
 
-1. Click **Apply**.
+1. Click **{{ ui-key.yacloud.common.apply }}**.

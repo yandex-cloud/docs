@@ -58,6 +58,9 @@ The list of resources will vary depending on the {{ yandex-cloud }} interface us
   * [Connection to managed databases](../../../metadata-hub/operations/connection-access.md) in {{ connection-manager-full-name }}
 
   **{{ objstorage-full-name }}**
+
+  {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
+
   * [Bucket](../../../storage/operations/buckets/iam-access.md)
 
   **{{ resmgr-full-name }}**
@@ -171,6 +174,12 @@ The list of resources will vary depending on the {{ yandex-cloud }} interface us
   **{{ ydb-full-name }}**
   * [YDB DBMS](../../../ydb/concepts/index.md#ydb)
 
+  **{{ objstorage-full-name }}**
+
+  {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
+
+  * [Bucket](../../../storage/operations/buckets/iam-access.md)
+
   **{{ resmgr-full-name }}**
   * [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
   * [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
@@ -235,6 +244,12 @@ The list of resources will vary depending on the {{ yandex-cloud }} interface us
   **{{ ydb-full-name }}**
   * [YDB DBMS](../../../ydb/concepts/index.md#ydb)
   * YDB DBMS backup
+
+  **{{ objstorage-full-name }}**
+
+  {% include [full-overview](../../../_includes/storage/security/full-overview.md) %}
+
+  * [Bucket](../../../storage/operations/buckets/iam-access.md)
 
   **{{ resmgr-full-name }}**
   * [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)

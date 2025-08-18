@@ -74,3 +74,7 @@ C помощью {{ backup-name }} вы можете восстановить и
 
 * [{#T}](../tutorials/backup-baremetal.md)
 * [{#T}](../tutorials/vm-with-backup-policy/index.md)
+
+#### См. также {#see-also}
+
+{% include [see-also-snapshot](../../_includes/backup/see-also-snapshot.md) %}

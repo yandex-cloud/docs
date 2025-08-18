@@ -8700,7 +8700,7 @@ default:
             label_field-session-client-port: Client port
             label_field-session-pid: Process ID
             label_field-session-rsgid: OID resource group
-            label_field-session-rsgname: Resource group name
+            label_field-session-rsgname: Resource group
             label_field-session-waiting: Waiting
             label_field-session-xact-start: Transaction start time
             label_field-spill-total-bytes: Spill
@@ -10426,8 +10426,6 @@ default:
           switch_settings: Settings
           switch_versioning: Versioning
           switch_website: Website
-          versioning:
-            field_status: Status
           website:
             button_add-routing-rule: Add forwarding rule
             button_save: Save
@@ -10469,6 +10467,9 @@ default:
           button_version-history: Version history
           label_lifetime: Lifetime
           popup-confirm_button_delete: Delete
+        form:
+          BucketVersioningFormSection:
+            label_versioning-disabled_ngMWc: Store object change history
         permissions-dialog:
           label_role-write: 'READ and WRITE '
         server-logs:
