@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-Ingestions start automatically as per the schedule you set up when [creating](create-ingestion.md) or [updating](update-ingestion.md) them. You can start or stop an ingestion if its schedule is set to **Manual start**.
+Ingestions start automatically as per the schedule you set up when [creating](create-ingestion.md) or [updating](update-ingestion.md) them. You can start or stop an ingestion if its schedule is set to **{{ ui-key.data-catalog.console.form.cron.Cron.none.title }}**.
 
 ## Starting an ingestion {#start-ingestion}
 

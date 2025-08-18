@@ -1,11 +1,13 @@
-The `organization-manager.userpools.userAdmin` role enables managing the organization users belonging to user pools.
+The `organization-manager.userpools.userAdmin` role enables managing organization users belonging to user pools.
 
 Users with this role can:
-* View the list of the organization [users](../../../overview/roles-and-resources.md#users) and info on them.
-* View the list of the [groups](../../../organization/concepts/groups.md) the organization users are members of.
-* Create, delete, activate and deactivate users belonging to [user pools](../../../organization/concepts/user-pools.md).
-* View the attributes of users belonging to user pools.
-* Edit the data of users belonging to user pools, such as usernames, passwords, domains, emails, full names, and phone numbers.
+* View the list of the organization’s [users](../../../organization/concepts/mfa.md), info on them (including their phone number), their latest authentication date, as well as the latest verification date for federated and local accounts via [two-factor authentication](../../../organization/concepts/mfa.md).
+* Create, delete, activate, and deactivate local users belonging to [user pools](../../../iam/concepts/users/accounts.md#saml-federation).
+* Edit user data, such as usernames, passwords, domains, emails, full names, and phone numbers.
+* Delete [MFA factors](../../../iam/concepts/users/accounts.md#saml-federation) for [federated](../../../iam/concepts/users/accounts.md#saml-federation) and [local](../../../iam/concepts/users/accounts.md#saml-federation) user accounts.
+* Reset the verification date for federated and local user accounts.
 * Revoke [refresh tokens](../../../iam/concepts/authorization/refresh-token.md) from users.
+* View the list of [groups](../../../organization/concepts/groups.md) that users are members of.
+* View the attributes of federated and local users.
 
 This role includes the `iam.userAccounts.refreshTokenRevoker` permissions.

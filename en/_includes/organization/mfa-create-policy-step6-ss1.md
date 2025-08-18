@@ -1,0 +1,1 @@
+Upon expiry of the specified timeout, the user will need to authenticate with the additional factor again.

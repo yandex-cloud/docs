@@ -1,9 +1,6 @@
 title: Yandex Cloud Video
 description:
   - >-
-    <i>Yandex Cloud Video is at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a>.</i>
-  - >-
     Yandex Cloud Video is an end-to-end video content management platform. Use
     the complete set of tools for video storage, processing, hosting, and online
     streaming. Broadcasts and videos are played in an integrated video player.
@@ -21,13 +18,13 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions to use the service
+    description: Configure access permissions for the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
   - title: API reference
-    description: HTTP API method descriptions
+    description: HTTP API method reference
     href: api-ref/
 meta:
   title: Yandex Cloud Video

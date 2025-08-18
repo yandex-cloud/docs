@@ -19,15 +19,15 @@ description: Следуя данной инструкции, вы сможете
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. В основной сети [создайте](../../compute/operations/vm-create/create-linux-vm) виртуальную машину {{ compute-name }} с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses) и назовите ее `VM-1`. На этой ВМ будет настроен основной IPSec-шлюз.
+1. В основной сети [создайте](../../compute/operations/vm-create/create-linux-vm.md) виртуальную машину {{ compute-name }} с [публичным IP-адресом](../../vpc/concepts/address.md#public-addresses) и назовите ее `VM-1`. На этой ВМ будет настроен основной IPSec-шлюз.
 
 1. [Создайте](../../vpc/operations/network-create.md) дополнительную облачную сеть с одной подсетью.
 
-1. В дополнительной сети [создайте](../../compute/operations/vm-create/create-linux-vm) виртуальную машину {{ compute-name }} с публичным IP-адресом и назовите ее `VM-2`. На этой ВМ будет настроен дополнительный IPSec-шлюз.
+1. В дополнительной сети [создайте](../../compute/operations/vm-create/create-linux-vm.md) виртуальную машину {{ compute-name }} с публичным IP-адресом и назовите ее `VM-2`. На этой ВМ будет настроен дополнительный IPSec-шлюз.
 
 ## Настройка групп безопасности {#sg}
 
-1. В основной сети [создайте](../../vpc/operations/security-group-create) группу безопасности и назначьте ее `VM-1`. [Добавьте](../../vpc/operations/security-group-add-rule.md) в группу правила:
+1. В основной сети [создайте](../../vpc/operations/security-group-create.md) группу безопасности и назначьте ее `VM-1`. [Добавьте](../../vpc/operations/security-group-add-rule.md) в группу правила:
 
     {% list tabs group=traffic %}
 
@@ -40,7 +40,7 @@ description: Следуя данной инструкции, вы сможете
     - Входящий трафик {#incoming}
       
       {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
-      --- | --- | --- | --- | ---    
+      --- | --- | --- | --- | ---
       `icmp` | `{{ port-any }}` | `ICMP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
       `ssh` | `22` | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
       `ipsec-udp-500` | `500` | `UDP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<публичный_адрес_VM-2>/32`
@@ -151,7 +151,7 @@ description: Следуя данной инструкции, вы сможете
           aggressive=no
           keyingtries=%forever
           ikelifetime=86400s
-        ```  
+        ```
 
         Подробнее о параметрах см. в [документации strongSwan](https://wiki.strongswan.org/projects/strongswan/wiki/connsection).
 

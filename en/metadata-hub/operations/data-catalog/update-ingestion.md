@@ -21,13 +21,13 @@
      * In the **{{ ui-key.yacloud.common.name }}** field, specify a new unique name for the ingestion.
      * Optionally, edit the ingestion description.
      * Select a new data source.
-     * Under **Ingestion configuration**, do the following:
+     * Under **{{ ui-key.data-catalog.console.form.ingestion.PostgresConfigForm.title }}**:
 
        * Update the ingestion schedule:
 
           {% include [schedule](../../../_includes/metadata-hub/schedule-ingestion.md) %}
 
-       * Optionally, under **Data filters**, specify use regular expressions to specify which databases and database objects to include to exclude from the ingestion.
+       * Optionally, under **{{ ui-key.data-catalog.console.form.ingestion.PostgresConfigForm.data_filters.title }}**, use regular expressions to specify which databases and database objects to include in or exclude from the ingestion.
 
        {% include [metadata-profiling](../../../_includes/metadata-hub/metadata-profiling.md) %}
 

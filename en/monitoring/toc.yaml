@@ -273,6 +273,8 @@ items:
         href: metrics-ref/managed-opensearch-ref.md
       - name: '{{ mpg-name }}'
         href: metrics-ref/managed-postgresql-ref.md
+      - name: '{{ mtr-name }}'
+        href: metrics-ref/managed-trino-ref.md
       - name: '{{ mrd-name }}'
         href: metrics-ref/managed-redis-ref.md
       - name: '{{ ydb-name }}'

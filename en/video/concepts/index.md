@@ -1,9 +1,5 @@
 # {{ video-full-name }} overview
 
-{% include [preview-stage](../../_includes/video/preview-stage.md) %}
-
-{% include [ask-for-turning-on](../../_includes/video/ask-for-turning-on.md) %}
-
 {% include [about-service](../../_includes/video/about-service.md) %}
 
 High-quality raw original video content (video file or broadcast) is not well suited for embedding on a website or app as it requires a stable, high-speed internet connection on the client side.

@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы научите
   1. Нажмите на имя нужного бакета.
   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_versioning }}**.
-  1. Чтобы включить или приостановить версионирование, используйте опцию **{{ ui-key.yacloud.storage.bucket.versioning.field_status }}**.
+  1. Чтобы включить или приостановить версионирование, используйте опцию **{{ ui-key.yacloud.storage.form.BucketVersioningFormSection.label_versioning-disabled_ngMWc }}**.
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}

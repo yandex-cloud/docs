@@ -144,6 +144,8 @@
 
 {% include [no-tables-found](../../_includes/data-transfer/troubles/clickhouse/no-tables.md) %}
 
+{% include [ch-ch-no-sharding](../../_includes/data-transfer/troubles/clickhouse/ch-ch-no-sharding.md) %}
+
 ## {{ ES }} {#elasticsearch}
 
 

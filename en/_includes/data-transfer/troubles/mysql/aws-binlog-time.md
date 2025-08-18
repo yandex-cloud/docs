@@ -19,7 +19,7 @@ This error is caused by the short {{ MY }} binary log file retention time in Ama
 Increase the binary log retention time by using the command below:
 
 ```sql
-call mysql.rds_set_configuration('binlog retention hours', <hours>);
+call mysql.rds_set_configuration('binlog retention hours', <number_of_hours>);
 ```
 
-The maximum retention time is 168 hours (7 days). The default is `NULL` (binary log files are not retained). For more information, see the [Amazon RDS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html).
+The maximum retention time is 168 hours (7 days). Default value is `NULL` (binary log files are not saved). For more information, see the [Amazon RDS documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/mysql_rds_set_configuration.html).

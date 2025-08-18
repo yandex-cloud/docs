@@ -47,7 +47,7 @@ By default, {{ yandex-cloud }} scans [Helm charts](https://helm.sh/docs/topics/c
 
 If a valid secret is detected, the organization owner will get an email from the {{ yandex-cloud }} support email address. It will contain part of the detected secret and the URL of the resource where it is detected.
 
-{{ iam-name }} will also log the `DetectLeakedCredential` [event](../../audit-trails/concepts/events.md#iam) to the audit log.
+{{ iam-name }} will also include the `DetectLeakedCredential` [event](../../audit-trails/concepts/events.md#iam) in the audit log.
 
 ## What one can do if a secret is detected {#secret-is-leaked}
 
@@ -64,42 +64,50 @@ If your secret got leaked to a public repository:
 
 ## Scanning secrets on your own {#self-implemented-search}
 
+### Regular expressions for search {#regex}
+
 You can use the following regular expressions to scan your repositories on your own:
 
-* {{ iam-short-name }} Cookies
+* **{{ iam-short-name }} Cookies**
 
    ```regexp
    c1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
    ```
 
-* {{ iam-short-name }} tokens
+* **{{ iam-short-name }} tokens**
 
    ```regexp
    t1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
    ```
 
-* API keys
+* **API keys**
 
    ```regexp
    AQVN[A-Za-z0-9_\-]{35,38}
    ```
 
-* Static access keys
+* **Static access keys**
 
    ```regexp
    YC[a-zA-Z0-9_\-]{38}
    ```
 
-* OAuth tokens
+* **OAuth tokens**
 
    ```regexp
-   y[0-3]_[-_A-Za-z0-9]{55}
+   y[0-6]_[-_A-Za-z0-9]{55,199}
    ```
 
-* {{ captcha-name }} server keys
+* **{{ captcha-name }} server keys**
 
    ```regexp
    ysc2_[a-zA-Z0-9]{40}[0-9a-f]{8}
+   ```
+
+* **Refresh tokens**
+
+   ```regexp
+   rt1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
    ```
 
 {% note info %}
@@ -107,3 +115,168 @@ You can use the following regular expressions to scan your repositories on your 
 Use regular expressions carefully because the format of secrets may change moving forward. The changes might not appear in the documentation immediately.
 
 {% endnote %}
+
+
+### Additional validation of found secrets {#additional-validation}
+
+Finding certain types of secrets is likely to yield a large number of false-positive results. To make sure the found secrets are up-to-date, we recommend running an additional validation.
+
+* **OAuth tokens**
+
+    {% list tabs group=programming_language %}
+
+    - Go {#go}
+
+      ```golang
+      package main
+
+      import (
+          "encoding/base64"
+          "fmt"
+          "os"
+          "strconv"
+          "hash/crc32"
+      )
+
+      const (
+          statefulMaskLen  = 40
+          maxShard         = 16
+      )
+
+      func isNotValidEnvironmentType(token string) bool {
+          n, err := strconv.Atoi(token[1:2])
+          if err != nil {
+              return true
+          }
+          if 0 <= n && n <= 6 {
+              return false
+          }
+          return true
+      }
+
+      func isStatefulToken(token string) bool {
+          if isNotValidEnvironmentType(token) {
+              return false
+          }
+
+          decoded, err := base64.RawURLEncoding.DecodeString(token[3:])
+          if err != nil {
+              return false
+          }
+
+          crc := uint32(0)
+          for i := 0; i < 4; i++ {
+              crc <<= 8
+              crc |= uint32(decoded[i+(len(decoded)-4)])
+          }
+
+          if crc != crc32.Checksum(decoded[:len(decoded)-4], crc32.MakeTable(crc32.IEEE)) {
+              return false
+          }
+
+          return true
+      }
+
+      func fatalf(msg string, a ...interface{}) {
+          _, _ = fmt.Fprintf(os.Stderr, "oauth_filter: " + msg + "\n", a...)
+          os.Exit(1)
+      }
+
+      func main() {
+          fmt.Println(isStatefulToken("<TOKEN>"))
+      }
+      ```
+
+    {% endlist %}
+
+* **Static access keys**
+
+    {% list tabs group=programming_language %}
+
+    - Go {#go}
+
+      ```golang
+      package main
+
+      import (
+          base64 "encoding/base64"
+          "encoding/binary"
+          "fmt"
+          "hash/crc32"
+          "strings"
+      )
+
+      const (
+          YcPrefix = "YC"
+      )
+
+      func checkStaticCred(token string) bool {
+          if !strings.HasPrefix(token, YcPrefix) {
+              return false
+          }
+
+          decoded, err := base64.RawURLEncoding.DecodeString(token)
+          if err != nil {
+              return false
+          }
+
+          // CRC32-C checksum
+          calculatedChecksum := crc32.Checksum(decoded[0:len(decoded)-4], crc32.MakeTable(crc32.Castagnoli))
+          checksum := binary.BigEndian.Uint32(decoded[len(decoded)-4:])
+
+          return calculatedChecksum == checksum
+      }
+
+      func main() {
+          // ^YC[a-zA-Z0-9_\-]{38}$ - regexp
+          fmt.Println(checkStaticCred("<TOKEN>"))
+          fmt.Println(checkStaticCred("<TOKEN>"))
+      }
+      ```
+
+    {% endlist %}
+
+* **{{ captcha-name }} server keys**
+
+    {% list tabs group=programming_language %}
+
+    - Go {#go}
+
+      ```golang
+      package main
+
+      import (
+          "fmt"
+          "hash/crc32"
+      )
+
+      func isValidToken(token string) bool {
+          calculatedChecksum := crc32.Checksum([]byte(token[:len(token)-8]), crc32.MakeTable(crc32.IEEE))
+
+          return token[len(token)-8:] == fmt.Sprintf("%08x", calculatedChecksum)
+      }
+
+      func main() {
+          fmt.Println(isValidToken("ysc2_D0ur60kwXTL7rM52UzJ7Vi5D7a5Qu48zktqy0fE0********"))
+      }
+      ```
+
+    - Python {#python}
+
+      ```python
+      import re
+      import zlib
+
+      def is_valid_secret(secret):
+          if not re.match("ysc2_[a-zA-Z0-9]{40}[0-9a-f]{8}", secret):
+              return False
+
+          if secret[-8:] != "%08x" % zlib.crc32(secret[:-8].encode()):
+              return False
+
+          return True
+
+      print(is_valid_secret("ysc2_D0ur60kwXTL7rM52UzJ7Vi5D7a5Qu48zktqy0fE0********")) # True
+      ```
+
+    {% endlist %}
