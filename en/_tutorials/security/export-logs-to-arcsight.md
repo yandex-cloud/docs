@@ -19,7 +19,7 @@ To configure delivery of audit log files to ArcSight:
 1. [Set up your environment](#prepare-environment).
 1. [Assign roles to the service accounts](#add-roles).
 1. [Create a trail](#create-trail).
-1. [Mount the bucket](#mount-bucket).
+1. [Mount your bucket](#mount-bucket).
 1. [Connect ArcSight SmartConnector](#configure-arcsight).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -60,7 +60,7 @@ You can use a VM that has access to an ArcSight instance or create a new one:
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
-      1. Enter a name for the bucket consistent with the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter a name for the bucket as per the [naming requirements](../../storage/concepts/bucket.md#naming).
       1. Limit the maximum bucket size, if required.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
@@ -105,14 +105,14 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 
 You need to create two accounts: one for a trail and one for a bucket.
 
-Create the `sa-arcsight` service account:
+Create a service account named `sa-arcsight`:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `example-folder`.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account according to the naming requirements:
   
@@ -135,9 +135,9 @@ You will need the key ID and secret key when mounting the bucket.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `example-folder`.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. Select the `sa-arcsight-bucket` service account from the list that opens.
+  1. In the list that opens, select the `sa-arcsight-bucket` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Enter a description for the key and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -151,7 +151,7 @@ You will need the key ID and secret key when mounting the bucket.
 
 - CLI {#cli}
 
-  1. Create an access key for the `sa-arcsight-bucket` service account.
+  1. Create an access key for the `sa-arcsight-bucket` service account:
 
       ```bash
       yc iam access-key create --service-account-name sa-arcsight-bucket
@@ -372,7 +372,7 @@ To complete this stage of the tutorial, you need an ArcSight SmartConnector dist
 
 ## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
 
 1. [Delete](../../storage/operations/buckets/delete.md) the {{ objstorage-name }} bucket.
 1. [Delete](../../kms/operations/key.md#delete) the {{ kms-name }} key.

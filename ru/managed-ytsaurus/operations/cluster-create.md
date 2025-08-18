@@ -71,7 +71,7 @@ keywords:
             1. Нажмите **Enter**.
 
     1. В блоке **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.net-settings-section_title_wo42X }}** выберите:
-       * [Зону доступности](../../overview/concepts/geo-scope) для размещения кластера.
+       * [Зону доступности](../../overview/concepts/geo-scope.md) для размещения кластера.
        * [Подсеть](../../vpc/operations/subnet-create.md).
        * (Опционально) [Группу безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера.
 

@@ -328,7 +328,7 @@
    conf t
    crypto logging ikev2
    crypto ikev2 nat keepalive 900
-   crypto ikev2 dpd 10 2 periodic  
+   crypto ikev2 dpd 10 2 periodic
    ```
 
 1. Настройте IKEv2 `proposal`:

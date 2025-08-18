@@ -6,10 +6,6 @@ To get started with {{ video-name }}:
 
   1. [Log in]({{ link-passport-login }}) to your Yandex account. If you do not have an account, [create](https://yandex.com/support/id/en/authorization/registration.html) one.
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
-  1. Request access to the [Preview version](../../overview/concepts/launch-stages.md).
-
-     Wait until the request is approved.
-
   1. On the {{ video-name }} home page, confirm that you have read and accept the [Terms of use](https://yandex.com/legal/cloud_termsofuse/?lang=en), then click **Log in**.
   1. Create a [billing account](../../billing/operations/create-new-account.md).
 
@@ -17,7 +13,6 @@ To get started with {{ video-name }}:
 
   1. [Log in]({{ link-passport-login }}) to your Yandex account.
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
-  1. Request access to the [Preview version](../../overview/concepts/launch-stages.md).
   1. Select one of these options:
 
      * If you already have an organization, select it from the drop-down menu and click **Open Cloud Video**.

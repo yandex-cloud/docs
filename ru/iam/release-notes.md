@@ -31,7 +31,7 @@ description: В разделе представлена история изме�
 * Появились [федерации сервисных аккаунтов](./concepts/workload-identity.md) (Workload Identity Federation), которые позволяют предоставлять доступ внешним приложениям без использования долгоживущих ключей доступа. {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 * Добавлена возможность создавать [API-ключи с ограниченным сроком и областью действия](./concepts/authorization/api-key.md#scoped-api-keys). {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }}
 * Добавлен метод REST API [ResolveAgent](./api-ref/ServiceControl/resolveAgent.md). {{ tag-api }}
-* Добавлена возможность отзывать [IAM-токен](./concepts/authorization/iam-token.md) с помощью [{{ yandex-cloud}} CLI](../cli/cli-ref/iam/cli-ref/revoke-token.md). {{ tag-cli }}
+* Добавлена возможность отзывать [IAM-токен](./concepts/authorization/iam-token.md) с помощью [{{ yandex-cloud }} CLI](../cli/cli-ref/iam/cli-ref/revoke-token.md). {{ tag-cli }}
 * Появились [системные группы](./concepts/access-control/system-group.md) `All users in organization X` и `All users in federation N`.
 * Добавлен источник данных {{ TF }}, который позволяет получить идентификатор [сервисного агента](./concepts/service-control.md#service-agent). {{ tag-tf }}
 

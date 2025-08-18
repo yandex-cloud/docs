@@ -1,4 +1,4 @@
-# Getting the {{ lockbox-full-name }} secret value on the {{ k8s }} side
+# Getting a {{ lockbox-full-name }} secret value on the {{ k8s }} side
 
 {% include [move-groups-api](../../_includes/iam/wlif-instructions-intro.md) %}
 
@@ -143,7 +143,7 @@ The infrastructure support costs include:
       1. Select **{{ objstorage-name }}**.
       1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. On the bucket creation page:
-         1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
+         1. Enter a name for the bucket as per the [naming requirements](../../storage/concepts/bucket.md#naming).
          
          1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** field, select `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
 
@@ -203,7 +203,7 @@ The infrastructure support costs include:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a secret.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your secret.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `MY_SECRET`.
@@ -223,7 +223,7 @@ The infrastructure support costs include:
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter a name for the service account, e.g., `sa-lockbox`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -240,7 +240,7 @@ The infrastructure support costs include:
       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-lockbox` account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** in the dialog that opens and select the `{{ roles-lockbox-payloadviewer }}` role.
+      1. In the dialog that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select the `{{ roles-lockbox-payloadviewer }}` role.
 
    {% endlist %}
 

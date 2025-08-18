@@ -235,7 +235,7 @@ items:
         href: metrics-ref/functions-ref.md
       - name: '{{ cloud-logging-name }}'
         href: metrics-ref/logging-ref.md
-      - name: '{{ cns-name}}'
+      - name: '{{ cns-name }}'
         href: metrics-ref/cns-ref.md
       - name: '{{ compute-name }}'
         href: metrics-ref/compute-ref.md
@@ -285,13 +285,13 @@ items:
         href: metrics-ref/message-queue-ref.md
       - name: '{{ monitoring-name }}'
         href: metrics-ref/monitoring-ref.md
-      - name: '{{ network-load-balancer-name}}'
+      - name: '{{ network-load-balancer-name }}'
         href: metrics-ref/network-load-balancer-ref.md
       - name: '{{ objstorage-name }}'
         href: metrics-ref/storage-ref.md
       - name: '{{ si-name }}'
         href: metrics-ref/serverless-integrations-ref.md
-      - name: '{{ serverless-containers-name}}'
+      - name: '{{ serverless-containers-name }}'
         href: metrics-ref/serverless-containers-ref.md
       - name: '{{ captcha-name }}'
         href: metrics-ref/captcha-ref.md

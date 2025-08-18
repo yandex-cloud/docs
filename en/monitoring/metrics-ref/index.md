@@ -34,6 +34,7 @@ description: This page contains a list of references for {{ yandex-cloud }} metr
 * [{{ mmy-full-name }}](managed-mysql-ref.md)
 * [{{ mos-full-name }}](managed-opensearch-ref.md)
 * [{{ mpg-full-name }}](managed-postgresql-ref.md)
+* [{{ mtr-full-name }}](managed-trino-ref.md)
 * [{{ mrd-full-name }}](managed-redis-ref.md)
 * [{{ ydb-full-name }}](ydb-ref.md)
 * [{{ message-queue-full-name }}](message-queue-ref.md)

@@ -120,6 +120,20 @@ items:
                 href: operations/applications/oidc-update.md
               - name: Deactivating and deleting an app
                 href: operations/applications/oidc-deactivate-remove.md
+      - name: Managing MFA
+        items:
+          - name: Creating an MFA policy
+            href: operations/mfa/create-policy.md
+          - name: Applying an MFA policy to users
+            href: operations/mfa/add-users.md
+          - name: Updating an MFA policy
+            href: operations/mfa/update-policy.md
+          - name: Activating or deactivating an MFA policy
+            href: operations/mfa/deactivate-reactivate-policy.md
+          - name: Deleting an MFA policy
+            href: operations/mfa/delete-policy.md
+          - name: Removing an MFA factor and resetting the verification date
+            href: operations/mfa/manage-verification.md
       - name: Authentication
         items:
           - name: Adding an SSH key
@@ -196,6 +210,8 @@ items:
         href: concepts/applications.md
       - name: '{{ oslogin }}'
         href: concepts/os-login.md
+      - name: MFA
+        href: concepts/mfa.md
       - name: Controlled organizations
         href: concepts/controlled-org.md
         hidden: true

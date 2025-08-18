@@ -67,6 +67,8 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Использование устаревших классов хостов
             href: concepts/using-deprecated-instances.md
+      - name: Высокая доступность кластера
+        href: concepts/high-availability.md
       - name: Сеть в Managed Service for MySQL
         href: concepts/network.md
       - name: Квоты и лимиты

@@ -8708,7 +8708,7 @@ default:
             label_field-session-client-port: Порт клиента
             label_field-session-pid: Идентификатор процесса
             label_field-session-rsgid: OID ресурсной группы
-            label_field-session-rsgname: Имя ресурсной группы
+            label_field-session-rsgname: Ресурсная группа
             label_field-session-waiting: Ожидание
             label_field-session-xact-start: Время начала транзакции
             label_field-spill-total-bytes: Spill
@@ -10434,8 +10434,6 @@ default:
           switch_settings: Настройки
           switch_versioning: Версионирование
           switch_website: Веб-сайт
-          versioning:
-            field_status: Статус
           website:
             button_add-routing-rule: Добавить правило переадресации
             button_save: Сохранить
@@ -10477,6 +10475,9 @@ default:
           button_version-history: История версий
           label_lifetime: Время жизни
           popup-confirm_button_delete: Удалить
+        form:
+          BucketVersioningFormSection:
+            label_versioning-disabled_ngMWc: Хранить историю изменений объектов
         permissions-dialog:
           label_role-write: 'READ и WRITE '
         server-logs:

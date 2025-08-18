@@ -8,7 +8,7 @@
 Решение, которое описано ниже, работает по следующей схеме:
 1. На рабочей ВМ запущен Fluent Bit как [systemd](https://ru.wikipedia.org/wiki/Systemd)-модуль.
 1. Fluent Bit собирает логи в соответствии с настройками конфигурации и отправляет их в [поток](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }} по протоколу [Amazon Kinesis Data Streams](https://aws.amazon.com/ru/kinesis/data-streams/).
-1. В рабочем каталоге настроен [трансфер](../../data-transfer/concepts/#transfer) {{ data-transfer-name }}, который забирает данные из потока и сохраняет в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}.
+1. В рабочем каталоге настроен [трансфер](../../data-transfer/concepts/index.md#transfer) {{ data-transfer-name }}, который забирает данные из потока и сохраняет в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}.
 
 Чтобы настроить репликацию логов:
 

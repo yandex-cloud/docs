@@ -74,14 +74,14 @@ The cost of infrastructure support includes a fee for {{ mpg-full-name }} cluste
   1. Set a **{{ ui-key.yacloud.common.name }}** for the source.
   1. Set a **{{ ui-key.yacloud.common.description }}** for the source.
   1. Select **{{ ui-key.yacloud.data-catalog.label_source-database-type }}**: **PostgreSQL**
-  1. Under **PostgreSQL source**, provide the following parameters:
+  1. Under **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.title }}**, set the following parameters:
 
-     * **Folder ID**: Resource folder the {{ mpg-name }} cluster was created in.
-     * **Installation type**: **{{ mpg-name }} cluster**.
-     * **Managed DB cluster**: {{ mpg-name }} cluster you created earlier.
-     * **Connection ID**: Connection to the previously created {{ mpg-name }} cluster in {{ connection-manager-full-name }}.
-     * **Database name**: Name of the database in the previously created {{ mpg-name }} cluster.
-     * **Upload from all databases** (optional): Enable this one if you need to upload data from all databases.
+     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.folder_id.title }}**: Resource folder the {{ mpg-name }} cluster was created in.
+     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.connection_types.title }}**: **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ConnectionType.managed.title }}**.
+     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ConnectionType.ManagedConnection.cluster_id.title }}**: {{ mpg-name }} cluster you created earlier.
+     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ConnectionType.ManagedConnection.connection_id.title }}**: Connection to the previously created {{ mpg-name }} cluster in {{ connection-manager-full-name }}.
+     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.database_name.title }}** in the {{ mpg-name }} cluster you created earlier.
+     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ingest_all.title }}**: Optionally, enable this setting if you need to upload data from all databases.
      * **Network ID**: Specify the network ID.
 
 
@@ -90,8 +90,8 @@ The cost of infrastructure support includes a fee for {{ mpg-full-name }} cluste
   1. Hover over this message and click **{{ ui-key.yacloud.data-catalog.label_create-ingestion-action }}** in the window that opens. 
   1. Set a **{{ ui-key.yacloud.common.name }}** for the ingestion.
   1. Set a **{{ ui-key.yacloud.common.description }}** for the ingestion.  
-  1. In the **Schedule** field, select **Daily**.
-  1. In the **Start time** and **End time** fields, specify the ingestion operation time.
+  1. In the **{{ ui-key.data-catalog.console.form.ingestion.PostgresConfigForm.cron.title }}** field, select **{{ ui-key.data-catalog.console.form.cron.Cron.day.title }}**.
+  1. In the **{{ ui-key.data-catalog.console.form.cron.HoursInterval.start.title }}** and **{{ ui-key.data-catalog.console.form.cron.HoursInterval.end.title }}** fields, specify the ingestion operation time.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -223,7 +223,7 @@ The metadata ingested from the source will also appear on the **{{ ui-key.yaclou
   1. In the [management console]({{ link-console-main }}), navigate to the metadata catalog you [created earlier](#create-catalog).
   1. Navigate to the ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the dataset you selected and select **{{ ui-key.yacloud.data-catalog.action_set-domain }}**, **{{ ui-key.yacloud.data-catalog.label_add-tags }}**, or **{{ ui-key.yacloud.data-catalog.label_add-terms }}**.
-  1. In the window that opens, select an object in the hierarchy of domains, tags, or terms. You may want to use the search feature.
+  1. In the window that opens, select an object in the hierarchy of domains, tags, or terms. Use search, if required.
   1. Add the selected objects.
 
 {% endlist %}

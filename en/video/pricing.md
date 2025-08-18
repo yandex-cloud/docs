@@ -8,14 +8,6 @@ editable: false
 
 
 
-At the [Preview](../overview/concepts/launch-stages.md) stage, {{ video-name }} is free of charge.
-
-{% note warning %}
-
-The pricing below will become effective as of August 1, 2025.
-
-{% endnote %}
-
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 {% include [vat](../_includes/vat.md) %}
