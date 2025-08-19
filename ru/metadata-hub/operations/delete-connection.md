@@ -21,4 +21,10 @@ description: Пошаговые инструкции по работе с {{ con
     1. В списке подключений нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке подключения, которое вы хотите удалить.
     1. Выберите пункт **{{ ui-key.yacloud.common.delete }}**.
 
+- API {#api}
+  
+  Чтобы удалить подключение {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.Delete](../api-ref/Connection/delete.md) или методом gRPC API [ConnectionService.Delete](../api-ref/grpc/Connection/delete.md) и передайте в запросе идентификатор подключения.
+
+  Идентификатор подключения можно получить со [списком подключений](view-connection.md#connection-list) в каталоге.
+
 {% endlist %}

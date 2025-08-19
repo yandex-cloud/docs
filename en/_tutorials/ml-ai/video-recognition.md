@@ -5,7 +5,7 @@
 This tutorial solves the problem of binary image classification. You may have to deal with it when recognizing vehicle types based on CCTV camera images. It is assumed that the CCTV system captures images from cameras when detecting motion and saves them to a bucket in {{ objstorage-full-name }}.
 
 To get an idea of how the problem might be solved:
-1. [Prepare your infrastructure](#deploy-infrastructure).
+1. [Set up your infrastructure](#deploy-infrastructure).
 1. [Configure {{ ml-platform-name }}](#project).
 1. [Create secrets](#create-secrets).
 1. [Prepare notebooks](#set-notebooks).
@@ -29,7 +29,7 @@ The model operation cost includes:
 * Fee for bucket usage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for computing resource usage (see [{{ ml-platform-full-name }} pricing](../../datasphere/pricing.md)).
 
-## Prepare the infrastructure {#deploy-infrastructure}
+## Set up your infrastructure {#deploy-infrastructure}
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
@@ -55,7 +55,7 @@ Create a [folder](../../resource-manager/concepts/resources-hierarchy.md) and [n
 
 - Management console {#console}
 
-   1. Go to `data-folder`:
+   1. Navigate to `data-folder`:
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-project`.
@@ -75,7 +75,7 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
 - Management console {#console}
 
-  1. Go to `data-folder`.
+  1. Navigate to `data-folder`.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `sa-for-project` service account.
@@ -114,9 +114,9 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
    Link the route table to one of the subnets to route traffic from it through the NAT gateway:
 
    1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. In the row with the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg).
+   1. In the row with the subnet, click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
-   1. In the window that opens, select the created table from the list.
+   1. In the window that opens, select the table you created from the list.
    1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 {% endlist %}
@@ -127,11 +127,11 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
 - Management console {#console}
 
-   1. Go to `data-folder`.
+   1. Navigate to `data-folder`.
    1. In the list of services, select **{{ objstorage-name }}**.
    1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
    1. On the bucket creation page:
-      1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter a name for the bucket as per the [naming requirements](../../storage/concepts/bucket.md#naming).
       
          {% note warning %}
 

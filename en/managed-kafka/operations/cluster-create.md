@@ -152,6 +152,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
   1. Specify the {{ mkf-name }} cluster parameters in the create command (not all parameters are given in the example):
 
      
+     
      ```bash
      {{ yc-mdb-kf }} cluster create \
         --name <cluster_name> \
@@ -165,11 +166,13 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         --resource-preset <host_class> \
         --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --disk-size <storage_size_in_GB> \
-        --assign-public-ip <public_access> \
+        --assign-public-ip <enable_public_access_to_cluster> \
         --security-group-ids <list_of_security_group_IDs> \
         --deletion-protection
         --kafka-ui-enabled <true_or_false>
      ```
+
+
 
 
      Where:
@@ -196,8 +199,10 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
-    
+
+         
      * {% include [kafka-ui-enabled](../../_includes/mdb/cli/kafka-ui-enabled.md) %}
+
 
      {% note tip %}
 
@@ -269,6 +274,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      Here is an example of the configuration file structure:
 
      
+     
      ```hcl
      resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
        environment         = "<environment>"
@@ -276,16 +282,16 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
        network_id          = "<network_ID>"
        subnet_ids          = ["<list_of_subnet_IDs>"]
        security_group_ids  = ["<list_of_cluster_security_group_IDs>"]
-       deletion_protection = <cluster_deletion_protection>
+       deletion_protection = <protect_cluster_from_deletion>
 
        config {
          version          = "<version>"
          zones            = ["<availability_zones>"]
          brokers_count    = <number_of_broker_hosts>
-         assign_public_ip = "<public_access>"
-         schema_registry  = "<data_schema_management>"
+         assign_public_ip = "<enable_public_access_to_cluster>"
+         schema_registry  = "<enable_data_schema_management>"
          kafka_ui {
-           enabled = <true_or_false>
+           enabled = <use_Kafka_UI>
          }
          kafka {
            resources {
@@ -311,6 +317,8 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      ```
 
 
+
+
      Where:
 
      * `environment`: Cluster environment, `PRESTABLE` or `PRODUCTION`.
@@ -331,8 +339,10 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      * `schema_registry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`. The default value is `false`.
 
        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
-      
+
+           
      * `kafka_ui`: This setting defines whether to use [{{ kafka-ui }} for {{ KF }}](../concepts/kafka-ui.md) and can be `true` or `false`. The default value is `false`.
+
 
      {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
@@ -373,6 +383,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
             {% endnote %}
 
             
+            
             ```json
             {
               "folderId": "<folder_ID>",
@@ -396,7 +407,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 },
                 "zookeeper": {
                   "resources": {
-                    "resourcePresetId": "<{{ ZK }}_host_class> ",
+                    "resourcePresetId": "<{{ ZK }}_host_class>",
                     "diskSize": "<storage_size_in_bytes>",
                     "diskTypeId": "<disk_type>"                   
                   }
@@ -405,16 +416,16 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                   <list_of_availability_zones>
                 ],
                 "brokersCount": "<number_of_brokers_in_zone>",
-                "assignPublicIp": <public_access:_true_or_false>,
-                "schemaRegistry": <data_schema_management:_true_or_false>,
+                "assignPublicIp": <enable_public_access_to_cluster>,
+                "schemaRegistry": <enable_data_schema_management>,
                 "restApiConfig": {
-                  "enabled": <send_requests_to_{{ KF }}_API:_true_or_false>
+                  "enabled": <enable_sending_requests_to_{{ KF }}_API>
                 },
                 "diskSizeAutoscaling": {
                   <automatic_storage_size_increase_parameters>
                 },
                 "kafkaUiConfig": {
-                  "enabled": <use_{{ kafka-ui }}:_true_or_false>
+                  "enabled": <use_Kafka_UI>
                 }
               },
               "topicSpecs": [
@@ -449,9 +460,11 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                   "hour": "<hour_UTC>"
                 }
               },
-              "deletionProtection": <cluster_deletion_protection:_true_or_false>
+              "deletionProtection": <protect_cluster_from_deletion>
             }
             ```
+
+
 
 
             Where:
@@ -495,7 +508,9 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
 
+                
                 * `kafkaUiConfig`: Use [{{ kafka-ui }}](../concepts/kafka-ui.md). Specify `enabled: true` to access {{ kafka-ui }}.
+                
 
             * `topicSpecs`: Topic settings as an array of elements. Each element is for a separate topic and has the following structure:
 
@@ -564,6 +579,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
             {% endnote %}
 
             
+            
             ```json
             {
               "folder_id": "<folder_ID>",
@@ -587,7 +603,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 },
                 "zookeeper": {
                   "resources": {
-                    "resource_preset_id": "<{{ ZK }}_host_class> ",
+                    "resource_preset_id": "<{{ ZK }}_host_class>",
                     "disk_size": "<storage_size_in_bytes>",
                     "disk_type_id": "<disk_type>"                   
                   }
@@ -598,16 +614,16 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 "brokers_count": {
                   "value": "<number_of_brokers_in_zone>"
                 },
-                "assign_public_ip": <public_access:_true_or_false>,
-                "schema_registry": <data_schema_management:_true_or_false>,
+                "assign_public_ip": <enable_public_access_to_cluster>,
+                "schema_registry": <enable_data_schema_management>,
                 "rest_api_config": {
-                  "enabled": <send_requests_to_{{ KF }}_API:_true_or_false>
+                  "enabled": <enable_sending_requests_to_{{ KF }}_API>
                 },
                 "disk_size_autoscaling": {
                   <automatic_storage_size_increase_parameters>
                 },
                 "kafka_ui_config": {
-                  "enabled": <use_{{ kafka-ui }}:_true_or_false>
+                  "enabled": <use_Kafka_UI>
                 }
               },
               "topic_specs": [
@@ -646,9 +662,11 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                   "hour": "<hour_UTC>"
                 }
               },
-              "deletion_protection": <cluster_deletion_protection:_true_or_false>
+              "deletion_protection": <protect_cluster_from_deletion>
             }
             ```
+
+
 
 
             Where:
@@ -691,8 +709,10 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 * `disk_size_autoscaling`: To prevent the cluster disk space from running out, set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) (as a percentage of the total storage size) that will trigger an increase in storage size when reached:
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
-                
+
+                                
                 * `kafka_ui_config`: Use [{{ kafka-ui }}](../concepts/kafka-ui.md). Specify `enabled: true` to access {{ kafka-ui }}.
+
 
             * `topic_specs`: Topic settings as an array of elements. Each element is for a separate topic and has the following structure:
 

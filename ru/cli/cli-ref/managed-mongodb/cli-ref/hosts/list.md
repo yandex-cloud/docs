@@ -5,13 +5,13 @@ sourcePath: en/_cli-ref/cli-ref/managed-mongodb/cli-ref/hosts/list.md
 
 # yc managed-mongodb hosts list
 
-List hosts for a MongoDB cluster.
+List hosts for a MongoDB cluster. Use format for additional info
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-mongodb hosts list [Flags...] [Global Flags...]`
+`yc managed-mongodb hosts list [Flags...] [Global Flags...] [--format=json|yaml]`
 
 #### Flags
 

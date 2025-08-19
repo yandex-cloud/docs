@@ -264,7 +264,7 @@ description: Следуя данной инструкции, вы сможете
   1. Посмотрите описание команды CLI для изменения окна обслуживания:
 
       ```bash
-      {{ yc-mdb-pg }} cluster reschedule-maintenance --help
+      {{ yc-mdb-pg }} cluster update --help
       ```
 
   1. Выполните команду:

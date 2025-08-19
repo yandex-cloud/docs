@@ -60,7 +60,7 @@ def main():
     tool = sdk.tools.search_index(search_index)
 
     # Создадим ассистента для модели {{ gpt-pro }} Latest.
-    # Он будет использовать инструмент поискового индекса.
+    # Он будет использовать инструмент VectorStore.
     assistant = sdk.assistants.create("yandexgpt", tools=[tool])
     thread = sdk.threads.create()
 

@@ -5,10 +5,12 @@ description: This section contains {{ mkf-name }} release notes.
 
 # {{ mkf-full-name }} release notes
 
+
 ## July 2025 {#july-2025}
 
 * Added [built-in support for {{ kafka-ui }}](concepts/kafka-ui.md) in clusters.
 * Now you can [get a discount for commited volumes of services in KRaft](pricing.md#prices-kraft).
+
 
 ## May 2025 {#may-2025}
 

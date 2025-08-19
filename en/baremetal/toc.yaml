@@ -70,6 +70,8 @@ items:
             href: concepts/server-configurations.md
           - name: Disk status analysis
             href: concepts/smart-disk-analysis.md
+          - name: Additional server settings
+            href: concepts/server-advanced-settings.md
       - name: Network
         expanded: true
         items:

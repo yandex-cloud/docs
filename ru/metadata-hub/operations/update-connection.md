@@ -25,6 +25,12 @@ description: Пошаговые инструкции по работе с {{ con
   1. Измените требуемые параметры подключения, такие как описание, метки, настройки сервера базы данных или данные аутентификации пользователя.
   1. Нажмите **{{ ui-key.yacloud.common.apply }}** для сохранения изменений.
 
+- API {#api}
+
+  Воспользуйтесь методом REST API [Connection.Update](../api-ref/Connection/update.md) или методом gRPC API [ConnectionService.Update](../api-ref/grpc/Connection/update.md) и передайте в запросе идентификатор подключения.
+
+  Идентификатор подключения можно получить со [списком подключений](view-connection.md#connection-list) в каталоге.
+
 {% endlist %}
 
 

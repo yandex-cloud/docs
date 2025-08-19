@@ -11,7 +11,33 @@ description: Пошаговые инструкции по работе с {{ con
 
 
 
-Чтобы посмотреть созданные подключения:
+## Получить список подключений {#connection-list}
+
+
+{% note info %}
+
+В списке подключений показываются только те подключения, к которым у пользователя есть доступ (выдана [роль `connection-manager.auditor`](../security/connection-manager-roles.md#connection-manager-auditor) или [роль `connection-manager.viewer`](../security/connection-manager-roles.md#connection-manager-viewer)). Пользователь с доступом к каталогу будет видеть все подключения в этом каталоге.
+
+{% endnote %}
+
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. Выберите сервис **{{ metadata-hub-full-name }}**.
+  1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+
+- API {#api}
+
+  Чтобы получить список подключений {{ connection-manager-name }} в каталоге по умолчанию, воспользуйтесь методом REST API [Connection.List](../api-ref/Connection/list.md) или методом gRPC API [ConnectionService.List](../api-ref/grpc/Connection/list.md).
+
+  Чтобы посмотреть список подключений в другом каталоге, передайте в запросе идентификатор каталога. [Подробнее о том, как получить идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+
+{% endlist %}
+
+## Просмотр информации о подключении {#connection-get}
 
 {% list tabs group=instructions %}
 
@@ -22,19 +48,13 @@ description: Пошаговые инструкции по работе с {{ con
   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Нажмите на строку подключения для просмотра детальной информации о нем.
 
+- API {#api}
+  
+  Чтобы получить информацию о подключении {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.Get](../api-ref/Connection/get.md) или методом gRPC API [ConnectionService.Get](../api-ref/grpc/Connection/get.md) и передайте в запросе идентификатор подключения.
+
+  Идентификатор подключения можно получить со [списком подключений](view-connection.md#connection-list) в каталоге.
+
 {% endlist %}
-
-Для выбранного подключения вы можете просмотреть информацию о зависимостях от других сервисов и выполненных операциях.
-
-
-Вы можете открыть выбранное подключение в сервисе [{{ websql-full-name }}](../../websql/concepts/index.md) для выполнения запросов к базам данных. Перейдите по ссылке **{{ ui-key.yacloud.connection-manager.label_open-websql }}**, расположенной в правом верхнем углу.
-
-{% note info %}
-
-В списке подключений показываются только те подключения, к которым у пользователя есть доступ (выдана [роль `connection-manager.auditor`](../security/connection-manager-roles.md#connection-manager-auditor) или [роль `connection-manager.viewer`](../security/connection-manager-roles.md#connection-manager-viewer)). Пользователь с доступом к каталогу будет видеть все подключения в этом каталоге.
-
-{% endnote %}
-
 
 ## Просмотр зависимостей подключения {#dependencies}
 
@@ -49,32 +69,20 @@ description: Пошаговые инструкции по работе с {{ con
 
      В списке зависимостей показываются кластеры управляемых баз данных и экземпляры сервисов, которые используют {{ connection-manager-name }} для хранения информации о подключениях. Нажмите на строку в списке зависимостей, чтобы перейти к кластеру или экземпляру сервиса.
 
+- API {#api}
+  
+  Чтобы получить информацию о зависимостях подключения {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.ResolveCluster](../api-ref/Connection/resolveCluster.md) или методом gRPC API [ConnectionService.ResolveCluster](../api-ref/grpc/Connection/resolveCluster.md) и передайте в запросе идентификатор подключения.
+
+  Идентификатор подключения можно получить со [списком подключений](view-connection.md#connection-list) в каталоге.
+
+  {% note info %}
+
+  Для подключений к кластерам управляемых баз данных метод `ResolveCluster` возвращает топологию кластера. Для подключений к пользовательским инсталляциям баз данных метод возвращает ту же информацию, что и метод [Get](view-connection.md#connection-get).
+
+  {% endnote %}
+
 {% endlist %}
 
 ## Просмотр выполненных операций {#operations}
 
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Выберите сервис **{{ metadata-hub-full-name }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}** и нажмите на имя нужного подключения.
-  1. На панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
-
-     В списке операций вы можете просмотреть все операции выбранного подключения с момента его создания:
-
-     * `Create` — подключение создано;
-     * `Update` — подключение изменено;
-     * `Delete` — подключение удалено;
-     * `Set access bindings` — назначены роли пользователям данного подключения;
-     * `Update access bindings` — изменены роли пользователей данного подключения.
-
-     Вы также можете просмотреть технические операции:
-
-     * `Bump version` — обновлена версия секрета для подключений MDB;
-     * `Update references` — обновлены ссылки на подключение;
-     * `Update version references` — обновлены ссылки на версию подключения при создании или удалении бэкапа кластера MDB;
-     * `Delete version` — удалена версия подключения после удаления последнего бэкапа кластера MDB.
-
-{% endlist %}
+{% include [connection-manager-operations](../../_includes/metadata-hub/connection-manager-operations.md) %}

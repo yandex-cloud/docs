@@ -15,7 +15,7 @@ Charts are updated every 15 seconds.
 
 ## Monitoring cluster state {#monitoring-cluster}
 
-To view detailed information about the {{ mtr-name }} cluster state:
+To view detailed info on the state of a {{ mtr-name }} cluster:
 
 {% list tabs group=instructions %}
 
@@ -88,3 +88,5 @@ To configure [cluster](#monitoring-cluster) state indicator alerts:
 {% endlist %}
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
+
+For a complete list of supported metrics, see [this {{ monitoring-name }} article](../../monitoring/metrics-ref/managed-kafka-ref.md).

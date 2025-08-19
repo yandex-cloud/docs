@@ -24,6 +24,8 @@ Syntax:
 |`--description`|<b>`string`</b><br/>Specifies a textual description of the reserved instance pool.|
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--size`|<b>`int`</b><br/>Total number of instances (reserved or allocated) the reserved instance pool should have.|
+|`--allow-oversubscription`|Allows the pool to contain more linked instances than the number of available slots (size without pending or unavailable slots).While running instances are still limited by available slots, stopped instances can exceed this limit.Warning: When this option is enabled, attempting to start more instances than the number of available slots will result in a "Not Enough Resources" error.|
+|`--allow-pending-slots`|This parameter affects only the current request and allows size-increasing operation to complete successfully even when there are not enough resources.In such cases, some of the new pool slots become "pending", meaning they cannot be used until resources become available.Pending slots automatically convert to normal slots when sufficient resources are available.|
 
 #### Global Flags
 

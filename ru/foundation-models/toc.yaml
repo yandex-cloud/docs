@@ -63,12 +63,14 @@ items:
         items:
           - name: Создать простого ассистента
             href: operations/assistant/create.md
-          - name: Создать ассистента для поиска
+          - name: Создать ассистента с инструментом VectorStore
             href: operations/assistant/create-with-searchindex.md
           - name: >-
               Создать ассистента для поиска с указанием метаданных файлов и
               индексов
             href: operations/assistant/create-with-labels.md
+          - name: Создать ассистента с инструментом WebSearch
+            href: operations/assistant/create-with-websearch.md
           - name: Получить промежуточные результаты генерации ответа
             href: operations/assistant/request-chunked-response.md
           - name: Перефразировать запросы с помощью модели
@@ -117,6 +119,14 @@ items:
             href: concepts/assistant/files.md
           - name: Поисковые индексы
             href: concepts/assistant/search-index.md
+          - name: Инструменты
+            items:
+              - name: Обзор
+                href: concepts/assistant/tools/index.md
+              - name: VectorStore
+                href: concepts/assistant/tools/vector-store.md
+              - name: WebSearch
+                href: concepts/assistant/tools/web-search.md
           - name: Перефразирование запросов
             href: concepts/assistant/rephraser.md
       - name: Квоты и лимиты

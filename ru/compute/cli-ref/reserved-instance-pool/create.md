@@ -29,6 +29,7 @@ Syntax:
 |`--gpu-cluster-name`|<b>`string`</b><br/>GPU cluster to create the instances of the reserved instance pool in.|
 |`--network-settings`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Network settings for instances of the reserved instance pool.<br/><br/>Possible property names:<br/><ul> <li><code>type</code>:     Type of a network for instances of the reserved instance pool. Values: standard, software-accelerated</li> </ul>|
 |`--size`|<b>`int`</b><br/>Total number of instances (reserved or allocated) the reserved instance pool should have.|
+|`--allow-oversubscription`|Allows the pool to contain more linked instances than the number of available slots (size without pending or unavailable slots).While running instances are still limited by available slots, stopped instances can exceed this limit.Warning: When this option is enabled, attempting to start more instances than the number of available slots will result in a "Not Enough Resources" error.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

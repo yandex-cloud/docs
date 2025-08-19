@@ -25,6 +25,8 @@ Aliases:
 - [yc compute reserved-instance-pool delete](delete.md) — Delete the specified reserved instance pool
 - [yc compute reserved-instance-pool get](get.md) — Show information about the specified reserved instance pool
 - [yc compute reserved-instance-pool list](list.md) — List reserved instance pools
+- [yc compute reserved-instance-pool list-instances](list-instances.md) — List instances of the specified reserved instance pool
+- [yc compute reserved-instance-pool list-operations](list-operations.md) — List operations of the specified reserved instance pool
 - [yc compute reserved-instance-pool update](update.md) — Update the specified reserved instance pool
 
 #### Global Flags

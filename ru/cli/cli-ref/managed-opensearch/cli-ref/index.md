@@ -38,6 +38,12 @@ Aliases:
 	- [yc managed-opensearch cluster stop](cluster/stop.md) — Stop a managed OpenSearch cluster.
 	- [yc managed-opensearch cluster switch-master](cluster/switch-master.md) — Switch current master or ensure that it is not on specified hosts.
 	- [yc managed-opensearch cluster update](cluster/update.md) — Update a managed OpenSearchCluster.
+- [yc managed-opensearch extension](extension/index.md) — Extensions of a managed OpenSearch cluster.
+	- [yc managed-opensearch extension create](extension/create.md) — Create a new extension for a managed OpenSearch cluster.
+	- [yc managed-opensearch extension delete](extension/delete.md) — Delete an extension from a managed OpenSearch cluster.
+	- [yc managed-opensearch extension get](extension/get.md) — Get information about an extension in a managed OpenSearch cluster.
+	- [yc managed-opensearch extension list](extension/list.md) — List extensions for a managed OpenSearch cluster.
+	- [yc managed-opensearch extension update](extension/update.md) — Update an extension in a managed OpenSearch cluster.
 - [yc managed-opensearch node-group](node-group/index.md) — Node groups of a managed OpenSearch cluster.
 	- [yc managed-opensearch node-group add](node-group/add.md) — Add new node groups to a managed OpenSearch cluster.
 	- [yc managed-opensearch node-group delete](node-group/delete.md) — Delete a node group in a managed OpenSearch cluster.

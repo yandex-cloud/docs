@@ -22,6 +22,12 @@ items:
             href: operations/create-trial-period.md
           - name: Integration with the {{ license-manager }} API
             href: operations/license-manager-integration.md
+          - name: Creating a configuration for {{ cloud-apps-name }}
+            href: operations/create-configuration.md
+      - name: Tutorials
+        items:
+          - name: Creating a demo app in {{ cloud-apps-name }}
+            href: tutorials/demo-cloud-apps.md
       - name: Concepts
         items:
           - name: Partner profile
@@ -45,6 +51,8 @@ items:
             href: concepts/api-usage.md
           - name: Trial period
             href: concepts/trial-period.md
+          - name: Field reference for a {{ cloud-apps-name }} form
+            href: concepts/form-fields-ref.md
       - name: Access management
         href: security/partners.md
       - name: Metering API reference
@@ -331,12 +339,12 @@ items:
               - name: Configuring an L7 {{ alb-name }} via an ingress controller
                 href: tutorials/alb-ingress-controller.md
               - name: >-
-                  Configuring an L7 {{ alb-name }} logging with the help of an
-                  ingress controller
+                  Configuring L7 {{ alb-name }} logging via an ingress
+                  controller
                 href: tutorials/alb-ingress-controller-log-options.md
               - name: >-
-                  Creating an L7 load balancer with a {{ sws-name }} security
-                  profile through the {{ alb-name }} Ingress Controller
+                  Creating an L7 load balancer with a {{ sws-name }} profile
+                  through an {{ alb-name }} ingress controller
                 href: tutorials/alb-ingress-with-sws-profile.md
               - name: >-
                   Performing health checks on {{ managed-k8s-name }} cluster

@@ -44,3 +44,5 @@ description: Various use cases for machine learning and artificial intelligence 
 ## Using {{ foundation-models-full-name }} generative neural networks {#generative-neuronets}
 
 * [{#T}](pdf-searchindex-ai-assistant.md)
+* [{#T}](qwen-vsc-integration.md)
+* [{#T}](tg-bot-assistant.md)

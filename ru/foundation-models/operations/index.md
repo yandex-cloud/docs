@@ -32,6 +32,7 @@ description: Страница содержит все инструкции дл�
 * [{#T}](./assistant/create.md)
 * [{#T}](./assistant/create-with-searchindex.md)
 * [{#T}](./assistant/create-with-labels.md)
+* [{#T}](./assistant/create-with-websearch.md)
 * [{#T}](./assistant/request-chunked-response.md)
 * [{#T}](./assistant/rephraser.md)
 

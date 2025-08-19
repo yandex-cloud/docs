@@ -53,8 +53,10 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Deploying the {{ KF }} web interface
-        href: tutorials/deploy-kafka-ui.md
+      - name: >-
+          Upgrading a {{ mkf-name }} cluster to migrate from {{ ZK }} to {{
+          kraft-short-name }}
+        href: tutorials/zk-kraft-kafka-migration.md
       - name: Moving data from {{ KF }}
         items:
           - name: Configuring {{ KFC }} to work with {{ mkf-name }}

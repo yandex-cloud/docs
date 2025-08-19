@@ -1,5 +1,5 @@
 
-# Дообучение моделей в {{ ml-platform-name }}
+# Дообучение моделей в {{ ml-platform-name }} Notebooks
 
 Вы можете [дообучать](../../foundation-models/concepts/tuning/index.md) языковые модели {{ foundation-models-full-name }}, чтобы они лучше понимали специфику ваших задач, через API или {{ ml-sdk-name }}. Дообучение удобно запускать в ноутбуках [{{ ml-platform-full-name }}](../../datasphere/).
 

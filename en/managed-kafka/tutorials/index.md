@@ -37,10 +37,9 @@ You can use {{ mkf-name }} to transfer data between databases. Sources and targe
 * [From {{ KF }} to {{ CH }}](send-data-to-mch.md)
 * [From {{ KF }} to ksqlDB](use-ksqldb-with-mkf.md)
 
-
 ## Other {#other}
 
+* [{#T}](zk-kraft-kafka-migration.md)
 * [{#T}](data-processing.md)
-
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

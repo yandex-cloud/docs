@@ -12,6 +12,7 @@ description: Из статьи вы узнаете, как работать с {
 * [Изменение кластера](cluster-update.md)
 * [Остановка и запуск кластера](cluster-stop.md)
 * [Подключение к кластеру](connect.md)
+* [Техническое обслуживание](cluster-maintenance.md)
 * [Удаление кластера](cluster-delete.md)
 
 ## Каталоги {{ TR }} {#catalogs}
