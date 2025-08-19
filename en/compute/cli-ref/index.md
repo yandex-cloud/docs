@@ -189,6 +189,8 @@ Syntax:
 	- [yc compute reserved-instance-pool delete](reserved-instance-pool/delete.md) — Delete the specified reserved instance pool
 	- [yc compute reserved-instance-pool get](reserved-instance-pool/get.md) — Show information about the specified reserved instance pool
 	- [yc compute reserved-instance-pool list](reserved-instance-pool/list.md) — List reserved instance pools
+	- [yc compute reserved-instance-pool list-instances](reserved-instance-pool/list-instances.md) — List instances of the specified reserved instance pool
+	- [yc compute reserved-instance-pool list-operations](reserved-instance-pool/list-operations.md) — List operations of the specified reserved instance pool
 	- [yc compute reserved-instance-pool update](reserved-instance-pool/update.md) — Update the specified reserved instance pool
 - [yc compute snapshot](snapshot/index.md) — Manage snapshots
 	- [yc compute snapshot add-access-binding](snapshot/add-access-binding.md) — Add access binding for the specified snapshot

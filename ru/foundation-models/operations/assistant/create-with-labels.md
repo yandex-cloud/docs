@@ -1,13 +1,15 @@
 ---
-title: Создать ассистента для поиска с указанием метаданных файлов и индексов
+title: Создать RAG-ассистента для поиска с указанием метаданных файлов и индексов
 description: Следуя этой инструкции, с помощью {{ assistant-api }} вы сможете создать персонализированного ассистента, учитывающего информацию из внешних источников, для которых заданы метаданные на уровне файлов и индексов.
 ---
 
-# Создать ассистента для поиска с указанием метаданных исходных файлов и индексов
+# Создать AI-ассистента для RAG с сохранением метаданных исходных файлов и индексов
 
 {% include [assistants-preview-stage](../../../_includes/foundation-models/assistants-preview-stage.md) %}
 
-{{ assistant-api }} — это инструмент создания [AI-ассистентов](../../concepts/assistant/index.md). С его помощью можно создать персонализированных помощников, реализовывать сценарий генеративного ответа с учетом информации из внешних источников (RAG, Retrieval Augmented Generation), присваивая файлам-источникам и поисковым индексам наборы [метаданных](../../concepts/assistant/index.md#labels), которые позволят более эффективно ориентироваться во внешних источниках.
+{{ assistant-api }} — это функциональность {{ foundation-models-name }} для создания [AI-ассистентов](../../concepts/assistant/index.md). С его помощью можно создать персонализированных помощников, реализовывать сценарий генеративного ответа с учетом информации из внешних источников ([RAG](https://ru.wikipedia.org/wiki/Генерация,_дополненная_поиском), Retrieval Augmented Generation), присваивая файлам-источникам и поисковым индексам наборы [метаданных](../../concepts/assistant/index.md#labels), которые позволят более эффективно ориентироваться во внешних источниках.
+
+Получать информацию из базы знаний AI-ассистентам позволяет [инструмент](../../concepts/assistant/tools/vector-store.md) VectorStore.
 
 ## Перед началом работы {#before-begin}
 
@@ -62,5 +64,7 @@ description: Следуя этой инструкции, с помощью {{ as
 
 * [{#T}](./create.md)
 * [{#T}](./create-with-searchindex.md)
+* [{#T}](./create-with-websearch.md)
 * [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
+* [{#T}](../../concepts/assistant/tools/index.md)
 * Примеры работы с {{ ml-sdk-name }} на [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)

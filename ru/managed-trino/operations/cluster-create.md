@@ -59,6 +59,10 @@ keywords:
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
         1. (Опционально) Включите защиту от удаления кластера.
+        1. (Опционально) Выберите время [технического обслуживания](../concepts/maintenance.md) кластера:
+
+            {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+
         1. (Опционально) Настройте логирование:
 
             1. Включите настройку **{{ ui-key.yacloud.logging.field_logging }}**.

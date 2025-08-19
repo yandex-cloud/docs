@@ -115,13 +115,15 @@ Prepare to upload a chat conversation:
       "bot_name": "<bot_name>",
       "bot_id": "<bot_ID>",
       "date": "<start_date>",
-      "direction_outgoing": "<outgoing_direction:_true_or_false>",
+      "direction_outgoing": "<set_direction_as_outgoing>",
       "language": "<language>",
       <additional_connection_parameters>
    }
    ```
 
-   The file's fields must match the parameters of the connection you are uploading text messages to. The template above shows the required fields for **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** type connections. If you added other parameters to the connection, specify them in the `metadata.json` file; e.g., to upload [linked chats](../../concepts/dialogs.md#related-dialogs), add the following parameter to your file:
+   The file's fields must match the parameters of the connection you are uploading text messages to. The template above shows the required fields for **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** type connections. The `direction_outgoing` field defines the conversation direction: `true` stands for outgoing, and `false`, for incoming.
+
+   If you added other parameters to the connection, specify them in the `metadata.json` file; e.g., to upload [linked chats](../../concepts/dialogs.md#related-dialogs), add the following parameter to your file:
 
    ```json
    {

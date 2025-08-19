@@ -40,6 +40,54 @@ description: Из статьи вы узнаете, как добавить ви
    Все указанные параметры сразу же применяются к графику, сохранять их не нужно.
 1. После настройки закройте боковую панель.
 
+#### Пороги {#thresholds}
+
+Настройка, позволяющая отображать линии, соответствующие критическим или целевым значениям. Вы можете задать пороги через меню настроек графика или редактирование JSON:
+
+{% list tabs %}
+
+- Настройки графика
+
+  1. В разделе **{{ ui-key.yacloud_monitoring.wizard.tab.thresholds }}** нажмите **{{ ui-key.yacloud_monitoring.wizard.thresholds.add }}**.
+  1. Укажите числовое значение порога. Чтобы указать дробное значение, используйте разделитель — точку, например `9.75`.
+  1. Выберите цвет порога.
+  1. Включите или отключите опцию **{{ ui-key.yacloud_monitoring.wizard.thresholds.show-on-graph }}**. Опция относится ко всем порогам.
+
+- JSON
+
+  1. В верхней части дашборда нажмите ![image](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_monitoring.header.action.settings }}**.
+  1. Выберите пункт **{{ ui-key.yacloud_monitoring.dashboard.settings.tab.json }}**.
+  1. В параметрах нужного виджета измените значения в блоке `thresholds`:
+
+      ```json
+      "widgets": [
+        ...
+        "thresholds": {
+                  "items": [
+                    {
+                      "color": "#d63232",
+                      "value": 9.75,
+                      "_value": "value"
+                    },
+                    ...
+                    {
+                      "color": "#92db00", // базовый порог
+                    }
+                  ],
+                  "showMode": "CONSTANT_LINE" 
+        }
+      ```
+
+      {% note info %}
+
+      У порогов должно быть базовое значение — это элемент `items` без `value`. Все остальные пороги должны иметь числовое значение (`value`).
+
+      {% endnote %}
+
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.apply }}**.
+
+{% endlist %}
+
 #### Ссылки {#chart-links}
 
 Можно добавить ссылку на внешний ресурс или дашборд.

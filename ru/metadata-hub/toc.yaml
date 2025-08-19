@@ -20,6 +20,10 @@ items:
             href: operations/delete-connection.md
           - name: Настроить права доступа к подключению
             href: operations/connection-access.md
+          - name: Получение информации об операции
+            href: operations/operation-connection.md
+          - name: Отмена операции
+            href: operations/cancel-operation.md
       - name: Концепции
         items:
           - name: Подключение
@@ -376,6 +380,8 @@ items:
         href: security/data-catalog-roles.md
   - name: Управление доступом
     href: security/index.md
+  - name: Квоты и лимиты
+    href: concepts/limits.md
   - name: Правила тарификации
     href: pricing.md
   - name: Публичные материалы
@@ -384,9 +390,6 @@ items:
     href: release-notes/index.md
   - name: Решение проблем
     href: qa/index.md
-    hidden: true
-  - name: Квоты и лимиты в сервисе
-    href: concepts/limits
     hidden: true
   - name: Начало работы в сервисе
     href: quickstart/index.md

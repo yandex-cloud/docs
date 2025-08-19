@@ -19,7 +19,7 @@ Incorrect disk partitioning or RAID configuration can lead to the loss of fault 
 
 {% endnote %}
 
-This guide demonstrates how to install [Ubuntu](https://en.wikipedia.org/wiki/Ubuntu_version_history) 24.04 in UEFI mode on a [BA-i201-H server](../../concepts/server-configurations.md) with four HDDs using a custom ISO image and [RAID10](https://en.wikipedia.org/wiki/Nested_RAID_levels#RAID_10) disk configuration with LVM.
+This guide demonstrates how to install [Ubuntu](https://en.wikipedia.org/wiki/Ubuntu_version_history) 24.04 in UEFI mode on a [BA-i201-H server](../../concepts/server-configurations.md) with four HDDs using a custom ISO image and [RAID 10](https://en.wikipedia.org/wiki/Nested_RAID_levels#RAID_10) disk configuration with LVM.
 
 ## Boot the server from your custom ISO image in UEFI mode {#boot-from-image}
 
@@ -36,7 +36,7 @@ To create a {{ baremetal-name }} image from your ISO image and deploy it on the 
     {% endnote %}
 1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens:
 
-    1. In the **CD/DVD Media1** section, click **Browse** and select the previously uploaded ISO OS image in the `user-iso` directory.
+    1. In the **CD/DVD Media1** section, click **Browse** and select the [previously uploaded](../image-upload.md) ISO OS image in the `user-iso` directory.
     1. Click **Connect CD/DVD**.
     1. Check the **Virtual CD 1** device **Status** section to make sure the **Connected To** field now shows your selected ISO path, then click **Close**.
 
@@ -45,10 +45,12 @@ To create a {{ baremetal-name }} image from your ISO image and deploy it on the 
 
     1. Click **Reboot to CD-ROM** in the top-right corner of the KVM console.
     1. During server boot, press **F11** or **Del** when the [POST](https://en.wikipedia.org/wiki/Power-on_self-test) screen appears. You will see the following message: `Entering Setup...`.
-    1. Wait for the BIOS menu to appear, then use the **←** and **→** keys to navigate to the **Security** section.
+    1. Wait for the BIOS menu to appear, then navigate to the **Save & Exit** section using the **←** and **→** keys.
     1. In the **Boot Override** section, use the **↑** and **↓** keys to select `UEFI: AMI Virtual CDROM0 1.00`, then press **Enter**.
 
-        The server will restart and boot from the virtual CD drive in `UEFI` mode.
+        If there is no such option in the **Boot Override** section, go to **Boot** settings and add it under **UEFI Boot Drive BBS Priorities**.
+
+    The server will restart and boot from the virtual CD drive in `UEFI` mode.
 
     {% include [bios-settings-warning](../../../_includes/baremetal/bios-settings-warning.md) %}
 
@@ -81,7 +83,7 @@ In this step, you will configure the basic settings for the OS installation. Per
 
     We recommended against using the default Ubuntu installer option of installing the system on a single drive. Such configuration is not fault tolerant, and the system disk failure will require at minimum a full OS reinstallation.
 
-## Partition your disks and create RAID10 arrays {#setup-storage}
+## Partition your disks and create RAID 10 arrays {#setup-storage}
 
 {% note alert %}
 
@@ -228,7 +230,7 @@ Let’s consider some other disk partitioning configurations:
 
   {% note info %}
 
-  Partition encryption can have a number of downsides, such as reduced server performance, the need to enter an encryption key on every restart, and irreversible data loss if the key is lost. To avoid entering an encryption key on every boot, you can configure a [TPM](https://en.wikipedia.org/wiki/Trusted_Platform_Module) (Trusted Platform Module) on the server.
+  Partition encryption can have a number of downsides, such as reduced server performance, the need to enter an encryption key on every restart, and irreversible data loss if the key is lost. To avoid entering an encryption key on every boot, you can configure a [TPM](Trusted Platform Module) on the server. For more details, see https://en.wikipedia.org/wiki/Trusted_Platform_Module.
 
   {% endnote %}
 

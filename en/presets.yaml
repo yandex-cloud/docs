@@ -6337,7 +6337,6 @@ default:
         value_succeeded: Success
       ui_modules_mainApp:
         route_create-repository: Create repository
-        route_repositories: Repositories
       ui_modules_orgCommon:
         link_your-craftspace: Your craftspace
       ui_modules_repo:
@@ -6781,6 +6780,8 @@ default:
           setup: Setup widget
         settings:
           dashboard-settings: Dashboard settings
+          tab:
+            json: JSON
         tab:
           service-dashboards: Service dashboards
         widget-placeholder:
@@ -6917,7 +6918,11 @@ default:
           general: General
           pivot-table: Pivot table
           table: Raw data
+          thresholds: Thresholds
           visualization: Visualization
+        thresholds:
+          add: Add threshold
+          show-on-graph: Show on graph
         vis:
           chart-type: Chart type
           color-scheme: Color scheme
@@ -6925,7 +6930,11 @@ default:
             none: No downsampling
           interpolate-key-value: Interpolation
           normalize: Normalize
+          scheme-auto: Auto
+          scheme-gradient: Gradient
           scheme-hash: Line name
+          scheme-standard: Default
+          scheme-thresholds: By threshold
         wizard:
           mx:
             save-as: Add to dashboard
@@ -10287,6 +10296,8 @@ default:
           popup-action_label_cancel-msg: Cancel job
         label_history-server: History Server
         label_metastore: Metastore
+        section_driver: Driver configuration
+        section_executor: Executor configuration
       speechkit-common:
         brand-voice_51nd8: Brand Voice Lite
         brand-voice_button_activate_47zAB: Activate

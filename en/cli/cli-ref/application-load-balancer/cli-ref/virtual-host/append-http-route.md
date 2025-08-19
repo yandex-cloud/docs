@@ -44,6 +44,7 @@ Syntax:
 |`--redirect-strip-query`|If specified, original request query will be stripped from redirect location for the route.|
 |`--rate-limit`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Specifies rate limit configuration to be applied to http route.<br/><br/>Possible property names:<br/><ul> <li><code>rps</code>:     Rate per second value.</li> <li><code>rpm</code>:     Rate per minute value.</li> <li><code>all-requests</code>:     Use rate limit for all incoming requests.</li> <li><code>requests-per-ip</code>:     Use rate limit for requests groupped by client ip address.</li> </ul>|
 |`--path-regex-rewrite`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Specifies regex rewrite configuration to be applied to http route.<br/><br/>Possible property names:<br/><ul> <li><code>regex</code>:     Regular expression string used to find substrings that should be replaced.</li> <li><code>substitute</code>:     String that should be substituted into matching substrings.</li> </ul>|
+|`--disable-security-profile`|Disables security profile for the route.|
 
 #### Global Flags
 

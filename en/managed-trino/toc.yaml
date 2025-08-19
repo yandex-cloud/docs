@@ -23,7 +23,7 @@ items:
             href: operations/cluster-delete.md
       - name: Catalogs
         items:
-          - name: Getting a list of catalogs in a cluster
+          - name: Getting information on existing catalogs
             href: operations/catalog-list.md
           - name: Creating a catalog
             href: operations/catalog-create.md
@@ -229,6 +229,8 @@ items:
     href: security.md
   - name: Pricing policy
     href: pricing.md
+  - name: '{{ monitoring-full-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

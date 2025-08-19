@@ -22,4 +22,4 @@ You can enable logging when [creating](../operations/cluster-create.md) or [upda
 
 ### {{ monitoring-name }} {#monitoring-integration}
 
-{{ monitoring-name }} is a service that collects and stores metrics for {{ yandex-cloud }} services. Metrics are displayed as charts on the cluster page under **{{ ui-key.yacloud.common.monitoring }}**. They show the current state and health of the cluster. Metrics are available by default in all {{ mtr-name }} clusters.
+{{ monitoring-name }} enables collecting and storing the metrics of {{ yandex-cloud }} services. Metrics are displayed as charts on the cluster page under **{{ ui-key.yacloud.common.monitoring }}**. They show the current state and health of the cluster. Metrics are available by default in all {{ mtr-name }} clusters. For a list of available metrics, see the relevant [reference](../metrics.md).

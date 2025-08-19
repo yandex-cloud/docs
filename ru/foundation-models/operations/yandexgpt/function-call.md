@@ -159,7 +159,7 @@
              }
            },
            {
-             "role": "assistant",
+             "role": "user",
              "toolResultList": {
                "toolResults": [
                  {

@@ -1,4 +1,4 @@
-# Создать AI-ассистента с поиском по PDF-файлам со сложным форматированием
+# Создать AI-ассистента с RAG по PDF-файлам со сложным форматированием
 
 {% include [assistants-preview-stage](../../_includes/foundation-models/assistants-preview-stage.md) %}
 

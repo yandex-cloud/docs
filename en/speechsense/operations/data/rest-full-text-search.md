@@ -24,8 +24,8 @@ To refine your search results, you can use [filtering by parameters](rest-search
       },
       "sortData": {
         "fields": [{  
-          "field": "<dialog_feature_you_are_searching_by>",
-          "order": "<sort_order:_ascending_or_descending>",
+          "field": "<dialog_property_for_sorting>",
+          "order": "<sorting_order>",
           "position": "<sort_field_priority>"
         }]
       },

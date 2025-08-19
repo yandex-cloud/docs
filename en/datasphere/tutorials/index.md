@@ -28,6 +28,7 @@ description: 'Various {{ ml-platform-full-name }} use cases: service deployment,
 * [{#T}](node-from-docker-fast-api.md)
 * [{#T}](grpc-node.md)
 * [{#T}](stable-diffusion.md)
+* [{#T}](tg-bot-assistant.md)
 
 ## Analytics {#analytics}
 

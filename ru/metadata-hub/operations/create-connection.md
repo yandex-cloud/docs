@@ -53,6 +53,12 @@ description: Пошаговые инструкции по работе с {{ con
   1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. Подключиться можно только к существующим в этом кластере базам данных. У вас должен быть [настроен доступ к ним](../../managed-postgresql/security/index.md).
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  Чтобы создать подключение к кластеру {{ mpg-name }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md) для ресурса [Connection](../api-ref/grpc/Connection/).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection).
+
 {% endlist %}
 
 ### {{ mch-name }} {#mdb-clickhouse}
@@ -76,6 +82,12 @@ description: Пошаговые инструкции по работе с {{ con
             * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
     1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+  Чтобы создать подключение к кластеру {{ mch-name }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection).
 
 {% endlist %}
 
@@ -101,6 +113,12 @@ description: Пошаговые инструкции по работе с {{ con
    1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. Подключиться можно только к существующим в этом кластере базам данных. У вас должен быть [настроен доступ к ним](../../managed-mysql/security/index.md).
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  Чтобы создать подключение к кластеру {{ mmy-name }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection).
+
 {% endlist %}
 
 ### {{ mrd-name }} {#mdb-redis}
@@ -122,6 +140,12 @@ description: Пошаговые инструкции по работе с {{ con
          * **Сгенерировать** — укажите опции для создания автоматически сгенерированного пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md).
     1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+  Чтобы создать подключение к кластеру {{ mrd-name }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection).
 
 {% endlist %}
 
@@ -147,6 +171,12 @@ description: Пошаговые инструкции по работе с {{ con
    1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. Подключиться можно только к существующим в этом кластере базам данных. У вас должен быть [настроен доступ к ним](../../managed-mysql/security/index.md).
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  Чтобы создать подключение к кластеру {{ mos-name }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection).
+
 {% endlist %}
 
 ### {{ mmg-name }} {#mdb-mongodb}
@@ -170,6 +200,12 @@ description: Пошаговые инструкции по работе с {{ con
             * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
    1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. Подключиться можно только к существующим в этом кластере базам данных. У вас должен быть [настроен доступ к ним](../../managed-mysql/security/index.md).
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+  Чтобы создать подключение к кластеру {{ mmg-name }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection).
 
 {% endlist %}
 
@@ -205,6 +241,12 @@ description: Пошаговые инструкции по работе с {{ con
   1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ PG }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster).
+
 {% endlist %}
 
 ### {{ CH }} {#clickhouse-on-premise}
@@ -235,6 +277,12 @@ description: Пошаговые инструкции по работе с {{ con
             * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
     1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ CH }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster).
 
 {% endlist %}
 
@@ -268,6 +316,12 @@ description: Пошаговые инструкции по работе с {{ con
    1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ MY }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster).
+
 {% endlist %}
 
 ### {{ RD }} {#redis-on-premise}
@@ -292,6 +346,12 @@ description: Пошаговые инструкции по работе с {{ con
         * **Сгенерировать** — укажите опции для создания автоматически сгенерированного пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md).
     1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ RD }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster).
 
 {% endlist %}
 
@@ -321,6 +381,12 @@ description: Пошаговые инструкции по работе с {{ con
     1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ VLK }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster).
+
 {% endlist %}
 
 ### {{ TR }} {#trino-on-premise}
@@ -346,6 +412,12 @@ description: Пошаговые инструкции по работе с {{ con
           * **Ввести вручную** — вы сами задаете пароль.
           * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ TR }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster).
 
 {% endlist %}
 
@@ -375,6 +447,12 @@ description: Пошаговые инструкции по работе с {{ con
    1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ OS }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster).
+
 {% endlist %}
 
 ### {{ MG }} {#mongodb-on-premise}
@@ -402,6 +480,12 @@ description: Пошаговые инструкции по работе с {{ con
            * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
    1. (Опционально) Перечислите базы данных, подключениями к которым вы хотите управлять. У вас должен быть настроен доступ к ним.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+  Чтобы создать подключение к пользовательской инсталляции {{ MG }}, воспользуйтесь методом REST API [Connection.Create](../api-ref/Connection/create.md) или методом gRPC API [ConnectionService.Create](../api-ref/grpc/Connection/create.md).
+
+  Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluster) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluste).
 
 {% endlist %}
 

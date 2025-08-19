@@ -21,6 +21,7 @@ Syntax:
 |`--name`|<b>`string`</b><br/>Name of the Application load balancer.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--zones`|<b>`value[,value]`</b><br/>Zones of the load balancer where to disable traffic routing, --zones zone-id1,zone-id2|
+|`--duration`|<b>`duration`</b><br/>The interval during which the zones will be disabled. Format 1m-72h.|
 
 #### Global Flags
 

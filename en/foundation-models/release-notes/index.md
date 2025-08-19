@@ -5,9 +5,13 @@ description: This page presents the {{ foundation-models-full-name }} release no
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 06/08/2025 {#060825}
+
+The {{ openai }} gpt-oss-120b and gpt-oss-20b models are now available in synchronous mode via the {{ openai }} API. These models are good at reasoning, but do not yet support function calling.
+
 ## Release as of 24/07/2025 {#240725}
 
-Updated the Qwen3 235B model by increasing its context length to 256,000 tokens.
+Updated the Qwen3 235B model, its context length increased to 256,000 tokens.
 
 ## Release as of 03/07/2025 {#030725}
 

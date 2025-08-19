@@ -181,7 +181,7 @@ To host a static website in the cloud, [create](../../storage/operations/buckets
       
       * `--bucket`: Name of the bucket you created earlier, e.g., `gatsbytest.ru`.
       * `IndexDocument.Suffix`: Absolute path to the website home page file. For the website from the template, specify `index.html`.
-      * `ErrorDocument.Key`: Absolute path to the file the user will see in case of `4xx` errors. For the website from the Gatsby template, specify `404.html`.
+      * `ErrorDocument.Key`: Absolute path to the file the user will see in case of `4xx` errors. For the website from the template, specify `404.html`.
 
 - API {#api}
 
@@ -399,7 +399,7 @@ To configure access to your website over a secure protocol, get a TLS certificat
 
           The domain rights check may take from a few minutes to a few days. Wait until it is complete. As a result, the certificate will be issued and get the `Issued` status.
 
-      1. Make sure that the certificate status has changed to `Issued`:
+      1. Make sure that the certificate status has switched to `Issued`:
 
           ```bash
           yc certificate-manager certificate get \
@@ -596,4 +596,4 @@ To shut down the resources you created and stop paying for them:
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
 1. Delete the [resource records](../../dns/operations/resource-record-delete.md) and [domain zone](../../dns/operations/zone-delete.md) if required.
-1. [Delete](../../certificate-manager/operations/managed/cert-delete.md) the TLS certificate if required.
+1. [Delete](../../certificate-manager/operations/managed/cert-delete.md) the TLS certificate if you no longer need it.

@@ -6339,7 +6339,6 @@ default:
         value_succeeded: Успех
       ui_modules_mainApp:
         route_create-repository: Создать репозиторий
-        route_repositories: Репозитории
       ui_modules_orgCommon:
         link_your-craftspace: Ваша мастерская
       ui_modules_repo:
@@ -6783,6 +6782,8 @@ default:
           setup: Настроить виджет
         settings:
           dashboard-settings: Настройки дашборда
+          tab:
+            json: JSON
         tab:
           service-dashboards: Сервисные дашборды
         widget-placeholder:
@@ -6919,7 +6920,11 @@ default:
           general: Основные
           pivot-table: Сводная таблица
           table: Исходные данные
+          thresholds: Пороги
           visualization: Визуализация
+        thresholds:
+          add: Добавить порог
+          show-on-graph: Показывать на графике
         vis:
           chart-type: Тип графика
           color-scheme: Цветовая схема
@@ -6927,7 +6932,11 @@ default:
             none: Без прореживания
           interpolate-key-value: Интерполяция
           normalize: Нормализация
+          scheme-auto: Авто
+          scheme-gradient: Градиентная
           scheme-hash: По имени линии
+          scheme-standard: Стандартная
+          scheme-thresholds: По порогам
         wizard:
           mx:
             save-as: Добавить на дашборд
@@ -10295,6 +10304,8 @@ default:
           popup-action_label_cancel-msg: Отменить задание
         label_history-server: History Server
         label_metastore: Metastore-сервер
+        section_driver: Конфигурация драйвера
+        section_executor: Конфигурация исполнителя
       speechkit-common:
         brand-voice_51nd8: Brand Voice Lite
         brand-voice_button_activate_47zAB: Активировать
