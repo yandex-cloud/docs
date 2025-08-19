@@ -20,7 +20,7 @@ You can use filtering separately or as an addition to [full-text search](rest-fu
       "projectId": "<project_ID>",
       "filters": [
         {
-          "key": "<dialog_feature_used_for_filtering>",
+          "key": "<dialog_property_for_filtering>",
           "channelNumber": "<channel_number>",
 
           // Specify one or more filters
@@ -33,32 +33,32 @@ You can use filtering separately or as an addition to [full-text search](rest-fu
             "fromValue": "<lower_limit>",
             "toValue": "<upper_limit>",
             "boundsInclusive": {
-              "fromInclusive": "<enable_lower_limit:_true_or_false>",
-              "toInclusive": "<enable_upper_limit:_true_or_false>"
+              "fromInclusive": "<include_lower_limit>",
+              "toInclusive": "<include_upper_limit>"
             }
           },
           "doubleRange": {
             "fromValue": "<lower_limit>",
             "toValue": "<upper_limit>",
             "boundsInclusive": {
-              "fromInclusive": "<enable_lower_limit:_true_or_false>",
-              "toInclusive": "<enable_upper_limit:_true_or_false>"
+              "fromInclusive": "<include_lower_limit>",
+              "toInclusive": "<include_upper_limit>"
             }
           },
           "dateRange": {
             "fromValue": "<lower_limit>",
             "toValue": "<upper_limit>",
             "boundsInclusive": {
-              "fromInclusive": "<enable_lower_limit:_true_or_false>",
-              "toInclusive": "<enable_upper_limit:_true_or_false>"
+              "fromInclusive": "<include_lower_limit>",
+              "toInclusive": "<include_upper_limit>"
             }
           },
           "durationRange": {
             "fromValue": "<lower_limit>",
             "toValue": "<upper_limit>",
             "boundsInclusive": {
-              "fromInclusive": "<enable_lower_limit:_true_or_false>",
-              "toInclusive": "<enable_upper_limit:_true_or_false>"
+              "fromInclusive": "<include_lower_limit>",
+              "toInclusive": "<include_upper_limit>"
             }
           },
           "booleanMatch": {
@@ -68,8 +68,8 @@ You can use filtering separately or as an addition to [full-text search](rest-fu
       ],
       "sortData": {
         "fields": [{  
-          "field": "<dialog_feature_used_for_sorting>",
-          "order": "<sort_order:_ascending_or_descending>",
+          "field": "<dialog_property_for_sorting>",
+          "order": "<sorting_order>",
           "position": "<sort_field_priority>"
         }]
       },
@@ -114,8 +114,8 @@ You can use filtering separately or as an addition to [full-text search](rest-fu
 
       You can set the `boundsInclusive` parameter for each filter. It indicates whether to include range limits in the filter:
 
-        * `fromInclusive`: Lower limit.
-        * `toInclusive`: Upper limit.
+        * `fromInclusive`: Lower limit; `true` to include, `false` to exclude.
+        * `toInclusive`: Upper limit; `true` to include, `false` to exclude.
 
     * `sortData`: Data sorting parameters in response to the request.
       * `fields`: List of dialog features you are sorting by. Supports the following parameters:

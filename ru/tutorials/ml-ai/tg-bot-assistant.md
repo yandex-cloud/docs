@@ -4,6 +4,6 @@ description: Следуя данной инструкции, вы сможете
 canonical: '{{ link-docs }}/tutorials/ml-ai/tg-bot-assistant'
 ---
 
-# Создание интеллектуального ассистента для Telegram
+# Создание Telegram-бота с RAG и вызовом функций
 
 {% include [tg-bot-assistant](../../_tutorials/ml-ai/tg-bot-assistant.md) %}

@@ -1165,6 +1165,12 @@ items:
                 href: cli-ref/compute/cli-ref/reserved-instance-pool/get.md
               - name: list
                 href: cli-ref/compute/cli-ref/reserved-instance-pool/list.md
+              - name: list-instances
+                href: >-
+                  cli-ref/compute/cli-ref/reserved-instance-pool/list-instances.md
+              - name: list-operations
+                href: >-
+                  cli-ref/compute/cli-ref/reserved-instance-pool/list-operations.md
               - name: update
                 href: cli-ref/compute/cli-ref/reserved-instance-pool/update.md
           - name: snapshot
@@ -3478,6 +3484,20 @@ items:
                 href: cli-ref/managed-opensearch/cli-ref/cluster/switch-master.md
               - name: update
                 href: cli-ref/managed-opensearch/cli-ref/cluster/update.md
+          - name: extension
+            items:
+              - name: Overview
+                href: cli-ref/managed-opensearch/cli-ref/extension/index.md
+              - name: create
+                href: cli-ref/managed-opensearch/cli-ref/extension/create.md
+              - name: delete
+                href: cli-ref/managed-opensearch/cli-ref/extension/delete.md
+              - name: get
+                href: cli-ref/managed-opensearch/cli-ref/extension/get.md
+              - name: list
+                href: cli-ref/managed-opensearch/cli-ref/extension/list.md
+              - name: update
+                href: cli-ref/managed-opensearch/cli-ref/extension/update.md
           - name: node-group
             items:
               - name: Overview

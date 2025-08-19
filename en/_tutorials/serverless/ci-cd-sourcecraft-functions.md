@@ -101,7 +101,7 @@ The infrastructure support cost includes fees for function invocation count, com
   yc iam key create --service-account-name sa-function -o functions-cicd-sa_key_file.json
   ```
 
-  If successful, the authorized key data will be written to the `functions-cicd-sa_key_file.json` file. Here is an example:
+  If successful, the authorized key data will be written to the `functions-cicd-sa_key_file.json` file, e.g.:
 
   ```json
   {
@@ -147,7 +147,7 @@ The [secret]({{ link-src-docs }}/sourcecraft/operations/secrets) will store the 
 - {{ src-name }} UI {#src}
 
   1. Open the {{ src-name }} [home page]({{ link-src-main }}).
-  1. On the ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** tab, navigate to ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_modules_mainApp.route_repositories }}**.
+  1. On the ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** tab, under ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.ui_modules_orgCommon.link_your-craftspace }}**, navigate to ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_lib.repositories }}**.
   1. Select the repository you created earlier.
   1. Under ![image](../../_assets/console-icons/gear.svg) **{{ ui-key.sourcecraft.ui_modules_repo.title_navigation-repository-settings }}** on the repository page, go to ![image](../../_assets/console-icons/vault.svg) **{{ ui-key.sourcecraft.ui_lib.tab_secrets }}**.
   1. On the page with secrets, click **{{ ui-key.sourcecraft.ui_modules_secrets.action_new-secrete }}**.
@@ -173,7 +173,7 @@ Create the following files in the repository:
 - {{ src-name }} UI {#src}
 
   1. Open the {{ src-name }} [home page]({{ link-src-main }}).
-  1. On the ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** tab, navigate to ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_modules_mainApp.route_repositories }}**.
+  1. On the ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** tab, under ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.ui_modules_orgCommon.link_your-craftspace }}**, navigate to ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_lib.repositories }}**.
   1. Select the repository you created earlier.
   1. Click **{{ ui-key.sourcecraft.ui_modules_repoMain.action_go-to-browse }}**.
   1. To the right of the branch name, click ![image](../../_assets/console-icons/square-plus.svg) → ![image](../../_assets/console-icons/file.svg) **{{ ui-key.sourcecraft.ui_modules_repo.file }}**.
@@ -273,7 +273,7 @@ Make sure the CI/CD process completes successfully.
 - {{ src-name }} UI {#src}
 
   1. Open the {{ src-name }} [home page]({{ link-src-main }}).
-  1. On the ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** tab, navigate to ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_modules_mainApp.route_repositories }}**.
+  1. On the ![image](../../_assets/console-icons/house.svg) **{{ ui-key.sourcecraft.ui_lib.home }}** tab, under ![image](../../_assets/console-icons/layout-tabs.svg) **{{ ui-key.sourcecraft.ui_modules_orgCommon.link_your-craftspace }}**, navigate to ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.sourcecraft.ui_lib.repositories }}**.
   1. Select the repository you created earlier.
   1. Under ![image](../../_assets/console-icons/code.svg) **{{ ui-key.sourcecraft.ui_modules_repo.title_navigation-code }}** on the repository page, go to ![image](../../_assets/console-icons/arrows-3-rotate-right.svg) **{{ ui-key.sourcecraft.ui_modules_repo.action_cicd }}**.
   1. In the automation executions list, you will see a new execution with the ![image](../../_assets/console-icons/circle.svg) **{{ ui-key.sourcecraft.ui_modules_cicd.value_status-created }}** status. Wait for the status to change to ![image](../../_assets/console-icons/circle-check.svg) **{{ ui-key.sourcecraft.ui_modules_cicd.value_succeeded }}**.

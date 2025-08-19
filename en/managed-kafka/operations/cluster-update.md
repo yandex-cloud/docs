@@ -656,7 +656,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
       ```bash
       {{ yc-mdb-kf }} cluster update <cluster_name_or_ID> \
          --security-group-ids <list_of_security_groups> \
-         --assign-public-ip=<public_access>
+         --assign-public-ip=<enable_public_access_to_cluster>
       ```
 
       Where:
@@ -680,7 +680,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
           security_group_ids = [ <list_of_security_groups> ]
           ...
           config {
-            assign_public_ip = "<public_access>"
+            assign_public_ip = "<enable_public_access_to_cluster>"
             ...
             }
         }
@@ -724,7 +724,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
                         <list_of_security_group_IDs>
                       ],
                       "configSpec": {
-                        "assignPublicIp": "<public_access:_true_or_false>"
+                        "assignPublicIp": "<enable_public_access_to_cluster>"
                       }
                     }'
         ```
@@ -783,7 +783,7 @@ The {{ ZK }} host class is used only in clusters with {{ KF }} 3.5 or lower.
                     <list_of_security_group_IDs>
                   ],
                   "config_spec": {
-                    "assign_public_ip": "<public_access:_true_or_false>"
+                    "assign_public_ip": "<enable_public_access_to_cluster>"
                   }
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
@@ -856,7 +856,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
            --maintenance-window type=<maintenance_type>,`
                                `day=<day_of_week>,`
                                `hour=<hour> \
-           --datatransfer-access=<access_to_cluster> \
+           --datatransfer-access=<allow_access_from_Data_Transfer> \
            --deletion-protection \
            --schema-registry=<data_schema_management>
         ```
@@ -892,7 +892,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
           ...
-          deletion_protection = <cluster_deletion_protection>
+          deletion_protection = <protect_cluster_from_deletion>
         }
         ```
 
@@ -942,7 +942,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
             --header "Content-Type: application/json" \
             -url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>' \
             --data '{
-                      "updateMask": "configSpec.restApiConfig.emabled,configSpec.schemaRegistry,maintenanceWindow,deletionProtection",
+                      "updateMask": "configSpec.restApiConfig.enabled,configSpec.schemaRegistry,maintenanceWindow,deletionProtection",
                       "configSpec": {
                         "schemaRegistry": true,
                         "restApiConfig": {
@@ -956,7 +956,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
                           "hour": "<hour_UTC>"
                         }
                       },
-                      "deletionProtection": <cluster_deletion_protection:_true_or_false>
+                      "deletionProtection": <protect_cluster_from_deletion>
                     }'
         ```
 
@@ -986,7 +986,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
                 * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
 
-        * `deletionProtection`: To enable or disable cluster protection against accidental deletion.
+        * `deletionProtection`: To enable (`true`) or disable (`false`) cluster protection against accidental deletion.
 
             Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
 
@@ -1037,7 +1037,7 @@ You may need to additionally [set up security groups](connect/index.md#configuri
                       "hour": "<hour_UTC>"
                     }
                   },
-                  "deletion_protection": <cluster_deletion_protection:_true_or_false>
+                  "deletion_protection": <protect_cluster_from_deletion>
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.kafka.v1.ClusterService.Update

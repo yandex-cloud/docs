@@ -11,6 +11,7 @@ description: Из статьи вы узнаете, как работать с {
 
 * [Информация об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
+* [Изменение кластера](cluster-update.md)
 * [Остановка и запуск кластера](cluster-stop.md)
 * [Удаление кластера](cluster-delete.md)
 

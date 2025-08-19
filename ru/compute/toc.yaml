@@ -1128,6 +1128,10 @@ items:
             href: cli-ref/reserved-instance-pool/get.md
           - name: list
             href: cli-ref/reserved-instance-pool/list.md
+          - name: list-instances
+            href: cli-ref/reserved-instance-pool/list-instances.md
+          - name: list-operations
+            href: cli-ref/reserved-instance-pool/list-operations.md
           - name: update
             href: cli-ref/reserved-instance-pool/update.md
       - name: snapshot

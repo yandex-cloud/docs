@@ -269,6 +269,8 @@ items:
             href: tutorials/grpc-node.md
           - name: Image generation using the Stable Diffusion model
             href: tutorials/stable-diffusion.md
+          - name: Creating an AI assistant for Telegram
+            href: tutorials/tg-bot-assistant.md
       - name: Data analytics
         items:
           - name: >-

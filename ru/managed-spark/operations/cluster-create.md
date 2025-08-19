@@ -48,7 +48,7 @@ keywords:
 
         1. Выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или [создайте новый](../../iam/operations/sa/create.md).
 
-            Сервисному аккаунту должны быть назначены роли `managed-spark.integrationProvider` и `storage.editor`.
+            Сервисному аккаунту должна быть назначена роль `managed-spark.integrationProvider`.
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
 
@@ -148,7 +148,7 @@ keywords:
                "scale_policy": {
                  "auto_scale": {
                    "min_size": "<минимальное_количество_экземпляров>",
-                   "max_size": "<минимальное_количество_экземпляров>"
+                   "max_size": "<максимальное_количество_экземпляров>"
                  }
                }
              }
@@ -245,15 +245,15 @@ keywords:
 
            * `service_account_id` — идентификатор сервисного аккаунта.
 
-               * `logging` — параметры логирования:
-               * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ SPRK }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
+           * `logging` — параметры логирования:
+               * `enabled` — позволяет включить логирование. Логи, сгенерированные Spark-приложениями, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
                * `folder_id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
                * `log_group_id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
 
-                  Укажите один из двух параметров: `folder_id` либо `log_group_id`.
-            
+               Укажите один из двух параметров: `folder_id` либо `log_group_id`.
+
     1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
-    
+
        ```bash
        grpcurl \
            -format json \

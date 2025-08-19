@@ -19,7 +19,7 @@ To create a unique voice for your business, [fill out the form](#contact-form).
 
 ## {{ brand-voice-lite-name }} {#lite}
 
-Create your unique voice with {{ brand-voice-lite-name }} by uploading a minimum of marked up audio samples (20 minutes or more). As a result, you will have a fine-tuned model URI that you can access from your applications via API.
+Create your unique voice with {{ brand-voice-lite-name }} by uploading a minimum of marked-up audio samples (30 minutes or more). As a result, you will have a fine-tuned model URI that you can access from your applications via API.
 
 The quality of synthesized speech depends directly on the quality of audio recordings used to train the model. When creating a {{ brand-voice-lite-name }} voice, you are in charge of the entire process of training data preparation.
 

@@ -1556,3 +1556,5 @@ items:
             href: ml-ai/pdf-searchindex-ai-assistant.md
           - name: Integrating Qwen3 into Visual Studio Code as a coding assistant
             href: ml-ai/qwen-vsc-integration.md
+          - name: Creating an AI assistant for Telegram
+            href: ml-ai/tg-bot-assistant.md

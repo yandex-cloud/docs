@@ -14,6 +14,8 @@ items:
             href: operations/cluster-list.md
           - name: Создание кластера
             href: operations/cluster-create.md
+          - name: Изменение кластера
+            href: operations/cluster-update.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
           - name: Удаление кластера

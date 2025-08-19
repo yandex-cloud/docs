@@ -731,6 +731,8 @@ items:
         href: tutorials/create-ai-agent-function.md
       - name: Integrating the Qwen3 model into Visual Studio Code
         href: tutorials/qwen-vsc-integration.md
+      - name: Creating an AI assistant for Telegram
+        href: tutorials/tg-bot-assistant.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
