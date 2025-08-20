@@ -74,7 +74,7 @@ See also:
      parameters:
        mounter: geesefs
        options: "--memory-limit=1000 --dir-mode=0777 --file-mode=0666"
-       bucket: <optionally:_existing_bucket_name>
+       bucket: <existing_bucket_name>
        csi.storage.k8s.io/provisioner-secret-name: csi-s3-secret
        csi.storage.k8s.io/provisioner-secret-namespace: kube-system
        csi.storage.k8s.io/controller-publish-secret-name: csi-s3-secret
@@ -85,7 +85,7 @@ See also:
        csi.storage.k8s.io/node-publish-secret-namespace: kube-system
      ```
 
-     To use an existing bucket, specify its name in the `bucket` parameter. This setting is only relevant for [dynamic `PersistentVolume` objects](#dpvc-csi-usage).
+     The `bucket` parameter is an optional one. Set this parameter to use the existing bucket. This setting is only relevant for [dynamic `PersistentVolume` objects](#dpvc-csi-usage).
   1. Clone the [GitHub repository](https://github.com/yandex-cloud/k8s-csi-s3.git) containing the current {{ CSI }} driver:
 
      ```bash
@@ -244,7 +244,7 @@ To use {{ CSI }} with a dynamic `PersistentVolume`:
     ```
 
 1. Make sure that the file is in the bucket:
-   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click the `pvc-<dynamic_bucket_name>` bucket. If you specified a bucket name when configuring your storage class, open the bucket and the `pvc-<dynamic_bucket_name>` folder located inside.
 
 ### Static PersistentVolume {#create-static-pvc}
@@ -297,7 +297,7 @@ To use {{ CSI }} with a static `PersistentVolume`:
           name: csi-s3-pvc-static
         csi:
           driver: ru.yandex.s3.csi
-          volumeHandle: "<static_bucket_name>/<optionally:_path_to_folder_inside_bucket>"
+          volumeHandle: "<static_bucket_name>/<path_to_folder_in_bucket>"
           controllerPublishSecretRef:
             name: csi-s3-secret
             namespace: kube-system
@@ -314,6 +314,8 @@ To use {{ CSI }} with a static `PersistentVolume`:
       ```
 
       Here, the GeeseFS settings for working with a bucket are different compared to `StorageClass`. There is an additional `--uid` option which specifies the ID of the owner of all the files in the storage: `1001`. [See above](#spvc-csi-usage) for more information on setting up GeeseFS for a static `PersistentVolume`.
+
+      Optionally, set the path to the folder in the bucket in the `volumeHandle` parameter.
 
       {% endcut %}
 
@@ -389,5 +391,5 @@ To use {{ CSI }} with a static `PersistentVolume`:
     ```
 
 1. Make sure that the file is in the bucket:
-   1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click `<static_bucket_name>`. If you specified the path to the folder located inside the bucket in the static `PersistentVolume` description, you need to open that folder first.

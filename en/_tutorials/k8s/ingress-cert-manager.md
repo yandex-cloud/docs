@@ -33,7 +33,8 @@ The support cost includes:
 1. {% include [configure-cert-manager](../../_includes/managed-kubernetes/security-groups/configure-cert-manager.md) %}
 1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. In the cluster settings, specify the service account and the security groups created earlier.
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
+
+1. {% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}
 
 
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}

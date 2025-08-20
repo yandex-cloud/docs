@@ -67,7 +67,8 @@ Use one of these methods:
 
 Automatic storage size increase prevents situations where the disk runs out of free space and hosts switch to read-only mode. The storage size increases upon reaching the specified threshold percentage of the total capacity. There are two thresholds:
 
-* Scheduled increase threshold: When reached, the storage size increases during the next [maintenance window](maintenance.md#maintenance-window).
+* Scheduled increase threshold: To plan this increase, an algorithm analyzes data from the last few hours and estimates how quickly the storage is filling up. If the calculations show that the specified threshold will be exceeded by the start of the nearest [maintenance window](maintenance.md#maintenance-window), the system schedules a storage increase. If a check at the maintenance start shows that the threshold was indeed exceeded, the storage size is increased.
+
 * Immediate increase threshold: When reached, the storage size increases immediately.
 
 You can use either one or both thresholds. If you set both, make sure the immediate increase threshold is higher than the scheduled one.

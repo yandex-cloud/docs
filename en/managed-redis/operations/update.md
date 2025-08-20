@@ -11,6 +11,8 @@ After creating a cluster, you can:
 
 * [Configure the use of FQDNs instead of IP addresses](#configure-fqdn-ip-behavior).
 
+* [Change the data persistence mode](#change-persistence-mode).
+
 * [Change the host class](#change-resource-preset).
 
 
@@ -26,14 +28,14 @@ After creating a cluster, you can:
 * [Move a cluster](#move-cluster) to another folder.
 
 
-* [Change security groups](#change-sg-set).
+* [Edit security groups](#change-sg-set).
 
 
 Learn more about other cluster updates:
 
 * [{#T}](cluster-version-update.md).
 
-* [Migrating hosts to a different availability zone](host-migration.md).
+* [Migrating hosts to a different availability zone](host-migration.md)
 
 ## Changing cluster name and description {#change-name-and-description}
 
@@ -43,7 +45,7 @@ Learn more about other cluster updates:
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster.
+  1. Select the appropriate cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -56,7 +58,7 @@ Learn more about other cluster updates:
 
   To change the name and description of a cluster:
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command to update a cluster:
 
      ```bash
      {{ yc-mdb-rd }} cluster update --help
@@ -188,7 +190,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Select the cluster.
+    1. Select the appropriate cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enable or disable **{{ ui-key.yacloud.redis.field_announce-hostnames }}**.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -329,6 +331,163 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
 {% endlist %}
 
+## Changing the data persistence mode {#change-persistence-mode}
+
+For more information about data persistence and its settings, see [Persistence](../concepts/replication.md#persistence).
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    To change the persistence mode:
+
+    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+    1. Select the appropriate cluster.
+    1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select the persistence mode.
+    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To change the persistence mode:
+
+    1. View the description of the CLI command to update a cluster:
+
+        ```bash
+        {{ yc-mdb-rd }} cluster update --help
+        ```
+
+    1.  Provide the required setting value in the update cluster command:
+
+        ```bash
+        {{ yc-mdb-rd }} cluster update <cluster_name_or_ID> \
+          --persistence-mode <persistence_mode>
+        ```
+
+        {% include [persistence-modes](../../_includes/mdb/mrd/persistence-modes.md) %}
+
+        You can get the cluster name and ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    To change the persistence mode:
+
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+
+        For more information about creating this file, see [Creating clusters](./cluster-create.md).
+
+    1. In the {{ mrd-name }} cluster description, change the `persistence_mode` parameter value:
+
+        ```hcl
+        resource "yandex_mdb_redis_cluster" "<cluster_name>" {
+          name = "<cluster_name>"
+          ...
+          persistence_mode = "<persistence_mode>"
+          ...
+        }
+        ```
+
+        {% include [persistence-modes](../../_includes/mdb/mrd/persistence-modes.md) %}
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mrd }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mrd/terraform/timeouts.md) %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "persistenceMode",
+                      "persistenceMode": "<persistence_mode>"
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: List of parameters to update as a single string, separated by commas.
+
+            Only one parameter is provided in this case.
+
+        * `persistenceMode`: Persistence mode.
+
+            {% include [persistence-modes](../../_includes/mdb/mrd/persistence-modes.md) %}
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [ "persistence_mode" ]
+                  },
+                  "persistence_mode": "<persistence_mode>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.redis.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of parameters to update as an array of `paths[]` strings.
+
+            Only one parameter is provided in this case.
+
+        * `persistence_mode`: Persistence mode.
+
+           {% include [persistence-modes](../../_includes/mdb/mrd/persistence-modes.md) %}
+
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+
+{% endlist %}
+
 ## Changing the host class {#change-resource-preset}
 
 
@@ -351,7 +510,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster.
+  1. Select the appropriate cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
      
@@ -541,7 +700,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster.
+  1. Select the appropriate cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
   
@@ -561,7 +720,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
 
   To increase storage size of {{ VLK }} hosts:
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command to update a cluster:
 
      ```bash
      {{ yc-mdb-rd }} cluster update --help
@@ -721,7 +880,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster.
+  1. Select the appropriate cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. Configure the available parameters according to the [{{ VLK }} documentation](https://valkey.io/documentation).
@@ -873,7 +1032,7 @@ You can change the DBMS settings of the hosts in your cluster. All supported set
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Select the cluster.
+  1. Select the appropriate cluster.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Change additional cluster settings:
 
@@ -1151,7 +1310,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Select the cluster.
+    1. Select the appropriate cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enable **{{ ui-key.yacloud.mdb.forms.field_cluster-mode }}**.
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -1221,7 +1380,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.EnableSharding](../api-ref/Cluster/enableSharding.md) method send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Use the [Cluster.EnableSharding](../api-ref/Cluster/enableSharding.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -1244,7 +1403,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.EnableSharding](../api-ref/grpc/Cluster/enableSharding.md) call and send a request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Use the [ClusterService.EnableSharding](../api-ref/grpc/Cluster/enableSharding.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -1389,7 +1548,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 {% endlist %}
 
 
-## Changing security groups {#change-sg-set}
+## Editing security groups {#change-sg-set}
 
 {% list tabs group=instructions %}
 
@@ -1397,7 +1556,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-    1. Select the cluster.
+    1. Select the appropriate cluster.
     1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select security groups for cluster network traffic.
 

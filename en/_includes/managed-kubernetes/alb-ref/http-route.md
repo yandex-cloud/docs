@@ -104,7 +104,7 @@ Where:
 
     * `gateway.alb.yc.io/rules.sessionAffinity.header.name`
 
-      HTTP header name for session affinity.
+      HTTP header name for [session affinity](../../../application-load-balancer/concepts/backend-group.md#session-affinity).
 
     * `gateway.alb.yc.io/rules.sessionAffinity.cookie.name` 
 
@@ -116,7 +116,7 @@ Where:
 
     * `gateway.alb.yc.io/rules.sessionAffinity.sourceIP`
 
-      Indicator of using client IP address for session affinity.
+      Indicator of using a client IP address for session affinity.
 
     * `gateway.alb.yc.io/rules.backends.balancing.mode`
 

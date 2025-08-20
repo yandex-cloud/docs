@@ -1,0 +1,1 @@
+You can replace `--cluster-id` with `--cluster-name`. You can get the cluster ID and name with the [list of clusters](../../../managed-greenplum/operations/cluster-list.md#list-clusters) in the folder.

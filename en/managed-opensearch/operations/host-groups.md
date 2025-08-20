@@ -158,7 +158,7 @@ To create a host group:
                               `hosts-count=<number_of_hosts_in_group>,`
                               `zone-ids=<availability_zones>,`
                               `subnet-names=<subnet_names>,`
-                              `assign-public-ip=<assign_public_address:_true_or_false>,`
+                              `assign-public-ip=<allow_public_access_to_hosts>,`
                               `roles=<host_roles> \
        --dashboards-node-group name=<Dashboards_host_group_name>,`
                               `resource-preset-id=<host_class>,`
@@ -167,7 +167,7 @@ To create a host group:
                               `hosts-count=<number_of_hosts_in_group>,`
                               `zone-ids=<availability_zones>,`
                               `subnet-names=<subnet_names>,`
-                              `assign-public-ip=<assign_public_address:_true_or_false>
+                              `assign-public-ip=<allow_public_access_to_hosts>
     ```
 
     Specify the required parameters in the command depending on what type of host group you want to create:
@@ -192,7 +192,7 @@ To create a host group:
               ...
               node_groups {
                 name             = "<virtual_host_group_name>"
-                assign_public_ip = <public_access>
+                assign_public_ip = <allow_public_access_to_hosts>
                 hosts_count      = <number_of_hosts>
                 zone_ids         = ["<list_of_availability_zones>"]
                 subnet_ids       = ["<list_of_subnet_IDs>"]
@@ -224,7 +224,7 @@ To create a host group:
             dashboards {
               node_groups {
                name             = "<virtual_host_group_name>"
-                assign_public_ip = <public_access>
+                assign_public_ip = <allow_public_access_to_hosts>
                 hosts_count      = <number_of_hosts>
                 zone_ids         = ["<list_of_availability_zones>"]
                 subnet_ids       = ["<list_of_subnet_IDs>"]
@@ -283,7 +283,7 @@ To create a host group:
                     "<subnet_2_ID>",
                     "<subnet_3_ID>"
                 ],
-                "assignPublicIp": <public_host_address:_true_or_false>,
+                "assignPublicIp": <allow_public_access_to_hosts>,
                 "diskSizeAutoscaling": {
                     "plannedUsageThreshold": "<scheduled_increase_percentage>",
                     "emergencyUsageThreshold": "<immediate_increase_percentage>",
@@ -309,7 +309,7 @@ To create a host group:
         * `subnetIds`: Subnet IDs list.
 
         
-        * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
+        * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
 
         * `diskSizeAutoscaling`: Automatic storage size increase settings:
@@ -391,7 +391,7 @@ To create a host group:
                     "<subnet_2_ID>",
                     "<subnet_3_ID>"
                 ],
-                "assign_public_ip": <public_host_address:_true_or_false>,
+                "assign_public_ip": <allow_public_access_to_hosts>,
                 "disk_size_autoscaling": {
                     "planned_usage_threshold": "<scheduled_increase_percentage>",
                     "emergency_usage_threshold": "<immediate_increase_percentage>",
@@ -417,7 +417,7 @@ To create a host group:
         * `subnet_ids`: Subnet IDs list.
 
         
-        * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
+        * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
 
         * `disk_size_autoscaling`: Automatic storage size increase settings:
@@ -561,7 +561,7 @@ To create a host group:
             ...
             node_groups {
               name             = "<virtual_host_group_name>"
-              assign_public_ip = <public_access>
+              assign_public_ip = <allow_public_access_to_hosts>
               hosts_count      = <number_of_hosts>
               roles            = ["<role_list>"]
               resources {
@@ -588,7 +588,7 @@ To create a host group:
           dashboards {
             node_groups {
               name             = "<virtual_host_group_name>"
-              assign_public_ip = <public_access>
+              assign_public_ip = <allow_public_access_to_hosts>
               hosts_count      = <number_of_hosts>
               resources {
                 resource_preset_id = "<host_class>"
@@ -643,7 +643,7 @@ To create a host group:
                     "<subnet_2_ID>",
                     "<subnet_3_ID>"
                 ],
-                "assignPublicIp": <public_host_address:_true_or_false>,
+                "assignPublicIp": <allow_public_access_to_hosts>,
                 "diskSizeAutoscaling": {
                     "plannedUsageThreshold": "<scheduled_increase_percentage>",
                     "emergencyUsageThreshold": "<immediate_increase_percentage>",
@@ -670,7 +670,7 @@ To create a host group:
             * `subnetIds`: Subnet IDs list.
 
             
-            * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
+            * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
 
             * `diskSizeAutoscaling`: Automatic storage size increase settings:
@@ -763,7 +763,7 @@ To create a host group:
                     "<subnet_2_ID>",
                     "<subnet_3_ID>"
                 ],
-                "assign_public_ip": <public_host_address:_true_or_false>,
+                "assign_public_ip": <allow_public_access_to_hosts>,
                 "disk_size_autoscaling": {
                     "planned_usage_threshold": "<scheduled_increase_percentage>",
                     "emergency_usage_threshold": "<immediate_increase_percentage>",
@@ -790,7 +790,7 @@ To create a host group:
             * `subnet_ids`: Subnet IDs list.
 
             
-            * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
+            * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
 
             * `disk_size_autoscaling`: Automatic storage size increase settings:

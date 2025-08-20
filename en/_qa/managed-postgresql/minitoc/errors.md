@@ -31,3 +31,5 @@
 * [Why do I get an error when setting up cascading replication?](#cascade-errors)
 
 * [Why do I get the `cannot execute <SQL_command> in a read-only transaction` error?](#read-only-error)
+
+* [What should I do if logs display the `too many connections for role "monitor"` error?](#monitor-role-error)

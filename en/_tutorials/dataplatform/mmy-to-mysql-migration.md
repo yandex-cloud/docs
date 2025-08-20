@@ -20,7 +20,7 @@ There are two ways to migrate data from a {{ mmy-name }} _source cluster_ to a t
 
     This method allows you to migrate the entire database without interrupting user service.
 
-    To learn more, see [{#T}](../../data-transfer/concepts/use-cases.md).
+    For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
 * [Transferring data using external replication](#binlog-replication).
 
@@ -53,7 +53,7 @@ Additionally, to migrate data using external {{ MY }} replication:
 
 ### Required paid resources {#paid-resources-with-data-transfer}
 
-The cost of transferring data with {{ data-transfer-full-name }} includes:
+Cost of transferring data with {{ data-transfer-full-name }} includes:
 
 * {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MY }} pricing](../../managed-mysql/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
@@ -228,7 +228,17 @@ The target cluster will connect to the source cluster on behalf of this user.
    START SLAVE;
    ```
 
-This starts the process of migrating data from the source cluster's database to the target cluster's database.
+   This starts the process of migrating data from the source cluster's database to the target cluster's database.
+
+1. After successfully starting the replication, run this command only once:
+
+   ```sql
+   STOP SLAVE;
+   CHANGE MASTER TO MASTER_AUTO_POSITION = 1;
+   START SLAVE;
+   ```
+
+   This is to ensure the replication will be reconfigured to use the new master host if the master host in the source cluster changes. For more information about configurations, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/change-master-to.html).
 
 ### Track the migration process {#monitor-migration}
 
@@ -252,7 +262,7 @@ SHOW SLAVE STATUS\G
             ...
 ```
 
-Field values show the replication status:
+The following fields contain info on the replication status:
 
 * `Slave_IO_State` and `Slave_SQL_Running_State`: I/O state of the binary log and relay log streams. If replication is successful, both streams are active.
 * `Read_Master_Log_Pos`: Last position read from the master host log.
@@ -263,7 +273,7 @@ For more information about replication status, see the [{{ MY }} documentation](
 
 ### Complete your migration {#finish-migration}
 
-1. Remove the load from the source cluster and make sure that the application does not write data to the source cluster database. To do this, change the [custom source cluster setting](../../managed-mysql/operations/cluster-users.md#update-settings) `MAX_UPDATES_PER_HOUR` to `1`.
+1. Remove the load from the source cluster and make sure that the application does not write data to the source cluster database. To do this, [update the `MAX_UPDATES_PER_HOUR` user-defined setting of the source cluster](../../managed-mysql/operations/cluster-users.md#update-settings) to `1`.
 1. Wait for the `Seconds_Behind_Master` metric value to decrease to zero. This means that all changes that occurred in the source cluster after creating the logical dump are transferred to the target cluster.
 1. Stop replication in the target cluster:
 

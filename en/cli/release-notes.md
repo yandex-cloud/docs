@@ -7,6 +7,39 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.157.0 (04/08/25) {#version0.157.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ cloud-desktop-name }}
+Added the `--update-policy` flag to the `desktops group update` command (the default value is `manual`).
+
+##### {{ org-name }}
+Added commands for managing SAML federation domains:
+* `yc organization-manager federation saml get-domain`
+* `yc organization-manager federation saml list-domains`
+* `yc organization-manager federation saml add-domain`
+* `yc organization-manager federation saml validate-domain`
+* `yc organization-manager federation saml delete-domain`
+
+##### {{ compute-name }}
+* Added sorting of the subcommand list in `yc compute`.
+* Added the `yc compute maintenance` commands:
+  * `yc compute maintenance get`
+  * `yc compute maintenance list`
+  * `yc compute maintenance reschedule`
+
+##### {{ objstorage-name }}
+Deleted the `--sse-c`, `--sse-c-key`, `--sse-c-copy-source`, and `--sse-c-copy-source-keys` parameters from the `yc storage cp` command.
+
+##### {{ er-name }}
+Adjusted the defaults values of these `serverless eventrouter connector create message-queue` command parameters in line with the respective API method:
+* `--visibility-timeout`
+* `--polling-timeout`
+* `--batch-size`
+
+## Previous releases {#previous-release}
+
 ### Version 0.156.0 (28/07/25) {#version0.156.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -16,8 +49,6 @@ description: This page presents a list of CLI releases and the updates of each.
 * Added the `--master-scale-policy` parameter to the `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update` commands for managing computing resources in the cluster masters.
 * Added the `scale_policy` field to the `yc managed-kubernetes cluster get` command output to indicate the computing resource configuration for the cluster masters.
 * Added the following commands for getting available computing resource configurations for the cluster masters: `yc managed-kubernetes resource-preset get` and `yc managed-kubernetes resource-preset list`.
-
-## Previous releases {#previous-release}
 
 ### Version 0.155.0 (23/07/25) {#version0.155.0}
 

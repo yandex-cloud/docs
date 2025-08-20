@@ -127,3 +127,4 @@ For more information on using encrypted disks, see [{#T}](../operations/volumes/
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/kubernetes-backup.md)
+* [{#T}](../operations/volumes/statefulset-pvc-expansion.md)

@@ -15,14 +15,12 @@ keywords:
 
 {% note alert %}
 
-As of August 1, 2025, {{ objstorage-name }} no longer supports the TLS protocol versions 1.0 and 1.1.
+Starting August 1, 2025, {{ objstorage-name }} no longer supports the TLS protocol versions 1.0 and 1.1.
 
 {% endnote %}
 
-We recommend updating the TLS protocol on the client side of the software to version 1.2 or higher.
-
-To temporarily continue to use TLS versions 1.0 and 1.1 to work with {{ objstorage-name }}, try the following solutions:
-* For website hosting: [Bucket](bucket.md) configured as [static website hosting](hosting.md) as a content [origin](../../cdn/concepts/origins.md) in [{{ cdn-full-name }}](../../cdn/concepts/index.md). The connection between the client and the CDN server will be over TLS versions 1.0 and 1.1, and between the CDN server and {{ objstorage-name }}, over TLS version 1.2 or higher. 
+To use TLS versions 1.0 and 1.1 to work with {{ objstorage-name }}, try the following solutions:
+* For website hosting: [Bucket](bucket.md) configured as [static website hosting](hosting.md) as a [source](../../cdn/concepts/origins.md) of content in [{{ cdn-full-name }}](../../cdn/concepts/index.md). The connection between the client and the CDN server will be over TLS versions 1.0 and 1.1, and between the CDN server and {{ objstorage-name }}, over TLS version 1.2 or higher. 
 
   For an example of static website hosting in an {{ objstorage-name }} bucket with {{ cdn-name }} access, see [this tutorial](../tutorials/cdn-hosting.md).
 * For other cases: {{ compute-full-name }} VM with a web server and [L7 balancing](../../application-load-balancer/concepts/application-load-balancer.md), e.g., [NGINX](https://nginx.org/en/), as a reverse proxy server. The connection between the client and the proxy server will be over TLS versions 1.0 or 1.1, and between the proxy server and {{ objstorage-name }}, over TLS version 1.2 or higher.

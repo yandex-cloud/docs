@@ -232,7 +232,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
                    {
                      "zoneId": "<availability_zone>",
                      "subnetId": "<subnet_ID>",
-                     "assignPublicIp": <public_host_address:_true_or_false>,
+                     "assignPublicIp": <allow_public_access_to_host>,
                      "replicationSource": "<host_FQDN>",
                      "priority": "<host_priority>",
                      "configSpec": {
@@ -252,7 +252,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      * `zoneId`: Availability zone.
      * `subnetId`: Subnet ID.
-     * `assignPublicIp`: Internet access to the host via a public IP address.
+     * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
      * `replicationSource`: Replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual). In the parameter, specify the [FQDN of the host](connect.md#special-fqdns) to be used as a replication source.
      * `priority`: Host priority among all hosts.
      * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Use a separate line for each setting; separate them by commas.
@@ -285,7 +285,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
                {
                  "zone_id": "<availability_zone>",
                  "subnet_id": "<subnet_ID>",
-                 "assign_public_ip": <public_host_address:_true_or_false>,
+                 "assign_public_ip": <allow_public_access_to_host>,
                  "replication_source": "<host_FQDN>",
                  "priority": "<host_priority>",
                  "config_spec": {
@@ -307,7 +307,7 @@ The number of hosts in {{ mpg-short-name }} clusters is limited by the CPU and R
 
      * `zone_id`: Availability zone.
      * `subnet_id`: Subnet ID.
-     * `assign_public_ip`: Internet access to the host via a public IP address.
+     * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
      * `replication_source`: Replication source for the host to [manually manage replication threads](../concepts/replication.md#replication-manual). In the parameter, specify the [FQDN of the host](connect.md#special-fqdns) to be used as a replication source.
      * `priority`: Host priority among all hosts.
      * `config_spec.postgresql_config_<{{ PG }}_version>`: {{ PG }} settings. Use a separate line for each setting; separate them by commas.
@@ -430,7 +430,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
                    {
                      "updateMask": "assignPublicIp,replicationSource,priority,configSpec.postgresqlConfig_<{{ PG }}>_version",
                      "hostName": "<host_FQDN>",
-                     "assignPublicIp": <public_host_address:_true_or_false>,
+                     "assignPublicIp": <allow_public_access_to_host>,
                      "replicationSource": "<host_FQDN>",
                      "priority": "<host_priority>",
                      "configSpec": {
@@ -492,7 +492,7 @@ For each host in a {{ mpg-short-name }} cluster, you can specify the [replicatio
                      ]
                  },
                  "host_name": "<host_FQDN>",
-                 "assign_public_ip": <public_host_address:_true_or_false>,
+                 "assign_public_ip": <allow_public_access_to_host>,
                  "replication_source": "<host_FQDN>",
                  "priority": "<host_priority>",
                  "config_spec": {

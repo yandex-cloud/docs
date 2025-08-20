@@ -310,11 +310,11 @@
 
 {% include [see-fqdn](../../../_includes/mdb/mrd/fqdn-host.md) %}
 
-{% include [Подключение к кластеру](./connect/java/after-connect.md) %}
+{% include [after-connect](./connect/java/after-connect.md) %}
 
 ### Node.js {#nodejs}
 
-{% include [Установка зависимостей](./connect/nodejs/install-requirements.md) %}
+{% include [install-requirements](./connect/nodejs/install-requirements.md) %}
 
 {% list tabs group=connection %}
 

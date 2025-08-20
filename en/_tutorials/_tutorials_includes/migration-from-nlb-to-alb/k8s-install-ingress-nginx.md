@@ -1,4 +1,4 @@
-1. [Install an {{ alb-full-name }}](../../../managed-kubernetes/operations/applications/alb-ingress-controller.md) Ingress controller.
+1. [Install the {{ alb-full-name }}](../../../managed-kubernetes/operations/applications/alb-ingress-controller.md) ingress controller.
 
 1. Create an [IngressClass](../../../application-load-balancer/k8s-ref/ingress-class.md) resource for the L7 load balancer's Ingress controller:
 
@@ -95,7 +95,7 @@
         metadata:
           name: <resource_name>
           annotations:
-            ingress.alb.yc.io/subnets: <ru-central1-a_subnet_ID,ru-central1-b_subnet_ID,ru-central1-d_subnet_ID>
+            ingress.alb.yc.io/subnets: <IDs_of_subnets_in_three_availability_zones>
             ingress.alb.yc.io/security-groups: <L7_load_balancer_security_group_ID>
             ingress.alb.yc.io/external-ipv4-address: <static_public_IP_address>
             ingress.alb.yc.io/group-name: <resource_group_name>
@@ -117,7 +117,7 @@
                     service:
                       name: <Kubernetes_service_name>
                       port:
-                        number: <port_number_e.g._443>
+                        number: <443_or_another_port_number>
         ```
 
     1. Use the following command to create the `Ingress` resource:

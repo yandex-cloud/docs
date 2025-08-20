@@ -101,7 +101,7 @@ Incorrect settings may cause the cluster to fail.
             --data '{
                         "settings": {
                             "saml": {
-                                "enabled": "<enable_SSO:_true_or_false>",
+                                "enabled": "<enable_SSO>",
                                 "idpEntityId": "<IdP_issuer_ID>",
                                 "idpMetadataFile": "<metadata_file>",
                                 "spEntityId": "<SP_Entity_ID_app_URI>",
@@ -116,7 +116,7 @@ Incorrect settings may cause the cluster to fail.
 
         Where `settings` is a set of SSO settings. Contains the `saml` section with the following parameters:
 
-        * `enabled`: Enable SSO.
+        * `enabled`: Enable SSO, `true` or `false`.
         * `idpEntityId`: ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp).
         * `idpMetadataFile`: Path to the Base64 metadata file.
         * `spEntityId`: URI of the SP Entity ID (Audience URI) application. Use the URI you specified when [configuring the IdP](#configuration-idp).
@@ -150,7 +150,7 @@ Incorrect settings may cause the cluster to fail.
           -d '{
                 "settings": {
                     "saml": {
-                        "enabled": "<enable_SSO:_true_or_false>",
+                        "enabled": "<enable_SSO>",
                         "idp_entity_id": "<IdP_issuer_ID>",
                         "idp_metadata_file": "<metadata_file>",
                         "sp_entity_id": "<SP_Entity_ID_app_URI>",
@@ -167,7 +167,7 @@ Incorrect settings may cause the cluster to fail.
 
         Where `settings` is a set of SSO settings. Contains the `saml` section with the following parameters:
 
-        * `enabled`: Enable SSO.
+        * `enabled`: Enable SSO, `true` or `false`.
         * `idp_entity_id`: ID of the Identity Provider Issuer obtained when [configuring the IdP](#configuration-idp).
         * `idp_metadata_file`: Path to the Base64 metadata file.
         * `sp_entity_id`: URI of the SP Entity ID (Audience URI) application. Use the URI you specified when [configuring the IdP](#configuration-idp).

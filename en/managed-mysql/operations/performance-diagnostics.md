@@ -83,7 +83,7 @@
                 --data '{
                           "configSpec": {
                             "performanceDiagnostics": {
-                              "enabled": <activate_statistics_collection:_true_or_false>,
+                              "enabled": <enable_statistics_collection>,
                               "sessionsSamplingInterval": "<session_sampling_interval>",
                               "statementsSamplingInterval": "<statement_sampling_interval>"
                             },
@@ -95,7 +95,7 @@
 
             Where `configSpec.performanceDiagnostics` represents the statistics collection settings:
 
-            * `enabled`: Enables statistics collection.
+            * `enabled`: Enables statistics collection, `true` or `false`.
             * `sessionsSamplingInterval`: Session sampling interval, from `1` to `86400` seconds.
             * `statementsSamplingInterval`: Statement sampling interval, from `60` to `86400` seconds.
 
@@ -117,7 +117,7 @@
                           "updateMask": "configSpec.performanceDiagnostics",
                           "configSpec": {
                             "performanceDiagnostics": {
-                              "enabled": <activate_statistics_collection:_true_or_false>,
+                              "enabled": <enable_statistics_collection>,
                               "sessionsSamplingInterval": "<session_sampling_interval>",
                               "statementsSamplingInterval": "<statement_sampling_interval>"
                             }
@@ -127,7 +127,7 @@
 
             Where `configSpec.performanceDiagnostics` represents the statistics collection settings:
 
-            * `enabled`: Enables statistics collection.
+            * `enabled`: Enables statistics collection, `true` or `false`.
             * `sessionsSamplingInterval`: Session sampling interval, from `1` to `86400` seconds.
             * `statementsSamplingInterval`: Statement sampling interval, from `60` to `86400` seconds.
 
@@ -154,7 +154,7 @@
                 -d '{
                       "config_spec": {
                         "performance_diagnostics": {
-                          "enabled": <activate_statistics_collection:_true_or_false>,
+                          "enabled": <enable_statistics_collection>,
                           "sessions_sampling_interval": "<session_sampling_interval>",
                           "statements_sampling_interval": "<statement_sampling_interval>"
                         },
@@ -168,7 +168,7 @@
 
             Where `config_spec.performance_diagnostics` represents the statistics collection settings:
 
-            * `enabled`: Enables statistics collection.
+            * `enabled`: Enables statistics collection, `true` or `false`.
             * `sessions_sampling_interval`: Session sampling interval, from `1` to `86400` seconds.
             * `statements_sampling_interval`: Statement sampling interval, from `60` to `86400` seconds.
 
@@ -196,7 +196,7 @@
                       },
                       "config_spec": {
                         "performance_diagnostics": {
-                          "enabled": <activate_statistics_collection:_true_or_false>,
+                          "enabled": <enable_statistics_collection>,
                           "sessions_sampling_interval": "<session_sampling_interval>",
                           "statements_sampling_interval": "<statement_sampling_interval>"
                         }
@@ -208,7 +208,7 @@
 
             Where `config_spec.performance_diagnostics` represents the statistics collection settings:
 
-            * `enabled`: Enables statistics collection.
+            * `enabled`: Enables statistics collection, `true` or `false`.
             * `sessions_sampling_interval`: Session sampling interval, from `1` to `86400` seconds.
             * `statements_sampling_interval`: Statement sampling interval, from `60` to `86400` seconds.
 
@@ -218,7 +218,7 @@
 
 ## Getting session statistics {#get-sessions}
 
-1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** tab.
 
     To view session statistics or the history of queries executed within a session, select the appropriate tab.
@@ -230,7 +230,7 @@
         To view session statistics:
 
         1. Specify the required time interval.
-        1. (Optional) Set filters.
+        1. Optionally, set filters.
         1. Select the required [data segment](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-quick-start.html).
 
         To show or hide individual categories, click the category name in the chart legend.
@@ -240,13 +240,13 @@
         To view the history of queries run during a session:
 
         1. Specify the required time interval.
-        1. (Optional) Set filters.
+        1. Optionally, set filters.
 
     {% endlist %}
 
 ## Getting query statistics {#get-queries}
 
-1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}** tab.
 
     To view query statistics or compare them in two time intervals, select the appropriate tab.
@@ -258,7 +258,7 @@
         To view query statistics:
 
         1. Select the time interval you need.
-        1. (Optional) Set filters.
+        1. Optionally, configure filters.
 
     - Two intervals
 
@@ -266,7 +266,7 @@
 
         1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-first }}** field, select the time interval to be used as a calculation basis for statistics.
         1. In the **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-second }}** field, select the time interval to compare the statistics for interval 1 with.
-        1. (Optional) Set filters.
+        1. Optionally, configure filters.
 
         Let’s assume, 10 `SELECT * FROM cities` queries were made in the first interval and 20 in the second. When comparing statistics, the difference in the <q>number of queries</q> metric (the `Calls` column in the table) will be `+100%`.
 

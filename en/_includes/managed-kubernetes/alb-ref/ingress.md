@@ -103,6 +103,9 @@ annotations:
   ingress.alb.yc.io/balancing-locality-aware-routing: <string>
   ingress.alb.yc.io/autoscale-max-size: <string>
   ingress.alb.yc.io/autoscale-min-zone-size: <string>
+  ingress.alb.yc.io/session-affinity-header: <string>
+  ingress.alb.yc.io/session-affinity-cookie: <string>
+  ingress.alb.yc.io/session-affinity-connection: <string>
 ```
 
 #|
@@ -116,7 +119,7 @@ annotations:
 
 ### Metadata.annotations {#annotations}
 
-Annotations are collections of `key:value` pairs for assigning metadata to objects. Annotation values have `string` data type. 
+Annotations are collections of `key:value` pairs for assigning metadata to objects. Annotation values have `string` data type.
 
 You can specify the annotation value as a comma separated list of multiple `<key>=<value>` pairs.
 
@@ -168,7 +171,7 @@ You can add the following annotations to `ObjectMeta`:
 
   Specifying the load balancer public IP address.
 
-  To use your [reserved IP address](../../../vpc/operations/get-static-ip.md), specify it in the load balancer annotation. To enable automatic IP assignment for the load balancer, specify `auto`.
+  To use a [reserved IP](../../../vpc/operations/get-static-ip.md), put it in the annotation value. To enable automatic IP assignment for the load balancer, specify `auto`.
 
   With `auto` setting, deleting the Ingress controller will also remove its associated IP address from the cloud. To avoid this, use a reserved IP address.
 
@@ -192,7 +195,7 @@ You can add the following annotations to `ObjectMeta`:
 
   Protocol for connections between the load balancer and `Ingress`-defined backends:
 
-  * `http`: HTTP/1.1. Default.
+  * `http`: HTTP/1.1. This is a default value.
   * `http2`: HTTP/2.
   * `grpc`: gRPC.
 
@@ -224,7 +227,7 @@ You can add the following annotations to `ObjectMeta`:
 
   The acceptable annotation value is `tls`: TLS without certificate validation.
 
-  If this annotation is omitted, the load balancer will connect to the backends without encryption.
+  If annotation is not specified, the load balancer will connect to the backends without encryption.
 
   This annotation is ignored for grouped backends. To configure encryption for connections between a load balancer and grouped backends, use `spec.backend.tls` field of the `HttpBackendGroup` resource. For more information, see the [`HttpBackendGroup` resource reference](../../../application-load-balancer/k8s-ref/http-backend-group.md).
 
@@ -260,7 +263,7 @@ You can add the following annotations to `ObjectMeta`:
   
 * **ingress.alb.yc.io/upgrade-types** {#annot-upgrade-types}
 
-  The `Upgrade` HTTP header values of incoming requests supported by the load balancer. Specify them as a comma-separated list.
+  The `Upgrade` HTTP header values of incoming requests supported by the load balancer. Specify these header values as a comma-separated list.
 
   > For example, you can use this annotation to enable [WebSocket](https://{{ lang }}.wikipedia.org/wiki/WebSocket) support:
   > 
@@ -296,8 +299,8 @@ You can add the following annotations to `ObjectMeta`:
 
   Where:
 
-    * `<key>`: Response header.
-    * `<value>`: String to append.
+    * `<key>`: Name of the header to modify.
+    * `<value>`: String to be added to the header value.
 
 * **ingress.alb.yc.io/modify-header-response-replace** {#annot-modify-header-response-replace}
 
@@ -309,7 +312,7 @@ You can add the following annotations to `ObjectMeta`:
 
   Where:
 
-    * `<key>`: Response header.
+    * `<key>`: Name of the header to modify.
     * `<value>`: New header value.
 
 * **ingress.alb.yc.io/modify-header-response-rename** {#annot-modify-header-response-rename}
@@ -322,7 +325,7 @@ You can add the following annotations to `ObjectMeta`:
 
   Where:
 
-    * `<key>`: Response header.
+    * `<key>`: Name of the header to modify.
     * `<value>`: New header name.
 
 * **ingress.alb.yc.io/modify-header-response-remove** {#annot-modify-header-response-remove}
@@ -337,7 +340,7 @@ You can add the following annotations to `ObjectMeta`:
 
 * **ingress.alb.yc.io/modify-header-request-append** {#annot-modify-header-request-append}
 
-  Appends a string value to the request header. Specify the target header and the string to append in the following format:
+  Appends a string value to the request header. The header and string should be specified in the following format:
 
   ```yaml
   ingress.alb.yc.io/modify-header-request-append: <key>=<value>
@@ -345,12 +348,12 @@ You can add the following annotations to `ObjectMeta`:
 
   Where:
 
-    * `<key>`: Response header.
-    * `<value>`: String to append.
+    * `<key>`: Name of the header to modify.
+    * `<value>`: String to be added to the header value.
 
 * **ingress.alb.yc.io/modify-header-request-replace** {#annot-modify-header-request-replace}
 
-  Replaces the request header value. Specify the target header and its replacement value in the following format:
+  Replaces the request header value. The header and its new value should be specified in the following format:
 
   ```yaml
   ingress.alb.yc.io/modify-header-request-replace: <key>=<value>
@@ -358,12 +361,12 @@ You can add the following annotations to `ObjectMeta`:
 
   Where:
 
-    * `<key>`: Response header.
+    * `<key>`: Name of the header to modify.
     * `<value>`: New header value.
 
 * **ingress.alb.yc.io/modify-header-request-rename** {#annot-modify-header-request-rename}
 
-  Renames the request header. Specify the target header and its new name in the following format:
+  Renames the request header. The header and its new name should be specified in the following format:
 
   ```yaml
   ingress.alb.yc.io/modify-header-request-rename: <key>=<value>
@@ -371,18 +374,18 @@ You can add the following annotations to `ObjectMeta`:
 
   Where:
 
-    * `<key>`: Response header.
+    * `<key>`: Name of the header to modify.
     * `<value>`: New header name.
 
 * **ingress.alb.yc.io/modify-header-request-remove** {#annot-modify-header-request-remove}
 
-  Removes the request header. Specify the header to be removed in the following format:
+  Removes the request header. The header to remove should be specified in the following format:
 
   ```yaml
   ingress.alb.yc.io/modify-header-request-remove: <key>=true
   ```
 
-  Where `<key>` is the name of the header to be removed.
+  Where `<key>` is the name of the header to remove.
 
 * **ingress.alb.yc.io/security-profile-id** {#annot-security-profile-id}
 
@@ -412,15 +415,50 @@ You can add the following annotations to `ObjectMeta`:
 
 * **ingress.alb.yc.io/autoscale-max-size** {#annot-autoscale-max-size}
 
-  Resource unit maximum total. By default, it is unlimited. Make sure this value is no less than (number of load balancer availability zones) × (minimum number of resource units per zone). 
+  Resource unit maximum total. By default, it is unlimited. Make sure this value is no less than the number of load balancer availability zones multiplied by the minimum number of resource units per zone. 
   
-  [Learn more about the autoscaling settings here](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
+  Learn more about the autoscaling settings [here](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
 
 * **ingress.alb.yc.io/autoscale-min-zone-size** {#annot-autoscale-min-zone-size}
 
-  Resource unit minimum per availability zone. The minimum and default value is `2`. 
+  Resource unit minimum per availability zone. The minimum and default value is `2`.
   
   [Learn more about the autoscaling settings here](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
+
+* **ingress.alb.yc.io/session-affinity-header** {#annot-session-affinity-header}
+
+  HTTP header for [session affinity](../../../application-load-balancer/concepts/backend-group.md#session-affinity)
+
+  * `name`: HTTP header name.
+
+* **ingress.alb.yc.io/session-affinity-cookie** {#annot-session-affinity-cookie}
+
+  Cookie parameters for session affinity.
+
+  * `name`: Cookie name.
+
+  * `ttl`: Cookie lifetime. The value must be specified with units of measurement, e.g., `300ms` or `1.5h`. Acceptable units of measurement include:
+    * `ns`, nanoseconds
+    * `us`, microseconds
+    * `ms`, milliseconds
+    * `s`, seconds
+    * `m`, minutes
+    * `h`, hours
+
+  The parameters are given as a comma-separated list. Here is an example:
+
+  ```
+  ...
+  annotations:
+    ingress.alb.yc.io/session-affinity-cookie: name=X-Example,ttl=30m
+    ...
+  ```
+
+* **ingress.alb.yc.io/session-affinity-connection** {#annot-session-affinity-connection}
+
+  Indicator of using a client IP address for session affinity.
+
+  * `source-ip`: `true` or `false`
 
 ## IngressSpec {#spec}
 
@@ -498,7 +536,7 @@ http:
       backend: <IngressBackend>
 ```
 
-Pre-0.2.0 [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) versions map each backend group to a distinct combination of `host`, `http.paths.path`, and `http.paths.pathType` values. ALB Ingress Controllers v0.2.0 and later map backend groups directly to the `backend.service` configuration, i.e., [IngressBackend](#backend). This may cause collisions when upgrading the ALB Ingress Controller. To avoid them, check the [upgrade restrictions](../../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md) applying to your infrastructure.
+Pre-0.2.0 [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) versions map each backend group to a distinct combination of `host`, `http.paths.path`, and `http.paths.pathType` values. ALB Ingress Controllers v0.2.0 and later map backend groups directly to the `backend.service` configuration, i.e., [IngressBackend](#backend). This may cause collisions when upgrading the ALB Ingress Controller. To avoid them, check the [upgrade restrictions](../../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md) for your infrastructure.
 
 #|
 || **Field** | **Value / Type** | **Description** ||
@@ -584,14 +622,14 @@ Each `spec.rules.http.paths` entry must be either a service backend or a backend
 || `resource` | `TypedLocalObjectReference`  | **This is a required field**.
 Backend group for processing requests.
 
-The Ingress controller implements this field through the  `HttpBackendGroup` [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). The referenced resource must comply with [standard configuration](../../../application-load-balancer/k8s-ref/http-backend-group.md) requirements.
+The Ingress controller implements this field through the `HttpBackendGroup` [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). The referenced resource must comply with [standard configuration](../../../application-load-balancer/k8s-ref/http-backend-group.md) requirements.
 
 Each `spec.rules.http.paths` entry must be either a backend group or a service backend, i.e., `service` resource, but not both.
 
 * `kind`: `HttpBackendGroup`
 * `name` (`string`): Backend group name
 
-    This name must match the `metadata.name` value of the `HttpBackendGroup` resource. For more information, see the `HttpBackendGroup` [resource configuration](../../../application-load-balancer/k8s-ref/http-backend-group.md).
+    This name must match the `metadata.name` value of the `HttpBackendGroup` resource. For more information, see the [resource configuration](../../../application-load-balancer/k8s-ref/http-backend-group.md).
 
 * `apiGroup`: `alb.yc.io`
 

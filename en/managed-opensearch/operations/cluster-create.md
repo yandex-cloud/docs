@@ -151,7 +151,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
          --name <cluster_name> \
          --description <cluster_description> \
          --labels <labels> \
-         --environment <environment:_production_or_prestable> \
+         --environment <environment> \
          --network-name <network_name> \
          --security-group-ids <security_group_IDs> \
          --service-account-name <service_account_name> \
@@ -161,8 +161,8 @@ When creating a cluster, you need to specify individual parameters for each [hos
                       `hour=<hour> \
          --version <{{ OS }}_version> \
          --read-admin-password \
-         --data-transfer-access=<true_or_false> \
-         --serverless-access=<true_or_false> \
+         --data-transfer-access=<allow_access_from_Data_Transfer> \
+         --serverless-access=<allow_access_from_Serverless_Containers> \
          --plugins <{{ OS }}_plugins> \
          --advanced-params <additional_parameters> \
          --opensearch-node-group name=<{{ OS }}_host_group_name>,`
@@ -172,7 +172,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                                 `hosts-count=<number_of_hosts_in_group>,`
                                 `zone-ids=<availability_zones>,`
                                 `subnet-names=<subnet_names>,`
-                                `assign-public-ip=<assign_public_address:_true_or_false>,`
+                                `assign-public-ip=<allow_public_access_to_hosts>,`
                                 `roles=<host_roles> \
          --dashboards-node-group name=<Dashboards_host_group_name>,`
                                 `resource-preset-id=<host_class>,`
@@ -181,12 +181,12 @@ When creating a cluster, you need to specify individual parameters for each [hos
                                 `hosts-count=<number_of_hosts_in_group>,`
                                 `zone-ids=<availability_zones>,`
                                 `subnet-names=<subnet_names>,`
-                                `assign-public-ip=<assign_public_address:_true_or_false>
+                                `assign-public-ip=<allow_public_access_to_hosts>
       ```
 
       Where:
 
-      * `--labels`: [{{ yandex-cloud }} labels](../../resource-manager/concepts/labels.md) labels in `<key>=<value>` format. You can use them to logically separate resources.
+      * `--labels`: [{{ yandex-cloud }} labels](../../resource-manager/concepts/labels.md) in `<key>=<value>` format. You can use them to logically separate resources.
       * `--environment`: Environment:
 
           * `production`: For stable versions of your apps.
@@ -246,7 +246,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
         environment         = "<environment>"
         network_id          = "<network_ID>"
         security_group_ids  = ["<list_of_security_group_IDs>"]
-        deletion_protection = "<cluster_deletion_protection>"
+        deletion_protection = "<protect_cluster_from_deletion>"
 
         config {
 
@@ -256,7 +256,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           opensearch {
             node_groups {
               name             = "<virtual_host_group_name>"
-              assign_public_ip = <public_access>
+              assign_public_ip = <allow_public_access_to_hosts>
               hosts_count      = <number_of_hosts>
               zone_ids         = ["<list_of_availability_zones>"]
               subnet_ids       = ["<list_of_subnet_IDs>"]
@@ -275,7 +275,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
           dashboards {
             node_groups {
               name             = "<virtual_host_group_name>"
-              assign_public_ip = <public_access>
+              assign_public_ip = <allow_public_access_to_hosts>
               hosts_count      = <number_of_hosts>
               zone_ids         = ["<list_of_availability_zones>"]
               subnet_ids       = ["<list_of_subnet_IDs>"]
@@ -362,7 +362,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
               "<security_group_N_ID>"
           ],
           "serviceAccountId": "<service_account_ID>",
-          "deletionProtection": <cluster_deletion_protection:_true_or_false>,
+          "deletionProtection": <protect_cluster_from_deletion>,
           "configSpec": {
               "version": "<{{ OS }}_version>",
               "adminPassword": "<admin_user_password>",
@@ -393,7 +393,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                               "<subnet_2_ID>",
                               "<subnet_3_ID>"
                           ],
-                          "assignPublicIp": <public_host_address:_true_or_false>,
+                          "assignPublicIp": <allow_public_access_to_hosts>,
                           "diskSizeAutoscaling": {
                               "plannedUsageThreshold": "<scheduled_increase_percentage>",
                               "emergencyUsageThreshold": "<immediate_increase_percentage>",
@@ -415,7 +415,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                           "hostsCount": "<number_of_hosts>",
                           "zoneIds": ["<availability_zone>"],
                           "subnetIds": ["<subnet_ID>"],
-                          "assignPublicIp": <public_host_address:_true_or_false>,
+                          "assignPublicIp": <allow_public_access_to_hosts>,
                           "diskSizeAutoscaling": {
                               "plannedUsageThreshold": "<scheduled_increase_percentage>",
                               "emergencyUsageThreshold": "<immediate_increase_percentage>",
@@ -425,8 +425,8 @@ When creating a cluster, you need to specify individual parameters for each [hos
                   ]
               },
               "access": {
-                  "dataTransfer": <access_from_Data_Transfer:_true_or_false>,
-                  "serverless": <access_from_Serverless_Containers:_true_or_false>
+                  "dataTransfer": <allow_access_from_Data_Transfer>,
+                  "serverless": <allow_access_from_Serverless_Containers>
               }
           },
           "maintenanceWindow": {
@@ -451,7 +451,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       * `serviceAccountId`: ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations.
 
 
-      * `deletionProtection`: Cluster protection from accidental deletion.
+      * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
 
         Even with cluster deletion protection enabled, one can still delete a user or connect to the cluster manually and delete the data.
 
@@ -482,7 +482,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                   * `subnetIds`: Subnet IDs list.
 
                   
-                  * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
+                  * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
 
                   * `diskSizeAutoscaling`: Automatic storage size increase settings:
@@ -506,6 +506,8 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
               * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
               * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
+
+              The possible setting values are `true` or `false`.
 
 
       * `maintenance_window.weeklyMaintenanceWindow`: Maintenance window schedule:
@@ -549,7 +551,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
               "<security_group_N_ID>"
           ],
           "service_account_id": "<service_account_ID>",
-          "deletion_protection": <cluster_deletion_protection:_true_or_false>,
+          "deletion_protection": <protect_cluster_from_deletion>,
           "config_spec": {
               "version": "<{{ OS }}_version>",
               "admin_password": "<admin_user_password>",
@@ -580,7 +582,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                               "<subnet_2_ID>",
                               "<subnet_3_ID>"
                           ],
-                          "assign_public_ip": <public_host_address:_true_or_false>,
+                          "assign_public_ip": <allow_public_access_to_hosts>,
                           "disk_size_autoscaling": {
                               "planned_usage_threshold": "<scheduled_increase_percentage>",
                               "emergency_usage_threshold": "<immediate_increase_percentage>",
@@ -602,7 +604,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                           "hosts_count": "<number_of_hosts>",
                           "zone_ids": ["<availability_zone>"],
                           "subnet_ids": ["<subnet_ID>"],
-                          "assign_public_ip": <public_host_address:_true_or_false>,
+                          "assign_public_ip": <allow_public_access_to_hosts>,
                           "disk_size_autoscaling": {
                               "planned_usage_threshold": "<scheduled_increase_percentage>",
                               "emergency_usage_threshold": "<immediate_increase_percentage>",
@@ -612,8 +614,8 @@ When creating a cluster, you need to specify individual parameters for each [hos
                   ]
               },
               "access": {
-                  "data_transfer": <access_from_Data_Transfer:_true_or_false>,
-                  "serverless": <access_from_Serverless_Containers:_true_or_false>
+                  "data_transfer": <allow_access_from_Data_Transfer>,
+                  "serverless": <allow_access_from_Serverless_Containers>
               }
           },
           "maintenance_window": {
@@ -638,7 +640,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
       * `service_account_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations.
 
 
-      * `deletion_protection`: Cluster protection from accidental deletion.
+      * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
         Even with cluster deletion protection enabled, one can still delete a user or connect to the cluster manually and delete the data.
 
@@ -669,7 +671,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
                   * `subnet_ids`: Subnet IDs list.
 
                   
-                  * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
+                  * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
 
                   * `disk_size_autoscaling`: Automatic storage size increase settings:
@@ -693,6 +695,8 @@ When creating a cluster, you need to specify individual parameters for each [hos
 
               * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
               * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
+
+              The possible setting values are `true` or `false`.
 
 
       * `maintenance_window.weekly_maintenance_window`: Maintenance window schedule:
@@ -811,7 +815,7 @@ To create an {{ OS }} cluster copy:
     * Service account name: `os-account`.
     * Deletion protection: Disabled.
     * Maintenance time: Every Monday from 13:00 till 14:00.
-    * {{ OS }} version: `2.8`.
+    * {{ OS }} version: `2.12`.
     * `admin` user password: Specified after entering the cluster create command.
     * Access to {{ data-transfer-name }}: Enabled.
     * Access to {{ serverless-containers-name }}: Enabled.
@@ -819,11 +823,11 @@ To create an {{ OS }} cluster copy:
     * {{ OS }} additional parameter: `fielddata-cache-size=50%`.
     * `{{ OS }}` node group configuration:
 
-        * Group name: `os-group`.
+        * Node group name: `os-group`.
         * Host class: `{{ host-class }}`.
         * Disk size: `10737418240` (in bytes).
         * Disk type: `network-ssd`.
-        * Number of hosts: Three.
+        * Number of hosts: `3`.
         * Availability zone: `{{ region-id }}-a`.
         * Subnet: `{{ network-name }}-{{ region-id }}-a`.
         * Public address: Assigned.
@@ -831,11 +835,11 @@ To create an {{ OS }} cluster copy:
 
     * `Dashboards` host group configuration:
 
-        * Group name: `dashboard-group`.
+        * Host group name: `dashboard-group`.
         * Host class: `{{ host-class }}`.
         * Disk size: `10737418240` (in bytes).
         * Disk type: `network-ssd`.
-        * Number of hosts: One.
+        * Number of hosts: `1`.
         * Availability zone: `{{ region-id }}-a`.
         * Subnet: `{{ network-name }}-{{ region-id }}-a`.
         * Public address: Assigned.
@@ -855,7 +859,7 @@ To create an {{ OS }} cluster copy:
        --maintenance schedule=weekly,`
                     `weekday=mon,`
                     `hour=14 \
-       --version 2.8 \
+       --version 2.12 \
        --read-admin-password \
        --data-transfer-access=true \
        --serverless-access=true \
@@ -886,15 +890,29 @@ To create an {{ OS }} cluster copy:
 
     * Name: `my-os-clstr`.
     * Environment: `PRODUCTION`.
-    * {{ OS }} version: `2.8`.
-    * `admin` user password: `osadminpwd`.
-    * `{{ OS }}` node group name: `os-group`.
-    * Host class: `{{ host-class }}`.
-    * Disk size: `10737418240` (in bytes).
-    * Disk type: `{{ disk-type-example }}`.
-    * Number of hosts: `1`.
-    * Public address: Assigned.
-    * Host group roles: `DATA` and `MANAGER`.
+    * {{ OS }} version: `2.12`.
+    * `admin` user password: `osAdminpwd1`.
+    * `{{ OS }}` node group configuration:
+
+      * `{{ OS }}` node group name: `os-group`.
+      * Host class: `{{ host-class }}`.
+      * Disk size: `10737418240` (in bytes).
+      * Disk type: `{{ disk-type-example }}`.
+      * Number of hosts: `3`.
+      * Availability zone: `{{ region-id }}-a`.
+      * Public address: Assigned.
+      * Host group roles: `DATA` and `MANAGER`.
+    
+    * `Dashboards` host group configuration:
+    
+      * Host group name: `dashboard-group`.
+      * Host class: `{{ host-class }}`.
+      * Disk size: `10737418240` (in bytes).
+      * Disk type: `network-ssd`.
+      * Number of hosts: `1`.
+      * Availability zone: `{{ region-id }}-a`.
+      * Public address: Assigned.
+    
     * Maintenance time: Every Monday from 13:00 till 14:00.
     * Network name: `mynet`.
     * Subnet name: `mysubnet`.
@@ -913,14 +931,14 @@ To create an {{ OS }} cluster copy:
 
       config {
 
-        version        = "2.8"
-        admin_password = "osadminpwd"
+        version        = "2.12"
+        admin_password = "osAdminpwd1"
 
         opensearch {
           node_groups {
             name             = "os-group"
             assign_public_ip = true
-            hosts_count      = 1
+            hosts_count      = 3
             zone_ids         = ["{{ region-id }}-a"]
             subnet_ids       = [yandex_vpc_subnet.mysubnet.id]
             roles            = ["DATA", "MANAGER"]
@@ -931,7 +949,24 @@ To create an {{ OS }} cluster copy:
             }
           }
         }
+
+        dashboards {
+          node_groups {
+            name             = "dashboard-group"
+            assign_public_ip = true
+            hosts_count      = 1
+            zone_ids         = ["ru-central1-a"]
+            subnet_ids       = [yandex_vpc_subnet.mysubnet.id]
+            resources {
+              resource_preset_id = "s2.micro"
+              disk_size          = 10737418240
+              disk_type_id       = "network-ssd"
+            }
+          }
+        }
+
       }
+
       maintenance_window {
         type = "WEEKLY"
         day  = "MON"

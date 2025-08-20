@@ -11,3 +11,5 @@
 * [Can I manage a cluster using SQL commands?](#sql-control)
 
 * [Can I create a database using SQL commands?](#create-db-sql)
+
+* [How to recover a cluster from read-only mode?](#read-only-exit)
