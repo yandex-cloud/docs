@@ -757,6 +757,10 @@ items:
       - name: Deploying the {{ KF }} web interface
         href: dataplatform/deploy-kafka-ui.md
       - name: >-
+          Upgrading a {{ mkf-name }} cluster to migrate from {{ ZK }} to {{
+          kraft-short-name }}
+        href: dataplatform/zk-kraft-kafka-migration.md
+      - name: >-
           Migrating a database from a third-party {{ KF }} cluster to {{
           mkf-name }}
         href: dataplatform/kafka-connector.md

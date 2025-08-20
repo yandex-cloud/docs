@@ -1,0 +1,1 @@
+If you already have a certificate for the domain zone, [add its details](../../certificate-manager/operations/import/cert-create.md) to [{{ certificate-manager-full-name }}](../../certificate-manager/). If not, issue a new {{ lets-encrypt }} certificate and [add](../../certificate-manager/operations/managed/cert-create.md) it to {{ certificate-manager-name }}.

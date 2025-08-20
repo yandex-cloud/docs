@@ -6,4 +6,4 @@ canonical: '{{ link-docs }}/tutorials/dataplatform/mpg-replication-overview'
 
 * [{#T}](data-migration.md).
 * [Миграция базы данных из {{ mpg-name }}](outbound-replication.md).
-* [{#T}](../operations/logical-replica-from-rds.md).
+* [{#T}](logical-replica-from-rds.md).

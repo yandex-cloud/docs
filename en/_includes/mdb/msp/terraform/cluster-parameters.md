@@ -6,7 +6,7 @@ resource "yandex_spark_cluster" "<cluster_name>" {
   name                = "<cluster_name>"
   folder_id           = "<folder_ID>"
   service_account_id  = "<service_account_ID>"
-  deletion_protection = <deletion_protection:_true_or_false>
+  deletion_protection = <protect_cluster_from_deletion>
 
   labels = {
     <label_list>
@@ -31,7 +31,7 @@ resource "yandex_spark_cluster" "<cluster_name>" {
   }
 
   logging = {
-    enabled      = <use_logging:_true_or_false>
+    enabled      = <enable_logging>
     folder_id    = "<folder_ID>"
   }
 
@@ -51,12 +51,12 @@ resource "yandex_vpc_subnet" "<subnet_name>" {
 
 Where:
 
-* `description`: Optionally, enter a description for the cluster.
+* `description`: Cluster description. This is an optional parameter.
 * `name`: Cluster name.
-* (Optional) `folder_id`: Folder ID. If the value is missing, the cluster will reside in the folder specified in the provider settings.
+* `folder_id`: Folder ID. This is an optional parameter. If the value is missing, the cluster will reside in the folder specified in the provider settings.
 * `service_account_id`: Service account ID.
-* (Optional) `deletion_protection`: Cluster protection from accidental deletion.
-* (Optional) `labels`: List of labels. Provide labels in `<key> = "<value>"` format.
+* `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. This is an optional parameter.
+* `labels`: List of labels. This is an optional parameter. Provide labels in `<key> = "<value>"` format.
 * `subnet_ids`: Subnet IDs list.
 * `security_group_ids`: List of security group IDs.
 * `driver`: Host configuration to run {{ SPRK }} drivers. In this section, specify:

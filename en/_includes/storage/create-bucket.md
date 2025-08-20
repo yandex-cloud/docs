@@ -35,11 +35,12 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
           {% include [public-access-warning](./security/public-access-warning.md) %}
 
       1. Select the default [storage class](../../storage/concepts/storage-class.md):
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}`.
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_ice }}`.
 
-          "Cold" classes are for long-term storage of objects you intend to use less frequently. The "colder" the storage, the cheaper it is to store data in, but the more expensive it is to read from and write to it.
+          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`
+          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}`
+          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_ice }}`
+
+          Cold classes are for long-term storage of objects you intend to use less frequently. The colder the storage, the cheaper it is to store data in, but the more expensive it is to read from and write to it.
 
       1. Enable encryption if you need to: in the **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** field, select an existing [symmetric key](../../kms/concepts/key.md) or [create](../../kms/operations/key.md#create) a new one.
 
@@ -57,7 +58,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
   {% include [aws-cli-install](../../_includes/aws-cli-install.md) %}
 
-  To create a bucket, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` [role](../../storage/security/#storage-editor) to the service account used by the AWS CLI.
+  To create a bucket, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` [role](../../storage/security/index.md/#storage-editor) to the service account used by the AWS CLI.
 
   In the terminal, run this command:
 
@@ -151,7 +152,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
-  By default, {{ TF }} uses an IAM token for authentication in {{ objstorage-name }}. In addition to an IAM token, you can use a service account and static access keys for authentication in {{ objstorage-name }}. For more information about {{ TF }} authentication in {{ objstorage-name }}, see [this provider article]({{ tf-provider-resources-link }}/storage_bucket).
+  {% include [iam-auth-note](iam-auth-note.md) %}
 
   **Creating a bucket using an IAM token**
 
@@ -159,7 +160,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
   1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) and add them to environment variables.
 
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, describe the parameters of resources you want to create:
 
       ```hcl
       # Creating a bucket using an IAM token
@@ -171,7 +172,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
       ```
 
       Where:
-      * `bucket`: Bucket name. This is a required setting.
+      * `bucket`: Bucket name. This is a required parameter.
 
         
         By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
@@ -185,7 +186,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
          {% endnote %}
 
-      For more information about `yandex_storage_bucket` settings, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket).
+      For more information about `yandex_storage_bucket` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Create the resources:
 
@@ -196,7 +197,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
   **Creating a bucket using a static key**
 
-  1. In the configuration file, describe the resources you want to create:
+  1. In the configuration file, describe the parameters of resources you want to create:
 
       {% cut "Creating a bucket using a key" %}
 
@@ -210,7 +211,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
         required_version = ">= 0.13"
       }
 
-      # Configuring a provider
+      # Configuring the provider
       
       provider "yandex" {
         token     = "<IAM_or_OAuth_token>"
@@ -267,7 +268,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
       Where:
       * `yandex_iam_service_account`: Description of the [service account](../../iam/concepts/users/service-accounts.md) to create and use the [bucket](../../storage/concepts/bucket.md):
 
-        * `name`: Service account name. This is a required setting.
+        * `name`: Service account name. This is a required parameter.
         * `bucket`: Bucket name.
 
           
@@ -277,7 +278,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
         * `max_size`: Maximum bucket size, in bytes. The default value is `0`, unlimited. 
         * `default_storage_class`: [Storage class](../../storage/concepts/storage-class.md). The possible values are:
 
-          * `standard`: Standard storage. Default value.
+          * `standard`: Standard storage. This is a default value.
           * `cold`: Cold storage.
           * `ice`: Ice storage.
 
@@ -291,7 +292,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
         * `tags`: Bucket [labels](../../storage/concepts/tags.md) in `key = "value"` format.
 
-      For more information about `yandex_storage_bucket` settings, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket).
+      For more information about `yandex_storage_bucket` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Create the resources:
 

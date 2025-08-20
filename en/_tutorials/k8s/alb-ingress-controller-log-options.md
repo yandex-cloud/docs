@@ -23,11 +23,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using the master and outbound traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for using the computing resources of each L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for public IP addresses for cluster nodes and L7 load balancers (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for writing and storing data in {{ cloud-logging-name }} (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
+* {{ cloud-logging-name }} fee for data logging and storage (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
 
 
 ## Getting started {#before-begin}
@@ -123,7 +123,7 @@ The support cost includes:
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -143,7 +143,7 @@ The support cost includes:
 
 ### Register a domain zone {#register-domain}
 
-[Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
+{% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}
 
 ### Install the {{ alb-name }} Ingress controller {#install-alb-ingress-controller}
 

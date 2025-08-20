@@ -75,7 +75,7 @@ There are no restrictions for non-sharded clusters.
 
         {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
 
-     * Select the [data persistence](../concepts/replication.md#persistence) settings.
+     * Select the [data persistence](../concepts/replication.md#persistence) mode.
 
   1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**:
 
@@ -188,6 +188,7 @@ There are no restrictions for non-sharded clusters.
               `replica-priority=<host_priority> \
         --security-group-ids <list_of_security_group_IDs> \
         --enable-tls \
+        --persistence-mode <persistence_mode>
         --resource-preset <host_class> \
         --disk-size <storage_size_in_GB> \
         --disk-type-id <network-ssd|network-ssd-nonreplicated|local-ssd> \
@@ -212,6 +213,10 @@ There are no restrictions for non-sharded clusters.
 
       * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
 
+
+      * `--persistence-mode`: [Data persistence mode](../concepts/replication.md#persistence).
+
+        {% include [persistence-modes](../../_includes/mdb/mrd/persistence-modes.md) %}
 
       * `--backup-window-start`: Backup start time in `HH:MM:SS` format.
       * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
@@ -263,6 +268,7 @@ There are no restrictions for non-sharded clusters.
          tls_enabled         = true
          deletion_protection = <cluster_deletion_protection>
          announce_hostnames  = <using_FQDNs_instead_of_IP_addresses>
+         persistence_mode    = "<persistence_mode>"
 
          config {
            password = "<password>"
@@ -304,6 +310,10 @@ There are no restrictions for non-sharded clusters.
 
             {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
 
+       * `persistence_mode`: [Data persistence mode](../concepts/replication.md#persistence).
+
+            {% include [persistence-modes](../../_includes/mdb/mrd/persistence-modes.md) %}
+
        * `version`: {{ VLK }} version, {{ versions.tf.str }}.
        * `host`: Host parameters:
          * `zone_id`: Availability zone.
@@ -317,7 +327,7 @@ There are no restrictions for non-sharded clusters.
 
        {% include [Maintenance window](../../_includes/mdb/mrd/terraform/maintenance-window.md) %}
 
-       For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mrd }}).
+       For more information about resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mrd }}).
 
     1. Make sure the settings are correct.
 
@@ -381,7 +391,8 @@ There are no restrictions for non-sharded clusters.
           ],
           "tlsEnabled": <encrypted_TLS_connection_support>,
           "deletionProtection": <cluster_deletion_protection>,
-          "announceHostnames": <using_FQDNs_instead_of_IP_addresses>
+          "announceHostnames": <using_FQDNs_instead_of_IP_addresses>,
+          "persistenceMode": "<persistence_mode>"
         }
         ```
 
@@ -448,6 +459,10 @@ There are no restrictions for non-sharded clusters.
 
             {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
 
+        * `persistenceMode`: [Data persistence mode](../concepts/replication.md#persistence).
+
+            {% include [persistence-modes](../../_includes/mdb/mrd/persistence-modes.md) %}
+
     1. Use the [Cluster.Create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
         ```bash
@@ -513,7 +528,8 @@ There are no restrictions for non-sharded clusters.
           ],
           "tls_enabled": <encrypted_TLS_connection_support>,
           "deletion_protection": <cluster_deletion_protection>,
-          "announce_hostnames": <using_FQDNs_instead_of_IP_addresses>
+          "announce_hostnames": <using_FQDNs_instead_of_IP_addresses>,
+          "persistence_mode": "<persistence_mode>"
         }
         ```
 
@@ -579,6 +595,10 @@ There are no restrictions for non-sharded clusters.
         * `announce_hostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
             {% include [fqdn-option-compatibility-note](../../_includes/mdb/mrd/connect/fqdn-option-compatibility-note.md) %}
+
+        * `persistence_mode`: [Data persistence mode](../concepts/replication.md#persistence).
+        
+            {% include [persistence-modes](../../_includes/mdb/mrd/persistence-modes.md) %}
 
     1. Use the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 

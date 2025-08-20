@@ -1,0 +1,1 @@
+By default, {{ TF }} uses an IAM token for authentication in {{ objstorage-name }}. In addition to an IAM token, you can use a service account and static access keys for authentication in {{ objstorage-name }}. For more information about {{ TF }} authentication in {{ objstorage-name }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket).

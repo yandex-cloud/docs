@@ -150,7 +150,7 @@ items:
           - name: >-
               Создание логической реплики Amazon RDS для {{ PG }} в {{ mpg-name
               }}
-            href: operations/logical-replica-from-rds.md
+            href: tutorials/logical-replica-from-rds.md
           - name: >-
               Миграция базы данных из {{ mpg-full-name }} в {{
               objstorage-full-name }}

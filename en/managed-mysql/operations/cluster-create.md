@@ -150,7 +150,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        --network-name <network_name> \
        --host zone-id=<availability_zone>,`
          `subnet-id=<subnet_ID>,`
-         `assign-public-ip=<public_access_to_host>,`
+         `assign-public-ip=<allow_public_access_to_host>,`
          `priority=<priority_when_selecting_master_host>,`
          `backup-priority=<backup_priority> \
        --mysql-version <{{ MY }}_version> \
@@ -202,8 +202,8 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        ...
        --backup-window-start <backup_start_time> \
        --backup-retain-period-days=<backup_retention_period> \
-       --datalens-access=<true_or_false> \
-       --websql-access=<true_or_false> \
+       --datalens-access=<allow_access_from_{{ datalens-name }}> \
+       --websql-access=<allow_access_from_{{ websql-name }}> \
        --deletion-protection \
        --performance-diagnostics enabled=true,`
                                 `sessions-sampling-interval=<session_sampling_interval>,`
@@ -261,7 +261,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        network_id          = "<network_ID>"
        version             = "<{{ MY }}_version>"
        security_group_ids  = [ "<list_of_security_group_IDs>" ]
-       deletion_protection = <cluster_deletion_protection>
+       deletion_protection = <protect_cluster_from_deletion>
 
        resources {
          resource_preset_id = "<host_class>"
@@ -272,7 +272,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        host {
          zone             = "<availability_zone>"
          subnet_id        = "<subnet_ID>"
-         assign_public_ip = <public_access_to_host>
+         assign_public_ip = <allow_public_access_to_host>
          priority         = <priority_when_selecting_master_host>
          backup_priority  = <backup_priority>
        }
@@ -381,7 +381,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
        For `sessions_sampling_interval` and `statements_sampling_interval`, possible values range from `1` to `86400` seconds.
 
-     For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmy }}).
+     For more information about resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mmy }}).
   1. Make sure the configuration files are correct.
 
      {% include [terraform-create-cluster-step-2](../../_includes/mdb/terraform-create-cluster-step-2.md) %}
@@ -413,7 +413,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
               ...
               "<security_group_N_ID>"
           ],
-          "deletionProtection": <cluster_deletion_protection:_true_or_false>,
+          "deletionProtection": <protect_cluster_from_deletion>,
           "configSpec": {
               "version": "<{{ MY }}_version>",
               "resources": {
@@ -422,12 +422,12 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
                   "diskTypeId": "<disk_type>"
               },
               "access": {
-                  "dataLens": <access_to_{{ datalens-name }}:_true_or_false>,
-                  "webSql": <access_to_{{ websql-name }}:_true_or_false>,
-                  "dataTransfer": <access_to_Data_Transfer:_true_or_false>
+                  "dataLens": <allow_access_from_{{ datalens-name }}>,
+                  "webSql": <allow_access_from_{{ websql-name }}>,
+                  "dataTransfer": <allow_access_from_Data_Transfer>
               },
               "performanceDiagnostics": {
-                  "enabled": <activate_statistics_collection:_true_or_false>,
+                  "enabled": <enable_statistics_collection>,
                   "sessionsSamplingInterval": "<session_sampling_interval>",
                   "statementsSamplingInterval": "<statement_sampling_interval>"
               }
@@ -461,7 +461,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
               {
                   "zoneId": "<availability_zone>",
                   "subnetId": "<subnet_ID>",
-                  "assignPublicIp": <public_host_address:_true_or_false>
+                  "assignPublicIp": <allow_public_access_to_host>
               },
               { <similar_configuration_for_host_2> },
               { ... },
@@ -482,7 +482,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
       * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-      * `deletionProtection`: Cluster protection from accidental deletion.
+      * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -502,10 +502,12 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
               * `webSql`: [{{ websql-full-name }}](../../websql/index.yaml)
               * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
 
+              The possible setting values are `true` or `false`.
+
 
       * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
-          * `enabled`: Enables statistics collection.
+          * `enabled`: Enables statistics collection, `true` or `false`.
           * `sessionsSamplingInterval`: Session sampling interval, from `1` to `86400` seconds.
           * `statementsSamplingInterval`: Statement sampling interval, from `1` to `86400` seconds.
 
@@ -534,7 +536,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-          * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
+          * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
   1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
@@ -571,7 +573,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
               ...
               "<security_group_N_ID>"
           ],
-          "deletion_protection": <cluster_deletion_protection:_true_or_false>,
+          "deletion_protection": <protect_cluster_from_deletion>,
           "config_spec": {
               "version": "<{{ MY }}_version>",
               "resources": {
@@ -580,12 +582,12 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
                   "disk_type_id": "<disk_type>"
               },
               "access": {
-                  "data_lens": <access_to_{{ datalens-name }}:_true_or_false>,
-                  "web_sql": <access_to_{{ websql-name }}:_true_or_false>,
-                  "data_transfer": <access_to_Data_Transfer:_true_or_false>
+                  "data_lens": <allow_access_from_{{ datalens-name }}>,
+                  "web_sql": <allow_access_from_{{ websql-name }}>,
+                  "data_transfer": <allow_access_from_Data_Transfer>
               },
               "performance_diagnostics": {
-                  "enabled": <activate_statistics_collection:_true_or_false>,
+                  "enabled": <enable_statistics_collection>,
                   "sessions_sampling_interval": "<session_sampling_interval>",
                   "statements_sampling_interval": "<statement_sampling_interval>"
               }
@@ -616,7 +618,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
               {
                   "zone_id": "<availability_zone>",
                   "subnet_id": "<subnet_ID>",
-                  "assign_public_ip": <public_host_address:_true_or_false>
+                  "assign_public_ip": <allow_public_access_to_host>
               }
           ]
       }
@@ -634,7 +636,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
       * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
 
 
-      * `deletion_protection`: Cluster protection from accidental deletion.
+      * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -654,10 +656,12 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
               * `web_sql`: [{{ websql-full-name }}](../../websql/index.yaml)
               * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
 
+              The possible setting values are `true` or `false`.
+
 
       * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
-          * `enabled`: Enables statistics collection.
+          * `enabled`: Enables statistics collection, `true` or `false`.
           * `sessions_sampling_interval`: Session sampling interval, from `1` to `86400` seconds.
           * `statements_sampling_interval`: Statement sampling interval, from `60` to `86400` seconds.
 
@@ -683,7 +687,7 @@ To create a {{ mmy-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-          * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
+          * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
   1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -716,7 +720,7 @@ If you specified security group IDs when creating a {{ mmy-name }} cluster, you 
 
 You can create a {{ MY }} cluster using the settings of another one created earlier. To do so, import the source {{ MY }} cluster’s configuration to {{ TF }}. This way, you can either create an identical copy or use the configuration you imported as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ MY }} cluster has a lot of settings and you need to create a similar one.
 
-To create an {{ MY }} cluster copy:
+To create a {{ MY }} cluster copy:
 
 {% list tabs group=instructions %}
 

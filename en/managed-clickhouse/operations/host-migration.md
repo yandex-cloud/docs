@@ -24,7 +24,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
 
    - Management console {#console}
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the host parameters:
@@ -49,7 +49,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
          --host type=clickhouse,`
                `zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<public_access_to_host:_true_or_false>
+               `assign-public-ip=<allow_public_access_to_host>
       ```
 
       You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
@@ -65,7 +65,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
              type             = "CLICKHOUSE"
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <public_access_to_host:_true_or_false>
+             assign_public_ip = <allow_public_access_to_host>
            }
          }
          ```
@@ -100,7 +100,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
                            "type": "CLICKHOUSE",
                            "zoneId": "<availability_zone>",
                            "subnetId": "<subnet_ID>",
-                           "assignPublicIp": <public_access_to_host>
+                           "assignPublicIp": <allow_public_access_to_host>
                          }
                        ]
                      }'
@@ -140,7 +140,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
                              "type": "CLICKHOUSE",
                              "zone_id": "<availability_zone>",
                              "subnet_id": "<subnet_ID>",
-                             "assign_public_ip": <public_access_to_host>
+                             "assign_public_ip": <allow_public_access_to_host>
                          }
                      ]
                  }' \
@@ -177,7 +177,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
 
    - Management console {#console}
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
@@ -210,7 +210,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
 
    {% endlist %}
 
-1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 ## Migrating {{ ZK }} hosts {#zookeeper-hosts}
 
@@ -221,7 +221,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
 
    - Management console {#console}
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-zookeeper }}**.
       1. Specify the new subnet and the availability zone to move the hosts to.
@@ -241,7 +241,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
          --host type=zookeeper,`
                `zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<public_access_to_host:_true_or_false>
+               `assign-public-ip=<allow_public_access_to_host>
       ```
 
       You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
@@ -257,7 +257,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
              type             = "ZOOKEEPER"
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <public_access_to_host:_true_or_false>
+             assign_public_ip = <allow_public_access_to_host>
            }
          }
          ```
@@ -292,7 +292,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
                            "type": "ZOOKEEPER",
                            "zoneId": "<availability_zone>",
                            "subnetId": "<subnet_ID>",
-                           "assignPublicIp": <public_access_to_host>
+                           "assignPublicIp": <allow_public_access_to_host>
                          }
                        ]
                      }'
@@ -332,7 +332,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
                              "type": "ZOOKEEPER",
                              "zone_id": "<availability_zone>",
                              "subnet_id": "<subnet_ID>",
-                             "assign_public_ip": <public_access_to_host>
+                             "assign_public_ip": <allow_public_access_to_host>
                          }
                  }' \
              {{ api-host-mdb }}:{{ port-https }} \
@@ -358,7 +358,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
 
    - Management console {#console}
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
@@ -391,7 +391,7 @@ description: Follow this guide to move hosts in a {{ CH }} cluster to a differen
 
    {% endlist %}
 
-1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}
 

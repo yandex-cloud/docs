@@ -14,7 +14,7 @@ description: Follow this guide to relocate hosts in a {{ MG }} cluster to a diff
 
    - Management console {#console}
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
       1. Click the name of the {{ mmg-name }} cluster you need and go to the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the host parameters:
@@ -39,7 +39,7 @@ description: Follow this guide to relocate hosts in a {{ MG }} cluster to a diff
          --host type=<host_type>,`
                `zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<public_access_to_host:_true_or_false>
+               `assign-public-ip=<allow_public_access_to_host>
       ```
 
       Command specifics:
@@ -59,7 +59,7 @@ description: Follow this guide to relocate hosts in a {{ MG }} cluster to a diff
              type             = "<host_type>"
              zone_id          = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <public_access_to_host:_true_or_false>
+             assign_public_ip = <allow_public_access_to_host>
              ...
            }
          }
@@ -96,10 +96,10 @@ description: Follow this guide to relocate hosts in a {{ MG }} cluster to a diff
                           {
                             "zoneId": "<availability_zone>",
                             "subnetId": "<subnet_ID>",
-                            "assignPublicIp": <public_host_address:_true_or_false>,
+                            "assignPublicIp": <allow_public_access_to_host>,
                             "type": "<host_type>",
                             "shardName": "<shard_name>",
-                            "hidden": <host_visibility:_true_or_false>,
+                            "hidden": <hide_host>,
                             "secondaryDelaySecs": "<lag_in_seconds>",
                             "priority": "<host_priority_for_assignment_as_master>",
                             "tags": "<host_labels>"
@@ -112,10 +112,10 @@ description: Follow this guide to relocate hosts in a {{ MG }} cluster to a diff
 
             * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-            * `assignPublicIp`: Internet access to the host via a public IP address.
+            * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
             * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
             * `shardName`: Shard name in a sharded cluster.
-            * `hidden`: The host will either be visible or hidden.
+            * `hidden`: The host will either be visible (`false`) or hidden (`true`).
             * `secondaryDelaySecs`: Host's lag behind the master.
             * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
             * `tags`: Host labels.
@@ -146,10 +146,10 @@ description: Follow this guide to relocate hosts in a {{ MG }} cluster to a diff
                        {
                          "zone_id": "<availability_zone>",
                          "subnet_id": "<subnet_ID>",
-                         "assign_public_ip": <public_host_address:_true_or_false>,
+                         "assign_public_ip": <allow_public_access_to_host>,
                          "type": "<host_type>",
                          "shard_name": "<shard_name>",
-                         "hidden": <host_visibility:_true_or_false>,
+                         "hidden": <hide_host>,
                          "secondary_delay_secs": "<lag_in_seconds>",
                          "priority": "<host_priority_for_assignment_as_master>",
                          "tags": "<host_labels>"
@@ -164,10 +164,10 @@ description: Follow this guide to relocate hosts in a {{ MG }} cluster to a diff
 
             * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
             * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-            * `assign_public_ip`: Internet access to the host via a public IP address.
+            * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
             * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
             * `shard_name`: Shard name in a sharded cluster.
-            * `hidden`: The host will either be visible or hidden.
+            * `hidden`: The host will either be visible (`false`) or hidden (`true`).
             * `secondary_delay_secs`: Host's lag behind the master.
             * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
             * `tags`: Host labels.
@@ -188,7 +188,7 @@ description: Follow this guide to relocate hosts in a {{ MG }} cluster to a diff
 
    The FQDN is specified in the command output under `NAME`.
 
-   To learn how to get a host FQDN in the [management console]({{ link-console-main }}), see [this guide](connect/index.md#get-fqdn).
+   To learn how to get host FQDN in the [management console]({{ link-console-main }}), see [this guide](connect/index.md#get-fqdn).
 
 1. Delete the hosts in the source availability zone:
 
@@ -196,7 +196,7 @@ description: Follow this guide to relocate hosts in a {{ MG }} cluster to a diff
 
    - Management console {#console}
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
       1. Click the name of the {{ mmg-name }} cluster you need and select the **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}** tab.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
@@ -280,7 +280,7 @@ description: Follow this guide to relocate hosts in a {{ MG }} cluster to a diff
 
    {% endlist %}
 
-1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 

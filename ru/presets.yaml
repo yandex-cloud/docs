@@ -8540,11 +8540,14 @@ default:
         switch_registry: Реестры
       data-catalog:
         action_create-catalog: Cоздать каталог
+        action_edit-domain: Редактировать домен
         action_set-domain: Присвоить домен
         label_add: Добавить
         label_add-subdomain-action: Добавить поддомен
         label_add-tags: Изменить теги
         label_add-terms: Изменить термины
+        label_asset-lineage-depth: Глубина
+        label_asset-lineage-weak: Отображать дополнительные связи
         label_connected-terms: Связанные термины
         label_create-catalog: Создание каталога
         label_create-classification-action: Создать классификацию
@@ -8560,6 +8563,7 @@ default:
         label_ingestion-status-Running: Running
         label_ingestion-tab-operations: Операции
         label_ingestions: Загрузки
+        label_search-action-share: Поделиться
         label_search-button-add-filter: Добавить фильтр
         label_search-placeholder: Поиск данных
         label_source-data-tab: Выгруженные данные

@@ -13,7 +13,7 @@ The support cost includes:
 * Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for writing and storing data in {{ cloud-logging-name }} (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
+* {{ cloud-logging-name }} fee for data logging and storage (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
 
 
 ## Sending {{ managed-k8s-name }} master logs to {{ cloud-logging-name }} using master logging {#master-logging}
@@ -100,19 +100,19 @@ If you created the infrastructure manually, enable the `master logging` setting:
    {{ yc-k8s }} cluster update <cluster_name> \
      --master-logging enabled=true,`
        `log-group-id=<log_group_ID>,`
-       `kube-apiserver-enabled=<send_kube-apiserver_logs:_true_or_false>,`
-       `cluster-autoscaler-enabled=<send_cluster-autoscaler_logs:_true_or_false>,`
-       `events-enabled=<send_{{ k8s }}_events:_true_or_false>`
-       `audit-enabled=<send_audit_events:_true_or_false>
+       `kube-apiserver-enabled=<send_kube-apiserver_logs>,`
+       `cluster-autoscaler-enabled=<send_cluster-autoscaler_logs>,`
+       `events-enabled=<send_{{ k8s }}_events>`
+       `audit-enabled=<send_audit_events>
    ```
 
    Where:
    * `enabled`: Flag that enables sending logs.
    * `log-group-id`: ID of the [previously created](#before-you-begin-master-logging) log group to send the logs to.
-   * `kube-apiserver-enabled`: Flag that enables sending [kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) logs.
-   * `cluster-autoscaler-enabled`: Flag that enables sending `cluster-autoscaler` logs.
-   * `events-enabled`: Flag that enables sending {{ k8s }} events.
-   * `audit-enabled`: Flag that enables sending audit events.
+   * `kube-apiserver-enabled`: Flag that enables sending [kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) logs, `true` or `false`.
+   * `cluster-autoscaler-enabled`: Flag that enables sending `cluster-autoscaler` logs, `true` or `false`.
+   * `events-enabled`: Flag that enables sending {{ k8s }} events, `true` or `false`.
+   * `audit-enabled`: Flag that enables sending audit events, `true` or `false`.
 
 ### Check the result {#check-result-master-logging}
 

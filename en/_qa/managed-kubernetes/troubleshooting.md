@@ -88,8 +88,10 @@ To change the PVC status to **Running**:
 
    ```bash
    kubectl describe pvc <PVC_name> \
-     --namespace=<namespace_PVC_resides_in>
+     --namespace=<namespace>
    ```
+
+   Where `--namespace` is the namespace in which the PVC is located.
 
    A message saying `waiting for first consumer to be created before binding` means that the PVC is waiting for a pod to be created.
 1. [Create a pod](../../managed-kubernetes/operations/volumes/dynamic-create-pv.md#create-pod) for this PVC.
@@ -322,7 +324,7 @@ This error occurs if access to {{ GL }} over HTTP(S) is disabled.
 
   [For more information, see the {{ GL }} documentation](https://docs.gitlab.com/administration/settings/visibility_and_access_controls/#configure-enabled-git-access-protocols).
 
-#### Traffic loss when deploying app updates in a cluster with a {{ alb-full-name }} {#alb-traffic-lost}
+#### Traffic loss when deploying app updates in a cluster with {{ alb-full-name }} {#alb-traffic-lost}
 
 When your app traffic is managed by an {{ alb-name }} and the load balancer's ingress controller [traffic policy](../../managed-kubernetes/nlb-ref/service.md#servicespec) is set to `externalTrafficPolicy: Local`, the app processes requests on the same node they were delivered to by the load balancer. There is no traffic flow between nodes.
 
@@ -440,6 +442,6 @@ For more information, see [{#T}](../../application-load-balancer/concepts/best-p
 
    {% endnote %}
 
-#### What should I do if I have deleted my {{ network-load-balancer-full-name }} or target groups that were automatically created for a LoadBalancer service?{#deleted-loadbalancer-service}
+#### What should I do if I have deleted my {{ network-load-balancer-full-name }} or target groups that were automatically created for a LoadBalancer service? {#deleted-loadbalancer-service}
 
 You cannot manually restore a {{ network-load-balancer-name }} or target groups. [Recreate](../../managed-kubernetes/operations/create-load-balancer.md#lb-create) your `LoadBalancer` service. This will automatically create a load balancer and target groups.

@@ -17,7 +17,7 @@
                       "subnetId": "<subnet_ID>",
                       "shardName": "<shard_name>",
                       "replicaPriority": "<host_priority>",
-                      "assignPublicIp": <public_access_to_cluster_host>
+                      "assignPublicIp": <allow_public_access_to_host>
                     }
                   ]
                 }'
@@ -28,9 +28,9 @@
     * `zoneId`: [Availability zone](../../../../overview/concepts/geo-scope.md).
     * `subnetId`: [Subnet ID](../../../../vpc/concepts/network.md#subnet). Specify if two or more subnets are created in the selected availability zone.
     * `shardName`: Shard name for the host. Only used if [cluster sharding](../../../../managed-redis/concepts/sharding.md) is enabled.
-    * `replicaPriority`: Priority for assigning the host as a master if the [primary master fails](../../../../managed-redis/concepts/replication.md#master-failover).
+    * `replicaPriority`: Host priority for assignment as a master if the [primary master fails](../../../../managed-redis/concepts/replication.md#master-failover).
     * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. You can enable public access only if TLS support is enabled in the cluster.
 
-    You can get the cluster ID with a [list of clusters in the folder](../../../../managed-redis/operations/cluster-list.md#list-clusters).
+    You can request the cluster ID with the [list of clusters in the folder](../../../../managed-redis/operations/cluster-list.md#list-clusters).
 
 1. View the [server response](../../../../managed-redis/api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure the request was successful.

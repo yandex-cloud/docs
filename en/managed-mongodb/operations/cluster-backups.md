@@ -86,7 +86,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
   To restore a cluster from a backup:
 
-  1. View a description of the CLI restore {{ MG }} cluster command:
+  1. View the description of the CLI command to restore a {{ MG }} cluster:
 
       ```bash
       {{ yc-mdb-mg }} cluster restore --help
@@ -220,10 +220,10 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
             {
               "zoneId": "<availability_zone>",
               "subnetId": "<subnet_ID>",
-              "assignPublicIp": <public_host_address:_true_or_false>,
+              "assignPublicIp": <allow_public_access_to_host>,
               "type": "<host_type>",
               "shardName": "<shard_name>",
-              "hidden": <host_visibility:_true_or_false>,
+              "hidden": <hide_host>,
               "secondaryDelaySecs": "<lag_in_seconds>",
               "priority": "<host_priority_for_assignment_as_master>",
               "tags": "<host_labels>"
@@ -256,10 +256,10 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp`: Internet access to the host via a public IP address.
+          * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
           * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
           * `shardName`: Shard name in a sharded cluster.
-          * `hidden`: Host will be visible or hidden.
+          * `hidden`: The host will either be visible (`false`) or hidden (`true`).
           * `secondaryDelaySecs`: Host's lag behind the master.
           * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
           * `tags`: Host labels.
@@ -320,10 +320,10 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
             {
               "zone_id": "<availability_zone>",
               "subnet_id": "<subnet_ID>",
-              "assign_public_ip": <public_host_address:_true_or_false>,
+              "assign_public_ip": <allow_public_access_to_host>,
               "type": "<host_type>",
               "shard_name": "<shard_name>",
-              "hidden": <host_visibility:_true_or_false>,
+              "hidden": <hide_host>,
               "secondary_delay_secs": "<lag_in_seconds>",
               "priority": "<host_priority_for_assignment_as_master>",
               "tags": "<host_labels>"
@@ -356,10 +356,10 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assign_public_ip`: Internet access to the host via a public IP address.
+          * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
           * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`. For a non-sharded cluster, use `MONGOD`.
           * `shard_name`: Shard name in a sharded cluster.
-          * `hidden`: The host will either be visible or hidden.
+          * `hidden`: The host will either be visible (`false`) or hidden (`true`).
           * `secondary_delay_secs`: Host's lag behind the master.
           * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
           * `tags`: Host labels.
@@ -404,7 +404,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
   To create a cluster backup:
 
-  1. View a description of the CLI create {{ MG }} backup command:
+  1. View the description of the CLI command to create an {{ MG }} backup:
 
       ```bash
       {{ yc-mdb-mg }} cluster backup --help

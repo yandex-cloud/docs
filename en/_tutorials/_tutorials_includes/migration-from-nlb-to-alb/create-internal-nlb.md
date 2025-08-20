@@ -44,12 +44,12 @@
               externalTrafficPolicy: Local
               loadBalancerIP: <IP_address_of_internal_network_load_balancer_listener>
               ports:
-              - port: <HTTP_port_number_e.g._80>
-                targetPort: <HTTP_port_number_of_NGINX_Ingress_controller_pod_e.g._80>
+              - port: <80_or_another_port_number_for_HTTP>
+                targetPort: <80_or_another_port_number_for_NGINX_Ingress_controller_pod_for_HTTP>
                 protocol: TCP
                 name: http
-              - port: <HTTPS_port_number_e.g._443>
-                targetPort: <HTTPS_port_number_of_NGINX_Ingress_controller_pod_e.g._443>
+              - port: <443_or_another_port_number_for_HTTPS>
+                targetPort: <443_or_another_port_number_for_NGINX_Ingress_controller_pod_for_HTTPS>
                 protocol: TCP
                 name: https
               selector:

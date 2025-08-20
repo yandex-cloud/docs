@@ -1,4 +1,4 @@
-# Managing shards {{ MG }}
+# Managing {{ MG }} shards
 
 You can [create a sharded](cluster-create.md#creating-a-sharded-cluster) cluster or [enable sharding](#enable) later. After that, you can [add and configure shards](#add-shard).
 
@@ -32,7 +32,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.button_sharding-enable }}**.
   1. Select a sharding type:
@@ -135,7 +135,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
   1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -255,10 +255,10 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
                         {
                           "zoneId": "<availability_zone>",
                           "subnetId": "<subnet_ID>",
-                          "assignPublicIp": <public_host_address:_true_or_false>,
+                          "assignPublicIp": <allow_public_access_to_host>,
                           "type": "<host_type>",
                           "shardName": "<shard_name>",
-                          "hidden": <host_visibility:_true_or_false>,
+                          "hidden": <hide_host>,
                           "secondaryDelaySecs": "<lag_in_seconds>",
                           "priority": "<host_priority_for_assignment_as_master>",
                           "tags": "<host_labels>"
@@ -278,10 +278,10 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp`: Internet access to the host via a public IP address.
+          * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
           * `type`: Host type: `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
           * `shardName`: Shard name.
-          * `hidden`: The host will either be visible or hidden.
+          * `hidden`: The host will either be visible (`false`) or hidden (`true`).
           * `secondaryDelaySecs`: Host's lag behind the master.
           * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
           * `tags`: Host labels.
@@ -319,10 +319,10 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
                   {
                     "zone_id": "<availability_zone>",
                     "subnet_id": "<subnet_ID>",
-                    "assign_public_ip": <public_host_address:_true_or_false>,
+                    "assign_public_ip": <allow_public_access_to_host>,
                     "type": "<host_type>",
                     "shard_name": "<shard_name>",
-                    "hidden": <host_visibility:_true_or_false>,
+                    "hidden": <hide_host>,
                     "secondary_delay_secs": "<lag_in_seconds>",
                     "priority": "<host_priority_for_assignment_as_master>",
                     "tags": "<host_labels>"
@@ -344,10 +344,10 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
         * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
         * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-        * `assign_public_ip`: Internet access to the host via a public IP address.
+        * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
         * `type`: Host type: `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
         * `shard_name`: Shard name.
-        * `hidden`: The host will either be visible or hidden.
+        * `hidden`: The host will either be visible (`false`) or hidden (`true`).
         * `secondary_delay_secs`: Host's lag behind the master.
         * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
         * `tags`: Host labels.
@@ -364,7 +364,7 @@ Sharding is [not supported](../concepts/sharding.md#shard-management) for hosts 
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
 
 - CLI {#cli}
@@ -449,7 +449,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
   1. Enter a name for the shard and add the number of hosts you need.
@@ -480,7 +480,7 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
   1. {% include [update-provider-version](../../_includes/mdb/mmg/terraform/update-provider-version.md) %}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 
@@ -528,10 +528,10 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
                         {
                           "zoneId": "<availability_zone>",
                           "subnetId": "<subnet_ID>",
-                          "assignPublicIp": <public_host_address:_true_or_false>,
+                          "assignPublicIp": <allow_public_access_to_host>,
                           "type": "<host_type>",
                           "shardName": "<shard_name>",
-                          "hidden": <host_visibility:_true_or_false>,
+                          "hidden": <hide_host>,
                           "secondaryDelaySecs": "<time_in_seconds>",
                           "priority": "<host_priority_for_assignment_as_master>",
                           "tags": "<labels>"
@@ -546,15 +546,15 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
         Where:
 
-        * `shardName`: Name of the shard you are creating.
+        * `shardName`: Name of the shard being created.
         * `hostSpecs`: Host parameters:
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp`: Internet access to the host via a public IP address.
+          * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
           * `type`: Host type. Specify `MONGOD`.
           * `shardName`: Shard name.
-          * `hidden`: The host will either be visible or hidden.
+          * `hidden`: The host will either be visible (`false`) or hidden (`true`).
           * `secondaryDelaySecs`: Host's lag behind the master.
           * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
           * `tags`: Host labels.
@@ -587,10 +587,10 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
                     {
                       "zone_id": "<availability_zone>",
                       "subnet_id": "<subnet_ID>",
-                      "assign_public_ip": <public_host_address:_true_or_false>,
+                      "assign_public_ip": <allow_public_access_to_host>,
                       "type": "<host_type>",
                       "shard_name": "<shard_name>",
-                      "hidden": <host_visibility:_true_or_false>,
+                      "hidden": <hide_host>,
                       "secondary_delay_secs": "<time_in_seconds>",
                       "priority": "<host_priority_for_assignment_as_master>",
                       "tags": "<labels>"
@@ -606,15 +606,15 @@ The number of shards in {{ mmg-name }} clusters is limited by the CPU and RAM qu
 
         Where:
 
-        * `shard_name`: Name of the shard you are creating.
+        * `shard_name`: Name of the shard being created.
         * `host_specs`: Host parameters:
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assign_public_ip`: Internet access to the host via a public IP address.
+          * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
           * `type`: Host type. Specify `MONGOD`.
           * `shard_name`: Shard name.
-          * `hidden`: The host will either be visible or hidden.
+          * `hidden`: The host will either be visible (`false`) or hidden (`true`).
           * `secondary_delay_secs`: Host's lag behind the master.
           * `priority`: Host priority for assignment as a master if the [primary master fails](../concepts/replication.md#master-failover).
           * `tags`: Host labels.
@@ -639,7 +639,7 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
 - Management console {#console}
 
-  1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mongodb.cluster.switch_shards }}** tab.
   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the shard row and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
@@ -661,7 +661,7 @@ The [removeShard](https://docs.mongodb.com/manual/reference/command/removeShard/
 
 - {{ TF }} {#tf}
 
-  1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
      For information on how to create this file, see [Creating a cluster](cluster-create.md).
 

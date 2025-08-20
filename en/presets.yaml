@@ -8532,11 +8532,14 @@ default:
         switch_registry: Registries
       data-catalog:
         action_create-catalog: Create catalog
+        action_edit-domain: Edit domain
         action_set-domain: Set domain
         label_add: Add
         label_add-subdomain-action: Add subdomain
         label_add-tags: Edit tags
         label_add-terms: Edit terms
+        label_asset-lineage-depth: Depth
+        label_asset-lineage-weak: Display additional connections
         label_connected-terms: Linked terms
         label_create-catalog: Creating a catalog
         label_create-classification-action: Create classification
@@ -8552,6 +8555,7 @@ default:
         label_ingestion-status-Running: Running
         label_ingestion-tab-operations: Operations
         label_ingestions: Ingestions
+        label_search-action-share: Share
         label_search-button-add-filter: Add filter
         label_search-placeholder: Data search
         label_source-data-tab: Uploaded data

@@ -372,6 +372,14 @@ items:
                 href: operations/data-catalog/update-source.md
               - name: Удаление источника
                 href: operations/data-catalog/delete-source.md
+          - name: Работа с данными
+            items:
+              - name: Разметка метаданных
+                href: operations/data-catalog/markup-metadata.md
+              - name: Поиск метаданных
+                href: operations/data-catalog/search-metadata.md
+              - name: Анализ связей между метаданными
+                href: operations/data-catalog/analysis-metadata.md
       - name: Концепции
         items:
           - name: Каталог метаданных

@@ -135,7 +135,10 @@ Select automatic update mode for your {{ managed-k8s-name }} cluster and set the
        }
        ```
 
-       Where `start_time` is the update start time in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+       Where:
+
+       * `start_time`: Update start time in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
+       * `duration`: Update duration, e.g., `4h30m`.
 
      * To enable updates on selected days (multiple periods are possible):
 
@@ -146,18 +149,24 @@ Select automatic update mode for your {{ managed-k8s-name }} cluster and set the
          maintenance_policy {
            auto_upgrade = true
            maintenance_window {
-             day        = "<update_start_day,_e.g.,_monday>"
-             start_time = "<update_start_time,_UTC>"
+             day        = "<update_start_day>"
+             start_time = "<update_start_time>"
              duration   = "<update_duration>"
            }
            maintenance_window {
-             day        = "<update_start_day,_e.g.,_monday>"
-             start_time = "<update_start_time,_UTC>"
+             day        = "<update_start_day>"
+             start_time = "<update_start_time>"
              duration   = "<update_duration>"
            }
          }
        }
        ```
+
+       Where:
+
+       * `day`: Day of week, e.g., `monday`.
+       * `start_time`: Update start time in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
+       * `duration`: Update duration, e.g., `4h30m`.
 
      * To enable the random update time mode, do not add the `maintenance_policy` parameter section to the {{ managed-k8s-name }} cluster description. If you omit automatic update settings in the {{ managed-k8s-name }} cluster description, updates will take place at a random time.
      * To disable automatic updates:
@@ -425,7 +434,10 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
        }
        ```
 
-       Where `start_time` is the update start time in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+       Where:
+
+       * `start_time`: Update start time in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
+       * `duration`: Update duration, e.g., `4h30m`.
 
      * To enable updates on selected days (multiple periods are possible):
 
@@ -436,18 +448,24 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
          maintenance_policy {
            auto_upgrade = true
            maintenance_window {
-             day        = "<update_start_day,_e.g.,_monday>"
-             start_time = "<update_start_time,_UTC>"
+             day        = "<update_start_day>"
+             start_time = "<update_start_time>"
              duration   = "<update_duration>"
            }
            maintenance_window {
-             day        = "<update_start_day,_e.g.,_monday>"
-             start_time = "<update_start_time,_UTC>"
+             day        = "<update_start_day>"
+             start_time = "<update_start_time>"
              duration   = "<update_duration>"
            }
          }
        }
        ```
+
+       Where:
+
+       * `day`: Day of week, e.g., `monday`.
+       * `start_time`: Update start time in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) format.
+       * `duration`: Update duration, e.g., `4h30m`.
 
      * To enable the random update time mode, do not add the `maintenance_policy` parameter section to the {{ managed-k8s-name }} node group description. If you omit automatic update settings in the {{ managed-k8s-name }} node group description, updates will take place at a random time.
      * To configure the settings for {{ managed-k8s-name }} node group deployment during updates:

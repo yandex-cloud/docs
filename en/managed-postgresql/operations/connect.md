@@ -244,20 +244,20 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
         * **URL**: Connection string:
 
           ```http
-          jdbc:postgresql://<special_FQDN>:{{ port-mpg }}>/<DB_name>
+          jdbc:postgresql://<special_FQDN>:{{ port-mpg }}/<DB_name>
           ```
 
           You can also use a list of all the cluster host [FQDNs](#fqdn) in the connection string:
 
           ```http
-          jdbc:postgresql://<{{ PG }}_host_1: {{ port-mpg }}>,...,<{{ PG }}_host_N: {{ port-mpg }}>/<DB_name>
+          jdbc:postgresql://<{{ PG }}_host_1>:{{ port-mpg }},...,<{{ PG }}_host_N>:{{ port-mpg }}/<DB_name>
           ```
 
         * Click **Download** to download the connection driver.
      1. On the **SSH/SSL** tab:
          1. Enable the **Use SSL** setting.
          1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-  1. Click **Test Connection** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+  1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
   1. Click **OK** to save the data source.
 
 - DBeaver {#dbeaver}
@@ -274,7 +274,7 @@ You can only use graphical IDEs to connect to public cluster hosts using an SSL 
      1. On the **SSL** tab:
          1. Enable **Use SSL**.
          1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
-  1. Click **Test Connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+  1. Click **Test Connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
   1. Click **Ready** to save the database connection settings.
 
 {% endlist %}

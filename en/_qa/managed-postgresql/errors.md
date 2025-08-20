@@ -193,7 +193,7 @@ The error occurs if you specify a replication source for a single non-cascading 
 
 To ensure [high availability](../../architecture/fault-tolerance.md#mdb-ha), your cluster must have at least one replica without a replication source. During maintenance or if the master host fails, this replica will take over as the master.
 
-To learn more about replication, see [this guide](../../managed-postgresql/concepts/replication.md).
+To learn more about replication, see [this section](../../managed-postgresql/concepts/replication.md).
 
 #### Why do I get the `cannot execute <SQL_command> in a read-only transaction` error? {#read-only-error}
 
@@ -226,3 +226,7 @@ To prevent such errors, use any of the following ways:
 * When connecting, specify the `target_session_attrs=read-write` parameter and list all cluster hosts. This way, you will connect to the master host with read and write access.
 
 For more information on how to connect to the master host, see [Connecting to a database](../../managed-postgresql/operations/connect.md#automatic-master-host-selection).
+
+#### What should I do if logs display the `too many connections for role "monitor"` error? {#monitor-role-error}
+
+The `monitor` user is reserved for monitoring purposes in a {{ mpg-name }} cluster. You can ignore `too many connections` warnings for this user.

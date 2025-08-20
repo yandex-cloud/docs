@@ -155,7 +155,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
        --cluster-name=<cluster_name> \
        --host zone-id=<availability_zone_ID>,`
          `subnet-id=<subnet_ID>,`
-         `assign-public-ip=<public_access_to_subcluster_host>,`
+         `assign-public-ip=<allow_public_access_to_host>,`
          `replication-source=<source_host_name>,`
          `backup-priority=<host_backup_priority>,`
          `priority=<host_priority_for_assignment_as_master>
@@ -186,7 +186,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
        host {
          zone             = "<availability_zone>"
          subnet_id        = <subnet_ID>
-         assign_public_ip = <public_access_to_host>
+         assign_public_ip = <allow_public_access_to_host>
          priority         = <host_priority_for_assignment_as_master>
          ...
        }
@@ -229,7 +229,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
                       {
                         "zoneId": "<availability_zone>",
                         "subnetId": "<subnet_ID>",
-                        "assignPublicIp": <public_host_address:_true_or_false>,
+                        "assignPublicIp": <allow_public_access_to_host>,
                         "replicationSource": "<host_FQDN>",
                         "backupPriority": "<host_backup_priority>",
                         "priority": "<host_priority_for_assignment_as_master>"
@@ -242,7 +242,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
       * `zoneId`: Availability zone.
       * `subnetId`: Subnet ID.
-      * `assignPublicIp`: Internet access to the host via a public IP address.
+      * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
       * `replicationSource`: Replication source for the host to [manually manage replication threads](../concepts/replication.md#manual-source). In the parameter, specify the [FQDN of the host](connect.md#fqdn) to be used as a replication source.
       * `backupPriority`: Host's [backup](../concepts/backup.md#size) priority, between `0` and `100`.
       * `priority`: Priority for assigning the host as master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
@@ -273,7 +273,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
                   {
                     "zone_id": "<availability_zone>",
                     "subnet_id": "<subnet_ID>",
-                    "assign_public_ip": <public_host_address:_true_or_false>,
+                    "assign_public_ip": <allow_public_access_to_host>,
                     "replication_source": "<host_FQDN>",
                     "backup_priority": "<host_backup_priority>",
                     "priority": "<host_priority_for_assignment_as_master>"
@@ -288,7 +288,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
       * `zone_id`: Availability zone.
       * `subnet_id`: Subnet ID.
-      * `assign_public_ip`: Internet access to the host via a public IP address.
+      * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
       * `replication_source`: Replication source for the host to [manually manage replication threads](../concepts/replication.md#manual-source). In the parameter, specify the [FQDN of the host](connect.md#fqdn) to be used as a replication source.
       * `backup_priority`: Host's [backup](../concepts/backup.md#size) priority, between `0` and `100`.
       * `priority`: Priority for assigning the host as master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
@@ -352,7 +352,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
   {{ yc-mdb-my }} host update <host_name> \
     --cluster-name=<cluster_name> \
     --replication-source=<source_host_name> \
-    --assign-public-ip=<public_access_to_host> \
+    --assign-public-ip=<allow_public_access_to_host> \
     --backup-priority=<host_backup_priority> \
     --priority=<host_priority_for_assignment_as_master>
   ```
@@ -379,7 +379,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
        ...
        host {
          replication_source_name = "<replication_source>"
-         assign_public_ip        = <public_access_to_host>
+         assign_public_ip        = <allow_public_access_to_host>
          priority                = <host_priority_for_assignment_as_master>
        }
      }
@@ -421,7 +421,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
                       {
                         "updateMask": "assignPublicIp,replicationSource,backupPriority,priority",
                         "hostName": "<host_FQDN>",
-                        "assignPublicIp": <public_host_address:_true_or_false>,
+                        "assignPublicIp": <allow_public_access_to_host>,
                         "replicationSource": "<host_FQDN>",
                         "backupPriority": "<host_backup_priority>",
                         "priority": "<host_priority_for_assignment_as_master>"
@@ -433,8 +433,8 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
       Where `updateHostSpecs` is an array of hosts being changed. One array element contains settings for a single host and has the following structure:
 
       * `updateMask`: List of parameters to update as a single string, separated by commas.
-      * `hostName`: [FQDN of the host being changed](connect.md#fqdn).
-      * `assignPublicIp`: Internet access to the host via a public IP address.
+      * `hostName`: [FQDN of a host being changed](connect.md#fqdn).
+      * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
       * `replicationSource`: Replication source for the host to [manually manage replication threads](../concepts/replication.md#manual-source). In the parameter, specify the [FQDN of the host](connect.md#fqdn) to be used as a replication source.
       * `backupPriority`: Host's [backup](../concepts/backup.md#size) priority, between `0` and `100`.
       * `priority`: Priority for assigning the host as master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
@@ -469,7 +469,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
                       ]
                     },
                     "host_name": "<host_FQDN>",
-                    "assign_public_ip": <public_host_address:_true_or_false>,
+                    "assign_public_ip": <allow_public_access_to_host>,
                     "replication_source": "<host_FQDN>",
                     "backup_priority": "<host_backup_priority>",
                     "priority": "<host_priority_for_assignment_as_master>"
@@ -484,7 +484,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 
       * `update_mask`: List of parameters to update as an array of `paths[]` strings.
       * `host_name`: [FQDN of the host being changed](connect.md#fqdn).
-      * `assign_public_ip`: Internet access to the host via a public IP address.
+      * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
       * `replication_source`: Replication source for the host to [manually manage replication threads](../concepts/replication.md#manual-source). In the parameter, specify the [FQDN of the host](connect.md#fqdn) to be used as a replication source.
       * `backup_priority`: Host's [backup](../concepts/backup.md#size) priority, between `0` and `100`.
       * `priority`: Priority for assigning the host as master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.

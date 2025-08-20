@@ -3,7 +3,7 @@
 
 [{{ yq-full-name }}](../../query/) supports {{ at-name }}. You can analyze events of {{ yandex-cloud }} resources by running [analytical](../../query/concepts/batch-processing.md) and [streaming](../../query/concepts/stream-processing.md) {{ yql-short-name }} queries.
 
-You can run analytical queries for logs stored in a bucket, and streaming queries for logs stored in {{ yds-full-name }}.
+You can run analytical queries for logs stored in a bucket, and streaming queries for logs stored in a {{ yds-full-name }} data stream.
 
 ![](../../_assets/audit-trails/tutorials/audit-trails-query.png)
 
@@ -115,7 +115,7 @@ Assign the `audit-trails.viewer` and `storage.uploader` roles to the `trail-sa` 
 
 {% endlist %}
 
-Assign the `storage.viewer` role for `example-folder` to the `bucket-yq-sa` service account:
+Assign the `bucket-yq-sa` service account the `storage.viewer` role for `example-folder`:
 
 {% list tabs group=instructions %}
 
@@ -205,7 +205,7 @@ Open the page to create an analytical query to {{ at-name }} logs:
 
 {% endlist %}
 
-Run event queries to bind `audit-trails-logsyq-object_storage`:
+Run event queries for the `audit-trails-logsyq-object_storage` binding:
 
 1. Deleting a folder:
 

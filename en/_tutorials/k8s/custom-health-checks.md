@@ -32,11 +32,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using the master and outbound traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for using an L7 load balancer’s computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for {{ container-registry-name }} [storage](../../container-registry/pricing).
+* Fee for {{ container-registry-name }} [storage](../../container-registry/pricing.md).
 
 
 ## Get your cloud ready {#before-begin}
@@ -88,7 +88,7 @@ The support cost includes:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will show any errors found in your configuration files.
 
    1. Create the required infrastructure:
 
@@ -250,7 +250,9 @@ To prepare an address for the load balancer:
 - Manually {#manual}
 
    1. [Reserve a static public IP address](../../vpc/operations/get-static-ip.md) for the {{ alb-name }} load balancer.
-   1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
+
+   1. {% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}
+
    1. To map the address to the domain, [create an A record](../../dns/operations/resource-record-create.md) for the delegated domain. Specify the reserved IP address as the record value.
    1. Make sure the A record is added:
 
@@ -282,7 +284,7 @@ To prepare an address for the load balancer:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will show any errors found in your configuration files.
 
    1. Create the required infrastructure:
 
@@ -332,7 +334,7 @@ To create resources:
 
    To follow the process and make sure it is error-free, open the logs of the pod it is run in:
 
-   1. In the [management console]({{ link-console-main }}), navigate to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Click the cluster name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
    1. Select the `yc-alb-ingress-controller-*` pod (not `yc-alb-ingress-controller-hc-*`) that is running the resource creation.
    1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.

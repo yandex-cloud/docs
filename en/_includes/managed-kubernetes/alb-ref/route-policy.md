@@ -4,7 +4,7 @@ The `RoutePolicy` resource enables setting cloud-specific policies for `HTTPRout
 
 {% note info %}
 
-You can also set policy parameters using `HTTPRoute` resource annotations. The `RoutePolicy` resource parameters and `HTTPRoute` annotations are equivalent.
+You can also set policy parameters using `HTTPRoute` resource annotations. `RoutePolicy` resource parameters and `HTTPRoute` annotations are equivalent.
 
 {% endnote %}
 
@@ -217,7 +217,7 @@ http:
 
 * `sessionAffinity` (`SessionAffinity`)
 
-  Session parameters. For more information, see [SessionAffinity](#sessionaffinity).
+  [Session affinity](../../../application-load-balancer/concepts/backend-group.md#session-affinity) settings. For more information, see [SessionAffinity](#sessionaffinity).
 
 * `securityProfileId` (`string`)
 
@@ -403,7 +403,7 @@ Where:
 
 * `connection.sourceIP` (`bool`)
 
-  Indicator of using client IP address for session affinity.
+  Indicator of using the client IP address for session affinity.
 
 * `cookie.name` (`string`)
 

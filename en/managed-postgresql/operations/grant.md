@@ -38,7 +38,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
 - Management console {#console}
 
-  1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.
   1. In the user name row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Expand the **{{ ui-key.yacloud.mdb.dialogs.button_advanced-settings }}** list and select the roles you want to assign to the user in the **Grants** field.
@@ -56,7 +56,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
   ```bash
   {{ yc-mdb-pg }} user update <username> \
-         --grants=<role_1,role_2> \
+         --grants=<role_1>,<role_2> \
          --cluster-id <cluster_ID>
   ```
 
@@ -66,7 +66,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
 
   To assign roles to a cluster user:
   
-    1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
   
         For more information about creating this file, see [Creating clusters](cluster-create.md).
 
@@ -124,7 +124,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
        --data '{
                  "updateMask": "grants",
                  "grants": [
-                   "role_1", "role_2", ..., “role_N"
+                   "role_1", "role_2", ..., "role_N"
                  ]
                }'
      ```
@@ -190,7 +190,7 @@ You cannot create custom roles in {{ mpg-name }}. User permissions depend on a s
                ]
              },
              "grants": [
-               "role_1", "role_2", ..., “role_N"
+               "role_1", "role_2", ..., "role_N"
              ]
            }' \
        {{ api-host-mdb }}:{{ port-https }} \

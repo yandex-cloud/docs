@@ -70,7 +70,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
   
   To restore a cluster from a backup:
   
-  1. View a description of the CLI restore {{ PG }} cluster command:
+  1. View the description of the CLI command to restore a {{ PG }} cluster:
   
       ```bash
       {{ yc-mdb-pg }} cluster restore --help
@@ -105,7 +105,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
          --network-name=<network_name> \
          --host zone-id=<availability_zone>,`
                `subnet-name=<subnet_name>,`
-               `assign-public-ip=<public_access_to_host> \
+               `assign-public-ip=<allow_public_access_to_host> \
          --resource-preset=<host_class> \
          --disk-size=<storage_size_in_GB> \
          --disk-type=<disk_type>
@@ -269,7 +269,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
          {
            "zoneId": "<availability_zone>",
            "subnetId": "<subnet_ID>",
-           "assignPublicIp": <public_host_address:_true_or_false>
+           "assignPublicIp": <allow_public_access_to_host>
          }
        ]
      }
@@ -300,7 +300,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
        * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-       * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
+       * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
   1. Use the [Cluster.Restore](../api-ref/Cluster/restore.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
@@ -344,7 +344,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
          {
            "zone_id": "<availability_zone>",
            "subnet_id": "<subnet_ID>",
-           "assign_public_ip": <public_host_address:_true_or_false>
+           "assign_public_ip": <allow_public_access_to_host>
          }
        ]
      }
@@ -375,7 +375,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
 
        * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
        * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-       * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
+       * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
   1. Use the [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
@@ -416,7 +416,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mp
   
   To create a cluster backup:
   
-  1. View a description of the CLI create {{ PG }} backup command:
+  1. View the description of the CLI command to create an {{ PG }} backup:
   
       ```
       {{ yc-mdb-pg }} cluster backup --help

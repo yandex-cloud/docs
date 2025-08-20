@@ -24,7 +24,7 @@ description: Follow this guide to move hosts in a {{ VLK }} cluster to a differe
 
    - Management console {#console}
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
       1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Specify the host parameters:
@@ -48,10 +48,10 @@ description: Follow this guide to move hosts in a {{ VLK }} cluster to a differe
          --cluster-name <cluster_name> \
          --host zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<public_access_to_host:_true_or_false>
+               `assign-public-ip=<allow_public_access_to_host>
       ```
 
-      You can retrieve the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
       In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
 
@@ -65,7 +65,7 @@ description: Follow this guide to move hosts in a {{ VLK }} cluster to a differe
            host {
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <public_access_to_host:_true_or_false>
+             assign_public_ip = <allow_public_access_to_host>
            }
          }
          ```
@@ -106,7 +106,7 @@ description: Follow this guide to move hosts in a {{ VLK }} cluster to a differe
 
    - Management console {#console}
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+      1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
       1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
@@ -139,4 +139,4 @@ description: Follow this guide to move hosts in a {{ VLK }} cluster to a differe
 
    {% endlist %}
 
-1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.

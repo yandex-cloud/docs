@@ -1,11 +1,6 @@
 title: Yandex Cloud Backup
 description:
   - >-
-    <em>In the <a href="/docs/overview/concepts/region">Kazakhstan region</a>,
-    Yandex Cloud Backup is at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
-  - Yandex BareMetal is only available in the Russia region.
-  - >-
     With Yandex Cloud Backup, you can set up automatic backups for <a
     href="/docs/compute">Yandex Compute Cloud</a> VMs and <a
     href="/docs/baremetal">Yandex BareMetal</a> servers.
@@ -25,7 +20,7 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions to use the service
+    description: Configure access permissions for the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculation

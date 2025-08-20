@@ -33,7 +33,7 @@ You can specify more detailed rules for your security groups, e.g., to allow tra
 
   {% note warning %}
 
-  Some products require applying additional rules in security groups. For more information, see guides for the products at hand.
+  Some products require applying additional rules in security groups. For more information, see guides for the relevant products.
 
   {% endnote %}
 
@@ -189,200 +189,279 @@ Depending on the rules the security groups contain, these groups must be assigne
 
 ## Examples of rules {#examples}
 
+Let’s assume you want to create a {{ k8s }} cluster which:
+
+* Uses the following configuration:
+
+    * A highly-available master in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones.
+    * A node group named `worker-nodes-a` in the `{{ region-id }}-a` availability zone.
+    * Cluster CIDR: `10.96.0.0/16`; CIDR of services: `10.112.0.0/16`.
+
+* Follows these traffic exchange policies:
+
+    * [Health checks of nodes using ICMP requests](#rules-internal-cluster) are allowed from the following subnets within {{ yandex-cloud }}:
+
+        * `10.0.0.0/8`
+        * `172.16.0.0/12`
+        * `192.168.0.0/16`
+
+    * [Connections to services from the internet](#rules-nodes) are allowed from any addresses: `0.0.0.0/0`.
+    * [Connections to nodes via SSH](#rules-nodes-ssh) are allowed from the only address: `85.32.32.22/32`.
+    * [Access to the {{ k8s }} API](#rules-master) is allowed from the only subnet: `203.0.113.0/24`.
+
+To create such a cluster:
+
 {% list tabs group=instructions %}
 
-- {{ TF }} {#tf}
+- CLI {#cli}
 
-    Let’s assume you want to create a {{ k8s }} cluster which:
+  1. Create a security group named `k8s-cluster-nodegroup-traffic` that allows traffic for a cluster and node groups:
 
-    * Uses the following configuration:
+      ```bash
+      yc vpc security-group create \
+        --name k8s-cluster-nodegroup-traffic \
+        --network-id <cloud_network_ID> \
+        --rule "description=healthchecks,direction=ingress,protocol=tcp,from-port=0,to-port=65535,predefined=loadbalancer_healthchecks" \
+        --rule "description=master-nodes,direction=ingress,protocol=any,from-port=0,to-port=65535,predefined=self_security_group" \
+        --rule "description=icmp,direction=ingress,protocol=icmp,v4-cidrs=[10.0.0.0/8,172.16.0.0/12,192.168.0.0/16]" \
+        --rule "description=master-nodes-outgoing,direction=egress,protocol=any,from-port=0,to-port=65535,predefined=self_security_group"
+      ```
 
-        * A highly-available master in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones.
-        * A node group named `worker-nodes-a` in the `{{ region-id }}-a` availability zone.
-        * Cluster CIDR: `10.96.0.0/16`; CIDR of services: `10.112.0.0/16`.
+  1. Create a security group named `k8s-nodegroup-traffic` that allows traffic for node groups:
 
-    * Follows these traffic exchange policies:
+      ```bash
+      yc vpc security-group create \
+        --name k8s-nodegroup-traffic \
+        --network-id <cloud_network_ID> \
+        --rule "description=pods-services,direction=ingress,protocol=any,from-port=0,to-port=65535,v4-cidrs=[10.96.0.0/16,10.112.0.0/16]" \
+        --rule "description=nodes-external-resources,direction=egress,protocol=any,from-port=0,to-port=65535,v4-cidrs=[0.0.0.0/0]"
+      ``` 
 
-        * [Health checks of nodes using ICMP requests](#rules-internal-cluster) are allowed from the following subnets within {{ yandex-cloud }}:
+  1. Create a security group named `k8s-cluster-traffic` that allows traffic for a cluster:
 
-            * `10.0.0.0/8`
-            * `172.16.0.0/12`
-            * `192.168.0.0/16`
+      ```bash
+      yc vpc security-group create \
+        --name k8s-cluster-traffic \
+        --network-id <cloud_network_ID> \
+        --rule "description=api-443,direction=ingress,protocol=tcp,port=443,v4-cidrs=[203.0.113.0/24]" \
+        --rule "description=api-6443,direction=ingress,protocol=tcp,port=6443,v4-cidrs=[203.0.113.0/24]" \
+        --rule "description=metric-server,direction=egress,protocol=tcp,port=4443,v4-cidrs=[10.96.0.0/16]"
+      ```
 
-        * [Connections to services from the internet](#rules-nodes) are allowed from any addresses: `0.0.0.0/0`.
-        * [Connections to nodes via SSH](#rules-nodes-ssh) are allowed from the only address: `85.32.32.22/32`.
-        * [Access to the {{ k8s }} API](#rules-master) is allowed from the only subnet: `203.0.113.0/24`.
+  1. Create a security group named `k8s-services-access` that allows connection to services from the internet:
 
-    To create such a cluster:
+      ```bash
+      yc vpc security-group create \
+        --name k8s-services-access \
+        --network-id <cloud_network_ID> \
+        --rule "description=services-incoming,direction=ingress,protocol=tcp,from-port=30000,to-port=32767,v4-cidrs=[0.0.0.0/0]"
+      ```
 
-    1. Create security groups with the required rules.
+  1. Create a security group named `k8s-ssh-access` that allows connection to nodes over SSH:
 
-        {% cut "Configuration file with security groups" %}
+      ```bash
+      yc vpc security-group create \
+        --name k8s-ssh-access \
+        --network-id <cloud_network_ID> \
+        --rule "description=ssh-access,direction=ingress,protocol=tcp,port=22,v4-cidrs=[85.32.32.22/32]"
+      ```  
 
-        ```hcl
-        resource "yandex_vpc_security_group" "k8s-cluster-nodegroup-traffic" {
-          name        = "k8s-cluster-nodegroup-traffic"
-          description = "The group rules allow service traffic for the cluster and node groups. Apply it to the cluster and node groups."
-          network_id  = "<cloud_network_ID>"
-          ingress {
-            description       = "Rule for health checks of the network load balancer."
-            from_port         = 0
-            to_port           = 65535
-            protocol          = "TCP"
-            predefined_target = "loadbalancer_healthchecks"
+  1. Create a cluster and assign it the `k8s-cluster-nodegroup-traffic` and `k8s-cluster-traffic` security groups:
+
+      ```bash
+      {{ yc-k8s }} cluster create \
+        --name k8s-cluster \
+        --network-id <cloud_network_ID> \
+        --service-account-id <service_account_ID_for_cluster> \
+        --node-service-account-id <serivce_account_ID_for_node_group> \
+        --cluster-ipv4-range 10.96.0.0/16 \
+        --service-ipv4-range 10.112.0.0/16 \
+        --public-ip \
+        --master-location zone={{ region-id }}-a,subnet-id=<cloud_subnet_ID_in_{{ region-id }}-a_zone> \
+        --master-location zone={{ region-id }}-b,subnet-id=<cloud_subnet_ID_in_{{ region-id }}-b_zone> \
+        --master-location zone={{ region-id }}-d,subnet-id=<cloud_subnet_ID_in_{{ region-id }}-d_zone> \
+        --security-group-ids <k8s-cluster-nodegroup-traffic_ID>,<k8s-cluster-traffic_ID>
+      ```
+
+      You can [get](../../../vpc/operations/security-group-get-info.md) the security group ID together with info on the security group.
+
+  1. Create a node group and assign it the `k8s-cluster-nodegroup-traffic`, `k8s-nodegroup-traffic`, `k8s-services-access`, and `k8s-ssh-access` security groups:
+
+      ```bash
+      {{ yc-k8s }} node-group create \
+        --name worker-nodes-a \
+        --cluster-id <cluster_ID> \
+        --location zone={{ region-id }}-a \
+        --fixed-size 1 \
+        --network-interface subnets=<subnet_ID_in_{{ region-id }}-a>,ipv4-address=nat,security-group-ids=[<k8s-cluster-nodegroup-traffic_ID>,<k8s-nodegroup-traffic_ID>,<k8s-services-access_ID>,<k8s-ssh-access_ID>]
+      ```
+
+      You can [get](../../../vpc/operations/security-group-get-info.md) the security group ID together with info on the security group.
+    
+- {{ TF }} {#tf}    
+
+  1. Create security groups with the required rules:
+
+      ```hcl
+      resource "yandex_vpc_security_group" "k8s-cluster-nodegroup-traffic" {
+        name        = "k8s-cluster-nodegroup-traffic"
+        description = "The group rules allow service traffic for the cluster and node groups. Apply it to the cluster and node groups."
+        network_id  = "<cloud_network_ID>"
+        ingress {
+          description       = "Rule for health checks of the network load balancer."
+          from_port         = 0
+          to_port           = 65535
+          protocol          = "TCP"
+          predefined_target = "loadbalancer_healthchecks"
+        }
+        ingress {
+          description       = "Rule for incoming service traffic between the master and the nodes."
+          from_port         = 0
+          to_port           = 65535
+          protocol          = "ANY"
+          predefined_target = "self_security_group"
+        }
+        ingress {
+          description    = "Rule for health checks of nodes using ICMP requests from subnets within {{ yandex-cloud }}."
+          protocol       = "ICMP"
+          v4_cidr_blocks = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
+        }
+        egress {
+          description       = "Rule for outgoing service traffic between the master and the nodes."
+          from_port         = 0
+          to_port           = 65535
+          protocol          = "ANY"
+          predefined_target = "self_security_group"
+        }
+      }
+
+      resource "yandex_vpc_security_group" "k8s-nodegroup-traffic" {
+        name        = "k8s-nodegroup-traffic"
+        description = "The group rules allow service traffic for node groups. Apply it to node groups."
+        network_id  = "<cloud_network_ID>"
+        ingress {
+          description    = "Rule for incoming traffic that allows traffic transfer between pods and services."
+          from_port      = 0
+          to_port        = 65535
+          protocol       = "ANY"
+          v4_cidr_blocks = ["10.96.0.0/16", "10.112.0.0/16"]
+        }
+        egress {
+          description    = "Rule for outgoing traffic that allows node group nodes to connect to external resources."
+          from_port      = 0
+          to_port        = 65535
+          protocol       = "ANY"
+          v4_cidr_blocks = ["0.0.0.0/0"]
+        }
+      }
+
+      resource "yandex_vpc_security_group" "k8s-services-access" {
+        name        = "k8s-services-access"
+        description = "The group rules allow connections to services from the internet. Apply it to node groups."
+        network_id  = "<cloud_network_ID>"
+        ingress {
+          description    = "Rule for incoming traffic that allows connection to services."
+          from_port      = 30000
+          to_port        = 32767
+          protocol       = "TCP"
+          v4_cidr_blocks = ["0.0.0.0/0"]
+        }
+      }
+
+      resource "yandex_vpc_security_group" "k8s-ssh-access" {
+        name        = "k8s-ssh-access"
+        description = "The group rules allow connection to nodes via SSH. Apply it to node groups."
+        network_id  = "<cloud_network_ID>"
+        ingress {
+          description    = "Rule for incoming traffic that allows connection to nodes via SSH."
+          port           = 22
+          protocol       = "TCP"
+          v4_cidr_blocks = ["85.32.32.22/32"]
+        }
+      }
+
+      resource "yandex_vpc_security_group" "k8s-cluster-traffic" {
+        name        = "k8s-cluster-traffic"
+        description = "The group rules allow traffic for the cluster. Apply it to the cluster."
+        network_id  = "<cloud_network_ID>"
+        ingress {
+          description    = "Rule for incoming traffic that allows access to the {{ k8s }} API (port 443)."
+          port           = 443
+          protocol       = "TCP"
+          v4_cidr_blocks = ["203.0.113.0/24"]
+        }
+        ingress {
+          description    = "Rule for incoming traffic that allows access to the {{ k8s }} API (port 6443)."
+          port           = 6443
+          protocol       = "TCP"
+          v4_cidr_blocks = ["203.0.113.0/24"]
+        }
+        egress {
+          description    = "Rule for outgoing traffic that allows traffic transfer between the master and metric-server pods."
+          port           = 4443
+          protocol       = "TCP"
+          v4_cidr_blocks = ["10.96.0.0/16"]
+        }
+      }
+      ```
+
+  1. Create a cluster with a node group and apply the security groups with rules as follows:
+
+      ```hcl
+      resource "yandex_kubernetes_cluster" "k8s-cluster" {
+        name = "k8s-cluster"
+        service_account_id = "<service_account_ID_for_cluster>"
+        node_service_account_id = "<service_account_ID_for_node_groups>"
+        cluster_ipv4_range = "10.96.0.0/16"
+        service_ipv4_range = "10.112.0.0/16"
+        network_id = "<cloud_network_ID>"
+        master {
+          master_location {
+            zone      = "{{ region-id }}-a"
+            subnet_id = "<cloud_subnet_ID_in_zone>"
           }
-          ingress {
-            description       = "Rule for incoming service traffic between the master and the nodes."
-            from_port         = 0
-            to_port           = 65535
-            protocol          = "ANY"
-            predefined_target = "self_security_group"
+          master_location {
+            zone      = "{{ region-id }}-b"
+            subnet_id = "<cloud_subnet_ID_in_zone>"
           }
-          ingress {
-            description    = "Rule for health checks of nodes using ICMP requests from subnets within {{ yandex-cloud }}."
-            protocol       = "ICMP"
-            v4_cidr_blocks = ["10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"]
+          master_location {
+            zone      = "{{ region-id }}-d"
+            subnet_id = "<cloud_subnet_ID_in_zone>"
           }
-          egress {
-            description       = "Rule for outgoing service traffic between the master and the nodes."
-            from_port         = 0
-            to_port           = 65535
-            protocol          = "ANY"
-            predefined_target = "self_security_group"
+          security_group_ids = [
+            yandex_vpc_security_group.k8s-cluster-nodegroup-traffic.id,
+            yandex_vpc_security_group.k8s-cluster-traffic.id
+          ]
+          public_ip = true
+        }
+      }
+
+      resource "yandex_kubernetes_node_group" "worker-nodes-a" {
+        cluster_id = yandex_kubernetes_cluster.k8s-cluster.id
+        name       = "worker-nodes-a"
+        allocation_policy {
+          location {
+            zone = "{{ region-id }}-a"
           }
         }
-
-        resource "yandex_vpc_security_group" "k8s-nodegroup-traffic" {
-          name        = "k8s-nodegroup-traffic"
-          description = "The group rules allow service traffic for node groups. Apply it to node groups."
-          network_id  = "<cloud_network_ID>"
-          ingress {
-            description    = "Rule for incoming traffic that allows traffic transfer between pods and services."
-            from_port      = 0
-            to_port        = 65535
-            protocol       = "ANY"
-            v4_cidr_blocks = ["10.96.0.0/16", "10.112.0.0/16"]
-          }
-          egress {
-            description    = "Rule for outgoing traffic that allows node group nodes to connect to external resources."
-            from_port      = 0
-            to_port        = 65535
-            protocol       = "ANY"
-            v4_cidr_blocks = ["0.0.0.0/0"]
+        scale_policy {
+          fixed_scale {
+            size = 1
           }
         }
-
-        resource "yandex_vpc_security_group" "k8s-services-access" {
-          name        = "k8s-services-access"
-          description = "The group rules allow connections to services from the internet. Apply it to node groups."
-          network_id  = "<cloud_network_ID>"
-          ingress {
-            description    = "Rule for incoming traffic that allows connection to services."
-            from_port      = 30000
-            to_port        = 32767
-            protocol       = "TCP"
-            v4_cidr_blocks = ["0.0.0.0/0"]
-          }
-        }
-
-        resource "yandex_vpc_security_group" "k8s-ssh-access" {
-          name        = "k8s-ssh-access"
-          description = "The group rules allow connection to nodes via SSH. Apply it to node groups."
-          network_id  = "<cloud_network_ID>"
-          ingress {
-            description    = "Rule for incoming traffic that allows connection to nodes via SSH."
-            port           = 22
-            protocol       = "TCP"
-            v4_cidr_blocks = ["85.32.32.22/32"]
-          }
-        }
-
-        resource "yandex_vpc_security_group" "k8s-cluster-traffic" {
-          name        = "k8s-cluster-traffic"
-          description = "The group rules allow traffic for the cluster. Apply it to the cluster."
-          network_id  = "<cloud_network_ID>"
-          ingress {
-            description    = "Rule for incoming traffic that allows access to the {{ k8s }} API (port 443)."
-            port           = 443
-            protocol       = "TCP"
-            v4_cidr_blocks = ["203.0.113.0/24"]
-          }
-          ingress {
-            description    = "Rule for incoming traffic that allows access to the {{ k8s }} API (port 6443)."
-            port           = 6443
-            protocol       = "TCP"
-            v4_cidr_blocks = ["203.0.113.0/24"]
-          }
-          egress {
-            description    = "Rule for outgoing traffic that allows traffic transfer between the master and metric-server pods."
-            port           = 4443
-            protocol       = "TCP"
-            v4_cidr_blocks = ["10.96.0.0/16"]
-          }
-        }
-        ```
-
-        {% endcut %}
-
-    1. Create a cluster and a node group.
-
-        Apply security groups with rules as follows:
-
-        ```hcl
-        resource "yandex_kubernetes_cluster" "k8s-cluster" {
-          name = "k8s-cluster"
-          service_account_id = "<service_account_ID_for_cluster>"
-          node_service_account_id = "<service_account_ID_for_node_groups>"
-          cluster_ipv4_range = "10.96.0.0/16"
-          service_ipv4_range = "10.112.0.0/16"
-          network_id = "<cloud_network_ID>"
-          master {
-            master_location {
-              zone      = "{{ region-id }}-a"
-              subnet_id = "<cloud_subnet_ID_in_zone>"
-            }
-            master_location {
-              zone      = "{{ region-id }}-b"
-              subnet_id = "<cloud_subnet_ID_in_zone>"
-            }
-            master_location {
-              zone      = "{{ region-id }}-d"
-              subnet_id = "<cloud_subnet_ID_in_zone>"
-            }
+        instance_template {
+          network_interface {
+            nat                = true
+            subnet_ids         = [<cloud_subnet_ID>]
             security_group_ids = [
               yandex_vpc_security_group.k8s-cluster-nodegroup-traffic.id,
-              yandex_vpc_security_group.k8s-cluster-traffic.id
+              yandex_vpc_security_group.k8s-nodegroup-traffic.id,
+              yandex_vpc_security_group.k8s-services-access.id,
+              yandex_vpc_security_group.k8s-ssh-access.id
             ]
-            public_ip = true
           }
         }
-
-        resource "yandex_kubernetes_node_group" "worker-nodes-a" {
-          cluster_id = yandex_kubernetes_cluster.k8s-cluster.id
-          name       = "worker-nodes-a"
-          allocation_policy {
-            location {
-              zone = "{{ region-id }}-a"
-            }
-          }
-          scale_policy {
-            fixed_scale {
-              size = 1
-            }
-          }
-          instance_template {
-            network_interface {
-              nat                = true
-              subnet_ids         = [<cloud_subnet_ID>]
-              security_group_ids = [
-                yandex_vpc_security_group.k8s-cluster-nodegroup-traffic.id,
-                yandex_vpc_security_group.k8s-nodegroup-traffic.id,
-                yandex_vpc_security_group.k8s-services-access.id,
-                yandex_vpc_security_group.k8s-ssh-access.id
-              ]
-            }
-          }
-        }
-        ```
+      }
+      ```
 
 {% endlist %}

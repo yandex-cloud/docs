@@ -1,0 +1,1 @@
+[Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).

@@ -68,7 +68,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command to update a cluster:
 
       ```bash
       {{ yc-mdb-pg }} cluster update --help
@@ -433,7 +433,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
   To change additional cluster settings:
 
-    1. View the description of the CLI command to update the cluster:
+    1. View the description of the CLI command to update a cluster:
 
         ```bash
         {{ yc-mdb-pg }} cluster update --help
@@ -445,16 +445,16 @@ Changing additional settings will cause the cluster to restart. The exceptions a
         {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
             --backup-window-start <backup_start_time> \
             --backup-retain-period-days=<automatic_backup_retention_period_in_days> \
-            --datalens-access=<true_or_false> \
+            --datalens-access=<allow_access_from_{{ datalens-name }}> \
             --maintenance-window type=<maintenance_type>,`
                                 `day=<day_of_week>,`
                                 `hour=<hour> \
-            --websql-access=<true_or_false> \
+            --websql-access=<allow_access_from_{{ websql-name }}> \
             --deletion-protection \
             --connection-pooling-mode=<connection_pooler_mode> \
-            --serverless-access=<true_or_false> \
-            --yandexquery-access=<access_via_{{ yq-name }}> \
-            --performance-diagnostics enabled=<true_or_false>,`
+            --serverless-access=<allow_access_from_Serverless_Containers> \
+            --yandexquery-access=<allow_access_from_Yandex_Query> \
+            --performance-diagnostics enabled=<enable_statistics_collection>,`
                                      `sessions-sampling-interval=<session_sampling_interval>,`
                                      `statements-sampling-interval=<statement_sampling_interval>
         ```
@@ -483,7 +483,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
     * `--connection-pooling-mode`: Specifies the [connection pooler mode](../concepts/pooling.md) (`SESSION`, `TRANSACTION`, or `STATEMENT`).
 
-    * `deletion-protection`: Protection of the cluster, its databases, and users against deletion.
+    * `--deletion-protection`: Protection of the cluster, its databases, and users against deletion.
 
         By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
 
@@ -531,8 +531,8 @@ Changing additional settings will cause the cluster to restart. The exceptions a
         ...
         config {
           access {
-            data_lens = <access_from_{{ datalens-name }}>
-            web_sql   = <run_SQL_queries_from_management_console>
+            data_lens = <allow_access_from_{{ datalens-name }}>
+            web_sql   = <allow_access_from_{{ websql-name }}>
             ...
         }
         ...
@@ -551,7 +551,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
         ...
         config {
           pooler_config {
-            pool_discard = <Odyssey_parameter>
+            pool_discard = <clear_client_states_after_each_transaction>
             pooling_mode = "<operation_mode>"
           }
           ...
@@ -561,7 +561,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
 
       Where:
 
-      * `pool_discard`: Odyssey `pool_discard` parameter, `true` or `false`.
+      * `pool_discard`: Defines whether clients should discard their state after each transaction, `true` or `false`.
       * `pooling_mode`: Operation mode, `SESSION`, `TRANSACTION`, or `STATEMENT`.
 
   1. {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
@@ -575,7 +575,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
         ...
-        deletion_protection = <deletion_protection>
+        deletion_protection = <protect_cluster_from_deletion>
       }
       ```
 
@@ -614,7 +614,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
        "configSpec": {
          "poolerConfig": {
            "poolingMode": "<connection_pooling_mode>",
-           "poolDiscard": <discard_client_state_after_each_transaction:_true_or_false>
+           "poolDiscard": <clear_client_states_after_each_transaction>
          },
          "backupWindowStart": {
            "hours": "<hours>",
@@ -624,14 +624,14 @@ Changing additional settings will cause the cluster to restart. The exceptions a
          },
          "backupRetainPeriodDays": "<number_of_days>",
          "access": {
-           "dataLens": <access_to_{{ datalens-name }}:_true_or_false>,
-           "webSql": <access_to_{{ websql-name }}:_true_or_false>,
-           "serverless": <access_to_Cloud_Functions:_true_or_false>,
-           "dataTransfer": <access_to_Data_Transfer:_true_or_false>,
-           "yandexQuery": <access_to_{{ yq-name }}:_true_or_false>
+           "dataLens": <allow_access_from_{{ datalens-name }}>,
+           "webSql": <allow_access_from_{{ websql-name }}>,
+           "serverless": <allow_access_from_Cloud_Functions>,
+           "dataTransfer": <allow_access_from_Data_Transfer>,
+           "yandexQuery": <allow_access_from_{{ yq-name }}>
          },
          "performanceDiagnostics": {
-           "enabled": <activate_statistics_collection:_true_or_false>,
+           "enabled": <enable_statistics_collection>,
            "sessionsSamplingInterval": "<session_sampling_interval>",
            "statementsSamplingInterval": "<statement_sampling_interval>"
          }
@@ -642,7 +642,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
            "hour": "<hour>"
          }
        },
-       "deletionProtection": <deletion_protection:_true_or_false>
+       "deletionProtection": <protect_cluster_from_deletion>
      }
      ```
 
@@ -655,7 +655,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
        * `poolerConfig`: Connection pooler settings:
 
          * `poolingMode`: Connection pooler's operation mode. Possible values: `SESSION`, `TRANSACTION`, and `STATEMENT`. For more information on each of the modes, see [{#T}](../concepts/pooling.md).
-         * `poolDiscard`: Whether clients should discard their state after each transaction. Similar to the [server_reset_query_always](https://www.pgbouncer.org/config.html) for the [PgBouncer](https://www.pgbouncer.org/usage) connection pooler.
+         * `poolDiscard`: Defines whether clients should discard their state after each transaction, `true` or `false`. Similar to the [server_reset_query_always](https://www.pgbouncer.org/config.html) for the [PgBouncer](https://www.pgbouncer.org/usage) connection pooler.
 
        * `backupWindowStart`: [Backup](../concepts/backup.md) window settings.
 
@@ -677,11 +677,13 @@ Changing additional settings will cause the cluster to restart. The exceptions a
          * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
          * `yandexQuery`: [{{ yq-full-name }}](../../query/index.yaml)
 
+         The possible setting values are `true` or `false`.
+
 
        
        * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
-         * `enabled`: Enable collecting statistics.
+         * `enabled`: Enables statistics collection, `true` or `false`.
          * `sessionsSamplingInterval`: Session sampling interval. The values range from `1` to `86400` seconds.
          * `statementsSamplingInterval`: Statement sampling interval. The values range from `60` to `86400` seconds.
 
@@ -694,7 +696,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
          * `day`: Day of week, in `DDD` format.
          * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
 
-     * `deletionProtection`: Protection of the cluster, its databases, and users against deletion.
+     * `deletionProtection`: Protection of the cluster, its databases, and users against deletion, `true` or `false` value.
 
         By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
 
@@ -747,7 +749,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
        "config_spec": {
          "pooler_config": {
            "pooling_mode": "<connection_pooling_mode>",
-           "pool_discard": <discard_client_state_after_each_transaction:_true_or_false>
+           "pool_discard": <clear_client_states_after_each_transaction>
          },
          "backup_window_start": {
            "hours": "<hours>",
@@ -757,14 +759,14 @@ Changing additional settings will cause the cluster to restart. The exceptions a
          },
          "backup_retain_period_days": "<number_of_days>",
          "access": {
-           "data_lens": <access_to_{{ datalens-name }}:_true_or_false>,
-           "web_sql": <access_to_{{ websql-name }}:_true_or_false>,
-           "serverless": <access_to_Cloud_Functions:_true_or_false>,
-           "data_transfer": <access_to_Data_Transfer:_true_or_false>,
-           "yandex_query": <access_to_{{ yq-name }}:_true_or_false>
+           "data_lens": <allow_access_from_{{ datalens-name }}>,
+           "web_sql": <allow_access_from_{{ websql-name }}>,
+           "serverless": <allow_access_from_Cloud_Functions>,
+           "data_transfer": <allow_access_from_Data_Transfer>,
+           "yandex_query": <allow_access_from_{{ yq-name }}>
          },
          "performance_diagnostics": {
-           "enabled": <activate_statistics_collection:_true_or_false>,
+           "enabled": <enable_statistics_collection>,
            "sessions_sampling_interval": "<session_sampling_interval>",
            "statements_sampling_interval": "<statement_sampling_interval>"
          }
@@ -775,7 +777,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
            "hour": "<hour>"
          }
        },
-       "deletion_protection": <deletion_protection:_true_or_false>
+       "deletion_protection": <protect_cluster_from_deletion>
      }
      ```
 
@@ -788,7 +790,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
        * `pooler_config`: Connection pooler settings:
 
          * `pooling_mode`: Connection pooler's operation mode. Possible values: `SESSION`, `TRANSACTION`, and `STATEMENT`. For more information on each of the modes, see [{#T}](../concepts/pooling.md).
-         * `pool_discard`: Whether clients should discard their state after each transaction. Similar to the [server_reset_query_always](https://www.pgbouncer.org/config.html) for the [PgBouncer](https://www.pgbouncer.org/usage) connection pooler.
+         * `pool_discard`: Defines whether clients should discard their state after each transaction, `true` or `false`. Similar to the [server_reset_query_always](https://www.pgbouncer.org/config.html) for the [PgBouncer](https://www.pgbouncer.org/usage) connection pooler.
 
        * `backup_window_start`: [Backup](../concepts/backup.md) window settings.
 
@@ -810,11 +812,13 @@ Changing additional settings will cause the cluster to restart. The exceptions a
          * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
          * `yandex_query`: [{{ yq-full-name }}](../../query/index.yaml)
 
+         The possible setting values are `true` or `false`.
+
 
        
        * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
-         * `enabled`: Enables statistics collection.
+         * `enabled`: Enables statistics collection, `true` or `false`.
          * `sessions_sampling_interval`: Session sampling interval. The values range from `1` to `86400` seconds.
          * `statements_sampling_interval`: Statement sampling interval. The values range from `60` to `86400` seconds.
 
@@ -827,7 +831,7 @@ Changing additional settings will cause the cluster to restart. The exceptions a
          * `day`: Day of week, in `DDD` format.
          * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
 
-     * `deletion_protection`: Protection of the cluster, its databases, and users against deletion.
+     * `deletion_protection`: Protection of the cluster, its databases, and users against deletion, `true` or `false` value.
 
         By default, the parameter inherits its value from the cluster when creating users and databases. You can also set the value manually; for more information, see the [User management](cluster-users.md) and [Database management](databases.md) sections.
 
@@ -862,7 +866,7 @@ If integration with {{ connection-manager-name }} is not enabled in the cluster,
 
 The following will be created for each database user:
 
-* [Connection](../../metadata-hub/concepts/connection-manager.md) in {{ connection-manager-name }} with information about the database connection.
+* [{{ connection-manager-name }} connection](../../metadata-hub/concepts/connection-manager.md) with information about the database connection.
 
 * [{{ lockbox-name }} secret](../../metadata-hub/concepts/secret.md) with the user password. Storing passwords in {{ lockbox-name }} ensures their security.
 
@@ -1125,7 +1129,7 @@ After the cluster is moved, it will continue using the cloud network from the so
 To move a cluster to a different availability zone, follow [this guide](host-migration.md). You will thus move the cluster hosts.
 
 
-## Changing security groups {#change-sg-set}
+## Editing security groups {#change-sg-set}
 
 {% list tabs group=instructions %}
 
@@ -1143,7 +1147,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
   To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command to update a cluster:
 
       ```bash
       {{ yc-mdb-pg }} cluster update --help
@@ -1164,7 +1168,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
       For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
 
-  1. Change the value of the `security_group_ids` parameter in the cluster description:
+  1. Edit the `security_group_ids` value in the cluster description:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
