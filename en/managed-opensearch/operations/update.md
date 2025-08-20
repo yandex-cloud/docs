@@ -491,8 +491,8 @@ For more information about setting up a service account, see [Configuring access
                     `weekday=<day_of_week>,`
                     `hour=<hour> \
        --delete-protection \
-       --data-transfer-access=<true_or_false> \
-       --serverless-access=<true_or_false>
+       --data-transfer-access=<allow_access_from_Data_Transfer> \
+       --serverless-access=<allow_access_from_Serverless_Containers>
     ```
 
     You can request the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -543,7 +543,7 @@ For more information about setting up a service account, see [Configuring access
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
             ...
-            deletion_protection = <true_or_false>
+            deletion_protection = <protect_cluster_from_deletion>
         }
         ```
 
@@ -580,11 +580,11 @@ For more information about setting up a service account, see [Configuring access
                         "updateMask": "configSpec.access,deletionProtection,maintenanceWindow",
                         "configSpec": {
                             "access": {
-                                "dataTransfer": <access_from_Data_Transfer:_true_or_false>,
-                                "serverless": <access_from_Serverless_Containers:_true_or_false>
+                                "dataTransfer": <allow_access_from_Data_Transfer>,
+                                "serverless": <allow_access_from_Serverless_Containers>
                             }
                         },
-                        "deletionProtection": <cluster_deletion_protection:_true_or_false>,
+                        "deletionProtection": <protect_cluster_from_deletion>,
                         "maintenanceWindow": {
                             "weeklyMaintenanceWindow": {
                                 "day": "<day_of_week>",
@@ -605,8 +605,10 @@ For more information about setting up a service account, see [Configuring access
             * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
             * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
 
+            The possible setting values are `true` or `false`.
 
-        * `deletionProtection`: Cluster protection from accidental deletion.
+
+        * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
 
             Even with cluster deletion protection enabled, one can still delete a user or connect to the cluster manually and delete the data.
 
@@ -649,11 +651,11 @@ For more information about setting up a service account, see [Configuring access
                     },
                     "config_spec": {
                         "access": {
-                            "data_transfer": <access_from_Data_Transfer:_true_or_false>,
-                            "serverless": <access_from_Serverless_Containers:_true_or_false>
+                            "data_transfer": <allow_access_from_Data_Transfer>,
+                            "serverless": <allow_access_from_Serverless_Containers>
                         }
                     },
-                    "deletion_protection": <cluster_deletion_protection:_true_or_false>,
+                    "deletion_protection": <protect_cluster_from_deletion>,
                     "maintenance_window": {
                         "weekly_maintenance_window": {
                             "day": "<day_of_week>",
@@ -678,8 +680,10 @@ For more information about setting up a service account, see [Configuring access
             * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
             * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
 
+            The possible setting values are `true` or `false`.
 
-        * `deletion_protection`: Cluster protection from accidental deletion.
+
+        * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
             Even with cluster deletion protection enabled, one can still delete a user or connect to the cluster manually and delete the data.
 
@@ -695,7 +699,7 @@ For more information about setting up a service account, see [Configuring access
 {% endlist %}
 
 
-## Changing security groups {#change-sg-set}
+## Editing security groups {#change-sg-set}
 
 After you assign other [security groups](../concepts/network.md#security-groups), you may need to [additionally set them up](connect.md#security-groups) to connect to the cluster.
 

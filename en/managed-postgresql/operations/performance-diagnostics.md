@@ -73,7 +73,7 @@ For information on how to identify and troubleshoot cluster performance problems
           --data '{
                     "configSpec": {
                       "performanceDiagnostics": {
-                        "enabled": <activate_statistics_collection:_true_or_false>,
+                        "enabled": <enable_statistics_collection>,
                         "sessionsSamplingInterval": "<session_sampling_interval>",
                         "statementsSamplingInterval": "<statement_sampling_interval>"
                       },
@@ -83,9 +83,9 @@ For information on how to identify and troubleshoot cluster performance problems
                   }'
         ```
 
-        Where `configSpec.performanceDiagnostics` represents the statistics settings:
+        Where `configSpec.performanceDiagnostics` represents the statistics collection settings:
 
-        * `enabled`: Enables statistics collection.
+        * `enabled`: Enables statistics collection, `true` or `false`.
         * `sessionsSamplingInterval`: Session sampling interval. The possible values range from `1` to `86400`.
         * `statementsSamplingInterval`: Statement sampling interval. The possible values range from `60` to `86400`.
 
@@ -107,7 +107,7 @@ For information on how to identify and troubleshoot cluster performance problems
                     "updateMask": "configSpec.performanceDiagnostics",
                     "configSpec": {
                       "performanceDiagnostics": {
-                        "enabled": <activate_statistics_collection:_true_or_false>,
+                        "enabled": <enable_statistics_collection>,
                         "sessionsSamplingInterval": "<session_sampling_interval>",
                         "statementsSamplingInterval": "<statement_sampling_interval>"
                       }
@@ -115,9 +115,9 @@ For information on how to identify and troubleshoot cluster performance problems
                   }'
         ```
 
-        Where `configSpec.performanceDiagnostics` represents the statistics settings:
+        Where `configSpec.performanceDiagnostics` represents the statistics collection settings:
 
-        * `enabled`: Enables statistics collection.
+        * `enabled`: Enables statistics collection, `true` or `false`.
         * `sessionsSamplingInterval`: Session sampling interval. The possible values range from `1` to `86400`.
         * `statementsSamplingInterval`: Statement sampling interval. The possible values range from `60` to `86400`.
 
@@ -144,7 +144,7 @@ For information on how to identify and troubleshoot cluster performance problems
           -d '{
                 "config_spec": {
                   "performance_diagnostics": {
-                    "enabled": <activate_statistics_collection:_true_or_false>,
+                    "enabled": <enable_statistics_collection>,
                     "sessions_sampling_interval": "<session_sampling_interval>",
                     "statements_sampling_interval": "<statement_sampling_interval>"
                   },
@@ -158,7 +158,7 @@ For information on how to identify and troubleshoot cluster performance problems
 
         Where `config_spec.performance_diagnostics` represents the statistics collection settings:
 
-        * `enabled`: Enables statistics collection.
+        * `enabled`: Enables statistics collection, `true` or `false`.
         * `sessions_sampling_interval`: Session sampling interval. The possible values range from `1` to `86400`.
         * `statements_sampling_interval`: Statement sampling interval. The possible values range from `60` to `86400`.
 
@@ -186,7 +186,7 @@ For information on how to identify and troubleshoot cluster performance problems
                 },
                 "config_spec": {
                   "performance_diagnostics": {
-                    "enabled": <activate_statistics_collection:_true_or_false>,
+                    "enabled": <enable_statistics_collection>,
                     "sessions_sampling_interval": "<session_sampling_interval>",
                     "statements_sampling_interval": "<statement_sampling_interval>"
                   }
@@ -198,7 +198,7 @@ For information on how to identify and troubleshoot cluster performance problems
 
         Where `config_spec.performance_diagnostics` represents the statistics collection settings:
 
-        * `enabled`: Enables statistics collection.
+        * `enabled`: Enables statistics collection, `true` or `false`.
         * `sessions_sampling_interval`: Session sampling interval. The possible values range from `1` to `86400`.
         * `statements_sampling_interval`: Statement sampling interval. The possible values range from `60` to `86400`.
 

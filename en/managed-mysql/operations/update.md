@@ -19,7 +19,7 @@ After creating a cluster, you can:
 
 * [Change additional cluster settings](#change-additional-settings).
 * [Move a cluster](#move-cluster) to another folder.
-* [Change security groups](#change-sg-set).
+* [Edit security groups](#change-sg-set).
 
 Learn more about other cluster updates:
 
@@ -57,7 +57,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the host class for the cluster:
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command to update a cluster:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
@@ -236,7 +236,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the disk type and increase the storage size for a cluster:
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command to update a cluster:
 
       ```bash
       {{ yc-mdb-my }} cluster update --help
@@ -563,7 +563,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
 
   To change additional cluster settings:
 
-    1. View the description of the CLI command to update the cluster:
+    1. View the description of the CLI command to update a cluster:
 
         ```bash
         {{ yc-mdb-my }} cluster update --help
@@ -653,7 +653,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
         ...
-        deletion_protection = <cluster_deletion_protection>
+        deletion_protection = <protect_cluster_from_deletion>
       }
       ```
 
@@ -712,12 +712,12 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
               },
               "backupRetainPeriodDays": "<number_of_days>",
               "access": {
-                  "dataLens": <access_to_{{ datalens-name }}:_true_or_false>,
-                  "webSql": <access_to_{{ websql-name }}:_true_or_false>,
-                  "dataTransfer": <access_to_Data_Transfer:_true_or_false>
+                  "dataLens": <allow_access_from_{{ datalens-name }}>,
+                  "webSql": <allow_access_from_{{ websql-name }}>,
+                  "dataTransfer": <allow_access_from_Data_Transfer>
               },
               "performanceDiagnostics": {
-                  "enabled": <activate_statistics_collection:_true_or_false>,
+                  "enabled": <enable_statistics_collection>,
                   "sessionsSamplingInterval": "<session_sampling_interval>",
                   "statementsSamplingInterval": "<statement_sampling_interval>"
               }
@@ -728,7 +728,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
                   "hour": "<hour>"
               }
           },
-          "deletionProtection": <cluster_deletion_protection:_true_or_false>
+          "deletionProtection": <protect_cluster_from_deletion>
       }
       ```
 
@@ -756,10 +756,12 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
               * `webSql`: [{{ websql-full-name }}](../../websql/index.yaml)
               * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
 
+              The possible setting values are `true` or `false`.
+
 
           * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
-              * `enabled`: Enables statistics collection.
+              * `enabled`: Enables statistics collection, `true` or `false`.
               * `sessionsSamplingInterval`: Session sampling interval, from `1` to `86400` seconds.
               * `statementsSamplingInterval`: Statement sampling interval, from `1` to `86400` seconds.
 
@@ -771,7 +773,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
               * `day`: Day of week, in `DDD` format.
               * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
 
-      * `deletionProtection`: Cluster protection from accidental deletion.
+      * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -824,12 +826,12 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
               },
               "backup_retain_period_days": "<number_of_days>",
               "access": {
-                  "data_lens": <access_to_{{ datalens-name }}:_true_or_false>,
-                  "web_sql": <access_to_{{ websql-name }}:_true_or_false>,
-                  "data_transfer": <access_to_Data_Transfer:_true_or_false>
+                  "data_lens": <allow_access_from_{{ datalens-name }}>,
+                  "web_sql": <allow_access_from_{{ websql-name }}>,
+                  "data_transfer": <allow_access_from_Data_Transfer>
               },
               "performance_diagnostics": {
-                  "enabled": <activate_statistics_collection:_true_or_false>,
+                  "enabled": <enable_statistics_collection>,
                   "sessions_sampling_interval": "<session_sampling_interval>",
                   "statements_sampling_interval": "<statement_sampling_interval>"
               }
@@ -840,7 +842,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
                   "hour": "<hour>"
               }
           },
-          "deletion_protection": <cluster_deletion_protection:_true_or_false>
+          "deletion_protection": <protect_cluster_from_deletion>
       }
       ```
 
@@ -868,11 +870,13 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
               * `web_sql`: [{{ websql-full-name }}](../../websql/index.yaml)
               * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
 
+              The possible setting values are `true` or `false`.
+
 
           * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
-              * `enabled`: Enables statistics collection.
-              * `sessions_sampling_interval`: Session sampling interval, `1` to `86400` seconds.
+              * `enabled`: Enables statistics collection, `true` or `false`.
+              * `sessions_sampling_interval`: Session sampling interval, from `1` to `86400` seconds.
               * `statements_sampling_interval`: Statement sampling interval, from `1` to `86400` seconds.
 
       * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenance_window`, provide one of the two parameters:
@@ -883,7 +887,7 @@ For more information on how to update the {{ MY }} settings, see [FAQ](../qa/con
               * `day`: Day of week, in `DDD` format.
               * `hour`: Hour, in `HH` format. The values range from `1` to `24` hours.
 
-      * `deletion_protection`: Cluster protection from accidental deletion.
+      * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -1048,7 +1052,7 @@ The following will be created for each database user:
 {% endlist %}
 
 
-## Changing security groups {#change-sg-set}
+## Editing security groups {#change-sg-set}
 
 {% list tabs group=instructions %}
 
@@ -1066,7 +1070,7 @@ The following will be created for each database user:
 
     To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. View the description of the CLI command to update the cluster:
+    1. View the description of the CLI command to update a cluster:
 
         ```bash
         {{ yc-mdb-my }} cluster update --help

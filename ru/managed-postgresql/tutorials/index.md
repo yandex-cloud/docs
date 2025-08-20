@@ -32,7 +32,7 @@ description: Различные сценарии использования {{ m
 * [{#T}](./replication-overview.md)
 * [{#T}](./data-migration.md)
 * [{#T}](./outbound-replication.md)
-* [{#T}](../operations/logical-replica-from-rds.md)
+* [{#T}](./logical-replica-from-rds.md)
 * [{#T}](./mpg-to-objstorage.md)
 * [{#T}](./mpg-to-mmy.md)
 * [{#T}](./mmy-to-mpg.md)

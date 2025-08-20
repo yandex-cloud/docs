@@ -26,9 +26,8 @@ If you no longer need the VM or the cluster you created, [delete them](#clear-ou
 
 The infrastructure support costs include:
 * Fee for continuously running VMs (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for storing created images (see [{{ compute-name }} pricing](../../compute/pricing#prices-storage)).
+* Fee for storing created images (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
 * Fee for using a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-
 
 ## Configure the environment {#prepare}
 
@@ -48,7 +47,7 @@ Jenkins uses [service accounts](../../iam/concepts/users/service-accounts.md) to
 
    ```bash
    yc iam service-account create --name <username>
-   yc iam key create --service-account-name <username> -o <username.json>
+   yc iam key create --service-account-name <username> -o <username>.json
    SERVICE_ACCOUNT_ID=$(yc iam service-account get --name <username> --format json | jq -r .id)
    ```
 
@@ -66,7 +65,7 @@ Jenkins will get VM image configuration changes from GitHub and then use Packer 
 To create a VM:
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
@@ -260,7 +259,7 @@ Jenkins launches an image build automatically after you run `push` in the `maste
    git clone https://github.com/<GitHub_login>/yc-marketplace-vm-image-packer.git
    ```
 
-1. Modify the Packer templates in the `packer` directory. You can find articles and guides regarding Packer templates on the [Packer website](http://packer.io/docs/templates/index.html). In the `image_family` and `source_image_family` parameters, specify the [image families](../../compute/concepts/image#family) for Jenkins to build.
+1. Modify the Packer templates in the `packer` directory. You can find articles and guides regarding Packer templates on the [Packer website](http://packer.io/docs/templates/index.html). In the `image_family` and `source_image_family` parameters, specify the [image families](../../compute/concepts/image.md#family) for Jenkins to build.
 1. Modify the Pipeline for `Jenkinsfile` located in the repository root directory. For the Pipeline user handbook, see the [Packer website](https://jenkins.io/doc/book/pipeline/syntax/).
 1. Upload the changes to GitHub:
 
@@ -314,7 +313,7 @@ This will create:
 Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
 * [Delete the VMs you created](../../compute/operations/vm-control/vm-delete.md).
 * [Delete the images you created](../../compute/operations/image-control/delete.md).
-* [Delete the service account](../../iam/operations/sa/delete.md) and the `<username.json>` file.
+* [Delete the service account](../../iam/operations/sa/delete.md) and `<username>.json`.
 * [Delete the network and the subnets](../../vpc/operations/network-delete.md).
 
 To delete the resources created with {{ TF }}, run `terraform destroy`.

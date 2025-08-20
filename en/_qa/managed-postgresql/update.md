@@ -29,3 +29,7 @@ There are some restrictions for cluster management using SQL commands. For more 
 #### Can I create a database using SQL commands? {#create-db-sql}
 
 No, you cannot create a database using SQL commands. In a {{ mpg-name }} cluster, you can create databases only using {{ yandex-cloud }} interfaces.
+
+#### How to recover a cluster from read-only mode? {#read-only-exit}
+
+Follow the steps described in [{#T}](../../managed-postgresql/concepts/storage.md#read-only-solutions) and [{#T}](../../managed-postgresql/operations/storage-space.md#read-only-solutions).

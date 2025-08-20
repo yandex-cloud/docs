@@ -142,12 +142,12 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
         --network-name <network_name> \
         --host zone-id=<availability_zone>,`
               `subnet-id=<subnet_ID>,`
-              `assign-public-ip=<public_access_to_host>,`
+              `assign-public-ip=<allow_public_access_to_host>,`
               `hidden=<hide_host>,`
               `secondary-delay-secs=<replica_lag_in_seconds>,`
               `priority=<host_priority> \
         --mongod-resource-preset <host_class> \
-        --user name=<user_name>,password=<user_password> \
+        --user name=<username>,password=<user_password> \
         --database name=<DB_name> \
         --mongod-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --mongod-disk-size <storage_size_in_GB> \
@@ -213,7 +213,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        environment         = "<environment>"
        network_id          = "<network_ID>"
        security_group_ids  = [ "<list_of_security_group_IDs>" ]
-       deletion_protection = <cluster_deletion_protection>
+       deletion_protection = <protect_cluster_from_deletion>
 
        cluster_config {
          version = "<{{ MG }}_version>"
@@ -228,7 +228,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        host {
          zone_id          = "<availability_zone>"
          subnet_id        = "<subnet_ID>"
-         assign_public_ip = <public_access>
+         assign_public_ip = <allow_public_access_to_host>
          host_parameters {
            hidden               = <hide_host>
            secondary_delay_secs = <replica_lag_in_seconds>
@@ -242,9 +242,9 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
        name       = "<DB_name>"
      }
 
-     resource "yandex_mdb_mongodb_user" "<user_name>" {
+     resource "yandex_mdb_mongodb_user" "<username>" {
        cluster_id = <cluster_ID>
-       name       = "<user_name>"
+       name       = "<username>"
        password   = "<password>"
        permission {
          database_name = "<DB_name>"
@@ -287,7 +287,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
      {% include [Maintenance window](../../_includes/mdb/mmg/terraform/maintenance-window.md) %}
 
-     For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mmg }}).
+     For more information about resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mmg }}).
 
   1. Make sure the settings are correct.
 
@@ -322,7 +322,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             ...
             "<security_group_N_ID>"
           ],
-          "deletionProtection": <cluster_deletion_protection:_true_or_false>,
+          "deletionProtection": <protect_cluster_from_deletion>,
           "maintenanceWindow": {
             "weeklyMaintenanceWindow": {
               "day": "<day_of_week>",
@@ -348,7 +348,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             },  
             "backupRetainPeriodDays": "<backup_retention_in_days>",
             "performanceDiagnostics": {
-              "profilingEnabled": <enable_profiler:_true_or_false>
+              "profilingEnabled": <enable_profiler>
             }
           },
           "databaseSpecs": [
@@ -380,10 +380,10 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             {
               "zoneId": "<availability_zone>",
               "subnetId": "<subnet_ID>",
-              "assignPublicIp": <public_access_to_host:_true_or_false>,
+              "assignPublicIp": <allow_public_access_to_host>,
               "type": "<host_type>",
               "shardName": "<shard_name>",
-              "hidden": <hide_host:_true_or_false>,
+              "hidden": <hide_host>,
               "secondaryDelaySecs": "<replica_lag_in_seconds>",
               "priority": "<host_priority>",
               "tags": "<host_labels>"
@@ -442,7 +442,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             * `backupRetainPeriodDays`: Backup retention in days.
 
             * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
-              * `profilingEnabled`: Enable [profiler](tools.md#explore-profiler). 
+              * `profilingEnabled`: Enable [profiler](tools.md#explore-profiler), `true` or `false`.
 
         * `databaseSpecs`: Database settings as an array of elements, one for each DB. Each element contains the `name` parameter with the DB name.
 
@@ -463,7 +463,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp`: Internet access to the host via a public IP address.
+          * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
           * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
           * `shardName`: Shard name in a sharded cluster.
           * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
@@ -506,7 +506,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             ...
             "<security_group_N_ID>"
           ],
-          "deletion_protection": <cluster_deletion_protection:_true_or_false>,
+          "deletion_protection": <protect_cluster_from_deletion>,
           "maintenance_window": {
             "weekly_maintenance_window": {
               "day": "<day_of_week>",
@@ -532,7 +532,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             },
             "backup_retain_period_days": "<backup_retention_in_days>",
             "performance_diagnostics": {
-              "profiling_enabled": <enable_profiler:_true_or_false>
+              "profiling_enabled": <enable_profiler>
             }
           },
           "database_specs": [
@@ -564,10 +564,10 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             {
               "zone_id": "<availability_zone>",
               "subnet_id": "<subnet_ID>",
-              "assign_public_ip": <public_access_to_host:_true_or_false>,
+              "assign_public_ip": <allow_public_access_to_host>,
               "type": "<host_type>",
               "shard_name": "<shard_name>",
-              "hidden": <hide_host:_true_or_false>,
+              "hidden": <hide_host>,
               "secondary_delay_secs": "<replica_lag_in_seconds>",
               "priority": "<host_priority>",
               "tags": "<host_labels>"
@@ -626,7 +626,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
             * `backup_retain_period_days`: Backup retention in days.
 
             * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
-              * `profiling_enabled`: Enable [profiler](tools.md#explore-profiler).
+              * `profiling_enabled`: Enable [profiler](tools.md#explore-profiler), `true` or `false`.
 
         * `database_specs`: Database settings as an array of elements, one for each DB. Each element contains the `name` parameter with the DB name.
 
@@ -647,7 +647,7 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assign_public_ip`: Internet access to the host via a public IP address.
+          * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
           * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
           * `shard_name`: Shard name in a sharded cluster.
           * `hidden`: Hide host, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
@@ -709,7 +709,7 @@ To create a {{ MG }} cluster copy:
         export MONGODB_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the ID with the [list of clusters in the folder](../../managed-mongodb/operations/cluster-list.md#list-clusters).
+        You can request the ID with the [list of clusters in the folder](../../managed-mongodb/operations/cluster-list.md#list-clusters).
 
     1. Import the initial {{ MG }} cluster’s settings into the {{ TF }} configuration:
 

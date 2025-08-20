@@ -19,7 +19,7 @@ Since the replication is asynchronous, the data on replicas may be out of date: 
 
 Due to limited resources, **b1**, **b2**, and **b3** class hosts are not replicated.
 
-For more information about how replication works in {{ VLK }}, read the [relevant documentation](https://valkey.io/topics/replication/).
+For more information on how replication works in {{ VLK }}, see the [relevant documentation](https://valkey.io/topics/replication/).
 
 ## Fault tolerance {#availability}
 
@@ -58,11 +58,13 @@ A master host can be changed either automatically, as a result of a failure, or 
 
 {% note warning %}
 
-Disable persistence only if data integrity is not critical for your application, e.g., when using {{ mrd-name }} as a cache. This is because, in this case, the most recent data captured in {{ VLK }} will only be stored in RAM and may be lost if a server crashes.
+Disable persistence only if data integrity is not critical for your application, e.g., when using {{ mrd-name }} as a cache. If this is the case, the most recent data captured in {{ VLK }} will only be stored in RAM and may be lost if a server crashes.
 
 {% endnote %}
 
-### Persistence settings {#persistence-on}
+You can also enable persistence only for replicas. In this case, the server throughput will increase, but the risk of data loss will be reduced.
+
+### Enabling persistence {#persistence-on}
 
 By default, cluster persistence is enabled and uses the following {{ VLK }} settings:
 
@@ -115,3 +117,13 @@ With persistence disabled, the following {{ VLK }} settings take effect:
 * **appendonly no**
 
   AOF (Append Only File) mode is disabled.
+
+### Enabling persistence on replicas only {#persistence-on-replicas}
+
+With persistence enabled on replicas only, the following {{ VLK }} settings apply:
+
+* Replicas have the same settings as when persistence is enabled.
+
+* Master has the same settings as when persistence is disabled.
+
+If host roles change, the settings are updated automatically.

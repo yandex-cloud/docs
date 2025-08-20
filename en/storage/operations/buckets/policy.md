@@ -112,7 +112,7 @@ To apply or update a bucket policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional setting.
 
          You can get the IDs in the following ways:
 
@@ -120,7 +120,7 @@ To apply or update a bucket policy:
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
        * `Resource`: Resource to apply the rule to.
-       * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
+       * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional setting.
 
          {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
 
@@ -190,7 +190,7 @@ To apply or update a bucket policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
+       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional setting.
 
          You can get the IDs in the following ways:
 
@@ -198,7 +198,7 @@ To apply or update a bucket policy:
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
        * `Resource`: Resource to apply the rule to.
-       * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
+       * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional setting.
 
          {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
 
@@ -220,37 +220,21 @@ To apply or update a bucket policy:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Retrieve [static access keys](../../../iam/operations/authentication/manage-access-keys.md#create-access-key): a secret key and key ID used for {{ objstorage-name }} authentication.
+  {% include [iam-auth-note](../../../_includes/storage/iam-auth-note.md) %}
 
-  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+  To edit a bucket policy, you can use these resources:
+  * [yandex_storage_bucket_policy](#tf-storage-bucket-policy)
+  * [yandex_storage_bucket](#tf-storage-bucket) (obsolete)
 
-  1. In the configuration file, describe the parameters of resources you want to create:
+  **yandex_storage_bucket_policy** {#tf-storage-bucket-policy}
+
+  1. Open the {{ TF }} configuration file and specify the policy using the `yandex_storage_bucket_policy` resource:
 
      ```hcl
-
-     resource "yandex_iam_service_account" "sa" {
-       name = "<service_account_name>"
-     }
-
-     // Assigning a role to a service account
-     resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
-       folder_id = "<folder_ID>"
-       role      = "storage.admin"
-       member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
-     }
-
-     // Creating a static access key
-     resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
-       service_account_id = yandex_iam_service_account.sa.id
-       description        = "static access key for object storage"
-     }
-
-     resource "yandex_storage_bucket" "b" {
-       access_key = "yandex_iam_service_account_static_access_key.sa-static-key.access_key"
-       secret_key = "yandex_iam_service_account_static_access_key.sa-static-key.secret_key"
-       bucket     = "my-policy-bucket"
-       policy     = <<POLICY
-      {
+     resource "yandex_storage_bucket_policy" "bpolicy" {
+       bucket = "my-policy-bucket"
+       policy = <<POLICY
+     {
        "Version": "2012-10-17",
        "Statement": [
          {
@@ -277,52 +261,60 @@ To apply or update a bucket policy:
      }
      ```
 
-     Where:
+     {% include [s3-policy-tf-params](../../../_includes/storage/s3-policy-tf-params.md) %}
 
-     * `access_key`: Static access key ID.
-     * `secret_key`: Secret access key value.
-     * `bucket`: Bucket name. This is a required parameter.
-     * `policy`: Policy name. This is a required parameter.
+     For more information about `yandex_storage_bucket_policy` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket_policy).
 
-     Policy settings:
+  1. Apply the changes:
 
-     * `Version`: Version of the bucket policy description. This is an optional parameter.
-     * `Statement`: Bucket policy rules:
-       * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-         You can get the IDs in the following ways:
+     You can check the update using the [management console]({{ link-console-main }}).
 
-         {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
+  **yandex_storage_bucket (obsolete)** {#tf-storage-bucket}
 
-       * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
-       * `Resource`: Resource to apply the rule to.
-       * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
+  1. Open the {{ TF }} configuration file and specify the policy in the `policy` parameter for the `yandex_storage_bucket` resource:
 
-         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
+     ```hcl
+     resource "yandex_storage_bucket" "mybucket" {
+       bucket     = "my-policy-bucket"
+       policy     = <<POLICY
+     {
+       "Version": "2012-10-17",
+       "Statement": [
+         {
+           "Effect": "Allow",
+           "Principal": "*",
+           "Action": "s3:*",
+           "Resource": [
+             "arn:aws:s3:::my-policy-bucket/*",
+             "arn:aws:s3:::my-policy-bucket"
+           ]
+         },
+         {
+           "Effect": "Deny",
+           "Principal": "*",
+           "Action": "s3:PutObject",
+           "Resource": [
+             "arn:aws:s3:::my-policy-bucket/*",
+             "arn:aws:s3:::my-policy-bucket"
+           ]
+         }
+       ]
+     }
+     POLICY
+     }
+     ```
 
-         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
+     {% include [s3-policy-tf-params](../../../_includes/storage/s3-policy-tf-params.md) %}
 
-     For more information about the resources you can create with {{ TF }}, see [this provider reference]({{ tf-provider-link }}/).
-  1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
+     For more information about `yandex_storage_bucket` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
 
-        ```bash
-        terraform plan
-        ```
+  1. Apply the changes:
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        ```bash
-        terraform apply
-        ```
-
-     1. Confirm creating the resources.
-
-     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     You can check the update using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -334,7 +326,7 @@ To apply or update a bucket policy:
 
 ## Viewing a policy {#view-policy}
 
-The minimum role required to view a bucket policy is `storage.configViewer`. For more information, see the [role description](../../../storage/security/#storage-config-viewer).
+The minimum role required to view a bucket policy is `storage.configViewer`. For more information, see the [role description](../../../storage/security/index.md#storage-config-viewer).
 
 To view the bucket policy applied to a bucket:
 
@@ -374,7 +366,7 @@ To view the bucket policy applied to a bucket:
 
 ## Deleting a policy {#delete-policy}
 
-The minimum role required to delete a bucket policy is `storage.configurer`. For more information, see the [role description](../../../storage/security/#storage-configurer).
+The minimum role required to delete a bucket policy is `storage.configurer`. For more information, see the [role description](../../../storage/security/index.md#storage-configurer).
 
 To delete a bucket policy:
 
@@ -401,58 +393,100 @@ To delete a bucket policy:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  If you applied a bucket policy using {{ TF }}, you can delete it by following these steps:
-  1. Find the parameters of the previously created bucket policy to delete in the configuration file:
+  {% include [iam-auth-note](../../../_includes/storage/iam-auth-note.md) %}
 
-     ```hcl
-     resource "yandex_storage_bucket" "b" {
-       bucket = "my-policy-bucket"
-       policy = <<POLICY
-      {
-       "Version": "2012-10-17",
-       "Statement": [
-         {
-           "Effect": "Allow",
-           "Principal": "*",
-           "Action": "s3:*",
-           "Resource": [
-             "arn:aws:s3:::my-policy-bucket/*",
-             "arn:aws:s3:::my-policy-bucket"
-           ]
-         },
-         {
-           "Effect": "Deny",
-           "Principal": "*",
-           "Action": "s3:PutObject",
-           "Resource": [
-             "arn:aws:s3:::my-policy-bucket/*",
-             "arn:aws:s3:::my-policy-bucket"
-           ]
-         }
-       ]
-     }
-     POLICY
-     }
-     ```
+  You can use the `yandex_storage_bucket_policy` and `yandex_storage_bucket` resources to specify the policy (this method is deprecated).
 
-  1. Delete the `policy` field describing the bucket policy settings from the configuration file.
-  1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you edited the configuration file.
-     1. Run a check using this command:
+  1. Open the {{ TF }} configuration file describing the bucket policy.
 
-        ```bash
-        terraform plan
-        ```
+      * If you applied a bucket policy using the `yandex_storage_bucket` resource:
 
-     If the configuration is correct, the terminal will display a list of the resources to create and their parameters, without the description of the bucket policy you are deleting. If the configuration contains any errors, {{ TF }} will show them.
-  1. Delete the bucket policy.
-     1. If the configuration does not contain any errors, run this command:
+        {% cut "yandex_storage_bucket" %}
+ 
+        1. Find the parameters of the previously created bucket policy to delete in the configuration file:
 
-        ```bash
-        terraform apply
-        ```
+            ```hcl
+            resource "yandex_storage_bucket" "b" {
+              bucket = "my-policy-bucket"
+              policy = <<POLICY
+            {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Principal": "*",
+                  "Action": "s3:*",
+                  "Resource": [
+                    "arn:aws:s3:::my-policy-bucket/*",
+                    "arn:aws:s3:::my-policy-bucket"
+                  ]
+                },
+                {
+                  "Effect": "Deny",
+                  "Principal": "*",
+                  "Action": "s3:PutObject",
+                  "Resource": [
+                    "arn:aws:s3:::my-policy-bucket/*",
+                    "arn:aws:s3:::my-policy-bucket"
+                  ]
+                }
+              ]
+            }
 
-     1. Type `yes` and press **Enter**.
+
+            
+            POLICY
+            }
+            ```
+
+        1. Delete the `policy` field describing the bucket policy settings from the configuration file.
+
+        {% endcut %}
+
+      * If you applied a bucket policy using the `yandex_storage_bucket_policy` resource:
+
+        {% cut "yandex_storage_bucket_policy" %}
+        
+        1. Find the parameters of the previously created bucket policy to delete in the configuration file:
+      
+            ```hcl
+            resource "yandex_storage_bucket_policy" "bpolicy" {
+              bucket = "my-policy-bucket"
+              policy = <<POLICY
+            {
+              "Version": "2012-10-17",
+              "Statement": [
+              {
+                "Effect": "Allow",
+                "Principal": "*",
+                "Action": "s3:*",
+                "Resource": [
+                  "arn:aws:s3:::my-policy-bucket/*",
+                  "arn:aws:s3:::my-policy-bucket"
+                ]
+              },
+              {
+                "Effect": "Deny",
+                "Principal": "*",
+                "Action": "s3:PutObject",
+                "Resource": [
+                  "arn:aws:s3:::my-policy-bucket/*",
+                  "arn:aws:s3:::my-policy-bucket"
+                ]
+              }
+              ]
+            }
+            POLICY
+            }
+            ```
+
+        1. Delete the `yandex_storage_bucket_policy` section describing the bucket policy settings from the configuration file.
+
+        {% endcut %}
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      This will delete the bucket policy from the specified folder. You can check the bucket policy deletion using the [management console]({{ link-console-main }}).
 

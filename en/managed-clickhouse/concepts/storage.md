@@ -47,7 +47,9 @@ To start using hybrid storage:
 
 See an example in the [Using hybrid storage](../tutorials/hybrid-storage.md) tutorial.
 
-To monitor the amount of space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table chunks in {{ objstorage-full-name }}, use the `ch_s3_disk_parts_size` [metric](../tutorials/hybrid-storage.md#metrics) in {{ monitoring-full-name }}. It is only available for {{ mch-name }} clusters with hybrid storage set up.
+To monitor the amount of space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table chunks in {{ objstorage-full-name }}, use the `ch_s3_disk_parts_size` [metric](../tutorials/hybrid-storage.md#metrics) in {{ monitoring-full-name }}. It is only available for {{ mch-name }} clusters with hybrid storage.
+
+Storing cold data and its backups in hybrid storage counts towards the total [cluster usage cost](../pricing.md#prices-storage).
 
 ### Available storage policies {#storage-policies}
 

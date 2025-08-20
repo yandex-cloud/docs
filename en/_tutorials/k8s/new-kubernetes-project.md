@@ -2,9 +2,9 @@ To launch an app:
 
 1. [Create service accounts](#create-sa).
 1. [Create security groups](#create-sg).
-1. [Prepare {{ k8s }} resources](#create-k8s-res).
+1. [Set up {{ k8s }} resources](#create-k8s-res).
 1. [Connect to the {{ managed-k8s-name }} cluster](#cluster-connect).
-1. [Prepare {{ container-registry-name }} resources](#create-cr-res).
+1. [Set up {{ container-registry-name }} resources](#create-cr-res).
 1. [Install {{ alb-name }}](#setup-alb).
 1. [Create a load balancer](#create-ingress).
 
@@ -16,9 +16,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
-* {{ managed-k8s-name }} cluster fee: using the master and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Cluster nodes (VM) fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
-* Fee for {{ container-registry-name }}: using the storage and outgoing traffic (see [{{ container-registry-name }} pricing](../../container-registry/pricing)).
+* Fee for using the master and outbound traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for {{ container-registry-name }}: using the storage and outgoing traffic (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for a public IP address for an L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
@@ -35,7 +35,7 @@ The support cost includes:
    sudo apt update && sudo apt install jq
    ```
 
-### Create a network with a subnet {#create-network}
+### Create a network and a subnet {#create-network}
 
 1. [Create a network](../../vpc/operations/network-create.md) named `yc-auto-network`:
 
@@ -55,7 +55,8 @@ The support cost includes:
 
 ### Register a domain zone and add a certificate {#register-domain}
 
-1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
+1. {% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}
+
 1. If you already have a [certificate](../../certificate-manager/concepts/index.md#types) for the [domain zone](../../dns/concepts/dns-zone.md), [add its details](../../certificate-manager/operations/import/cert-create.md) to [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
    If you have no certificate, issue a new Let's Encrypt® certificate and [add](../../certificate-manager/operations/managed/cert-create.md) it to {{ certificate-manager-name }}.
@@ -306,7 +307,7 @@ To create a service account that lets nodes download the necessary Docker images
 
 {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-## Create {{ k8s }} resources {#create-k8s-res}
+## Set up {{ k8s }} resources {#create-k8s-res}
 
 {% include notitle [create-k8s-res](../../_includes/managed-kubernetes/create-k8s-res.md) %}
 
@@ -314,7 +315,7 @@ To create a service account that lets nodes download the necessary Docker images
 
 {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-## Create {{ container-registry-name }} resources {#create-cr-res}
+## Set up {{ container-registry-name }} resources {#create-cr-res}
 
 ### Create a registry {#registry-create}
 
@@ -344,7 +345,7 @@ Build a Docker image and push it to the registry.
    CMD echo "Hi, I'm inside"
    ```
 
-1. Assemble the Docker image.
+1. Build the Docker image.
    1. Get the ID of the [previously created](#registry-create) registry and write it to the variable:
 
       {% list tabs group=programming_language %}
@@ -513,7 +514,7 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
 
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md):
 

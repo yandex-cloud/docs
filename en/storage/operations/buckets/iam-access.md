@@ -72,7 +72,7 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
 
         {% include [tf-iam-binding-warning](../../../_includes/storage/tf-iam-binding-warning.md) %}
 
-      * `members`: Types and IDs of [entities](../../../iam/concepts/access-control/index.md#subject) assigned the role. Use the following format: `type:<ID>`, e.g., `userAccount:<user_ID>` or `serviceAccount:<service_account_ID`.
+      * `members`: Types and IDs of [entities](../../../iam/concepts/access-control/index.md#subject) assigned the role. Use the following format: `type:<ID>`, e.g., `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_storage_bucket_iam_binding` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/storage_bucket_iam_binding).
 
@@ -93,6 +93,10 @@ To configure access to a [bucket](../../concepts/bucket.md) using [{{ iam-name }
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
       You can check the resource update using the [management console]({{ link-console-main }}).
+
+- API {#api}
+
+  Use the [updateAccessBindings](../../../storage/api-ref/Bucket/updateAccessBindings.md) REST API method for the [Bucket](../../../storage/api-ref/Bucket/index.md) resource or the [BucketService/UpdateAccessBindings](../../../storage/api-ref/grpc/Bucket/updateAccessBindings.md) gRPC API call.
 
 {% endlist %}
 

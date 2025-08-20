@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ objstorage-full-name }}'
-description: This page provides reference information on the Terraform provider resources supported for {{ objstorage-name }}.
+description: This page provides reference information on the {{ TF }} provider resources supported for {{ objstorage-name }}.
 ---
 
 # {{ TF }} reference for {{ objstorage-full-name }}
@@ -26,4 +26,5 @@ description: This page provides reference information on the Terraform provider 
 {% include [tf-iam-binding-warning](../_includes/storage/tf-bucket-grant-warning.md) %}
 
 ||
+|| [yandex_storage_bucket_policy]({{ tf-provider-resources-link }}/storage_bucket_policy) | [Managing](operations/buckets/policy.md) [bucket policies](concepts/policy.md) ||
 |#

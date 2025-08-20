@@ -12,7 +12,7 @@ After creating a cluster, you can:
 * [Configure](#change-mongod-config) {{ MG }} servers as described in the [{{ MG }} documentation](https://docs.mongodb.com/manual/reference/configuration-options/).
 * [Change additional cluster settings](#change-additional-settings).
 * [Move a cluster](#move-cluster) to another folder.
-* [Change security groups](#change-sg-set).
+* [Edit security groups](#change-sg-set).
 
 To move a cluster to a different availability zone, follow [this guide](host-migration.md). You will thus move the cluster hosts.
 
@@ -47,7 +47,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the [host class](../concepts/instance-types.md) for the cluster:
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command to update a cluster:
 
       ```bash
       {{ yc-mdb-mg }} cluster update --help
@@ -110,7 +110,7 @@ We recommend changing the host class only when the cluster has no active workloa
   
   1. In the {{ mmg-name }} cluster description, change the `resource_preset_id` parameter value for `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, or `resources_mongocfg`. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
-      For example:
+      Here is an example:
   
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
@@ -260,7 +260,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   To change the disk type and increase the storage size for a cluster:
 
-  1. View the description of the CLI command to update the cluster:
+  1. View the description of the CLI command to update a cluster:
 
       ```bash
       {{ yc-mdb-mg }} cluster update --help
@@ -314,7 +314,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. In the {{ mmg-name }} cluster description, change the values of the `disk_type_id` and `disk_size` parameters for the following resources: `resources_mongod`, `resources_mongoinfra`, `resources_mongos`, and `resources_mongocfg`. The resource type depends on the [sharding type](../concepts/sharding.md#shard-management).
 
-      For example:
+      Here is an example:
 
       ```hcl
       resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
@@ -605,7 +605,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
   To change additional cluster settings:
 
-    1. View the description of the CLI command to update the cluster:
+    1. View the description of the CLI command to update a cluster:
 
         ```bash
         {{ yc-mdb-mg }} cluster update --help
@@ -680,7 +680,7 @@ You can change the DBMS settings of the hosts in your cluster.
         ```hcl
         resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {
           ...
-          deletion_protection = <cluster_deletion_protection>
+          deletion_protection = <protect_cluster_from_deletion>
         }
         ```
 
@@ -723,7 +723,7 @@ You can change the DBMS settings of the hosts in your cluster.
           },
           "backupRetainPeriodDays": "<backup_retention_in_days>",
           "performanceDiagnostics": {
-            "profilingEnabled": <enable_profiler:_true_or_false>
+            "profilingEnabled": <enable_profiler>
           }
         }
         "maintenanceWindow": {
@@ -732,7 +732,7 @@ You can change the DBMS settings of the hosts in your cluster.
             "hour": "<hour>"
           }
         },
-        "deletionProtection": <cluster_deletion_protection:_true_or_false>
+        "deletionProtection": <protect_cluster_from_deletion>
       }
       ```
     
@@ -754,7 +754,7 @@ You can change the DBMS settings of the hosts in your cluster.
         * `backupRetainPeriodDays`: Backup retention in days.
 
         * `performanceDiagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
-          * `profilingEnabled`: Enable [profiler](tools.md#explore-profiler).
+          * `profilingEnabled`: Enable [profiler](tools.md#explore-profiler), `true` or `false`.
 
       * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenanceWindow`, provide one of the two parameters:
 
@@ -816,7 +816,7 @@ You can change the DBMS settings of the hosts in your cluster.
           },
           "backup_retain_period_days": "<backup_retention_in_days>",
           "performance_diagnostics": {
-            "profiling_enabled": <enable_profiler:_true_or_false>
+            "profiling_enabled": <enable_profiler>
           }
         },
         "maintenance_window": {
@@ -825,7 +825,7 @@ You can change the DBMS settings of the hosts in your cluster.
             "hour": "<hour>"
           }
         },
-        "deletion_protection": <cluster_deletion_protection:_true_or_false>
+        "deletion_protection": <protect_cluster_from_deletion>
       }
       ```
 
@@ -848,7 +848,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
         * `performance_diagnostics`: [Statistics collection](performance-diagnostics.md#activate-stats-collector) settings:
 
-          * `profiling_enabled`: Enable [profiler](tools.md#explore-profiler).
+          * `profiling_enabled`: Enable [profiler](tools.md#explore-profiler), `true` or `false`.
 
       * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). In `maintenance_window`, provide one of the two parameters:
 
@@ -1001,7 +1001,7 @@ You can change the DBMS settings of the hosts in your cluster.
 {% endlist %}
 
 
-## Changing security groups {#change-sg-set}
+## Editing security groups {#change-sg-set}
 
 {% list tabs group=instructions %}
 
@@ -1020,7 +1020,7 @@ You can change the DBMS settings of the hosts in your cluster.
 
     To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. View the description of the CLI command to update the cluster:
+    1. View the description of the CLI command to update a cluster:
 
         ```bash
         {{ yc-mdb-mg }} cluster update --help

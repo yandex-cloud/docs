@@ -39,7 +39,7 @@ description: Follow this guide to relocate hosts in a {{ ES }} cluster to a diff
          --host type=datanode,`
                `zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<public_access_to_host:_true_or_false>
+               `assign-public-ip=<allow_public_access_to_host>
       ```
 
       You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you are moving the hosts to.
@@ -55,7 +55,7 @@ description: Follow this guide to relocate hosts in a {{ ES }} cluster to a diff
              type             = "DATA_NODE"
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <public_access_to_host:_true_or_false>
+             assign_public_ip = <allow_public_access_to_host>
            }
          }
          ```

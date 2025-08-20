@@ -12,6 +12,12 @@ To increase [volume](../../concepts/volume.md) size for the StatefulSet controll
 
 {% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
+{% note info %}
+
+Since the `volumeClaimTemplates` field in the `StatefulSet` controller is non-editable, you need to delete and recreate the controller to increase the volume size. The `PersistentVolumeClaim` objects of the initially deployed pods do not update automatically and must be edited manually before creating the new controller.
+
+{% endnote %}
+
 ## Create a StatefulSet controller {#create-sts}
 
 1. Create a file named `sts.yaml` with the controller configuration:
@@ -100,7 +106,6 @@ To increase [volume](../../concepts/volume.md) size for the StatefulSet controll
    | ef3rfleqkit0******** | k8s-csi-ba784ddd49c7aabc63bcbfc45be3cc2e******** | 1073741824 | {{ region-id }}-a     | READY  | ef3nrev9j72t******** |             |
    +----------------------+--------------------------------------------------+------------+-------------------+--------+----------------------+-------------+
    ```
-
 
 ## Update controller settings {#upgrade-sts}
 

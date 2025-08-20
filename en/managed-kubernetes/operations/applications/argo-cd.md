@@ -52,7 +52,7 @@ description: Follow this guide to install Agro CD.
 
 ## Access to the application {#application-access}
 
-You can open Argo CD via [localhost](#open-via-localhost) or [dedicated IP address](#go-to-static-address). The first method is easier to configure and does not require additional network load balancer costs. The second method allows you to get permanent access to Argo CD. The application is available through `localhost` only for as long as port redirection is active.
+You can open Argo CD via [localhost](#open-via-localhost), using a [dedicated IP address](#go-to-static-address) through [{{ network-load-balancer-full-name }}](../../../network-load-balancer), or by [URL](#open-via-alb) through an L7 [{{ alb-full-name }}](../../../application-load-balancer). The first method is easier to configure and does not require additional costs for load balancers. However, the application is only available through `localhost` as long as port redirection is active and load balancers provide continuous access to Argo CD.
 
 Before you set up access to Argo CD, get the administrator password (`admin`):
 
@@ -76,9 +76,9 @@ You will need the password for authorization in Argo CD.
 
 1. Follow the `https://localhost:8080` link and log in with administrator credentials.
 
-### Opening the application via a dedicated IP address {#go-to-static-address}
+### Opening the application through a dedicated IP address via {{ network-load-balancer-name }} {#go-to-static-address}
 
-1. Save the following specification for creating a `LoadBalancer` type service to a file named `load-balancer.yaml`. This will create you a [{{ network-load-balancer-full-name }}](../../../network-load-balancer/index.yaml):
+1. Save the following specification for creating a `LoadBalancer` type service to a file named `load-balancer.yaml`. This will create you a [{{ network-load-balancer-name }}](../../../network-load-balancer/index.yaml):
 
    ```yaml
    apiVersion: v1
@@ -109,7 +109,7 @@ You will need the password for authorization in Argo CD.
    kubectl apply -f load-balancer.yaml --namespace <namespace>
    ```
 
-1. Get the IP address of the load balancer you created:
+1. Get the IP address of the network load balancer you created:
 
    {% list tabs group=instructions %}
 
@@ -125,6 +125,112 @@ You will need the password for authorization in Argo CD.
    {% endlist %}
 
 1. Follow the `https://<load_balancer_IP_address>` link and log in with administrator credentials.
+
+### Opening the application by URL through {{ alb-name }} {#open-via-alb}
+
+1. {% include [create-zone](../../../_includes/managed-kubernetes/create-public-zone.md) %}
+
+1. {% include [add-certificate](../../../_includes/managed-kubernetes/certificate-add.md) %}
+
+1. {% include [get-certificate-id](../../../_includes/managed-kubernetes/certificate-get-id.md) %}
+
+1. [Configure](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) the security groups required for an L7 {{ alb-name }}.
+
+1. [Install the {{ alb-name }}](alb-ingress-controller.md) ingress controller.
+
+1. While you need a `NodePort` service to work with an L7 {{ alb-name }}, Argo CD runs a server with a `ClusterIP` service. Change the service type:
+
+   1. Open the file with the `Service` object description:
+
+      ```bash
+      kubectl -n <namespace> edit svc <app_name>-argocd-server
+      ```
+
+   1. Replace the `type` value with `NodePort`:
+
+        ```yaml
+        spec:
+          ... 
+          type: NodePort
+          ...
+        ```
+
+1. The L7 {{ alb-name }} removes TLS encryption from inbound traffic. To avoid infinite redirection, disable HTTP to HTTPS redirection for Argo CD:
+
+   1. Open the `argocd-cmd-params-cm` configuration file:
+
+      ```bash
+      kubectl -n <namespace> edit configmap argocd-cmd-params-cm
+      ```
+
+   1. Replace the `server.insecure` value with `true`:
+
+      ```yaml
+      data:
+        ...
+        server.insecure: "true"
+        ...
+      ```
+
+1. Create a file named `ingress.yaml` and specify the settings for your L7 {{ alb-name }} in it:
+
+    ```yaml
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: argocd-ingress
+      namespace: argo-cd-space
+      annotations:
+        ingress.alb.yc.io/subnets: <load_balancer_subnet_ID>
+        ingress.alb.yc.io/security-groups: <load_balancer_security_group_ID>
+        ingress.alb.yc.io/external-ipv4-address: auto
+        ingress.alb.yc.io/group-name: my-ingress-group
+    spec:
+      tls:
+        - hosts:
+            - <domain_name>
+          secretName: yc-certmgr-cert-id-<TLS_certificate_ID>
+      rules:
+        - host: <domain_name>
+          http:
+            paths:
+              - path: /
+                pathType: Prefix
+                backend:
+                  service:
+                    name: argo-cd-argocd-server
+                    port:
+                      number: 80
+    ```
+
+    To learn more about these settings, see [Configuring an L7 {{ alb-full-name }} using an ingress controller](../../tutorials/alb-ingress-controller.md#create-ingress-and-apps).
+
+1. In the `ingress.yaml` file directory, run this command:
+
+    ```bash
+    kubectl apply -f ingress.yaml
+    ```
+
+    This will create an `Ingress` resource. ALB Ingress Controller will use its configuration to automatically deploy your L7 {{ alb-name }}.
+
+1. Make sure you created the L7 load balancer. To do this, run the following command:
+
+    ```bash
+    kubectl get ingress argocd-ingress
+    ```
+
+    View the command output. If you created the L7 load balancer, its IP address should appear in the `ADDRESS` field:
+
+    ```bash
+    NAME            CLASS   HOSTS           ADDRESS        PORTS    AGE
+    argocd-ingress  <none>  <domain_name>  51.250.**.***  80, 443  15h
+    ```    
+
+1. [Add an A record](../../../dns/operations/resource-record-create.md) to your domain's zone. In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the public IP address of your L7 {{ alb-name }}.
+
+1. Open the `https://<domain_name>` link in your browser and log in with administrator credentials.
+
+   {% include [check-sg-if-url-unavailable-lvl3](../../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
 ## Use cases {#examples}
 

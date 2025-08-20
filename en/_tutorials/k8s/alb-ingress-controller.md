@@ -25,30 +25,16 @@ The support cost includes:
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for using an L7 load balancer’s computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for an {{ objstorage-name }} bucket: data storage and operations with data (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
+1. {% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}
 
-1. If you already have a certificate for the domain zone, [add its details](../../certificate-manager/operations/import/cert-create.md) to [{{ certificate-manager-full-name }}](../../certificate-manager/). Alternatively, you can [add a new {{ lets-encrypt }} certificate](../../certificate-manager/operations/managed/cert-create.md).
+1. {% include [add-certificate](../../_includes/managed-kubernetes/certificate-add.md) %}
 
-1. Get the ID of the certificate you added:
-
-    ```bash
-    yc certificate-manager certificate list
-    ```
-
-    Result:
-
-    ```text
-    +----------------------+-----------+----------------+---------------------+----------+--------+
-    |          ID          |   NAME    |    DOMAINS     |      NOT AFTER      |   TYPE   | STATUS |
-    +----------------------+-----------+----------------+---------------------+----------+--------+
-    | fpq8diorouhp******** | sert-test |    test.ru     | 2022-01-06 17:19:37 | IMPORTED | ISSUED |
-    +----------------------+-----------+----------------+---------------------+----------+--------+
-    ```
+1. {% include [get-certificate-id](../../_includes/managed-kubernetes/certificate-get-id.md) %}
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
@@ -59,7 +45,7 @@ The support cost includes:
 1. {% include [k8s-ingress-controller-create-cluster](../../_includes/application-load-balancer/k8s-ingress-controller-create-cluster.md) %}
 1. {% include [k8s-ingress-controller-create-node-group](../../_includes/application-load-balancer/k8s-ingress-controller-create-node-group.md) %}
 
-1. [Install an {{ alb-name }} Ingress controller](../../managed-kubernetes/operations/applications/alb-ingress-controller.md).
+1. [Install the {{ alb-name }} ingress controller](../../managed-kubernetes/operations/applications/alb-ingress-controller.md).
 
 
 1. {% include [install externaldns](../../_includes/managed-kubernetes/install-externaldns.md) %}
@@ -460,6 +446,32 @@ Create test applications and an Ingress resource:
        ingress.alb.yc.io/modify-header-request-remove: <name_of_header_to_delete>=true
        ```
 
+     * `ingress.alb.yc.io/session-affinity-header`: Sets an HTTP header for [session affinity](../../application-load-balancer/concepts/backend-group.md#session-affinity). To specify the header, use this format:
+
+       ```yaml
+       ingress.alb.yc.io/session-affinity-header: name=<header_name>
+       ```
+
+     * `ingress.alb.yc.io/session-affinity-cookie`: Sets cookie settings for session affinity. To specify the settings, use this format:
+
+       ```yaml
+       ingress.alb.yc.io/session-affinity-cookie: name=<cookie_name>,ttl=<cookie_lifetime>
+       ```
+
+       The `ttl` value must be specified with units of measurement, e.g., `300ms` or `1.5h`. Acceptable units of measurement include:
+       * `ns`, nanoseconds
+       * `us`, microseconds
+       * `ms`, milliseconds
+       * `s`, seconds
+       * `m`, minutes
+       * `h`, hours
+
+     * `ingress.alb.yc.io/session-affinity-connection`: Allows using a client IP address for session affinity. To specify this property, use the following format:
+
+       ```yaml
+       ingress.alb.yc.io/session-affinity-connection: source-ip=<true_or_false>
+       ```
+
      {% endcut %}
 
      If you use several Ingress controllers, create an [IngressClass](../../managed-kubernetes/alb-ref/ingress-class.md) resource for each of them. In the `Ingress` configuration, specify the `IngressClass` you need in the `spec.ingressClassName` field.
@@ -796,7 +808,7 @@ If you specified a name for the Ingress resource group settings in the `ingress.
 
 ## Make sure the applications are accessible via the L7 load balancer {#verify-setup}
 
-1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **Value** field, specify the public IP address of the {{ alb-name }} L7 load balancer. If you are using ExternalDNS with a plugin for {{ dns-full-name }}, this record will be created automatically.
+1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the public IP address of your L7 {{ alb-name }}. If you are using ExternalDNS with a plugin for {{ dns-full-name }}, this record will be created automatically.
 1. Test the load balancer:
 
    {% list tabs %}

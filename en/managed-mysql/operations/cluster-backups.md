@@ -347,7 +347,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
   To restore a cluster from a backup:
 
-  1. View a description of the CLI restore {{ MY }} cluster command:
+  1. View the description of the CLI command to restore a {{ MY }} cluster:
 
       ```bash
       {{ yc-mdb-my }} cluster restore --help
@@ -384,7 +384,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
          --network-name=<network_name> \
          --host zone-id=<availability_zone>,`
                `subnet-name=<subnet_name>,`
-               `assign-public-ip=<public_access_to_host> \
+               `assign-public-ip=<allow_public_access_to_host> \
          --resource-preset=<host_class> \
          --disk-size=<storage_size_in_GB> \
          --disk-type=<disk_type>
@@ -398,7 +398,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
       * `--name`: Cluster name.
       * `--environment`: Environment:
 
-          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
           * `PRODUCTION`: For stable versions of your apps.
 
       * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -544,7 +544,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
               {
                   "zoneId": "<availability_zone>",
                   "subnetId": "<subnet_ID>",
-                  "assignPublicIp": <public_host_address:_true_or_false>
+                  "assignPublicIp": <allow_public_access_to_host>
               }
           ]
       }
@@ -558,7 +558,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
       * `name`: Cluster name.
       * `environment`: Environment:
 
-          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
           * `PRODUCTION`: For stable versions of your apps.
 
       * `networkId`: [Network](../../vpc/concepts/network.md#network) ID.
@@ -575,7 +575,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
           * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-          * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet.
+          * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
   1. Use the [Cluster.restore](../api-ref/Cluster/restore.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
@@ -619,7 +619,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
               {
                   "zone_id": "<availability_zone>",
                   "subnet_id": "<subnet_ID>",
-                  "assign_public_ip": <public_host_address:_true_or_false>
+                  "assign_public_ip": <allow_public_access_to_host>
               }
           ]
       }
@@ -633,7 +633,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
       * `name`: Cluster name.
       * `environment`: Environment:
 
-          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test the compatibility of new versions with your application.
           * `PRODUCTION`: For stable versions of your apps.
 
       * `network_id`: [Network](../../vpc/concepts/network.md#network) ID.
@@ -650,7 +650,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [{{ roles.mm
 
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-          * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet.
+          * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
 
   1. Use the [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 

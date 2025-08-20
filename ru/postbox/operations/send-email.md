@@ -5,7 +5,11 @@ description: Следуя данной инструкции, вы сможете
 
 # Отправка письма
 
-В {{ postbox-name }} отправить письмо можно с помощью [AWS CLI](#aws-cli-send), из почтового клиента по [протоколу SMTP](#smtp-send) или с помощью [AWS SDK](#aws-sdk-send).
+В {{ postbox-name }} можно отправить письмо:
+* с помощью [AWS CLI](#aws-cli);
+* из почтового клиента по [протоколу SMTP](#smtp);
+* с помощью [AWS SDK](#aws-sdk);
+* с помощью утилиты [cURL](#curl).
 
 {% include [tls](../../_includes/postbox/tls.md) %}
 
@@ -14,11 +18,12 @@ description: Следуя данной инструкции, вы сможете
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт в том же каталоге, в котором находится адрес. Если вы создадите сервисный аккаунт и адрес в разных каталогах, при попытке отправить письмо возникнет ошибка.
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../security/index.md#postbox-sender) `postbox.sender`.
 1. Создайте ключ для сервисного аккаунта:
-    * Для отправки письма по протоколу SMTP с аутентификацией по API-ключу [создайте](../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ. При создании API-ключа задайте область действия `yc.postbox.send`. Надежно сохраните полученный секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
-    * Для отправки письма с помощью AWS CLI или по протоколу SMTP с аутентификацией по паролю [создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статический ключ доступа. Надежно сохраните идентификатор и секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
-    * Для отправки письма по протоколу SMTP с аутентификацией по IAM-токену [создайте](../../iam/operations/iam-token/create-for-sa.md) IAM-токен.
 
-        Этот способ авторизации подходит для отправки писем из [функций](../../functions/concepts/function.md) {{ sf-name }} и [контейнеров](../../serverless-containers/concepts/container.md) {{ serverless-containers-name }}, а также для [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }}, к которым привязан сервисный аккаунт. Выбирайте его, если не хотите создавать и хранить статические ключи доступа.
+    * [API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key). При создании API-ключа задайте область действия `yc.postbox.send`. Надежно сохраните полученный секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
+
+    * [Статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key). Надежно сохраните идентификатор и секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
+
+    * [IAM-токен](../../iam/operations/iam-token/create-for-sa.md). Этот способ авторизации подходит для отправки писем из [функций](../../functions/concepts/function.md) {{ sf-name }} и [контейнеров](../../serverless-containers/concepts/container.md) {{ serverless-containers-name }}, а также для [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }}, к которым привязан сервисный аккаунт. Выбирайте его, если не хотите создавать и хранить статические ключи доступа.
 
         {% note warning %}
 
@@ -26,36 +31,45 @@ description: Следуя данной инструкции, вы сможете
 
         {% endnote %}
 
-## Отправьте письмо {#send-email}
+    Доступные комбинации способов аутентификации и отправки письма:
 
-### AWS CLI {#aws-cli-send}
+    ![arrow_right](../../_assets/console-icons/arrow-right.svg)<br>**Способ отправки письма**<br>**Способ аутентификации**<br>![arrow_down](../../_assets/console-icons/arrow-down.svg) | **AWS CLI** | **SMTP** | **AWS SDK** | **cURL**
+    :---: | --- | --- | --- | ---
+    |**API-ключ** | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) ||
+    **Статический ключ доступа** | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) ||
+    **IAM-токен** | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg)
 
-{% include [send-email-aws](../../_includes/postbox/send-email-aws.md) %}
+## Отправить письмо {#send-email}
 
-### SMTP {#smtp-send}
-
-Отправка по протоколу SMTP возможна с аутентификацией:
-* по API-ключу сервисного аккаунта;
-* по паролю, сгенерированному на основе статического ключа доступа сервисного аккаунта;
-* по IAM-токену сервисного аккаунта.
+### AWS CLI {#aws-cli}
 
 {% list tabs %}
 
-- Аутентификация по API-ключу
+- Cтатический ключ доступа
+
+    {% include [send-email-aws](../../_includes/postbox/send-email-aws.md) %}
+
+{% endlist %}
+
+### SMTP {#smtp}
+
+{% list tabs %}
+
+- API-ключ
 
     {% include [smtp-send-api](../../_includes/postbox/smtp-send-api.md) %}
 
-- Аутентификация по паролю
+- Cтатический ключ доступа
 
     {% include [smtp-send-python](../../_includes/postbox/smtp-send-python.md) %}
 
-- Аутентификация по IAM-токену
+- IAM-токен
 
     {% include [smtp-send-iam-token](../../_includes/postbox/smtp-send-iam-token.md) %}
 
 {% endlist %}
 
-### AWS SDK {#aws-sdk-send}
+### AWS SDK {#aws-sdk}
 
 Вы можете отправить письмо с помощью AWS SDK для .NET Core, Go, JavaScript и Python. Подробнее см. в руководствах:
 
@@ -63,3 +77,80 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](../../postbox/tutorials/send-emails-aws-sdk-go.md)
 * [{#T}](../../postbox/tutorials/send-emails-aws-sdk-js.md)
 * [{#T}](../../postbox/tutorials/send-emails-aws-sdk-python.md)
+
+### cURL {#curl}
+
+Чтобы отправить письмо с помощью утилиты [cURL](https://curl.se/), выполните команду:
+
+{% list tabs %}
+
+- Статический ключ доступа
+
+    ```bash
+    curl \
+        --request POST \
+        --url '{{ postbox-endpoint }}/v2/email/outbound-emails' \
+        --header 'Content-Type: application/json' \
+        --user "${KEY_ID}:${SECRET_KEY}" \
+        --aws-sigv4 "aws:amz:ru-central1:ses" \
+        --data-binary '@email.json'
+    ```
+
+- IAM-токен
+
+    ```bash
+    curl \
+        --request POST \
+        --url '{{ postbox-endpoint }}/v2/email/outbound-emails' \
+        --header 'Content-Type: application/json' \
+        --header 'X-YaCloud-SubjectToken: <IAM-токен>' \
+        --data '{
+            "FromEmailAddress": "<отправитель>",
+            "Destination": {
+                "ToAddresses": ["<получатель>"]
+            },
+            "Content": {
+                "Simple": {
+                    "Subject": {
+                        "Data": "<тема>"
+                    },
+                    "Body": {
+                        "Text": {
+                            "Data": "<текст письма>"
+                        }
+                    }
+                }
+            }
+        }'
+    ```
+
+{% endlist %}
+
+Тело [запроса](../../postbox/aws-compatible-api/api-ref/send-email.md) можно передавать в аргументе командной строки или файле.
+
+{% cut "Пример файла" %}
+
+```json
+{
+    "FromEmailAddress": "<отправитель>",
+    "Destination": {
+        "ToAddresses": ["<получатель>"]
+    },
+    "Content": {
+        "Simple": {
+            "Subject": {
+                "Data": "<тема>"
+            },
+            "Body": {
+                "Text": {
+                    "Data": "<текст письма>"
+                }
+            }
+        }
+    }
+}
+```
+
+{% endcut %}
+
+Чтобы использовать [AWS Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html) для подписи запроса, укажите параметр `--aws-sigv4`. Как формировать подпись самостоятельно, см. в разделе [{#T}](../../postbox/aws-compatible-api/signing-requests.md).

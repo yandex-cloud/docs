@@ -55,7 +55,7 @@ Do not allow free disk space to drop to zero during the following actions. Other
 
 To disable the read-only mode:
 
-1. [Connect to the database](../operations/connect.md) in any appropriate way.
+1. [Connect to the database](../operations/connect.md) using any method of your choice.
 
 1. Open a transaction and run the following command inside it:
 
@@ -275,6 +275,8 @@ To disable the read-only mode:
 
             You can enable both rules, but the threshold for immediate increase should be higher than that for increase during the maintenance window.
 
+            For more information about storage increase conditions, see [this section](../concepts/storage.md#auto-rescale).
+
         1. In the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set when increasing the storage size automatically.
 
     1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -287,7 +289,7 @@ To disable the read-only mode:
 
     To set up automatic increase of storage size:
 
-    1. View the description of the CLI command to update the cluster:
+    1. View the description of the CLI command to update a cluster:
 
         ```bash
         {{ yc-mdb-pg }} cluster update --help
@@ -305,6 +307,38 @@ To disable the read-only mode:
         ```
 
         If you have set up the storage size to increase within the maintenance window, set up a schedule for the maintenance window.
+
+        For more information about storage increase conditions, see [this section](../concepts/storage.md#auto-rescale).
+        
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
+
+        For a complete list of available {{ mpg-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mpg }}).
+
+    1. Add the `disk_size_autoscaling` section to `config`:
+
+        {% include [disk-size-autoscaling](../../_includes/mdb/mpg/terraform/disk-size-autoscaling.md) %}
+        
+        {% note warning %}
+        
+        If you specify both thresholds, `emergency_usage_threshold` must not be less than `planned_usage_threshold`.
+        
+        {% endnote %}
+    
+    1. If you specified the `planned_usage_threshold` parameter, configure the [maintenance window schedule](cluster-maintenance.md#set-maintenance-window).
+    
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -326,8 +360,8 @@ To disable the read-only mode:
                  "updateMask": "configSpec.diskSizeAutoscaling,maintenanceWindow",
                  "configSpec": {
                    "diskSizeAutoscaling": {
-                     "plannedUsageThreshold": "<scheduled_increase_percentage>",
-                     "emergencyUsageThreshold": "<immediate_increase_percentage>",
+                     "plannedUsageThreshold": "<threshold_for_scheduled_increase_as_percentage>",
+                     "emergencyUsageThreshold": "<threshold_for_immediate_increase_as_percentage>",
                      "diskSizeLimit": "<maximum_storage_size_in_bytes>"
                    }
                  },
@@ -346,24 +380,20 @@ To disable the read-only mode:
 
        In this case, provide only `configSpec.diskSizeAutoscaling` and `maintenanceWindow`.
 
-     * `configSpec.diskSizeAutoscaling`: Automatic storage size increase settings:
-
-       * `plannedUsageThreshold`: Storage utilization percentage to trigger a storage increase during the next maintenance window.
-
-         Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled).
-
-         If you have set this parameter, configure the maintenance window schedule in the `maintenanceWindow` parameter.
-
-       * `emergencyUsageThreshold`: Storage utilization percentage to trigger an immediate storage increase.
+     * `configSpec`: Cluster settings:
+       
+       {% include [disk-size-autoscaling-rest](../../_includes/mdb/mpg/disk-size-autoscaling-rest.md) %}
 
          Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled). This parameter value must be greater than or equal to `plannedUsageThreshold`.
 
        * `diskSizeLimit`: Maximum storage size, in bytes, that can be set when utilization reaches one of the specified percentages.
 
+        For more information about storage increase conditions, see [this section](../concepts/storage.md#auto-rescale).
+
      * `maintenanceWindow`: Maintenance window schedule. It is required only if the `plannedUsageThreshold` parameter is set. Contains the following parameters:
 
        * `day`: Day of week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`.
+       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -397,8 +427,8 @@ To disable the read-only mode:
              },
              "config_spec": {
                "disk_size_autoscaling": {
-                 "planned_usage_threshold": "<scheduled_increase_percentage>",
-                 "emergency_usage_threshold": "<immediate_increase_percentage>",
+                 "planned_usage_threshold": "<threshold_for_scheduled_increase_as_percentage>",
+                 "emergency_usage_threshold": "<threshold_for_immediate_increase_as_percentage>",
                  "disk_size_limit": "<maximum_storage_size_in_bytes>"
                }
              },
@@ -419,24 +449,16 @@ To disable the read-only mode:
 
        In this case, provide only `config_spec.disk_size_autoscaling` and `maintenance_window`.
 
-     * `config_spec.disk_size_autoscaling`: Automatic storage size increase settings:
+     * `config_spec`: Cluster settings:
 
-       * `planned_usage_threshold`: Storage utilization percentage to trigger a storage increase during the next maintenance window.
+       {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mpg/disk-size-autoscaling-grpc.md) %}
 
-         Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled).
-
-         If you have set this parameter, configure the maintenance window schedule in the `maintenance_window` parameter.
-
-       * `emergency_usage_threshold`: Storage utilization percentage to trigger an immediate storage increase.
-
-         Use a percentage value between `0` and `100`. The default value is `0` (automatic increase is disabled). This parameter value must be greater than or equal to `planned_usage_threshold`.
-
-       * `disk_size_limit`: Maximum storage size, in bytes, that can be set when utilization reaches one of the specified percentages.
+        For more information about storage increase conditions, see [this section](../concepts/storage.md#auto-rescale).
 
      * `maintenance_window`: Maintenance window schedule. It is required only if the `planned_usage_threshold` parameter is set. Contains the following parameters:
 
        * `day`: Day of week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`.
+       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
