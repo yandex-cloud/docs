@@ -620,15 +620,63 @@ default:
   roles:
     data-catalog:
       admin: data-catalog.admin
+      assets:
+        admin: data-catalog.assets.admin
+        auditor: data-catalog.assets.auditor
+        editor: data-catalog.assets.editor
+        viewer: data-catalog.assets.viewer
       auditor: data-catalog.auditor
-      catalog:
+      catalogs:
         admin: data-catalog.catalogs.admin
         auditor: data-catalog.catalogs.auditor
         editor: data-catalog.catalogs.editor
         viewer: data-catalog.catalogs.viewer
+      classifications:
+        admin: data-catalog.classifications.admin
+        auditor: data-catalog.classifications.auditor
+        editor: data-catalog.classifications.editor
+        viewer: data-catalog.classifications.viewer
+      classificationTags:
+        admin: data-catalog.classificationsTags.admin
+        auditor: data-catalog.classificationsTags.auditor
+        editor: data-catalog.classificationsTags.editor
+        user: data-catalog.classificationsTags.user
+        viewer: data-catalog.classificationsTags.viewer
       dataConsumer: data-catalog.dataConsumer
       dataSteward: data-catalog.dataSteward
+      domains:
+        admin: data-catalog.domains.admin
+        auditor: data-catalog.domains.auditor
+        editor: data-catalog.domains.editor
+        user: data-catalog.domains.user
+        viewer: data-catalog.domains.viewer
       editor: data-catalog.editor
+      glossaries:
+        admin: data-catalog.glossaries.admin
+        auditor: data-catalog.glossaries.auditor
+        editor: data-catalog.glossaries.editor
+        viewer: data-catalog.glossaries.viewer
+      glossaryTerms:
+        admin: data-catalog.glossaryTerms.admin
+        auditor: data-catalog.glossaryTerms.auditor
+        editor: data-catalog.glossaryTerms.editor
+        user: data-catalog.glossaryTerms.user
+        viewer: data-catalog.glossaryTerms.viewer
+      ingestions:
+        admin: data-catalog.ingestions.admin
+        auditor: data-catalog.ingestions.auditor
+        editor: data-catalog.ingestions.editor
+        viewer: data-catalog.ingestions.viewer
+      ingestionSources:
+        admin: data-catalog.ingestionSources.admin
+        auditor: data-catalog.ingestionSources.auditor
+        editor: data-catalog.ingestionSources.editor
+        viewer: data-catalog.ingestionSources.viewer
+      lineages:
+        admin: data-catalog.lineages.admin
+        auditor: data-catalog.lineages.auditor
+        editor: data-catalog.lineages.editor
+        viewer: data-catalog.lineages.viewer
       user: data-catalog.user
       viewer: data-catalog.viewer
     gitlab:
@@ -1099,6 +1147,18 @@ default:
         12_month|string: "439\_875,00\_₸"
         3_month|string: "491\_625,00\_₸"
         6_month|string: "481\_275,00\_₸"
+      ba_i215_ss_10g:
+        1_day|string: "623\_500,00\_₸"
+        1_month|string: "604\_795,00\_₸"
+        12_month|string: "529\_975,00\_₸"
+        3_month|string: "592\_325,00\_₸"
+        6_month|string: "579\_855,00\_₸"
+      ba_i216_ss_1_10g:
+        1_day|string: "623\_000,00\_₸"
+        1_month|string: "604\_310,00\_₸"
+        12_month|string: "529\_550,00\_₸"
+        3_month|string: "591\_850,00\_₸"
+        6_month|string: "579\_390,00\_₸"
       ba_i407_s_10g:
         1_day|string: "431\_000,00\_₸"
         1_month|string: "418\_070,00\_₸"
@@ -1117,18 +1177,42 @@ default:
         12_month|string: "1\_024\_675,00\_₸"
         3_month|string: "1\_145\_225,00\_₸"
         6_month|string: "1\_121\_115,00\_₸"
+      ba_i507_nh_2x25g:
+        1_day|string: "1\_218\_000,00\_₸"
+        1_month|string: "1\_181\_460,00\_₸"
+        12_month|string: "1\_035\_300,00\_₸"
+        3_month|string: "1\_157\_100,00\_₸"
+        6_month|string: "1\_132\_740,00\_₸"
       ba_i511_nh_25g:
         1_day|string: "1\_499\_500,00\_₸"
         1_month|string: "1\_454\_515,00\_₸"
         12_month|string: "1\_274\_575,00\_₸"
         3_month|string: "1\_424\_525,00\_₸"
         6_month|string: "1\_394\_535,00\_₸"
+      ba_i512_nh_2x25g:
+        1_day|string: "1\_514\_000,00\_₸"
+        1_month|string: "1\_468\_580,00\_₸"
+        12_month|string: "1\_286\_900,00\_₸"
+        3_month|string: "1\_438\_300,00\_₸"
+        6_month|string: "1\_408\_020,00\_₸"
+      ba-i523-nh-2x25g:
+        1_day|string: "2\_380\_500,00\_₸"
+        1_month|string: "2\_309\_085,00\_₸"
+        12_month|string: "2\_023\_425,00\_₸"
+        3_month|string: "2\_261\_475,00\_₸"
+        6_month|string: "2\_213\_865,00\_₸"
       ha_i302_s_10g:
         1_day|string: "459\_000,00\_₸"
         1_month|string: "445\_230,00\_₸"
         12_month|string: "390\_150,00\_₸"
         3_month|string: "436\_050,00\_₸"
         6_month|string: "426\_870,00\_₸"
+      ha-i502-n-25g-gxl4:
+        1_day|string: "1\_092\_000,00\_₸"
+        1_month|string: "1\_059\_240,00\_₸"
+        12_month|string: "928\_200,00\_₸"
+        3_month|string: "1\_037\_400,00\_₸"
+        6_month|string: "1\_015\_560,00\_₸"
   sku|KZT|cdn:
     api:
       network:
@@ -2862,6 +2946,18 @@ default:
         12_month|string: "87\_975,00\_₽"
         3_month|string: "98\_325,00\_₽"
         6_month|string: "96\_255,00\_₽"
+      ba_i215_ss_10g:
+        1_day|string: "124\_700,00\_₽"
+        1_month|string: "120\_959,00\_₽"
+        12_month|string: "105\_995,00\_₽"
+        3_month|string: "118\_465,00\_₽"
+        6_month|string: "115\_971,00\_₽"
+      ba_i216_ss_1_10g:
+        1_day|string: "124\_600,00\_₽"
+        1_month|string: "120\_862,00\_₽"
+        12_month|string: "105\_910,00\_₽"
+        3_month|string: "118\_370,00\_₽"
+        6_month|string: "115\_878,00\_₽"
       ba_i407_s_10g:
         1_day|string: "86\_200,00\_₽"
         1_month|string: "83\_614,00\_₽"
@@ -2880,18 +2976,42 @@ default:
         12_month|string: "204\_935,00\_₽"
         3_month|string: "229\_045,00\_₽"
         6_month|string: "224\_223,00\_₽"
+      ba_i507_nh_2x25g:
+        1_day|string: "243\_600,00\_₽"
+        1_month|string: "236\_292,00\_₽"
+        12_month|string: "207\_060,00\_₽"
+        3_month|string: "231\_420,00\_₽"
+        6_month|string: "226\_548,00\_₽"
       ba_i511_nh_25g:
         1_day|string: "299\_900,00\_₽"
         1_month|string: "290\_903,00\_₽"
         12_month|string: "254\_915,00\_₽"
         3_month|string: "284\_905,00\_₽"
         6_month|string: "278\_907,00\_₽"
+      ba_i512_nh_2x25g:
+        1_day|string: "302\_800,00\_₽"
+        1_month|string: "293\_716,00\_₽"
+        12_month|string: "257\_380,00\_₽"
+        3_month|string: "287\_660,00\_₽"
+        6_month|string: "281\_604,00\_₽"
+      ba-i523-nh-2x25g:
+        1_day|string: "476\_100,00\_₽"
+        1_month|string: "461\_817,00\_₽"
+        12_month|string: "404\_685,00\_₽"
+        3_month|string: "452\_295,00\_₽"
+        6_month|string: "442\_773,00\_₽"
       ha_i302_s_10g:
         1_day|string: "91\_800,00\_₽"
         1_month|string: "89\_046,00\_₽"
         12_month|string: "78\_030,00\_₽"
         3_month|string: "87\_210,00\_₽"
         6_month|string: "85\_374,00\_₽"
+      ha-i502-n-25g-gxl4:
+        1_day|string: "218\_400,00\_₽"
+        1_month|string: "211\_848,00\_₽"
+        12_month|string: "185\_640,00\_₽"
+        3_month|string: "207\_480,00\_₽"
+        6_month|string: "203\_112,00\_₽"
   sku|RUB|cdn:
     api:
       network:
@@ -7945,6 +8065,7 @@ default:
         field_rustore-project-id: ID проекта
         field_rustore-service-token: Сервисный токен
         field_token: Токен устройства
+        field_vapid: Публичный VAPID-ключ
         field_web-push-endpoint_params: Параметры эндпоинта в JSON
         label_editor-json: JSON
         label_editor-text: Текст

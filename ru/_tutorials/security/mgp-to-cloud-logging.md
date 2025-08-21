@@ -49,7 +49,7 @@
 
           {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-      * `--log-command-center-enabled` — передача логов Yandex Command Center.
+      * `--log-command-center-enabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
 
           {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
@@ -115,7 +115,7 @@
 
               {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-          * `command-center-enabled` — передача логов Yandex Command Center.
+          * `command-center-enabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
 
               {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
@@ -159,7 +159,7 @@
 
           {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-      * `commandCenterEnabled` — передача логов Yandex Command Center.
+      * `commandCenterEnabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
 
           {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
@@ -264,7 +264,7 @@
 
           {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-      * `--log-command-center-enabled` — передача логов Yandex Command Center.
+      * `--log-command-center-enabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
 
           {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
@@ -330,7 +330,7 @@
 
               {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-          * `command-center-enabled` — передача логов Yandex Command Center.
+          * `command-center-enabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
 
               {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
@@ -374,7 +374,7 @@
 
           {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-      * `commandCenterEnabled` — передача логов Yandex Command Center.
+      * `commandCenterEnabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
 
           {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 

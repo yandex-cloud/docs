@@ -721,6 +721,12 @@ description: Следуя данной инструкции, вы сможете
            --websql-access=<true_или_false> \
            --yandexquery-access=<true_или_false> \
            --deletion-protection \
+           --disk-size-autoscaling clickhouse-disk-size-limit=<максимальный_размер_хранилища_ГБ>,`
+                                  `clickhouse-planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
+                                  `clickhouse-emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах>,`
+                                  `zookeeper-disk-size-limit=<максимальный_размер_хранилища_ГБ>,`
+                                  `zookeeper-planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
+                                  `zookeeper-emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах> \
            --maintenance-window type=<тип_технического_обслуживания>,`
                                `day=<день_недели>,`
                                `hour=<час_дня>
@@ -750,6 +756,10 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+    * `--disk-size-autoscaling` — настройки автоматического увеличения размера хранилища:
+        
+        {% include [disk-size-autoscaling-cli](../../_includes/mdb/mch/disk-size-autoscaling-cli.md) %}
+    
     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
@@ -853,6 +863,20 @@ description: Следуя данной инструкции, вы сможете
                   "seconds": "<секунды>",
                   "nanos": "<наносекунды>"
                 },
+                "clickhouse": {
+                  "diskSizeAutoscaling": {
+                    "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+                    "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                    "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+                  }
+                },
+                "zookeeper": {
+                  "diskSizeAutoscaling": {
+                    "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+                    "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                    "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+                  }
+                },
                 "access": {
                   "dataLens": <доступ_из_{{ datalens-name }}>,
                   "webSql": <выполнение_SQL-запросов>,
@@ -884,6 +908,14 @@ description: Следуя данной инструкции, вы сможете
 
                 {% include [rest-access-settings](../../_includes/mdb/mch/api/rest-access-settings.md) %}
 
+            * `configSpec.clickhouse.diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища для подкластера {{ CH }}:
+            
+                {% include [disk-size-autoscaling-rest-ch](../../_includes/mdb/mch/disk-size-autoscaling-rest-ch.md) %}
+            
+            * `configSpec.zookeeper.diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища для подкластера {{ ZK }}:
+                      
+                {% include [disk-size-autoscaling-rest-zk](../../_includes/mdb/mch/disk-size-autoscaling-rest-zk.md) %}
+            
             * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Выберите один из вариантов:
 
                 * `anytime` — (по умолчанию) — в любое время.
@@ -940,6 +972,20 @@ description: Следуя данной инструкции, вы сможете
                   "seconds": "<секунды>",
                   "nanos": "<наносекунды>"
                 },
+                "clickhouse": {
+                  "disk_size_autoscaling": {
+                    "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+                    "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                    "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+                  }
+                },
+                "zookeeper": {
+                  "disk_size_autoscaling": {
+                    "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+                    "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                    "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+                  }
+                },
                 "access": {
                   "data_lens": <доступ_из_{{ datalens-name }}>,
                   "web_sql": <выполнение_SQL-запросов>,
@@ -970,6 +1016,14 @@ description: Следуя данной инструкции, вы сможете
             * `config_spec.access` — настройки, которые разрешают доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}:
 
                 {% include [grpc-access-settings](../../_includes/mdb/mch/api/grpc-access-settings.md) %}
+
+            * `config_spec.clickhouse.disk_size_autoscaling` — настройки автоматического увеличения размера хранилища для подкластера {{ CH }}:
+            
+                {% include [disk-size-autoscaling-grpc-ch](../../_includes/mdb/mch/disk-size-autoscaling-grpc-ch.md) %}
+
+            * `config_spec.zookeeper.disk_size_autoscaling` — настройки автоматического увеличения размера хранилища для подкластера {{ ZK }}:
+                      
+                {% include [disk-size-autoscaling-grpc-zk](../../_includes/mdb/mch/disk-size-autoscaling-grpc-zk.md) %}
 
             * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Выберите один из вариантов:
 

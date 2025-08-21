@@ -1,6 +1,6 @@
 ---
 title: '{{ mch-full-name }} event reference in {{ at-full-name }}'
-description: This page gives a reference for {{ mch-name }} events tracked in {{ at-name }}.
+description: This page provides a reference for {{ mch-name }} events tracked in {{ at-name }}.
 ---
 
 # {{ at-full-name }} event reference
@@ -13,11 +13,11 @@ The general format of the `event_type` field value is as follows:
 {{ at-event-prefix }}.audit.mdb.clickhouse.<event_name>
 ```
 
-## Management event reference {#control-plane-events}
+## Control plane event reference {#control-plane-events}
 
 {% include [mch-events](../_includes/audit-trails/events/mch-events.md) %}
 
-## Data event reference {#data-plane-events}
+## Data plane event reference {#data-plane-events}
 
 {% include [mch-events-dp](../_includes/audit-trails/events/mch-events-dp.md) %}
 

@@ -423,6 +423,9 @@ host | FQDN хоста
 | `opensearch_active_primary_shards`<br/>`DGAUGE`, штуки | Количество активных [первичных шардов](../../../managed-opensearch/concepts/scalability-and-resilience.md) и общее количество активных шардов в кластере. | 
 | `opensearch_active_shards`<br/>`DGAUGE`, штуки | Количество активных шардов. | 
 | `opensearch_active_shards_percent_as_number`<br/>`DGAUGE`, штуки | Процент активных шардов. | 
+| `opensearch_backup_incremental_size`<br/>`DGAUGE`, байты | Размер файлов, созданных в рамках инкрементной резервной копии. |
+| `opensearch_backup_total_size`<br/>`DGAUGE`, байты | Размер файлов, на которые ссылается резервная копия. |
+| `opensearch_backup_free_space_required`<br/>`DGAUGE`, байты | Объем хранилища, необходимый для восстановления кластера из резервной копии. |
 | `opensearch_delayed_unassigned_shards`<br/>`DGAUGE`, штуки | Количество отложенных к назначению шардов. |
 | `opensearch_initializing_shards`<br/>`DGAUGE`, штуки | Количество шардов в состоянии инициализации. | 
 | `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Показатель работоспособности хоста.<br/>Принимает значение `1`, если хост БД работает, `0`, если нет. | 

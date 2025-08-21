@@ -571,12 +571,14 @@ description: Из статьи вы узнаете, как изменить на
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
+        
         ```bash
         {{ yc-mdb-my }} cluster update <имя_или_идентификатор_кластера> \
           --backup-window-start <время_начала_резервного_копирования> \
           --backup-retain-period-days=<срок_хранения_копий> \
           --datalens-access=<true_или_false> \
           --websql-access=<true_или_false> \
+          --yandexquery-access=<true_или_false> \
           --maintenance-window type=<тип_технического_обслуживания>,`
                               `day=<день_недели>,`
                               `hour=<час_дня> \
@@ -586,15 +588,19 @@ description: Из статьи вы узнаете, как изменить на
                                    `statements-sampling-interval=<интервал_сбора_запросов>
         ```
 
+
     Вы можете изменить следующие настройки:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
     * `--backup-retain-period-days` — срок хранения автоматических резервных копий (в днях). Допустимые значения: от `7` до `60`. Значение по умолчанию — `7`.
 
-    * `--datalens-access` — разрешает доступ из {{ datalens-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
+    * `--datalens-access` — разрешает доступ к кластеру из {{ datalens-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
 
     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
+
+    * `--yandexquery-access` — разрешает выполнять YQL-запросы к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
+
 
     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
 
@@ -714,7 +720,7 @@ description: Из статьи вы узнаете, как изменить на
               "access": {
                   "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
                   "webSql": <разрешить_доступ_из_{{ websql-name }}>,
-                  "dataTransfer": <разрешить_доступ_из_Data_Transfer>
+                  "yandexQuery": <разрешить_доступ_из_Yandex_Query>
               },
               "performanceDiagnostics": {
                   "enabled": <активировать_сбор_статистики>,
@@ -749,15 +755,14 @@ description: Из статьи вы узнаете, как изменить на
 
           * `backupRetainPeriodDays` — сколько дней хранить резервную копию кластера: от `7` до `60` дней.
 
-          
-          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+          * `access` — настройки доступа к кластеру из сервисов {{ yandex-cloud }}:
 
-              * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
-              * `webSql` — [{{ websql-full-name }}](../../websql/index.yaml);
-              * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
+            * `dataLens` — доступ из {{ datalens-name }}. Подробнее о настройке подключения см. в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
+            * `webSql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
+            * `yandexQuery` — выполнение YQL-запросов к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
-              Возможные значения настроек: `true` или `false`.
 
+            Возможные значения настроек: `true` или `false`.
 
           * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
@@ -828,7 +833,7 @@ description: Из статьи вы узнаете, как изменить на
               "access": {
                   "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
                   "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
-                  "data_transfer": <разрешить_доступ_из_Data_Transfer>
+                  "yandex_query": <разрешить_доступ_из_Yandex_Query>
               },
               "performance_diagnostics": {
                   "enabled": <активировать_сбор_статистики>,
@@ -863,15 +868,14 @@ description: Из статьи вы узнаете, как изменить на
 
           * `backup_retain_period_days` — сколько дней хранить резервную копию кластера: от `7` до `60` дней.
 
-          
-          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+          * `access` — настройки доступа к кластеру из сервисов {{ yandex-cloud }}:
 
-              * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
-              * `web_sql` — [{{ websql-full-name }}](../../websql/index.yaml);
-              * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
+              * `data_lens` — доступ из {{ datalens-name }}. Подробнее о настройке подключения см. в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
+              * `web_sql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
+              * `yandex_query` — выполнение YQL-запросов к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+
 
               Возможные значения настроек: `true` или `false`.
-
 
           * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
