@@ -218,9 +218,9 @@ The {{ yandex-cloud }} Certified Security Specialist certification exam evaluate
 
 ### {{ objstorage-full-name }} {#objstorage}
 
-#### 3.8 There is no public access to the {{ objstorage-name }} bucket {#bucket-access}
+#### 3.8 No public access to the {{ objstorage-name }} bucket {#bucket-access}
 
-We recommend assigning minimum roles for a bucket using {{ iam-short-name }} and supplementing or itemizing them using a bucket policy (for example, to restrict access to the bucket by IP, grant granular permissions for objects, and so on).
+It is recommended to assign minimum roles for a bucket using {{ iam-short-name }} and supplementing or itemizing them using a bucket policy (for example, to restrict access to the bucket by IP, grant granular permissions for objects, and so on).
 
 Access to {{ objstorage-name }} resources is verified at three levels:
 
@@ -857,7 +857,7 @@ It is prohibited to use confidential data for names of databases, tables, column
 
 When working with the database, use [parameterized prepared statements]({{ ydb.docs }}/reference/ydb-sdk/example/#param-queries) to protect against SQL injection. If the application dynamically generates query templates, you must prevent the injection of untrusted user input into the SQL query template.
 
-#### 3.26 There is no public access for {{ ydb-short-name }} {#ydb-public}
+#### 3.26 No public access for {{ ydb-short-name }} {#ydb-public}
 
 When accessing the database in dedicated mode, we recommend that you use it inside {{ vpc-short-name }} and disable public access to it from the internet. In serverless mode, the database can be accessed from the internet. You must therefore take this into account when modeling threats to your infrastructure. For more information about the operating modes, see the [Serverless and dedicated modes](../../../ydb/concepts/serverless-and-dedicated.md) section in the {{ ydb-name }} documentation.
 
@@ -1052,15 +1052,15 @@ We do not recommend that you use privileged containers to run loads that process
 1. Open the settings of a specific VM with a **Container Optimized Image**.
 1. In the Docker container's Settings, disable the **Privileged mode** parameter.
 
-#### 3.31 The {{ certificate-manager-full-name }} certificate is valid for at least 30 days {#certificate-validity}
+#### 3.31 {{ certificate-manager-full-name }} certificate is valid for at least 30 days {#certificate-validity}
 
-You can use {{ certificate-manager-full-name }} to manage TLS certificates for your API gateways in the API Gateway, as well as your websites and buckets in {{ objstorage-name }}. {{ alb-name }} is integrated with {{ certificate-manager-short-name }} for storing and installing certificates. We recommend that you use {{ certificate-manager-short-name }} to obtain your certificates and rotate them automatically.
+You can use {{ certificate-manager-full-name }} to manage TLS certificates for your API gateways in the API Gateway, as well as your websites and buckets in {{ objstorage-name }}. {{ alb-name }} is integrated with {{ certificate-manager-short-name }} for storing and installing certificates. it is recommended that you use {{ certificate-manager-short-name }} to obtain your certificates and rotate them automatically.
 
-When using TLS in your application, we recommend that you limit the list of your trusted root certificate authorities (root CA).
+When using TLS in your application, it is recommended that you limit the list of your trusted root certificate authorities (root CA).
 
 When using certificate pinning, keep in mind that Let's Encrypt certificates are [valid for 90 days](https://letsencrypt.org/docs/faq/#what-is-the-lifetime-for-let-s-encrypt-certificates-for-how-long-are-they-valid).
 
-We recommend that you update certificates in advance if they are not [updated automatically](../../../certificate-manager/concepts/challenges.md#auto).
+it is recommended that you update certificates in advance if they are not [updated automatically](../../../certificate-manager/concepts/challenges.md#auto).
 
 {% list tabs group=instructions %}
 
@@ -1098,7 +1098,7 @@ We recommend that you update certificates in advance if they are not [updated au
 
 **Guides and solutions to use:**
 
-Update the certificate or set up auto updates.
+Update the certificate or setup auto updates.
 
 ### {{ mgl-full-name }} {#git-lab-service}
 
@@ -1153,7 +1153,7 @@ Check the recommendations in [{#T}](../../../security/standard/kubernetes-securi
 
 #### 3.35 {{ oslogin }} is used for connection to a VM or {{ k8s }} node {#os-login-onto-hosts}
 
-[{{ oslogin }}](../../../organization/concepts/os-login.md) is a convenient way to manage connections to {{ managed-k8s-full-name }} [VMs](../../../compute/concepts/vm.md) and [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes over SSH via the [CLI](../../../cli/quickstart.md) or a standard SSH client with an SSH certificate or SSH key, which you first need to add to the {{ oslogin }} profile of organization user or [service account](../../../iam/concepts/users/service-accounts.md) in {{ org-full-name }}.
+[{{ oslogin }}](../../../organization/concepts/os-login.md) is a convenient way to manage connections to  [VMs](../../../compute/concepts/vm.md) and {{ managed-k8s-full-name }} [cluster](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) nodes over SSH via the [CLI](../../../cli/quickstart.md) or a standard SSH client with an SSH certificate or SSH key, which you first need to add to the {{ oslogin }} profile of organization user or [service account](../../../iam/concepts/users/service-accounts.md) in {{ org-full-name }}.
 
 {{ oslogin }} links the account of a virtual machine or {{ k8s }} node user with that of an organization or service account user. To manage access to virtual machines and {{ k8s }} nodes, [enable](../../../organization/operations/os-login-access.md) the OS Login access option at the organization level and then [activate](../../../compute/operations/vm-connect/enable-os-login.md) {{ oslogin }} access on each virtual machine or {{ k8s }} node separately.
 
@@ -1168,7 +1168,7 @@ Thus, you can easily manage access to virtual machines and {{ k8s }} nodes by as
 
 #### 3.36 Vulnerability scanning is performed at the cloud IP level {#ip-level}
 
-We recommend that customers should scan their hosts for vulnerabilities by themselves. Cloud resources support the installation of custom virtual images of vulnerability scanners or software agents on hosts. There are many paid and free scanning solutions on the market.
+it is recommended that customers should scan their hosts for vulnerabilities by themselves. Cloud resources support the installation of custom virtual images of vulnerability scanners or software agents on hosts. There are many paid and free scanning solutions on the market.
 
 Network scanners scan hosts that are accessible over a network. Generally, authentication can be configured on network scanners. 
 
@@ -1309,7 +1309,7 @@ For two-way asynchronous communication between clients and an API gateway, {{ ap
 
 You can manage web sockets using the [API](../../../api-gateway/api-ref/websocket/authentication.md) that receives information about a connection, sends data to the client side, and closes the connection.
 
-We recommend that you use the following when connecting to the API gateway via WebSocket:
+it is recommended that you use the following when connecting to the API gateway via WebSocket:
 * [TLS](../../../storage/concepts/tls.md) version 1.2 or higher (regularly [check the validity](../../../certificate-manager/operations/managed/cert-update.md) of the TLS connection certificate).
 * OpenAPI 3.0 [authentication and authorization mechanisms](#authorization).
 * [API gateway specification extensions](../../../api-gateway/concepts/extensions/), which can help you enhance your virtual environment security.
@@ -1363,7 +1363,7 @@ The `x-yc-apigateway:smartWebSecurity` extension uses [{{ sws-full-name }} profi
 
 #### 3.46 Authorization in the API gateway is configured {#authorization}
 
-We recommend using the OpenAPI 3.0 authentication and authorization mechanisms that are standard for {{ api-gw-name }}. Currently, you can use authorization via a function and via a JWT.
+it is recommended using the OpenAPI 3.0 authentication and authorization mechanisms that are standard for {{ api-gw-name }}. Currently, you can use authorization via a function and via a JWT.
 
 * [Authorization via Cloud Functions](../../../api-gateway/concepts/extensions/function-authorizer.md). For HTTP request authorization, {{ api-gw-name }} calls the `x-yc-apigateway-authorizer:function` extension. Currently these three types are supported: `HTTP Basic`, `HTTP Bearer`, and `API Key`.
 * [Authorization via a JWT](../../../api-gateway/concepts/extensions/jwt-authorizer.md). For HTTP request authorization, {{ api-gw-name }} validates a token and verifies its signature using the following supported public keys: address, place, fields, body, time, caching mode, and cache retention period.
