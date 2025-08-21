@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mch-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ mch-name }}.
+description: This page provides information about the {{ TF }} provider’s resources and data sources that {{ mch-name }} supports.
 ---
 
 # {{ TF }} reference for {{ mch-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ mch-name }}:
+{{ mch-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |

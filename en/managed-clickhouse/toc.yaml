@@ -51,7 +51,7 @@ items:
         items:
           - name: SQL queries in {{ websql-full-name }}
             href: operations/web-sql-query.md
-          - name: Managing databases
+          - name: Database management
             href: operations/databases.md
           - name: DB user management
             href: operations/cluster-users.md
@@ -85,7 +85,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Adding data to the database
+      - name: Adding data to a DB
         href: tutorials/insert.md
       - name: Migrating data to {{ mch-name }} using {{ CH }}
         href: tutorials/data-migration.md
@@ -107,11 +107,13 @@ items:
           Configuring {{ dns-full-name }} for cluster access from other cloud
           networks
         href: tutorials/dns-peering.md
-      - name: Analyzing {{ objstorage-full-name }} logs in {{ datalens-full-name }}
+      - name: >-
+          Analyzing {{ objstorage-full-name }} logs using {{ datalens-full-name
+          }}
         href: tutorials/storage-logs-analysis.md
       - name: Configuring {{ mch-name }} for Graphite
         href: tutorials/clickhouse-for-graphite.md
-      - name: Saving a {{ yds-full-name }} data stream in {{ mch-name }}
+      - name: Saving a data stream from {{ yds-full-name }} to {{ mch-name }}
         href: tutorials/yds-to-clickhouse.md
       - name: Migrating a database from Google BigQuery
         href: tutorials/bigquery-to-clickhouse.md
@@ -172,8 +174,8 @@ items:
           datalens-short-name }}
         href: tutorials/data-from-ch-geocoder.md
       - name: >-
-          Importing data from {{ objstorage-name }}, processing and exporting to
-          {{ mch-name }}
+          Importing data from {{ objstorage-name }}, processing, and exporting
+          to {{ mch-name }}
         href: tutorials/s3-data-processing-ch.md
       - name: Operations with data using {{ yq-name }}
         href: tutorials/yq-clickhouse.md
@@ -868,5 +870,5 @@ items:
         href: qa/cluster-backups.md
       - name: Monitoring and logs
         href: qa/monitoring.md
-      - name: All questions on a single page
+      - name: All questions on one page
         href: qa/all.md

@@ -14,6 +14,14 @@ description: С помощью направленного ациклическо
    * **Имя пользователя** — `admin`;
    * **Пароль** — `admin-password`.
 
+1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-full-name }}, в котором будет храниться DAG-файл.
+
+1. [Настройте кластер {{ maf-name }}](cluster-update.md):
+
+   1. Включите опцию **{{ ui-key.yacloud.airflow.field_lockbox }}**, которая позволяет использовать секреты в сервисе [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) {{ AF }}.
+   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** добавьте pip-пакет `airflow-clickhouse-plugin`.
+   1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите созданный ранее бакет {{ objstorage-name }}. Из него будет загружен DAG-файл.
+
 1. Выдайте своему сервисному аккаунту [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 
    {% note info }
@@ -24,24 +32,36 @@ description: С помощью направленного ациклическо
 
 ## Создайте секрет {{ lockbox-full-name }} {#create-lockbox-secret}
 
-[Создайте секрет {{ lockbox-name }}](../../lockbox/operations/secret-create.md) с именем `airflow/connections/ch1` и содержимым `json.dumps(conn)`, где `conn` — подключение к кластеру {{ mch-name }}. В качестве значения `conn_type` укажите `SQLite` или другую БД SQL.
+Для корректной работы кластера {{ AF }} секрет в {{ lockbox-name }} должен иметь имя в формате `airflow/<тип_артефакта>/<идентификатор_артефакта>`, где:
+   * `<тип_артефакта>` — определяет, какие данные будут храниться в секрете. Возможные значения:
+     * `connections` — подключения;
+     * `variables` — переменные;
+     * `config` — данные конфигурации.
+   * `<идентификатор_артефакта>` — идентификатор, который будет использован для обращения к артефакту в {{ AF }}.
 
-```json
-conn = {
-         "conn_type": "SQLite",
-         "host": "<FQDN_хоста_кластера_{{ CH }}>",
-         "port": 9440,
-         "schema": "default",
-         "login": "admin",
-         "password": "admin-password",
-         "extra": {
-             "secure": True,
-         }
-}
-```
-В секрете будут сохранены данные для подключения к БД в кластере {{ mch-name }}.
+[Создайте секрет {{ lockbox-name }}](../../lockbox/operations/secret-create.md) с параметрами:
+   * **{{ ui-key.yacloud.common.name }}** — `airflow/connections/ch`.
+   * **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** — `Пользовательский`.
+   * **{{ ui-key.yacloud.lockbox.forms.label_key }}** — `conn`.
+   * **{{ ui-key.yacloud.lockbox.forms.label_value }}** — выберите **{{ ui-key.yacloud.lockbox.forms.value_payload-entry-value-type-text }}** и укажите следующее содержимое:
+
+      ```json
+      {
+        "conn_type": "clickhouse",
+        "host": "<FQDN_хоста_кластера_ClickHouse®>",
+        "port": 9440,
+        "schema": "default",
+        "login": "admin",
+        "password": "admin-password",
+        "extra": {
+            "secure": "True"
+        }
+      }
+      ```
 
 Подробнее о том, как узнать FQDN хоста кластера {{ CH }}, см. в разделе [{#T}](../../managed-clickhouse/operations/connect/fqdn.md).
+
+В секрете будут сохранены данные для подключения к БД в кластере {{ mch-name }}.
 
 ## Подготовьте DAG-файл и запустите граф {#dag}
 
@@ -56,7 +76,7 @@ conn = {
    def clickhouse():
        @task
        def query_clickhouse():
-           ch_hook = ClickHouseHook(clickhouse_conn_id="ch1")
+           ch_hook = ClickHouseHook(clickhouse_conn_id="ch")
            result = ch_hook.execute('select 1;')
            print(f'query result: {result}')
 
@@ -64,9 +84,10 @@ conn = {
 
 
    clickhouse()
+   
    ```
 
-1. Загрузите DAG-файл `clickhouse.py` в созданный ранее бакет. В результате одноименный граф появится в веб-интерфейсе {{ AF }} автоматически.
+1. Загрузите DAG-файл `clickhouse.py` в созданный ранее бакет.
 1. [Откройте веб-интерфейс {{ AF }}](af-interfaces.md#web-gui).
 1. Убедитесь, что в разделе **DAGs** появился новый граф `clickhouse`.
 
@@ -82,4 +103,4 @@ conn = {
 1. Перейдите в раздел **Graph**.
 1. Выберите задание **query_clickhouse**.
 1. Перейдите в раздел **Logs**.
-1. Убедитесь, что в логах есть строка `query result: 1`. Это значит, что запрос выполнен успешно.
+1. Убедитесь, что в логах есть строка `query result: [(1,)]`. Это значит, что запрос выполнен успешно.

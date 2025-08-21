@@ -524,7 +524,7 @@
         * `logging` — настройки [передачи логов в сервис {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
 
             * `enabled` — включение передачи логов: `true` или `false`.
-            * `commandCenterEnabled` — передача логов Yandex Command Center: `true` или `false`.
+            * `commandCenterEnabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
             * `greenplumEnabled` — передача логов {{ GP }}: `true` или `false`.
             * `poolerEnabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
             * `folderId` — идентификатор каталога, лог-группу которого нужно использовать.

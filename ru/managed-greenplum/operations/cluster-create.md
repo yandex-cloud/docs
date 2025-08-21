@@ -78,6 +78,23 @@
             {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
         
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — выберите существующий сервисный аккаунт для доступа к сервисам {{ yandex-cloud }} или создайте новый.
+        * **{{ ui-key.yacloud.logging.field_logging }}** — опция включает логирование операций в кластере. За хранение логов взимается плата в соответствии с тарифами {{ cloud-logging-full-name }}. Для записи логов [назначьте](../../iam/operations/sa/assign-role-for-sa.md) выбранному сервисному аккаунту роль `logging.writer`.
+
+          Если вы включили опцию, настройте параметры логирования:
+
+          * Укажите место записи логов:
+
+             * **{{ ui-key.yacloud.common.folder }}** — логи будут записываться в лог-группу по умолчанию выбранного каталога.
+             * **{{ ui-key.yacloud.logging.label_group }}** — логи будут записываться в новую или выбранную из списка [лог-группу](../../logging/concepts/log-group.md).
+
+          * Выберите, какие логи записывать:
+
+             * **Логи командного центра** — опция включает запись логов [командного центра](../concepts/command-center.md).
+             * **Логи Greenplum** — опция включает запись логов {{ GP }}. Уровень логирования можно задать с помощью параметра [Log min messages](../concepts/settings-list.md#setting-log-min-messages) в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+
+
+        
         * {% include [Datalens access](../../_includes/mdb/console/datalens-access.md) %}
         * {% include [Query access](../../_includes/mdb/console/query-access.md) %}
         * {% include [WebSQL access](../../_includes/mdb/console/websql-access.md) %}
@@ -281,7 +298,7 @@
 
         * `--service-account` — идентификатор сервисного аккаунта.
         * `--log-enabled` — включает передачу логов.
-        * `--log-command-center-enabled` — передача логов Yandex Command Center.
+        * `--log-command-center-enabled` — передача логов [командного центра](../concepts/command-center.md).
         * `--log-greenplum-enabled` — передача логов {{ GP }}.
         * `--log-pooler-enabled` — передача логов [менеджера подключений](../concepts/pooling.md).
         * `--log-folder-id` — идентификатор каталога, лог-группу которого нужно использовать.
@@ -433,7 +450,7 @@
       * `logging` — настройки передачи логов:
 
           * `enabled` — включение передачи логов: `true` или `false`.
-          * `command_center_enabled` — передача логов Yandex Command Center: `true` или `false`.
+          * `command_center_enabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
           * `greenplum_enabled` — передача логов {{ GP }}: `true` или `false`.
           * `pooler_enabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
           * `folder_id` — идентификатор каталога, лог-группу которого нужно использовать.
@@ -603,7 +620,7 @@
         * `logging` — настройки [передачи логов в сервис {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
 
             * `enabled` — включение передачи логов: `true` или `false`.
-            * `commandCenterEnabled` — передача логов Yandex Command Center: `true` или `false`.
+            * `commandCenterEnabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
             * `greenplumEnabled` — передача логов {{ GP }}: `true` или `false`.
             * `poolerEnabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
             * `folderId` — идентификатор каталога, лог-группу которого нужно использовать.
@@ -778,7 +795,7 @@
         * `logging` — настройки [передачи логов в сервис {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
 
             * `enabled` — включение передачи логов: `true` или `false`.
-            * `command_center_enabled` — передача логов Yandex Command Center: `true` или `false`.
+            * `command_center_enabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
             * `greenplum_enabled` — передача логов {{ GP }}: `true` или `false`.
             * `pooler_enabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
             * `folder_id` — идентификатор каталога, лог-группу которого нужно использовать.

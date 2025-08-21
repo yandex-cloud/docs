@@ -43,14 +43,14 @@ The {{ mch-name }} usage cost includes:
 
 * Egress traffic from {{ yandex-cloud }}.
 
-The incoming traffic and the number of requests to the hybrid storage are free-of-charge.
+Ingress traffic and requests to the hybrid storage are free-of-charge.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 
 ### DB host usage {#rules-hosts-uptime}
 
-Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices for the Russia region](#prices).
+The host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices for the Russia region](#prices).
 
 You can choose a host class both for {{ CH }} and {{ ZK }} hosts (according to the expected replication load).
 
@@ -60,7 +60,7 @@ In clusters with disabled [{{ CK }}](./concepts/replication.md#ck) support and w
 
 {% endnote %}
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation cost is same as two minutes). You do not pay for the time when the DBMS or {{ ZK }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation cost the same as two minutes). You do not pay for the time when the DBMS or {{ ZK }} host is unable to perform its main functions.
 
 
 ### Disk space usage {#rules-storage}
@@ -74,36 +74,36 @@ You are charged for the following:
         * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
    * Non-replicated SSD (`network-ssd-nonreplicated`) storage can only be ordered for clusters with three or more hosts, in increments of 93 GB.
 
-* Size of [local](concepts/storage.md#local-storage-features) and [network](concepts/storage.md) storage data backups:
+* Size of data backups in [local](concepts/storage.md#local-storage-features) and [network](concepts/storage.md) storage:
 
     * Backups are stored free of charge as long as the combined size of the DB and all its backups is smaller than the selected storage size.
 
     * If the combined size of the database and all backups exceeds the cluster storage size, you only pay for the portion in excess of the storage size.
 
-   * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the DB changes since the previous one. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+   * Automatic backups in {{ mch-short-name }} include only the data that has been changed since the previous backup rather than a full DB. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
 
    * The number of hosts in a cluster does not affect the storage size and, consequently, the free volume of backups.
 
     For example, if there are N free GB of space in the cluster, the first N GB of backups are stored free of charge.
 
-* Size of [hybrid storage](concepts/storage.md#hybrid-storage-features) cold data backups:
+* Size of cold data backups in a [hybrid storage](concepts/storage.md#hybrid-storage-features):
 
    * Cold data backups are stored in the same {{ objstorage-name }} bucket as the data itself.
 
-   * The cost of using {{ objstorage-name }} considers both the space used by the backups and the space used by the data itself.
+   * The cost of using {{ objstorage-name }} includes both the space used by the backups and the space used by the data itself.
 
-   * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the DB changes since the previous one. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+   * Automatic backups in {{ mch-short-name }} include only the data that has been changed since the previous backup rather than a full DB. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
 
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 90 seconds costs the same as storing 1 GB for two minutes).
 
 
 ### Example of cluster cost calculation {#example}
 
-This is an example of calculating the cost of using a cluster with the following properties for 30 days:
+Let’s calculate the cost of using a cluster with the following properties for 30 days:
 
-* **{{ CH }}** hosts: Three hosts of the `s3-c2-m8` class: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ CH }} hosts**: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **Storage for {{ CH }} hosts**: 100 GB of network HDD storage per host.
-* **{{ ZK }}** hosts (created automatically): Three `b3-c1-m4` hosts: Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM.
+* **{{ ZK }} hosts** (created automatically): Three `b3-c1-m4` hosts: Intel Ice Lake, 2 × 50% vCPU, 4 GB RAM.
 * **Storage for {{ ZK }} hosts**: 10 GB of network SSD storage per host.
 
 
@@ -150,7 +150,7 @@ CVoS discount is only available for certain types of resources. A dash in the re
 
 
 
-### {{ ZK }} host computing resources {#prices-zookeeper}
+### Computing resources of {{ ZK }} hosts {#prices-zookeeper}
 
 
 {% include [note-compute-optimized-request](../_includes/mdb/note-compute-optimized-request.md) %}

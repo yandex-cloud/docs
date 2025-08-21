@@ -1,6 +1,6 @@
 ---
 title: Public materials about {{ mch-full-name }}
-description: Videos of conferences and webinars on {{ mch-full-name }}.
+description: Videos of conferences and webinars dedicated to {{ mch-full-name }}.
 ---
 
 # Public materials about {{ mch-full-name }}
@@ -11,52 +11,52 @@ description: Videos of conferences and webinars on {{ mch-full-name }}.
 
 * {{ CH }} DBMS.
 
-  * [Click here to view the recording](https://www.youtube.com/live/aXflVfvoLdU?feature=share&t=15670).
+  * Click [here](https://www.youtube.com/live/aXflVfvoLdU?feature=share&t=15670) to watch the recording.
 
 ### 2022: {{ yandex-cloud }} {#yc-2022}
 
-* About people. SRE in the cloud.
+* It all starts with people. A day in the life of a cloud SRE.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=8YwepbGf1WM).
+  * Click [here](https://www.youtube.com/watch?v=8YwepbGf1WM) to watch the recording.
 
 ### 2021: Yandex Scale {#yandex-scale-2021}
 
-* Data platform news and plans.
+* Data platform updates and future plans.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=34azYnDBiYY).
+  * Click [here](https://www.youtube.com/watch?v=34azYnDBiYY) to watch the recording.
 
 ### 2021: Yandex for Developers {#yfd-2021}
 
-* What a database is used for in the service.
+* Why your service needs a database.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=cddm8I0UgjU).
+  * Click [here](https://www.youtube.com/watch?v=cddm8I0UgjU) to watch the recording.
 
 ### 2020: {{ yandex-cloud }} {#yc-2020}
 
-* What's new in the {{ mch-name }} platform: Use cases.
+* What's new in {{ mch-name }}: Use cases.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=kt0beqON9A0).
+  * Click [here](https://www.youtube.com/watch?v=kt0beqON9A0) to watch the recording.
 
 ### 2019: {{ yandex-cloud }} {#yc-2019}
 
 * What's new in the {{ yandex-cloud }} database platform.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
+  * Click [here](https://www.youtube.com/watch?v=5OcUo3J4Wdc) to watch the recording.
 
-* Structure of the database platform in {{ yandex-cloud }}.
+* {{ yandex-cloud }} database platform architecture.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=Cwdg425a_cw).
+  * Click [here](https://www.youtube.com/watch?v=Cwdg425a_cw) to watch the recording.
 
 ### 2019: Articles {#article-2019}
 
 * How managed database services work in {{ yandex-cloud }}.
 
-  * [Article text](https://habr.com/ru/companies/yandex/articles/477860/).
+  * Click [here](https://habr.com/ru/companies/yandex/articles/477860/) to read the article.
 
 ### 2018: HighLoad++ {#highload-2018}
 
 * Cloud databases.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=xyMN1EA9p5Y).
+  * Click [here](https://www.youtube.com/watch?v=xyMN1EA9p5Y) to watch the recording.
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

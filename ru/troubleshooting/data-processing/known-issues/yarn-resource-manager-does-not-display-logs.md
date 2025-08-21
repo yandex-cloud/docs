@@ -26,23 +26,25 @@ sudo -u hdfs hadoop fs -ls /var/log/yarn/
 * Получить логи через CLI самого YARN:
 
 ```
-yarn logs --applciation appId
+yarn logs -applicationId
 ```
 
 * Настроить выгрузку логов в S3:
 
 ```
-yc dataproc cluster update your_cluster \
---property yarn:yarn.nodemanager.remote-app-log-dir = s3a://<bucket_name>/yarn-logs/
---property yarn:yarn.log-aggregation.retain-seconds = -1
+yc dataproc cluster update <id_cluster> \
+      --property "yarn:yarn.nodemanager.remote-app-log-dir=s3a://<bucket>/yarn-logs/"
+      --property "yarn:yarn.log-aggregation.retain-seconds=-1"
 ```
 
-{% note tip %}
+{% note warning %}
+
+Использование параметра `--property` переопределит все свойства компонентов, которые не были явно переданы в параметре, на значения по умолчанию. Чтобы сохранить измененные ранее свойства, перечислите их в запросе наряду со свойствами, которые хотите изменить.
+
+{% endnote %}
 
 Чтобы в UI можно было смотреть логи завершенного приложения, необходимо выключить агрегацию логов. Через CLI это можно сделать следующей командой:
 
 ```
 yc dataproc cluster update your_cluster --property yarn:yarn.log-aggregation-enable=false
 ```
-
-{% endnote %}

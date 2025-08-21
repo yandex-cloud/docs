@@ -172,17 +172,17 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
 
-     * `environment` — окружение: `prestable` или `production`.
+     * `--environment` — окружение: `prestable` или `production`.
 
      
-     * `assign-public-ip` — публичный доступ к хосту: `true` или `false`.
+     * `--assign-public-ip` — публичный доступ к хосту: `true` или `false`.
 
 
-     * `disk-type` — [тип диска](../concepts/storage.md).
-     * `priority` — приоритет при выборе нового хоста-мастера: от `0` до `100`.
-     * `backup-priority` — приоритет для резервного копирования: от `0` до `100`.
-     * `mysql-version` — версия {{ MY }}: `{{ versions.cli.str }}`.
-     * `user` — содержит имя (`name`) и пароль (`password`) пользователя {{ MY }}.
+     * `--disk-type` — [тип диска](../concepts/storage.md).
+     * `--priority` — приоритет при выборе нового хоста-мастера: от `0` до `100`.
+     * `--backup-priority` — приоритет для резервного копирования: от `0` до `100`.
+     * `--mysql-version` — версия {{ MY }}: `{{ versions.cli.str }}`.
+     * `--user` — содержит имя (`name`) и пароль (`password`) пользователя {{ MY }}.
 
        {% include [user-name-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
@@ -202,6 +202,7 @@ description: Следуя данной инструкции, вы сможете
 
      При необходимости задайте дополнительные настройки кластера {{ mmy-name }}:
 
+     
      ```bash
      {{ yc-mdb-my }} cluster create \
        ...
@@ -209,23 +210,28 @@ description: Следуя данной инструкции, вы сможете
        --backup-retain-period-days=<срок_хранения_копий> \
        --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
        --websql-access=<разрешить_доступ_из_{{ websql-name }}> \
+       --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
        --deletion-protection \
        --performance-diagnostics enabled=true,`
                                 `sessions-sampling-interval=<интервал_сбора_сессий>,`
                                 `statements-sampling-interval=<интервал_сбора_запросов>
      ```
 
+
      Где:
 
-     * `backup-window-start` — время начала резервного копирования.
-     * `backup-retain-period-days` — срок хранения автоматических резервных копий в днях.
-     * `datalens-access` — разрешает доступ из {{ datalens-full-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
-     * `websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
+     * `--backup-window-start` — время начала резервного копирования.
+     * `--backup-retain-period-days` — срок хранения автоматических резервных копий в днях.
+     * `--datalens-access` — разрешает доступ к кластеру из {{ datalens-full-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
+     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
+     * `--yandexquery-access` — разрешает выполнять YQL-запросы к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
+
+
      * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-     * `performance-diagnostics` — активация сбора статистики для [диагностики производительности кластера](performance-diagnostics.md). Допустимые значения параметров `sessions-sampling-interval` и `statements-sampling-interval` — от `1` до `86400` секунд.
+     * `--performance-diagnostics` — активация сбора статистики для [диагностики производительности кластера](performance-diagnostics.md). Допустимые значения параметров `sessions-sampling-interval` и `statements-sampling-interval` — от `1` до `86400` секунд.
 
      {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
@@ -429,7 +435,7 @@ description: Следуя данной инструкции, вы сможете
               "access": {
                   "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
                   "webSql": <разрешить_доступ_из_{{ websql-name }}>,
-                  "dataTransfer": <разрешить_доступ_из_Data_Transfer>
+                  "yandexQuery": <разрешить_доступ_из_Yandex_Query>
               },
               "performanceDiagnostics": {
                   "enabled": <активировать_сбор_статистики>,
@@ -500,15 +506,14 @@ description: Следуя данной инструкции, вы сможете
               * `diskSize` — размер диска в байтах;
               * `diskTypeId` — [тип диска](../concepts/storage.md).
 
-          
-          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+          * `access` — настройки доступа к кластеру из сервисов {{ yandex-cloud }}:
 
-              * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
-              * `webSql` — [{{ websql-full-name }}](../../websql/index.yaml);
-              * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
+            * `dataLens` — доступ из {{ datalens-full-name }}. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
+            * `webSql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
+            * `yandexQuery` — выполнение YQL-запросов к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
-              Возможные значения настроек: `true` или `false`.
 
+            Возможные значения настроек: `true` или `false`.
 
       * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
@@ -530,7 +535,7 @@ description: Следуя данной инструкции, вы сможете
 
               Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
-         * `permissions` — настройки разрешений пользователя:
+          * `permissions` — настройки разрешений пользователя:
 
               * `databaseName` — имя базы данных, к которой пользователь получает доступ.
               * `roles` — массив привилегий пользователя. Каждая привилегия представлена в виде отдельной строки в массиве. Список доступных значений см. в разделе [Привилегии пользователей в кластере](../concepts/user-rights.md#db-privileges).
@@ -589,7 +594,7 @@ description: Следуя данной инструкции, вы сможете
               "access": {
                   "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
                   "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
-                  "data_transfer": <разрешить_доступ_из_Data_Transfer>
+                  "yandex_query": <разрешить_доступ_из_Yandex_Query>
               },
               "performance_diagnostics": {
                   "enabled": <активировать_сбор_статистики>,
@@ -654,15 +659,14 @@ description: Следуя данной инструкции, вы сможете
               * `disk_size` — размер диска в байтах;
               * `disk_type_id` — [тип диска](../concepts/storage.md).
 
-          
-          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+          * `access` — настройки доступа к кластеру из сервисов {{ yandex-cloud }}:
 
-              * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
-              * `web_sql` — [{{ websql-full-name }}](../../websql/index.yaml);
-              * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
+            * `data_lens` — доступ из {{ datalens-full-name }}. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
+            * `web_sql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
+            * `yandex_query` — выполнение YQL-запросов к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
-              Возможные значения настроек: `true` или `false`.
 
+            Возможные значения настроек: `true` или `false`.
 
       * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 

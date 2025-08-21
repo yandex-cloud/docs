@@ -41,6 +41,9 @@
         * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
 
 
+    1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/clickhouse.md) типа `{{ CH }}`. В [параметрах](../../data-transfer/operations/endpoint/target/clickhouse#additional-settings) эндпоинта укажите политику очистки `Drop` или `Truncate`, чтобы данные на приемнике не дублировались при копировании.
+
+
 - {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -59,9 +62,16 @@
 
 
         * кластер-источник {{ mgp-name }};
-        * кластер-приемник {{ mch-name }}.
+        * кластер-приемник {{ mch-name }};
+        * эндпоинт-приемник.
 
-    1. Укажите в файле `greenplum-clickhouse.tf` пароли пользователя-администратора {{ GP }} и {{ CH }}.
+    1. Укажите в файле `greenplum-clickhouse.tf`:
+
+        * `mgp_password` — пароль администратора {{ GP }}.
+        * `mch_db` — имя базы данных {{ CH }}.
+        * `mch_user` — имя пользователя базы данных {{ CH }}.
+        * `mch_password` — пароль пользователя базы данных {{ CH }}.
+
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
@@ -82,17 +92,9 @@
 
 1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/greenplum.md) типа `{{ GP }}` и укажите в нем параметры подключения к кластеру.
 
-1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/clickhouse.md) типа `ClickHouse`.
-
-1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа [{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}](../../data-transfer/concepts/index.md#transfer-type), использующий созданные эндпоинты.
+1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа [{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}](../../data-transfer/concepts/index.md#transfer-type), использующий эндпоинты для источника и приемника.
 
     Для этой пары эндпоинтов репликация недоступна, но вы можете настроить регулярное копирование при создании трансфера. Для этого в блоке **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.title }}** в поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** выберите **Регулярно**, затем укажите интервал копирования. Трансфер будет автоматически активироваться через указанный промежуток времени.
-
-    {% note warning %}
-
-    Перед настройкой регулярного копирования убедитесь, что в [параметрах эндпоинта-приемника](../../data-transfer/operations/endpoint/target/clickhouse#additional-settings) указана политика очистки `Drop` или `Truncate`. Иначе данные на приемнике будут дублироваться при копировании.
-
-    {% endnote %}
 
 ## Активируйте трансфер {#activate-transfer}
 
@@ -159,16 +161,17 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-* Убедитесь, что трансфер находится в статусе **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** и [удалите](../../data-transfer/operations/transfer.md#delete) его.
-* [Удалите эндпоинт-источник и эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
-* Удалите кластеры:
+1. Убедитесь, что трансфер находится в статусе **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** и [удалите](../../data-transfer/operations/transfer.md#delete) его.
+1. [Удалите](../../data-transfer/operations/endpoint/index.md#delete) эндпоинт-источник.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
-        * [{{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
-        * [{{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
+        1. [Удалите](../../managed-clickhouse/operations/cluster-delete.md) кластер {{ mch-name }}.
+        1. [Удалите](../../managed-greenplum/operations/cluster-delete.md) кластер {{ mgp-name }}.
+        1. [Удалите](../../data-transfer/operations/endpoint/index.md#delete) эндпоинт-приемник.
 
     - {{ TF }} {#tf}
 

@@ -310,11 +310,44 @@ description: Следуя данной инструкции, вы сможете
          * `--cloud-storage-data-cache` — хранение файлов в кластерном хранилище: `true` или `false`.
          * `--cloud-storage-prefer-not-to-merge` — отключает слияние кусков данных в кластерном и объектном хранилищах: `true` или `false`.
 
-  {% note info %}
+      1. Чтобы задать автоматическое увеличение размера хранилища для подкластеров {{ CH }} и {{ ZK }}, используйте флаг `--disk-size-autoscaling`:
+        
+         ```bash
+         {{ yc-mdb-ch }} cluster create \
+           ...
+           --disk-size-autoscaling clickhouse-disk-size-limit=<максимальный_размер_хранилища_ГБ>,`
+                                  `clickhouse-planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
+                                  `clickhouse-emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах>,`
+                                  `zookeeper-disk-size-limit=<максимальный_размер_хранилища_ГБ>,`
+                                  `zookeeper-planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
+                                  `zookeeper-emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах>
+           ...
+         ```
 
-  По умолчанию при создании кластера устанавливается режим [технического обслуживания](../concepts/maintenance.md) `anytime` — в любое время. Вы можете установить конкретное время обслуживания при [изменении настроек кластера](update.md#change-additional-settings).
+         Где `--disk-size-autoscaling` — настройки автоматического увеличения размера хранилища:
+         
+         {% include [disk-size-autoscaling-cli](../../_includes/mdb/mch/disk-size-autoscaling-cli.md) %}
+      
+      1. Чтобы настроить [окно технического обслуживания](../concepts/maintenance.md), используйте флаг `--maintenance-window`:
+         
+         ```bash
+         {{ yc-mdb-ch }} cluster create \
+           ...
+           --maintenance-window type=<тип_технического_обслуживания>,`
+                               `hour=<час_дня>,`
+                               `day=<день_недели>
+           ...
+         ```
+         
+         Где `--maintenance-window` — настройки окна технического обслуживания:
 
-  {% endnote %}
+         * `type` — тип окна технического обслуживания. Допустимые значения:
+           
+           * `anytime` (по умолчанию) — в любое время.
+           * `weekly` — по расписанию. Для этого значения необходимо передать параметры `hour` и `day`.
+        
+         * `hour` — час дня по UTC. Допустимые значения: от `1` до `24`.
+         * `day` — день недели. Допустимые значения: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
 
 - {{ TF }} {#tf}
 
@@ -526,6 +559,11 @@ description: Следуя данной инструкции, вы сможете
                     "resourcePresetId": "<класс_хостов_{{ CH }}>",
                     "diskSize": "<размер_хранилища_в_байтах>",
                     "diskTypeId": "<тип_диска>"
+                  },
+                  "diskSizeAutoscaling": {
+                    "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+                    "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                    "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
                   }
                 },
                 "zookeeper": {
@@ -533,6 +571,11 @@ description: Следуя данной инструкции, вы сможете
                     "resourcePresetId": "<класс_хостов_{{ ZK }}>",
                     "diskSize": "<размер_хранилища_в_байтах>",
                     "diskTypeId": "<тип_диска>"
+                  },
+                  "diskSizeAutoscaling": {
+                    "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+                    "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                    "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
                   }
                 },
                 "access": {
@@ -588,7 +631,13 @@ description: Следуя данной инструкции, вы сможете
                 { ... },
                 { <аналогичный_набор_настроек_для_хоста_N> }
               ],
-              "deletionProtection": <защита_кластера_от_удаления>
+              "deletionProtection": <защита_кластера_от_удаления>,
+              "maintenanceWindow": {
+                "weeklyMaintenanceWindow": {
+                  "day": "<день_недели>",
+                  "hour": "<час_дня>"
+                }
+              }
             }
             ```
 
@@ -616,13 +665,25 @@ description: Следуя данной инструкции, вы сможете
                     * `resources.diskSize` — размер диска в байтах.
                     * `resources.diskTypeId` — [тип диска](../concepts/storage.md).
 
+                    * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища для подкластера {{ CH }}:
+                      
+                      {% include [disk-size-autoscaling-rest-ch](../../_includes/mdb/mch/disk-size-autoscaling-rest-ch.md) %}
+
                 * `zookeeper` — конфигурация [{{ ZK }}](../concepts/replication.md#zk):
+
+                    {% note warning %}
+                    
+                    Если вы включили использование {{ CK }} с помощью настройки `embeddedKeeper: true`, конфигурация {{ ZK }} в `configSpec` не будет применена.
+                    
+                    {% endnote %}
 
                     * `resources.resourcePresetId` — идентификатор класса хостов. Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.list](../api-ref/ResourcePreset/list.md).
                     * `resources.diskSize` — размер диска в байтах.
                     * `resources.diskTypeId` — тип диска.
 
-                    Если вы включили использование {{ CK }} с помощью настройки `embeddedKeeper: true`, то необязательно указывать конфигурацию {{ ZK }} в `configSpec`: эта конфигурация не будет применена.
+                    * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища для подкластера {{ ZK }}:
+                      
+                      {% include [disk-size-autoscaling-rest-zk](../../_includes/mdb/mch/disk-size-autoscaling-rest-zk.md) %}
 
                 * `access` — настройки, которые разрешают доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}:
 
@@ -666,6 +727,11 @@ description: Следуя данной инструкции, вы сможете
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+            * `maintenanceWindow` — настройки окна технического обслуживания:
+              
+                * `weeklyMaintenanceWindow.day` — день недели. Допустимые значения: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
+                * `weeklyMaintenanceWindow.hour` — час дня по UTC. Допустимые значения: от `1` до `24`.
+              
             
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
@@ -722,6 +788,11 @@ description: Следуя данной инструкции, вы сможете
                     "resource_preset_id": "<класс_хостов_{{ CH }}>",
                     "disk_size": "<размер_хранилища_в_байтах>",
                     "disk_type_id": "<тип_диска>"
+                  },
+                  "disk_size_autoscaling": {
+                    "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+                    "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                    "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
                   }
                 },
                 "zookeeper": {
@@ -729,6 +800,11 @@ description: Следуя данной инструкции, вы сможете
                     "resource_preset_id": "<класс_хостов_{{ ZK }}>",
                     "disk_size": "<размер_хранилища_в_байтах>",
                     "disk_type_id": "<тип_диска>"
+                  },
+                  "disk_size_autoscaling": {
+                    "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+                    "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                    "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
                   }
                 },
                 "access": {
@@ -784,8 +860,13 @@ description: Следуя данной инструкции, вы сможете
                 { ... },
                 { <аналогичный_набор_настроек_для_хоста_N> }
               ],
-              "deletion_protection": <защита_кластера_от_удаления>
-            }
+              "deletion_protection": <защита_кластера_от_удаления>,
+              "maintenance_window": {
+                "weekly_maintenance_window": {
+                  "day": "<день_недели>",
+                  "hour": "<час_дня>"
+                }
+              }
             ```
 
 
@@ -814,13 +895,25 @@ description: Следуя данной инструкции, вы сможете
                     * `resources.disk_size` — размер диска в байтах.
                     * `resources.disk_type_id` — [тип диска](../concepts/storage.md).
 
+                    * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища для подкластера {{ CH }}:
+                      
+                        {% include [disk-size-autoscaling-grpc-ch](../../_includes/mdb/mch/disk-size-autoscaling-grpc-ch.md) %}
+
                 * `zookeeper` — конфигурация [{{ ZK }}](../concepts/replication.md#zk):
 
+                    {% note warning %}
+                    
+                    Если вы включили использование {{ CK }} с помощью настройки `embeddedKeeper: true`, конфигурация {{ ZK }} в `configSpec` не будет применена.
+                    
+                    {% endnote %}
+                    
                     * `resources.resource_preset_id` — идентификатор класса хостов. Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.list](../api-ref/ResourcePreset/list.md).
                     * `resources.disk_size` — размер диска в байтах.
                     * `resources.disk_type_id` — тип диска.
 
-                    Если вы включили использование {{ CK }} с помощью настройки `embedded_keeper: true`, то необязательно указывать конфигурацию {{ ZK }} в `config_spec`: эта конфигурация не будет применена.
+                    * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища для подкластера {{ ZK }}:
+                      
+                        {% include [disk-size-autoscaling-grpc-zk](../../_includes/mdb/mch/disk-size-autoscaling-grpc-zk.md) %}
 
                 * `access` — настройки, которые разрешают доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}:
 
@@ -863,6 +956,11 @@ description: Следуя данной инструкции, вы сможете
             * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+            * `maintenance_window` — настройки окна технического обслуживания:
+              
+              * `weekly_maintenance_window.day` — день недели. Допустимые значения: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
+              * `weekly_maintenance_window.hour` — час дня по UTC. Допустимые значения: от `1` до `24`.
 
             
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).

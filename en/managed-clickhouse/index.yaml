@@ -11,11 +11,11 @@ description:
     transactions in real time <a href="/docs/glossary/oltp">(OLTP)</a>.</li>
     <li>Process analytical queries online <a
     href="/docs/glossary/olap">(OLAP)</a>.</li> <li>Support and use systems that
-    require linear scalability, both vertical and horizontal.</li> <li>Use
-    parallel query processing on multiple processor cores.</li></ul>
+    require linear scaling, both vertical and horizontal.</li> <li>Use parallel
+    query processing on multiple processor cores.</li></ul>
   - >-
-    You can interact with the service through the management console, the Yandex
-    Cloud command-line interface (CLI), API, or <a
+    You can use the service through the management console, the Yandex Cloud
+    command-line interface (CLI), API, or <a
     href="https://clickhouse.com/docs/en/interfaces/http">HTTP interface</a>.
     Managed Service for ClickHouse® enables you to visualize the data structure
     on your ClickHouse® cluster and send SQL queries to databases from the
@@ -24,10 +24,11 @@ description:
     console</a>.
   - >-
     The Yandex Cloud infrastructure is <a
-    href="/docs/security/conform">protected</a> pursuant to the following
+    href="/docs/security/conform">secured</a> in accordance with the following
     standards: <ul><li>Russian Federal Law No. 152-FZ on Personal Data</li>
-    <li>PCI DSS</li> <li>ISO 27001</li> <li>ISO 27017</li> <li>ISO 27018</li>
-    <li>GOST 57580.1-2017</li></ul>
+    <li>Payment Card Industry Data Security Standard (PCI DSS)</li> <li>ISO
+    27001</li> <li>ISO 27017</li> <li>ISO 27018</li> <li>GOST
+    57580.1-2017</li></ul>
   - >-
     This service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
@@ -54,10 +55,10 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions to use the service
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
 meta:
   title: Yandex Managed Service for ClickHouse®

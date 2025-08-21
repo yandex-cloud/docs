@@ -58,7 +58,7 @@
         В этом файле описаны:
 
         * [сеть](../../vpc/concepts/network.md#network);
-        * [подсеть](../../vpc/concepts/network.md#subnet);
+        * [подсети](../../vpc/concepts/network.md#subnet);
         * [группа безопасности](../../vpc/concepts/security-groups.md) и правило, необходимое для подключения к кластеру {{ mmy-name }};
         * кластер-источник {{ mmy-name }};
         * кластер-приемник {{ mch-name }};
@@ -71,11 +71,12 @@
         * параметры кластера-источника {{ mmy-name }}, которые будут использоваться как [параметры эндпоинта-источника](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
 
             * `source_mysql_version` — версия {{ MY }};
-            * `source_db_name` — имя базы данных {{ MY }}, которое будет использоваться как имя базы данных {{ mch-name }};
+            * `source_db_name` — имя базы данных {{ MY }};
             * `source_user` и `source_password` — имя и пароль пользователя-владельца базы данных.
 
         * параметры кластера-приемника {{ mch-name }}, которые будут использоваться как [параметры эндпоинта-приемника](../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
 
+            * `target_db_name` — имя базы данных {{ CH }};
             * `target_user` и `target_password` — имя и пароль пользователя-владельца базы данных.
 
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
