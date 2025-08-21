@@ -206,7 +206,7 @@ We recommend that you use [dedicated hosts](../../../compute/concepts/dedicated-
 
 [Learn more](https://www.youtube.com/watch?v=VSP_cp6vDQQ&list=PL1x4ET76A10a9Jr6six11s0kRxeQ3fgom&index=17) about side-channel attack protection in cloud environments.
 
-#### 3.7 The corporate {{ yandex-cloud }} users have the {{ yandex-cloud }} Certified Security Specialist certification {#security-specialist-certificate}
+#### 3.7 {{ yandex-cloud }} users responsible for security have passed the {{ yandex-cloud }} Certified Security Specialist certification {#security-specialist-certificate}
 
 The {{ yandex-cloud }} Certified Security Specialist certification exam evaluates the competencies of {{ yandex-cloud }} users involved in information security and cloud system protection.
 
