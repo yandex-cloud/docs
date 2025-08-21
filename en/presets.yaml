@@ -1097,6 +1097,18 @@ default:
         12_month|string: ₸439875.00
         3_month|string: ₸491625.00
         6_month|string: ₸481275.00
+      ba_i215_ss_10g:
+        1_day|string: ₸623500.00
+        1_month|string: ₸604795.00
+        12_month|string: ₸529975.00
+        3_month|string: ₸592325.00
+        6_month|string: ₸579855.00
+      ba_i216_ss_1_10g:
+        1_day|string: ₸623000.00
+        1_month|string: ₸604310.00
+        12_month|string: ₸529550.00
+        3_month|string: ₸591850.00
+        6_month|string: ₸579390.00
       ba_i407_s_10g:
         1_day|string: ₸431000.00
         1_month|string: ₸418070.00
@@ -1115,18 +1127,42 @@ default:
         12_month|string: ₸1024675.00
         3_month|string: ₸1145225.00
         6_month|string: ₸1121115.00
+      ba_i507_nh_2x25g:
+        1_day|string: ₸1218000.00
+        1_month|string: ₸1181460.00
+        12_month|string: ₸1035300.00
+        3_month|string: ₸1157100.00
+        6_month|string: ₸1132740.00
       ba_i511_nh_25g:
         1_day|string: ₸1499500.00
         1_month|string: ₸1454515.00
         12_month|string: ₸1274575.00
         3_month|string: ₸1424525.00
         6_month|string: ₸1394535.00
+      ba_i512_nh_2x25g:
+        1_day|string: ₸1514000.00
+        1_month|string: ₸1468580.00
+        12_month|string: ₸1286900.00
+        3_month|string: ₸1438300.00
+        6_month|string: ₸1408020.00
+      ba-i523-nh-2x25g:
+        1_day|string: ₸2380500.00
+        1_month|string: ₸2309085.00
+        12_month|string: ₸2023425.00
+        3_month|string: ₸2261475.00
+        6_month|string: ₸2213865.00
       ha_i302_s_10g:
         1_day|string: ₸459000.00
         1_month|string: ₸445230.00
         12_month|string: ₸390150.00
         3_month|string: ₸436050.00
         6_month|string: ₸426870.00
+      ha-i502-n-25g-gxl4:
+        1_day|string: ₸1092000.00
+        1_month|string: ₸1059240.00
+        12_month|string: ₸928200.00
+        3_month|string: ₸1037400.00
+        6_month|string: ₸1015560.00
   sku|KZT|cdn:
     api:
       network:
@@ -2860,6 +2896,18 @@ default:
         12_month|string: ₽87975.00
         3_month|string: ₽98325.00
         6_month|string: ₽96255.00
+      ba_i215_ss_10g:
+        1_day|string: ₽124700.00
+        1_month|string: ₽120959.00
+        12_month|string: ₽105995.00
+        3_month|string: ₽118465.00
+        6_month|string: ₽115971.00
+      ba_i216_ss_1_10g:
+        1_day|string: ₽124600.00
+        1_month|string: ₽120862.00
+        12_month|string: ₽105910.00
+        3_month|string: ₽118370.00
+        6_month|string: ₽115878.00
       ba_i407_s_10g:
         1_day|string: ₽86200.00
         1_month|string: ₽83614.00
@@ -2878,18 +2926,42 @@ default:
         12_month|string: ₽204935.00
         3_month|string: ₽229045.00
         6_month|string: ₽224223.00
+      ba_i507_nh_2x25g:
+        1_day|string: ₽243600.00
+        1_month|string: ₽236292.00
+        12_month|string: ₽207060.00
+        3_month|string: ₽231420.00
+        6_month|string: ₽226548.00
       ba_i511_nh_25g:
         1_day|string: ₽299900.00
         1_month|string: ₽290903.00
         12_month|string: ₽254915.00
         3_month|string: ₽284905.00
         6_month|string: ₽278907.00
+      ba_i512_nh_2x25g:
+        1_day|string: ₽302800.00
+        1_month|string: ₽293716.00
+        12_month|string: ₽257380.00
+        3_month|string: ₽287660.00
+        6_month|string: ₽281604.00
+      ba-i523-nh-2x25g:
+        1_day|string: ₽476100.00
+        1_month|string: ₽461817.00
+        12_month|string: ₽404685.00
+        3_month|string: ₽452295.00
+        6_month|string: ₽442773.00
       ha_i302_s_10g:
         1_day|string: ₽91800.00
         1_month|string: ₽89046.00
         12_month|string: ₽78030.00
         3_month|string: ₽87210.00
         6_month|string: ₽85374.00
+      ha-i502-n-25g-gxl4:
+        1_day|string: ₽218400.00
+        1_month|string: ₽211848.00
+        12_month|string: ₽185640.00
+        3_month|string: ₽207480.00
+        6_month|string: ₽203112.00
   sku|RUB|cdn:
     api:
       network:
@@ -7939,6 +8011,7 @@ default:
         field_rustore-project-id: Project ID
         field_rustore-service-token: Service token
         field_token: Device token
+        field_vapid: Public VAPID key
         field_web-push-endpoint_params: Endpoint parameters in JSON
         label_editor-json: JSON
         label_editor-text: Text

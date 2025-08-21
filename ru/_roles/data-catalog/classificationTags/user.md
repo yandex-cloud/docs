@@ -1,0 +1,1 @@
+Роль `data-catalog.classificationTags.user` позволяет просматривать информацию о [тегах](../../../metadata-hub/concepts/data-catalog.md#classifications-and-tags) в Data Catalog и использовать такие теги.

@@ -1,6 +1,6 @@
 ---
 title: FAQ about {{ mch-full-name }}
-description: This page presents FAQ about {{ mch-short-name }}.
+description: This page covers FAQ about {{ mch-short-name }}.
 ---
 
 # FAQ about {{ mch-short-name }}
@@ -22,7 +22,7 @@ description: This page presents FAQ about {{ mch-short-name }}.
 
 {% include [cluster-update-minitoc](../../_qa/managed-clickhouse/minitoc/cluster-update.md) %}
 
-### Cluster configuration {#toc-cluster-settings}
+### Cluster parameter settings {#toc-cluster-settings}
 
 {% include [cluster-settings-minitoc](../../_qa/managed-clickhouse/minitoc/cluster-settings.md) %}
 
@@ -50,7 +50,7 @@ description: This page presents FAQ about {{ mch-short-name }}.
 
 {% include [cluster-update](../../_qa/managed-clickhouse/cluster-update.md) %}
 
-## Cluster configuration {#cluster-settings}
+## Cluster parameter settings {#cluster-settings}
 
 {% include [cluster-settings](../../_qa/managed-clickhouse/cluster-settings.md) %}
 

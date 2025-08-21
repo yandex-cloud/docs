@@ -1,9 +1,9 @@
 ---
-title: Authentication in the {{ mch-full-name }} API
-description: To perform operations via the API in the {{ CH }} database management service {{ mch-full-name }}, get an IAM token for your account.
+title: '{{ mch-full-name }} API authentication'
+description: To perform operations via the API in {{ mch-full-name }}, a service for managing {{ CH }} databases, get an IAM token for your account.
 ---
 
-# Authentication with the {{ mch-name }} API
+# {{ mch-name }} API authentication
 
 {% include notitle [auth](../../_includes/authentication.md) %}
 

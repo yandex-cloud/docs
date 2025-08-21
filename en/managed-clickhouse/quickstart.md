@@ -13,14 +13,14 @@ To get started:
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 1. If you do not have a [folder](../resource-manager/concepts/resources-hierarchy.md#folder) yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
 1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }} role or higher](security.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
 
-   To link the service account to a cluster, e.g., to [use {{ objstorage-full-name }}](operations/s3-access.md), your account also needs the [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+   To associate the service account with a cluster, e.g., to [use {{ objstorage-full-name }}](operations/s3-access.md), your account also needs the [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
@@ -30,12 +30,12 @@ To get started:
 
    {% note info %}
 
-   The next steps assume that you connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
+   In the next steps, you are assumed to connect to the cluster from a [Linux](../compute/quickstart/quick-create-linux.md)-based VM.
 
    {% endnote %}
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
-1. Connect the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
+1. [Connect](../compute/operations/vm-connect/ssh.md) to your VM over SSH.
+1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
 
    ```bash
    sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -60,7 +60,7 @@ To get started:
 1. In the management console, select the folder where you want to create a DB cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Set the cluster parameters and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
+1. Specify your cluster settings and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mch-short-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
 
 ## Connect to the DB {#connect}
@@ -101,7 +101,7 @@ To get started:
 ## What's next {#whats-next}
 
 * Read about [service concepts](concepts/index.md).
-* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to the database](operations/connect/index.md).
-* Read [questions and answers](qa/general.md).
+* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a database](operations/connect/index.md).
+* Check [questions and answers](qa/general.md).
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

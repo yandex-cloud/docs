@@ -1444,6 +1444,15 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Выберите нужный кластер.
+    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md).
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
@@ -1576,6 +1585,25 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
+    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Выберите нужный кластер.
+    1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional}}** включите или выключите логирование с помощью опции **{{ ui-key.yacloud.logging.field_logging }}**. Если вы включили логирование, настройте его параметры:
+
+        * Укажите место записи логов:
+
+          * **{{ ui-key.yacloud.common.folder }}** — логи будут записываться в лог-группу по умолчанию выбранного каталога.
+          * **{{ ui-key.yacloud.logging.label_group }}** — логи будут записываться в новую или выбранную из списка [лог-группу](../../logging/concepts/log-group.md).
+
+        * Выберите, какие логи записывать:
+
+          * **Логи командного центра** — опция включает запись логов [командного центра](../concepts/command-center.md).
+          * **Логи Greenplum** — опция включает запись логов {{ GP }}.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
     {% include [cli-install](../../_includes/cli-install.md) %}
@@ -1604,7 +1632,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
         Где:
 
         * `--log-enabled` — включает передачу логов.
-        * `--log-command-center-enabled` — передача логов Yandex Command Center.
+        * `--log-command-center-enabled` — передача логов [командного центра](../concepts/command-center.md).
         * `--log-greenplum-enabled` — передача логов {{ GP }}.
         * `--log-pooler-enabled` — передача логов [менеджера подключений](../concepts/pooling.md).
         * `--log-folder-id` — идентификатор каталога, лог-группу которого нужно использовать.
@@ -1638,7 +1666,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
         Где:
 
         * `enabled` — включение передачи логов: `true` или `false`.
-        * `command_center_enabled` — передача логов Yandex Command Center: `true` или `false`.
+        * `command_center_enabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
         * `greenplum_enabled` — передача логов {{ GP }}: `true` или `false`.
         * `pooler_enabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
         * `folder_id` — идентификатор каталога, лог-группу которого нужно использовать.
@@ -1691,7 +1719,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
         * `logging` — настройки логирования:
 
             * `enabled` — включение передачи логов: `true` или `false`.
-            * `commandCenterEnabled` — передача логов Yandex Command Center: `true` или `false`.
+            * `commandCenterEnabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
             * `greenplumEnabled` — передача логов {{ GP }}: `true` или `false`.
             * `poolerEnabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
             * `folderId` — идентификатор каталога, лог-группу которого нужно использовать.
@@ -1751,7 +1779,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
         * `logging` — настройки логирования:
 
             * `enabled` — включение передачи логов: `true` или `false`.
-            * `command_center_enabled` — передача логов Yandex Command Center: `true` или `false`.
+            * `command_center_enabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
             * `greenplum_enabled` — передача логов {{ GP }}: `true` или `false`.
             * `pooler_enabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
             * `folder_id` — идентификатор каталога, лог-группу которого нужно использовать.
