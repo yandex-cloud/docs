@@ -10,7 +10,7 @@ To create an MLFlow server for logging {{ jlab }}Lab Notebook experiments and ar
 1. [Create a VM](#create-vm).
 1. [Create a managed DB](#create-db).
 1. [Create a bucket](#create-bucket).
-1. [Install the MLFlow tracking server and add it to the VM auto-start](#setup-mlflow).
+1. [Install the MLFlow tracking server and add it to the VM auto start](#setup-mlflow).
 1. [Create secrets](#create-secrets).
 1. [Train your model](#train-model).
 
@@ -43,7 +43,7 @@ The cost of training a model based on {{ objstorage-name }} data includes:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Give your folder a name, e.g., `data-folder`.
+   1. Name your folder, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
@@ -57,9 +57,9 @@ To access a bucket in {{ objstorage-name }}, you will need a [service account](.
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), navigate to `data-folder`.
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the service account, e.g., `datasphere-sa`.
+   1. Name your service account, e.g., `datasphere-sa`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `storage.viewer` and `storage.uploader` roles to the service account.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -74,9 +74,9 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you will need a sta
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder the service account belongs to.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. From the list that opens, select the `datasphere-sa` service account.
+  1. In the list that opens, select the `datasphere-sa` service account.
   1. In the top panel, click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -84,7 +84,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you will need a sta
 
 - CLI {#cli}
 
-  1. Create an access key for the `datasphere-sa` service account.
+  1. Create an access key for the `datasphere-sa` service account:
 
      ```bash
      yc iam access-key create --service-account-name datasphere-sa
@@ -101,7 +101,7 @@ To access {{ objstorage-name }} from {{ ml-platform-name }}, you will need a sta
      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hx*****
      ```
 
-  1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the secret key again.
+  1. Save `key_id` and `secret`. You will not be able to get the secret key again.
 
 - API {#api}
 
@@ -139,7 +139,7 @@ To create a key pair:
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu 22.04` and select a public [Ubuntu 22.04](/marketplace/products/yc/ubuntu-22-04-lts) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
@@ -153,12 +153,12 @@ To create a key pair:
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the subnet specified in the {{ ml-platform-name }} [project settings](../../datasphere/operations/projects/update.md). Make sure the subnet has a [configured NAT gateway](../../vpc/operations/create-nat-gateway.md).
-      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign a random external IP address from the {{ yandex-cloud }} pool to your VM. Alternatively, select a static address from the list if you reserved one.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the subnet specified in the {{ ml-platform-name }} [project settings](../../datasphere/operations/projects/update.md). Make sure to [set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) for the subnet.
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you reserved one.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `mlflow-vm`.
@@ -176,7 +176,7 @@ To create a key pair:
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a DB cluster.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-  1. Enter a name for the cluster, e.g., `mlflow-bd`.
+  1. Name the cluster, e.g., `mlflow-bd`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the `s3-c2-m8` configuration.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**, select `250 GB`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, enter your username and password. You will need these to establish a connection.
@@ -194,7 +194,7 @@ To create a key pair:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket, e.g., `mlflow-bucket`.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
@@ -204,7 +204,7 @@ To create a key pair:
 
 {% endlist %}
 
-## Install the MLFlow tracking server and add it to the VM auto-start {#setup-mlflow}
+## Install the MLFlow tracking server and add it to the VM auto start {#setup-mlflow}
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 1. Download the `Anaconda` distribution:
@@ -315,18 +315,18 @@ For MLFlow to run automatically after the VM restarts, you need to convert it in
    Environment=MLFLOW_S3_ENDPOINT_URL=https://{{ s3-storage-host }}/
    Restart=on-failure
    RestartSec=30
-   StandardOutput=file:/home/<VM_username>/mlflow_logs/stdout.log
-   StandardError=file:/home/<VM_username>/mlflow_errors/stderr.log
-   User=<VM_username>
-   ExecStart=/bin/bash -c 'PATH=/home/<VM_username>/anaconda3/envs/mlflow_env/bin/:$PATH exec mlflow server --backend-store-uri postgresql://<DB_username>:<password>@<host>:6432/db1?sslmode=verify-full --default-artifact-root s3://mlflow-bucket/artifacts -h 0.0.0.0 -p 8000'
+   StandardOutput=file:/home/<VM_user_name>/mlflow_logs/stdout.log
+   StandardError=file:/home/<VM_user_name>/mlflow_errors/stderr.log
+   User=<VM_user_name>
+   ExecStart=/bin/bash -c 'PATH=/home/<VM_user_name>/anaconda3/envs/mlflow_env/bin/:$PATH exec mlflow server --backend-store-uri postgresql://<DB_user_name>:<password>@<host>:6432/db1?sslmode=verify-full --default-artifact-root s3://mlflow-bucket/artifacts -h 0.0.0.0 -p 8000'
 
    [Install]
    WantedBy=multi-user.target
    ```
    Where:
 
-   * `<VM_username>`: VM account username.
-   * `<DB_username>`: Username specified when creating the database cluster.
+   * `<VM_user_name>`: VM account user name.
+   * `<DB_user_name>`: User name specified when creating the database cluster.
 
 1. Run the service and enable autoload at system startup:
 
@@ -352,7 +352,7 @@ For MLFlow to run automatically after the VM restarts, you need to convert it in
 
 ## Train your model {#train-model}
 
-This tutorial features a set of data for predicting the quality of wine based on quantitative properties, such as acidity, PH, residual sugar, etc. To train your model, copy and paste the code into the notebook cells.
+This tutorial features a set of data for predicting the quality of wine based on quantitative properties, such as acidity, pH, residual sugar, etc. To train your model, copy and paste the code into the notebook cells.
 
 1. {% include [include](../../_includes/datasphere/ui-before-begin.md) %}
 

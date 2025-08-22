@@ -12,7 +12,7 @@
 `CreateHostGroup` | Создание группы выделенных хостов
 `CreateImage` | Создание образа диска
 `CreateInstance` | Создание ВМ
-`CreateReservedInstancePool` | Создание пула зарезервированных ВМ
+`CreateReservedInstancePool` | Создание пула резервов ВМ
 `CreateSnapshot` | Создание снимка диска
 `CreateSnapshotSchedule` | Создание расписания снимков диска
 `DecommissionHost` | Вывод выделенного хоста в [обслуживание](../../../compute/concepts/dedicated-host.md#maintenance)
@@ -22,7 +22,7 @@
 `DeleteHostGroup` | Удаление группы выделенных хостов
 `DeleteImage` | Удаление образа диска
 `DeleteInstance` | Удаление ВМ
-`DeleteReservedInstancePool` | Удаление пула зарезервированных ВМ
+`DeleteReservedInstancePool` | Удаление пула резервов ВМ
 `DeleteSnapshot` | Удаление снимка диска
 `DeleteSnapshotSchedule` | Удаление расписания снимков диска
 `DetachInstanceDisk` | Отключение диска от ВМ
@@ -45,7 +45,7 @@
 `UpdateInstance` | Изменение ВМ
 `UpdateInstanceMetadata` | Изменение метаданных ВМ
 `UpdateInstanceNetworkInterface` | Изменение сетевых настроек ВМ
-`UpdateReservedInstancePool` | Изменение пула зарезервированных ВМ
+`UpdateReservedInstancePool` | Изменение пула резервов ВМ
 `UpdateSnapshot` | Изменение снимка диска
 `UpdateSnapshotSchedule` | Изменение параметров расписания снимков диска
 `UpdateSnapshotScheduleDisks` | Изменение параметров расписания снимков дисков

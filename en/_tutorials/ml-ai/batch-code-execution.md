@@ -1,14 +1,14 @@
-In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), you can run code using the API without opening your project. This might be handy when you need to automate routine operations, additionally train a neural network, or deploy a service that does not require quick responses via the API.
+In [{{ ml-platform-full-name }}]({{ link-datasphere-main }}), you can run code using the API without opening your project. It comes in handy when you need to automate routine operations, fine tune a neural network, or deploy a service that does not require quick API responses.
 
-Using a simple convolutional neural network ([CNN](https://en.wikipedia.org/wiki/Convolutional_neural_network)) as an example, this tutorial describes how to deploy a model trained in {{ ml-platform-name }} with [{{ sf-full-name }}](../../functions/index.yaml). The model's output will be saved to {{ ml-platform-name }} project storage.
+Using a simple convolutional neural network ([CNN](https://en.wikipedia.org/wiki/Convolutional_neural_network)) as an example, this tutorial describes how to deploy a model trained in {{ ml-platform-name }} with [{{ sf-full-name }}](../../functions/index.yaml). The model's output will be saved to the {{ ml-platform-name }} project storage.
 
 For information on how to deploy a service returning results via the API, see [{#T}](../../datasphere/tutorials/node-from-docker-fast-api.md).
 
-1. [Prepare your infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Prepare notebooks](#set-notebooks).
 1. [Train a neural network](#ai-training).
 1. [Upload the model architecture and weights](#load-data).
-1. [Create a {{ sf-name }}](#create-function).
+1. [Create a function in {{ sf-name }}](#create-function).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -20,10 +20,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of implementing regular runs includes:
 
-* Fee for [{{ ml-platform-name }} computing resource](../../datasphere/pricing.md) usage.
-* Fee for the number of [{{ sf-name }}](../../functions/pricing.md) function calls.
+* Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
+* Fee for the number of [{{ sf-name }} function calls](../../functions/pricing.md).
 
-## Prepare the infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
@@ -36,7 +36,7 @@ The cost of implementing regular runs includes:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Give your folder a name, e.g., `data-folder`.
+   1. Name your folder, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
@@ -49,16 +49,16 @@ To access a {{ ml-platform-name }} project from a {{ sf-name }} function, you ne
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to `data-folder`.
+   1. In the [management console]({{ link-console-main }}), navigate to `data-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the service account, e.g., `datasphere-sa`.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the service account the `{{ roles-datasphere-project-editor }}` role.
+   1. Name your service account, e.g., `datasphere-sa`.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-datasphere-project-editor }}` role to this service account.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
-### Add the service account to a project {#sa-to-project}
+### Add the service account to the project {#sa-to-project}
 
 To enable the service account to run a {{ ml-platform-name }} project, add it to the list of project members:
 
@@ -66,7 +66,7 @@ To enable the service account to run a {{ ml-platform-name }} project, add it to
 1. In the **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** tab, click **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
 1. Select the `datasphere-sa` account and click **{{ ui-key.yc-ui-datasphere.common.add }}**.
 
-## Prepare notebooks and your neural network's architecture {#set-notebooks}
+## Prepare notebooks and your neural network architecture {#set-notebooks}
 
 Clone the Git repository containing the notebooks with the examples of the ML model training and testing:
    1. In the top menu, click **Git** and select **Clone**.
@@ -78,7 +78,7 @@ The repository contains two notebooks and the neural network architecture:
 
 * `train_classifier.ipynb`: Notebook for downloading a training sample of the `CIFAR10` dataset and training a simple neural network.
 * `test_classifier.ipynb`: Notebook for testing the model.
-* `my_nn_model.py`: Neural network architecture. For classification, three-dimensional images are input to the neural network. It contains two convolutional layers with the `maxpool` layer between them and three linear layers:
+* `my_nn_model.py`: Neural network architecture. For classification, three-dimensional images are input to the neural network. It contains two convolutional layers with the `maxpool` layer between them, and three linear layers:
 
     ```python
     import torch.nn as nn
@@ -107,7 +107,7 @@ The repository contains two notebooks and the neural network architecture:
 
 ## Train a neural network {#ai-training}
 
-In the `train_classifier.ipynb` notebook, you will download a training sample of the `CIFAR10` dataset and train a simple neural network. The trained model's weights will be saved to the project storage named `cifar_net.pth`.
+In the `train_classifier.ipynb` notebook, you will download a training sample of the `CIFAR10` dataset to train a simple neural network. The trained model's weights will be saved to the project storage named `cifar_net.pth`.
 
 1. {% include [include](../../_includes/datasphere/ui-before-begin.md) %}
 
@@ -146,7 +146,7 @@ In the `train_classifier.ipynb` notebook, you will download a training sample of
     import numpy as np
 
     def imshow(img):
-        img = img / 2 + 0.5 # unnormalize
+        img = img / 2 + 0.5     # unnormalize
         npimg = img.numpy()
         plt.imshow(np.transpose(npimg, (1, 2, 0)))
         plt.show()
@@ -231,7 +231,7 @@ In the `test_classifier.ipynb` notebook, you will upload the model architecture 
             'deer', 'dog', 'frog', 'horse', 'ship', 'truck')
     ```
 
-1. Set the resource configuration to run the model on, СPU or GPU:
+1. Set the resource configuration to run the model on, CPU or GPU:
 
     ```python
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -268,18 +268,18 @@ In the `test_classifier.ipynb` notebook, you will upload the model architecture 
     final_pred.to_csv('/home/jupyter/datasphere/project/test_predictions.csv')
     ```
 
-## Create a {{ sf-name }} {#create-function}
+## Create a function in {{ sf-name }} {#create-function}
 
-To run cells without opening {{ jlab }}Lab, you need a {{ sf-name }} that will trigger computations in a notebook via the API.
+To run cells without opening {{ jlab }}Lab, you need a {{ sf-name }} that will initiate computations in a notebook via the API.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to create a function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-    1. Enter a name for the function, e.g., `ai-function`.
+    1. Name the function, e.g., `ai-function`.
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-function }}**.
 
 {% endlist %}
@@ -292,11 +292,11 @@ To run cells without opening {{ jlab }}Lab, you need a {{ sf-name }} that will t
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select the function to create a version of.
+    1. Select the function whose version you want to create.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-    1. Select the **Python** runtime environment. Do not select the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option.
+    1. Select the **Python** runtime environment. Do not select **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
     1. Choose the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}** method.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** and specify a file name, e.g., `index`.
     1. Enter the function code by inserting your project ID and the absolute path to the project notebook:

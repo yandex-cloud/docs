@@ -1,1 +1,1 @@
-_Функциональность пулов зарезервированных ВМ находится на [стадии Preview](../../overview/concepts/launch-stages.md)._
+_Функциональность пулов резервов ВМ находится на [стадии Preview](../../overview/concepts/launch-stages.md)._

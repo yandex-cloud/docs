@@ -9,7 +9,6 @@ description: Различные сценарии использования {{ m
 * [{#T}](data-migration.md)
 * [{#T}](ch-to-mch-migration.md)
 * [Шардирование таблиц](sharding.md)
-* [Перешардирование данных в кластере](mch-mch-resharding.md)
 * [Использование гибридного хранилища](hybrid-storage.md)
 * [Получение данных из {{ mkf-name }}](fetch-data-from-mkf.md)
 * [Получение данных из RabbitMQ](fetch-data-from-rabbitmq.md)

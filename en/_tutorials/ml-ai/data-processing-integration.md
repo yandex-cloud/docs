@@ -1,6 +1,6 @@
 # Integration with {{ dataproc-full-name }}
 
-You can use the Apache Spark™ clusters deployed in {{ dataproc-full-name }}, in your {{ ml-platform-full-name }} projects. To set up integration with {{ dataproc-name }} in {{ ml-platform-name }}:
+You can use Apache Spark™ clusters deployed in {{ dataproc-full-name }}, in your {{ ml-platform-full-name }} projects. To set up integration with {{ dataproc-name }} in {{ ml-platform-name }}:
 
 1. [Set up your infrastructure](#infra).
 1. [Create a bucket](#create-bucket).
@@ -86,9 +86,9 @@ Create a folder where your {{ dataproc-name }} cluster will run.
 - Management console {#console}
 
    1. Navigate to `data-folder`.
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-data-proc`.
+   1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-data-proc`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
       * `dataproc.agent` to create and use {{ dataproc-name }} clusters.
       * `dataproc.provisioner` to enable [subcluster autoscaling](../../data-proc/concepts/autoscaling.md).
@@ -159,7 +159,7 @@ To work with {{ dataproc-name }} clusters in {{ ml-platform-name }}, create and 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}**, and **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
@@ -222,7 +222,7 @@ You can view your current resources under [Quotas]({{ link-console-quotas }}) in
 
       {% endnote %}
 
-      `Compute` and `Data` subcluster roles are different: you can deploy data storage components on `Data` subclusters and data processing components on `Compute` subclusters. The `Compute` subcluster storage is only used to temporarily store processed files.
+      The `Compute` and `Data` subcluster roles are different: you can deploy data storage components on `Data` subclusters and data processing components, on `Compute` subclusters. The `Compute` subcluster storage is only used to temporarily store processed files.
    1. For each subcluster, you can configure:
       * Number of hosts.
       * [Host class](../../data-proc/concepts/instance-types.md), i.e., the platform and computing resources available to the host.

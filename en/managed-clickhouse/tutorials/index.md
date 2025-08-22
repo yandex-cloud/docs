@@ -9,7 +9,6 @@ description: Various {{ mch-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](data-migration.md)
 * [{#T}](ch-to-mch-migration.md)
 * [Sharding tables](sharding.md)
-* [Data resharding in a cluster](mch-mch-resharding.md)
 * [Using a hybrid storage](hybrid-storage.md)
 * [Fetching data from {{ mkf-name }}](fetch-data-from-mkf.md)
 * [Fetching data from RabbitMQ](fetch-data-from-rabbitmq.md)

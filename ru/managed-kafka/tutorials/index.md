@@ -41,5 +41,6 @@
 
 * [{#T}](zk-kraft-kafka-migration.md)
 * [{#T}](data-processing.md)
+* [{#T}](retention-policy.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

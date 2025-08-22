@@ -8037,6 +8037,7 @@ default:
         action_copy-msg-id: Скопировать идентификатор
         action_create-channel: Создать канал уведомлений
         action_create-endpoint: Создать эндпоинт
+        action_send-message: Отправить уведомление
         action_send-msg: Отправить
         action_sms-leave-sandbox: Выйти из песочницы
         auth_certificate: Сертификат
@@ -8071,6 +8072,9 @@ default:
         label_editor-text: Текст
         label_endpoints: Эндпоинты
         label_phone-numbers: Тестовые номера
+        local:
+          action_create-topic_qywb9: Создать топик
+          label_topics_vhBR3: Топики
         section_logging: Логирование
         section_message-sending: Отправка сообщений
         select_apns-title: Apple iOS
@@ -8079,8 +8083,13 @@ default:
         select_ru-store-title: RuStore Android
         sender_sms-common: Общий отправитель
         sender_sms-individual: Индивидуальный отправитель
+        shared:
+          CnsTopicLayout:
+            subscriptions_cp53u: Подписки
         switch_gcm-api-legacy: Legacy
         switch_gcm-api-v1: HTTP v1
+        Topics:
+          button_create_r6PZn: Создать топик
         type_mobile: Мобильные Push-уведомления
         type_sms: SMS-сообщения
         type_web: Push-уведомления в браузере
@@ -8682,7 +8691,9 @@ default:
         label_empty-ingestion-count-short: Нет загрузки
         label_ingestion-count: Количество загрузок
         label_ingestion-status-Running: Running
+        label_ingestion-tab-logs: Логи
         label_ingestion-tab-operations: Операции
+        label_ingestion-tab-overview: Обзор
         label_ingestions: Загрузки
         label_search-action-share: Поделиться
         label_search-button-add-filter: Добавить фильтр
@@ -10951,9 +10962,6 @@ default:
                       transfer_to_shard:
                         array_item_label: Сопоставление
                         title: Сопоставление
-                    ClickHouseShardingSettings:
-                      sharding_settings_oneof:
-                        title: Шардирование
                     ClickHouseShardingSettingsOneof:
                       no_sharding:
                         title: Без шардирования

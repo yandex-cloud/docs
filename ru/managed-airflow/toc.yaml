@@ -17,6 +17,8 @@ items:
             href: operations/cluster-update.md
           - name: Остановка и запуск кластера
             href: operations/cluster-stop.md
+          - name: Техническое обслуживание
+            href: operations/cluster-maintenance.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
       - name: Подключения
@@ -87,6 +89,8 @@ items:
         href: concepts/limits.md
       - name: Имперсонация
         href: concepts/impersonation.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

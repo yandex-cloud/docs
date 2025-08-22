@@ -6,7 +6,7 @@ You can use the [{{ ml-platform-name }}]({{ link-datalens-main }}) interface to 
 
 To create and set up a community and multiple projects:
 
-1. Get an [IAM token](#get-iam).
+1. [Get an IAM token](#get-iam).
 1. [Create projects](#create-projects).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -84,7 +84,7 @@ To create projects, copy and paste the code into notebook cells and run them.
     res.json()
     ```
 
-1. Create a community by substituting its name and description and the ID of the [active](../../billing/concepts/billing-account-statuses.md) billing account:
+1. Create a community by inserting its name and description as well as the ID of the [active](../../billing/concepts/billing-account-statuses.md) billing account:
 
     ```python
     data={}

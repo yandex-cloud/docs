@@ -17,7 +17,6 @@ Migration is a task that involves transferring data from one data storage to ano
 * [Migrating {{ PG }} clusters](managed-postgresql.md)
 * [Migrating {{ MY }} clusters](managed-mysql-to-mysql.md)
 * [Migrating {{ CH }} clusters](managed-clickhouse.md)
-* [Data resharding in a {{ mch-name }} cluster](mch-mch-resharding.md)
 * [Migrating {{ GP }} clusters](managed-greenplum.md)
 * [Migrating {{ MG }} clusters](managed-mongodb.md)
 * [Migrating {{ MG }} cluster from 4.4 to 6.0](mongodb-versions.md)

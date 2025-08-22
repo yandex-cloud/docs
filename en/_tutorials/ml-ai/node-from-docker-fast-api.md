@@ -42,7 +42,7 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Give your folder a name, e.g., `data-folder`.
+   1. Name your folder, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
@@ -56,7 +56,7 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 - Management console {#console}
 
   1. Navigate to `data-folder`.
-  1. From the list of services, select **{{ container-registry-name }}**.
+  1. In the list of services, select **{{ container-registry-name }}**.
   1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. Specify a name for the registry, e.g., `datasphere-registry`, and click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
 
@@ -69,19 +69,19 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 - Management console {#console}
 
    1. Navigate to `data-folder`.
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-datasphere`.
+   1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-datasphere`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
       * `container-registry.images.puller` to allow {{ ml-platform-name }} to pull your Docker image to create a node.
-      * `vpc.user`: To use the {{ ml-platform-name }} network.
-      * `datasphere.user`: To send requests to the node.
+      * `vpc.user` to use the {{ ml-platform-name }} network.
+      * `datasphere.user` to send requests to the node.
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
-### Create an authorized key for the service account {#create-key}
+### Create an authorized key for a service account {#create-key}
 
 To allow your service account to [get authenticated in {{ container-registry-full-name }}](../../container-registry/operations/authentication.md), create an authorized key.
 
@@ -92,7 +92,7 @@ To allow your service account to [get authenticated in {{ container-registry-ful
 - Management console {#console}
 
   1. Navigate to `data-folder`.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `sa-for-datasphere` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -174,7 +174,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
       yc container registry list
       ```
 
-      You will need the registry ID at the next step. Command output example:
+      You will need the registry ID at the next step. Here is an example of the command output:
 
       ```text
       +----------------------+---------------------+----------------------+
@@ -225,7 +225,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.fails-threshold }}**: 3.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}**: 3.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select `data-folder`.
-   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}** select the `g1.1` [configuration](../../datasphere/concepts/configurations.md).
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the `g1.1` [configuration](../../datasphere/concepts/configurations.md).
    1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 ## Run a health check for the service you deployed {#check-node}
@@ -285,4 +285,4 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 1. [Delete the secret](../../datasphere/operations/data/secrets.md#delete).
 1. [Delete the authorized key](../../iam/operations/authentication/manage-authorized-keys.md#delete-authorized-key) of the service account.
 1. [Delete the Docker image](../../container-registry/operations/docker-image/docker-image-delete.md).
-1. [Delete](../../container-registry/operations/registry/registry-delete.md) the {{ container-registry-name }} registry.
+1. [Delete the registry](../../container-registry/operations/registry/registry-delete.md) in {{ container-registry-name }}.

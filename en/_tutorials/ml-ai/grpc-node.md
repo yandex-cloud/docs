@@ -43,7 +43,7 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Give your folder a name, e.g., `data-folder`.
+   1. Name your folder, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
@@ -57,7 +57,7 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 - Management console {#console}
 
   1. Navigate to `data-folder`.
-  1. From the list of services, select **{{ container-registry-name }}**.
+  1. In the list of services, select **{{ container-registry-name }}**.
   1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. Specify a name for the registry, e.g., `datasphere-registry`, and click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
 
@@ -70,19 +70,19 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 - Management console {#console}
 
    1. Navigate to `data-folder`.
-   1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-datasphere`.
+   1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-datasphere`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
       * `container-registry.images.puller` to allow {{ ml-platform-name }} to pull your Docker image to create a node.
-      * `vpc.user`: To use the {{ ml-platform-name }} network.
-      * `datasphere.user`: To send requests to the node.
+      * `vpc.user` to use the {{ ml-platform-name }} network.
+      * `datasphere.user` to send requests to the node.
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
-### Create an authorized key for the service account {#create-key}
+### Create an authorized key for your service account {#create-key}
 
 To allow your service account to [get authenticated in {{ container-registry-full-name }}](../../container-registry/operations/authentication.md), create an authorized key.
 
@@ -93,7 +93,7 @@ To allow your service account to [get authenticated in {{ container-registry-ful
 - Management console {#console}
 
   1. Navigate to `data-folder`.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `sa-for-datasphere` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
@@ -146,7 +146,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 
    1. [Get authenticated in {{ container-registry-name }}](../../container-registry).
 
-      1. Issue an [IAM token](../../iam/concepts/authorization/iam-token.md) for your service account.
+      1. Issue an [IAM token](../../iam/concepts/authorization/iam-token.md) for your service account:
 
       ```bash
       yc iam create-token
@@ -160,7 +160,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 
       {% endnote %}
 
-      1. Run the command with the token value you got in the previous step in place of `<IAM token>`:
+      1. Run the command with the token value you got in the previous step in place of `<IAM_token>`:
 
       ```bash
       docker login \
@@ -175,7 +175,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
       yc container registry list
       ```
 
-      You will need the registry ID at the next step. Command output example:
+      You will need the registry ID at the next step. Here is an example of the command output:
 
       ```text
       +----------------------+---------------------+----------------------+
@@ -208,7 +208,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}**:
       * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**: Select **{{ ui-key.yc-ui-datasphere.common.docker }}**.
       * **{{ ui-key.yc-ui-datasphere.new-node.source }}**: Select **{{ ui-key.yc-ui-datasphere.new-node.ycr }}**.
-      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.image-path }}**: Specify the path to the {{ container-registry-name }} image in the `cr.yandex/<registry_ID>/<image_name>:<tag>` format. You can get it in the management console by copying the full value on the repository page. You can also fill out this field manually. You can get the registry ID in the CLI by running the `yc container registry list` command.      
+      * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.image-path }}**: Specify the path to the {{ container-registry-name }} image in `cr.yandex/<registry_ID>/<image_name>:<tag>` format. You can get it in the management console by copying the full value on the repository page. You can also fill out this field manually. You can get the registry ID in the CLI by running the `yc container registry list` command.      
       * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}**: Select `key-for-sa`.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
       * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}**: Select **gRPC**.
@@ -226,7 +226,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.fails-threshold }}**: 3.
       * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}**: 3.
    1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select `data-folder`.
-   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}** select the `g1.1` [configuration](../../datasphere/concepts/configurations.md).
+   1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the `g1.1` [configuration](../../datasphere/concepts/configurations.md).
    1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 ## Run a health check for the service you deployed {#check-node}
@@ -241,7 +241,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
   1. Navigate to the **{{ ui-key.yc-ui-datasphere.node-page.tab.request }}** tab.
   1. In the **Path** field, enter `echo.v1.Echo/Reflect`.
   1. In the **Input values** field, enter `{"message": "Hello, world!"}`.
-  1. Run the command you got in the terminal by supplementing the IAM token value.
+  1. Run the command you got in the terminal inserting the IAM token value.
   
      Result:
   
@@ -253,7 +253,7 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 
 - Python
 
-  The `client.py` script makes a request to the node. To run it and check the service's operation, open the terminal in the folder containing the downloaded repository and run the following commands:
+  The `client.py` script makes a request to the node. To run it and check the service's operation, open the terminal in the folder containing the pulled repository and run the following commands:
   
   1. Create and activate a virtual Python environment:
   
@@ -302,5 +302,5 @@ If you do not have Docker yet, [install](https://docs.docker.com/install/) it.
 1. [Delete](../../datasphere/operations/deploy/node-delete.md) the node.
 1. [Delete](../../datasphere/operations/data/secrets.md#delete) the secret.
 1. [Delete](../../iam/operations/authentication/manage-authorized-keys.md#delete-authorized-key) the authorized key of the service account.
-1. [Delete the Docker image](../../container-registry/operations/docker-image/docker-image-delete.md).
-1. [Delete](../../container-registry/operations/registry/registry-delete.md) the {{ container-registry-name }} registry.
+1. [Delete](../../container-registry/operations/docker-image/docker-image-delete.md) the Docker image.
+1. [Delete](../../container-registry/operations/registry/registry-delete.md) the registry in {{ container-registry-name }}.
