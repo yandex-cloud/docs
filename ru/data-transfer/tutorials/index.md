@@ -17,7 +17,6 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [Миграция кластера {{ PG }}](managed-postgresql.md)
 * [Миграция кластера {{ MY }}](managed-mysql-to-mysql.md)
 * [Миграция кластера {{ CH }}](managed-clickhouse.md)
-* [Перешардирование данных в кластере {{ mch-name }}](mch-mch-resharding.md)
 * [Миграция кластера {{ GP }}](managed-greenplum.md)
 * [Миграция кластера {{ MG }}](managed-mongodb.md)
 * [Миграция кластера {{ MG }} с версии 4.4 на 6.0](mongodb-versions.md)

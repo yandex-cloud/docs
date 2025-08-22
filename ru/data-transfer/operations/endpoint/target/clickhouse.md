@@ -19,7 +19,6 @@ description: Из статьи вы узнаете, как задать наст
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     * [Миграция кластера {{ CH }}](../../../tutorials/managed-clickhouse.md);
-    * [Перераспределение данных по шардам](../../../tutorials/mch-mch-resharding.md).
     * [{#T}](../../../tutorials/opensearch-to-clickhouse.md)
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}

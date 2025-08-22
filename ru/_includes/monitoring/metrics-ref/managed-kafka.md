@@ -99,7 +99,10 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 | `kafka_controller_KafkaController_OfflinePartitionsCount`<br/>`DGAUGE`, штуки | Число offline разделов. |
 | `kafka_controller_KafkaController_PreferredReplicaImbalanceCount`<br/>`DGAUGE`, штуки | Показатель дисбаланса в желаемом распределении реплик, в норме показывает `0`. |
 | `kafka_group_topic_partition_lag`<br/>`DGAUGE`, штуки | Отставание сообщений: разница между смещением и общим числом сообщений раздела. |
-| `kafka_group_topic_partition_offset`<br/>`DGAUGE`, штуки | Смещение раздела. |
+| `kafka_group_topic_partition_offset`<br/>`DGAUGE`, штуки | Текущее смещение группы потребителей в разделе. |
+| `kafka_log_Log_LogStartOffset`<br/>`DGAUGE`, штуки | Первое смещение в разделе. |
+| `kafka_log_Log_LogEndOffset`<br/>`DGAUGE`, штуки | Последнее смещение в разделе. |
+| `kafka_log_Log_Size`<br/>`DGAUGE`, байты | Размер раздела на диске. |
 | `kafka_host_count`<br/>`DGAUGE`, штуки | Количество хостов в кластере. |
 | `kafka_is_alive`<br/>`DGAUGE`, 0/1 | Показатель работоспособности брокера.<br/>Принимает значение `1`, если брокер работает, `0`, если нет. |
 | `kafka_network_RequestChannel_RequestQueueSize`<br/>`DGAUGE`, штуки | Число запросов в очереди. |
@@ -130,3 +133,9 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 | `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, штуки | Количество разделов, у которых число синхронизированных реплик (in-sync replicas, ISR) меньше фактора репликации. |
 | `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, миллисекунды | Задержка запросов в {{ ZK }}.<br/>Дополнительные метки: `quantile` |
 | `kafka_shard_count`<br/>`DGAUGE`, штуки | Количество активных шардов. |
+
+{% note info %}
+
+В этом разделе приведены только основные метрики {{ mkf-name }}, поставляемые в {{ monitoring-name }}. Подробнее обо всех метриках {{ mkf-name }} можно посмотреть в [официальной документации](https://kafka.apache.org/documentation.html#monitoring).
+
+{% endnote %}

@@ -884,8 +884,6 @@ items:
         href: dataplatform/clickhouse-hybrid-storage.md
       - name: Sharding {{ mch-name }} tables
         href: dataplatform/clickhouse-sharding.md
-      - name: Data resharding in a {{ mch-name }} cluster
-        href: dataplatform/mch-mch-resharding.md
       - name: >-
           Loading data from {{ yandex-direct }} to a {{ mch-name }} data mart
           using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name

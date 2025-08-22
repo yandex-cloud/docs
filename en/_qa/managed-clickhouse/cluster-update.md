@@ -52,4 +52,4 @@ No, you can only select a network and subnets for hosts when creating a cluster 
 
 #### How to change the distribution of data across shards in a cluster? {#resharding}
 
-In an existing cluster, you cannot change the location of data in shards. To make the change, [transfer data to a new cluster with shard redistribution](../../managed-clickhouse/tutorials/mch-mch-resharding.md) using {{ data-transfer-full-name }}.
+In an existing cluster, you cannot change the location of data in shards.

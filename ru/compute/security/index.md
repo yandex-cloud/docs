@@ -167,8 +167,8 @@ description: Управление доступом в сервисе предо�
 [Изменение](../operations/gpu-cluster/gpu-cluster-update.md) и [удаление](../operations/gpu-cluster/gpu-cluster-delete.md) кластера GPU | `compute.editor` на кластер GPU
 [Создание](../operations/dedicated-host/create-host-group.md) группы выделенных хостов | `compute.editor` на каталог
 Изменение и удаление группы выделенных хостов, изменение хоста в группе выделенных хостов | `compute.editor` на группу выделенных хостов
-[Создание](../operations/reserved-pools/create-reserved-pool.md) пула зарезервированных ВМ | `compute.editor` на каталог
-[Изменение](../operations/reserved-pools/update-reserved-pool.md) и [удаление](../operations/reserved-pools/delete-reserved-pool.md) пула зарезервированных ВМ | `compute.editor` на каталог
+[Создание](../operations/reserved-pools/create-reserved-pool.md) пула резервов ВМ | `compute.editor` на каталог
+[Изменение](../operations/reserved-pools/update-reserved-pool.md) и [удаление](../operations/reserved-pools/delete-reserved-pool.md) пула резервов ВМ | `compute.editor` на каталог
 [Создание](../operations/placement-groups/create.md) группы размещения | `compute.editor` на каталог
 Изменение и [удаление](../operations/placement-groups/delete.md) группы размещения | `compute.editor` на группу размещения
 [Создание](../operations/disk-placement-groups/create.md) группы размещения дисков | `compute.editor` на каталог

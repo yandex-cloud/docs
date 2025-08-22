@@ -1,20 +1,47 @@
 ---
-title: Управлять виртуальными машинами в пуле зарезервированных ВМ
-description: Из статьи вы узнаете, как создавать виртуальные машины {{ compute-full-name }} в пуле зарезервированных ВМ, а также как привязывать существующие ВМ к таким пулам и отвязывать их.
+title: Управлять виртуальными машинами в пуле резервов ВМ
+description: Из статьи вы узнаете, как создавать виртуальные машины {{ compute-full-name }} в пуле резервов ВМ, а также как привязывать существующие ВМ к таким пулам и отвязывать их.
 ---
 
-# Управление виртуальными машинами пула зарезервированных ВМ
+# Управление виртуальными машинами пула резервов ВМ
 
 {% include [reserved-pools-pricing-warning](../../../_includes/compute/reserved-pools-pricing-warning.md) %}
 
 {% include [reserved-pools-preview-notice](../../../_includes/compute/reserved-pools-preview-notice.md) %}
 
-Вы можете привязывать к пулам зарезервированных ВМ как вновь создаваемые, так и существующие виртуальные машины. Подробнее см. в разделе [{#T}](../../concepts/reserved-pools.md).
+Вы можете привязывать к пулам резервов ВМ как вновь создаваемые, так и существующие виртуальные машины. Подробнее см. в разделе [{#T}](../../concepts/reserved-pools.md).
 
+## Посмотреть список ВМ, привязанных к пулу {#list-pool-instances}
 
-## Создать новую ВМ с привязкой к пулу зарезервированных ВМ {#attach-new-vm}
+Чтобы посмотреть список виртуальных машин, привязанных к пулу резервов ВМ:
 
-Чтобы создать новую виртуальную машину в пуле зарезервированных ВМ:
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды [{{ yandex-cloud }} CLI](../../../cli/index.yaml) для создания ВМ:
+
+      ```bash
+      yc compute reserved-instance-pool list --help
+      ```
+  1. {% include [list-reserved-pools-cli](../../../_includes/compute/list-reserved-pools-cli.md) %}
+  1. Посмотрите список ВМ, привязанных к пулу, указав его имя или идентификатор:
+
+      {% include [list-reserved-pool-vms-cli](../../../_includes/compute/list-reserved-pool-vms-cli.md) %}
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [ListInstances](../../api-ref/ReservedInstancePool/listInstances.md) для ресурса [ReservedInstancePool](../../api-ref/ReservedInstancePool/index.md) или вызовом gRPC API [ReservedInstancePoolService/ListInstances](../../api-ref/grpc/ReservedInstancePool/listInstances.md), передав в поле `reservedInstancePoolId` (`reserved_instance_pool_id` для gRPC API) идентификатор нужного пула.
+
+{% endlist %}
+
+## Создать новую ВМ с привязкой к пулу {#attach-new-vm}
+
+Чтобы создать новую виртуальную машину в пуле резервов ВМ:
 
 {% list tabs group=instructions %}
 
@@ -30,7 +57,7 @@ description: Из статьи вы узнаете, как создавать в
       yc compute instance create --help
       ```
   1. {% include [list-reserved-pools-cli](../../../_includes/compute/list-reserved-pools-cli.md) %}
-  1. Создайте виртуальную машину в пуле зарезервированных ВМ:
+  1. Создайте виртуальную машину в пуле резервов ВМ:
 
       ```bash
       yc compute instance create \
@@ -112,7 +139,9 @@ description: Из статьи вы узнаете, как создавать в
 
       {% endcut %}
 
-      Подробнее о команде `yc compute instance create` читайте в [справочнике {{ yandex-cloud }} CLI](../../../cli/cli-ref/compute/cli-ref/instance/create.md).
+  1. [Убедитесь](#list-pool-instances), что виртуальная машина была привязана к пулу.
+
+  Подробнее о команде `yc compute instance create` читайте в [справочнике {{ yandex-cloud }} CLI](../../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - API {#api}
 
@@ -120,9 +149,9 @@ description: Из статьи вы узнаете, как создавать в
 
 {% endlist %}
 
-## Привязать существующую ВМ к пулу зарезервированных ВМ {#attach-existing-vm}
+## Привязать существующую ВМ к пулу {#attach-existing-vm}
 
-Чтобы привязать существующую ВМ к пулу зарезервированных ВМ:
+Чтобы привязать существующую ВМ к пулу резервов ВМ:
 
 {% list tabs group=instructions %}
 
@@ -141,11 +170,11 @@ description: Из статьи вы узнаете, как создавать в
   1. Получите список ВМ в каталоге по умолчанию:
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-  1. Привяжите нужную виртуальную машину к нужному пулу зарезервированных ВМ:
+  1. Привяжите нужную виртуальную машину к нужному пулу резервов ВМ:
 
       {% note info %}
 
-      К пулу зарезервированных ВМ нельзя привязать виртуальную машину с аппаратной конфигурацией ([платформа](../../concepts/vm-platforms.md), vCPU, RAM), отличной от конфигурации, которая задана в настройках пула.
+      К пулу резервов ВМ нельзя привязать виртуальную машину с аппаратной конфигурацией ([платформа](../../concepts/vm-platforms.md), vCPU, RAM), отличной от конфигурации, которая задана в настройках пула.
 
       {% endnote %}
 
@@ -214,7 +243,9 @@ description: Из статьи вы узнаете, как создавать в
 
       {% endcut %}
 
-      Подробнее о команде `yc compute instance update` читайте в [справочнике {{ yandex-cloud }} CLI](../../../cli/cli-ref/compute/cli-ref/instance/update.md).
+  1. [Убедитесь](#list-pool-instances), что виртуальная машина была привязана к пулу.
+
+  Подробнее о команде `yc compute instance update` читайте в [справочнике {{ yandex-cloud }} CLI](../../../cli/cli-ref/compute/cli-ref/instance/update.md).
 
 - API {#api}
 
@@ -223,9 +254,9 @@ description: Из статьи вы узнаете, как создавать в
 {% endlist %}
 
 
-## Отвязать ВМ от пула зарезервированных ВМ {#detach-vm}
+## Отвязать ВМ от пула {#detach-vm}
 
-Чтобы отвязать ВМ от пула зарезервированных ВМ:
+Чтобы отвязать ВМ от пула резервов ВМ:
 
 {% list tabs group=instructions %}
 
@@ -241,10 +272,10 @@ description: Из статьи вы узнаете, как создавать в
       yc compute instance update --help
       ```
   1. {% include [list-reserved-pools-cli](../../../_includes/compute/list-reserved-pools-cli.md) %}
-  1. Получите список ВМ в каталоге по умолчанию:
+  1. Получите список ВМ в нужном пуле, указав его имя или идентификатор:
 
-      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-  1. Отвяжите нужную виртуальную машину от заданного пула зарезервированных ВМ:
+      {% include [list-reserved-pool-vms-cli](../../../_includes/compute/list-reserved-pool-vms-cli.md) %}
+  1. Отвяжите нужную виртуальную машину от заданного пула резервов ВМ:
 
       ```bash
       yc compute instance update \
@@ -306,7 +337,9 @@ description: Из статьи вы узнаете, как создавать в
 
       {% endcut %}
 
-      Подробнее о команде `yc compute instance update` читайте в [справочнике {{ yandex-cloud }} CLI](../../../cli/cli-ref/compute/cli-ref/instance/update.md).
+  1. [Убедитесь](#list-pool-instances), что виртуальная машина была отвязана от пула.
+
+  Подробнее о команде `yc compute instance update` читайте в [справочнике {{ yandex-cloud }} CLI](../../../cli/cli-ref/compute/cli-ref/instance/update.md).
 
 - API {#api}
 

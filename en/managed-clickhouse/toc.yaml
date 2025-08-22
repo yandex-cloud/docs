@@ -93,8 +93,6 @@ items:
         href: tutorials/ch-to-mch-migration.md
       - name: Sharding tables
         href: tutorials/sharding.md
-      - name: Data resharding in a cluster
-        href: tutorials/mch-mch-resharding.md
       - name: Using a hybrid storage
         href: tutorials/hybrid-storage.md
       - name: Fetching data from {{ mkf-name }}

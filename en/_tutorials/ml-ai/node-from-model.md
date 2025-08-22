@@ -1,10 +1,10 @@
-# Deploying a service from an ONNX model
+# Deploying a service based on an ONNX model
 
 {{ ml-platform-name }} allows you to deploy and run services based on a [model](../../datasphere/concepts/models/index.md) trained in the project.
 
-In this tutorial, you will deploy a service from an ONNX model. The `fast-neural-style-mosaic-onnx` model transforms an image as per the specified style. The model is taken from the [ONNX model repository](https://github.com/onnx/models/).
+In this tutorial, you will deploy a service based on an ONNX model. The `fast-neural-style-mosaic-onnx` model transforms an image as per the specified style. The model is taken from the [ONNX model repository](https://github.com/onnx/models/).
 
-1. [Prepare your infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Create a model](#create-model).
 1. [Create a node](#create-node).
 1. [Run a health check for the service you deployed](#check-node).
@@ -17,12 +17,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-The cost of deploying a service from a model includes:
+The cost of deploying a service based on a model includes:
 
 * Fee for continuously running node instances (see [{{ ml-platform-name }} pricing](../../datasphere/pricing.md)).
 * Fee for running code cells for health checks of the deployed service.
 
-## Prepare the infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
@@ -54,13 +54,13 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 
 - Management console {#console}
 
-   1. Go to `data-folder`.
+   1. Navigate to `data-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the service account, e.g., `datasphere-sa`.
+   1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `datasphere-sa`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
-      * `vpc.user`: To use the {{ ml-platform-name }} network.
-      * `datasphere.user`: To send requests to the node.
+      * `vpc.user` to use the {{ ml-platform-name }} network.
+      * `datasphere.user` to send requests to the node.
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -94,8 +94,8 @@ The `fast-neural-style-mosaic-onnx` model is one of the style transfer models de
    ```
 
 1. In the right-hand panel, select ![models](../../_assets/console-icons/nodes-right.svg). In the window that opens, click **Create model**.
-1. Select the name of the variable to create your model from.
-1. Enter a name for the model, e.g., `onnx-model`.
+1. Select the name of the variable to build your model from.
+1. Name the model, e.g., `onnx-model`.
 1. Click **Create**.
 
 ## Create a node {#create-node}
@@ -106,8 +106,8 @@ The `fast-neural-style-mosaic-onnx` model is one of the style transfer models de
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}**, specify the resource type: **{{ ui-key.yc-ui-datasphere.common.model }}**.
 1. In the **{{ ui-key.yc-ui-datasphere.common.models }}** field, select `onnx-model`.
 1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}**, select `data-folder`.
-1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the [configuration](../../datasphere/concepts/configurations.md) of [instance](../../datasphere/concepts/deploy/index.md) computing resources, the [availability zone](../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../vpc/concepts/network.md#subnet) to host the instance in.
-1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, click ![Add](../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** and specify the [IDs of the folders](../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. By default, the ID of the folder owned by the user creating the node is specified.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**, select the [configuration](../../datasphere/concepts/configurations.md) of [instance](../../datasphere/concepts/deploy/index.md) computing resources, [availability zone](../../overview/concepts/geo-scope.md), and the ID of the [subnet](../../vpc/concepts/network.md#subnet) to host the instance.
+1. Under **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}**, click ![Add](../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** and specify the [IDs of the folders](../../resource-manager/operations/folder/get-id.md) to allow connections to the node from. The folder ID of the user creating the node is specified by default.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 ## Run a health check for the service you deployed {#check-node}
@@ -161,7 +161,7 @@ The `fast-neural-style-mosaic-onnx` model is one of the style transfer models de
    plt.show()
    ```
 
-1. Authenticate using the secrets created earlier:
+1. Get authenticated using the secrets created earlier:
 
    ```python
    IAM_SECRET = os.environ['IAM_SECRET']
@@ -196,7 +196,7 @@ The `fast-neural-style-mosaic-onnx` model is one of the style transfer models de
    results = triton_client.infer(model, inputs=[payload], headers=headers)
    ```
 
-1. Receive the result of image transformation:
+1. Get the result of image transformation:
 
    ```python
    output = results.as_numpy("output1")[0]

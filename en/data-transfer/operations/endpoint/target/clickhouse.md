@@ -19,7 +19,6 @@ description: In this tutorial, you will learn how to set up a {{ CH }} target en
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     * [Migrating a {{ CH }} cluster](../../../tutorials/managed-clickhouse.md).
-    * [Redistributing data across shards](../../../tutorials/mch-mch-resharding.md).
     * [{#T}](../../../tutorials/opensearch-to-clickhouse.md)
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}

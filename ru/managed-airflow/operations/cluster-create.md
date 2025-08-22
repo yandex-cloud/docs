@@ -117,7 +117,13 @@ keywords:
 
       Сервисному аккаунту кластера должно быть [предоставлено разрешение](../../storage/operations/buckets/edit-acl.md) `READ` для этого бакета.
 
-  1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите защиту от удаления кластера.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+      
+      * Выберите время [технического обслуживания](../concepts/maintenance.md) кластера:
+
+        {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+
+      * Включите защиту кластера от удаления.
 
   1. (Опционально) В блоке **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**:
   
@@ -176,7 +182,10 @@ keywords:
            --deb-packages <список_deb-пакетов> \
            --pip-packages <список_pip-пакетов> \
            --dags-bucket <имя_бакета> \
-           --deletion-protection \
+           --maintenance-window type=<тип_технического_обслуживания>,`
+                                `day=<день_недели>,`
+                                `hour=<час_дня> \
+           --deletion-protection \                   
            --lockbox-secrets-backend \
            --airflow-config <список_свойств> \
            --log-enabled \
@@ -278,7 +287,7 @@ keywords:
               "debPackages": [ <список_deb-пакетов> ]
             },
             "lockbox": {
-              "enabled": <использование_логирования>
+              "enabled": <использование_секретов>
             }
           },
           "network": {
@@ -288,6 +297,12 @@ keywords:
           "codeSync": {
             "s3": {
               "bucket": "<имя_бакета>"
+            }
+          },
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<день_недели>",
+              "hour": "<час>"
             }
           },
           "deletionProtection": <защита_от_удаления>,
@@ -365,6 +380,9 @@ keywords:
             * `securityGroupIds` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
 
         * `codeSync.s3.bucket` — имя бакета, в котором будут храниться DAG-файлы.
+
+        * {% include [maintenance](../../_includes/mdb/maf/maintenance-window-rest.md) %}
+
         * `deletionProtection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
 
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
@@ -393,13 +411,13 @@ keywords:
 
             {% endnote %}
 
-    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters'
+            --url 'https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters' \
             --data '@body.json'
         ```
 
@@ -456,7 +474,7 @@ keywords:
               "deb_packages": [ <список_deb-пакетов> ]
             },
             "lockbox": {
-              "enabled": <использование_логирования>
+              "enabled": <использование_секретов>
             }
           },
           "network": {
@@ -466,6 +484,12 @@ keywords:
           "code_sync": {
             "s3": {
               "bucket": "<имя_бакета>"
+            }
+          },
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<день_недели>",
+              "hour": "<час>"
             }
           },
           "deletion_protection": <защита_от_удаления>,
@@ -543,6 +567,9 @@ keywords:
             * `security_group_ids` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
 
         * `code_sync.s3.bucket` — имя бакета, в котором будут храниться DAG-файлы.
+
+        * {% include [maintenance](../../_includes/mdb/maf/maintenance-window-grpc.md) %}
+
         * `deletion_protection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
 
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
@@ -571,7 +598,7 @@ keywords:
 
             {% endnote %}
 
-    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \

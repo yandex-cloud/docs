@@ -223,7 +223,7 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](dedicated-host/running-host-vms.md)
 * [{#T}](dedicated-host/access.md)
 
-## Пулы зарезервированных ВМ {#reserved-pools}
+## Пулы резервов ВМ {#reserved-pools}
 
 * [{#T}](reserved-pools/create-reserved-pool.md)
 * [{#T}](reserved-pools/update-reserved-pool.md)

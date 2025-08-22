@@ -381,13 +381,13 @@ items:
             href: operations/dedicated-host/running-host-vms.md
           - name: Настроить права доступа к группе выделенных хостов
             href: operations/dedicated-host/access.md
-      - name: Пулы зарезервированных ВМ
+      - name: Пулы резервов ВМ
         items:
-          - name: Создать пул зарезервированных ВМ
+          - name: Создать пул резервов ВМ
             href: operations/reserved-pools/create-reserved-pool.md
-          - name: Изменить пул зарезервированных ВМ
+          - name: Изменить пул резервов ВМ
             href: operations/reserved-pools/update-reserved-pool.md
-          - name: Удалить пул зарезервированных ВМ
+          - name: Удалить пул резервов ВМ
             href: operations/reserved-pools/delete-reserved-pool.md
           - name: Управлять виртуальными машинами пула
             href: operations/reserved-pools/manage-pool-vms.md
@@ -738,7 +738,7 @@ items:
             href: concepts/instance-groups/statuses.md
       - name: Выделенный хост
         href: concepts/dedicated-host.md
-      - name: Пулы зарезервированных ВМ
+      - name: Пулы резервов ВМ
         href: concepts/reserved-pools.md
       - name: Шифрование
         href: concepts/encryption.md

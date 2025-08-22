@@ -15,12 +15,12 @@ description: На странице представлены релизы CLI, а
 Добавлен вывод `priority` и `hidden` в `yc managed-mongodb hosts list`.
 
 ##### {{ compute-name }}
-Добавлены команды для управления пулами зарезервированных VM:
+Добавлены команды для управления пулами резервов VM:
 * `compute reserved-instance-pool list-instances`;
 * `compute reserved-instance-pool list-operations`.
 
 ##### {{ compute-name }}
-Расширены команды для управления пулами зарезервированных VM:
+Расширены команды для управления пулами резервов VM:
 * `compute reserved-instance-pool create`;
 * `compute reserved-instance-pool update`.
 
@@ -478,7 +478,7 @@ description: На странице представлены релизы CLI, а
 
 ##### {{ compute-name }} {#compute}
 
-Добавлены команды для привязки инстансов к пулам зарезервированных ВМ.
+Добавлены команды для привязки инстансов к пулам резервов ВМ.
 
 ##### {{ objstorage-name }} {#storage}
 
@@ -493,7 +493,7 @@ description: На странице представлены релизы CLI, а
 
 ##### {{ compute-name }} {#compute}
 
-* Добавлены команды для управления пулами зарезервированных ВМ:
+* Добавлены команды для управления пулами резервов ВМ:
   * `yc compute reserved-instance-pool get`;
   * `yc compute reserved-instance-pool list`;
   * `yc compute reserved-instance-pool create`;

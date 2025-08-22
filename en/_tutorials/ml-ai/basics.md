@@ -1,4 +1,4 @@
-# Setting up a project to work with a cloud {{ yandex-cloud }}
+# Setting up a project to work with a cloud in {{ yandex-cloud }}
 
 {{ ml-platform-full-name }} provides everything you need for data analysis and ML model training. However, if you want to use all {{ yandex-cloud }} features, you will need to set up a {{ ml-platform-name }} project to work with the cloud in {{ yandex-cloud }} and enable integration with other platform services.
 
@@ -6,7 +6,7 @@ This guide describes how to arrange a workspace in {{ ml-platform-name }} to eff
 
 1. [Create a project](#create-project).
 1. [Create a cloud and a folder](#create-cloud).
-1. [Configure a network](#set-network).
+1. [Configure your network](#set-network).
 1. [Create a service account](#create-sa).
 1. [Service integration examples](#examples).
 
@@ -22,31 +22,31 @@ For detailed information on how to create and set up resources, see the _Step-by
 
 {% note info %}
 
-{{ ml-platform-name }} is not designed for pair programming. In [{{ dd }}](../../datasphere/concepts/project.md#dd) mode, multiple users can collaborate within a single project if each user is working in a separate notebook.
+{{ ml-platform-name }} is not designed for pair programming. In [{{ dd }} mode](../../datasphere/concepts/project.md#dd), multiple users can collaborate within a single project if each user is working in a separate notebook.
 
 {% endnote %}
 
 Create a {{ ml-platform-name }} project as described in [this guide](../../datasphere/operations/projects/create.md).
 
-Next, you can specify parameters for integration with other {{ yandex-cloud }} services on the [project editing page](../../datasphere/operations/projects/update.md) .
+Next, you can specify parameters for integration with other {{ yandex-cloud }} services on the [project edit page](../../datasphere/operations/projects/update.md).
 
-## Create a cloud and folder {#create-cloud}
+## Create a cloud and a folder {#create-cloud}
 
-Most {{ yandex-cloud }} services run inside [cloud folders](../../resource-manager/concepts/resources-hierarchy.md#rm-resources). To access cloud resources, use [{{ console-full-name }}]({{ link-console-cloud }}), the {{ yandex-cloud }}'s management console.
+Most {{ yandex-cloud }} services run inside [cloud folders](../../resource-manager/concepts/resources-hierarchy.md#rm-resources). To access cloud resources, use [{{ console-full-name }}]({{ link-console-cloud }}), the {{ yandex-cloud }} management console.
 
 Log in to the management console and [create your first cloud](../../resource-manager/operations/cloud/create.md) and [folder](../../resource-manager/operations/folder/create.md) to host services you want to use from {{ ml-platform-name }}.
 
-You can learn more on how users work with resources in {{ yandex-cloud }} [here](../../overview/roles-and-resources.md).
+[Learn more about user interaction with resources in {{ yandex-cloud }}](../../overview/roles-and-resources.md).
 
 {% note tip %}
 
-You can use multiple folders to flexibly set up access rights and distinguish between runtime environments and tasks.
+You can use multiple folders to set up granular access and distinguish between runtime environments and tasks.
 
 {% endnote %}
 
-## Configure a network {#set-network}
+## Configure your network {#set-network}
 
-To enable {{ yandex-cloud }} service resources to exchange information, [create a cloud network and subnet](../../vpc/operations/network-create.md). By default, a network is isolated within {{ yandex-cloud }} and has no access to the internet. To make sure the cloud resources have access to the internet without using [public IP addresses](../../vpc/concepts/address.md#public-addresses), [create and set up a NAT gateway](../../vpc/operations/create-nat-gateway.md).
+To enable {{ yandex-cloud }} service resources to exchange information, [create a cloud network and subnet](../../vpc/operations/network-create.md). By default, a network is isolated within {{ yandex-cloud }} and has no access to the internet. To enable your cloud resources to access the internet without using [public IP addresses](../../vpc/concepts/address.md#public-addresses), [create and set up a NAT gateway](../../vpc/operations/create-nat-gateway.md).
 
 {% note info %}
 
@@ -56,19 +56,19 @@ By default, {{ ml-platform-name }} projects use a service subnet with access to 
 
 ## Create a service account {#create-sa}
 
-{{ yandex-cloud }} has a special type of account to automate operations: a [service account](../../iam/concepts/users/service-accounts.md). Using a service account, software can manage service resources. To enable a service account to perform operations on resources, it must be assigned the appropriate [roles](../../iam/concepts/access-control/roles). To learn more about the current service roles, see the _Access management_ section of the service documentation.
+{{ yandex-cloud }} has a special type of account to automate operations: a [service account](../../iam/concepts/users/service-accounts.md). Via a service account, software can manage service resources. A service account can perform operations on resources only if it has appropriate [roles](../../iam/concepts/access-control/roles.md). Learn more about the current service roles in the _Access management_ section of the documentation.
 
-{{ ml-platform-name }} supports two ways to enable a service account to perform operations:
+In {{ ml-platform-name }}, you can enable a service account to perform operations using these two methods:
 1. If a service account needs to perform operations on _resources of other services_ on behalf of {{ ml-platform-name }}, add it to project settings.
 1. If a service account needs to perform operations on a _project or community in {{ ml-platform-name }}_ (run cells, create resources, etc.), add it to the list of [project members](../../datasphere/operations/projects/add-user.md) or [community members](../../datasphere/operations/community/add-user.md) with the respective role.
 
 ## Service integration examples {#examples}
 
-In this section, you will find examples of how to set up a project to perform a variety of tasks in {{ ml-platform-name }} and how to set up integration with {{ yandex-cloud }} services.
+Check our examples of setting up a project for a variety of tasks in {{ ml-platform-name }} and setting up integration with {{ yandex-cloud }} services.
 
 ### Computing on Apache Spark™ clusters {#data-proc}
 
-{{ ml-platform-name }} allows you to run computing on Apache Spark™ clusters created in {{ dataproc-name }}.
+{{ ml-platform-name }} allows you to run computations on Apache Spark™ clusters created in {{ dataproc-name }}.
 
 {% include [preferences](../../_includes/datasphere/settings-for-data-processing.md) %}
 

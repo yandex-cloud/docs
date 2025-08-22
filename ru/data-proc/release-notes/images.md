@@ -10,10 +10,7 @@
 
 ### 2.2.8 (бета) {#2-2-8}
 
-* Добавлена возможность устанавливать переменные окружения:
-
-    * `HADOOP_HEAPSIZE_MIN` и `HADOOP_HEAPSIZE_MAX` для сервиса `hadoop`.
-    * `HADOOP_HEAPSIZE` для сервиса `hive`.
+{% include [envvars-hadoop-heapsize](../../_includes/data-processing/envvars-hadoop-heapsize.md) %}
 
 * Поддержан {{ oslogin }} для хостов кластера. Опция включает доступ через [{{ oslogin }}](../../organization/concepts/os-login.md) ко всем создаваемым хостам кластера.
 
@@ -47,10 +44,7 @@
 
 ### 2.1.21 {#2-1-21}
 
-* Добавлена возможность устанавливать переменные окружения:
-
-    * `HADOOP_HEAPSIZE_MIN` и `HADOOP_HEAPSIZE_MAX` для сервиса `hadoop`.
-    * `HADOOP_HEAPSIZE` для сервиса `hive`.
+{% include [envvars-hadoop-heapsize](../../_includes/data-processing/envvars-hadoop-heapsize.md) %}
 
 ### 2.1.20 {#2-1-20}
 
@@ -108,10 +102,7 @@
 
 ### 2.0.80 {#2-0-80}
 
-* Добавлена возможность устанавливать переменные окружения:
-
-    * `HADOOP_HEAPSIZE_MIN` и `HADOOP_HEAPSIZE_MAX` для сервиса `hadoop`.
-    * `HADOOP_HEAPSIZE` для сервиса `hive`.
+{% include [envvars-hadoop-heapsize](../../_includes/data-processing/envvars-hadoop-heapsize.md) %}
 
 ### 2.0.79 {#2-0-79}
 

@@ -1,3 +1,5 @@
+
+
 1. Откройте [**Подключения**]({{ websql-link }}) {{ websql-full-name }}.
 1. В разделе ![image](../../_assets/console-icons/folder-tree.svg) **Подключения** нажмите ![image](../../_assets/console-icons/square-plus.svg).
 1. В левом нижнем углу открывшегося окна нажмите **Внешнее подключение**.
