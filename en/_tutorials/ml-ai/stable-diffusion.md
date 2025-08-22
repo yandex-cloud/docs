@@ -4,11 +4,11 @@ In {{ ml-platform-name }}, you can deploy a neural network based on the Stable D
 
 [Stable Diffusion](https://github.com/CompVis/stable-diffusion) is an open-source text-to-image model developed by [stability.ai](https://stability.ai/).
 
-In this tutorial, you will generate an image based on text description by implementing the Stable Diffusion model in the [Diffusers](https://huggingface.co/docs/diffusers/index) library. This library prioritizes ease of use and customization over performance.
+In this tutorial, you will generate an image based on a text description by implementing the Stable Diffusion model in the [Diffusers](https://huggingface.co/docs/diffusers/index) library. This library prioritizes ease of use and customization over performance.
 
 To generate an image using the Stable Diffusion model:
 
-1. [Prepare your infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Create a model and generate an image](#generate).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -23,13 +23,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of using the model includes a fee for running code cells (see [{{ ml-platform-name }} pricing](../../datasphere/pricing.md)).
 
-## Prepare the infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
 ### Create a project {#create-project}
 
 1. Open the {{ ml-platform-name }} [home page]({{ link-datasphere-main }}).
 1. In the left-hand panel, select ![image](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
-1. Select the community to create a project in.
+1. Select the community where you want to create a project.
 1. On the community page, click ![image](../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-datasphere.projects.create-project }}**.
 1. In the window that opens, enter `Stable Diffusion` as your project name and add a description (optional).
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.

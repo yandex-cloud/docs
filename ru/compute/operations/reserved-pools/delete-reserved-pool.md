@@ -1,15 +1,15 @@
 ---
-title: Удалить пул зарезервированных ВМ
-description: Из статьи вы узнаете, как удалить пул зарезервированных ВМ {{ compute-full-name }}.
+title: Удалить пул резервов ВМ
+description: Из статьи вы узнаете, как удалить пул резервов ВМ {{ compute-full-name }}.
 ---
 
-# Удаление пула зарезервированных виртуальных машин
+# Удаление пула резервов виртуальных машин
 
 {% include [reserved-pools-pricing-warning](../../../_includes/compute/reserved-pools-pricing-warning.md) %}
 
 {% include [reserved-pools-preview-notice](../../../_includes/compute/reserved-pools-preview-notice.md) %}
 
-Чтобы удалить [пул зарезервированных ВМ](../../concepts/reserved-pools.md):
+Чтобы удалить [пул резервов ВМ](../../concepts/reserved-pools.md):
 
 {% list tabs group=instructions %}
 
@@ -19,13 +19,13 @@ description: Из статьи вы узнаете, как удалить пул
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды [{{ yandex-cloud }} CLI](../../../cli/index.yaml) для удаления пула зарезервированных ВМ:
+  1. Посмотрите описание команды [{{ yandex-cloud }} CLI](../../../cli/index.yaml) для удаления пула резервов ВМ:
 
       ```bash
       yc compute reserved-instance-pool delete --help
       ```
   1. {% include [list-reserved-pools-cli](../../../_includes/compute/list-reserved-pools-cli.md) %}
-  1. Удалите пул зарезервированных ВМ в каталоге по умолчанию, указав имя или идентификатор нужного пула:
+  1. Удалите пул резервов ВМ в каталоге по умолчанию, указав имя или идентификатор нужного пула:
 
       ```bash
       yc compute reserved-instance-pool delete <имя_или_идентификатор_пула>
@@ -48,7 +48,7 @@ description: Из статьи вы узнаете, как удалить пул
 
 {% note info %}
 
-При удалении пула зарезервированных ВМ все привязанные к пулу виртуальные машины будут от него отвязаны, а запущенные ВМ продолжат работать.
+При удалении пула резервов ВМ все привязанные к пулу виртуальные машины будут от него отвязаны, а запущенные ВМ продолжат работать.
 
 {% endnote %}
 

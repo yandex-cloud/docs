@@ -131,6 +131,173 @@ items:
             href: concepts/assistant/rephraser.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Совместимость с {{ openai }}
+    href: concepts/openai-compatibility.md
+  - name: '{{ ml-sdk-full-name }}'
+    items:
+      - name: О {{ ml-sdk-full-name }}
+        href: sdk/index.md
+      - name: Справочник SDK (англ.)
+        items:
+          - name: Overview
+            href: sdk-ref/index
+          - name: SDK
+            items:
+              - name: Overview
+                href: sdk-ref/sync/sdk
+              - name: Models domain
+                href: sdk-ref/sync/models/domain
+              - name: Assistants domain
+                href: sdk-ref/sync/assistants
+              - name: Tools domain
+                href: sdk-ref/sync/tools
+              - name: Files domain
+                href: sdk-ref/sync/files
+              - name: Threads domain
+                href: sdk-ref/sync/threads
+              - name: Runs domain
+                href: sdk-ref/sync/runs
+              - name: Search indexes domain
+                href: sdk-ref/sync/search_indexes
+              - name: Search API domain
+                href: sdk-ref/sync/search_api
+              - name: Datasets domain
+                href: sdk-ref/sync/datasets
+              - name: Tuning domain
+                href: sdk-ref/sync/tuning
+              - name: Batch domain
+                href: sdk-ref/sync/batch
+              - name: Chat domain
+                href: sdk-ref/sync/chat/domain
+          - name: Async SDK
+            items:
+              - name: Overview
+                href: sdk-ref/async/sdk
+              - name: Models domain
+                href: sdk-ref/async/models/domain
+              - name: Assistants domain
+                href: sdk-ref/async/assistants
+              - name: Tools domain
+                href: sdk-ref/async/tools
+              - name: Files domain
+                href: sdk-ref/async/files
+              - name: Threads domain
+                href: sdk-ref/async/threads
+              - name: Runs domain
+                href: sdk-ref/async/runs
+              - name: Search indexes domain
+                href: sdk-ref/async/search_indexes
+              - name: Search API domain
+                href: sdk-ref/async/search_api
+              - name: Datasets domain
+                href: sdk-ref/async/datasets
+              - name: Tuning domain
+                href: sdk-ref/async/tuning
+              - name: Batch domain
+                href: sdk-ref/async/batch
+              - name: Chat domain
+                href: sdk-ref/async/chat/domain
+          - name: Authentication
+            href: sdk-ref/auth
+          - name: Types
+            items:
+              - name: Overview
+                href: sdk-ref/types/index
+              - name: Assistant types
+                href: sdk-ref/types/assistants
+              - name: Tools
+                href: sdk-ref/types/tools
+              - name: Operation
+                href: sdk-ref/types/operation
+              - name: Tuning
+                href: sdk-ref/types/tuning
+              - name: Result types for models
+                href: sdk-ref/types/model_results
+              - name: Datasets
+                href: sdk-ref/types/datasets
+              - name: Search API
+                href: sdk-ref/types/search_api
+              - name: Messages
+                href: sdk-ref/types/message
+              - name: Run types
+                href: sdk-ref/types/runs
+              - name: Search index types
+                href: sdk-ref/types/search_indexes
+              - name: Other types
+                href: sdk-ref/types/other
+              - name: Batch
+                href: sdk-ref/types/batch
+          - name: Request retries
+            href: sdk-ref/retry
+          - name: Base classes
+            href: sdk-ref/internals/bases
+            hidden: true
+          - name: Other types
+            href: sdk-ref/types/other
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/text_embeddings
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/text_classifiers
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/image_generation
+            hidden: true
+          - name: Assistant types
+            href: sdk-ref/types/assistants
+            hidden: true
+          - name: Tools
+            href: sdk-ref/types/tools
+            hidden: true
+          - name: Messages
+            href: sdk-ref/types/message
+            hidden: true
+          - name: Run types
+            href: sdk-ref/types/runs
+            hidden: true
+          - name: Search index types
+            href: sdk-ref/types/search_indexes
+            hidden: true
+          - name: Operation
+            href: sdk-ref/types/operation
+            hidden: true
+          - name: Search API
+            href: sdk-ref/types/search_api
+            hidden: true
+          - name: Datasets
+            href: sdk-ref/types/datasets
+            hidden: true
+          - name: Tuning
+            href: sdk-ref/types/tuning
+            hidden: true
+          - name: Batch
+            href: sdk-ref/types/batch
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/chat/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/text_embeddings
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/text_classifiers
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/image_generation
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/chat/completions
+            hidden: true
+          - name: Result types for models
+            href: sdk-ref/types/model_results
+            hidden: true
   - name: Справочники API
     items:
       - name: Обзор
@@ -727,10 +894,6 @@ items:
                     href: tuning/api-ref/grpc/Tuning/archive.md
                   - name: EnableBilling
                     href: tuning/api-ref/grpc/Tuning/enableBilling.md
-  - name: '{{ ml-sdk-full-name }}'
-    href: sdk/index.md
-  - name: Совместимость с {{ openai }}
-    href: concepts/openai-compatibility.md
   - name: Как создавать промты
     items:
       - name: Обзор

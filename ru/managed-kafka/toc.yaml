@@ -117,6 +117,8 @@ items:
             href: tutorials/use-ksqldb-with-mkf.md
       - name: Работа с топиками {{ KF }} с помощью {{ dataproc-name }}
         href: tutorials/data-processing.md
+      - name: Отслеживание утери сообщений в топике {{ KF }}
+        href: tutorials/retention-policy.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса

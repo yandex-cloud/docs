@@ -13,6 +13,8 @@ items:
         href: quickstart-browser.md
       - name: Начало работы с SMS
         href: quickstart-sms.md
+      - name: Начало работы с топиками
+        href: quickstart-topics.md
   - name: Пошаговые операции
     items:
       - name: Все инструкции
@@ -59,6 +61,18 @@ items:
             href: operations/sms/send.md
           - name: Выйти из песочницы
             href: operations/sms/exit-sandbox.md
+      - name: Топики
+        items:
+          - name: Создать топик
+            href: operations/topics/topic-create.md
+          - name: Создать подписку на топик
+            href: operations/topics/subscription-create.md
+          - name: Отправить уведомление в топик
+            href: operations/topics/send.md
+          - name: Управлять топиком
+            href: operations/topics/topic-manage.md
+          - name: Управлять подпиской
+            href: operations/topics/subscription-manage.md
       - name: Настроить логирование
         href: operations/configure-logging.md
   - name: Концепции
@@ -72,6 +86,8 @@ items:
         href: concepts/browser.md
       - name: SMS
         href: concepts/sms.md
+      - name: Топики
+        href: concepts/topics.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Инструменты

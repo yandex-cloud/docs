@@ -1,15 +1,15 @@
 ---
-title: Создать пул зарезервированных ВМ
-description: Из статьи вы узнаете, как создать пул зарезервированных ВМ {{ compute-full-name }} нужной конфигурации в нужной зоне доступности.
+title: Создать пул резервов ВМ
+description: Из статьи вы узнаете, как создать пул резервов ВМ {{ compute-full-name }} нужной конфигурации в нужной зоне доступности.
 ---
 
-# Создание пула зарезервированных виртуальных машин
+# Создание пула резервов виртуальных машин
 
 {% include [reserved-pools-pricing-warning](../../../_includes/compute/reserved-pools-pricing-warning.md) %}
 
 {% include [reserved-pools-preview-notice](../../../_includes/compute/reserved-pools-preview-notice.md) %}
 
-Чтобы создать [пул зарезервированных ВМ](../../concepts/reserved-pools.md):
+Чтобы создать [пул резервов ВМ](../../concepts/reserved-pools.md):
 
 {% list tabs group=instructions %}
 
@@ -19,12 +19,12 @@ description: Из статьи вы узнаете, как создать пул
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды [{{ yandex-cloud }} CLI](../../../cli/index.yaml) для создания пула зарезервированных ВМ:
+  1. Посмотрите описание команды [{{ yandex-cloud }} CLI](../../../cli/index.yaml) для создания пула резервов ВМ:
 
       ```bash
       yc compute reserved-instance-pool create --help
       ```
-  1. Создайте пул зарезервированных ВМ в каталоге по умолчанию:
+  1. Создайте пул резервов ВМ в каталоге по умолчанию:
 
       ```bash
       yc compute reserved-instance-pool create \
@@ -36,7 +36,8 @@ description: Из статьи вы узнаете, как создать пул
         --cores <количество_vCPU> \
         --memory <объем_RAM> \
         --gpus <количество_GPU> \
-        --gpu-cluster-id <идентификатор_кластера_GPU>
+        --gpu-cluster-id <идентификатор_кластера_GPU> \
+        --allow-oversubscription
       ```
 
       Где:
@@ -52,17 +53,19 @@ description: Из статьи вы узнаете, как создать пул
       * `--memory` — объем RAM виртуальных машин создаваемого пула. Необязательный параметр. Значение по умолчанию — `2 ГБ`.
       * `--gpus` — количество [GPU](../../concepts/gpus.md) виртуальных машин создаваемого пула. Необязательный параметр. Параметр доступен только при выборе платформы, [поддерживающей](../../concepts/gpus.md#config) GPU.
       * `--gpu-cluster-id` — идентификатор [кластера](../../concepts/gpus.md#gpu-clusters) GPU. Необязательный параметр.
+      * `--allow-oversubscription` — параметр, включающий для пула [режим переподписки](../../concepts/reserved-pools.md#oversubscription), при котором к пулу можно привязывать ВМ в количестве, превышающем размер пула. Необязательный параметр. По умолчанию режим переподписки выключен.
 
       Результат:
 
       ```text
-      done (4s)
-      id: fv42fbsrso94********
+      done (8s)
+      id: fv4vnl1ncbja********
       zone_id: {{ region-id }}-a
       cloud_id: b1gia87mbaom********
       folder_id: b1gt6g8ht345********
       name: test-pool
-      created_at: "2025-05-06T15:24:51Z"
+      description: sample description
+      created_at: "2025-08-12T07:58:57Z"
       platform_id: standard-v2
       resources_spec:
         memory: "2147483648"
@@ -71,7 +74,12 @@ description: Из статьи вы узнаете, как создать пул
       gpu_settings: {}
       network_settings:
         type: STANDARD
-      size: "1"
+      size: "2"
+      committed_size: "2"
+      slot_stats:
+        total: "2"
+        unavailable: "2"
+      instance_stats: {}
       ```
 
       Подробнее о команде `yc compute reserved-instance-pool create` читайте в [справочнике {{ yandex-cloud }} CLI](../../../cli/cli-ref/compute/cli-ref/reserved-instance-pool/create.md).

@@ -42,6 +42,12 @@ resource "yandex_airflow_cluster" "<имя_кластера>" {
     }
   }
 
+  maintenance_window = {
+    type = "<тип_технического_обслуживания>"
+    day  = "<день_недели>"
+    hour = <час_дня>
+  }
+
   deletion_protection = <защита_от_удаления>
 
   lockbox_secrets_backend = {

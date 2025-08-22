@@ -1,16 +1,16 @@
 You can set up regular run scenarios in [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) using the API by triggering notebook cell execution in [{{ sf-full-name }}](../../functions/index.yaml).
 
-In this tutorial, you will collect information about the most discussed stocks on [Reddit](https://tradestie.com/api/v1/apps/reddit), analyze the sentiment of the discussion, and set up regular data updates.
+In this tutorial, you will get information about the most discussed stocks on [Reddit](https://tradestie.com/api/v1/apps/reddit), analyze the sentiment of the discussion, and set up regular data updates.
 
-Information is collected and analyzed in {{ ml-platform-name }}. Regular cell execution is triggered by a timer created in {{ sf-name }}.
+{{ ml-platform-name }} collects and analyzes information, while a timer created in {{ sf-name }} triggers regular cell execution.
 
-To set up regular runs of {{ jlab }} Notebook:
+To set up regular runs of {{ jlab }} notebook:
 
-1. [Prepare your infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Create a notebook](#create-notebook).
 1. [Upload and process data](#load-data).
-1. [Create a {{ sf-name }}](#create-function).
-1. [Create a timer](#create-timer)
+1. [Create a function in {{ sf-name }}](#create-function).
+1. [Create a timer](#create-timer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -22,10 +22,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of implementing regular runs includes:
 
-* Fee for [{{ ml-platform-name }} computing resource](../../datasphere/pricing.md) usage.
+* Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
 * Fee for the number of [{{ sf-name }}](../../functions/pricing.md) function calls.
 
-## Prepare the infrastructure {#infra}
+## Set up your infrastructure {#infra}
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
@@ -45,22 +45,22 @@ The cost of implementing regular runs includes:
 
 ### Create a service account for the {{ ml-platform-name }} project {#create-sa}
 
-To access a {{ ml-platform-name }} project from a {{ sf-name }} function, you need a service account with the `{{ roles-datasphere-project-editor }}` and `{{ roles-functions-invoker }}` roles.
+To access a {{ ml-platform-name }} project from a function in {{ sf-name }}, you need a service account with the `{{ roles-datasphere-project-editor }}` and `{{ roles-functions-invoker }}` roles.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. Go to `data-folder`.
+   1. Navigate to `data-folder`.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter a name for the service account, e.g., `reddit-user`.
+   1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `reddit-user`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-datasphere-project-editor }}` and `{{ roles-functions-invoker }}` roles to the service account.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
-### Add the service account to a project {#sa-to-project}
+### Add the service account to the project {#sa-to-project}
 
 To enable the service account to run a {{ ml-platform-name }} project, add it to the list of project members.
 
@@ -74,12 +74,12 @@ To enable the service account to run a {{ ml-platform-name }} project, add it to
 
 {% endlist %}
 
-### Configure the project {#setup-project}
+### Set up the project {#setup-project}
 
 To reduce {{ ml-platform-name }} usage costs, configure the time to release the VM attached to the project.
 
 1. {% include [include](../../_includes/datasphere/ui-find-project.md) %}
-1. Go to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
+1. Navigate to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
 1. Under **{{ ui-key.yc-ui-datasphere.common.general }}**, click ![pencil](../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. To configure **{{ ui-key.yc-ui-datasphere.edit-project-page.dedicated-vm-inactivity-timeout }}**, select `{{ ui-key.yc-ui-datasphere.common.custom }}` and specify 5 minutes.
 1. Click **{{ ui-key.yc-ui-datasphere.common.save }}**.
@@ -94,7 +94,7 @@ To reduce {{ ml-platform-name }} usage costs, configure the time to release the 
 
 ## Upload and process data {#load-data}
 
-To upload information on the most discussed stocks on Reddit and the sentiment of the discussion, paste the code to the `test_classifier.ipynb` notebook cells. You will use it to select the top three most discussed stocks and save them to a CSV file in project storage.
+To upload information on the most discussed stocks on Reddit and the sentiment of the discussion, paste the code to the `test_classifier.ipynb` notebook cells. You will use it to select the top three most discussed stocks and save them to a CSV file in the project storage.
 
 1. {% include [include](../../_includes/datasphere/ui-before-begin.md) %}
 
@@ -125,7 +125,7 @@ To upload information on the most discussed stocks on Reddit and the sentiment o
         return stocks
     ```
 
-1. Set a condition that defines a file to write stock information to:
+1. Set the condition that defines a file to write stock information to:
 
     ```python
     if os.path.isfile(FILE_NAME):
@@ -150,7 +150,7 @@ To upload information on the most discussed stocks on Reddit and the sentiment o
     stocks['sentiment_score_y'] = stocks['sentiment_score_y'].fillna(stocks['sentiment_score_y'])
     ```
 
-1. Update the arithmetic average count and sentiment scores:
+1. Update the arithmetic average count of comments and sentiment scores:
 
     ```python
     stocks['count'] += 1
@@ -167,9 +167,9 @@ To upload information on the most discussed stocks on Reddit and the sentiment o
     stocks.to_csv(FILE_NAME, index=False)
     ```
 
-## Create a {{ sf-name }} {#create-function}
+## Create a function in {{ sf-name }} {#create-function}
 
-To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} that will trigger computations in a notebook via the API.
+To run computations without opening {{ jlab }}Lab, you will need a function in {{ sf-name }} that will trigger computations in a notebook via the API.
 
 {% list tabs group=instructions %}
 
@@ -178,7 +178,7 @@ To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} th
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-    1. Enter a name for the function, e.g., `my-function`.
+    1. Name the function, e.g., `my-function`.
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-function }}**.
 
 {% endlist %}
@@ -193,9 +193,9 @@ To start computations without opening {{ jlab }}Lab, you need a {{ sf-name }} th
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select the function to create a version of.
+    1. Select the function whose version you want to create.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-    1. Select the `Python` runtime environment. Do not select the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option.
+    1. Select the `Python` runtime environment. Do not select **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
     1. Choose the **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}** method.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** and specify a file name, e.g., `index`.
     1. Enter the function code by inserting your project ID and the absolute path to the project notebook:
@@ -249,12 +249,12 @@ To run a function every 15 minutes, you will need a [timer](../../functions/conc
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**, set the function invocation schedule to `{{ ui-key.yacloud.common.button_cron-15min }}`.
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**, set the function call schedule to `{{ ui-key.yacloud.common.button_cron-15min }}`.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
        * [{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}](../../functions/concepts/function.md#tag).
-       * `reddit-user` {{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }} used to call the function.
+       * `reddit-user` {{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }} to call the function.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -266,6 +266,6 @@ From now on, the `stock_sentiments_data.csv` file will be updated every 15 minut
 
 To stop paying for the resources you created:
 
-* [Delete](../../functions/operations/function/function-delete) the function.
-* [Delete](../../functions/operations/trigger/trigger-delete) the trigger.
-* [Delete](../../datasphere/operations/projects/delete) the project.
+* [Delete](../../functions/operations/function/function-delete.md) the function.
+* [Delete](../../functions/operations/trigger/trigger-delete.md) the trigger.
+* [Delete](../../datasphere/operations/projects/delete.md) the project.

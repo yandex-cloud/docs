@@ -14,7 +14,10 @@ description: На этой странице приведен справочни�
 {{ at-event-prefix }}.audit.clouddesktop.<имя_события>
 ```
 
-
 ## Справочник событий уровня конфигурации {#control-plane-events}
 
 {% include [clouddesktop-events](../_includes/audit-trails/events/clouddesktop-events.md) %}
+
+## Справочник событий уровня сервисов {#data-plane-events}
+
+{% include [clouddesktop-events-dp](../_includes/audit-trails/events/clouddesktop-events-dp.md) %}

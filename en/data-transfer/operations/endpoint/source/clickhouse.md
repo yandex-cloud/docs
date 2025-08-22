@@ -20,7 +20,6 @@ description: In this tutorial, you will learn how to configure a {{ CH }} source
 {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
 * [Migrating a {{ CH }} cluster](../../../tutorials/managed-clickhouse.md).
-* [Redistributing data across shards](../../../tutorials/mch-mch-resharding.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 

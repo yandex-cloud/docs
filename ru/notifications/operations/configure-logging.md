@@ -7,7 +7,7 @@
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится канал уведомлений.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
     1. Выберите канал.
-    1. Справа вверху нажмите кнопку ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}** .
+    1. Справа вверху нажмите кнопку ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. В разделе **{{ ui-key.yacloud.cns.section_logging }}** включите **{{ ui-key.yacloud.cns.field_logging }}**.
     1. В списке **{{ ui-key.yacloud.cns.field_logging-folder }}** выберите каталог, в котором будет расположена [лог-группа](../../logging/concepts/log-group.md).
     1. В поле **{{ ui-key.yacloud.cns.field_log-group }}** выберите существующую лог-группу или создайте новую.

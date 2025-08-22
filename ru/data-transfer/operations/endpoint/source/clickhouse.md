@@ -20,7 +20,6 @@ description: Из статьи вы узнаете, как задать наст
 {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
 * [Миграция кластера {{ CH }}](../../../tutorials/managed-clickhouse.md).
-* [Перераспределение данных по шардам](../../../tutorials/mch-mch-resharding.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 

@@ -30,6 +30,7 @@ description: На странице представлен список прак�
   * [{#T}](managed-schema-registry.md)
   * [{#T}](managed-schema-registry-rest.md)
   * [{#T}](confluent-schema-registry.md)
+* [{#T}](retention-policy.md)
 
 ## {{ AF }} {#airflow}
 
@@ -54,7 +55,6 @@ description: На странице представлен список прак�
 * [{#T}](yds-to-clickhouse.md)
 * [{#T}](clickhouse-hybrid-storage.md)
 * [{#T}](clickhouse-sharding.md)
-* [{#T}](mch-mch-resharding.md)
 * [{#T}](data-transfer-direct-to-mch.md)
 * [{#T}](object-storage-to-clickhouse.md)
 * [{#T}](opensearch-to-clickhouse.md)

@@ -7983,6 +7983,7 @@ default:
         action_copy-msg-id: Copy ID
         action_create-channel: Create notifications channel
         action_create-endpoint: Create endpoint
+        action_send-message: Send notification
         action_send-msg: Send
         action_sms-leave-sandbox: Leave sandbox
         auth_certificate: Certificate
@@ -8017,6 +8018,9 @@ default:
         label_editor-text: Text
         label_endpoints: Endpoints
         label_phone-numbers: Test numbers
+        local:
+          action_create-topic_qywb9: Create topic
+          label_topics_vhBR3: Topics
         section_logging: Logging
         section_message-sending: Send messages
         select_apns-title: Apple iOS
@@ -8025,8 +8029,13 @@ default:
         select_ru-store-title: RuStore Android
         sender_sms-common: Common sender
         sender_sms-individual: Individual sender
+        shared:
+          CnsTopicLayout:
+            subscriptions_cp53u: Subscriptions
         switch_gcm-api-legacy: Legacy
         switch_gcm-api-v1: HTTP v1
+        Topics:
+          button_create_r6PZn: Create topic
         type_mobile: Mobile Push notifications
         type_sms: SMS
         type_web: Push notifications in browser
@@ -8626,7 +8635,9 @@ default:
         label_empty-ingestion-count-short: No ingestion
         label_ingestion-count: Number of ingestions
         label_ingestion-status-Running: Running
+        label_ingestion-tab-logs: Logs
         label_ingestion-tab-operations: Operations
+        label_ingestion-tab-overview: Overview
         label_ingestions: Ingestions
         label_search-action-share: Share
         label_search-button-add-filter: Add filter
@@ -10895,9 +10906,6 @@ default:
                       transfer_to_shard:
                         array_item_label: Mapping
                         title: Mapping
-                    ClickHouseShardingSettings:
-                      sharding_settings_oneof:
-                        title: Sharding
                     ClickHouseShardingSettingsOneof:
                       no_sharding:
                         title: No sharding

@@ -304,6 +304,8 @@ items:
                 href: operations/data-catalog/start-ingestion.md
               - name: Изменение загрузки
                 href: operations/data-catalog/update-ingestion.md
+              - name: Получение информации о загрузке
+                href: operations/data-catalog/get-info-ingestion.md
               - name: Удаление загрузки
                 href: operations/data-catalog/delete-ingestion.md
           - name: Классификации

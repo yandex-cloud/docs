@@ -15,6 +15,14 @@ description: Пошаговые инструкции по работе с push-�
 * [{#T}](push/endpoint-delete.md)
 * [{#T}](push/send.md)
 
+## Push-уведомления в браузере {#browser}
+
+* [{#T}](browser/channel-create.md)
+* [{#T}](browser/channel-manage.md)
+* [{#T}](browser/endpoint-create.md)
+* [{#T}](browser/endpoint-manage.md)
+* [{#T}](browser/send.md)
+
 ## SMS-уведомления {#sms}
 
 * [{#T}](sms/channel-create.md)
@@ -23,6 +31,14 @@ description: Пошаговые инструкции по работе с push-�
 * [{#T}](sms/test-number-delete.md)
 * [{#T}](sms/send.md)
 * [{#T}](sms/exit-sandbox.md)
+
+## Топики {#topics}
+
+* [{#T}](topics/topic-create.md)
+* [{#T}](topics/subscription-create.md)
+* [{#T}](topics/send.md)
+* [{#T}](topics/topic-manage.md)
+* [{#T}](topics/subscription-manage.md)
 
 ## Прочее {#other}
 
