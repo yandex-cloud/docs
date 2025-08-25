@@ -9,6 +9,7 @@ description: Various {{ schema-registry-name }} use cases in {{ yandex-cloud }}.
 
 * [{#T}](./schema-registry-cdc-debezium-kafka.md)
 
+
 ## {{ metastore-full-name }} {#metastore}
 
 * [{#T}](./metastore-import.md)

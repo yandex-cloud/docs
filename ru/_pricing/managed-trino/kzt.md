@@ -1,4 +1,4 @@
-| Ресурс        | Цена за 1 час,<br>вкл. НДС                           | Цена за 1 месяц,<br>вкл. НДС |
-|---------------|-----------------------------------------------------:|-----------------------------:|
-| 100% vCPU     | {% calc [currency=KZT] 2,042 × 5 %} | {% calc [currency=KZT] 720 × 2,042 × 5 %} |
-| RAM (за 1 ГБ) | {% calc [currency=KZT] 0,545 × 5 %}  | {% calc [currency=KZT] 720 × 0,545 × 5 %}  |
+| Ресурс        | Цена за 1 час,<br>вкл. НДС                         | Цена за 1 месяц,<br>вкл. НДС |
+|---------------|---------------------------------------------------:|-----------------------------:|
+| 100% vCPU     | {{ sku|KZT|trino.cluster.generic.vcpu.v1|string }} | {{ sku|KZT|trino.cluster.generic.vcpu.v1|month|string }} |
+| RAM (за 1 ГБ) | {{ sku|KZT|trino.cluster.generic.ram.v1|string }}  | {{ sku|KZT|trino.cluster.generic.ram.v1|month|string }}  |

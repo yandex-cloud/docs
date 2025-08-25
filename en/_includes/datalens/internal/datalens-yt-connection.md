@@ -1,7 +1,7 @@
 
 To create a {{ ytsaurus-name }} CHYT connection:
 
-1. Open the [new connection creation page]({{ link-datalens-main }}/connections/new).
+1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
 1. Under **Databases**, select the **{{ ytsaurus-name }} CHYT** connection.
 
 
@@ -10,9 +10,11 @@ To create a {{ ytsaurus-name }} CHYT connection:
    * **Hostname**. Specify the {{ ytsaurus-name }} proxy server address.
    * **Port**. Specify the CHYT connection port.
    * **Clique alias**: Specify the alias of a running clique. By default, the `*ch_public` public clique is used.
-   * **{{ ytsaurus-name }} token**: Manually set the OAuth token to use with {{ ytsaurus-name }}. For more information, see the [{{ ytsaurus-name }} documentation](https://ytsaurus.tech/docs/en/user-guide/storage/auth).
+   * **{{ ytsaurus-name }} token**: Manually set the OAuth token to use with {{ ytsaurus-name }}. For more information, see [this {{ ytsaurus-name }} article](https://ytsaurus.tech/docs/en/user-guide/storage/auth).
    * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
-   * **Raw SQL level**. Select the SQL query access level for the user.
+
+   {% include [datalens-db-sql-level](../datalens-db-connection-sql-level.md) %}
+
    * **HTTPS**. Enable the secure connection option if your server supports HTTPS.
 
    ![image](../../../_assets/datalens/operations/connection/connection-ytsaurus.png)

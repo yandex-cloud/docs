@@ -5,6 +5,7 @@ description: '{{ data-catalog-name }} allows you to collect, analyze, and mark u
 
 # Resource relationships in {{ data-catalog-full-name }}
 
+
 {% note info %}
 
 {% include [preview-tp](../../_includes/preview-tp.md) %}

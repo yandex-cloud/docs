@@ -6,6 +6,7 @@ description: To perform operations through the API in {{ metadata-hub-full-name 
 # {{ metadata-hub-full-name }} API authentication
 
 
+
 Before you can work with the API, you need to get an [IAM token](../../iam/concepts/authorization/iam-token.md):
 
 * [Guide](../../iam/operations/iam-token/create.md) for Yandex accounts.

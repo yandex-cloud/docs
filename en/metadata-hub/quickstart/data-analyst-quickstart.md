@@ -1,10 +1,10 @@
 # Getting started as a metadata analyst
 
-{% note info %}
 
-{% include [preview-tp](../../_includes/preview-tp.md) %}
 
-{% endnote %}
+{% include notitle [preview](../../_includes/note-preview.md) %}
+
+
 
 Using {{ data-catalog-full-name }} as a metadata analyst, you can analyze and visualize metadata on {{ yandex-cloud }} objects and links between them.
 

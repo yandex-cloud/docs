@@ -5,7 +5,11 @@ description: Follow this guide to delete a namespace.
 
 # Deleting a namespace
 
+
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
+
 
 {% note warning %}
 

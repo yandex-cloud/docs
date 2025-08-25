@@ -6,7 +6,7 @@
 
   By default, this setting is disabled.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
 
 - **Audit log policy**{#setting-audit-log-policy} {{ tag-con }}
 
@@ -21,7 +21,7 @@
 
   The **Audit log policy** parameter is only relevant if the **Audit log** parameter is enabled.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/audit-log-reference.html#sysvar_audit_log_policy).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/audit-log-reference.html#sysvar_audit_log_policy).
 
 - **Auto increment**{#setting-auto-increment-increment} {{ tag-all }}
 
@@ -29,7 +29,7 @@
 
   The minimum value is `1`, and the maximum value is `65535`. The default value is `1`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/replication-options-source.html#sysvar_auto_increment_increment).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/replication-options-source.html#sysvar_auto_increment_increment).
 
 - **Auto increment offset**{#setting-auto-increment-offset} {{ tag-all }}
 
@@ -37,7 +37,7 @@
 
   The minimum value is `1`, and the maximum value is `65535`. The default value is `1`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/replication-options-source.html#sysvar_auto_increment_offset).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/replication-options-source.html#sysvar_auto_increment_offset).
 
 - **Binlog cache size**{#setting-binlog-cache-size} {{ tag-all }}
 
@@ -45,7 +45,7 @@
 
   The minimum value is `4096` (4 KB) and the maximum value is `67108864` (64 MB). The default value is `32768` (32 KB).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_cache_size).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_cache_size).
 
 - **Binlog group commit sync delay**{#setting-binlog-sync-delay} {{ tag-all }}
 
@@ -53,7 +53,7 @@
 
   The minimum value is `0` (no delay) and the maximum value is `1000000` (one second). The default value is `0`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay).
 
 - **Binlog row image**{#setting-binlog-row-image} {{ tag-all }}
 
@@ -70,7 +70,7 @@
 
   By default, this setting is disabled.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_rows_query_log_events).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_rows_query_log_events).
 
 - **Binlog transaction dependency tracking**{#setting-binlog-transaction-dependency-tracking} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -85,7 +85,7 @@
     - The transactions are dependent according to the `WRITESET` schema.
     - The transactions were committed during one user session.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
 
 - **Character set server**{#setting-character-set-server} {{ tag-all }}
 
@@ -93,7 +93,7 @@
 
   The default value is `utf8mb4`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_character_set_server).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_character_set_server).
 
 - **Collation server**{#setting-collation-server} {{ tag-all }}
 
@@ -101,7 +101,7 @@
 
   The default value is `utf8mb4_0900_ai_ci`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_collation_server).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_collation_server).
 
 - **Default authentication plugin**{#setting-authentication-plugin} {{ tag-all }}
 
@@ -112,7 +112,7 @@
   - `sha256_password`: Authentication using SHA-256 for passwords.
   - `caching_sha2_password` (default): Similar to `sha256_password`, uses server-side caching for better performance and provides some additional features.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_default_authentication_plugin).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_default_authentication_plugin).
 
 - **Default time zone**{#setting-time-zone} {{ tag-all }}
 
@@ -120,7 +120,7 @@
 
   The default value is `Europe/Moscow`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-options.html#option_mysqld_default-time-zone).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-options.html#option_mysqld_default-time-zone).
 
 - **Explicit defaults for timestamp**{#setting-defaults-for-timestamp} {{ tag-all }}
 
@@ -128,7 +128,7 @@
 
   By default, the setting is enabled, which **disables** any nonstandard behaviors.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp).
 
 - **General log**{#setting-general-log} {{ tag-all }}
 
@@ -136,7 +136,7 @@
 
   By default, this setting is disabled.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_general_log).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_general_log).
 
 - **Group concat max len**{#setting-group-concat-max} {{ tag-all }}
 
@@ -144,7 +144,7 @@
 
   The minimum value is `4`, and the maximum value is `33554432` (32 MB). The default value is `1024` (1 KB).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_group_concat_max_len).
+  For more information, see the [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_group_concat_max_len).
 
 - **Innodb adaptive hash index**{#setting-adaptive-hash-index} {{ tag-all }}
 
@@ -152,7 +152,7 @@
 
   By default, the adaptive hash index is enabled.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index).
 
 - **Innodb buffer pool size**{#setting-buffer-pool-size} {{ tag-all }}
 
@@ -180,7 +180,7 @@
 
   The minimum value is `0`, and the maximum value is `9`. The default value is `6`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_compression_level).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_compression_level).
 
 - **Innodb flush log at trx commit**{#setting-flush-log-commit} {{ tag-all }}
 
@@ -188,7 +188,7 @@
   - `1` (default): Full [ACID]({{ my.docs }}/refman/8.0/en/glossary.html#glos_acid) compliance. Logs are written and flushed to disk at each transaction commit.
   - `2`: Logs are written after each transaction is committed but flushed to disk once per second. Transactions for which logs have not been flushed can be lost in a crash.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit).
 
 - **Innodb ft max token size**{#setting-ft-max-token-size} {{ tag-all }}
 
@@ -198,7 +198,7 @@
 
   The minimum value is `10`, and the maximum value is `84`. The default value is `84`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
 
 - **Innodb ft min token size**{#setting-ft-min-token-size} {{ tag-all }}
 
@@ -208,7 +208,7 @@
 
   The minimum value is `0`, and the maximum value is `16`. The default value is `3`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size).
 
 - **Innodb io capacity**{#setting-innodb-io-capacity} {{ tag-all }}
 
@@ -216,7 +216,7 @@
 
   The minimum value is `100`, and the maximum value is `100000`. The default value is `200`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_io_capacity).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_io_capacity).
 
 - **Innodb io capacity max**{#setting-innodb-io-capacity-max} {{ tag-all }}
 
@@ -224,7 +224,7 @@
 
   The minimum value is `100`, and the maximum value is `100000`. The default value is `2000`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_io_capacity_max).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_io_capacity_max).
 
 - **Innodb lock wait timeout**{#setting-innodb-lock-wait-timeout} {{ tag-all }}
 
@@ -234,7 +234,7 @@
 
   The minimum value is `1`, and the maximum value is `28800` (480 minutes, or 8 hours). The default value is `50`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout).
 
 - **Innodb log buffer size**{#setting-log-buffer-size} {{ tag-all }}
 
@@ -242,7 +242,7 @@
 
   The minimum value is `1048576` (1 MB), and the maximum value is `268435456` (256 MB). The default value is `16777216` (16 MB).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_buffer_size).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_buffer_size).
 
 - **Innodb log file size**{#setting-log-file-size} {{ tag-all }}
 
@@ -252,7 +252,7 @@
 
   The minimum value is `268435456` (256 MB), and the maximum value is `4294967296` (4 GB). The default value is `268435456` (256 MB).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size).
 
 - **Innodb lru scan depth**{#setting-innodb-lru-scan-depth} {{ tag-con }} {{ tag-api }}
 
@@ -280,7 +280,7 @@
 
   This policy is disabled by default.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_numa_interleave).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_numa_interleave).
 
 - **Innodb online alter log max size**{#setting-online-alter-log-max-size} {{ tag-all }}
 
@@ -288,7 +288,7 @@
 
   The minimum value is `65536` (64 KB), and the maximum value is `107374182400` (100 GB). The default value is `134217728` (128 MB).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size).
 
 - **Innodb page size**{#setting-innodb-page-size} {{ tag-all }}
 
@@ -296,7 +296,7 @@
 
   Acceptable values: `4096` (4 KB), `8192` (8 KB), `16384` (16 KB), `32768` (32 KB), and `65536` (64 KB). The default value is `16384` (16 KB).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_page_size).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_page_size).
 
 - **Innodb print all deadlocks**{#setting-print-all-deadlocks} {{ tag-all }}
 
@@ -304,7 +304,7 @@
 
   By default, the option for showing information about all deadlocks is off.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_print_all_deadlocks).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_print_all_deadlocks).
 
 - **Innodb purge threads**{#setting-innodb-purge-threads} {{ tag-all }}
 
@@ -314,7 +314,7 @@
 
   The minimum value is `1`, and the maximum value is `16`. The default value is `4`.
 
-  For more information, see the relevant [{{ MY }} documentation.]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_purge_threads)
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_purge_threads).
 
 - **Innodb read io threads**{#setting-innodb-read-io-threads} {{ tag-all }}
 
@@ -324,15 +324,15 @@
 
   The minimum value is `1`; the maximum value is `16`; the default value is `4`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_read_io_threads).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_read_io_threads).
 
 - **Innodb status output**{#setting-innodb-status-output} {{ tag-con }}
 
-  Manages output of the standard InnoDB [monitor]({{ my.docs }}/refman/8.0/en/innodb-enabling-monitors.html).
+  Manages output of the standard [InnoDB]({{ my.docs }}/refman/8.0/en/innodb-enabling-monitors.html) monitor.
 
   By default, the standard monitor is disabled.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_status_output).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_status_output).
 
 - **Innodb strict mode**{#setting-strict-mode} {{ tag-con }}
 
@@ -340,17 +340,17 @@
 
   By default, InnoDB strict mode is enabled.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_strict_mode).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_strict_mode).
 
 - **Innodb temp data file max size**{#setting-temp-data-max-size} {{ tag-all }}
 
   {% include [requires-restart](note-requires-restart.md) %}
 
-  The maximum size of InnoDB [temporary tablespace]({{ my.docs }}/refman/8.0/en/innodb-temporary-tablespace.html#innodb-global-temporary-tablespace) (in bytes).
+  The maximum size of InnoDB [temporary tablespace]({{ my.docs }}/refman/8.0/en/innodb-temporary-tablespace.html#innodb-global-temporary-tablespace) (in bytes)
 
   The minimum value is `0` (no temporary tablespace is used). The maximum value is `107374182400` (100 GB). The default value is `0`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_temp_data_file_path).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_temp_data_file_path).
 
 - **Innodb thread concurrency**{#setting-innodb-thread-concurrency} {{ tag-all }}
 
@@ -358,7 +358,7 @@
 
   The minimum value is `0` (no restrictions). The maximum value is `1000`. The default value is `0`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_thread_concurrency).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_thread_concurrency).
 
 - **Innodb write io threads**{#setting-innodb-write-io-threads} {{ tag-all }}
 
@@ -368,7 +368,7 @@
 
   The minimum value is `1`; the maximum value is `16`; the default value is `4`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_write_io_threads).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_write_io_threads).
 
 - **Interactive timeout**{#setting-interactive-timeout} {{ tag-all }}
 
@@ -376,7 +376,7 @@
 
   The minimum value is `600` (10 minutes), and the maximum value is `86400` (24 hours). The default value is `28800` (8 hours).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_interactive_timeout).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_interactive_timeout).
 
 - **Join buffer size**{#setting-join-buffer-size} {{ tag-all }}
 
@@ -389,7 +389,7 @@
 
   The minimum value is `1024` (1 KB), and the maximum value is `16777216` (16 MB). The default value is `262144` (256 KB).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_join_buffer_size).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_join_buffer_size).
 
 - **Lock wait timeout**{#setting-lock-wait-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -397,7 +397,7 @@
 
   The minimum value is `1`, the maximum value is `31536000` (1 year). The default value is `31536000`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_lock_wait_timeout).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_lock_wait_timeout).
 
 - **Log error verbosity**{#setting-log-error-verbosity} {{ tag-con }}
 
@@ -406,7 +406,7 @@
   - `2`: Errors and warnings.
   - `3` (default): Errors, warnings, and information messages.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_log_error_verbosity).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_log_error_verbosity).
 
 - **Log slow filter**{#setting-log-slow-filter} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -462,7 +462,7 @@
 
   The minimum value is `0`, and the maximum value is `3600` (1 hour). The default value is `10`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_long_query_time).
 
 - **Lower case table names**{#setting-lower-case-table-names} {{ tag-all }}
 
@@ -473,7 +473,7 @@
 
   You cannot edit this setting after you create a cluster.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names).
 
 - **Max allowed packet**{#setting-max-allowed-packet} {{ tag-all }}
 
@@ -481,9 +481,9 @@
 
   The default value is small in order to discard incorrect packages, which are usually larger. Increase this value if you are using large BLOB columns or long strings.
 
-  The minimum value is `1024` (1 KB), and the maximum value is `134217728` (128 MB). The default value is `16777216` (16 MB).
+  The minimum value is `1024` (1 KB), and the maximum value is `1073741824` (1 GB). The default value is `16777216` (16 MB).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
 
 - **Max connections**{#setting-max-connections} {{ tag-all }}
 
@@ -494,7 +494,7 @@
   - Maximum value: `<MB_of_RAM_per_host> / 8`.
   - Default value: `<MB_of_RAM_per_host> / 32`, but not less than `100`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
 - **Max digest length**{#setting-max-digest-length} {{ tag-con }}
 
@@ -504,7 +504,7 @@
 
   The minimum value is `1024` (1 KB), and the maximum value is `8192` (8 KB). The default value is `1024` (1 KB).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_digest_length).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_digest_length).
 
 - **Max execution time**{#setting-max-execution-time} {{ tag-all }}
 
@@ -512,7 +512,7 @@
 
   The minimum value is `0`. In this case, there is no limit on query runtime. The maximum value is `4294967295`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_execution_time).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_execution_time).
 
 - **Max heap table size**{#setting-max-heap-table-size} {{ tag-all }}
 
@@ -520,7 +520,7 @@
 
   The minimum value is `16384` (16 KB), and the maximum value is `134217728` (128 MB). The default value is `16777216` (16 MB).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size).
 
 - **Max prepared stmt count**{#setting-max-prepared-stmt-count} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -530,7 +530,7 @@
 
   The minimum value is `0`, and the maximum value is `4194304`. The default value is `16382`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
 
 - **Max sp recursion depth**{#setting-max-sp-recursion-depth} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -538,7 +538,7 @@
 
   The minimum value is `0` (recursion is disabled). The maximum value is `255`. The default value is `0`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
 
 - **Mdb offline mode disable lag**{#setting-mdb-offline-mode-disable-lag} {{ tag-all }}
 
@@ -570,7 +570,7 @@
 
   The minimum value is `1`, and the maximum value is `1200` (20 minutes). The default value is `30`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_net_read_timeout).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_net_read_timeout).
 
 - **Net write timeout**{#setting-net-write-timeout} {{ tag-all }}
 
@@ -578,7 +578,7 @@
 
   The minimum value is `1`, and the maximum value is `1200` (20 minutes). The default value is `60`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_net_write_timeout).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_net_write_timeout).
 
 - **Optimizer search depth**{#setting-optimizer-search-depth} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -588,13 +588,13 @@
 
   The minimum value is `0` (the system will select the search depth automatically), and the maximum value is `62`. The default value is `62`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/5.7/en/server-system-variables.html#sysvar_optimizer_search_depth).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/5.7/en/server-system-variables.html#sysvar_optimizer_search_depth).
 
 - **Optimizer switch**{#setting-optimizer-switch} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
   String with a [set of flags]({{ my.docs }}/refman/5.7/en/switchable-optimizations.html). Each flag enables or disables certain optimizer behavior.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch).
 
 - **Range optimizer max mem size**{#setting-range-optimizer-max-mem-size} {{ tag-all }}
 
@@ -602,7 +602,7 @@
 
   The minimum value is `1048576` (1 MB), and the maximum value is `268435456` (256 MB). The default value is `8388608` (8 MB).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size).
 
 - **Regexp time limit**{#setting-regexp-time-limit} {{ tag-all }}
 
@@ -612,7 +612,7 @@
 
   This feature is supported only by {{ MY }} 8.0.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_regexp_time_limit).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_regexp_time_limit).
 
 - **Replication optimize for static plugin config**{#setting-replication-optimize-for-static-plugin-config} {{ tag-con }} {{ tag-api }}
 
@@ -624,7 +624,7 @@
 
   The setting is disabled by default.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/replication-options-replica.html#sysvar_replication_optimize_for_static_plugin_config).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/replication-options-replica.html#sysvar_replication_optimize_for_static_plugin_config).
 
 - **Replication sender observe commit only**{#setting-replication-sender-observe-commit-only} {{ tag-con }} {{ tag-api }}
 
@@ -636,7 +636,7 @@
 
   The setting is disabled by default.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/replication-options-replica.html#sysvar_replication_sender_observe_commit_only).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/replication-options-replica.html#sysvar_replication_sender_observe_commit_only).
 
 - **Rpl semi sync master wait for slave count**{#setting-rpl-wait-slave-count} {{ tag-all }}
 
@@ -644,7 +644,7 @@
 
   The minimum value is `1`, and the maximum value is `2`. The default value is `1`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/replication-options-source.html#sysvar_rpl_semi_sync_master_wait_for_slave_count).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/replication-options-source.html#sysvar_rpl_semi_sync_master_wait_for_slave_count).
 
 - **Slave parallel type**{#setting-slave-parallel-type} {{ tag-all }}
 
@@ -652,7 +652,7 @@
   - `LOGICAL_CLOCK`: Transactions that are part of a group commit for the same source binary log run in parallel on the replica.
   - `DATABASE` (default): Transactions that update different databases run in parallel.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_type).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_type).
 
 - **Slave parallel workers**{#setting-slave-parallel-workers} {{ tag-all }}
 
@@ -660,7 +660,7 @@
 
   The minimum value is `0` (multithreading on the replica is disabled), and the maximum value is `64`. The default value is `8`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_workers).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_workers).
 
 - **Slow query log**{#setting-slow-query-log} {{ tag-all }}
 
@@ -673,7 +673,7 @@
 
   The default value is `OFF`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log).
 
 - **Slow query log always write time**{#setting-slow-query-log-always-write-time} {{ tag-all }}
 
@@ -689,7 +689,7 @@
 
   The minimum value is `32768` (32 KB), and the maximum value is `16777216` (16 MB). The default value is `262144` (256 KB).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_sort_buffer_size).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_sort_buffer_size).
 
 - **Sql mode**{#setting-sql-mode} {{ tag-all }}
 
@@ -749,7 +749,7 @@
   - `ONLY_FULL_GROUP_BY`
   - `STRICT_TRANS_TABLES`
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/sql-mode.html#sql-mode-setting).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/sql-mode.html#sql-mode-setting).
 
 - **Sync binlog**{#setting-sync-binlog} {{ tag-all }}
 
@@ -760,7 +760,7 @@
 
   The minimum value is `0`, and the maximum value is `4096`. The default value is `1`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/replication-options-binary-log.html#sysvar_sync_binlog).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/replication-options-binary-log.html#sysvar_sync_binlog).
 
 - **Table definition cache**{#setting-table-definition-cache} {{ tag-all }}
 
@@ -768,7 +768,7 @@
 
   The minimum value is `400`, and the maximum value is `524288`. The default value is `2000`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_table_definition_cache).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_table_definition_cache).
 
 - **Table open cache**{#setting-table-open-cache} {{ tag-all }}
 
@@ -778,7 +778,7 @@
 
   The minimum value is `400`, and the maximum value is `524288`. The default value is `4000`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_table_open_cache).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_table_open_cache).
 
 - **Table open cache instances**{#setting-table-open-cache-instances} {{ tag-all }}
 
@@ -788,7 +788,7 @@
 
   The minimum value is `1`, and the maximum value is `32`. The default value is `16`.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_table_open_cache_instances).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_table_open_cache_instances).
 
 - **Thread cache size**{#setting-thread-cache-size} {{ tag-all }}
 
@@ -802,7 +802,7 @@
 
   Where `max_connections` is the default value of the [Max connections](#setting-max-connections) setting for the selected host class.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_thread_cache_size).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_thread_cache_size).
 
 - **Thread stack**{#setting-thread-stack} {{ tag-all }}
 
@@ -812,7 +812,7 @@
 
   The minimum value is `131072` (128 KB), and the maximum value is `16777216` (16 MB). The default value is `196608` (192 KB).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_thread_stack).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_thread_stack).
 
 - **Tmp table size**{#setting-tmp-table-size} {{ tag-all }}
 
@@ -820,7 +820,7 @@
 
   The minimum value is `1024` (1 KB), and the maximum value is `134217728` (128 MB). The default value is `16777216` (16 MB).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size).
 
 - **Transaction isolation**{#setting-transaction-isolation} {{ tag-all }}
 
@@ -829,7 +829,7 @@
   - `REPEATABLE-READ`: All queries in the current transaction only see the strings committed before running the first select or update data query within this transaction.
   - `SERIALIZABLE`: Similar to `REPEATABLE-READ`, except that InnoDB implicitly converts `SELECT` statements to `SELECT ... FOR SHARE` if [autocommit]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_autocommit) is disabled. If autocommit is enabled, `SELECT` remains in its own transaction in `read only` mode and can be serialized.
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_transaction_isolation).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_transaction_isolation).
 
 - **Wait timeout**{#setting-wait-timeout} {{ tag-all }}
 
@@ -837,4 +837,4 @@
 
   The minimum value is `600` (10 minutes), and the maximum value is `86400` (24 hours). The default value is `28800` (8 hours).
 
-  For more information, see the relevant [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout).
+  For more information, see [this {{ MY }} article]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout).

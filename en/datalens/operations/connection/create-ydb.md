@@ -35,7 +35,8 @@ To create a {{ ydb-short-name }} connection:
    {% endnote %}
 
    * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
-   * **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
+   
+   {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
    
    ![image](../../../_assets/datalens/operations/connection/connection-ydb.png)

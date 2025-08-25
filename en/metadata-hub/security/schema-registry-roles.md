@@ -1,9 +1,10 @@
 ---
 title: Access management in {{ schema-registry-name }}
-description: Access management in {{ schema-registry-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ schema-registry-name }}. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
 ---
 
 # Service roles for managing data schemas using {{ schema-registry-name }}
+
 
 With {{ schema-registry-name }} service roles, you can view namespaces, subjects, and schemas in a schema registry, as well as create, edit, and delete namespaces and schemas.
 
@@ -25,7 +26,7 @@ With {{ schema-registry-name }} service roles, you can view namespaces, subjects
 
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For instance, you can assign `editor` instead of `viewer`.
+The table below lists the roles required for specific actions. You can always assign a role with more permissions. For example, you can assign the `editor` role instead of `viewer`.
 
 | Action                        | Required roles          |
 |---------------------------------|---------------------------|

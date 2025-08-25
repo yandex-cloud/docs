@@ -1,5 +1,6 @@
 # Creating a schema registry to deliver data in Debezium CDC format from {{ KF }}
 
+
 In this tutorial, you will create a schema registry to track schema evolution for an {{ KF }} source using [{{ data-transfer-full-name }}](../../../data-transfer).
 
 

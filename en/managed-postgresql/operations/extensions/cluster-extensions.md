@@ -56,7 +56,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -71,13 +71,13 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
      You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](../databases.md#list-db).
 
-  1. View the [server response](../../api-ref/Database/get.md#responses) to make sure the request was successful.
+  1. View the [server response](../../api-ref/Database/get.md#responses) to make sure your request was successful.
 
      You can see the list of installed extensions in the `extensions` parameter of the command output.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -101,7 +101,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
      You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](../databases.md#list-db).
 
-  1. View the [server response](../../api-ref/grpc/Database/get.md#yandex.cloud.mdb.postgresql.v1.Database) to make sure the request was successful.
+  1. View the [server response](../../api-ref/grpc/Database/get.md#yandex.cloud.mdb.postgresql.v1.Database) to make sure your request was successful.
 
      You can see the list of installed extensions in the `extensions` parameter of the command output.
 
@@ -114,7 +114,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 - Management console {#console}
 
   1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}** tab.
   1. In the row with the DB you need, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-manage }}**.
   1. Select the extensions you need and click **{{ ui-key.yacloud.postgresql.databases.dialog.button_submit }}**.
 
@@ -162,7 +162,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -203,11 +203,11 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
      You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](../databases.md#list-db).
 
-  1. View the [server response](../../api-ref/Database/update.md#responses) to make sure the request was successful.
+  1. View the [server response](../../api-ref/Database/update.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
 
      {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -258,7 +258,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
      You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters), and the DB name, with the [list of DBs in the cluster](../databases.md#list-db).
 
-  1. View the [server response](../../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -327,7 +327,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 || <p>[seg]({{ pg-docs }}/static/seg.html)</p><p>Contains the `seg` data type to represent line segments or floating point intervals.</p> | 1.3 | 1.3 | 1.3 | 1.4 | 1.4 | 1.4 | 1.4 ||
 || <p>[smlar](http://sigaev.ru/git/gitweb.cgi?p=smlar.git;a=blob;hb=HEAD;f=README)</p><p>Provides a set of functions for computing similarity of two arrays.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | - ||
 || <p>[tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html)</p><p>Provides a set of functions that return tables, i.e., multiple rows.</p> | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 ||
-|| <p>[timescaledb](https://github.com/timescale/timescaledb)</p><p>Supports automatic partitioning across time and space (partitioning key), yet retains the standard {{ PG }} interface for data. This makes {{ PG }} scalable for time-series.</p><p>Requires [enabling the `timescaledb` shared library](#libraries-connection).</p><p>The TimescaleDB edition installed for the service is TimescaleDB Apache 2 Edition. It has limited functionality compared to TimescaleDB Community Edition. You cannot change the edition. For more information about the limitations, see the [TimescaleDB documentation](https://docs.timescale.com/about/latest/timescaledb-editions/).</p> | 2.3.1 | 2.4.2 | 2.5.2 | 2.6.1 | 2.9.0 | 2.13.0-dev | 2.16.1 ||
+|| <p>[timescaledb](https://github.com/timescale/timescaledb)</p><p>Supports automatic partitioning across time and space (partitioning key), yet retains the standard {{ PG }} interface for data. This makes {{ PG }} scalable for time-series.</p><p>Requires [enabling the `timescaledb` shared library](#libraries-connection).</p><p>The TimescaleDB edition installed for the service is TimescaleDB Apache 2 Edition. It has limited functionality compared to TimescaleDB Community Edition. You cannot change the edition. For more information about the limitations, see the [TimescaleDB documentation](https://docs.timescale.com/about/latest/timescaledb-editions/).</p> | 2.3.1 | 2.4.2 | 2.5.2 | 2.6.1 | 2.9.0 | 2.20.3 | 2.20.3 ||
 || <p>[unaccent]({{ pg-docs }}/static/unaccent.html)</p><p>Provides a text search dictionary that removes diacritic signs.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
 || <p>[uuid-ossp]({{ pg-docs }}/static/uuid-ossp.html)</p><p>Provides functions to generate universally unique identifiers (UUIDs) using standard algorithms.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||
 || <p>[xml2]({{ pg-docs }}/static/xml2.html)</p><p>Provides XPath querying and XSLT (Extensible Stylesheet Language Transformations) functionality.</p> | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 ||

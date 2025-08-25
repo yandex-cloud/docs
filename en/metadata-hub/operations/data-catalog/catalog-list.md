@@ -5,11 +5,13 @@ description: Follow this guide to get a list of metadata catalogs in {{ data-cat
 
 # Getting a list of catalogs
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

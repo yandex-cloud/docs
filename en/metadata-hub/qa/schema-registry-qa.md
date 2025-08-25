@@ -5,6 +5,7 @@ description: How do I fix the error I get when working with a schema registry? F
 
 # Troubleshooting in {{ schema-registry-full-name }}
 
+
 This section describes issues you may encounter in the service and how to troubleshoot them.
 
 ## Error when adding or deleting optional parameters {#avoid-errors-while-evolving-schema}

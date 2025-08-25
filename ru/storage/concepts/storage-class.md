@@ -54,3 +54,7 @@ description: '{{ objstorage-name }} позволяет хранить объек
 * [{#T}](../tutorials/hystax-backup.md)
 * [{#T}](../tutorials/clickhouse-hybrid-storage.md)
 
+
+#### См. также {#see-also}
+
+* [{{ objstorage-full-name }}: как выбрать класс хранилища](https://yandex.cloud/ru/blog/object-storage-class)

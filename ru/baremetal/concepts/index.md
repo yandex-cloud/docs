@@ -14,3 +14,7 @@
 * [{#T}](./network.md)
 * [{#T}](./dhcp.md)
 * [{#T}](./network-restrictions.md)
+
+#### См. также {#see-also}
+
+* [Bare metal: полный контроль и высокая производительность](https://yandex.cloud/ru/blog/bare-metal-guide)

@@ -13,12 +13,6 @@ The generative response feature is only available in the [API v2](./index.md#api
 
 You need the `search-api.webSearch.user` [role](../security/index.md#search-api-webSearch-user) to run queries.
 
-{% note info %}
-
-You can get a generative response only when searching within a given search area: an array of sites, hosts, or pages. No generative response is available when querying the Yandex search database.
-
-{% endnote %}
-
 ## Request body format {#body}
 
 The names of the request body fields are different in [REST API](../api-ref/index.md) and [gRPC API](../api-ref/grpc/index.md): the former uses [camelCase](https://en.wikipedia.org/wiki/Camel_case), while the latter, [snake_case](https://en.wikipedia.org/wiki/Snake_case).
@@ -261,7 +255,7 @@ Each query seeking a generative response must contain the following request body
   ```bash
   grpcurl \
     -rpc-header "Authorization: Bearer <IAM_token>" \
-    -d @ <file_path> \
+    -d @ < <file_path> \
     searchapi.{{ api-host }}:443 yandex.cloud.searchapi.v2.GenSearchService/Search \
     | jq
   ```
@@ -329,7 +323,7 @@ Each query seeking a generative response must contain the following request body
 
       * `used`: Indicates whether the document was used to generate the response. The possible values are `true` or `false`.
       * `url`: Document URL.
-      * `title`: Document title.
+      * `title`: Document title. It may be missing from the results if the website owner did not define the page header.
   * `searchQueries`: List of additional search queries sent by the generative model to the search engine. Each query contains the following fields:
 
       * `text`: Search query text.
@@ -527,7 +521,7 @@ Each query seeking a generative response must contain the following request body
       contained in a Docker image, in {{ yandex-cloud }}. [7] \n\n**Some aspects of containerization in 
       {{ yandex-cloud }}:**\n\n* **Creating a container revision**. [7] You can only create a revision 
       from a Docker image uploaded to a registry in {{ container-registry-full-name }}. [7] Other registries are not supported. 
-      . [7] The revision contains all the information you need to run the container. [7]\n* **Invoking 
+      supported. [7] The revision contains all the information you need to run the container. [7]\n* **Invoking 
       a container**. [7] Once you have created a revision, you can invoke the container via HTTPS using a trigger 
       or the {{ api-gw-full-name }} extension. [7]\n* **Scaling a container**. [7] If the container is invoked 
       faster than the instance can process the request, the service scales the container by running 

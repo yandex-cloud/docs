@@ -75,3 +75,4 @@ description: Из статьи вы узнаете про технологию {
 * [API {{ brand-voice-name }} (англ.)](../../tts-v3/api-ref/grpc/)
 * [{#T}](../templates.md)
 * [{#T}](../api/tts-templates.md)
+* [Как ИИ помогает в поддержке клиентов: кейсы банков, ритейла и IT‑компаний](https://yandex.cloud/ru/blog/posts/2025/04/ai-and-support)

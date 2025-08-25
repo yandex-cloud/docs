@@ -1020,6 +1020,8 @@ items:
             href: prompts/yandexart/architectural-design-office.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: >-
           Реализация AI-ассистента с поиском по PDF-файлам со сложным
           форматированием
@@ -1032,6 +1034,14 @@ items:
         href: tutorials/qwen-vsc-integration.md
       - name: Создание интеллектуального ассистента для Telegram
         href: tutorials/tg-bot-assistant.md
+      - name: >-
+          Разработка Telegram-бота с поддержкой AI-агента с помощью {{
+          sw-full-name }}
+        href: tutorials/telegram-ai-bot-workflows.md
+      - name: >-
+          ИИ-ревью пул-реквестов на GitHub с помощью {{ sw-full-name }} и GitHub
+          Actions
+        href: tutorials/ai-powered-github-pr-review.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

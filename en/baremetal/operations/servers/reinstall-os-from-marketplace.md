@@ -7,7 +7,7 @@ description: Follow this guide to reinstall a {{ baremetal-full-name }} server O
 
 {{ marketplace-short-name }} is a catalog of preconfigured images of operating systems available for installation on {{ baremetal-name }} servers.
 
-{{ baremetal-full-name }} allows you to reinstall a server OS from a {{ marketplace-short-name }} public image. During reinstallation, you can select any {{ baremetal-name }} server OS available in {{ marketplace-short-name }}, redistribute disk space, rebuild RAID arrays, and reconfigure root user access settings.
+In {{ baremetal-full-name }}, you can reinstall a server OS from a public [{{ marketplace-short-name }} image](../../concepts/images.md#marketplace-images). During reinstallation, you can select any {{ baremetal-name }} server OS available in {{ marketplace-short-name }}, redistribute disk space, rebuild RAID arrays, and reconfigure root user access settings.
 
 {% note warning %}
 

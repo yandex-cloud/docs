@@ -70,7 +70,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
           * **Enable all** (default): All the [unsigned parameters](#unsigned-parameters) are enabled, unless explicitly disabled.
           * **Disable all**: All the unsigned parameters are disabled, unless explicitly enabled.
 
-          These restrictions do not apply to signed parameters from the token.
+          These restrictions do not apply to [signed parameters](#signed-parameters) from the token.
 
         * (Optional) **Disabled parameters**: Specify the names of unsigned parameters you want disabled when embedding a chart. Available in **Enable all** mode.
         * (Optional) **Enabled parameters**: Specify the names of unsigned parameters that can be provided in the embedding link. Any parameters not specified in the list will be ignored when attempting to provide them in the embedding link. Available in **Disable all** mode.
@@ -80,7 +80,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
 
         * **Name**: Enter a name for the embedding.
         * **Key**: Select a previously created key for embedding.
-        * (Optional) **Disabled parameters**: Specify the names of [unsigned parameters](#unsigned-parameters) you want disabled when embedding a dashboard. These restrictions do not apply to signed parameters from the token. By default, any parameters [specified](../operations/dashboard/add-parameters.md) in the dashboard settings can be provided in the embedding link.
+        * (Optional) **Disabled parameters**: Specify the names of [unsigned parameters](#unsigned-parameters) you want disabled when embedding a dashboard. These restrictions do not apply to [signed parameters](#signed-parameters) from the token. By default, you can provide any parameters in the embedding link. If they are [specified](../operations/dashboard/add-parameters.md) in the dashboard settings, they can affect charts and selectors.
 
           {% note info %}
 
@@ -113,7 +113,8 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
 
         {% note warning %}
 
-        The generated token is transmitted as part of the network request header, so its maximum size is limited to 30 KB. Keep this in mind when using signed parameters.
+        * The generated token is transmitted as part of the network request header, so its maximum size is limited to 30 KB. Keep this in mind when using signed parameters.
+        * For correct operation, use only a string or an array of strings as parameter values.
 
         {% endnote %}
 
@@ -393,6 +394,29 @@ In the embedding link, any unsigned parameters are ignored if:
 
 {% endlist %}
 
+## Signed parameters {#signed-parameters}
+
+Signed parameters are provided as part of the token. They cannot be changed without regenerating the token. For correct operation, use only a string or an array of strings as parameter values.
+
+Embedding settings for enabled and disabled parameters do not apply to signed parameters. They will be provided to charts and selectors in any case.
+
+By default, signed parameter values are overridden by external parameters with the same name. The selector parameter, dashboard setting parameter, or link parameter will take priority over the signed ones.
+
+You can dynamically update signed parameters by [refreshing a token without losing filter states](#token-update).
+
+{% note warning %}
+
+Starting August 26, 2025, the behavior of signed parameters will change.
+
+{% endnote %}
+
+Features of the new behavior:
+
+* Values of signed parameters will take priority. If both a signed parameter and external parameter with the same name are provided to a widget at the same time, the signed one will apply.
+* Selectors by signed parameters will not affect dashboard charts.
+
+Signed parameters provide more secure access to data: users with access to embedded objects will not be able to change these parameters. You can use signed parameters to filter charts and provide a specific user with only the slice of data they need.
+
 ## Recommendations {#recommendations}
 
 When embedding private objects, follow these guidelines:
@@ -418,13 +442,20 @@ When embedding private objects, follow these guidelines:
 
   {% endlist %}
 
+  {% note warning %}
+
+  Starting August 26, 2025, the behavior of signed parameters will change. Signed parameters will become immutable by default; you will no longer need to create lists of enabled or disabled parameters.
+
+  {% endnote %}
+
 ## Things to consider when embedding dashboards {#dash-embed-specialties}
 
 When embedding dashboards, consider the following:
 
 * Embedded dashboards can only be opened in view mode. Their navigation bar and, by default, the ![image](../../_assets/console-icons/ellipsis.svg) menu for charts are hidden. Enable **Allow data export** in embedding settings for your charts to display the ![image](../../_assets/console-icons/ellipsis.svg) menu, which allows exporting the chart data.
 * When you open a dashboard, its [settings](../dashboard/settings.md) apply.
-* For any embedded dashboard, only the parameters [specified in the dashboard settings](../operations/dashboard/add-parameters.md) are enabled.
+* For unsigned parameters to work correctly, [specify them](../operations/dashboard/add-parameters.md) in the dashboard settings.
+* Unsigned parameters work in the same way as regular [parameters in a dashboard link](../dashboard/dashboard_parameters.md#params-in-url).
 * You cannot provide the state of filtered charts in the `state` parameter.
 * The embedding link may not contain a dashboard header.
 * In the embedding link, use `tab` to specify the tab to open the dashboard on.

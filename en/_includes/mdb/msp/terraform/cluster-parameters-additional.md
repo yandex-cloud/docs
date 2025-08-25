@@ -14,7 +14,7 @@
     }
     ```
 
-* To connect a {{ metastore-name }} server to your cluster, add a section named `metastore` to the description of your cluster configuration:
+* To connect a [Metastore server](../../../../metadata-hub/concepts/metastore.md) to your cluster, add the `metastore` section to the description of your cluster configuration:
 
     ```hcl
     resource "yandex_spark_cluster" "<cluster_name>" {

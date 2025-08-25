@@ -61,3 +61,4 @@
 #### См. также {#see-also}
 
 * [{#T}](../../backup/tutorials/backup-baremetal.md)
+* [Как выбрать вычислительные мощности для бизнес- и IT‑задач](https://yandex.cloud/ru/blog/dedicated-server-guide)

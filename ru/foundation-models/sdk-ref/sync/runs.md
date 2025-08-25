@@ -20,7 +20,7 @@ sourcePath: en/_sdk-ref/sdk-ref/sync/runs.md
 #|
 || Parameters | 
 
-- **thread** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*BaseThread*](../internals/bases.md#yandex_cloud_ml_sdk._threads.thread.BaseThread))
+- **thread** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseThread*](../internals/bases.md#yandex_cloud_ml_sdk._threads.thread.BaseThread))
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
 || Return type | [*Run*](#yandex_cloud_ml_sdk._runs.run.Run) ||
 |#
@@ -30,7 +30,7 @@ sourcePath: en/_sdk-ref/sdk-ref/sync/runs.md
 #|
 || Parameters | 
 
-- **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
 || Return type | [*Iterator*](https://docs.python.org/3/library/typing.html#typing.Iterator)[[*Run*](#yandex_cloud_ml_sdk._runs.run.Run)] ||
 |#
@@ -52,7 +52,7 @@ sourcePath: en/_sdk-ref/sdk-ref/sync/runs.md
 #|
 || Parameters | 
 
-- **tool\_results** ([*FunctionResultDict*](../types/message.md#yandex_cloud_ml_sdk._tools.tool_result.FunctionResultDict)* \| *[*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*FunctionResultDict*](../types/message.md#yandex_cloud_ml_sdk._tools.tool_result.FunctionResultDict)*]*)
+- **tool\_results** ([*FunctionResultDict*](../types/message.md#yandex_cloud_ml_sdk._tools.tool_result.FunctionResultDict) *\|* [*Iterable*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable)*[*[*FunctionResultDict*](../types/message.md#yandex_cloud_ml_sdk._tools.tool_result.FunctionResultDict)*]*)
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
 || Return type | None ||
 |#
@@ -86,8 +86,8 @@ sourcePath: en/_sdk-ref/sdk-ref/sync/runs.md
 || Parameters | 
 
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float))
-- **poll\_timeout** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| **None*)
-- **poll\_interval** ([*float*](https://docs.python.org/3/library/functions.html#float)* \| **None*) ||
+- **poll\_timeout** ([*int*](https://docs.python.org/3/library/functions.html#int) *\| None*)
+- **poll\_interval** ([*float*](https://docs.python.org/3/library/functions.html#float) *\| None*) ||
 || Return type | [*AnyResultTypeT\_co*](../types/other.md#yandex_cloud_ml_sdk._types.operation.AnyResultTypeT_co) ||
 |#
 

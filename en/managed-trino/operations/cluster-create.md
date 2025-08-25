@@ -114,16 +114,11 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         * `--security-group-ids`: List of security group IDs.
         * `--coordinator`: [Coordinator](../concepts/index.md#coordinator) configuration.
 
-            * `resource-preset-id`: Class of coordinator’s computing resources. The possible values are:
-
-                {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+            * `resource-preset-id`: [Class of the coordinator's computing resources](../concepts/instance-types.md).
 
         * `--worker`: [Worker](../concepts/index.md#workers) configuration:
 
-            * `resource-preset-id`: Class of worker’s computing resources. The possible values are:
-
-                {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
-
+            * `resource-preset-id`: [Class of the worker's computing resources](../concepts/instance-types.md).
             * `count`: Fixed number of workers.
             * `min_count`: Minimum number of workers for automatic scaling.
             * `maxCount`: Maximum number of workers for automatic scaling.
@@ -226,7 +221,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
 
-    For more information about resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-mtr }}).
+    For more information about resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mtr }}).
 
 - REST API {#api}
 
@@ -234,7 +229,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Create a file named `body.json` and add the following contents to it:
+    1. Create a file named `body.json` and paste the following code into it:
 
        {% note info %}
 
@@ -300,15 +295,11 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * `coordinatorConfig`: Coordinator configuration.
 
-               * `resources.resourcePresetId`: Class of the coordinator’s computing resources. The possible values are:
-
-                  {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resourcePresetId`: [Class of the coordinator's computing resources](../concepts/instance-types.md).
 
             * `workerConfig`: Worker configuration.
 
-               * `resources.resourcePresetId`: Class of the worker’s computing resources. The possible values are:
-
-                  {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resourcePresetId`: [Class of the worker's computing resources](../concepts/instance-types.md).
 
                * `scalePolicy`: Worker scaling policy:
 
@@ -367,13 +358,13 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Create a file named `body.json` and add the following contents to it:
+    1. Create a file named `body.json` and paste the following code into it:
 
        {% note info %}
 
@@ -439,15 +430,11 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * `coordinator_config`: Coordinator configuration.
 
-               * `resources.resource_preset_id`: Class of the coordinator’s computing resources. The possible values are:
-
-                   {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resource_preset_id`: [Class of the coordinator's computing resources](../concepts/instance-types.md).
 
             * `worker_config`: Worker configuration.
 
-               * `resources.resource_preset_id`: Class of the worker’s computing resources. The possible values are:
-
-                   {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resource_preset_id`: [Class of the worker's computing resources](../concepts/instance-types.md).
 
                * `scale_policy`: Worker scaling policy:
 
@@ -507,7 +494,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -523,8 +510,8 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
     * Service account: `ajev56jp96ji********`.
     * Subnet: `{{ subnet-id }}`.
     * Security group: `{{ security-group }}`.
-    * Coordinator with computing resource class `c4-m16`.
-    * Four workers with computing resource class `c4-m16`.
+    * Coordinator with [computing resource class](../concepts/instance-types.md) `c4-m16`.
+    * Four workers with [computing resource class](../concepts/instance-types.md) `c4-m16`.
     * Cluster protection from accidental deletion.
 
     Run this command:
@@ -548,8 +535,8 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
     * Service account: `ajev56jp96ji********`.
     * Network: `mtr-network`.
     * Subnet: `mtr-subnet`. The subnet availability zone is `ru-central1-a`; the range is `10.1.0.0/16`.
-    * Coordinator with computing resource class `c4-m16`.
-    * Four workers with computing resource class `c4-m16`.
+    * Coordinator with [computing resource class](../concepts/instance-types.md) `c4-m16`.
+    * Four workers with [computing resource class](../concepts/instance-types.md) `c4-m16`.
     * Cluster protection from accidental deletion.
 
     The configuration file for this cluster is as follows:

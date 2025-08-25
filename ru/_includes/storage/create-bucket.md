@@ -58,7 +58,7 @@
 
   {% include [aws-cli-install](../../_includes/aws-cli-install.md) %}
 
-  Чтобы создать бакет, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту, через который работает AWS CLI, [роль](../../storage/security/#storage-editor) `storage.editor`.
+  Чтобы создать бакет, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту, через который работает AWS CLI, [роль](../../storage/security/index.md#storage-editor) `storage.editor`.
 
   В терминале выполните команду:
 

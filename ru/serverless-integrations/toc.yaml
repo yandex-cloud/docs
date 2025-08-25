@@ -253,6 +253,8 @@ items:
         href: operations/operation-logs.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: >-
           Автоматическая загрузка данных в {{ speechsense-full-name }} с помощью
           {{ sw-name }}
@@ -261,6 +263,12 @@ items:
           Настройка интеграций {{ sw-name }} с {{ tracker-full-name }}, {{
           foundation-models-full-name }} и {{ postbox-full-name }}
         href: tutorials/tracker-yandexgpt-postbox-integrations.md
+      - name: Разработка Telegram-бота с поддержкой AI-агента
+        href: tutorials/telegram-ai-bot-workflows.md
+      - name: >-
+          ИИ-ревью пул-реквестов на GitHub с помощью {{ sw-name }} и GitHub
+          Actions
+        href: tutorials/ai-powered-github-pr-review.md
   - name: Концепции
     items:
       - name: Обзор

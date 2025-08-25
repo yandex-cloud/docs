@@ -10,7 +10,7 @@
 
 ## Подключение библиотек для расширений {#libraries-connection}
 
-Некоторые расширения требуют подключения библиотек общего пользования (shared libraries). Чтобы подключить библиотеку, при [создании](../cluster-create.md) или [изменении](../update.md#change-postgresql-config) кластера укажите ее имя в [параметре Shared preload libraries](../../concepts/settings-list#setting-shared-libraries).
+Некоторые расширения требуют подключения библиотек общего пользования (shared libraries). Чтобы подключить библиотеку, при [создании](../cluster-create.md) или [изменении](../update.md#change-postgresql-config) кластера укажите ее имя в [параметре Shared preload libraries](../../concepts/settings-list.md#setting-shared-libraries).
 
 {{ mpg-short-name }} поддерживает подключение библиотек:
 

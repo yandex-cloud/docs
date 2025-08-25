@@ -28,8 +28,8 @@ ExpirationConfig(ttl\_days: ‘int | None’ = None, expiration\_policy: ‘Expi
 #|
 || Parameters | 
 
-- **ttl\_days** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| *[*Undefined*](other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **expiration\_policy** ([*ExpirationPolicy*](#yandex_cloud_ml_sdk._types.expiration.ExpirationPolicy)* \| *[*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[**1**, **2**] **\| **~typing.Literal**[**'STATIC'**, **'SINCE\_LAST\_ACTIVE'**] **\| **~typing.Literal**[**'static'**, **'since\_last\_active'**] **\| **~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) ||
+- **ttl\_days** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **expiration\_policy** ([*ExpirationPolicy*](#yandex_cloud_ml_sdk._types.expiration.ExpirationPolicy) *\|* [*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[1, 2] \| ~typing.Literal['STATIC', 'SINCE\_LAST\_ACTIVE'] \| ~typing.Literal['static', 'since\_last\_active'] \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) ||
 || Return type | [*ExpirationConfig*](#yandex_cloud_ml_sdk._types.expiration.ExpirationConfig) ||
 |#
 
@@ -44,8 +44,8 @@ ExpirationConfig(ttl\_days: ‘int | None’ = None, expiration\_policy: ‘Expi
 #|
 || Parameters | 
 
-- **ttl\_days** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| **None*)
-- **expiration\_policy** ([*ExpirationPolicy*](#yandex_cloud_ml_sdk._types.expiration.ExpirationPolicy)* \| **None*) ||
+- **ttl\_days** ([*int*](https://docs.python.org/3/library/functions.html#int) *\| None*)
+- **expiration\_policy** ([*ExpirationPolicy*](#yandex_cloud_ml_sdk._types.expiration.ExpirationPolicy) *\| None*) ||
 || Return type | None ||
 |#
 

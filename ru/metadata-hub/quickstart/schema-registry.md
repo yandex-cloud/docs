@@ -71,6 +71,6 @@
 ## Что дальше {what-is-next}
 
 После создания пространства имен и регистрации схемы:
-1. [Подключитесь к пространству имен](../operations/connect-to-namespace).
+1. [Подключитесь к пространству имен](../operations/connect-to-namespace.md).
 1. [Добавляйте схемы в субъект](../operations/add-schema.md).
 1. [Сравнивайте версии схем](../operations/compare-schemas.md).

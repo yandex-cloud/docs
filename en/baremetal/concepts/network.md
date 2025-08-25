@@ -1,5 +1,5 @@
 ---
-title: Networking in {{ baremetal-full-name }}
+title: '{{ baremetal-full-name }} network'
 description: In this article, you will learn about public and private networks in {{ baremetal-full-name }}.
 ---
 
@@ -9,7 +9,7 @@ description: In this article, you will learn about public and private networks i
 
 ## Public network {#public-network}
 
-A network with internet access, to which all servers are physically connected. On [some](./network-restrictions.md#blocked-ports) TCP and UDP ports, network traffic between the private network and the internet is limited.
+A network with internet access to which all servers are physically connected. On [some](./network-restrictions.md#blocked-ports) TCP and UDP ports, network traffic between the private network and the internet is limited. Some {{ baremetal-name }} server [configurations](./server-configurations.md) support reserving [MC-LAG](./mc-lag.md) public network channels.
 
 When working with a public network and internet access, make sure to comply with the [terms of use](https://yandex.ru/legal/cloud_termsofuse/).
 
@@ -54,7 +54,7 @@ In {{ baremetal-full-name }}, dedicated public subnets are [billable](../pricing
 
 ## Private network {#private-network}
 
-A local network to which all servers are connected. Logically joins servers into isolated user networks.
+A local network to which all servers are connected. Logically joins servers into isolated user networks. Some {{ baremetal-name }} server [configurations](./server-configurations.md) support reserving [MC-LAG](./mc-lag.md) private network channels.
 
 ### Private subnet {#private-subnet}
 
@@ -96,4 +96,5 @@ You can [look up](../operations/servers/get-info.md) the MAC addresses of the {{
 
 #### See also {#see-also}
 
+* [{#T}](./mc-lag.md)
 * [{#T}](./network-restrictions.md)

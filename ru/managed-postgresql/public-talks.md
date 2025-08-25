@@ -5,6 +5,12 @@ description: Видеозаписи конференций и вебинаров
 
 # Публичные материалы о {{ mpg-full-name }}
 
+## Статьи {#articles}
+
+### 2025 год {#2025-articles}
+
+* Установка и настройка 1С:Предприятие: пошаговое руководство. [Статья](https://yandex.cloud/ru/blog/posts/2025/04/1c-install-configure).
+
 ## Конференции и вебинары {#conf-and-webinars}
 
 ### 2022: HighLoad++ {#highload-2022}

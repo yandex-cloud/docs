@@ -5,11 +5,13 @@ description: Follow this guide to get a list of operations in {{ data-catalog-fu
 
 # Getting a list of operations
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

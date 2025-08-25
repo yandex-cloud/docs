@@ -54,7 +54,7 @@ In this tutorial, you will create a basic app in {{ cloud-apps-name }} with a {{
         Pattern | `^[a-z][a-z0-9]*$` | The regular expression that the DB username must match.
         Pattern error | `Wrong name` | The error message the user sees if the database username does not match the specified pattern.
         Field header | `DB username` | The field name the user sees in the interface.
-        Field header (EN) | `DB username` | The field name the user sees in the interface.
+        Field header | `DB username` | The field name the user sees in the interface.
 
     * **Secret with DB user password**:<br>
 
@@ -65,7 +65,7 @@ In this tutorial, you will create a basic app in {{ cloud-apps-name }} with a {{
         Variable name | `pg_password_secret` | You can use the variable name when creating resources to access the value entered by the user.
         Required field | Selected | This field is required.
         Field header | `Secret with DB user password`: | The field name the user sees in the interface.
-        Field header (EN) | `Secret with DB user password` | The field name the user sees in the interface.
+        Field header | `Secret with DB user password` | The field name the user sees in the interface.
 
     * **Cloud network**:<br>
 
@@ -76,7 +76,7 @@ In this tutorial, you will create a basic app in {{ cloud-apps-name }} with a {{
         Variable name | `vpc_network` | You can use the variable name when creating resources to access the value entered by the user.
         Required field | Selected | This field is required.
         Field header | `Cloud network` | The field name the user sees in the interface.
-        Field header (EN) | `Cloud network` | The field name the user sees in the interface.
+        Field header | `Cloud network` | The field name the user sees in the interface.
 
     * **Subnet 1**:<br>
 
@@ -87,7 +87,7 @@ In this tutorial, you will create a basic app in {{ cloud-apps-name }} with a {{
         Variable name | `vpc_subnet_0` | You can use the variable name when creating resources to access the value entered by the user.
         Required field | Selected | This field is required.
         Field header | `Subnet 1` | The field name the user sees in the interface.
-        Field header (EN) | `Subnet 1` | The field name the user sees in the interface.
+        Field header | `Subnet 1` | The field name the user sees in the interface.
 
     * **Subnet 2**:<br>
 
@@ -98,7 +98,7 @@ In this tutorial, you will create a basic app in {{ cloud-apps-name }} with a {{
         Variable name | `vpc_subnet_1` | You can use the variable name when creating resources to access the value entered by the user.
         Required field | Selected | This field is required.
         Field header | `Subnet 2` | The field name the user sees in the interface.
-        Field header (EN) | `Subnet 2` | The field name the user sees in the interface.
+        Field header | `Subnet 2` | The field name the user sees in the interface.
 
 ### Add resources {#resources}
 

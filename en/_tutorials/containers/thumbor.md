@@ -21,10 +21,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* Fee for a {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Fee for an {{ objstorage-name }} bucket: storing data and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * Fee for {{ cdn-name }}: Outbound traffic (see [{{ objstorage-name }} pricing](../../cdn/pricing.md)).
 
 
@@ -50,7 +50,7 @@ The support cost includes:
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared earlier.
+   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating it, specify the preconfigured security groups.
    1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}.
    1. [Grant the `thumbor-sa` service account](../../storage/operations/objects/edit-acl.md) the `READ` permission for the bucket.
 
@@ -117,7 +117,7 @@ The support cost includes:
 
 {% include [certificate-usage](../../_includes/cdn/certificate-usage.md) %}
 
-For a Let's Encrypt® certificate, have your [rights checked](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
+For a Let's Encrypt® certificate, pass an [ownership check](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
 
 
 ## Install Thumbor {#install}
@@ -191,36 +191,6 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 
 ## Configure the CDN {#cdn}
 
-1. Activate a CDN provider for your folder:
-
-   ```bash
-   yc cdn provider activate --type=gcore --folder-id=<folder_ID>
-   ```
-
-1. Get the CDN provider's domain name:
-
-   ```bash
-   yc cdn resource get-provider-cname
-   ```
-
-   Result example:
-
-   ```text
-   cname: {{ cname-example }}
-   folder_id: {{ folder-id-example }}
-   ```
-
-   The domain name is specified in the `cname` parameter.
-
-1. Configure a CNAME record for your domain:
-
-   1. Navigate to your domain’s DNS settings on your DNS hosting provider’s website.
-   1. Prepare a CNAME record so that it points to the address on the `.edgecdn.ru` domain you copied earlier. For example, if the website domain name is `{{ domain-name-example }}`, create a CNAME record or replace an existing one for `cdn`:
-
-      ```http
-      cdn CNAME {{ cname-example }}.
-      ```
-
 1. Get Thumbor's external IP address:
 
    ```bash
@@ -266,7 +236,7 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 
    Resource domain name example: `{{ domain-name-example }}`
 
-   Result example:
+   Sample result:
 
    ```text
    id: bc855oumelrq********
@@ -300,7 +270,18 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
      status: CREATING
    ```
 
-   It takes 15 to 30 minutes to connect a CDN resource.
+   It takes 15 to 30 minutes to connect a CDN resource.
+
+1. On the CDN resource page in the [management console]({{ link-console-main }}), get the CDN provider's domain name, e.g., `{{ cname-example-yc }}`.
+
+1. Configure a CNAME record for your domain:
+
+   1. Navigate to your domain’s DNS settings on your DNS hosting provider’s website.
+   1. Prepare a CNAME record so that it points to the address on the `.yccdn.cloud.yandex.net` or `.edgecdn.ru` domain (depending on the employed [CDN provider](../../cdn/concepts/providers.md)) you copied earlier. For example, if the website domain name is `{{ domain-name-example }}`, create a CNAME record or replace an existing one for `cdn`:
+
+      ```http
+      cdn CNAME {{ cname-example-yc }}.
+      ```
 
 ## Check the result {#check-result}
 

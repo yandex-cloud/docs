@@ -32,6 +32,7 @@ description: In this tutorial, you will learn about the Amazon API methods you c
 || [CreateConfigurationSet](create-configuration-set.md) | Creates a configuration. ||
 || [PutDomainIdentityConfigurationSetAttributes](put-domain-identity-configuration-set-attributes.md) | Links an address and configuration. ||
 || [DeleteConfigurationSet](delete-configuration-set.md) | Deletes a configuration. ||
+|| [PutConfigurationSetDeliveryOptions](put-configuration-set-delivery-options.md) | Manages delivery settings. ||
 |#
 
 ## Subscriptions {#event-destinations}

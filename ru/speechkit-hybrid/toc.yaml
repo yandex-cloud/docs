@@ -39,10 +39,10 @@ items:
         href: operations/logging.md
       - name: Терминирование TLS
         href: operations/tls-proxy.md
+  - name: Аутентификация в API
+    href: auth.md
   - name: Справочник API gRPC (англ.)
     items:
-      - name: Аутентификация в API
-        href: auth.md
       - name: Синтез речи
         items:
           - name: Overview

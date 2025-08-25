@@ -17,10 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/connectionmanager/v1/api-ref/Operation/get.md
+sourcePath: en/_api-ref/metastore/v1/api-ref/Operation/get.md
 ---
 
-# Connection Manager API, REST: Operation.Get
+# Managed Service for Hive Metastore™ API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

@@ -14,7 +14,7 @@
 * [Web Application Firewall](#waf-rules).
 * [Advanced Rate Limiter](#arl-rules).
 
-Подробнее см. [Управление правилами](../operations/#rules).
+Подробнее см. [Управление правилами](../operations/index.md#rules).
 
 ## Базовые правила {#base-rules}
 

@@ -20,9 +20,9 @@ sourcePath: en/_sdk-ref/sdk-ref/sync/datasets.md
 #|
 || Parameters | 
 
-- **status** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)* \| *[*DatasetStatus*](../types/datasets.md#yandex_cloud_ml_sdk._datasets.status.DatasetStatus)* \| *[*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*DatasetStatus*](../types/datasets.md#yandex_cloud_ml_sdk._datasets.status.DatasetStatus)*]*)
-- **name\_pattern** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **task\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)* \| *[*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*)
+- **status** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\|* [*DatasetStatus*](../types/datasets.md#yandex_cloud_ml_sdk._datasets.status.DatasetStatus) *\|* [*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*DatasetStatus*](../types/datasets.md#yandex_cloud_ml_sdk._datasets.status.DatasetStatus)*]*)
+- **name\_pattern** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **task\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\|* [*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*)
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
 || Return type | [*Iterator*](https://docs.python.org/3/library/typing.html#typing.Iterator)[[*Dataset*](#yandex_cloud_ml_sdk._datasets.dataset.Dataset)] ||
 |#
@@ -54,14 +54,14 @@ sourcePath: en/_sdk-ref/sdk-ref/sync/datasets.md
 #|
 || Parameters | 
 
-- **path** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*PathLike*](https://docs.python.org/3/library/os.html#os.PathLike))
-- **task\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **upload\_format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **metadata** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, *[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] **\| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **allow\_data\_logging** ([*bool*](https://docs.python.org/3/library/functions.html#bool)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) ||
+- **path** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*PathLike*](https://docs.python.org/3/library/os.html#os.PathLike))
+- **task\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **upload\_format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **metadata** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **allow\_data\_logging** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) ||
 || Return type | [*DatasetDraftT*](../types/other.md#yandex_cloud_ml_sdk._datasets.draft.DatasetDraftT) ||
 |#
 
@@ -82,9 +82,9 @@ sourcePath: en/_sdk-ref/sdk-ref/sync/datasets.md
 #|
 || Parameters | 
 
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, *[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] **\| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
@@ -108,7 +108,7 @@ sourcePath: en/_sdk-ref/sdk-ref/sync/datasets.md
 #|
 || Parameters | 
 
-- **download\_path** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*PathLike*](https://docs.python.org/3/library/os.html#os.PathLike))
+- **download\_path** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*PathLike*](https://docs.python.org/3/library/os.html#os.PathLike))
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float))
 - **exist\_ok** ([*bool*](https://docs.python.org/3/library/functions.html#bool)) ||
 || Return type | [tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[*Path*](https://docs.python.org/3/library/pathlib.html#pathlib.Path), …] ||
@@ -130,7 +130,7 @@ This method creates temporary files in the system’s default temporary director
 || Parameters | 
 
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – Maximum time in seconds for both gRPC and HTTP operations. Includes connection establishment, data transfer, and processing time. Defaults to 60 seconds.
-- **batch\_size** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Number of records to load to memory in one chunk. When UNDEFINED (default), uses backend’s optimal chunk size (typically corresponds to distinct Parquet files storage layout). ||
+- **batch\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Number of records to load to memory in one chunk. When UNDEFINED (default), uses backend’s optimal chunk size (typically corresponds to distinct Parquet files storage layout). ||
 || Yields | Dictionary representing single record with field-value pairs ||
 || Return type | [*Iterator*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterator)[[dict](https://docs.python.org/3/library/stdtypes.html#dict)[[*Any*](https://docs.python.org/3/library/typing.html#typing.Any), [*Any*](https://docs.python.org/3/library/typing.html#typing.Any)]] ||
 |#
@@ -176,7 +176,7 @@ This method creates temporary files in the system’s default temporary director
 - **upload\_timeout** ([*float*](https://docs.python.org/3/library/functions.html#float))
 - **raise\_on\_validation\_failure** ([*bool*](https://docs.python.org/3/library/functions.html#bool))
 - **chunk\_size** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **parallelism** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| **None*) ||
+- **parallelism** ([*int*](https://docs.python.org/3/library/functions.html#int) *\| None*) ||
 || Return type | [*Operation*](../types/operation.md#yandex_cloud_ml_sdk._types.operation.Operation)[[*Dataset*](#yandex_cloud_ml_sdk._datasets.dataset.Dataset)] ||
 |#
 
@@ -191,7 +191,7 @@ This method creates temporary files in the system’s default temporary director
 - **poll\_timeout** ([*int*](https://docs.python.org/3/library/functions.html#int))
 - **poll\_interval** ([*float*](https://docs.python.org/3/library/functions.html#float))
 - **chunk\_size** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **parallelism** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| **None*) ||
+- **parallelism** ([*int*](https://docs.python.org/3/library/functions.html#int) *\| None*) ||
 |#
 
 **allow\_data\_logging**\: *[bool](https://docs.python.org/3/library/functions.html#bool) | [None](https://docs.python.org/3/library/constants.html#None)* = *None*{#yandex_cloud_ml_sdk._datasets.draft.DatasetDraft.allow_data_logging}

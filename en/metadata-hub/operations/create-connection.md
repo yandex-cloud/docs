@@ -6,7 +6,9 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
 # Creating a connection
 
 
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
 
 
 You can create connections of the following types:
@@ -192,7 +194,7 @@ You can create connections of the following types:
 
           When creating a connection to a custom database installation intended for [{{ datalens-full-name }}](../../datalens/concepts/index.md), specify the host's external address.
 
-      1. (Optional) Enable TLS.
+      1. Optionally, enable TLS.
           If your company has a certification authority (CA), the certificate issued by that CA will be used by default. If the company has no CA, upload the server's TLS certificate.
           
   1. Under **Authentication**:
@@ -224,7 +226,7 @@ You can create connections of the following types:
 
             When creating a connection to a custom database installation intended for [{{ datalens-full-name }}](../../datalens/concepts/index.md), specify the the hosts’ external IP addresses.
 
-        1. (Optional) Enable TLS.
+        1. Optionally, enable TLS.
             If your company has a certification authority (CA), the certificate issued by that CA will be used by default. If the company has no CA, upload the server's TLS certificate.
     1. Under **Authentication**:
         1. Specify the **Username** you will use to connect to the database.
@@ -255,7 +257,7 @@ You can create connections of the following types:
 
            When creating a connection to a custom database installation intended for [{{ datalens-full-name }}](../../datalens/concepts/index.md), specify the host's external address.
 
-       1. (Optional) Enable TLS.
+       1. Optionally, enable TLS.
            If your company has a certification authority (CA), the certificate issued by that CA will be used by default. If the company has no CA, upload the server's TLS certificate.
            
    1. Under **Authentication**:
@@ -283,8 +285,8 @@ You can create connections of the following types:
     1. From the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **{{ RD }}**.
     1. Under **Connection to {{ RD }}**, specify the connection parameters:
        1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
-       1. In the **Hosts** field, specify the [FQDNs](../../managed-redis/operations/connect/index#fqdn) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the shard name.
-       1. (Optional) Enable TLS.
+       1. In the **Hosts** field, specify the [FQDNs](../../managed-redis/operations/connect/index.md#fqdn) or IP addresses of the hosts in the shard, HTTP or TCP port for connection, and the shard name.
+       1. Optionally, enable TLS.
     1. Under **Authentication**, specify a username and select how you want to set the password: 
         * **Enter manually**: Enter the password manually.
         * **Generate**: Specify the options to generate a [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password automatically.
@@ -312,7 +314,7 @@ You can create connections of the following types:
 
            When creating a connection to a custom database installation intended for [{{ datalens-full-name }}](../../datalens/concepts/index.md), specify the the hosts’ external IP addresses.
 
-       1. (Optional) Enable TLS.
+       1. Optionally, enable TLS.
     1. Under **Authentication**, specify a username and select how you want to set the password: 
         * **Enter manually**: Enter the password manually.
         * **Generate**: Specify the options to generate a [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password automatically.
@@ -336,7 +338,7 @@ You can create connections of the following types:
   1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
   1. Under **Connection to {{ TR }}**, specify the connection parameters:
       1. In the **Coordinator** field, specify the [coordinator](https://trino.io/docs/current/overview/concepts.html#coordinator) host address and port number for the connection. 
-      1. (Optional) Enable TLS.
+      1. Optionally, enable TLS.
           If your company has a certification authority (CA), the certificate issued by that CA will be used by default. If the company has no CA, upload the server's TLS certificate.
   1. Under **Authentication**:
       1. Specify the **Username** you will use to connect to the database.
@@ -363,7 +365,7 @@ You can create connections of the following types:
    1. Under **Connection to {{ OS }}**, specify the connection parameters:
        1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
        1. In the **Hosts** field, specify the database host address and port number for the connection.
-       1. (Optional) Enable TLS.
+       1. Optionally, enable TLS.
            If your company has a certification authority (CA), the certificate issued by that CA will be used by default. If the company has no CA, upload the server's TLS certificate.
    1. Under **Authentication**:
        1. Specify the **Username** you will use to connect to the database.
@@ -391,7 +393,7 @@ You can create connections of the following types:
    1. Under **Connection to {{ MG }}**, specify the connection parameters:
        1. In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** field, select **Custom installation**.
        1. In the **Hosts** field, specify the database host address and port number for the connection.
-       1. (Optional) Enable TLS. 
+       1. Optionally, enable TLS. 
            If your company has a certification authority (CA), the certificate issued by that CA will be used by default. If the company has no CA, upload the server's TLS certificate.
    1. Under **Authentication**:
        1. Specify the **Username** you will use to connect to the database.

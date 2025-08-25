@@ -5,7 +5,11 @@ description: Follow this guide to compare two schemas from different versions of
 
 # Comparing schemas in a subject
 
+
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
+
 
 {% list tabs group=instructions %}
 

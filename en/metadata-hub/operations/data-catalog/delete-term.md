@@ -1,10 +1,12 @@
 # Deleting a term
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 Before you delete a term, [delete](delete-term-child.md) all its child terms.
 

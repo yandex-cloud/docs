@@ -1,10 +1,10 @@
 # Getting started as a metadata steward
 
-{% note info %}
 
-{% include [preview-tp](../../_includes/preview-tp.md) %}
 
-{% endnote %}
+{% include notitle [preview](../../_includes/note-preview.md) %}
+
+
 
 When using {{ data-catalog-full-name }} as a metadata steward, you can collect and organize metadata on {{ yandex-cloud }} objects and links between them.
 

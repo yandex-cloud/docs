@@ -41,7 +41,7 @@ Executes the image generation operation asynchronously and returns an operation 
 #|
 || Parameters | 
 
-- **messages** ([*ImageMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessage)* \| *[*ImageMessageDict*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageDict)* \| *[*AnyMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage)* \| *[*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*ImageMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessage)* \| *[*ImageMessageDict*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageDict)* \| *[*AnyMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage)* \| *[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – the input messages for image generation.
+- **messages** ([*ImageMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessage) *\|* [*ImageMessageDict*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageDict) *\|* [*AnyMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*ImageMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessage) *\|* [*ImageMessageDict*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.ImageMessageDict) *\|* [*AnyMessage*](../../types/message.md#yandex_cloud_ml_sdk._models.image_generation.message.AnyMessage) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – the input messages for image generation.
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – the timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
 || Return type | [*Operation*](../../types/operation.md#yandex_cloud_ml_sdk._types.operation.Operation)[[*ImageGenerationModelResult*](../../types/model_results.md#yandex_cloud_ml_sdk._models.image_generation.result.ImageGenerationModelResult)] ||
 |#
@@ -67,10 +67,10 @@ Configures the image generation model with specified parameters and returns the 
 #|
 || Parameters | 
 
-- **seed** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| *[*Undefined*](../../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – a random seed for generation.
-- **width\_ratio** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| *[*Undefined*](../../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the width ratio for the generated image.
-- **height\_ratio** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| *[*Undefined*](../../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the height ratio for the generated image.
-- **mime\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the MIME type of the generated image. Read more on what MIME types exist in [the documentation](https://yandex.cloud/docs/foundation-models/image-generation/api-ref/ImageGenerationAsync/generate). ||
+- **seed** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – a random seed for generation.
+- **width\_ratio** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the width ratio for the generated image.
+- **height\_ratio** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the height ratio for the generated image.
+- **mime\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the MIME type of the generated image. Read more on what MIME types exist in [the documentation](https://yandex.cloud/docs/foundation-models/image-generation/api-ref/ImageGenerationAsync/generate). ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 

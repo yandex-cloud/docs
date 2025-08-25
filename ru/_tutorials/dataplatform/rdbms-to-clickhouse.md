@@ -2,8 +2,7 @@
 
 Вы можете перенести базу данных из {{ PG }} в {{ CH }} с помощью сервиса {{ data-transfer-full-name }}. Для этого:
 
-1. [Подготовьте трансфер](#prepare-transfer).
-1. [Активируйте трансфер](#activate-transfer).
+1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работу репликации](#example-check-replication).
 1. [Выполните выборку данных в приемнике](#working-with-data-ch).
 
@@ -85,7 +84,7 @@
 
 {% endlist %}
 
-## Подготовьте трансфер {#prepare-transfer}
+## Подготовьте и активируйте трансфер {#prepare-transfer}
 
 1. [Подключитесь к кластеру {{ mpg-name }}](../../managed-postgresql/operations/connect.md).
 1. Создайте в базе данных `db1` таблицу `x_tab` и заполните ее данными:
@@ -128,7 +127,7 @@
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}** — `<пароль_пользователя>`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.cleanup_policy.title }}** — `DROP`.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа [**{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}**](../../data-transfer/concepts/index.md#transfer-type), использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа [**{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}**](../../data-transfer/concepts/index.md#transfer-type), использующий созданные эндпоинты, и [активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
     - {{ TF }} {#tf}
 
@@ -146,11 +145,15 @@
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+        {% include [terraform-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+        Трансфер активируется автоматически после создания.
+
     {% endlist %}
 
-## Активируйте трансфер {#activate-transfer}
+## Проверьте работу репликации {#example-check-replication}
 
-1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. Чтобы проверить, что трансфер перенес данные с учетом репликации в приемнике, подключитесь к кластеру-приемнику {{ mch-full-name }} и посмотрите, что таблица `x_tab` в базе `db1` содержит те же колонки, что таблица `x_tab` в базе-источнике, а также [колонки с временными метками](#working-with-data-ch) `__data_transfer_commit_time` и `__data_transfer_delete_time`:
 
    ```sql
@@ -162,8 +165,6 @@
    │ 41 │  User2 │   1633417594957267000          │ 0                             │
    └────┴────────┴────────────────────────────────┴───────────────────────────────┘
    ```
-
-## Проверьте работу репликации {#example-check-replication}
 
 1. Подключитесь к кластеру-источнику.
 1. Удалите строку с идентификатором `41` и измените строку с идентификатором `42` в таблице `x_tab` базы-источника {{ PG }}:
