@@ -109,8 +109,6 @@ items:
             href: tts/brand-voice/index.md
           - name: Data for {{ brand-voice-lite-name }}
             href: tts/brand-voice/bv-lite.md
-          - name: Data for {{ brand-voice-core }}
-            href: tts/brand-voice/bv-full-data-upload.md
           - name: Data for {{ brand-voice-cc-name }}
             href: tts/templates.md
           - name: Tips for recording roles

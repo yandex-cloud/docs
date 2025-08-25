@@ -1,12 +1,13 @@
 # Automating operations with {{ msp-full-name }} using {{ maf-full-name }}
 
+
 With {{ maf-full-name }}, you can create a [directed acyclic task graph (DAG)](../../../managed-airflow/concepts/index.md) to automate your operations with [{{ msp-full-name }}](../../../managed-spark/index.yaml). Below is an example of a DAG that includes multiple tasks:
 
 1. Create a {{ SPRK }} cluster.
 1. Run a PySpark job.
-1. Delete a {{ SPRK }} cluster.
+1. Delete the {{ SPRK }} cluster.
 
-With a DAG like this, a cluster's lifetime is short. In a cluster, you can engage higher capacity resources and process more data quickly.
+With a DAG like this, a cluster is short-lived. In a cluster, you can engage higher capacity resources and process more data quickly.
 
 In this DAG, an {{ SPRK }} cluster is created. We use a [{{ metastore-full-name }} cluster](../../../metadata-hub/concepts/metastore.md) to store tabular metadata in the example below. The saved metadata can then be used by another {{ SPRK }} cluster.
 
@@ -33,7 +34,7 @@ The support cost includes:
 
 The example below illustrates two scenarios. Select the one you find most relevant:
 
-* **High security level**. This is a recommended scenario because it follows the [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access). The scenario entails the following:
+* **High security level**. This is a recommended scenario because it follows the [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access). This scenario entails the following:
 
    * Splitting access permissions across different service accounts. You have to create a separate service account for each cluster and assign it only those roles required for this account's cluster to function.
    * Using multiple buckets for different tasks and storing different data in separate buckets. For example, a DAG is loaded into one bucket, while the results of the PySpark job are written into another bucket.
@@ -49,7 +50,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
 * High security level
 
-  Set up the infrastructure:
+  Set up your infrastructure:
 
   1. [Create service accounts](../../../iam/operations/sa/create.md) with the following roles:
 
@@ -63,7 +64,7 @@ The example below illustrates two scenarios. Select the one you find most releva
      * [logging.editor](../../../iam/roles-reference.md#logging-editor): To work with log groups.
      * [logging.reader](../../../iam/roles-reference.md#logging-reader): To read logs.
      * [mdb.viewer](../../../iam/roles-reference.md#mdb-viewer): To get operation statuses.
-     * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer): To view information about {{ metastore-full-name }} clusters. ||
+     * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer): To view information about Hive Metastore clusters. ||
      || `metastore-agent` for a {{ metastore-name }} cluster |
      * [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider): To enable the {{ metastore-name }} cluster to [interact with other resources](../../../metadata-hub/concepts/metastore-impersonation.md). ||
      || `spark-agent` for a {{ SPRK }} cluster |
@@ -103,22 +104,22 @@ The example below illustrates two scenarios. Select the one you find most releva
         * Protocol: `Any`
         * Source: `Load balancer health checks`
 
-  1. For the {{ AF }} cluster, create a security group named `airflow-sg` in the `datalake-network` network. Add the following rule to the group:
+  1. For the {{ AF }} cluster, create a security group named `airflow-sg` in `datalake-network`. Add the following rule to the group:
 
      * For outgoing HTTPS traffic:
 
         * Port range: `{{ port-https }}`
         * Protocol: `TCP`
-        * Destination type: `CIDR`
+        * Destination: `CIDR`
         * CIDR blocks: `0.0.0.0/0`
 
-  1. For the {{ SPRK }} cluster, create a security group named `spark-sg` in the `datalake-network` network. Add the following rule to the group:
+  1. For the {{ SPRK }} cluster, create a security group named `spark-sg` in `datalake-network`. Add the following rule to the group:
 
      * For outgoing traffic, to allow {{ SPRK }} cluster connections to {{ metastore-name }}:
 
         * Port range: `{{ port-metastore }}`
         * Protocol: `Any`
-        * Destination type: `CIDR`
+        * Destination: `CIDR`
         * CIDR blocks: `0.0.0.0/0`
 
   1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
@@ -145,7 +146,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
 * Simplified setup
 
-  Set up the infrastructure:
+  Set up your infrastructure:
 
   1. [Create a service account](../../../iam/operations/sa/create.md) named `integration-agent` with the following roles:
 
@@ -164,7 +165,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
   1. [Create a cloud network](../../../vpc/operations/network-create.md) named `datalake-network`.
 
-      This automatically creates three subnets in different availability zones and a security group.
+      This will automatically create three subnets in different availability zones and a security group.
 
   1. [Create a {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-create.md) with the following parameters:
 
@@ -174,9 +175,9 @@ The example below illustrates two scenarios. Select the one you find most releva
      * **Security group**: Default group in `datalake-network`
 
      {% note info %}
-
+   
      Wait for the operation to complete.
-
+   
      {% endnote %}
 
   1. [Create a {{ maf-name }} cluster](../../../managed-airflow/operations/cluster-create.md) with the following parameters:
@@ -198,7 +199,7 @@ For a PySpark job, we will use a Python script that creates a table and is store
 
 * High security level
 
-  1. Create a local file named `job_with_table.py` and copy the following script to it:
+  1. Create a local file named `job_with_table.py` and paste the following script to it:
 
      {% cut "job_with_table.py" %}
 
@@ -206,11 +207,11 @@ For a PySpark job, we will use a Python script that creates a table and is store
 
      { % endcut %}
 
-  1. In `<bucket_for_PySpark_job_source_code>`, create a `scripts` folder and [upload](../../../storage/operations/objects/upload.md#simple) the `job_with_table.py` file to it.
+  1. In `<bucket_for_PySpark_job_source_code>`, create a folder named `scripts` and [upload](../../../storage/operations/objects/upload.md#simple) the `job_with_table.py` file to it.
 
 * Simplified setup
 
-  1. Create a local file named `job_with_table.py` and copy the following script to it:
+  1. Create a local file named `job_with_table.py` and paste the following script to it:
 
      {% cut "job_with_table.py" %}
 
@@ -218,7 +219,7 @@ For a PySpark job, we will use a Python script that creates a table and is store
 
      { % endcut %}
 
-  1. In `<bucket_for_jobs_and_data>`, create a `scripts` folder and [upload](../../../storage/operations/objects/upload.md#simple) the `job_with_table.py` file to it.
+  1. In `<bucket_for_jobs_and_data>`, create a folder named `scripts` and [upload](../../../storage/operations/objects/upload.md#simple) the `job_with_table.py` file to it.
 
 {% endlist %}
 
@@ -228,7 +229,7 @@ A DAG will have multiple vertices that form a sequence of consecutive actions:
 
 1. {{ maf-full-name }} creates a temporary {{ SPRK }} cluster with settings specified in the DAG. This cluster automatically connects to the previously created {{ metastore-name }} cluster.
 1. When the {{ SPRK }} cluster is ready, a PySpark job is run.
-1. Once the job is executed, the temporary {{ SPRK }} cluster is deleted.
+1. Once the job is complete, the temporary {{ SPRK }} cluster is deleted.
 
 To prepare a DAG:
 
@@ -236,7 +237,7 @@ To prepare a DAG:
 
 * High security level
 
-  1. Create a local file named `dag.py`, copy the following script to it and insert your infrastructure data in variables:
+  1. Create a local file named `dag.py`, paste the following script to it and substitute the variables with your infrastructure data:
 
      {% cut "dag.py" %}
 
@@ -351,9 +352,9 @@ To prepare a DAG:
      * `SUBNET_IDS`: Subnet ID.
 
         {% note info %}
-
+      
         {{ SPRK }} must have the same subnet as {{ metastore-name }}.
-
+      
         {% endnote %}
 
      * `SECURITY_GROUP_IDS`: ID of the security group for the {{ SPRK }} cluster.
@@ -375,7 +376,7 @@ To prepare a DAG:
 
 * Simplified setup
 
-  1. Create a local file named `dag.py`, copy the following script to it and insert your infrastructure data in variables:
+  1. Create a local file named `dag.py`, paste the following script to it and substitute the variables with your infrastructure data:
 
      {% cut "dag.py" %}
 
@@ -490,9 +491,9 @@ To prepare a DAG:
      * `SUBNET_IDS`: Subnet ID.
 
         {% note info %}
-
+      
         {{ SPRK }} must have the same subnet as {{ metastore-name }}.
-
+      
         {% endnote %}
 
      * `SECURITY_GROUP_IDS`: ID of the security group for the {{ SPRK }} cluster.

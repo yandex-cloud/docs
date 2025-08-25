@@ -5,7 +5,11 @@ description: Follow this guide to delete a subject.
 
 # Deleting a subject
 
+
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
+
 
 {% note warning %}
 

@@ -5,7 +5,11 @@ description: Follow this guide to add a schema to a subject.
 
 # Adding a schema to an existing subject
 
+
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
+
 
 You can upload a schema to an existing subject from the [subject page](#from-subject-page) or the [schema list page](#from-schema-list).
 

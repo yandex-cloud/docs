@@ -41,6 +41,22 @@ description: Видеозаписи конференций и вебинаров
 
 ### 2025 год {#2025-articles}
 
+* Как писать промты для нейросетей: инструкция, примеры и советы. [Статья](https://yandex.cloud/ru/blog/gpt-prompting-guide).
+
+* Нейросети Яндекса помогли врачам ускорить разработку новых методов лечения. [Статья](https://yandex.cloud/ru/blog/local-ethics-committee).
+
+* RAG: учим искусственный интеллект работать с новыми данными. [Статья](https://yandex.cloud/ru/blog/posts/2025/05/retrieval-augmented-generation-basics).
+
+* HR‑Tech: как нейросети и облачные технологии помогают справляться с наймом и удержанием сотрудников. [Статья](https://yandex.cloud/ru/blog/posts/2025/05/hr-tech).
+
+* Как технологии трансформируют строительную сферу. [Статья](https://yandex.cloud/ru/blog/posts/2025/04/technologies-in-construction).
+
+* Как ИИ помогает в поддержке клиентов: кейсы банков, ритейла и IT‑компаний. [Статья](https://yandex.cloud/ru/blog/posts/2025/04/ai-and-support).
+
+* Нейросети для текста: применение в бизнесе. [Статья](https://yandex.cloud/ru/blog/posts/2025/03/ai-for-texts).
+
+* Fine‑tuning языковых моделей: как адаптировать ИИ для решения специализированных задач. [Статья](https://yandex.cloud/ru/blog/posts/2025/03/fine-tuning).
+
 * Встречаем {{ yagpt-name }} 5 — в Алисе, облаке и опенсорсе. [Статья](https://habr.com/ru/companies/yandex/articles/885218/).
 
 ### 2024 год {#2024-articles}

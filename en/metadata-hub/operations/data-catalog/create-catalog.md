@@ -5,11 +5,13 @@ description: Follow this guide to create a metadata catalog in {{ data-catalog-f
 
 # Creating a metadata catalog
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

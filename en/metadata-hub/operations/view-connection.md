@@ -6,7 +6,9 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
 # Viewing connection information
 
 
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
 
 
 To view created connections:

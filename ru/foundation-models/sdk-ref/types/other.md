@@ -487,7 +487,7 @@ yandex\_cloud\_ml\_sdk.\_types.schemas.**make\_response\_format\_kwargs**(*respo
 Here we are transforming 1) http\_schema <- schema\_from\_response\_format(response\_format) 2) grpc\_schema <- http\_schema
 
 #|
-|| Parameters | **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[**'json'**] **\| **~yandex\_cloud\_ml\_sdk.\_types.schemas.JsonSchemaResponseType** \| **type** \| **None*) ||
+|| Parameters | **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['json'] \| ~yandex\_cloud\_ml\_sdk.\_types.schemas.JsonSchemaResponseType \| type \| None*) ||
 || Return type | [*JsonObjectProtoFormat*](#yandex_cloud_ml_sdk._types.schemas.JsonObjectProtoFormat) \| [*JsonSchemaProtoFormat*](#yandex_cloud_ml_sdk._types.schemas.JsonSchemaProtoFormat) \| [*EmptyProtoFormat*](#yandex_cloud_ml_sdk._types.schemas.EmptyProtoFormat) ||
 |#
 

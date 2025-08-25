@@ -212,7 +212,7 @@
 
     {% endlist %}
 
-1. Откройте созданную функцию в консоли управления и выберите **{{ ui-key.yacloud.serverless-functions.switch_list }}** на панели слева.
+1. Откройте созданную функцию в консоли управления и выберите **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** на панели слева.
 1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** и дождитесь выполнения функции.
 
 В бакете появится файл в формате Parquet.
@@ -221,10 +221,9 @@
 
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Object Storage`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Yandex Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}** — открытая часть статического ключа сервисного аккаунта. Можно [скопировать из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}** — закрытая часть статического ключа сервисного аккаунта. Можно [скопировать из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.service_account_id.title }}** – выберите из списка [созданный ранее](#before-you-begin) сервисный аккаунт.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://{{ s3-storage-host }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `{{ region-id }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.parquet.title }}`.

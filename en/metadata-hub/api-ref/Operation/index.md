@@ -1,9 +1,9 @@
 ---
 editable: false
-sourcePath: en/_api-ref/connectionmanager/v1/api-ref/Operation/index.md
+sourcePath: en/_api-ref/metastore/v1/api-ref/Operation/index.md
 ---
 
-# Connection Manager API, REST: Operation
+# Managed Service for Hive Metastore™ API, REST: Operation
 
 A set of methods for managing operations for asynchronous API requests.
 

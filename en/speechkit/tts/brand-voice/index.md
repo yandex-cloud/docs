@@ -1,29 +1,21 @@
 ---
 title: '{{ brand-voice-full-name }}'
-description: 'In this article, you will learn about the {{ brand-voice-name }} technology and its four branches: {{ brand-voice-premium }}, {{ brand-voice-lite-name }}, {{ brand-voice-core }}, and {{ brand-voice-cc }}.'
+description: In this article, you will learn about the {{ brand-voice-name }} technology and the options available for creating a unique voice for your business.
 ---
 
 # {{ brand-voice-full-name }}
 
 The {{ brand-voice-name }} technology allows you to create unique voices for your speech synthesis model. It can synthesize both plain text and [pattern-based text](../templates.md). Patterns contain phrases with _variables_ that are replaced with prepared text. To cover different practical uses of trained models, {{ yandex-cloud }} offers four branches of {{ brand-voice-name }}.
 
-| | [{{ brand-voice-premium }}](#premium) | [{{ brand-voice-lite-name }}](#lite) | [{{ brand-voice-core }}](#ss) | [{{ brand-voice-cc }}](#cc) |
-|---|---|---|---|---|
-| Voice | Voice based on artist recordings | Voice based on artist recordings | Voice based on artist recordings | Voice copy from the pattern |
-| Usage | Full-text synthesis. Pattern-based synthesis. | Full-text synthesis. Pattern-based synthesis. | Full-text synthesis. Pattern-based synthesis. | Pattern-based synthesis. The variable part should not exceed 25% of the pattern. The same restriction applies to the duration of the variable part relative to the duration of the final audio. |
-| Emotions and roles | Copying emotions in pattern-based synthesis. </br>Developing additional [roles](../index.md#role). | Copying emotions in pattern-based synthesis. </br>Developing additional roles. | Copying emotions in pattern-based synthesis. | Copying emotions in pattern-based synthesis.  |
-| Sampling frequency in source audio recordings | 48 kHz | 48 kHz | 48 kHz | {{ tts-cc-quality }} or higher. |
-| Sampling frequency in synthesized audio recordings | 22 kHz | 22 kHz | 22 kHz | {{ tts-cc-quality }} |
+| | [{{ brand-voice-premium }}](#premium) | [{{ brand-voice-lite-name }}](#lite)   |  [{{ brand-voice-cc }}](#cc) |
+|---|---|---|---| 
+| Voice | Voice based on artist recordings | Voice based on artist recordings |  Voice copy from the pattern |
+| Usage | Full-text synthesis. Pattern-based synthesis. | Full-text synthesis. Pattern-based synthesis. |  Pattern-based synthesis. The variable part should not exceed 25% of the pattern. The same restriction applies to the duration of the variable part relative to the duration of the final audio. |
+| Emotions and roles | Copying emotions in pattern-based synthesis. </br>Developing additional [roles](../index.md#role). | Copying emotions in pattern-based synthesis. </br>Developing additional roles. |  Copying emotions in pattern-based synthesis.  |
+| Sampling frequency in source audio recordings | 48 kHz | 48 kHz |  {{ tts-cc-quality }} or higher. |
+| Sampling frequency in synthesized audio recordings | 22 kHz | 22 kHz |  {{ tts-cc-quality }} |
 
 To create a unique voice for your business, [fill out the form](#contact-form).
-
-## {{ brand-voice-lite-name }} {#lite}
-
-Create your unique voice with {{ brand-voice-lite-name }} by uploading a minimum of marked-up audio samples (30 minutes or more). As a result, you will have a fine-tuned model URI that you can access from your applications via API.
-
-The quality of synthesized speech depends directly on the quality of audio recordings used to train the model. When creating a {{ brand-voice-lite-name }} voice, you are in charge of the entire process of training data preparation.
-
-For more information on how to train your own model, see [{#T}](bv-lite.md).
 
 ## {{ brand-voice-premium-name }} {#premium}
 
@@ -35,24 +27,17 @@ For more information on how to train your own model, see [{#T}](bv-lite.md).
 
 Creating a full-fledged model with a unique voice requires large amounts of audio recordings. {{ yandex-cloud }} experts will help you prepare the data for {{ brand-voice-premium-name }} model training, select a studio and an artist for you, and support you at each step of voice creation.
 
-Once created, the {{ brand-voice-premium-name }} voice can be enhanced by various [roles](../index.md#role).
+Once created, the {{ brand-voice-premium-name }} voice can be enhanced by various [roles](../index.md#role):
+
+## {{ brand-voice-lite-name }} {#lite}
 
 
-## {{ brand-voice-core-name }} {#ss}
+Create your unique voice with {{ brand-voice-lite-name }} by uploading a minimum of marked-up audio samples (30 minutes or more). As a result, you will have a fine-tuned model URI that you can access from your applications via API.
 
-If you have pre-recorded audios for training the model, you can create a {{ brand-voice-core-name }} voice based on them. With a voice like this, you can easily convert texts of any length into spoken language and synthesize speech using patterns. Based on such a voice, you can create voice assistants or robots for your call center.
+The quality of synthesized speech depends directly on the quality of audio recordings used to train the model. When creating a {{ brand-voice-lite-name }} voice, you are in charge of the entire process of training data preparation.
 
-You can add diverse emotions to your {{ brand-voice-core-name }} voice using [pattern-based synthesis](../templates.md). In pattern-based synthesis, intonations are copied from your audio recordings.
+For more information on how to train your own model, see [{#T}](bv-lite.md).
 
-{% note info %}
-
-When using pattern-based synthesis with {{ brand-voice-full-name }} voices, make sure your patterns are recorded by the same artist who made recordings for your {{ brand-voice-full-name }} voice.
-
-{% endnote %}
-
-The quality of synthesized speech depends directly on the quality of audio recordings used to train the model. When creating a {{ brand-voice-core-name }} voice, you are in charge of the entire process of training data preparation.
-
-For more information on how to train your own model, see [{#T}](bv-full-data-upload.md).
 
 ## {{ brand-voice-cc-name }} {#cc}
 

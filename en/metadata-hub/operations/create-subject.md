@@ -5,6 +5,7 @@ description: Follow this guide to create a subject.
 
 # Creating a subject
 
+
 You can create a subject:
 
 * On the **Subjects** tab, [independently from a schema](#create-new-separate-subject).
@@ -22,7 +23,7 @@ You can create a subject:
   1. Select the namespace you want to create a subject in.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.schema-registry.label_subjects }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.schema-registry.label_create-subject-action }}**.
-  1. Specify the following parameters:
+  1. Specify the following settings:
       * Subject name and description.
       * **Compatibility check level**:
           * `BACKWARD`: (Default) Consumers using the new schema can read data written by producers using the latest registered schema.
@@ -37,7 +38,7 @@ You can create a subject:
           * Set the schema format to [Protobuf](https://protobuf.dev/), [Avro](https://avro.apache.org/), or [JSON Schema](https://json-schema.org/) and attach the file.
           * If a schema references another schema, in the **References** section, click ![add](../../_assets/console-icons/plus.svg) and enter the [reference](../../metadata-hub/concepts/schema-registry.md#reference) name, the subject name the schema for is registered under for linking, and the registered subject's schema version.
           * To apply [data schema normalization](https://docs.confluent.io/platform/current/schema-registry/fundamentals/serdes-develop/index.html#schema-normalization), enable the **Normalization** setting.
-          * If you want to skip schema compatibility checking, enable the relevant option.
+          * If you want to skip the schema compatibility check, enable the relevant option.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

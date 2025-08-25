@@ -5,7 +5,11 @@ description: Follow this guide to create a namespace.
 
 # Creating a namespace
 
+
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
+
 
 {% list tabs group=instructions %}
 

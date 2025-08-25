@@ -87,7 +87,7 @@ You can only use the semantic attribute once in each report: either as a filter 
 
 ## Visualizing and using the report data {#display}
 
-The report provides quantitative agent performance characteristics. You can view the report in the {{ speechsense-name }} web interface in chart and table form or download it in CSV format.
+{% include notitle [display](../../../_includes/speechsense/reports/display.md) %}
 
 The available **{{ ui-key.yc-ui-talkanalytics.reports.rating-key-value }}** report formats include:
 
@@ -101,6 +101,6 @@ The available **{{ ui-key.yc-ui-talkanalytics.reports.rating-key-value }}** repo
    * Percentage of those out of all the filtered dialogs.
 
 
-* **CSV file**: Contains the same table as in the {{ speechsense-name }} web interface. Use the CSV format to save the report locally.
+* **XLSX file**: Contains the same table as in the {{ speechsense-name }} web interface. Use the XLSX format to save the report locally.
 
-Evaluation parameter captions on the chart and column names in the table and CSV file match the appropriate **{{ ui-key.yc-ui-talkanalytics.reports.parameter.description }}** field value.
+Evaluation parameter captions on the chart and column names in the table and XLSX file match the **{{ ui-key.yc-ui-talkanalytics.reports.parameter.description }}** field value.

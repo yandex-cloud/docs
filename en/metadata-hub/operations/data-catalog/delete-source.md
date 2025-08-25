@@ -5,11 +5,13 @@ description: Follow this guide to delete a metadata source in {{ data-catalog-fu
 
 # Deleting an origin
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

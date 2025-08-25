@@ -5,11 +5,13 @@ description: Follow this guide to create a metadata source in {{ data-catalog-fu
 
 # Creating a source
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

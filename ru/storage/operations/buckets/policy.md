@@ -366,7 +366,7 @@ description: Следуя данной инструкции, вы научите
 
 ## Удалить политику {#delete-policy}
 
-Минимально необходимая роль для удаления политики доступа — `storage.configurer`. См. [описание роли](../../../storage/security/#storage-configurer).
+Минимально необходимая роль для удаления политики доступа — `storage.configurer`. См. [описание роли](../../../storage/security/index.md#storage-configurer).
 
 Чтобы удалить политику доступа:
 

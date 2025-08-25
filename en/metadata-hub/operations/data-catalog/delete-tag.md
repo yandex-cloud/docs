@@ -5,11 +5,13 @@ description: Follow this guide to delete a tag for metadata in {{ data-catalog-f
 
 # Deleting a tag
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

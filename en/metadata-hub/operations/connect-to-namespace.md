@@ -1,5 +1,6 @@
 # Connecting to a namespace
 
+
 To connect to a namespace, use cURL or Debezium.
 
 

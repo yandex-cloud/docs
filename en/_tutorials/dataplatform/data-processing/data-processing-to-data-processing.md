@@ -1,3 +1,5 @@
+
+
 You can save data from a [{{ dataproc-full-name }} cluster](../../../data-proc/concepts/index.md) to a [{{ objstorage-full-name }} bucket](../../../storage/concepts/bucket.md) using a separate [{{ metastore-full-name }} cluster](../../../metadata-hub/concepts/metastore.md) to store table metadata. Thus you can access the saved data from a different {{ dataproc-name }} cluster that has access to the bucket and is connected to the same {{ metastore-name }} cluster.
 
 To set up shared use of tables by two {{ dataproc-name }} clusters through {{ metastore-name }}:

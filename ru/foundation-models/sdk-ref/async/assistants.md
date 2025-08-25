@@ -16,7 +16,7 @@ Create a new assistant instance.
 #|
 || Parameters | 
 
-- **model** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*BaseGPTModel*](../internals/bases.md#yandex_cloud_ml_sdk._models.completions.model.BaseGPTModel)) – Model ID or BaseGPTModel instance
+- **model** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseGPTModel*](../internals/bases.md#yandex_cloud_ml_sdk._models.completions.model.BaseGPTModel)) – Model ID or BaseGPTModel instance
 - **temperature** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*float*](https://docs.python.org/3/library/functions.html#float)*]*) – A sampling temperature to use - higher values mean more random results. Should be a double number between 0 (inclusive) and 1 (inclusive).
 - **max\_tokens** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*int*](https://docs.python.org/3/library/functions.html#int)*]*) – Maximum number of tokens to generate
 - **instruction** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – System instruction for the assistant
@@ -24,11 +24,11 @@ Create a new assistant instance.
 - **prompt\_truncation\_strategy** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*PromptTruncationStrategyType*](../types/assistants.md#yandex_cloud_ml_sdk._assistants.prompt_truncation_options.yandex_cloud_ml_sdk._assistants.prompt_truncation_options.PromptTruncationStrategyType)*]*) – Strategy for prompt truncation
 - **name** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – Assistant name
 - **description** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – Assistant description
-- **labels** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, *[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]**]*) – Additional labels associated with the assistant
+- **labels** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*]]*) – Additional labels associated with the assistant
 - **ttl\_days** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*int*](https://docs.python.org/3/library/functions.html#int)*]*) – Time-to-live in days
-- **tools** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[**Iterable**[*[*BaseTool*](../internals/bases.md#yandex_cloud_ml_sdk._tools.tool.BaseTool)*]**]*) – Tools to use for completion. Can be a sequence or a single tool.
+- **tools** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[Iterable[*[*BaseTool*](../internals/bases.md#yandex_cloud_ml_sdk._tools.tool.BaseTool)*]]*) – Tools to use for completion. Can be a sequence or a single tool.
 - **expiration\_policy** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*ExpirationPolicyAlias*](../types/assistants.md#yandex_cloud_ml_sdk._types.expiration.yandex_cloud_ml_sdk._types.expiration.ExpirationPolicyAlias)*]*) – Expiration policy for assistant
-- **response\_format** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[**ResponseType**]*) – A format of the response returned by the model. Could be a JsonSchema, a JSON string, or a pydantic model. Read more about possible response formats in the [structured output documentation](https://yandex.cloud/docs/foundation-models/concepts/yandexgpt/#structured-output).
+- **response\_format** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[ResponseType]*) – A format of the response returned by the model. Could be a JsonSchema, a JSON string, or a pydantic model. Read more about possible response formats in the [structured output documentation](https://yandex.cloud/docs/foundation-models/concepts/yandexgpt/#structured-output).
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
 || Return type | [AsyncAssistant](#yandex_cloud_ml_sdk._assistants.assistant.AsyncAssistant) ||
 |#
@@ -52,7 +52,7 @@ List all assistants.
 #|
 || Parameters | 
 
-- **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Number of assistants per page
+- **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Number of assistants per page
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
 || Return type | [*AsyncIterator*](https://docs.python.org/3/library/typing.html#typing.AsyncIterator)[[*AsyncAssistant*](#yandex_cloud_ml_sdk._assistants.assistant.AsyncAssistant)] ||
 |#
@@ -72,7 +72,7 @@ This method sends an update request to Yandex Cloud ML API to modify the assista
 #|
 || Parameters | 
 
-- **model** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*BaseGPTModel*](../internals/bases.md#yandex_cloud_ml_sdk._models.completions.model.BaseGPTModel)*]*) – New model URI or BaseGPTModel instance to use
+- **model** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseGPTModel*](../internals/bases.md#yandex_cloud_ml_sdk._models.completions.model.BaseGPTModel)*]*) – New model URI or BaseGPTModel instance to use
 - **temperature** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*float*](https://docs.python.org/3/library/functions.html#float)*]*) – A sampling temperature to use - higher values mean more random results. Should be a double number between 0 (inclusive) and 1 (inclusive).
 - **max\_tokens** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*int*](https://docs.python.org/3/library/functions.html#int)*]*) – Maximum number of tokens to generate
 - **instruction** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – New instructions for the assistant
@@ -80,11 +80,11 @@ This method sends an update request to Yandex Cloud ML API to modify the assista
 - **prompt\_truncation\_strategy** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*PromptTruncationStrategyType*](../types/assistants.md#yandex_cloud_ml_sdk._assistants.prompt_truncation_options.yandex_cloud_ml_sdk._assistants.prompt_truncation_options.PromptTruncationStrategyType)*]*) – Strategy for truncating long prompts
 - **name** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – New name for the assistant
 - **description** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – New description for the assistant
-- **labels** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, *[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]**]*) – New key-value labels for the assistant
+- **labels** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*]]*) – New key-value labels for the assistant
 - **ttl\_days** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*int*](https://docs.python.org/3/library/functions.html#int)*]*) – Time-to-live in days before automatic deletion
-- **tools** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[**Iterable**[*[*BaseTool*](../internals/bases.md#yandex_cloud_ml_sdk._tools.tool.BaseTool)*]**]*) – Tools to use for completion. Can be a sequence or a single tool.
+- **tools** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[Iterable[*[*BaseTool*](../internals/bases.md#yandex_cloud_ml_sdk._tools.tool.BaseTool)*]]*) – Tools to use for completion. Can be a sequence or a single tool.
 - **expiration\_policy** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*ExpirationPolicyAlias*](../types/assistants.md#yandex_cloud_ml_sdk._types.expiration.yandex_cloud_ml_sdk._types.expiration.ExpirationPolicyAlias)*]*) – Policy for handling expiration
-- **response\_format** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[**ResponseType**]*) – A format of the response returned by the model. Could be a JsonSchema, a JSON string, or a pydantic model. Read more about possible response formats in the [structured output documentation](https://yandex.cloud/docs/foundation-models/concepts/yandexgpt/#structured-output).
+- **response\_format** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[ResponseType]*) – A format of the response returned by the model. Could be a JsonSchema, a JSON string, or a pydantic model. Read more about possible response formats in the [structured output documentation](https://yandex.cloud/docs/foundation-models/concepts/yandexgpt/#structured-output).
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
 || Return type | Self ||
 |#
@@ -109,8 +109,8 @@ This method retrieves historical versions of the assistant in a paginated manner
 #|
 || Parameters | 
 
-- **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Maximum number of versions to return per page
-- **page\_token** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Token for pagination
+- **page\_size** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Maximum number of versions to return per page
+- **page\_token** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – Token for pagination
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
 || Return type | [*AsyncIterator*](https://docs.python.org/3/library/typing.html#typing.AsyncIterator)[[*AssistantVersion*](../types/assistants.md#yandex_cloud_ml_sdk._assistants.assistant.AssistantVersion)] ||
 |#
@@ -122,12 +122,12 @@ Execute a non-streaming run with the assistant on the given thread.
 #|
 || Parameters | 
 
-- **thread** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*AsyncThread*](threads.md#yandex_cloud_ml_sdk._threads.thread.AsyncThread)) – Thread ID or Thread object to run on
+- **thread** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*AsyncThread*](threads.md#yandex_cloud_ml_sdk._threads.thread.AsyncThread)) – Thread ID or Thread object to run on
 - **custom\_temperature** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*float*](https://docs.python.org/3/library/functions.html#float)*]*) – Override for model temperature
 - **custom\_max\_tokens** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*int*](https://docs.python.org/3/library/functions.html#int)*]*) – Override for max tokens to generate
 - **custom\_max\_prompt\_tokens** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*int*](https://docs.python.org/3/library/functions.html#int)*]*) – Override for max prompt tokens
 - **custom\_prompt\_truncation\_strategy** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*PromptTruncationStrategyType*](../types/assistants.md#yandex_cloud_ml_sdk._assistants.prompt_truncation_options.yandex_cloud_ml_sdk._assistants.prompt_truncation_options.PromptTruncationStrategyType)*]*) – Override for prompt truncation strategy
-- **custom\_response\_format** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[**ResponseType**]*) – Override for response format
+- **custom\_response\_format** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[ResponseType]*) – Override for response format
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
 || Return type | [AsyncRun](runs.md#yandex_cloud_ml_sdk._runs.run.AsyncRun) ||
 |#
@@ -139,12 +139,12 @@ Execute a streaming run with the assistant on the given thread.
 #|
 || Parameters | 
 
-- **thread** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*AsyncThread*](threads.md#yandex_cloud_ml_sdk._threads.thread.AsyncThread)) – Thread ID or Thread object to run on
+- **thread** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*AsyncThread*](threads.md#yandex_cloud_ml_sdk._threads.thread.AsyncThread)) – Thread ID or Thread object to run on
 - **custom\_temperature** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*float*](https://docs.python.org/3/library/functions.html#float)*]*) – Override for model temperature
 - **custom\_max\_tokens** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*int*](https://docs.python.org/3/library/functions.html#int)*]*) – Override for max tokens to generate
 - **custom\_max\_prompt\_tokens** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*int*](https://docs.python.org/3/library/functions.html#int)*]*) – Override for max prompt tokens
 - **custom\_prompt\_truncation\_strategy** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[*[*PromptTruncationStrategyType*](../types/assistants.md#yandex_cloud_ml_sdk._assistants.prompt_truncation_options.yandex_cloud_ml_sdk._assistants.prompt_truncation_options.PromptTruncationStrategyType)*]*) – Override for prompt truncation strategy
-- **custom\_response\_format** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[**ResponseType**]*) – Override for response format
+- **custom\_response\_format** ([*UndefinedOr*](../types/other.md#yandex_cloud_ml_sdk._types.misc.UndefinedOr)*[ResponseType]*) – Override for response format
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – The timeout, or the maximum time to wait for the request to complete in seconds. Defaults to 60 seconds. ||
 || Return type | [AsyncRun](runs.md#yandex_cloud_ml_sdk._runs.run.AsyncRun) ||
 |#

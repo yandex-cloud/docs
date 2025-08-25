@@ -47,7 +47,7 @@ the grpc status codes that are considered retriable
 || Parameters | 
 
 - **attempt** ([*int*](https://docs.python.org/3/library/functions.html#int))
-- **deadline** ([*float*](https://docs.python.org/3/library/functions.html#float)* \| **None*) ||
+- **deadline** ([*float*](https://docs.python.org/3/library/functions.html#float) *\| None*) ||
 || Return type | None ||
 |#
 

@@ -5,11 +5,13 @@ description: Follow this guide to update metadata catalog settings in {{ data-ca
 
 # Updating a metadata catalog
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

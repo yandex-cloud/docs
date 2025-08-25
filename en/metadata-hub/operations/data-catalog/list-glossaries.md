@@ -5,11 +5,13 @@ description: Follow this guide to get a list of glossaries in a metadata catalog
 
 # Getting a list of glossaries
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

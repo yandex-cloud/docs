@@ -6,7 +6,9 @@ description: With {{ connection-manager-name }}, you can manage database connect
 # Connection
 
 
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
 
 
 {% include [connection](../../_includes/metadata-hub/connection-definition.md) %}

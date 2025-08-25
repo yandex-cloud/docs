@@ -5,11 +5,13 @@ description: Follow this guide to update a metadata source in {{ data-catalog-fu
 
 # Edit origin
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

@@ -34,8 +34,8 @@ sourcePath: en/_sdk-ref/sdk-ref/types/operation.md
 || Parameters | 
 
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float))
-- **poll\_timeout** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| **None*)
-- **poll\_interval** ([*float*](https://docs.python.org/3/library/functions.html#float)* \| **None*) ||
+- **poll\_timeout** ([*int*](https://docs.python.org/3/library/functions.html#int) *\| None*)
+- **poll\_interval** ([*float*](https://docs.python.org/3/library/functions.html#float) *\| None*) ||
 || Return type | [*AnyResultTypeT\_co*](other.md#yandex_cloud_ml_sdk._types.operation.AnyResultTypeT_co) ||
 |#
 
@@ -70,8 +70,8 @@ sourcePath: en/_sdk-ref/sdk-ref/types/operation.md
 || Parameters | 
 
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float))
-- **poll\_timeout** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| **None*)
-- **poll\_interval** ([*float*](https://docs.python.org/3/library/functions.html#float)* \| **None*) ||
+- **poll\_timeout** ([*int*](https://docs.python.org/3/library/functions.html#int) *\| None*)
+- **poll\_interval** ([*float*](https://docs.python.org/3/library/functions.html#float) *\| None*) ||
 || Return type | [*AnyResultTypeT\_co*](other.md#yandex_cloud_ml_sdk._types.operation.AnyResultTypeT_co) ||
 |#
 

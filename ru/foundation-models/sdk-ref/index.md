@@ -3,7 +3,7 @@ sourcePath: en/_sdk-ref/sdk-ref/index.md
 ---
 # yandex-cloud-ml-sdk documentation
 
-Current package version: 0.14.0
+Current package version: 0.15.0
 
 # SDK Reference
 

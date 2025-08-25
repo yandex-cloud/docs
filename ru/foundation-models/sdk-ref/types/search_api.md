@@ -55,7 +55,7 @@ yandex\_cloud\_ml\_sdk.\_search\_api.generative.config.**format\_to\_proto**(*fo
 
 #|
 || Parameters | **format\_** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) ||
-|| Return type | <google.protobuf.internal.enum\_type\_wrapper.EnumTypeWrapper object at 0x7f8c2a9b3ad0> ||
+|| Return type | <google.protobuf.internal.enum\_type\_wrapper.EnumTypeWrapper object at 0x7f1ec7c6bf80> ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_api.generative.config.**GenerativeSearchConfig**{#yandex_cloud_ml_sdk._search_api.generative.config.GenerativeSearchConfig}

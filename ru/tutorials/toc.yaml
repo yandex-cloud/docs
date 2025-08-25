@@ -341,6 +341,10 @@ items:
         href: dev/install-gitlab-runner.md
       - name: Сравнение результатов нагрузочных тестов
         href: testing/loadtesting-results-compare.md
+      - name: >-
+          ИИ-ревью пул-реквестов на GitHub с помощью {{ sw-full-name }} и GitHub
+          Actions
+        href: dev/ai-powered-github-pr-review.md
   - name: Базовая инфраструктура
     items:
       - name: Все руководства
@@ -1444,6 +1448,8 @@ items:
         href: serverless/slack-bot-serverless.md
       - name: Разработка Telegram-бота
         href: serverless/telegram-bot-serverless.md
+      - name: Разработка Telegram-бота с поддержкой AI-агента
+        href: serverless/telegram-ai-bot-workflows.md
       - name: Разработка пользовательской интеграции в {{ api-gw-name }}
         href: serverless/api-gw-integration.md
       - name: Разработка CRUD API для сервиса фильмов

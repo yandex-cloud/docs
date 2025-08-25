@@ -5,7 +5,11 @@ description: Follow this guide to upload a schema and create a subject.
 
 # Uploading a schema to a new subject
 
+
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
+
 
 {% list tabs group=instructions %}
 
@@ -32,7 +36,7 @@ description: Follow this guide to upload a schema and create a subject.
   1. Set the data format to [Protobuf](https://protobuf.dev/), [Avro](https://avro.apache.org/), or [JSON Schema](https://json-schema.org/) and attach the file.
   1. If a schema references another schema, in the **References** section, click ![add](../../_assets/console-icons/plus.svg) and enter the [reference](../../metadata-hub/concepts/schema-registry.md#reference) name, the subject name the schema is registered under for linking, and the subject version containing the referenced schema.
   1. To apply [data schema normalization](https://docs.confluent.io/platform/current/schema-registry/fundamentals/serdes-develop/index.html#schema-normalization), enable the **Normalization** setting.
-  1. If you want to skip schema compatibility checking, enable the relevant option.
+  1. If you want to skip the schema compatibility check, enable the relevant option.
   1. Click **{{ ui-key.yacloud.schema-registry.label_upload-schema-action }}**.
 
 {% endlist %}

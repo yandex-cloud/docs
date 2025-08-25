@@ -5,11 +5,13 @@ description: Follow this guide to delete a glossary in a metadata catalog.
 
 # Deleting a glossary
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

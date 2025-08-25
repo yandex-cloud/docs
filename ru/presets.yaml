@@ -2439,6 +2439,17 @@ default:
           1000|string: "270,00\_₸"
           10000|string: "135,00\_₸"
         v1|string: Не тарифицируется
+  sku|KZT|trino:
+    cluster:
+      generic:
+        ram:
+          v1|month|string: "1\_962,00\_₸"
+          v1|number: 2.725
+          v1|string: "2,7250\_₸"
+        vcpu:
+          v1|month|string: "7\_351,20\_₸"
+          v1|number: 10.21
+          v1|string: "10,21\_₸"
   sku|KZT|v1:
     commitment:
       selfcheckout:
@@ -4242,6 +4253,17 @@ default:
           1000|string: "54,00\_₽"
           10000|string: "27,00\_₽"
         v1|string: Не тарифицируется
+  sku|RUB|trino:
+    cluster:
+      generic:
+        ram:
+          v1|month|string: "392,40\_₽"
+          v1|number: 0.545
+          v1|string: "0,5450\_₽"
+        vcpu:
+          v1|month|string: "1\_470,24\_₽"
+          v1|number: 2.042
+          v1|string: "2,0420\_₽"
   sku|RUB|v1:
     commitment:
       selfcheckout:
@@ -5990,6 +6012,17 @@ default:
           1000|string: "0,450000\_$"
           10000|string: "0,225000\_$"
         v1|string: Не тарифицируется
+  sku|USD|trino:
+    cluster:
+      generic:
+        ram:
+          v1|month|string: "3,269999\_$"
+          v1|number: 0.004542
+          v1|string: "0,004542\_$"
+        vcpu:
+          v1|month|string: "12,251995\_$"
+          v1|number: 0.017017
+          v1|string: "0,017017\_$"
   sku|USD|v1:
     commitment:
       selfcheckout:
@@ -7096,6 +7129,9 @@ default:
           field_group_attribute_value: Передаваемые группы
       billing:
         account:
+          button_enable-edm-action: Подключить ЭДО
+          dashboard-info:
+            section_contract: Информация о договоре
           entities:
             label_title: Облака и сервисы
             label_type: Тип

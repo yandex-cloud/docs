@@ -341,3 +341,7 @@ _Пространство имен_ — абстракция, которая л�
 * [{#T}](../tutorials/prometheus-grafana-monitoring.md)
 * [{#T}](../tutorials/metrics-server.md)
 * [{#T}](../tutorials/driverless-gpu.md)
+
+#### См. также {#see-also}
+
+* [{{ k8s }}: для чего он нужен, как работает и почему стал стандартом в контейнеризации](https://yandex.cloud/ru/blog/posts/2025/03/kubernetes-guide)

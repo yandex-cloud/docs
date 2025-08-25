@@ -1,10 +1,12 @@
 # Deleting a classification
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 Deleting a classification will remove all its tags.
 

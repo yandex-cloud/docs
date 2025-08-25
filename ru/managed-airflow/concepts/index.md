@@ -107,3 +107,7 @@ description: '{{ AF }} — это платформа с открытым исх�
 
 * [{#T}](../tutorials/data-processing-automation.md)
 * [{#T}](../tutorials/airflow-auto-tasks.md)
+
+#### См. также {#see-also}
+
+* [{{ AF }} в {{ yandex-cloud }}: управляемый сервис или собственное развёртывание](https://yandex.cloud/ru/blog/posts/2025/05/apache-airflow-in-yc)

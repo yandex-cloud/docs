@@ -104,9 +104,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * `--coordinator`, `--worker`: Configuration of {{ TR }} cluster [components](../concepts/index.md).
 
-          * `resource-preset-id`: Class of [coordinator](../concepts/index.md#coordinator) and [worker](../concepts/index.md#workers) hosts. The possible values are:
-
-            {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+          * `resource-preset-id`: [Class](../concepts/instance-types.md) of coordinator and worker hosts.
 
           * `min-count`, `max-count`: Set the minimum and maximum range boundaries for the worker count to be automatically adjusted to load.
           * `count`: Set a fixed number of workers.
@@ -174,11 +172,11 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     To change the cluster settings:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Create a file named `body.json` and add the following contents to it:
+    1. Create a file named `body.json` and paste the following code into it:
 
        {% note info %}
 
@@ -250,15 +248,11 @@ After creating a cluster, you can edit its basic and advanced settings.
 
             * `coordinatorConfig`: Coordinator configuration.
 
-               * `resources.resourcePresetId`: Class of coordinator hosts. The possible values are:
-
-                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resourcePresetId`: [Class](../concepts/instance-types.md) of coordinator hosts.
               
             * `workerConfig`: Worker configuration.
 
-               * `resources.resourcePresetId`: Class of worker hosts. The possible values are:
-
-                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resourcePresetId`: [Class](../concepts/instance-types.md) of worker hosts.
 
                * `scalePolicy`: Worker scaling policy:
 
@@ -314,19 +308,19 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
     To change the cluster settings:
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Create a file named `body.json` and add the following contents to it:
+    1. Create a file named `body.json` and paste the following code into it:
 
        {% note info %}
 
@@ -415,15 +409,11 @@ After creating a cluster, you can edit its basic and advanced settings.
 
             * `coordinator_config`: Coordinator configuration.
 
-               * `resources.resource_preset_id`: Class of coordinator hosts. The possible values are:
-
-                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resource_preset_id`: [Class](../concepts/instance-types.md) of coordinator hosts.
               
             * `worker_config`: Worker configuration.
 
-               * `resources.resource_preset_id`: Class of worker hosts. The possible values are:
-
-                    {% include [resource-preset-id](../../_includes/managed-trino/resource-preset-id.md) %}
+               * `resources.resource_preset_id`: [Class](../concepts/instance-types.md) of worker hosts.
 
                * `scale_policy`: Worker scaling policy:
 
@@ -482,6 +472,6 @@ After creating a cluster, you can edit its basic and advanced settings.
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

@@ -1,5 +1,6 @@
 # Service roles for managing connections using {{ connection-manager-full-name }}
 
+
 With {{ connection-manager-full-name }} service roles, you can view non-secret connection data and manage connections. You can view secret connection data, such as DB passwords, in [{{ lockbox-full-name }}](../../lockbox/index.yaml). To do this, you will also need the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer).
 
 ### connection-manager.auditor {#connection-manager-auditor}
@@ -26,7 +27,7 @@ With {{ connection-manager-full-name }} service roles, you can view non-secret c
 
 ## Roles required {#choosing-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign `editor` instead of `viewer`.
+The table below lists the roles required for specific actions. You can always assign a role with more permissions. For example, you can assign the `editor` role instead of `viewer`.
 
 | Action                                                      | Required roles                     |
 |---------------------------------------------------------------|--------------------------------------|

@@ -28,7 +28,7 @@ Creates a Rephraser object, which incapsulating rephrasing settings.
 #|
 || Parameters | 
 
-- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[**True**] **\| **~yandex\_cloud\_ml\_sdk.\_tools.search\_index.rephraser.model.Rephraser*) – Model ID used for model uri definition in a resulting Rephraser object. It is handled differently depending on the type and format of the input value:
+- **model\_name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[True] \| ~yandex\_cloud\_ml\_sdk.\_tools.search\_index.rephraser.model.Rephraser*) – Model ID used for model uri definition in a resulting Rephraser object. It is handled differently depending on the type and format of the input value:
 - If **model\_name** includes **\://** substring, it would be used unchanged.
 - Otherwise if **model\_name** is a string, it would be used in **gpt://<folder\_id>/<model\_name>/<model\_version>** template.
 - If **model\_name** is a True, it would be transformed into default value **gpt://<folder\_id>/rephraser/<model\_version>**

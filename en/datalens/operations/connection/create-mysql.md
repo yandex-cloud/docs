@@ -44,7 +44,8 @@ To create a {{ MY }} connection:
      * **Username**. Specify the username for the {{ MY }} connection.
      * **Password**. Enter the password for the user.
      * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
-     * **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
+     
+     {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
        Click **Check connection** to make sure the parameters are correct.
 
@@ -71,7 +72,8 @@ To create a {{ MY }} connection:
      * **Database**. Specify the name of the database to connect.
      * **Username**. It is set automatically from the selected connection data.
      * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
-     * **Raw SQL level**. Enables you to use an ad-hoc SQL query to [generate a dataset](../../dataset/settings.md#sql-request-in-datatset).
+     
+     {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
    {% endlist %}
 
