@@ -6,7 +6,9 @@ description: Step-by-step guides on using {{ connection-manager-name }} in {{ ya
 # Editing a connection
 
 
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
+
 
 
 To change connection settings:

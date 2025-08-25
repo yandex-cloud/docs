@@ -47,6 +47,8 @@ items:
         href: concepts/impersonation.md
       - name: Fault-tolerant query execution
         href: concepts/retry-policy.md
+      - name: Host classes
+        href: concepts/instance-types.md
   - name: CLI reference
     items:
       - name: Overview

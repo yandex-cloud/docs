@@ -6,7 +6,7 @@ There is a number of restrictions in {{ baremetal-name }} networks.
 
 If you need more MAC addresses per port, contact [support]({{ link-console-support }}) and describe the tasks that require the change.
 
-Limit type | Amount
+Type of limit | Quantity
 --- | ---
 MAC addresses per port | 5
 
@@ -14,7 +14,7 @@ MAC addresses per port | 5
 
 The following MTU and MSS limits apply to the service:
 
-Limit type | Value, bytes
+Type of limit | Value, bytes
 --- | ---
 MTU in public network | 1500
 MSS in public network | 1460
@@ -23,9 +23,9 @@ MSS in private network | 8870
 
 ## Bandwidth {#bandwidth}
 
-Public networks have a 1 Gbps bandwidth limit for all servers, including those with 10 Gbps NICs.
+Public networks have a 1 Gbps bandwidth limit for all servers, including those with 1 Gbps NICs and servers with [MC-LAG](./mc-lag.md) aggregation groups.
 
-Limit type | Value, Gbps
+Type of limit | Value, Gbps
 --- | ---
 Bandwidth in public network | 1 
 
@@ -33,7 +33,7 @@ Bandwidth in public network | 1
 
 The service is subject to the following broadcast traffic limits:
 
-Limit type | Value,</br>packets per second (pps)
+Type of limit | Value,</br>packets per second (pps)
 --- | ---
 Broadcast | 100
 UnknownUnicast | 100
@@ -68,7 +68,7 @@ The routers connecting {{ baremetal-name }} servers to the internet limit the in
 
   If the port you need is not in the table, use the [Nmap](https://en.wikipedia.org/wiki/Nmap) utility to check if it is available on the {{ baremetal-name }} server OS side.
 
-- Egress
+- Outgoing traffic
 
   **Port** | **Application layer protocol** | **Transport protocol**
   --- | --- | ---

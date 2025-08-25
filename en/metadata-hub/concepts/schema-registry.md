@@ -5,6 +5,7 @@ description: 'This article explains the following concepts: namespace, subject, 
 
 # Data schema registry
 
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
 {% include [connection](../../_includes/metadata-hub/schema-registry-definition.md) %}
@@ -16,7 +17,7 @@ A _namespace_ is a certain number of schemas. Schemas and subjects of different 
 ## Subject {#subject}
 
 A _[subject](https://docs.confluent.io/platform/current/schema-registry/develop/api.html#subjects)_ is a named entity within which a [data schema](#schema) evolves.
-The particular subject version contains metainformation about the schema and the schema itself. Subject versions are numbered sequentially incrementing by 1. Each subject version is unique and contains only one schema. You can [compare schemas](../operations/compare-schemas) in different versions of a subject.
+The particular subject version contains metainformation about the schema and the schema itself. Subject versions are numbered sequentially incrementing by 1. Each subject version is unique and contains only one schema. You can [compare schemas](../operations/compare-schemas.md) in different versions of a subject.
 
 ## Schema {#schema}
 

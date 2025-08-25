@@ -18,17 +18,19 @@ For long-running jobs, we recommend saving intermediate results in an S3 object 
 
 {% endnote %}
 
-## Storing job data
+## Storing job data {#data}
 
-{{ ml-platform-name }} Jobs stores input data cache, environments, logs, and job execution results. You can reuse the data and share it across jobs in a single project. This means repeated runs of the same job will not load input data into {{ ml-platform-name }} each time but will reuse the data loaded on the first run.
+{{ ml-platform-name }} Jobs stores input data cache, environments, logs, job execution results, and monitoring schedules. You can reuse the data and share it across jobs in a single project. This means repeated runs of the same job will not load input data into {{ ml-platform-name }} each time but will reuse the data loaded on the first run.
 
 The size of stored data is limited. For more information about {{ ml-platform-name }} limits, see [{#T}](../limits.md).
 
-The default job data lifetime is 14 days. You can change this value using {{ ds-cli }}:
+The default job data lifetime is 14 days. After that, all stored info will be deleted, including any logs and monitoring schedules. You can change this value using {{ ds-cli }}:
 
 ```bash
 datasphere project job set-data-ttl --id <job_ID> --days <lifetime_in_days>
 ```
+
+Also, you can clear stored data by clicking **{{ ui-key.yc-ui-datasphere.common.clear-cache }}** in the project jobs tab.
 
 ## Job configuration file {#config}
 

@@ -5,11 +5,13 @@ description: Follow this guide to update a tag for metadata in {{ data-catalog-f
 
 # Updating a tag
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

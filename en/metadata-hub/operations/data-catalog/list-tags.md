@@ -5,11 +5,13 @@ description: Follow this guide to get a list of tags for metadata in a classific
 
 # Getting a list of tags in a classification
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 {% list tabs group=instructions %}
 

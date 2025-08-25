@@ -1,5 +1,6 @@
 # Content models and JSON schema evolution issues
 
+
 {{ schema-registry-full-name }} supports the [Avro](https://avro.apache.org/), [Protobuf](https://protobuf.dev/), and [JSON Schema](https://json-schema.org/) formats. Avro and Protobuf are based on grammar rules, so their constraints are strictly defined. JSON Schemas combine grammar and production rules, making their constraints more flexible. This can cause compatibility issues as schemas evolve, especially if they have optional parameters. To address this, you can use a closed content model with the `Optional-friendly` [compatibility check policy](compatibility-check-policy.md). {{ schema-registry-name }} implements a JSON schema compatibility check policy, which ensures JSON Schema stays compatible when you add or remove optional parameters.
 
 This article covers:

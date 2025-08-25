@@ -33,7 +33,7 @@ If the field ID changes, you should also update the parameter name. For more inf
 
 ### Providing parameters in a dashboard link {#params-in-url}
 
-You can also specify parameter values in a dashboard link. In which case clicking a link will open the dashboard with a filter applied.
+If the parameters are added in the dashboard settings, you can also specify the parameter values in a dashboard link. In which case clicking a link will open the dashboard with a filter applied.
 
 {% note info %}
 

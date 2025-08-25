@@ -3,9 +3,9 @@ title: How to upload a custom image to {{ baremetal-full-name }}
 description: In this tutorial, you will learn how to provision a server from a custom image.
 ---
 
-# Upload image
+# Uploading a custom OS image
 
-You can spin up a server using your custom image. To proceed, first upload your image file to the {{ objstorage-full-name }} bucket.
+You can add a [custom OS or software product image](../concepts/images.md#user-images) to install it on your server on your own. To proceed, first upload your image file to the {{ objstorage-full-name }} [bucket](../../storage/concepts/bucket.md).
 
 ## Uploading an image file to {{ objstorage-name }} {#upload-file}
 
@@ -15,11 +15,7 @@ The maximum size of the image file you can upload to {{ objstorage-name }} is 50
 
 {% endnote %}
 
-Upload your image file to {{ objstorage-name }} and get a shareable link:
-
-1. If you have no {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) yet, [create](../../storage/operations/buckets/create.md) one with restricted access.
-1. Upload your image to the bucket via the [management console](../../storage/operations/objects/upload.md), [AWS CLI](../../storage/tools/aws-cli.md), or [WinSCP](../../storage/tools/winscp.md). In {{ objstorage-name }} terminology, your uploaded image will be called an _object_.
-1. [Get a link](../../storage/operations/objects/link-for-download.md) to the uploaded image. Use this link when creating an image in {{ baremetal-name }}.
+{% include [upload-iso-to-bucket](../../_includes/baremetal/upload-iso-to-bucket.md) %}
 
 ## Creating an image in {{ baremetal-name }} {#create-image}
 
@@ -31,7 +27,7 @@ Create a new image using the link you got in {{ objstorage-name }}:
 
   1. In the [management console]({{ link-console-main }}), select a folder where you want to create your image.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. In the left-hand panel, select ![icon](../../_assets/console-icons/layers.svg) **Boot images**.
+  1. In the left-hand panel, select ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
   1. Click **Upload image**.
   1. Specify the image name. The naming requirements are as follows:
 
@@ -64,13 +60,13 @@ Create a new image using the link you got in {{ objstorage-name }}:
       ```
 
       Where:
-      * `--name`: Image name. The naming requirements are as follows:
+      * `--name`: Image name. Follow these naming requirements:
         
         {% include [name-format](../../_includes/name-format.md) %}
 
-      * `--description`: Image description. This is an optional parameter.
+      * `--description`: Image description. This is an optional setting.
       * `--uri`: Image link you got in {{ objstorage-name }}.
-      * `--labels`: Image labels. This is an optional parameter.
+      * `--labels`: Image labels. This is an optional setting.
 
 {% endlist %}
 

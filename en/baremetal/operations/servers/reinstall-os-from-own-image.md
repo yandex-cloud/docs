@@ -7,7 +7,7 @@ description: Follow this guide to install and reinstall a {{ baremetal-full-name
 
 {{ baremetal-full-name }} allows you to install and reinstall a server OS from a custom ISO image. This way, you can install [Linux](https://en.wikipedia.org/wiki/Linux) or [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) operating systems on your server. Note that if the OS you want to install requires a license, you must provide your own license.
 
-When installing or reinstalling an OS from your ISO image, you can freely redistribute the available disk space on the server.
+When installing or reinstalling an OS from your [custom ISO image](../../concepts/images.md#user-images), you can freely [redistribute](../../concepts/server-advanced-settings.md#storage-management) the available disk space on the server.
 
 Creating fault-tolerant disk configurations requires experience and understanding of [RAID](https://en.wikipedia.org/wiki/RAID) and/or [LVM](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)) technologies. We recommend using {{ marketplace-short-name }} public OS images instead, resorting to this installation method only if you need customizations beyond {{ marketplace-short-name }} options.
 
@@ -25,8 +25,45 @@ This guide demonstrates how to install [Ubuntu](https://en.wikipedia.org/wiki/Ub
 
 To create a {{ baremetal-name }} image from your ISO image and deploy it on the server:
 
-1. [Download](https://releases.ubuntu.com/24.04.1/ubuntu-24.04.1-live-server-amd64.iso) the required ISO OS image to your local computer.
-1. [Upload](../image-upload.md#upload-file) the ISO image to [{{ objstorage-full-name }}](../../../storage/index.yaml) and [create](../image-upload.md#create-image) a {{ baremetal-name }} image from it.
+1. [Download](https://releases.ubuntu.com/) the required ISO OS image to your local computer.
+1. {% include [upload-iso-to-bucket](../../../_includes/baremetal/upload-iso-to-bucket.md) %}
+1. [Create](../image-upload.md#create-image) a {{ baremetal-name }} image from the downloaded ISO image:
+
+    {% list tabs group=instructions %}
+
+    - Management console {#console}
+
+      1. In the [management console]({{ link-console-main }}), select a folder where you want to create your image.
+      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+      1. In the left-hand panel, select ![icon](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
+      1. Click **Upload image**.
+      1. Specify the image name. The naming requirements are as follows:
+
+           {% include [name-format](../../../_includes/name-format.md) %}
+
+      1. Optionally, provide a description for the image.
+      1. Paste the link to the image file you got from {{ objstorage-name }} in the previous step.
+      1. Click **{{ ui-key.yacloud.baremetal.label_create-image }}**.
+
+    - CLI {#cli}
+
+       1. Run this command:
+
+          ```bash
+          yc baremetal boot-image create \
+            --name <image_name> \
+            --uri "<image_link>"
+          ```
+
+          Where:
+          * `--name`: Image name. Follow these naming requirements:
+            
+              {% include [name-format](../../../_includes/name-format.md) %}
+
+          * `--uri`: Link to the image file you got from {{ objstorage-name }} in the previous step.
+
+    {% endlist %}
+
 1. [Connect](./server-kvm.md) to the server's KVM console.
 
     {% note info %}
@@ -34,6 +71,7 @@ To create a {{ baremetal-name }} image from your ISO image and deploy it on the 
     All following steps will be performed in the KVM console.
 
     {% endnote %}
+
 1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens:
 
     1. In the **CD/DVD Media1** section, click **Browse** and select the [previously uploaded](../image-upload.md) ISO OS image in the `user-iso` directory.

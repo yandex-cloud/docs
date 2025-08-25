@@ -62,7 +62,7 @@ Read more about log\_levels, log\_format, and date\_format in [Python documentat
 #|
 || Parameters | 
 
-- **log\_level** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[**'CRITICAL'**, **'FATAL'**, **'ERROR'**, **'WARN'**, **'WARNING'**, **'INFO'**, **'DEBUG'**, **'TRACE'**] **\| **~typing.Literal**[**'critical'**, **'fatal'**, **'error'**, **'warn'**, **'warning'**, **'info'**, **'debug'**, **'TRACE'**] **\| **int*) – The logging level to set.
+- **log\_level** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['CRITICAL', 'FATAL', 'ERROR', 'WARN', 'WARNING', 'INFO', 'DEBUG', 'TRACE'] \| ~typing.Literal['critical', 'fatal', 'error', 'warn', 'warning', 'info', 'debug', 'TRACE'] \| int*) – The logging level to set.
 - **log\_format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The format of the log messages.
 - **date\_format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)) – The format for timestamps in log messages. ||
 || Returns | The instance of the SDK with logging configured. ||
@@ -106,10 +106,10 @@ Creates SearchIndexTool (not to be confused with [**SearchIndex**](../sync/searc
 #|
 || Parameters | 
 
-- **indexes** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*BaseSearchIndex*](#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex)* \| *[*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*BaseSearchIndex*](#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex)*] **\| *[*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – parameter takes [**BaseSearchIndex**](#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex), string with search index id, or a list of this values in any combination.
-- **max\_num\_results** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the maximum number of results to return from the search. Fewer results may be returned if necessary to fit within the prompt’s token limit. This ensures that the combined prompt and search results do not exceed the token constraints.
-- **rephraser** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[**True**] **\| **~yandex\_cloud\_ml\_sdk.\_tools.search\_index.rephraser.model.Rephraser** \| **~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) – setting for rephrasing user queries; refer to [**Rephraser**](../types/tools.md#yandex_cloud_ml_sdk._tools.search_index.rephraser.model.Rephraser) documentation for details.
-- **call\_strategy** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[**'always'**] **\| **~yandex\_cloud\_ml\_sdk.\_types.tools.function.FunctionDictType** \| **~yandex\_cloud\_ml\_sdk.\_tools.search\_index.call\_strategy.CallStrategy** \| **~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) ||
+- **indexes** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*BaseSearchIndex*](#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex) *\|* [*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*BaseSearchIndex*](#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex)*] \|* [*Iterable*](https://docs.python.org/3/library/typing.html#typing.Iterable)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*]*) – parameter takes [**BaseSearchIndex**](#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex), string with search index id, or a list of this values in any combination.
+- **max\_num\_results** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the maximum number of results to return from the search. Fewer results may be returned if necessary to fit within the prompt’s token limit. This ensures that the combined prompt and search results do not exceed the token constraints.
+- **rephraser** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[True] \| ~yandex\_cloud\_ml\_sdk.\_tools.search\_index.rephraser.model.Rephraser \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) – setting for rephrasing user queries; refer to [**Rephraser**](../types/tools.md#yandex_cloud_ml_sdk._tools.search_index.rephraser.model.Rephraser) documentation for details.
+- **call\_strategy** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['always'] \| ~yandex\_cloud\_ml\_sdk.\_types.tools.function.FunctionDictType \| ~yandex\_cloud\_ml\_sdk.\_tools.search\_index.call\_strategy.CallStrategy \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) ||
 || Return type | [*SearchIndexTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.search_index.tool.SearchIndexTool) ||
 |#
 
@@ -122,10 +122,10 @@ Call self as a function.
 #|
 || Parameters | 
 
-- **parameters** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, **None** \| *[*bool*](https://docs.python.org/3/library/functions.html#bool)* \| *[*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*float*](https://docs.python.org/3/library/functions.html#float)* \| *[*int*](https://docs.python.org/3/library/functions.html#int)* \| **TypeAliasForwardRef**(**'yandex\_cloud\_ml\_sdk.\_types.schemas.JsonArray'**) **\| *[*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, **None** \| *[*bool*](https://docs.python.org/3/library/functions.html#bool)* \| *[*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*float*](https://docs.python.org/3/library/functions.html#float)* \| *[*int*](https://docs.python.org/3/library/functions.html#int)* \| **TypeAliasForwardRef**(**'yandex\_cloud\_ml\_sdk.\_types.schemas.JsonArray'**) **\| **JsonObject**]**] **\| *[*type*](https://docs.python.org/3/library/functions.html#type))
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **strict** ([*bool*](https://docs.python.org/3/library/functions.html#bool)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) ||
+- **parameters** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_cloud\_ml\_sdk.\_types.schemas.JsonArray') \|* [*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, None \|* [*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*int*](https://docs.python.org/3/library/functions.html#int) *\| TypeAliasForwardRef('yandex\_cloud\_ml\_sdk.\_types.schemas.JsonArray') \| JsonObject]] \|* [*type*](https://docs.python.org/3/library/functions.html#type))
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **strict** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) ||
 || Return type | [*FunctionTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool) ||
 |#
 
@@ -204,7 +204,7 @@ Initializes a langchain model based on the specified model type.
 #|
 || Parameters | 
 
-- **model\_type** (*Literal**[**'chat'**]*) – the type of langchain model to initialize. Defaults to **"chat"**.
+- **model\_type** (*Literal['chat']*) – the type of langchain model to initialize. Defaults to **"chat"**.
 - **timeout** ([*int*](https://docs.python.org/3/library/functions.html#int)) – the timeout which sets the default for the langchain model object. Defaults to 60 seconds. ||
 || Return type | BaseYandexLanguageModel ||
 |#
@@ -216,13 +216,13 @@ Configures the model with specified parameters.
 #|
 || Parameters | 
 
-- **temperature** ([*float*](https://docs.python.org/3/library/functions.html#float)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – a sampling temperature to use - higher values mean more random results. Should be a double number between 0 (inclusive) and 1 (inclusive).
-- **max\_tokens** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – a maximum number of tokens to generate in the response.
-- **reasoning\_mode** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| *[*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*ReasoningMode*](../types/other.md#yandex_cloud_ml_sdk._models.completions.config.ReasoningMode)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the mode of reasoning to apply during generation, allowing the model to perform internal reasoning before responding. Read more about possible modes in the [reasoning documentation](https://yandex.cloud/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.ReasoningOptions).
-- **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[**'json'**] **\| **~yandex\_cloud\_ml\_sdk.\_types.schemas.JsonSchemaResponseType** \| **type** \| **~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) – a format of the response returned by the model. Could be a JsonSchema, a JSON string, or a pydantic model. Read more about possible response formats in the [structured output documentation](https://yandex.cloud/docs/foundation-models/concepts/yandexgpt/#structured-output).
-- **tools** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*FunctionTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool)*] **\| *[*FunctionTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – tools to use for completion. Can be a sequence or a single tool.
-- **parallel\_tool\_calls** ([*bool*](https://docs.python.org/3/library/functions.html#bool)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – whether to allow parallel calls to tools during completion. Defaults to **true**.
-- **tool\_choice** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[**'none'**, **'None'**, **'NONE'**, **'auto'**, **'Auto'**, **'AUTO'**, **'required'**, **'Required'**, **'REQUIRED'**] **\| **~yandex\_cloud\_ml\_sdk.\_types.tools.function.FunctionDictType** \| **~yandex\_cloud\_ml\_sdk.\_tools.tool.FunctionTool** \| **~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) – the strategy for choosing tools. There are several ways to configure **tool\_choice** for query processing: - no tools to call (tool\_choice=``’none’**); - required to call any tool (tool\_choice=**’required’**); - call a specific tool (tool\_choice=``{'type': 'function', 'function': {'name': 'another\_calculator'}}** or directly passing a tool object). ||
+- **temperature** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – a sampling temperature to use - higher values mean more random results. Should be a double number between 0 (inclusive) and 1 (inclusive).
+- **max\_tokens** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – a maximum number of tokens to generate in the response.
+- **reasoning\_mode** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*ReasoningMode*](../types/other.md#yandex_cloud_ml_sdk._models.completions.config.ReasoningMode) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – the mode of reasoning to apply during generation, allowing the model to perform internal reasoning before responding. Read more about possible modes in the [reasoning documentation](https://yandex.cloud/docs/foundation-models/text-generation/api-ref/TextGeneration/completion#yandex.cloud.ai.foundation_models.v1.ReasoningOptions).
+- **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['json'] \| ~yandex\_cloud\_ml\_sdk.\_types.schemas.JsonSchemaResponseType \| type \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) – a format of the response returned by the model. Could be a JsonSchema, a JSON string, or a pydantic model. Read more about possible response formats in the [structured output documentation](https://yandex.cloud/docs/foundation-models/concepts/yandexgpt/#structured-output).
+- **tools** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*FunctionTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool)*] \|* [*FunctionTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – tools to use for completion. Can be a sequence or a single tool.
+- **parallel\_tool\_calls** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – whether to allow parallel calls to tools during completion. Defaults to **true**.
+- **tool\_choice** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['none', 'None', 'NONE', 'auto', 'Auto', 'AUTO', 'required', 'Required', 'REQUIRED'] \| ~yandex\_cloud\_ml\_sdk.\_types.tools.function.FunctionDictType \| ~yandex\_cloud\_ml\_sdk.\_tools.tool.FunctionTool \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) – the strategy for choosing tools. There are several ways to configure **tool\_choice** for query processing: - no tools to call (tool\_choice=``’none’**); - required to call any tool (tool\_choice=**’required’**); - call a specific tool (tool\_choice=``{'type': 'function', 'function': {'name': 'another\_calculator'}}** or directly passing a tool object). ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 
@@ -416,12 +416,12 @@ NB: All of the **site**, **host**, **url** parameters are mutually exclusive and
 #|
 || Parameters | 
 
-- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] **\| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of sites.
-- **host** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] **\| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of hosts.
-- **url** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] **\| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of URLs.
-- **fix\_misspell** ([*bool*](https://docs.python.org/3/library/functions.html#bool)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – tells to backend to fix or not to fix misspels in queries.
-- **enable\_nrfm\_docs** ([*bool*](https://docs.python.org/3/library/functions.html#bool)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – tells to backend to include or not to include pages, which are not available via direct clicks from given sites/hosts/urls to search result.
-- **search\_filters** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*DateFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.DateFilterType)* \| *[*FormatFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.FormatFilterType)* \| *[*LangFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.LangFilterType)*] **\| *[*DateFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.DateFilterType)* \| *[*FormatFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.FormatFilterType)* \| *[*LangFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.LangFilterType)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – allows to limit search results with additional filters.
+- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of sites.
+- **host** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of hosts.
+- **url** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – parameter for limiting search to specific location or list of URLs.
+- **fix\_misspell** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – tells to backend to fix or not to fix misspels in queries.
+- **enable\_nrfm\_docs** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – tells to backend to include or not to include pages, which are not available via direct clicks from given sites/hosts/urls to search result.
+- **search\_filters** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*DateFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.LangFilterType)*] \|* [*DateFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.LangFilterType) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) – allows to limit search results with additional filters.
 ```python
 >>> date_filter = {'date': '<20250101'}
 >>> format_filter = {'format': 'doc'}
@@ -449,12 +449,12 @@ NB: All of the **site**, **host**, **url** parameters are mutually exclusive and
 #|
 || Parameters | 
 
-- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] **\| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)* \| **None*) – parameter for limiting search to specific location or list of sites.
-- **host** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] **\| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)* \| **None*) – parameter for limiting search to specific location or list of hosts.
-- **url** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] **\| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)* \| **None*) – parameter for limiting search to specific location or list of URLs.
-- **fix\_misspell** ([*bool*](https://docs.python.org/3/library/functions.html#bool)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)* \| **None*) – tells to backend to fix or not to fix misspels in queries.
-- **enable\_nrfm\_docs** ([*bool*](https://docs.python.org/3/library/functions.html#bool)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)* \| **None*) – tells to backend to include or not to include pages, which are not available via direct clicks from given sites/hosts/urls to search result.
-- **search\_filters** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*DateFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.DateFilterType)* \| *[*FormatFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.FormatFilterType)* \| *[*LangFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.LangFilterType)*] **\| *[*DateFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.DateFilterType)* \| *[*FormatFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.FormatFilterType)* \| *[*LangFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.LangFilterType)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)* \| **None*) – allows to limit search results with additional filters.
+- **site** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – parameter for limiting search to specific location or list of sites.
+- **host** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – parameter for limiting search to specific location or list of hosts.
+- **url** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – parameter for limiting search to specific location or list of URLs.
+- **fix\_misspell** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – tells to backend to fix or not to fix misspels in queries.
+- **enable\_nrfm\_docs** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – tells to backend to include or not to include pages, which are not available via direct clicks from given sites/hosts/urls to search result.
+- **search\_filters** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*DateFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.LangFilterType)*] \|* [*DateFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.DateFilterType) *\|* [*FormatFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.FormatFilterType) *\|* [*LangFilterType*](../types/search_api.md#yandex_cloud_ml_sdk._search_api.generative.config.LangFilterType) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*) – allows to limit search results with additional filters.
 ```python
 >>> date_filter = {'date': '<20250101'}
 >>> format_filter = {'format': 'doc'}
@@ -470,6 +470,8 @@ NB: All of the **site**, **host**, **url** parameters are mutually exclusive and
 *property* **uri**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._search_api.generative.generative.BaseGenerativeSearch.uri}
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.domain.**BaseSearchIndexes**{#yandex_cloud_ml_sdk._search_indexes.domain.BaseSearchIndexes}
+
+A class for search indexes. It is a part of Assistants API and it provides the foundation for creating and managing search indexes.
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.search\_index.**BaseSearchIndex**{#yandex_cloud_ml_sdk._search_indexes.search_index.BaseSearchIndex}
 
@@ -498,14 +500,14 @@ BaseSearchIndex(id: ‘str’, \_sdk: ‘BaseSDK’, \_lock: ‘asyncio.Lock’,
 #|
 || Parameters | 
 
-- **path** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*PathLike*](https://docs.python.org/3/library/os.html#os.PathLike))
-- **task\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **upload\_format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **metadata** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*, *[*str*](https://docs.python.org/3/library/stdtypes.html#str)*] **\| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **allow\_data\_logging** ([*bool*](https://docs.python.org/3/library/functions.html#bool)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) ||
+- **path** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*PathLike*](https://docs.python.org/3/library/os.html#os.PathLike))
+- **task\_type** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **upload\_format** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **name** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **description** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **metadata** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **labels** ([*dict*](https://docs.python.org/3/library/stdtypes.html#dict)*[*[*str*](https://docs.python.org/3/library/stdtypes.html#str)*,* [*str*](https://docs.python.org/3/library/stdtypes.html#str)*] \|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **allow\_data\_logging** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)) ||
 || Return type | [*DatasetDraftT*](../types/other.md#yandex_cloud_ml_sdk._datasets.draft.DatasetDraftT) ||
 |#
 
@@ -582,11 +584,19 @@ BaseDatasetDraft(\_domain: ‘BaseDatasets’, task\_type: ‘str | None’ = No
 
 ## *class* yandex\_cloud\_ml\_sdk.\_messages.base.**BaseMessage**{#yandex_cloud_ml_sdk._messages.base.BaseMessage}
 
-BaseMessage(parts: ‘tuple[Any, …]’)
+Abstract class for messages in Yandex Cloud ML Assistant service.
+
+Provides core functionality for all message types including: - Storage and processing of message parts (text, citations, etc.) - Basic text content operations - Protocol buffer support via BaseProtoResult[ProtoMessageTypeT\_contra]
+
+Extended by: - Message: Complete assistant messages - PartialMessage: Intermediate message content during streaming
 
 **parts**\: *[tuple](https://docs.python.org/3/library/stdtypes.html#tuple)[[Any](https://docs.python.org/3/library/typing.html#typing.Any)*]... ,{#yandex_cloud_ml_sdk._messages.base.BaseMessage.parts}
 
+Tuple containing message parts (can be strings or other types)
+
 *property* **text**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._messages.base.BaseMessage.text}
+
+Get concatenated string of all text parts in the message by joining all string parts.
 
 ## *class* yandex\_cloud\_ml\_sdk.\_batch.domain.**BaseBatch**{#yandex_cloud_ml_sdk._batch.domain.BaseBatch}
 
@@ -621,13 +631,13 @@ Call self as a function.
 #|
 || Parameters | 
 
-- **temperature** ([*float*](https://docs.python.org/3/library/functions.html#float)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)* \| **None*)
-- **max\_tokens** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)* \| **None*)
-- **reasoning\_mode** ([*str*](https://docs.python.org/3/library/stdtypes.html#str)* \| *[*ChatReasoningMode*](../types/other.md#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined)* \| **None*)
-- **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[**'json'**] **\| **~yandex\_cloud\_ml\_sdk.\_types.schemas.JsonSchemaResponseType** \| **type** \| **~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined** \| **None*)
-- **tools** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*FunctionTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool)*] **\| *[*FunctionTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **parallel\_tool\_calls** ([*bool*](https://docs.python.org/3/library/functions.html#bool)* \| *[*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
-- **tool\_choice** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*[**'none'**, **'None'**, **'NONE'**, **'auto'**, **'Auto'**, **'AUTO'**, **'required'**, **'Required'**, **'REQUIRED'**] **\| **~yandex\_cloud\_ml\_sdk.\_types.tools.function.FunctionDictType** \| **~yandex\_cloud\_ml\_sdk.\_tools.tool.FunctionTool** \| **~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) ||
+- **temperature** ([*float*](https://docs.python.org/3/library/functions.html#float) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*)
+- **max\_tokens** ([*int*](https://docs.python.org/3/library/functions.html#int) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*)
+- **reasoning\_mode** ([*str*](https://docs.python.org/3/library/stdtypes.html#str) *\|* [*ChatReasoningMode*](../types/other.md#yandex_cloud_ml_sdk._chat.completions.config.ChatReasoningMode) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined) *\| None*)
+- **response\_format** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['json'] \| ~yandex\_cloud\_ml\_sdk.\_types.schemas.JsonSchemaResponseType \| type \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined \| None*)
+- **tools** ([*Sequence*](https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence)*[*[*FunctionTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool)*] \|* [*FunctionTool*](../types/tools.md#yandex_cloud_ml_sdk._tools.tool.FunctionTool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **parallel\_tool\_calls** ([*bool*](https://docs.python.org/3/library/functions.html#bool) *\|* [*Undefined*](../types/other.md#yandex_cloud_ml_sdk._types.misc.Undefined))
+- **tool\_choice** ([*Literal*](https://docs.python.org/3/library/typing.html#typing.Literal)*['none', 'None', 'NONE', 'auto', 'Auto', 'AUTO', 'required', 'Required', 'REQUIRED'] \| ~yandex\_cloud\_ml\_sdk.\_types.tools.function.FunctionDictType \| ~yandex\_cloud\_ml\_sdk.\_tools.tool.FunctionTool \| ~yandex\_cloud\_ml\_sdk.\_types.misc.Undefined*) ||
 || Return type | [*Self*](https://docs.python.org/3/library/typing.html#typing.Self) ||
 |#
 

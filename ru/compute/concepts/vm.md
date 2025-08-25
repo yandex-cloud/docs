@@ -77,3 +77,7 @@ description: Виртуальная машина — это аналог сер�
 * [{#T}](../tutorials/ntp.md)
 * [{#T}](../tutorials/vm-fluent-bit-logging.md)
 * [{#T}](../tutorials/bind-domain-vm/index.md)
+
+#### См. также {#see-also}
+
+* [Как выбрать подходящий тип виртуальной машины в {{ yandex-cloud }}](https://yandex.cloud/ru/blog/posts/2025/03/vm-type-selection)

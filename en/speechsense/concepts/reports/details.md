@@ -35,10 +35,10 @@ In the report, you can select an evaluation parameter of one of the following ty
 
 ## Visualizing and using the report data {#display}
 
-The report provides quantitative agent performance characteristics. You can view the report in the {{ speechsense-name }} web interface in chart and table form or download it in CSV format.
+{% include notitle [display](../../../_includes/speechsense/reports/display.md) %}
 
 The available **{{ ui-key.yc-ui-talkanalytics.reports.details-key-value }}** report formats include:
 
 * **{{ ui-key.yc-ui-talkanalytics.reports.barchart }}**: Allows you to visualize the evaluation parameter values at different points in time. On the chart, you can set the report generation period as well as the data detail level. As a result, you can get values for different time intervals: from an hour to a quarter.
 * **{{ ui-key.yc-ui-talkanalytics.reports.table-key-value }}**: Shows the numerical value of the evaluation parameter for the specified period. The values are broken down by the customized data grouping.
-* **CSV file**: Contains the same table as in the {{ speechsense-name }} web interface. Use the CSV format to save the report locally.
+* **XLSX file**: Contains the same table as in the {{ speechsense-name }} web interface. Use the XLSX format to save the report locally.

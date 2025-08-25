@@ -5,13 +5,19 @@ sourcePath: en/_sdk-ref/sdk-ref/types/search_indexes.md
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.file.**SearchIndexFile**{#yandex_cloud_ml_sdk._search_indexes.file.SearchIndexFile}
 
-SearchIndexFile(id: ‘str’, \_sdk: ‘BaseSDK’, search\_index\_id: ‘str’, created\_by: ‘str’, created\_at: ‘datetime’)
+This class represents a file associated with a search index.
 
 **search\_index\_id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._search_indexes.file.SearchIndexFile.search_index_id}
 
+the unique identifier for the search index
+
 **created\_by**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._search_indexes.file.SearchIndexFile.created_by}
 
+the identifier of the user or system that created the file
+
 **created\_at**\: *datetime*{#yandex_cloud_ml_sdk._search_indexes.file.SearchIndexFile.created_at}
+
+the timestamp when the file was created
 
 **id**\: *[str](https://docs.python.org/3/library/stdtypes.html#str)*{#yandex_cloud_ml_sdk._search_indexes.file.SearchIndexFile.id}
 
@@ -53,13 +59,21 @@ HybridSearchIndexType(chunking\_strategy: ‘BaseIndexChunkingStrategy | None’
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.chunking\_strategy.**BaseIndexChunkingStrategy**{#yandex_cloud_ml_sdk._search_indexes.chunking_strategy.BaseIndexChunkingStrategy}
 
+A class for an index chunking strategy, from which all other strategies are inherited.
+
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.chunking\_strategy.**StaticIndexChunkingStrategy**{#yandex_cloud_ml_sdk._search_indexes.chunking_strategy.StaticIndexChunkingStrategy}
 
-StaticIndexChunkingStrategy(max\_chunk\_size\_tokens: ‘int’, chunk\_overlap\_tokens: ‘int’)
+This class implements a static chunking strategy (i.e. a specific strategy with specific properties).
+
+It is characterized by maximum chunk size and overlap in tokens.
 
 **max\_chunk\_size\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._search_indexes.chunking_strategy.StaticIndexChunkingStrategy.max_chunk_size_tokens}
 
+the maximum size of each chunk in tokens
+
 **chunk\_overlap\_tokens**\: *[int](https://docs.python.org/3/library/functions.html#int)*{#yandex_cloud_ml_sdk._search_indexes.chunking_strategy.StaticIndexChunkingStrategy.chunk_overlap_tokens}
+
+the number of overlapping tokens between consecutive chunks
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.combination\_strategy.**BaseIndexCombinationStrategy**{#yandex_cloud_ml_sdk._search_indexes.combination_strategy.BaseIndexCombinationStrategy}
 
@@ -153,8 +167,8 @@ MeanIndexCombinationStrategy(mean\_evaluation\_technique: ‘MeanIndexEvaluation
 #|
 || Parameters | 
 
-- **mean\_evaluation\_technique** ([*MeanIndexEvaluationTechnique*](#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique)* \| **None*)
-- **weights** ([*Collection*](https://docs.python.org/3/library/typing.html#typing.Collection)*[*[*float*](https://docs.python.org/3/library/functions.html#float)*] **\| **None*) ||
+- **mean\_evaluation\_technique** ([*MeanIndexEvaluationTechnique*](#yandex_cloud_ml_sdk._search_indexes.combination_strategy.MeanIndexEvaluationTechnique) *\| None*)
+- **weights** ([*Collection*](https://docs.python.org/3/library/typing.html#typing.Collection)*[*[*float*](https://docs.python.org/3/library/functions.html#float)*] \| None*) ||
 || Return type | None ||
 |#
 
@@ -167,17 +181,27 @@ ReciprocalRankFusionIndexCombinationStrategy(k: ‘int | None’ = None)
 **\_\_init\_\_**(*k=None*){#yandex_cloud_ml_sdk._search_indexes.combination_strategy.ReciprocalRankFusionIndexCombinationStrategy.__init__i}
 
 #|
-|| Parameters | **k** ([*int*](https://docs.python.org/3/library/functions.html#int)* \| **None*) ||
+|| Parameters | **k** ([*int*](https://docs.python.org/3/library/functions.html#int) *\| None*) ||
 || Return type | None ||
 |#
 
 ## *class* yandex\_cloud\_ml\_sdk.\_search\_indexes.normalization\_strategy.**IndexNormalizationStrategy**{#yandex_cloud_ml_sdk._search_indexes.normalization_strategy.IndexNormalizationStrategy}
 
+Enumeration for index normalization strategies.
+
+This class defines the various normalization strategies that can be applied to an index.
+
 **NORMALIZATION\_STRATEGY\_UNSPECIFIED** = *0*{#yandex_cloud_ml_sdk._search_indexes.normalization_strategy.IndexNormalizationStrategy.NORMALIZATION_STRATEGY_UNSPECIFIED}
+
+indicates that no normalization strategy has been specified
 
 **MIN\_MAX** = *1*{#yandex_cloud_ml_sdk._search_indexes.normalization_strategy.IndexNormalizationStrategy.MIN_MAX}
 
+represents the Min-Max normalization strategy
+
 **L2** = *2*{#yandex_cloud_ml_sdk._search_indexes.normalization_strategy.IndexNormalizationStrategy.L2}
+
+represents the L2 normalization strategy
 
 **\_\_new\_\_**(*value*){#yandex_cloud_ml_sdk._search_indexes.normalization_strategy.IndexNormalizationStrategy.__new__i}
 

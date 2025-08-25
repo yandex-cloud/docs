@@ -115,7 +115,7 @@ default:
   cloud-shell-full-name: Yandex Cloud Shell
   cloud-shell-name: Cloud Shell
   cluster-id: cat0adul1fj0********
-  cname-example: cl-msa87*****.edgecdn.ru
+  cname-example-yc: 328938ed********.a.yccdn.cloud.yandex.net
   cns-full-name: Yandex Cloud Notification Service
   cns-host: notifications.yandexcloud.net
   cns-name: Cloud Notification Service
@@ -2389,6 +2389,17 @@ default:
           1000|string: ₸270.00
           10000|string: ₸135.00
         v1|string: Free
+  sku|KZT|trino:
+    cluster:
+      generic:
+        ram:
+          v1|month|string: ₸1962.00
+          v1|number: 2.725
+          v1|string: ₸2.7250
+        vcpu:
+          v1|month|string: ₸7351.20
+          v1|number: 10.21
+          v1|string: ₸10.21
   sku|KZT|v1:
     commitment:
       selfcheckout:
@@ -4192,6 +4203,17 @@ default:
           1000|string: ₽54.00
           10000|string: ₽27.00
         v1|string: Free
+  sku|RUB|trino:
+    cluster:
+      generic:
+        ram:
+          v1|month|string: ₽392.40
+          v1|number: 0.545
+          v1|string: ₽0.5450
+        vcpu:
+          v1|month|string: ₽1470.24
+          v1|number: 2.042
+          v1|string: ₽2.0420
   sku|RUB|v1:
     commitment:
       selfcheckout:
@@ -5940,6 +5962,17 @@ default:
           1000|string: $0.450000
           10000|string: $0.225000
         v1|string: Free
+  sku|USD|trino:
+    cluster:
+      generic:
+        ram:
+          v1|month|string: $3.269999
+          v1|number: 0.004542
+          v1|string: $0.004542
+        vcpu:
+          v1|month|string: $12.251995
+          v1|number: 0.017017
+          v1|string: $0.017017
   sku|USD|v1:
     commitment:
       selfcheckout:
@@ -7046,6 +7079,9 @@ default:
           field_group_attribute_value: Transmitted groups
       billing:
         account:
+          button_enable-edm-action: Enable EDM
+          dashboard-info:
+            section_contract: Information about the agreement
           entities:
             label_title: Clouds and services
             label_type: Type

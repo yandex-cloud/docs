@@ -7,9 +7,29 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.160.0 (25.08.25) {#version0.160.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ mtr-name }}
+* Добавлена опция `--version` в следующие команды:
+  * `yc managed-trino cluster create`;
+  * `yc managed-trino cluster update`.
+
+##### {{ mrd-name }}
+
+В команду `yc managed-redis cluster restore` добавлена опция `sharded`.
+
+##### {{ objstorage-name }}
+
+* В команду `yc storage bucket create` добавлена опция `tags`.
+* Добавлена команда `yc storage s3 presign`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.159.0 (18.08.25) {#version0.159.0}
 
-####  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ mmg-name }}
 Добавлен вывод `priority` и `hidden` в `yc managed-mongodb hosts list`.
@@ -25,12 +45,12 @@ description: На странице представлены релизы CLI, а
 * `compute reserved-instance-pool update`.
 
 ##### {{ er-name }}
-* Исправлена работа флага `--deletion-protection` в команде `yc serverless eventrouter connector update`.
+
+Исправлена работа флага `--deletion-protection` в команде `yc serverless eventrouter connector update`.
 
 ##### {{ org-name }}
-* Исправлено отображение timestamp в листинге доменов SAML-федераций.
 
-## Предыдущие релизы {#previous-release}
+Исправлено отображение timestamp в листинге доменов SAML-федераций.
 
 ### Версия 0.158.0 (11.08.25) {#version0.158.0}
 
@@ -41,9 +61,7 @@ description: На странице представлены релизы CLI, а
 
 ##### {{ alb-name }}
 
-В команду `yc apploadbalancer disable-zones` добавлена возможность управлять временем отключения зоны.
-
-##### {{ alb-name }}
+* В команду `yc apploadbalancer disable-zones` добавлена возможность управлять временем отключения зоны.
 * В команды управления маршрутами добавлен параметр `disable_security_profile`:
   * `yc application-load-balancer virtual-host append-http-route`;
   * `yc application-load-balancer virtual-host prepend-http-route`;
@@ -87,7 +105,7 @@ description: На странице представлены релизы CLI, а
 
 ### Версия 0.156.0 (28.07.25) {#version0.156.0}
 
-####  Изменения в сервисах {{ yandex-cloud }}
+#### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ managed-k8s-name }}
 

@@ -17,10 +17,10 @@ apiPlayground:
     query: null
     body: null
     definitions: null
-sourcePath: en/_api-ref/connectionmanager/v1/api-ref/Operation/cancel.md
+sourcePath: en/_api-ref/metastore/v1/api-ref/Operation/cancel.md
 ---
 
-# Connection Manager API, REST: Operation.Cancel
+# Managed Service for Hive Metastore™ API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

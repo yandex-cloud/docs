@@ -5,7 +5,7 @@ description: 'This guide will help you get started with the {{ support-center-na
 
 # Working with {{ support-center-name }}
 
-{{ support-center-name }} will help you troubleshoot {{ yandex-cloud }} issues and create or view support tickets. You can also change your service plan in {{ support-center-name }}.
+{{ support-center-name }} will help you troubleshoot {{ yandex-cloud }} issues, create and view support tickets. You can also change your service plan in {{ support-center-name }}.
 
 {% note info %}
 
@@ -15,9 +15,9 @@ Only a {{ yandex-cloud }} [user](../overview/roles-and-resources.md#users) can c
 
 ## Getting started {#before-you-begin}
 
-1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
 1. Open the {{ support-center-name }} [home page]({{ link-console-support }}).
-1. Select the [organization](../organization/quickstart.md) to work with {{ support-center-name }} in or [create a new one](../organization/operations/enable-org).
+1. Select the [organization](../organization/quickstart.md) to work with {{ support-center-name }} in or [create a new one](../organization/operations/enable-org.md).
 
 If accessing the support center from your own organization, check the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page to make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status.
 
@@ -36,7 +36,7 @@ To find answers to questions about {{ yandex-cloud }}, do the following in {{ su
 
 If you [searched for a way to resolve your issue](#finding-solution) in the support knowledge base and did not find anything relevant in the {{ yandex-cloud }} documentation, create a support ticket.
 
-You can create a support ticket either on the {{ support-center-name }} [home page]({{ link-console-support }}) by clicking **{{ ui-key.support-center.tickets.common.action_create-ticket }}** or from the left-hand panel on any management console page by clicking ![image](../_assets/console-icons/circle-question.svg) **Support center** -> **{{ ui-key.support-center.tickets.common.action_create-ticket }}**.
+You can create a support ticket either on the {{ support-center-name }} [home page]({{ link-console-support }}) by clicking **{{ ui-key.support-center.tickets.common.action_create-ticket }}** or from any management console page by clicking ![image](../_assets/console-icons/circle-question.svg)**Support center** -> **{{ ui-key.support-center.tickets.common.action_create-ticket }}** on the left-hand panel.
 
 In the **{{ ui-key.support-center.ticket.create.title_create-ticket-page }}** form that opens, proceed as follows:
 

@@ -3,6 +3,14 @@
 
 ## Статьи, анонсы и видео {#articles}
 
+### 2025 год {#2025}
+
+* Инновации в международном страховании: что будет полезно российскому рынку. [Статья](https://yandex.cloud/ru/blog/innovations-in-insurance).
+
+* Нейросеть и рентгеновские спектры: как ускорить анализ катализаторов. [Статья](https://yandex.cloud/ru/blog/analysis-of-catalysts).
+
+* ИИ для анализа данных: возможности для бизнеса. [Статья](https://yandex.cloud/ru/blog/ai-data-analytics-guide).
+
 ### 2024 год {#2024}
 
 * {{ dataproc-name }} + {{ ml-platform-name }}. Новые возможности работы. [Видео](https://www.youtube.com/watch?v=H97HZ4ja1-4).

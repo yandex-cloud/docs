@@ -270,3 +270,7 @@
 * [{#T}](../tutorials/custom-health-checks.md)
 * [{#T}](../tutorials/logging.md)
 * [{#T}](../tutorials/alb-ingress-controller-log-options.md)
+
+#### См. также {#see-also}
+
+* [Балансировщики нагрузки в облаке: повышение доступности и отказоустойчивости](https://yandex.cloud/ru/blog/posts/2025/04/load-balancers-guide)

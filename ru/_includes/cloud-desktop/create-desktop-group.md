@@ -44,7 +44,7 @@
 
       {% note warning %}
 
-      Пользователи из списка будут видеть рабочие столы этой группы на своей [витрине](../../cloud-desktop/concepts/showcase.md). Чтобы у пользователей была возможность подключаться к рабочим столам, им надо [назначить роль](../../iam/operations/roles/grant.md) `vdi.viewer`.
+      Пользователи из списка будут видеть рабочие столы этой группы на своей [витрине](../../cloud-desktop/concepts/showcase.md). Чтобы у пользователей была возможность подключаться к рабочим столам, им надо [назначить роль](../../iam/operations/roles/grant.md) `vdi.desktopGroups.user` или `vdi.desktopGroups.maintainer`.
 
       {% endnote %}
   

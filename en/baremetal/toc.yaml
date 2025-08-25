@@ -22,7 +22,7 @@ items:
             href: operations/servers/server-stop-and-start.md
           - name: Cancel a server lease
             href: operations/servers/server-lease-cancel.md
-          - name: Uploading an image
+          - name: Uploading a custom OS image
             href: operations/image-upload.md
           - name: >-
               Connecting an existing {{ baremetal-name }} server to {{
@@ -36,6 +36,8 @@ items:
                 href: operations/servers/reinstall-os-from-marketplace.md
               - name: Reinstalling the OS from your ISO image
                 href: operations/servers/reinstall-os-from-own-image.md
+          - name: Configuring the MC-LAG aggregation group
+            href: operations/servers/set-up-mc-lag.md
           - name: Resetting a password on the server
             href: operations/servers/reset-password.md
           - name: Replacing a disk in a RAID array
@@ -79,11 +81,15 @@ items:
             href: concepts/network.md
           - name: DHCP
             href: concepts/dhcp.md
+          - name: MC-LAG
+            href: concepts/mc-lag.md
           - name: Blocked network ports
             hidden: true
             href: concepts/traffic-restrictions.md
           - name: Restrictions in {{ baremetal-name }} networks
             href: concepts/network-restrictions.md
+      - name: Images
+        href: concepts/images.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Tutorials

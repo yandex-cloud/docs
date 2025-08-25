@@ -1,3 +1,5 @@
+
+
 To use [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr) with {{ mkf-name }}:
 
 1. [Create the producer and consumer scripts on the local machine](#create-scripts).
@@ -6,9 +8,19 @@ To use [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.m
 
 This tutorial describes how to register a single data schema. For information on how to register multiple data schemas, see the [Confluent Schema Registry](https://docs.confluent.io/platform/current/control-center/topics/schema.html) documentation.
 
+
+## Required paid resources {#paid-resources}
+
+The infrastructure support cost includes:
+
+* Fee for the {{ mkf-name }} cluster computing resources and storage (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* Fee for [VM](../../../compute/concepts/vm.md) computing resources and disks (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
+* Fee for using a [public IP address](../../../vpc/concepts/ips.md) (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md) with any suitable configuration. When creating a cluster, enable **{{ ui-key.yacloud.kafka.field_schema-registry }}** and **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+1. [Create a {{ mkf-name }} cluster](../../../managed-kafka/operations/cluster-create.md) in any suitable configuration. When creating a cluster, enable **{{ ui-key.yacloud.kafka.field_schema-registry }}** and **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
     1. [Create a topic](../../../managed-kafka/operations/cluster-topics.md#create-topic) named `messages` for exchanging messages between the producer and the consumer.
     1. [Create a user](../../../managed-kafka/operations/cluster-accounts.md#create-account) named `user` and [grant them permissions](../../../managed-kafka/operations/cluster-accounts.md#grant-permission) for the `messages` topic:

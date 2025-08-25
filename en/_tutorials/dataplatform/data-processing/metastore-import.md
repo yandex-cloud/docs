@@ -1,5 +1,6 @@
 # Transferring metadata between {{ dataproc-name }} clusters using {{ metastore-name }}
 
+
 You can transfer metadata between [{{ dataproc-full-name }} clusters](../../../data-proc/concepts/index.md) with the Hive DBMS. First, you need to export metadata from a cluster, then import it into a different one using [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md).
 
 To transfer metadata between {{ dataproc-name }} clusters:

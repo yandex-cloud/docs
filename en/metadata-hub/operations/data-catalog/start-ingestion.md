@@ -1,10 +1,12 @@
 # Starting and stopping an ingestion
 
+
 {% note info %}
 
 {% include [preview-tp](../../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
 
 Ingestions start automatically as per the schedule you set up when [creating](create-ingestion.md) or [updating](update-ingestion.md) them. You can start or stop an ingestion if its schedule is set to **{{ ui-key.data-catalog.console.form.cron.Cron.none.title }}**.
 

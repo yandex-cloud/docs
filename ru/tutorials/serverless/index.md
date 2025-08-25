@@ -6,6 +6,7 @@
 * [Развертывание веб-приложения с использованием Java Servlet API](java-servlet-todo-list.md)
 * [Разработка Slack-бота](slack-bot-serverless.md)
 * [Разработка Telegram-бота](telegram-bot-serverless.md)
+* [Разработка Telegram-бота с поддержкой AI-агента](telegram-ai-bot-workflows.md)
 * [Разработка пользовательской интеграции в {{ api-gw-full-name }}](api-gw-integration.md)
 * [Разработка CRUD API для сервиса фильмов](movies-database.md)
 * [Построение пайплайна CI/CD в {{ GL }}](ci-cd-serverless.md)

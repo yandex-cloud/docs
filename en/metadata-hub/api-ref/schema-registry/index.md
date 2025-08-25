@@ -5,6 +5,7 @@ description: '{{ schema-registry-name }} implements the Confluent Schema Registr
 
 # {{ schema-registry-name }} API
 
+
 After you [authenticate with an IAM token](../authentication.md), you can use the following HTTP requests:
 
 ## NamespaceService {#namespace-service}

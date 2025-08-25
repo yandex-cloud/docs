@@ -1,10 +1,14 @@
 # Service roles to manage metadata in {{ data-catalog-full-name }}
 
+
+
 {% note info %}
 
 {% include [preview-tp](../../_includes/preview-tp.md) %}
 
 {% endnote %}
+
+
 
 With {{ data-catalog-full-name }} service roles, you can view catalog data and manage catalogs.
 

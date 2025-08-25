@@ -44,15 +44,11 @@ Where:
 
 * `coordinator`: [Coordinator](../../../managed-trino/concepts/index.md#coordinator) configuration.
 
-    * `resource_preset_id`: Class of coordinator’s computing resources. The possible values are:
-
-        {% include [resource-preset-id](../resource-preset-id.md) %}
+    * `resource_preset_id`: [Class of the coordinator's computing resources](../../../managed-trino/concepts/instance-types.md)
 
 * `worker`: [Worker](../../../managed-trino/concepts/index.md#workers) configuration:
 
-    * `resource_preset_id`: Class of worker’s computing resources. The possible values are:
-
-        {% include [resource-preset-id](../resource-preset-id.md) %}
+    * `resource_preset_id`: [Class of the worker's computing resources](../../../managed-trino/concepts/instance-types.md)
 
     * `fixed_scale`: Fixed worker scaling policy.
 

@@ -24,3 +24,4 @@ description: Различные сценарии использования по
 * [Вызов нагрузочного тестирования из {{ GL }} CI](../testing/loadtesting-gitlab-ci.md)
 * [{#T}](install-gitlab-runner.md)
 * [{#T}](../testing/loadtesting-results-compare.md)
+* [{#T}](ai-powered-github-pr-review.md)

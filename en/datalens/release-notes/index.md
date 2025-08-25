@@ -1,72 +1,69 @@
 ---
-title: '{{ datalens-full-name }} release notes: June 2025'
-description: Check out {{ datalens-full-name }} release notes for June 2025.
+title: '{{ datalens-full-name }} release notes: July 2025'
+description: "Check out the {{ datalens-full-name }} release notes for July\_2025."
 ---
 
-# {{ datalens-full-name }} release notes: June 2025
-
+# {{ datalens-full-name }} release notes: July 2025
 
 * [Changes in basic features](#base)
+* [Fixes and improvements](#fixes)
 * [Changes available with the _Business_ service plan](#business)
 
 ## Changes in basic features {#base}
 
-### {{ datalens-gallery }} {#gallery-changes}
+* Added the ability to specify suggestions for [dashboard](../operations/dashboard/add-title.md) titles.
+* Now you can set not only the background color but also the text color for dashboard titles.
 
-Updated the [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery) section:
+  ![image](../../_assets/datalens/release-notes/title-hint-dashboard.png =453x306)
 
-* Corrected the layout.
-* Made cards look better on narrow screens.
-* Improved public dashboard preview from the gallery card for non-logged in users.
+* Added [multi-selection](../dataset/create-dataset.md#bulk-changes) for [dataset](../dataset/index.md) fields. You can perform it by holding **Shift** and clicking fields one by one.
 
-### Exporting and importing workbooks {#workbooks-export-import}
-
-Added a **Retry** button to [workbook export and import](../workbooks-collections/export-and-import.md) error window.
-
-### Linking a card to a billing account {#ba-card-link}
-
-You can now optionally link a card when [creating a billing account](../../billing/operations/create-new-account.md).
-
-### Update in notifications {#notifications-changes}
-
-Updated the notification component that opens when you click ![image](../../_assets/console-icons/bell.svg) **Notifications**. Now it displays [{{ cloud-center }}]({{ cloud-center-link }}) updates as well.
+  ![image](../../_assets/datalens/release-notes/fields-multiselect.png)
 
 
+* New works available in [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery). For more information, see the [{{ datalens-short-name }}](https://t.me/YandexDataLens/28631/136577) Telegram chat.
+* Added the option to select a [collection or workbook](../workbooks-collections/index.md) when deploying a product from {{ datalens-gallery }}. You can also create a new collection or workbook at this step.
 
-### Fixes in connections {#connections-fixes}
+  ![image](../../_assets/datalens/release-notes/deploy-to-wb.png =465x415)
 
-Fixed the problem of replacing tables in a connection to [Yandex Documents](../operations/connection/create-yadocs.md), where only the last element could be replaced correctly.
+* Now you can enable a [Business](../concepts/service-plans-comparison.md) [trial period](../pricing.md#prices) for 30 days.
 
-### Undoing and redoing changes to datasets {#undo-redo}
 
-When editing a [dataset](../dataset/index.md), you can now undo/redo your changes before you click **Save**:
+## Fixes and improvements {#fixes}
 
-* To undo changes, click ![image](../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top-right corner of the screen or press **Ctrl** (**Cmd**) + **Z**.
-* To redo changes, click ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) or press **Ctrl** (**Cmd**) + **Shift** + **Z**.
+### Fixes in charts {#chart-fixes}
+
+* Fixed the display order of objects in the **Polylines** layer in [maps](../visualization-ref/polyline-map-chart.md).
+* Fixed the automatic substitution of [measure names](../concepts/chart/measure-values.md) in [QL charts](../concepts/chart/ql-charts.md).
+* Fixed the export data error in CSV format in charts on the chart preview page.
+* Fixed the display of the linear [indicator](../visualization-ref/indicator-chart.md) for null values.
+* Fixed the table structure change when switching to [pivot table](../../datalens/visualization-ref/pivot-table-chart.md) format.
+* Fixed the display of scroll in tables with linear indicators.
 
 
 ### Fixes in dashboards {#dashboard-fixes}
 
-* Fixed the problem of copying links when pasting a selector into another widget using the **Paste** button. Now selectors are copied together with their links, same as when added to the dashboard via the **Insert** button on the bottom panel of the dashboard page.
-* Fixed copying in the dashboard access link settings window: now it is enough to click ![icon](../../_assets/console-icons/copy.svg) in the **Link** field. We also added the **Open current tab by default** option.
-* Fixed issues:
-  
-  * [Header](../dashboard/widget.md#title) background used to mismatch the [widget pinning](../dashboard/settings.md#widget-fixation) area background.
-  * Switching to edit mode was changing the indent between the widget pinning area and the dashboard's main content.
-  * On dashboards without tabs or widget pinning areas, the main content area was pinning itself to the dashboard title.
+* Tooltips in the pinned dashboard areas are now displayed fully without being clipped off at the edges of the pinned area.
+* Fixed the addition of the `_no_controls` and `_embedded` parameters when inserting a widget using a link.
+* Now you can paste multiple values from the clipboard to dashboard selectors.
 
-### Fixes in charts {#chart-fixes}
 
-Fixed a bug when opening chart preview via the **Open in new tab** menu item. Previously, the preview page would be loading indefinitely unless you had relevant data viewing permissions. Now you get an access restriction message instead.
 
-Also fixed a bug causing the address bar parameters to disappear when redirected to a new address.
+### Mobile version fixes {#mobile-version-fixes}
+
+Fixed the display of [chart](../concepts/chart/index.md) menu items in mobile version.
 
 
 ## Changes available with the _Business_ service plan {#business}
 
-### Token update for non-public embeddings {#private-embedded-token-update}
+* Fixed the display of tabs in [Editor](../charts/editor/index.md).
+* Added URL-overridden parameters panel in Editor.
 
-For non-public embeddings you can now use the [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) method to [update the JWT link](../security/private-embedded-objects.md#token-update) without losing the filter states.
+  ![image](../../_assets/datalens/release-notes/editor-url-parameters-panel.png =726x46)
 
-Thanks to the token update, embedded dashboards can now operate in the background long-term without losing their previously selected tab states and selector values.
+* Fixed color palette rounding when rounding is enabled in branding.
+* Now you can set not only the background color but also the text color for report titles.
+* Added the ability to specify suggestions for [report](../reports/report-operations.md#report-widget-settings) titles.
+
+  ![image](../../_assets/datalens/release-notes/title-hint-report.png =453x259)
 

@@ -1,10 +1,10 @@
-> 720 × (8 × {% calc [currency=RUB] 2,042 %} + 32 × {% calc [currency=RUB] 0,545 %}) = {% calc [currency=RUB] 720 × (8 × 2,042 + 32 × 0,545) %}
+> 720 × (8 × {{ sku|RUB|trino.cluster.generic.vcpu.v1|string }} + 32 × {{ sku|RUB|trino.cluster.generic.ram.v1|string }}) = {% calc [currency=RUB] 720 × (8 × {{ sku|RUB|trino.cluster.generic.vcpu.v1|number }} + 32 × {{ sku|RUB|trino.cluster.generic.ram.v1|number }}) %}
 >
-> Итого: {% calc [currency=RUB] 720 × (8 × 2,042 + 32 × 0,545) %} — стоимость использования кластера в течение 30 дней.
+> Итого: {% calc [currency=RUB] 720 × (8 × {{ sku|RUB|trino.cluster.generic.vcpu.v1|number }} + 32 × {{ sku|RUB|trino.cluster.generic.ram.v1|number }}) %} — стоимость использования кластера в течение 30 дней.
 
 Где:
 * 720 — количество часов в 30 днях.
 * 8 — общее количество 100% vCPU.
-* {% calc [currency=RUB] 2,042 %} — стоимость часа использования 100% vCPU.
+* {{ sku|RUB|trino.cluster.generic.vcpu.v1|string }} — стоимость часа использования 100% vCPU.
 * 32 — общий объем RAM (в гигабайтах).
-* {% calc [currency=RUB] 0,545 %} — стоимость часа использования 1 ГБ RAM.
+* {{ sku|RUB|trino.cluster.generic.ram.v1|string }} — стоимость часа использования 1 ГБ RAM.

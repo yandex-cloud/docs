@@ -107,6 +107,6 @@ steps:
 
 - API {#api}
 
-  Чтобы создать [рабочий процесс](../../../concepts/workflows/workflow.md), воспользуйтесь методом REST API [Create](../../../../serverless-integrations/workflows/api-ref/Workflow/create.md) для ресурса [Workflows](../../../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [workflow/Create](../../../../serverless-integrations/workflows/api-ref/grpc/Workflow/create.md).
+  Чтобы создать [рабочий процесс](../../../concepts/workflows/workflow.md), воспользуйтесь методом REST API [Create](../../../../serverless-integrations/workflows/api-ref/Workflow/create.md) для ресурса [Workflows](../../../../serverless-integrations/workflows/api-ref/Workflow/index.md) или вызовом gRPC API [WorkflowService/Create](../../../../serverless-integrations/workflows/api-ref/grpc/Workflow/create.md).
 
 {% endlist %}

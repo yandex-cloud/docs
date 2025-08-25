@@ -80,7 +80,7 @@ items:
             href: tutorials/data-from-ch-over-yt.md
           - name: >-
               Streaming {{ postbox-full-name }} events to {{ yds-full-name }}
-              and analyzing them using {{ datalens-full-name }}
+              and analyzing them with {{ datalens-full-name }}
             href: tutorials/events-from-postbox-to-yds.md
           - name: >-
               Delivering data from {{ forms-full-name }} to {{
@@ -183,6 +183,8 @@ items:
         href: dataset/data-model.md
       - name: Dataset settings
         href: dataset/settings.md
+      - name: Source parameterization
+        href: dataset/parametrisation.md
       - name: Data types
         href: dataset/data-types.md
       - name: Data type mapping
@@ -897,8 +899,10 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
-      - name: June 2025
+      - name: July 2025
         href: release-notes/index.md
+      - name: June 2025
+        href: release-notes/2506.md
       - name: May 2025
         href: release-notes/2505.md
       - name: April 2025
@@ -907,10 +911,10 @@ items:
         href: release-notes/2503.md
       - name: February 2025
         href: release-notes/2502.md
-      - name: January 2025
-        href: release-notes/2501.md
       - name: Archive
         items:
+          - name: January 2025
+            href: release-notes/2501.md
           - name: December 2024
             href: release-notes/2412.md
           - name: November 2024

@@ -5,6 +5,7 @@ description: In this tutorial, you will learn how to create your first connectio
 
 # Getting started with {{ metadata-hub-full-name }} services
 
+
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
 
