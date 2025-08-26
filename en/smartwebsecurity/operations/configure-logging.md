@@ -23,7 +23,7 @@ You can set up logging in {{ sws-full-name }} using either [{{ cloud-logging-ful
 
 * {{ at-name }}: Collects more detailed audit logs (events) for WAF and ARL rules.
 
-   In {{ at-name }}, events are delivered directly from {{ sws-name }} without using an L7 load balancer. There are two types of {{ at-name }} events:
+   In {{ at-name }}, events are delivered directly from {{ sws-name }} without using an L7 load balancer. There are two types of events in {{ at-name }}:
 
    * [Management events](../at-ref.md#control-plane-events), which include actions related to {{ yandex-cloud }} resource configuration, such as creating or deleting a security profile.
    * [Data events](../at-ref.md#data-plane-events), which include actions performed on resources within {{ yandex-cloud }} services, e.g., triggering a rule from a WAF profile.
@@ -83,8 +83,8 @@ To get started with {{ sws-name }} logs:
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Go to the **{{ ui-key.yacloud.common.logs }}** section.
-  1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, or 2 weeks.
-  1. In the **Query** field, specify you query using the [filter expression language](../../logging/concepts/filter.md) and click **Run**.
+  1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
+  1. In the **Query** row, specify you query using the [filter expression language](../../logging/concepts/filter.md) and click **Run**.
 
      You can find examples of queries below.
 
@@ -93,13 +93,13 @@ To get started with {{ sws-name }} logs:
   For other ways to view logs, see [{#T}](../../application-load-balancer/operations/application-load-balancer-get-logs.md) and [{#T}](../../logging/operations/read-logs.md).
 
 
-  ### Examples of preset log filters {#filtration}
+  ## Examples of preset log filters {#filtration}
 
   Logs are delivered in JSON format. A single log entry maps to a single client request to the L7 load balancer.
 
   Queries for log filtering are based on the relationship between [{{ sws-name }}](../concepts/profiles.md#profile-rules-schema) profiles and rules. You can view logs for active, running rules, or rules in **Logging only** (dry run) mode.
 
-  #### Filters for active rules {#active-rule-filters}
+  ### Filters for active rules {#active-rule-filters}
 
   * Show requests blocked by basic rules based on specific [conditions](../concepts/conditions.md), e.g., by IP list or region:
     ```
@@ -109,7 +109,7 @@ To get started with {{ sws-name }} logs:
     ```
     json_payload.smartwebsecurity.matched_rule.rule_type = SMART_PROTECTION and json_payload.smartwebsecurity.matched_rule.verdict = CAPTCHA
     ```
-  * Show requests blocked based on the [WAF](../concepts/waf.md) profile settings, i.e., by the security profile WAF rules:
+  * Show requests blocked based on the [WAF](../concepts/waf.md) profile, i.e., by the security profile WAF rules:
     ```
     json_payload.smartwebsecurity.matched_rule.rule_type = WAF and json_payload.smartwebsecurity.matched_rule.verdict = DENY
     ```
@@ -137,7 +137,7 @@ To get started with {{ sws-name }} logs:
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Select the log group receiving your {{ at-name }} events.
-  1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, or 2 weeks.
+  1. Select the number of messages per page and the time interval: 1 hour, 3 hours, 1 day, 1 week, 2 weeks.
   1. In the **Query** field, specify you query using the [filter expression language](../../logging/concepts/filter.md) and click **Run**.
 
      {{ at-name }} logs are written in JSON format. To find a specific [event](../at-ref.md#data-plane-events), provide its name in the following format:

@@ -40,8 +40,6 @@ To update the basic settings of a [resource](../../concepts/resource.md):
 
           * `{{ ui-key.yacloud.cdn.value_certificate-custom }}`: Select a certificate. The resource will be available over HTTP and HTTPS.
 
-              {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
-
               {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
 
           To learn more, see [{#T}](../../concepts/clients-to-servers-tls.md).
@@ -182,7 +180,7 @@ To update the basic settings of a [resource](../../concepts/resource.md):
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
   1. Apply the changes:
      ```bash

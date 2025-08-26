@@ -13,7 +13,6 @@ To create an [origin group](../../concepts/origins.md):
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to host your origin group.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. {% include [activate-provider](../../../_includes/cdn/activate-provider.md) %}
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Click **{{ ui-key.yacloud.cdn.button_origins-group-create }}**.
   1. Enter a name for the origin group.
@@ -22,6 +21,11 @@ To create an [origin group](../../concepts/origins.md):
      * Specify an origin.
      * Select the **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.value_active }}` or `{{ ui-key.yacloud.cdn.value_backup }}`. For more information about priorities, see [{#T}](../../concepts/origins.md#groups).
      * Add other origins if needed.
+  1. Select the [CDN provider](../../concepts/providers.md). The default provider is `{{ cdn-full-name }}`.
+
+      {% include [provider-binding](../../../_includes/cdn/provider-binding.md) %}
+
+      A CDN resource and its origin group must be associated with the same CDN provider.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -29,12 +33,6 @@ To create an [origin group](../../concepts/origins.md):
   {% include [include](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-  1. If you have not created origin groups before, connect to the provider first:
-
-     ```bash
-     yc cdn provider activate --type gcore
-     ```
 
   1. View the description of the [CLI](../../../cli/) command to create an origin group:
 
@@ -78,18 +76,6 @@ To create an [origin group](../../concepts/origins.md):
 
 - {{ TF }} {#tf}
 
-  Make sure to activate the CDN provider before creating an origin group. You can activate it in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
-
-  ```bash
-  yc cdn provider activate \
-    --folder-id <folder_ID> \
-    --type gcore
-  ```
-
-  Where:
-  * `--folder-id`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) where you want to activate the CDN provider.
-  * `--type`: Provider type. The only possible value is `gcore`.
-
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -128,7 +114,7 @@ To create an [origin group](../../concepts/origins.md):
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all required resources. You can check the new CDN resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new CDN resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
      ```bash
      yc cdn origin-group list

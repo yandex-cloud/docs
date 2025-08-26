@@ -24,6 +24,7 @@
 | --- | --- |
 | [Resource](./resource.md) | The main entity in the service that allows you to configure and control content distribution from origins over the CDN. |
 | [Origins and origin groups](./origins.md) | The servers that are origins of content. CDN servers access them to load files. |
+| [Providers](./providers.md) | CDN providers. |
 | [Exchanging data between clients and the CDN](./clients-to-servers.md) | Receiving client requests by the CDN load balancer and sending response data from CDN servers. |
 | [TLS certificates](./clients-to-servers-tls.md) | Certificates used for HTTPS connections between clients and the CDN load balancer. |
 | [CORS](./cors.md) | Cross-domain client requests to the CDN (cross-origin resource sharing). |

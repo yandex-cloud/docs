@@ -476,6 +476,8 @@ items:
             href: cli-ref/s3/cp.md
           - name: mv
             href: cli-ref/s3/mv.md
+          - name: presign
+            href: cli-ref/s3/presign.md
           - name: rm
             href: cli-ref/s3/rm.md
       - name: s3api

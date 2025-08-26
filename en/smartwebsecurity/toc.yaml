@@ -73,6 +73,12 @@ items:
             href: operations/validate-availability.md
       - name: Address lists
         href: operations/list-create.md
+      - name: Required and recommended rules
+        items:
+          - name: Rule for captcha
+            href: operations/captcha-rule.md
+          - name: Rule for blocking black addresses
+            href: operations/black-list-rule.md
       - name: Viewing operations
         href: operations/operation-logs.md
       - name: Configuring monitoring

@@ -42,7 +42,7 @@ The cost of supporting the CDN infrastructure includes:
 
 {% include [certificate-usage](../../_includes/cdn/certificate-usage.md) %}
 
-For a Let's Encrypt® certificate, have your [rights checked](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
+For a Let's Encrypt® certificate, pass an [ownership check](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
 
 
 ## Create buckets in {{ objstorage-name }} {#create-buckets}
@@ -272,7 +272,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
         terraform plan
         ```
 
-     If you described the configuration correctly, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
   1. Deploy the cloud resources.
      1. If the configuration does not contain any errors, run this command:
 
@@ -295,15 +295,15 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
-
-  1. Create a CDN resource:
-     1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-     1. Configure the basic settings of the CDN resource as follows:
-        * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
-        * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
-        * **{{ ui-key.yacloud.cdn.label_bucket }}**: `<name_of_bucket_with_files>`.
-        * **{{ ui-key.yacloud.cdn.label_section-domain }}**: Primary domain name you will use to publish patches, e.g., `cdn.ycprojectblue.example`.
+  1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+  1. Configure the basic CDN resource settings:
+      * Under **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        * Enable **{{ ui-key.yacloud.cdn.label_access }}**.
+        * In the **{{ ui-key.yacloud.cdn.label_content-query-type }}** field, select `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_source-type }}** field, select `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_bucket }}** field, select `<bucket_name_with_files>`.
+        * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_https }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, enter the primary domain name you will use to publish patches, e.g., `cdn.ycprojectblue.example`.
 
           {% note alert %}
 
@@ -311,38 +311,23 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
           {% endnote %}
 
-        * Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
-          * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_https }}`.
-          * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
-          * Select **{{ ui-key.yacloud.cdn.field_access }}**.
-          * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, specify `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and select a [certificate](#add-certificate) for the `cdn.ycprojectblue.example` domain name.
-          * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. In the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field, specify the origin domain name, `<name_of_bucket_with_files>.{{ s3-storage-host }}`, for the source bucket to respond to CDN server requests correctly.
-     1. Click **{{ ui-key.yacloud.common.create }}**.
+      * Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, specify `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and select a [certificate](#add-certificate) for the `cdn.ycprojectblue.example` domain name.
+        * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. In the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field, specify the origin domain name, `<name_of_bucket_with_files>.{{ s3-storage-host }}`, for the source bucket to respond to CDN server requests correctly.
+  1. Click **{{ ui-key.yacloud.common.continue }}**.
+  1. Under **{{ ui-key.yacloud.cdn.label_resource-cache }}** in the **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache }}** section, enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
 
-  1. Enable client redirects from HTTP to HTTPS:
-     1. In the **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, select the resource you created previously.
-     1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_section-additional }}** has switched to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
-     1. At the top right, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-     1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` in the **{{ ui-key.yacloud.cdn.label_redirect }}** field.
-     1. Click **{{ ui-key.yacloud.common.save }}**.
-  1. Enable [caching](../../cdn/concepts/caching.md) on CDN servers for the resource:
-     1. In the **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, select the resource you created previously.
-     1. Navigate to **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
-     1. At the top right, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-     1. Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
-     1. Click **{{ ui-key.yacloud.common.save }}**.
+      [Learn more about caching](../../cdn/concepts/caching.md)
+
+  1. Click **{{ ui-key.yacloud.common.continue }}**.
+  1. Under **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** and **Advanced**, leave the default settings and click **Continue**.
 
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  1. If the CDN provider has not been activated yet, run this command:
-
-     ```bash
-     yc cdn provider activate --folder-id <folder_ID> --type gcore
-     ```
 
   1. Create a CDN resource:
 
@@ -405,7 +390,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
      For more information, see the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) descriptions in the {{ TF }} provider documentation.
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
@@ -420,9 +405,9 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
         terraform apply
         ```
 
-     1. Confirm creating the resources by typing `yes` in the terminal and pressing **Enter**.
+     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-     This will create all resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
   1. Enable client redirects for the resource. In the CDN resource settings, add this field at the top of the `options` section:
 
      ```hcl
@@ -457,7 +442,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
 ## Set up DNS for your domain {#dns-setup}
 
-1. Get an `.edgecdn.ru` domain name generated for the CDN resource you created:
+1. Get the domain name generated for the new CDN resource:
 
    {% list tabs group=instructions %}
 
@@ -465,20 +450,20 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
 
      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Select the CDN resource you created (the list of resources will contain its primary domain name: `cdn.ycprojectblue.example`).
-     1. In the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the generated `.edgecdn.ru` domain name to the clipboard.
+     1. On the **{{ ui-key.yacloud.common.overview }}** tab, under **{{ ui-key.yacloud.cdn.label_dns-settings_title }}**, copy the generated domain name to the clipboard in `{{ cname-example-yc }}` or `{{ cname-example-edge }}` format, depending on your [CDN provider](../../cdn/concepts/providers.md).
 
    {% endlist %}
 
 1. Navigate to your domain’s DNS settings on your DNS hosting provider’s website.
-1. Edit the [CNAME record](../../dns/concepts/resource-record.md#cname) for `cdn` so that it points to the `.edgecdn.ru` URL you previously copied, e.g.:
+1. Edit the [CNAME record](../../dns/concepts/resource-record.md#cname) for `cdn` so that it points to the `.yccdn.cloud.yandex.net` or `.edgecdn.ru` URL you previously copied, e.g.:
 
    ```http
-   cdn CNAME cl-********.edgecdn.ru.
+   cdn CNAME {{ cname-example-yc }}.
    ```
 
    {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
 
-   If you use {{ dns-name }}, follow this tutorial to configure the record:
+   If you use {{ dns-name }}, follow this guide to configure the record:
 
    {% cut "Configuring DNS records for {{ dns-name }}" %}
 
@@ -498,7 +483,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
         1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. Under **{{ ui-key.yacloud.common.name }}**, specify `cdn` so that the record matches the `cdn.ycprojectblue.example` domain name.
         1. Select the record **{{ ui-key.yacloud.common.type }}**: `CNAME`.
-        1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the `.edgecdn.ru` URL you copied with a trailing dot.
+        1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the `.yccdn.cloud.yandex.net` or `.edgecdn.ru` URL you copied with a trailing dot.
         1. Click **{{ ui-key.yacloud.common.create }}**.
 
    - CLI {#cli}
@@ -528,7 +513,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
      1. Create a [record](../../dns/concepts/resource-record.md) in the zone:
 
         ```bash
-        yc dns zone add-records --name cdn-dns-a --record "cdn CNAME cl-********.edgecdn.ru."
+        yc dns zone add-records --name cdn-dns-a --record "cdn CNAME {{ cname-example-yc }}."
         ```
 
         Where:
@@ -543,16 +528,16 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
         Result:
 
         ```text
-        +----------------------------+------+-------+------------------------------+
-        |            NAME            | TTL  | TYPE  |             DATA             |
-        +----------------------------+------+-------+------------------------------+
-        | ycprojectblue.example.     | 3600 | NS    | ns1.{{ dns-ns-host-sld }}.         |
-        |                            |      |       | ns2.{{ dns-ns-host-sld }}.         |
-        | ycprojectblue.example.     | 3600 | SOA   | ns1.{{ dns-ns-host-sld }}.         |
-        |                            |      |       | {{ dns-mx-host }}. 1 10800 |
-        |                            |      |       | 900 604800 86400             |
-        | cdn.ycprojectblue.example. |  600 | CNAME | cl-********.edgecdn.ru.      |
-        +----------------------------+------+-------+------------------------------+
+        +----------------------------+------+-------+--------------------------------------------+
+        |            NAME            | TTL  | TYPE  |                    DATA                    |
+        +----------------------------+------+-------+--------------------------------------------+
+        | ycprojectblue.example.     | 3600 | NS    | ns1.{{ dns-ns-host-sld }}.                       |
+        |                            |      |       | ns2.{{ dns-ns-host-sld }}.                       |
+        | ycprojectblue.example.     | 3600 | SOA   | ns1.{{ dns-ns-host-sld }}.                       |
+        |                            |      |       | {{ dns-mx-host }}. 1 10800               |
+        |                            |      |       | 900 604800 86400                           |
+        | cdn.ycprojectblue.example. |  600 | CNAME | {{ cname-example-yc }}. |
+        +----------------------------+------+-------+--------------------------------------------+
         ```
 
         The list should contain the `cdn.ycprojectblue.example.` record.
@@ -560,7 +545,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
    - API {#api}
 
      1. If you do not have a public DNS zone, create one using the [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md) gRPC API call or the [create](../../dns/api-ref/DnsZone/create.md) REST API method. To make the zone public, add the `public_visibility` (gRPC) or `publicVisibility` (REST) field to the request body.
-     1. Create the `cdn CNAME cl-********.edgecdn.ru.` [record](../../dns/concepts/resource-record.md) in the zone using the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
+     1. Create the `cdn CNAME {{ cname-example-yc }}.` [record](../../dns/concepts/resource-record.md) in the zone using the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
 
    {% endlist %}
 

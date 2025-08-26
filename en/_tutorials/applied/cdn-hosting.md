@@ -88,18 +88,15 @@ For a Let's Encrypt® certificate, pass an [ownership check](../../certificate-m
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
-
-  1. Create a CDN resource:
-
-     1.	At the top right, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-     1. Enable **{{ ui-key.yacloud.cdn.label_access }}**.
-     1. Configure the basic CDN resource settings:
-
-        * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
-        * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
-        * **{{ ui-key.yacloud.cdn.label_bucket }}**: Select the bucket you need from the list.
-        * **{{ ui-key.yacloud.cdn.label_personal-domain }}**: `cdn.yandexcloud.example`.
+  1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+  1. Configure the basic CDN resource settings:
+      * Under **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        * Enable **{{ ui-key.yacloud.cdn.label_access }}**.
+        * In the **{{ ui-key.yacloud.cdn.label_content-query-type }}** field, select `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_source-type }}** field, select `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_bucket }}** field, select the bucket you need from the list.
+        * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_http }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, specify `cdn.yandexcloud.example`.
 
           {% note alert %}
 
@@ -107,22 +104,12 @@ For a Let's Encrypt® certificate, pass an [ownership check](../../certificate-m
 
           {% endnote %}
 
-        * Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
-
-          * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_http }}`. 
-          * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
-          * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, specify `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and select a [certificate](#add-certificate) for the `cdn.yandexcloud.example` domain name.
-          * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}` and, in **{{ ui-key.yacloud.cdn.label_custom-host-header }}**, specify the origin domain name in `<name_of_bucket_with_files>` format for the source bucket to respond to CDN server requests correctly.
-
-     1. Click **{{ ui-key.yacloud.common.create }}**.
-
-  1. Enable client redirects from HTTP to HTTPS:
-
-     1. Select the CDN resource you created earlier.
-     1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_additional }}** has switched to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
-     1. At the top right, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-     1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` in the **{{ ui-key.yacloud.cdn.label_redirect }}** field.
-     1. Click **{{ ui-key.yacloud.common.save }}**.
+      * Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, specify `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and select a [certificate](#add-certificate) for the `cdn.yandexcloud.example` domain name.
+        * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}` and, in **{{ ui-key.yacloud.cdn.label_custom-host-header }}**, specify the origin domain name in `<name_of_bucket_with_files>.{{ s3-web-host }}` format for the source bucket to respond to CDN server requests correctly.
+  1. Click **{{ ui-key.yacloud.common.continue }}**.
+  1. Under **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**, and **Advanced**, leave the default settings, then click **Continue**.
 
 {% endlist %}
 
@@ -141,7 +128,7 @@ To configure DNS:
 
      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. From the list of CDN resources, select the one with `cdn.yandexcloud.example` as its primary domain name.
-     1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** at the bottom of the page, copy the domain name in `cl-********.edgecdn.ru` format.
+     1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** at the bottom of the page, copy the domain name in `{{ cname-example-yc }}` or `{{ cname-example-edge }}` format depending on your [CDN provider](../../cdn/concepts/providers.md).
 
    {% endlist %}
 
@@ -149,12 +136,12 @@ To configure DNS:
 1. Create or edit a CNAME record for `cdn.yandexcloud.example` so that it points to the domain name you copied:
 
    ```text
-   cdn CNAME cl-********.edgecdn.ru
+   cdn CNAME {{ cname-example-yc }}
    ```
 
    {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
 
-   If you use {{ dns-name }}, follow this tutorial to configure the record:
+   If you use {{ dns-name }}, follow this guide to configure the record:
    
    {% cut "Configuring DNS records for {{ dns-name }}" %}
    
@@ -177,7 +164,7 @@ To configure DNS:
         1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. In the **{{ ui-key.yacloud.common.name }}** field, specify `cdn`.
         1. In the **{{ ui-key.yacloud.common.type }}** field, specify `CNAME`.
-        1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied value in `cl-********.edgecdn.ru.` format with a trailing dot.
+        1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the copied value in `{{ cname-example-yc }}.` or `{{ cname-example-edge }}.` format (depending on your [CDN provider](../../cdn/concepts/providers.md)) with a trailing dot.
         1. Click **{{ ui-key.yacloud.common.create }}**.
 
    {% endlist %}

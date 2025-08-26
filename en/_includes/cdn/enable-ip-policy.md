@@ -1,4 +1,4 @@
-To restrict access to resource content using an [IP-based access policy](../../cdn/concepts/ip-address-acl.md), enable **{{ ui-key.yacloud.cdn.field_address-acl }}**:
+Optionally, to restrict access to resource content using an [IP-based access policy](../../cdn/concepts/ip-address-acl.md), enable **{{ ui-key.yacloud.cdn.field_address-acl }}**:
 
 * Select the type of access policy:
 

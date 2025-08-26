@@ -17,6 +17,7 @@ Syntax:
 
 - [yc storage s3 cp](cp.md) — Copies a local file or S3 object to another location locally or in S3
 - [yc storage s3 mv](mv.md) — Moves a local file or S3 object to another location locally or in S3
+- [yc storage s3 presign](presign.md) — Generate pre-signed URLs for S3 objects
 - [yc storage s3 rm](rm.md) — Deletes an S3 object
 
 #### Global Flags

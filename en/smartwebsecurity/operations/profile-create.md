@@ -9,6 +9,8 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
 ![profiles-rules](../../_assets/smartwebsecurity/profiles-rules.svg)
 
+{% include [security-profile-sa-roles](../../_includes/smartwebsecurity/security-profile-sa-roles.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -38,10 +40,11 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
       {% include [add-rule](../../_includes/smartwebsecurity/add-rule.md) %}
 
+  1. If the `Deny` action is set for the default basic rule and the requests are sent to {{ captcha-name }} for verification, [add](captcha-rule.md) an allowing rule.
   1. Add all relevant rules to the profile one by one.
 
       The rules you created will appear in the table under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}**.
-  1. Optionally, enable or disable the use of HTTP request information to improve machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
+  1. Optionally, enable or disable the use of HTTP request information to tune machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -50,7 +53,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the [CLI](../../cli/quickstart.md) command for creating a [security profile](../concepts/profiles.md):
+  1. View the description of the [CLI](../../cli/quickstart.md) command for creating a [security profile](../concepts/profiles.md):
 
      ```bash
      yc smartwebsecurity security-profile create --help
@@ -70,10 +73,10 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
      Where:
 
-     * `--name`: Security profile name. This is a required setting. If you specify only the profile name with no other properties, the security profile will include a single [basic rule](../concepts/rules.md#base-rules).
-     * `--description`: Security profile description. This is an optional setting.
-     * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional setting. Here is an example: `--labels foo=baz,bar=baz'`.
-     * `--default-action`: Action to apply to traffic that does not match any other rule This is an optional setting. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
+     * `--name`: Security profile name. This is a required parameter. If you specify only the profile name with no other properties, the security profile will include a single [basic rule](../concepts/rules.md#base-rules).
+     * `--description`: Text description of the security profile. This is an optional parameter.
+     * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional setting. For example, `--labels foo=baz,bar=baz'`.
+     * `--default-action`: Action to apply to traffic that does not match any other rule. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
      * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional setting.
       * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional setting. Here is an example:
 
@@ -152,13 +155,13 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
       * `name`: Security profile name.
       * `default_action`: Action for the default basic rule. This action will apply to traffic that does not match any other rule. It can be either `ALLOW` to allow all requests to {{ sws-full-name }} or `DENY` to deny them.
       * `captcha_id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional setting.
-      * `advanced_rate_limiter_profile_id`: [ARL profile security](../concepts/arl.md) ID. This is an optional setting.
+      * `advanced_rate_limiter_profile_id`: [ARL profile](../concepts/arl.md) ID. This is an optional setting.
       * `security_rule`: Security [rule](../concepts/rules.md) description:
          * `name`: Security rule name.
          * `priority`: Rule [priority](../concepts/rules.md). The possible values range from 1 to 1,000,000.
          * `smart_protection`: Description of the [Smart Protection rule](../concepts/rules.md#smart-protection-rules) enabled for all traffic with the action type specified in the `mode` parameter.
             * `mode`: [Rule action](../concepts/rules.md#rule-action). It can be either `FULL` to enable full protection, where suspicious requests are challenged with CAPTCHA, or `API` to enable API protection, where suspicious requests are blocked.
-         * `waf`: Web Application Firewall rule description. To add a WAF rule, first [create a WAF profile](waf-profile-create.md). The optional setting section contains:
+         * `waf`: Web application firewall rule description. To add a WAF rule, you must first [create a WAF profile](waf-profile-create.md). The optional setting section contains:
             * `waf_profile_id`: [WAF profile](../concepts/waf.md) ID.
 
       If you do not specify the `smart_protection` or `waf` rule type, the system will create a basic rule with simple filtering based on conditions specified under `rule_condition`.

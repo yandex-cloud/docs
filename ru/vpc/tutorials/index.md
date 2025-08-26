@@ -61,6 +61,7 @@ description: Различные сценарии использования {{ v
 
 * [Подключение к {{ objstorage-name }} из {{ vpc-name }}](storage-vpc-access.md)
 * [Подключение к {{ container-registry-name }} из {{ vpc-name }}](vpc-cr-access.md)
+* [Передача данных топиков {{ KF }} в {{ objstorage-name }} без использования интернета](kafka-topic-s3-sync-private.md)
 
 ## Дополнительные настройки и инструменты {#sec-tools}
 

@@ -115,6 +115,10 @@ items:
             href: tutorials/send-data-to-mch.md
           - name: Поставка в ksqlDB
             href: tutorials/use-ksqldb-with-mkf.md
+          - name: >-
+              Синхронизация топиков {{ KF }} в {{ objstorage-name }} без
+              использования интернета
+            href: tutorials/kafka-topic-s3-sync-private.md
       - name: Работа с топиками {{ KF }} с помощью {{ dataproc-name }}
         href: tutorials/data-processing.md
       - name: Отслеживание утери сообщений в топике {{ KF }}

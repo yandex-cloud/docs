@@ -49,6 +49,11 @@ description: This page provides a list of step-by-step guides for {{ sws-name }}
 
 * [{#T}](list-create.md)
 
+## Required and recommended rules {#rules}
+
+* [{#T}](captcha-rule.md)
+* [{#T}](black-list-rule.md)
+
 ## Service actions
 
 * [{#T}](monitoring.md)

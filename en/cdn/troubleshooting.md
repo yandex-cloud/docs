@@ -46,7 +46,11 @@ Resources can show as `Not active` due to receiving no user requests for 90 days
 
 ## Unable to configure the TLS certificate {#tls-certificate}
 
-{% include [lets-encrypt-over](../_includes/cdn/lets-encrypt-over.md) %}
+{% note info %}
+
+We no longer support the _automatic_ issue of Let's Encrypt® certificates for CDN resources.
+
+{% endnote %}
 
 {% include [certificate-usage](../_includes/cdn/certificate-usage.md) %}
 

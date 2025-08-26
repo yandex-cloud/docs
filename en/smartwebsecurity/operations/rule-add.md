@@ -30,17 +30,17 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
 
   1. Update the security profile by applying the [YAML](https://en.wikipedia.org/wiki/YAML) configuration with both the current and new security rules required for the profile:
   
-     1. To get the YAML configuration for the current security rules in the profile, run this command, specifying the security profile name or ID:
+     1. To get the YAML configuration for the current security rules in the profile, run this command specifying the security profile name or ID:
 
          {% include [security-profile-get-command](../../_includes/smartwebsecurity/security-profile-get-command.md) %}
 
-     1. Copy the current rule configuration (`security_rules` section contents) to any text editor and save it to a file after adding new rules to it. Here is an example:
+     1. Copy the current rule configuration (the `security_rules` section contents) to any text editor and save it to a file after adding new rules to it. Here is an example:
 
          {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
 
          {% include [change-profile-rules-alert](../../_includes/smartwebsecurity/change-profile-rules-alert.md) %}
 
-     1. To update a security profile, run this command, specifying the profile name or ID:
+     1. To update a security profile, run this command specifying the profile name or ID:
     
          ```bash
          yc smartwebsecurity security-profile update <security_profile_name_or_ID> \
@@ -113,7 +113,7 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the resource updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  You can check the resource update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
   ```bash
   yc smartwebsecurity security-profile get <security_profile_ID>
@@ -125,7 +125,10 @@ You can add basic [rules](../concepts/rules.md), as well as Smart Protection and
 
 {% endlist %}
 
+If the `Deny` action is set for the default basic rule and the requests are sent to {{ captcha-name }} for verification, [add](captcha-rule.md) an allowing rule.
+
 ### See also {#see-also}
 
 * [{#T}](rule-update.md)
 * [{#T}](rule-delete.md)
+* [{#T}](captcha-rule.md)

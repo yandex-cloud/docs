@@ -10,7 +10,6 @@
 * [How to save snapshots and images locally](download-snapshots-and-images.md)
 * [Exporting disk images of Compute Cloud VM instances](export-disk-image.md)
 * [Monitoring incoming or outgoing VM traffic](incoming-and-outcoming-traffic-logs.md)
-* [What is the maximum number of network interfaces that can be connected to a VM](maximum-web-interfaces-for-one-vm.md)
 * [Changing the boot disk for an instance to SSD](migrate-data-from-hdd-to-ssd.md)
 * [Options to migrate a VM image to Yandex Cloud](possible-vm-migration-scenarios.md)
 * [How to track memory usage](ram-monitoring.md)

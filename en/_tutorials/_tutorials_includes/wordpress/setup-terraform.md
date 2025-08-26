@@ -1,6 +1,7 @@
 1. [Get your cloud ready](#before-begin).
 1. [Create your infrastructure](#deploy).
-1. [Configure WordPress](#wordpress-config).
+1. [Get credentials for authenticating in the web interface](#get-auth-data).
+1. [Connect to the WordPress web interface](#connect-wordpress-interface).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -19,7 +20,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [terraform-definition](../../_tutorials_includes/terraform-definition.md) %}
 
 To create an infrastructure using {{ TF }}:
-1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the {{ yandex-cloud }} provider source (see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
 1. Prepare the infrastructure description files.
 
    {% list tabs group=infrastructure_description %}
@@ -43,7 +44,7 @@ To create an infrastructure using {{ TF }}:
 
    {% endlist %}
 
-   For more information about the properties of {{ TF }} resources, see the relevant {{ TF }} guides:
+   Learn more about the properties of {{ TF }} resources in the relevant {{ TF }} guides:
     * [VM instance](../../../compute/concepts/vm.md): [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
     * [Security groups](../../../vpc/concepts/security-groups.md): [yandex_vpc_security_group]({{ tf-provider-resources-link }}/yandex_vpc_security_group)
     * [Network](../../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
@@ -55,15 +56,19 @@ To create an infrastructure using {{ TF }}:
 
    {% include [terraform-validate-plan-apply](../../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-## Configure WordPress {#wordpress-config}
+## Get credentials for authenticating in the web interface {#get-auth-data}
 
-To configure WordPress:
+{% include [get-auth-data](get-auth-data.md) %}
+
+## Connect to the WordPress web interface {#connect-wordpress-interface}
+
+To connect to the WordPress web interface, do the following:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  {% include [wordpress-config](wordpress-config.md) %}
+  {% include [connect-wordpress-interface](connect-wordpress-interface.md) %}
 
 {% endlist %}
 

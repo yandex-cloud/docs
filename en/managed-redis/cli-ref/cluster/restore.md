@@ -27,6 +27,7 @@ Syntax:
 |`--labels`|<b>`key=value[,key=value...]`</b><br/>A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'.|
 |`--folder-id`|<b>`string`</b><br/>ID of folder where restored cluster will be created.|
 |`--enable-tls`|Enables tls for Redis cluster.|
+|`--sharded`|Restore to sharded cluster (requires providing sharded backup).|
 |`--persistence-mode`|<b>`string`</b><br/>Persistence mode for Redis cluster (ON, OFF or ON_REPLICAS).|
 |`--announce-hostnames`|Enable announce hostnames for Redis cluster.|
 |`--auth-sentinel`|Allows to use ACL users to auth in sentinel|

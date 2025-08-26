@@ -39,7 +39,7 @@ description: Следуя данной инструкции, вы настрои
 
           {% note info %}
 
-          При использовании dotnet CLI файл конфигурации расположен по пути `~/.nuget/NuGet/NuGet.Config`, при использовании NuGet CLI – по пути `~/.config/NuGet/NuGet.config`.
+          При использовании dotnet CLI файл конфигурации расположен по пути `~/.nuget/NuGet/NuGet.Config`, при использовании NuGet CLI — по пути `~/.config/NuGet/NuGet.Config`.
 
           {% endnote %}
       1. Замените конфигурацию файла на следующую:

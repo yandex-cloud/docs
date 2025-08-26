@@ -9,6 +9,16 @@ editable: false
 
 This section describes [{{ cdn-name }}](../../cdn/) metrics delivered to {{ monitoring-name }}.
 
+The service metrics depend on the provider you select:
+* [{{ cdn-full-name }}](#yc)
+* [EdgeCDN](#edge)
+
+## {{ cdn-full-name }} provider {#yc}
+
+{% include [cdn-yc.md](../../_includes/monitoring/metrics-ref/cdn-yc.md) %}
+
+## EdgeCDN provider {#edge}
+
 {% include [metrics-note](../../_includes/cdn/metrics-note.md) %}
 
 {% include [cdn.md](../../_includes/monitoring/metrics-ref/cdn.md) %}

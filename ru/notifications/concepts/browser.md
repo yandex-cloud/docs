@@ -168,11 +168,11 @@ curl \
 
 Отправить уведомление можно с помощью метода HTTP API [publish](../api-ref/publish.md) для ресурса Endpoint сервиса {{ cns-full-name }} или аналога метода для CLI или SDK.
 
-Отправить уведомление можно двумя способами:
+Отправить уведомление можно одним из способов:
 
-1. Отправить текст сообщения в параметре `Message` без передачи текста для конкретной платформы.
+* Отправить текст уведомления в параметре `Message` без передачи текста для конкретной платформы.
 
-    Пример отправки сообщения в виде простого текста для HTTP API:
+    Пример отправки уведомления в виде простого текста для HTTP API:
     ```bash
     export IAM_TOKEN=<IAM_token>
     curl \
@@ -180,8 +180,8 @@ curl \
       --header "Authorization: Bearer ${IAM_TOKEN}" \
       --data-urlencode "TargetArn=<идентификатор_эндпоинта>" \
       --data-urlencode "Action=Publish" \
-      --data-urlencode "Message=<текст_сообщения>" \
-      --data-urlencode "ResponseFormat=JSON" \
+      --data-urlencode "Message=<текст_уведомления>" \
+      --data-urlencode "ResponseFormat=json" \
       "https://{{ cns-host }}/"
     ```
 
@@ -192,9 +192,9 @@ curl \
     * `Message` — сообщение, которое вы хотите отправить в эндпоинт.
     * `ResponseFormat` — формат ответа: JSON или XML.
 
-1. Передать и дефолтное сообщение, и текст для платформы. Для этого сообщения потребуется передать в формате JSON через параметр `Message` и указать значение `json` в параметре `MessageStructure`. Ключом для платформы при отправке уведомления в браузер будет строка `WEB`.
+* Передать текст по умолчанию и текст для конкретной платформы. При этом уведомление так же передается через параметр `Message`, но в формате JSON. Дополнительно надо задать параметр `MessageStructure=json`. Ключом для платформы при отправке уведомления в браузер будет строка `WEB`.
 
-    Пример отправки сообщения в формате JSON для HTTP API:
+    Пример отправки уведомления в формате JSON для HTTP API:
     ```bash
     export IAM_TOKEN=<IAM_token>
     curl \
@@ -202,9 +202,9 @@ curl \
       --header "Authorization: Bearer ${IAM_TOKEN}" \
       --data-urlencode "TargetArn=<идентификатор_эндпоинта>" \
       --data-urlencode "Action=Publish" \
-      --data-urlencode "Message={ "default": "<дефолтное_сообщение>", "WEB": "<сообщение>" }" \
+      --data-urlencode "Message={ "default": "<текст_по_умолчанию>", "WEB": "<текст_для_браузера>" }" \
       --data-urlencode "MessageStructure=json" \
-      --data-urlencode "ResponseFormat=JSON" \
+      --data-urlencode "ResponseFormat=json" \
       "https://{{ cns-host }}/"
     ```
 
@@ -212,8 +212,8 @@ curl \
     * `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md).
     * `TargetArn` — идентификатор (ARN) мобильного эндпоинта.
     * `Action` — тип операции.
-    * `Message` — сообщение, которое вы хотите отправить в эндпоинт.
-    * `MessageStructure` — формат сообщения.
+    * `Message` — уведомление в формате `json`.
+    * `MessageStructure` — формат уведомления (`json`).
     * `ResponseFormat` — формат ответа: JSON или XML.
 
 Также вы можете отправить уведомление без передачи текста для конкретной платформы [через консоль управления](../quickstart-browser.md#publish).

@@ -868,6 +868,10 @@ items:
         href: dataplatform/ydb-to-yds.md
       - name: Настройка Kafka Connect для работы с кластером {{ mkf-name }}
         href: dataplatform/kafka-connect.md
+      - name: >-
+          Синхронизация топиков {{ KF }} в {{ objstorage-name }} без
+          использования интернета
+        href: dataplatform/kafka-topic-s3-sync-private.md
       - name: Использование схем формата данных с {{ mkf-name }}
         items:
           - name: Управление схемами данных в {{ mkf-name }}

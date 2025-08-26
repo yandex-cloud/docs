@@ -65,8 +65,8 @@ To get information on queries to objects, enable [logging actions on the bucket]
 
       1. In the left-hand panel, select ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
       1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.
-      1. Enable **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
-      1. In the **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}** field, select `logs-bucket`.
+      1. Enable **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
+      1. In the **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}** field, select `logs-bucket`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
   1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and [upload](../../storage/operations/objects/upload.md) your objects. For example, you can upload a couple of simple text files.
