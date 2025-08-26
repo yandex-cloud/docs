@@ -5,11 +5,10 @@ description: This page provides a list of step-by-step guides for {{ cdn-name }}
 
 # Step-by-step guides for {{ cdn-name }}
 
-* [{#T}](./enable-provider.md)
-
 ## Resources {#resources}
 
 * [{#T}](resources/create-resource.md)
+* [{#T}](resources/copy-resource.md)
 * [{#T}](resources/configure-basics.md)
 * [{#T}](resources/get-resources-info.md)
 * [{#T}](resources/configure-caching.md)

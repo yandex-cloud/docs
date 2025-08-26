@@ -27,10 +27,10 @@ description: Следуя данной инструкции, вы сможете
   1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
   1. В списке объектов выберите нужный, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_object-lock }}**.
   1. В открывшемся окне включите опцию **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
-  1. Выберите **{{ ui-key.yacloud.storage.bucket.object-lock.field_mode }}**:
+  1. Выберите **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_mode_61kxf }}**:
      * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}** — пользователь с ролью `storage.admin` может обойти блокировку, изменить ее срок или снять ее.
      * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}** — пользователь с ролью `storage.admin` может только продлить блокировку. Обойти, сократить или снять блокировку до ее окончания нельзя.
-  1. Установите **{{ ui-key.yacloud.storage.bucket.object-lock.field_retention-period }}** в днях или годах. Отсчитывается от момента, когда версия объекта загружена в бакет.
+  1. Установите **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_retention-period_jJYhy }}** в днях или годах. Отсчитывается от момента, когда версия объекта загружена в бакет.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}

@@ -20,6 +20,8 @@ In this section, you will learn about:
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+You can also [assign a role for a separate cluster](../operations/kubernetes-cluster/kubernetes-cluster-access.md).
+
 ## Roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
@@ -136,7 +138,7 @@ With {{ k8s }} RBAC, you can provide users with granular access to the cluster n
       name: <account_ID>
     ```
 
-To learn more about getting the account ID, see [Getting user information](../../iam/operations/users/get).
+To learn more about getting the account ID, see [Getting user information](../../iam/operations/users/get.md).
 
 Check creating resources in the cluster. In other namespaces, the user will have no permissions to create or edit resources.
 

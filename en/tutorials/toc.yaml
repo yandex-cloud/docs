@@ -261,8 +261,14 @@ items:
         href: archive/copy-files-from-object-storage.md
       - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
         href: archive/backup-baremetal.md
-      - name: '{{ objstorage-name }} integration with Nextcloud'
-        href: archive/integrate-nextcloud.md
+      - name: Deploying Nextcloud integrated with {{ objstorage-name }}
+        items:
+          - name: Overview
+            href: archive/integrate-nextcloud/index.md
+          - name: Deploying Nextcloud on a VM from a {{ coi }}
+            href: archive/integrate-nextcloud/coi-based.md
+          - name: Manually deploying Nextcloud on a VM or VM group
+            href: archive/integrate-nextcloud/fault-tolerant.md
   - name: Development and testing
     items:
       - name: All tutorials
@@ -884,6 +890,8 @@ items:
         href: dataplatform/clickhouse-hybrid-storage.md
       - name: Sharding {{ mch-name }} tables
         href: dataplatform/clickhouse-sharding.md
+      - name: Data resharding in a {{ mch-name }} cluster
+        href: dataplatform/mch-mch-resharding.md
       - name: >-
           Loading data from {{ yandex-direct }} to a {{ mch-name }} data mart
           using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name
@@ -1500,7 +1508,7 @@ items:
             href: ml-ai/video-recognition.md
           - name: Running computations on a schedule in {{ ml-platform-name }}
             href: ml-ai/regular-launch.md
-          - name: Running computations in {{ ml-platform-name }} using the API.
+          - name: Running computations in {{ ml-platform-name }} using the API
             href: ml-ai/batch-code-execution.md
           - name: >-
               Using data from {{ objstorage-name }} to train a model in {{

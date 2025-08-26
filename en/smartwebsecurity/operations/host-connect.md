@@ -7,23 +7,25 @@ description: Follow this guide to connect a {{ sws-full-name }} profile to the p
 
 ## Connecting to a virtual host {#host}
 
-The security profile connection method depends on who manages the [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md) load balancer:
+The way you connect a security profile depends on who manages the [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md):
 
-* If the load balancer is managed by you, use the {{ yandex-cloud }} interfaces.
+* If you manage it yourself, use the {{ yandex-cloud }} interfaces.
 
 * If the load balancer is managed by an {{ alb-name }} [ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md), use the [Ingress resource annotation](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
 
     {% note warning %}
 
-    Using an annotation is the only way to connect a security profile for an ingress controller.
+    Annotation is the only way to connect a security profile for the ingress controller.
 
-    If you connect the profile via the {{ yandex-cloud }} interfaces and then update the Ingress resource, the ingress controller will disable the support of the security profile due to the lack of annotation.
+    If you connect the profile via the {{ yandex-cloud }} interfaces and then update the Ingress resource, the ingress controller will disable support for the security profile due to the lack of annotation.
 
     {% endnote %}
 
-    To learn more about ingress controller settings, see [this {{ managed-k8s-full-name }} tutorial](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+    To learn more about the ingress controller settings, see the [{{ managed-k8s-full-name }} documentation](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
 
     {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
+
+{% include [security-profile-sa-roles](../../_includes/smartwebsecurity/security-profile-sa-roles.md) %}
 
 To connect a security profile to a virtual host:
 
@@ -38,9 +40,9 @@ To connect a security profile to a virtual host:
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../../application-load-balancer/concepts/application-load-balancer.md).
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../../application-load-balancer/concepts/http-router.md).
 
-      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**: You can connect the security profile to multiple virtual hosts at once.
+      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**: You can associate the security profile with multiple virtual hosts at once.
 
-        To connect the profile to another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_add-balancer }}**.
+        To associate the profile with another L7 load balancer, click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_add-balancer }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**. If the selected hosts are already connected to another security profile, confirm the connection.
 
       In the **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** tab, you will see the connected virtual hosts.
@@ -112,8 +114,8 @@ To connect a security profile to a virtual host:
      Where:
 
      * `<virtual_host_name>`: Virtual host name from the previous step.
-     * `--http-router-name`: HTTP router name. This is a required setting. Instead of the HTTP router name, you can provide its ID in the `--http-router-id` parameter.
-     * `--security-profile-id`: Security profile ID. This is a required setting.
+     * `--http-router-name`: HTTP router name. This is a required parameter. Instead of the HTTP router name, you can provide its ID in the `--http-router-id` parameter.
+     * `--security-profile-id`: Security profile ID. This is a required parameter.
 
      Result:
 
@@ -162,7 +164,7 @@ To connect a security profile to a virtual host:
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the resource updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  You can check the resources for updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
   ```bash
   yc alb http-router get <HTTP_router_ID>

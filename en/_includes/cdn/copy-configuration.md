@@ -1,0 +1,4 @@
+You can set CDN resource parameters from a configuration of another CDN resource. To do this, in the **Copy a configuration** field, select an existing CDN resource. Keep in mind the following:
+* You can migrate the **{{ ui-key.yacloud.cdn.label_personal-domain }}** parameter from the CDN resource of one [CDN provider](../../cdn/concepts/providers.md) to another. The name must be unique across the resources of a single provider.
+* Copying parameters between resources of different providers creates a copy of the [origin group](../../cdn/concepts/origins.md) in the provider of the new resource.
+* If the original resource has an uploaded TLS certificate, it will be reused in the new resource. You do not need to upload it again.

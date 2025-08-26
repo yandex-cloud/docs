@@ -28,6 +28,7 @@ Syntax:
 - [yc storage s3](s3/index.md) — [PREVIEW] An aws s3-like interface
 	- [yc storage s3 cp](s3/cp.md) — Copies a local file or S3 object to another location locally or in S3
 	- [yc storage s3 mv](s3/mv.md) — Moves a local file or S3 object to another location locally or in S3
+	- [yc storage s3 presign](s3/presign.md) — Generate pre-signed URLs for S3 objects
 	- [yc storage s3 rm](s3/rm.md) — Deletes an S3 object
 - [yc storage s3api](s3api/index.md) — [PREVIEW] An aws s3api-like interface for accessing Object Storage
 	- [yc storage s3api abort-multipart-upload](s3api/abort-multipart-upload.md) — Aborts a multipart upload

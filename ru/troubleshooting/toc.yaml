@@ -334,10 +334,6 @@ items:
         href: compute/how-to/disk-access-speed.md
       - name: Как создать виртуальную машину с доступом по паролю
         href: compute/how-to/create-password-protected-vm.md
-      - name: >-
-          Какое максимальное количество сетевых интерфейсов можно подключить к
-          одной виртуальной машине
-        href: compute/how-to/maximum-web-interfaces-for-one-vm.md
       - name: Как увеличить количество сетевых соединений
         href: compute/how-to/increase-network-connections.md
       - name: Как настроить защиту RDP-подключения на Microsoft Windows®

@@ -32,6 +32,7 @@ You will create the following resources:
 
 Save the public IP address of the L7 load balancer: you will need it to test your security profile.
 
+
 {% include [auto-scaling-tip](../../../_includes/smartwebsecurity/auto-scaling-tip.md) %}
 
 ## Create a security profile {#profile-create}

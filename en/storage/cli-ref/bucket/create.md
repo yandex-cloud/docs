@@ -25,6 +25,7 @@ Syntax:
 |`--public-config-read`|Opens bucket for public config|
 |`--acl`|<b>`string`</b><br/>Setup bucket with predefined ACL. Conflicts with grants|
 |`--grants`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Sets bucket ACL more precisely. Conflicts with acl<br/><br/>Possible property names:<br/><ul> <li><code>grantee-id</code>:     Sets grantee id used for grant type account</li> <li><code>grant-type</code>:     Sets grant type Values: 'grant-type-account', 'grant-type-all-authenticated-users', 'grant-type-all-users'</li> <li><code>permission</code>:     Sets permission for the grant Values: 'permission-full-control', 'permission-write', 'permission-write-acp', 'permission-read', 'permission-read-acp'</li> </ul>|
+|`--tags`|<b>`key=value[,key=value...]`</b><br/>A list of tags (or labels) KEY=VALUE pairs to add. For example, to add two tags named 'foo' and 'bar', both with the value 'baz', use '--tags foo=baz,bar=baz'.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

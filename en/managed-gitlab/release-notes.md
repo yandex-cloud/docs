@@ -5,6 +5,12 @@ description: This section contains {{ mgl-name }} release notes.
 
 # {{ mgl-full-name }} release notes
 
+## Q2 2025 {#q2-2025}
+
+* Added support for {{ GL }} instance management using the [CLI](./cli-ref/index.md), [{{ TF }}](tf-ref.md), and [API](./api-ref/authentication.md).
+* Implemented an option to select a [security group](../vpc/concepts/security-groups.md) when [creating](./operations/instance/instance-create.md) and [updating](./operations/instance/instance-update.md) a {{ GL }} instance. For more information, see [{#T}](./operations/configure-security-group.md).
+* Added support for [getting information about service operations](./operations/instance/instance-list.md) using the CLI and API.
+
 ## Q1 2025 {#q1-2025}
 
 ### New features {#q1-2025-new-features}

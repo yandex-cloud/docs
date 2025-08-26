@@ -36,6 +36,7 @@
 * [Из {{ MY }} в {{ KF }} с помощью Debezium](cdc/debezium-mmy.md)
 * [Из {{ KF }} в {{ CH }}](send-data-to-mch.md)
 * [Из {{ KF }} в ksqlDB](use-ksqldb-with-mkf.md)
+* [Из {{ KF }} в {{ objstorage-name }} без использования интернета](kafka-topic-s3-sync-private.md)
 
 ## Другое {#other}
 

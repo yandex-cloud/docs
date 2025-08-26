@@ -4762,6 +4762,18 @@ default:
         12_month|string: "733,124707\_$"
         3_month|string: "819,374672\_$"
         6_month|string: "802,124679\_$"
+      ba_i215_ss_10g:
+        1_day|string: "1\_039,166251\_$"
+        1_month|string: "1\_007,991263\_$"
+        12_month|string: "883,291313\_$"
+        3_month|string: "987,207938\_$"
+        6_month|string: "966,424613\_$"
+      ba_i216_ss_1_10g:
+        1_day|string: "1\_038,332918\_$"
+        1_month|string: "1\_007,182930\_$"
+        12_month|string: "882,582980\_$"
+        3_month|string: "986,416272\_$"
+        6_month|string: "965,649614\_$"
       ba_i407_s_10g:
         1_day|string: "718,333046\_$"
         1_month|string: "696,783055\_$"
@@ -4780,18 +4792,42 @@ default:
         12_month|string: "1\_707,790984\_$"
         3_month|string: "1\_908,707570\_$"
         6_month|string: "1\_868,524253\_$"
+      ba_i507_nh_2x25g:
+        1_day|string: "2\_029,999188\_$"
+        1_month|string: "1\_969,099212\_$"
+        12_month|string: "1\_725,499310\_$"
+        3_month|string: "1\_928,499229\_$"
+        6_month|string: "1\_887,899245\_$"
       ba_i511_nh_25g:
         1_day|string: "2\_499,165667\_$"
         1_month|string: "2\_424,190697\_$"
         12_month|string: "2\_124,290817\_$"
         3_month|string: "2\_374,207384\_$"
         6_month|string: "2\_324,224070\_$"
+      ba_i512_nh_2x25g:
+        1_day|string: "2\_523,332324\_$"
+        1_month|string: "2\_447,632354\_$"
+        12_month|string: "2\_144,832475\_$"
+        3_month|string: "2\_397,165708\_$"
+        6_month|string: "2\_346,699061\_$"
+      ba-i523-nh-2x25g:
+        1_day|string: "3\_967,498413\_$"
+        1_month|string: "3\_848,473461\_$"
+        12_month|string: "3\_372,373651\_$"
+        3_month|string: "3\_769,123492\_$"
+        6_month|string: "3\_689,773524\_$"
       ha_i302_s_10g:
         1_day|string: "764,999694\_$"
         1_month|string: "742,049703\_$"
         12_month|string: "650,249740\_$"
         3_month|string: "726,749709\_$"
         6_month|string: "711,449715\_$"
+      ha-i502-n-25g-gxl4:
+        1_day|string: "1\_819,999272\_$"
+        1_month|string: "1\_765,399294\_$"
+        12_month|string: "1\_546,999381\_$"
+        3_month|string: "1\_728,999308\_$"
+        6_month|string: "1\_692,599323\_$"
   sku|USD|cdn:
     api:
       network:
@@ -9696,7 +9732,7 @@ default:
             action_delete-host: Удалить
             action_restart-host: Перезагрузить
             button_add-zookeeper: Добавить хосты ZooKeeper
-            button_create-zookeeper: Настроить хосты ZooKeeper
+            button_create-coordinator: Настроить сервис координации
             button_manual-failover: Переключить мастер
             button_rebalance-cluster: Ребалансировать кластер
             button_rebalance-cluster-short: Ребалансировать
@@ -10566,10 +10602,6 @@ default:
             value_days: Количество дней
             value_expired-object-delete-marker: Маркер удаления без нетекущих версий
           object-lock:
-            field_mode: Тип блокировки по умолчанию
-            field_object-lock-enabled: Включить блокировки
-            field_retention-period: Срок блокировки по умолчанию
-            field_rule-enabled: Блокировки по умолчанию для новых версий
             title-mode-compliance: Временная строгая
             title-mode-governance: Временная управляемая
           policy:
@@ -10659,14 +10691,19 @@ default:
           label_lifetime: Время жизни
           popup-confirm_button_delete: Удалить
         form:
+          BucketObjectLockFormContent:
+            field_default-rules-enabled_qtmC8: Блокировки по умолчанию для новых версий
+            field_mode_61kxf: Тип блокировки по умолчанию
+            field_retention-period_jJYhy: Срок блокировки по умолчанию
+            field_temp-object-lock-enabled_v3heA: Включить блокировки
+          BucketServerLogsFormContent:
+            label_prefix_4JTZG: Префикс
+            label_server-logs_mfGpj: Запись логов
+            label_target-bucket_jEJ5E: Бакет для хранения логов
           BucketVersioningFormSection:
             label_versioning-disabled_ngMWc: Хранить историю изменений объектов
         permissions-dialog:
           label_role-write: 'READ и WRITE '
-        server-logs:
-          label_prefix: Префикс
-          label_server-logs: Запись логов
-          label_target-bucket: Бакет для хранения логов
         switch_buckets: Бакеты
         title_object-lock: Блокировка версии объекта
       trino:
@@ -10998,6 +11035,9 @@ default:
                       transfer_to_shard:
                         array_item_label: Сопоставление
                         title: Сопоставление
+                    ClickHouseShardingSettings:
+                      sharding_settings_oneof:
+                        title: Шардирование
                     ClickHouseShardingSettingsOneof:
                       no_sharding:
                         title: Без шардирования

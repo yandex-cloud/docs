@@ -9,7 +9,7 @@ description: 'Access management in {{ cloud-desktop-full-name }}. Permissions ar
 
 In this section, you will learn:
 * [What resources you can assign a role for](#resources).
-* [What roles exist in the service](#roles-list).
+* [Roles existing in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -56,4 +56,4 @@ For more information about service roles, see [{#T}](../../iam/concepts/access-c
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

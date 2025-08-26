@@ -181,8 +181,14 @@ items:
         href: tutorials/high-accessible-dmz.md
       - name: Creating an L7 {{ alb-name }} with a {{ sws-name }} profile
         href: tutorials/balancer-with-sws-profile.md
-      - name: '{{ objstorage-full-name }} integration with Nextcloud'
-        href: tutorials/integrate-nextcloud.md
+      - name: Deploying Nextcloud integrated with {{ objstorage-name }}
+        items:
+          - name: Overview
+            href: tutorials/integrate-nextcloud/index.md
+          - name: Deploying Nextcloud on a VM from a {{ coi }}
+            href: tutorials/integrate-nextcloud/coi-based.md
+          - name: Manually deploying Nextcloud on a VM or VM group
+            href: tutorials/integrate-nextcloud/fault-tolerant.md
       - name: >-
           Deploying a web application on {{ baremetal-name }} servers with an L7
           load balancer and {{ sws-name }} protection

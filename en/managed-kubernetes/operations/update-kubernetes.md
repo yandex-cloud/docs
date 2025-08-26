@@ -475,7 +475,7 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
          name = <node_group_name>
          ...
          deploy_policy {
-           max_expansion   = <increasing_group_size_when_updating>
+           max_expansion   = <expanding_group_size_when_updating>
            max_unavailable = <number_of_unavailable_nodes_when_updating>
          }
        }
@@ -585,7 +585,7 @@ Select automatic update mode for the {{ managed-k8s-name }} node group and set t
   ```json
   "deployPolicy": {
     "maxUnavailable": "<number_of_unavailable_nodes_when_updating>",
-    "maxExpansion": "<increasing_group_size_when_updating>"
+    "maxExpansion": "<expanding_group_size_when_updating>"
   }
   ```
 
@@ -675,7 +675,7 @@ For a {{ managed-k8s-name }} cluster and a node group, updates within the same {
 This update enables you to:
 * Install new packages.
 * Update the {{ k8s }} image.
-* Update the {{ k8s }} minor version.
+* Update the {{ k8s }} patch version.
 
 The {{ managed-k8s-name }} cluster and node groups will be updated if any of the automatic update options are enabled in their settings.
 

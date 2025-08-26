@@ -25,10 +25,14 @@ By default, VMs and {{ baremetal-full-name }} servers in {{ backup-name }} are n
 
 The backup policy specifies:
 
-* Backup frequency: By hour, day, week, or month. All times are now [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
 * Backup type: Full or incremental. For more information, see [{#T}](backup.md#types).
 
   {% include [av-note](../../_includes/backup/av-note.md) %}
+
+* Schedule type and settings:
+
+    * `{{ ui-key.yacloud.backup.policy-form.value_schedule-type-fixed }}`: Backup frequency in hours, days, weeks, or months. All times are [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
+    * `{{ ui-key.yacloud.backup.policy-form.value_schedule-type-interval }}`: Interval, in hours or days, between the end of the previous backup and the start of the new one.
 
 * [Backup retention](#retention) settings.
 

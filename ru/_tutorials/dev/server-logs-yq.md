@@ -65,8 +65,8 @@
 
       1. На панели слева выберите ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
       1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
-      1. Включите опцию **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
-      1. В поле **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}** выберите бакет `logs-bucket`.
+      1. Включите опцию **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
+      1. В поле **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}** выберите бакет `logs-bucket`.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
   1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** и [загрузите](../../storage/operations/objects/upload.md) объекты. Например, пару простых текстовых файлов.

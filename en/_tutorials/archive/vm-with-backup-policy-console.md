@@ -272,10 +272,11 @@ You can create a new policy or use one of those automatically created upon servi
   1. Specify the following policy properties:
 
       * **{{ ui-key.yacloud.common.name }}**: `weekly-backup`
+      * **{{ ui-key.yacloud.backup.policy-form.field_backup-type }}**: `{{ ui-key.yacloud.backup.policy-form.title_incremental-backup-card }}`
+      * **{{ ui-key.yacloud.backup.policy-form.field_schedule-type }}**: `{{ ui-key.yacloud.backup.policy-form.value_schedule-type-fixed }}`
       * **{{ ui-key.yacloud.backup.policy-form.field_backup-periodicity }}**: `{{ ui-key.yacloud.backup.policy-form.value_periodicity-weekly }}`
       * **{{ ui-key.yacloud.backup.policy-form.field_week-days }}**: `{{ ui-key.yacloud.common.units.label_day-Fr }}`
       * **{{ ui-key.yacloud.backup.policy-form.field_start-time }}**: `03:00`
-      * **{{ ui-key.yacloud.backup.policy-form.field_backup-type }}**: `{{ ui-key.yacloud.backup.policy-form.title_incremental-backup-card }}`
       * **{{ ui-key.yacloud.backup.policy-form.field_retention }}**: `{{ ui-key.yacloud.backup.policy-form.value_retention-variant-save-all }}`
 
   1. Click **{{ ui-key.yacloud.common.save }}**.

@@ -14,13 +14,15 @@ You can also log information about the traffic matching your conditions, without
 * [Web Application Firewall](#waf-rules)
 * [Advanced Rate Limiter](#arl-rules)
 
-You can learn more in [Managing rules](../operations/#rules).
+You can learn more in [Managing rules](../operations/index.md#rules).
 
 ## Basic rules {#base-rules}
 
 _Basic rule_ is a rule that allows, denies, or directs traffic to [{{ captcha-full-name }}](../../smartcaptcha/) based on specified conditions. It is used for simple traffic filtering based on specific parameters.
 
 Each [security profile](profiles.md) includes a _basic default rule_ with the lowest priority (`1000000`) that allows or denies all traffic.
+
+{% include [allow-path-captcha](../../_includes/smartwebsecurity/allow-patch-captcha.md) %}
 
 ## Smart Protection rules {#smart-protection-rules}
 
@@ -49,8 +51,8 @@ Actions for basic rules:
 * _Allow_ traffic whose parameters match the conditions.
 
 Actions for Smart Protection and Web Application Firewall rules:
-* _Full Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are sent to {{ captcha-name }}.
-* _API Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are denied.
+* _Full Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Redirect suspicious requests to {{ captcha-name }}.
+* _API Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Block suspicious requests.
 
 Action for Advanced Rate Limiter rules: _Block requests when exceeding the limit_. Requests above the specified limit over a period of time will be blocked. The requesting client will get error `429`.
 

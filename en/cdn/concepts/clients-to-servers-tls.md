@@ -2,8 +2,6 @@
 
 To enable clients to request files over HTTPS (e.g., if you use a URI with the `https` scheme or enabled redirection from HTTP to HTTPS in the [CDN resource](resource.md) settings), you need to configure a TLS certificate for the [domain name used to distribute content](resource.md#hostnames) specified in the resource.
 
-{% include [lets-encrypt-over](../../_includes/cdn/lets-encrypt-over.md) %}
-
 {% include [certificate-usage](../../_includes/cdn/certificate-usage.md) %}
 
 The certificate is configured when creating a resource. You can change it afterwards together with other basic resource settings. For more information, see these guides:
