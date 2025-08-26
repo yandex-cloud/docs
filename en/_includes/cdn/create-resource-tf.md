@@ -29,8 +29,6 @@ Where:
 * `secondary_hostnames`: Optional additional domain names.
 * `ssl_certificate`: Optional SSL certificate parameters:
 
-    {% include [lets-encrypt-over](lets-encrypt-over.md) %}
-
     * `type`: Certificate type. The possible values are:
 
         * `not_used`: Certificate is not used. This is a default value.
@@ -43,7 +41,7 @@ Where:
 * `options`: Optional additional parameters of the CDN resource:
 
     * `redirect_http_to_https`: Parameter to redirect clients from HTTP to HTTPS, `true` or `false`. This parameter is available if an SSL certificate is used.
-    * `secure_key`: Secret key, a string of 6 to 32 characters, which is required to restrict access to a resource using [secure tokens](../../cdn/concepts/secure-tokens.md).
+    * `secure_key`: Secret key, that is a string of 6 to 32 characters, which is required to restrict access to a resource using [secure tokens](../../cdn/concepts/secure-tokens.md).
     * `enable_ip_url_signing`: Optional parameter that enables restricting access to a CDN resource by IP address using [secure tokens](../../cdn/concepts/secure-tokens.md). The trusted IP address itself is provided outside the CDN resource and specified as a parameter when generating an [MD5](https://en.wikipedia.org/wiki/MD5) hash for a [pre-signed URL](../../cdn/concepts/secure-tokens.md#protected-link). If the parameter is not set, file access will be allowed from any IP address.
 
     * `ip_address_acl`: [IP-based access policy](../../cdn/concepts/ip-address-acl.md) parameters:

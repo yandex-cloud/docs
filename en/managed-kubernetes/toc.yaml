@@ -136,6 +136,8 @@ items:
           - name: Creating a namespace in a {{ k8s }} cluster
             href: >-
               operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
+          - name: Managing {{ k8s }} cluster access
+            href: operations/kubernetes-cluster/kubernetes-cluster-access.md
           - name: Monitoring cluster state {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-get-stats.md
           - name: Deleting a {{ k8s }} cluster

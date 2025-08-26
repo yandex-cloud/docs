@@ -40,7 +40,7 @@ Intel Broadwell is not available in the `{{ region-id }}-d` [availability zone](
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-  1. At the top right, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-zookeeper }}**.
+  1. At the top right, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}**.
   1. Specify the [host class](../concepts/instance-types.md).
   1. Set up the storage settings.
   1. Change the {{ ZK }} host settings, if required. To do this, hover over the host's row and click ![image](../../_assets/console-icons/pencil.svg).

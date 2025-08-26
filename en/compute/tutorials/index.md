@@ -48,7 +48,7 @@ description: Various {{ compute-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](bm-vrf-and-vpc-interconnect.md)
 * [{#T}](pvc-snapshot-restore.md)
 * [{#T}](usb-over-ip.md)
-* [{#T}](integrate-nextcloud.md)
+* [{#T}](integrate-nextcloud/index.md)
 
 ## {{ coi }} {#coi}
 

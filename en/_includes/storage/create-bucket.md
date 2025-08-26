@@ -58,7 +58,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
   {% include [aws-cli-install](../../_includes/aws-cli-install.md) %}
 
-  To create a bucket, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` [role](../../storage/security/index.md/#storage-editor) to the service account used by the AWS CLI.
+  To create a bucket, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.editor` [role](../../storage/security/index.md#storage-editor) to the service account used by the AWS CLI.
 
   In the terminal, run this command:
 

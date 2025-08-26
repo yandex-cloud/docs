@@ -7,6 +7,30 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.158.0 (11/08/25) {#version0.158.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mos-name }}
+Added support for `ExtensionService` to the `yc managed-opensearch` command.
+
+##### {{ alb-name }}
+
+The `yc apploadbalancer disable-zones` command now includes the ability to manage the zone disabling period.
+
+##### {{ alb-name }}
+* Added the `disable_security_profile` parameter to route management commands:
+  * yc application-load-balancer virtual-host append-http-route
+  * yc application-load-balancer virtual-host prepend-http-route
+  * yc application-load-balancer virtual-host insert-http-route
+  * yc application-load-balancer virtual-host update-http-route
+  * yc application-load-balancer virtual-host append-grpc-route
+  * yc application-load-balancer virtual-host prepend-grpc-route
+  * yc application-load-balancer virtual-host insert-grpc-route
+  * yc application-load-balancer virtual-host update-grpc-route
+
+## Previous releases {#previous-release}
+
 ### Version 0.157.0 (04/08/25) {#version0.157.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -37,8 +61,6 @@ Adjusted the defaults values of these `serverless eventrouter connector create m
 * `--visibility-timeout`
 * `--polling-timeout`
 * `--batch-size`
-
-## Previous releases {#previous-release}
 
 ### Version 0.156.0 (28/07/25) {#version0.156.0}
 

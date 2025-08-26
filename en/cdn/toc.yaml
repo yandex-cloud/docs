@@ -7,12 +7,12 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Connecting to the {{ cdn-name }} provider
-        href: operations/enable-provider.md
       - name: Resources
         items:
           - name: Creating a resource
             href: operations/resources/create-resource.md
+          - name: Copying a configuration from one resource to another
+            href: operations/resources/copy-resource.md
           - name: Updating basic settings of a resource
             href: operations/resources/configure-basics.md
           - name: Getting information about a resource
@@ -95,7 +95,6 @@ items:
         href: concepts/index.md
       - name: Providers
         href: concepts/providers.md
-        hidden: true
       - name: Resource
         href: concepts/resource.md
       - name: Origins and origin groups
@@ -418,11 +417,10 @@ items:
                 href: api-ref/Resource/delete.md
               - name: GetProviderCName
                 href: api-ref/Resource/getProviderCName.md
-  - name: '{{ monitoring-name }} metrics'
+  - name: '{{ monitoring-name }} metrics for the EdgeCDN provider'
     href: metrics.md
   - name: '{{ monitoring-name }} metrics for the {{ cdn-full-name }} provider'
     href: metrics-yc.md
-    hidden: true
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

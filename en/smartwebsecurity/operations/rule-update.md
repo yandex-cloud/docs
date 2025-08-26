@@ -1,11 +1,11 @@
 ---
-title: How to edit a rule in a {{ sws-full-name }} profile
-description: Follow this guide to edit a rule in a {{ sws-full-name }} profile.
+title: How to edit a rule in a security profile in {{ sws-full-name }}
+description: Follow this guide to edit a rule in a security profile in {{ sws-full-name }}.
 ---
 
 # Editing a rule in a security profile
 
-You can edit basic [rules](../concepts/rules.md), as well as Smart Protection and WAF rules, in a [security profile](../concepts/profiles.md). ARL rules are [edited in an ARL profile](arl-rule-update.md).
+You can edit basic [rules](../concepts/rules.md), as well as Smart Protection and WAF rules, in a [security profile](../concepts/profiles.md). ARL rules are [edited in an ARL profile](arl-rule-update.md). If editing rules causes an error, make sure the service account has the `logging.writer` role.
 
 {% list tabs group=instructions %}
 
@@ -15,7 +15,7 @@ You can edit basic [rules](../concepts/rules.md), as well as Smart Protection an
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Select the profile where you want to edit a rule.
   1. On the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab, click ![options](../../_assets/console-icons/ellipsis.svg) next to the rule in question and select **{{ ui-key.yacloud.common.edit }}**.
-  1. In the window that opens, configure the new rule settings:
+  1. In the window that opens, configure the new rule:
   
       {% include [add-rule](../../_includes/smartwebsecurity/add-rule.md) %}
 
@@ -31,11 +31,11 @@ You can edit basic [rules](../concepts/rules.md), as well as Smart Protection an
 
   1. Update the security profile by applying the [YAML](https://en.wikipedia.org/wiki/YAML) configuration with updated description of the current security rules:
   
-     1. To get the YAML configuration for the current security rules in the profile, run this command, specifying the security profile name or ID:
+     1. To get the YAML configuration for the current security rules in the profile, run this command specifying the security profile name or ID:
 
          {% include [security-profile-get-command](../../_includes/smartwebsecurity/security-profile-get-command.md) %}
 
-     1. Copy the current rule configuration (`security_rules` section contents) to any text editor and save it to a file after editing it as needed. In the example below, we updated the rule name and replaced the `DENY` action with `ALLOW`:
+     1. Copy the current rule configuration (the `security_rules` section contents) to any text editor and save it to a file after editing it as needed. In the example below, we edited the rule name and replaced the `DENY` action with `ALLOW`:
 
          {% cut "security-rules.yaml" %}
 
@@ -95,7 +95,7 @@ You can edit basic [rules](../concepts/rules.md), as well as Smart Protection an
 
          {% include [change-profile-rules-alert](../../_includes/smartwebsecurity/change-profile-rules-alert.md) %}
 
-     1. To update a security profile, run this command, specifying the profile name or ID:
+     1. To update a security profile, run this command specifying the profile name or ID:
     
          ```bash
          yc smartwebsecurity security-profile update <security_profile_name_or_ID> \
@@ -235,7 +235,7 @@ You can edit basic [rules](../concepts/rules.md), as well as Smart Protection an
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the resource updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  You can check the resource update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
 
   ```bash
   yc smartwebsecurity security-profile get <security_profile_ID>

@@ -115,6 +115,7 @@ default:
   cloud-shell-full-name: Yandex Cloud Shell
   cloud-shell-name: Cloud Shell
   cluster-id: cat0adul1fj0********
+  cname-example-edge: cl-msa87*****.edgecdn.ru
   cname-example-yc: 328938ed********.a.yccdn.cloud.yandex.net
   cns-full-name: Yandex Cloud Notification Service
   cns-host: notifications.yandexcloud.net
@@ -4712,6 +4713,18 @@ default:
         12_month|string: $733.124707
         3_month|string: $819.374672
         6_month|string: $802.124679
+      ba_i215_ss_10g:
+        1_day|string: $1039.166251
+        1_month|string: $1007.991263
+        12_month|string: $883.291313
+        3_month|string: $987.207938
+        6_month|string: $966.424613
+      ba_i216_ss_1_10g:
+        1_day|string: $1038.332918
+        1_month|string: $1007.182930
+        12_month|string: $882.582980
+        3_month|string: $986.416272
+        6_month|string: $965.649614
       ba_i407_s_10g:
         1_day|string: $718.333046
         1_month|string: $696.783055
@@ -4730,18 +4743,42 @@ default:
         12_month|string: $1707.790984
         3_month|string: $1908.707570
         6_month|string: $1868.524253
+      ba_i507_nh_2x25g:
+        1_day|string: $2029.999188
+        1_month|string: $1969.099212
+        12_month|string: $1725.499310
+        3_month|string: $1928.499229
+        6_month|string: $1887.899245
       ba_i511_nh_25g:
         1_day|string: $2499.165667
         1_month|string: $2424.190697
         12_month|string: $2124.290817
         3_month|string: $2374.207384
         6_month|string: $2324.224070
+      ba_i512_nh_2x25g:
+        1_day|string: $2523.332324
+        1_month|string: $2447.632354
+        12_month|string: $2144.832475
+        3_month|string: $2397.165708
+        6_month|string: $2346.699061
+      ba-i523-nh-2x25g:
+        1_day|string: $3967.498413
+        1_month|string: $3848.473461
+        12_month|string: $3372.373651
+        3_month|string: $3769.123492
+        6_month|string: $3689.773524
       ha_i302_s_10g:
         1_day|string: $764.999694
         1_month|string: $742.049703
         12_month|string: $650.249740
         3_month|string: $726.749709
         6_month|string: $711.449715
+      ha-i502-n-25g-gxl4:
+        1_day|string: $1819.999272
+        1_month|string: $1765.399294
+        12_month|string: $1546.999381
+        3_month|string: $1728.999308
+        6_month|string: $1692.599323
   sku|USD|cdn:
     api:
       network:
@@ -9640,7 +9677,7 @@ default:
             action_delete-host: Delete
             action_restart-host: Restart
             button_add-zookeeper: Add ZooKeeper hosts
-            button_create-zookeeper: Set up ZooKeeper hosts
+            button_create-coordinator: Set up coordinator service
             button_manual-failover: Switch master
             button_rebalance-cluster: Rebalance cluster
             button_rebalance-cluster-short: Rebalance
@@ -10510,10 +10547,6 @@ default:
             value_days: Number of days
             value_expired-object-delete-marker: Deletion marker without noncurrent versions
           object-lock:
-            field_mode: Default lock type
-            field_object-lock-enabled: Enable locks
-            field_retention-period: Default lock period
-            field_rule-enabled: Default locks for new versions
             title-mode-compliance: Compliance
             title-mode-governance: Governance
           policy:
@@ -10603,14 +10636,19 @@ default:
           label_lifetime: Lifetime
           popup-confirm_button_delete: Delete
         form:
+          BucketObjectLockFormContent:
+            field_default-rules-enabled_qtmC8: Default locks for new versions
+            field_mode_61kxf: Default lock type
+            field_retention-period_jJYhy: Default lock period
+            field_temp-object-lock-enabled_v3heA: Enable locks
+          BucketServerLogsFormContent:
+            label_prefix_4JTZG: Prefix
+            label_server-logs_mfGpj: Write logs
+            label_target-bucket_jEJ5E: Bucket for log storage
           BucketVersioningFormSection:
             label_versioning-disabled_ngMWc: Store object change history
         permissions-dialog:
           label_role-write: 'READ and WRITE '
-        server-logs:
-          label_prefix: Prefix
-          label_server-logs: Write logs
-          label_target-bucket: Bucket for log storage
         switch_buckets: Buckets
         title_object-lock: Object version lock
       trino:
@@ -10942,6 +10980,9 @@ default:
                       transfer_to_shard:
                         array_item_label: Mapping
                         title: Mapping
+                    ClickHouseShardingSettings:
+                      sharding_settings_oneof:
+                        title: Sharding
                     ClickHouseShardingSettingsOneof:
                       no_sharding:
                         title: No sharding

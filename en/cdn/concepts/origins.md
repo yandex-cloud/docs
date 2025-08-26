@@ -4,6 +4,7 @@ CDN servers retrieve the content requested by clients from _origins_.
 
 When creating a resource, an origin or an [origin group](#groups) is specified for it. After creating a resource, in the resource settings, you can replace an origin with another origin or a resource group with another resource group.
 
+{% include [provider-binding](../../_includes/cdn/provider-binding.md) %}
 
 ## Origin type {#types}
 

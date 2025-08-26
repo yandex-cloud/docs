@@ -25,6 +25,7 @@ description: На странице представлен список прак�
 * [{#T}](mkf-yds-stream.md)
 * [{#T}](yds-to-kafka.md)
 * [{#T}](kafka-connect.md)
+* [{#T}](kafka-topic-s3-sync-private.md)
 * Использование реестра схем форматов данных с {{ mkf-full-name }}:
   * [Управление схемами данных в {{ mkf-name }}](schema-registry-overview.md)
   * [{#T}](managed-schema-registry.md)

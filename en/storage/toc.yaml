@@ -306,8 +306,14 @@ items:
         href: tutorials/mgp-config-server-for-s3.md
       - name: Migrating databases from Google BigQuery to {{ mch-name }}
         href: tutorials/bigquery-to-clickhouse.md
-      - name: '{{ objstorage-name }} integration with Nextcloud'
-        href: tutorials/integrate-nextcloud.md
+      - name: Deploying Nextcloud integrated with {{ objstorage-name }}
+        items:
+          - name: Overview
+            href: tutorials/integrate-nextcloud/index.md
+          - name: Deploying Nextcloud on a VM from a {{ coi }}
+            href: tutorials/integrate-nextcloud/coi-based.md
+          - name: Manually deploying Nextcloud on a VM or VM group
+            href: tutorials/integrate-nextcloud/fault-tolerant.md
       - name: >-
           Setting up static website hosting in a {{ objstorage-full-name }}
           bucket with {{ cdn-full-name }} access
@@ -460,6 +466,8 @@ items:
             href: cli-ref/s3/cp.md
           - name: mv
             href: cli-ref/s3/mv.md
+          - name: presign
+            href: cli-ref/s3/presign.md
           - name: rm
             href: cli-ref/s3/rm.md
       - name: s3api

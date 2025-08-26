@@ -20,8 +20,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
+{% include [security-profile-sa-roles](../../../_includes/smartwebsecurity/security-profile-sa-roles.md) %}
+
 To create an infrastructure using {{ TF }}:
-1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the {{ yandex-cloud }} provider source (see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+1. [Install {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
 1. Prepare your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}

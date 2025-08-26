@@ -23,14 +23,26 @@ description: In this tutorial, you will learn how to update a backup policy in {
   {% endnote %}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update a [backup policy](../../../backup/concepts/policy.md).
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Click ![options](../../../_assets/console-icons/ellipsis.svg) next to the backup policy you want to update and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the backup policy parameters:
 
-     {% include [policy-options](../../../_includes/backup/policy-options.md) %}
+      * Enter a name. Follow these naming requirements:
 
-       {% include [policy-options-extra](../../../_includes/backup/policy-options-extra.md) %}
+        {% include [name-format](../../../_includes/name-format.md) %}
+
+      * Under **{{ ui-key.yacloud.backup.policy-form.title_schedule-section }}**, depending on the selected run schedule type configured when creating the policy:
+
+          {% include [policy-options-schedule-type](../../../_includes/backup/policy-options-schedule-type.md) %}
+
+      {% include [policy-options-retention](../../../_includes/backup/policy-options-retention.md) %}
+
+      * Under **{{ ui-key.yacloud.backup.policy-form.title_additional-section }}**:
+
+          {% include [policy-options-additional](../../../_includes/backup/policy-options-additional.md) %}
+
+          {% include [policy-options-extra](../../../_includes/backup/policy-options-extra.md) %}
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -225,7 +237,7 @@ description: In this tutorial, you will learn how to update a backup policy in {
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your backup policy.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Navigate to the ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Select the backup policy where you want to edit the list of [VMs](../../../compute/concepts/vm.md) or {{ baremetal-name }} [servers](../../../baremetal/concepts/servers.md).
   1. Edit the list of linked resources:

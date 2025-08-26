@@ -1,7 +1,7 @@
 # Integrating an L7 load balancer with {{ cdn-short-name }} and {{ objstorage-short-name }}
 
 
-In this tutorial, we will use a {{ objstorage-full-name }} bucket as the L7 load balancer backend enabled by {{ alb-full-name }}. To reduce the content delivery time, the load balancer receives user requests via the {{ cdn-full-name }} content delivery network.
+In this tutorial, we will use a {{ objstorage-full-name }} bucket as an L7 {{ alb-full-name }}. To reduce content delivery time, the load balancer receives user requests via the {{ cdn-full-name }} content delivery network.
 
 We will use the `cdn.yandexcloud.example` domain name as an example.
 
@@ -55,7 +55,7 @@ The infrastructure support costs include:
 
 {% include [certificate-usage](../../_includes/cdn/certificate-usage.md) %}
 
-For a Let's Encrypt® certificate, have your [rights checked](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
+For a Let's Encrypt® certificate, pass an [ownership check](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
 
 
 ## Create a cloud network and subnets {#create-network}
@@ -171,7 +171,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
   
-  1. In the configuration file, describe the parameters for `example-network` and its `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d` subnets:
+  1. In the configuration file, describe the settings for `example-network` and its `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d` subnets:
   
      ```hcl
      resource "yandex_vpc_network" "example-network" {
@@ -200,18 +200,18 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
      }
      ```
      
-     For more information, see the descriptions of [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) in the {{ TF }} documentation.
+     For more information, see the [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) and [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) descriptions in the {{ TF }} provider documentation.
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
   
@@ -289,18 +289,18 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
      }
      ```
      
-     For more information about `yandex_storage_bucket`, see the [{{ TF }} documentation]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information about `yandex_storage_bucket`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
   
@@ -378,18 +378,18 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
         }
         ```
         
-        For more information about `yandex_storage_object`, see the [{{ TF }} documentation]({{ tf-provider-resources-link }}/storage_object).
+        For more information about `yandex_storage_object`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/storage_object).
         
      1. Make sure the configuration files are correct.
 
-        1. In the command line, navigate to the folder where you created the configuration file.
+        1. In the command line, navigate to the directory where you created the configuration file.
         1. Run a check using this command:
    
            ```bash
            terraform plan
            ```
    
-        If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out. 
+        If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
    
      1. Deploy the cloud resources.
      
@@ -428,9 +428,9 @@ To create security groups:
       | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br/>destination | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
       | `Outgoing` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Incoming` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Incoming` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
+      | `Ingress` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | `Ingress` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | `Ingress` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
       
      1. Navigate to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
@@ -438,7 +438,7 @@ To create security groups:
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the required protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
      1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the rule purpose:
 
-        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks the traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDRs and masks of subnets traffic will move to/from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
         * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health-check VMs.
 
      1. Click **{{ ui-key.yacloud.common.save }}**. Repeat these steps to create all rules from the table.
@@ -547,14 +547,14 @@ To create security groups:
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
   
@@ -590,7 +590,7 @@ To create security groups:
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify `example-backend`.
       1. In the **{{ ui-key.yacloud.alb.label_backend-weight }}** field, specify `100`.
       1. In the **{{ ui-key.yacloud.common.type }}** field, select `{{ ui-key.yacloud.alb.label_bucket }}` as the [backend type](../../application-load-balancer/concepts/backend-group.md#types).
-      1. In the **{{ ui-key.yacloud.alb.label_bucket }}** field, select the previously created bucket.
+      1. In the **{{ ui-key.yacloud.alb.label_bucket }}** field, select the bucket you created earlier.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
   If you are going to complete the next steps in {{ TF }}, copy the ID of the `example-bg` backend group from the ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** tab.
@@ -624,7 +624,7 @@ To create security groups:
      1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, keep `{{ ui-key.yacloud.alb.label_route-action-route }}`.
      1. From the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select `example-bg`.
 
-  1. Do not change other settings. Click **{{ ui-key.yacloud.common.create }}**.
+  1. Do not change the other settings. Click **{{ ui-key.yacloud.common.create }}**.
   
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -695,7 +695,7 @@ To create security groups:
 
 - {{ TF }} {#tf}
 
-  1. Add to the configuration file the settings of the `example-router` HTTP router, its virtual hosts, and routes:
+  1. Add the settings for the `example-router` HTTP router, its virtual hosts, and routes to the configuration file:
   
      ```hcl
      ...
@@ -720,18 +720,18 @@ To create security groups:
      }
      ```
      
-     For more information, see the description of [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) in the {{ TF }} documentation.
+     For more information, see the [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) and [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) descriptions in the {{ TF }} provider documentation.
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
   
@@ -763,7 +763,7 @@ To create security groups:
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
 
      1. In the **{{ ui-key.yacloud.mdb.forms.label_network }}** field, select `example-network`.
-     1. In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** field, select `example-sg`. If you leave this field blank, any incoming and outgoing traffic will be allowed for the load balancer.
+     1. In the **{{ ui-key.yacloud.mdb.forms.field_security-group }}** field, select `example-sg`. Leaving this field blank will allow any inbound and outbound traffic for the load balancer.
       
   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select the three subnets for the load balancer nodes (`example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d`) and enable traffic to these subnets.
   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}** and set up the listener:
@@ -820,7 +820,7 @@ To create security groups:
        --security-group-id <example-sg_security_group_ID> \
        --location zone={{ region-id }}-a,subnet-id=<example-subnet-{{ region-id }}-a_ID> \
        --location zone={{ region-id }}-b,subnet-id=<example-subnet-{{ region-id }}-b_ID> \
-       --location zone={{ region-id }}-d,subnet-id=<example-subnet-{{ region-id }}-c_ID>
+       --location zone={{ region-id }}-d,subnet-id=<example-subnet-{{ region-id }}-d_ID>
      ```
      
      Result:
@@ -898,7 +898,7 @@ To create security groups:
 
 - {{ TF }} {#tf}
 
-  1. Add the settings of the `example-balancer` L7 load balancer to the configuration file:
+  1. Add the settings for `example-balancer` to the configuration file:
   
      ```hcl
      ...
@@ -943,18 +943,18 @@ To create security groups:
      }
      ```
      
-     For more information about `yandex_alb_load_balancer`, see the [{{ TF }} documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
+     For more information about `yandex_alb_load_balancer`, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/alb_load_balancer).
      
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
 
   1. Deploy the cloud resources.
   
@@ -972,60 +972,41 @@ To create security groups:
           
 {% endlist %}
 
-## Create a CDN {#create-cdn-resource}
+## Create a CDN resource {#create-cdn-resource}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
-
-  1. Create a CDN:
-
-     1. At the top right, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-     1. Configure the basic CDN settings:
-
-        * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
-        * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
-        * **{{ ui-key.yacloud.cdn.label_balancer }}**: `example-balancer`.
-        * **{{ ui-key.yacloud.cdn.label_ip-address }}**: IP address assigned to the load balancer (the only one in the list).
-        * **{{ ui-key.yacloud.cdn.label_personal-domain }}**: `cdn.yandexcloud.example`.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
+  1. Configure the basic CDN resource settings:
+      * Under **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        * Enable **{{ ui-key.yacloud.cdn.label_access }}**.
+        * In the **{{ ui-key.yacloud.cdn.label_content-query-type }}** field, select `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_source-type }}** field, select `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_balancer }}** field, select `example-balancer`.
+        * In the **{{ ui-key.yacloud.cdn.label_ip-address }}** field, select the IP address assigned to the load balancer (the only one in the list).
+        * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_http }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, specify `cdn.yandexcloud.example`.
 
           {% note alert %}
 
-          The `cdn.yandexcloud.example` domain name will become the primary one, and you will not be able to edit it after you create a CDN.
+          The `cdn.yandexcloud.example` domain name will become the primary one, and you will not be able to edit it after you create a CDN resource.
 
           {% endnote %}
 
-        * Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
-
-          * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.common.label_http }}`. 
-          * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
-          * Select **{{ ui-key.yacloud.cdn.field_access }}**.
-          * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, specify `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and select a [certificate](#add-certificate) for the `cdn.yandexcloud.example` domain name.
-          * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-resend }}`.
-
-     1. Click **{{ ui-key.yacloud.common.create }}**.
-
-  1. Enable client redirects from HTTP to HTTPS:
-
-     1. Select the resource you created earlier.
-     1. Make sure the certificate status under **{{ ui-key.yacloud.cdn.label_additional }}** has changed to `{{ ui-key.yacloud.cdn.value_certificate-status-ready }}`.
-     1. At the top right, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-     1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` in the **{{ ui-key.yacloud.cdn.label_redirect }}** field.
-     1. Click **{{ ui-key.yacloud.common.save }}**.
+      * Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, specify `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and select a [certificate](#add-certificate) for the `cdn.yandexcloud.example` domain name.
+        * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-resend }}`.
+  1. Click **{{ ui-key.yacloud.common.continue }}**.
+  1. Under **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**, and **Advanced**, leave the default settings, then click **Continue**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. If the CDN provider is not activated yet, run this command:
-
-      ```bash
-      yc cdn provider activate --folder-id <folder_ID> --type gcore
-      ```
-
-  1. Create an origin group named `example-origin-group` and indicate the IP address of the load balancer:
+  1. Create an origin group named `example-origin-group` and indicate the load balancer IP address:
 
       ```bash
       yc cdn origin-group create --name "example-origin-group" \
@@ -1049,7 +1030,7 @@ To create security groups:
       For more information about the `yc cdn origin-group create` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/origin-group/create.md).
 
 
-  1. Copy `origin_group_id` from the previous step and create a CDN by running this command:
+  1. Copy `origin_group_id` from the previous step and create a CDN resource by running this command:
   
       ```bash
       yc cdn resource create \
@@ -1116,18 +1097,18 @@ To create security groups:
       }
       ```
 
-      For more information, see the description of [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) in the {{ TF }} documentation.
+      For more information, see the [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) and [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) descriptions in the {{ TF }} provider documentation.
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the folder where you created the configuration file.
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
   1. Deploy the cloud resources.
 
@@ -1139,7 +1120,7 @@ To create security groups:
 
      1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-     This will create all resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
   1. Enable client redirects for the resource. In the CDN resource settings, add this field at the top of the `options` section:
 
@@ -1164,9 +1145,9 @@ To create security groups:
       terraform apply
       ```
 
-  1. Confirm the resource update: type `yes` in the terminal and press **Enter**.
+  1. Confirm the resource update by typing `yes` in the terminal and pressing **Enter**.
       
-  This enables redirects for the resource.
+  This will enable redirects for the resource.
 
 - API {#api}
 
@@ -1189,7 +1170,7 @@ To configure DNS:
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. From the list of CDN resources, select the one with `cdn.yandexcloud.example` as its primary domain name.
-     1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** at the bottom of the page, copy the domain name in `cl-********.edgecdn.ru` format.
+     1. From **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** at the bottom of the page, copy the domain name in `{{ cname-example-yc }}` or `{{ cname-example-edge }}` format, depending on your [CDN provider](../../cdn/concepts/providers.md).
 
    {% endlist %}
 
@@ -1197,7 +1178,7 @@ To configure DNS:
 1. Create or edit a CNAME record for `cdn.yandexcloud.example` so that it points to the domain name you copied:
 
    ```
-   cdn CNAME cl-********.edgecdn.ru
+   cdn CNAME {{ cname-example-yc }}
    ```
 
    {% include [note-dns-aname](../../_includes/cdn/note-dns-aname.md) %}
@@ -1225,7 +1206,7 @@ To configure DNS:
         1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
         1. In the **{{ ui-key.yacloud.common.name }}** field, specify `cdn`.
         1. In the **{{ ui-key.yacloud.common.type }}** field, specify `CNAME`.
-        1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the value you copied in `cl-********.edgecdn.ru` format.
+        1. In the **{{ ui-key.yacloud.dns.label_records }}** field, paste the value you copied in `{{ cname-example-yc }}` format.
         1. Click **{{ ui-key.yacloud.common.create }}**.
 
    - {{ yandex-cloud }} CLI {#cli}
@@ -1252,12 +1233,12 @@ To configure DNS:
         
         For more information about the `yc dns zone create` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/create.md).
         
-     1. In the zone, create a CNAME record for `cdn.yandexcloud.example` with the copied value in `cl-********.edgecdn.ru` format:
+     1. In the zone, create a CNAME record for `cdn.yandexcloud.example` with the value you copied in `{{ cname-example-yc }}` format:
      
         ```bash
         yc dns zone add-records \
           --name example-dns-zone \
-          --record "cdn CNAME cl-********.edgecdn.ru" \
+          --record "cdn CNAME {{ cname-example-yc }}" \
         ```
 
         For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
@@ -1279,22 +1260,22 @@ To configure DNS:
           zone_id = ${yandex_dns_zone.example-dns-zone.id}
           name    = "cdn"
           type    = "CNAME"
-          data    = ["<copied_value_in_cl-********.edgecdn.ru_format>"]
+          data    = ["<copied_value_in_{{ cname-example-yc }}_format>"]
         }
         ```
 
-        For more information, see the descriptions of [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) in the {{ TF }} documentation.
+        For more information, see the [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) descriptions in the {{ TF }} provider documentation.
         
      1. Make sure the configuration files are correct.
 
-        1. In the command line, navigate to the folder where you created the configuration file.
+        1. In the command line, navigate to the directory where you created the configuration file.
         1. Run a check using this command:
    
            ```bash
            terraform plan
            ```
    
-        If the configuration is correct, the terminal will display a list of new resources with their properties. If the configuration contains any errors, {{ TF }} will point them out. 
+        If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
    
      1. Deploy the cloud resources.
 
@@ -1309,7 +1290,7 @@ To configure DNS:
    - API {#api}
     
      1. Create a DNS zone named `example-dns-zone` using the [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md) gRPC API call or the [create](../../dns/api-ref/DnsZone/create.md) REST API method.
-     1. Add the `cdn` CNAME record with the copied `cl-********.edgecdn.ru` value to the zone using the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
+     1. Add the `cdn` CNAME record with the `{{ cname-example-yc }}` value you copied to the zone using the [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call or the [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method.
         
    {% endlist %}
    
@@ -1339,7 +1320,7 @@ To shut down the infrastructure and stop paying for the resources you created:
 
 1. If you set up CNAME records in {{ dns-name }}, [delete](../../dns/operations/zone-delete.md) the `example-dns-zone` DNS zone.
 1. [Delete](../../cdn/operations/resources/delete-resource.md) the CDN with `cdn.yandexcloud.example` as the primary domain name.
-1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the `example-balancer` L7 load balancer.
+1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) `example-balancer`.
 1. [Delete](../../storage/operations/objects/delete.md) all objects from the bucket.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.
 1. [Delete](../../vpc/operations/subnet-delete.md) `example-subnet-{{ region-id }}-a`, `example-subnet-{{ region-id }}-b`, and `example-subnet-{{ region-id }}-d`.

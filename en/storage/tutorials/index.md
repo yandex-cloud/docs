@@ -76,5 +76,5 @@ description: This page features a list of {{ objstorage-name }} tutorials.
 * [{#T}](search-events-bucket.md)
 * [{#T}](mgp-config-server-for-s3.md)
 * [{#T}](bigquery-to-clickhouse.md)
-* [{#T}](integrate-nextcloud.md)
+* [{#T}](integrate-nextcloud/index.md)
 * [{#T}](cdn-hosting.md)

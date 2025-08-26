@@ -19,8 +19,8 @@
 Где:
 
 * 50 000 — количество отложенных запросов.
-* {{ sku|KZT|searchapi.requests.sync.v3|string }} — стоимость за 1 000 отложенный запросов.
-* {{ sku|KZT|searchapi.requests.sync.v3|string }} / 1 000 — стоимость за 1 отложенный запрос.
+* {{ sku|KZT|searchapi.requests.async.v3|string }} — стоимость за 1 000 отложенных запросов.
+* {{ sku|KZT|searchapi.requests.async.v3|string }} / 1 000 — стоимость за 1 отложенный запрос.
 
 Расчет стоимости синхронных запросов с генеративным ответом:
 

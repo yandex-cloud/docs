@@ -13,7 +13,11 @@ To restore object versions, the bucket must be [versioned](../../concepts/versio
 
   {% note warning %}
 
-  The timeout for restoring an object version using the management console is 25 seconds. Large versions might not successfully restore within this time. If restoring fails, use other tools, such as the AWS CLI or API.
+  The timeout for restoring an object version using the management console is 25 seconds. Large versions might not successfully restore within this time.
+  
+  The management console restores objects via a single request, but it has [limits](../../concepts/limits.md#storage-limits). The object version size cannot exceed 5 GB.
+  
+  If restoring fails or the object version exceeds this limit, we recommend using other tools, such as the AWS CLI or S3 API.
 
   {% endnote %}
 

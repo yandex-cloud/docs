@@ -62,7 +62,7 @@ description: Следуя этой инструкции, с помощью {{ as
                         "https://yandex.ru/finance/currencies"
                       ]
                     },
-                    "enable_nrfm_docs": "true"
+                    "enable_nrfm_docs": true
                   },
                   "description": "Инструмент для получения информации об официальных курсах валют."
                 }
