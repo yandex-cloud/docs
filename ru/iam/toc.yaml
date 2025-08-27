@@ -121,6 +121,8 @@ items:
             href: tutorials/wlif-gitlab-integration.md
           - name: '{{ k8s }}'
             href: tutorials/wlif-k8s-integration.md
+      - name: Настройка CI/CD между {{ sf-name }} и GitHub
+        href: tutorials/ci-cd-github-functions.md
   - name: Концепции
     items:
       - name: Обзор

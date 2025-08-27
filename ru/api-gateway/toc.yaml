@@ -241,6 +241,8 @@ items:
         href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
+  - name: Инструменты
+    href: tools.md
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник CLI (англ.)

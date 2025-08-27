@@ -6,9 +6,3 @@
 * просматривать информацию о [квотах](../../cloud-desktop/concepts/limits.md#quotas) сервиса Cloud Desktop.
 
 Включает разрешения, предоставляемые ролью `vdi.auditor`.
-
-{% note info %}
-
-Ранее для подключения к рабочим столам использовалась роль `vdi.viewer`, теперь требуется роль `vdi.desktopGroups.user` или `vdi.desktopGroups.maintainer`. Роль `vdi.viewer` в скором времени будет разрешать только просмотр, если вы использовали ее для подключения — переназначьте роли.
-
-{% endnote %}

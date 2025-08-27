@@ -7,6 +7,9 @@ links:
   - title: Начало работы
     description: Посмотрите квоты сервисов
     href: quickstart
+  - title: Примеры использования
+    description: Посмотрите примеры запросов для управления квотами
+    href: requests-examples
   - title: Пошаговые инструкции
     description: Инструкции по выполнению рутинных операций
     href: operations/

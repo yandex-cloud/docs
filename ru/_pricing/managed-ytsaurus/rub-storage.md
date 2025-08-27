@@ -1,5 +1,5 @@
 | Ресурс        | Цена за ГБ в месяц,<br>вкл. НДС |
 |---------------|-----------------------------:|
-| Хранилище на сетевых HDD-дисках | {% calc [currency=RUB] 3,784 %} |
-| Хранилище на нереплицируемых SSD-дисках | {% calc [currency=RUB] 11,405 %} |
-| Хранилище на сетевых SSD-дисках | {% calc [currency=RUB] 15,435 %} |
+| Хранилище на сетевых HDD-дисках | {% calc [currency=RUB] {{ sku|RUB|yt.storage.hdd.v1|month|number }} %} |
+| Хранилище на нереплицируемых SSD-дисках | {% calc [currency=RUB] {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} |
+| Хранилище на сетевых SSD-дисках | {% calc [currency=RUB] {{ sku|RUB|yt.storage.ssd.v1|month|number }} %} |

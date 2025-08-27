@@ -16,13 +16,13 @@ _Дообучение моделей в {{ foundation-models-full-name }} нах
 
 ## Процесс дообучения в {{ foundation-models-name }} {#fm-tuning}
 
-Требования к данным для дообучения см. в разделах [{#T}](../resources/dataset.md#generating) и [{#T}](../resources/dataset.md#classifier).
+Требования к данным для дообучения см. в разделах [{#T}](../resources/dataset.md#generating), [{#T}](../resources/dataset.md#classifier) и [{#T}](../resources/dataset.md#embeddings).
 
 Подготовленные данные необходимо загрузить в {{ yandex-cloud }} в виде [_датасета_](../resources/dataset.md). По умолчанию вы можете загрузить до 5 ГБ данных для дообучения в один датасет. Со всеми ограничениями вы можете ознакомиться в разделе [{#T}](../limits.md).
 
-После загрузки датасета [запустите дообучение](../../tuning/api-ref/grpc/Tuning/tune.md), указав его тип и, опционально, задав параметры. Дообучение займет от 1 часа до 1 суток в зависимости от объема данных и загруженности системы.
+После загрузки датасета запустите дообучение, указав его тип и, опционально, задав параметры. Дообучение займет от 1 часа до 1 суток в зависимости от объема данных и загруженности системы.
 
-Пример дообучения модели см. в разделе [{#T}](../../operations/tuning/create.md).
+Примеры дообучения моделей доступны в разделах [{#T}](../../operations/tuning/create.md), [{#T}](../../operations/tuning/tune-classifiers.md) и [{#T}](../../operations/tuning/create-embeddings.md).
 
 Для дообучения моделей в {{ foundation-models-name }} вам понадобится [роль](../../security/index.md) `ai.editor`. Она позволит загрузить данные и запустить дообучение.
 
@@ -43,6 +43,8 @@ _Дообучение моделей в {{ foundation-models-full-name }} нах
 * [{#T}](../../operations/tuning/create.md)
 * [{#T}](../../operations/tuning/tune-classifiers.md)
 * [{#T}](../../tutorials/models-fine-tuning.md)
+* [{#T}](../../operations/resources/create-dataset-gpt.md)
+* [{#T}](../../operations/resources/create-dataset-classifier.md)
 
 
 ^1^ {{ meta-disclaimer }}

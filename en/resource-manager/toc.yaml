@@ -52,8 +52,10 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Setting up networking between resources in different folders
+      - name: Setting up networking between resources from different folders
         href: tutorials/multi-folder-vpc.md
+      - name: Inviting a new user and assigning roles
+        href: tutorials/add-account-and-assign-roles.md
   - name: Concepts
     items:
       - name: Yandex Cloud resource hierarchy
@@ -132,7 +134,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

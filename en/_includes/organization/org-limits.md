@@ -1,7 +1,7 @@
 #### Quotas {#organization-quotas}
 
 #|
-|| Type of limitation | Value ||
+|| Type of limit | Value ||
 || Maximum number of subjects per organization 
 `organization-manager.memberships.count` | 10,000 ||
 || Maximum number of organizations a subject may belong to (quota for the subject) | 100 ||

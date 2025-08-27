@@ -115,9 +115,6 @@ description: Из статьи вы узнаете, как вызвать фун
         yc serverless function invoke <идентификатор_функции> --tag <тег_версии>
         ```
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    Вызвать функцию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

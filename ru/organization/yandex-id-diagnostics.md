@@ -8,3 +8,7 @@ description: Из статьи вы узнаете, какие бывают ош
 ## Ошибка входа с учетной записью {#authentication-missed}
 
 Доступ к сервисам {{ yandex-cloud }} ограничен для вашего [аккаунта на Яндексе](../iam/concepts/users/accounts.md). Обратитесь в [поддержку Яндекс ID](https://id.yandex.ru/helpdesk).
+
+## Доступ к сервису ограничен {#service-access-missed}
+
+Доступ к указанному сервису ограничен для вашего [аккаунта на Яндексе](../iam/concepts/users/accounts.md). Обратитесь в [поддержку Яндекс ID](https://id.yandex.ru/helpdesk).
