@@ -39,6 +39,7 @@ default:
   api-host-mdb-operation: operation.api.cloud.yandex.net
   api-host-monitoring-1: monitoring.api.cloud.yandex.net
   api-host-operation: operation.api.cloud.yandex.net
+  api-host-quota-manager: quota-manager.api.cloud.yandex.net
   api-host-sk: api.cloud.yandex.net
   api-host-sk-stt: stt.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
@@ -2714,6 +2715,44 @@ default:
           10|number: 3.24
           10|string: ₸3.24
         v1|string: Free
+  sku|KZT|yt:
+    compute-nodes:
+      cpu:
+        v3|number: 6.805
+      ram:
+        v3|number: 1.815
+    master-nodes:
+      cpu:
+        v3|number: 6.805
+      ram:
+        v3|number: 1.815
+    proxy-nodes:
+      cpu:
+        v3|number: 6.805
+      ram:
+        v3|number: 1.815
+    storage-nodes:
+      cpu:
+        v3|number: 6.805
+      ram:
+        v3|number: 1.815
+    storage:
+      hdd:
+        v1|month|number: 18.92
+      ssd-nonreplicated:
+        v1|month|number: 57.025
+      ssd:
+        v1|month|number: 77.175
+    system-nodes:
+      cpu:
+        v3|number: 6.805
+      ram:
+        v3|number: 1.815
+    tablet-nodes:
+      cpu:
+        v3|number: 6.805
+      ram:
+        v3|number: 1.815
   sku|RUB|ai:
     datasphere:
       datasets:
@@ -4528,6 +4567,44 @@ default:
           10|number: 0.648
           10|string: ₽0.6480
         v1|string: Free
+  sku|RUB|yt:
+    compute-nodes:
+      cpu:
+        v3|number: 1.361
+      ram:
+        v3|number: 0.363
+    master-nodes:
+      cpu:
+        v3|number: 1.361
+      ram:
+        v3|number: 0.363
+    proxy-nodes:
+      cpu:
+        v3|number: 1.361
+      ram:
+        v3|number: 0.363
+    storage-nodes:
+      cpu:
+        v3|number: 1.361
+      ram:
+        v3|number: 0.363
+    storage:
+      hdd:
+        v1|month|number: 3.784
+      ssd-nonreplicated:
+        v1|month|number: 11.405
+      ssd:
+        v1|month|number: 15.435
+    system-nodes:
+      cpu:
+        v3|number: 1.361
+      ram:
+        v3|number: 0.363
+    tablet-nodes:
+      cpu:
+        v3|number: 1.361
+      ram:
+        v3|number: 0.363
   sku|USD|ai:
     mt:
       detect|string: $4.101665
@@ -6364,6 +6441,44 @@ default:
             1|number: 0.43884
             1|string: $0.438840
         requests|string: Free
+  sku|USD|yt:
+    compute-nodes:
+      cpu:
+        v3|number: 0.011342
+      ram:
+        v3|number: 0.003025
+    master-nodes:
+      cpu:
+        v3|number: 0.011342
+      ram:
+        v3|number: 0.003025
+    proxy-nodes:
+      cpu:
+        v3|number: 0.011342
+      ram:
+        v3|number: 0.003025
+    storage-nodes:
+      cpu:
+        v3|number: 0.011342
+      ram:
+        v3|number: 0.003025
+    storage:
+      hdd:
+        v1|month|number: 0.031533
+      ssd-nonreplicated:
+        v1|month|number: 0.095041
+      ssd:
+        v1|month|number: 0.128625
+    system-nodes:
+      cpu:
+        v3|number: 0.011342
+      ram:
+        v3|number: 0.003025
+    tablet-nodes:
+      cpu:
+        v3|number: 0.011342
+      ram:
+        v3|number: 0.003025
   ui-key:
     data-catalog:
       console:
@@ -6519,6 +6634,7 @@ default:
       search:
         common:
           action_search-in-documentation: Search documentation
+          title_suggestion-quotas: Increase quotas
           value_search-input-placeholder: Describe your issue
       tariff-plans:
         info:
@@ -6746,6 +6862,8 @@ default:
         label_delete-now: Delete now
       forms:
         label_value: Value
+      helpfeedbackdialog:
+        button_close: Close request
       labelset:
         button_add-label: Add label
       marketplace:
@@ -7392,6 +7510,11 @@ default:
         securitySettings: Security settings
         userpools: User pools
         users: Users
+      support:
+        switch_tickets: Tickets
+        tickets:
+          table:
+            label_column_ticket_type: Ticket type
       user:
         title_groups: Groups
         title_oslogin-profiles: OS Login Profiles
@@ -9035,6 +9158,7 @@ default:
           quotas:
             button_action-request: Increase
             column_usage: Usage
+            label_pending-requests-title: Requests processing
             label_quota-empty: Quota not allocated
             label_quota-name-compute:
               disks:

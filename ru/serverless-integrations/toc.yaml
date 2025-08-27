@@ -354,6 +354,8 @@ items:
         href: security/index.md
       - name: Роли {{ er-name }}
         href: security/eventrouter.md
+      - name: Роли {{ sw-name }}
+        href: security/workflows.md
   - name: Правила тарификации
     href: pricing.md
   - name: Справочник CLI (англ.)

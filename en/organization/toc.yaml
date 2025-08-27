@@ -2,7 +2,11 @@ title: Yandex Identity Hub
 href: index.yaml
 items:
   - name: Getting started
-    href: quickstart.md
+    items:
+      - name: Creating your first organization
+        href: quickstart.md
+      - name: Inviting a new user and assigning roles
+        href: add-account-and-assign-roles.md
   - name: Step-by-step guides
     items:
       - name: All guides

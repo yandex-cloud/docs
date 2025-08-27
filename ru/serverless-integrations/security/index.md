@@ -31,6 +31,7 @@ description: Управление доступом в сервисе {{ si-full-
 {{ yandex-cloud }} поддерживает свой список ролей для каждой функциональности, включенной в состав {{ si-name }}. Подробнее читайте в разделах:
 
 * [Роли для работы с {{ er-full-name }}](./eventrouter.md).
+* [Роли для работы с {{ sw-full-name }}](./workflows.md).
 * [Роли для работы с {{ api-gw-full-name }}](../../api-gateway/security/index.md#service-roles).
 
 ### Примитивные роли {#primitive-roles}

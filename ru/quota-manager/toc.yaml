@@ -5,6 +5,8 @@ items:
     href: quickstart.md
   - name: Концепции
     href: concepts/index.md
+  - name: Примеры запросов
+    href: requests-examples.md
   - name: Пошаговые инструкции
     expanded: true
     items:

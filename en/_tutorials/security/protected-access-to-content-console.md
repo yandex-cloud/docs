@@ -119,7 +119,7 @@ Create a [security group](../../vpc/concepts/security-groups.md) that allows inb
       | Inbound | `http`           | `80` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | Inbound | `https`            | `443`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
       | Inbound | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Outbound | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Egress | `any`           | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -214,13 +214,13 @@ Before you start, prepare a [key pair](../../compute/operations/vm-connect/ssh.m
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Select **{{ ui-key.yacloud.compute.instances.create.option_create-form-extended-title }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, specify `LAMP` and select the [LAMP](/marketplace/products/yc/lamp) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-b` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select `webserver-subnet-{{ region-id }}-b`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the `webserver-subnet-{{ region-id }}-b` subnet you created earlier.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select `webserver-sg`.
 
@@ -440,7 +440,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
       Where:
       * `<domain_name>`: Name of your domain for the web server, e.g., `example.com`.
-      * `<subdomain_name>`: Name of the subdomain that the CDN resource will use, e.g., `cdn.example.com`.
+      * `<subdomain_name>`: Name of the subdomain the CDN resource will use, e.g., `cdn.example.com`.
 
       Result:
       ```bash
@@ -801,49 +801,27 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
-
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-
-  1. {% include [activate-provider](../../_includes/cdn/activate-provider.md) %}
-
   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-
-  1. Under **{{ ui-key.yacloud.cdn.label_section-content }}**, specify:
-
-      * **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
-      * **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`.
-      * In the **{{ ui-key.yacloud.cdn.field_origin }}** field, specify `<bucket_name>.{{ s3-web-host }}`, where `<bucket_name>` is the name of the bucket you created earlier that the CDN resource uses as a source.
-
-  1. Under **{{ ui-key.yacloud.cdn.label_section-domain }}**, in the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, specify the domain name you intend to assign to your CDN resource, e.g., `cdn.example.com`.
-
-      {% note info %}
-
-      You should see domain name of the {{ cdn-name }} provider at the bottom of **{{ ui-key.yacloud.cdn.label_section-domain }}**. Copy this value, as you will need it when creating a CNAME record for the CDN resource.
-
-      {% endnote %}
-
-  1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
-
-      1. In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.cdn.value_protocol-match }}`.
-      1. In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
-      1. In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and then the `mymanagedcert` certificate you created earlier from the list that opens.
-      1. In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. Then, in the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field that opens, specify `<bucket_name>.{{ s3-web-host }}`, where `<bucket_name>` is the name of the bucket you created earlier that the CDN resource uses as a source.
-      1. Enable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**.
-      1. In the **{{ ui-key.yacloud.cdn.field_secure-key }}** fieled that appears, specify a secret key, a string of 6 to 32 characters. It will be transmitted to the CDN resource configuration and used to generate and check signed links.
-      1. In the **{{ ui-key.yacloud.cdn.field_secure-key-type }}** field, select `{{ ui-key.yacloud.cdn.value_secure-key-type-enable }}`.
-
-  1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. Configure the basic CDN resource settings:
+      * Under **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        * Enable **{{ ui-key.yacloud.cdn.label_access }}**.
+        * In the **{{ ui-key.yacloud.cdn.label_content-query-type }}** field, select `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_source-type }}** field, select `{{ ui-key.yacloud.cdn.value_source-type-url }}`.
+        * In the **{{ ui-key.yacloud.cdn.field_origin }}** field, specify `<bucket_name>.{{ s3-web-host }}`, where `<bucket_name>` is the name of the bucket you created earlier, which the CDN resource uses as a source.
+        * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select `{{ ui-key.yacloud.cdn.value_protocol-match }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, specify the domain name you intend to assign to your CDN resource, e.g., `cdn.example.com`.
+      * Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
+        * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and then the `mymanagedcert` certificate you created earlier from the list that opens.
+        * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-custom }}`. Then, in the **{{ ui-key.yacloud.cdn.label_custom-host-header }}** field that opens, specify `<bucket_name>.{{ s3-web-host }}`, where `<bucket_name>` is the name of the bucket you created earlier, which the CDN resource uses as a source.
+        * Enable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
+          1. In the **{{ ui-key.yacloud.cdn.field_secure-key }}** fieled that appears, specify a secret key, a string of 6 to 32 characters. It will be transmitted to the CDN resource configuration and used to generate and check signed links.
+          1. In the **{{ ui-key.yacloud.cdn.field_secure-key-type }}** field, select `{{ ui-key.yacloud.cdn.value_secure-key-type-enable }}`.
+  1. Click **{{ ui-key.yacloud.common.continue }}**.
+  1. Under **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**, and **Advanced**, leave the default settings, then click **Continue**.
 
 - {{ yandex-cloud }} CLI {#cli}
-
-  1. If it is the first CDN resource you are creating, connect to the provider first:
-
-      ```bash
-      yc cdn provider activate \
-        --type gcore
-      ```
-
-      For more information about the `yc cdn provider activate` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/provider/activate.md).
 
   1. Create a resource:
   
@@ -922,6 +900,7 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
 - Management console {#console}
 
+  1. [Get](../../cdn/operations/resources/get-resources-info.md#get-cname) the CDN provider domain name value.
   1. In the [management console]({{ link-console-main }}), select the folder to create your resources in.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the DNS zone you created earlier.
@@ -930,29 +909,13 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
 
         * In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_create-subdomain }}` and specify the name you gave to the CDN resource subdomain. For example, if the domain name of your CDN resource is `cdn.example.com`, put `cdn` only.
         * In the **{{ ui-key.yacloud.common.type }}** field, select the `CNAME` [record type](../../dns/concepts/resource-record.md#rr-types).
-        * In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the {{ cdn-name }} provider’s [domain name](../../cdn/operations/resources/get-resources-info.md#get-cname) value you copied when creating the CDN resource.
+        * In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the [domain name](../../cdn/operations/resources/get-resources-info.md#get-cname) value of the CDN provider.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. Get the [domain name](../../cdn/operations/resources/get-resources-info.md#get-cname) of the {{ cdn-name }} provider:
-
-      ```bash
-      yc cdn resource get-provider-cname
-      ```
-
-      Result:
-
-      ```text
-      cname: cl-ms6*****90.edgecdn.ru
-      folder_id: b1gt6g8ht345********
-      ```
-
-      For more information about the `yc cdn resource get-provider-cname` command, see the [CLI reference](../../cli/cli-ref/cdn/cli-ref/resource/get-provider-cname.md).
-
-      Save the `cname` value you got: you will need it in the next step.
-
+  1. [Get](../../cdn/operations/resources/get-resources-info.md#get-cname) the CDN provider domain name value.
   1. Create a CNAME resource record in {{ dns-name }}:
 
       ```bash
@@ -968,11 +931,11 @@ This will create a VM named `mywebserver` in your folder. To [connect](../../com
       Result:
 
       ```text
-      +--------+------------------+-------+--------------------------+-----+
-      | ACTION |       NAME       | TYPE  |           DATA           | TTL |
-      +--------+------------------+-------+--------------------------+-----+
-      | +      | cdn.example.com. | CNAME | cl-ms6*****90.edgecdn.ru | 600 |
-      +--------+------------------+-------+--------------------------+-----+
+      +--------+------------------+-------+-------------------------------------------+-----+
+      | ACTION |       NAME       | TYPE  |           DATA                            | TTL |
+      +--------+------------------+-------+-------------------------------------------+-----+
+      | +      | cdn.example.com. | CNAME | {{ cname-example-yc }} | 600 |
+      +--------+------------------+-------+-------------------------------------------+-----+
       ```
 
       For more information about the `yc dns zone add-records` command, see the [CLI reference](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).

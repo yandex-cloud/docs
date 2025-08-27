@@ -301,9 +301,6 @@ description: Следуя данной инструкции, вы сможете
     }
     ```
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    Создать версию функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
