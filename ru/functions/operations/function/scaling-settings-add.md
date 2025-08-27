@@ -223,9 +223,6 @@ description: Следуя данной инструкции, вы сможете
 
     Чтобы задать количества вызовов, обрабатываемых одним экземпляром функции (`concurrency`), создайте версию функции с помощью метода REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md). В тело запроса добавьте поле `concurrency`.
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    Задать любую настройку масштабирования, кроме количества вызовов, обрабатываемых одним экземпляром функции (`concurrency`), можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

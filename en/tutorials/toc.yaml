@@ -7,6 +7,8 @@ items:
         href: security/index.md
       - name: Differentiation of access permissions for user groups
         href: security/user-group-access-control.md
+      - name: Inviting a new user and assigning roles
+        href: security/add-account-and-assign-roles.md
       - name: Creating an L7 load balancer with DDoS protection
         items:
           - name: Overview

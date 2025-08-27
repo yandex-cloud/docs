@@ -2060,6 +2060,30 @@ description: В статье приведен полный справочник 
 
 Подробнее см. [Управление доступом в {{ er-name }}](../serverless-integrations/security/eventrouter.md).
 
+### Сервисные роли {{ sw-full-name }} {#workflows-roles}
+
+#### serverless.workflows.auditor {#serverless-workflows-auditor}
+
+{% include [serverless.workflows.auditor](../_roles/serverless/workflows/auditor.md) %}
+
+#### serverless.workflows.viewer {#serverless-workflows-viewer}
+
+{% include [serverless.workflows.viewer](../_roles/serverless/workflows/viewer.md) %}
+
+#### serverless.workflows.executor {#serverless-workflows-executor}
+
+{% include [serverless.workflows.executor](../_roles/serverless/workflows/executor.md) %}
+
+#### serverless.workflows.editor {#serverless-workflows-editor}
+
+{% include [serverless.workflows.editor](../_roles/serverless/workflows/editor.md) %}
+
+#### serverless.workflows.admin {#serverless-workflows-admin}
+
+{% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
+
+Подробнее см. [Управление доступом в {{ sw-name }}](../serverless-integrations/security/workflows.md).
+
 
 ## {{ captcha-full-name }} {#captcha-roles}
 

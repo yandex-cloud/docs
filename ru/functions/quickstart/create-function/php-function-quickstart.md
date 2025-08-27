@@ -44,9 +44,6 @@
 
     Создать функцию можно с помощью метода API [create](../../functions/api-ref/Function/create.md).
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    Создать функцию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -144,9 +141,6 @@
 
     Создать версию функции можно с помощью метода API [createVersion](../../functions/api-ref/Function/createVersion.md).
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    Создать версию функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

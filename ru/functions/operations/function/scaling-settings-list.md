@@ -48,9 +48,6 @@ description: Следуя данной инструкции, вы сможете
 
     Чтобы посмотреть любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`), воспользуйтесь методом REST API [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListScalingPolicies](../../functions/api-ref/grpc/Function/listScalingPolicies.md).
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    Посмотреть любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`), можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 

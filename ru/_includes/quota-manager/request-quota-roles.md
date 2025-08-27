@@ -1,0 +1,1 @@
+Для работы с запросами убедитесь, что ваша [учетная запись]({{ link-console-iam-users }}) имеет [роль](../../iam/roles-reference.md#quota-manager-requestoperator) `quota-manager.requestOperator` или выше (`{{ roles-editor }}` или `{{ roles-admin }}`).

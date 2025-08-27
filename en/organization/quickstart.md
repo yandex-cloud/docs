@@ -1,4 +1,4 @@
-# Getting started with {{ org-full-name }}
+# Creating your first organization
 
 An _organization_ is the highest resource in the {{ yandex-cloud }} resource model hierarchy that consolidates the resources of all other services. Organizations are also used to manage users and their authentication and authorization settings.
 
@@ -87,7 +87,7 @@ To create a user group:
 
   1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
 
-  1. In the window that opens, select the users or [service accounts](../iam/concepts/users/service-accounts.md). You may want to use the search feature.
+  1. In the window that opens, select the users or [service accounts](../iam/concepts/users/service-accounts.md). Use search, if required.
 
   1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
 

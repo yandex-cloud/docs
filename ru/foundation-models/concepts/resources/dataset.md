@@ -157,6 +157,5 @@ grpcurl \
 * [{#T}](../../operations/tuning/create.md)
 * [{#T}](../../operations/tuning/tune-classifiers.md)
 * [{#T}](../../tutorials/models-fine-tuning.md)
-* [{#T}](../../operations/tuning/tune-classifiers.md)
 * [{#T}](../../operations/resources/create-dataset-gpt.md)
 * [{#T}](../../operations/resources/create-dataset-classifier.md)

@@ -297,7 +297,12 @@ If your service does not expect traffic from certain countries, you can set up p
 
 ### Set up an allowing rule for captcha {#captcha-rule}
 
-{% include [allow-captcha](../../_includes/smartwebsecurity/allow-captcha.md) %}
+An allowing rule for {{ captcha-name }} is requred in case the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}` action is set for the default basic rule and the requests are sent to {{ captcha-name }} for verification.
+
+1. In the left-hand panel, click ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** and select `site-protection`.
+1. {% include [allow-captcha](../../_includes/smartwebsecurity/allow-captcha.md) %}
+
+{% include [allow-path-captcha](../../_includes/smartwebsecurity/allow-patch-captcha.md) %}
 
 ### Check the sequence in which the rules will apply {#rules-execution-order}
 
@@ -405,7 +410,7 @@ Use logs and monitoring charts to check the performance of your rules:
 - Management console {#console}
 
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Navigate to **{{ ui-key.yacloud.common.monitoring }}**.
+  1. Select **{{ ui-key.yacloud.common.monitoring }}**.
   1. Examine the data displayed on the charts:
      * **Denied by Security Profile RPS**: Number of incoming requests per second the security profile has checked and blocked.
      * **Redirected to SmartCaptcha RPS**: Number of incoming requests per second routed to {{ captcha-name }} for additional verification.
@@ -509,7 +514,7 @@ After disabling the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-r
 - Management console {#console}
 
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Navigate to **{{ ui-key.yacloud.common.monitoring }}**.
+  1. Select **{{ ui-key.yacloud.common.monitoring }}**.
   1. Examine the data displayed on the charts:
      * **Allowed by ARL Profile RPS**: Number of incoming requests per second not exceeding the ARL profile limit.
      * **Denied by ARL Profile RPS**: Number of incoming requests per second exceeding the ARL profile limit and blocked.

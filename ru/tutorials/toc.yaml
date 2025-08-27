@@ -1462,6 +1462,8 @@ items:
         href: serverless/ci-cd-serverless.md
       - name: Настройка CI/CD между {{ sf-name }} и {{ src-name }}
         href: serverless/ci-cd-sourcecraft-functions.md
+      - name: Настройка CI/CD между {{ sf-name }} и GitHub
+        href: serverless/ci-cd-github-functions.md
       - name: Работа с API-шлюзом по протоколу WebSocket
         href: serverless/api-gw-websocket.md
       - name: >-

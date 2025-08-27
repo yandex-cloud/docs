@@ -124,8 +124,5 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы удалить [API-шлюз](../concepts/index.md), воспользуйтесь методом REST API [delete](../apigateway/api-ref/ApiGateway/delete.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Delete](../apigateway/api-ref/grpc/ApiGateway/delete.md).
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-  Удалить [API-шлюз](../concepts/index.md) можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

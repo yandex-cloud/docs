@@ -228,9 +228,6 @@
 
   Воспользуйтесь API методами [create](../../functions/functions/api-ref/Function/create), [createVersion](../../functions/functions/api-ref/Function/createVersion) и [setAccessBindings](../../functions/functions/api-ref/Function/setAccessBindings) для ресурса [Function](../../functions/functions/api-ref/Function).
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-  Создать функцию и ее версию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
@@ -363,9 +360,6 @@
      log_group_id: ckg2hdmevnvc********
      ```
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-  Создать API-шлюз можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}
 
