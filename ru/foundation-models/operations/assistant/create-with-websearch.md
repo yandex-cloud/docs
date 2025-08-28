@@ -27,7 +27,7 @@ description: Следуя этой инструкции, с помощью {{ as
 
   {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
 
-  Установите утилиты [gRPCurl](https://github.com/fullstorydev/grpcurl) и [jq](https://stedolan.github.io/jq).
+  Чтобы воспользоваться примерами, установите утилиты [cURL](https://curl.haxx.se) и [jq](https://stedolan.github.io/jq).
 
 {% endlist %}
 
@@ -37,7 +37,7 @@ description: Следуя этой инструкции, с помощью {{ as
 
 - cURL {#curl}
 
-  Этот пример показывает, как создать [ассистента](../../concepts/assistant/index.md), который для ответов использует информацию из интернета. В примере будет задействован базовый алгоритм работы с {{ assistant-api }} через интерфейс [gRPC API](../../assistants/api-ref/grpc/index.md) — создание ассистента и треда, а также последующее обращение к ассистенту с запросом.
+  Этот пример показывает, как создать [ассистента](../../concepts/assistant/index.md), который для ответов использует информацию из интернета. В примере будет задействован базовый алгоритм работы с {{ assistant-api }} через интерфейс [REST API](../../assistants/api-ref/index.md) — создание ассистента и треда, а также последующее обращение к ассистенту с запросом.
   
   В качестве внешних источников информации будут использованы [официальный сайт](https://cbr.ru/) Центрального банка Российской Федерации и сервис [Курсы валют](https://yandex.ru/finance/currencies) Яндекса. Если вы хотите искать информацию по всему интернету, то оставьте пустым значение поля `options` инструмента WebSearch.
 
@@ -49,12 +49,12 @@ description: Следуя этой инструкции, с помощью {{ as
 
           ```json
           {
-            "folder_id": "<идентификатор_каталога>",
-            "model_uri": "gpt://<идентификатор_каталога>/yandexgpt-lite/latest",
+            "folderId": "<идентификатор_каталога>",
+            "modelUri": "gpt://<идентификатор_каталога>/yandexgpt-lite/latest",
             "instruction": "Ты — умный помощник финансовой компании. Отвечай вежливо. Для ответов на вопросы воспользуйся инструментом поиска. Не придумывай ответ.",
             "tools": [
               {
-                "gen_search": {
+                "genSearch": {
                   "options": {
                     "site": {
                       "site": [
@@ -62,7 +62,7 @@ description: Следуя этой инструкции, с помощью {{ as
                         "https://yandex.ru/finance/currencies"
                       ]
                     },
-                    "enable_nrfm_docs": true
+                    "enableNrfmDocs": true
                   },
                   "description": "Инструмент для получения информации об официальных курсах валют."
                 }
@@ -72,13 +72,13 @@ description: Следуя этой инструкции, с помощью {{ as
           ```
 
           Где:
-          * `folder_id` — [идентификатор](../../../resource-manager/operations/folder/get-id.md) каталога, на который у вашего аккаунта есть [роли](../../../iam/concepts/access-control/roles.md) [`ai.assistants.editor`](../../security/index.md#ai-assistants-editor) и [`{{ roles-yagpt-user }}`](../../security/index.md#languageModels-user) или выше.
-          * `model_uri` — [URI](../../concepts/yandexgpt/models.md#generation) используемой модели генерации текста.
+          * `folderId` — [идентификатор](../../../resource-manager/operations/folder/get-id.md) каталога, на который у вашего аккаунта есть [роли](../../../iam/concepts/access-control/roles.md) [`ai.assistants.editor`](../../security/index.md#ai-assistants-editor) и [`{{ roles-yagpt-user }}`](../../security/index.md#languageModels-user) или выше.
+          * `modelUri` — [URI](../../concepts/yandexgpt/models.md#generation) используемой модели генерации текста.
           * `instruction` — базовая инструкция, в соответствии с которой AI-ассистент будет выполнять запросы пользователя.
           * `tools` — настройки [инструмента](../../concepts/assistant/tools/index.md), который будет использоваться создаваемым ассистентом:
 
               * `site` — массив сайтов, на которых ассистент будет иметь возможность искать информацию.
-              * `enable_nrfm_docs` — параметр, который определяет, попадут ли в результаты поиска документы, недоступные при прямом переходе с главных страниц заданных сайтов.
+              * `enableNrfmDocs` — параметр, который определяет, попадут ли в результаты поиска документы, недоступные при прямом переходе с главных страниц заданных сайтов.
               * `description` — описание создаваемого инструмента, который позволяет ассистенту понять, нужно ли при генерации ответа на конкретный запрос использовать данный инструмент.
 
               Подробнее о доступных настройках инструмента WebSearch для поиска в интернете см. в разделе [{#T}](../../concepts/assistant/tools/web-search.md).
@@ -86,10 +86,12 @@ description: Следуя этой инструкции, с помощью {{ as
 
           ```bash
           export IAM_TOKEN=<IAM-токен>
-          grpcurl \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d @ < <путь_к_телу_запроса> \
-            assistant.{{ api-host }}:443 yandex.cloud.ai.assistants.v1.AssistantService/Create |
+          curl \
+            --request POST \
+            --header "Authorization: Bearer ${IAM_TOKEN}" \
+            --silent \
+            --data "@<путь_к_телу_запроса>" \
+            "https://rest-assistant.{{ api-host }}/assistants/v1/assistants" | \
             jq
           ```
 
@@ -101,23 +103,30 @@ description: Следуя этой инструкции, с помощью {{ as
 
           ```json
           {
-            "id": "fvt1m68ugu04********",
+            "id": "fvthd7m0d6up********",
             "folder_id": "b1gt6g8ht345********",
+            "name": "",
+            "description": "",
             "created_by": "ajeol2afu1js********",
-            "created_at": "2025-08-05T08:26:24.145150Z",
+            "created_at": "2025-08-27T11:07:37.532517Z",
             "updated_by": "ajeol2afu1js********",
-            "updated_at": "2025-08-05T08:26:24.145150Z",
+            "updated_at": "2025-08-27T11:07:37.532517Z",
             "expiration_config": {
               "expiration_policy": "SINCE_LAST_ACTIVE",
               "ttl_days": "7"
             },
-            "expires_at": "2025-08-12T08:26:24.145150Z",
+            "expires_at": "2025-09-03T11:07:37.532517Z",
+            "labels": {},
             "model_uri": "gpt://b1gt6g8ht345********/yandexgpt-lite/latest",
             "instruction": "Ты — умный помощник финансовой компании. Отвечай вежливо. Для ответов на вопросы воспользуйся инструментом поиска. Не придумывай ответ.",
             "prompt_truncation_options": {
+              "max_prompt_tokens": null,
               "auto_strategy": {}
             },
-            "completion_options": {},
+            "completion_options": {
+              "max_tokens": null,
+              "temperature": null
+            },
             "tools": [
               {
                 "gen_search": {
@@ -128,12 +137,14 @@ description: Следуя этой инструкции, с помощью {{ as
                         "https://yandex.ru/finance/currencies"
                       ]
                     },
-                    "enable_nrfm_docs": true
+                    "enable_nrfm_docs": true,
+                    "search_filters": []
                   },
                   "description": "Инструмент для получения информации об официальных курсах валют."
                 }
               }
-            ]
+            ],
+            "response_format": null
           }
           ```
 
@@ -148,16 +159,18 @@ description: Следуя этой инструкции, с помощью {{ as
 
           ```json
           {
-            "folder_id": "<идентификатор_каталога>"
+            "folderId": "<идентификатор_каталога>"
           }
           ```
       1. Отправьте запрос на создание треда, указав путь к созданному файлу `thread.json` с телом запроса:
 
           ```bash
-          grpcurl \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d @ < <путь_к_телу_запроса> \
-            assistant.{{ api-host }}:443 yandex.cloud.ai.assistants.v1.threads.ThreadService/Create |
+          curl \
+            --request POST \
+            --header "Authorization: Bearer ${IAM_TOKEN}" \
+            --silent \
+            --data "@<путь_к_телу_запроса>" \
+            "https://rest-assistant.{{ api-host }}/assistants/v1/threads" | \
             jq
           ```
 
@@ -165,18 +178,22 @@ description: Следуя этой инструкции, с помощью {{ as
 
           ```json
           {
-            "id": "fvt8tf1c3beu********",
+            "id": "fvtfq63a134i********",
             "folder_id": "b1gt6g8ht345********",
-            "default_message_author_id": "fvt1qo9usone********",
+            "name": "",
+            "description": "",
+            "default_message_author_id": "fvtsnf3tqbhg********",
             "created_by": "ajeol2afu1js********",
-            "created_at": "2025-08-13T10:50:52.289620Z",
+            "created_at": "2025-08-27T11:22:28.999319Z",
             "updated_by": "ajeol2afu1js********",
-            "updated_at": "2025-08-13T10:50:52.289620Z",
+            "updated_at": "2025-08-27T11:22:28.999319Z",
             "expiration_config": {
               "expiration_policy": "SINCE_LAST_ACTIVE",
               "ttl_days": "7"
             },
-            "expires_at": "2025-08-20T10:50:52.289620Z"
+            "expires_at": "2025-09-03T11:22:28.999319Z",
+            "labels": {},
+            "tools": []
           }
           ```
 
@@ -191,7 +208,7 @@ description: Следуя этой инструкции, с помощью {{ as
 
           ```json
           {
-            "thread_id": "<идентификатор_треда>",
+            "threadId": "<идентификатор_треда>",
             "content": {
               "content": [
                 {
@@ -206,10 +223,12 @@ description: Следуя этой инструкции, с помощью {{ as
       1. Отправьте запрос на создание сообщения, указав путь к созданному файлу `message.json` с телом запроса:
 
           ```bash
-          grpcurl \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d @ < <путь_к_телу_запроса> \
-            assistant.{{ api-host }}:443 yandex.cloud.ai.assistants.v1.threads.MessageService/Create |
+          curl \
+            --request POST \
+            --header "Authorization: Bearer ${IAM_TOKEN}" \
+            --silent \
+            --data "@<путь_к_телу_запроса>" \
+            "https://rest-assistant.{{ api-host }}/assistants/v1/messages" | \
             jq
           ```
 
@@ -217,24 +236,26 @@ description: Следуя этой инструкции, с помощью {{ as
 
           ```json
           {
-            "id": "fvtfgeqhe4ct********",
-            "thread_id": "fvth2n5v4i7e********",
+            "id": "fvt6bpm6mbp5********",
+            "thread_id": "fvtfq63a134i********",
             "created_by": "ajeol2afu1js********",
-            "created_at": "2025-08-05T09:18:48.515453Z",
+            "created_at": "2025-08-27T11:24:46.312977Z",
             "author": {
-              "id": "fvtivd1j5ica********",
+              "id": "fvtsnf3tqbhg********",
               "role": "USER"
             },
+            "labels": {},
             "content": {
               "content": [
                 {
                   "text": {
-                    "content": "Какой курс доллара установлен Банком России на сегодня?"
+                    "content": "Какой официальный курс доллара установлен на сегодня?"
                   }
                 }
               ]
             },
-            "status": "COMPLETED"
+            "status": "COMPLETED",
+            "citations": []
           }
           ```
   1. Выполните запуск ассистента с созданным ранее сообщением:
@@ -245,17 +266,19 @@ description: Следуя этой инструкции, с помощью {{ as
 
           ```json
           {
-            "assistant_id": "<идентификатор_ассистента>",
-            "thread_id": "<идентификатор_треда>"
+            "assistantId": "<идентификатор_ассистента>",
+            "threadId": "<идентификатор_треда>"
           }
           ```
       1. Отправьте запрос на запуск ассистента, указав путь к созданному файлу `run.json` с телом запроса:
 
           ```bash
-          grpcurl \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d @ < <путь_к_телу_запроса> \
-            assistant.{{ api-host }}:443 yandex.cloud.ai.assistants.v1.runs.RunService/Create |
+          curl \
+            --request POST \
+            --header "Authorization: Bearer ${IAM_TOKEN}" \
+            --silent \
+            --data "@<путь_к_телу_запроса>" \
+            "https://rest-assistant.{{ api-host }}/assistants/v1/runs" | \
             jq
           ```
 
@@ -263,83 +286,85 @@ description: Следуя этой инструкции, с помощью {{ as
 
           ```json
           {
-            "id": "fvtqms73nvkl********",
-            "assistant_id": "fvt1m68ugu04********",
-            "thread_id": "fvtv9ikd6lme********",
+            "id": "fvtar74rehg7********",
+            "assistant_id": "fvthd7m0d6up********",
+            "thread_id": "fvtfq63a134i********",
             "created_by": "ajeol2afu1js********",
-            "created_at": "2025-08-05T09:23:55.096007666Z",
+            "created_at": "2025-08-27T11:31:06.486275281Z",
+            "labels": {},
             "state": {
               "status": "PENDING"
-            }
+            },
+            "usage": null,
+            "custom_prompt_truncation_options": null,
+            "custom_completion_options": null,
+            "tools": [],
+            "custom_response_format": null
           }
           ```
 
           Сервис вернул информацию о запуске: запуск находится в ожидании выполнения (статус `PENDING`). Сохраните идентификатор запуска (значение поля `id`) — он понадобится на следующем шаге.
-  1. Получите результат запуска с ответом ассистента:
+  1. Получите результат запуска с ответом ассистента. Для этого выполните запрос, указав полученный ранее идентификатор запуска:
 
-      1. Создайте файл `get_result.json` с телом запроса на получение ответа от AI-ассистента, указав полученный ранее идентификатор запуска:
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --silent \
+        "https://rest-assistant.{{ api-host }}/assistants/v1/runs/<идентификатор_запуска>" | \
+        jq
+      ```
 
-          **get_result.json**
+      {% cut "Результат" %}
 
-          ```json
-          {
-            "run_id": "<идентификатор_запуска>"
-          }
-          ```
-
-      1. Отправьте запрос на получение ответа, указав путь к созданному файлу `get_result.json` с телом запроса:
-
-          ```bash
-          grpcurl \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d @ < <путь_к_телу_запроса> \
-            assistant.{{ api-host }}:443 yandex.cloud.ai.assistants.v1.runs.RunService/Get |
-            jq
-          ```
-
-          {% cut "Результат" %}
-
-          ```json
-          {
-            "id": "fvtr0r43s94a********",
-            "assistant_id": "fvtshcldmbcm********",
-            "thread_id": "fvth2n5v4i7e********",
+      ```json
+      {
+        "id": "fvtar74rehg7********",
+        "assistant_id": "fvthd7m0d6up********",
+        "thread_id": "fvtfq63a134i********",
+        "created_by": "ajeol2afu1js********",
+        "created_at": "2025-08-27T11:31:06.486275281Z",
+        "labels": {},
+        "state": {
+          "status": "COMPLETED",
+          "completed_message": {
+            "id": "fvt24upe31hh********",
+            "thread_id": "fvtfq63a134i********",
             "created_by": "ajeol2afu1js********",
-            "created_at": "2025-08-04T19:01:56.736924537Z",
-            "state": {
-              "status": "COMPLETED",
-              "completed_message": {
-                "id": "fvtlspo6k12e********",
-                "thread_id": "fvth2n5v4i7e********",
-                "created_by": "ajeol2afu1js********",
-                "created_at": "2025-08-04T19:01:58.960131555Z",
-                "author": {
-                  "id": "fvtshcldmbcm********",
-                  "role": "ASSISTANT"
-                },
-                "content": {
-                  "content": [
-                    {
-                      "text": {
-                        "content": "Официальный курс доллара США на сегодня составляет 79,6736 рубля за 1 доллар. Эту информацию можно подтвердить на сайте Центрального банка Российской Федерации (cbr.ru/currency_base/daily/)."
-                      }
-                    }
-                  ]
-                },
-                "status": "COMPLETED"
-              }
+            "created_at": "2025-08-27T11:31:08.781561740Z",
+            "author": {
+              "id": "fvthd7m0d6up********",
+              "role": "ASSISTANT"
             },
-            "usage": {
-              "prompt_tokens": "376",
-              "completion_tokens": "59",
-              "total_tokens": "435"
-            }
+            "labels": {},
+            "content": {
+              "content": [
+                {
+                  "text": {
+                    "content": "Официальный курс доллара США к рублю Российской Федерации на сегодня составляет 80,5268 рубля за 1 доллар."
+                  }
+                }
+              ]
+            },
+            "status": "COMPLETED",
+            "citations": []
           }
-          ```
+        },
+        "usage": {
+          "prompt_tokens": "390",
+          "completion_tokens": "44",
+          "total_tokens": "434"
+        },
+        "custom_prompt_truncation_options": null,
+        "custom_completion_options": null,
+        "tools": [],
+        "custom_response_format": null
+      }
+      ```
 
-          {% endcut %}
+      {% endcut %}
 
-          В поле `content` AI-ассистент вернул ответ модели, который был сгенерирован с использованием данных на сайтах, заданных в настройках ассистента и треда.
+      В поле `content` AI-ассистент вернул ответ модели, который был сгенерирован с использованием данных на сайтах, заданных в настройках ассистента.
 
 {% endlist %}
 

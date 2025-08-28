@@ -26,7 +26,7 @@ items:
           режиме без доступа в интернет
         href: domains/architecture-isolated.md
   - name: >-
-      Стандарт по защите облачной инфраструктуры {{
+      Стандарт по защите облачной инфраструктуры, версия {{
       security-standard-current-version }}
     items:
       - name: Все разделы на одной странице
@@ -49,6 +49,24 @@ items:
         href: standard/kubernetes-security.md
       - name: Версии
         href: standard/versions.md
+  - name: >-
+      Стандарт по защите и безопасному использованию {{ yandex-360 }}, версия {{
+      360-standard-current-version }}
+    items:
+      - name: Все разделы на одной странице
+        href: standard-360/all.md
+      - name: Введение
+        href: standard-360/index.md
+      - name: Аутентификация и управление доступом
+        href: standard-360/authentication.md
+      - name: Безопасность сессий и cookies
+        href: standard-360/session-security.md
+      - name: Мониторинг и аудит
+        href: standard-360/monitoring.md
+      - name: Шифрование и защита данных
+        href: standard-360/encryption-data-protection.md
+      - name: Интеграции и сторонние сервисы
+        href: standard-360/integrations.md
   - name: Практические руководства
     items:
       - name: Все руководства

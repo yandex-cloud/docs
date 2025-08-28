@@ -14,3 +14,7 @@ description: В этом разделе собраны практические 
 * [{#T}](send-emails-aws-sdk-go.md)
 * [{#T}](send-emails-aws-sdk-js.md)
 * [{#T}](send-emails-aws-sdk-python.md)
+
+## Интеграция с приложениями {#integration}
+
+* [{#T}](postfix-integration.md)

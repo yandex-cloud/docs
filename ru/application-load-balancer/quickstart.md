@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**. Задайте настройки бэкенда:
       1. Введите имя бэкенда: `backend-1`.
       1. В списке **{{ ui-key.yacloud.alb.label_target-group }}** выберите `test-target-group`.
-      1. Укажите **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
+      1. Укажите порт: `8080`.
   1. Разверните поле **{{ ui-key.yacloud.alb.label_protocol-settings }}** и задайте их параметры:
       1. Выберите тип `{{ ui-key.yacloud.alb.label_proto-http-plain }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-healthcheck }}** и задайте настройки проверки:
@@ -83,6 +83,7 @@ description: Следуя данной инструкции, вы сможете
       1. **{{ ui-key.yacloud.alb.label_interval }}**: `3`.
       1. **{{ ui-key.yacloud.alb.label_healthy }}**: `2`.
       1. **{{ ui-key.yacloud.alb.label_unhealthy }}**: `2`.
+      1. **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
       1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_hc-type-http }}`.
       1. **{{ ui-key.yacloud.alb.label_path }}**: `/`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

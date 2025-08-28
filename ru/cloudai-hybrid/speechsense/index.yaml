@@ -1,0 +1,30 @@
+title: '{{ speechsense-hybrid-name }}'
+description:
+  - >-
+    {{ speechsense-hybrid-name }} — это технологии {{ speechsense-full-name }},
+    работающие внутри вашей инфраструктуры.  В основе {{ speechsense-hybrid-name
+    }} лежат ML-технологии {{ yandex-cloud }}.  {{ sk-hybrid-name }} распознает
+    речь, соберет статистику диалога и определит ключевые слова, а {{
+    cloudml-name }} проведет глубокий анализ диалогов, расставит теги и составит
+    резюме.
+links:
+  - title: Функциональные характеристики
+    description: Архитектура и назначение {{ speechsense-hybrid-name }}
+    href: architecture
+  - title: Установка программного обеспечения
+    description: Как развернуть демонстрационный стенд {{ speechsense-hybrid-name }}
+    href: quickstart
+  - title: Системные требования
+    description: Требования к инфраструктуре для работы {{ speechsense-hybrid-name }}
+    href: system-requirements
+  - title: Эксплуатация программного обеспечения
+    description: Справочники и примеры работы с API
+    href: usage
+  - title: Стоимость программного обеспечения
+    description: Модели лицензирования {{ speechsense-hybrid-name }}
+    href: pricing
+meta:
+  title: '{{ speechsense-hybrid-name }}'
+  description: >-
+    {{ speechsense-hybrid-name }} — это технологии {{ speechsense-full-name }},
+    работающие внутри вашей инфраструктуры.

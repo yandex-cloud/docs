@@ -19,7 +19,7 @@ links:
     description: Справочники и примеры работы с API
     href: usage
   - title: Стоимость программного обеспечения
-    description: Моделях лицензирования {{ cloudml-name }}
+    description: Модели лицензирования {{ cloudml-name }}
     href: pricing
 meta:
   title: '{{ cloudml-full-name }}'

@@ -40,8 +40,6 @@
 
 {% endnote %}
 
-### Обновить кластер до версии {{ PG }} 17 или ниже {#update-to-v16-or-lower}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}  

@@ -15,3 +15,16 @@ items:
   - name: Документация "{{ cloudml-full-name }}"
     href: docs.md
     hidden: true
+  - name: Модуль {{ speechsense-hybrid-name }}
+    href: speechsense/index.yaml
+    items:
+      - name: Функциональные характеристики и архитектура
+        href: speechsense/architecture.md
+      - name: Системные требования
+        href: speechsense/system-requirements.md
+      - name: Установка программного обеспечения
+        href: speechsense/quickstart.md
+      - name: Эксплуатация программного обеспечения
+        href: speechsense/usage.md
+      - name: Стоимость программного обеспечения
+        href: speechsense/pricing.md
