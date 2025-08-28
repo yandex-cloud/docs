@@ -837,7 +837,6 @@ default:
   ya-360: Yandex 360 for Business
   ya-oauth-url: https://oauth.yandex.com
   yagpt-full-name: YandexGPT API
-  yagpt-max-tokens: 8192
   yagpt-name: YandexGPT
   yandex-360: Yandex 360
   yandex-cloud: Yandex Cloud
@@ -12616,8 +12615,10 @@ default:
         'no': 'No'
         period: Period
         save: Save
+        search: Search
         settings: Settings
         show-more: Show more
+        update: Refresh
         'yes': 'Yes'
       connections:
         add-key: Add key
@@ -12681,7 +12682,12 @@ default:
         create-dictionary-key-value: Create dictionary
         dictionaries: Dictionaries
       neuro-tags:
+        apply-inverted:
+          theme: Do not contain theme
+        apply:
+          theme: Contain the theme
         confidence-key-value: Confidence
+        gpt-criteria: YandexGPT criteria
         reasons-key-value: Reasons
         refresh-suggestions: Refresh list
         results-key-value: Results
