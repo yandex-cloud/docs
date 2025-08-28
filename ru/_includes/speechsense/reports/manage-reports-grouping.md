@@ -1,0 +1,1 @@
+Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.reports.grouping-field }}** и в выпадающем списке выберите поле метаданных, по которому нужно сгруппировать данные в отчете. Подробнее см. в разделе [{#T}](../../../speechsense/concepts/reports/evaluation-form.md#filters).
