@@ -7,12 +7,36 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.161.0 (28.08.25) {#version0.161.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ connection-manager-name }}
+
+Добавлены команды для управления {{ connection-manager-full-name }}
+* `yc connection-manager connection create`
+* `yc connection-manager connection update`
+* `yc connection-manager connection delete`
+* `yc connection-manager connection get`
+* `yc connection-manager connection resolve-cluster`
+* `yc connection-manager connection list`
+* `yc connection-manager connection list-operations`
+
+##### {{ sw-name }}
+
+Добавлена поддержка cron-таймеров {{ sw-full-name }}:
+* `yc serverless workflow create`
+* `yc serverless workflow update`
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.160.0 (25.08.25) {#version0.160.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
 
 ##### {{ mtr-name }}
-* Добавлена опция `--version` в следующие команды:
+
+Добавлена опция `--version` в следующие команды:
   * `yc managed-trino cluster create`;
   * `yc managed-trino cluster update`.
 
@@ -24,8 +48,6 @@ description: На странице представлены релизы CLI, а
 
 * В команду `yc storage bucket create` добавлена опция `tags`.
 * Добавлена команда `yc storage s3 presign`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.159.0 (18.08.25) {#version0.159.0}
 

@@ -5,7 +5,7 @@ description: Вы научитесь взаимодействовать с {{ cl
 
 # Как начать работать с {{ marketplace-short-name }} {{ cloud-apps-name }} Workload API
 
-В данном разделе приведены примеры использования {{ marketplace-short-name }} {{ cloud-apps-name }} Workload [REST API](../../../workload/api-ref/) и [gRPC API](../../../workload/api-ref/grpc/) для получения информации о приложении {{ cloud-apps-name }}, а также о привязке приложения и виртуальной машины, на которой оно запущено, к сервису [{{ cloud-apps-full-name }}](../../../../cloud-apps/index.yaml).
+В данном разделе приведены примеры использования {{ marketplace-short-name }} {{ cloud-apps-name }} Workload [REST API](../../../workload/api-ref/) и [gRPC API](../../../workload/api-ref/grpc/) для получения информации о приложении (экземпляре продукта) {{ cloud-apps-name }}, а также о привязке приложения и виртуальной машины, на которой оно запущено, к сервису [{{ cloud-apps-full-name }}](../../../../cloud-apps/index.yaml).
 
 Все приведенные запросы вы также можете выполнять с помощью SDK для [Node.js](https://github.com/yandex-cloud/nodejs-sdk), [Python](https://github.com/yandex-cloud/python-sdk), [Go](https://github.com/yandex-cloud/go-sdk), [Java](https://github.com/yandex-cloud/java-sdk) или [C#](https://github.com/yandex-cloud/dotnet-sdk).
 

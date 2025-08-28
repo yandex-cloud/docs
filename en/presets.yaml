@@ -1074,6 +1074,12 @@ default:
         12_month|string: ₸388875.00
         3_month|string: ₸434625.00
         6_month|string: ₸425475.00
+      ba_i209_ss_1_10g:
+        1_day|string: ₸145000.00
+        1_month|string: ₸140650.00
+        12_month|int|string: ₸123250
+        3_month|string: ₸137750.00
+        6_month|string: ₸134850.00
       ba_i211_8s_10g:
         1_day|string: ₸499500.00
         1_month|string: ₸484515.00
@@ -1146,6 +1152,12 @@ default:
         12_month|string: ₸1286900.00
         3_month|string: ₸1438300.00
         6_month|string: ₸1408020.00
+      ba-a612-n-2x25g:
+        1_day|string: ₸1334000.00
+        1_month|string: ₸1293980.00
+        12_month|string: ₸1133900.00
+        3_month|string: ₸1267300.00
+        6_month|string: ₸1240620.00
       ba-i523-nh-2x25g:
         1_day|string: ₸2380500.00
         1_month|string: ₸2309085.00
@@ -2922,6 +2934,12 @@ default:
         12_month|string: ₽77775.00
         3_month|string: ₽86925.00
         6_month|string: ₽85095.00
+      ba_i209_ss_1_10g:
+        1_day|string: ₽29000.00
+        1_month|string: ₽28130.00
+        12_month|int|string: ₽24650
+        3_month|string: ₽27550.00
+        6_month|string: ₽26970.00
       ba_i211_8s_10g:
         1_day|string: ₽99900.00
         1_month|string: ₽96903.00
@@ -2994,6 +3012,12 @@ default:
         12_month|string: ₽257380.00
         3_month|string: ₽287660.00
         6_month|string: ₽281604.00
+      ba-a612-n-2x25g:
+        1_day|string: ₽266800.00
+        1_month|string: ₽258796.00
+        12_month|string: ₽226780.00
+        3_month|string: ₽253460.00
+        6_month|string: ₽248124.00
       ba-i523-nh-2x25g:
         1_day|string: ₽476100.00
         1_month|string: ₽461817.00
@@ -4765,6 +4789,12 @@ default:
         12_month|string: $648.124741
         3_month|string: $724.374710
         6_month|string: $709.124716
+      ba_i209_ss_1_10g:
+        1_day|string: $241.666570
+        1_month|string: $234.416573
+        12_month|int|string: $205
+        3_month|string: $229.583242
+        6_month|string: $224.749910
       ba_i211_8s_10g:
         1_day|string: $832.499667
         1_month|string: $807.524677
@@ -4837,6 +4867,12 @@ default:
         12_month|string: $2144.832475
         3_month|string: $2397.165708
         6_month|string: $2346.699061
+      ba-a612-n-2x25g:
+        1_day|string: $2223.332444
+        1_month|string: $2156.632471
+        12_month|string: $1889.832577
+        3_month|string: $2112.165822
+        6_month|string: $2067.699173
       ba-i523-nh-2x25g:
         1_day|string: $3967.498413
         1_month|string: $3848.473461
