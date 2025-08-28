@@ -1,0 +1,1 @@
+The `serverless.workflows.auditor` role enables viewing info on [workflows](../../../serverless-integrations/concepts/limits.md#workflows) and the history of their [executions](../../../serverless-integrations/concepts/limits.md#workflows), as well as info on the Yandex Workflows [quotes](../../../serverless-integrations/concepts/limits.md#workflows).

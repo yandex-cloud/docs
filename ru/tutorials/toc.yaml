@@ -1546,6 +1546,8 @@ items:
             href: serverless/send-emails-aws-sdk-python.md
       - name: Создание AI-агента с помощью {{ sf-full-name }}
         href: serverless/create-ai-agent-function.md
+      - name: Настройка Postfix для отправки через {{ postbox-full-name }}
+        href: serverless/postfix-integration.md
   - name: Машинное обучение и искусственный интеллект
     items:
       - name: Все руководства

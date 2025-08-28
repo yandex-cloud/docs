@@ -61,6 +61,10 @@ items:
             href: tutorials/send-emails-aws-sdk-js.md
           - name: Python
             href: tutorials/send-emails-aws-sdk-python.md
+      - name: Интеграция с почтовыми серверами
+        items:
+          - name: Postfix
+            href: tutorials/postfix-integration.md
   - name: Инструменты
     items:
       - name: AWS CLI

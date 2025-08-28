@@ -64,9 +64,13 @@ description: Следуя данной инструкции, вы сможете
   1. Чтобы открыть настройки бэкенда и группы проверки состояния, включите переключатель **{{ ui-key.yacloud.alb.label_detailed-settings }}**.
 
   1. Введите имя бэкенда: `backend-1`.
+
+  1. Укажите порт: `8080`.
+
   1. Задайте настройки проверки состояния:
       1. **{{ ui-key.yacloud.alb.label_interval }}**: `3`.
       1. **{{ ui-key.yacloud.alb.label_healthy }}**: `2`.
+      1. **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
   
   1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.
 
@@ -109,7 +113,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** введите имя обработчика: `test-listener`.
    
-  1. Остальные настройки оставьте без изменений и нажмите кнопку ***{{ ui-key.yacloud.common.create }}**.
+  1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

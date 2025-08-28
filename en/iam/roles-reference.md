@@ -521,9 +521,17 @@ For more information, see [{#T}](../marketplace/security/index.md).
 
 {% include [organizationmanager-oslogins-admin](../_roles/organization-manager/osLogins/admin.md) %}
 
+#### organization-manager.groups.editor {#organization-manager-groups-editor}
+
+{% include [organization-manager-groups-editor](../_roles/organization-manager/groups/editor.md) %}
+
 #### organization-manager.groups.memberAdmin {#organization-manager-groups-memberAdmin}
 
 {% include [organizationmanager-groups-memberAdmin](../_roles/organization-manager/groups/memberAdmin.md) %}
+
+#### organization-manager.groups.admin {#organization-manager-groups-admin}
+
+{% include [organization-manager-groups-admin](../_roles/organization-manager/groups/admin.md) %}
 
 #### organization-manager.users.viewer {#organization-manager-users-viewer}
 
@@ -1900,6 +1908,28 @@ For more information, see [{#T}](../serverless-containers/security/index.md).
 {% include [serverless.eventrouter.admin](../_roles/serverless/eventrouter/admin.md) %}
 
 For more information, see [Access management in {{ er-name }}](../serverless-integrations/security/eventrouter.md).
+
+### {{ sw-full-name }} roles {#workflows-roles}
+
+#### serverless.workflows.auditor {#serverless-workflows-auditor}
+
+{% include [serverless.workflows.auditor](../_roles/serverless/workflows/auditor.md) %}
+
+#### serverless.workflows.viewer {#serverless-workflows-viewer}
+
+{% include [serverless.workflows.viewer](../_roles/serverless/workflows/viewer.md) %}
+
+#### serverless.workflows.executor {#serverless-workflows-executor}
+
+{% include [serverless.workflows.executor](../_roles/serverless/workflows/executor.md) %}
+
+#### serverless.workflows.editor {#serverless-workflows-editor}
+
+{% include [serverless.workflows.editor](../_roles/serverless/workflows/editor.md) %}
+
+#### serverless.workflows.admin {#serverless-workflows-admin}
+
+{% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
 
 
 ## {{ captcha-full-name }} {#captcha-roles}

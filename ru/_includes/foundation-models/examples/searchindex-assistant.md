@@ -12,12 +12,15 @@ from yandex_cloud_ml_sdk.search_indexes import (
 )
 
 mypath = "<путь_к_файлам_с_примерами>"
+folder = "<идентификатор_каталога>"
+token = "<API-ключ>"
+instruction = "<инструкция_для_стратегии_поиска>"
 
 
 def main():
     sdk = YCloudML(
-        folder_id="<идентификатор_каталога>",
-        auth="<API-ключ>",
+        folder_id=folder,
+        auth=token,
     )
 
     paths = pathlib.Path(mypath).iterdir()
@@ -50,15 +53,22 @@ def main():
     search_index = operation.wait()
 
     # Создадим инструмент для работы с поисковым индексом.
-    # Или даже с несколькими индексами, если бы их было больше.
-    tool = sdk.tools.search_index(search_index)
+    # Для создаваемого инструмента зададим стратегию поиска в индексе
+    tool = sdk.tools.search_index(
+        search_index,
+        call_strategy={
+            "type": "function",
+            "function": {"name": "guide", "instruction": instruction},
+        },
+    )
 
     # Создадим ассистента для модели {{ gpt-pro }} Latest.
     # Он будет использовать инструмент VectorStore.
     assistant = sdk.assistants.create(
-        "yandexgpt", 
-        instruction = "Ты — помощник по внутренней документации компании. Отвечай вежливо. Если информация не содержится в документах ниже, не придумывай ответ.", 
-        tools=[tool])
+        "yandexgpt",
+        instruction="Ты — помощник по внутренней документации компании. Отвечай вежливо. Если информация не содержится в документах ниже, не придумывай ответ.",
+        tools=[tool],
+    )
     thread = sdk.threads.create()
 
     input_text = input(

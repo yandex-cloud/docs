@@ -33,6 +33,7 @@
 * [{#T}](forms-and-datalens-integration/index.md)
 * [{#T}](domain-identity-creating.md)
 * [{#T}](create-ai-agent-function.md)
+* [{#T}](postfix-integration.md)
 
 ## Отправка писем в {{ postbox-full-name }} с помощью AWS SDK {#postbox-send-aws-sdk}
 

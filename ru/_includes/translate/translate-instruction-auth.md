@@ -2,9 +2,9 @@
 
 Получите данные вашего аккаунта для аутентификации в API {{ translate-name }}:
 
-{% list tabs %}
+{% list tabs group=auth_keys %}
 
-- API-ключ
+- API-ключ {#api-key}
 
   1. Если у вас еще нет сервисного аккаунта, [создайте](../../iam/operations/sa/create.md) его.
   1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../translate/security/index.md#translate-user) `{{ roles-translate-user }}` на каталог.
@@ -17,7 +17,7 @@
       Authorization: Api-Key <API-ключ>
       ```
 
-- IAM-токен
+- IAM-токен {#iam-token}
 
   1. [Получите идентификатор любого каталога](../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть [роль](../../translate/security/index.md#translate-user) `{{ roles-translate-user }}` или выше. Идентификатор каталога должен передаваться в теле каждого запроса в поле `folderId`.
   1. Получите IAM-токен для [аккаунта на Яндексе](../../iam/operations/iam-token/create.md), [федеративного аккаунта](../../iam/operations/iam-token/create-for-federation.md) или [сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md).

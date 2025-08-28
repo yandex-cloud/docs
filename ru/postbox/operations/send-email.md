@@ -53,17 +53,17 @@ description: Следуя данной инструкции, вы сможете
 
 ### SMTP {#smtp}
 
-{% list tabs %}
+{% list tabs group=auth_keys %}
 
-- API-ключ
+- API-ключ {#api-key}
 
     {% include [smtp-send-api](../../_includes/postbox/smtp-send-api.md) %}
 
-- Cтатический ключ доступа
+- Cтатический ключ доступа {#static-key}
 
     {% include [smtp-send-python](../../_includes/postbox/smtp-send-python.md) %}
 
-- IAM-токен
+- IAM-токен {#iam-token}
 
     {% include [smtp-send-iam-token](../../_includes/postbox/smtp-send-iam-token.md) %}
 

@@ -1,4 +1,5 @@
 default:
+  360-standard-current-version: 1.0.0
   a100-epyc: AMD EPYC™ with NVIDIA® Ampere® A100
   AB: Airbyte®
   adv-ddos-protection: Advanced Yandex DDoS Protection
@@ -788,6 +789,7 @@ default:
   speechkit-slug: speechkit
   speechsense-endpoint: api.speechsense.yandexcloud.net:443
   speechsense-full-name: Yandex SpeechSense
+  speechsense-hybrid-name: SpeechSense Hybrid
   speechsense-name: SpeechSense
   SPQR: Sharded PostgreSQL
   SPRK: Apache Spark™
@@ -1123,6 +1125,12 @@ default:
         12_month|string: "388\_875,00\_₸"
         3_month|string: "434\_625,00\_₸"
         6_month|string: "425\_475,00\_₸"
+      ba_i209_ss_1_10g:
+        1_day|string: "145\_000,00\_₸"
+        1_month|string: "140\_650,00\_₸"
+        12_month|int|string: "123\_250\_₸"
+        3_month|string: "137\_750,00\_₸"
+        6_month|string: "134\_850,00\_₸"
       ba_i211_8s_10g:
         1_day|string: "499\_500,00\_₸"
         1_month|string: "484\_515,00\_₸"
@@ -1195,6 +1203,12 @@ default:
         12_month|string: "1\_286\_900,00\_₸"
         3_month|string: "1\_438\_300,00\_₸"
         6_month|string: "1\_408\_020,00\_₸"
+      ba-a612-n-2x25g:
+        1_day|string: "1\_334\_000,00\_₸"
+        1_month|string: "1\_293\_980,00\_₸"
+        12_month|string: "1\_133\_900,00\_₸"
+        3_month|string: "1\_267\_300,00\_₸"
+        6_month|string: "1\_240\_620,00\_₸"
       ba-i523-nh-2x25g:
         1_day|string: "2\_380\_500,00\_₸"
         1_month|string: "2\_309\_085,00\_₸"
@@ -2971,6 +2985,12 @@ default:
         12_month|string: "77\_775,00\_₽"
         3_month|string: "86\_925,00\_₽"
         6_month|string: "85\_095,00\_₽"
+      ba_i209_ss_1_10g:
+        1_day|string: "29\_000,00\_₽"
+        1_month|string: "28\_130,00\_₽"
+        12_month|int|string: "24\_650\_₽"
+        3_month|string: "27\_550,00\_₽"
+        6_month|string: "26\_970,00\_₽"
       ba_i211_8s_10g:
         1_day|string: "99\_900,00\_₽"
         1_month|string: "96\_903,00\_₽"
@@ -3043,6 +3063,12 @@ default:
         12_month|string: "257\_380,00\_₽"
         3_month|string: "287\_660,00\_₽"
         6_month|string: "281\_604,00\_₽"
+      ba-a612-n-2x25g:
+        1_day|string: "266\_800,00\_₽"
+        1_month|string: "258\_796,00\_₽"
+        12_month|string: "226\_780,00\_₽"
+        3_month|string: "253\_460,00\_₽"
+        6_month|string: "248\_124,00\_₽"
       ba-i523-nh-2x25g:
         1_day|string: "476\_100,00\_₽"
         1_month|string: "461\_817,00\_₽"
@@ -4814,6 +4840,12 @@ default:
         12_month|string: "648,124741\_$"
         3_month|string: "724,374710\_$"
         6_month|string: "709,124716\_$"
+      ba_i209_ss_1_10g:
+        1_day|string: "241,666570\_$"
+        1_month|string: "234,416573\_$"
+        12_month|int|string: "205\_$"
+        3_month|string: "229,583242\_$"
+        6_month|string: "224,749910\_$"
       ba_i211_8s_10g:
         1_day|string: "832,499667\_$"
         1_month|string: "807,524677\_$"
@@ -4886,6 +4918,12 @@ default:
         12_month|string: "2\_144,832475\_$"
         3_month|string: "2\_397,165708\_$"
         6_month|string: "2\_346,699061\_$"
+      ba-a612-n-2x25g:
+        1_day|string: "2\_223,332444\_$"
+        1_month|string: "2\_156,632471\_$"
+        12_month|string: "1\_889,832577\_$"
+        3_month|string: "2\_112,165822\_$"
+        6_month|string: "2\_067,699173\_$"
       ba-i523-nh-2x25g:
         1_day|string: "3\_967,498413\_$"
         1_month|string: "3\_848,473461\_$"
