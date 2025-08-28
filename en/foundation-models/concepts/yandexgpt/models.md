@@ -15,20 +15,17 @@ All basic models are subject to the update rules described in [Model lifecycle](
 
 #|
 || **Model and URI** | **Generation** | **Context** | **[Operating modes](../index.md#working-mode)** ||
-|| **{{ gpt-lite }}** </br>`gpt://<folder_ID>/yandexgpt-lite`	| Deprecated 4</br>Latest 5</br>RC 5 | {{ yagpt-max-tokens }}</br>32,000</br>32,000 | Asynchronous, synchronous ||
-|| **{{ gpt-pro }}** </br>`gpt://<folder_ID>/yandexgpt` | Deprecated 4</br>Latest 5</br>RC 5 | {{ yagpt-max-tokens }}</br>32,000</br>32,000 | Asynchronous, synchronous ||
-|| **{{ gpt-pro }} 32k**^1^ </br>`gpt://<folder_ID>/yandexgpt-32k`| Deprecated 4 | 32,000 | Synchronous ||
-|| **{{ llama }} 8B**^2^ </br>`gpt://<folder_ID>/llama-lite` | Deprecated 3.1</br>Latest 3.1</br>RC 3.1 | 8,192 | Asynchronous, synchronous ||
-|| **{{ llama }} 70B**^2^ </br>`gpt://<folder_ID>/llama` | Deprecated 3.3</br>Latest 3.3</br>RC 3.3 | 8,192 | Asynchronous, synchronous ||
+|| **{{ gpt-lite }}** </br>`gpt://<folder_ID>/yandexgpt-lite`	| Deprecated 5</br>Latest 5</br>RC 5 | 32,000 | Asynchronous, synchronous ||
+|| **{{ gpt-pro }}** </br>`gpt://<folder_ID>/yandexgpt` | Deprecated 5</br>Latest 5</br>RC 5.1 | 32,000 | Asynchronous, synchronous ||
+|| **{{ llama }} 8B**^1^ </br>`gpt://<folder_ID>/llama-lite` | Deprecated 3.1</br>Latest 3.1</br>RC 3.1 | 8,192 | Asynchronous, synchronous ||
+|| **{{ llama }} 70B**^1^ </br>`gpt://<folder_ID>/llama` | Deprecated 3.3</br>Latest 3.3</br>RC 3.3 | 8,192 | Asynchronous, synchronous ||
 || **Qwen3 235B** </br>`gpt://<folder ID>/qwen3-235b-a22b-fp8/latest` | — | 256,000 | [{{ openai }} API](../openai-compatibility.md) only ||
 || **gpt-oss-120b** </br>`gpt://<folder ID>/gpt-oss-120b/latest` | — | 128,000 | [{{ openai }} API](../openai-compatibility.md) only ||
 || **gpt-oss-20b** </br>`gpt://<folder ID>/gpt-oss-20b/latest` | — | 128,000 | [{{ openai }} API](../openai-compatibility.md) only ||  
 || [**Fine-tuned models**](../tuning/index.md) </br>`gpt://<folder_ID>/<basic_model>/<version>@<suffix>` | Depends on the basic model | Depends on the basic model | Asynchronous, synchronous ||
 |#
 
-^1^ {{ gpt-pro }} 32k features a larger context window compared to the 4th generation {{ gpt-pro }}. This model was designed specifically to process large texts in synchronous mode. The 5th generation {{ gpt-pro }} models have the same context windows size in synchronous and asynchronous mode. We recommend using them instead of {{ gpt-pro }} 32k, which is getting obsolete. 
-
-^2^ {{ meta-disclaimer }}
+^1^ {{ meta-disclaimer }}
 
 ## Models available in batch mode {#batch}
 

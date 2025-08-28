@@ -886,7 +886,6 @@ default:
   ya-360: Яндекс 360 для бизнеса
   ya-oauth-url: https://oauth.yandex.ru
   yagpt-full-name: YandexGPT API
-  yagpt-max-tokens: "8\_192"
   yagpt-name: YandexGPT
   yandex-360: Яндекс 360
   yandex-cloud: Yandex Cloud
@@ -12671,8 +12670,10 @@ default:
         'no': Нет
         period: Период
         save: Сохранить
+        search: Найти
         settings: Настройки
         show-more: Показать ещё
+        update: Обновить
         'yes': Да
       connections:
         add-key: Добавить ключ
@@ -12736,7 +12737,12 @@ default:
         create-dictionary-key-value: Создать словарь
         dictionaries: Словари
       neuro-tags:
+        apply-inverted:
+          theme: Не содержат тему
+        apply:
+          theme: Cодержат тему
         confidence-key-value: Вероятность
+        gpt-criteria: Критерии YandexGPT
         reasons-key-value: Причины
         refresh-suggestions: Обновить список
         results-key-value: Итоги
