@@ -1054,7 +1054,7 @@ We do not recommend that you use privileged containers to run loads that process
 
 #### 3.31 The {{ certificate-manager-full-name }} certificate is valid for at least 30 days {#certificate-validity}
 
-You can use {{ certificate-manager-full-name }} to manage TLS certificates for your API gateways in the API Gateway, as well as your websites and buckets in {{ objstorage-name }}. {{ alb-name }} is integrated with {{ certificate-manager-short-name }} for storing and installing certificates. it is recommended that you use {{ certificate-manager-short-name }} to obtain your certificates and rotate them automatically.
+You can use {{ certificate-manager-full-name }} to manage TLS certificates for your API gateways in the API Gateway, as well as your websites and buckets in {{ objstorage-name }}. {{ alb-name }} is integrated with {{ certificate-manager-short-name }} for storing and installing certificates. We recommend that you use {{ certificate-manager-short-name }} to obtain your certificates and rotate them automatically.
 
 When using TLS in your application, we recommend that you limit the list of your trusted root certificate authorities (root CA).
 
