@@ -2044,6 +2044,9 @@ default:
             c50|string: ₸3.6720
           ram|month|string: ₸1555.20
           ram|string: ₸2.16
+      ui:
+        cluster:
+          v1|string: ₸21000.00
     zk:
       clickhouse:
         highfreq-v3:
@@ -3908,6 +3911,9 @@ default:
             c50|string: ₽0.7344
           ram|month|string: ₽311.04
           ram|string: ₽0.4320
+      ui:
+        cluster:
+          v1|string: ₽4200.00
     zk:
       clickhouse:
         highfreq-v3:
@@ -5757,6 +5763,9 @@ default:
             c50|string: $0.006120
           ram|month|string: $2.591999
           ram|string: $0.003600
+      ui:
+        cluster:
+          v1|string: $34.999986
     zk:
       clickhouse:
         highfreq-v3:
@@ -6703,8 +6712,16 @@ default:
         section_person-type: Payer type
         section_persons: Payers
       create-account-wizard:
+        field_country-code: Country
+        field_name: Account name
         field_organization: Organization
+        field_payment-type: Payment type
         field_person-id: Payer
+        field_person-type: Account type
+        label_step-company_title: Company information
+        label_step-contacts_title: Contacts
+        label_step-individual_title: Personal data
+        label_step-payment_title: Payment details
     yacloud_billing:
       alb:
         label_backends: Backends
@@ -7288,6 +7305,8 @@ default:
             tariff_blocked-title: Available via the support service
           switch_overview: Account
           switch_proposals: Offers
+        accounts:
+          listing_button_create: Create an account
       cloud-components:
         manage-cert-dialog:
           action-generate-new-certificate: Generate new certificate

@@ -46,6 +46,10 @@ items:
             items:
               - name: Настроить NuGet
                 href: operations/nuget/installation.md
+          - name: Python-артефакт
+            items:
+              - name: Настроить PyPI
+                href: operations/pypi/installation.md
   - name: Концепции
     items:
       - name: Обзор
@@ -64,6 +68,8 @@ items:
             href: concepts/art-nodejs.md
           - name: NuGet-артефакт
             href: concepts/art-nuget.md
+          - name: Python-артефакт
+            href: concepts/art-python.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

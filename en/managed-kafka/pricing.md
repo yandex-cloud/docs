@@ -229,19 +229,12 @@ For cost details, contact [technical support]({{ link-console-support }}).
 
 
 
-
 ### {{ kafka-ui }} computing resources {#prices-kafka-ui}
 
-{% note info %}
-
-The prices listed below will come into effect starting August 9, 2025.
-
-{% endnote %}
 
 
 
 {% include [USD: kafka-ui](../_pricing/managed-kafka/usd-kafka-ui.md) %}
-
 
 
 ### Storage {#prices-storage}

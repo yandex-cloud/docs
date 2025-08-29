@@ -200,11 +200,23 @@ service_account: "not_var{{ application.serviceAccountId }}"
 
 ### Цепочки доступа {#hierarchy-chains}
 
-Для сложных структур данных используются цепочки доступа:
+Для сложных структур данных используются цепочки доступа. Имена переменных пишутся в [snake_case](https://{{ lang }}.wikipedia.org/wiki/Snake_case) и формируются из названий полей. Например: `Folder Id` → `folder_id`.
+
+Для доступа к атрибутам ресурса или вложенного объекта используется запись через точку:
+
+```text
+<ресурс>.<атрибут_уровня_1>.<атрибут_уровня_2>.<...>.<атрибут_уровня_n>
+```
+
+Для доступа к элементам массива или карты (ассоциативного массива) используется запись с квадратными скобками:
+
+```text
+<массив>[0].<атрибут>["<элемент>"]
+```
 
 ```yaml
 # Доступ к вложенным полям через точку
-network_id: "not_var{{ resource.yandex_compute_instance.web.network_interface.0.subnet_id }}"
+network_id: "not_var{{ resource.yandex_compute_instance.resources.cores }}"
 
 # Доступ к элементам массива через квадратные скобки
 first_ip: "{{ resource.yandex_vpc_subnet.public.v4_cidr_blocks[0] }}"
@@ -259,7 +271,7 @@ decoded_data: "not_var{{ input.encoded_config | base64decode }}"
 
 ### base64encode {#base64-encode}
 
-Кодирование строки в Base64:
+Кодирование строки в [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
 
 ```yaml
 encoded_data: "not_var{{ input.user_data | base64encode }}"
@@ -285,10 +297,11 @@ region: "{{ input.region | default('{{ region-id }}-a') }}"
 
 ### ident {#ident}
 
-Возврат значения как есть (идентичность):
+Добавление пробелов в начало строки:
 
 ```yaml
-value: "not_var{{ input.data | ident }}"
+value: "not_var{{ input.data | ident(2) }}"
+# input: "some: 3" -> output: "  some: 3"
 ```
 
 ### length {#length}
@@ -473,7 +486,7 @@ final_name: "{{ input.custom_name | default('default-app') | upper }}"
 
 ```yaml
 # Всегда задавайте разумные значения по умолчанию для полей с необязательными значениями
-instance_type: "{{ input.instance_type | default('e2-micro') }}"
+instance_type: "{{ input.instance_type | default('s3-c4-m8') }}"
 region: "{{ input.region | default('{{ region-id }}-a') }}"
 ```
 

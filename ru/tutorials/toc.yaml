@@ -796,7 +796,7 @@ items:
     items:
       - name: Все руководства
         href: dataplatform/index.md
-      - name: Развертывание веб-интерфейса {{ KF }}
+      - name: Самостоятельное развертывание веб-интерфейса {{ KF }}
         href: dataplatform/deploy-kafka-ui.md
       - name: >-
           Обновление кластера {{ mkf-name }} с {{ ZK }} на {{ kraft-short-name

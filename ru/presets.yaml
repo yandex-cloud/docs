@@ -2095,6 +2095,9 @@ default:
             c50|string: "3,6720\_₸"
           ram|month|string: "1\_555,20\_₸"
           ram|string: "2,16\_₸"
+      ui:
+        cluster:
+          v1|string: "21\_000,00\_₸"
     zk:
       clickhouse:
         highfreq-v3:
@@ -3959,6 +3962,9 @@ default:
             c50|string: "0,7344\_₽"
           ram|month|string: "311,04\_₽"
           ram|string: "0,4320\_₽"
+      ui:
+        cluster:
+          v1|string: "4\_200,00\_₽"
     zk:
       clickhouse:
         highfreq-v3:
@@ -5808,6 +5814,9 @@ default:
             c50|string: "0,006120\_$"
           ram|month|string: "2,591999\_$"
           ram|string: "0,003600\_$"
+      ui:
+        cluster:
+          v1|string: "34,999986\_$"
     zk:
       clickhouse:
         highfreq-v3:
@@ -6754,8 +6763,16 @@ default:
         section_person-type: Тип плательщика
         section_persons: Плательщики
       create-account-wizard:
+        field_country-code: Страна
+        field_name: Имя аккаунта
         field_organization: Организация
+        field_payment-type: Способ оплаты
         field_person-id: Плательщик
+        field_person-type: Тип аккаунта
+        label_step-company_title: Данные о компании
+        label_step-contacts_title: Контакты
+        label_step-individual_title: Персональные данные
+        label_step-payment_title: Платёжные данные
     yacloud_billing:
       alb:
         label_backends: Бэкенды
@@ -7339,6 +7356,8 @@ default:
             tariff_blocked-title: Доступно через обращение в поддержку
           switch_overview: Аккаунт
           switch_proposals: Предложения
+        accounts:
+          listing_button_create: Создать аккаунт
       cloud-components:
         manage-cert-dialog:
           action-generate-new-certificate: Сгенерировать новый сертификат
