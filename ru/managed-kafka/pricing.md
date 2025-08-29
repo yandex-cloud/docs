@@ -306,14 +306,7 @@ editable: false
 
 
 
-
 ### Вычислительные ресурсы для {{ kafka-ui }} {#prices-kafka-ui}
-
-{% note info %}
-
-Цены, указанные ниже, начнут действовать 9 августа 2025 года.
-
-{% endnote %}
 
 
 {% list tabs group=pricing %}

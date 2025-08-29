@@ -62,17 +62,23 @@
 
         * `Образ диска`:
 
+            [Образы дисков](../../compute/concepts/image.md) используются для инициализации дисков [виртуальных машин](../../compute/concepts/vm.md) {{ compute-name }}, в том числе в [группах ВМ](../../compute/concepts/instance-groups/index.md).
+
             1. Укажите название артефакта.
             1. Выберите образ диска {{ compute-full-name }}. Он должен соответствовать [требованиям](create-image.md).
             1. Нажмите **Добавить**.
 
         * `Образ контейнера`:
 
+            [Образы контейнеров](../../container-registry/concepts/docker-image.md) используются для создания контейнеризованных приложений с помощью [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) или [{{ cos-full-name }}](../../cos/index.yaml).
+
             1. Укажите название артефакта.
             1. Выберите Docker-образ, загруженный в {{ container-registry-full-name }}. Он должен соответствовать [требованиям](create-container.md).
             1. Нажмите **Добавить**.
 
         * `{{ objstorage-name }}`:
+
+            [Бакеты](../../storage/concepts/bucket.md) {{ objstorage-name }} используются для хранения статических файлов версии приложения, таких как логотипы, глобальные файлы конфигурации, исполняемый код функций [{{ sf-full-name }}](../../functions/index.yaml) и т.п.
 
             1. Укажите название артефакта.
             1. Выберите бакет {{ objstorage-full-name }}, в котором хранятся файлы, необходимые для корректной работы приложения.

@@ -11,6 +11,7 @@ _Артефакт [NuGet](https://ru.wikipedia.org/wiki/NuGet)_ — это фа�
 
 #### См. также {#see-also}
 
-* [{#T}](./art-java.md)
 * [Docker-образ](./docker-image.md)
+* [{#T}](./art-java.md)
 * [{#T}](./art-nodejs.md)
+* [{#T}](./art-python.md)

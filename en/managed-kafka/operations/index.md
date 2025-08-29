@@ -35,11 +35,9 @@ description: This page provides a list of step-by-step guides for {{ mkf-name }}
 
 * [Managing connectors](cluster-connector.md)
 
-
 ## Interfaces
 
 * [{{ kafka-ui }} web interface](kafka-ui-enable.md)
-
 
 ## Logs and monitoring {#monitoring-and-logs}
 

@@ -8,31 +8,31 @@
 
 {% endnote %}
 
-Если у вас уже есть пользовательский аккаунт, войдите в консоль управления и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+Если у вас уже есть пользовательский аккаунт, создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
 
-1. Убедитесь, что к вашему пользовательскому аккаунту привязан актуальный номер телефона.
-1. В консоли управления перейдите в раздел [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}).
-1. На странице **{{ ui-key.yacloud_billing.billing.title_accounts }}** нажмите кнопку **{{ ui-key.yacloud_billing.billing.accounts.main-banner_button_create }}**. Заполните данные:
-   * Выберите страну плательщика.
-   * Укажите имя платежного аккаунта, которое будет отображаться в списке платежных аккаунтов.
-1. Если в блоке **{{ ui-key.yacloud_billing_account.cloud-billing-account.section_persons }}** показан список доступных плательщиков, вы можете выбрать одного из них или добавить нового.
-1. Для добавления нового плательщика выберите **{{ ui-key.yacloud_billing_account.cloud-billing-account.section_person-type }}** — `Юридическое лицо или ИП`.
-   
-   * Выберите способ оплаты: `{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_card }}` или `{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_invoice }}`. В любой момент после создания платежного аккаунта вы можете [изменить способ оплаты](../../billing/operations/change-payment-method.md).
-   * Укажите юридическую информацию о вашей организации.
-   
-     {% include [billing-note](../../_includes/marketplace/billing-note.md) %}
-   
-   * Если вы выбрали способ оплаты `{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_card }}`, привяжите корпоративную банковскую карту:
-   
-     {% include [pin-card-data](../../_includes/billing/pin-card-data.md) %}
-   
-      * Подтвердите, что карта является корпоративной и вы уполномочены ею распоряжаться.
-   
-     {% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
-   
-     {% include [yandex-account](../../_includes/billing/payment-card-validation.md) %}
-   
-   * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
+1. {% include [create-ba-step2](../../billing/_includes/create-ba-step2.md) %}
+1. {% include [create-ba-step3](../../billing/_includes/create-ba-step3.md) %}
+
+   {% include [create-additional-ba-ui-notice](../../billing/_includes/create-additional-ba-ui-notice.md) %}
+
+   В открывшемся окне:
+
+   1. {% include [choose-name-step](../../billing/_includes/choose-name-step.md) %}
+   1. {% include [choose-org-step](../../billing/_includes/choose-org-step.md) %}
+   1. {% include [choose-country-step](../../billing/_includes/choose-country-step.md) %}
+
+      {% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
+
+   1. {% include [create-ba-choose-ul-step](../../billing/_includes/create-ba-choose-ul-step.md) %}
+   1. {% include [create-ba-choose-payment-method-step](../../billing/_includes/create-ba-choose-payment-method-step.md) %}
+   1. Нажмите кнопку **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
+   1. {% include [create-ba-import-egrul-step](../../billing/_includes/create-ba-import-egrul-step.md) %}
+
+      {% include [billing-note](../../_includes/marketplace/billing-note.md) %}
+
+   1. {% include [create-ba-ul-bank-card-step](../../billing/_includes/create-ba-ul-bank-card-step.md) %}
+   1. {% include [create-ba-contacts-step](../../billing/_includes/create-ba-contacts-step.md) %}
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    Если вы выбрали способ оплаты `{{ ui-key.yacloud_billing.billing.account.overview.payment-type_label_invoice }}`, вы получите письмо с описанием дальнейших действий на почту, указанную в пользовательском аккаунте. После проверки документов ваш платежный аккаунт может быть активирован, и вы сможете начать пользоваться {{ yandex-cloud }}.

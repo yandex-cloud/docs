@@ -152,7 +152,6 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
   1. Specify the {{ mkf-name }} cluster parameters in the create command (not all parameters are given in the example):
 
      
-     
      ```bash
      {{ yc-mdb-kf }} cluster create \
         --name <cluster_name> \
@@ -171,8 +170,6 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         --deletion-protection
         --kafka-ui-enabled <true_or_false>
      ```
-
-
 
 
      Where:
@@ -199,10 +196,8 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
-
-         
+    
      * {% include [kafka-ui-enabled](../../_includes/mdb/cli/kafka-ui-enabled.md) %}
-
 
      {% note tip %}
 
@@ -274,7 +269,6 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      Here is an example of the configuration file structure:
 
      
-     
      ```hcl
      resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
        environment         = "<environment>"
@@ -317,8 +311,6 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      ```
 
 
-
-
      Where:
 
      * `environment`: Cluster environment, `PRESTABLE` or `PRODUCTION`.
@@ -339,10 +331,8 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      * `schema_registry`: Manage data schemas using [{{ mkf-msr }}](../concepts/managed-schema-registry.md), `true` or `false`. The default value is `false`.
 
        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
-
-           
+      
      * `kafka_ui`: This setting defines whether to use [{{ kafka-ui }} for {{ KF }}](../concepts/kafka-ui.md) and can be `true` or `false`. The default value is `false`.
-
 
      {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
@@ -382,7 +372,6 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
             {% endnote %}
 
-            
             
             ```json
             {
@@ -465,8 +454,6 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
             ```
 
 
-
-
             Where:
 
             * `name`: Cluster name.
@@ -508,9 +495,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
 
-                
                 * `kafkaUiConfig`: Use [{{ kafka-ui }}](../concepts/kafka-ui.md). Specify `enabled: true` to access {{ kafka-ui }}.
-                
 
             * `topicSpecs`: Topic settings as an array of elements. Each element is for a separate topic and has the following structure:
 
@@ -578,7 +563,6 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
             {% endnote %}
 
-            
             
             ```json
             {
@@ -667,8 +651,6 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
             ```
 
 
-
-
             Where:
 
             * `name`: Cluster name.
@@ -709,10 +691,8 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 * `disk_size_autoscaling`: To prevent the cluster disk space from running out, set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) (as a percentage of the total storage size) that will trigger an increase in storage size when reached:
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
-
-                                
+                
                 * `kafka_ui_config`: Use [{{ kafka-ui }}](../concepts/kafka-ui.md). Specify `enabled: true` to access {{ kafka-ui }}.
-
 
             * `topic_specs`: Topic settings as an array of elements. Each element is for a separate topic and has the following structure:
 

@@ -7,6 +7,7 @@ description: This page provides a list of tutorials for building a data platform
 
 ## {{ KF }} {#kafka}
 
+* [{#T}](deploy-kafka-ui.md)
 * [{#T}](zk-kraft-kafka-migration.md)
 * [{#T}](kafka-connector.md)
 * [{#T}](data-transfer-mkf.md)
