@@ -39,6 +39,7 @@ You can use {{ mkf-name }} to transfer data between databases. Sources and targe
 
 ## Other {#other}
 
+* [{#T}](deploy-kafka-ui.md)
 * [{#T}](zk-kraft-kafka-migration.md)
 * [{#T}](data-processing.md)
 

@@ -152,7 +152,6 @@
   1. Укажите параметры кластера {{ mkf-name }} в команде создания (в примере приведены не все параметры):
 
      
-     
      ```bash
      {{ yc-mdb-kf }} cluster create \
         --name <имя_кластера> \
@@ -171,8 +170,6 @@
         --deletion-protection
         --kafka-ui-enabled <true_или_false>
      ```
-
-
 
 
      Где:
@@ -199,10 +196,8 @@
      * {% include [deletion-protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         Включенная защита кластера от удаления не помешает удалить пользователя или топик, а также подключиться вручную и удалить данные.
-
-         
+    
      * {% include [kafka-ui-enabled](../../_includes/mdb/cli/kafka-ui-enabled.md) %}
-
 
      {% note tip %}
 
@@ -274,7 +269,6 @@
      Пример структуры конфигурационного файла:
 
      
-     
      ```hcl
      resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
        environment         = "<окружение>"
@@ -317,8 +311,6 @@
      ```
 
 
-
-
      Где:
 
      * `environment` — окружение кластера: `PRESTABLE` или `PRODUCTION`.
@@ -339,10 +331,8 @@
      * `schema_registry` — управление схемами данных с помощью [{{ mkf-msr }}](../concepts/managed-schema-registry.md): `true` или `false`. Значение по умолчанию — `false`.
 
        {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
-
-           
+      
      * `kafka_ui` — использование [веб-интерфейса {{ kafka-ui }} для {{ KF }}](../concepts/kafka-ui.md): `true` или `false`. Значение по умолчанию — `false`.
-
 
      {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
@@ -382,7 +372,6 @@
 
             {% endnote %}
 
-            
             
             ```json
             {
@@ -465,8 +454,6 @@
             ```
 
 
-
-
             Где:
 
             * `name` — имя кластера.
@@ -508,9 +495,7 @@
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
 
-                
                 * `kafkaUiConfig` — использование [веб-интерфейса {{ kafka-ui }}](../concepts/kafka-ui.md). Для доступа к веб-интерфейсу {{ kafka-ui }} укажите `enabled: true`.
-                
 
             * `topicSpecs` — настройки топиков в виде массива элементов. Каждый элемент соответствует отдельному топику и имеет следующую структуру:
 
@@ -578,7 +563,6 @@
 
             {% endnote %}
 
-            
             
             ```json
             {
@@ -667,8 +651,6 @@
             ```
 
 
-
-
             Где:
 
             * `name` — имя кластера.
@@ -709,10 +691,8 @@
                 * `disk_size_autoscaling` – чтобы в кластере не заканчивалось место на диске, укажите [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища (в процентах от общего объема хранилища), при достижении которых его размер будет увеличиваться:
 
                   {% include [autoscale-settings](../../_includes/mdb/mkf/api/grpc-autoscale-settings.md) %}
-
-                                
+                
                 * `kafka_ui_config` — использование [веб-интерфейса {{ kafka-ui }}](../concepts/kafka-ui.md). Для доступа к веб-интерфейсу {{ kafka-ui }} укажите `enabled: true`.
-
 
             * `topic_specs` — настройки топиков в виде массива элементов. Каждый элемент соответствует отдельному топику и имеет следующую структуру:
 

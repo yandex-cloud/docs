@@ -40,6 +40,7 @@
 
 ## Другое {#other}
 
+* [{#T}](deploy-kafka-ui.md)
 * [{#T}](zk-kraft-kafka-migration.md)
 * [{#T}](data-processing.md)
 * [{#T}](retention-policy.md)
