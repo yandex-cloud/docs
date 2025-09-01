@@ -51,7 +51,7 @@ Refer to service-specific migration guides:
 * [HDFS-based {{ dataproc-name }}](../../data-proc/tutorials/hdfs-cluster-migration.md).
 * [{{ mkf-name }}](../../managed-kafka/operations/host-migration.md).
 * [{{ mch-name }}](../../managed-clickhouse/operations/host-migration.md).
-* [{{ mmg-name }}](../../managed-mongodb/operations/host-migration.md).
+* [{{ mmg-name }}](../../storedoc/operations/host-migration.md).
 * [{{ mmy-name }}](../../managed-mysql/operations/host-migration.md).
 * [{{ mos-name }}](../../managed-opensearch/operations/host-migration.md).
 * [{{ mpg-name }}](../../managed-postgresql/operations/host-migration.md).

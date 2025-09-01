@@ -30,6 +30,8 @@ items:
         href: concepts/storage.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Управление доступом
+    href: security.md
   - name: Правила тарификации
     href: pricing.md
   - name: История изменений

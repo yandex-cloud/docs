@@ -14,7 +14,7 @@ description: В этой статье сопоставляются сервис�
 | Azure Cache for Redis | [{{ mrd-full-name }}](../../managed-redis/) |
 | Azure Container Apps | [{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | Azure Container Registry | [{{ container-registry-full-name }}](../../container-registry/)  |
-| Azure Cosmos DB | [{{ mmg-full-name }}](../../managed-mongodb/) |
+| Azure Cosmos DB | [{{ mmg-full-name }}](../../storedoc/) |
 | Azure Database for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
 | Azure Database for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
 | Azure Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |

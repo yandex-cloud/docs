@@ -141,9 +141,9 @@ links:
   - title: Managed Service for Kubernetes®
     description: Управление кластерами Kubernetes
     href: managed-kubernetes/
-  - title: Managed Service for MongoDB
-    description: Управление базой данных MongoDB
-    href: managed-mongodb/
+  - title: Yandex StoreDoc
+    description: Управление базой данных Yandex StoreDoc
+    href: storedoc/
   - title: Managed Service for MySQL®
     description: Управление базой данных MySQL
     href: managed-mysql/

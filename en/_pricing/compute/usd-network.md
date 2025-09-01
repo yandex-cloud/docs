@@ -15,5 +15,11 @@ For VMs with 16 or more cores | {% calc [currency=USD] {{ sku|USD|compute.vm.sof
 **AMD Zen 3**^*^ |
 For VMs with less than 96 cores | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.amd.v1|number }} × 2 %}
 For VMs with 96 or more cores | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.amd.v1|number }} × 4 %}
+**AMD Zen 4** |
+For VMs with less than 96 cores | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.v4a|number }} × 2 %}
+For VMs with 96 or more cores | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.v4a|number }} × 4 %}
+**AMD Zen 4 (Compute-Optimized)** |
+For VMs with less than 48 cores | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.highfreq-v4a|number }} × 2 %}
+For VMs with 48 or more cores | {% calc [currency=USD] {{ sku|USD|compute.vm.software_accelerated_network.cores.highfreq-v4a|number }} × 4 %}
 
 ^*^ Feature is available on request, subject to technical availability.

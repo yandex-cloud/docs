@@ -130,9 +130,9 @@ links:
   - title: Managed Service for Kubernetes®
     description: Kubernetes cluster management
     href: managed-kubernetes/
-  - title: Managed Service for MongoDB
-    description: MongoDB database management
-    href: managed-mongodb/
+  - title: Yandex StoreDoc
+    description: Yandex StoreDoc database management
+    href: storedoc/
   - title: Managed Service for MySQL®
     description: MySQL database management
     href: managed-mysql/

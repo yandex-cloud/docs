@@ -19,6 +19,6 @@
 
    The certificate will be saved to the `$HOME\.mongodb\root.crt` file.
 
-   Corporate policies and antivirus software can block the download of certificates. For more information, see [FAQ](../../../managed-mongodb/qa/mongodb.md#get-ssl-error).
+   Corporate policies and antivirus software can block the download of certificates. For more information, see [FAQ](../../../storedoc/qa/storedoc.md#get-ssl-error).
 
 {% endlist %}

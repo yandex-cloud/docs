@@ -42,5 +42,15 @@
 | 50% vCPU | {{ sku|USD|compute.vm.cpu.c50.amd.v1|string }} | {{ sku|USD|compute.vm.cpu.c50.preemptible.amd.v1|string }} | − | − |
 | 100% vCPU | {{ sku|USD|compute.vm.cpu.c100.amd.v1|string }} | {{ sku|USD|compute.vm.cpu.c100.preemptible.amd.v1|string }} | − | − |
 | RAM (for 1 GB) | {{ sku|USD|compute.vm.ram.amd.v1|string }} | {{ sku|USD|compute.vm.ram.preemptible.amd.v1|string }} | − | − |
+| **AMD Zen 4** | Regular VM | Preemptible&nbsp;VM | | |
+| 20% vCPU | {{ sku|USD|compute.vm.cpu.c20.v4a|string }} | {{ sku|USD|compute.vm.cpu.c20.preemptible.v4a|string }} | − | − |
+| 50% vCPU | {{ sku|USD|compute.vm.cpu.c50.v4a|string }} | {{ sku|USD|compute.vm.cpu.c50.preemptible.v4a|string }} | − | − |
+| 100% vCPU | {{ sku|USD|compute.vm.cpu.c100.v4a|string }} | {{ sku|USD|compute.vm.cpu.c100.preemptible.v4a|string }} | − | − |
+| RAM (for 1 GB) | {{ sku|USD|compute.vm.ram.v4a|string }} | {{ sku|USD|compute.vm.ram.preemptible.v4a|string }} | − | − |
+| **AMD Zen 4 (Compute-Optimized)** | Regular VM | Preemptible&nbsp;VM | | |
+| 20% vCPU | {{ sku|USD|compute.vm.cpu.c20.highfreq-v4a|string }} | {{ sku|USD|compute.vm.cpu.c20.preemptible.highfreq-v4a|string }} | − | − |
+| 50% vCPU | {{ sku|USD|compute.vm.cpu.c50.highfreq-v4a|string }} | {{ sku|USD|compute.vm.cpu.c50.preemptible.highfreq-v4a|string }} | − | − |
+| 100% vCPU | {{ sku|USD|compute.vm.cpu.c100.highfreq-v4a|string }} | {{ sku|USD|compute.vm.cpu.c100.preemptible.highfreq-v4a|string }} | − | − |
+| RAM (for 1 GB) | {{ sku|USD|compute.vm.ram.highfreq-v4a|string }} | {{ sku|USD|compute.vm.ram.preemptible.highfreq-v4a|string }} | − | − |
 
 ^*^ Feature is available on request, subject to technical availability.

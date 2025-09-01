@@ -44,7 +44,7 @@ The discount does not apply to:
 * Consumption of the following services:
 
   * [{{ marketplace-full-name }}](/marketplace)
-  * [{{ mmg-full-name }}](../../managed-mongodb/)
+  * [{{ mmg-full-name }}](../../storedoc/)
   * [{{ interconnect-full-name }}](../../interconnect/)
 
 * Grants credited to subaccounts.

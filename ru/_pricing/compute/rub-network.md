@@ -15,6 +15,12 @@
 | **AMD Zen 3**^*^ |
 | Для ВМ с числом ядер меньше 96 | {% calc [currency=RUB] {{ sku|RUB|compute.vm.software_accelerated_network.cores.amd.v1|number }} × 2 %} |
 | Для ВМ с 96 ядрами и больше | {% calc [currency=RUB] {{ sku|RUB|compute.vm.software_accelerated_network.cores.amd.v1|number }} × 4 %} |
+| **AMD Zen 4** |
+| Для ВМ с числом ядер меньше 96 | {% calc [currency=RUB] {{ sku|RUB|compute.vm.software_accelerated_network.cores.v4a|number }} × 2 %} |
+| Для ВМ с 96 ядрами и больше | {% calc [currency=RUB] {{ sku|RUB|compute.vm.software_accelerated_network.cores.v4a|number }} × 4 %} |
+| **AMD Zen 4 (Compute-Optimized)** |
+| Для ВМ с числом ядер меньше 48 | {% calc [currency=RUB] {{ sku|RUB|compute.vm.software_accelerated_network.cores.highfreq-v4a|number }} × 2 %} |
+| Для ВМ с 48 ядрами и больше | {% calc [currency=RUB] {{ sku|RUB|compute.vm.software_accelerated_network.cores.highfreq-v4a|number }} × 4 %} |
 
 ^*^ Доступ предоставляется по запросу, при наличии технической возможности.
 

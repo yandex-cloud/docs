@@ -12,7 +12,7 @@ You can connect to managed database clusters from clouds and folders that belong
 * {{ MY }}: 5 and higher
 * {{ CH }}: 23 and higher
 * {{ RD }}/{{ VLK }} (non-sharded clusters only): 6 and higher
-* {{ MG }}: 6 and higher
+* {{ SD }}: 6 and higher
 * [{{ mtr-full-name }}](../../managed-trino/) (currently at the [Preview](../../overview/concepts/launch-stages.md) stage): 454 and higher
 * {{ GP }}: 6 and higher
 
@@ -39,7 +39,7 @@ In {{ websql-full-name }}, you can create, use, and manage DB connections. In th
 * [Connections to {{ yandex-cloud }} clusters](../operations/create-connection.md#connect-cluster): Connections to databases in managed database clusters via the {{ yandex-cloud }} internal network. Such clusters do not necessarily have to be publicly available.
 * [External connections](../operations/create-connection.md#connect-db): Connections to public databases over the internet.
 
-The **{{ yandex-cloud }} connections** subsection automatically displays {{ PG }}, {{ CH }}, {{ MY }}, {{ RD }}/{{ VLK }}, {{ MG }}, {{ mtr-full-name }}, and {{ GP }} clusters from the current folder if the user has access to them. You can select a different folder in the bar above the **Connections** section. The list of clusters will update automatically.
+The **{{ yandex-cloud }} connections** subsection automatically displays {{ PG }}, {{ CH }}, {{ MY }}, {{ RD }}/{{ VLK }}, {{ SD }}, {{ mtr-full-name }}, and {{ GP }} clusters from the current folder if the user has access to them. You can select a different folder in the bar above the **Connections** section. The list of clusters will update automatically.
 
 Connections to databases within a single managed database cluster are grouped into an expandable list under the name of that cluster. You cannot change this name in {{ websql-full-name }} but you can update the cluster name in the managed database service. The ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section will automatically show this update. 
 

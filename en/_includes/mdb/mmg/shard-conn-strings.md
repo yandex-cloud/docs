@@ -114,7 +114,7 @@ go run connect.go
    sudo apt update && sudo apt install --yes default-jdk maven
    ```
 
-1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MG }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password using the `-storepass` parameter for additional storage protection:
+1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ SD }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password using the `-storepass` parameter for additional storage protection:
 
    ```bash
    cd ~/.mongodb && \

@@ -126,9 +126,9 @@ items:
           - name: Third-party {{ MY }} cluster
             href: tutorials/managed-mysql-to-mysql.md
           - name: '{{ MG }} cluster'
-            href: tutorials/managed-mongodb.md
-          - name: Migrating {{ MG }} cluster from 4.4 to 6.0
-            href: tutorials/mongodb-versions.md
+            href: tutorials/storedoc.md
+          - name: Migrating {{ SD }} cluster from 4.4 to 6.0
+            href: tutorials/storedoc-versions.md
           - name: '{{ CH }} cluster'
             href: tutorials/managed-clickhouse.md
           - name: '{{ GP }} cluster'
@@ -189,7 +189,7 @@ items:
             href: tutorials/mkf-to-mpg.md
           - name: '{{ KF }} to {{ GP }}'
             href: tutorials/managed-kafka-to-greenplum.md
-          - name: '{{ KF }} to {{ MG }}'
+          - name: '{{ KF }} to {{ SD }}'
             href: tutorials/mkf-to-mmg.md
           - name: '{{ KF }} to {{ MY }}'
             href: tutorials/mkf-to-mmy.md

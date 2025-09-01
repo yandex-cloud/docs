@@ -846,5 +846,5 @@ To stop paying for the resources you created:
 1. [Delete](../../container-registry/operations/docker-image/docker-image-delete.md) the image from `app-registry`.
 1. [Delete](../../container-registry/operations/registry/registry-delete.md) `app-registry`.
 1. [Delete](../../lockbox/operations/secret-delete.md) the `mongodb-creds` secret.
-1. [Delete](../../managed-mongodb/operations/cluster-delete.md) `mongo-vm`.
+1. [Delete](../../storedoc/operations/cluster-delete.md) `mongo-vm`.
 1. [Delete](../../iam/operations/sa/delete.md) the `mongo-express` service account.

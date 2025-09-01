@@ -142,6 +142,8 @@ items:
         items:
           - name: Добавить SSH-ключ
             href: operations/add-ssh.md
+          - name: Удалить SSH-ключ
+            href: operations/delete-ssh.md
           - name: Включить refresh-токены
             href: operations/enable-refresh-tokens.md
           - name: >-

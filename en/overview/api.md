@@ -43,7 +43,7 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | {{ mch-full-name }}                     | [gRPC](../managed-clickhouse/api-ref/grpc/)<br>[REST](../managed-clickhouse/api-ref/) |
 | {{ mgp-full-name }}                     | [gRPC](../managed-greenplum/api-ref/grpc/)<br>[REST](../managed-greenplum/api-ref/) |
 | {{ managed-k8s-full-name }}<sup>®</sup> | [gRPC](../managed-kubernetes/managed-kubernetes/api-ref/grpc/)<br>[REST](../managed-kubernetes/managed-kubernetes/api-ref/) |
-| {{ mmg-full-name }}                     | [gRPC](../managed-mongodb/api-ref/grpc/)<br>[REST](../managed-mongodb/api-ref/) |
+| {{ mmg-full-name }}                     | [gRPC](../storedoc/api-ref/grpc/)<br>[REST](../storedoc/api-ref/) |
 | {{ mmy-full-name }}                     | [gRPC](../managed-mysql/api-ref/grpc/)<br>[REST](../managed-mysql/api-ref/) |
 | {{ mos-full-name }}                     | [gRPC](../managed-opensearch/api-ref/grpc/)<br>[REST](../managed-opensearch/api-ref/) |
 | {{ mpg-full-name }}                     | [gRPC](../managed-postgresql/api-ref/grpc/)<br>[REST](../managed-postgresql/api-ref/) |

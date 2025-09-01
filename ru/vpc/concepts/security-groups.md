@@ -46,7 +46,7 @@ description: Группы безопасности позволяют контр
 | [{{ mgp-name }}](../../managed-greenplum/) | [кластер](../../managed-greenplum/concepts/network.md#security-groups) |
 | [{{ mmy-name }}](../../managed-mysql/) | [кластер](../../managed-mysql/concepts/network.md#security-groups) |
 | [{{ mrd-name }}](../../managed-redis/) | [кластер](../../managed-redis/concepts/network.md#security-groups) |
-| [{{ mmg-name }}](../../managed-mongodb) | [кластер](../../managed-mongodb/concepts/network.md#security-groups) |
+| [{{ mmg-name }}](../../storedoc) | [кластер](../../storedoc/concepts/network.md#security-groups) |
 | [{{ mkf-name }}](../../managed-kafka/) | [кластер](../../managed-kafka/concepts/network.md#security-groups) |
 | [{{ mos-name }}](../../managed-opensearch/) | [кластер](../../managed-opensearch/concepts/network.md#security-groups) |
 | [{{ dataproc-name }}](../../data-proc/) | [кластер](../../data-proc/concepts/network.md#security-groups) |

@@ -73,7 +73,7 @@ items:
             href: operations/cluster-logs.md
           - name: Performance diagnostics
             href: operations/performance-diagnostics.md
-          - name: Cluster and host status monitoring
+          - name: Monitoring the state of clusters and hosts
             href: operations/monitoring.md
           - name: Connecting to DataLens
             href: operations/datalens-connect.md
@@ -98,12 +98,12 @@ items:
           container
         href: tutorials/container-connect.md
       - name: >-
-          Delivering data to {{ mkf-full-name }} using {{
-          data-transfer-full-name }}
+          Data delivery to {{ mkf-full-name }} using {{ data-transfer-full-name
+          }}
         href: tutorials/cdc-data-transfer.md
       - name: >-
-          Delivering data to {{ ydb-full-name }} using {{
-          data-transfer-full-name }}
+          Data delivery to {{ ydb-full-name }} using {{ data-transfer-full-name
+          }}
         href: tutorials/data-transfer-ydb.md
       - name: Delivering data to {{ mkf-full-name }} using Debezium
         href: tutorials/cdc-debezium.md
@@ -152,7 +152,7 @@ items:
           - name: >-
               Creating a logical replica of Amazon RDS for {{ PG }} in {{
               mpg-name }}
-            href: operations/logical-replica-from-rds.md
+            href: tutorials/logical-replica-from-rds.md
           - name: >-
               Migrating a database from {{ mpg-full-name }} to {{
               objstorage-full-name }}
@@ -179,7 +179,7 @@ items:
             href: tutorials/rdbms-to-clickhouse.md
   - name: Concepts
     items:
-      - name: Service resource interdependencies
+      - name: Resource relationships
         href: concepts/index.md
       - name: Host classes
         items:
@@ -195,9 +195,9 @@ items:
             href: concepts/using-deprecated-instances.md
       - name: Planning a cluster topology
         href: concepts/planning-cluster-topology.md
-      - name: Cluster high availability
+      - name: High availability cluster
         href: concepts/high-availability.md
-      - name: '{{ mpg-name }} network'
+      - name: Networking in {{ mpg-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md

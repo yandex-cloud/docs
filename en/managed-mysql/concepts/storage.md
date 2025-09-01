@@ -20,7 +20,7 @@ The number of hosts you can create together with a {{ MY }} cluster depends on t
     * Local SSDs (`local-ssd`)
     * Non-replicated SSDs (`network-ssd-nonreplicated`)
 
-   This cluster will be fault-tolerant.
+   This cluster will be [highly available](high-availability.md).
 
    Local SSD storage has an effect on how much a cluster will cost: you pay for it even if it is stopped. For more information, refer to the [pricing policy](../pricing.md).
 

@@ -81,13 +81,13 @@ description: На странице представлен список прак�
 * [{#T}](elasticsearch-to-opensearch.md)
 * [{#T}](migration-via-snapshots.md)
 
-## {{ MG }} {#mongodb}
+## {{ MG }}/{{ SD }} {#mongodb}
 
 * [{#T}](mongodb-migration-with-data-transfer.md)
-* [{#T}](mongodb-data-migration.md)
-* [{#T}](mongodb-versions.md)
-* [{#T}](mongodb-sharding.md)
-* [{#T}](mongodb-profiling.md)
+* [{#T}](storedoc-data-migration)
+* [{#T}](storedoc-versions)
+* [{#T}](storedoc-sharding)
+* [{#T}](storedoc-profiling)
 * [{#T}](data-transfer-mkf-mmg.md)
 
 
@@ -212,7 +212,7 @@ description: На странице представлен список прак�
 ## {{ data-transfer-full-name }} {#data-transfer}
 
 * [{#T}](managed-greenplum.md)
-* [{#T}](managed-mongodb.md)
+* [{#T}](storedoc.md)
 * [{#T}](managed-mysql.md)
 * [{#T}](managed-mysql-to-mysql.md)
 * [{#T}](managed-postgresql.md)

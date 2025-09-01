@@ -3469,7 +3469,7 @@ Added UI Proxy support:
 * Added support for creating a cluster with {{ MG }} version 4.4.
 * `{{ yc-mdb-mg }} cluster update` and `{{ yc-mdb-mg }} cluster enable-sharding` commands.
 
-  For [sharded](../managed-mongodb/concepts/sharding.md) clusters, you can now set the `mongoinfra` host type.
+  For [sharded](../storedoc/concepts/sharding.md) clusters, you can now set the `mongoinfra` host type.
 
 
 #### {{ certificate-manager-name }} {#certificate-manager}
@@ -4397,7 +4397,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `{{ yc-mdb-mg }} cluster update` and `{{ yc-mdb-mg }} cluster update-config` commands.
 
-  In [sharded](../managed-mongodb/concepts/sharding.md) clusters, you can now change the `mongos` and `mongocfg` component parameters.
+  In [sharded](../storedoc/concepts/sharding.md) clusters, you can now change the `mongos` and `mongocfg` component parameters.
 
 ### Version 0.31.0 (01/07/19) {#version0.31.0}
 

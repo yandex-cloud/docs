@@ -19,8 +19,8 @@ description: In this tutorial, you will learn how to configure a {{ MG }} source
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-    * [Migrating a {{ MG }} cluster](../../../tutorials/managed-mongodb.md).
-    * [Migrating a {{ MG }} cluster from 4.4 to 6.0](../../../tutorials/mongodb-versions.md).
+    * [Migrating a {{ MG }} cluster](../../../tutorials/storedoc.md).
+    * [Migrating a {{ SD }} cluster from 4.4 to 6.0](../../../tutorials/storedoc-versions.md).
 
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
 
@@ -44,7 +44,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmg.viewer }}`](../../../../managed-mongodb/security/index.md#mmg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmg.viewer }}`](../../../../storedoc/security/index.md#mmg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 

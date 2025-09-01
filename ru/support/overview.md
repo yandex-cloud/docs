@@ -75,7 +75,7 @@ description: Из статьи вы узнаете про порядок ока�
     - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)
     - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
     - [{{ managed-k8s-full-name }}](../managed-kubernetes/index.yaml)
-    - [{{ mmg-full-name }}](../managed-mongodb/index.yaml)
+    - [{{ mmg-full-name }}](../storedoc/index.yaml)
     - [{{ mmy-full-name }}](../managed-mysql/index.yaml)
     - [{{ mos-full-name }}](../managed-opensearch/index.yaml)
     - [{{ mrd-full-name }}](../managed-redis/index.yaml)

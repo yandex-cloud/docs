@@ -2,14 +2,14 @@
 
 - {{ mmg-name }}
     
-    1. [Create a database](../../../../managed-mongodb/operations/databases.md#add-db).
-    1. [Create a user](../../../../managed-mongodb/operations/cluster-users.md#adduser) with the [`readWrite`](../../../../managed-mongodb/concepts/users-and-roles.md#readWrite) role for the new database.
+    1. [Create a database](../../../../storedoc/operations/databases.md#add-db).
+    1. [Create a user](../../../../storedoc/operations/cluster-users.md#adduser) with the [`readWrite`](../../../../storedoc/concepts/users-and-roles.md#readWrite) role for the new database.
     1. To shard the migrated collections in the {{ mmg-full-name }} target cluster:
-        1. Use [this guide](../../../../managed-mongodb/tutorials/sharding.md) to create and configure empty sharded collections in the target database.
+        1. Use [this guide](../../../../storedoc/tutorials/sharding.md) to create and configure empty sharded collections in the target database.
         
            {{ data-transfer-name }} does not automatically shard the migrated collections. Sharding large collections may take a long time and slow down the transfer.
         
-        1. If sharding uses any key other than `_id` (default), [assign](../../../../managed-mongodb/operations/cluster-users.md#updateuser) the `mdbShardingManager` role to the user.
+        1. If sharding uses any key other than `_id` (default), [assign](../../../../storedoc/operations/cluster-users.md#updateuser) the `mdbShardingManager` role to the user.
         
         1. When [creating a target endpoint](../../../../data-transfer/operations/endpoint/target/mongodb.md), select `DISABLED` or `TRUNCATE` as your cleanup policy.
         

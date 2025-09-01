@@ -90,9 +90,9 @@
   
   **Пример ответа:**
 
-      ```json
-      {"changeFrequency":180,"enabled":true}
-      ```
+   ```json
+   {"changeFrequency":180,"enabled":true}
+   ```
   
   Если `enabled: false` или `changeFrequency > 180`, политика не соответствует проверке Y360-6.
 

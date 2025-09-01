@@ -1,4 +1,4 @@
-# Поставка данных из очереди {{ KF }} в {{ MG }} с помощью {{ data-transfer-full-name }}
+# Поставка данных из очереди {{ KF }} в {{ SD }} с помощью {{ data-transfer-full-name }}
 
 
 В кластер {{ mmg-name }} можно в реальном времени поставлять данные из топиков {{ KF }}.
@@ -17,7 +17,7 @@
 В стоимость поддержки описываемого решения входят:
 
 * Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы {{ KF }}](../../managed-kafka/pricing.md)).
-* Плата за кластер {{ mmg-name }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ MG }}](../../managed-mongodb/pricing.md)).
+* Плата за кластер {{ mmg-name }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ Кластер Yandex StoreDoc }}](../../storedoc/pricing.md)).
 * Плата за использование публичных IP-адресов, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 * Плата за каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 
@@ -36,7 +36,7 @@
 
         1. [Создайте в кластере-источнике пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `mkf-user` и правами доступа `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER` к созданному топику.
 
-        1. [Создайте кластер-приемник {{ mmg-name }}](../../managed-mongodb/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
+        1. [Создайте кластер-приемник {{ mmg-name }}](../../storedoc/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
             * Имя базы данных — `db1`.
             * Имя пользователя — `mmg-user`.
@@ -47,7 +47,7 @@
         1. Для подключения к кластерам с локальной машины пользователя, настройте группы безопасности:
 
             * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mmg-name }}](../../managed-mongodb/operations/connect/index.md#configuring-security-groups).
+            * [{{ mmg-name }}](../../storedoc/operations/connect/index.md#configuring-security-groups).
 
 
     - {{ TF }} {#tf}
@@ -68,15 +68,15 @@
             * топик {{ KF }} с именем `sensors`;
             * пользователь {{ KF }} `mkf-user` с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к топику `sensors`;
             * кластер-приемник {{ mmg-name }};
-            * база данных {{ MG }} `db1`;
-            * пользователь {{ MG }} `mmg-user` с правами доступа `readWrite` к базе данных `db1`;
+            * база данных {{ SD }} `db1`;
+            * пользователь {{ SD }} `mmg-user` с правами доступа `readWrite` к базе данных `db1`;
             * трансфер.
 
         1. Укажите в файле `data-transfer-mkf-mmg.tf` переменные:
 
             * `source_kf_version` — версия {{ KF }} в кластере-источнике;
             * `source_user_password` — пароль пользователя `mkf-user` в кластере-источнике;
-            * `target_mg_version` — версия {{ MG }} в кластере-приемнике;
+            * `target_mg_version` — версия {{ SD }} в кластере-приемнике;
             * `target_user_password` — пароль пользователя `mmg-user` в кластере-приемнике;
             * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
 
@@ -303,7 +303,7 @@
 
 1. Проверьте, что коллекция `sensors` кластера {{ mmg-name }} содержит отправленные данные:
 
-    1. [Подключитесь к кластеру {{ mmg-name }}](../../managed-mongodb/operations/connect/index.md).
+    1. [Подключитесь к кластеру {{ mmg-name }}](../../storedoc/operations/connect/index.md).
 
     1. Получите содержимое коллекции `sensors` с помощью запроса:
 
@@ -331,7 +331,7 @@
 - Вручную {#manual}
 
     * [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
-    * [Удалите кластер {{ mmg-name }}](../../managed-mongodb/operations/cluster-delete.md).
+    * [Удалите кластер {{ mmg-name }}](../../storedoc/operations/cluster-delete.md).
 
 - {{ TF }} {#tf}
 

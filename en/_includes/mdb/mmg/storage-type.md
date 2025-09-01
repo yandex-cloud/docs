@@ -18,7 +18,7 @@ When creating a cluster, you can select the following disk types for data storag
   * For **Intel Broadwell** and **Intel Cascade Lake**: Only in 100 GB increments.
   * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments only.
 
-  For a list of host classes and their respective platforms, see [Host classes](../../../managed-mongodb/concepts/instance-types.md).
+  For a list of host classes and their respective platforms, see [Host classes](../../../storedoc/concepts/instance-types.md).
 
   {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
 

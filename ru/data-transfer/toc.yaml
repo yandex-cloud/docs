@@ -126,9 +126,9 @@ items:
           - name: Сторонний кластер {{ MY }}
             href: tutorials/managed-mysql-to-mysql.md
           - name: Кластер {{ MG }}
-            href: tutorials/managed-mongodb.md
-          - name: Миграция кластера {{ MG }} с версии 4.4 на 6.0
-            href: tutorials/mongodb-versions.md
+            href: tutorials/storedoc.md
+          - name: Миграция кластера {{ SD }} с версии 4.4 на 6.0
+            href: tutorials/storedoc-versions.md
           - name: Кластер {{ CH }}
             href: tutorials/managed-clickhouse.md
           - name: Кластер {{ GP }}
@@ -189,7 +189,7 @@ items:
             href: tutorials/mkf-to-mpg.md
           - name: '{{ KF }} в {{ GP }}'
             href: tutorials/managed-kafka-to-greenplum.md
-          - name: '{{ KF }} в {{ MG }}'
+          - name: '{{ KF }} в {{ SD }}'
             href: tutorials/mkf-to-mmg.md
           - name: '{{ KF }} в {{ MY }}'
             href: tutorials/mkf-to-mmy.md
