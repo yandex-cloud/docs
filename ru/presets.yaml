@@ -427,9 +427,9 @@ default:
   mmg-backup-retention: 7
   mmg-backup-retention-max: 35
   mmg-backup-retention-min: 7
-  mmg-full-name: Yandex Managed Service for MongoDB
-  mmg-name: Managed Service for MongoDB
-  mmg-short-name: Managed Service for MongoDB
+  mmg-full-name: Yandex StoreDoc
+  mmg-name: Yandex StoreDoc
+  mmg-short-name: Yandex StoreDoc
   mms-full-name: Yandex Managed Service for SQL Server
   mms-name: Managed Service for SQL Server
   mmy-full-name: Yandex Managed Service for MySQL®
@@ -760,6 +760,7 @@ default:
   schema-registry-endpoint: schema-registry.yandexcloud.net:443
   schema-registry-full-name: Yandex Schema Registry
   schema-registry-name: Schema Registry
+  SD: Yandex StoreDoc
   sd-full-name: Yandex Security Deck
   sd-name: Security Deck
   search-api: Yandex Search API
@@ -1365,12 +1366,15 @@ default:
           amd:
             v1|string: "5,67\_₸"
           highfreq-v3|string: "9,5040\_₸"
+          highfreq-v4a|string: "11,45\_₸"
           preemptible:
             amd:
               v1|string: "1,5660\_₸"
             highfreq-v3|string: "8,80\_₸"
+            highfreq-v4a|string: "8,0150\_₸"
             v2|string: "1,7280\_₸"
             v3|string: "1,5660\_₸"
+            v4a|string: "1,5660\_₸"
           preemptible|string: "1,7510\_₸"
           v2|month|number: 4626.72
           v2|number: 6.426
@@ -1378,47 +1382,59 @@ default:
           v3|month|number: 4082.4
           v3|number: 5.67
           v3|string: "5,67\_₸"
+          v4a|string: "5,67\_₸"
         c100|month|number: 4152.96
         c100|number: 5.768
         c100|string: "5,7680\_₸"
         c20:
           amd:
             v1|string: "2,3760\_₸"
+          highfreq-v4a|string: "2,29\_₸"
           preemptible:
             amd:
               v1|string: "0,7560\_₸"
+            highfreq-v4a|string: "0,6870\_₸"
             v2|string: "0,8640\_₸"
             v3|string: "0,7560\_₸"
+            v4a|string: "0,7560\_₸"
           preemptible|string: "1,3905\_₸"
           v2|month|number: 1905.12
           v2|number: 2.646
           v2|string: "2,6460\_₸"
           v3|number: 2.376
           v3|string: "2,3760\_₸"
+          v4a|string: "2,3760\_₸"
         c20|month|number: 3263.04
         c20|number: 4.532
         c20|string: "4,5320\_₸"
         c50:
           amd:
             v1|string: "3,4560\_₸"
+          highfreq-v4a|string: "5,7250\_₸"
           preemptible:
             amd:
               v1|string: "1,08\_₸"
+            highfreq-v4a|string: "1,7175\_₸"
             v2|string: "1,1880\_₸"
             v3|string: "1,08\_₸"
+            v4a|string: "1,08\_₸"
           v3|month|number: 2488.32
           v3|number: 3.456
           v3|string: "3,4560\_₸"
+          v4a|string: "3,4560\_₸"
       ram:
         amd:
           v1|string: "1,5120\_₸"
         highfreq-v3|string: "1,7280\_₸"
+        highfreq-v4a|string: "2,10\_₸"
         preemptible:
           amd:
             v1|string: "0,3780\_₸"
           highfreq-v3|string: "1,60\_₸"
+          highfreq-v4a|string: "0,63\_₸"
           v2|string: "0,3780\_₸"
           v3|string: "0,3780\_₸"
+          v4a|string: "0,3780\_₸"
         preemptible|string: "0,6180\_₸"
         v2|month|number: 1205.28
         v2|number: 1.674
@@ -1426,6 +1442,7 @@ default:
         v3|month|number: 1088.64
         v3|number: 1.512
         v3|string: "1,5120\_₸"
+        v4a|string: "1,5120\_₸"
       ram|month|number: 1446.12
       ram|number: 2.0085
       ram|string: "2,0085\_₸"
@@ -1434,9 +1451,11 @@ default:
           amd:
             v1|number: 11.556
           highfreq-v3|number: 19.008
+          highfreq-v4a|number: 38.3848
           v1|number: 11.021
           v2|number: 11.556
           v3|number: 11.556
+          v4a|number: 11.556
   sku|KZT|cr:
     bucket:
       used_space:
@@ -3228,12 +3247,15 @@ default:
           amd:
             v1|string: "1,1340\_₽"
           highfreq-v3|string: "1,9008\_₽"
+          highfreq-v4a|string: "2,29\_₽"
           preemptible:
             amd:
               v1|string: "0,3132\_₽"
             highfreq-v3|string: "1,76\_₽"
+            highfreq-v4a|string: "1,6030\_₽"
             v2|string: "0,3456\_₽"
             v3|string: "0,3132\_₽"
+            v4a|string: "0,3132\_₽"
           preemptible|string: "0,3502\_₽"
           v2|month|number: 925.344
           v2|number: 1.2852
@@ -3241,47 +3263,59 @@ default:
           v3|month|number: 816.48
           v3|number: 1.134
           v3|string: "1,1340\_₽"
+          v4a|string: "1,1340\_₽"
         c100|month|number: 830.592
         c100|number: 1.1536
         c100|string: "1,1536\_₽"
         c20:
           amd:
             v1|string: "0,4752\_₽"
+          highfreq-v4a|string: "0,4580\_₽"
           preemptible:
             amd:
               v1|string: "0,1512\_₽"
+            highfreq-v4a|string: "0,1374\_₽"
             v2|string: "0,1728\_₽"
             v3|string: "0,1512\_₽"
+            v4a|string: "0,1512\_₽"
           preemptible|string: "0,2781\_₽"
           v2|month|number: 381.024
           v2|number: 0.5292
           v2|string: "0,5292\_₽"
           v3|number: 0.4752
           v3|string: "0,4752\_₽"
+          v4a|string: "0,4752\_₽"
         c20|month|number: 652.608
         c20|number: 0.9064
         c20|string: "0,9064\_₽"
         c50:
           amd:
             v1|string: "0,6912\_₽"
+          highfreq-v4a|string: "1,1450\_₽"
           preemptible:
             amd:
               v1|string: "0,2160\_₽"
+            highfreq-v4a|string: "0,3435\_₽"
             v2|string: "0,2376\_₽"
             v3|string: "0,2160\_₽"
+            v4a|string: "0,2160\_₽"
           v3|month|number: 497.664
           v3|number: 0.6912
           v3|string: "0,6912\_₽"
+          v4a|string: "0,6912\_₽"
       ram:
         amd:
           v1|string: "0,3024\_₽"
         highfreq-v3|string: "0,3456\_₽"
+        highfreq-v4a|string: "0,42\_₽"
         preemptible:
           amd:
             v1|string: "0,0756\_₽"
           highfreq-v3|string: "0,32\_₽"
+          highfreq-v4a|string: "0,1260\_₽"
           v2|string: "0,0756\_₽"
           v3|string: "0,0756\_₽"
+          v4a|string: "0,0756\_₽"
         preemptible|string: "0,1236\_₽"
         v2|month|number: 241.056
         v2|number: 0.3348
@@ -3289,6 +3323,7 @@ default:
         v3|month|number: 217.728
         v3|number: 0.3024
         v3|string: "0,3024\_₽"
+        v4a|string: "0,3024\_₽"
       ram|month|number: 289.224
       ram|number: 0.4017
       ram|string: "0,4017\_₽"
@@ -3297,9 +3332,11 @@ default:
           amd:
             v1|number: 2.3112
           highfreq-v3|number: 3.8016
+          highfreq-v4a|number: 7.677
           v1|number: 2.2042
           v2|number: 2.3112
           v3|number: 2.3112
+          v4a|number: 2.3112
   sku|RUB|cr:
     bucket:
       used_space:
@@ -5086,12 +5123,15 @@ default:
           amd:
             v1|string: "0,009450\_$"
           highfreq-v3|string: "0,015840\_$"
+          highfreq-v4a|string: "0,019083\_$"
           preemptible:
             amd:
               v1|string: "0,002610\_$"
             highfreq-v3|string: "0,014667\_$"
+            highfreq-v4a|string: "0,013358\_$"
             v2|string: "0,002880\_$"
             v3|string: "0,002610\_$"
+            v4a|string: "0,002610\_$"
           preemptible|string: "0,002918\_$"
           v2|month|number: 7.711197
           v2|number: 0.01071
@@ -5099,47 +5139,59 @@ default:
           v3|month|number: 6.803997
           v3|number: 0.00945
           v3|string: "0,009450\_$"
+          v4a|string: "0,009450\_$"
         c100|month|number: 6.921597
         c100|number: 0.009613
         c100|string: "0,009613\_$"
         c20:
           amd:
             v1|string: "0,003960\_$"
+          highfreq-v4a|string: "0,003817\_$"
           preemptible:
             amd:
               v1|string: "0,001260\_$"
+            highfreq-v4a|string: "0,001145\_$"
             v2|string: "0,001440\_$"
             v3|string: "0,001260\_$"
+            v4a|string: "0,001260\_$"
           preemptible|string: "0,002317\_$"
           v2|month|number: 3.175199
           v2|number: 0.00441
           v2|string: "0,004410\_$"
           v3|number: 0.00396
           v3|string: "0,003960\_$"
+          v4a|string: "0,003960\_$"
         c20|month|number: 5.438398
         c20|number: 0.007553
         c20|string: "0,007553\_$"
         c50:
           amd:
             v1|string: "0,005760\_$"
+          highfreq-v4a|string: "0,009542\_$"
           preemptible:
             amd:
               v1|string: "0,001800\_$"
+            highfreq-v4a|string: "0,002862\_$"
             v2|string: "0,001980\_$"
             v3|string: "0,001800\_$"
+            v4a|string: "0,001800\_$"
           v3|month|number: 4.147199
           v3|number: 0.00576
           v3|string: "0,005760\_$"
+          v4a|string: "0,005760\_$"
       ram:
         amd:
           v1|string: "0,002520\_$"
         highfreq-v3|string: "0,002880\_$"
+        highfreq-v4a|string: "0,003500\_$"
         preemptible:
           amd:
             v1|string: "0,000630\_$"
           highfreq-v3|string: "0,002667\_$"
+          highfreq-v4a|string: "0,001050\_$"
           v2|string: "0,000630\_$"
           v3|string: "0,000630\_$"
+          v4a|string: "0,000630\_$"
         preemptible|string: "0,001030\_$"
         v2|month|number: 2.008799
         v2|number: 0.00279
@@ -5147,6 +5199,7 @@ default:
         v3|month|number: 1.814399
         v3|number: 0.00252
         v3|string: "0,002520\_$"
+        v4a|string: "0,002520\_$"
       ram|month|number: 2.410199
       ram|number: 0.003347
       ram|string: "0,003347\_$"
@@ -5155,9 +5208,11 @@ default:
           amd:
             v1|number: 0.01926
           highfreq-v3|number: 0.03168
+          highfreq-v4a|number: 0.063975
           v1|number: 0.018368
           v2|number: 0.01926
           v3|number: 0.01926
+          v4a|number: 0.01926
   sku|USD|cr:
     bucket:
       used_space:
@@ -7310,6 +7365,7 @@ default:
             create-app: Создать приложение
       actions:
         add: Добавить
+        delete: Удалить
         exclude: Исключить
         save-changes: Сохранить
       application:
@@ -13104,7 +13160,7 @@ default:
     yc_crossplane:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane
-        tag: v1.18.2
+        tag: v1.20.1
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3

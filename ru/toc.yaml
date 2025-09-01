@@ -95,8 +95,8 @@ items:
     href: managed-greenplum/index.yaml
   - name: Managed Service for Kubernetes®
     href: managed-kubernetes/index.yaml
-  - name: Managed Service for MongoDB
-    href: managed-mongodb/index.yaml
+  - name: Yandex StoreDoc
+    href: storedoc/index.yaml
   - name: Managed Service for MySQL®
     href: managed-mysql/index.yaml
   - name: Managed Service for OpenSearch

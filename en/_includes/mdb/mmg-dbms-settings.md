@@ -10,7 +10,7 @@
 
     The minimum value is `10`. The maximum value [depends on the selected host class](#settings-instance-dependent) and is equal to the host's RAM volume in MB, with a maximum of `16384`. Default value: `1024`.
 
-    For more information, see [Connection limits](../../managed-mongodb/operations/connect/index.md#connection-limits).
+    For more information, see [Connection limits](../../storedoc/operations/connect/index.md#connection-limits).
 
   - **Compression → Compressors**{#setting-compressors}
 
@@ -91,11 +91,11 @@
 
   {% endnote %}
 
-  Settings that define how {{ MG }} works with the [storage](https://docs.mongodb.com/manual/core/storage-engines/).
+  Settings that define how {{ SD }} works with the [storage](https://docs.mongodb.com/manual/core/storage-engines/).
 
   - **Journal → Commit interval**{#setting-journal-commit-interval}
   
-    The interval in milliseconds between when {{ MG }} [journal data](https://docs.mongodb.com/manual/core/journaling/) is written to disk.
+    The interval in milliseconds between when {{ SD }} [journal data](https://docs.mongodb.com/manual/core/journaling/) is written to disk.
 
     Minimum value: `1`; maximum value: `500`; default: `300`.
 

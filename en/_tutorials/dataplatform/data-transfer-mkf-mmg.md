@@ -1,4 +1,4 @@
-# Delivering data from an {{ KF }} queue to {{ MG }} using {{ data-transfer-full-name }}
+# Delivering data from an {{ KF }} queue to {{ SD }} using {{ data-transfer-full-name }}
 
 
 A {{ mmg-name }} cluster can get data from {{ KF }} topics in real time.
@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * {{ mkf-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* {{ mmg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ MG }} pricing](../../managed-mongodb/pricing.md)).
+* {{ mmg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ SD }} pricing](../../storedoc/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Per-transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
@@ -36,7 +36,7 @@ The support cost includes:
 
         1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
-        1. [Create a {{ mmg-name }} target cluster](../../managed-mongodb/operations/cluster-create.md) of any suitable configuration with the following settings:
+        1. [Create a {{ mmg-name }} target cluster](../../storedoc/operations/cluster-create.md) of any suitable configuration with the following settings:
 
             * Database name: `db1`.
             * Username: `mmg-user`.
@@ -47,7 +47,7 @@ The support cost includes:
         1. To connect to the cluster from the user's local machine, configure security groups:
 
             * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mmg-name }}](../../managed-mongodb/operations/connect/index.md#configuring-security-groups).
+            * [{{ mmg-name }}](../../storedoc/operations/connect/index.md#configuring-security-groups).
 
 
     - {{ TF }} {#tf}
@@ -68,15 +68,15 @@ The support cost includes:
             * {{ KF }} topic named `sensors`.
             * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions to the `sensors` topic.
             * {{ mmg-name }} target cluster.
-            * {{ MG }} database named `db1`.
-            * {{ MG }} user named `mmg-user` with the `readWrite` access permissions for the `db1` database.
+            * {{ SD }} database named `db1`.
+            * {{ SD }} user named `mmg-user` with the `readWrite` access permissions for the `db1` database.
             * Transfer.
 
         1. In the `data-transfer-mkf-mmg.tf` file, specify these variables:
 
             * `source_kf_version`: {{ KF }} version in the source cluster.
             * `source_user_password`: `mkf-user` password in the source cluster.
-            * `target_mg_version`: {{ MG }} version in the target cluster.
+            * `target_mg_version`: {{ SD }} version in the target cluster.
             * `target_user_password`: `mmg-user` password in the target cluster.
             * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
@@ -303,7 +303,7 @@ Make sure the data from the topic in the source {{ mkf-name }} cluster is being 
 
 1. Make sure that the {{ mmg-name }} cluster's `sensors` collection contains the data that was sent:
 
-    1. [Connect to the {{ mmg-name }} cluster](../../managed-mongodb/operations/connect/index.md).
+    1. [Connect to the {{ mmg-name }} cluster](../../storedoc/operations/connect/index.md).
 
     1. Get the contents of the `sensors` collection using the query below:
 
@@ -331,7 +331,7 @@ Delete the other resources depending on how they were created:
 - Manually {#manual}
 
     * [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
-    * [Delete the {{ mmg-name }} cluster](../../managed-mongodb/operations/cluster-delete.md).
+    * [Delete the {{ mmg-name }} cluster](../../storedoc/operations/cluster-delete.md).
 
 - {{ TF }} {#tf}
 

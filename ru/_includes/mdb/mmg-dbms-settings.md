@@ -10,7 +10,7 @@
 
     Минимальное значение — `10`, максимальное значение [зависит от выбранного класса хостов](#settings-instance-dependent) и равно объему RAM на хосте в МБ, но не более `16384`. Значение по умолчанию: `1024`.
 
-    Подробнее см. в разделе [Ограничения на количество подключений](../../managed-mongodb/operations/connect/index.md#connection-limits).
+    Подробнее см. в разделе [Ограничения на количество подключений](../../storedoc/operations/connect/index.md#connection-limits).
 
   - **Compression → Compressors**{#setting-compressors}
 
@@ -91,11 +91,11 @@
 
   {% endnote %}
 
-  Настройки взаимодействия {{ MG }} с [хранилищем данных](https://docs.mongodb.com/manual/core/storage-engines/).
+  Настройки взаимодействия {{ SD }} с [хранилищем данных](https://docs.mongodb.com/manual/core/storage-engines/).
 
   - **Journal → Commit interval**{#setting-journal-commit-interval}
   
-    Интервал в миллисекундах между сохранениями [данных журнала](https://docs.mongodb.com/manual/core/journaling/) {{ MG }} на диск.
+    Интервал в миллисекундах между сохранениями [данных журнала](https://docs.mongodb.com/manual/core/journaling/) {{ SD }} на диск.
 
     Минимальное значение — `1`, максимальное значение — `500`, значение по умолчанию — `300`.
 

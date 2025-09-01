@@ -6,7 +6,7 @@
 
 * {{ CH }};
 * HTTP(s);
-* {{ MG }};
+* {{ SD }};
 * {{ MY }};
 * {{ PG }}.
 
@@ -193,7 +193,7 @@
                 "httpSource": {<настройки_источника_HTTP(s)>},
                 "mysqlSource": {<настройки_источника_{{ MY }}>},
                 "clickhouseSource": {<настройки_источника_{{ CH }}>},
-                "mongodbSource": {<настройки_источника_{{ MG }}>},
+                "mongodbSource": {<настройки_источника_Yandex_StoreDoc>},
                 "postgresqlSource": {<настройки_источника_{{ PG }}>}
               }
             }
@@ -221,7 +221,7 @@
                 * `httpSource` — источник HTTP(s).
                 * `mysqlSource` — источник {{ MY }}.
                 * `clickhouseSource` — источник {{ CH }}.
-                * `mongodbSource` — источник {{ MG }}.
+                * `mongodbSource` — источник {{ SD }}.
                 * `postgresqlSource` — источник {{ PG }}.
 
             Подробное описание атрибутов и других настроек словаря [приведено ниже](#settings).
@@ -281,10 +281,10 @@
                 "fixed_lifetime": "<фиксированный_период_между_обновлениями>",
                 "lifetime_range": {<диапазон_для_выбора_периода_между_обновлениями>},
                 "http_source": {<настройки_источника_HTTP(s)>},
-                "mysql_source": {<настройки_источника_MySQL>},
-                "clickhouse_source": {<настройки_источника_ClickHouse®>},
-                "mongodb_source": {<настройки_источника_MongoDB>},
-                "postgresql_source": {<настройки_источника_PostgreSQL>}
+                "mysql_source": {<настройки_источника_{{ MY }}>},
+                "clickhouse_source": {<настройки_источника_{{ CH }}>},
+                "mongodb_source": {<настройки_источника_Yandex_StoreDoc>},
+                "postgresql_source": {<настройки_источника_{{ PG }}>}
               }
             }
             ```
@@ -311,7 +311,7 @@
                 * `http_source` — источник HTTP(s).
                 * `mysql_source` — источник {{ MY }}.
                 * `clickhouse_source` — источник {{ CH }}.
-                * `mongodb_source` — источник {{ MG }}.
+                * `mongodb_source` — источник {{ SD }}.
                 * `postgresql_source` — источник {{ PG }}.
 
             Подробное описание атрибутов и других настроек словаря [приведено ниже](#settings).
@@ -421,7 +421,7 @@
                 "httpSource": {<настройки_источника_HTTP(s)>},
                 "mysqlSource": {<настройки_источника_{{ MY }}>},
                 "clickhouseSource": {<настройки_источника_{{ CH }}>},
-                "mongodbSource": {<настройки_источника_{{ MG }}>},
+                "mongodbSource": {<настройки_источника_Yandex_StoreDoc>},
                 "postgresqlSource": {<настройки_источника_{{ PG }}>}
               },
               "updateMask": "externalDictionary.<настройка_1>,...,externalDictionary.<настройка_N>"
@@ -454,7 +454,7 @@
                 * `httpSource` — источник HTTP(s).
                 * `mysqlSource` — источник {{ MY }}.
                 * `clickhouseSource` — источник {{ CH }}.
-                * `mongodbSource` — источник {{ MG }}.
+                * `mongodbSource` — источник {{ SD }}.
                 * `postgresqlSource` — источник {{ PG }}.
 
             Подробное описание атрибутов и других настроек словаря [приведено ниже](#settings).
@@ -506,10 +506,10 @@
                 "fixed_lifetime": "<фиксированный_период_между_обновлениями>",
                 "lifetime_range": {<диапазон_для_выбора_периода_между_обновлениями>},
                 "http_source": {<настройки_источника_HTTP(s)>},
-                "mysql_source": {<настройки_источника_MySQL>},
-                "clickhouse_source": {<настройки_источника_ClickHouse®>},
-                "mongodb_source": {<настройки_источника_MongoDB>},
-                "postgresql_source": {<настройки_источника_PostgreSQL>}
+                "mysql_source": {<настройки_источника_{{ MY }}>},
+                "clickhouse_source": {<настройки_источника_{{ CH }}>},
+                "mongodb_source": {<настройки_источника_Yandex_StoreDoc>},
+                "postgresql_source": {<настройки_источника_ {{ PG }}>}
               },
               "update_mask": "externalDictionary.<настройка_1>,...,externalDictionary.<настройка_N>"
             }
@@ -541,7 +541,7 @@
                 * `http_source` — источник HTTP(s).
                 * `mysql_source` — источник {{ MY }}.
                 * `clickhouse_source` — источник {{ CH }}.
-                * `mongodb_source` — источник {{ MG }}.
+                * `mongodb_source` — источник {{ SD }}.
                 * `postgresql_source` — источник {{ PG }}.
 
             Подробное описание атрибутов и других настроек словаря [приведено ниже](#settings).
@@ -694,14 +694,14 @@
 
     {% endcut %}
 
-    {% cut "{{ MG }}" %}
+    {% cut "{{ SD }}" %}
 
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}** — имя хоста {{ MG }}. Хост должен находиться в той же сети, что и кластер {{ CH }}.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_host }}** — имя хоста {{ SD }}. Хост должен находиться в той же сети, что и кластер {{ CH }}.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_port }}** — порт для подключения к источнику.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_user }}** — имя пользователя базы данных источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_password }}** — пароль для доступа к базе данных источника.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_db }}** — имя базы данных источника.
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_collection }}** — имя коллекции {{ MG }}.
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_collection }}** — имя коллекции {{ SD }}.
 
     {% endcut %}
 
@@ -807,7 +807,7 @@
 
     {% endcut %}
 
-    {% cut "`--mongodb-source` — источник {{ MG }}" %}
+    {% cut "`--mongodb-source` — источник {{ SD }}" %}
 
     * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
     * `port` — порт для подключения к источнику.
@@ -945,7 +945,7 @@
 
       {% endcut %}
 
-      {% cut "`mongodbSource` — источник {{ MG }}" %}
+      {% cut "`mongodbSource` — источник {{ SD }}" %}
 
       * `db` — имя базы данных источника.
       * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.
@@ -1072,7 +1072,7 @@
 
       {% endcut %}
 
-      {% cut "`mongodb_source` — источник {{ MG }}" %}
+      {% cut "`mongodb_source` — источник {{ SD }}" %}
 
       * `db` — имя базы данных источника.
       * `host` — имя хоста источника. Хост должен находиться в той же сети, что и кластер {{ CH }}.

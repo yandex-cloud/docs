@@ -1,4 +1,4 @@
-# Стандарт по защите и безопасному использованию {{ yandex-360 }} {{ 360-standard-current-version }}
+# Стандарт по защите и безопасному использованию {{ yandex-360 }}, версия {{ 360-standard-current-version }}
 
 ## Введение {#introduction}
 

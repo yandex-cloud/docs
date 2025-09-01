@@ -10,7 +10,7 @@ There are two ways to migrate data from a third-party _source cluster_ to a {{ m
     This migration method allows you to:
 
     * Migrate the database without interrupting user service.
-    * Migrate from older {{ MG }} versions to newer versions.
+    * Migrate from older {{ SD }} versions to newer versions.
     * Go without creating an intermediate VM or granting online access to your {{ mmg-name }} target cluster.
 
     To use this migration method, allow connecting to the source cluster from the internet.
@@ -26,20 +26,20 @@ There are two ways to migrate data from a third-party _source cluster_ to a {{ m
 
 The cost of transferring data with {{ data-transfer-full-name }} includes:
 
-* {{ mmg-name }} target cluster fee: using computing resources allocated to hosts, and its disk space (see [{{ MG }} pricing](../../managed-mongodb/pricing.md)).
+* {{ mmg-name }} target cluster fee: using computing resources allocated to hosts, and its disk space (see [{{ SD }} pricing](../../storedoc/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Per-transfer fee: using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 The cost of transferring data using a database dump includes:
 
-* {{ mmg-name }} target cluster fee: Using computing resources allocated to hosts, and its disk space (see [{{ MG }} pricing](../../managed-mongodb/pricing.md)).
+* {{ mmg-name }} target cluster fee: Using computing resources allocated to hosts, and its disk space (see [{{ SD }} pricing](../../storedoc/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * When creating a VM to download a dump: Fee for using the computing resources, storage, OS (for specific operating systems), and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-[Create a {{ mmg-name }} target cluster](../../managed-mongodb/operations/cluster-create.md) with the computing capacity and storage size appropriate for the environment where the migrated database is deployed.
+[Create a {{ mmg-name }} target cluster](../../storedoc/operations/cluster-create.md) with the computing capacity and storage size appropriate for the environment where the migrated database is deployed.
 
 The database name in the target cluster must be the same as the source database name.
 

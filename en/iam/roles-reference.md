@@ -1464,7 +1464,7 @@ For more information, see [{#T}](../managed-kubernetes/security/index.md).
 
 {% include [managed-mongodb.admin](../_roles/managed-mongodb/admin.md) %}
 
-For more information, see [{#T}](../managed-mongodb/security/index.md).
+For more information, see [{#T}](../storedoc/security/index.md).
 
 
 ## {{ mmy-full-name }} {#managed-mysql-roles}

@@ -1006,13 +1006,13 @@ items:
       - name: Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
       - name: Миграция данных в {{ mmg-name }}
-        href: dataplatform/mongodb-data-migration.md
+        href: dataplatform/storedoc-data-migration.md
       - name: Миграция кластера {{ mmg-name }} с версии 4.4 на 6.0
-        href: dataplatform/mongodb-versions.md
-      - name: Шардирование коллекций {{ MG }}
-        href: dataplatform/mongodb-sharding.md
-      - name: Анализ производительности и оптимизация {{ MG }}
-        href: dataplatform/mongodb-profiling.md
+        href: dataplatform/storedoc-versions.md
+      - name: Шардирование коллекций {{ SD }}
+        href: dataplatform/storedoc-sharding.md
+      - name: Анализ производительности и оптимизация {{ SD }}
+        href: dataplatform/storedoc-profiling.md
       - name: Миграция БД из стороннего кластера {{ MY }} в кластер {{ mmy-name }}
         href: dataplatform/mysql-data-migration.md
       - name: Анализ производительности и оптимизация {{ mmy-name }}
@@ -1209,7 +1209,7 @@ items:
           mgp-name }} с помощью {{ data-transfer-name }}
         href: dataplatform/managed-greenplum.md
       - name: Миграция кластера {{ mmg-name }}
-        href: dataplatform/managed-mongodb.md
+        href: dataplatform/storedoc.md
       - name: Миграция кластера {{ MY }}
         href: dataplatform/managed-mysql.md
       - name: Миграция на сторонний кластер {{ MY }}

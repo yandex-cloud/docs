@@ -42,6 +42,16 @@
 | 50% vCPU | {{ sku|KZT|compute.vm.cpu.c50.amd.v1|string }} | {{ sku|KZT|compute.vm.cpu.c50.preemptible.amd.v1|string }} | − | − |
 | 100% vCPU | {{ sku|KZT|compute.vm.cpu.c100.amd.v1|string }} | {{ sku|KZT|compute.vm.cpu.c100.preemptible.amd.v1|string }} | − | − |
 | RAM (за 1 ГБ) | {{ sku|KZT|compute.vm.ram.amd.v1|string }} | {{ sku|KZT|compute.vm.ram.preemptible.amd.v1|string }} | − | − |
+| **AMD Zen 4** | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
+| 20% vCPU | {{ sku|KZT|compute.vm.cpu.c20.v4a|string }} | {{ sku|KZT|compute.vm.cpu.c20.preemptible.v4a|string }} | − | − |
+| 50% vCPU | {{ sku|KZT|compute.vm.cpu.c50.v4a|string }} | {{ sku|KZT|compute.vm.cpu.c50.preemptible.v4a|string }} | − | − |
+| 100% vCPU | {{ sku|KZT|compute.vm.cpu.c100.v4a|string }} | {{ sku|KZT|compute.vm.cpu.c100.preemptible.v4a|string }} | − | − |
+| RAM (за 1 ГБ) | {{ sku|KZT|compute.vm.ram.v4a|string }} | {{ sku|KZT|compute.vm.ram.preemptible.v4a|string }} | − | − |
+| **AMD Zen 4 (Compute-Optimized)** | Обычная ВМ | Прерываемая&nbsp;ВМ | | |
+| 20% vCPU | {{ sku|KZT|compute.vm.cpu.c20.highfreq-v4a|string }} | {{ sku|KZT|compute.vm.cpu.c20.preemptible.highfreq-v4a|string }} | − | − |
+| 50% vCPU | {{ sku|KZT|compute.vm.cpu.c50.highfreq-v4a|string }} | {{ sku|KZT|compute.vm.cpu.c50.preemptible.highfreq-v4a|string }} | − | − |
+| 100% vCPU | {{ sku|KZT|compute.vm.cpu.c100.highfreq-v4a|string }} | {{ sku|KZT|compute.vm.cpu.c100.preemptible.highfreq-v4a|string }} | − | − |
+| RAM (за 1 ГБ) | {{ sku|KZT|compute.vm.ram.highfreq-v4a|string }} | {{ sku|KZT|compute.vm.ram.preemptible.highfreq-v4a|string }} | − | − |
 
 ^*^ Доступ предоставляется по запросу, при наличии технической возможности.
 

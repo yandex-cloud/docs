@@ -972,13 +972,13 @@ items:
           mmg-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
       - name: Migrating data to {{ mmg-name }}
-        href: dataplatform/mongodb-data-migration.md
+        href: dataplatform/storedoc-data-migration.md
       - name: Migrating {{ mmg-name }} cluster from 4.4 to 6.0
-        href: dataplatform/mongodb-versions.md
-      - name: Sharding {{ MG }} collections
-        href: dataplatform/mongodb-sharding.md
-      - name: '{{ MG }} performance analysis and tuning'
-        href: dataplatform/mongodb-profiling.md
+        href: dataplatform/storedoc-versions.md
+      - name: Sharding {{ SD }} collections
+        href: dataplatform/storedoc-sharding.md
+      - name: '{{ SD }} performance analysis and tuning'
+        href: dataplatform/storedoc-profiling.md
       - name: >-
           Migrating a database from a third-party {{ MY }} cluster to a {{
           mmy-name }} cluster

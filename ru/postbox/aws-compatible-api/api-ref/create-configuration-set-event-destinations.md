@@ -32,7 +32,8 @@ POST /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations HTTP
       "IamRoleArn": "<роль>",
       "DeliveryStreamArn": "<поток_данных>"
     }
-  }
+  },
+  "MatchingEventTypes": [ "string" ]
 }
 ```
 
@@ -64,6 +65,17 @@ POST /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations HTTP
 `arn:yc:yds:ru-central1::https://yds.serverless.yandexcloud.net/ru-central1/b1gkgm9daf9605nj****/etn5nuveugdr18ak****:postbox`
 
 {% endcut %} ||
+|| `MatchingEventTypes` | **Тип**: array.
+
+Массив типов событий, для которых будет отправляться уведомление. Допустимые значения:
+- `SEND` — письмо отправлено;
+- `BOUNCE` — письмо не доставлено;
+- `SUBSCRIPTION` — подписка на рассылку;
+- `DELIVERY` — письмо доставлено;
+- `DELIVERY_DELAY` — задержка доставки письма;
+- `OPEN` — письмо открыто;
+- `CLICK` — переход по ссылке в письме.
+||
 |#
 
 ## Ответы {#responses}

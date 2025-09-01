@@ -60,7 +60,7 @@ Billable service costs are calculated based on the amount of consumed resources 
 * [{{ mgl-full-name }}](../managed-gitlab/pricing.md)
 * [{{ mgp-full-name }}](../managed-greenplum/pricing/index.md)
 * [{{ managed-k8s-full-name }}®](../managed-kubernetes/pricing.md)
-* [{{ mmg-full-name }}](../managed-mongodb/pricing.md)
+* [{{ mmg-full-name }}](../storedoc/pricing.md)
 * [{{ mmy-full-name }}](../managed-mysql/pricing.md)
 * [{{ mos-full-name }}](../managed-opensearch/pricing.md)
 * [{{ mpg-full-name }}](../managed-postgresql/pricing.md)

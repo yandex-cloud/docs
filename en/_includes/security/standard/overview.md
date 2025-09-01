@@ -33,7 +33,7 @@ The recommendations are designed for solution architects, technical specialists,
 * [{{ mch-full-name }}](../../../managed-clickhouse/)
 * [{{ mgl-full-name }}](../../../managed-gitlab/)
 * [{{ managed-k8s-full-name }}](../../../managed-kubernetes/)
-* [{{ mmg-full-name }}](../../../managed-mongodb/)
+* [{{ mmg-full-name }}](../../../storedoc/)
 * [{{ mmy-full-name }}](../../../managed-mysql/)
 * [{{ mpg-full-name }}](../../../managed-postgresql/)
 * [{{ mrd-full-name }}](../../../managed-redis/)

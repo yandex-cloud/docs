@@ -1544,7 +1544,7 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../managed-kubernetes/security/index.md).
 
 
-## {{ mmg-full-name }} {#managed-mongodb-roles}
+## {{ mmg-full-name }} {#storedoc-roles}
 
 #### managed-mongodb.auditor {#managed-mongodb-auditor}
 
@@ -1562,7 +1562,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-mongodb.admin](../_roles/managed-mongodb/admin.md) %}
 
-Подробнее см. [{#T}](../managed-mongodb/security/index.md).
+Подробнее см. [{#T}](../storedoc/security/index.md).
 
 
 ## {{ mmy-full-name }} {#managed-mysql-roles}
@@ -1626,6 +1626,27 @@ description: В статье приведен полный справочник 
 {% include [managed-postgresql.admin](../_roles/managed-postgresql/admin.md) %}
 
 Подробнее см. [{#T}](../managed-postgresql/security/index.md).
+
+
+## {{ mspqr-full-name }} {#mspqr-roles}
+
+#### managed-spqr.auditor {#managed-spqr-auditor}
+
+{% include [managed-spqr.auditor](../_roles/managed-spqr/auditor.md) %}
+
+#### managed-spqr.viewer {#managed-spqr-viewer}
+
+{% include [managed-spqr.viewer](../_roles/managed-spqr/viewer.md) %}
+
+#### managed-spqr.editor {#managed-spqr-editor}
+
+{% include [managed-spqr.editor](../_roles/managed-spqr/editor.md) %}
+
+#### managed-spqr.admin {#managed-spqr-admin}
+
+{% include [managed-spqr.admin](../_roles/managed-spqr/admin.md) %}
+
+Подробнее см. [{#T}](../managed-spqr/security.md).
 
 
 ## {{ mrd-full-name }} {#mrd-roles}

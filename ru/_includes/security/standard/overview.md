@@ -1,4 +1,4 @@
-# Стандарт по защите облачной инфраструктуры {{ yandex-cloud }} {{ security-standard-current-version }}
+# Стандарт по защите облачной инфраструктуры {{ yandex-cloud }}, версия {{ security-standard-current-version }}
 
 ## Введение {#intro}
 
@@ -33,7 +33,7 @@
 * [{{ mch-full-name }}](../../../managed-clickhouse/)
 * [{{ mgl-full-name }}](../../../managed-gitlab/)
 * [{{ managed-k8s-full-name }}](../../../managed-kubernetes/)
-* [{{ mmg-full-name }}](../../../managed-mongodb/)
+* [{{ mmg-full-name }}](../../../storedoc/)
 * [{{ mmy-full-name }}](../../../managed-mysql/)
 * [{{ mpg-full-name }}](../../../managed-postgresql/)
 * [{{ mrd-full-name }}](../../../managed-redis/)

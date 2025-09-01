@@ -86,6 +86,7 @@ description: Из статьи вы узнаете, как работать с {
 ## Авторизация и аутентификация {#auths}
 
 * [{#T}](./add-ssh.md)
+* [{#T}](./delete-ssh.md)
 * [{#T}](./enable-refresh-tokens.md)
 * [{#T}](./enable-2fa-access.md)
 

@@ -31,7 +31,7 @@ To add a new user (`user2`) to an existing cluster with read-only access to the 
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about how to create this file, see [Creating clusters](../../managed-mongodb/operations/cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](../../storedoc/operations/cluster-create.md).
 
    1. Add the `yandex_mdb_mongodb_user` resource.
 
@@ -89,7 +89,7 @@ To grant read-only access to the `db2` database to `user1` of `cluster1`:
 
    1. Open the current {{ TF }} configuration file with an infrastructure plan.
 
-      For more information about how to create this file, see [Creating clusters](../../managed-mongodb/operations/cluster-create.md).
+      For more information about how to create this file, see [Creating clusters](../../storedoc/operations/cluster-create.md).
 
    1. Find the `yandex_mdb_mongodb_user` resource.
    1. Add a `permission` section:

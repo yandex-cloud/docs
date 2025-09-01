@@ -28,9 +28,9 @@ go get go.mongodb.org/mongo-driver/mongo
 
          const DB_RS = "<replica_set_name>"
          const DB_NAME = "<DB_name>"
-         DB_HOSTS := []string {"<FQDN_of_{{ MG }}_host_1>:27018",
+         DB_HOSTS := []string {"<FQDN_of_Yandex_StoreDoc_host_1>:27018",
                                ...,
-                               "<FQDN_of_{{ MG }}_host_N>:27018"}
+                               "<FQDN_of_Yandex_StoreDoc_host_N>:27018"}
          const DB_USER = "<DB_username>"
          const DB_PASS = "<DB_user_password>"
 
@@ -74,9 +74,9 @@ go get go.mongodb.org/mongo-driver/mongo
 
          const DB_RS = "<replica_set_name>"
          const DB_NAME = "<DB_name>"
-         DB_HOSTS := []string {"<FQDN_of_{{ MG }}_host_1>:27018",
+         DB_HOSTS := []string {"<FQDN_of_Yandex_StoreDoc_host_1>:27018",
                                ...,
-                               "<FQDN_of_{{ MG }}_host_N>:27018"}
+                               "<FQDN_of_Yandex_StoreDoc_host_N>:27018"}
          const DB_USER = "<DB_username>"
          const DB_PASS = "<DB_user_password>"
 
@@ -118,7 +118,7 @@ go run connect.go
    sudo apt update && sudo apt install --yes default-jdk maven
    ```
 
-1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ MG }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password for additional storage security using the `-storepass` parameter:
+1. Add the SSL certificate to the Java trusted certificate store (Java Key Store) so that the {{ SD }} driver can use this certificate for secure connections to the cluster hosts. Make sure to set the password for additional storage security using the `-storepass` parameter:
 
    ```bash
    cd ~/.mongodb && \
@@ -247,9 +247,9 @@ go run connect.go
        final Integer DB_PORT = 27018;
 
        List DB_HOSTS = new ArrayList<ServerAddress>();
-       DB_HOSTS.add(new ServerAddress("<FQDN_of_{{ MG }}_host_1>", DB_PORT));
+       DB_HOSTS.add(new ServerAddress("<FQDN_of_Yandex_StoreDoc_host_1>", DB_PORT));
        ...,
-       DB_HOSTS.add(new ServerAddress("<FQDN_of_{{ MG }}_host_N>", DB_PORT));
+       DB_HOSTS.add(new ServerAddress("<FQDN_of_Yandex_StoreDoc_host_N>", DB_PORT));
 
        final String DB_NAME = "<DB_name>";
        final String DB_USER = "<DB_username>";
@@ -286,9 +286,9 @@ go run connect.go
        final Integer DB_PORT = 27018;
 
        List DB_HOSTS = new ArrayList<ServerAddress>();
-       DB_HOSTS.add(new ServerAddress("<FQDN_of_{{ MG }}_host_1>", DB_PORT));
+       DB_HOSTS.add(new ServerAddress("<FQDN_of_Yandex_StoreDoc_host_1>", DB_PORT));
        ...,
-       DB_HOSTS.add(new ServerAddress("<FQDN_of_{{ MG }}_host_N>", DB_PORT));
+       DB_HOSTS.add(new ServerAddress("<FQDN_of_Yandex_StoreDoc_host_N>", DB_PORT));
 
        final String DB_NAME = "<DB_name>";
        final String DB_USER = "<DB_username>";
@@ -340,9 +340,9 @@ npm install mongodb
 
    const DB_RS = '<replica_set_name>'
    const DB_NAME = '<DB_name>'
-   const DB_HOSTS = ['<FQDN_of_{{ MG }}_host_1>:27018',
+   const DB_HOSTS = ['<FQDN_of_Yandex_StoreDoc_host_1>:27018',
                      ...,
-                     '<FQDN_of_{{ MG }}_host_N>:27018']
+                     '<FQDN_of_Yandex_StoreDoc_host_N>:27018']
    const DB_USER  = '<DB_username>'
    const DB_PASS  = '<DB_user_password>'
    const CACERT   = '/home/<home_directory>/.mongodb/root.crt'
@@ -378,9 +378,9 @@ npm install mongodb
 
    const DB_RS = '<replica_set_name>'
    const DB_NAME = '<DB_name>'
-   const DB_HOSTS = ['<FQDN_of_{{ MG }}_host_1>:27018',
+   const DB_HOSTS = ['<FQDN_of_Yandex_StoreDoc_host_1>:27018',
                      ...
-                     '<FQDN_of_{{ MG }}_host_N>:27018']
+                     '<FQDN_of_Yandex_StoreDoc_host_N>:27018']
    const DB_USER  = '<DB_username>'
    const DB_PASS  = '<DB_user_password>'
 
@@ -431,7 +431,7 @@ sudo apt update && sudo apt install --yes php php-mongodb
    <?php
      $DB_RS    = '<replica_set_name>';
      $DB_NAME  = '<DB_name>';
-     $DB_HOSTS = '<FQDN_of_{{ MG }}_host_1>:27018,...,<FQDN_of_{{ MG }}_host_N>:27018';
+     $DB_HOSTS = '<FQDN_of_Yandex_StoreDoc_host_1>:27018,...,<FQDN_of_Yandex_StoreDoc_host_N>:27018';
      $DB_USER  = '<DB_username>';
      $DB_PASS  = '<DB_user_password>';
      $CACERT   = '/home/<home_directory>/.mongodb/root.crt';
@@ -468,7 +468,7 @@ sudo apt update && sudo apt install --yes php php-mongodb
    <?php
      $DB_RS    = '<replica_set_name>';
      $DB_NAME  = '<DB_name>';
-     $DB_HOSTS = '<FQDN_of_{{ MG }}_host_1>:27018,...,<FQDN_of_{{ MG }}_host_N>:27018';
+     $DB_HOSTS = '<FQDN_of_Yandex_StoreDoc_host_1>:27018,...,<FQDN_of_Yandex_StoreDoc_host_N>:27018';
      $DB_USER  = '<DB_username>';
      $DB_PASS  = '<DB_user_password>';
 
@@ -536,9 +536,9 @@ rs.status().set
    DB_RS = '<replica_set_name>'
    DB_NAME = '<DB_name>'
    DB_HOSTS =','.join([
-         '<FQDN_of_{{ MG }}_host_1>:27018',
+         '<FQDN_of_Yandex_StoreDoc_host_1>:27018',
          ...,
-         '<FQDN_of_{{ MG }}_host_N>:27018'
+         '<FQDN_of_Yandex_StoreDoc_host_N>:27018'
        ])
    DB_USER = '<DB_username>'
    DB_PASS = '<DB_user_password>'
@@ -573,9 +573,9 @@ rs.status().set
    DB_RS = '<replica_set_name>'
    DB_NAME = '<DB_name>'
    DB_HOSTS =','.join([
-         '<FQDN_of_{{ MG }}_host_1>:27018',
+         '<FQDN_of_Yandex_StoreDoc_host_1>:27018',
          ...,
-         '<FQDN_of_{{ MG }}_host_N>:27018'
+         '<FQDN_of_Yandex_StoreDoc_host_N>:27018'
        ])
    DB_USER = '<DB_username>'
    DB_PASS = '<DB_user_password>'

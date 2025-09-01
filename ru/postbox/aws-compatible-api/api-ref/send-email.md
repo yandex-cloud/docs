@@ -18,6 +18,7 @@ POST /v2/email/outbound-emails HTTP/2
 
 ```json
 {
+  "ConfigurationSetName": "string",
   "FromEmailAddress": "<адрес_отправителя>",
   "FromEmailAddressIdentityArn": "<параметр_для_совместимости>",
   "Destination": {
@@ -77,6 +78,9 @@ POST /v2/email/outbound-emails HTTP/2
 
 #|
 || **Параметр** | **Описание** ||
+|| `ConfigurationSetName` | **Тип**: string.
+
+Имя конфигурации, которая используется для отправки письма. Если не указано, используется конфигурация, привязанная к адресу {{ postbox-name }}. ||
 || `FromEmailAddress` | **Тип**: string.
 
 Адрес, с которого отправляется письмо. Он должен быть верифицирован. ||
@@ -179,3 +183,4 @@ POST /v2/email/outbound-emails HTTP/2
 * [Как пользоваться Amazon S3 API для работы с {{ postbox-name }}](../index.md)
 * [Аутентификация в API {{ postbox-full-name }}](../../api-ref/authentication.md)
 * [Шаблонизация письма в {{ postbox-full-name }}](../../operations/send-templated-email.md)
+

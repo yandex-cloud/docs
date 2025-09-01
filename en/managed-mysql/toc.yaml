@@ -67,6 +67,8 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
+      - name: High availability cluster
+        href: concepts/high-availability.md
       - name: Network in Managed Service for MySQL
         href: concepts/network.md
       - name: Quotas and limits
