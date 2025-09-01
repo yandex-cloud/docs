@@ -39,7 +39,7 @@ description: This section contains {{ websql-name }} release notes.
 
 1. Added info on table columns in the connection tree.
 
-1. Improved command autocompletion in {{ MG }} connections.
+1. Improved command autocompletion in {{ SD }} connections.
 
 ## May {#may}
 
@@ -75,7 +75,7 @@ description: This section contains {{ websql-name }} release notes.
 
 1. Now you can run subqueries within a [muli-query](../operations/query-executor.md#multiple-queries) in all available database types.
 
-1. Added support for {{ MG }} and {{ mtr-full-name }} connections ({{ mtr-full-name }} is currently at the [Preview](../../overview/concepts/launch-stages.md) stage).
+1. Added support for {{ SD }} and {{ mtr-full-name }} connections ({{ mtr-full-name }} is currently at the [Preview](../../overview/concepts/launch-stages.md) stage).
 
 ## February {#february}
 

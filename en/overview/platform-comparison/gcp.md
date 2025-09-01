@@ -56,7 +56,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Instance groups | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
 | Kubernetes Engine | [{{managed-k8s-full-name}}](../../managed-kubernetes/) |
 | Looker Studio | [{{ datalens-full-name }}](../../datalens/) |
-| MongoDB Atlas | [{{ mmg-full-name }}](../../managed-mongodb/) |
+| MongoDB Atlas | [{{ mmg-full-name }}](../../storedoc/) |
 | Operations suite | [{{ monitoring-full-name }}](../../monitoring/) |
 | Resource Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
 | Secret Manager | [{{ lockbox-name }}](../../lockbox/) |

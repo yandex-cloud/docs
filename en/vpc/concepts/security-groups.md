@@ -46,7 +46,7 @@ Security groups can be used in the following {{ yandex-cloud }} service objects:
 | [{{ mgp-name }}](../../managed-greenplum/) | [Cluster](../../managed-greenplum/concepts/network.md#security-groups) |
 | [{{ mmy-name }}](../../managed-mysql/) | [Cluster](../../managed-mysql/concepts/network.md#security-groups) |
 | [{{ mrd-name }}](../../managed-redis/) | [Cluster](../../managed-redis/concepts/network.md#security-groups) |
-| [{{ mmg-name }}](../../managed-mongodb) | [Cluster](../../managed-mongodb/concepts/network.md#security-groups) |
+| [{{ mmg-name }}](../../storedoc) | [Cluster](../../storedoc/concepts/network.md#security-groups) |
 | [{{ mkf-name }}](../../managed-kafka/) | [Cluster](../../managed-kafka/concepts/network.md#security-groups) |
 | [{{ mos-name }}](../../managed-opensearch/) | [Cluster](../../managed-opensearch/concepts/network.md#security-groups) |
 | [{{ dataproc-name }}](../../data-proc/) | [Cluster](../../data-proc/concepts/network.md#security-groups) |

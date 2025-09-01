@@ -15,7 +15,7 @@ description: В этой статье сопоставляются сервис�
 | Amazon CloudWatch | [{{ monitoring-full-name }}](../../monitoring/) |
 | Amazon CloudWatch Logs | [{{ cloud-logging-full-name }}](../../logging/) |
 | Amazon CodeArtifact | [{{ cloud-registry-full-name }}](../../cloud-registry/) |
-| Amazon DocumentDB (with MongoDB compatibility) | [{{ mmg-full-name }}](../../managed-mongodb/) |
+| Amazon DocumentDB (with MongoDB compatibility) | [{{ mmg-full-name }}](../../storedoc/) |
 | Amazon DynamoDB | [{{ ydb-full-name }}](../../ydb/) |
 | Amazon EC2 Auto Scaling | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
 | Amazon Elastic Compute Cloud | [{{ compute-full-name }}](../../compute/) |

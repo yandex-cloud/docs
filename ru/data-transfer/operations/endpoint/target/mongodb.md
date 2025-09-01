@@ -19,12 +19,12 @@ description: Из статьи вы узнаете, как задать наст
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     
-    * [Миграция кластера {{ MG }}](../../../tutorials/managed-mongodb.md);
-    * [Миграция кластера {{ MG }} с версии 4.4 на 6.0](../../../tutorials/mongodb-versions.md).
+    * [Миграция кластера {{ MG }}](../../../tutorials/storedoc.md);
+    * [Миграция кластера {{ SD }} с версии 4.4 на 6.0](../../../tutorials/storedoc-versions.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     
-    * [Поставка данных из {{ KF }} в {{ MG }}](../../../tutorials/mkf-to-mmg.md).
+    * [Поставка данных из {{ KF }} в {{ SD }}](../../../tutorials/mkf-to-mmg.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 
@@ -58,7 +58,7 @@ description: Из статьи вы узнаете, как задать наст
 
 {% note warning %}
 
-Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `{{ roles.mmg.viewer }}`](../../../../managed-mongodb/security/index.md#mmg-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
+Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `{{ roles.mmg.viewer }}`](../../../../storedoc/security/index.md#mmg-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
 
 {% endnote %}
 

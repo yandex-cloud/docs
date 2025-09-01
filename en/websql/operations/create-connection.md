@@ -18,7 +18,7 @@ In {{ websql-full-name }}, you can connect to databases in the following cluster
 * [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-list.md)
 * [{{ mmy-full-name }}](../../managed-mysql/operations/cluster-list.md)
 * [{{ mrd-full-name }}](../../managed-redis/operations/cluster-list.md)
-* [{{ mmg-full-name }}](../../managed-mongodb/operations/cluster-list.md)
+* [{{ mmg-full-name }}](../../storedoc/operations/cluster-list.md)
 * [{{ mgp-full-name }}](../../managed-greenplum/operations/cluster-list.md).
 
 {% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}

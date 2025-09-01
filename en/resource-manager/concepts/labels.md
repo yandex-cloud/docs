@@ -62,7 +62,7 @@ Some service resources do not support labels, and some interfaces may not displa
 * [{{ mch-full-name }}](../../managed-clickhouse/index.yaml)
 * [{{ mes-full-name }}](../../managed-elasticsearch/index.yaml)
 * [{{ mgp-full-name }}](../../managed-greenplum/index.yaml)
-* [{{ mmg-full-name }}](../../managed-mongodb/index.yaml)
+* [{{ mmg-full-name }}](../../storedoc/index.yaml)
 * [{{ mmy-full-name }}](../../managed-mysql/index.yaml)
 * [{{ mos-full-name }}](../../managed-opensearch/index.yaml)
 * [{{ mpg-full-name }}](../../managed-postgresql/index.yaml)

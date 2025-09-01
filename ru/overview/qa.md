@@ -47,7 +47,7 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ mkf-full-name }}](../managed-kafka/qa/index.md)
 * [{{ mch-full-name }}](../managed-clickhouse/qa/all.md)
 * [{{ mgp-full-name }}](../managed-greenplum/qa/all.md)
-* [{{ mmg-full-name }}](../managed-mongodb/qa/all.md)
+* [{{ mmg-full-name }}](../storedoc/qa/all.md)
 * [{{ mmy-full-name }}](../managed-mysql/qa/all.md)
 * [{{ mos-full-name }}](../managed-opensearch/qa/index.md)
 * [{{ mpg-full-name }}](../managed-postgresql/qa/all.md)

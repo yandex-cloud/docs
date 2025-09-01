@@ -1,7 +1,7 @@
-# Sharding {{ MG }} collections
+# Sharding {{ SD }} collections
 
 
-When sharding a {{ mmg-name }} cluster, the following service hosts are automatically created, [billed](../../managed-mongodb/pricing.md) separately from the main DBMS hosts:
+When sharding a {{ mmg-name }} cluster, the following service hosts are automatically created, [billed](../../storedoc/pricing.md) separately from the main DBMS hosts:
 - either `MONGOS` and `MONGOCFG`
 - or `MONGOINFRA`
 
@@ -17,30 +17,30 @@ You should use sharding for:
 * Collections with non-uniform contents. For example, data can be clearly classified as frequently queried and rarely queried.
 * Collections requiring high read and write speeds. Sharding helps distribute workloads among hosts to bypass technical limitations.
 
-For more information about sharding, see [{#T}](../../managed-mongodb/concepts/sharding.md).
+For more information about sharding, see [{#T}](../../storedoc/concepts/sharding.md).
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes the fee for additional service hosts in the {{ mmg-name }} cluster (see [{{ MG }} pricing](../../managed-mongodb/pricing.md)).
+The support cost includes the fee for additional service hosts in the {{ mmg-name }} cluster (see [{{ SD }} pricing](../../storedoc/pricing.md)).
 
 
 ## How to enable collection sharding {#enable}
 
 {% note warning %}
 
-Run all your sharding setup commands via the `mongosh` CLI as a user with the [mdbShardingManager](../../managed-mongodb/concepts/users-and-roles.md#mdbShardingManager) role in the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
+Run all your sharding setup commands via the `mongosh` CLI as a user with the [mdbShardingManager](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) role in the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
 
 {% endnote %}
 
-1. [Enable sharding](../../managed-mongodb/operations/shards.md#enable) for the cluster.
-1. [Connect](../../managed-mongodb/operations/connect/index.md) to the `MONGOS` or `MONGOINFRA` host via the `mongosh` CLI and enable sharding:
+1. [Enable sharding](../../storedoc/operations/shards.md#enable) for the cluster.
+1. [Connect](../../storedoc/operations/connect/index.md) to the `MONGOS` or `MONGOINFRA` host via the `mongosh` CLI and enable sharding:
 
    ```text
    sh.enableSharding("<DB_name>")
    ```
 
-   You can request the host type with the [list of hosts in the cluster](../../managed-mongodb/operations/hosts.md#list-hosts).
+   You can request the host type with the [list of hosts in the cluster](../../storedoc/operations/hosts.md#list-hosts).
 
 1. Define an index for the sharded collection:
 
@@ -75,7 +75,7 @@ Let's say you already have a sharded {{ mmg-name }} cluster with a `billing` dat
 
 Sequence of operations:
 
-1. [Connect](../../managed-mongodb/operations/connect/index.md) to the `billing` database. Make sure that the user connecting to the database has the [mdbShardingManager](../../managed-mongodb/concepts/users-and-roles.md#mdbShardingManager) role in the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
+1. [Connect](../../storedoc/operations/connect/index.md) to the `billing` database. Make sure that the user connecting to the database has the [mdbShardingManager](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) role in the [admin](https://docs.mongodb.com/manual/reference/glossary/#term-admin-database) database.
 1. Enable sharding for the `billing` database:
 
    ```text

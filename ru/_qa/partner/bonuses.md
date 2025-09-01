@@ -23,7 +23,7 @@
 
   * [{{ marketplace-full-name }}](/marketplace)
   * [{{ mes-full-name }}](../../managed-elasticsearch/)
-  * [{{ mmg-full-name }}](../../managed-mongodb/)
+  * [{{ mmg-full-name }}](../../storedoc/)
   * [{{ interconnect-full-name }}](../../interconnect/)
 
 * к грантам, выданным на сабаккаунты.

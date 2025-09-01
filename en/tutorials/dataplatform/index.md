@@ -79,13 +79,13 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](elasticsearch-to-opensearch.md)
 * [{#T}](migration-via-snapshots.md)
 
-## {{ MG }} {#mongodb}
+## {{ MG }}/{{ SD }} {#mongodb}
 
 * [{#T}](mongodb-migration-with-data-transfer.md)
-* [{#T}](mongodb-data-migration.md)
-* [{#T}](mongodb-versions.md)
-* [{#T}](mongodb-sharding.md)
-* [{#T}](mongodb-profiling.md)
+* [{#T}](storedoc-data-migration.md)
+* [{#T}](storedoc-versions.md)
+* [{#T}](storedoc-sharding.md)
+* [{#T}](storedoc-profiling.md)
 * [{#T}](data-transfer-mkf-mmg.md)
 
 

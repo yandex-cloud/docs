@@ -8,7 +8,7 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер-приемник {{ mmg-name }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ MG }}](../../managed-mongodb/pricing.md)).
+* Плата за кластер-приемник {{ mmg-name }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ MG }}](../../storedoc/pricing.md)).
 * Плата за каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 * Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
@@ -19,7 +19,7 @@
 
 ## Миграция данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
-{% include notitle [MMG collections migration with Data Transfer](datatransfer/managed-mongodb.md) %}
+{% include notitle [MMG collections migration with Data Transfer](datatransfer/storedoc.md) %}
 
 ## Пример миграции коллекции {#example}
 
@@ -80,17 +80,17 @@
 
 - Нешардированный кластер-приемник {#non-sharded}
 
-  1. [Создайте кластер](../../managed-mongodb/operations/cluster-create.md) {{ mmg-name }} любой подходящей конфигурации.
-  1. [Создайте базу данных](../../managed-mongodb/operations/databases.md#add-db) `db1`.
-  1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) `user_transfer` с ролью [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) на созданную базу.
+  1. [Создайте кластер](../../storedoc/operations/cluster-create.md) {{ mmg-name }} любой подходящей конфигурации.
+  1. [Создайте базу данных](../../storedoc/operations/databases.md#add-db) `db1`.
+  1. [Создайте пользователя](../../storedoc/operations/cluster-users.md#adduser) `user_transfer` с ролью [`readWrite`](../../storedoc/concepts/users-and-roles.md#readWrite) на созданную базу.
   
 - Шардированный кластер-приемник {#sharded}
 
-  1. [Создайте кластер](../../managed-mongodb/operations/cluster-create.md) {{ mmg-name }} любой подходящей конфигурации. В кластере должно быть не менее двух хостов.
-  1. [Включите шардирование](../../managed-mongodb/operations/shards.md).
-  1. [Создайте базу данных](../../managed-mongodb/operations/databases.md#add-db) `db1`.
-  1. [Создайте пользователя](../../managed-mongodb/operations/cluster-users.md#adduser) `user_transfer` с ролью [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) на созданную базу и ролью [`mdbShardingManager`](../../managed-mongodb/concepts/users-and-roles.md#mdbShardingManager) на служебную базу `admin`.
-  1. Следуя [инструкции](../../managed-mongodb/tutorials/sharding.md), создайте и настройте в базе `db1` пустую шардированную коллекцию `collection1`.
+  1. [Создайте кластер](../../storedoc/operations/cluster-create.md) {{ mmg-name }} любой подходящей конфигурации. В кластере должно быть не менее двух хостов.
+  1. [Включите шардирование](../../storedoc/operations/shards.md).
+  1. [Создайте базу данных](../../storedoc/operations/databases.md#add-db) `db1`.
+  1. [Создайте пользователя](../../storedoc/operations/cluster-users.md#adduser) `user_transfer` с ролью [`readWrite`](../../storedoc/concepts/users-and-roles.md#readWrite) на созданную базу и ролью [`mdbShardingManager`](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) на служебную базу `admin`.
+  1. Следуя [инструкции](../../storedoc/tutorials/sharding.md), создайте и настройте в базе `db1` пустую шардированную коллекцию `collection1`.
 
 {% endlist %}
 
@@ -156,7 +156,7 @@
   1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
   1. Переведите кластер-источник в режим <q>только чтение</q> и переключите нагрузку на кластер-приемник.
   1. На странице [мониторинга трансфера](../../data-transfer/operations/monitoring.md) дождитесь снижения до нуля характеристики **Maximum data transfer delay**. Это значит, что на кластер-приемник перенесены все изменения, произошедшие в кластере-источнике после завершения копирования данных.
-  1. [Подключитесь](../../managed-mongodb/operations/connect/index.md) к кластеру-приемнику.
+  1. [Подключитесь](../../storedoc/operations/connect/index.md) к кластеру-приемнику.
   1. Проверьте, что коллекция `collection1` перенесена и количество документов в ней равно 200 000, как в кластере-источнике:
   
      ```javascript
@@ -174,7 +174,7 @@
   1. Дождитесь перехода трансфера в статус {{ dt-status-repl }}.
   1. Переведите кластер-источник в режим <q>только чтение</q> и переключите нагрузку на кластер-приемник.
   1. На странице [мониторинга трансфера](../../data-transfer/operations/monitoring.md) дождитесь снижения до нуля характеристики **Maximum data transfer delay**. Это значит, что на кластер-приемник перенесены все изменения, произошедшие в кластере-источнике после завершения копирования данных.
-  1. [Подключитесь](../../managed-mongodb/operations/connect/index.md) к кластеру-приемнику.
+  1. [Подключитесь](../../storedoc/operations/connect/index.md) к кластеру-приемнику.
   1. Проверьте, что коллекция `collection1` перенесена, количество документов в ней равно 200 000, как в кластере-источнике, и документы распределены по шардам:
        
       ```javascript
@@ -224,4 +224,4 @@
 
 1. [Удалите](../../data-transfer/operations/transfer.md#delete) остановленный трансфер.
 1. [Удалите эндпоинты для источника и приемника](../../data-transfer/operations/endpoint/index.md#delete).
-1. [Удалите созданный кластер {{ mmg-name }}](../../managed-mongodb/operations/cluster-delete.md).
+1. [Удалите созданный кластер {{ mmg-name }}](../../storedoc/operations/cluster-delete.md).

@@ -58,7 +58,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
    * Deprecated and removed features, especially related to ​​security:
 
       ```sql
-      -- Testing authentication mechanisms
+      -- Checking authentication
       SELECT user, host, plugin 
       FROM mysql.user 
       WHERE user NOT LIKE 'mysql.%';
@@ -96,7 +96,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
 1. [Create a backup](cluster-backups.md) of the main cluster just before the upgrade.
 
-1. Ensure cluster fault tolerance:
+1. Ensure [high availability](../concepts/high-availability.md) of the cluster:
    
    1. Make sure the main and test clusters have at least two replica hosts and one master host. [Add hosts](hosts.md#add) as needed.
    1. Optionally, check replication status and latency:
@@ -164,7 +164,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      For more information about creating this file, see [this guide](cluster-create.md).
 
    1. Add the `version` field to the `yandex_mdb_mysql_cluster` resource or change the field value if it already exists:
 
@@ -222,11 +222,11 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -267,7 +267,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+   1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -287,7 +287,7 @@ Let's look at a case where a cluster is upgraded from version 5.7 to 8.0. This s
       {{ yc-mdb-my }} cluster list
       ```
 
-      Result example:
+      Sample result:
 
       ```text
       +----------------------+------------+---------------------+--------+---------+

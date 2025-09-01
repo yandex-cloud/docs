@@ -31,6 +31,8 @@ items:
         href: concepts/notification.md
       - name: Отслеживание открытия писем
         href: concepts/mail-opened.md
+      - name: Отслеживание переходов по ссылкам в письмах
+        href: concepts/click-tracking.md
       - name: Механизм отписки от рассылок
         href: concepts/unsubscribe.md
       - name: Термины и определения

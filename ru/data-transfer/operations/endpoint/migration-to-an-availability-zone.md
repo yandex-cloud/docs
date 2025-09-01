@@ -34,7 +34,7 @@ description: Следуя данной инструкции, вы сможете
 1. Перенесите хосты кластера в другую зону доступности. Подробнее см. в документации сервисов:
 
    * [{{ mch-full-name }}](../../../managed-clickhouse/operations/host-migration.md);
-   * [{{ mmg-full-name }}](../../../managed-mongodb/operations/host-migration.md);
+   * [{{ mmg-full-name }}](../../../storedoc/operations/host-migration.md);
    * [{{ mmy-full-name }}](../../../managed-mysql/operations/host-migration.md);
    * [{{ mos-full-name }}](../../../managed-opensearch/operations/host-migration.md);
    * [{{ mpg-full-name }}](../../../managed-postgresql/operations/host-migration.md);

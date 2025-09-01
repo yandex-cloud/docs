@@ -7,7 +7,7 @@ description: Из статьи вы узнаете, какие задачи ре
 
 ## Тестирование {{ yandex-cloud }} {#testing}
 
-Сервис {{ data-transfer-name }} позволяет протестировать работу с сервисами [{{ mmg-full-name }}](../../managed-mongodb/), [{{ mmy-full-name }}](../../managed-mysql/) и [{{ mpg-full-name }}](../../managed-postgresql/) на реальных данных.
+Сервис {{ data-transfer-name }} позволяет протестировать работу с сервисами [{{ mmg-full-name }}](../../storedoc/), [{{ mmy-full-name }}](../../managed-mysql/) и [{{ mpg-full-name }}](../../managed-postgresql/) на реальных данных.
 
 Например, с помощью {{ data-transfer-name }} вы можете подключить к вашему приложению копии баз данных, размещенных в этих сервисах. {{ data-transfer-name }} будет поддерживать копии в актуальном состоянии.
 

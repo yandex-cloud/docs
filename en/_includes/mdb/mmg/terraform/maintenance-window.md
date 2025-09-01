@@ -1,4 +1,4 @@
-To set up the [maintenance window](../../../../managed-mongodb/concepts/maintenance.md) (for disabled clusters as well), add the `maintenance_window` block to the cluster description:
+To set up the [maintenance window](../../../../storedoc/concepts/maintenance.md) (for disabled clusters as well), add the `maintenance_window` block to the cluster description:
 
 ```hcl
 resource "yandex_mdb_mongodb_cluster" "<cluster_name>" {

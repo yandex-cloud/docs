@@ -99,7 +99,7 @@ items:
             href: tutorials/yds-to-kafka.md
           - name: Поставка из {{ KF }} в {{ GP }}
             href: tutorials/managed-kafka-to-greenplum.md
-          - name: Поставка из {{ KF }} в {{ MG }}
+          - name: Поставка из {{ KF }} в {{ SD }}
             href: tutorials/mkf-to-mmg-migration.md
           - name: Поставка из {{ MY }} в {{ KF }}
             href: tutorials/cdc/cdc-mmy.md

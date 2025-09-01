@@ -3533,7 +3533,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 * Добавлена поддержка создания кластера с версией {{ MG }} 4.4.
 * Команды `{{ yc-mdb-mg }} cluster update` и `{{ yc-mdb-mg }} cluster enable-sharding`.
 
-  Для [шардированных](../managed-mongodb/concepts/sharding.md) кластеров появилась возможность задавать тип хоста: `mongoinfra`.
+  Для [шардированных](../storedoc/concepts/sharding.md) кластеров появилась возможность задавать тип хоста: `mongoinfra`.
 
 
 #### {{ certificate-manager-name }} {#certificate-manager}
@@ -4461,7 +4461,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 * Команды `{{ yc-mdb-mg }} cluster update` и `{{ yc-mdb-mg }} cluster update-config`.
 
-  Для [шардированных](../managed-mongodb/concepts/sharding.md) кластеров появилась возможность изменять параметры компонентов `mongos` и `mongocfg`.
+  Для [шардированных](../storedoc/concepts/sharding.md) кластеров появилась возможность изменять параметры компонентов `mongos` и `mongocfg`.
 
 ### Версия 0.31.0 (01.07.19) {#version0.31.0}
 

@@ -846,5 +846,5 @@
 1. [Удалите](../../container-registry/operations/docker-image/docker-image-delete.md) образ из реестра `app-registry`.
 1. [Удалите](../../container-registry/operations/registry/registry-delete.md) реестр `app-registry`.
 1. [Удалите](../../lockbox/operations/secret-delete.md) секрет `mongodb-creds`.
-1. [Удалите](../../managed-mongodb/operations/cluster-delete.md) ВМ `mongo-vm`.
+1. [Удалите](../../storedoc/operations/cluster-delete.md) ВМ `mongo-vm`.
 1. [Удалите](../../iam/operations/sa/delete.md) сервисный аккаунт `mongo-express`.

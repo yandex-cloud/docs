@@ -30,7 +30,7 @@
             ],
             "key2": [
                 "value2"
-            ],
+            ]
         }
     },
     "send": {  },
@@ -64,7 +64,7 @@
             ],
             "key2": [
                 "value2"
-            ],
+            ]
         }
     },
     "bounce": null,
@@ -105,7 +105,7 @@
             ],
             "key2": [
                 "value2"
-            ],
+            ]
         }
     },
     "bounce": {
@@ -152,13 +152,60 @@
             ],
             "key2": [
                 "value2"
-            ],
+            ]
         }
     },
     "open": {
         "ipAddress": "192.0.2.1",
         "timestamp": "2024-04-25T18:08:04.933666+03:00",
         "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60"
+    },
+    "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
+}
+```
+
+### Уведомление о том, что перешли по ссылке в письме {#click}
+
+Приходит, когда получатель перешел по ссылке в письме.
+
+Пример уведомления:
+
+```json
+{
+    "eventType": "Click",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using {{ postbox-full-name }}"
+        },
+        "tags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "click": {
+        "ipAddress": "192.0.2.1",
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60",
+        "url": "https://example.com/some-link",
+        "linkTags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
     },
     "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
 }
@@ -190,7 +237,7 @@
             ],
             "key2": [
                 "value2"
-            ],
+            ]
         }
     },
     "deliveryDelay": {
@@ -232,7 +279,7 @@
             ],
             "key2": [
                 "value2"
-            ],
+            ]
         }
     },
     "subscription": {
@@ -301,6 +348,16 @@
 `status` | Строка | Необязательное поле. SMTP-код ответа.
 `diagnosticCode` | Строка | Необязательное поле. Расширенный текст ошибки. Может содержать текст ошибки от почтового клиента получателя.
 
+### Объект Click {#click-object}
+
+Название | Тип | Описание
+--- | --- | ---
+`ipAddress` | Строка | IP-адрес устройства получателя, с которого перешли по ссылке.
+`timestamp` | Строка | Дата в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`). Время, когда получатель перешел по ссылке.
+`userAgent` | Строка | Идентификационная строка (`User-Agent`) устройства или почтового клиента, с которого перешли по ссылке.
+`url` | Строка | Оригинальный URL, по которому перешел получатель.
+`linkTags` | Объект | Объект, который содержит теги, добавленные к ссылке.
+
 ### Объект Delivery {#delivery-object}
 
 Название | Тип | Описание
@@ -335,7 +392,7 @@
 
 Название | Тип | Описание
 --- | --- | ---
-`ipAddress` | Строка | IP-адрес получателя.
+`ipAddress` | Строка | IP-адрес устройства получателя, с которого было открыто письмо.
 `timestamp` | Строка | Дата в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`). Время, когда письмо было открыто.
 `userAgent` | Строка | Идентификационная строка (`User-Agent`) устройства или почтового клиента, с которого было открыто письмо.
 

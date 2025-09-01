@@ -1,4 +1,4 @@
-Before creating a connection, make sure you have selected the right folder. If you have access to {{ PG }}, {{ CH }}, {{ MY }}, {{ GP }}, {{ VLK }}, or {{ MG }} clusters previously created in that folder, they will automatically appear in the **{{ yandex-cloud }} connections** subsection. You will only need to create a connection to the appropriate database in the cluster.
+Before creating a connection, make sure you have selected the right folder. If you have access to {{ PG }}, {{ CH }}, {{ MY }}, {{ GP }}, {{ VLK }}, or {{ SD }} clusters previously created in that folder, they will automatically appear in the **{{ yandex-cloud }} connections** subsection. You will only need to create a connection to the appropriate database in the cluster.
 
 {% note info %}
 
@@ -14,7 +14,7 @@ To create a connection to a managed database cluster:
 1. Open {{ websql-full-name }} [**Connections**]({{ websql-link }}).
 1. Under ![image](../../_assets/console-icons/folder-tree.svg) **Connections**, click ![image](../../_assets/console-icons/square-plus.svg).
 1. **Name** the connection.
-1. In the **Database type** field, select the database you need: {{ PG }}, {{ CH }}, {{ MY }}, {{ VLK }}, {{ MG }}, or {{ GP }}.
+1. In the **Database type** field, select the database you need: {{ PG }}, {{ CH }}, {{ MY }}, {{ VLK }}, {{ SD }}, or {{ GP }}.
 1. In the **Cluster folder** field, select the folder hosting the required cluster.
 1. In the **Cluster** field, select the managed database cluster you want to connect to. 
 1. Specify the **Username** you will use to connect to cluster databases.

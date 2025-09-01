@@ -31,7 +31,7 @@
   * [Используйте {{ iot-name }} как основу вашей разработки умного дома](../iot-core/quickstart.md).
 * Базы данных и кластеры баз данных:
   * [{{ CH }}](../managed-clickhouse/quickstart.md).
-  * [{{ MG }}](../managed-mongodb/quickstart.md).
+  * [{{ SD }}](../storedoc/quickstart.md).
   * [{{ MY }}](../managed-mysql/quickstart.md).
   * [{{ VLK }}](../managed-redis/quickstart.md).
   * [{{ PG }}](../managed-postgresql/quickstart.md).

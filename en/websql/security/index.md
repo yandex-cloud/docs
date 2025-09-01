@@ -113,7 +113,7 @@ Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an or
 Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
-Viewing information on {{ MG }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ SD }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ GP }} connections | `{{ roles.mgp.viewer }}` for an organization, cloud, or folder
 Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
 Viewing metadata of published queries | `websql.auditor` for an organization, cloud, or folder
@@ -124,7 +124,7 @@ Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an or
 Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
-Viewing information on {{ MG }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ SD }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ GP }} connections | `{{ roles.mgp.viewer }}` for an organization, cloud, or folder
 Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
 Running queries | `websql.user` for an organization, cloud, or folder
@@ -135,7 +135,7 @@ Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an or
 Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
-Viewing information on {{ MG }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ SD }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ GP }} connections | `{{ roles.mgp.viewer }}` for an organization, cloud, or folder
 Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
 Running, publishing, and editing queries | `websql.editor` for an organization, cloud, or folder
@@ -146,7 +146,7 @@ Viewing information on {{ PG }} connections | `{{ roles.mpg.viewer }}` for an or
 Viewing information on {{ MY }} connections | `{{ roles.mmy.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ CH }} connections | `{{ roles.mch.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ VLK }} connections | `{{ roles.mrd.viewer }}` for an organization, cloud, or folder
-Viewing information on {{ MG }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
+Viewing information on {{ SD }} connections | `{{ roles.mmg.viewer }}` for an organization, cloud, or folder
 Viewing information on {{ GP }} connections | `{{ roles.mgp.viewer }}` for an organization, cloud, or folder
 Viewing information on [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) connections (the service is at the [Preview](../../overview/concepts/launch-stages.md) stage): | `managed-trino.viewer` for an organization, cloud, or folder
 Running, publishing, and editing queries and managing access permissions to them | `websql.admin` for an organization, cloud, or folder
