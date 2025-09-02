@@ -12,6 +12,11 @@ apiPlayground:
             **string**
             Required field. ID of the folder to find out the backup provider.
           type: string
+        instanceRegistrationId:
+          description: |-
+            **string**
+            instance registration token for authorization
+          type: string
       required:
         - folderId
       additionalProperties: false
@@ -37,6 +42,9 @@ GET https://backup.{{ api-host }}/backup/v1/providers
 || folderId | **string**
 
 Required field. ID of the folder to find out the backup provider. ||
+|| instanceRegistrationId | **string**
+
+instance registration token for authorization ||
 |#
 
 ## Response {#yandex.cloud.backup.v1.ListActivatedProvidersResponse}

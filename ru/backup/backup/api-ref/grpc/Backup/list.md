@@ -15,7 +15,7 @@ List backups using filters.
 
 ```json
 {
-  // Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`
+  // Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`
   "compute_instance_id": "string",
   "archive": {
     "archive_id": "string",
@@ -28,6 +28,10 @@ List backups using filters.
   },
   "resource_id": "string",
   "policy_id": "string",
+  "backup": {
+    "backup_id": "string",
+    "folder_id": "string"
+  },
   // end of the list of possible fields
   "order_by": "string",
   "filter": "string",
@@ -43,32 +47,37 @@ List backups using filters.
 
 List backups that belongs to specific Compute Cloud instance.
 
-Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`. ||
+Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`. ||
 || archive | **[ArchiveParameters](#yandex.cloud.backup.v1.ListBackupsRequest.ArchiveParameters)**
 
 List backups that belongs to specific archive of specific folder.
 
-Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`. ||
+Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`. ||
 || folder_id | **string**
 
 List backups that belongs to specific folder.
 
-Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`. ||
+Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`. ||
 || instance_policy | **[InstancePolicy](#yandex.cloud.backup.v1.ListBackupsRequest.InstancePolicy)**
 
 List backups that belongs to specific instance and policy at the same time.
 
-Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`. ||
+Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`. ||
 || resource_id | **string**
 
 List backups by specific resource ID.
 
-Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`. ||
+Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`. ||
 || policy_id | **string**
 
 List backups by specific policy ID.
 
-Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`. ||
+Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`. ||
+|| backup | **[BackupParameters](#yandex.cloud.backup.v1.ListBackupsRequest.BackupParameters)**
+
+List backups by specific backup ID.
+
+Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`. ||
 || order_by | **string**
 
 By which column the listing should be ordered and in which direction,
@@ -120,6 +129,18 @@ Compute Cloud instance ID. ||
 || policy_id | **string**
 
 Policy ID. ||
+|#
+
+## BackupParameters {#yandex.cloud.backup.v1.ListBackupsRequest.BackupParameters}
+
+#|
+||Field | Description ||
+|| backup_id | **string**
+
+Required field.  ||
+|| folder_id | **string**
+
+Required field.  ||
 |#
 
 ## ListBackupsResponse {#yandex.cloud.backup.v1.ListBackupsResponse}

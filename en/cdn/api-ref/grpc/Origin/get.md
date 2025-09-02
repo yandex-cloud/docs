@@ -91,7 +91,7 @@ A backup origin is used when one of active origins becomes unavailable. ||
 Set up origin of the content. ||
 || provider_type | **string**
 
-RESERVED: This field is reserved for future use and should not be used at this time. ||
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}

@@ -17,7 +17,8 @@ Activate provider for specified client.
 {
   "folder_id": "string",
   "name": "string",
-  "skip_default_policy": "bool"
+  "skip_default_policy": "bool",
+  "instance_registration_id": "string"
 }
 ```
 
@@ -34,6 +35,9 @@ For more information, please see [activate-provider](/docs/backup/quickstart#act
 || skip_default_policy | **bool**
 
 Don't create default policies while activating the provider. ||
+|| instance_registration_id | **string**
+
+instance registration token for authorization ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

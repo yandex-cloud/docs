@@ -1,6 +1,6 @@
 Стоимость транскодирования видео — `100 минут` (взимается однократно при загрузке видео):
 
-> 100 × 1,08 ₽ = 108 ₽
+> 100 × {{ sku|RUB|video.transcoding.vod.v1|string }} = {% calc [currency=RUB] 100  × {{ sku|RUB|video.transcoding.vod.v1|number }} %}
 
 Стоимость хранения оригинала видео — `5 ГБ` и потокового видео — `8 ГБ`:
 
@@ -14,4 +14,4 @@
 
 Общая стоимость услуг сервиса за месяц составит:
 
-> 108 ₽ + {% calc [currency=RUB] 5 × {{ sku|RUB|storage.bucket.used_space.ice|month|number }} %} + {% calc [currency=RUB] 8 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|number }} %} + {% calc [currency=RUB] 50 × {{ sku|RUB|video.cdn.traffic.egress|number }} %} = {% calc [currency=RUB] 108 + 5 × {{ sku|RUB|storage.bucket.used_space.ice|month|number }} + 8 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|number }} + 50 × {{ sku|RUB|video.cdn.traffic.egress|number }} %}
+> {% calc [currency=RUB] 100  × {{ sku|RUB|video.transcoding.vod.v1|number }} %} + {% calc [currency=RUB] 5 × {{ sku|RUB|storage.bucket.used_space.ice|month|number }} %} + {% calc [currency=RUB] 8 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|number }} %} + {% calc [currency=RUB] 50 × {{ sku|RUB|video.cdn.traffic.egress|number }} %} = {% calc [currency=RUB] 100  × {{ sku|RUB|video.transcoding.vod.v1|number }} + 5 × {{ sku|RUB|storage.bucket.used_space.ice|month|number }} + 8 × {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|number }} + 50 × {{ sku|RUB|video.cdn.traffic.egress|number }} %}

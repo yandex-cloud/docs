@@ -82,6 +82,7 @@ To quickly populate empty cells in a Google Sheets spreadsheet:
 
 {% endcut %}
 
+
 ## Limitations {#restrictions}
 
 When creating a connection to Google Sheets, keep in mind the following limitations:

@@ -68,7 +68,11 @@ apiPlayground:
         providerType:
           description: |-
             **string**
-            RESERVED: This field is reserved for future use and should not be used at this time.
+            Set up resource provider
+            It has two possible values:
+            ourcdn - Based on Yandex technologies
+            gcore - Based on an external partner infrastructure
+            Default value: ourcdn
           type: string
       required:
         - folderId
@@ -167,7 +171,7 @@ apiPlayground:
           providerType:
             description: |-
               **string**
-              RESERVED: This field is reserved for future use and should not be used at this time.
+              Type of the CDN provider for this origin group.
             type: string
       SecondaryHostnames:
         type: object
@@ -880,7 +884,14 @@ SSL Certificate options. ||
 Labels of the resource. ||
 || providerType | **string**
 
-RESERVED: This field is reserved for future use and should not be used at this time. ||
+Set up resource provider
+
+It has two possible values:
+
+ourcdn - Based on Yandex technologies
+gcore - Based on an external partner infrastructure
+
+Default value: ourcdn ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.CreateResourceRequest.Origin}
@@ -1780,10 +1791,10 @@ SSL certificate options. ||
 Labels of the resource. ||
 || providerType | **string**
 
-RESERVED: This field is reserved for future use and should not be used at this time. ||
+Type of the CDN provider for this resource. ||
 || providerCname | **string**
 
-RESERVED: Provider CNAME. ||
+CNAME provided by the CDN provider for this resource. ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions2}

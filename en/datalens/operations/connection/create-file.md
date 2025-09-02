@@ -7,7 +7,7 @@ description: Follow this guide to create a connection to a file.
 
 To create a connection to a file:
 
-1. Open the [new connection creation page]({{ link-datalens-main }}/connections/new).
+1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
 1. Under **Files and services**, select the **Files** connection.
 1. Click **Upload files** and select the file. The information about the added file and the uploaded data will be displayed at the center of the screen.
 
@@ -52,6 +52,7 @@ To create a connection to a file:
 1. Enter a name for the connection and click **Create**.
 
 You can add, rename, [replace](#file-replace), and delete existing files in the connection.
+
 
 ## File replacement {#file-replace}
 

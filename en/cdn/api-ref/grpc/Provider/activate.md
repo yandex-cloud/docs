@@ -5,7 +5,7 @@ sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/Provider/activate.md
 
 # Cloud CDN API, gRPC: ProviderService.Activate
 
-Activate provider for specified client.
+Deprecated: This functionality is no longer supported - provider activation happens automatically.
 
 ## gRPC request
 

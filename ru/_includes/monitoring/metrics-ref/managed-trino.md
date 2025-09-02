@@ -8,7 +8,7 @@ service | Идентификатор сервиса: `managed-trino`
 cluster_id | Идентификатор кластера
 component | Тип компонента: `coordinator`
 
-## Метрики сервиса {#managed-kafka-metrics}
+## Метрики сервиса {#managed-trino-metrics}
 
 #|
 || **Имя**

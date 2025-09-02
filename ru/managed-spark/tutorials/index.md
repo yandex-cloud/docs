@@ -8,3 +8,4 @@ description: Различные сценарии использования {{ m
 ## Работа с кластерами {#clusters}
 
 * [{#T}](airflow-automation.md)
+* [{#T}](spark-objstorage-integration.md)

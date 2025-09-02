@@ -16,5 +16,5 @@ Provider's resources management service.
 || [Create](create.md) | Creates a CDN resource in the specified folder. ||
 || [Update](update.md) | Updates the specified CDN resource. ||
 || [Delete](delete.md) | Deletes client's CDN resource. ||
-|| [GetProviderCName](getProviderCName.md) | Get Provider's CNAME (edge endpoint) bind to specified folder id. ||
+|| [GetProviderCName](getProviderCName.md) | Deprecated: Provider-specific CNAME is now available in the `provider_cname` field of each Resource message. ||
 |#

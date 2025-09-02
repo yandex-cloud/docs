@@ -18,7 +18,7 @@ Service plans offer different feature sets and [cost](../pricing.md#prices) diff
 **Service plan**  | **Community** | **Business**
 ------------------ |---------------|---------------
 Creating [charts in wizard](./chart/dataset-based-charts.md), [QL charts](./chart/ql-charts.md), and [dashboards](./dashboard.md) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)   
-JavaScript customizations in [Editor](../charts/editor/index.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)   
+JavaScript customization options in [Editor](../charts/editor/index.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)   
 [Connecting to external APIs via Editor](../operations/connection/create-api-connector.md) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)   
 [Data model description](../dataset/data-model.md) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)   
 [Analytic calculations and SQL](./calculations/index.md) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)   

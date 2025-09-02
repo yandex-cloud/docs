@@ -15,7 +15,8 @@ List activated providers for specified client.
 
 ```json
 {
-  "folder_id": "string"
+  "folder_id": "string",
+  "instance_registration_id": "string"
 }
 ```
 
@@ -24,6 +25,9 @@ List activated providers for specified client.
 || folder_id | **string**
 
 Required field. ID of the folder to find out the backup provider. ||
+|| instance_registration_id | **string**
+
+instance registration token for authorization ||
 |#
 
 ## ListActivatedProvidersResponse {#yandex.cloud.backup.v1.ListActivatedProvidersResponse}

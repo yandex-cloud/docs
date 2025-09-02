@@ -10,6 +10,12 @@ Type of limit | Quantity
 --- | ---
 MAC addresses per port | 5
 
+{% note info %}
+
+Network ports with the connection speed of 1 Gbps do not support increasing the number of MAC addresses beyond the set limit.
+
+{% endnote %}
+
 ## MTU and MSS {#mtu-mss}
 
 The following MTU and MSS limits apply to the service:
@@ -23,7 +29,7 @@ MSS in private network | 8870
 
 ## Bandwidth {#bandwidth}
 
-Public networks have a 1 Gbps bandwidth limit for all servers, including those with 1 Gbps NICs and servers with [MC-LAG](./mc-lag.md) aggregation groups.
+{% include [public-net-bandwidth-restrictions](../../_includes/baremetal/public-net-bandwidth-restrictions.md) %}
 
 Type of limit | Value, Gbps
 --- | ---

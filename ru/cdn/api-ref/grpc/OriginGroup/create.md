@@ -67,7 +67,14 @@ List of origins: IP addresses or Domain names of your origins and the port
 (if custom). ||
 || provider_type | **string**
 
-RESERVED: This field is reserved for future use and should not be used at this time. ||
+Set up origin group provider
+
+It has two possible values:
+
+ourcdn - Based on Yandex technologies
+gcore - Based on an external partner infrastructure
+
+Default value: ourcdn ||
 |#
 
 ## OriginParams {#yandex.cloud.cdn.v1.OriginParams}
@@ -205,7 +212,13 @@ ID of the origin. ||
         "provider_type": "string"
       }
     ],
-    "provider_type": "string"
+    "provider_type": "string",
+    "resources_metadata": [
+      {
+        "id": "string",
+        "cname": "string"
+      }
+    ]
   }
   // end of the list of possible fields
 }
@@ -301,7 +314,10 @@ false - the option is disabled. ||
 List of origins. ||
 || provider_type | **string**
 
-RESERVED: This field is reserved for future use and should not be used at this time. ||
+Type of the CDN provider for this origin group. ||
+|| resources_metadata[] | **[ResourceMetadata](#yandex.cloud.cdn.v1.ResourceMetadata)**
+
+List of CDN resources currently using this origin group. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}
@@ -338,7 +354,7 @@ A backup origin is used when one of active origins becomes unavailable. ||
 Set up origin of the content. ||
 || provider_type | **string**
 
-RESERVED: This field is reserved for future use and should not be used at this time. ||
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta2}
@@ -398,4 +414,18 @@ Application Load Balancer origin info. For details about the concept, see [docum
 || id | **string**
 
 ID of the origin. ||
+|#
+
+## ResourceMetadata {#yandex.cloud.cdn.v1.ResourceMetadata}
+
+Metadata of a CDN resource referencing an origin group.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the CDN resource using the origin group. ||
+|| cname | **string**
+
+CNAME of the CDN resource using the origin group. ||
 |#

@@ -68,7 +68,7 @@ items:
             href: tutorials/data-from-bitrix24-visualization.md
           - name: '{{ tracker-full-name }}: data export and visualization'
             href: tutorials/data-from-tracker.md
-          - name: Analyzing {{ objstorage-name }} logs in {{ datalens-name }}
+          - name: Analyzing {{ objstorage-name }} logs using {{ datalens-name }}
             href: tutorials/storage-logs-analysis.md
           - name: 'Yandex Music podcasts: Statistics'
             href: tutorials/data-from-podcasts.md
@@ -184,7 +184,7 @@ items:
       - name: Dataset settings
         href: dataset/settings.md
       - name: Source parameterization
-        href: dataset/parametrisation.md
+        href: dataset/parametrization.md
       - name: Data types
         href: dataset/data-types.md
       - name: Data type mapping

@@ -29,6 +29,11 @@ apiPlayground:
             **boolean**
             Don't create default policies while activating the provider.
           type: boolean
+        instanceRegistrationId:
+          description: |-
+            **string**
+            instance registration token for authorization
+          type: string
       required:
         - folderId
       additionalProperties: false
@@ -62,7 +67,8 @@ For more information, please see [activate-provider](/docs/backup/quickstart#act
 ```json
 {
   "folderId": "string",
-  "skipDefaultPolicy": "boolean"
+  "skipDefaultPolicy": "boolean",
+  "instanceRegistrationId": "string"
 }
 ```
 
@@ -74,6 +80,9 @@ Required field. Activate provider for Folder iD. ||
 || skipDefaultPolicy | **boolean**
 
 Don't create default policies while activating the provider. ||
+|| instanceRegistrationId | **string**
+
+instance registration token for authorization ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

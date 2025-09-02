@@ -29,7 +29,7 @@ sourcePath: en/_api-ref/cdn/v1/api-ref/Provider/activate.md
 
 # Cloud CDN API, REST: Provider.Activate
 
-Activate provider for specified client.
+Deprecated: This functionality is no longer supported - provider activation happens automatically.
 
 ## HTTP request
 
