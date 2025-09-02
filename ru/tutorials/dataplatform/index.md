@@ -221,5 +221,6 @@ description: На странице представлен список прак�
 ## {{ msp-full-name }} {#spark}
 
 * [{#T}](airflow-and-spark.md)
+* [{#T}](spark-objstorage-integration.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

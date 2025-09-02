@@ -5,8 +5,7 @@ sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/Resource/getProviderCName.md
 
 # Cloud CDN API, gRPC: ResourceService.GetProviderCName
 
-Get Provider's CNAME (edge endpoint) bind to specified folder id.
-Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
+Deprecated: Provider-specific CNAME is now available in the `provider_cname` field of each Resource message.
 
 ## gRPC request
 

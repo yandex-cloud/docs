@@ -259,6 +259,8 @@ items:
         href: metrics-ref/managed-airflow-ref.md
       - name: '{{ mkf-name }}'
         href: metrics-ref/managed-kafka-ref.md
+      - name: '{{ msp-name }}'
+        href: metrics-ref/managed-spark-ref.md
       - name: '{{ mch-name }}'
         href: metrics-ref/managed-clickhouse-ref.md
       - name: '{{ mgp-name }}'

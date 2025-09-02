@@ -16,6 +16,8 @@ In {{ baremetal-name }}, you pay for leasing a server of a [certain configuratio
 
 The monthly prices are based on 720 hours per month.
 
+{% include [public-net-bandwidth-restrictions](../_includes/baremetal/public-net-bandwidth-restrictions.md) %}
+
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}

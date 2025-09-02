@@ -1,1 +1,1 @@
-**Disable data export**: When this option is enabled, the export data button will be hidden in the charts based on this connection. However, you will still be able to copy chart data and take screenshots.
+**Disable data export**: When this option is on, the data export item will be unavailable in the ![icon](../../../_assets/console-icons/ellipsis.svg) menu of the charts based on this connection. However, you will still be able to copy chart data and take screenshots.

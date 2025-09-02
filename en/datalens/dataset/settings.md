@@ -40,9 +40,9 @@ When using SQL queries in datasets, we recommend:
 
 You can enable or disable the use of subqueries as a source when [creating](../concepts/connection.md) or editing a connection.
 
-## Parameterization of dataset sources {#parametrisation}
+## Parameterization of dataset sources {#parametrization}
 
-Parameterization of dataset sources allows you to dynamically substitute parameters from a chart into an SQL query or a table or schema name. For more information, see [{#T}](./parametrisation.md).
+Parameterization of dataset sources allows you to dynamically substitute parameters from a chart into an SQL query or a table or schema name. For more information, see [{#T}](./parametrization.md).
 
 ## Default preview {#preview-default}
 

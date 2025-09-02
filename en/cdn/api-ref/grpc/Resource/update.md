@@ -983,10 +983,10 @@ SSL certificate options. ||
 Labels of the resource. ||
 || provider_type | **string**
 
-RESERVED: This field is reserved for future use and should not be used at this time. ||
+Type of the CDN provider for this resource. ||
 || provider_cname | **string**
 
-RESERVED: Provider CNAME. ||
+CNAME provided by the CDN provider for this resource. ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions2}

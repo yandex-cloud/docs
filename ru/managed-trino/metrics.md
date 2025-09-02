@@ -7,4 +7,4 @@ description: На этой странице приведен справочни�
 
 В этом разделе описаны метрики сервиса {{ mtr-name }}, поставляемые в [{{ monitoring-name }}]({{ monitoring-doc-links }}).
 
-{% include [managed-kafka](../_includes/monitoring/metrics-ref/managed-trino.md) %}
+{% include [managed-trino](../_includes/monitoring/metrics-ref/managed-trino.md) %}

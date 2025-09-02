@@ -111,7 +111,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Specify the service account name, e.g., `sa-terraform`.
+   1. Name your service account, e.g., `sa-terraform`.
 
        The naming requirements are as follows:
 
@@ -251,7 +251,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
       }
       ```
 
-      For more information about mirror settings, see the relevant [{{ TF }} documentation](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
+      For more information about mirror settings, see the relevant [{{ TF }} guides](https://www.terraform.io/cli/config/config-file#explicit-installation-method-configuration).
 
 ## Deploy your resources {#create-resources}
 
@@ -468,7 +468,7 @@ Connect to the FW-A management web interface at `https://192.168.1.10:8001`. Use
    | `route to nlb-healthcheck-net1` | ![image](../../_assets/common/yes.svg) | `198.18.235.0/24` | `192.168.1.1` |
    | `route to nlb-healthcheck-net2` | ![image](../../_assets/common/yes.svg) | `198.18.248.0/24` | `192.168.1.1` |
 
-1. In the left-hand menu, in the **Network** section, select **Gateways**. Select the row with the `192.168.1.1` gateway IP address. To delete the gateway, click **Delete** and confirm the deletion. Click **Add**. Fill in the fields as follows: 
+1. In the left-hand menu, in the **Network** section, select **Gateways**. Select the row with the `192.168.1.1` gateway IP address. To delete the gateway, click **Delete** and confirm the deletion. Click **Add**. Fill out the fields as follows: 
    * **Name**: `public-gateway`
    * **Interface**: `port1`
    * **Gateway IP address**: `172.16.1.1`
@@ -620,7 +620,7 @@ Connect to the FW-B management web interface at `https://192.168.2.10:8001`. Use
    | `route to nlb-healthcheck-net1` | ![image](../../_assets/common/yes.svg) | `198.18.235.0/24` | `192.168.2.1` |
    | `route to nlb-healthcheck-net2` | ![image](../../_assets/common/yes.svg) | `198.18.248.0/24` | `192.168.2.1` |
 
-1. In the left-hand menu, in the **Network** section, select **Gateways**. Select the row with the `192.168.2.1` gateway IP address. To delete the gateway, click **Delete** and confirm the deletion. Click **Add**. Fill in the fields as follows: 
+1. In the left-hand menu, in the **Network** section, select **Gateways**. Select the row with the `192.168.2.1` gateway IP address. To delete the gateway, click **Delete** and confirm the deletion. Click **Add**. Fill out the fields as follows: 
    * **Name**: `public-gateway`
    * **Interface**: `port1`
    * **Gateway IP address**: `172.16.2.1`
@@ -709,7 +709,7 @@ terraform plan
 terraform apply
 ```
 
-Within five minutes, the `route-switcher` module will start operating to ensure fault tolerance of outbound traffic in segments.
+Within five minutes, the `route-switcher` module will start working, providing outbound traffic fault tolerance.
 
 ## Test the solution for performance and fault tolerance {#test-accessibility}
 
@@ -809,7 +809,7 @@ Within five minutes, the `route-switcher` module will start operating to ensure 
 1. Make sure the `dmz-rt` route table in the `dmz` folder uses the `FW-B` address as `next hop`.
 1. Emulate the main firewall recovery by [running](../../compute/operations/vm-control/vm-stop-and-start.md#start) the `FW-A` VM in the {{ yandex-cloud }} [management console]({{ link-console-main }}). 
 1. Monitor the loss of `httping` and `ping` packets. After FW-A recovers, you may experience traffic loss for about one minute, then traffic should resume.
-1. Make sure the FW-A address is used in the `dmz-rt` route table in the `dmz` folder for `next hop`.
+1. Make sure the `dmz-rt` route table uses the FW-A address for `next hop` in the `dmz` folder.
 
 ## Production deployment requirements {#deployment-requirements}
 
