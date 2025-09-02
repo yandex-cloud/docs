@@ -282,6 +282,8 @@ items:
                 href: backup/api-ref/grpc/Resource/createDirectory.md
               - name: ListOperations
                 href: backup/api-ref/grpc/Resource/listOperations.md
+              - name: GetInstanceRegistrationToken
+                href: backup/api-ref/grpc/Resource/getInstanceRegistrationToken.md
       - name: REST (англ.)
         items:
           - name: Overview

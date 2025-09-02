@@ -32,6 +32,8 @@ items:
         href: tutorials/index.md
       - name: Автоматизация работы с помощью {{ maf-full-name }}
         href: tutorials/airflow-automation.md
+      - name: Использование {{ objstorage-full-name }} в {{ msp-name }}
+        href: tutorials/spark-objstorage-integration.md
   - name: Концепции
     items:
       - name: Квоты и лимиты
@@ -42,6 +44,8 @@ items:
     href: security.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Метрики {{ monitoring-full-name }}
+    href: metrics.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

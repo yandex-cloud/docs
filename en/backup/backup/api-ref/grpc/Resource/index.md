@@ -18,4 +18,5 @@ A set of methods for managing backup resources: [Compute Cloud instances](/docs/
 || [ListDirectory](listDirectory.md) | ListDirectory returns all subdirectories found in requested directory identified ||
 || [CreateDirectory](createDirectory.md) | CreateDirectory creates new directory by requested path. ||
 || [ListOperations](listOperations.md) | ListOperations return all operations in backup service for given instance ||
+|| [GetInstanceRegistrationToken](getInstanceRegistrationToken.md) | Get instance registration token to install backup agent withot SA attached to instance ||
 |#

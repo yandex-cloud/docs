@@ -1222,6 +1222,8 @@ items:
         href: dataplatform/schema-registry-cdc-debezium-kafka.md
       - name: Автоматизация работы с помощью {{ maf-full-name }}
         href: dataplatform/airflow-and-spark.md
+      - name: Использование {{ objstorage-full-name }} в {{ msp-full-name }}
+        href: dataplatform/spark-objstorage-integration.md
   - name: Продукты Microsoft в {{ yandex-cloud }}
     items:
       - name: Все руководства
@@ -1432,8 +1434,10 @@ items:
                 href: datalens/data-from-ch-over-yt.md
           - name: Функциональные
             items:
-              - name: Использование параметров
+              - name: Использование параметров в вычисляемых полях
                 href: datalens/data-from-ch-with-parameters.md
+              - name: Параметризация источников
+                href: datalens/data-from-ch-dataset-parametrization.md
               - name: Примеры создания QL-чартов
                 href: datalens/data-from-ch-to-sql-chart.md
   - name: Бессерверные технологии

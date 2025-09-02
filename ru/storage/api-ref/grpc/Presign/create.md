@@ -53,7 +53,7 @@ PresignObjectRequest represents a single object presign request
 ||Field | Description ||
 || expires | **int64**
 
-Expiration time in seconds (1-604800, max 7 days) ||
+Expiration time in seconds ||
 || name | **string**
 
 Object name/key ||

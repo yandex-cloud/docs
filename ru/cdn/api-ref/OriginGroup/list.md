@@ -104,7 +104,13 @@ returned by a previous list request. ||
           "providerType": "string"
         }
       ],
-      "providerType": "string"
+      "providerType": "string",
+      "resourcesMetadata": [
+        {
+          "id": "string",
+          "cname": "string"
+        }
+      ]
     }
   ],
   "nextPageToken": "string"
@@ -151,7 +157,10 @@ false - the option is disabled. ||
 List of origins. ||
 || providerType | **string**
 
-RESERVED: This field is reserved for future use and should not be used at this time. ||
+Type of the CDN provider for this origin group. ||
+|| resourcesMetadata[] | **[ResourceMetadata](#yandex.cloud.cdn.v1.ResourceMetadata)**
+
+List of CDN resources currently using this origin group. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}
@@ -188,7 +197,7 @@ A backup origin is used when one of active origins becomes unavailable. ||
 Set up origin of the content. ||
 || providerType | **string**
 
-RESERVED: This field is reserved for future use and should not be used at this time. ||
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}
@@ -248,4 +257,18 @@ Application Load Balancer origin info. For details about the concept, see [docum
 || id | **string**
 
 ID of the origin. ||
+|#
+
+## ResourceMetadata {#yandex.cloud.cdn.v1.ResourceMetadata}
+
+Metadata of a CDN resource referencing an origin group.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the CDN resource using the origin group. ||
+|| cname | **string**
+
+CNAME of the CDN resource using the origin group. ||
 |#

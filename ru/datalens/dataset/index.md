@@ -57,3 +57,4 @@ _Датасет_ описывает набор данных и его струк
 * [{#T}](./data-model.md)
 * [{#T}](./data-types.md)
 * [{#T}](./settings.md)
+* [{#T}](../tutorials/data-from-ch-dataset-parametrization.md)

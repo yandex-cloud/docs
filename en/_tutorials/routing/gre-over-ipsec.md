@@ -7,7 +7,7 @@ To extend the capabilities of IPsec, you can configure [GRE](https://en.wikipedi
 
 In this example, you will create a secure GRE-over-IPsec tunnel between two [Cisco CSR 1000v](https://yandex.cloud/en/marketplace/products/yc/cisco-csr) virtual routers hosted in different [virtual networks](../../vpc/concepts/network.md) and [availability zones](../../overview/concepts/geo-scope.md) in {{ yandex-cloud }}. 
 
-You will configure IPsec in NAT-T ([NAT Traversal](https://en.wikipedia.org/wiki/NAT_traversal)) mode, since {{ yandex-cloud }} employs [NAT](https://en.wikipedia.org/wiki/Network_address_translation), while GRE does not support using ports. This mode enables the translation of router IP addresses over NAT when using a GRE-over-IPsec tunnel. This makes the tunnel configuration in our example suitable for both the {{ yandex-cloud }} infrastructure and remote resources placed behind the device that provides NAT. 
+You will configure IPsec in NAT-T ([NAT Traversal](https://en.wikipedia.org/wiki/NAT_traversal) mode, since {{ yandex-cloud }} employs [NAT](https://en.wikipedia.org/wiki/Network_address_translation)), while GRE does not support using ports. This mode enables the translation of router IP addresses over NAT when using a GRE-over-IPsec tunnel. This makes the tunnel configuration in our example suitable for both the {{ yandex-cloud }} infrastructure and remote resources placed behind the device that provides NAT. 
 
 To set up a secure tunnel between two virtual routers:
 
@@ -161,11 +161,11 @@ Repeat these steps to create a second folder named `site-b`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to.
-      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool. Alternatively, select a static address from the list if you reserved one.
+      * Under **{{ ui-key.yacloud.component.compute.network-select.field_external }}**, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` for the VM to get a random external IP address from the {{ yandex-cloud }} pool, or select a static address from the list if you had reserved one.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `cisco-router-d`.
@@ -328,7 +328,7 @@ If your public SSH key is longer than 72 characters, split it into chunks of 72 
    conf t
    crypto logging ikev2
    crypto ikev2 nat keepalive 900
-   crypto ikev2 dpd 10 2 periodic  
+   crypto ikev2 dpd 10 2 periodic
    ```
 
 1. Configure an IKEv2 `proposal`:

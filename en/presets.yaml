@@ -2662,6 +2662,10 @@ default:
       traffic:
         egress|number: 5.184
         egress|string: ₸5.1840
+    transcoding:
+      vod:
+        v1|number: 5.4
+        v1|string: ₸5.40
   sku|KZT|vision_ocr:
     driver_license_text_detection:
       v1|string: ₸3.50
@@ -4547,6 +4551,10 @@ default:
       traffic:
         egress|number: 1.0368
         egress|string: ₽1.0368
+    transcoding:
+      vod:
+        v1|number: 1.08
+        v1|string: ₽1.08
   sku|RUB|vision_ocr:
     driver_license_text_detection:
       v1|string: ₽0.70
@@ -6461,6 +6469,10 @@ default:
       traffic:
         egress|number: 0.00864
         egress|string: $0.008640
+    transcoding:
+      vod:
+        v1|number: 0.009
+        v1|string: $0.009000
   sku|USD|vision_ocr:
     driver_license_text_detection:
       v1|string: $0.005833

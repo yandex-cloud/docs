@@ -37,13 +37,19 @@ apiPlayground:
               **enum** (Type)
               Required field. A type of the interval.
               - `TYPE_UNSPECIFIED`
-              - `FULL`
-              - `INCREMENTAL`
+              - `BACKUP`
+              - `RETENTION`
+              - `RECOVERY`
+              - `APPLY_POLICY`
+              - `REVOKE_POLICY`
             type: string
             enum:
               - TYPE_UNSPECIFIED
-              - FULL
-              - INCREMENTAL
+              - BACKUP
+              - RETENTION
+              - RECOVERY
+              - APPLY_POLICY
+              - REVOKE_POLICY
           count:
             description: |-
               **string** (int64)

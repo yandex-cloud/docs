@@ -31,7 +31,7 @@ Chart type | I/O
 ----- | -----
 **Charts** |
 Line chart | 75,000 rows
-Area chart<br/>Normalized stacked area chart | 75,000 rows
+Area chart<br/>Normalized area chart | 75,000 rows
 Column chart<br/>Normalized column chart | 75,000 rows
 Bar chart<br/>Normalized bar chart | 75,000 rows
 Scatter chart | 75,000 rows

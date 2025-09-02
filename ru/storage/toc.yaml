@@ -328,6 +328,8 @@ items:
           Настройка хостинга статического сайта в бакете {{ objstorage-full-name
           }} с доступом через {{ cdn-full-name }}
         href: tutorials/cdn-hosting.md
+      - name: Использование {{ objstorage-name }} в {{ msp-full-name }}
+        href: tutorials/spark-objstorage-integration.md
   - name: Концепции
     items:
       - name: Обзор

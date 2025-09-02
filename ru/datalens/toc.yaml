@@ -96,8 +96,10 @@ items:
             href: tutorials/bigquery-to-clickhouse.md
       - name: Функциональные
         items:
-          - name: Использование параметров
+          - name: Использование параметров в вычисляемых полях
             href: tutorials/data-from-ch-with-parameters.md
+          - name: Параметризация источников
+            href: tutorials/data-from-ch-dataset-parametrization.md
           - name: Примеры создания QL-чартов
             href: tutorials/data-from-ch-to-sql-chart.md
   - name: Подключения
@@ -183,7 +185,7 @@ items:
       - name: Настройки датасета
         href: dataset/settings.md
       - name: Параметризация источников
-        href: dataset/parametrisation.md
+        href: dataset/parametrization.md
       - name: Типы данных
         href: dataset/data-types.md
       - name: Соответствие типов данных

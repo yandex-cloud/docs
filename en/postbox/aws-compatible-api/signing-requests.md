@@ -15,12 +15,12 @@ To avoid signing requests, use [authentication with an IAM token](../api-ref/aut
 
 To get a signature:
 
-1. [Create a canonical request](#canonical-request)
-1. [Generate a string to sign](#string-to-sign-gen)
-1. [Generate a signing key](#signing-key-gen)
-1. [Sign the string with the key](#signing)
-1. Optionally, [debug the obtained data using the AWS CLI](#debugging)
-1. [Create the `Authorization` header](#authorization-header)
+1. [Create a canonical request](#canonical-request).
+1. [Generate a string for signing](#string-to-sign-gen).
+1. [Generate a signing key](#signing-key-gen).
+1. [Sign the string with the key](#signing).
+1. Optionally, [debug the obtained data using the AWS CLI](#debugging).
+1. [Create the Authorization header](#authorization-header).
 
 Use [HMAC](https://en.wikipedia.org/wiki/HMAC) with the [SHA256](https://en.wikipedia.org/wiki/SHA-2) hash function for signing. This technique supports many programming languages. The examples below assume the code uses functions for encoding and hashing strings with the appropriate technique.
 
@@ -34,7 +34,7 @@ Use the following format:
 <CanonicalQueryString>\n
 <CanonicalHeaders>\n
 <SignedHeaders>\n
-UNSIGNED-PAYLOAD
+<HashedPayload>
 ```
 
 Where:
@@ -52,15 +52,15 @@ Where:
 
    The list must follow these requirements:
 
-   * Each header must be separated with the line break symbol `\n`.
+   * Each header is separated by the line break character `\n`.
    * Header names must be lowercase.
-   * Headers must be sorted alphabetically.
+   * Headers must appear in alphabetical order.
    * There may not be any extra spaces.
    * The list must contain the `host` header and all `x-amz-*` headers used in the request.
 
    You can also add any request header to the list. The more headers you sign, the safer your request is going to be.
 
-   Example: 
+   Here is an example: 
 
    ```
    host:{{ postbox-host }}
@@ -71,9 +71,22 @@ Where:
 
    Example: `content-type;host;x-amz-date`.
 
-Add the `UNSIGNED-PAYLOAD` string at the end of your canonical request.
+* `HashedPayload`: Request body hash. If the request body is:
 
-## Generate a string to sign {#string-to-sign-gen}
+   * Present, provide the hash in hexadecimal notation:
+    
+      ```
+      Hex(SHA256Hash(<payload>))
+      ```
+  
+   * Missing (e.g., it is a GET request), specify the empty string hash:
+  
+      ```
+      Hex(SHA256Hash(""))
+      ```
+  
+
+## Generate a string for signing {#string-to-sign-gen}
 
 A string to sign is a concatenation of the following strings:
 
@@ -90,7 +103,7 @@ Here is an example of time in [ISO 8601](https://www.iso.org/iso-8601-date-and-t
 
 Before you start, [generate a static access key](index.md#before-you-begin).
 
-{% include [generate-signing-key](../../_includes/storage/generate-signing-key.md) %}
+{% include [generate-signing-key](../../_includes/postbox/generate-signing-key.md) %}
 
 ## Sign the string with the key {#signing}
 
@@ -155,7 +168,7 @@ To debug the process of signing requests, use the [AWS CLI](../tools/aws-cli.md)
 Create the `Authorization` header in the following format:
 
 ```text
-Authorization: AWS4-HMAC-SHA256 Credential=<static_key_ID>/<date>/{{ region-id }}/ses/aws4_request SignedHeaders=<signed_headers> Signature=<signature>
+Authorization: AWS4-HMAC-SHA256 Credential=<static_key_ID>/<date>/{{ region-id }}/ses/aws4_request, SignedHeaders=<signed_headers>, Signature=<signature>
 ```
 
 Use this header when accessing the API directly, without the [AWS CLI](../tools/aws-cli.md) or apps.

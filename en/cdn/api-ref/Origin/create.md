@@ -80,7 +80,11 @@ apiPlayground:
         providerType:
           description: |-
             **string**
-            RESERVED: This field is reserved for future use and should not be used at this time.
+            Set up origin provider
+            It has two possible values:
+            ourcdn - Based on Yandex technologies
+            gcore - Based on an external partner infrastructure
+            Default value: ourcdn
           type: string
       required:
         - folderId
@@ -177,7 +181,14 @@ Default value: False. ||
 Set up origin of the content. ||
 || providerType | **string**
 
-RESERVED: This field is reserved for future use and should not be used at this time. ||
+Set up origin provider
+
+It has two possible values:
+
+ourcdn - Based on Yandex technologies
+gcore - Based on an external partner infrastructure
+
+Default value: ourcdn ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}
@@ -423,7 +434,7 @@ A backup origin is used when one of active origins becomes unavailable. ||
 Set up origin of the content. ||
 || providerType | **string**
 
-RESERVED: This field is reserved for future use and should not be used at this time. ||
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta2}
