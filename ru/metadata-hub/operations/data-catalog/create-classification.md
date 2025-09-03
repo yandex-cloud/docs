@@ -16,7 +16,7 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. В открывшемся списке выберите каталог метаданных, в котором вы хотите создать классификацию.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-classification-action }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** задайте уникальное имя классификации.
   1. (Опционально) Добавьте описание классификации.

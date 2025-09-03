@@ -3,7 +3,11 @@ stage: preview
 href: index.yaml
 items:
   - name: Getting started
-    href: quickstart.md
+    items:
+      - name: For admins
+        href: quickstart.md
+      - name: For users
+        href: quickstart-users.md
   - name: Step-by-step guides
     items:
       - name: All guides
@@ -30,6 +34,8 @@ items:
             href: operations/desktops/start-stop.md
           - name: Updating a desktop
             href: operations/desktops/update.md
+          - name: Updating a desktop
+            href: operations/desktops/update-properties.md
           - name: Deleting a desktop
             href: operations/desktops/delete.md
       - name: Images
@@ -40,6 +46,8 @@ items:
             href: operations/images/create-from-compute-linux.md
           - name: Creating a Windows image
             href: operations/images/create-from-windows.md
+          - name: Changing an image
+            href: operations/images/update.md
           - name: Deleting a custom image
             href: operations/images/delete.md
       - name: Viewing logs

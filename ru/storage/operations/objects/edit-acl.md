@@ -23,7 +23,7 @@ description: Следуя данной инструкции, вы сможете
     1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** и найдите в списке нужный объект.
     1. Чтобы отредактировать ACL, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с нужным объектом и выберите **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
 
-        Также можно нажать на имя объекта, на открывшейся странице справа сверху нажать ![image](../../../_assets/console-icons/ellipsis.svg) и выбрать **{{ ui-key.yacloud.storage.file.button_permissions }}**.
+        Также можно нажать на имя объекта, на открывшейся странице справа сверху нажать ![image](../../../_assets/console-icons/ellipsis.svg) и выбрать **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
 
         {% include [acl-edit-console](../../../_includes/storage/acl-edit-console.md) %}
 

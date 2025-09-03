@@ -1,4 +1,4 @@
-# Creating an AI assistant with search through PDF files with complex formatting
+# Creating an AI assistant with RAG from PDF files with complex formatting
 
 {% include [assistants-preview-stage](../../_includes/foundation-models/assistants-preview-stage.md) %}
 
@@ -137,14 +137,14 @@ You will create a search index, sourced from a Markdown file. You will then ask 
     What is the adjusted EBITDA margin of ad services?
     The adjusted EBITDA margin of ad services over the third quarter of 2024 was 6.5%.
 
-    How many billion rubles in loans did Yandex issue over nine months prior to September 30, 2024?
+    How many billion rubles of loans did Yandex issue over nine months prior to September 30, 2024?
     Over the nine months prior to September 30, 2024, Yandex issued loans worth 6.5 billion rubles.
     ```
 
     As you can see, the hybrid search provided a better result: the answers to all three questions are correct.
 
 
-### Improve your assistant {#improve-search}
+### Improve your assistant {#improve-assistant}
 
 Improve your assistant by turning it from a simple information source into a smart helper that analyzes the retrieved data and delivers reasoned judgments.
 
@@ -164,8 +164,8 @@ Improve your assistant by turning it from a simple information source into a sma
 
     ```text
     What is the adjusted EBITDA margin of ad services?
-    The adjusted EBITDA margin of ad services over the third quarter of 2024 was 6.5%.
-    This is a significant improvement compared to the same period last year, when the profit margin was 3.3%.
-    This growth indicates segment efficiency and improved financial performance.
-    
+    The adjusted EBITDA margin of ad services for the third quarter of 2024
+    was 6.5%. This is a significant improvement compared to the same period last year, when
+    the profit margin was 3.3%. This growth indicates segment efficiency and improved
+    financial performance.
     ```

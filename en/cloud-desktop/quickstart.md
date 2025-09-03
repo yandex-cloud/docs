@@ -1,13 +1,13 @@
 ---
-title: Getting started with {{ cloud-desktop-name }}
+title: Getting started with {{ cloud-desktop-name }} for administrators
 description: This guide describes how you can create and set up a desktop group.
 ---
 
-# Getting started with {{ cloud-desktop-full-name }}
+# Getting started with {{ cloud-desktop-full-name }} for administrators
 
 {% note info %}
 
-Follow this guide to create and set up a [desktop group](concepts/desktops-and-groups.md). If you received a link to the [user desktop showcase](concepts/showcase.md) from an administrator, go to [Get the connection credentials](#get-credentials).
+Follow this guide to create and set up a [desktop group](concepts/desktops-and-groups.md). If you received a link to the [user desktop showcase](concepts/showcase.md) from an administrator, go to [{#T}](quickstart-users.md).
 
 {% endnote %}
 
@@ -142,6 +142,6 @@ Follow this guide to create a desktop group based on pre-installed `Ubuntu 20.04
 
 ## Connect to the desktop {#connect-desktop}
 
-To establish a desktop connection, use the [Remote Desktop Protocol](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP).
+{% include [rdp-is-using](../_includes/cloud-desktop/rdp-is-using.md) %}
 
 {% include [desktop-connect](../_includes/cloud-desktop/desktop-connect.md) %}

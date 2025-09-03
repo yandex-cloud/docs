@@ -58,7 +58,9 @@ The scope of available operations depends on the roles assigned to the [{{ KF }}
 
 * REST API for {{ mkf-msr }}:
 
-    * `ACCESS_ROLE_CONSUMER` role: User can perform read operations with [subjects](./managed-schema-registry.md#subjects) associated with the topic the role was assigned for.
+    * `ACCESS_ROLE_SCHEMA_READER` role: User can perform read operations with [subjects](managed-schema-registry.md#subjects) the role was assigned for.
+    * `ACCESS_ROLE_SCHEMA_WRITER` role: User can perform read and write operations with subjects the role was assigned for.
+    * `ACCESS_ROLE_CONSUMER` role: User can perform read operations with subjects associated with the topic the role was assigned for.
     * `ACCESS_ROLE_PRODUCER` role: User can perform any operations with subjects associated with the topic the role was assigned for.
     * `ACCESS_ROLE_ADMIN` role: User can perform any operations with subjects associated with any topic (this role applies to all topics).
     * `ACCESS_ROLE_TOPIC_ADMIN` role: User can perform any operations with subjects associated with the topic the role was assigned for.

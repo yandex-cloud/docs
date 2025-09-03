@@ -19,6 +19,8 @@ items:
             href: operations/cluster-stop.md
           - name: Connecting to a cluster
             href: operations/connect.md
+          - name: Maintenance
+            href: operations/cluster-maintenance.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Catalogs
@@ -39,9 +41,9 @@ items:
             href: operations/cluster-logs.md
   - name: Concepts
     items:
-      - name: Service resource interdependencies
+      - name: Resource relationships
         href: concepts/index.md
-      - name: '{{ mtr-name }} network'
+      - name: Networking in {{ mtr-name }}
         href: concepts/network.md
       - name: Impersonation
         href: concepts/impersonation.md
@@ -49,6 +51,8 @@ items:
         href: concepts/retry-policy.md
       - name: Host classes
         href: concepts/instance-types.md
+      - name: Maintenance
+        href: concepts/maintenance.md
   - name: CLI reference
     items:
       - name: Overview

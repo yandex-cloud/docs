@@ -8802,6 +8802,7 @@ default:
             popup-confirm_button_remove-one-to-one-nat: Удалить
             section_monitoring: Мониторинг
             section_network: Сеть
+          popup-confirm_button_password-reset: Сгенерировать пароль
           service-console:
             raw-mode: Исходные данные
           stop-dialog:
@@ -8812,6 +8813,7 @@ default:
           switch_service-console: Последовательный порт
         instances_jsoza: Виртуальные машины
         instances:
+          button_action-password-reset: Сбросить пароль
           button_action-restart: Перезапустить
           button_create: Создать виртуальную машину
           button_gr-action-stop: Остановить
@@ -9010,6 +9012,7 @@ default:
         label_empty-ingestion-count-short: Нет загрузки
         label_ingestion-count: Количество загрузок
         label_ingestion-status-Running: Running
+        label_ingestion-status-Success: Success
         label_ingestion-tab-logs: Логи
         label_ingestion-tab-operations: Операции
         label_ingestion-tab-overview: Обзор
@@ -10804,7 +10807,9 @@ default:
         bucket:
           button_action-permissions: ACL объекта
           button_create: Создать папку
+          button_download: Скачать
           button_empty-create: Загрузить объекты
+          button_object-lock: Блокировка
           button_upload: Загрузить
           cors:
             button_cors_empty-create: Настроить
@@ -10849,6 +10854,7 @@ default:
             value_date: Точная дата
             value_days: Количество дней
             value_expired-object-delete-marker: Маркер удаления без нетекущих версий
+          menu_version-history: История версий
           object-lock:
             title-mode-compliance: Временная строгая
             title-mode-governance: Временная управляемая
@@ -10930,14 +10936,8 @@ default:
         field_temp-object-lock-enabled: Временная блокировка
         file:
           action_file-restore: Восстановить
-          button_delete: Удалить
-          button_download: Скачать
           button_generate: Получить ссылку
-          button_object-lock: Блокировка
-          button_permissions: ACL объекта
-          button_version-history: История версий
           label_lifetime: Время жизни
-          popup-confirm_button_delete: Удалить
         form:
           BucketObjectLockFormContent:
             field_default-rules-enabled_qtmC8: Блокировки по умолчанию для новых версий
@@ -13266,3 +13266,8 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero
         tag: 8.5.0-4
+    yc_victoria-logs:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/victoria-logs/victoria-logs-single
+        tag: 1.0.0

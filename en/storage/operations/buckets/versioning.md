@@ -114,9 +114,9 @@ To enable bucket versioning:
   * `bucket`: Bucket name. This is a required parameter.
   * `access_key`: Static access key ID.
   * `secret_key`: Secret access key value.
-  * `acl`: ACL policy to apply. The default value is `private`. This is an optional parameter.
+  * `acl`: ACL policy to apply. The default value is `private`. This is an optional setting.
   * `versioning`: Managing bucket versioning:
-    * `enabled`: Enables bucket versioning. This is an optional parameter.
+    * `enabled`: Enables bucket versioning. This is an optional setting.
 
 - API {#api}
 

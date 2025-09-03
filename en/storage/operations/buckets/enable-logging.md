@@ -251,7 +251,7 @@ To get logs, download the object prefixed with `logs/` from the target bucket:
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
   1. Select the target bucket with logs.
   1. Go to the `logs/` directory.
-  1. Next to the log object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.file.button_download }}**.
+  1. Next to the log object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.bucket.button_download }}**.
   
   {% note info %}
 

@@ -147,9 +147,9 @@ To apply a semantic attribute to dialogs in reports:
 
 With that done, you can add more filters and parameters and build your report.
 
-## Using semantic tags for dialog evaluation {#use-sense-tags-for-dialog-evaluation}
+## Using semantic tags and semantic Pro tags for dialog evaluation {#use-sense-tags-for-dialog-evaluation}
 
-You can use semantic tags to evaluate the agent's performance and the client's behavior, e.g., whether the agent was polite, whether the client was rude, etc. To do this:
+Semantic tags can help you evaluate the agent's performance and the client's behavior, e.g., whether the agent was polite, whether the client was rude, etc. To do this:
 
 1. [Create a semantic tag](../project/tag/create-sense-tag.md). 
 
@@ -157,6 +157,16 @@ You can use semantic tags to evaluate the agent's performance and the client's b
 
    > For example, if you are interested in dialogs where the customer was rude to the agent, select:
    > * Semantic attribute: **{{ ui-key.yc-ui-talkanalytics.statements.common_question }}**.
-   > * Search query: **Was the client rude or aggressive at least once during the conversation?**
+   > * Search query: **Did the customer show rudeness or aggression in the conversation at least once?**
 
 1. Use a semantic tag as a report parameter.
+
+Semantic Pro tags can help you evaluate the agent's performance and the client's behavior against complex semantic criteria, e.g., whether the agent was able to sell a travel package without offering a discount to the customer. To do this:
+
+1. [Create a semantic Pro tag](../project/tag/create-sense-pro-tag.md). 
+
+   When creating one, specify a relevant search query.
+
+   > For example, if you are looking for dialogs where a client bought a tour to the Maldives with no discount offered, specify the search query as follows: **tour to the Maldives purchased without a discount**.
+
+1. Use the semantic Pro tag as a report parameter.

@@ -9,7 +9,7 @@ To activate or deactivate a tag:
 1. Navigate to the **{{ ui-key.yc-ui-talkanalytics.tags.tags }}** tab.
 1. In the line with the tag you need, enable **{{ ui-key.yc-ui-talkanalytics.tags.tag-using-key-value }}** to activate the tag. Disable to deactivate the tag.
 
-These changes apply to the following dialogs:
+These changes affect dialogs as follows:
 
 * If you activate a tag, it will apply to dialogs loaded after the activation as well as existing dialogs that are under 60 days old.
 * If you deactivate a tag, it will remain on already uploaded dialogs, but will not apply to the new ones.

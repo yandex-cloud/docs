@@ -18,10 +18,10 @@
 `smart-web-security.ipMatchers.count` | 2,500 ||
 || Maximum total number of [IP address lists](../smartwebsecurity/concepts/lists.md) in {{ sws-name }}
 `smart-web-security.matchLists.count` | 20 ||
-|| Maximum total number of [proxy servers](../smartwebsecurity/concepts/domain-protect.md#proxy) per cloud | 1 ||
-`smart-web-security.loadBalancers.count`
-|| Maximum total number of [domains](../smartwebsecurity/concepts/domain-protect.md#domain) per cloud | 10 ||
-`smart-web-security.loadBalancerDomains.count`
+|| Maximum total number of [proxy servers](../smartwebsecurity/concepts/domain-protect.md#proxy) per cloud 
+`smart-web-security.loadBalancers.count` | 1 ||
+|| Maximum total number of [domains](../smartwebsecurity/concepts/domain-protect.md#domain) per cloud 
+`smart-web-security.loadBalancerDomains.count` | 10 ||
 |#
 
 #### Limits {#limits}
@@ -36,6 +36,6 @@ Maximum number of `Host` conditions per rule | 20
 Maximum length of a string in a regular expression | 255 characters
 Maximum number of requests per second (RPS) in total for all load balancer [virtual hosts](../application-load-balancer/concepts/http-router.md#virtual-host)<br/> connected to the same security profile^1^ | 20,000
 Maximum total number of domains per proxy server | 20
-Maximum total number of target resource IP address per domain | 20
+Maximum total number of target resource IP addresses per domain | 20
 
 ^1^ If you expect more requests per second, contact your {{ yandex-cloud }} account manager.

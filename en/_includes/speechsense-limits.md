@@ -13,6 +13,6 @@ Total number of requests for dialogs via API and for viewing in the {{ speechsen
 
 Type of limit | Value
 ----- | -----
-User data storage period | 3 month
-Calculation of updated and new [tags](../speechsense/concepts/tags.md) per month | Once per night
+User data storage period | 3 months
+Recalculation of modified and newly created [dictionary and semantic tags](../speechsense/concepts/tags.md) per month | Once per night
 Number of returned search results | 10,000

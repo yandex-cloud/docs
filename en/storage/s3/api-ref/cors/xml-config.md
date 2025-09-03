@@ -32,7 +32,7 @@ Element | Description
 `ExposeHeader` | Header that can be exposed to browser JavaScript apps. If multiple headers are allowed, specify each one in a separate element.<br/><br/>When requesting an object, the JavaScript client can only use the headers specified in `ExposeHeader` elements.<br/><br/>Path: `/CORSConfiguration/CORSRule/ExposeHeader`.
 
 
-## Example {# example}
+## Example {#example}
 
 The following configuration allows you to send CORS requests from the `http://www.example.com` website using the `PUT`, `POST`, and `DELETE` methods without any header restrictions.
 
@@ -49,3 +49,5 @@ The following configuration allows you to send CORS requests from the `http://ww
 ```
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
+
+* [{#T}](../../../operations/buckets/cors.md)

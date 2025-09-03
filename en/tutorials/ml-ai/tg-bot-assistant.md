@@ -4,6 +4,6 @@ description: Follow this guide to create an AI assistant for Telegram using {{ m
 canonical: '{{ link-docs }}/tutorials/ml-ai/tg-bot-assistant'
 ---
 
-# Creating an AI assistant for Telegram
+# Creating a Telegram bot with RAG and function calling
 
 {% include [tg-bot-assistant](../../_tutorials/ml-ai/tg-bot-assistant.md) %}

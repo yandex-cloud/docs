@@ -8,15 +8,15 @@ from yandex_cloud_ml_sdk.search_indexes import (
 # Local path to the source files.
 mypath = "<path_to_files_with_examples>"
 
-# The `file_labels` variable contains metadata that will be assigned to the source files.
-# 
+# The `file_labels` variable contains metadata
+# that will be assigned to the source files.
 file_labels = [
     {"bali": "File with the description of tours to Bali"},
     {"kazakhstan": "File with the description of the proposal for Kazakhstan"},
 ]
 
-# The `index_label` variable contains metadata that will be assigned to the search index.
-# 
+# The `index_label` variable contains metadata
+# that will be assigned to the search index.
 index_label = {
     "promo": "The index contains general information about Bali and Kazakhstan",
     "visas": "The index contains information on visa policies for entry to Bali and Kazakhstan",
@@ -60,7 +60,7 @@ def main():
     tool = sdk.tools.search_index(search_index)
 
     # Creating an assistant for the Latest {{ gpt-pro }} model.
-    # It will use the search index tool.
+    # It will use the VectorStore tool.
     assistant = sdk.assistants.create("yandexgpt", tools=[tool])
     thread = sdk.threads.create()
 
@@ -84,11 +84,11 @@ def main():
             'Enter your question to the assistant ("exit" to end the dialog): '
         )
 
-    # Displaying some of the attributes of the _citations_ property: information about the used source files, their contents and metadata assigned, as well as information about the index and its metadata.
-    # 
-    # 
-    # You can use the assigned metadata (labels) to apply additional filters to the resulting values.
-    # 
+    # Displaying some of the _citations_ property attributes: information
+    # about the employed source files, their contents and metadata assigned,
+    # as well as information about the index and its metadata.
+    # You can use the assigned metadata (labels) to apply
+    # additional filters to the resulting values.
     print("Citations:")
     for citation in result.citations:
         for source in citation.sources:

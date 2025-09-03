@@ -76,3 +76,4 @@ description: Из статьи вы узнаете про технологию {
 * [{#T}](../templates.md)
 * [{#T}](../api/tts-templates.md)
 * [Как ИИ помогает в поддержке клиентов: кейсы банков, ритейла и IT‑компаний](https://yandex.cloud/ru/blog/posts/2025/04/ai-and-support)
+* [От карточек товаров до обучения сотрудников: как ИИ трансформирует современный ритейл](https://yandex.cloud/ru/blog/ai-in-retail)

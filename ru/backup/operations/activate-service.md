@@ -24,6 +24,10 @@ description: Следуя данной инструкции, вы сможете
 
 - CLI {#cli}
 
-  {% include [default-policies](../../_includes/backup/operations/cli-activate-service.md) %}
+  {% include [cli-activate-service](../../_includes/backup/operations/cli-activate-service.md) %}
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [Activate](../backup/api-ref/Provider/activate.md) для ресурса [Provider](../backup/api-ref/Provider/index.md) или вызовом gRPC API [ProviderService/Activate](../backup/api-ref/grpc/Provider/activate.md).
 
 {% endlist %}

@@ -189,6 +189,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Примеры правил {#examples}
 
+### Группы безопасности для кластера {{ managed-k8s-name }} {#k8s-example}
+
 Пусть планируется создать кластер {{ k8s }}, в котором:
 
 * Используется следующая конфигурация:
@@ -463,5 +465,22 @@ description: Следуя данной инструкции, вы сможете
         }
       }
       ```
+
+{% endlist %}
+
+### Группы безопасности для L7-балансировщика {{ alb-name }} и кластера {{ managed-k8s-name }} {#alb-example}
+
+Пусть необходимо создать правила для следующих условий:
+
+* Требуется развернуть в трех подсетях балансировщик с [публичным IP-адресом](../../../vpc/concepts/address.md#public-addresses), принимающий HTTPS-трафик. CIDR подсетей — `10.128.0.0/24`, `10.129.0.0/24` и `10.130.0.0/24`.
+* При создании кластера были указаны CIDR кластера `10.96.0.0/16` и CIDR сервисов `10.112.0.0/16`.
+* Группа узлов в кластере расположена в подсети, имеющей CIDR `10.140.0.0/24`.
+* [Подключаться](../../../managed-kubernetes/operations/node-connect-ssh.md) к узлам по [SSH](../../../glossary/ssh-keygen.md) и управлять кластером через [API](../../../glossary/rest-api.md), `kubectl` и другие утилиты можно только из CIDR `203.0.113.0/24`.
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+    {% include [terraform-security-groups-example](../../../_includes/application-load-balancer/tf-security-groups-example.md) %}
 
 {% endlist %}

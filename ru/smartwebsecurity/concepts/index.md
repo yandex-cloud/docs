@@ -31,3 +31,4 @@
 * [Защита облаков в России: основные тенденции и тренды киберугроз в 2025 году](https://yandex.cloud/ru/blog/posts/2025/04/cloud-protection)
 * [Как настроить защиту веб‑приложения в облаке с помощью {{ sws-full-name }}](https://yandex.cloud/ru/blog/smart-web-security-how-to)
 * [Yandex SWS и CDN: защита и ускорение сайтов для компаний любого масштаба](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)
+* [Что такое SOC: центр мониторинга кибербезопасности](https://yandex.cloud/ru/blog/soc-security-operations-center)

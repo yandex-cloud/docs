@@ -1,6 +1,6 @@
 ---
 title: '{{ assistant-api }}'
-description: '{{ assistant-api }} is a tool for creating AI assistants. You can use it to set up an RAG scenario and develop an assistant for querying your knowledge base.'
+description: '{{ assistant-api }} is an interface for creating AI assistants. You can use it to set up an RAG scenario and develop an assistant for querying your knowledge base.'
 keywords:
   - keyword: RAG
   - keyword: AI assistant
@@ -12,7 +12,7 @@ keywords:
 
 {% include [assistants-preview-stage](../../../_includes/foundation-models/assistants-preview-stage.md) %}
 
-{{ assistant-api }} is a tool for creating AI assistants. It can be used to create personalized assistants, implement a generative response scenario with access to information from external sources (known as _retrieval augmented generation_, or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)), and save the model's request context.
+{{ assistant-api }} is a {{ foundation-models-name }} tool for creating AI assistants. It can be used to create personalized assistants, implement a generative response scenario with access to information from external sources (known as _retrieval augmented generation_, or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)), and save the model's request context.
 
 ![ai-assistant](../../../_assets/foundation-models/ai-assistant.svg)
 
@@ -38,7 +38,7 @@ For detailed costs of running an assistant, see [Assistant pricing policy](../..
 
 A [simple assistant](../../operations/assistant/create.md) may be of help in automating routine operations over various data. For example, if you have tailored an effective prompt and settings for a model, you can create an assistant and run it for different threads. However, your assistants can do much more if equipped with a number of supplementary _tools_.
 
-With {{ assistant-api }}, your assistant can access RAG tools to retrieve information from external sources or function calling tools to invoke additional handlers and third-party APIs.
+With {{ assistant-api }}, your assistant can access RAG [tools](./tools/index.md) to retrieve information from external sources or function calling tools to invoke additional handlers and third-party APIs.
 
 {% note info %}
 
@@ -47,16 +47,6 @@ The retention period for assistants, threads, search indexes, and users is limit
 Once an object is created, you cannot change its retention period or policy.
 
 {% endnote %}
-
-## Working with external information sources {#rag}
-
-To interact with external information sources, {{ assistant-api }} relies on a variety of RAG techniques and a tailored [model for paraphrasing](./rephraser.md) user search queries to improve search quality. 
-
-For the model to use information from your own sources, do the following:
-1. [Upload the files](#files) using the API or {{ ml-sdk-name }}.
-1. Create a [search index](./search-index.md) for your files. After that, you can delete the files you uploaded if you do not need citations.
-1. Connect the search index to your assistant. You can enable [citations](./files.md#citations) if the search index files are not deleted.
-1. If you need to, [enable](../../operations/assistant/rephraser.md) the paraphrase model as an additional layer in your assistant. 
 
 ## Use cases {#examples}
 

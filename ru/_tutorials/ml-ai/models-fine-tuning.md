@@ -104,7 +104,7 @@
 
 ## Дообучите модель {#fine-tuning}
 
-Код для обучения запускается из ноутбука {{ ml-platform-name }}. [Данные для обучения](../../foundation-models/concepts/resources/dataset.md#generating) хранятся в формате [JSON Lines](https://jsonlines.org/).
+Код для дообучения запускается из ноутбука {{ ml-platform-name }}. [Данные для дообучения](../../foundation-models/concepts/resources/dataset.md#generating) хранятся в формате [JSON Lines](https://jsonlines.org/).
 
 1. Откройте ноутбук с кодом по ссылке ниже:
 
@@ -132,7 +132,7 @@
    import zipfile   
    ```
 
-1. Загрузите [TensorBoard](https://www.tensorflow.org/tensorboard?hl={{ lang }}). Он понадобится, чтобы посмотреть метрики обучения:
+1. Загрузите [TensorBoard](https://www.tensorflow.org/tensorboard?hl={{ lang }}). Он понадобится, чтобы посмотреть метрики дообучения:
 
    ```python
    def download_tensorboard(url):
@@ -141,7 +141,7 @@
            zip_ref.extractall("tensorboard")
    ```
 
-1. Загрузите данные для обучения:
+1. Загрузите данные для дообучения:
 
    ```python
    def local_path(path: str) -> pathlib.Path:
@@ -163,7 +163,7 @@
    )
    ```
 
-1. Создайте датасет для обучения и запустите его загрузку и валидацию:
+1. Создайте датасет для дообучения и запустите его загрузку и валидацию:
 
    ```python
    dataset_draft = sdk.datasets.draft_from_path(
@@ -189,12 +189,12 @@
        n_samples=10000 
    )
    
-   print(f'Обучение началось {tuning_task} \n')
+   print(f'Дообучение началось {tuning_task} \n')
 
    # Дообучение может длиться до нескольких часов
    # Дожидаемся завершения операции обучения и получаем новую модель
    new_model = tuning_task.wait()
-   print(f'Обучение закончилось, новая модель = {new_model} \n')
+   print(f'Дообучение закончилось, новая модель = {new_model} \n')
    ```
 
 1. Получите дообученную модель:

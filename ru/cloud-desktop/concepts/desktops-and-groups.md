@@ -16,3 +16,7 @@
 С рабочим столом могут работать пользователи организации, созданные в [{{ org-name }}](../../organization/).
 
 {% include [access-options](../../_includes/cloud-desktop/access-options.md) %}
+
+#### См. также {#see-also}
+
+* [Как организовать удаленные рабочие места с помощью {{ cloud-desktop-full-name }}](https://yandex.cloud/ru/blog/remote-workplaces)

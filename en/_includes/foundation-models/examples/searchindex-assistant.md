@@ -54,7 +54,7 @@ def main():
     tool = sdk.tools.search_index(search_index)
 
     # Creating an assistant for the Latest {{ gpt-pro }} model.
-    # It will use the search index tool.
+    # It will use the VectorStore tool.
     assistant = sdk.assistants.create(
         "yandexgpt", 
         instruction = "You are an internal corporate documentation assistant. Answer politely. If the information is not in the documents below, don't make up your answer.", 
