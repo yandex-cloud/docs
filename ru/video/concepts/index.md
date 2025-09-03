@@ -25,3 +25,4 @@ _Канал_ — это способ организации контента в 
 * [{#T}](../security/index.md)
 * [{#T}](../hosting.md)
 * [{#T}](../streaming.md)
+* [Нейрофункции и возможность монетизации контента: обновили {{ video-full-name }}](https://yandex.cloud/ru/blog/cloud-video-update)

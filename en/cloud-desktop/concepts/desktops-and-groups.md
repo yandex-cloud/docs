@@ -2,7 +2,7 @@
 
 In {{ cloud-desktop-name }}, the main resource is a _desktop_. This is a virtual Linux or Windows-based (soon to come) workspace deployed in the {{ yandex-cloud }} infrastructure.
 
-Users connect to desktops over the [Remote Desktop Protocol](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP).
+{% include [rdp-is-using](../../_includes/cloud-desktop/rdp-is-using.md) %}
 
 You can create desktops as part of _desktop groups_. All desktops in a group share the same computing resources, the same [network](../../vpc/concepts/network.md), and the same OS image.
 

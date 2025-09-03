@@ -28,5 +28,5 @@ description: Следуя данной инструкции, вы сможете
 1. На вкладке **{{ ui-key.yacloud.load-testing.label_report-exports-history-title }}** убедитесь, что статус нужной операции экспорта обозначен как **{{ ui-key.yacloud.common.operations.column_value_done }}**.
 1. Перейдите на страницу нужной операции экспорта по ссылке в колонке **Путь к файлу**.
 1. Чтобы получить ссылку на отчёт, в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.storage.file.button_generate }}**.
-1. Чтобы скачать отчёт, нажмите **{{ ui-key.yacloud.storage.file.button_download }}**.
+1. Чтобы скачать отчёт, нажмите **{{ ui-key.yacloud.storage.bucket.button_download }}**.
 1. При необходимости вы можете настроить доступ к отчётам. Для этого нажмите ![image](../../_assets/console-icons/ellipsis.svg) в правом верхнем углу, выберите группу пользователей и уровень доступа.

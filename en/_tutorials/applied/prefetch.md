@@ -608,7 +608,7 @@ Make sure that when a user sends a request, files are downloaded from the CDN se
      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Select the bucket with the logs.
      1. Click the name of the object matching the download time for `ycgame-update-v1.1.exe`.
-     1. Click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_download }}**.
+     1. Click ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.bucket.button_download }}**.
 
    - AWS CLI {#cli}
 

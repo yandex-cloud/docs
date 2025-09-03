@@ -28,5 +28,5 @@ Where:
 
 * `exchangeManager`: Exchange Manager storage parameters:
 
-    * `service_s3`: Use of S3 storage for data when retrying queries.
+    * `service_s3`: Use an S3 storage to write data when retrying queries.
     * `additional_properties`: Additional Exchange Manager storage parameters in `"<key>" = "<value>"` format. For more information about parameters, see the [{{ TR }} documentation]({{ tr.docs}}/admin/fault-tolerant-execution.html#id1).

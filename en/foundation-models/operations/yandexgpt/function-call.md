@@ -1,4 +1,4 @@
-# Invoking a function from a model
+# Calling a function from a model
 
 If using {{ gpt-pro }} and {{ llama }} 70b^1^, you can access external tools, API, and databases with the help of [function calls](../../concepts/yandexgpt/function-call.md). 
 
@@ -72,8 +72,8 @@ To enable the model to invoke the function when needed:
       * `IAM_TOKEN`: Your account's [IAM token](../../../iam/operations/iam-token/create.md).
 
   1. The model will return a response with the [`ToolCallList` field](../../text-generation/api-ref/TextGeneration/completion.md#yandex.cloud.ai.foundation_models.v1.ToolCallList2) containing a call to the invoked function and required parameters as a [JSON Schema](https://json-schema.org/).
-
-     Here is a response example:
+  
+     Response example:
 
      ```json
      {
@@ -116,7 +116,7 @@ To enable the model to invoke the function when needed:
   1. Add the model's response and the result of invoking the function to the `messages` array in the `body.json` file.
 
      {% cut "Request example" %}
-
+  
      ```json
      {
          "modelUri": "gpt://<folder_ID>/yandexgpt",
@@ -159,7 +159,7 @@ To enable the model to invoke the function when needed:
              }
            },
            {
-             "role": "assistant",
+             "role": "user",
              "toolResultList": {
                "toolResults": [
                  {
@@ -176,7 +176,7 @@ To enable the model to invoke the function when needed:
      ```
 
      Where `toolResultList` is the result of invoking the function.
-
+  
      {% endcut %}
 
   1. Send a new request to the model by repeating Step 2 of this guide. The model will formulate its response based on the result of invoking the function:

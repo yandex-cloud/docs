@@ -330,3 +330,4 @@ grpcurl \
 #### См. также {#see-also}
 
 * [Как {{ speechsense-full-name }} заменяет ручную проверку диалогов с клиентами](https://yandex.cloud/ru/blog/posts/2025/05/speechsense-and-dialogues)
+* [Как использовать {{ speechsense-full-name }} для оценки разговоров в офисах продаж, магазинах или кафе](https://yandex.cloud/ru/blog/yandex-speechsense-update)

@@ -16,7 +16,7 @@
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. В открывшемся списке выберите каталог метаданных.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
   1. Выберите в списке строку с типом **Набор данных** и перейдите на вкладку **Связи**. На вкладке отобразится граф связей выбранной таблицы с объектами БД источника, а также связей вида `таблица` → `сервис {{ data-transfer-full-name }}` → `таблица`.
   
      Каждая вершина графа представляет таблицу и содержит раскрывающийся список колонок таблицы.

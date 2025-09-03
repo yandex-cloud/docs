@@ -48,8 +48,8 @@ To correctly distribute the load across backends, add a permission for incoming 
 > 
 > | Traffic<br/>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
 > | --- | --- | --- | --- | --- |
-> | Ingress | `8080` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.1.0/24` |
-> | Ingress | `8080` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.2.0/24` |
+> | Inbound | `8080` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.1.0/24` |
+> | Inbound | `8080` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `10.0.2.0/24` |
 
 ## Autoscaling and resource units {#lcu-scaling}
 
@@ -106,8 +106,8 @@ Some incoming ports, such as port 22, are reserved for service purposes and you 
 
 Request routing to [backend groups](backend-group.md) depends on the _listener type_:
 
-* **{{ ui-key.yacloud.alb.label_listener-type-http }}**: Load balancer accepts HTTP or HTTPS requests and distributes them across backend groups based on the rules set in [HTTP routers](http-router.md), or redirects HTTP requests to HTTPS. Backend groups receiving traffic must have the **{{ ui-key.yacloud.alb.label_proto-http }}** or **{{ ui-key.yacloud.alb.label_proto-grpc }}** [type](backend-group.md#group-type).
-* **{{ ui-key.yacloud.alb.label_listener-type-stream }}**: Load balancer accepts incoming traffic via unencrypted or encrypted TCP connections and routes it to **{{ ui-key.yacloud.alb.label_proto-stream }}** backend groups.
+* **{{ ui-key.yacloud.alb.label_listener-type-http }}**: Load balancer accepts HTTP or HTTPS requests and distributes them across backend groups based on the rules set in [HTTP routers](http-router.md), or redirects HTTP requests to HTTPS. Backend groups receiving traffic must have the **{{ ui-key.yacloud.alb.label_proto-http }}** or **{{ ui-key.yacloud.alb.label_proto-grpc }}** [type](backend-group.md#group-type). For **{{ ui-key.yacloud.alb.label_listener-type-http }}** listeners, [{{ monitoring-full-name }}](../../monitoring/) calculates and displays the [request statistics](#stats).
+* **{{ ui-key.yacloud.alb.label_listener-type-stream }}**: Load balancer accepts incoming traffic via unencrypted or encrypted TCP connections and routes it to **{{ ui-key.yacloud.alb.label_proto-stream }}** backend groups. For **{{ ui-key.yacloud.alb.label_listener-type-stream }}** listeners, the system does not collects statistics on individual HTTP requests, so {{ monitoring-name }} does not display their error or access metrics.
 
 If encrypted traffic is accepted, the _main listener_ and optional _SNI listeners_ are set up for the load balancer. In each SNI listener, the domain name specified as [Server Name Indication](https://{{ lang }}.wikipedia.org/wiki/Server_Name_Indication) (SNI) when establishing a TLS connection is mapped to a TLS certificate and HTTP router (if the listener type is **{{ ui-key.yacloud.alb.label_listener-type-http }}**) or a backend group (if the listener type is **{{ ui-key.yacloud.alb.label_listener-type-stream }}**). The main listener is responsible for TLS connections with domain names that do not match any SNI listener.
 
@@ -126,6 +126,12 @@ The listener can accept HTTP traffic on port 80 and redirect traffic to HTTPS po
 If an HTTPS listener is used, specify a [certificate](../../certificate-manager/concepts/imported-certificate.md) from {{ certificate-manager-name }} that will be used to terminate TLS connections.
 
 ## Statistics {#stats}
+
+{% note info %}
+
+For **{{ ui-key.yacloud.alb.label_listener-type-stream }}** listeners, the system does not collect statistics on individual HTTP requests.
+
+{% endnote %}
 
 Load balancer statistics are automatically logged in the [{{ monitoring-full-name }}](../../monitoring/) metrics. The following dashboards and measures are available:
 
@@ -257,7 +263,7 @@ Possible rules:
 
 * [{#T}](../tutorials/virtual-hosting.md)
 * [{#T}](../tutorials/alb-with-ddos-protection/index.md)
-* [{#T}](../tutorials/balancer-with-sws-profile.md)
+* [{#T}](../tutorials/balancer-with-sws-profile/index.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
 * [{#T}](../tutorials/alb-ingress-controller.md)
 * [{#T}](../tutorials/application-load-balancer-website/console.md)

@@ -27,13 +27,16 @@ description: Для корректной работы Ingress-контролле
 
 ## Пример настройки {#example}
 
-Приведем пример для следующих условий:
+Пусть необходимо создать правила для следующих условий:
+
 * Требуется развернуть балансировщик с [публичным IP-адресом](../../../vpc/concepts/address.md#public-addresses), принимающий HTTPS-трафик, в трех подсетях, имеющих CIDR `10.128.0.0/24`, `10.129.0.0/24` и `10.130.0.0/24`, — далее они помечаются \[Б\].
 * При создании кластера были указаны CIDR кластера `10.96.0.0/16` \[К\] и CIDR сервисов `10.112.0.0/16` \[С\].
 * Группа узлов в кластере расположена в подсети, имеющей CIDR `10.140.0.0/24` \[Узл\].
 * [Подключаться](../../../managed-kubernetes/operations/node-connect-ssh.md) к узлам по [SSH](../../../glossary/ssh-keygen.md) и управлять кластером через [API](../../../glossary/rest-api.md), `kubectl` и другие утилиты можно только из CIDR `203.0.113.0/24` \[Упр\].
 
-Тогда в группах безопасности нужно создать следующие правила:
+### Консоль управления {#example-console}
+
+Создайте следующие группы безопасности и правила:
 
 * [Группа безопасности балансировщика](../../concepts/application-load-balancer.md#security-groups):
 
@@ -149,3 +152,7 @@ description: Для корректной работы Ingress-контролле
   {% endlist %}
 
 Подробнее о группах безопасности для кластера и групп узлов см. в разделе [{#T}](../../../managed-kubernetes/operations/connect/security-groups.md) документации {{ managed-k8s-name }}.
+
+### {{ TF }} {#example-terraform}
+
+{% include [terraform-security-groups-example](../../../_includes/application-load-balancer/tf-security-groups-example.md) %}

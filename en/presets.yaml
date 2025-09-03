@@ -8748,6 +8748,7 @@ default:
             popup-confirm_button_remove-one-to-one-nat: Delete
             section_monitoring: Monitoring
             section_network: Network
+          popup-confirm_button_password-reset: Generate password
           service-console:
             raw-mode: Raw mode
           stop-dialog:
@@ -8758,6 +8759,7 @@ default:
           switch_service-console: Serial port
         instances_jsoza: Virtual machines
         instances:
+          button_action-password-reset: Reset password
           button_action-restart: Restart
           button_create: Create virtual machine
           button_gr-action-stop: Stop
@@ -8954,6 +8956,7 @@ default:
         label_empty-ingestion-count-short: No ingestion
         label_ingestion-count: Number of ingestions
         label_ingestion-status-Running: Running
+        label_ingestion-status-Success: Success
         label_ingestion-tab-logs: Logs
         label_ingestion-tab-operations: Operations
         label_ingestion-tab-overview: Overview
@@ -10748,7 +10751,9 @@ default:
         bucket:
           button_action-permissions: Object ACL
           button_create: Create folder
+          button_download: Download
           button_empty-create: Upload objects
+          button_object-lock: Object lock
           button_upload: Upload
           cors:
             button_cors_empty-create: Configure
@@ -10793,6 +10798,7 @@ default:
             value_date: Exact date
             value_days: Number of days
             value_expired-object-delete-marker: Deletion marker without noncurrent versions
+          menu_version-history: Version history
           object-lock:
             title-mode-compliance: Compliance
             title-mode-governance: Governance
@@ -10874,14 +10880,8 @@ default:
         field_temp-object-lock-enabled: Retention
         file:
           action_file-restore: Restore
-          button_delete: Delete
-          button_download: Download
           button_generate: Get link
-          button_object-lock: Object lock
-          button_permissions: Object ACL
-          button_version-history: Version history
           label_lifetime: Lifetime
-          popup-confirm_button_delete: Delete
         form:
           BucketObjectLockFormContent:
             field_default-rules-enabled_qtmC8: Default locks for new versions
@@ -13210,3 +13210,8 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/velero/velero
         tag: 8.5.0-4
+    yc_victoria-logs:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/victoria-logs/victoria-logs-single
+        tag: 1.0.0

@@ -255,7 +255,13 @@ items:
           - name: Creating an interactive serverless application using WebSocket
             href: tutorials/app-security/websocket-app.md
           - name: Creating an L7 {{ alb-name }} with a {{ sws-name }} profile
-            href: tutorials/app-security/balancer-with-sws-profile.md
+            items:
+              - name: Overview
+                href: tutorials/app-security/balancer-with-sws-profile/index.md
+              - name: Management console
+                href: tutorials/app-security/balancer-with-sws-profile/console.md
+              - name: '{{ TF }}'
+                href: tutorials/app-security/balancer-with-sws-profile/terraform.md
           - name: '{{ api-gw-name }} protection with {{ sws-name }}'
             href: tutorials/app-security/api-gw-sws-integration.md
           - name: Adding an HTML page to work with {{ captcha-name }}

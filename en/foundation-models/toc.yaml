@@ -25,7 +25,7 @@ items:
             href: operations/yandexgpt/create-chat.md
           - name: Sending an asynchronous request
             href: operations/yandexgpt/async-request.md
-          - name: Invoking a function from a model
+          - name: Calling a function from a model
             href: operations/yandexgpt/function-call.md
       - name: Image generation
         items:
@@ -63,10 +63,12 @@ items:
         items:
           - name: Creating a simple assistant
             href: operations/assistant/create.md
-          - name: Creating a search assistant
+          - name: Creating an assistant with the VectorStore tool
             href: operations/assistant/create-with-searchindex.md
-          - name: Creating a search assistant specifying file metadata and indexes
+          - name: Creating a search assistant with file and index metadata
             href: operations/assistant/create-with-labels.md
+          - name: Creating an assistant with the WebSearch tool
+            href: operations/assistant/create-with-websearch.md
           - name: Getting intermediate response generation results
             href: operations/assistant/request-chunked-response.md
           - name: Rephrasing queries using the model
@@ -115,6 +117,14 @@ items:
             href: concepts/assistant/files.md
           - name: Search indexes
             href: concepts/assistant/search-index.md
+          - name: Tools
+            items:
+              - name: Overview
+                href: concepts/assistant/tools/index.md
+              - name: VectorStore
+                href: concepts/assistant/tools/vector-store.md
+              - name: WebSearch
+                href: concepts/assistant/tools/web-search.md
           - name: Rephrasing queries
             href: concepts/assistant/rephraser.md
       - name: Quotas and limits

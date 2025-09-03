@@ -335,7 +335,7 @@ In response to a query by image, {{ search-api }} returns a [UTF-8](https://en.w
       
           * `IMAGE_FORMAT_JPEG`: [JPG](https://en.wikipedia.org/wiki/JPEG)
           * `IMAGE_FORMAT_GIF`: [GIF](https://en.wikipedia.org/wiki/GIF)
-          * `IMAGE_FORMAT_PNG`: [PNG](https://en.wikipedia.org/wiki/PNG)
+          * `IMAGE_FORMAT_PNG`: [PNG](https://en.wikipedia.org/wiki/PNG) format.
       * `width`: Image width in [pixels](https://en.wikipedia.org/wiki/Pixel).
       * `height`: Image height in pixels.
       * `passage`: Text snippet describing the image.
@@ -378,7 +378,7 @@ In response to a query by image, {{ search-api }} returns a [UTF-8](https://en.w
       
           * `IMAGE_FORMAT_JPEG`: [JPG](https://en.wikipedia.org/wiki/JPEG)
           * `IMAGE_FORMAT_GIF`: [GIF](https://en.wikipedia.org/wiki/GIF)
-          * `IMAGE_FORMAT_PNG`: [PNG](https://en.wikipedia.org/wiki/PNG)
+          * `IMAGE_FORMAT_PNG`: [PNG](https://en.wikipedia.org/wiki/PNG) format.
       * `width`: Image width in [pixels](https://en.wikipedia.org/wiki/Pixel).
       * `height`: Image height in pixels.
       * `passage`: Text snippet describing the image.

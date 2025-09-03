@@ -5,6 +5,8 @@
 
 ### 2025 год {#2025}
 
+* Основы машинного обучения: задачи, методы, этапы и инструменты. [Статья](https://yandex.cloud/ru/blog/machine-learning-guide).
+
 * Инновации в международном страховании: что будет полезно российскому рынку. [Статья](https://yandex.cloud/ru/blog/innovations-in-insurance).
 
 * Нейросеть и рентгеновские спектры: как ускорить анализ катализаторов. [Статья](https://yandex.cloud/ru/blog/analysis-of-catalysts).

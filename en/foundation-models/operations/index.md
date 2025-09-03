@@ -1,6 +1,6 @@
 ---
 title: How to work with {{ foundation-models-full-name }}
-description: This page presents all the guides on how to use {{ foundation-models-full-name }} in {{ yandex-cloud }}. See how it works.
+description: This page gives all the guides on how to work with {{ foundation-models-full-name }} in {{ yandex-cloud }}. See how it works.
 ---
 
 # Step-by-step guides for {{ foundation-models-full-name }}
@@ -32,6 +32,7 @@ description: This page presents all the guides on how to use {{ foundation-model
 * [{#T}](./assistant/create.md)
 * [{#T}](./assistant/create-with-searchindex.md)
 * [{#T}](./assistant/create-with-labels.md)
+* [{#T}](./assistant/create-with-websearch.md)
 * [{#T}](./assistant/request-chunked-response.md)
 * [{#T}](./assistant/rephraser.md)
 

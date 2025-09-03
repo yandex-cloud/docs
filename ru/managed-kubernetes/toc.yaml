@@ -91,6 +91,8 @@ items:
             href: operations/applications/thumbor.md
           - name: Установка Velero
             href: operations/applications/velero-yc-csi.md
+          - name: Установка VictoriaLogs
+            href: operations/applications/victoria-logs.md
       - name: Сетевые сценарии
         items:
           - name: Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}

@@ -154,7 +154,7 @@ Using a single chunking policy for both text and vector search also improves the
 
 {% endnote %}
 
-Here is an example of creating a vector search for a single file:
+Here is an example of creating a hybrid search index for a single file:
 
 {% list tabs group=programming_language %}
 

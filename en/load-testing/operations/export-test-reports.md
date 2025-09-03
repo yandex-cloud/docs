@@ -28,5 +28,5 @@ In {{ load-testing-name }}, you can export test results to a [{{ objstorage-full
 1. In the **{{ ui-key.yacloud.load-testing.label_report-exports-history-title }}** tab, make sure the export operation you need is shown as **{{ ui-key.yacloud.common.operations.column_value_done }}**.
 1. Use the link in the **File path** column to go to the export operation page.
 1. In the top-right corner, click **{{ ui-key.yacloud.storage.file.button_generate }}** to get a link to the report.
-1. To download the report, click **{{ ui-key.yacloud.storage.file.button_download }}**.
+1. To download the report, click **{{ ui-key.yacloud.storage.bucket.button_download }}**.
 1. You can configure access permissions for your reports, if required. In the top-right corner, click ![image](../../_assets/console-icons/ellipsis.svg) to select a user group and set access level for it.

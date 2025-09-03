@@ -37,6 +37,7 @@ After creating a cluster, you can edit its basic and advanced settings.
     1. Change the configuration of the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
         * Enable or disable cluster deletion protection.
+        * Update the cluster [maintenance](../concepts/maintenance.md) time.
         * Enable or disable logging. If logging is enabled, select:
 
             * Log destination: custom [log group](../../logging/concepts/log-group.md) or default log group in the selected folder.
@@ -49,7 +50,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. View the description of the CLI command to update a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -134,7 +135,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-        For more information about creating this file, see [Creating clusters](cluster-create.md).
+        For more information about creating this file, see [this guide](cluster-create.md).
 
         For a complete list of available {{ mtr-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mtr }}).
 

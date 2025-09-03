@@ -5,6 +5,8 @@ description: В данной статье описан XML-формат отве
 
 # XML-формат ответа при текстовом поиске
 
+{% include [empty-response-notice](../../_includes/search-api/empty-response-notice.md) %}
+
 В ответ на текстовый поисковый запрос {{ search-api-name }} может возвращать XML-файл в кодировке [UTF-8](https://ru.wikipedia.org/wiki/UTF-8), содержащий результаты поиска. Ответ в XML-формате возвращается для текстовых запросов с использованием как интерфейса [API v2](./index.md#api-v2), так и интерфейса API v1.
 
 {% include [api-v1](../../_includes/search-api/api-v1.md) %}

@@ -11,7 +11,7 @@ The {{ openai }} gpt-oss-120b and gpt-oss-20b models are now available in synchr
 
 ## Release as of 24/07/2025 {#240725}
 
-Updated the Qwen3 235B model, its context length increased to 256,000 tokens.
+Updated the Qwen3 235B model by increasing its context length to 256,000 tokens.
 
 ## Release as of 03/07/2025 {#030725}
 

@@ -1,0 +1,1 @@
+To establish a desktop connection, use the [Remote Desktop Protocol](https://{{ lang }}.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP).

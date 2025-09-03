@@ -8,3 +8,7 @@ description: На этой странице приведен справочни�
 В этом разделе описаны метрики сервиса {{ compute-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/).
 
 {% include [compute](../_includes/monitoring/metrics-ref/compute.md) %}
+
+#### См. также {#see-also}
+
+* [{#T}](operations/metrics-pull.md).

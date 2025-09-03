@@ -51,18 +51,19 @@ The schemas use _[subjects](https://docs.confluent.io/platform/current/schema-re
 
 Subject access depends on permissions [granted](../operations/cluster-accounts.md#grant-permission) to the {{ KF }} user:
 
-* The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a specific topic allows the user to manage these subjects: `<topic_name>-key`, `<topic_name>-value`, and `<topic_name>`.
-* The `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a topic formatted as `<prefix>*` allows the user to manage subjects with the same `<prefix>*` format. Topic and subject names start with the same prefix.
-* The `ACCESS_ROLE_TOPIC_ADMIN` role for a topic formatted as `<prefix>*` allows the user to manage subjects with the same `<prefix>*` format. Topic and subject names start with the same prefix.
-* The `ACCESS_ROLE_ADMIN` role allows the user to manage all subjects in a {{ mkf-name }} cluster.
+* With the `ACCESS_ROLE_SCHEMA_READER` or `ACCESS_ROLE_SCHEMA_WRITER` role for particular subjects, the user can manage only these subjects.
+* With the `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a particular topic, the user can manage the following subjects: `<topic_name>-key`, `<topic_name>-value`, and `<topic_name>`.
+* With the `ACCESS_ROLE_CONSUMER` or `ACCESS_ROLE_PRODUCER` role for a topic formatted as `<prefix>*`, the user can manage subjects of the same `<prefix>*` format. Topic and subject names start with the same prefix.
+* With the `ACCESS_ROLE_TOPIC_ADMIN` role for a topic formatted as `<prefix>*`, the user can manage subjects of the same `<prefix>*` format. Topic and subject names start with the same prefix.
+* The `ACCESS_ROLE_ADMIN` role allows the user to manage all subjects in the {{ mkf-name }} cluster.
 
 [Learn more](account-roles.md) about the permissions you get with each role.
 
 ### Authorization in {{ mkf-msr }} {#msr-auth}
 
-When working with the {{ mkf-msr }} API over an SSL connection, you need to configure the same client [SSL certificate](../operations/connect#get-ssl-cert) as for broker host connections.
+When working with the {{ mkf-msr }} API over an SSL connection, you need to configure the same client [SSL certificate](../operations/connect/index.md#get-ssl-cert) as for broker host connections.
 
-You also need to authorize API server requests using the `Authorization` [HTTP header](https://en.wikipedia.org/wiki/Basic_access_authentication). In this header, specify the [username and password of the {{ KF }} user](../operations/cluster-accounts#create-account).
+You also need to authorize API server requests using the `Authorization` [HTTP header](https://en.wikipedia.org/wiki/Basic_access_authentication). In this header, specify the [username and password of the {{ KF }} user](../operations/cluster-accounts.md#create-account).
 
 Access to schemas depends on the selected [topic management method](./topics.md#management) and the configured user roles:
 

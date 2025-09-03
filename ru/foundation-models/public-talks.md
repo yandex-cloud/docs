@@ -41,6 +41,16 @@ description: Видеозаписи конференций и вебинаров
 
 ### 2025 год {#2025-articles}
 
+* {{ yagpt-name }} 5.1 Pro: открыли доступ к флагманской модели для бизнеса. [Статья](https://yandex.cloud/ru/blog/yandexgpt-5-1-pro).
+
+* От карточек товаров до обучения сотрудников: как ИИ трансформирует современный ритейл. [Статья](https://yandex.cloud/ru/blog/ai-in-retail).
+
+* {{ ai-studio-full-name }} использовали в детских умных часах. [Статья](https://yandex.cloud/ru/blog/yandexgpt-speechkit-smart-watch).
+
+* Визуально‑лингвистические модели: архитектура, применение и перспективы. [Статья](https://yandex.cloud/ru/blog/vlm-visual-language-models).
+
+* ОТП Банк ускорил анализ обращений клиентов в 30 раз с помощью нейросетей {{ yandex-cloud }}. [Статья](https://yandex.cloud/ru/blog/otp-yandexgpt).
+
 * Как писать промты для нейросетей: инструкция, примеры и советы. [Статья](https://yandex.cloud/ru/blog/gpt-prompting-guide).
 
 * Нейросети Яндекса помогли врачам ускорить разработку новых методов лечения. [Статья](https://yandex.cloud/ru/blog/local-ethics-committee).

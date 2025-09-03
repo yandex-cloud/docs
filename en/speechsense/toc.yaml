@@ -73,12 +73,16 @@ items:
             href: operations/project/tag/create-dictionary-tag.md
           - name: Creating a semantic tag
             href: operations/project/tag/create-sense-tag.md
+          - name: Creating a semantic Pro tag
+            href: operations/project/tag/create-sense-pro-tag.md
           - name: Creating a dependent tag
             href: operations/project/tag/create-dependent-tag.md
           - name: Creating a dictionary tag
             href: operations/project/tag/change-dictionary-tag.md
           - name: Changing a semantic tag
             href: operations/project/tag/change-sense-tag.md
+          - name: Changing a semantic Pro tag
+            href: operations/project/tag/change-sense-pro-tag.md
           - name: Testing a tag
             href: operations/project/tag/test.md
           - name: Deleting a tag

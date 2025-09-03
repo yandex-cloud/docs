@@ -83,7 +83,7 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](app-security/nginx-ingress-certificate-manager.md)
 * [{#T}](app-security/ci-cd-serverless.md)
 * [{#T}](app-security/websocket-app.md)
-* [{#T}](app-security/balancer-with-sws-profile.md)
+* [{#T}](app-security/balancer-with-sws-profile/index.md)
 * [{#T}](app-security/api-gw-sws-integration.md)
 * [{#T}](app-security/website.md)
 * [{#T}](app-security/quickstart-android.md)
