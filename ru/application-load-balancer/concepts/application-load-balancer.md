@@ -162,7 +162,7 @@
 
 Подробности о просмотре логов см. в [{#T}](../operations/application-load-balancer-get-logs.md).
 
-Полный список сохраняемых параметров представлен в [справочнике логов](../logs-ref.md).
+Значение заголовка [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) (XFF) передается в логи в соответствии со стандартом [RFC 7239](https://datatracker.ietf.org/doc/html/rfc7239). Полный список сохраняемых параметров представлен в [справочнике логов](../logs-ref.md). 
 
 Также вы можете [передавать логи балансировщика в БД PostgreSQL](../tutorials/logging.md).
 

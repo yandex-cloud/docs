@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. В открывшемся списке выберите каталог метаданных, для которого вы хотите получить список операций.
-    1. Перейдите на вкладку ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.data-catalog.label_ingestion-tab-operations }}**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.data-catalog.label_ingestion-tab-operations }}**.
 
 {% endlist %}
 

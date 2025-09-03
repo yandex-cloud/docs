@@ -20,6 +20,6 @@ description: Various {{ alb-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](high-accessible-dmz.md)
 * [{#T}](application-load-balancer-website/index.md)
 * [{#T}](custom-health-checks.md)
-* [{#T}](balancer-with-sws-profile.md)
+* [{#T}](balancer-with-sws-profile/index.md)
 * [{#T}](./integrate-nextcloud/index.md)
 * [{#T}](./webapp-on-bms-behind-sws.md)

@@ -1,4 +1,4 @@
-# Creating an assistant with a search index and rephrasing
+# Creating an assistant for RAG with query rephrasing
 
 In {{ assistant-api }}, you can enable an additional rephrasing model to make search index queries more accurate. Rephrasing will correct errors and typos and help you out if the response requires massive volumes of indexed data and heavily relies on the conversation context.
 
@@ -32,7 +32,7 @@ In this example, we are going to use the [tour information scenario](./create-wi
      * `<folder_ID>`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) the [service account](../../../iam/concepts/users/service-accounts.md) was created in.
      * `<API_key>`: Service account [API key](../../../iam/concepts/authorization/api-key.md) required for [authentication in the API](../../api-ref/authentication.md).
      
-  1. Run the created file:
+  1. Run the file you created:
 
       ```bash
       python3 rephraser.py

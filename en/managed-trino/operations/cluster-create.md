@@ -21,7 +21,7 @@ To create a {{ mtr-name }} cluster, your {{ yandex-cloud }} account needs the fo
 
 Make sure to assign the `managed-trino.integrationProvider` and `storage.editor` roles to the cluster's [service account](../../iam/concepts/users/service-accounts.md). The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
-For more information about assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
+For more information about assigning roles, see the [{{ iam-full-name }} documentation](../../iam/operations/roles/grant.md).
 
 ## Creating a cluster {#create-cluster}
 
@@ -59,6 +59,10 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
         1. Optionally, enable cluster deletion protection.
+        1. Optionally, select cluster [maintenance](../concepts/maintenance.md) time:
+
+            {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+
         1. Optionally, configure logging:
 
             1. Enable the **{{ ui-key.yacloud.logging.field_logging }}** setting.
@@ -84,16 +88,16 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         yc vpc subnet list
         ```
 
-        If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+        If your folder has no subnets, [create the required ones](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
 
-    1. View the description of the CLI command to create a cluster:
+    1. See the description of the CLI command for creating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster create --help
         ```
 
-    1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
+    1. Specify cluster parameters in that command (our example does not use all available parameters):
 
         ```bash
         {{ yc-mdb-tr }} cluster create \
@@ -221,7 +225,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
 
-    For more information about resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-mtr }}).
+    For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-mtr }}).
 
 - REST API {#api}
 
@@ -354,7 +358,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             --data '@body.json'
         ```
 
-    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 

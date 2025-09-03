@@ -19,12 +19,14 @@ description: This page provides a list of step-by-step guides for {{ cloud-deskt
 * [{#T}](desktops/password-reset.md)
 * [{#T}](desktops/start-stop.md)
 * [{#T}](desktops/update.md)
+* [{#T}](desktops/update-properties.md)
 * [{#T}](desktops/delete.md)
 
 ## Images {#desktops}
 
 * [{#T}](images/create-from-desktop.md)
 * [{#T}](images/create-from-compute-linux.md)
+* [{#T}](images/update.md)
 * [{#T}](images/delete.md)
 
 ## Additional features {#add-features}

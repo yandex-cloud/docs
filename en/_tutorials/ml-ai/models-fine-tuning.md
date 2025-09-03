@@ -1,5 +1,5 @@
 
-# Model fine-tuning in {{ ml-platform-name }}
+# Model fine-tuning in {{ ml-platform-name }} Notebooks
 
 You can [fine-tune](../../foundation-models/concepts/tuning/index.md) language models enabled by {{ foundation-models-full-name }} through APIs or {{ ml-sdk-name }} to better understand the specific features of your tasks. It is convenient to run fine-tuning on [{{ ml-platform-full-name }}](../../datasphere/) notebooks.
 
@@ -52,7 +52,7 @@ The infrastructure support cost for fine-tuning a model includes:
   1. Navigate to `data-folder`.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the [service account](../../iam/concepts/users/service-accounts.md), e.g., `gpt-user`.
+  1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `gpt-user`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to the service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -141,7 +141,7 @@ You will run the fine-tuning code from the {{ ml-platform-name }} notebook. [Fin
            zip_ref.extractall("tensorboard")
    ```
 
-1. Upload data for model fine-tuning:
+1. Upload the data for model fine-tuning:
 
    ```python
    def local_path(path: str) -> pathlib.Path:

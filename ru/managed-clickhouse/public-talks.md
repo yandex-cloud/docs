@@ -5,6 +5,14 @@ description: Видеозаписи конференций и вебинаров
 
 # Публичные материалы о {{ mch-full-name }}
 
+## Статьи, анонсы и видео {#articles}
+
+### 2025 год {#2025}
+
+* {{ CH }}: рассказываем о колоночной СУБД для аналитики больших данных.
+
+  * [Статья](https://yandex.cloud/ru/blog/clickhouse-overview).
+
 ## Конференции и вебинары {#conf-and-webinars}
 
 ### 2023: Data Open Source Day {#data-open-source-day-2023}

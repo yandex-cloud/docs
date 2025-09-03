@@ -43,3 +43,5 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 The structure of returned data is the same as the structure of data provided by the [upload](upload.md) method.
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
+
+* [{#T}](../../../operations/buckets/cors.md)

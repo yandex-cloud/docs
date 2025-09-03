@@ -8,13 +8,16 @@ To be assigned to a dialog, tags need to be activated. The activation takes plac
 
 {% note info %}
 
-The tagging analysis is performed for dialogues that are less than 60 days old. The period is counted starting from the current day.
+To get analyzed for dictionary and semantic tagging, dialogs must be 60 days old or less, starting from the current day. The period is counted starting from the current day.
+
+To get analyzed for semantic Pro tagging, dialogs must be new, i.e., uploaded after the tag creation or activation.
 
 {% endnote %}
 
 There are the following tag types in {{ speechsense-name }}:
 
-* [Semantic tags](#sense-tags) rely on dialog analysis with the help of [semantic attributes](reports/sense-attributes.md) you address search queries to.
+* [Semantic tags](#sense-tags) rely on dialog analysis with the help of [semantic attributes](reports/sense-attributes.md) you provide search queries for.
+* [Semantic Pro tags](#sense-pro-tags) rely on dialog analysis with the use of complex search queries. They are an improved version of semantic tags.
 * [Dictionary tags](#dictionary-tags) are based on searching for specific words and phrases in the dialogs.
 
 For more info on creating, updating, and deleting tags, see [these guides](../operations/index.md#tag).
@@ -75,6 +78,43 @@ You can use semantic tags to evaluate the agent's performance or the client's be
 > {{ speechsense-name }} will tag dialogs where the customer was rude or aggressive during the conversation.
 
 Such use of semantic tags allows you to [filter dialogs](../operations/data/manage-dialogs.md#filter-dialogs) based on the agent's performance criteria and the client’s behavior, and use the same data as a filter or parameter in your [reports](../operations/data/manage-reports.md).
+
+## Semantic Pro tags {#sense-pro-tags}
+
+Semantic Pro tags rely on dialog analysis with the use of complex search queries. You provide a search query that may include mutliple topics. {{ speechsense-name }} analyses the dialogs and tags them if the dialog is semantically relevant to the search query.
+### Testing semantic Pro tags {#test-sense-pro-tags}
+
+{% include [note-pro](../../_includes/speechsense/tag/note-pro.md) %}
+
+When creating or editing a semantic Pro tag, you can test it on a selection of dialogs. During the test, {{ speechsense-name }} analyzes whether or not the dialog matches the search query specified in the tag.
+
+{% include [note-pro](../../_includes/speechsense/tag/test-pro-additional.md) %}
+
+During the test, you can change the search query depending on the test results for more accurate tagging.
+
+For more information about tag testing, see [this guide](../operations/project/tag/test.md).
+
+### Using semantic Pro tags for dialog evaluation {#use-sense-pro-tags-for-dialog-evaluation}
+
+You can use semantic Pro tags to evaluate the agent's performance and the customer's behavior against complex semantic criteria, e.g., whether the agent was able to sell a travel package without offering a discount to the customer. To do this, create a semantic Pro tag with the relevant search query. {{ speechsense-name }} will assign this tag to the matching dialogs.
+
+> For example, if looking for dialogs where a client bought a tour to the Maldives with no discount offered, specify the search query as follows when creating the tag: **tour to the Maldives purchased without a discount**.
+>
+> {{ speechsense-name }} will assign this tag to the dialogs where a client bought a tour to the Maldives with no discount offered.
+
+Such use of semantic Pro tags allows you to [filter dialogs](../operations/data/manage-dialogs.md#filter-dialogs) based on the agent's performance criteria and the client’s behavior, and use the same data as a filter or parameter in your [reports](../operations/data/manage-reports.md).
+
+### Comparing semantic Pro tags and basic semantic tags {#sense-pro-tag-vs-sense-tag}
+
+#|
+|| **Function** | **Semantic tag** | **Semantic Pro tag** | **Example** ||
+|| Context | Individual phrase | Entire dialog | — ||
+|| Dependency search | No | Yes | — ||
+|| Dialog analysis | Simple query within a single [semantic attribute](reports/sense-attributes.md) | Complex query with multiple topics or conditions | 
+* Simple query: `Topics` for the attribute, `Vacation in Sochi` for the query.
+* Complex query: `tour to the Maldives purchased without a discount`. ||
+|| Recalculation based on historical data | Automatic recalculation within two months from the dialog upload date | No | — ||
+|#
 
 ## Dictionary tags {#dictionary-tags}
 
@@ -156,10 +196,10 @@ For more information about tag testing, see [this guide](../operations/project/t
 
 You can [create](../operations/project/tag/create-dependent-tag.md) a _dependent tag_ for any {{ speechsense-name }} tag. A dependent tag is one that triggers only if the _main_ tag has done so. A main tag is one for which a dependent tag was created. 
 
-Both dictionary and semantic tags can act as basic and dependent tags, in any combination. Dependent tags can be nested down to any depth.
+Dictionary, semantic, and semantic Pro tags can act as basic and dependent tags, in any combination. Dependent tags can be nested down to any depth.
 
 Dictionary tag dependency is implemented through the **{{ ui-key.yc-ui-talkanalytics.tags.binding-events.classifier }}** [constraint](#tag-limitations) automatically added to the dependent tag. You cannot delete this constraint. If you create a dependent dictionary tag for a semantic tag, you cannot set a constraint for this dictionary tag.
 
-You can edit dependent tags in accordance with their type as basic [semantic](../operations/project/tag/change-sense-tag.md) or [dictionary](../operations/project/tag/change-dictionary-tag.md) tags.
+You can edit dependent tags in accordance with their type as basic [semantic](../operations/project/tag/change-sense-tag.md), [semantic Pro](../operations/project/tag/change-sense-pro-tag.md), or [dictionary](../operations/project/tag/change-dictionary-tag.md) tags.
 
 When you delete the main tag, all its dependent tags will also be deleted.

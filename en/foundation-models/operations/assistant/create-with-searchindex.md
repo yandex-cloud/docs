@@ -1,13 +1,15 @@
 ---
-title: Creating an assistant with a search index
-description: Follow this guide to create a personalized assistant using {{ assistant-api }} to implement a generative response scenario with access to information from external sources (RAG).
+title: Creating an assistant with the VectorStore tool
+description: Follow this guide to create a personalized assistant in {{ assistant-api }} to implement a generative response scenario with access to information from a search index using VectorStore.
 ---
 
-# Creating an assistant with a search index
+# Creating a RAG assistant with the VectorStore tool
 
 {% include [assistants-preview-stage](../../../_includes/foundation-models/assistants-preview-stage.md) %}
 
-{{ assistant-api }} is a tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants, implement a generative response scenario adapted based on external information (known as _retrieval augmented generation_, or RAG), and save the model's request context.
+{{ assistant-api }} is a {{ foundation-models-name }} tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants, implement a generative response scenario with access to information from external sources (known as _retrieval augmented generation_, or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)), and save the model's request context.
+
+The VectorStore [tool](../../concepts/assistant/tools/vector-store.md) allows AI assistants to draw information from the knowledge base.
 
 ## Getting started {#before-begin}
 
@@ -46,7 +48,7 @@ To use the examples:
 
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
-  1. Run the created file:
+  1. Run the file you created:
 
       ```bash
       python3 search-assistant.py
@@ -353,22 +355,13 @@ To use the examples:
           In response, {{ assistant-api }} will return your new AI assistant's ID. Save the ID (`id` field value). You will need it when accessing the assistant.
   1. Create a thread:
 
-      1. Create a file named `thread.json` with the body of the request to create a thread by specifying the search index ID you got earlier:
+      1. Create a file named `thread.json` with the body of the request to create a thread:
 
           **thread.json**
 
           ```json
           {
-            "folderId": "<folder_ID>",
-            "tools": [
-              {
-                "searchIndex": {
-                  "searchIndexIds": [
-                    "<index_ID>"
-                  ]
-                }
-              }
-            ]
+            "folderId": "<folder_ID>"
           }
           ```
       1. Send a request to create a thread by specifying the path to the new `thread.json` request body file:
@@ -655,5 +648,7 @@ To use the examples:
 
 * [{#T}](./create.md)
 * [{#T}](./create-with-labels.md)
+* [{#T}](./create-with-websearch.md)
 * [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
+* [{#T}](../../concepts/assistant/tools/index.md)
 * Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)

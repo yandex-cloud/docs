@@ -19,7 +19,7 @@ To delete a bucket that [stores the logs](../../concepts/server-logs.md) of anot
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services.
   1. Select the bucket in question, click ![image](../../../_assets/console-icons/ellipsis.svg), and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
   {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 

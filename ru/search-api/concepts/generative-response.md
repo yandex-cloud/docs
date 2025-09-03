@@ -268,6 +268,8 @@ description: В данной статье описан формат генера
 
 Сервис {{ search-api-name }} возвращает ответ в формате JSON следующего вида:
 
+{% include [empty-response-notice](../../_includes/search-api/empty-response-notice.md) %}
+
 {% list tabs group=instructions %}
 
 - REST API {#api}

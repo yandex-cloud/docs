@@ -245,3 +245,4 @@ description: Пошаговые инструкции по работе и упр
 ## Получение дополнительной информации {#get-additional-info}
 
 * [{#T}](operation-logs.md)
+* [{#T}](metrics-pull.md)

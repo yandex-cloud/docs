@@ -101,7 +101,6 @@ items:
             href: tutorials/balancer-with-sws-profile/console.md
           - name: '{{ TF }}'
             href: tutorials/balancer-with-sws-profile/terraform.md
-        href: tutorials/balancer-with-sws-profile.md
       - name: >-
           Creating an L7 load balancer with a security profile through an {{
           alb-name }} ingress controller

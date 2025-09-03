@@ -74,3 +74,7 @@ File-by-file recovery to {{ baremetal-name }} servers is currently not available
 
 * [{#T}](../tutorials/backup-baremetal.md)
 * [{#T}](../tutorials/vm-with-backup-policy/index.md)
+
+#### See also {#see-also}
+
+{% include [see-also-snapshot](../../_includes/backup/see-also-snapshot.md) %}

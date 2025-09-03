@@ -36,11 +36,11 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
 {% note info %}
 
-Creating a {{ ytsaurus-name }} cluster takes a long time, e.g., an hour or more depending on the selected configuration.
+Creating a {{ ytsaurus-name }} cluster takes a while, e.g., an hour or more depending on the selected configuration.
 
 {% endnote %}
 
-In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_demo_title_4B7zu }}](#demo-cluster) with the minimum functional configuration to test the service or a [{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_production_title_dVEmq }}](#production-cluster) supporting manual cluster setup. 
+In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_demo_title_4B7zu }}](#demo-cluster) with the minimum operational configuration to test the service or a [{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_production_title_dVEmq }}](#production-cluster) supporting manual cluster setup. 
 
 ### Demo cluster {#demo-cluster}
 
@@ -73,7 +73,7 @@ In {{ myt-name }}, you can create a [{{ ui-key.yacloud.managed-ytsaurus.clusters
     1. Under **{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.net-settings-section_title_wo42X }}**, select:
        * [Availability zone](../../overview/concepts/geo-scope.md) for the cluster.
        * [Subnet](../../vpc/operations/subnet-create.md).
-       * [Security group](../../vpc/concepts/security-groups.md) for the cluster network traffic. This is an optional parameter.
+       * [Security group](../../vpc/concepts/security-groups.md) for the cluster’s network traffic. This is an optional setting.
 
        {% note warning %}
        

@@ -28,7 +28,7 @@ To delete an object:
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** from the list of services and go to the bucket storing the object you want to delete.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. To see all versions of objects in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
-  1. To delete a single object, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.file.button_delete }}**.
+  1. To delete a single object, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
 
      To delete multiple objects, select them from the list and click **{{ ui-key.yacloud.common.delete }}** at the bottom of the screen.
 
@@ -38,7 +38,7 @@ To delete an object:
 
      {% endnote %}
 
-  1. In the window that opens, click **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
   In the management console, the information about the number of objects and storage space used in the bucket is updated with a few minutes' delay.
 

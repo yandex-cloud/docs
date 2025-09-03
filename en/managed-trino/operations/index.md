@@ -12,6 +12,7 @@ description: In this article, you will learn how to work with {{ mtr-full-name }
 * [Updating a cluster](cluster-update.md)
 * [Stopping and starting a cluster](cluster-stop.md)
 * [Connecting to a cluster](connect.md)
+* [Maintenance](cluster-maintenance.md)
 * [Deleting a cluster](cluster-delete.md)
 
 ## {{ TR }} catalogs {#catalogs}

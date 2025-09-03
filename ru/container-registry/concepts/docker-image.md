@@ -38,3 +38,7 @@ Docker-образ и все его версии хранятся в репози
 * [{#T}](../tutorials/cr-scanner-with-k8s-and-gitlab.md)
 * [{#T}](../tutorials/deploy-app-container.md)
 * [{#T}](../tutorials/fault-tolerance.md)
+
+#### См. также {#see-also}
+
+* [Как устроен Docker® и почему он популярен](https://yandex.cloud/ru/blog/docker-guide)

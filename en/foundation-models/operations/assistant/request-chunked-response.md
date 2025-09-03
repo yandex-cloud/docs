@@ -3,11 +3,11 @@ title: Creating an assistant with intermediate response generation results
 description: Follow this guide to make {{ assistant-api }} create your AI assistant with intermediate response generation results.
 ---
 
-# Creating an assistant with intermediate response generation results
+# Creating a RAG assistant with intermediate response generation results
 
 {% include [assistants-preview-stage](../../../_includes/foundation-models/assistants-preview-stage.md) %}
 
-{{ assistant-api }} is a tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants, implement a generative response scenario adapted based on external information (known as _retrieval augmented generation_, or RAG), and save the model's request context. When making requests to the assistant, you can get intermediate generation results as the model is generating a response.
+{{ assistant-api }} is a {{ foundation-models-name }} tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants, implement a generative response scenario with access to information from external sources (known as _retrieval augmented generation_, or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)), and save the model's request context. When making requests to the assistant, you can get intermediate generation results as the model is generating a response.
 
 ## Getting started {#before-begin}
 
@@ -37,7 +37,7 @@ This example shows how to create an [assistant](../../concepts/assistant/index.m
 
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
-  1. Run the created file:
+  1. Run the file you created:
 
       ```bash
       python3 simple-assistant.py
@@ -129,4 +129,6 @@ This example shows how to create an [assistant](../../concepts/assistant/index.m
 
 * [{#T}](./create.md)
 * [{#T}](./create-with-searchindex.md)
+* [{#T}](./create-with-websearch.md)
+* [{#T}](../../concepts/assistant/tools/index.md)
 * Examples of working with ML SDK on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)

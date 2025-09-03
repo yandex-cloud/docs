@@ -23,7 +23,7 @@ If your object already has a configured [ACL](../../concepts/acl.md), it will be
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and find the object in the list.
     1. To edit the ACL, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the object and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
 
-        Alternatively, you can click the object's name; on the page that opens, click ![image](../../../_assets/console-icons/ellipsis.svg) at the top right and select **{{ ui-key.yacloud.storage.file.button_permissions }}**.
+        Alternatively, you can click the object's name; on the page that opens, click ![image](../../../_assets/console-icons/ellipsis.svg) at the top right and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
 
         {% include [acl-edit-console](../../../_includes/storage/acl-edit-console.md) %}
 

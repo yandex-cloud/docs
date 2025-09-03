@@ -413,6 +413,8 @@ items:
             href: operations/gpu-cluster/test-infiniband-bandwidth.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
+      - name: Посмотреть метрики в {{ monitoring-name }}
+        href: operations/metrics-pull.md
   - name: '{{ cos-full-name }}'
     href: ../cos/
   - name: Практические руководства

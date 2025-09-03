@@ -608,7 +608,7 @@
      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Выберите бакет с логами.
      1. Нажмите на имя объекта, соответствующего времени скачивания файла `ycgame-update-v1.1.exe`.
-     1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_download }}**.
+     1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) →  **{{ ui-key.yacloud.storage.bucket.button_download }}**.
 
    - AWS CLI {#cli}
 

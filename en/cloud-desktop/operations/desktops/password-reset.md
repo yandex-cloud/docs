@@ -19,12 +19,7 @@ description: In this tutorial, you will learn how to reset a {{ cloud-desktop-fu
 
 - User desktop showcase {#desktop-showcase}
 
-  1. Open the [user desktop showcase]({{ link-cloud-desktop-showcase }}).
-  1. If the desktop you want to connect to has the `Stopped` status, run it by clicking ![image](../../../_assets/console-icons/play.svg) and then confirming the action.
-
-      Wait for the desktop status to change to `Active`.
-  1. Click ![image](../../../_assets/console-icons/lock-open.svg) and confirm the password reset.
-  1. Save the new password from the pop-up window that appears, then close the window.
+  {% include [password-reset-desktop-showcase](../../../_includes/cloud-desktop/password-reset-desktop-showcase.md) %}
 
 - {{ yandex-cloud }} CLI {#cli}
 

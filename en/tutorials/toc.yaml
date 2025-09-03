@@ -134,7 +134,13 @@ items:
       - name: Adding an HTML page to work with {{ captcha-name }}
         href: security/mobile-app/website.md
       - name: Creating an L7 load balancer with a security profile
-        href: security/balancer-with-sws-profile.md
+        items:
+          - name: Overview
+            href: security/balancer-with-sws-profile/index.md
+          - name: Management console
+            href: security/balancer-with-sws-profile/console.md
+          - name: '{{ TF }}'
+            href: security/balancer-with-sws-profile/terraform.md
       - name: ViPNet Coordinator in {{ yandex-cloud }}
         href: security/vipnet-to-yc.md
         hidden: true
@@ -1374,7 +1380,7 @@ items:
                 href: datalens/data-from-bitrix24-visualization.md
               - name: '{{ tracker-name }}: data export and visualization'
                 href: datalens/data-from-tracker.md
-              - name: Analyzing {{ objstorage-name }} logs in {{ datalens-name }}
+              - name: Analyzing {{ objstorage-name }} logs using {{ datalens-name }}
                 href: datalens/storage-logs-analysis.md
               - name: 'Yandex Music podcasts: Statistics'
                 href: datalens/data-from-podcasts.md

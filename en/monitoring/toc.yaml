@@ -311,5 +311,5 @@ items:
         href: qa/metrics-measure.md
       - name: Alerts / notifications
         href: qa/alerts.md
-      - name: All questions on a single page
+      - name: All questions on one page
         href: qa/all.md

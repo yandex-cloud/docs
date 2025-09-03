@@ -40,6 +40,54 @@ To configure a chart:
    The parameters you enter will apply to the chart immediately so you do not need to save them.
 1. Close the side panel after you complete the configuration.
 
+#### Thresholds {#thresholds}
+
+Use this setting to display lines for critical or target values. You can set the thresholds in the chart settings menu or update the JSON file:
+
+{% list tabs %}
+
+- Chart settings
+
+  1. Under **{{ ui-key.yacloud_monitoring.wizard.tab.thresholds }}**, click **{{ ui-key.yacloud_monitoring.wizard.thresholds.add }}**.
+  1. Specify a numeric value for the threshold. To specify a fractional value, use the dot as the decimal separator, e.g., `9.75`.
+  1. Select the threshold color.
+  1. Enable or disable **{{ ui-key.yacloud_monitoring.wizard.thresholds.show-on-graph }}**. This option applies to all thresholds.
+
+- JSON
+
+  1. At the top of the dashboard, click ![image](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_monitoring.header.action.settings }}**.
+  1. Select **{{ ui-key.yacloud_monitoring.dashboard.settings.tab.json }}**.
+  1. In the widget parameters, update the values in the `thresholds` section.
+
+      ```json
+      "widgets": [
+        ...
+        "thresholds": {
+                  "items": [
+                    {
+                      "color": "#d63232",
+                      "value": 9.75,
+                      "_value": "value"
+                    },
+                    ...
+                    {
+                      "color": "#92db00", // Basic threshold
+                    }
+                  ],
+                  "showMode": "CONSTANT_LINE" 
+        }
+      ```
+
+      {% note info %}
+
+      Thresholds must have a basic value, which is set in the `items` element without `value`. All other thresholds must have a numeric `value`.
+
+      {% endnote %}
+
+  1. Click **{{ ui-key.yacloud_monitoring.actions.common.apply }}**.
+
+{% endlist %}
+
 #### Links {#chart-links}
 
 You can add a link to an external resource or dashboard.

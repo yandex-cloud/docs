@@ -7,7 +7,7 @@ description: Follow this guide to create a simple assistant using {{ assistant-a
 
 {% include [assistants-preview-stage](../../../_includes/foundation-models/assistants-preview-stage.md) %}
 
-{{ assistant-api }} is a tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants, implement a generative response scenario adapted based on external information (known as _retrieval augmented generation_, or RAG), and save the model's request context.
+{{ assistant-api }} is a {{ foundation-models-name }} tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants, implement a generative response scenario with access to information from external sources (known as _retrieval augmented generation_, or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)), and save the model's request context.
 
 ## Getting started {#before-begin}
 
@@ -37,7 +37,7 @@ This example shows how to create an [assistant](../../concepts/assistant/index.m
 
       {% include [sdk-code-legend](../../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
-  1. Run the created file:
+  1. Run the file you created:
 
       ```bash
       python3 simple-assistant.py
@@ -52,7 +52,7 @@ This example shows how to create an [assistant](../../concepts/assistant/index.m
       Enter your question to the assistant: Hi!
       run=Run(id='fvtm4n1o2hla********', assistant_id='fvthtngdnlkq********', thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 5, 53, 312504), labels=None, custom_temperature=None, custom_max_tokens=None, custom_max_prompt_tokens=None)
       run result=RunResult(status=<RunStatus.COMPLETED: 4>, error=None, _message=Message(id='fvtburadn35c********', parts=('Hello! What can I do for you?',), thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 5, 53, 728330), labels=None, author=Author(id='fvthtngdnlkq********', role='ASSISTANT')), usage=Usage(input_text_tokens=12, completion_tokens=6, total_tokens=18))
-      Answer: Hello! What can I do for you?
+      Answer: Hi there! What can I do for you?
       Enter your question to the assistant: How much is 2 + 2?
       run=Run(id='fvt2eajhkqnb********', assistant_id='fvthtngdnlkq********', thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 7, 36, 751185), labels=None, custom_temperature=None, custom_max_tokens=None, custom_max_prompt_tokens=None)
       run result=RunResult(status=<RunStatus.COMPLETED: 4>, error=None, _message=Message(id='fvtnmfeavsm1********', parts=('2 + 2 = 4.',), thread_id='fvt67i1ettn5********', created_by='ajegtlf2q28a********', created_at=datetime.datetime(2024, 12, 15, 21, 7, 37, 294861), labels=None, author=Author(id='fvthtngdnlkq********', role='ASSISTANT')), usage=Usage(input_text_tokens=36, completion_tokens=9, total_tokens=45))
@@ -96,6 +96,8 @@ This example shows how to create an [assistant](../../concepts/assistant/index.m
 
 * [{#T}](./create-with-searchindex.md)
 * [{#T}](./create-with-labels.md)
+* [{#T}](./create-with-websearch.md)
 * [{#T}](./request-chunked-response.md)
 * [{#T}](../../tutorials/pdf-searchindex-ai-assistant.md)
+* [{#T}](../../concepts/assistant/tools/index.md)
 * Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-cloud-ml-sdk/tree/master/examples/sync/assistants)
