@@ -22,9 +22,6 @@ links:
       Tool for collecting, analyzing, and marking up metadata from various
       sources.
     href: concepts/data-catalog
-  - title: All step-by-step guides
-    description: How to perform routine operations
-    href: operations/
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits

@@ -8,7 +8,7 @@
 
 - Директория HDFS {#hdfs}
 
-    1. [Подключитесь](../../../data-proc/operations/connect.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
+    1. [Подключитесь](../../../data-proc/operations/connect-ssh.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
     1. Выполните команду:
 
         ```bash
@@ -17,7 +17,7 @@
 
 - Apache Hive {#hive}
 
-    1. [Подключитесь](../../../data-proc/operations/connect.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
+    1. [Подключитесь](../../../data-proc/operations/connect-ssh.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
     1. Выполните команду:
 
         ```bash
@@ -26,7 +26,7 @@
 
 - Apache HBase {#hbase}
 
-    1. [Подключитесь](../../../data-proc/operations/connect.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
+    1. [Подключитесь](../../../data-proc/operations/connect-ssh.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
     1. Выполните команду:
 
         ```bash

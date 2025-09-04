@@ -2,29 +2,29 @@
 title: Как настроить эндпоинт-приемник {{ MG }} в {{ data-transfer-full-name }}
 description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ MG }} в {{ data-transfer-full-name }}.
 ---
-# Передача данных в эндпоинт-приемник {{ MG }}
+# Передача данных в эндпоинт-приемник {{ MG }}/{{ SD }} (Managed Service for MongoDB)
 
 
-С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные в базу {{ MG }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
+С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные в базу {{ MG }}/{{ SD }} (Managed Service for MongoDB) и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
 1. [Настройте один из поддерживаемых источников данных](#supported-sources).
-1. [Подготовьте базу данных {{ MG }}](#prepare) к трансферу.
+1. [Подготовьте базу данных {{ MG }}/{{ SD }} (Managed Service for MongoDB)](#prepare) к трансферу.
 1. [Настройте эндпоинт-приемник](#endpoint-settings) в {{ data-transfer-full-name }}.
 1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. [Выполняйте необходимые действия по работе с базой](#db-actions) и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](#troubleshooting) по их устранению.
 
-## Сценарии передачи данных в {{ MG }} {#scenarios}
+## Сценарии передачи данных в {{ MG }}/{{ SD }} (Managed Service for MongoDB) {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     
     * [Миграция кластера {{ MG }}](../../../tutorials/storedoc.md);
-    * [Миграция кластера {{ SD }} с версии 4.4 на 6.0](../../../tutorials/storedoc-versions.md).
+    * [Миграция кластера {{ SD }} (Managed Service for MongoDB) с версии 4.4 на 6.0](../../../tutorials/storedoc-versions.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     
-    * [Поставка данных из {{ KF }} в {{ SD }}](../../../tutorials/mkf-to-mmg.md).
+    * [Поставка данных из {{ KF }} в {{ SD }} (Managed Service for MongoDB)](../../../tutorials/mkf-to-mmg.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 
@@ -32,7 +32,7 @@ description: Из статьи вы узнаете, как задать наст
 
 Настройте один из поддерживаемых источников данных:
 
-* [{{ MG }}](../source/mongodb.md);
+* [{{ MG }}/{{ SD }}](../source/mongodb.md);
 * [{{ AB }}](../../../transfer-matrix.md#airbyte);
 * [{{ DS }}](../source/data-streams.md);
 * [{{ KF }}](../source/kafka.md).
@@ -43,7 +43,7 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [prepare db](../../../../_includes/data-transfer/endpoints/targets/mongodb-prepare.md) %}
 
-## Настройка эндпоинта-приемника {{ MG }} {#endpoint-settings}
+## Настройка эндпоинта-приемника {{ MG }}/{{ SD }} (Managed Service for MongoDB) {#endpoint-settings}
 
 {% include [MongodDB Version](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
@@ -53,7 +53,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Дополнительные параметры](#additional-settings).
 
 
-### Кластер {{ mmg-name }} {#managed-service}
+### Кластер {{ mmg-name }} (Managed Service for MongoDB) {#managed-service}
 
 
 {% note warning %}

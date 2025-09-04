@@ -98,7 +98,7 @@ description: Как настроить и использовать {{ IBRG }} в
 
     Подробнее о свойствах, влияющих на настройки каталога, см. в [документации {{ IBRG }}](https://iceberg.apache.org/docs/latest/spark-configuration/#catalog-configuration).
 
-1. [Подключитесь по SSH](./connect.md#data-proc-ssh) к хосту-мастеру кластера {{ dataproc-name }}.
+1. [Подключитесь по SSH](connect-ssh.md) к хосту-мастеру кластера {{ dataproc-name }}.
 
 1. Запустите сессию Spark SQL:
 

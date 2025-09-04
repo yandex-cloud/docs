@@ -65,6 +65,12 @@ The price is calculated based on the amount of resources consumed over the curre
 {% include [usd.md](../_pricing/support/usd-business-2023.md) %}
 
 
+{% note warning %}
+
+Effective October 1, 2025, the 5% support rate will include adjustments, subscriptions, and discounts for committed volumes of services (CVoS) of the billing account linked to the organization that pays for support. See [the example of calculating](#business-example-one-ba-cvos).
+
+{% endnote %}
+
 #### Example of calculating the cost for an organization whose resources are paid from a single billing account {#business-example-one-ba}
 
 
@@ -82,6 +88,16 @@ If an organization with an activated support service plan uses resources paid fr
 
 {% include [usd-support-two-ba](../_pricing_examples/support/usd-two-ba.md) %}
 
+
+#### Example of calculating the cost for an organization whose resources are paid from a single billing account with CVoS {#business-example-one-ba-cvos}
+
+{% note warning %}
+
+CVoS will be taken into account when calculating the support tariff from October 1, 2025.
+
+{% endnote %}
+
+{% include [usd-support-one-ba](../_pricing_examples/support/usd-one-ba-cvos.md) %}
 
 
 ### Premium {#premium}

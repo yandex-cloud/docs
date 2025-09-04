@@ -57,7 +57,7 @@ items:
             items:
               - name: Источник
                 href: operations/endpoint/source/mssql.md
-          - name: MongoDB
+          - name: '{{ MG }}/{{ SD }}'
             items:
               - name: Источник
                 href: operations/endpoint/source/mongodb.md
@@ -127,7 +127,9 @@ items:
             href: tutorials/managed-mysql-to-mysql.md
           - name: Кластер {{ MG }}
             href: tutorials/storedoc.md
-          - name: Миграция кластера {{ SD }} с версии 4.4 на 6.0
+          - name: >-
+              Миграция кластера {{ mmg-name }} (Managed Service for MongoDB) с
+              версии 4.4 на 6.0
             href: tutorials/storedoc-versions.md
           - name: Кластер {{ CH }}
             href: tutorials/managed-clickhouse.md

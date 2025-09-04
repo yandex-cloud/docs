@@ -53,11 +53,7 @@ editable: false
 
 
 
-{% note info %}
-
 Стоимость технической поддержки рассчитывается исходя из [стоимости платно потребленных ресурсов](../billing/pricing.md). Если платежному аккаунту начислен [грант](../billing/concepts/bonus-account.md), то он учитывается при оплате тарифа поддержки.
-
-{% endnote %}
 
 ### Базовый {#base}
 
@@ -85,6 +81,12 @@ editable: false
 
 
 
+
+{% note warning %}
+
+С 1 октября 2025 года при расчете тарифа поддержки в 5 % от стоимости потребляемых ресурсов будут включаться корректировки, подписки и зарезервированное потребление ресурсов платежного аккаунта, привязанного к организации и оплачивающего поддержку. См. [пример расчета](#business-example-one-ba-cvos).
+
+{% endnote %}
 
 #### Пример расчета стоимости для организации, ресурсы которой оплачиваются одним платежным аккаунтом {#business-example-one-ba}
 
@@ -118,6 +120,31 @@ editable: false
 - Расчет в тенге {#prices-kzt}
 
   {% include [kzt-support-two-ba](../_pricing_examples/support/kzt-two-ba.md) %}
+
+{% endlist %}
+
+
+
+
+
+#### Пример расчета стоимости для организации, ресурсы которой оплачиваются одним платежным аккаунтом с учетом зарезервированного потребления ресурсов {#business-example-one-ba-cvos}
+
+{% note warning %}
+
+Зарезервированное потребление ресурсов будет учитываться при расчете тарифа поддержки с 1 октября 2025 года.
+
+{% endnote %}
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-support-one-ba](../_pricing_examples/support/rub-one-ba-cvos.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-support-one-ba](../_pricing_examples/support/kzt-one-ba-cvos.md) %}
 
 {% endlist %}
 

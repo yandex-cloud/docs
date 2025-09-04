@@ -53,6 +53,12 @@ You can create connections of the following types:
   1. (Optional) List the databases whose connections you want to manage. You can connect only to the databases that exist in the cluster. You must have [access to them configured](../../managed-postgresql/security/index.md).
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  To create a connection to a {{ mpg-name }} cluster, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method on the [Connection](../api-ref/grpc/Connection/) resource.
+
+  For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection) reference.
+
 {% endlist %}
 
 ### {{ mch-name }} {#mdb-clickhouse}
@@ -76,6 +82,12 @@ You can create connections of the following types:
             * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
     1. (Optional) List the databases whose connections you want to manage. You must have access to them configured.
     1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+  To create a connection to a {{ mch-name }} cluster, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method.
+
+  For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection) reference.
 
 {% endlist %}
 
@@ -101,6 +113,12 @@ You can create connections of the following types:
    1. (Optional) List the databases whose connections you want to manage. You can connect only to the databases that exist in the cluster. You must have [access to them configured](../../managed-mysql/security/index.md).
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  To create a connection to a {{ mmy-name }} cluster, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method.
+
+  For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection) reference.
+
 {% endlist %}
 
 ### {{ mrd-name }} {#mdb-redis}
@@ -122,6 +140,12 @@ You can create connections of the following types:
          * **Generate**: Specify the options to generate a [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password automatically.
     1. (Optional) List the databases whose connections you want to manage. You must have access to them configured.
     1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+  To create a connection to a {{ mrd-name }} cluster, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method.
+
+  For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection) reference.
 
 {% endlist %}
 
@@ -147,6 +171,12 @@ You can create connections of the following types:
    1. (Optional) List the databases whose connections you want to manage. You can connect only to the databases that exist in the cluster. You must have [access to them configured](../../managed-mysql/security/index.md).
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  To create a connection to a {{ mos-name }} cluster, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method.
+
+  For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection) reference.
+
 {% endlist %}
 
 ### {{ mmg-name }} {#mdb-mongodb}
@@ -170,6 +200,12 @@ You can create connections of the following types:
             * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
    1. (Optional) List the databases whose connections you want to manage. You can connect only to the databases that exist in the cluster. You must have [access to them configured](../../managed-mysql/security/index.md).
    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+  To create a connection to a {{ mmg-name }} cluster, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method.
+
+  For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) reference.
 
 {% endlist %}
 
@@ -205,6 +241,12 @@ You can create connections of the following types:
   1. (Optional) List the databases whose connections you want to manage. You must have access to them configured.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  To create a connection to a {{ PG }} custom installation, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method.
+
+  For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster) reference.
+
 {% endlist %}
 
 ### {{ CH }} {#clickhouse-on-premise}
@@ -235,6 +277,12 @@ You can create connections of the following types:
             * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
     1. (Optional) List the databases whose connections you want to manage. You must have access to them configured.
     1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+  To create a connection to a {{ CH }} custom installation, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method.
+
+  For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster) reference.
 
 {% endlist %}
 
@@ -268,6 +316,12 @@ You can create connections of the following types:
    1. (Optional) List the databases whose connections you want to manage. You must have access to them configured.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  To create a connection to a {{ MY }} custom installation, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method.
+
+  For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster) reference.
+
 {% endlist %}
 
 ### {{ RD }} {#redis-on-premise}
@@ -292,6 +346,12 @@ You can create connections of the following types:
         * **Generate**: Specify the options to generate a [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password automatically.
     1. (Optional) List the databases whose connections you want to manage. You must have access to them configured.
     1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+  To create a connection to a {{ RD }} custom installation, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method.
+
+  For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster) reference.
 
 {% endlist %}
 
@@ -321,6 +381,12 @@ You can create connections of the following types:
     1. (Optional) List the databases whose connections you want to manage. You must have access to them configured.
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  To create a connection to a {{ VLK }} custom installation, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method.
+
+  For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster) reference.
+
 {% endlist %}
 
 ### {{ TR }} {#trino-on-premise}
@@ -346,6 +412,12 @@ You can create connections of the following types:
           * **Enter manually**: You set the password manually.
           * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
   1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+  To create a connection to a {{ TR }} custom installation, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method.
+
+  For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster) reference.
 
 {% endlist %}
 
@@ -375,6 +447,12 @@ You can create connections of the following types:
    1. (Optional) List the databases whose connections you want to manage. You must have access to them configured.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
+- API {#api}
+
+  To create a connection to an {{ OS }} custom installation, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method.
+
+  For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster) reference.
+
 {% endlist %}
 
 ### {{ MG }} {#mongodb-on-premise}
@@ -402,6 +480,12 @@ You can create connections of the following types:
            * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
    1. (Optional) List the databases whose connections you want to manage. You must have access to them configured.
    1. Click **{{ ui-key.yacloud.common.create }}**.
+
+- API {#api}
+
+  To create a connection to a {{ MG }} custom installation, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method.
+
+  For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluster) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluste) reference.
 
 {% endlist %}
 

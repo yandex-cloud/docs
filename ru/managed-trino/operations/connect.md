@@ -121,7 +121,7 @@ keywords:
           get_version()
       ```
 
-      Вы можете скопировать URL координатора в поле **{{ ui-key.yacloud.trino.overview.title_resource-coordinator }}** на странице обзора кластера {{ TR }} в [консоли управления]({{ link-console-main }}).
+      Вы можете скопировать URL координатора в поле **{{ ui-key.yacloud.trino.overview.coordinator-url-list }}** на странице обзора кластера {{ TR }} в [консоли управления]({{ link-console-main }}).
 
   1. Подключение:
 
@@ -316,7 +316,7 @@ keywords:
     get_version();
     ```
 
-    Вы можете скопировать URL координатора в поле **{{ ui-key.yacloud.trino.overview.title_resource-coordinator }}** на странице обзора кластера {{ TR }} в [консоли управления]({{ link-console-main }}).
+    Вы можете скопировать URL координатора в поле **{{ ui-key.yacloud.trino.overview.coordinator-url-list }}** на странице обзора кластера {{ TR }} в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 

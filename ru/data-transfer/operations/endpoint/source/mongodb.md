@@ -2,7 +2,7 @@
 title: Как настроить эндпоинт-источник {{ MG }} в {{ data-transfer-full-name }}
 description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-источника {{ MG }} в {{ data-transfer-full-name }}.
 ---
-# Передача данных из эндпоинта-источника {{ MG }}
+# Передача данных из эндпоинта-источника {{ MG }}/{{ SD }} (Managed Service for MongoDB)
 
 
 С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные из базы {{ MG }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
@@ -15,12 +15,12 @@ description: Из статьи вы узнаете, как задать наст
 1. [Выполняйте необходимые действия по работе с базой](#db-actions) и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](#troubleshooting) по их устранению.
 
-## Сценарии передачи данных из {{ MG }} {#scenarios}
+## Сценарии передачи данных из {{ MG }}/{{ SD }} (Managed Service for MongoDB) {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
     * [Миграция кластера {{ MG }}](../../../tutorials/storedoc.md);
-    * [Миграция кластера {{ SD }} с версии 4.4 на 6.0](../../../tutorials/storedoc-versions.md).
+    * [Миграция кластера {{ SD }} (Managed Service for MongoDB) с версии 4.4 на 6.0](../../../tutorials/storedoc-versions.md).
 
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
 
@@ -30,7 +30,7 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [prepare db](../../../../_includes/data-transfer/endpoints/sources/mongodb-prepare.md) %}
 
-## Настройка эндпоинта-источника {{ MG }} {#endpoint-settings}
+## Настройка эндпоинта-источника {{ MG }}/{{ SD }} (Managed Service for MongoDB) {#endpoint-settings}
 
 {% include [MongodDB Version](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
@@ -39,7 +39,7 @@ description: Из статьи вы узнаете, как задать наст
 * Настройки подключения к [кластеру {{ mmg-full-name }}](#managed-service) или [пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
 * [Дополнительные параметры](#additional-settings).
 
-### Кластер {{ mmg-name }} {#managed-service}
+### Кластер {{ mmg-name }} (Managed Service for MongoDB) {#managed-service}
 
 
 {% note warning %}
@@ -231,7 +231,7 @@ description: Из статьи вы узнаете, как задать наст
 Настройте один из поддерживаемых приемников данных:
 
 * [{{ objstorage-full-name }}](../target/object-storage.md).
-* [{{ MG }}](../target/mongodb.md).
+* [{{ mmg-name }} (Managed Service for MongoDB)](../target/mongodb.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
 

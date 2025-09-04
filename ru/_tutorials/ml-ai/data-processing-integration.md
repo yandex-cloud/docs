@@ -233,7 +233,7 @@
 
 {% endlist %}
 
-{{ dataproc-name }} запустит операцию создания кластера. После того как кластер перейдет в статус **{{ ui-key.yc-ui-datasphere.data-proc.running }}**, вы можете [подключиться](../../data-proc/operations/connect.md) к любому активному подкластеру с помощью указанного SSH-ключа.
+{{ dataproc-name }} запустит операцию создания кластера. После того как кластер перейдет в статус **{{ ui-key.yc-ui-datasphere.data-proc.running }}**, вы можете [подключиться](../../data-proc/operations/connect-ssh.md) к любому активному подкластеру с помощью указанного SSH-ключа.
 
 Созданный кластер {{ dataproc-name }} появится в проекте {{ ml-platform-name }} в разделе **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** ⟶ **{{ ui-key.yc-ui-datasphere.resources.dataProc }}** ⟶ **{{ ui-key.yc-ui-datasphere.data-proc.available-clusters }}**.
 

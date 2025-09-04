@@ -424,7 +424,7 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
 
 1. Разрешите подключение из кластера к NTP-серверам.
    
-   [Создайте правило](../../vpc/operations/security-group-add-rule.md) в [группе безопасности кластера и групп узлов](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-cluster):
+   [Создайте правило](../../vpc/operations/security-group-add-rule.md) для исходящего трафика в [группе безопасности кластера и групп узлов](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-cluster):
 
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `123`. Если вместо порта `123` вы используете на NTP-сервере другой порт, укажите его.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_udp }}`.
