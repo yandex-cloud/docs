@@ -133,7 +133,7 @@ description: Следуя данной инструкции, вы сможете
 
 ### Разрешить трафик для кластера {#rules-master}
 
-Чтобы кластер работал корректно и к нему можно было [подключиться](./index.md), создайте правила для входящего и исходящего трафика, и [примените их к кластеру](#apply):
+Чтобы кластер работал корректно и к нему можно было [подключиться](./index.md), создайте правила для входящего и исходящего трафика и [примените их к кластеру](#apply):
 
 1. Добавьте правила для входящего трафика, которые разрешают подключение к [мастеру](../../concepts/index.md#master) через порты `{{ port-k8s }}` и `{{ port-https }}`. Это позволит получить доступ к API {{ k8s }} и управлять кластером с помощью `kubectl` и других утилит.
 
@@ -146,12 +146,21 @@ description: Следуя данной инструкции, вы сможете
       * `85.23.23.22/32` — для внешней сети.
       * `192.168.0.0/24` — для внутренней сети.
 
-1. Добавьте правило для исходящего трафика, которое разрешает передачу трафика между мастером и [подами](../../concepts/index.md#pod) `metric-server`:
+1. Добавьте правила для исходящего трафика, которые разрешают:
+   
+   * Передачу трафика между мастером и [подами](../../concepts/index.md#pod) `metric-server`:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `4443`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — укажите CIDR кластера, например, `10.96.0.0/16`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `4443`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — укажите CIDR кластера, например `10.96.0.0/16`.
+   
+   * Подключение мастера к NTP-серверам для синхронизации времени:
+
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `123`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_udp }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
 ## Создать правило для подключения к сервисам из интернета {#rules-nodes}
 
@@ -247,7 +256,8 @@ description: Следуя данной инструкции, вы сможете
         --network-id <идентификатор_облачной_сети> \
         --rule "description=api-443,direction=ingress,protocol=tcp,port=443,v4-cidrs=[203.0.113.0/24]" \
         --rule "description=api-6443,direction=ingress,protocol=tcp,port=6443,v4-cidrs=[203.0.113.0/24]" \
-        --rule "description=metric-server,direction=egress,protocol=tcp,port=4443,v4-cidrs=[10.96.0.0/16]"
+        --rule "description=metric-server,direction=egress,protocol=tcp,port=4443,v4-cidrs=[10.96.0.0/16]" \
+        --rule "description=ntp-server,direction=egress,protocol=udp,port=123,v4-cidrs=[0.0.0.0/0]"
       ```
 
   1. Создайте группу безопасности `k8s-services-access`, разрешающую подключение к сервисам из интернета:
@@ -403,6 +413,12 @@ description: Следуя данной инструкции, вы сможете
           port           = 4443
           protocol       = "TCP"
           v4_cidr_blocks = ["10.96.0.0/16"]
+        }
+        egress {
+          description    = "Правило для исходящего трафика, разрешающее подключение мастера к NTP-серверам для синхронизации времени."
+          port           = 123
+          protocol       = "UDP"
+          v4_cidr_blocks = ["0.0.0.0/0"]
         }
       }
       ```

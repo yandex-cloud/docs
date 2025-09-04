@@ -19,7 +19,7 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [Миграция кластера {{ CH }}](managed-clickhouse.md)
 * [Миграция кластера {{ GP }}](managed-greenplum.md)
 * [Миграция кластера {{ MG }}](storedoc.md)
-* [Миграция кластера {{ SD }} с версии 4.4 на 6.0](storedoc-versions.md)
+* [Миграция кластера {{ mmg-name }} (Managed Service for MongoDB) с версии 4.4 на 6.0](storedoc-versions.md)
 * [Миграция из AWS RDS for {{ PG }}](rds-to-mpg.md)
 * [Миграция кластера {{ OS }}](os-to-mos.md)
 

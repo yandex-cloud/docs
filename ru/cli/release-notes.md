@@ -7,6 +7,41 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.162.0 (04.09.25) {#version0.162.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ baremetal-name }}
+
+Добавлен параметр `--folder-id` в команды для получения конфигурации:
+  * `yc baremetal configuration get`;
+  * `yc baremetal configuration list`.
+
+##### {{ mmy-name }}
+
+Добавлена роль `MDB_ADMIN` для параметра `--global-permissions` в следующих командах:
+  * `yc managed-mysql user create`;
+  * `yc managed-mysql user update`.
+
+##### {{ quota-manager-name }}
+
+Добавлена группа команд `yc quota-manager quota-request` для управления запросами квот:
+  * `yc quota-manager quota-request get`;
+  * `yc quota-manager quota-request list`;
+  * `yc quota-manager quota-request create`;
+  * `yc quota-manager quota-request cancel`;
+  * `yc quota-manager quota-request list-operations`.
+
+##### {{ serverless-containers-name }}
+
+В команду `yc serverless container revision deploy` добавлен параметр для указания сервисного аккаунта для асинхронных вызовов: `--async-service-account-id`.
+
+##### {{ objstorage-name }}
+
+Максимальное время жизни подписанной ссылки увеличено до 30 дней в команде `yc storage s3 presign`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.161.0 (28.08.25) {#version0.161.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -27,8 +62,6 @@ description: На странице представлены релизы CLI, а
 Добавлена поддержка cron-таймеров {{ sw-full-name }}:
 * `yc serverless workflow create`
 * `yc serverless workflow update`
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.160.0 (25.08.25) {#version0.160.0}
 

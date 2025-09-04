@@ -43,6 +43,35 @@ description: Следуя данной инструкции, вы сможете
 
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+   * CLI {#cli}
+
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+      Выполните команду:
+
+      ```bash
+      {{ yc-metastore }} cluster create \
+         --name metastore-cluster \
+         --service-account-id <идентификатор_сервисного_аккаунта> \
+         --version <версия> \
+         --subnet-ids <идентификаторы_подсетей> \
+         --security-group-ids <идентификаторы_групп_безопасности> \
+         --resource-preset-id <идентификатор_вычислительных_ресурсов> \
+         --log-enabled \
+         --log-folder-id <идентификатор_каталога> \
+         --log-min-level <уровень_логирования>
+      ```
+
+      Где:
+
+      * `--service-account-id` — идентификатор созданного [ранее](#before-you-begin) сервисного аккаунта `metastore-logging-sa`.
+      * `--subnet-ids` — идентификатор подсети с настроенным NAT-шлюзом.
+      * `--security-group-ids` — идентификатор настроенной [ранее](#before-you-begin) группы безопасности.
+      * `--log-folder-id` — идентификатор каталога, лог-группу которого нужно использовать.
+      * `--log-min-level` — уровень логирования. В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
+
    {% endlist %}
 
 1. Проверьте передачу логов кластера в лог-группу:
@@ -58,6 +87,10 @@ description: Следуя данной инструкции, вы сможете
       На открывшейся странице отобразятся записи.
 
    * CLI {#cli}
+
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
       Чтобы посмотреть записи в формате JSON, выполните команду:
 
@@ -127,6 +160,35 @@ description: Следуя данной инструкции, вы сможете
 
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+   * CLI {#cli}
+
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+      Выполните команду:
+
+      ```bash
+      {{ yc-metastore }} cluster create \
+         --name metastore-cluster \
+         --service-account-id <идентификатор_сервисного_аккаунта> \
+         --version <версия> \
+         --subnet-ids <идентификаторы_подсетей> \
+         --security-group-ids <идентификаторы_групп_безопасности> \
+         --resource-preset-id <идентификатор_вычислительных_ресурсов> \
+         --log-enabled \
+         --log-group-id <идентификатор_лог_группы> \
+         --log-min-level <уровень_логирования>
+      ```
+
+      Где:
+
+      * `--service-account-id` — идентификатор созданного [ранее](#before-you-begin) сервисного аккаунта `metastore-logging-sa`.
+      * `--subnet-ids` — идентификатор подсети с настроенным NAT-шлюзом.
+      * `--security-group-ids` — идентификатор настроенной [ранее](#before-you-begin) группы безопасности.
+      * `--log-group-id` — идентификатор лог-группы `metastore-log-group`.
+      * `--log-min-level` — уровень логирования. В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
+
    {% endlist %}
 
 1. Проверьте передачу логов кластера в лог-группу:
@@ -142,6 +204,10 @@ description: Следуя данной инструкции, вы сможете
       На открывшейся странице отобразятся записи.
 
    * CLI {#cli}
+
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
       Чтобы посмотреть записи в формате JSON, выполните команду:
 

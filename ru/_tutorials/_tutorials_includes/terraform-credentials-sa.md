@@ -71,11 +71,12 @@
         Результат:
 
         ```text
-        +----------------------+--------------+
-        |          ID          |     NAME     |
-        +----------------------+--------------+
-        | aje6ij7qvdhb******** | sa-terraform |
-        +----------------------+--------------+
+        +----------------------+--------------+--------+---------------------+-----------------------+
+        |          ID          |     NAME     | LABELS |     CREATED AT      | LAST AUTHENTICATED AT |
+        +----------------------+--------------+--------+---------------------+-----------------------+
+        | ajeg2b2et02f******** | terraform-sa |        | 2024-09-08 18:59:45 | 2025-08-21 06:40:00   |
+        | ajegtlf2q28a******** | default-sa   |        | 2023-06-27 16:18:18 | 2025-08-21 06:30:00   |
+        +----------------------+--------------+--------+---------------------+-----------------------+
         ```
 
      1. Назначьте сервисному аккаунту роль на ресурс:
@@ -112,65 +113,42 @@
 
    {% endlist %}
 
-1. Настройте профиль CLI для выполнения операций от имени сервисного аккаунта:
+1. Добавьте аутентификационные данные в переменные окружения. При создании [IAM-токен](../../iam/concepts/authorization/iam-token.md) используйте [имперсонацию](../../iam/concepts/access-control/index.md#impersonation) созданного ранее сервисного аккаунта, указав его идентификатор в параметре `--impersonate-service-account-id`:
 
-   {% list tabs group=instructions %}
+    {% include [impersonation-role-notice](../../_includes/cli/impersonation-role-notice.md) %}
 
-   - CLI {#cli}
+    {% list tabs group=programming_language %}
 
-     1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта и запишите его файл:
+    - Bash {#bash}
 
-        ```bash
-        yc iam key create \
-          --service-account-id <идентификатор_сервисного_аккаунта> \
-          --folder-name <имя_каталога_с_сервисным_аккаунтом> \
-          --output key.json
-        ```
+      ```bash
+      export YC_TOKEN=$(yc iam create-token --impersonate-service-account-id <идентификатор_сервисного_аккаунта>)
+      export YC_CLOUD_ID=$(yc config get cloud-id)
+      export YC_FOLDER_ID=$(yc config get folder-id)
+      ```
 
-        Где:
-        * `service-account-id` — идентификатор сервисного аккаунта.
-        * `folder-name` — имя каталога, в котором создан сервисный аккаунт.
-        * `output` — имя файла с авторизованным ключом.
+      Где:
+      * `YC_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта.
+      * `YC_CLOUD_ID` — идентификатор облака.
+      * `YC_FOLDER_ID` — идентификатор каталога.
 
-        Результат:
+    - PowerShell {#powershell}
 
-        ```text
-        id: aje8nn871qo4********
-        service_account_id: ajehr0to1g8********
-        created_at: "2022-09-14T09:11:43.479156798Z"
-        key_algorithm: RSA_2048
-        ```
+      ```powershell
+      $Env:YC_TOKEN=$(yc iam create-token --impersonate-service-account-id <идентификатор_сервисного_аккаунта>)
+      $Env:YC_CLOUD_ID=$(yc config get cloud-id)
+      $Env:YC_FOLDER_ID=$(yc config get folder-id)
+      ```
 
-     1. Создайте профиль CLI для выполнения операций от имени сервисного аккаунта. Укажите имя профиля:
+      Где:
+      * `YC_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта.
+      * `YC_CLOUD_ID` — идентификатор облака.
+      * `YC_FOLDER_ID` — идентификатор каталога.
 
-        ```bash
-        yc config profile create <имя_профиля>
-        ```
+    {% endlist %}
 
-        Результат:
+    {% note info %}
 
-        ```text
-        Profile 'sa-terraform' created and activated
-        ```
+    {% include [iam-token-lifetime](../../_includes/iam-token-lifetime.md) %}
 
-     1. Задайте конфигурацию профиля:
-
-        
-        ```bash
-        yc config set service-account-key key.json
-        yc config set cloud-id <идентификатор_облака>
-        yc config set folder-id <идентификатор_каталога>
-        ```
-
-
-
-        Где:
-        * `service-account-key` — файл с авторизованным ключом сервисного аккаунта.
-        * `cloud-id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md).
-        * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-
-   {% endlist %}
-
-1. Добавьте аутентификационные данные в переменные окружения:
-
-   {% include [terraform-token-variables](../../_includes/terraform-token-variables.md) %}
+    {% endnote %}

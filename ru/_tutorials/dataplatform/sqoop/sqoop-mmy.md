@@ -54,7 +54,7 @@
 
 1. Если вы используете группы безопасности для кластеров и виртуальной машины, настройте их так, чтобы разрешить подключение:
 
-    * [к виртуальной машине и кластеру {{ dataproc-name }}](../../../data-proc/operations/connect.md);
+    * [к виртуальной машине и кластеру {{ dataproc-name }}](../../../data-proc/operations/security-groups.md);
     * [к кластеру {{ mmy-name }}](../../../managed-mysql/operations/connect.md#configure-security-groups).
 
 ### С помощью {{ TF }} {#create-terraform}
@@ -87,7 +87,7 @@
     * `vm_image_id` — идентификатор публичного [образа](../../../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без [GPU](../../../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
     * `vm_username` и `vm_public_key` — логин и абсолютный путь к [публичному SSH-ключу](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
     * `bucket_name` — имя бакета в {{ objstorage-name }}. Оно должны быть уникальным для всего {{ objstorage-name }}.
-    * `dp_public_key` — абсолютный путь к [публичному SSH-ключу](../../../data-proc/operations/connect.md#data-proc-ssh) для кластера {{ dataproc-name }}.
+    * `dp_public_key` — абсолютный путь к [публичному SSH-ключу](../../../data-proc/operations/connect-ssh.md) для кластера {{ dataproc-name }}.
 
         Для [SSH-подключения](../../../glossary/ssh-keygen.md) к хостам кластера {{ dataproc-name }} версии 1.х используйте имя пользователя `root`.
 

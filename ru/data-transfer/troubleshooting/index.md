@@ -17,6 +17,7 @@
 * [{{ PG }}](#postgresql)
 * [{{ ydb-full-name }}](#ydb)
 * [{{ yds-full-name }}](#yds)
+* [{{ GP }}](#greenplum)
 * [Куда заявить о проблеме](#support)
 
 ## Проблемы, возникающие при работе с сервисом {{ data-transfer-name }} {#overview}
@@ -271,6 +272,14 @@
 
 {% include [redirects](../../_includes/data-transfer/troubles/data-streams/data-streams-redirects.md) %}
 
+
+## {{ GP }} {#greenplum}
+
+{% include [threads_limit](../../_includes/data-transfer/troubles/greenplum/threads_limit.md) %}
+
+{% include [external_table_url_limit](../../_includes/data-transfer/troubles/greenplum/external_table_url_limit.md) %}
+
+{% include [gp_segment_configuration](../../_includes/data-transfer/troubles/greenplum/gp_segment_configuration.md) %}
 
 ## Куда заявить о проблеме {#support}
 

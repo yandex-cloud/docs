@@ -621,15 +621,63 @@ default:
   roles:
     data-catalog:
       admin: data-catalog.admin
+      assets:
+        admin: data-catalog.assets.admin
+        auditor: data-catalog.assets.auditor
+        editor: data-catalog.assets.editor
+        viewer: data-catalog.assets.viewer
       auditor: data-catalog.auditor
-      catalog:
+      catalogs:
         admin: data-catalog.catalogs.admin
         auditor: data-catalog.catalogs.auditor
         editor: data-catalog.catalogs.editor
         viewer: data-catalog.catalogs.viewer
+      classifications:
+        admin: data-catalog.classifications.admin
+        auditor: data-catalog.classifications.auditor
+        editor: data-catalog.classifications.editor
+        viewer: data-catalog.classifications.viewer
+      classificationTags:
+        admin: data-catalog.classificationsTags.admin
+        auditor: data-catalog.classificationsTags.auditor
+        editor: data-catalog.classificationsTags.editor
+        user: data-catalog.classificationsTags.user
+        viewer: data-catalog.classificationsTags.viewer
       dataConsumer: data-catalog.dataConsumer
       dataSteward: data-catalog.dataSteward
+      domains:
+        admin: data-catalog.domains.admin
+        auditor: data-catalog.domains.auditor
+        editor: data-catalog.domains.editor
+        user: data-catalog.domains.user
+        viewer: data-catalog.domains.viewer
       editor: data-catalog.editor
+      glossaries:
+        admin: data-catalog.glossaries.admin
+        auditor: data-catalog.glossaries.auditor
+        editor: data-catalog.glossaries.editor
+        viewer: data-catalog.glossaries.viewer
+      glossaryTerms:
+        admin: data-catalog.glossaryTerms.admin
+        auditor: data-catalog.glossaryTerms.auditor
+        editor: data-catalog.glossaryTerms.editor
+        user: data-catalog.glossaryTerms.user
+        viewer: data-catalog.glossaryTerms.viewer
+      ingestions:
+        admin: data-catalog.ingestions.admin
+        auditor: data-catalog.ingestions.auditor
+        editor: data-catalog.ingestions.editor
+        viewer: data-catalog.ingestions.viewer
+      ingestionSources:
+        admin: data-catalog.ingestionSources.admin
+        auditor: data-catalog.ingestionSources.auditor
+        editor: data-catalog.ingestionSources.editor
+        viewer: data-catalog.ingestionSources.viewer
+      lineages:
+        admin: data-catalog.lineages.admin
+        auditor: data-catalog.lineages.auditor
+        editor: data-catalog.lineages.editor
+        viewer: data-catalog.lineages.viewer
       user: data-catalog.user
       viewer: data-catalog.viewer
     gitlab:
@@ -8889,7 +8937,6 @@ default:
         label_connections: Connections
         label_create-connection-action: Create connection
         label_dependences: Dependencies
-        label_open-websql: Open in WebSQL
       cr:
         image:
           label_last-scan-time: Date of last scan
@@ -10904,6 +10951,7 @@ default:
           field_catalog-name: Catalog name
           field_catalog-type: Connector type
         overview:
+          coordinator-url-list: Trino Web UI
           title_resource-coordinator: Coordinator
         title_catalogs: Catalogs
       tuning:

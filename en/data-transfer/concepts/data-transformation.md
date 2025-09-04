@@ -61,7 +61,18 @@ To convert column values to string values, specify a list of included and exclud
 
 ### Sharding {#shard}
 
-Set the number of shards for particular tables and a list of columns whose values will be used for calculating a hash to determine a shard.
+Sharding is used when delivering data to queues, primarily to {{ yds-full-name }}, where throughput is limited and data sharding helps improve transfer performance.
+
+Two sharding types are supported:
+
+* Column list (column-based sharding), where rows with identical values in the specified columns are placed in the same shard.
+* Random sharding, where rows are randomly distributed across shards based on an arbitrary [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier), which is regenerated at each data plane restart. If the number of shards changes, a new UUID will be generated, and data will get resharded.
+
+We recommend setting the number of shards to be 3 to 10 times more than partitions in the target. This will help to distribute data across partitions more evenly.
+
+#### Considerations for data delivery to {{ yds-name }}
+
+You can only use one worker for column-based sharding. The reason is that, when delivering data to {{ yds-name }}, the transformer generates the data source ID (`source_id`). Different workers would generate identical source IDs, but {{ yds-name }} does not allow writes with multiple identical `source_id` values.
 
 ### String filter for APPEND-ONLY sources {#append-only-sources}
 

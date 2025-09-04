@@ -20,6 +20,10 @@ items:
             href: operations/delete-connection.md
           - name: Configuring connection access permissions
             href: operations/connection-access.md
+          - name: Getting information about an operation
+            href: operations/operation-connection.md
+          - name: Canceling an operation
+            href: operations/cancel-operation.md
       - name: Concepts
         items:
           - name: Connection
@@ -370,6 +374,14 @@ items:
                 href: operations/data-catalog/update-source.md
               - name: Deleting an origin
                 href: operations/data-catalog/delete-source.md
+          - name: Operations with data
+            items:
+              - name: Metadata markup
+                href: operations/data-catalog/markup-metadata.md
+              - name: Metadata search
+                href: operations/data-catalog/search-metadata.md
+              - name: Analyzing links between metadata
+                href: operations/data-catalog/analysis-metadata.md
       - name: Concepts
         items:
           - name: Metadata catalogs
@@ -378,6 +390,8 @@ items:
         href: security/data-catalog-roles.md
   - name: Access management
     href: security/index.md
+  - name: Quotas and limits
+    href: concepts/limits.md
   - name: Pricing policy
     href: pricing.md
   - name: Public materials
@@ -386,9 +400,6 @@ items:
     href: release-notes/index.md
   - name: Troubleshooting
     href: qa/index.md
-    hidden: true
-  - name: Service quotas and limits
-    href: concepts/limits.md
     hidden: true
   - name: Getting started with the service
     href: quickstart/index.md

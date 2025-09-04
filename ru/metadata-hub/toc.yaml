@@ -102,8 +102,14 @@ items:
         href: quickstart/metastore.md
       - name: Пошаговые инструкции
         items:
+          - name: Получение информации о кластерах {{ metastore-name }}
+            href: operations/metastore/cluster-list.md
           - name: Создание кластера {{ metastore-name }}
             href: operations/metastore/cluster-create.md
+          - name: Изменение кластера {{ metastore-name }}
+            href: operations/metastore/cluster-update.md
+          - name: Остановка и запуск кластера {{ metastore-name }}
+            href: operations/metastore/cluster-stop.md
           - name: Настройка группы безопасности
             href: operations/metastore/configure-security-group.md
           - name: Подключение {{ dataproc-name }} к {{ metastore-name }}

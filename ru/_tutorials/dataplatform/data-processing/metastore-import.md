@@ -153,7 +153,7 @@
     1. Укажите в файле `metastore-import.tf`:
 
         * `folder_id` — идентификатор облачного каталога (такой же, как в настройках провайдера).
-        * `dp_ssh_key` — абсолютный путь к публичному ключу для кластеров {{ dataproc-name }}. Подробнее см. в разделе [{#T}](../../../data-proc/operations/connect.md#data-proc-ssh).
+        * `dp_ssh_key` — абсолютный путь к публичному ключу для кластеров {{ dataproc-name }}. [Подробнее о подключении к хосту {{ dataproc-name }} по SSH](../../../data-proc/operations/connect-ssh.md).
 
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -220,13 +220,13 @@
 
 Чтобы перенести данные из одного кластера {{ dataproc-name }} в другой, создайте резервную копию данных в кластере `dataproc-source` с помощью утилиты `pg_dump`:
 
-1. [Подключитесь по SSH](../../../data-proc/operations/connect.md#data-proc-ssh) к хосту-мастеру кластера `dataproc-source`:
+1. [Подключитесь по SSH](../../../data-proc/operations/connect-ssh.md) к хосту-мастеру кластера `dataproc-source`:
 
     ```bash
     ssh ubuntu@<FQDN_хоста-мастера>
     ```
 
-    [Узнайте, как получить FQDN](../../../data-proc/operations/connect.md#fqdn).
+    [Узнайте, как получить FQDN](../../../data-proc/operations/fqdn.md).
 
 1. Создайте резервную копию и сохраните ее в файле `metastore_dump.sql`:
 

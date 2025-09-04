@@ -132,11 +132,11 @@
 
     1. [Создайте DNS-запись](../../dns/operations/resource-record-create.md) с типом CNAME и настройками:
        * **{{ ui-key.yacloud.common.name }}** — `data-proc-test-user.org.`.
-       * **{{ ui-key.yacloud.dns.label_records }}** — [FQDN хоста-мастера](../../data-proc/operations/connect.md#fqdn) кластера {{ dataproc-name }}.
+       * **{{ ui-key.yacloud.dns.label_records }}** — [FQDN хоста-мастера](../../data-proc/operations/fqdn.md) кластера {{ dataproc-name }}.
 
 - {{ TF }} {#tf}
 
-    1. [Получите адрес FQDN](../../data-proc/operations/connect.md#fqdn) хоста-мастера кластера {{ dataproc-name }}.
+    1. [Получите адрес FQDN](../../data-proc/operations/fqdn.md) хоста-мастера кластера {{ dataproc-name }}.
     1. Укажите в файле `data-proc-dns-connect.tf` переменную:
 
         * `dataproc_fqdn` — значение FQDN хоста-мастера кластера {{ dataproc-name }}.
@@ -202,7 +202,7 @@ rc1a-dataproc-m-6ijqng07vul2mu8j.mdb.yandexcloud.net. 600 IN A 192.168.1.8
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    1. [Получите адрес FQDN](../../data-proc/operations/connect.md#fqdn) хоста-мастера вновь созданного кластера {{ dataproc-name }}.
+    1. [Получите адрес FQDN](../../data-proc/operations/fqdn.md) хоста-мастера вновь созданного кластера {{ dataproc-name }}.
     1. Укажите в файле `data-proc-dns-connect.tf` переменную:
 
         * `dataproc_fqdn` — значение FQDN хоста-мастера кластера.
