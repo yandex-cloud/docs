@@ -23,13 +23,7 @@ description: Следуя данной инструкции, вы сможете
 
     Подробнее см. в разделе [Передача логов кластера](logging.md).
 
-## Создайте кластер {#create-cluster}
-
-{% note warning %}
-
-Кластеры {{ metastore-name }} недоступны для редактирования, поэтому после создания кластера нельзя изменить его настройки.
-
-{% endnote %}
+## Создание кластера {#create-cluster}
 
 {% list tabs group=instructions %}
 
@@ -60,5 +54,50 @@ description: Следуя данной инструкции, вы сможете
         {% include [Ограничения защиты от удаления кластера](../../../_includes/mdb/deletion-protection-limits-data.md) %}
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  Чтобы создать кластер {{ metastore-name }}:
+
+  1. Посмотрите описание команды CLI для создания кластера:
+ 
+      ```bash
+      {{ yc-metastore }} cluster create --help
+      ```
+
+  1. Укажите параметры кластера в команде создания:
+
+      ```bash
+      {{ yc-metastore }} cluster create \
+         --name <имя_кластера> \
+         --description <описание_кластера> \
+         --labels <список_меток> \
+         --service-account-id <идентификатор_сервисного_аккаунта> \
+         --version <версия> \
+         --subnet-ids <идентификаторы_подсетей> \
+         --security-group-ids <идентификаторы_групп_безопасности> \
+         --resource-preset-id <идентификатор_вычислительных_ресурсов> \
+         --maintenance-window type=<тип_технического_обслуживания>,`
+                              `day=<день_недели>,`
+                              `hour=<час_дня> \
+         --deletion-protection \
+         --log-enabled \
+         --log-folder-id <идентификатор_каталога> \
+         --log-min-level <уровень_логирования>
+      ```
+
+      Где:
+
+      * `--name` — имя кластера.
+
+      {% include [CLI cluster parameters description, part 1](../../../_includes/metadata-hub/metastore-cluster-parameters-cli-part-1.md) %}
+
+      * `--subnet-ids` — список идентификаторов подсетей.
+
+      {% include [CLI cluster parameters description, part 2](../../../_includes/metadata-hub/metastore-cluster-parameters-cli-part-2.md) %}
 
 {% endlist %}

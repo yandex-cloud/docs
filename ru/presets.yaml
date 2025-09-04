@@ -917,6 +917,7 @@ default:
   yc-mdb-pg: yc managed-postgresql
   yc-mdb-rd: yc managed-redis
   yc-mdb-tr: yc managed-trino
+  yc-metastore: yc managed-metastore
   yc-serverless: yc serverless
   yc-windows-path: /yandexcloud-yc/install.ps1
   yc-ydb: yc ydb
@@ -8945,7 +8946,6 @@ default:
         label_connections: Подключения
         label_create-connection-action: Создать подключение
         label_dependences: Зависимости
-        label_open-websql: Открыть в WebSQL
       cr:
         image:
           label_last-scan-time: Дата последнего сканирования
@@ -10960,6 +10960,7 @@ default:
           field_catalog-name: Имя каталога
           field_catalog-type: Тип коннектора
         overview:
+          coordinator-url-list: Веб-интерфейс Trino
           title_resource-coordinator: Координатор
         title_catalogs: Каталоги
       tuning:

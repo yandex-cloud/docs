@@ -56,11 +56,11 @@ description: После создания кластера {{ dataproc-name }} в
 
             {% note warning %}
 
-            Некорректные настройки групп безопасности могут препятствовать работе кластера {{ dataproc-full-name }}. Подробнее о настройке групп безопасности см. в разделе [Подключение к кластеру](./connect.md#configuring-security-groups).
+            Некорректные настройки групп безопасности могут препятствовать работе кластера {{ dataproc-full-name }}. Подробнее о настройке групп безопасности см. в разделе [Настройка групп безопасности](security-groups.md).
 
             {% endnote %}
 
-        * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** — опция, управляющая доступом к [веб-интерфейсам компонентов](../concepts/interfaces.md) через [UI Proxy](./connect-interfaces.md#ui-proxy).
+        * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** — опция, управляющая доступом к [веб-интерфейсам компонентов](../concepts/interfaces.md) через [UI Proxy](connect-interfaces.md#ui-proxy).
 
             {% include [ui-proxy-sg-warning](../../_includes/data-processing/ui-proxy-sg-warning.md) %}
 
@@ -123,7 +123,7 @@ description: После создания кластера {{ dataproc-name }} в
 
         {% endnote %}
 
-    Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list).
+    Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list).
 
 - {{ TF }} {#tf}
 

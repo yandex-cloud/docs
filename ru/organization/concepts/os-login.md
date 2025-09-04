@@ -111,7 +111,7 @@ ssh -i ~/Downloads/cert/yc-organization-id-bpfdp4pdeg8d********-username usernam
 
 Подключиться к виртуальной машине с включенным доступом по {{ oslogin }} с помощью {{ yandex-cloud }} CLI можно как по SSH-ключу, [сохраненному](../../organization/operations/add-ssh.md) в профиле {{ oslogin }} пользователя или сервисного аккаунта, так и по SSH-сертификату этого пользователя или сервисного аккаунта.
 
-Подробнее о подключении к ВМ по {{ oslogin }} см. в инструкциях [{#T}](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli), [Подключиться к узлу {{ k8s }} по {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md#connect-via-cli) и [Подключение к кластеру {{ dataproc-name }}](../../data-proc/operations/connect.md#os-login-cli).
+Подробнее о подключении к ВМ по {{ oslogin }} см. в инструкциях [{#T}](../../compute/operations/vm-connect/os-login.md#connect-with-yc-cli), [Подключиться к узлу {{ k8s }} по {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md#connect-via-cli) и [Подключение к кластеру {{ dataproc-name }}](../../data-proc/operations/connect-oslogin.md#os-login-cli).
 
 ### Необходимые роли для подключения к ВМ по {{ oslogin }} {#necessary-roles}
 

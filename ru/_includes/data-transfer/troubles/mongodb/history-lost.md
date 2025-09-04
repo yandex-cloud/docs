@@ -6,7 +6,7 @@
 encountered non-recoverable resume token error. Sync cannot be resumed from this state and must be terminated and re-enabled to continue functioning: (ChangeStreamHistoryLost) Resume of change stream was not possible, as the resume point may no longer be in the oplog.
 ```
 
-Ошибка `ChangeStreamHistoryLost` возникает, когда общее время копирования данных кластера-источника {{ MG }} превышает размер временного окна журнала операций (oplog). Текущий размер временного окна можно проверить в Консоли управления на графике **Oplog window** [страницы мониторинга кластера](../../../../storedoc/operations/monitoring.md).
+Ошибка `ChangeStreamHistoryLost` возникает, когда общее время копирования данных кластера-источника {{ MG }} (Managed Service for MongoDB) превышает размер временного окна журнала операций (oplog). Текущий размер временного окна можно проверить в консоли управления на графике **Oplog window** [страницы мониторинга кластера](../../../../storedoc/operations/monitoring.md).
 
 Подробнее об oplog читайте в [документации {{ MG }}]({{ mg.docs.comd }}/core/replica-set-oplog).
 

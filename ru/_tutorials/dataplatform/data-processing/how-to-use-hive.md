@@ -293,7 +293,7 @@ SQL-запрос для Hive можно передать двумя способ
 
 ### Запуск задания с помощью Hive CLI {#run-job-hive-shell}
 
-1. [Подключитесь к хосту-мастеру](../../../data-proc/operations/connect.md#data-proc-ssh) по [SSH](../../../glossary/ssh-keygen.md) и выполните команду `hive`.
+1. [Подключитесь к хосту-мастеру](../../../data-proc/operations/connect-ssh.md) по [SSH](../../../glossary/ssh-keygen.md) и выполните команду `hive`.
 
 1. Проверьте работоспособность Hive — выполните команду `select 1;`. Корректный результат выглядит так:
 

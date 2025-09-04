@@ -15,8 +15,20 @@ items:
             href: operations/cluster-create.md
           - name: Создание кластера с автомасштабированием в сети другого каталога
             href: operations/cluster-create-autoscale.md
-          - name: Подключение к кластеру
-            href: operations/connect.md
+          - name: Подключение
+            items:
+              - name: Подключение к кластеру
+                href: operations/connect.md
+              - name: Настройка групп безопасности
+                href: operations/security-groups.md
+              - name: Получение FQDN хоста
+                href: operations/fqdn.md
+              - name: Подключение к хосту по SSH
+                href: operations/connect-ssh.md
+              - name: Подключение к хосту через {{ oslogin }}
+                href: operations/connect-oslogin.md
+              - name: Подключение к хосту из графических IDE
+                href: operations/connect-ide.md
           - name: Изменение кластера
             href: operations/cluster-update.md
           - name: Миграция легковесного кластера в другую зону доступности

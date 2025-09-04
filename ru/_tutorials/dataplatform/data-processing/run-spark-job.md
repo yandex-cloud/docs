@@ -110,7 +110,7 @@
 
 ## Использование Spark Shell {#spark-shell}
 
-1. [Подключитесь по SSH](../../../data-proc/operations/connect.md#data-proc-ssh) к хосту-мастеру кластера {{ dataproc-name }}.
+1. [Подключитесь по SSH](../../../data-proc/operations/connect-ssh.md) к хосту-мастеру кластера {{ dataproc-name }}.
 1. Запустите Spark Shell на хосте-мастере:
 
    ```bash
@@ -158,7 +158,7 @@ Spark Submit позволяет запускать заранее написан
 
 - PySpark Submit
 
-  1. [Подключитесь по SSH](../../../data-proc/operations/connect.md#data-proc-ssh) к хосту-мастеру кластера {{ dataproc-name }}.
+  1. [Подключитесь по SSH](../../../data-proc/operations/connect-ssh.md) к хосту-мастеру кластера {{ dataproc-name }}.
   1. На хосте-мастере создайте файл `month_stat.py` со следующим кодом:
 
      ```python
@@ -199,7 +199,7 @@ Spark Submit позволяет запускать заранее написан
 
   Чтобы создать и запустить Spark-приложение:
 
-  1. [Подключитесь по SSH](../../../data-proc/operations/connect.md#data-proc-ssh) к хосту-мастеру кластера {{ dataproc-name }}.
+  1. [Подключитесь по SSH](../../../data-proc/operations/connect-ssh.md) к хосту-мастеру кластера {{ dataproc-name }}.
   1. [Установите](https://docs.scala-lang.net/getting-started/index.html#using-the-scala-installer-recommended-way) стандартную утилиту сборки sbt для Scala. Она устанавливается вместе с языком программирования Scala.
   1. Создайте папку, например `spark-app`.
   1. В созданную папку добавьте файл с путем `./src/main/scala/app.scala`.
@@ -459,7 +459,7 @@ Spark Submit позволяет запускать заранее написан
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-1. [Подключитесь по SSH](../../../data-proc/operations/connect.md#data-proc-ssh) к хосту-мастеру кластера {{ dataproc-name }}.
+1. [Подключитесь по SSH](../../../data-proc/operations/connect-ssh.md) к хосту-мастеру кластера {{ dataproc-name }}.
 1. [Установите](https://docs.scala-lang.net/getting-started/index.html#using-the-scala-installer-recommended-way) стандартную утилиту сборки `sbt` для Scala. Она устанавливается вместе с языком программирования Scala.
 1. [Установите и настройте](../../../storage/tools/s3cmd.md) консольный клиент S3cmd для работы с {{ objstorage-full-name }}.
 

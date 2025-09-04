@@ -36,7 +36,7 @@ description: Следуя данной инструкции, вы сможете
 
     Настройки ресурсов хостов рекомендуется указать минимальными.
 
-1. [Подключитесь по SSH](./connect.md#data-proc-ssh) к временному кластеру {{ dataproc-name }}.
+1. [Подключитесь по SSH](connect-ssh.md) к временному кластеру {{ dataproc-name }}.
 1. Запустите встроенный инструмент [Virtualenv](https://spark.apache.org/docs/latest/api/python/user_guide/python_packaging.html#using-virtualenv) для работы с виртуальными окружениями:
 
     ```bash

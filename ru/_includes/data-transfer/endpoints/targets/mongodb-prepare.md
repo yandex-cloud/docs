@@ -1,6 +1,6 @@
 {% list tabs %}
 
-- {{ mmg-name }}
+- {{ mmg-name }} (Managed Service for MongoDB)
     
     1. [Создайте базу данных](../../../../storedoc/operations/databases.md#add-db).
     1. [Создайте пользователя](../../../../storedoc/operations/cluster-users.md#adduser) с ролью [`readWrite`](../../../../storedoc/concepts/users-and-roles.md#readWrite) на созданную базу.

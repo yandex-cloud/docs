@@ -17,7 +17,7 @@
 - Версия образа 1.4
 
   1. [Создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md) с операционной системой Ubuntu 16.04 LTS.
-  1. Чтобы обеспечить сетевой доступ к кластеру {{ dataproc-name }} с созданной ВМ, [настройте группы безопасности](../../../data-proc/operations/connect.md#configuring-security-groups) кластера.
+  1. Чтобы обеспечить сетевой доступ к кластеру {{ dataproc-name }} с созданной ВМ, [настройте группы безопасности](../../../data-proc/operations/security-groups.md) кластера.
   1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по [SSH](../../../glossary/ssh-keygen.md):
 
       ```bash
@@ -83,7 +83,7 @@
 - Версия образа 2.0
 
   1. [Создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md) с операционной системой Ubuntu 20.04 LTS.
-  1. Чтобы обеспечить сетевой доступ к кластеру {{ dataproc-name }} с созданной ВМ, [настройте группы безопасности](../../../data-proc/operations/connect.md#configuring-security-groups) кластера.
+  1. Чтобы обеспечить сетевой доступ к кластеру {{ dataproc-name }} с созданной ВМ, [настройте группы безопасности](../../../data-proc/operations/security-groups.md) кластера.
   1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по [SSH](../../../glossary/ssh-keygen.md):
 
      ```bash

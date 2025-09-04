@@ -25,6 +25,12 @@ To change connection settings:
   1. Change the required connection parameters, such as description, labels, database server settings, or user authentication information.
   1. Click **{{ ui-key.yacloud.common.apply }}** to save the changes.
 
+- API {#api}
+
+  Use the [Connection.Update](../api-ref/Connection/update.md) REST API method or the [ConnectionService.Update](../api-ref/grpc/Connection/update.md) gRPC API call and provide the connection ID in the request.
+
+  You can get the connection ID with the [list of connections](view-connection.md#connection-list) in the folder.
+
 {% endlist %}
 
 
