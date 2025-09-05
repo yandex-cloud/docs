@@ -1,16 +1,17 @@
 ---
 editable: false
+sourcePath: en/_cli-ref/cli-ref/managed-metastore/cli-ref/cluster/import-data.md
 ---
 
-# yc managed-metastore cluster delete
+# yc managed-metastore cluster import-data
 
-Delete the specified Metastore cluster
+Import data to the specified Metastore cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-metastore cluster delete <CLUSTER-NAME>|<CLUSTER-ID> [<CLUSTER-NAME>|<CLUSTER-ID>...] [Flags...] [Global Flags...]`
+`yc managed-metastore cluster import-data <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -18,6 +19,8 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Metastore cluster id.|
 |`--name`|<b>`string`</b><br/>Metastore cluster name.|
+|`--bucket`|<b>`string`</b><br/>S3 bucket to import backup from.|
+|`--filepath`|<b>`string`</b><br/>Import dump filepath.|
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags

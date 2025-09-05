@@ -1,16 +1,17 @@
 ---
 editable: false
+sourcePath: en/_cli-ref/cli-ref/managed-metastore/cli-ref/cluster/export-data.md
 ---
 
-# yc managed-metastore cluster get
+# yc managed-metastore cluster export-data
 
-Show information about the specified Metastore cluster
+Export data from the specified Metastore cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-metastore cluster get <CLUSTER-NAME>|<CLUSTER-ID> [<CLUSTER-NAME>|<CLUSTER-ID>...] [Global Flags...]`
+`yc managed-metastore cluster export-data <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -18,6 +19,9 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Metastore cluster id.|
 |`--name`|<b>`string`</b><br/>Metastore cluster name.|
+|`--bucket`|<b>`string`</b><br/>S3 bucket to export backup to.|
+|`--filepath`|<b>`string`</b><br/>Export dump filepath.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
 

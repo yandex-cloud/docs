@@ -9025,12 +9025,18 @@ default:
         button_connect: Connect
         button_create-stream: Create stream
         button_update-stream: Update
+        label_auto-partitioning-mode: Autopartitioning mode
+        label_auto-partitioning-paused: Paused
+        label_auto-partitioning-scale-up: Scale up
+        label_auto-partitioning-stabilization-window: Stabilization period
+        label_auto-partitioning-up-utilization: Upper utilization limit
         label_data-introspection: Data viewer
         label_data-storage-size-limit: Size Limit
         label_data-storage-time-limit: Time Limit
         label_data-stream: Data stream
         label_database: Database
         label_request-units: Actual usage
+        label_shards: Shards
       data-transfer:
         button_create-endpoint: Create endpoint
         button_create-transfer: Create transfer

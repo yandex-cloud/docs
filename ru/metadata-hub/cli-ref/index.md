@@ -1,26 +1,35 @@
 ---
 editable: false
+sourcePath: en/_cli-ref/cli-ref/managed-metastore/cli-ref/index.md
 ---
 
-# yc managed-metastore cluster export-data
+# yc managed-metastore
 
-Export data from the specified Metastore cluster
+Manage Metastore clusters.
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-metastore cluster export-data <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
+`yc managed-metastore <group>`
 
-#### Flags
+Aliases: 
 
-| Flag | Description |
-|----|----|
-|`--id`|<b>`string`</b><br/>Metastore cluster id.|
-|`--name`|<b>`string`</b><br/>Metastore cluster name.|
-|`--bucket`|<b>`string`</b><br/>S3 bucket to export backup to.|
-|`--filepath`|<b>`string`</b><br/>Export dump filepath.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+- `metastore`
+
+#### Command Tree
+
+- [yc managed-metastore cluster](cluster/index.md) — Manage Metastore clusters
+	- [yc managed-metastore cluster create](cluster/create.md) — Create Metastore cluster
+	- [yc managed-metastore cluster delete](cluster/delete.md) — Delete the specified Metastore cluster
+	- [yc managed-metastore cluster export-data](cluster/export-data.md) — Export data from the specified Metastore cluster
+	- [yc managed-metastore cluster get](cluster/get.md) — Show information about the specified Metastore cluster
+	- [yc managed-metastore cluster import-data](cluster/import-data.md) — Import data to the specified Metastore cluster
+	- [yc managed-metastore cluster list](cluster/list.md) — List Metastore clusters
+	- [yc managed-metastore cluster list-operations](cluster/list-operations.md) — List operations for the specified Metastore cluster
+	- [yc managed-metastore cluster start](cluster/start.md) — Start the specified Metastore cluster
+	- [yc managed-metastore cluster stop](cluster/stop.md) — Stop the specified Metastore cluster
+	- [yc managed-metastore cluster update](cluster/update.md) — Update the specified Metastore cluster
 
 #### Global Flags
 

@@ -9034,12 +9034,18 @@ default:
         button_connect: Подключиться
         button_create-stream: Создать поток
         button_update-stream: Изменить
+        label_auto-partitioning-mode: Режим автопартиционирования
+        label_auto-partitioning-paused: Приостановлено
+        label_auto-partitioning-scale-up: Увеличение
+        label_auto-partitioning-stabilization-window: Период стабилизации
+        label_auto-partitioning-up-utilization: Верхний предел нагрузки
         label_data-introspection: Просмотр данных
         label_data-storage-size-limit: Лимит размера
         label_data-storage-time-limit: Лимит времени
         label_data-stream: Поток данных
         label_database: База данных
         label_request-units: По фактическому использованию
+        label_shards: Сегменты
       data-transfer:
         button_create-endpoint: Создать эндпоинт
         button_create-transfer: Создать трансфер

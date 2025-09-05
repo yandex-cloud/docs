@@ -1,33 +1,25 @@
 ---
 editable: false
+sourcePath: en/_cli-ref/cli-ref/managed-metastore/cli-ref/cluster/stop.md
 ---
 
-# yc managed-metastore cluster
+# yc managed-metastore cluster stop
 
-Manage Metastore clusters
+Stop the specified Metastore cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-metastore cluster <command>`
+`yc managed-metastore cluster stop <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
-Aliases: 
+#### Flags
 
-- `clusters`
-
-#### Command Tree
-
-- [yc managed-metastore cluster create](create.md) — Create Metastore cluster
-- [yc managed-metastore cluster delete](delete.md) — Delete the specified Metastore cluster
-- [yc managed-metastore cluster export-data](export-data.md) — Export data from the specified Metastore cluster
-- [yc managed-metastore cluster get](get.md) — Show information about the specified Metastore cluster
-- [yc managed-metastore cluster import-data](import-data.md) — Import data to the specified Metastore cluster
-- [yc managed-metastore cluster list](list.md) — List Metastore clusters
-- [yc managed-metastore cluster list-operations](list-operations.md) — List operations for the specified Metastore cluster
-- [yc managed-metastore cluster start](start.md) — Start the specified Metastore cluster
-- [yc managed-metastore cluster stop](stop.md) — Stop the specified Metastore cluster
-- [yc managed-metastore cluster update](update.md) — Update the specified Metastore cluster
+| Flag | Description |
+|----|----|
+|`--id`|<b>`string`</b><br/>Metastore cluster id.|
+|`--name`|<b>`string`</b><br/>Metastore cluster name.|
+|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
 
