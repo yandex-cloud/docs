@@ -1,22 +1,34 @@
 ---
 editable: false
+sourcePath: en/_cli-ref/cli-ref/managed-metastore/cli-ref/cluster/index.md
 ---
 
-# yc managed-metastore cluster list
+# yc managed-metastore cluster
 
-List Metastore clusters
+Manage Metastore clusters
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-metastore cluster list [Flags...] [Global Flags...]`
+`yc managed-metastore cluster <command>`
 
-#### Flags
+Aliases: 
 
-| Flag | Description |
-|----|----|
-|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
+- `clusters`
+
+#### Command Tree
+
+- [yc managed-metastore cluster create](create.md) — Create Metastore cluster
+- [yc managed-metastore cluster delete](delete.md) — Delete the specified Metastore cluster
+- [yc managed-metastore cluster export-data](export-data.md) — Export data from the specified Metastore cluster
+- [yc managed-metastore cluster get](get.md) — Show information about the specified Metastore cluster
+- [yc managed-metastore cluster import-data](import-data.md) — Import data to the specified Metastore cluster
+- [yc managed-metastore cluster list](list.md) — List Metastore clusters
+- [yc managed-metastore cluster list-operations](list-operations.md) — List operations for the specified Metastore cluster
+- [yc managed-metastore cluster start](start.md) — Start the specified Metastore cluster
+- [yc managed-metastore cluster stop](stop.md) — Stop the specified Metastore cluster
+- [yc managed-metastore cluster update](update.md) — Update the specified Metastore cluster
 
 #### Global Flags
 

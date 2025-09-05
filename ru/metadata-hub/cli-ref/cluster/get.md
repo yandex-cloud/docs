@@ -1,16 +1,17 @@
 ---
 editable: false
+sourcePath: en/_cli-ref/cli-ref/managed-metastore/cli-ref/cluster/get.md
 ---
 
-# yc managed-metastore cluster import-data
+# yc managed-metastore cluster get
 
-Import data to the specified Metastore cluster
+Show information about the specified Metastore cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-metastore cluster import-data <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
+`yc managed-metastore cluster get <CLUSTER-NAME>|<CLUSTER-ID> [<CLUSTER-NAME>|<CLUSTER-ID>...] [Global Flags...]`
 
 #### Flags
 
@@ -18,9 +19,6 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Metastore cluster id.|
 |`--name`|<b>`string`</b><br/>Metastore cluster name.|
-|`--bucket`|<b>`string`</b><br/>S3 bucket to import backup from.|
-|`--filepath`|<b>`string`</b><br/>Import dump filepath.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 
 #### Global Flags
 

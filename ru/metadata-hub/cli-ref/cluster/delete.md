@@ -1,16 +1,17 @@
 ---
 editable: false
+sourcePath: en/_cli-ref/cli-ref/managed-metastore/cli-ref/cluster/delete.md
 ---
 
-# yc managed-metastore cluster stop
+# yc managed-metastore cluster delete
 
-Stop the specified Metastore cluster
+Delete the specified Metastore cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-metastore cluster stop <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
+`yc managed-metastore cluster delete <CLUSTER-NAME>|<CLUSTER-ID> [<CLUSTER-NAME>|<CLUSTER-ID>...] [Flags...] [Global Flags...]`
 
 #### Flags
 

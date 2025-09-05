@@ -102,27 +102,27 @@ items:
         href: quickstart/metastore.md
       - name: Пошаговые инструкции
         items:
-          - name: Получение информации о кластерах {{ metastore-name }}
+          - name: Получение информации о кластерах
             href: operations/metastore/cluster-list.md
-          - name: Создание кластера {{ metastore-name }}
+          - name: Создание кластера
             href: operations/metastore/cluster-create.md
-          - name: Изменение кластера {{ metastore-name }}
+          - name: Изменение кластера
             href: operations/metastore/cluster-update.md
-          - name: Остановка и запуск кластера {{ metastore-name }}
+          - name: Остановка и запуск кластера
             href: operations/metastore/cluster-stop.md
           - name: Настройка группы безопасности
             href: operations/metastore/configure-security-group.md
           - name: Подключение {{ dataproc-name }} к {{ metastore-name }}
             href: operations/metastore/data-processing-connect.md
-          - name: Экспорт и импорт кластера {{ metastore-name }}
+          - name: Экспорт и импорт кластера
             href: operations/metastore/export-and-import.md
           - name: >-
               Подключение к бакету {{ objstorage-full-name }} с политикой
               доступа
             href: operations/metastore/s3-policy-connect.md
-          - name: Передача логов {{ metastore-name }} в {{ cloud-logging-name }}
+          - name: Передача логов в {{ cloud-logging-name }}
             href: operations/metastore/logging.md
-          - name: Удаление кластера {{ metastore-name }}
+          - name: Удаление кластера
             href: operations/metastore/cluster-delete.md
       - name: Практические руководства
         items:
@@ -144,6 +144,34 @@ items:
         href: security/metastore-roles.md
       - name: Решение проблем
         href: qa/metastore-qa.md
+      - name: Справочник CLI (англ.)
+        items:
+          - name: Overview
+            href: cli-ref/index.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/cluster/index.md
+              - name: create
+                href: cli-ref/cluster/create.md
+              - name: delete
+                href: cli-ref/cluster/delete.md
+              - name: export-data
+                href: cli-ref/cluster/export-data.md
+              - name: get
+                href: cli-ref/cluster/get.md
+              - name: import-data
+                href: cli-ref/cluster/import-data.md
+              - name: list
+                href: cli-ref/cluster/list.md
+              - name: list-operations
+                href: cli-ref/cluster/list-operations.md
+              - name: start
+                href: cli-ref/cluster/start.md
+              - name: stop
+                href: cli-ref/cluster/stop.md
+              - name: update
+                href: cli-ref/cluster/update.md
       - name: Справочник API
         items:
           - name: Аутентификация в API
