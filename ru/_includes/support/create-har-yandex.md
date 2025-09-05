@@ -3,8 +3,11 @@
 1. Убедитесь, что запись сетевого журнала включена: в левом верхнем углу кнопка красная ![image](../../_assets/support/yb-stop-rec.svg). Если кнопка серая, нажмите ее.
 1. Включите опцию **Сохранять журнал** (**Preserve log**).
 1. Чтобы в HAR-файле оказались только записи, касающиеся ошибки, очистите журнал: нажмите ![image](../../_assets/support/yb-clear-log.svg) справа от кнопки записи сетевого журнала.
+1. Чтобы перейти к настройкам панели разработчика, нажмите ![image](../../_assets/console-icons/gear.svg) **Настройки** (**Settings**).
+1. В разделе ![image](../../_assets/console-icons/gear.svg) **Предпочтения** (**Preferences**) на панели **Сеть** (**Network**) выберите **Разрешить создание HAR с конфиденциальными данными** (**Allow to generate HAR with sensitive data**) и закройте окно настроек.
 1. Обновите страницу или повторите действия, которые приводят к ошибке.
-1. Нажмите ![image](../../_assets/support/yb-export-har.svg) **Экспорт HAR (очищено)...** (**Export HAR (sanitized)...**) и сохраните HAR-файл.
+1. Нажмите ![image](../../_assets/support/yb-export-har.svg).
+1. В появившемся списке выберите **Экспортировать HAR (с конфиденциальными данными)...** (**Export HAR (with sensitive data)...**) и сохраните HAR-файл.
 
     ![image](../../_assets/support/yb-devtools-export-har.png)
 

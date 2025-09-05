@@ -287,10 +287,12 @@ description: Следуя данной инструкции, вы узнаете
 
 ## Добавить параметры {#add-parameters}
 
+
 В датасетах можно использовать параметры:
 
 * в [вычисляемых полях](../concepts/parameters.md);
 * в [источниках датасетов](./parametrization.md).
+
 
 {% note info %}
 
@@ -312,7 +314,9 @@ description: Следуя данной инструкции, вы узнаете
 
 Также вы можете создать параметры [на уровне чарта](../operations/chart/add-parameter-chart.md).
 
+
 Пример использования параметров в источнике см. в практическом руководстве [{#T}](../tutorials/data-from-ch-dataset-parametrization.md).
+
 
 ## Добавить фильтры {#add-filters}
 

@@ -24,6 +24,8 @@ Syntax:
 |`--yaml-spec`|<b>`string`</b><br/>Workflow specification file name.|
 |`--network-id`|<b>`string`</b><br/>Workflow network id.|
 |`--service-account-id`|<b>`string`</b><br/>Service account id.|
+|`--schedule-cron-expression`|<b>`string`</b><br/>Cron expression for workflow schedule. Example: '0/1 * * * ? *'.|
+|`--schedule-timezone`|<b>`string`</b><br/>Timezone for workflow schedule, e.g. Europe/Moscow. Defaults to your local timezone.|
 |`--no-logging`|Disable logging from workflow.|
 |`--log-group-id`|<b>`string`</b><br/>Send logs to custom log group by id.|
 |`--log-group-name`|<b>`string`</b><br/>Send logs to custom log group by name.|

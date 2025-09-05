@@ -26,6 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The support cost includes:
 
 * {{ maf-name }} cluster fee: Computing resources of the cluster components (see [{{ AF }} pricing](../../../managed-airflow/pricing.md)).
+* Fee for the {{ metastore-name }} cluster computing resources (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).
 * Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * {{ objstorage-name }} bucket fee: storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 * {{ dataproc-name }} cluster fee: using VM computing resources and {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).

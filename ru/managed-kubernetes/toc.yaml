@@ -119,8 +119,6 @@ items:
             href: operations/volumes/encrypted-disks.md
           - name: Увеличение размера тома для подов
             href: operations/volumes/volume-expansion.md
-          - name: Увеличение размера тома для контроллера StatefulSet
-            href: operations/volumes/statefulset-pvc-expansion.md
           - name: Подключение тома в блочном режиме
             href: operations/volumes/mode-block.md
           - name: Интеграция с {{ objstorage-name }}

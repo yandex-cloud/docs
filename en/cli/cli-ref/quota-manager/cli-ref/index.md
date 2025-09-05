@@ -19,6 +19,12 @@ Syntax:
 	- [yc quota-manager quota-limit get](quota-limit/get.md) — Show information about the specified quota
 	- [yc quota-manager quota-limit list](quota-limit/list.md) — List quota limits
 	- [yc quota-manager quota-limit list-services](quota-limit/list-services.md) — List quota services
+- [yc quota-manager quota-request](quota-request/index.md) — Manage quota requests
+	- [yc quota-manager quota-request cancel](quota-request/cancel.md) — Cancel quotas in the specified quota request.
+	- [yc quota-manager quota-request create](quota-request/create.md) — Create a quota request
+	- [yc quota-manager quota-request get](quota-request/get.md) — Show information about the specified quota request
+	- [yc quota-manager quota-request list](quota-request/list.md) — List quota requests
+	- [yc quota-manager quota-request list-operations](quota-request/list-operations.md) — List operations for the specified quota request
 
 #### Global Flags
 
