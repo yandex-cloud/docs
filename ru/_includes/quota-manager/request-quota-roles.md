@@ -1,1 +1,3 @@
-Для работы с запросами убедитесь, что ваша [учетная запись]({{ link-console-iam-users }}) имеет [роль](../../iam/roles-reference.md#quota-manager-requestoperator) `quota-manager.requestOperator` или выше (`{{ roles-editor }}` или `{{ roles-admin }}`).
+Для работы с запросами на изменение квот [учетной записи]({{ link-console-iam-users }}) потребуются роли:
+* на уровне [организации](../../resource-manager/concepts/resources-hierarchy.md#cloud) — [quota-manager.requestOperator](../../quota-manager/security/index.md#quota-manager-requestoperator), [organization-manager.viewer](../../organization/security/index.md#organization-manager-viewer);
+* на уровне облака — [resource-manager.viewer](../../resource-manager/security/index.md#resource-manager-viewer).

@@ -4,6 +4,8 @@ title: Как изменить квоты
 
 # Изменить квоты
 
+{% include [preview-quota](../../_includes/quota-manager/preview-quota.md) %}
+
 Потенциально значения квот можно изменить до значений лимитов — ограничений облачной платформы.
 
 {% include [request-quota-restriction](../../_includes/quota-manager/request-quota-restriction.md) %}
