@@ -8,7 +8,7 @@
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета.
-  1. (Опционально) Для разделения метрик в сервисе {{ monitoring-full-name }} добавьте [метку](../../monitoring/concepts/data-model.md#metric).
+  1. (Опционально) Для разделения ресурсов на логические группы добавьте [метку](../../resource-manager/concepts/labels.md).
   1. (Опционально) Включите опцию **{{ ui-key.yacloud.lockbox.forms.field_deletion-protection }}**. Пока опция включена, удалить секрет невозможно. Не защищает содержимое секрета от изменения.
   1. Выберите **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**:
       * **{{ ui-key.yacloud.lockbox.forms.title_secret-type-generated }}** — значение формируется автоматически:

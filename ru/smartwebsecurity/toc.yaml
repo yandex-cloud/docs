@@ -87,6 +87,8 @@ items:
         href: operations/alerting.md
       - name: Настроить логирование
         href: operations/configure-logging.md
+      - name: Миграция на WAF с поддержкой правил Яндекс
+        href: operations/waf-migration.md
   - name: Практические руководства
     items:
       - name: Все практические руководства

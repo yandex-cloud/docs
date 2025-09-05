@@ -1,16 +1,17 @@
 ---
 editable: false
+sourcePath: en/_cli-ref/cli-ref/managed-metastore/cli-ref/cluster/list-operations.md
 ---
 
-# yc managed-metastore cluster start
+# yc managed-metastore cluster list-operations
 
-Start the specified Metastore cluster
+List operations for the specified Metastore cluster
 
 #### Command Usage
 
 Syntax: 
 
-`yc managed-metastore cluster start <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
+`yc managed-metastore cluster list-operations <CLUSTER-NAME>|<CLUSTER-ID> [Flags...] [Global Flags...]`
 
 #### Flags
 
@@ -18,7 +19,7 @@ Syntax:
 |----|----|
 |`--id`|<b>`string`</b><br/>Metastore cluster id.|
 |`--name`|<b>`string`</b><br/>Metastore cluster name.|
-|`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
+|`--limit`|<b>`int`</b><br/>The maximum number of items to list. Default is 1000 items|
 
 #### Global Flags
 

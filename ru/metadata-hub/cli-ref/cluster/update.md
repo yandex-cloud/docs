@@ -1,5 +1,6 @@
 ---
 editable: false
+sourcePath: en/_cli-ref/cli-ref/managed-metastore/cli-ref/cluster/update.md
 ---
 
 # yc managed-metastore cluster update
