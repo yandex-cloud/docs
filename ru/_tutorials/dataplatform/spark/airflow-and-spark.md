@@ -26,6 +26,7 @@
 В стоимость поддержки описываемого решения входят:
 
 * Плата за кластер {{ AF }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ maf-full-name }}](../../../managed-airflow/pricing.md)).
+* Плата за вычислительные ресурсы кластера {{ metastore-name }} (см. [тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md#metastore)).
 * Плата за бакеты {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
 * Плата за получение и хранение логов (см. [тарифы {{ cloud-logging-name }}](../../../logging/pricing.md)).
 

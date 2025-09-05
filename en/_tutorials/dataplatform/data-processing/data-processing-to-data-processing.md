@@ -23,6 +23,7 @@ If a {{ dataproc-name }} cluster contains tables that should be available in ano
 The infrastructure support cost includes:
 
 * Fee for the {{ dataproc-name }} cluster computing resources and storage (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* Fee for the {{ metastore-name }} cluster computing resources (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).
 * Fee for data storage and operations in a bucket (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md)).
 * Fee for NAT gateway usage and outbound traffic (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md#nat-gateways)).
 

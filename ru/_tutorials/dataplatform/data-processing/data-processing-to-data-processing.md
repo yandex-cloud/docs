@@ -23,6 +23,7 @@
 В стоимость поддержки инфраструктуры входит:
 
 * плата за вычислительные ресурсы кластера {{ dataproc-name }} и объем хранилища (см. [тарифы {{ dataproc-name }}](../../../data-proc/pricing.md));
+* плата за вычислительные ресурсы кластера {{ metastore-name }} (см. [тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md#metastore));
 * плата за хранение данных и операции с данными в бакете (см. [тарифы {{ objstorage-full-name }}](../../../storage/pricing.md));
 * плата за использование NAT-шлюза и исходящий через шлюз трафик (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md#nat-gateways)).
 

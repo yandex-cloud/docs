@@ -17,7 +17,7 @@ Syntax:
 
 | Flag | Description |
 |----|----|
-|`--expires-in`|<b>`int`</b><br/>Number of seconds until the pre-signed URL expires (default: 3600, max: 604800)|
+|`--expires-in`|<b>`int`</b><br/>Number of seconds until the pre-signed URL expires (default: 3600)|
 |`--local`|Generate pre-signed URL locally without using API|
 |`--access-key`|<b>`string`</b><br/>Access key for local S3 authentication|
 |`--secret-key`|<b>`string`</b><br/>Secret key for local S3 authentication|

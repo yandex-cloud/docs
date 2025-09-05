@@ -1295,6 +1295,90 @@ items:
             href: cli-ref/config/cli-ref/set.md
           - name: unset
             href: cli-ref/config/cli-ref/unset.md
+      - name: connection-manager
+        items:
+          - name: Overview
+            href: cli-ref/connection-manager/cli-ref/index.md
+          - name: connection
+            items:
+              - name: Overview
+                href: cli-ref/connection-manager/cli-ref/connection/index.md
+              - name: create
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/create/index.md
+                  - name: clickhouse
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/create/clickhouse.md
+                  - name: greenplum
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/create/greenplum.md
+                  - name: mongodb
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/create/mongodb.md
+                  - name: mysql
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/create/mysql.md
+                  - name: opensearch
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/create/opensearch.md
+                  - name: postgresql
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/create/postgresql.md
+                  - name: redis
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/create/redis.md
+                  - name: trino
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/create/trino.md
+                  - name: valkey
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/create/valkey.md
+              - name: delete
+                href: cli-ref/connection-manager/cli-ref/connection/delete.md
+              - name: get
+                href: cli-ref/connection-manager/cli-ref/connection/get.md
+              - name: list
+                href: cli-ref/connection-manager/cli-ref/connection/list.md
+              - name: list-operations
+                href: >-
+                  cli-ref/connection-manager/cli-ref/connection/list-operations.md
+              - name: resolve-cluster
+                href: >-
+                  cli-ref/connection-manager/cli-ref/connection/resolve-cluster.md
+              - name: update
+                items:
+                  - name: Overview
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/update/index.md
+                  - name: clickhouse
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/update/clickhouse.md
+                  - name: greenplum
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/update/greenplum.md
+                  - name: mongodb
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/update/mongodb.md
+                  - name: mysql
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/update/mysql.md
+                  - name: opensearch
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/update/opensearch.md
+                  - name: postgresql
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/update/postgresql.md
+                  - name: redis
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/update/redis.md
+                  - name: trino
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/update/trino.md
+                  - name: valkey
+                    href: >-
+                      cli-ref/connection-manager/cli-ref/connection/update/valkey.md
       - name: container
         items:
           - name: Overview
@@ -4177,6 +4261,20 @@ items:
                 href: cli-ref/quota-manager/cli-ref/quota-limit/list.md
               - name: list-services
                 href: cli-ref/quota-manager/cli-ref/quota-limit/list-services.md
+          - name: quota-request
+            items:
+              - name: Overview
+                href: cli-ref/quota-manager/cli-ref/quota-request/index.md
+              - name: cancel
+                href: cli-ref/quota-manager/cli-ref/quota-request/cancel.md
+              - name: create
+                href: cli-ref/quota-manager/cli-ref/quota-request/create.md
+              - name: get
+                href: cli-ref/quota-manager/cli-ref/quota-request/get.md
+              - name: list
+                href: cli-ref/quota-manager/cli-ref/quota-request/list.md
+              - name: list-operations
+                href: cli-ref/quota-manager/cli-ref/quota-request/list-operations.md
       - name: resource-manager
         items:
           - name: Overview

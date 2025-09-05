@@ -22,7 +22,7 @@ Syntax:
 |`--async`|Display information about the operation in progress, without waiting for the operation to complete.|
 |`--password`|<b>`string`</b><br/>Password of the MySQL user.|
 |`--permissions`|<b>`PROPERTY=VALUE[,PROPERTY=VALUE...]`</b><br/>Database names and roles. Can be specified multiple times.<br/><br/>Format: database=DBNAME,role=ROLE1,role=ROLE2.<br/><br/>Possible property names:<br/><ul> <li><code>database</code>:     Name of the database that the permission grants access to.</li> <li><code>role</code>:     Role in the database to assign to the user. Can be specified multiple times.</li> </ul>|
-|`--global-permissions`|<b>`value[,value]`</b><br/>User global access roles, possible values: FLUSH_OPTIMIZER_COSTS,PROCESS,REPLICATION_CLIENT,REPLICATION_SLAVE,SHOW_ROUTINE|
+|`--global-permissions`|<b>`value[,value]`</b><br/>User global access roles, possible values: FLUSH_OPTIMIZER_COSTS,MDB_ADMIN,PROCESS,REPLICATION_CLIENT,REPLICATION_SLAVE,SHOW_ROUTINE|
 |`--authentication-plugin`|<b>`string`</b><br/>Authentication plugin of the MySQL user.|
 |`--generate-password`|Generate password using Connection Manager.|
 |`--max-questions-per-hour`|<b>`int`</b><br/>The maximum permitted number of user questions per hour.|

@@ -47,6 +47,7 @@ Syntax:
 |`--log-folder-id`|<b>`string`</b><br/>Send logs to default log group of custom folder by id.|
 |`--log-folder-name`|<b>`string`</b><br/>Send logs to default log group of custom folder by name.|
 |`--min-log-level`|<b>`string`</b><br/>Min log level. Values: 'trace', 'debug', 'info', 'warn', 'error', 'fatal'|
+|`--async-service-account-id`|<b>`string`</b><br/>Service account for asynchronous container invocation.|
 
 #### Global Flags
 
