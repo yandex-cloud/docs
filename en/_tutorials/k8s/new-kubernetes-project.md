@@ -19,7 +19,7 @@ The support cost includes:
 * Fee for using the master and outbound traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for {{ container-registry-name }}: using the storage and outgoing traffic (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
-* Fee for using the computing resources of the L7 load balancer (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for using an L7 load balancer’s computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for a public IP address for an L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
@@ -514,7 +514,7 @@ To install [{{ alb-name }}](/marketplace/products/yc/alb-ingress-controller), [f
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
+Some resources incur charges. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md):
 

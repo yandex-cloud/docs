@@ -292,6 +292,8 @@ items:
         items:
           - name: Реестр схем
             href: concepts/schema-registry.md
+          - name: Совместимость JSON-схем
+            href: concepts/schema-compatibility.md
           - name: Контентные модели и проблемы эволюции JSON-схем
             href: concepts/schema-registry-content-model.md
           - name: Политики проверки совместимости

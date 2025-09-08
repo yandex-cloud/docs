@@ -9,9 +9,9 @@ A _virtual machine_ is similar to a server in cloud infrastructures.
 
 ## VMs as a {{ yandex-cloud }} resource {#project}
 
-A VM is created in a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) within your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and inherits access rights from it. You can read more about the {{ yandex-cloud }} resource hierarchy [here](../../resource-manager/concepts/resources-hierarchy.md).
+A VM is created in one of the [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) within your [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and inherits its access permissions. You can read more about the {{ yandex-cloud }} resource hierarchy [here](../../resource-manager/concepts/resources-hierarchy.md).
 
-Each VM has a unique ID and name. The name is unique within the folder. The naming requirements are as follows:
+Each VM has a unique ID and name. The name is unique within the folder. Follow these naming requirements:
 
 {% include [name-format](../../_includes/name-format.md) %}
 
@@ -30,7 +30,7 @@ You can move a VM to another folder within a single cloud.
 
 When creating a VM, you need to specify the amount of computing resources to allocate to it; this includes the number and performance of processor cores (vCPUs) and the amount of RAM. You can choose the computing resources that are appropriate for the expected load. For more information, see [{#T}](performance-levels.md).
 
-To reserve computing resources for as many VMs as you need in a particular availability zone, you can create a [reserved instance pool](./reserved-pools.md).
+You can create a [reserved instance pool](./reserved-pools.md) to reserve computing resources for as many VMs as you need in a particular availability zone.
 
 ## Hardware generations {#hardware-generations}
 
@@ -77,3 +77,7 @@ For more information, see [{#T}](network.md).
 * [{#T}](../tutorials/ntp.md)
 * [{#T}](../tutorials/vm-fluent-bit-logging.md)
 * [{#T}](../tutorials/bind-domain-vm/index.md)
+
+#### See also {#see-also}
+
+* [How to select the right VM type in {{ yandex-cloud }}](https://yandex.cloud/ru/blog/posts/2025/03/vm-type-selection)

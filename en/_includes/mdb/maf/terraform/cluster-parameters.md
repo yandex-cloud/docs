@@ -1,4 +1,4 @@
-Here is the configuration file example:
+Here is an example of the configuration file structure:
 
 ```hcl
 resource "yandex_airflow_cluster" "<cluster_name>" {
@@ -7,7 +7,7 @@ resource "yandex_airflow_cluster" "<cluster_name>" {
 
   labels = { <label_list> }
 
-  admin_password     = "<administrator_password>"
+  admin_password     = "<admin_password>"
   service_account_id = "<service_account_ID>"
   subnet_ids         = ["<list_of_subnet_IDs>"]
   security_group_ids = ["<list_of_security_group_IDs>"]
@@ -40,6 +40,12 @@ resource "yandex_airflow_cluster" "<cluster_name>" {
     s3 = {
       bucket = "<bucket_name>"
     }
+  }
+
+  maintenance_window = {
+    type = "<maintenance_type>"
+    day  = "<day_of_week>"
+    hour = <hour>
   }
 
   deletion_protection = <deletion_protection>

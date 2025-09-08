@@ -4,10 +4,10 @@
 ----- | -----
 **[Векторизация текста](../foundation-models/concepts/embeddings.md)** |
 Количество запросов на векторизацию текста, в секунду | 10
-**[Генерация текста](../foundation-models/concepts/yandexgpt/index.md)** |
+**[Генерация текста](../foundation-models/concepts/generation/index.md)** |
 Количество одновременных генераций в [синхронном режиме](../foundation-models/concepts/index.md#working-mode), модель {{ gpt-lite }} | 10
 Количество одновременных генераций в синхронном режиме, модель {{ gpt-pro }} | 10
-Количество одновременных генераций, модель [{{ gpt-pro }} 32k](../foundation-models/concepts/yandexgpt/models.md#generation) | 1
+Количество одновременных генераций, модель [{{ gpt-pro }} 32k](../foundation-models/concepts/generation/models.md#generation) | 1
 Количество одновременных генераций в синхронном режиме, модель {{ llama }} 8b^1^ | 10
 Количество одновременных генераций, модель {{ llama }} 70b | 1
 Количество запросов в секунду, [асинхронный режим](../foundation-models/concepts/index.md#working-mode) (запрос) | 10
@@ -19,7 +19,7 @@
 Количество запусков в сутки | 100
 **[Классификация текста](../foundation-models/concepts/classifier/index.md)** |
 Количество запросов на классификацию текста в секунду | 1
-**[Генерация изображений](../foundation-models/concepts/yandexart/index.md)** |
+**[Генерация изображений](../foundation-models/concepts/generation/index.md)** |
 Количество запросов на генерацию в минуту | 500
 Количество запросов на генерацию в сутки | 5 000
 Количество запросов результата в секунду | 50
@@ -37,9 +37,9 @@
 ----- | -----
 Срок хранения результатов асинхронных запросов на сервере | 3 суток
 **[Векторизация текста](../foundation-models/concepts/embeddings.md)** |
-Количество [токенов](../foundation-models/concepts/yandexgpt/tokens.md) на вход | 2 000
+Количество [токенов](../foundation-models/concepts/generation/tokens.md) на вход | 2 000
 Размерность выходного вектора | {{ emb-vector }}
-**[Генерация текста](../foundation-models/concepts/yandexgpt/index.md)** |
+**[Генерация текста](../foundation-models/concepts/generation/index.md)** |
 Максимальное количество токенов в ответе в [консоли управления]({{ link-console-main }}) | 1 000
 Количество бесплатных запросов в час для пользователей без платежного аккаунта. Доступно только в консоли управления | {{ gpt-freetier }}
 **[Ассистенты](../foundation-models/concepts/assistant/index.md)**|
@@ -53,7 +53,7 @@
 Максимальное количество сообщений в одном треде | 100 000
 Максимальное количество поисковых индексов | 1 000
 Максимальное количество запущенных операций индексации | 10
-**[Генерация изображений](../foundation-models/concepts/yandexart/index.md)** |
+**[Генерация изображений](../foundation-models/concepts/generation/index.md)** |
 Максимальная длина [промта](../foundation-models/concepts/index.md#prompt) | 500 символов
 Количество бесплатных запросов в минуту для пользователей без платежного аккаунта. Доступно только в консоли управления | 2
 Количество бесплатных запросов в сутки для пользователей без платежного аккаунта. Доступно только в консоли управления | {{ art-freetier }}

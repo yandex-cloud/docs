@@ -16,7 +16,7 @@
 
 * `deb_packages`, `pip_packages`: Lists of deb and pip packages enabling you to install additional libraries and applications in the cluster for running DAG files:
 
-    If required, you can set version restrictions for the installed packages, for example:
+    You can set version restrictions for the installed packages, e.g.:
 
     ```hcl
     pip_packages = ["pandas==2.0.2","scikit-learn>=1.0.0","clickhouse-driver~=0.2.0"]
@@ -25,6 +25,15 @@
     The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
 
 * `code_sync.s3.bucket`: Name of the bucket to store DAG files in.
+
+* `maintenance_window`: [Maintenance window](../../../../managed-airflow/concepts/maintenance.md) settings (including for disabled clusters):
+
+    * `type`: Maintenance type. The possible values include:
+        * `ANYTIME`: Any time.
+        * `WEEKLY`: On a schedule.
+    * `day`: Day of week for the `WEEKLY` type, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+    * `hour`: Time of day (UTC) for the `WEEKLY` type, from `1` to `24`.
+
 * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
     Even if it is enabled, one can still connect to the cluster manually and delete it.

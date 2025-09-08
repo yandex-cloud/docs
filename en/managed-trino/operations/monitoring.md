@@ -21,9 +21,9 @@ To view detailed info on the state of a {{ mtr-name }} cluster:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the relevant folder.
+  1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
 
   1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
@@ -53,7 +53,7 @@ To view detailed info on the state of a {{ mtr-name }} cluster:
       * **Started**: Queries in progress.
       * **Failed**: Queries that resulted in an error.
       * **Completed**: Completed queries, including failed ones.
-      * **Cancelled**: Queries cancelled by the user.
+      * **Canceled**: Queries canceled by the user.
       * **Abandoned**: Completed queries with unclaimed results.
 
     * **Errors**: Errors and their types. The number of errors is given per second.

@@ -2,7 +2,7 @@
 
 {% include [assistants-preview-stage](../../_includes/foundation-models/assistants-preview-stage.md) %}
 
-В этом практическом руководстве приведен пример создания [AI-ассистента](../../foundation-models/concepts/assistant/index.md), который выполняет поиск по информации в источнике, содержащем сложное форматирование и табличные данные, и анализирует полученные данные с помощью [модели генерации текста](../../foundation-models/concepts/yandexgpt/models.md) {{ gpt-pro }} RC.
+В этом практическом руководстве приведен пример создания [AI-ассистента](../../foundation-models/concepts/assistant/index.md), который выполняет поиск по информации в источнике, содержащем сложное форматирование и табличные данные, и анализирует полученные данные с помощью [модели генерации текста](../../foundation-models/concepts/generation/models.md) {{ gpt-pro }} RC.
 
 В качестве примера исходного файла со сложным форматированием приведен файл в формате [PDF](https://ru.wikipedia.org/wiki/Portable_Document_Format). Исходный файл будет преобразован в формат [Markdown](https://ru.wikipedia.org/wiki/Markdown). Многие модели обучаются на данных в формате Markdown и лучше всего работают с ним, поэтому файлы этого формата эффективнее всего использовать в качестве источника для поискового индекса. Поисковые индексы, которые вы создадите из файла-источника, будут использовать два [варианта поиска](../../foundation-models/concepts/assistant/search-index.md#search-types) — текстовый и гибридный.
 
@@ -20,19 +20,10 @@
 {% endnote %}
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роли](../../foundation-models/security/index.md#service-roles) `ai.assistants.editor` и `ai.languageModels.user`.
-1. [Получите](../../iam/operations/authentication/manage-api-keys.md#create-api-key) и сохраните API-ключ сервисного аккаунта.
-
-    {% include [sdk-auth-details-paragraph](../../_includes/foundation-models/sdk-auth-details-paragraph.md) %}
-
-1. Установите Python версии [3.10](https://www.python.org/downloads/release/python-3100/) или [3.11](https://www.python.org/downloads/release/python-3110/).
-1. Установите утилиту Python [venv](https://docs.python.org/3/library/venv.html) для создания изолированных виртуальных окружений в Python.
-1. Создайте и войдите в новое виртуальное окружение Python:
-
-    ```bash
-    python3 -m venv new-env
-    source new-env/bin/activate
-    ```
-
+1. {% include [sdk-before-begin-step2](../../_includes/foundation-models/sdk-before-begin-step2.md) %}
+1. {% include [sdk-before-begin-step3](../../_includes/foundation-models/sdk-before-begin-step3.md) %}
+1. {% include [sdk-before-begin-step4](../../_includes/foundation-models/sdk-before-begin-step4.md) %}
+1. {% include [sdk-before-begin-step5](../../_includes/foundation-models/sdk-before-begin-step5.md) %}
 1. С помощью менеджера пакетов [pip](https://pypi.org/project/pip/) установите библиотеку [docling](https://github.com/DS4SD/docling) для преобразования документов из формата PDF в формат Markdown:
 
     ```bash

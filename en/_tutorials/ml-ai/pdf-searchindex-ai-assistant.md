@@ -2,7 +2,7 @@
 
 {% include [assistants-preview-stage](../../_includes/foundation-models/assistants-preview-stage.md) %}
 
-This tutorial provides an example of creating an [AI assistant](../../foundation-models/concepts/assistant/index.md) which will search through information in a source with complex formatting and tabular data and analyze the results using the {{ gpt-pro }} RC [text generation model](../../foundation-models/concepts/yandexgpt/models.md).
+This tutorial provides an example of creating an [AI assistant](../../foundation-models/concepts/assistant/index.md) which will search through information in a source with complex formatting and tabular data and analyze the results using the {{ gpt-pro }} RC [text generation model](../../foundation-models/concepts/generation/models.md).
 
 In this tutorial, a [PDF](https://en.wikipedia.org/wiki/PDF) file serves as an example of a source file with complex formatting. We will convert this source file to [Markdown](https://en.wikipedia.org/wiki/Markdown) format. Many models are trained on and work best with Markdown data, so this format is the most efficient to use as a source for a search index. The search indexes you will create from the source file will employ two [search types](../../foundation-models/concepts/assistant/search-index.md#search-types): text and hybrid.
 

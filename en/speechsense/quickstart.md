@@ -51,7 +51,7 @@ You can upload your data to {{ speechsense-name }} or use a [demo recording](htt
 
    {% endcut %}
 
-1. Create a project by clicking **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}** on the space page, entering a name for the project, and adding a connection to it. For each connection, you can select filtering rules based on its metainformation and the [{{ gpt-pro }}](../foundation-models/concepts/yandexgpt/index.md) criteria. With filters, you can ensure that only the dialogs you need are added to the project. After adding all required connections and configuring filters, click **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
+1. Create a project by clicking **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}** on the space page, entering a name for the project, and adding a connection to it. For each connection, you can select filtering rules based on its metainformation and the [{{ gpt-pro }}](../foundation-models/concepts/generation/index.md) criteria. With filters, you can ensure that only the dialogs you need are added to the project. After adding all required connections and configuring filters, click **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
 
 ## Upload your data {#upload-data}
 

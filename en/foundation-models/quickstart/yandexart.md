@@ -43,7 +43,7 @@ To get started in {{ yandex-cloud }}:
   To work with the {{ yandexart-name }} API, you need to get authenticated using your account:
 
   1. Get an IAM token for your [Yandex account](../../iam/operations/iam-token/create.md) or [federated account](../../iam/operations/iam-token/create-for-federation.md).
-  1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-yaart-user }}` role or higher. You will need the folder ID to get the [model URI](../concepts/yandexart/models.md).
+  1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-yaart-user }}` role or higher. You will need the folder ID to get the [model URI](../concepts/generation/models.md).
   1. When accessing {{ yandexart-name }} via the API, specify the IAM token in the `Authorization` header of each request:
 
      ```json
@@ -70,12 +70,12 @@ To get started in {{ yandex-cloud }}:
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/palette.svg) **{{ yandexart-name }}**.
   1. In the input field, describe the image you want to generate. You should use vivid and detailed descriptions, specify styles if you want your image styled in a certain way.
-  1. Leave the [**Seed** parameter](../concepts/yandexart/index.md) at random or specify any value.
+  1. Leave the [**Seed** parameter](../concepts/generation/index.md) at random or specify any value.
   1. Click **Generate**. Generating an image takes some time. The output will appear on the left side of the screen.
 
 - SDK {#sdk}
 
-  The code in the example waits until the model completes the request, then saves the result to the `result` variable before saving the generated image on the disk to the `image.jpeg` file in the current directory. For additional methods of working with the {{ yandexart-name }} model, see [{#T}](../operations/yandexart/request.md).
+  The code in the example waits until the model completes the request, then saves the result to the `result` variable before saving the generated image on the disk to the `image.jpeg` file in the current directory. For additional methods of working with the {{ yandexart-name }} model, see [{#T}](../operations/generation/yandexart-request.md).
 
   1. Create a file named `generate-image.py` and paste the following code into it:
 
@@ -88,7 +88,7 @@ To get started in {{ yandex-cloud }}:
 
       {% include [sdk-code-legend](../../_includes/foundation-models/examples/sdk-code-legend.md) %}
 
-      For more information about prompting a model, see [{#T}](../concepts/yandexart/models.md#addressing-models).
+      For more information about prompting a model, see [{#T}](../concepts/generation/models.md#addressing-models).
       
   1. Run the file you created:
 

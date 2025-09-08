@@ -112,7 +112,7 @@ To apply or update a bucket policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional setting.
+       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
 
          You can get the IDs in the following ways:
 
@@ -120,7 +120,7 @@ To apply or update a bucket policy:
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
        * `Resource`: Resource to apply the rule to.
-       * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional setting.
+       * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
 
          {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
 
@@ -190,7 +190,7 @@ To apply or update a bucket policy:
      * `Version`: Version of the bucket policy description. This is an optional parameter.
      * `Statement`: Bucket policy rules:
        * `Effect`: Deny or allow the requested action. The possible values are `Allow` and `Deny`.
-       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional setting.
+       * `Principal`: Requested permission subject ID. You can request permissions for a [user](../../../iam/operations/users/get.md), [service account](../../../iam/operations/sa/get-id.md), or [user group](../../../organization/operations/manage-groups.md). Possible values: `*` and `<subject_ID>`. This is an optional parameter.
 
          You can get the IDs in the following ways:
 
@@ -198,7 +198,7 @@ To apply or update a bucket policy:
 
        * `Action`: [Action](../../s3/api-ref/policy/actions.md) to allow when the policy is triggered. The possible values are `s3:GetObject`, `s3:PutObject`, and `*` (if you need to apply the policy to all actions).
        * `Resource`: Resource to apply the rule to.
-       * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional setting.
+       * `Condition`: [Condition](../../s3/api-ref/policy/conditions.md) to check. This is an optional parameter.
 
          {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
 
@@ -432,9 +432,6 @@ To delete a bucket policy:
                 }
               ]
             }
-
-
-            
             POLICY
             }
             ```

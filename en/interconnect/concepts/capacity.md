@@ -24,7 +24,6 @@ Data size, TB | Connection capacity | Label
 15,450            | 50 Gbps          | 50-gbps
 30,900            | 100 Gbps         | 100-gbps
 
-
 {% note info %}
 
 * To learn how much each data size options cost, see the [pricing policy](../pricing.md).

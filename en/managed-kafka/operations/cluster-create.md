@@ -57,7 +57,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
      1. Enter a name and description for the {{ mkf-name }} cluster. The {{ mkf-name }} cluster name must be unique within the folder.
      1. Select the environment where you want to create the {{ mkf-name }} cluster (you cannot change the environment once the cluster is created):
         * `PRODUCTION`: For stable versions of your apps.
-        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test the new versions for compatibility with your application.
      1. Select the {{ KF }} version.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select the [platform](../../compute/concepts/vm-platforms.md), host type, and host class.
 
@@ -120,7 +120,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         {% include [Dedicated hosts note](../../_includes/mdb/mkf/note-dedicated-hosts.md) %}
 
 
-  1. If you are creating a cluster with version 3.5 and have specified more than one broker host, under **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to place in each of the selected availability zones.
+  1. If you are creating a cluster with {{ KF }} version 3.5 and have specified more than one broker host, under **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to place in each of the selected availability zones.
   1. Configure additional {{ mkf-name }} cluster settings, if required:
 
      {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
@@ -358,13 +358,13 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
     {% endnote %}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
 
-        1. Create a file named `body.json` and add the following contents to it:
+        1. Create a file named `body.json` and paste the following code into it:
 
             {% note info %}
 
@@ -438,9 +438,9 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                     }
                   ]
                 },
-                { <similar_configuration_for_user_2> },
+                { <similar_settings_for_user_2> },
                 { ... },
-                { <similar_configuration_for_user_N> }
+                { <similar_settings_for_user_N> }
               ],
               "maintenanceWindow": {
                 "anytime": {},
@@ -470,10 +470,10 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 * `kafka`: {{ KF }} configuration:
 
                     * `resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
-                    * `resources.diskSize`: Disk size in bytes.
+                    * `resources.diskSize`: Disk size, in bytes.
                     * `resources.diskTypeId`: [Disk type](../concepts/storage.md).
 
-                * `zookeeper`: [{{ ZK }}](../concepts/index.md#zookeeper) configuration.
+                * `zookeeper`: [{{ ZK }}](../concepts/index.md#zookeeper) configuration:
 
                     * `resources.resourcePresetId`: Host class ID. You can request the list of available host classes with their IDs using the [ResourcePreset.list](../api-ref/ResourcePreset/list.md) method.
                     * `resources.diskSize`: Disk size in bytes.
@@ -505,12 +505,12 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
                 {% include [rest-user-specs](../../_includes/mdb/mkf/api/rest-user-specs.md) %}
 
-            * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Select one of the options:
+            * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Select one of these options:
 
                 * `anytime`: At any time (default).
                 * `weeklyMaintenanceWindow`: On schedule:
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                    * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
+                    * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
             * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
@@ -537,7 +537,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
               --data '@body.json'
             ```
 
-    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -547,7 +547,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
     {% endnote %}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -555,7 +555,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
     1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
 
-        1. Create a file named `body.json` and add the following contents to it:
+        1. Create a file named `body.json` and paste the following code into it:
 
             {% note info %}
 
@@ -635,9 +635,9 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                     }
                   ]
                 },
-                { <similar_configuration_for_user_2> },
+                { <similar_settings_for_user_2> },
                 { ... },
-                { <similar_configuration_for_user_N> }
+                { <similar_settings_for_user_N> }
               ],
               "maintenance_window": {
                 "anytime": {},
@@ -707,7 +707,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
                 * `anytime`: At any time (default).
                 * `weekly_maintenance_window`: On schedule:
                     * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                    * `hour`: Hour of day (UTC) in `HH` format, from `1` to `24`.
+                    * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
             * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`. The default value is `false`.
 
@@ -787,7 +787,7 @@ To create a {{ KF }} cluster copy:
 
     1. Copy it from the terminal and paste it into the `.tf` file.
     1. Place the file in the new `imported-cluster` directory.
-    1. Modify the copied configuration so that you can create a new cluster from it:
+    1. Edit the copied configuration so that you can create a new cluster from it:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete `created_at`, `health`, `host`, `id`, and `status`.
@@ -807,7 +807,7 @@ To create a {{ KF }} cluster copy:
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 

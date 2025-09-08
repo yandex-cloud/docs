@@ -3,11 +3,10 @@
 {{ ai-studio-full-name }} предоставляет библиотеку инструментов и примеров готового кода для разработки продуктов на языке Python — {{ ml-sdk-full-name }}. {{ ml-sdk-name }} обеспечивает стандартизированный способ взаимодействия с фундаментальными моделями и упрощает интеграцию с другими сервисами {{ yandex-cloud }}.
 
 Библиотека {{ ml-sdk-name }} реализует синхронный и асинхронный интерфейсы Python на основе gRPC-вызовов API сервисов {{ ai-studio-name }}. В {{ ml-sdk-name }} доступны следующие возможности:
-* [генерация текста](../concepts/yandexgpt/index.md) с помощью всех поддерживаемых [моделей](../concepts/yandexgpt/models.md);
+* [генерация текста и изображений](../concepts/generation/index.md) с помощью всех поддерживаемых [моделей](../concepts/generation/models.md);
 * работа с [эмбеддингами](../concepts/embeddings.md);
 * работа с [классификаторами на базе {{ yagpt-name }}](../concepts/classifier/index.md);
 * создание [AI-ассистентов](../concepts/assistant/index.md);
-* [генерация изображений](../concepts/yandexart/index.md) от {{ yandexart-name }};
 * [дообучение](../concepts/tuning/index.md) моделей генерации текста и классификаторов;
 * интеграция с [LangСhain](https://www.langchain.com/).
 

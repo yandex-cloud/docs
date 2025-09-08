@@ -59,12 +59,12 @@
   * `IAM_TOKEN` — [IAM-токен](../../iam/operations/iam-token/create.md), необходимый для аутентификации.
   * `@<путь_до_файла_json>` — путь к файлу JSON, содержащему запрос к модели.
   * `<эндпоинт_модели>` — эндпоинт для обращения к модели. Например:
-    * `https://llm.{{ api-host }}/foundationModels/v1/completion` — для синхронных запросов к [{{ yagpt-name }}](../concepts/yandexgpt/index.md).
-    * `https://llm.{{ api-host }}/foundationModels/v1/completionAsync` — для [асинхронных](./yandexgpt/async-request.md) запросов к {{ yagpt-name }}.
+    * `https://llm.{{ api-host }}/foundationModels/v1/completion` — для синхронных запросов к [{{ yagpt-name }}](../concepts/generation/index.md).
+    * `https://llm.{{ api-host }}/foundationModels/v1/completionAsync` — для [асинхронных](generation/async-request.md) запросов к {{ yagpt-name }}.
     * `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification` — для [дообученных](../concepts/classifier/index.md#trainable) классификаторов.
     * `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification` — для [Zero-shot](../concepts/classifier/index.md#zero-shot) и [Few-shot](../concepts/classifier/index.md#few-shot) классификаторов.
-    * `https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync` — для [{{ yandexart-name }}](../concepts/yandexart/index.md).
-    
+    * `https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync` — для {{ yandexart-name }}.
+
     Полный список доступных эндпоинтов см. в [справочниках API {{ foundation-models-full-name }}](../concepts/api.md).
 
 - {{ openai }} API
@@ -89,6 +89,6 @@
   Где:
 
   * `<API-ключ>` — [API-ключ](../../iam/concepts/authorization/api-key.md) сервисного аккаунта, необходимый для [аутентификации в {{ openai }} API](../concepts/openai-compatibility.md). Вы также можете использовать для аутентификации [IAM-токен](../../iam/operations/iam-token/create.md).
-  * `<URI_модели>` — уникальный идентификатор модели из [списка моделей](../concepts/yandexgpt/models.md), доступных для работы в синхронном режиме. Содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором создан [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
+  * `<URI_модели>` — уникальный идентификатор модели из [списка моделей](../concepts/generation/models.md), доступных для работы в синхронном режиме. Содержит [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором создан [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
 
 {% endlist %}

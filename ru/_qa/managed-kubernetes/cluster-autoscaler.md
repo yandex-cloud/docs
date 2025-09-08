@@ -51,6 +51,23 @@ kubectl annotate pod <имя_пода> cluster-autoscaler.kubernetes.io/safe-to-
   ```bash
   kubectl annotate node <имя_узла> cluster-autoscaler.kubernetes.io/scale-down-disabled-
   ```
+  
+#### В группе с автоматическим масштабированием количество узлов не уменьшается до одного, даже при отсутствии нагрузки {#autoscaler-one-node}
+
+В кластере {{ managed-k8s-name }} приложение `kube-dns-autoscaler` регулирует количество реплик CoreDNS. Если в конфигурации `kube-dns-autoscaler` параметр `preventSinglePointFailure` имеет значение `true` и в группе больше одного узла, минимальное количество реплик CoreDNS равно двум. В этом случае Cluster Autoscaler не может уменьшить количество узлов в кластере так, чтобы оно стало меньше количества подов CoreDNS.
+
+[Подробнее о масштабировании DNS по размеру кластера](../../tutorials/container-infrastructure/dns-autoscaler.md).
+
+**Решение**:
+
+1. Отключите защиту, при которой минимальное количество реплик CoreDNS равно двум. Для этого в [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) `kube-dns-autoscaler` установите значение параметра `preventSinglePointFailure` равным `false`.
+1. Разрешите вытеснение подов `kube-dns-autoscaler`, добавив аннотацию `save-to-evict` в [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/):
+
+    ```bash
+    kubectl patch deployment kube-dns-autoscaler -n kube-system \
+      --type merge \
+      -p '{"spec":{"template":{"metadata":{"annotations":{"cluster-autoscaler.kubernetes.io/safe-to-evict":"true"}}}}}'
+    ```
 
 #### Почему под удалился, а размер группы узлов не уменьшается? {#not-scaling-pod}
 

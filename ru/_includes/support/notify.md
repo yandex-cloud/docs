@@ -77,8 +77,26 @@
 
 Чтобы настроить вебхуки:
 
-1. В левом нижнем углу [консоли управления]({{ link-console-main }}) или [{{ support-center-name }}]({{ link-console-support }}) нажмите ![image](../../_assets/console-icons/gear.svg) **Настройки** и перейдите на вкладку **{{ ui-key.yacloud_components.settings.label_title_communications }}**.
+1. Настройте вебхук в мессенджере. Для настройки в Mattermost следуйте [инструкции](https://developers.mattermost.com/integrate/webhooks/incoming/) и укажите имя вебхука, канал отправки сообщений и `yc-notify_bot` в качестве пользователя для отправки сообщений {{ yandex-cloud }}.
+1. Скопируйте URL созданного вебхука. Его формат имеет вид `https://<сервер_mattermost.com>/hooks/<сгенерированный_ключ>`.
+1. Перейдите в [консоль управления]({{ link-console-main }}) или [{{ support-center-name }}]({{ link-console-support }}). В левом нижнем углу нажмите ![image](../../_assets/console-icons/gear.svg) **Настройки** и перейдите на вкладку **{{ ui-key.yacloud_components.settings.label_title_communications }}**.
 1. В блоке **{{ ui-key.yacloud_components.settings.section_transports }}** в секции **{{ ui-key.yacloud_components.settings.label_add-empty-webhookOutgoing }}** нажмите **{{ ui-key.yacloud_components.settings.button_add-empty }}**.
-1. В открывшемся окне укажите имя и URL вебхука и нажмите **{{ ui-key.yacloud_components.settings.button_send-code }}**.
-1. После того как на вебхук придет код в формате `Ваш код подтверждения <код>`, введите его в окне подтверждения в [консоли управления]({{ link-console-main }}) или [{{ support-center-name }}]({{ link-console-support }}). 
+1. В открывшемся окне укажите имя и URL вебхука, настроенные в мессенджере, и нажмите **{{ ui-key.yacloud_components.settings.button_send-code }}**.
+1. После нажатия кнопки в канал мессенджера, указанный при настройке вебхука,
+должен прийти код подтверждения. Выделите его и скопируйте в буфер обмена.
+1. Вставьте код подтверждения из буфера обмена в поле в окне подтверждения в [консоли управления]({{ link-console-main }}) или [{{ support-center-name }}]({{ link-console-support }}). 
 После подтверждения URL и указанное имя вебхука отобразятся в секции **{{ ui-key.yacloud_components.settings.section_transports }}**.
+
+Вебхук настроен. Теперь уведомления о технических работах и других типах работ в {{ yandex-cloud }} будут
+приходить в указанный канал вашей инсталляции мессенджера и иметь следующий вид:
+
+```json
+{
+	"title": "<заголовок>",
+	"text": "<текст_уведомления>"
+	"props": {
+		"event": "maintenance",
+		...
+	}
+}
+```

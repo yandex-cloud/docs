@@ -34,12 +34,13 @@ To update a [reserved instance pool](../../concepts/reserved-pools.md):
       Result:
 
       ```text
-      id: fv48qa9iiq19********
-      zone_id: ru-central1-d
+      id: fv4vnl1ncbja********
+      zone_id: {{ region-id }}-a
       cloud_id: b1gia87mbaom********
       folder_id: b1gt6g8ht345********
       name: test-pool
-      created_at: "2025-05-06T19:46:49Z"
+      description: sample description
+      created_at: "2025-08-12T07:58:57Z"
       platform_id: standard-v2
       resources_spec:
         memory: "2147483648"
@@ -48,7 +49,14 @@ To update a [reserved instance pool](../../concepts/reserved-pools.md):
       gpu_settings: {}
       network_settings:
         type: STANDARD
-      size: "1"
+      size: "2"
+      committed_size: "2"
+      slot_stats:
+        total: "2"
+        used: "1"
+        available: "1"
+      instance_stats:
+        total: "1"
       ```
   1. Update a reserved instance pool in the default folder by specifying pool name or ID:
 
@@ -62,7 +70,9 @@ To update a [reserved instance pool](../../concepts/reserved-pools.md):
       yc compute reserved-instance-pool update <pool_name_or_ID> \
         --new-name <new_pool_name> \
         --description <pool_description> \
-        --size <pool_size>
+        --size <pool_size> \
+        --allow-oversubscription \
+        --allow-pending-slots
       ```
 
       Where:
@@ -72,18 +82,24 @@ To update a [reserved instance pool](../../concepts/reserved-pools.md):
 
       * `--description`: Pool description. This is an optional parameter.
       * `--size`: New number of slots per pool. This is an optional parameter.
+      * `--allow-oversubscription`: Parameter enabling or disabling the [oversubscription mode](../../concepts/reserved-pools.md#oversubscription) for the pool. In this mode, you can attach VMs beyond the pool capacity. This is an optional parameter.
+
+          To enable the overcommitment mode, provide the `--allow-oversubscription` parameter in the command.
+
+          To disable overcommitment where previously enabled, provide the `--allow-oversubscription=false` parameter in the command.
+      * `--allow-pending-slots`: Parameter to enable [pending slots](../../concepts/reserved-pools.md#pending-slots) when modifying pool size. This is an optional parameter. By default, when you change a pool’s size, the pending slots setting is disabled.
 
       Result:
 
       ```text
-      done (11s)
-      id: fv48qa9iiq19********
+      done (8s)
+      id: fv4vnl1ncbja********
       zone_id: {{ region-id }}-a
       cloud_id: b1gia87mbaom********
       folder_id: b1gt6g8ht345********
-      name: test-pool-new
-      description: pool description
-      created_at: "2025-05-06T19:46:49Z"
+      name: new-pool
+      description: the new description
+      created_at: "2025-08-12T07:58:57Z"
       platform_id: standard-v2
       resources_spec:
         memory: "2147483648"
@@ -92,7 +108,14 @@ To update a [reserved instance pool](../../concepts/reserved-pools.md):
       gpu_settings: {}
       network_settings:
         type: STANDARD
-      size: "2"
+      size: "3"
+      committed_size: "3"
+      slot_stats:
+        total: "3"
+        used: "1"
+        available: "2"
+      instance_stats:
+        total: "1"
       ```
 
       For more information about the `yc compute reserved-instance-pool update` command, see the [{{ yandex-cloud }} CLI reference](../../../cli/cli-ref/compute/cli-ref/reserved-instance-pool/update.md).

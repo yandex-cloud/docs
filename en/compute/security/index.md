@@ -55,7 +55,7 @@ You can also assign roles for individual resources of the service:
 
 {% endlist %}
 
-## What roles exist in this service {#roles-list}
+## What roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -138,8 +138,8 @@ Viewing the list of [disks](../concepts/disk.md) in a [disk placement group](../
 Viewing the list of VM instances in a [GPU cluster](../concepts/gpus.md#gpu-clusters) | `compute.viewer` for the GPU cluster
 Viewing the list of virtual machines on a [dedicated host](../concepts/dedicated-host.md), viewing the list of dedicated hosts in a dedicated host group | `compute.viewer` for the dedicated host group
 Viewing a list of virtual machines in a [placement group](../concepts/placement-groups.md) | `compute.viewer` for the placement group
-[Getting the VM serial port output](../operations/vm-info/get-serial-port-output.md) | `compute.viewer` for the VM instance
-Getting information about the latest [image](../concepts/image.md) in an [image family](../concepts/image.md#family) | `compute.viewer` or `compute.images.user` for the image
+[Getting the VM serial port output](../operations/vm-info/get-serial-port-output.md) | `compute.viewer` for the instance
+Getting info about the the most relevant [image](../concepts/image.md) in an [image family](../concepts/image.md#family) | `compute.viewer` or `compute.images.user` for the image
 Viewing information about disk [snapshot](../concepts/snapshot.md) [schedules](../concepts/snapshot-schedule.md), viewing the list of disks attached to a specific disk snapshot schedule and the list of disk snapshots created based this schedule | `compute.snapshotSchedules.viewer` or `compute.viewer` for the schedule
 **Use of resources** |
 Using any resource | `compute.editor` for the resource
@@ -154,7 +154,7 @@ Use of [images](../concepts/image.md) | `compute.images.user` or `compute.editor
 [Attaching](../operations/vm-control/vm-attach-disk.md)/[detaching](../operations/vm-control/vm-detach-disk.md) a disk to/from a VM | `compute.editor` for the VM instance
 [Attaching](../operations/filesystem/attach-to-vm.md)/[detaching](../operations/filesystem/detach-from-vm.md) a [file storage](../concepts/filesystem.md) to/from a VM | `compute.editor` for the VM instance
 [Adding](../operations/vm-control/attach-network-interface.md) a [network interface](../concepts/network.md) to a VM and [deleting](../operations/vm-control/detach-network-interface.md) it from a VM, modifying a VM network interface | `compute.editor` for the VM instance
-[Assigning](../operations/vm-control/vm-attach-public-ip.md) a [public IP address](../../vpc/concepts/address.md#public-addresses.md) to a VM and [unassigning](../operations/vm-control/vm-detach-public-ip.md) it from a VM | `compute.editor` for the VM instance
+[Assigning](../operations/vm-control/vm-attach-public-ip.md) a [public IP address](../../vpc/concepts/address.md#public-addresses) to a VM and [unassigning](../operations/vm-control/vm-detach-public-ip.md) it from a VM | `compute.editor` for the VM instance
 [Assigning](../operations/vm-control/vm-change-security-groups-set.md) [security groups](../../vpc/concepts/security-groups.md) to a VM | `compute.editor` for the VM instance
 Moving a VM [to another cloud folder](../operations/vm-control/vm-change-folder.md) | `compute.editor` for the VM instance
 [Simulating](../operations/vm-control/vm-update-policies.md#simulate) an instance maintenance event | `compute.editor` for the VM instance
@@ -167,8 +167,8 @@ Sequential [restarting](../operations/instance-groups/rolling-restart.md) and [r
 [Updating](../operations/gpu-cluster/gpu-cluster-update.md) and [deleting](../operations/gpu-cluster/gpu-cluster-delete.md) a GPU cluster | `compute.editor` for the GPU cluster
 [Creating](../operations/dedicated-host/create-host-group.md) a group of dedicated hosts | `compute.editor` for the folder
 Updating and deleting a group of dedicated hosts, updating hosts in a group of dedicated hosts | `compute.editor` for the dedicated host group
-[Creating](../operations/reserved-pools/create-reserved-pool.md) a pool of reserved VMs | `compute.editor` for the folder
-[Updating](../operations/reserved-pools/update-reserved-pool.md) and [deleting](../operations/reserved-pools/delete-reserved-pool.md) a pool of reserved VMs | `compute.editor` for the folder
+[Creating](../operations/reserved-pools/create-reserved-pool.md) a reserved instance pool | `compute.editor` for the folder
+[Updating](../operations/reserved-pools/update-reserved-pool.md) and [deleting](../operations/reserved-pools/delete-reserved-pool.md) a reserved instance pool | `compute.editor` for the folder
 [Creating](../operations/placement-groups/create.md) a placement group | `compute.editor` for the folder
 Changing and [deleting](../operations/placement-groups/delete.md) a placement group | `compute.editor` for the placement group
 [Creating](../operations/disk-placement-groups/create.md) a disk placement group | `compute.editor` for the folder

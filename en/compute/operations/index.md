@@ -42,7 +42,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](images-with-pre-installed-software/get-list.md)
 * [{#T}](images-with-pre-installed-software/get-info.md)
 
-## Getting information about VMs {#vm-info}
+## Getting VM info {#vm-info}
 
 * [{#T}](vm-info/get-info.md)
 * [{#T}](vm-info/get-serial-port-output.md)
@@ -190,7 +190,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](instance-groups/create-with-filesystem.md)
 * [{#T}](instance-groups/create-with-bucket.md)
 
-## Getting information about an instance group {#ig-info}
+## Getting instance group info {#ig-info}
 
 * [{#T}](instance-groups/get-list.md)
 * [{#T}](instance-groups/get-info.md)
@@ -223,7 +223,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](dedicated-host/running-host-vms.md)
 * [{#T}](dedicated-host/access.md)
 
-## Reserved VM pool {#reserved-pools}
+## Reserved instance pools {#reserved-pools}
 
 * [{#T}](reserved-pools/create-reserved-pool.md)
 * [{#T}](reserved-pools/update-reserved-pool.md)

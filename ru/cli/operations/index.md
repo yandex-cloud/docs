@@ -13,6 +13,7 @@ description: Из статьи вы узнаете как работать с и
 - [{#T}](authentication/user.md)
 - [{#T}](authentication/service-account.md)
 - [{#T}](authentication/federated-user.md)
+- [{#T}](authentication/local-user.md)
 
 ## Управление профилем {#profile}
 

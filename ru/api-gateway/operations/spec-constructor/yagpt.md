@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** — сервисный аккаунт для авторизации при обращении к [API генерации текста](../../../foundation-models/concepts/yandexgpt/index.md). Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** — сервисный аккаунт для авторизации при обращении к [API генерации текста](../../../foundation-models/concepts/generation/index.md). Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
 
     1. В блоке **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_title }}** выберите модель и укажите:
 
@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
         * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_hint }}`:
 
             * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_temp_title }}** — определяет вариативность ответа модели: укажите значение от `0` до `1`. Чем выше температура, тем более креативными и случайными будут ответы модели. Значение по умолчанию — `0.3`.
-            * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_max_tokens_title }}** — максимальное число [токенов](../../../foundation-models/concepts/yandexgpt/tokens.md) генерации. По умолчанию `5`. Позволяет при необходимости ограничить объем ответа модели.
+            * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_max_tokens_title }}** — максимальное число [токенов](../../../foundation-models/concepts/generation/tokens.md) генерации. По умолчанию `5`. Позволяет при необходимости ограничить объем ответа модели.
 
         * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_classification_hint }}`:
 

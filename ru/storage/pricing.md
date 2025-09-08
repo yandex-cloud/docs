@@ -208,3 +208,74 @@ editable: false
 
 
 
+
+
+## Примеры сравнения стоимости использования классов хранилищ {#comparison-examples}
+
+**Пример 1**
+
+Сравним стоимость хранения и доступа для сайта объемом 3 ГБ и средней посещаемостью 200 пользователей в день. Один пользователь загружает примерно 20 объектов (HTML, CSS, JS и изображения). Это 4 000 запросов в день или около 120 000 в месяц.
+
+Для стандартного хранилища не тарифицируются хранение первого гигабайта данных (1 ГБ) и 10 000 операций PUT в месяц.
+
+
+{% list tabs group=pricing %}
+
+- Сравнение в рублях {#prices-rub}
+
+  {% include [rub-comparison-1](../_pricing_examples/storage/rub-comparison-1.md) %}
+
+- Сравнение в тенге {#prices-kzt}
+
+  {% include [rub-comparison-1](../_pricing_examples/storage/kzt-comparison-1.md) %}
+
+{% endlist %}
+
+
+
+
+
+**Пример 2**
+
+Сравним стоимость хранения и доступа для репозитория объемом 20 ГБ. В месяц к репозиторию происходит около 150 000 запросов на чтение данных.
+
+Для стандартного хранилища не тарифицируются хранение первого гигабайта данных (1 ГБ) и 100 000 операций GET в месяц.
+
+
+{% list tabs group=pricing %}
+
+- Сравнение в рублях {#prices-rub}
+
+  {% include [rub-comparison-2](../_pricing_examples/storage/rub-comparison-2.md) %}
+
+- Сравнение в тенге {#prices-kzt}
+
+  {% include [kzt-comparison-2](../_pricing_examples/storage/kzt-comparison-2.md) %}
+
+{% endlist %}
+
+
+
+
+
+**Пример 3**
+
+Сравним стоимость хранения и доступа для пополняемого архива данных объемом 100 ГБ. В месяц к архиву происходит 10 000 запросов на чтение данных и 1 000 запросов на запись.
+
+Для стандартного хранилища не тарифицируются хранение первого гигабайта данных (1 ГБ), 10 000 операций PUT и 100 000 операций GET в месяц.
+
+
+{% list tabs group=pricing %}
+
+- Сравнение в рублях {#prices-rub}
+
+  {% include [rub-comparison-3](../_pricing_examples/storage/rub-comparison-3.md) %}
+
+- Сравнение в тенге {#prices-kzt}
+
+  {% include [kzt-comparison-3](../_pricing_examples/storage/kzt-comparison-3.md) %}
+
+{% endlist %}
+
+
+

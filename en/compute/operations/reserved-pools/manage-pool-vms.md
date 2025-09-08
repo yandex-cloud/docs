@@ -11,8 +11,35 @@ description: In this article, you will learn how to create {{ compute-full-name 
 
 You can attach both newly created and existing VMs to your reserved instance pools. For more information, see [{#T}](../../concepts/reserved-pools.md).
 
+## Viewing the list of VMs attached to a pool {#list-pool-instances}
 
-## Creating a new VM attached to a reserved instance pool {#attach-new-vm}
+To view the list of VMs attached a reserved instance pool:
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the [{{ yandex-cloud }} CLI](../../../cli/index.yaml) command for creating a VM:
+
+      ```bash
+      yc compute reserved-instance-pool list --help
+      ```
+  1. {% include [list-reserved-pools-cli](../../../_includes/compute/list-reserved-pools-cli.md) %}
+  1. View the list of VMs attached to a pool by specifying its name or ID:
+
+      {% include [list-reserved-pool-vms-cli](../../../_includes/compute/list-reserved-pool-vms-cli.md) %}
+
+- API {#api}
+
+  Use the [ListInstances](../../api-ref/ReservedInstancePool/listInstances.md) REST API method for the [ReservedInstancePool](../../api-ref/ReservedInstancePool/index.md) resource or the [ReservedInstancePoolService/ListInstances](../../api-ref/grpc/ReservedInstancePool/listInstances.md) gRPC API call and provide the pool ID in the `reservedInstancePoolId` field (or `reserved_instance_pool_id` for gRPC API).
+
+{% endlist %}
+
+## Creating a new VM attached to a pool {#attach-new-vm}
 
 To create a new VM in a reserved instance pool:
 
@@ -30,7 +57,7 @@ To create a new VM in a reserved instance pool:
       yc compute instance create --help
       ```
   1. {% include [list-reserved-pools-cli](../../../_includes/compute/list-reserved-pools-cli.md) %}
-  1. Create a VM in a reserved instance pool:
+  1. Create a VM in the reserved instance pool:
 
       ```bash
       yc compute instance create \
@@ -112,7 +139,9 @@ To create a new VM in a reserved instance pool:
 
       {% endcut %}
 
-      For more information about the `yc compute instance create` command, see the [{{ yandex-cloud }} CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/create.md).
+  1. [Make sure](#list-pool-instances) the VM was attached to the pool.
+
+  For more information about the `yc compute instance create` command, see the [{{ yandex-cloud }} CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - API {#api}
 
@@ -120,7 +149,7 @@ To create a new VM in a reserved instance pool:
 
 {% endlist %}
 
-## Attaching an existing VM to a reserved instance pool {#attach-existing-vm}
+## Attaching an existing VM to a pool {#attach-existing-vm}
 
 To attach an existing VM to a reserved instance pool:
 
@@ -141,11 +170,11 @@ To attach an existing VM to a reserved instance pool:
   1. Get a list of VMs in the default folder:
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-  1. Attach the VM of your choice to the reserved instance pool:
+  1. Attach the VM to the reserved instance pool of your choice:
 
       {% note info %}
 
-      You cannot attach a VM to a reserved instance pool if its hardware configuration ([platform](../../concepts/vm-platforms.md), vCPU, or RAM) is different from that specified in the reserved instance pool settings.
+      You cannot attach a VM to a reserved instance pool if its hardware configuration ([platform](../../concepts/vm-platforms.md), vCPU, RAM) is different from that specified in the reserved instance pool settings.
 
       {% endnote %}
 
@@ -214,7 +243,9 @@ To attach an existing VM to a reserved instance pool:
 
       {% endcut %}
 
-      For more information about the `yc compute instance update` command, see the [{{ yandex-cloud }} CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/update.md).
+  1. [Make sure](#list-pool-instances) the VM was attached to the pool.
+
+  For more information about the `yc compute instance update` command, see the [{{ yandex-cloud }} CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/update.md).
 
 - API {#api}
 
@@ -223,9 +254,9 @@ To attach an existing VM to a reserved instance pool:
 {% endlist %}
 
 
-## Detaching a VM from a reserved instance pool {#detach-vm}
+## Detaching a VM from a pool {#detach-vm}
 
-To detach a VM from a reserved instance pool, proceed as follows:
+To detach a VM from a reserved instance pool:
 
 {% list tabs group=instructions %}
 
@@ -241,10 +272,10 @@ To detach a VM from a reserved instance pool, proceed as follows:
       yc compute instance update --help
       ```
   1. {% include [list-reserved-pools-cli](../../../_includes/compute/list-reserved-pools-cli.md) %}
-  1. Get a list of VMs in the default folder:
+  1. Get a list of VMs in the pool by specifying its name or ID:
 
-      {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-  1. Detach the VM of your choice from the specified reserved instance pool:
+      {% include [list-reserved-pool-vms-cli](../../../_includes/compute/list-reserved-pool-vms-cli.md) %}
+  1. Detach the VM from the specified reserved instance pool:
 
       ```bash
       yc compute instance update \
@@ -306,7 +337,9 @@ To detach a VM from a reserved instance pool, proceed as follows:
 
       {% endcut %}
 
-      For more information about the `yc compute instance update` command, see the [{{ yandex-cloud }} CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/update.md).
+  1. [Make sure](#list-pool-instances) the VM was detached from the pool.
+
+  For more information about the `yc compute instance update` command, see the [{{ yandex-cloud }} CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/update.md).
 
 - API {#api}
 

@@ -1,0 +1,1 @@
+Click **{{ ui-key.yc-ui-talkanalytics.reports.grouping-field }}**. In the drop-down list, select the metadata field to group your report data by. For more information, see [{#T}](../../../speechsense/concepts/reports/evaluation-form.md#filters).

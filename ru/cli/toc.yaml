@@ -19,6 +19,8 @@ items:
             href: operations/authentication/service-account.md
           - name: Аутентификация от имени федеративного пользователя
             href: operations/authentication/federated-user.md
+          - name: Аутентификация от имени локального пользователя
+            href: operations/authentication/local-user.md
       - name: Управление профилем
         items:
           - name: Создание профиля

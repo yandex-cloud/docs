@@ -67,6 +67,8 @@ items:
                 href: operations/iam-token/create-for-sa.md
               - name: Получение IAM-токена для федеративного аккаунта
                 href: operations/iam-token/create-for-federation.md
+              - name: Получение IAM-токена для аккаунта локального пользователя
+                href: operations/iam-token/create-for-local.md
               - name: Отзыв IAM-токена
                 href: operations/iam-token/revoke-iam-token.md
               - name: Refresh-токены

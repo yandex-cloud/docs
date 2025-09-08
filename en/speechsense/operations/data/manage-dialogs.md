@@ -87,7 +87,7 @@ To perform a search:
 
 By default, not all columns are displayed in the dialog list. You can display additional columns, hide the ones you do not need, and reorder them.
 
-To customize the columns:
+To customize column display:
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
 1. Go to the space you need and select a project.
@@ -326,3 +326,7 @@ Example of ranking dialogs depending on the found text fragments:
 || 2 | 13.11.2023 | `good` equipment and `service` ||
 || 3 | 15.11.2023 | full system `service` ||
 |#
+
+#### See also {#see-also}
+
+* [How {{ speechsense-full-name }} automates the review of dialogs with customers](https://yandex.cloud/ru/blog/posts/2025/05/speechsense-and-dialogues)

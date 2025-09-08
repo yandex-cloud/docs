@@ -26,11 +26,13 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](mkf-yds-stream.md)
 * [{#T}](yds-to-kafka.md)
 * [{#T}](kafka-connect.md)
+* [{#T}](kafka-topic-s3-sync-private.md)
 * Using a schema registry with {{ mkf-full-name }}:
   * [Managing data schemas in {{ mkf-name }}](schema-registry-overview.md)
   * [{#T}](managed-schema-registry.md)
   * [{#T}](managed-schema-registry-rest.md)
   * [{#T}](confluent-schema-registry.md)
+* [{#T}](retention-policy.md)
 
 ## {{ AF }} {#airflow}
 

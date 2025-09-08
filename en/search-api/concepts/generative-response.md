@@ -5,7 +5,7 @@ description: This article describes the format {{ search-api-name }}'s generativ
 
 # Generative response
 
-You can use {{ search-api-name }} text search together with [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/index.md) generative AI to get a comprehensive and concise _generative response_ to a user query. To generate such a response, the model analyzes the relevant text search results retrieved by {{ search-api-name }} from your company's websites.
+You can use {{ search-api-name }} text search together with [{{ yagpt-name }}](../../foundation-models/concepts/generation/index.md) generative AI to get a comprehensive and concise _generative response_ to a user query. To generate such a response, the model analyzes the relevant text search results retrieved by {{ search-api-name }} from your company's websites.
 
 By default, you can send no more than one synchronous query per second to get a generative response. For more information about {{ search-api-name }} limits, see [{#T}](./limits.md).
 

@@ -2,7 +2,7 @@
 
 Language models can maintain conversation context and perform knowledge base search using {{ ml-sdk-full-name }}, [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation), and [{{ assistant-api }}](../../foundation-models/concepts/assistant/index.md).
 
-In this tutorial, you will create a wine sales chat assistant based on the {{ yagpt-name }} 5 model. The assistant relies on [function calling](../../foundation-models/concepts/yandexgpt/function-call.md) and RAG to access the database of wines and regions as well as the price list indicating wines in stock. You will configure the assistant in a {{ ml-platform-full-name }} notebook and interact with it via Telegram.
+In this tutorial, you will create a wine sales chat assistant based on the {{ yagpt-name }} 5 model. The assistant relies on [function calling](../../foundation-models/concepts/generation/function-call.md) and RAG to access the database of wines and regions as well as the price list indicating wines in stock. You will configure the assistant in a {{ ml-platform-full-name }} notebook and interact with it via Telegram.
 
 To create an AI assistant for Telegram:
 
