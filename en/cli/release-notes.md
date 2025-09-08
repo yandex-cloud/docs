@@ -7,6 +7,26 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.160.0 (25/08/25) {#version0.160.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mtr-name }}
+* Added the `--version` option to the following commands:
+  * `yc managed-trino cluster create`
+  * `yc managed-trino cluster update`
+
+##### {{ mrd-name }}
+
+Added the `sharded` option to the `yc managed-redis cluster restore` command.
+
+##### {{ objstorage-name }}
+
+* Added the `tags` option to the `yc storage bucket create` command.
+* Added the `yc storage s3 presign` command.
+
+## Previous releases {#previous-release}
+
 ### Version 0.159.0 (18/08/25) {#version0.159.0}
 
 #### Changes in {{ yandex-cloud }} services
@@ -15,22 +35,22 @@ description: This page presents a list of CLI releases and the updates of each.
 Added the `priority` and `hidden` output to `yc managed-mongodb hosts list`.
 
 ##### {{ compute-name }}
-Added the following commands for managing reserved VM pools:
+Added the following commands for managing reserved instance pools:
 * `compute reserved-instance-pool list-instances`
 * `compute reserved-instance-pool list-operations`
 
 ##### {{ compute-name }}
-Extended the following commands for managing reserved VM pools:
+Extended the following commands for managing reserved instance pools:
 * `compute reserved-instance-pool create`
 * `compute reserved-instance-pool update`
 
 ##### {{ er-name }}
-* Fixed the `--deletion-protection` flag in the `yc serverless eventrouter connector update` command.
+
+Fixed the `--deletion-protection` flag in the `yc serverless eventrouter connector update` command.
 
 ##### {{ org-name }}
-* Fixed the display of timestamps in the listing of SAML federation domains.
 
-## Previous releases {#previous-release}
+Fixed the display of timestamps in the listing of SAML federation domains.
 
 ### Version 0.158.0 (11/08/25) {#version0.158.0}
 
@@ -41,7 +61,7 @@ Added support for `ExtensionService` to the `yc managed-opensearch` command.
 
 ##### {{ alb-name }}
 
-* The `yc apploadbalancer disable-zones` command now includes the ability to manage zone disabling period.
+* The `yc apploadbalancer disable-zones` command now includes the ability to manage the zone disabling period.
 * Added the `disable_security_profile` parameter to route management commands:
   * `yc application-load-balancer virtual-host append-http-route`
   * `yc application-load-balancer virtual-host prepend-http-route`
@@ -50,7 +70,7 @@ Added support for `ExtensionService` to the `yc managed-opensearch` command.
   * `yc application-load-balancer virtual-host append-grpc-route`
   * `yc application-load-balancer virtual-host prepend-grpc-route`
   * `yc application-load-balancer virtual-host insert-grpc-route`
-  * `yc application-load-balancer virtual-host update-grpc-route`.
+  * `yc application-load-balancer virtual-host update-grpc-route`
 
 ### Version 0.157.0 (04/08/25) {#version0.157.0}
 
@@ -476,7 +496,7 @@ Added support for the storage-class argument in the `yc ydb database backup` com
 
 ##### {{ compute-name }} {#compute}
 
-Added commands to link instances to reserved VM pools.
+Added commands to link instances to reserved instance pools.
 
 ##### {{ objstorage-name }} {#storage}
 
@@ -491,7 +511,7 @@ Added commands to link instances to reserved VM pools.
 
 ##### {{ compute-name }} {#compute}
 
-* Added the following commands for managing VM reserved pools:
+* Added the following commands for managing reserved instance pools:
   * `yc compute reserved-instance-pool get`
   * `yc compute reserved-instance-pool list`
   * `yc compute reserved-instance-pool create`
@@ -879,11 +899,11 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
 
 ##### {{ managed-k8s-name }} {#k8s}
 
-* Added commands for working with {{ marketplace-name }} products in a {{ managed-k8s-name }} cluster:
+* Added commands for working with {{ marketplace-name }} products in a {{ managed-k8s-name }} cluster: 
    * `yc managed-kubernetes marketplace helm-release install`: Installs the Helm chart of a {{ marketplace-name }} product to the specified {{ managed-k8s-name }} cluster.
    * `yc managed-kubernetes marketplace helm-release update`: Upgrades the Helm chart version for a {{ marketplace-name }} product.
    * `yc managed-kubernetes marketplace helm-release uninstall`: Deletes a Helm chart version of a {{ marketplace-name }} product.
-   * `yc managed-kubernetes marketplace helm-release get`: Returns information about the Helm chart of a {{ marketplace-name }} product.
+   * `yc managed-kubernetes marketplace helm-release get`: Getting information about the Helm chart of a {{ marketplace-name }} product.
    * `yc managed-kubernetes marketplace helm-release list`: Returns a list of {{ marketplace-name }} Helm charts installed in a {{ managed-k8s-name }} cluster.
 
 ##### {{ load-testing-name }}
@@ -1482,7 +1502,7 @@ Fixed the error in the `k8s cluster update` command occurring when `cluster-id` 
 
 Added the `yc serverless network` command group to manage networks used in serverless computing services ({{ sf-name }}, {{ serverless-containers-name }}, and {{ api-gw-name }}):
 
-  * `yc serverless network get-used`: Get information about the network connected to the resources of serverless computing services.
+  * `yc serverless network get-used`: Getting information about the network connected to the resources of serverless computing services.
   * `yc serverless network list-used`: Get a list of networks connected to the resources of serverless computing services.
   * `yc serverless network list-connections`: Get a list of resources of serverless computing services connected to any network in the specified area (network, folder, cloud).
   * `yc serverless network trigger-used-cleanup`: Initiate an early cleanup of the network from system subnets if it is no longer used in serverless computing services.
@@ -2186,7 +2206,7 @@ Added the following parameters to the `yc serverless container revision deploy` 
 
 * Added the following `yc serverless api-gateway websocket` command group to manage WebSocket connections:
 
-  * `yc serverless api-gateway websocket get`: Getting information about a connection.
+  * `yc serverless api-gateway websocket get`: Getting connection info.
   * `yc serverless api-gateway websocket send`: Sending data in a connection.
   * `yc serverless api-gateway websocket disconnect`: Connection break.
 

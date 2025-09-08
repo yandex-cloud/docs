@@ -5,18 +5,15 @@ description: Страница содержит все инструкции дл�
 
 # Пошаговые инструкции для {{ foundation-models-full-name }}
 
-## Пошаговые инструкции для моделей генерации текста {#yandexgpt-api}
+## Пошаговые инструкции для работы с моделями генерации {#generation}
 
-* [{#T}](./yandexgpt/evaluate-request.md)
-* [{#T}](./yandexgpt/create-prompt.md)
-* [{#T}](./yandexgpt/create-chat.md)
-* [{#T}](./yandexgpt/async-request.md)
-* [{#T}](./yandexgpt/function-call.md)
+* [{#T}](generation/evaluate-request.md)
+* [{#T}](generation/create-prompt.md)
+* [{#T}](generation/create-chat.md)
+* [{#T}](generation/async-request.md)
+* [{#T}](generation/function-call.md)
 * [{#T}](./batch/create.md)
-
-## Пошаговые инструкции для {{ yandexart-name }} {#yandexart}
-
-[{#T}](./yandexart/request.md)
+* [{#T}](./generation/yandexart-request.md)
 
 ## Пошаговые инструкции для классификаторов на базе {{ yagpt-name }} {#classifiers}
 

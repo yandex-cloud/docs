@@ -7,7 +7,7 @@ description: '{{ foundation-models-full-name }} is a service that provides acces
 
 {{ foundation-models-full-name }} comprises several large generative models plus an efficient toolset you can use to leverage their capabilities to advance your business. {{ foundation-models-name }} is a part of {{ ai-studio-full-name }}.
 
-With [{{ gpt-lite }} and {{ gpt-pro }}](yandexgpt/index.md), you can quickly generate text content, e.g., product descriptions, articles, news stories, newsletters, blog posts, and many other things. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect. For the full list of generative text models, see [{#T}](yandexgpt/models.md).
+With [{{ gpt-lite }} and {{ gpt-pro }}](generation/index.md), you can quickly generate text content, e.g., product descriptions, articles, news stories, newsletters, blog posts, and many other things. The quality of the neural network's response depends directly on the accuracy of the instructions you provide. With a more specific prompt, you are more likely to get the result you expect. For the full list of generative text models, see [{#T}](generation/models.md).
 
 {{ foundation-models-name }} also provides the [API](../embeddings/api-ref/index.md) to work with _embeddings_, i.e., vector representations of text. It can be used to classify information, compare and match texts, or search through a knowledge base of your own. For more information on embeddings and the Embeddings API, see [{#T}](./embeddings.md).
 
@@ -15,7 +15,7 @@ With {{ yagpt-name }} classifiers, you can classify various texts. Special model
 
 To create images in {{ foundation-models-name }} use the {{ yandexart-name }} neural network that will help you create detailed and realistic images based on a text prompt.
 
-In addition to models working with a single type of data, {{ foundation-models-name }} provides [multimodal models](./multimodal/index.md). 
+In addition to models working with a single type of data, {{ foundation-models-name }} provides multimodal models. 
 
 For information on the {{ foundation-models-name }} restrictions, refer to [{#T}](limits.md).
 

@@ -28,7 +28,7 @@ _Диалог_ — это объект {{ speechsense-name }}. Диалоги б
 * Метаданные. Например: имена оператора и клиента, дата звонка или сообщения, язык диалога. Перечень метаданных [определен в подключении](../operations/connection/create.md).
 * Аудиозапись разговора (только для аудио).
 * Содержимое разговора.
-* Анализ от [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/models.md).
+* Анализ от [{{ yagpt-name }}](../../foundation-models/concepts/generation/models.md).
 
 ### Содержимое диалога {#contents}
 

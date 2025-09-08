@@ -1,0 +1,1 @@
+Установите библиотеку Python [venv](https://docs.python.org/3/library/venv.html) для создания изолированных виртуальных окружений в Python.

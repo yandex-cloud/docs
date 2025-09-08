@@ -47,6 +47,8 @@ items:
             href: tts/api/tts-examples-v3.md
           - name: Синтез речи в REST API v3
             href: tts/api/tts-v3-rest.md
+          - name: Потоковый синтез
+            href: tts/api/tts-streaming.md
           - name: Синтез речи по шаблонам
             href: tts/api/tts-templates.md
           - name: Синтез речи по шаблонам Brand Voice Call Center

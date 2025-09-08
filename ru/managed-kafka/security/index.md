@@ -48,6 +48,10 @@ description: Управление доступом в сервисе созда�
 
 {% include [managed-kafka.admin](../../_roles/managed-kafka/admin.md) %}
 
+#### managed-kafka.interfaceUser {#managed-kafka-interface-user}
+
+{% include [managed-kafka.interfaceUser](../../_roles/managed-kafka/interfaceUser.md) %}
+
 #### mdb.auditor {#mdb-auditor}
 
 {% include [mdb-auditor](../../_roles/mdb/auditor.md) %}

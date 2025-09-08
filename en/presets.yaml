@@ -257,9 +257,9 @@ default:
   k8s-decomission-timeout: 7 minutes
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.29, 1.30, 1.31, 1.32, 1.33
-  k8s-versions-regular: 1.29, 1.30, 1.31, 1.32
-  k8s-versions-stable: 1.29, 1.30, 1.31, 1.32
+  k8s-versions-rapid: 1.30, 1.31, 1.32, 1.33
+  k8s-versions-regular: 1.30, 1.31, 1.32
+  k8s-versions-stable: 1.30, 1.31, 1.32
   k8s-vpa: Vertical Pod Autoscaler
   kafka-ui: Kafka UI
   keycloak: Keycloak
@@ -2371,7 +2371,9 @@ default:
   sku|KZT|storage:
     api:
       get:
+        cold|number: 5.238
         cold|string: ₸5.2380
+        ice|number: 10.476
         ice|string: ₸10.4760
         standard|pricingRate:
           10|number: 2.106
@@ -2417,9 +2419,12 @@ default:
           10|string: ₸2.5920
         standard|string: Free
       put:
+        cold|number: 6.372
         cold|string: ₸6.3720
+        ice|number: 12.744
         ice|string: ₸12.7440
         standard|pricingRate:
+          10|number: 2.592
           10|string: ₸2.5920
         standard|string: Free
     bucket:
@@ -2427,6 +2432,7 @@ default:
         cold|string: ₸6.3720
         ice|string: ₸12.7440
       used_space:
+        cold|month|number: 5.778
         cold|month|string: ₸5.7780
         ice|month|number: 2.889
         ice|month|string: ₸2.8890
@@ -2804,41 +2810,86 @@ default:
   sku|KZT|yt:
     compute-nodes:
       cpu:
+        gpu-standard-t4i|month|string: ₸4898.88
+        gpu-standard-t4i|string: ₸6.8040
+        gpu-standard-v2|month|string: ₸5302.80
+        gpu-standard-v2|string: ₸7.3650
+        gpu-standard-v3|month|string: ₸4199.04
+        gpu-standard-v3|string: ₸5.8320
+        v3|month|string: ₸4899.60
         v3|number: 6.805
+        v3|string: ₸6.8050
+      gpu:
+        gpu-standard-t4i|month|string: ₸671832.00
+        gpu-standard-t4i|string: ₸933.10
+        gpu-standard-v2|month|string: ₸1110276.00
+        gpu-standard-v2|string: ₸1542.05
+        gpu-standard-v3|month|string: ₸1734228.00
+        gpu-standard-v3|string: ₸2408.65
       ram:
+        gpu-standard-t4i|month|string: ₸1306.44
+        gpu-standard-t4i|string: ₸1.8145
+        gpu-standard-v2|month|string: ₸1379.52
+        gpu-standard-v2|string: ₸1.9160
+        gpu-standard-v3|month|string: ₸1306.44
+        gpu-standard-v3|string: ₸1.8145
+        v3|month|string: ₸1306.80
         v3|number: 1.815
+        v3|string: ₸1.8150
     master-nodes:
       cpu:
+        v3|month|string: ₸4899.60
         v3|number: 6.805
+        v3|string: ₸6.8050
       ram:
+        v3|month|string: ₸1306.80
         v3|number: 1.815
+        v3|string: ₸1.8150
     proxy-nodes:
       cpu:
+        v3|month|string: ₸4899.60
         v3|number: 6.805
+        v3|string: ₸6.8050
       ram:
+        v3|month|string: ₸1306.80
         v3|number: 1.815
+        v3|string: ₸1.8150
     storage-nodes:
       cpu:
+        v3|month|string: ₸4899.60
         v3|number: 6.805
+        v3|string: ₸6.8050
       ram:
+        v3|month|string: ₸1306.80
         v3|number: 1.815
+        v3|string: ₸1.8150
     storage:
       hdd:
         v1|month|number: 18.92
+        v1|month|string: ₸18.92
       ssd-nonreplicated:
         v1|month|number: 57.025
+        v1|month|string: ₸57.0250
       ssd:
-        v1|month|number: 77.175
+        v1|month|string: ₸77.1750
     system-nodes:
       cpu:
+        v3|month|string: ₸4899.60
         v3|number: 6.805
+        v3|string: ₸6.8050
       ram:
+        v3|month|string: ₸1306.80
         v3|number: 1.815
+        v3|string: ₸1.8150
     tablet-nodes:
       cpu:
+        v3|month|string: ₸4899.60
         v3|number: 6.805
+        v3|string: ₸6.8050
       ram:
+        v3|month|string: ₸1306.80
         v3|number: 1.815
+        v3|string: ₸1.8150
   sku|RUB|ai:
     datasphere:
       datasets:
@@ -4260,7 +4311,9 @@ default:
   sku|RUB|storage:
     api:
       get:
+        cold|number: 1.0476
         cold|string: ₽1.0476
+        ice|number: 2.0952
         ice|string: ₽2.0952
         standard|pricingRate:
           10|number: 0.4212
@@ -4306,9 +4359,12 @@ default:
           10|string: ₽0.5184
         standard|string: Free
       put:
+        cold|number: 1.2744
         cold|string: ₽1.2744
+        ice|number: 2.5488
         ice|string: ₽2.5488
         standard|pricingRate:
+          10|number: 0.5184
           10|string: ₽0.5184
         standard|string: Free
     bucket:
@@ -4316,6 +4372,7 @@ default:
         cold|string: ₽1.2744
         ice|string: ₽2.5488
       used_space:
+        cold|month|number: 1.1556
         cold|month|string: ₽1.1556
         ice|month|number: 0.5778
         ice|month|string: ₽0.5778
@@ -4693,41 +4750,86 @@ default:
   sku|RUB|yt:
     compute-nodes:
       cpu:
+        gpu-standard-t4i|month|string: ₽979.7760
+        gpu-standard-t4i|string: ₽1.3608
+        gpu-standard-v2|month|string: ₽1060.56
+        gpu-standard-v2|string: ₽1.4730
+        gpu-standard-v3|month|string: ₽839.8080
+        gpu-standard-v3|string: ₽1.1664
+        v3|month|string: ₽979.92
         v3|number: 1.361
+        v3|string: ₽1.3610
+      gpu:
+        gpu-standard-t4i|month|string: ₽134366.40
+        gpu-standard-t4i|string: ₽186.62
+        gpu-standard-v2|month|string: ₽222055.20
+        gpu-standard-v2|string: ₽308.41
+        gpu-standard-v3|month|string: ₽346845.60
+        gpu-standard-v3|string: ₽481.73
       ram:
+        gpu-standard-t4i|month|string: ₽261.2880
+        gpu-standard-t4i|string: ₽0.3629
+        gpu-standard-v2|month|string: ₽275.9040
+        gpu-standard-v2|string: ₽0.3832
+        gpu-standard-v3|month|string: ₽261.2880
+        gpu-standard-v3|string: ₽0.3629
+        v3|month|string: ₽261.36
         v3|number: 0.363
+        v3|string: ₽0.3630
     master-nodes:
       cpu:
+        v3|month|string: ₽979.92
         v3|number: 1.361
+        v3|string: ₽1.3610
       ram:
+        v3|month|string: ₽261.36
         v3|number: 0.363
+        v3|string: ₽0.3630
     proxy-nodes:
       cpu:
+        v3|month|string: ₽979.92
         v3|number: 1.361
+        v3|string: ₽1.3610
       ram:
+        v3|month|string: ₽261.36
         v3|number: 0.363
+        v3|string: ₽0.3630
     storage-nodes:
       cpu:
+        v3|month|string: ₽979.92
         v3|number: 1.361
+        v3|string: ₽1.3610
       ram:
+        v3|month|string: ₽261.36
         v3|number: 0.363
+        v3|string: ₽0.3630
     storage:
       hdd:
         v1|month|number: 3.784
+        v1|month|string: ₽3.7840
       ssd-nonreplicated:
         v1|month|number: 11.405
+        v1|month|string: ₽11.4050
       ssd:
-        v1|month|number: 15.435
+        v1|month|string: ₽15.4350
     system-nodes:
       cpu:
+        v3|month|string: ₽979.92
         v3|number: 1.361
+        v3|string: ₽1.3610
       ram:
+        v3|month|string: ₽261.36
         v3|number: 0.363
+        v3|string: ₽0.3630
     tablet-nodes:
       cpu:
+        v3|month|string: ₽979.92
         v3|number: 1.361
+        v3|string: ₽1.3610
       ram:
+        v3|month|string: ₽261.36
         v3|number: 0.363
+        v3|string: ₽0.3630
   sku|USD|ai:
     mt:
       detect|string: $4.101665
@@ -6604,41 +6706,85 @@ default:
   sku|USD|yt:
     compute-nodes:
       cpu:
+        gpu-standard-t4i|month|string: $8.164796
+        gpu-standard-t4i|string: $0.011340
+        gpu-standard-v2|month|string: $8.837996
+        gpu-standard-v2|string: $0.012275
+        gpu-standard-v3|month|string: $6.998397
+        gpu-standard-v3|string: $0.009720
+        v3|month|string: $8.165997
         v3|number: 0.011342
+        v3|string: $0.011342
+      gpu:
+        gpu-standard-t4i|month|string: $1119.719552
+        gpu-standard-t4i|string: $1.555166
+        gpu-standard-v2|month|string: $1850.459260
+        gpu-standard-v2|string: $2.570082
+        gpu-standard-v3|month|string: $2890.378844
+        gpu-standard-v3|string: $4.014415
       ram:
+        gpu-standard-t4i|month|string: $2.177399
+        gpu-standard-t4i|string: $0.003024
+        gpu-standard-v2|month|string: $2.299199
+        gpu-standard-v2|string: $0.003193
+        gpu-standard-v3|month|string: $2.177399
+        gpu-standard-v3|string: $0.003024
+        v3|month|string: $2.177999
         v3|number: 0.003025
+        v3|string: $0.003025
     master-nodes:
       cpu:
+        v3|month|string: $8.165997
         v3|number: 0.011342
+        v3|string: $0.011342
       ram:
+        v3|month|string: $2.177999
         v3|number: 0.003025
+        v3|string: $0.003025
     proxy-nodes:
       cpu:
+        v3|month|string: $8.165997
         v3|number: 0.011342
+        v3|string: $0.011342
       ram:
+        v3|month|string: $2.177999
         v3|number: 0.003025
+        v3|string: $0.003025
     storage-nodes:
       cpu:
+        v3|month|string: $8.165997
         v3|number: 0.011342
+        v3|string: $0.011342
       ram:
         v3|number: 0.003025
+        v3|string: $0.003025
     storage:
       hdd:
         v1|month|number: 0.031533
+        v1|month|string: $0.031533
       ssd-nonreplicated:
         v1|month|number: 0.095041
+        v1|month|string: $0.095041
       ssd:
-        v1|month|number: 0.128625
+        v1|month|string: $0.128625
     system-nodes:
       cpu:
+        v3|month|string: $8.165997
         v3|number: 0.011342
+        v3|string: $0.011342
       ram:
+        v3|month|string: $2.177999
         v3|number: 0.003025
+        v3|string: $0.003025
     tablet-nodes:
       cpu:
+        v3|month|string: $8.165997
         v3|number: 0.011342
+        v3|string: $0.011342
       ram:
+        v3|month|string: $2.177999
         v3|number: 0.003025
+        v3|string: $0.003025
   ui-key:
     data-catalog:
       console:
@@ -13153,7 +13299,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/yc-alb-ingress/yc-alb-ingress-controller-chart
-        tag: v0.2.24
+        tag: v0.2.25
     yc_argo-cd:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/argo/chart/argo-cd
@@ -13204,7 +13350,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/gateway-api/gateway-api-helm/gateway-api
-        tag: v0.7.2
+        tag: v0.7.3
     yc_gitlab-agent:
       helmChart:
         name: >-

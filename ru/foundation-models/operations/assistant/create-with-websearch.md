@@ -73,7 +73,7 @@ description: Следуя этой инструкции, с помощью {{ as
 
           Где:
           * `folderId` — [идентификатор](../../../resource-manager/operations/folder/get-id.md) каталога, на который у вашего аккаунта есть [роли](../../../iam/concepts/access-control/roles.md) [`ai.assistants.editor`](../../security/index.md#ai-assistants-editor) и [`{{ roles-yagpt-user }}`](../../security/index.md#languageModels-user) или выше.
-          * `modelUri` — [URI](../../concepts/yandexgpt/models.md#generation) используемой модели генерации текста.
+          * `modelUri` — [URI](../../concepts/generation/models.md#generation) используемой модели генерации текста.
           * `instruction` — базовая инструкция, в соответствии с которой AI-ассистент будет выполнять запросы пользователя.
           * `tools` — настройки [инструмента](../../concepts/assistant/tools/index.md), который будет использоваться создаваемым ассистентом:
 

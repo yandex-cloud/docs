@@ -6,7 +6,7 @@ API сервиса {{ foundation-models-name }} частично совмест�
 
 ## Настройка {{ openai }} для работы с {{ foundation-models-name }} {#before-begin}
 
-Чтобы использовать [модели генерации текста](./yandexgpt/models.md) {{ foundation-models-name }} в библиотеках {{ openai }}, измените базовый эндпоинт и укажите [API-ключ](../operations/get-api-key.md).
+Чтобы использовать [модели генерации текста](generation/models.md) {{ foundation-models-name }} в библиотеках {{ openai }}, измените базовый эндпоинт и укажите [API-ключ](../operations/get-api-key.md).
 
 {% list tabs group=programming_language %}
 

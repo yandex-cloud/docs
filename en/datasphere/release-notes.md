@@ -14,7 +14,7 @@ Added a new [configuration](concepts/configurations.md), gt4i.1 (1 GPU NVIDIA T4
 
 ## Release as of 9/12/24 {#091224}
 
-Discontinued supporting foundation model tuning in {{ ml-platform-name }}. Previously tuned models will no longer be supported along with their base models in accordance with their [life cycle](../foundation-models/concepts/yandexgpt/models.md#model-lifecycle).
+Discontinued supporting foundation model tuning in {{ ml-platform-name }}. Previously tuned models will no longer be supported along with their base models in accordance with their [life cycle](../foundation-models/concepts/generation/models.md#model-lifecycle).
 
 Use the {{ foundation-models-full-name }} [tools](../foundation-models/concepts/tuning/index.md) to tune models.
 
@@ -24,7 +24,7 @@ Now you can use a service agent to work with {{ yandex-cloud }} services from {{
 
 ## Release as of 02/09/24 {#020924}
 
-* Added examples of operations with [{{ yandexart-name }}](../foundation-models/concepts/yandexart/index.md) and open-source foundational models to initial notebooks.
+* Added examples of operations with [{{ yandexart-name }}](../foundation-models/concepts/generation/index.md) and open-source foundational models to initial notebooks.
 * When working with [{{ dataproc-full-name }}](../data-proc/) using a [Spark connector](concepts/data-processing-operations.md#synchronization), you can now [synchronize the environment](concepts/spark-connector.md)
 * Fixed some bugs and added minor performance improvements.
 

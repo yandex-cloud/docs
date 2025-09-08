@@ -5,18 +5,15 @@ description: This page gives all the guides on how to work with {{ foundation-mo
 
 # Step-by-step guides for {{ foundation-models-full-name }}
 
-## Step-by-step guides for text generation models {#yandexgpt-api}
+## Step-by-step guides for generation models {#yandexgpt-api}
 
-* [{#T}](./yandexgpt/evaluate-request.md)
-* [{#T}](./yandexgpt/create-prompt.md)
-* [{#T}](./yandexgpt/create-chat.md)
-* [{#T}](./yandexgpt/async-request.md)
-* [{#T}](./yandexgpt/function-call.md)
+* [{#T}](generation/evaluate-request.md)
+* [{#T}](generation/create-prompt.md)
+* [{#T}](generation/create-chat.md)
+* [{#T}](generation/async-request.md)
+* [{#T}](generation/function-call.md)
 * [{#T}](./batch/create.md)
-
-## Step-by-step guides for {{ yandexart-name }} {#yandexart}
-
-[{#T}](./yandexart/request.md)
+* [{#T}](generation/yandexart-request.md)
 
 ## Step-by-step guides for classifiers based on {{ yagpt-name }} {#classifiers}
 

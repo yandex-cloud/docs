@@ -20,16 +20,16 @@ editable: false
 
 ## What goes into the cost of using {{ foundation-models-full-name }} {#rules}
 
-[In {{ billing-name }}](../billing/operations/check-charges.md), {{ foundation-models-name }} usage is detailed in _billing units_. The billing unit value is different for text [generation](./concepts/yandexgpt/index.md) and [vectorization](./concepts/embeddings.md).
+[In {{ billing-name }}](../billing/operations/check-charges.md), {{ foundation-models-name }} usage is detailed in _billing units_. The billing unit value is different for text [generation](concepts/generation/index.md) and [vectorization](./concepts/embeddings.md).
 
 ### Text generation {#rules-generating}
 
-Text generation cost is based on the total number of [prompt](concepts/index.md#working-mode) and response [tokens](concepts/yandexgpt/tokens.md) and depends on the parameters of your request to the generative model. Namely, the cost depends on the following:
+Text generation cost is based on the total number of [prompt](concepts/index.md#working-mode) and response [tokens](concepts/generation/tokens.md) and depends on the parameters of your request to the generative model. Namely, the cost depends on the following:
 
-* [Model](concepts/yandexgpt/models.md) that gets the request.
+* [Model](concepts/generation/models.md) that gets the request.
 * The model's [operating mode](concepts/index.md#working-mode).
 
-The number of [prompt](concepts/index.md) and response [tokens](concepts/yandexgpt/tokens.md) for the same text may vary depending on the model.
+The number of [prompt](concepts/index.md) and response [tokens](concepts/generation/tokens.md) for the same text may vary depending on the model.
 
 With models in batch mode, the minimum cost per run is 200,000 tokens.
 
@@ -50,7 +50,7 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune
 
 ### Text classification {#rules-text-classifier}
 
-The cost of text classification depends on the classification model you use and the number of [tokens](concepts/yandexgpt/tokens.md) you provide.
+The cost of text classification depends on the classification model you use and the number of [tokens](concepts/generation/tokens.md) you provide.
 
 * When classifying with {{ gpt-lite }}, a billing unit is a request of up to 1,000 tokens.
 * When classifying with {{ gpt-pro }} and fine-tuned classifiers, a billing unit is a request of up to 250 tokens.

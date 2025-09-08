@@ -37,7 +37,7 @@ As for an image, you can create it from a disk, snapshot, another image, or file
 
 When creating disks and VMs, you need to specify the [availability zone](../../overview/concepts/geo-scope.md) where they will reside; disk images and snapshots are not associated with any availability zones.
 
-You can view a list of availability zones and find out their current status. To reserve [computing resources](./vm.md#types) for as many VMs as you need in a specific availability zone, you can create a [reserved instance pool](./reserved-pools.md).
+You can view a list of availability zones and find out their current status. To reserve [computing resources](./vm.md#types) for as many VMs as you need in a particular availability zone, you can create a [reserved instance pool](./reserved-pools.md).
 
 When creating a disk, you also specify its type. You can view possible disk types and find out in which zones they are available.
 

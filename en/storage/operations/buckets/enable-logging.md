@@ -73,7 +73,7 @@ To log bucket access:
 
          Where:
 
-         * `--bucket`: Name of the source bucket to enable logging for.
+         * `--bucket`: Name of the source bucket to enable action logging for.
          * `--bucket-logging-status`: Path to the logging settings file.
 
    - {{ TF }} {#tf}
@@ -219,7 +219,7 @@ To get the target bucket name and the log object key prefix, follow these steps:
         * `target_bucket`: Reference to the log storage bucket.
         * `target_prefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for objects with logs, e.g., `logs/`.
 
-        For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        For more information about `yandex_storage_bucket` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
 
 - API {#api}
 

@@ -28,7 +28,7 @@ You [can get](../operations/data/manage-dialogs.md#view-dialog) the following in
 * Metadata, e.g., full names of agent and customer, call or message date, dialog language, etc. The metadata list is [defined in the connection](../operations/connection/create.md).
 * Conversation audio (only for audio).
 * Conversation contents.
-* [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/models.md) analysis.
+* [{{ yagpt-name }}](../../foundation-models/concepts/generation/models.md) analysis.
 
 ### Dialog contents {#contents}
 

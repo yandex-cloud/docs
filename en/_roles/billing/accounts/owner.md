@@ -1,4 +1,4 @@
-When creating your billing account, you get the `billing.accounts.owner` role automatically. It cannot be revoked, but you can assign it to other users and then revoke from them.
+When creating your billing account, you get the `billing.accounts.owner` role automatically. Any user with the `billing.accounts.owner` role can revoke this role from the billing account creator and change the owner.
 
 {% cut "In Yandex Cloud Billing, users with this role can:" %}
 

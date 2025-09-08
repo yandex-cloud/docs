@@ -842,6 +842,10 @@ items:
         href: dataplatform/ydb-to-yds.md
       - name: Configuring Kafka Connect to work with a {{ mkf-name }} cluster
         href: dataplatform/kafka-connect.md
+      - name: >-
+          Synchronizing {{ KF }} topics in {{ objstorage-name }} without using
+          the internet
+        href: dataplatform/kafka-topic-s3-sync-private.md
       - name: Using data format schemas with {{ mkf-name }}
         items:
           - name: Managing data schemas in {{ mkf-name }}
@@ -852,6 +856,8 @@ items:
             href: dataplatform/managed-schema-registry-rest.md
           - name: Using Confluent Schema Registry with {{ mkf-name }}
             href: dataplatform/confluent-schema-registry.md
+      - name: Monitoring message loss in an {{ KF }} topic
+        href: dataplatform/retention-policy.md
       - name: Automating {{ yq-name }} tasks with {{ maf-name }}
         href: dataplatform/airflow-auto-tasks.md
       - name: >-

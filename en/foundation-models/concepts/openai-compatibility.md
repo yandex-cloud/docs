@@ -6,7 +6,7 @@ Use the [{{ ml-sdk-full-name }}](../sdk/index.md) API and library to access all 
 
 ## Configuring {{ openai }} to work with {{ foundation-models-name }} {#before-begin}
 
-To use [text generation models](./yandexgpt/models.md) from {{ foundation-models-name }} in {{ openai }} libraries, change the basic endpoint and specify the [API key](../operations/get-api-key.md).
+To use [text generation models](generation/models.md) from {{ foundation-models-name }} in {{ openai }} libraries, change the basic endpoint and specify the [API key](../operations/get-api-key.md).
 
 {% list tabs group=programming_language %}
 

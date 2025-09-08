@@ -18,19 +18,17 @@ items:
       - name: Генерация текста
         items:
           - name: Оценить запрос в токенах
-            href: operations/yandexgpt/evaluate-request.md
+            href: operations/generation/evaluate-request.md
           - name: Отправить запрос в промт-режиме
-            href: operations/yandexgpt/create-prompt.md
+            href: operations/generation/create-prompt.md
           - name: Отправить серию запросов в режиме чата
-            href: operations/yandexgpt/create-chat.md
+            href: operations/generation/create-chat.md
           - name: Отправить асинхронный запрос
-            href: operations/yandexgpt/async-request.md
+            href: operations/generation/async-request.md
           - name: Вызвать функцию из модели
-            href: operations/yandexgpt/function-call.md
+            href: operations/generation/function-call.md
       - name: Генерация изображений
-        items:
-          - name: Сгенерировать изображение
-            href: operations/yandexart/request.md
+        href: operations/generation/yandexart-request.md
       - name: Пакетная обработка данных
         href: operations/batch/create.md
       - name: Классификация
@@ -59,7 +57,7 @@ items:
             href: operations/tuning/tune-classifiers.md
           - name: Дообучить модель эмбеддингов
             href: operations/tuning/create-embeddings.md
-      - name: '{{ assistant-api }}'
+      - name: Разработка AI-ассистентов
         items:
           - name: Создать простого ассистента
             href: operations/assistant/create.md
@@ -79,56 +77,58 @@ items:
     items:
       - name: О сервисе {{ foundation-models-full-name }}
         href: concepts/index.md
-      - name: Генерация текста
+      - name: AI-модели
         items:
-          - name: Обзор
-            href: concepts/yandexgpt/index.md
-          - name: Модели
-            href: concepts/yandexgpt/models.md
-          - name: Токены
-            href: concepts/yandexgpt/tokens.md
+          - name: Возможности генеративных моделей
+            href: concepts/generation/index.md
+          - name: Доступные генеративные модели
+            href: concepts/generation/models.md
           - name: Вызов функций
-            href: concepts/yandexgpt/function-call.md
+            href: concepts/generation/function-call.md
           - name: Режим рассуждений
-            href: concepts/yandexgpt/chain-of-thought.md
-      - name: Генерация изображений
+            href: concepts/generation/chain-of-thought.md
+          - name: Форматирование ответов моделей
+            href: concepts/generation/structured-output.md
+          - name: Классификаторы
+            items:
+              - name: Поддерживаемые виды классификации
+                href: concepts/classifier/index.md
+              - name: Доступные модели классификаторов
+                href: concepts/classifier/models.md
+          - name: Эмбеддинги
+            href: concepts/embeddings.md
+          - name: Датасеты
+            href: concepts/resources/dataset.md
+          - name: Дообучение
+            href: concepts/tuning/index.md
+          - name: Токены
+            href: concepts/generation/tokens.md
+          - name: Юниты TBD
+            hidden: true
+      - name: Разработка AI-ассистентов
         items:
-          - name: Обзор {{ yandexart-name }}
-            href: concepts/yandexart/index.md
-          - name: Модели
-            href: concepts/yandexart/models.md
-      - name: Мультимодальные модели
-        href: concepts/multimodal/index.md
-      - name: Классификация
-        items:
-          - name: Обзор
-            href: concepts/classifier/index.md
-          - name: Модели
-            href: concepts/classifier/models.md
-      - name: Эмбеддинги
-        href: concepts/embeddings.md
-      - name: Датасеты
-        href: concepts/resources/dataset.md
-      - name: Дообучение
-        href: concepts/tuning/index.md
-      - name: '{{ assistant-api }}'
-        items:
-          - name: Обзор
+          - name: Что такое AI-асситенты
             href: concepts/assistant/index.md
-          - name: Файлы-источники
-            href: concepts/assistant/files.md
-          - name: Поисковые индексы
-            href: concepts/assistant/search-index.md
           - name: Инструменты
             items:
               - name: Обзор
                 href: concepts/assistant/tools/index.md
-              - name: VectorStore
+              - name: Retrieval
                 href: concepts/assistant/tools/vector-store.md
               - name: WebSearch
                 href: concepts/assistant/tools/web-search.md
-          - name: Перефразирование запросов
-            href: concepts/assistant/rephraser.md
+              - name: Перефразирование запросов
+                href: concepts/assistant/rephraser.md
+              - name: MCP TBD
+                hidden: true
+      - name: AI-поиск
+        items:
+          - name: Файлы-источники
+            href: concepts/assistant/files.md
+          - name: Поисковые индексы
+            href: concepts/assistant/search-index.md
+          - name: Коннекторы TBD
+            hidden: true
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Совместимость с {{ openai }}
@@ -894,130 +894,6 @@ items:
                     href: tuning/api-ref/grpc/Tuning/archive.md
                   - name: EnableBilling
                     href: tuning/api-ref/grpc/Tuning/enableBilling.md
-  - name: Как создавать промты
-    items:
-      - name: Обзор
-        href: gpt-prompting-guide/about.md
-      - name: Рекомендации по использованию {{ yagpt-name }}
-        href: gpt-prompting-guide/popular-problems-solving.md
-      - name: Введение в инжиниринг промтов
-        items:
-          - name: Параметры LLM
-            href: gpt-prompting-guide/introduction/llm-settings.md
-          - name: Основы промтинга
-            href: gpt-prompting-guide/introduction/basics.md
-          - name: Из чего состоит промт
-            href: gpt-prompting-guide/introduction/elements.md
-          - name: Общие советы для создания промтов
-            href: gpt-prompting-guide/introduction/general-tips.md
-          - name: Примеры промтов
-            href: gpt-prompting-guide/introduction/examples.md
-      - name: Техники
-        items:
-          - name: Обзор
-            href: gpt-prompting-guide/techniques/about.md
-          - name: Zero-shot
-            href: gpt-prompting-guide/techniques/zero-shot.md
-          - name: Few-shot
-            href: gpt-prompting-guide/techniques/few-shot.md
-          - name: Chain-of-Thought
-            href: gpt-prompting-guide/techniques/CoT.md
-          - name: Self-consistency
-            href: gpt-prompting-guide/techniques/self-consistency.md
-  - name: Библиотека промтов {{ yagpt-name }}
-    items:
-      - name: Все промты
-        href: prompts/yandexgpt/index.md
-      - name: Контент
-        items:
-          - name: Исправление ошибок
-            href: prompts/yandexgpt/content-fixing-errors.md
-          - name: Написание текста
-            href: prompts/yandexgpt/content-write-text.md
-          - name: Локализация текста
-            href: prompts/yandexgpt/content-text-localization.md
-      - name: Маркетинг
-        items:
-          - name: Генерация заголовка текста
-            href: prompts/yandexgpt/marketing-header-generation.md
-          - name: Генерация описания товара
-            href: prompts/yandexgpt/marketing-description-generation.md
-          - name: Генерация рекламного объявления
-            href: prompts/yandexgpt/marketing-ad-generation.md
-          - name: Стилизация текста
-            href: prompts/yandexgpt/marketing-text-customization.md
-      - name: HR
-        items:
-          - name: Генерация вопросов для интервью
-            href: prompts/yandexgpt/hr-generating-questions.md
-          - name: Создание плана изучения навыка
-            href: prompts/yandexgpt/hr-create-plan.md
-      - name: Клиентский сервис
-        items:
-          - name: Генерация ответа на отзыв
-            href: prompts/yandexgpt/customer-service-generating-response.md
-          - name: Переписывание ответа
-            href: prompts/yandexgpt/customer-service-rewrite-response.md
-          - name: Классификация обращений
-            href: prompts/yandexgpt/customer-service-classification-appeals.md
-      - name: Автоматизация
-        items:
-          - name: Распознавание именованных сущностей
-            href: prompts/yandexgpt/automation-ner.md
-          - name: Нормализация чисел и дат
-            href: prompts/yandexgpt/automation-normalization.md
-      - name: Общекорпоративные функции
-        items:
-          - name: Краткий пересказ статьи
-            href: prompts/yandexgpt/general-functions-summarization.md
-          - name: Создание таблицы
-            href: prompts/yandexgpt/general-functions-create-table.md
-  - name: Библиотека промтов {{ yandexart-name }}
-    items:
-      - name: Все промты
-        href: prompts/yandexart/index.md
-      - name: Маркетинг
-        items:
-          - name: Изображение для подарочных сертификатов
-            href: prompts/yandexart/marketing-gift-certificate.md
-          - name: Продвижение в социальных сетях
-            href: prompts/yandexart/marketing-social.md
-          - name: Иллюстрация для материалов
-            href: prompts/yandexart/marketing-statue.md
-          - name: Визуальный образ компании
-            href: prompts/yandexart/marketing-visual-key.md
-      - name: Контент
-        items:
-          - name: Замена стоковых фотографий
-            href: prompts/yandexart/illustration-photo-stock.md
-          - name: Иллюстрация для статьи
-            href: prompts/yandexart/illustrations-article.md
-          - name: Иллюстрация для книги
-            href: prompts/yandexart/illustrations-book.md
-      - name: Бренд-дизайн
-        items:
-          - name: Иконки в фирменном стиле
-            href: prompts/yandexart/brand-design-branded-icons.md
-          - name: Корпоративный мерч
-            href: prompts/yandexart/brand-design-corporate-merch.md
-          - name: Маскот компании
-            href: prompts/yandexart/brand-design-mascot.md
-      - name: Генерация идей
-        items:
-          - name: Дизайн кольца
-            href: prompts/yandexart/ideas-ring.md
-          - name: Вымышленные предметы
-            href: prompts/yandexart/ideas-samovar.md
-          - name: Персонаж для игры
-            href: prompts/yandexart/ideas-character.md
-      - name: Интерьерный и архитектурный дизайн
-        items:
-          - name: Предметы декора
-            href: prompts/yandexart/architectural-design-decor.md
-          - name: Концепция экстерьера здания
-            href: prompts/yandexart/architectural-design-exterior.md
-          - name: Дизайн-проект офиса
-            href: prompts/yandexart/architectural-design-office.md
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -1042,6 +918,132 @@ items:
           ИИ-ревью пул-реквестов на GitHub с помощью {{ sw-full-name }} и GitHub
           Actions
         href: tutorials/ai-powered-github-pr-review.md
+  - name: Промтинг
+    items:
+      - name: Как создавать промты
+        items:
+          - name: Обзор
+            href: gpt-prompting-guide/about.md
+          - name: Рекомендации по использованию {{ yagpt-name }}
+            href: gpt-prompting-guide/popular-problems-solving.md
+          - name: Введение в инжиниринг промтов
+            items:
+              - name: Параметры LLM
+                href: gpt-prompting-guide/introduction/llm-settings.md
+              - name: Основы промтинга
+                href: gpt-prompting-guide/introduction/basics.md
+              - name: Из чего состоит промт
+                href: gpt-prompting-guide/introduction/elements.md
+              - name: Общие советы для создания промтов
+                href: gpt-prompting-guide/introduction/general-tips.md
+              - name: Примеры промтов
+                href: gpt-prompting-guide/introduction/examples.md
+          - name: Техники
+            items:
+              - name: Обзор
+                href: gpt-prompting-guide/techniques/about.md
+              - name: Zero-shot
+                href: gpt-prompting-guide/techniques/zero-shot.md
+              - name: Few-shot
+                href: gpt-prompting-guide/techniques/few-shot.md
+              - name: Chain-of-Thought
+                href: gpt-prompting-guide/techniques/CoT.md
+              - name: Self-consistency
+                href: gpt-prompting-guide/techniques/self-consistency.md
+      - name: Библиотека промтов {{ yagpt-name }}
+        items:
+          - name: Все промты
+            href: prompts/yandexgpt/index.md
+          - name: Контент
+            items:
+              - name: Исправление ошибок
+                href: prompts/yandexgpt/content-fixing-errors.md
+              - name: Написание текста
+                href: prompts/yandexgpt/content-write-text.md
+              - name: Локализация текста
+                href: prompts/yandexgpt/content-text-localization.md
+          - name: Маркетинг
+            items:
+              - name: Генерация заголовка текста
+                href: prompts/yandexgpt/marketing-header-generation.md
+              - name: Генерация описания товара
+                href: prompts/yandexgpt/marketing-description-generation.md
+              - name: Генерация рекламного объявления
+                href: prompts/yandexgpt/marketing-ad-generation.md
+              - name: Стилизация текста
+                href: prompts/yandexgpt/marketing-text-customization.md
+          - name: HR
+            items:
+              - name: Генерация вопросов для интервью
+                href: prompts/yandexgpt/hr-generating-questions.md
+              - name: Создание плана изучения навыка
+                href: prompts/yandexgpt/hr-create-plan.md
+          - name: Клиентский сервис
+            items:
+              - name: Генерация ответа на отзыв
+                href: prompts/yandexgpt/customer-service-generating-response.md
+              - name: Переписывание ответа
+                href: prompts/yandexgpt/customer-service-rewrite-response.md
+              - name: Классификация обращений
+                href: prompts/yandexgpt/customer-service-classification-appeals.md
+          - name: Автоматизация
+            items:
+              - name: Распознавание именованных сущностей
+                href: prompts/yandexgpt/automation-ner.md
+              - name: Нормализация чисел и дат
+                href: prompts/yandexgpt/automation-normalization.md
+          - name: Общекорпоративные функции
+            items:
+              - name: Краткий пересказ статьи
+                href: prompts/yandexgpt/general-functions-summarization.md
+              - name: Создание таблицы
+                href: prompts/yandexgpt/general-functions-create-table.md
+      - name: Библиотека промтов {{ yandexart-name }}
+        items:
+          - name: Все промты
+            href: prompts/yandexart/index.md
+          - name: Маркетинг
+            items:
+              - name: Изображение для подарочных сертификатов
+                href: prompts/yandexart/marketing-gift-certificate.md
+              - name: Продвижение в социальных сетях
+                href: prompts/yandexart/marketing-social.md
+              - name: Иллюстрация для материалов
+                href: prompts/yandexart/marketing-statue.md
+              - name: Визуальный образ компании
+                href: prompts/yandexart/marketing-visual-key.md
+          - name: Контент
+            items:
+              - name: Замена стоковых фотографий
+                href: prompts/yandexart/illustration-photo-stock.md
+              - name: Иллюстрация для статьи
+                href: prompts/yandexart/illustrations-article.md
+              - name: Иллюстрация для книги
+                href: prompts/yandexart/illustrations-book.md
+          - name: Бренд-дизайн
+            items:
+              - name: Иконки в фирменном стиле
+                href: prompts/yandexart/brand-design-branded-icons.md
+              - name: Корпоративный мерч
+                href: prompts/yandexart/brand-design-corporate-merch.md
+              - name: Маскот компании
+                href: prompts/yandexart/brand-design-mascot.md
+          - name: Генерация идей
+            items:
+              - name: Дизайн кольца
+                href: prompts/yandexart/ideas-ring.md
+              - name: Вымышленные предметы
+                href: prompts/yandexart/ideas-samovar.md
+              - name: Персонаж для игры
+                href: prompts/yandexart/ideas-character.md
+          - name: Интерьерный и архитектурный дизайн
+            items:
+              - name: Предметы декора
+                href: prompts/yandexart/architectural-design-decor.md
+              - name: Концепция экстерьера здания
+                href: prompts/yandexart/architectural-design-exterior.md
+              - name: Дизайн-проект офиса
+                href: prompts/yandexart/architectural-design-office.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

@@ -1,9 +1,9 @@
 # Automating operations with {{ msp-full-name }} using {{ maf-full-name }}
 
 
-With {{ maf-full-name }}, you can create a [directed acyclic task graph (DAG)](../../../managed-airflow/concepts/index.md) to automate your operations with [{{ msp-full-name }}](../../../managed-spark/index.yaml). Below is an example of a DAG that includes multiple tasks:
+In {{ maf-full-name }}, you can create a [directed acyclic graph (DAG)](../../../managed-airflow/concepts/index.md) to automate your operations in [{{ msp-full-name }}](../../../managed-spark/index.yaml). Below is an example of a DAG that includes a number of tasks:
 
-1. Create a {{ SPRK }} cluster.
+1. Create an {{ SPRK }} cluster.
 1. Run a PySpark job.
 1. Delete the {{ SPRK }} cluster.
 
@@ -35,10 +35,10 @@ The support cost includes:
 
 The example below illustrates two scenarios. Select the one you find most relevant:
 
-* **High security level**. This is a recommended scenario because it follows the [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access). This scenario entails the following:
+* **High security level**. This is a recommended scenario, as it respects the [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access). This scenario entails the following:
 
-   * Splitting access permissions across different service accounts. You have to create a separate service account for each cluster and assign it only those roles required for this account's cluster to function.
-   * Using multiple buckets for different tasks and storing different data in separate buckets. For example, a DAG is loaded into one bucket, while the results of the PySpark job are written into another bucket.
+   * Splitting access permissions across different service accounts. You have to create a separate service account for each cluster and assign to it only the roles required for this account's cluster to operate.
+   * Using multiple buckets for different tasks and storing different data in separate buckets. For example, a DAG is loaded to one bucket, while the results of running a PySpark job are written to another bucket.
    * Setting up security groups. This way, you can restrict traffic and grant access only to authorized resources.
 
 * **Simplified setup**. This scenario implies a lower security level:
@@ -51,13 +51,13 @@ The example below illustrates two scenarios. Select the one you find most releva
 
 * High security level
 
-  Set up your infrastructure:
+  Set up the infrastructure:
 
   1. [Create service accounts](../../../iam/operations/sa/create.md) with the following roles:
 
      #|
      || **Service account** | **Roles** ||
-     || `airflow-agent` for a {{ AF }} cluster |
+     || `airflow-agent` for an {{ AF }} cluster |
      * [{{ roles.maf.integrationProvider }}](../../../iam/roles-reference.md#managed-airflow-integrationProvider): To enable the {{ AF }} cluster to [interact with other resources](../../../managed-airflow/concepts/impersonation.md).
      * [managed-spark.editor](../../../iam/roles-reference.md#managed-spark-editor): To manage an {{ SPRK }} cluster from a DAG.
      * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user): To specify the `spark-agent` service account when creating an {{ SPRK }} cluster.
@@ -68,13 +68,13 @@ The example below illustrates two scenarios. Select the one you find most releva
      * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer): To view information about Hive Metastore clusters. ||
      || `metastore-agent` for a {{ metastore-name }} cluster |
      * [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider): To enable the {{ metastore-name }} cluster to [interact with other resources](../../../metadata-hub/concepts/metastore-impersonation.md). ||
-     || `spark-agent` for a {{ SPRK }} cluster |
+     || `spark-agent` for an {{ SPRK }} cluster |
      * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider): To enable the {{ SPRK }} cluster to interact with other resources. ||
      |#
 
   1. [Create buckets](../../../storage/operations/buckets/create.md):
 
-     * `<Airflow_DAG_source_code_bucket>`.
+     * `<bucket_for_Airflow_DAG_source_code>`.
      * `<bucket_for_PySpark_job_source_code>`.
      * `<bucket_for_PySpark_job_output_data>`.
 
@@ -82,7 +82,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
   1. [Grant permissions](../../../storage/operations/buckets/edit-acl.md) for the buckets as follows:
 
-     * `<Airflow_DAG_source_code_bucket>`: `READ` permission to the `airflow-agent` service account.
+     * `<bucket_for_Airflow_DAG_source_code>`: `READ` permission to the `airflow-agent` service account.
      * `<bucket_for_PySpark_job_source_code>`: `READ` permission to the `spark-agent` service account.
      * `<bucket_for_PySpark_job_output_data>`: `READ and WRITE` permissions to the `spark-agent` and `metastore-agent` service accounts.
 
@@ -90,7 +90,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
      This will automatically create three subnets in different availability zones.
 
-  1. For the {{ metastore-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `metastore-sg` in the `datalake-network`. Add the following rules to the group:
+  1. For the {{ metastore-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `metastore-sg` in `datalake-network`. Add the following rules to it:
 
      * For incoming client traffic:
 
@@ -105,7 +105,7 @@ The example below illustrates two scenarios. Select the one you find most releva
         * Protocol: `Any`
         * Source: `Load balancer health checks`
 
-  1. For the {{ AF }} cluster, create a security group named `airflow-sg` in `datalake-network`. Add the following rule to the group:
+  1. For the {{ AF }} cluster, create a security group named `airflow-sg` in `datalake-network`. Add the following rule to it:
 
      * For outgoing HTTPS traffic:
 
@@ -114,7 +114,7 @@ The example below illustrates two scenarios. Select the one you find most releva
         * Destination: `CIDR`
         * CIDR blocks: `0.0.0.0/0`
 
-  1. For the {{ SPRK }} cluster, create a security group named `spark-sg` in `datalake-network`. Add the following rule to the group:
+  1. For the {{ SPRK }} cluster, create a security group named `spark-sg` in `datalake-network`. Add the following rule to it:
 
      * For outgoing traffic, to allow {{ SPRK }} cluster connections to {{ metastore-name }}:
 
@@ -143,11 +143,11 @@ The example below illustrates two scenarios. Select the one you find most releva
      * **Network**: `datalake-network`
      * **Subnet**: `datalake-network-{{ region-id }}-a`
      * **Security group**: `airflow-sg`
-     * **Bucket name**: `<Airflow_DAG_source_code_bucket>`
+     * **Bucket name**: `<bucket_for_Airflow_DAG_source_code>`
 
 * Simplified setup
 
-  Set up your infrastructure:
+  Set up the infrastructure:
 
   1. [Create a service account](../../../iam/operations/sa/create.md) named `integration-agent` with the following roles:
 
@@ -162,7 +162,7 @@ The example below illustrates two scenarios. Select the one you find most releva
      * [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider): To enable the {{ metastore-name }} cluster to [interact with other resources](../../../metadata-hub/concepts/metastore-impersonation.md).
      * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider): To enable the {{ SPRK }} cluster to interact with other resources. 
 
-  1. [Create a bucket](../../../storage/operations/buckets/create.md) named `<bucket_for_jobs_and_data>` and [provide](../../../storage/operations/buckets/edit-acl.md) `READ and WRITE` permissions to the `integration-agent` service account.
+  1. [Create a bucket](../../../storage/operations/buckets/create.md) named `<bucket_for_jobs_and_data>` and [grant](../../../storage/operations/buckets/edit-acl.md) `READ and WRITE` permissions to the `integration-agent` service account.
 
   1. [Create a cloud network](../../../vpc/operations/network-create.md) named `datalake-network`.
 
@@ -226,7 +226,7 @@ For a PySpark job, we will use a Python script that creates a table and is store
 
 ## Prepare and run a DAG file {#dag}
 
-A DAG will have multiple vertices that form a sequence of consecutive actions:
+A DAG will have multiple vertices that form a sequence of actions:
 
 1. {{ maf-full-name }} creates a temporary {{ SPRK }} cluster with settings specified in the DAG. This cluster automatically connects to the previously created {{ metastore-name }} cluster.
 1. When the {{ SPRK }} cluster is ready, a PySpark job is run.
@@ -271,7 +271,7 @@ To prepare a DAG:
 
 
      @task
-     # Step 1: Creating a {{ SPRK }} cluster
+     # Step 1: Creating an {{ SPRK }} cluster
      def create_cluster(yc_hook, cluster_spec):
          spark_client = yc_hook.sdk.wrappers.Spark()
          try:
@@ -304,7 +304,7 @@ To prepare a DAG:
 
 
      @task(trigger_rule="all_done")
-     # Step 3: Deleting a {{ SPRK }} cluster
+     # Step 3: Deleting the {{ SPRK }} cluster
      def delete_cluster(yc_hook, cluster_id):
          if cluster_id:
              spark_client = yc_hook.sdk.wrappers.Spark()
@@ -354,24 +354,24 @@ To prepare a DAG:
 
         {% note info %}
       
-        {{ SPRK }} must have the same subnet as {{ metastore-name }}.
+        {{ SPRK }} and {{ metastore-name }} must have the same subnet.
       
         {% endnote %}
 
      * `SECURITY_GROUP_IDS`: ID of the security group for the {{ SPRK }} cluster.
      * `METASTORE_CLUSTER_ID`: {{ metastore-name }} cluster ID.
      * `JOB_NAME`: PySpark job name.
-     * `JOB_SCRIPT`: Path to PySpark job file.
+     * `JOB_SCRIPT`: Path to the PySpark job file.
      * `JOB_ARGS`: PySpark job arguments.
      * `JOB_PROPERTIES`: PySpark job properties.
 
      {% endcut %}
 
-  1. Upload the DAG to the {{ AF }} cluster: in `<Airflow_DAG_source_code_bucket>`, create a folder named `dags` and upload the `dag.py` file to it.
+  1. Upload the DAG to the {{ AF }} cluster: in `<bucket_for_Airflow_DAG_source_code>`, create a folder named `dags` and upload the `dag.py` file to it.
   1. Open the {{ AF }} web interface.
-  1. Make sure the new `example_spark` DAG file has appeared in the **DAGs** section.
+  1. Make sure the new `example_spark` DAG has appeared in the **DAGs** section.
 
-     It may take a few minutes to upload a DAG file from the bucket.
+     It may take a few minutes to load a DAG file from the bucket.
 
   1. To run the DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
@@ -410,7 +410,7 @@ To prepare a DAG:
 
 
      @task
-     # Step 1: Creating a {{ SPRK }} cluster
+     # Step 1: Creating an {{ SPRK }} cluster
      def create_cluster(yc_hook, cluster_spec):
          spark_client = yc_hook.sdk.wrappers.Spark()
          try:
@@ -443,7 +443,7 @@ To prepare a DAG:
 
 
      @task(trigger_rule="all_done")
-     # Step 3: Deleting a {{ SPRK }} cluster
+     # Step 3: Deleting the {{ SPRK }} cluster
      def delete_cluster(yc_hook, cluster_id):
          if cluster_id:
              spark_client = yc_hook.sdk.wrappers.Spark()
@@ -493,14 +493,14 @@ To prepare a DAG:
 
         {% note info %}
       
-        {{ SPRK }} must have the same subnet as {{ metastore-name }}.
+        {{ SPRK }} and {{ metastore-name }} must have the same subnet.
       
         {% endnote %}
 
      * `SECURITY_GROUP_IDS`: ID of the security group for the {{ SPRK }} cluster.
      * `METASTORE_CLUSTER_ID`: {{ metastore-name }} cluster ID.
      * `JOB_NAME`: PySpark job name.
-     * `JOB_SCRIPT`: Path to PySpark job file.
+     * `JOB_SCRIPT`: Path to the PySpark job file.
      * `JOB_ARGS`: PySpark job arguments.
      * `JOB_PROPERTIES`: PySpark job properties.
 
@@ -508,9 +508,9 @@ To prepare a DAG:
 
   1. Upload the DAG to the {{ AF }} cluster: in `<bucket_for_jobs_and_data>`, create a folder named `dags` and upload the `dag.py` file to it.
   1. Open the {{ AF }} web interface.
-  1. Make sure the new `example_spark` DAG file has appeared in the **DAGs** section.
+  1. Make sure the new `example_spark` DAG has appeared in the **DAGs** section.
 
-     It may take a few minutes to upload a DAG file from the bucket.
+     It may take a few minutes to load a DAG file from the bucket.
 
   1. To run a DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
@@ -523,13 +523,13 @@ To prepare a DAG:
 * High security level
 
   1. To monitor task execution results, click the DAG name.
-  1. Wait until the status of all the three tasks in the DAG changes to **Success**. Simultaneously, you can check that a {{ SPRK }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
+  1. Wait until the status of all the three tasks in the DAG changes to **Success**. Simultaneously, you can check that an {{ SPRK }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
   1. Make sure `<bucket_for_PySpark_job_output_data>` now contains `database_1`. The data from the new DB is now stored in the {{ objstorage-name }} bucket, and the DB metadata is stored in the {{ metastore-name }} cluster.
 
 * Simplified setup
 
   1. To monitor task execution results, click the DAG name.
-  1. Wait until the status of all the three tasks in the DAG changes to **Success**. Simultaneously, you can check that a {{ SPRK }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
+  1. Wait until the status of all the three tasks in the DAG changes to **Success**. Simultaneously, you can check that an {{ SPRK }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
   1. Make sure `<bucket_for_jobs_and_data>` now contains `database_1`. The data from the new DB is now stored in the {{ objstorage-name }} bucket, and the DB metadata is stored in the {{ metastore-name }} cluster.
 
 {% endlist %}
@@ -552,8 +552,8 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 * Simplified setup
 
-  1. [Service account](../../../iam/operations/sa/delete.md)
-  1. [{{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md)
+  1. [Service account](../../../iam/operations/sa/delete.md).
+  1. [{{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md).
   1. [{{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md).
   1. [{{ AF }} cluster](../../../managed-airflow/operations/cluster-delete.md).
   1. [Security group](../../../vpc/operations/security-group-delete.md) created in `datalake-network` by default.

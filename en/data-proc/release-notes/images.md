@@ -10,10 +10,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 
 ### 2.2.8 (beta) {#2-2-8}
 
-* Added support for environment variables:
-
-    * `HADOOP_HEAPSIZE_MIN` and `HADOOP_HEAPSIZE_MAX` for the `hadoop` service.
-    * `HADOOP_HEAPSIZE` for the `hive` service.
+{% include [envvars-hadoop-heapsize](../../_includes/data-processing/envvars-hadoop-heapsize.md) %}
 
 * Supported {{ oslogin }} for cluster hosts. This option enables [{{ oslogin }}](../../organization/concepts/os-login.md) access to all hosts you create in the cluster.
 
@@ -47,10 +44,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 
 ### 2.1.21 {#2-1-21}
 
-* Added support for environment variables:
-
-    * `HADOOP_HEAPSIZE_MIN` and `HADOOP_HEAPSIZE_MAX` for the `hadoop` service.
-    * `HADOOP_HEAPSIZE` for the `hive` service.
+{% include [envvars-hadoop-heapsize](../../_includes/data-processing/envvars-hadoop-heapsize.md) %}
 
 ### 2.1.20 {#2-1-20}
 
@@ -108,10 +102,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 
 ### 2.0.80 {#2-0-80}
 
-* Added support for environment variables:
-
-    * `HADOOP_HEAPSIZE_MIN` and `HADOOP_HEAPSIZE_MAX` for the `hadoop` service.
-    * `HADOOP_HEAPSIZE` for the `hive` service.
+{% include [envvars-hadoop-heapsize](../../_includes/data-processing/envvars-hadoop-heapsize.md) %}
 
 ### 2.0.79 {#2-0-79}
 

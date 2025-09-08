@@ -1,9 +1,9 @@
 ---
 title: Configuring object locks in a bucket in {{ objstorage-full-name }}
-description: Follow this guide to configure an object version lock in a bucket in {{ objstorage-name }}.
+description: Follow this guide to configure object locks in a bucket in {{ objstorage-name }}.
 ---
 
-# Configuring an object lock
+# Configuring object locks
 
 With [versioning](../buckets/versioning.md) and [object lock](../buckets/configure-object-lock.md) enabled in your bucket, you can configure an object lock for a version already uploaded to the bucket.
 
@@ -28,9 +28,9 @@ To set or configure an object lock:
   1. In the list of objects, select the one you need, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.storage.bucket.button_object-lock }}**.
   1. In the window that opens, enable **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
   1. Select **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_mode_61kxf }}**:
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}**: User with the `storage.admin` role can bypass a lock, change its expiration date, or remove it.
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. Such locks cannot be bypassed, shortened, or removed until they expire.
-  1. Specify **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_retention-period_jJYhy }}** in days or years. It starts from the moment the object version is uploaded to the bucket.
+     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}**: User with the `storage.admin` role can bypass the lock, change its expiration date, or remove it.
+     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. You cannot override, shorten, or remove such locks until they expire.
+  1. Specify **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_retention-period_jJYhy }}** in days or years. It starts from the moment you upload the object version to the bucket.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -275,7 +275,7 @@ To set or remove legal hold:
       request_id: cb262625********
       ```
 
-  1. Make sure the object lock settings were applied:
+  1. Make sure the object lock settings are updated:
 
       ```bash
       yc storage s3api get-object-legal-hold \

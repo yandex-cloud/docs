@@ -49,7 +49,7 @@ To use paraphrasing, add the `rephraser` tool to your assistant's list of tools.
 
 {% endlist %}
 
-To test the paraphrase model, you can [access](../../operations/yandexgpt/create-prompt.md) it directly.
+To test the paraphrase model, you can [access](../../operations/generation/create-prompt.md) it directly.
 
 ## Usage example {#examples}
 

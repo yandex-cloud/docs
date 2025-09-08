@@ -48,7 +48,7 @@ You can increase this quota only upon agreement with your account manager.
 `compute.instanceV3IGpus.count` | 0 ||
 || Total number of {{ t4-ice-lake }} GPUs across all VMs and number of available slots in reserved instance pools per cloud 
 `compute.instanceT4Gpus.count` | 0 ||
-|| Total number of {{ t4-ice-lake }} GPUs across all VMs and number of available slots in reserved instance pools per on cloud in the `{{ region-id }}-d` availability zone
+|| Total number of {{ t4-ice-lake }} GPUs across all VMs and number of available slots in reserved instance pools per cloud in the `{{ region-id }}-d` availability zone
 `compute.instanceT4Gpus.count.ru-central1-d` | 0 ||
 || Total number of {{ t4i-ice-lake }} GPUs across all VMs and number of available slots in reserved instance pools per cloud 
 `compute.instanceT4IGpus.count` | 0 ||

@@ -33,7 +33,7 @@ To send a request to the classifier:
 
       Where:
 
-      * `request_text`: Message text. The total number of [tokens](../../concepts/yandexgpt/tokens.md) per request must not exceed 8,000.
+      * `request_text`: Message text. The total number of [tokens](../../concepts/generation/tokens.md) per request must not exceed 8,000.
 
           {% include [sdk-input-format](../../../_includes/foundation-models/sdk-input-format.md) %}
 
@@ -66,7 +66,7 @@ To send a request to the classifier:
   
       Where:
       * `modelUri`: [ID of the model](../../../foundation-models/concepts/classifier/models.md) that will be used to classify the message.
-      * `text`: Message text. The total number of [tokens](../../concepts/yandexgpt/tokens.md) per request must not exceed 8,000.
+      * `text`: Message text. The total number of [tokens](../../concepts/generation/tokens.md) per request must not exceed 8,000.
   
       The names of the classes between which the model will be distributing queries must be specified during model tuning; therefore, they are not provided in the request.
       

@@ -1,9 +1,9 @@
-The `managed-ytsaurus.admin` role allows you to manage YTsaurus clusters, as well as get information about quotas and service resource operations.
+The `managed-ytsaurus.admin` role enables managing YTsaurus clusters, as well as getting info on the quotas and service resource operations for Managed Service for YTsaurus.
 
 Users with this role can:
-* View information about YTsaurus clusters, as well as create, modify, delete, run, and stop them.
-* View information about [quotas](../../managed-ytsaurus/concepts/limits.md#quotas) of Managed Service for YTsaurus.
-* View information about resource operations for Managed Service for YTsaurus.
+* View info on YTsaurus clusters, as well as create, modify, run, stop, and delete them.
+* View info on the [quotas](../../managed-ytsaurus/concepts/limits.md#quotas) for Managed Service for YTsaurus.
+* View info on resource operations for Managed Service for YTsaurus.
 * Use the YTsaurus web UI.
 
 This role includes the `managed-ytsaurus.editor` permissions.

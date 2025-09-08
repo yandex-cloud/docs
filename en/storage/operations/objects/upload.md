@@ -88,7 +88,7 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
   To create an object in an existing bucket:
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      # Creating a service account
@@ -133,7 +133,7 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
      * `source`: Relative or absolute path to the file you need to upload to the bucket.
 
-     To learn more about the resources you can create with {{ TF }}, see the [{{ TF }} documentation]({{ tf-provider-resources-link }}/storage_object).
+     For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-resources-link }}/storage_object).
 
 1. Create the resources:
 

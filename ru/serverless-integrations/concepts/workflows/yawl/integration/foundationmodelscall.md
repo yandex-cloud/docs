@@ -5,7 +5,7 @@ description: В статье описаны поля для интеграцио
 
 # FoundationModelsCall
 
-Интеграция с [{{ foundation-models-full-name }}](../../../../../foundation-models/). На данный момент поддерживается только интеграция с [{{ yagpt-full-name }}](../../../../../foundation-models/concepts/yandexgpt/index.md) для генерации текста.
+Интеграция с [{{ foundation-models-full-name }}](../../../../../foundation-models/). На данный момент поддерживается только интеграция с [{{ yagpt-full-name }}](../../../../../foundation-models/concepts/generation/index.md) для генерации текста.
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
@@ -20,7 +20,7 @@ description: В статье описаны поля для интеграцио
 --- | --- | --- | --- | --- | ---
 `temperature` | `double` | Нет | `0` | Нет | Чем выше температура, тем более креативными и случайными будут ответы модели. Принимает значения от 0 (включительно) до 1 (включительно). 
 `maxTokens` | `int64` | Да | Нет | Нет | Максимальное число токенов генерации. Позволит ограничить ответ модели, если это необходимо.
-`json` | `string` | Нет | `""` | Да | Контекст для модели в виде JSON-строки. Подробнее см. описание поля `messages` в [документации {{ foundation-models-name }}](../../../../../foundation-models/operations/yandexgpt/create-prompt.md#request).
+`json` | `string` | Нет | `""` | Да | Контекст для модели в виде JSON-строки. Подробнее см. описание поля `messages` в [документации {{ foundation-models-name }}](../../../../../foundation-models/operations/generation/create-prompt.md#request).
 `messages` | [FoundationModelsCallGenerateMessage](#FoundationModelsCallGenerateMessage)[] | Нет | `""` | Нет | Контекст для модели в виде явного перечисления входных сообщений.
 
 ## Объект FoundationModelsCallGenerateMessage {#FoundationModelsCallGenerateMessage}

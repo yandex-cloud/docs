@@ -1,1 +1,1 @@
-Роль `ai.models.auditor` позволяет просматривать метаданные [моделей генерации текста](../../../foundation-models/concepts/yandexgpt/models.md) Yandex Foundation Models.
+Роль `ai.models.auditor` позволяет просматривать метаданные [моделей генерации текста](../../../foundation-models/concepts/generation/models.md) Yandex Foundation Models.

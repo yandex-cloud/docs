@@ -54,3 +54,7 @@ If you work with {{ objstorage-name }} via an [Amazon S3-compatible API](../s3/i
 * [{#T}](../tutorials/hystax-backup.md)
 * [{#T}](../tutorials/clickhouse-hybrid-storage.md)
 
+
+#### See also {#see-also}
+
+* [{{ objstorage-full-name }}: How to select a storage class](https://yandex.cloud/ru/blog/object-storage-class)

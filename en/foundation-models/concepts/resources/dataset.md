@@ -49,7 +49,7 @@ When fine-tuning models, use the same instruction for each tuning example and us
 
 {% endnote %}
 
-The training dataset must include at least ten prompts and reference responses. The maximum prompt length is 8,000 [tokens](../yandexgpt/tokens.md); the maximum reference response length is 2,000 tokens. The maximum length of a prompt and response must not exceed 8,000 tokens.
+The training dataset must include at least ten prompts and reference responses. The maximum prompt length is 8,000 [tokens](../generation/tokens.md); the maximum reference response length is 2,000 tokens. The maximum length of a prompt and response must not exceed 8,000 tokens.
 
 Example of the contents of a text generation model tuning dataset:
 
@@ -67,7 +67,7 @@ The following limits apply when tuning a classifier model based on {{ yagpt-name
 | Number of classes | 1 | 100 |
 | Number of same class examples per dataset| 1 | — |
 | Class name length, in characters | — | 100 |
-| Number of [tokens](../yandexgpt/tokens.md) in the text of the request to classify | — | 8,000 |
+| Number of [tokens](../generation/tokens.md) in the text of the request to classify | — | 8,000 |
 
 We recommend tuning models on datasets containing at least 1,000 examples and at least 100 examples for each class.
 
@@ -134,7 +134,7 @@ Embedding tuning datasets may contain pairs of semantically related texts or tri
 
 ## Vision language datasets {#vlm-datasets}
 
-You need vision language datasets when working with [multimodal models](../multimodal/index.md) in batch mode. {{ foundation-models-name }} supports two types of datasets.
+You need vision language datasets when working with multimodal models in batch mode. {{ foundation-models-name }} supports two types of datasets.
 
 ### Request datasets {#vlm-requests}
 

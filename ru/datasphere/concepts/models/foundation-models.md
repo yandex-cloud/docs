@@ -4,9 +4,9 @@
 
 Сейчас в {{ ml-platform-name }} доступны следующие фундаментальные модели:
 
-* [Базовая модель {{ gpt-pro }}](../../../foundation-models/concepts/yandexgpt/index.md).
+* [Базовая модель {{ gpt-pro }}](../../../foundation-models/concepts/generation/index.md).
 * [Классификаторы на базе {{ yagpt-name }}](../../../foundation-models/concepts/classifier/index.md).
-* [Генеративная модель {{ yandexart-name }}](../../../foundation-models/concepts/yandexart/index.md).
+* [Генеративная модель {{ yandexart-name }}](../../../foundation-models/concepts/generation/index.md).
 * Модели с открытым исходным кодом:
   * Большая языковая модель [Mistral](https://mistral.ai/).
   * [Saiga/Mistral](https://huggingface.co/IlyaGusev/saiga_mistral_7b_lora) — дообученная русскоязычная версия Mistral.

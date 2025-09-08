@@ -73,7 +73,7 @@ To use the examples:
 
           Where:
           * `folder_id`: [ID](../../../resource-manager/operations/folder/get-id.md) of the folder for which your account has the [roles](../../../iam/concepts/access-control/roles.md) [`ai.assistants.editor`](../../security/index.md#ai-assistants-editor) and [`{{ roles-yagpt-user }}`](../../security/index.md#languageModels-user) or higher.
-          * `model_uri`: [URI](../../concepts/yandexgpt/models.md#generation) of the text generation model.
+          * `model_uri`: [URI](../../concepts/generation/models.md#generation) of the text generation model.
           * `instruction`: Basic instruction that the AI assistant will use to run user queries.
           * `tools`: Settings for the [tool](../../concepts/assistant/tools/index.md) the assistant will use:
 

@@ -4,9 +4,9 @@
 
 The following foundation models are currently available in {{ ml-platform-name }}:
 
-* [{{ gpt-pro }} basic model](../../../foundation-models/concepts/yandexgpt/index.md).
+* [{{ gpt-pro }} basic model](../../../foundation-models/concepts/generation/index.md).
 * [Classifiers based on {{ yagpt-name }}](../../../foundation-models/concepts/classifier/index.md).
-* [{{ yandexart-name }} generative model](../../../foundation-models/concepts/yandexart/index.md).
+* [{{ yandexart-name }} generative model](../../../foundation-models/concepts/generation/index.md).
 * Open source code models:
   * Large [Mistral](https://mistral.ai/) language model.
   * [Saiga/Mistral](https://huggingface.co/IlyaGusev/saiga_mistral_7b_lora): Fine-tuned Russian version of Mistral.
