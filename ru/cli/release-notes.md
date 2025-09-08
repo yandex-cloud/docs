@@ -7,6 +7,20 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.163.0 (08.09.25) {#version0.163.0}
+
+####  Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ compute-name }}
+
+* Исправлена подсказка параметра `--order` команды `yc compute maintenance list`: поле `planned_at` заменено на `start_scheduled_at`.
+
+##### {{ mes-name }}
+
+* Удалена поддержка `managed-elasticsearch`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.162.0 (04.09.25) {#version0.162.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -39,8 +53,6 @@ description: На странице представлены релизы CLI, а
 ##### {{ objstorage-name }}
 
 Максимальное время жизни подписанной ссылки увеличено до 30 дней в команде `yc storage s3 presign`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.161.0 (28.08.25) {#version0.161.0}
 

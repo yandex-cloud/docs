@@ -296,7 +296,7 @@ To use the examples:
           ```
 
           Where:
-          * `modelUri`: [URI](../../concepts/yandexgpt/models.md#generation) of the text generation model.
+          * `modelUri`: [URI](../../concepts/generation/models.md#generation) of the text generation model.
           * `searchIndexIds`: Search index ID you got at the previous step.
       1. Send a request to create an AI assistant by specifying the path to the new `assistant.json` request body file:
 

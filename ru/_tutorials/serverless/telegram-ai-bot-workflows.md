@@ -1,7 +1,7 @@
 # Как создать бота в Telegram с поддержкой AI-агента с помощью {{ sw-full-name }}
 
 
-С помощью serverless-технологий можно создать [бота](../../glossary/chat-bot.md) для Telegram с поддержкой [модели генерации текста](../../foundation-models/concepts/yandexgpt/models.md) на базе сервиса [{{ foundation-models-full-name }}](../../foundation-models/).
+С помощью serverless-технологий можно создать [бота](../../glossary/chat-bot.md) для Telegram с поддержкой [модели генерации текста](../../foundation-models/concepts/generation/models.md) на базе сервиса [{{ foundation-models-full-name }}](../../foundation-models/).
 
 В этом руководстве вы создадите бота для подбора фильмов на основании предпочтений пользователя. Для этого вы организуете хранение данных в [{{ objstorage-full-name }}](../../storage/) и [{{ lockbox-full-name }}](../../lockbox/), настроите логику бота в [{{ sw-full-name }}](../../serverless-integrations/) и вебхук с помощью [{{ api-gw-full-name }}](../../api-gateway/).
 
@@ -445,7 +445,7 @@ steps:
 * `<имя_бакета>` — имя бакета, [созданного ранее](#create-bucket).
 * `<идентификатор_секрета>` — идентификатор секрета, [созданного ранее](#create-secret).
 
-В примере используется текстовая модель {{ gpt-pro }} (`name: yandexgpt`). Вы можете использовать [другую модель](../../foundation-models/concepts/yandexgpt/models.md#generation), доступную в синхронном режиме в сервисе {{ foundation-models-name }}.
+В примере используется текстовая модель {{ gpt-pro }} (`name: yandexgpt`). Вы можете использовать [другую модель](../../foundation-models/concepts/generation/models.md#generation), доступную в синхронном режиме в сервисе {{ foundation-models-name }}.
 
 
 ### Создайте рабочий процесс {#create-workflow}

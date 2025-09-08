@@ -842,7 +842,7 @@ If you specified a name for the Ingress resource group settings in the `ingress.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid paying for them, delete the resources you no longer need:
 
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. [Delete the {{ alb-name }} target groups](../../application-load-balancer/operations/target-group-delete.md).

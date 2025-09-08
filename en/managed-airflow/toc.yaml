@@ -17,6 +17,8 @@ items:
             href: operations/cluster-update.md
           - name: Stopping and starting a cluster
             href: operations/cluster-stop.md
+          - name: Maintenance
+            href: operations/cluster-maintenance.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Connections
@@ -29,7 +31,7 @@ items:
             href: operations/postgres-operator.md
       - name: Storing artifacts in {{ lockbox-full-name }}
         items:
-          - name: Uploading a variable from {{ lockbox-name }}
+          - name: Loading a variable from {{ lockbox-name }}
             href: operations/load-variable-from-lockbox.md
           - name: Storing {{ AF }} connections in {{ lockbox-full-name }}
             href: operations/lockbox-secrets-in-maf-cluster.md
@@ -85,6 +87,8 @@ items:
         href: concepts/limits.md
       - name: Impersonation
         href: concepts/impersonation.md
+      - name: Maintenance
+        href: concepts/maintenance.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

@@ -18,19 +18,17 @@ items:
       - name: Text generation
         items:
           - name: Estimating prompt size in tokens
-            href: operations/yandexgpt/evaluate-request.md
+            href: operations/generation/evaluate-request.md
           - name: Sending a request in prompt mode
-            href: operations/yandexgpt/create-prompt.md
+            href: operations/generation/create-prompt.md
           - name: Sending a series of requests in chat mode
-            href: operations/yandexgpt/create-chat.md
+            href: operations/generation/create-chat.md
           - name: Sending an asynchronous request
-            href: operations/yandexgpt/async-request.md
+            href: operations/generation/async-request.md
           - name: Calling a function from a model
-            href: operations/yandexgpt/function-call.md
+            href: operations/generation/function-call.md
       - name: Image generation
-        items:
-          - name: Generating an image
-            href: operations/yandexart/request.md
+        href: operations/generation/yandexart-request.md
       - name: Batch processing
         href: operations/batch/create.md
       - name: Classification
@@ -59,7 +57,7 @@ items:
             href: operations/tuning/tune-classifiers.md
           - name: Tuning an embedding model
             href: operations/tuning/create-embeddings.md
-      - name: '{{ assistant-api }}'
+      - name: AI assistants
         items:
           - name: Creating a simple assistant
             href: operations/assistant/create.md
@@ -77,58 +75,223 @@ items:
     items:
       - name: About {{ foundation-models-full-name }}
         href: concepts/index.md
-      - name: Text generation
+      - name: AI models
         items:
           - name: Overview
-            href: concepts/yandexgpt/index.md
-          - name: Models
-            href: concepts/yandexgpt/models.md
-          - name: Tokens
-            href: concepts/yandexgpt/tokens.md
+            href: concepts/generation/index.md
+          - name: Available models
+            href: concepts/generation/models.md
           - name: Function calling
-            href: concepts/yandexgpt/function-call.md
+            href: concepts/generation/function-call.md
           - name: Reasoning mode
-            href: concepts/yandexgpt/chain-of-thought.md
-      - name: Image generation
-        items:
-          - name: '{{ yandexart-name }} overview'
-            href: concepts/yandexart/index.md
-          - name: Models
-            href: concepts/yandexart/models.md
-      - name: Multimodal models
-        href: concepts/multimodal/index.md
-      - name: Classification
-        items:
-          - name: Overview
-            href: concepts/classifier/index.md
-          - name: Models
-            href: concepts/classifier/models.md
-      - name: Embeddings
-        href: concepts/embeddings.md
-      - name: Datasets
-        href: concepts/resources/dataset.md
-      - name: Fine-tuning
-        href: concepts/tuning/index.md
+            href: concepts/generation/chain-of-thought.md
+          - name: Formatting of model responses
+            href: concepts/generation/structured-output.md
+          - name: Classification
+            items:
+              - name: Supported classification
+                href: concepts/classifier/index.md
+              - name: Available classification models
+                href: concepts/classifier/models.md
+          - name: Embeddings
+            href: concepts/embeddings.md
+          - name: Datasets
+            href: concepts/resources/dataset.md
+          - name: Fine-tuning
+            href: concepts/tuning/index.md
+          - name: Tokens
+            href: concepts/generation/tokens.md
+          - name: Units
+            hidden: true
       - name: '{{ assistant-api }}'
         items:
           - name: Overview
             href: concepts/assistant/index.md
-          - name: Source files
-            href: concepts/assistant/files.md
-          - name: Search indexes
-            href: concepts/assistant/search-index.md
           - name: Tools
             items:
               - name: Overview
                 href: concepts/assistant/tools/index.md
-              - name: VectorStore
+              - name: Retrieval
                 href: concepts/assistant/tools/vector-store.md
               - name: WebSearch
                 href: concepts/assistant/tools/web-search.md
-          - name: Rephrasing queries
-            href: concepts/assistant/rephraser.md
+              - name: Rephrasing queries
+                href: concepts/assistant/rephraser.md
+      - name: AI search
+        items:
+          - name: Source files
+            href: concepts/assistant/files.md
+          - name: Search indexes
+            href: concepts/assistant/search-index.md
       - name: Quotas and limits
         href: concepts/limits.md
+  - name: Compatibility with {{ openai }}
+    href: concepts/openai-compatibility.md
+  - name: '{{ ml-sdk-full-name }}'
+    items:
+      - name: '{{ ml-sdk-full-name }} overview'
+        href: sdk/index.md
+      - name: SDK reference
+        items:
+          - name: Overview
+            href: sdk-ref/index
+          - name: SDK
+            items:
+              - name: Overview
+                href: sdk-ref/sync/sdk
+              - name: Models domain
+                href: sdk-ref/sync/models/domain
+              - name: Assistants domain
+                href: sdk-ref/sync/assistants
+              - name: Tools domain
+                href: sdk-ref/sync/tools
+              - name: Files domain
+                href: sdk-ref/sync/files
+              - name: Threads domain
+                href: sdk-ref/sync/threads
+              - name: Runs domain
+                href: sdk-ref/sync/runs
+              - name: Search indexes domain
+                href: sdk-ref/sync/search_indexes
+              - name: Search API domain
+                href: sdk-ref/sync/search_api
+              - name: Datasets domain
+                href: sdk-ref/sync/datasets
+              - name: Tuning domain
+                href: sdk-ref/sync/tuning
+              - name: Batch domain
+                href: sdk-ref/sync/batch
+              - name: Chat domain
+                href: sdk-ref/sync/chat/domain
+          - name: Async SDK
+            items:
+              - name: Overview
+                href: sdk-ref/async/sdk
+              - name: Models domain
+                href: sdk-ref/async/models/domain
+              - name: Assistants domain
+                href: sdk-ref/async/assistants
+              - name: Tools domain
+                href: sdk-ref/async/tools
+              - name: Files domain
+                href: sdk-ref/async/files
+              - name: Threads domain
+                href: sdk-ref/async/threads
+              - name: Runs domain
+                href: sdk-ref/async/runs
+              - name: Search indexes domain
+                href: sdk-ref/async/search_indexes
+              - name: Search API domain
+                href: sdk-ref/async/search_api
+              - name: Datasets domain
+                href: sdk-ref/async/datasets
+              - name: Tuning domain
+                href: sdk-ref/async/tuning
+              - name: Batch domain
+                href: sdk-ref/async/batch
+              - name: Chat domain
+                href: sdk-ref/async/chat/domain
+          - name: Authentication
+            href: sdk-ref/auth
+          - name: Types
+            items:
+              - name: Overview
+                href: sdk-ref/types/index
+              - name: Assistant types
+                href: sdk-ref/types/assistants
+              - name: Tools
+                href: sdk-ref/types/tools
+              - name: Operation
+                href: sdk-ref/types/operation
+              - name: Tuning
+                href: sdk-ref/types/tuning
+              - name: Result types for models
+                href: sdk-ref/types/model_results
+              - name: Datasets
+                href: sdk-ref/types/datasets
+              - name: Search API
+                href: sdk-ref/types/search_api
+              - name: Messages
+                href: sdk-ref/types/message
+              - name: Run types
+                href: sdk-ref/types/runs
+              - name: Search index types
+                href: sdk-ref/types/search_indexes
+              - name: Other types
+                href: sdk-ref/types/other
+              - name: Batch
+                href: sdk-ref/types/batch
+          - name: Request retries
+            href: sdk-ref/retry
+          - name: Base classes
+            href: sdk-ref/internals/bases
+            hidden: true
+          - name: Other types
+            href: sdk-ref/types/other
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/text_embeddings
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/text_classifiers
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/models/image_generation
+            hidden: true
+          - name: Assistant types
+            href: sdk-ref/types/assistants
+            hidden: true
+          - name: Tools
+            href: sdk-ref/types/tools
+            hidden: true
+          - name: Messages
+            href: sdk-ref/types/message
+            hidden: true
+          - name: Run types
+            href: sdk-ref/types/runs
+            hidden: true
+          - name: Search index types
+            href: sdk-ref/types/search_indexes
+            hidden: true
+          - name: Operation
+            href: sdk-ref/types/operation
+            hidden: true
+          - name: Search API
+            href: sdk-ref/types/search_api
+            hidden: true
+          - name: Datasets
+            href: sdk-ref/types/datasets
+            hidden: true
+          - name: Tuning
+            href: sdk-ref/types/tuning
+            hidden: true
+          - name: Batch
+            href: sdk-ref/types/batch
+            hidden: true
+          - name: Domain
+            href: sdk-ref/sync/chat/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/completions
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/text_embeddings
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/text_classifiers
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/models/image_generation
+            hidden: true
+          - name: Domain
+            href: sdk-ref/async/chat/completions
+            hidden: true
+          - name: Result types for models
+            href: sdk-ref/types/model_results
+            hidden: true
   - name: API references
     items:
       - name: Overview
@@ -725,10 +888,6 @@ items:
                     href: tuning/api-ref/grpc/Tuning/archive.md
                   - name: EnableBilling
                     href: tuning/api-ref/grpc/Tuning/enableBilling.md
-  - name: '{{ ml-sdk-full-name }}'
-    href: sdk/index.md
-  - name: Compatibility with {{ openai }}
-    href: concepts/openai-compatibility.md
   - name: Tutorials
     items:
       - name: >-

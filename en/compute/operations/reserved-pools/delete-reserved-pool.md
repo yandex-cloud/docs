@@ -19,13 +19,13 @@ To delete a [reserved instance pool](../../concepts/reserved-pools.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the [{{ yandex-cloud }} CLI](../../../cli/index.yaml) command for deleting a reserved instance pool:
+  1. View the description of the [{{ yandex-cloud }} CLI](../../../cli/index.yaml) command for deleting a reserved instance pool:
 
       ```bash
       yc compute reserved-instance-pool delete --help
       ```
   1. {% include [list-reserved-pools-cli](../../../_includes/compute/list-reserved-pools-cli.md) %}
-  1. Delete a reserved instance pool in the default folder by specifying the pool name or ID:
+  1. Delete the reserved instance pool in the default folder by specifying its name or ID:
 
       ```bash
       yc compute reserved-instance-pool delete <pool_name_or_ID>
@@ -48,7 +48,7 @@ To delete a [reserved instance pool](../../concepts/reserved-pools.md):
 
 {% note info %}
 
-When you delete a reserved instance pool, all its VMs will be detached and the running VMs will continue to operate.
+When you delete a reserved instance pool, all VMs attached to it will be detached, and the running ones will continue to operate.
 
 {% endnote %}
 

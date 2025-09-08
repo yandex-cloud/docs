@@ -4,7 +4,7 @@
         * `ROLE_USER`: Means the message is sent by the user, and the `content` field contains the user's query.
         * `ROLE_ASSISTANT`: Means the message is sent by the model, and the `content` field contains the model's response.
 
-    For more information about the {{ yagpt-name }} chat mode, see [{#T}](../../foundation-models/operations/yandexgpt/create-chat.md).
+    For more information about the {{ yagpt-name }} chat mode, see [{#T}](../../foundation-models/operations/generation/create-chat.md).
 * Set the search scope in the `site`, `host`, and `url` fields. Note that the `site`, `host`, and `url` fields are mutually exclusive; you can only set one of them. If neither of these fields is set, the search will be performed across the entire Yandex search index.
 
     * `site`: Restricts the search to a specific array of websites.

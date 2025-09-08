@@ -11,7 +11,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
   1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
 
-      1. Enter a name for the bucket consistent with the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter the bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
 
           
           By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
@@ -192,7 +192,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  {{ TF }} will create all required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+  {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 
   **Creating a bucket using a static key**
@@ -298,7 +298,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  {{ TF }} will create all required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+  {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

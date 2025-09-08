@@ -1,6 +1,6 @@
 ---
 title: Creating an {{ AF }} cluster
-description: Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of which can be represented in multiple instances. The instances may reside in different availability zones.
+description: Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of which may have multiple instances. These instances may reside in different availability zones.
 keywords:
   - creating an {{ AF }} cluster
   - '{{ AF }} cluster'
@@ -10,17 +10,17 @@ keywords:
 
 # Creating an {{ AF }} cluster
 
-Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of which can be represented in multiple instances. The instances may reside in different availability zones.
+Every {{ maf-name }} cluster consists of a set of {{ AF }} components, each of which may have multiple instances. These instances may reside in different availability zones.
 
 ## Roles for creating a cluster {#roles}
 
 To create a {{ maf-name }} cluster, your {{ yandex-cloud }} account needs the following roles:
 
-* [{{ roles.maf.editor }}](../security/index.md#managed-airflow-editor): To create a cluster.
-* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): To use the cluster [network](../../vpc/concepts/network.md#network).
-* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To link a service account to a cluster.
+* [{{ roles.maf.editor }}](../security/index.md#managed-airflow-editor) to create a cluster.
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) to use the cluster [network](../../vpc/concepts/network.md#network).
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) to attach a service account to a cluster.
 
-Make sure to assign the `managed-airflow.integrationProvider` role to the cluster's service account. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
+Make sure to grant the `managed-airflow.integrationProvider` role to the cluster service account. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
 For more information about assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
 
@@ -54,17 +54,17 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
            {% note info %}
 
-           Save the password locally or memorize it. The service does not show passwords after the registry is created.
+           Save the password locally or memorize it. {{ maf-name }} does not show passwords after they are created.
 
            {% endnote %}
 
         * Select an existing service account or create a new one.
 
-           Make sure to assign the `{{ roles.maf.integrationProvider }}` [role](../../iam/concepts/access-control/roles.md) to the service account:
+           Make sure to assign the `{{ roles.maf.integrationProvider }}` [role](../../iam/concepts/access-control/roles.md) to this service account:
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select:
 
-      * [Availability zones](../../overview/concepts/geo-scope) for the cluster.
+      * [Availability zones](../../overview/concepts/geo-scope.md) for the cluster.
       * Cloud network.
       * Subnet in each of the selected availability zones.
 
@@ -74,7 +74,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-  1. Set the number of instances and a [computing resource](../concepts/index.md#presets) configuration for the {{ maf-name }} [components](../concepts/index.md#components):
+  1. Set the number of instances and a [computing resource configuration](../concepts/index.md#presets) for the {{ maf-name }} [components](../concepts/index.md#components):
 
       * Web server
       * Scheduler
@@ -82,17 +82,17 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% note info %}
 
-        If the issue queue is empty, the number of workers will be the minimum value. When issues appear, the number of workers will increase up to the maximum value.
+        If the task queue is empty, the number of workers will be the minimum value. When tasks appear, the number of workers will increase up to the maximum value.
 
         {% endnote %}
 
       * (Optional) Triggerer services
 
-  1. (Optional) Under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, specify pip and deb package names to install additional libraries and applications in the cluster to run DAG files.
+  1. Optionally, under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, specify pip and deb package names to install additional libraries and applications in the cluster to run DAG files.
 
       To specify multiples packages, click **{{ ui-key.yacloud.common.add }}**.
 
-      If required, you can set version restrictions for the installed packages, for example:
+      You can set version restrictions for the installed packages, e.g.:
 
       ```text
       pandas==2.0.2
@@ -104,7 +104,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
       {% note warning %}
 
-      To install pip and deb packages from public repositories, specify a network with configured [egress NAT under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**](../../vpc/operations/create-nat-gateway.md).
+      To install pip and deb packages from public repositories, specify a network with configured [egress NAT](../../vpc/operations/create-nat-gateway.md) under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**.
 
       {% endnote %}
 
@@ -112,7 +112,13 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
       Make sure to [grant the `READ` permission](../../storage/operations/buckets/edit-acl.md) for this bucket to the cluster service account.
 
-  1. (Optional) Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable cluster deletion protection.
+  1. Optionally, under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+      
+      * Select cluster [maintenance](../concepts/maintenance.md) time:
+
+        {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+
+      * Enable cluster deletion protection.
 
   1. Optionally, under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**:
   
@@ -124,7 +130,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [sa-roles-for-lockbox](../../_includes/managed-airflow/sa-roles-for-lockbox.md) %}
 
-  1. (Optional) Under **Log settings**, enable logging. Logs generated by {{ AF }} components will be sent to {{ cloud-logging-full-name }}. Set logging parameters:
+  1. Optionally, under **Log settings**, enable logging. Logs generated by {{ AF }} components will be sent to {{ cloud-logging-full-name }}. Configure logging:
 
       * In the **Destination** field, specify the logging destination:
           * **Folder**: Select the folder. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
@@ -148,14 +154,14 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         {{ yc-mdb-af }} cluster create --help
         ```
 
-    1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
+    1. Specify cluster parameters in that command (our example does not use all available parameters):
 
         ```bash
         {{ yc-mdb-af }} cluster create \
            --name <cluster_name> \
            --description <cluster_description> \
            --labels <label_list> \
-           --admin-password <administrator_password> \
+           --admin-password <admin_password> \
            --service-account-id <service_account_ID> \
            --subnet-ids <subnet_IDs> \
            --security-group-ids <security_group_IDs> \
@@ -171,7 +177,10 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
            --deb-packages <list_of_deb_packages> \
            --pip-packages <list_of_pip_packages> \
            --dags-bucket <bucket_name> \
-           --deletion-protection \
+           --maintenance-window type=<maintenance_type>,`
+                                `day=<day_of_week>,`
+                                `hour=<hour> \
+           --deletion-protection \                   
            --lockbox-secrets-backend \
            --airflow-config <list_of_properties> \
            --log-enabled \
@@ -181,7 +190,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters.md) %}
 
-        * `--subnet-ids`: Subnet IDs list.
+        * `--subnet-ids`: List of subnet IDs.
 
             {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
 
@@ -206,7 +215,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters.md) %}
 
-        * `subnet_ids`: Subnet IDs list.
+        * `subnet_ids`: List of subnet IDs.
 
             {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
 
@@ -220,17 +229,17 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
 
     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-maf }}).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Create a file named `body.json` and add the following contents to it:
+    1. Create a file named `body.json` and paste the following code into it:
 
         ```json
         {
@@ -273,7 +282,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
               "debPackages": [ <list_of_deb_packages> ]
             },
             "lockbox": {
-              "enabled": <use_of_logging>
+              "enabled": <usage_of_secrets>
             }
           },
           "network": {
@@ -285,6 +294,12 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
               "bucket": "<bucket_name>"
             }
           },
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<day_of_week>",
+              "hour": "<hour>"
+            }
+          },
           "deletionProtection": <deletion_protection>,
           "serviceAccountId": "<service_account_ID>",
           "logging": {
@@ -292,20 +307,20 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             "minLevel": "<logging_level>",
             "folderId": "<folder_ID>"
           },
-          "adminPassword": "<administrator_password>"
+          "adminPassword": "<admin_password>"
         }
         ```
 
         Where:
 
-        * `folderId`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `description`: Cluster description.
-        * `labels`: List of labels. Provide labels in `"<key>": "<value>"` format.
+        * `labels`: List of labels provided in `"<key>": "<value>"` format.
         * `config`: Cluster configuration:
 
             * `versionId`: {{ AF }} version.
-            * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Provide them in `"<configuration_section>.<key>": "<value>"` format, for example:
+            * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) provided in `"<configuration_section>.<key>": "<value>"` format, e.g.:
 
                 ```json
                 "airflow": {
@@ -335,7 +350,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                 * `pipPackages`: List of pip packages.
                 * `debPackages`: List of deb packages.
 
-                If required, you can set version restrictions for the installed packages, for example:
+                You can set version restrictions for the installed packages, e.g.:
 
                 ```bash
                 "dependencies": {
@@ -353,13 +368,16 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         * `network`: Network settings:
 
-            * `subnetIds`: Subnet IDs list.
+            * `subnetIds`: List of subnet IDs.
 
                 {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
 
             * `securityGroupIds`: List of [security group](../concepts/network.md#security-groups) IDs.
 
         * `codeSync.s3.bucket`: Name of the bucket to store DAG files in.
+
+        * {% include [maintenance](../../_includes/mdb/maf/maintenance-window-rest.md) %}
+
         * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
             Even if it is enabled, one can still connect to the cluster manually and delete it.
@@ -369,7 +387,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         * `logging`: Logging parameters:
 
             * `enabled`: Enables logging. Logs generated by {{ AF }} components will be sent to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
-            * `minLevel`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`.
+            * `minLevel`: Minimum logging level. The possible values are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`.
             * `folderId`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
             * `logGroupId`: Custom log group ID. Logs will be written to this group.
 
@@ -384,7 +402,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             {% note info %}
 
-            Save the password locally or memorize it. The service does not show passwords after the registry is created.
+            Save the password locally or memorize it. {{ maf-name }} does not show passwords after they are created.
 
             {% endnote %}
 
@@ -394,21 +412,21 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters'
+            --url 'https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters' \
             --data '@body.json'
         ```
 
-    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Create a file named `body.json` and add the following contents to it:
+    1. Create a file named `body.json` and paste the following code into it:
 
         ```json
         {
@@ -451,7 +469,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
               "deb_packages": [ <list_of_deb_packages> ]
             },
             "lockbox": {
-              "enabled": <use_of_logging>
+              "enabled": <usage_of_secrets>
             }
           },
           "network": {
@@ -463,6 +481,12 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
               "bucket": "<bucket_name>"
             }
           },
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<day_of_week>",
+              "hour": "<hour>"
+            }
+          },
           "deletion_protection": <deletion_protection>,
           "service_account_id": "<service_account_ID>",
           "logging": {
@@ -470,20 +494,20 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             "min_level": "<logging_level>",
             "folder_id": "<folder_ID>"
           },
-          "admin_password": "<administrator_password>"
+          "admin_password": "<admin_password>"
         }
         ```
 
         Where:
 
-        * `folder_id`: Folder ID. You can request it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        * `folder_id`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
         * `name`: Cluster name.
         * `description`: Cluster description.
-        * `labels`: List of labels. Provide labels in `"<key>": "<value>"` format.
+        * `labels`: List of labels provided in `"<key>": "<value>"` format.
         * `config`: Cluster configuration:
 
             * `version_id`: {{ AF }} version.
-            * `airflow.config`: [{{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) additional properties. Provide them in `"<configuration_section>.<key>": "<value>"` format, for example:
+            * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) provided in `"<configuration_section>.<key>": "<value>"` format, e.g.:
 
                 ```json
                 "airflow": {
@@ -513,7 +537,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
                 * `pip_packages`: List of pip packages.
                 * `deb_packages`: List of deb packages.
 
-                If required, you can set version restrictions for the installed packages, for example:
+                You can set version restrictions for the installed packages, e.g.:
 
                 ```bash
                 "dependencies": {
@@ -531,13 +555,16 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
         * `network`: Network settings:
 
-            * `subnet_ids`: Subnet IDs list.
+            * `subnet_ids`: List of subnet IDs.
 
                 {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
 
             * `security_group_ids`: List of [security group](../concepts/network.md#security-groups) IDs.
 
         * `code_sync.s3.bucket`: Name of the bucket to store DAG files in.
+
+        * {% include [maintenance](../../_includes/mdb/maf/maintenance-window-grpc.md) %}
+
         * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
             Even if it is enabled, one can still connect to the cluster manually and delete it.
@@ -547,7 +574,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
         * `logging`: Logging parameters:
 
             * `enabled`: Enables logging. Logs generated by {{ AF }} components will be sent to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
-            * `min_level`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`.
+            * `min_level`: Minimum logging level. The possible values are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`.
             * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
             * `log_group_id`: Custom log group ID. Logs will be written to this group.
 
@@ -562,7 +589,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             {% note info %}
 
-            Save the password locally or memorize it. The service does not show passwords after the registry is created.
+            Save the password locally or memorize it. {{ maf-name }} does not show passwords after they are created.
 
             {% endnote %}
 
@@ -581,6 +608,6 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

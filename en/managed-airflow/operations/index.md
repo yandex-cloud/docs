@@ -11,6 +11,7 @@ description: In this article, you will learn how to work with {{ maf-full-name }
 * [Creating a cluster](cluster-create.md)
 * [Updating a cluster](cluster-update.md)
 * [Stopping and starting a cluster](cluster-stop.md)
+* [Cluster maintenance](cluster-maintenance.md)
 * [Deleting a cluster](cluster-delete.md)
 
 ## Connections {#connections}

@@ -19,7 +19,7 @@ In {{ search-api-name }}, you can run queries in synchronous and deferred (async
 
 With the API v2 interface, you can use text queries to [search](../operations/search-images.md) for images. [Image search](image-search.md) is only available in synchronous mode.
 
-You can also use API v2 for text search in combination with [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/index.md) generative features. This gets you a single concise and coherent [generative response](./generative-response.md) to produce which the neural network analyzes the relevant results of the {{ search-api-name }}'s text search across websites.
+You can also use API v2 for text search in combination with [{{ yagpt-name }}](../../foundation-models/concepts/generation/index.md) generative features. This gets you a single concise and coherent [generative response](./generative-response.md) to produce which the neural network analyzes the relevant results of the {{ search-api-name }}'s text search across websites.
 
 With API v2, you set the search type directly in the [body](./web-search.md#parameters) of each query. You need a {{ yandex-cloud }} [user](../../iam/concepts/users/accounts.md) or [service](../../iam/concepts/users/service-accounts.md) account and [authentication data](../api-ref/authentication.md) to send queries. You do not need to specify trusted IP addresses when using API v2.
 

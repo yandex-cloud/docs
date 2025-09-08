@@ -1,1 +1,1 @@
-_The reserved instance pool functionality is currently at the [Preview](../../overview/concepts/launch-stages.md) stage._
+_The reserved instance pool feature is at the [Preview stage](../../overview/concepts/launch-stages.md)._

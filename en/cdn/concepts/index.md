@@ -42,3 +42,7 @@
 | [Quotas and limits](./limits.md) | Service use restrictions. |
 
 See also the {{ yandex-cloud }} [general resource hierarchy](../../resource-manager/concepts/resources-hierarchy.md).
+
+#### See also {#see-also}
+
+* [Yandex SWS and CDN: Website protection and acceleration for businesses of any size](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)

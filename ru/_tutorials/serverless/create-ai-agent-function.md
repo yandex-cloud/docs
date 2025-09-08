@@ -1,8 +1,8 @@
 
 
-Узнайте, как с помощью [функции](../../functions/concepts/function.md) {{ sf-name }} с использованием [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) создать [AI-агента](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — персонализированного помощника, реализующего сценарий генеративного ответа на основе [моделей генерации текста](../../foundation-models/concepts/yandexgpt/models.md) {{ foundation-models-full-name }}.
+Узнайте, как с помощью [функции](../../functions/concepts/function.md) {{ sf-name }} с использованием [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) создать [AI-агента](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — персонализированного помощника, реализующего сценарий генеративного ответа на основе [моделей генерации текста](../../foundation-models/concepts/generation/models.md) {{ foundation-models-full-name }}.
 
-В данном руководстве вы создадите простого AI-агента, который через функцию {{ sf-name }} будет получать информацию о погоде, взаимодействовать с [языковой моделью](../../foundation-models/concepts/yandexgpt/models.md) {{ foundation-models-full-name }} и, чтобы было интереснее, отвечать пользователю в форме [хайку](https://ru.wikipedia.org/wiki/Хайку).
+В данном руководстве вы создадите простого AI-агента, который через функцию {{ sf-name }} будет получать информацию о погоде, взаимодействовать с [языковой моделью](../../foundation-models/concepts/generation/models.md) {{ foundation-models-full-name }} и, чтобы было интереснее, отвечать пользователю в форме [хайку](https://ru.wikipedia.org/wiki/Хайку).
 
 ![create-ai-agent-function](../../_assets/tutorials/create-ai-agent-function.svg)
 
@@ -428,7 +428,7 @@ AI-агент — это программный помощник на базе �
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
          * **{{ ui-key.yacloud.forms.label_service-account-select }}** — выберите сервисный аккаунт `function-sa`.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-             * `MODEL_NAME` — [URI модели](../../foundation-models/concepts/yandexgpt/models.md#generation) генерации текста {{ foundation-models-full-name }}.
+             * `MODEL_NAME` — [URI модели](../../foundation-models/concepts/generation/models.md#generation) генерации текста {{ foundation-models-full-name }}.
 
                  Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`.
                 

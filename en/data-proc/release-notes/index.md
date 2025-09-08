@@ -8,7 +8,8 @@ description: This section contains {{ dataproc-name }} release notes.
 ## Q2 2025 {#q2-2025}
 
 * Added the {{ oslogin }} option to use when creating a cluster. This option enables [{{ oslogin }}](../../organization/concepts/os-login.md) access to all hosts you create in the cluster.
-* Added the option to set environment variables via cluster properties.
+
+{% include [envvars-hadoop-heapsize](../../_includes/data-processing/envvars-hadoop-heapsize.md) %}
 
 ## Q1 2025 {#q1-2025}
 
@@ -48,6 +49,6 @@ Added support for creating [{{ metastore-name }}](../../metadata-hub/concepts/me
 ## Q1 2022 {#q1-2022}
 
 * You can now create clusters using non-replicated network drives up to 8 TB in size. Non-replicated drives have a simpler architecture than network SSD storage, resulting in significantly higher performance.
-* Added support for [job cancellation](../operations/jobs-spark#cancel).
+* Added support for [job cancellation](../operations/jobs-spark.md#cancel).
 * Added the build number in [{{ dataproc-name }} image version](../concepts/environment.md).
 * Spark and PySpark jobs now accept `packages`, `repositories`, and `exclude_packages` parameters. You can use these parameters to download additional dependencies and packages from third-party repositories.

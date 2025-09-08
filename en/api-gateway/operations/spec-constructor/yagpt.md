@@ -17,7 +17,7 @@ description: Follow this guide to add the {{ foundation-models-full-name }} exte
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}**: Service account for authorization when accessing the [text generation API](../../../foundation-models/concepts/yandexgpt/index.md). If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}**: Service account for authorization when accessing the [text generation API](../../../foundation-models/concepts/generation/index.md). If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
 
     1. Under **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_title }}**, select a model and specify:
 
@@ -33,7 +33,7 @@ description: Follow this guide to add the {{ foundation-models-full-name }} exte
         * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_hint }}`:
 
             * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_temp_title }}**: Determines the variability of the model's response. Specify a value from `0` to `1`. With a higher temperature, you get a more creative and randomized response from the model. The default value is `0.3`.
-            * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_max_tokens_title }}**: Maximum number of generation [tokens](../../../foundation-models/concepts/yandexgpt/tokens.md). The default value is `5`. This allows you to limit the size of the model response, if required.
+            * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_max_tokens_title }}**: Maximum number of generation [tokens](../../../foundation-models/concepts/generation/tokens.md). The default value is `5`. This allows you to limit the size of the model response, if required.
 
         * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_classification_hint }}`:
 

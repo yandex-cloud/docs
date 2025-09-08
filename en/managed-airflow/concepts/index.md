@@ -107,3 +107,7 @@ For more information about deferrable operators, triggers, and the Triggerer ser
 
 * [{#T}](../tutorials/data-processing-automation.md)
 * [{#T}](../tutorials/airflow-auto-tasks.md)
+
+#### See also {#see-also}
+
+* [{{ AF }} in {{ yandex-cloud }}: Managed service or independent deployment](https://yandex.cloud/ru/blog/posts/2025/05/apache-airflow-in-yc)

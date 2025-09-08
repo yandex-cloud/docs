@@ -59,11 +59,11 @@ To disable request logging:
   * `IAM_TOKEN`: [IAM token](../../iam/operations/iam-token/create.md) used for authentication.
   * `@<path_to_JSON_file>`: Path to the JSON file containing a request to the model.
   * `<model_endpoint>`: Endpoint to access the model. Here is an example:
-    * `https://llm.{{ api-host }}/foundationModels/v1/completion`: For synchronous requests to [{{ yagpt-name }}](../concepts/yandexgpt/index.md).
-    * `https://llm.{{ api-host }}/foundationModels/v1/completionAsync`: For [asynchronous](./yandexgpt/async-request.md) requests to {{ yagpt-name }}.
+    * `https://llm.{{ api-host }}/foundationModels/v1/completion`: For synchronous requests to [{{ yagpt-name }}](../concepts/generation/index.md).
+    * `https://llm.{{ api-host }}/foundationModels/v1/completionAsync`: For [asynchronous](generation/async-request.md) requests to {{ yagpt-name }}.
     * `https://{{ api-host-llm }}:443/foundationModels/v1/textClassification`: For [fine-tuned](../concepts/classifier/index.md#trainable) classifiers.
     * `https://{{ api-host-llm }}/foundationModels/v1/fewShotTextClassification`: For [zero-shot](../concepts/classifier/index.md#zero-shot) and [few-shot](../concepts/classifier/index.md#few-shot) classifiers.
-    * `https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync`: For [{{ yandexart-name }}](../concepts/yandexart/index.md).
+    * `https://llm.{{ api-host }}/foundationModels/v1/imageGenerationAsync`: For [{{ yandexart-name }}](../concepts/generation/index.md).
     
     For a full list of available endpoints, see the relevant [{{ foundation-models-full-name }}](../concepts/api.md) API references.
 
@@ -89,6 +89,6 @@ To disable request logging:
   Where:
 
   * `<API_key>`: Service account [API key](../../iam/concepts/authorization/api-key.md) required for [authentication in the {{ openai }} API](../concepts/openai-compatibility.md). You can also use the [IAM token](../../iam/operations/iam-token/create.md) for authentication.
-  * `<model_URI>`: Unique ID of a model from the [list of models](../concepts/yandexgpt/models.md) available for operation in synchronous mode. Contains the [service account](../../iam/concepts/users/service-accounts.md) [folder ID](../../resource-manager/operations/folder/get-id.md).
+  * `<model_URI>`: Unique ID of a model from the [list of models](../concepts/generation/models.md) available for operation in synchronous mode. Contains the [service account](../../iam/concepts/users/service-accounts.md) [folder ID](../../resource-manager/operations/folder/get-id.md).
 
 {% endlist %}

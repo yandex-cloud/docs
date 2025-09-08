@@ -5,6 +5,12 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание алерта
 
+{% note info %}
+
+Для просмотра [алертов](../../concepts/alerting/alert.md) необходима роль `viewer` или выше на облако.
+
+{% endnote %}
+
 
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvhs7kf62l7u2rvu75?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 

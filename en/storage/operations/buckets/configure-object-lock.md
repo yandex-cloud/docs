@@ -72,7 +72,7 @@ To enable object locks:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  With that done, the specified folder will now contain object locks for your bucket. You can check that object locks are now enabled using this [CLI](../../../cli/quickstart.md) command:
+  The specified folder will now contain object locks for the bucket. You can check that object locks are now enabled using this [CLI](../../../cli/quickstart.md) command:
 
     ```bash
     yc storage bucket get <bucket_name>

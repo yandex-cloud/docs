@@ -167,7 +167,7 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-     Используйте полученный URI дообученной модели (значение поля `targetModelUri`) при [обращении](../../concepts/yandexgpt/models.md#addressing-models) к ней.
+     Используйте полученный URI дообученной модели (значение поля `targetModelUri`) при [обращении](../../concepts/generation/models.md#addressing-models) к ней.
 
   1. Метрики дообучения доступны в формате TensorBoard. Получите ссылку, чтобы загрузить файл: 
   

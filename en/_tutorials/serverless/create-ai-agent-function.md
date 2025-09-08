@@ -1,8 +1,8 @@
 
 
-Learn how to use a [function](../../functions/concepts/function.md) from {{ sf-name }} with the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to create an [AI agent](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf), i.e., a personalized assistant integrated with {{ foundation-models-full-name }} [text generation models](../../foundation-models/concepts/yandexgpt/models.md) to provide generative responses.
+Learn how to use a [function](../../functions/concepts/function.md) from {{ sf-name }} with the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to create an [AI agent](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf), i.e., a personalized assistant integrated with {{ foundation-models-full-name }} [text generation models](../../foundation-models/concepts/generation/models.md) to provide generative responses.
 
-Follow this guide to create a simple AI agent that uses a function from {{ sf-name }} to get weather information, interact with the {{ foundation-models-full-name }} [language model](../../foundation-models/concepts/yandexgpt/models.md), and, to add a touch of fun, respond to the user in [haiku](https://en.wikipedia.org/wiki/Haiku) form.
+Follow this guide to create a simple AI agent that uses a function from {{ sf-name }} to get weather information, interact with the {{ foundation-models-full-name }} [language model](../../foundation-models/concepts/generation/models.md), and, to add a touch of fun, respond to the user in [haiku](https://en.wikipedia.org/wiki/Haiku) form.
 
 ![create-ai-agent-function](../../_assets/tutorials/create-ai-agent-function.svg)
 
@@ -428,7 +428,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Select the `function-sa` service account.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-             * `MODEL_NAME`: URI of the {{ foundation-models-full-name }} text generation [model](../../foundation-models/concepts/yandexgpt/models.md#generation).
+             * `MODEL_NAME`: URI of the {{ foundation-models-full-name }} text generation [model](../../foundation-models/concepts/generation/models.md#generation).
 
                  Example: `gpt://<folder_ID>/yandexgpt/latest`.
                 

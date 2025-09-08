@@ -47,18 +47,18 @@ The main {{ gpt-pro }} languages are Russian and English. Soon, we will release 
 
 We are continuously enhancing the response quality and features of our models. Once internal metrics show the new model version is ready, we publish the updates to the RC branch for testing and notify users in our [release notes](../../foundation-models/release-notes/index.md). 
 
-Learn more about the model lifecycle [here](../../foundation-models/concepts/yandexgpt/models.md#model-lifecycle).
+Learn more about the model lifecycle [here](../../foundation-models/concepts/generation/models.md#model-lifecycle).
 
 
 ## Tokens and billing {#tokens-and-billing}
 
 #### How do I spend tokens when using the AI assistant? {#tokens-spend}
 
-Just like with generative models, you pay for both request and model response [tokens](../../foundation-models/concepts/yandexgpt/tokens.md). This also includes context from the knowledge base and chat history. You can use the `maxTokens` parameter to limit the number of tokens in the model's response.
+Just like with generative models, you pay for both request and model response [tokens](../../foundation-models/concepts/generation/tokens.md). This also includes context from the knowledge base and chat history. You can use the `maxTokens` parameter to limit the number of tokens in the model's response.
 
 #### How can I estimate the number of tokens in text files beforehand? {#pre-estimate-number-of-tokens}
 
-To estimate the text size in tokens, use a tokenizer. For more information, see [{#T}](../../foundation-models/operations/yandexgpt/evaluate-request.md).
+To estimate the text size in tokens, use a tokenizer. For more information, see [{#T}](../../foundation-models/operations/generation/evaluate-request.md).
 
 #### Do I get charged for the model's response to a request that triggered the ethics filter? {#is-triggered-response-charged}
 

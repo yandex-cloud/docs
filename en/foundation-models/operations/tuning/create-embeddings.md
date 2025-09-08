@@ -167,7 +167,7 @@ This example shows how to [fine-tune](../../concepts/tuning/index.md) an embeddi
      }
      ```
 
-     Use the fine-tuned model's URI you got (the `targetModelUri` field value) when [accessing](../../concepts/yandexgpt/models.md#addressing-models) the model.
+     Use the fine-tuned model's URI you got (the `targetModelUri` field value) when [accessing](../../concepts/generation/models.md#addressing-models) the model.
 
   1. Fine-tuning metrics are available in TensorBoard format. Get the link to download the file: 
   

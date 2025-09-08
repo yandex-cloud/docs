@@ -61,7 +61,7 @@ description: Follow this guide to process large amounts of data by running a mod
 
    	  {% include [sdk-auth-details-paragraph](../../../_includes/foundation-models/sdk-auth-details-paragraph.md) %}
         
-     * `<model_URI>`: ID of the model to run. [Text generation](../../concepts/yandexgpt/models.md#batch) and [vision language](../../concepts/multimodal/index.md) models are supported.
+     * `<model_URI>`: ID of the model to run. [Text generation](../../concepts/generation/models.md#batch) and vision language models are supported.
      * `<dataset_ID>`: ID of the dataset with requests to the model.
 
   1. Run the created file:

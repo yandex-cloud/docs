@@ -3,7 +3,7 @@
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
-In this tutorial, you will create {{ sw-full-name }} [workflows](../../serverless-integrations/concepts/workflows/workflow.md) and configure their integration with [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ foundation-models-full-name }}](../../foundation-models/concepts/yandexgpt/index.md), and [{{ postbox-full-name }}](../../postbox/index.yaml).
+In this tutorial, you will create {{ sw-full-name }} [workflows](../../serverless-integrations/concepts/workflows/workflow.md) and configure their integration with [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ foundation-models-full-name }}](../../foundation-models/concepts/generation/index.md), and [{{ postbox-full-name }}](../../postbox/index.yaml).
 
 Your workflows will receive information about the issues in a given {{ tracker-name }} [queue]({{ link-tracker-cloudless }}about-tracker#ochered) and use {{ gpt-pro }} to analyze the workcompleted within these issues, their statuses, and evaluation. The results of the analysis and a brief progress report will be saved in a comment to one of the {{ tracker-name }} issues and also sent to the specified email address via {{ postbox-name }}.
 

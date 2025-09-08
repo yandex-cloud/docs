@@ -1,6 +1,6 @@
 
 
-В этом руководстве вы воспользуетесь возможностями [моделей генерации текста](../../foundation-models/concepts/yandexgpt/models.md) {{ foundation-models-full-name }} для реализации сценария автоматического [ревью](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) предлагаемых изменений в программном коде на [GitHub](https://github.com/).
+В этом руководстве вы воспользуетесь возможностями [моделей генерации текста](../../foundation-models/concepts/generation/models.md) {{ foundation-models-full-name }} для реализации сценария автоматического [ревью](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) предлагаемых изменений в программном коде на [GitHub](https://github.com/).
 
 Предлагаемое решение использует сценарий [GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions), чтобы запросить в {{ yandex-cloud }} ИИ-ревью изменений в [пул-реквесте](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request). Процесс получения изменений, запрос формиирования ревью генеративной моделью и последующая публикация ревью на GitHub выполняются [рабочим процессом](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }}.
 
@@ -15,7 +15,7 @@
 1. Сценарий GitHub Actions с использованием полученного IAM-токена отправляет рабочему процессу {{ sw-full-name }} HTTP-запрос на формирование ревью. При этом в рабочий процесс {{ sw-name }} передается номер пул-реквеста.
 1. Рабочий процесс {{ sw-name }} получает в [секрете](../../lockbox/concepts/secret.md) {{ lockbox-full-name }} [токен доступа](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#about-personal-access-tokens) `personal access token (classic)` к репозиторию на GitHub.
 1. Рабочий процесс {{ sw-name }} с использованием токена доступа получает в репозитории на GitHub изменения, предлагаемые в пул-реквесте.
-1. Рабочий процесс {{ sw-name }} запрашивает у [модели](../../foundation-models/concepts/yandexgpt/models.md) {{ foundation-models-full-name }} формирование ревью изменений, предлагаемых в пул-реквесте. Модель возвращает сгенерированное ревью с комментариями и собственными предложениями по улучшению кода.
+1. Рабочий процесс {{ sw-name }} запрашивает у [модели](../../foundation-models/concepts/generation/models.md) {{ foundation-models-full-name }} формирование ревью изменений, предлагаемых в пул-реквесте. Модель возвращает сгенерированное ревью с комментариями и собственными предложениями по улучшению кода.
 1. Рабочий процесс {{ sw-name }} с использованием токена доступа публикует полученное ревью в пул-реквесте на GitHub.
 
 Чтобы настроить автоматическое ИИ-ревью пул-реквестов на GitHub:
@@ -282,7 +282,7 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
     * `<имя_организации_на_GitHub>` — имя пользователя или организации — владельца репозитория на GitHub.
     * `<имя_репозитория>` — имя репозитория на GitHub.
     * `<идентификатор_секрета>` — сохраненный ранее идентификатор секрета {{ lockbox-name }}.
-    * `<имя_модели>` — [имя модели](../../foundation-models/concepts/yandexgpt/models.md#generation) генерации текста {{ foundation-models-full-name }}. Например: `qwen3-235b-a22b-fp8`.
+    * `<имя_модели>` — [имя модели](../../foundation-models/concepts/generation/models.md#generation) генерации текста {{ foundation-models-full-name }}. Например: `qwen3-235b-a22b-fp8`.
 
 1. Создайте рабочий процесс:
 

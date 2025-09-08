@@ -57,7 +57,7 @@ items:
             href: operations/placement-groups/add-vm.md
           - name: Removing a VM from a placement group
             href: operations/placement-groups/delete-vm.md
-          - name: Getting information about a placement group
+          - name: Getting placement group info
             href: operations/placement-groups/placement-groups-get-info.md
           - name: Removing an instance group from a placement group
             href: operations/placement-groups/delete-ig-from-pg.md
@@ -73,11 +73,11 @@ items:
             href: operations/images-with-pre-installed-software/operate.md
           - name: Getting a list of public images
             href: operations/images-with-pre-installed-software/get-list.md
-          - name: Getting information about a public image
+          - name: Getting public image info
             href: operations/images-with-pre-installed-software/get-info.md
-      - name: Getting information about a VM
+      - name: Getting VM info
         items:
-          - name: Getting information about a VM
+          - name: Getting VM info
             href: operations/vm-info/get-info.md
           - name: Getting the serial port output
             href: operations/vm-info/get-serial-port-output.md
@@ -207,7 +207,7 @@ items:
             href: operations/disk-control/disk-change-zone.md
           - name: Encrypting a disk
             href: operations/disk-control/disk-encrypt.md
-          - name: Getting information about a disk
+          - name: Getting disk info
             href: operations/disk-control/get-info.md
           - name: Configuring disk access permissions
             href: operations/disk-control/disk-access.md
@@ -217,13 +217,13 @@ items:
         items:
           - name: Creating a snapshot
             href: operations/disk-control/create-snapshot.md
-          - name: Getting information about a disk snapshot
+          - name: Getting disk snapshot info
             href: operations/snapshot-control/get-snapshot.md
           - name: Deleting a snapshot
             href: operations/snapshot-control/delete.md
           - name: Creating a snapshot schedule
             href: operations/snapshot-control/create-schedule.md
-          - name: Getting information about a disk snapshot schedule
+          - name: Getting disk snapshot schedule info
             href: operations/snapshot-control/get-snapshot-schedule.md
           - name: Changing a snapshot schedule
             href: operations/snapshot-control/update-schedule.md
@@ -243,7 +243,7 @@ items:
             href: operations/disk-placement-groups/create.md
           - name: Adding a disk to a placement group
             href: operations/disk-placement-groups/add-disk.md
-          - name: Getting information about a disk placement group
+          - name: Getting disk placement group info
             href: operations/disk-placement-groups/get-info.md
           - name: Configuring disk placement group access permissions
             href: operations/disk-placement-groups/access.md
@@ -265,7 +265,7 @@ items:
         items:
           - name: Getting a list of images
             href: operations/image-control/get-list.md
-          - name: Getting information about an image
+          - name: Getting image info
             href: operations/image-control/image-control-get-info.md
           - name: Importing an image from another cloud or folder
             href: operations/image-control/import.md
@@ -285,7 +285,7 @@ items:
             href: operations/filesystem/detach-from-vm.md
           - name: Updating a file storage
             href: operations/filesystem/update.md
-          - name: Getting information about a file storage
+          - name: Getting file storage info
             href: operations/filesystem/get-info.md
           - name: Configuring file storage access permissions
             href: operations/filesystem/filesystem-access.md
@@ -325,11 +325,11 @@ items:
             href: operations/instance-groups/create-with-filesystem.md
           - name: Creating an instance group connected to {{ objstorage-name }}
             href: operations/instance-groups/create-with-bucket.md
-      - name: Getting information about an instance group
+      - name: Getting instance group info
         items:
           - name: Getting a list of instance groups
             href: operations/instance-groups/get-list.md
-          - name: Getting information about an instance group
+          - name: Getting instance group info
             href: operations/instance-groups/get-info.md
           - name: Getting a list of instances in a group
             href: operations/instance-groups/get-list-instances.md
@@ -385,13 +385,13 @@ items:
             href: operations/dedicated-host/running-host-vms.md
           - name: Configuring access permissions for a dedicated host group
             href: operations/dedicated-host/access.md
-      - name: Reserved VM pools
+      - name: Reserved instance pools
         items:
-          - name: Creating a reserved VM pool
+          - name: Creating a reserved instance pool
             href: operations/reserved-pools/create-reserved-pool.md
-          - name: Updating a reserved VM pool
+          - name: Updating a reserved instance pool
             href: operations/reserved-pools/update-reserved-pool.md
-          - name: Deleting a reserved VM pool
+          - name: Deleting a reserved instance pool
             href: operations/reserved-pools/delete-reserved-pool.md
           - name: Managing instances in a pool
             href: operations/reserved-pools/manage-pool-vms.md
@@ -403,7 +403,7 @@ items:
             href: operations/gpu-cluster/gpu-add-to-cluster.md
           - name: Updating a GPU cluster
             href: operations/gpu-cluster/gpu-cluster-update.md
-          - name: Getting information about a GPU cluster
+          - name: Getting GPU cluster info
             href: operations/gpu-cluster/gpu-cluster-get-info.md
           - name: Configuring GPU cluster access permissions
             href: operations/gpu-cluster/access.md
