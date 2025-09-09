@@ -59,6 +59,7 @@ description: На странице представлен список поша�
 * [{#T}](monitoring.md)
 * [{#T}](alerting.md)
 * [{#T}](configure-logging.md)
+* [{#T}](configure-logging-alb.md)
 
 ## Получение дополнительной информации {#get-additional-info}
 

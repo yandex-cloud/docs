@@ -12,6 +12,7 @@
 * (Опционально) [Создайте и подключите профиль WAF](#waf)
 * (Опционально) [Создайте и подключите профиль ARL](#arl)
 
+{{ sws-name }} — это набор инструментов защиты, которые рекомендуется настраивать последовательно. Включайте каждое новое изменение в режиме **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** и [анализируйте логи](operations/configure-logging.md). Это облегчит отслеживание и корректировку правил.
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -207,7 +208,7 @@
 
 ## Создайте и подключите профиль WAF {#waf}
 
-WAF позволяет использовать наборы правил для защиты веб-приложений от множества информационных атак.
+WAF позволяет использовать наборы правил для защиты веб-приложений от множества информационных атак. Рекомендуется настраивать профиль WAF после того, как будут настроены и протестированы базовые правила и Smart Protection в профиле безопасности.
 
 ### Создайте профиль WAF {#waf-create}
 
@@ -219,24 +220,24 @@ WAF позволяет использовать наборы правил для
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Перейдите на вкладку ![image](../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** и нажмите **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. Введите имя профиля, например `test-waf-profile-1`.
-  1. По умолчанию в профиле WAF включен набор базовых правил [OWASP Core Rule Set](https://coreruleset.org/). Чтобы посмотреть правила в наборе, нажмите на строку с его описанием.
+  1. Включите набор правил, например [OWASP Core Rule Set](https://coreruleset.org/), и последнюю версию набора. Чтобы посмотреть правила в наборе, нажмите на строку с его описанием.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
 
-### Настройте набор базовых правил {#waf-configure-rules}
+### Настройте набор правил {#waf-configure-rules}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. На открывшейся обзорной странице профиля WAF нажмите **{{ ui-key.yacloud.smart-web-security.waf.action_setup-base-rules }}**.
-  1. Установите необходимый **{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-threshold }}** — суммарную [аномальность](concepts/waf.md#anomaly) сработавших правил, при которой запрос будет заблокирован, например `{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-medium }}`.
+  1. На открывшейся обзорной странице профиля WAF напротив нужного набора нажмите кнопку ![image](../_assets/console-icons/gear.svg) **Настроить**.
+  1. Установите **{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-threshold }}** — суммарную [аномальность](concepts/waf.md#anomaly) сработавших правил, при которой запрос будет заблокирован, например `{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-medium }}`.
 
       Рекомендуется начинать с порога аномальности `25` и постепенно снижать его до `5`. Чтобы снизить порог аномальности, отработайте ложные срабатывания WAF на легитимные запросы. Для этого подберите правила из базового набора и настройте [правила-исключения](#create-exclusion). Также для тестирования разных порогов аномальности используйте в профиле безопасности режим **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry-run)**.
 
-  1. Установите необходимый **{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-level }}**, например `{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-option-2 }}`.
+  1. Установите **{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-level }}**, например `{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-option-1 }}`.
 
       [Уровень паранойи](concepts/waf.md#paranoia) классифицирует правила по степени агрессивности. Чем выше уровень паранойи, тем лучше уровень защиты, но и больше вероятность ложных срабатываний WAF.
 
@@ -367,3 +368,4 @@ ARL позволяет устанавливать лимиты на количе
 #### См. также {#see-also}
 
 * [{#T}](operations/profile-create.md)
+* [{#T}](tutorials/sws-basic-protection.md)

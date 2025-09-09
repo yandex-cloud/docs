@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 An NGFW is used for cloud network protection and segmentation with a dedicated DMZ for public-facing applications.
 
-[{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) offers multiple NGFW solutions. This scenario uses the [Smart-Soft Traffic Inspector Next Generation (TING)]({{ link-cloud-marketplace }}/products/smartsoft/smart-soft-ting-ngfw-utm-fstek) solution offering this functionality:
+[{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) offers multiple NGFW solutions. This scenario uses the Smart-Soft Traffic Inspector Next Generation (TING) solution offering this functionality:
 
 * Next generation firewall: Protects the virtual network from unauthorized access from outside, provides NAT, port forwarding, and packet interception.
 * Intrusion detection and prevention system: IDS/IPS recognizes sources of attacks and attacked devices based on specific network traffic signatures and effectively _cleans_ traffic.
@@ -39,7 +39,7 @@ An NGFW is used for cloud network protection and segmentation with a dedicated D
 
 In this tutorial, Smart-Soft TING uses a basic firewall and NAT rule configuration.
 
-Learn more about what Smart-Soft TING can do in this [documentation]({{ link-cloud-marketplace }}/products/smartsoft/smart-soft-ting-ngfw-utm-fstek#links).
+Learn more about what Smart-Soft TING can do in this [User manual](https://ting-docs.smart-soft.ru/).
 
 ## Get your cloud ready {#prepare-cloud}
 
@@ -54,7 +54,6 @@ The infrastructure support cost includes:
 * Fee for using {{ network-load-balancer-name }} (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 * Fee for using public IP addresses and outgoing traffic (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using functions (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Fee for using [Smart-Soft TING](/marketplace/products/smartsoft/smart-soft-ting-ngfw-utm-fstek).
 
 ### Required quotas {#required-quotes}
 

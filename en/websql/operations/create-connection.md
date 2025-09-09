@@ -8,7 +8,7 @@ description: Follow this guide to create a connection to managed database cluste
 In {{ websql-full-name }}, you can create a connection to:
 
 * [Managed database clusters](#connect-cluster) in {{ yandex-cloud }}
-* [Public database via the internet](#connect-db)
+* [Custom DB installation](#connect-db)
 
 ## Connecting to a managed database cluster in {{ yandex-cloud }} {#connect-cluster}
 
@@ -18,8 +18,7 @@ In {{ websql-full-name }}, you can connect to databases in the following cluster
 * [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-list.md)
 * [{{ mmy-full-name }}](../../managed-mysql/operations/cluster-list.md)
 * [{{ mrd-full-name }}](../../managed-redis/operations/cluster-list.md)
-* [{{ mmg-full-name }}](../../storedoc/operations/cluster-list.md)
-* [{{ mgp-full-name }}](../../managed-greenplum/operations/cluster-list.md).
+* [{{ mmg-full-name }}](../../storedoc/operations/cluster-list.md)* [{{ mgp-full-name }}](../../managed-greenplum/operations/cluster-list.md)
 
 {% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
 
@@ -27,9 +26,9 @@ You can also [create a connection](../../metadata-hub/operations/create-connecti
 
 If the connection is successful, you will see the cluster structure in the connection tree. Connections to databases within a single managed database cluster are grouped into an expandable list under the name of that cluster.
 
-## Connecting to a public database {#connect-db}
+## Connecting to a custom DB installation {#connect-db}
 
-To connect to a public database via the internet:
+To connect to a custom DB installation over the internet:
 
 {% include notitle [connect-to-db](../../_includes/websql/connect-to-db.md) %}
 

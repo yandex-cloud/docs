@@ -1,4 +1,4 @@
-# Analyzing {{ objstorage-short-name }} logs in {{ datalens-short-name }}
+# Analyzing {{ objstorage-short-name }} logs with {{ datalens-short-name }}
 
 
 For a {{ objstorage-full-name }} bucket, you can enable [action logging](../../storage/concepts/server-logs.md). The logs store info on operations involving a [bucket](../../storage/concepts/bucket.md) and the [objects](../../storage/concepts/object.md) in it. For example, analyzing bucket logs can help understand what caused a steep load increase or get the overall picture of traffic distribution.
@@ -38,7 +38,7 @@ The cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
@@ -376,7 +376,7 @@ You need a static key to create a table with access to {{ objstorage-name }}. [C
         status Int64,               -- HTTP response code.
         storage_class String,       -- Object storage class.
         timestamp DateTime,         -- Date and time of the bucket operation in the YYYY-MM-DDTHH:MM:SSZ format.
-        user_agent String,          -- Client app (user agent) that runs the request.
+        user_agent String,          -- Client app (user agent) that run the request.
         version_id String,          -- Object version.
         vhost String                -- Virtual host of the request.
                                     -- The possible values are as follows:
