@@ -34,7 +34,11 @@ Creates Workflow in specified folder.
   },
   "network_id": "string",
   "service_account_id": "string",
-  "express": "bool"
+  "express": "bool",
+  "schedule": {
+    "cron_expression": "string",
+    "timezone": "string"
+  }
 }
 ```
 
@@ -68,6 +72,9 @@ ID of the Service Account which will be used for resources access in Workflow ex
 || express | **bool**
 
 Express execution mode. ||
+|| schedule | **[WorkflowSchedule](#yandex.cloud.serverless.workflows.v1.WorkflowSchedule)**
+
+Workflow schedule settings. ||
 |#
 
 ## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification}
@@ -127,6 +134,18 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
   May be used to alert about unrecoverable failures and events. ||
 |#
 
+## WorkflowSchedule {#yandex.cloud.serverless.workflows.v1.WorkflowSchedule}
+
+#|
+||Field | Description ||
+|| cron_expression | **string**
+
+Required field. Cron expression for the Workflow schedule. ||
+|| timezone | **string**
+
+Required field. Timezone for the Workflow schedule. ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -165,7 +184,11 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
     },
     "network_id": "string",
     "service_account_id": "string",
-    "express": "bool"
+    "express": "bool",
+    "schedule": {
+      "cron_expression": "string",
+      "timezone": "string"
+    }
   }
   // end of the list of possible fields
 }
@@ -282,6 +305,9 @@ ID of the Service Account which will be used for resource access in Workflow exe
 || express | **bool**
 
 Express execution mode. ||
+|| schedule | **[WorkflowSchedule](#yandex.cloud.serverless.workflows.v1.WorkflowSchedule2)**
+
+Workflow schedule settings. ||
 |#
 
 ## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification2}
@@ -339,4 +365,16 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 - `FATAL`: Fatal log level.
 
   May be used to alert about unrecoverable failures and events. ||
+|#
+
+## WorkflowSchedule {#yandex.cloud.serverless.workflows.v1.WorkflowSchedule2}
+
+#|
+||Field | Description ||
+|| cron_expression | **string**
+
+Required field. Cron expression for the Workflow schedule. ||
+|| timezone | **string**
+
+Required field. Timezone for the Workflow schedule. ||
 |#

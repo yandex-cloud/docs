@@ -41,6 +41,7 @@
     1. Если вы используете группы безопасности, [настройте их](../../managed-kafka/operations/connect/index.md#configuring-security-groups) так, чтобы к кластеру можно было подключаться из интернета.
 
 
+
 - {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -127,7 +128,10 @@
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `ydb.editor`.
+
 
 1. Создайте эндпоинт для источника и трансфер:
 
@@ -239,7 +243,10 @@
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.
+
+
 1. Если при создании эндпоинта для приемника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
+
 
 Остальные ресурсы удалите в зависимости от способа их создания:
 

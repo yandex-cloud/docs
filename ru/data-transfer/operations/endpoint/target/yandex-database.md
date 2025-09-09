@@ -85,18 +85,20 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла (приведены не все параметры):
 
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "ydb-target" {
     name        = "<имя_эндпоинта_приемника>"
     settings {
         ydb_target {
-          database       = "<путь_целевой_БД>"
-          cleanup_policy = "<политика_очистки_данных>"
-          service_account_id = "<идентификатор_сервисного_аккаунта>"          
+          database           = "<путь_целевой_БД>"
+          cleanup_policy     = "<политика_очистки_данных>"
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
         }
       }
     }
     ```
+
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 

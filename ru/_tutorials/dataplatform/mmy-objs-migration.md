@@ -33,6 +33,7 @@
     1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации.
     1. [Создайте бакет в {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
 
+
 - {{ TF }} {#tf}
 
     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
@@ -124,7 +125,10 @@
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.title }}**:
 
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — укажите имя бакета {{ objstorage-name }}.
+
+          
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `storage.uploader`.
+
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}** — `measurements`.
 
@@ -206,7 +210,10 @@
     1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
     1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
     1. [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
+
+    
     1. Если при создании эндпоинта для приемника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
+
 
 - {{ TF }} {#tf}
 

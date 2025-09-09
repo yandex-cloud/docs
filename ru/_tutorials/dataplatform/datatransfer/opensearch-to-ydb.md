@@ -46,7 +46,9 @@
 
     1. [Создайте базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md) `ydb1` любой подходящей конфигурации.
 
+    
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md#create-sa) с именем `ydb-account` и ролью `ydb.editor`. Трансфер будет использовать его для доступа к базе данных.
+
 
 * С помощью {{ TF }} {#tf}
 
@@ -166,7 +168,10 @@
         1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/target/yandex-database.md#endpoint-settings) типа `{{ ydb-short-name }}` со следующими настройками:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных `ydb1` из списка.
+
+            
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите сервисный аккаунт `ydb-account` из списка.
+
 
         1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**, использующий созданные эндпоинты.
 
@@ -236,7 +241,10 @@
         1. [Удалите эндпоинт для приемника](../../../data-transfer/operations/endpoint/index.md#delete).
         1. [Удалите кластер {{ mos-name }}](../../../managed-opensearch/operations/cluster-delete.md).
         1. [Удалите базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#delete-db).
+
+        
         1. [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).
+
 
     * С помощью {{ TF }} {#tf}
 

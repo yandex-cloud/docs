@@ -68,7 +68,11 @@ Required field. ID of the Workflow. ||
     },
     "networkId": "string",
     "serviceAccountId": "string",
-    "express": "boolean"
+    "express": "boolean",
+    "schedule": {
+      "cronExpression": "string",
+      "timezone": "string"
+    }
   }
 }
 ```
@@ -134,6 +138,9 @@ ID of the Service Account which will be used for resource access in Workflow exe
 || express | **boolean**
 
 Express execution mode. ||
+|| schedule | **[WorkflowSchedule](#yandex.cloud.serverless.workflows.v1.WorkflowSchedule)**
+
+Workflow schedule settings. ||
 |#
 
 ## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification}
@@ -191,4 +198,16 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 - `FATAL`: Fatal log level.
 
   May be used to alert about unrecoverable failures and events. ||
+|#
+
+## WorkflowSchedule {#yandex.cloud.serverless.workflows.v1.WorkflowSchedule}
+
+#|
+||Field | Description ||
+|| cronExpression | **string**
+
+Required field. Cron expression for the Workflow schedule. ||
+|| timezone | **string**
+
+Required field. Timezone for the Workflow schedule. ||
 |#

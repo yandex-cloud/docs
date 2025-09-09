@@ -44,7 +44,9 @@
 
     1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mch-name }}](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
+    
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md#create-sa) с именем `ydb-account` и ролью `ydb.editor`. Трансфер будет использовать его для доступа к базе данных.
+
 
 - С помощью {{ TF }} {#tf}
 
@@ -129,7 +131,10 @@
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+
+            
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите сервисный аккаунт `ydb-account`.
+
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}** — укажите таблицу `table1`.
 
@@ -250,7 +255,10 @@
     * [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
     * [Удалите базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#delete-db).
     * [Удалите кластер {{ mch-name }}](../../../managed-clickhouse/operations/cluster-delete.md).
+
+    
     * [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).
+
 
 - С помощью {{ TF }} {#tf}
 

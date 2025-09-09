@@ -39,7 +39,9 @@
 
     1. [Создайте бакет {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
 
+    
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md#create-sa) с ролями `storage.editor` и `ydb.editor`. Трансфер будет использовать его для доступа к базе данных и бакету.
+
 
 - С помощью {{ TF }} {#tf}
 
@@ -124,7 +126,11 @@
     1. [Создайте эндпоинт для приемника](../../../data-transfer/operations/endpoint/target/object-storage.md) типа `{{ objstorage-name }}` со следующими настройками:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — `<имя_созданного_ранее_бакета>`
+
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — `<имя_созданного_ранее_сервисного_аккаунта>`.
+
+
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}** — `UNCOMPRESSED`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}** — `from_YDB`.
@@ -132,7 +138,10 @@
     1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/source/ydb.md) типа `{{ ydb-short-name }}` и укажите в нем параметры подключения к базе данных:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-short-name }} из списка.
+
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите созданный ранее сервисный аккаунт.
+
 
     1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}**, использующий созданные эндпоинты.
 
@@ -187,7 +196,10 @@
 
     1. [Удалите бакет {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
     1. [Удалите базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#delete-db).
+
+    
     1. Если вы создавали сервисный аккаунт, [удалите его](../../../iam/operations/sa/delete.md).
+
 
 - {{ TF }} {#tf}
 
