@@ -160,3 +160,67 @@
    После активации голос получит статус `Active` и станет доступен через API и в {{ speechkit-name }} Playground без ограничений. Начнется тарификация хостинга. 
 
 Если голос вам больше не нужен, вы можете переместить его в архив.
+
+## Как обратиться к голосу в дообученной модели {#request-voice}
+
+Созданный голос будет доступен в {{ speechkit-name }} Playground и через [API v3](../../tts/api/tts-v3-rest.md). Чтобы использовать голос через API, укажите полученный идентификатор модели в настройках параметров синтеза:
+
+{% list tabs group=instructions %}
+
+- API {#api}
+
+  ```json
+  {
+  ...
+  "model": "tts://<идентификатор_каталога>/bvss-v1/latest@<идентификатор_голоса>/?<идентификатор_модели>"
+  ...
+  }
+  ```
+
+{% endlist %}
+
+**Пример**
+
+Используйте [IAM-токен](../../../iam/concepts/authorization/iam-token.md) для аутентификации от имени [аккаунта на Яндексе](../../../iam/operations/iam-token/create.md) или [федеративного аккаунта](../../../iam/operations/iam-token/create-for-federation.md). У аккаунта должна быть [роль](../../security/index.md#ai-speechkit-tts-user) `{{ roles-speechkit-tts }}`. Другие варианты аутентификации см. в разделе [{#T}](../../concepts/auth.md).
+
+{% list tabs group=programming_language %}
+
+- cURL {#curl}
+
+  Чтобы повторить пример, потребуется утилита [jq](https://github.com/jqlang/jq) для работы с файлами JSON.
+
+  1. Создайте файл `tts_rest.json` с параметрами запроса:
+
+      ```json
+      {
+        "text": "Привет! Я Яндекс Спичк+ит. Я могу превратить любой текст в речь. Теперь и в+ы - можете!",
+        "model": "tts://<идентификатор_каталога>/bvss-v1/latest@<идентификатор_голоса>/?<идентификатор_модели>" 
+      }
+      ```
+
+      Где:
+
+      * `text` — синтезируемый текст;
+      * `model` — дообученная модель, к которой вы обращаетесь.
+
+  1. В терминале выполните запрос, указав IAM-токен и идентификатор каталога, который вы будете использовать для работы с {{ speechkit-name }}:
+
+      ```bash
+      export FOLDER_ID=<идентификатор_каталога>
+      export IAM_TOKEN=<IAM-токен>
+
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "x-folder-id: $FOLDER_ID" \
+        --data @tts_rest.json https://{{ api-host-sk-tts }}:443/tts/v3/utteranceSynthesis | \
+        jq -r  '.result.audioChunk.data' | \
+        while read chunk; do base64 -d <<< "$chunk" >> audio_my.wav; done
+      ```
+
+     Где:
+
+     * `FOLDER_ID` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), на который у вашего аккаунта есть роль `{{ roles-speechkit-tts }}` или выше. Если вы используете сервисный аккаунт, передавать в запросе идентификатор каталога не нужно.
+     * `IAM_TOKEN` — IAM-токен вашего аккаунта на Яндексе или федеративного аккаунта.
+
+     Синтезированная речь вернется в кодировке Base64 и будет записана в файл `audio_my.wav`.
+
+{% endlist %}

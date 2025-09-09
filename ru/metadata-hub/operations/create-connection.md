@@ -239,7 +239,9 @@ description: Пошаговые инструкции по работе с {{ con
          * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
          * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
 
-                  [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
+                 
+         [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
+         
 
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -560,7 +562,9 @@ description: Пошаговые инструкции по работе с {{ con
          * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
          * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
 
-                  [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
+                 
+         [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
+         
 
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
