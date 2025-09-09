@@ -19,6 +19,7 @@ description: Пошаговые инструкции по работе с {{ con
   * [{{ mrd-name }}](#mdb-redis)
   * [{{ mos-name }}](#mdb-opensearch)
   * [{{ mmg-name }}](#mdb-mongodb)
+  * [{{ mkf-name }}](#mdb-kafka)
 * [к пользовательской инсталляции базы данных](#on-premise-connection):
   * [{{ PG }}](#postgresql-on-premise)
   * [{{ CH }}](#clickhouse-on-premise)
@@ -28,6 +29,7 @@ description: Пошаговые инструкции по работе с {{ con
   * [{{ TR }}](#trino-on-premise)
   * [{{ OS }}](#opensearch-on-premise)
   * [{{ MG }}](#mongodb-on-premise)
+  * [{{ KF }}](#kafka)
 
 ## Подключение к кластеру с управляемой базой данных {#mdb-connection}
 
@@ -208,6 +210,40 @@ description: Пошаговые инструкции по работе с {{ con
   Подробнее о доступных параметрах запроса см. в справочнике [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) и [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection).
 
 {% endlist %}
+
+### {{ mkf-name }} {#mdb-kafka}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
+   1. Выберите сервис **{{ metadata-hub-full-name }}**.
+   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+   1. Укажите имя подключения.
+   1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+   1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
+   1. В разделе **Подключение к {{ KF }}** выберите **Кластер Managed Service for Kafka** в качестве типа подключения и укажите нужный кластер.
+   1. При использовании аутентификации:
+
+       * Укажите **Имя пользователя** для подключения.
+       * Задайте пароль одним из способов:
+         
+         * **Ввести вручную** — пароль вводится в соответствующее поле.
+         * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
+       
+       * (Опционально) В списке **Механизмы аутентификации** выберите нужные опции:
+         
+         * `PLAIN` — аутентификация с передачей логина и пароля в открытом виде.
+         * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
+         * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
+
+                  [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
+
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %} 
 
 ## Подключение к пользовательской инсталляции базы данных {#on-premise-connection}
 
@@ -489,5 +525,45 @@ description: Пошаговые инструкции по работе с {{ con
 
 {% endlist %}
 
+### {{ KF }} {#kafka}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
+   1. Выберите сервис **{{ metadata-hub-full-name }}**.
+   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+   1. Укажите имя подключения.
+   1. (Опционально) Добавьте описание подключения и [метку](../../resource-manager/concepts/labels.md).
+   1. Выберите **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
+   1. В разделе **Подключение к {{ KF }}** укажите параметры подключения:
+       
+       * В списке **{{ ui-key.yacloud.connection-manager.label_connection-type }}** выберите **Пользовательская инсталляция**.
+       * В поле **Хосты** укажите адрес хоста и порт для подключения.
+       * (Опционально) Включите использование [TLS](../../glossary/tls.md).
+           
+           Если в вашей компании есть [центр сертификации (CA)](../../glossary/tls.md#authentication), по умолчанию будет использоваться выпущенный им сертификат. Если в компании нет СА, загрузите TLS-сертификат сервера.
+   
+   1. При использовании аутентификации:
+
+       * Укажите **Имя пользователя** для подключения.
+       * Задайте пароль одним из способов:
+         
+         * **Ввести вручную** — пароль вводится в соответствующее поле.
+         * **Сгенерировать** — пароль генерируется автоматически. Вы можете настроить правила генерации пароля [{{ lockbox-short-name }}](../../lockbox/quickstart.md) или оставить правила, заданные по умолчанию.
+       
+       * (Опционально) В списке **Механизмы аутентификации** выберите нужные опции:
+         
+         * `PLAIN` — аутентификация с передачей логина и пароля в открытом виде.
+         * `SCRAM_SHA256` — аутентификация с хэшированием SHA-256.
+         * `SCRAM_SHA512` — аутентификация с хэшированием SHA-512.
+
+                  [Подробнее о механизмах и протоколах SASL](../../glossary/sasl.md#mechanisms-and-protocols).
+
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

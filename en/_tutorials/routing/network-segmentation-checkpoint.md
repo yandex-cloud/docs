@@ -36,8 +36,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * In our example, we will configure Check Point firewall with basic access control and NAT policies.
 
 Yandex Cloud Marketplace offers PAYG and BYOL licensing for Check Point CloudGuard IaaS. We will use BYOL with a 15-day trial:
-* NGFW VM: [Check Point CloudGuard IaaS - Firewall & Threat Prevention BYOL](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-byol-m).
-* Management server VM: [Check Point CloudGuard IaaS: Security Management BYOL](/marketplace/products/checkpoint/cloudguard-iaas-security-management-byol-m) for NGFW management tasks.
+* NGFW VM: Check Point CloudGuard IaaS: Firewall & Threat Prevention BYOL.
+* Management server VM: Check Point CloudGuard IaaS: Security Management BYOL for NGFW management tasks.
 
 For production deployment, we recommend to use the following options:
 * NGFW [Check Point CloudGuard IaaS - Firewall & Threat Prevention PAYG](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m)

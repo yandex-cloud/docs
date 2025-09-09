@@ -37,7 +37,7 @@ items:
             href: operations/waf-profile-get.md
           - name: Удалить профиль
             href: operations/waf-profile-delete.md
-          - name: Настроить набор базовых правил
+          - name: Настроить наборы правил
             href: operations/configure-set-rules.md
           - name: Добавить правило-исключение
             href: operations/exclusion-rule-add.md
@@ -85,8 +85,10 @@ items:
         href: operations/monitoring.md
       - name: Настроить алерты
         href: operations/alerting.md
-      - name: Настроить логирование
+      - name: Настроить логи через {{ sws-name }}
         href: operations/configure-logging.md
+      - name: Настроить логи через {{ alb-name }}
+        href: operations/configure-logging-alb.md
       - name: Миграция на WAF с поддержкой правил Яндекс
         href: operations/waf-migration.md
   - name: Практические руководства
@@ -198,6 +200,8 @@ items:
         href: concepts/lists.md
       - name: Защита доменов
         href: concepts/domain-protect.md
+      - name: Логирование
+        href: concepts/logging.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом

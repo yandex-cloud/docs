@@ -10782,12 +10782,14 @@ default:
           label_rule-without-grouping: Без группировки
           label_save-rule: Сохранить правило
           section_rules: Правила
+        arlTitle_e3MD8: Advanced Rate Limiter
         attach-dialog:
           action_add-balancer: Добавить балансировщик
           action_connect: Подключить
           label_balancer: Балансировщик
           label_http-router: HTTP-роутер
           label_virtual-host: Виртуальный хост
+        baseRulesTitle_xcJEe: Базовые правила
         CreateDomain:
           createDomain_b2Ykj: Добавить домен
         Domain:
@@ -10860,6 +10862,13 @@ default:
           createServer_sycVk: Создать сервер
         ProxyServers:
           createProxyServer_jatYQ: Создать прокси-сервер
+        SecurityProfileForm:
+          LoggingSection:
+            allowPercentageTitle_3334: Доля обрабатываемых логов с вердиктом ALLOW
+            allowTitle_g6CLe: ALLOW
+            denyAndCaptchaTitle_tCthP: DENY и CAPTCHA
+            loggingEnable_6eK2x: Запись логов
+            outputTitle_tw1oT: Записывать логи в
         title_default-template: По преднастроенному шаблону
         title_no-template: С чистого листа
         title_profiles: Профили безопасности

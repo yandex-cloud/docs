@@ -5,12 +5,11 @@
 |№|Наименование|
 |:---:|:---|
 |1|[Softline](https://yandex.cloud/ru/partners/catalogue/softline)|
-|2|[WONE IT](https://yandex.cloud/ru/partners/catalogue/softwareone)|
-|3|[Neoflex](https://yandex.cloud/ru/partners/catalogue/neoflex)|
-|4|[Аплана Диджитал](https://yandex.cloud/ru/partners/catalogue/aplanadigital)|
-|5|[Интернет-Эксперт](https://yandex.cloud/ru/partners/catalogue/i-ex)|
-|6|[ITSumma](https://yandex.cloud/ru/partners/catalogue/itsumma)|
-|7|[Energy time](https://yandex.cloud/ru/partners/catalogue/energytime)|
+|2|[Neoflex](https://yandex.cloud/ru/partners/catalogue/neoflex)|
+|3|[Аплана Диджитал](https://yandex.cloud/ru/partners/catalogue/aplanadigital)|
+|4|[Интернет-Эксперт](https://yandex.cloud/ru/partners/catalogue/i-ex)|
+|5|[ITSumma](https://yandex.cloud/ru/partners/catalogue/itsumma)|
+|6|[Energy time](https://yandex.cloud/ru/partners/catalogue/energytime)|
 
 Полный список партнеров вы можете найти в [каталоге партнеров](https://yandex.cloud/ru/partners/catalogue?type=partners).
 

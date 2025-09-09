@@ -30,7 +30,7 @@
 
 NGFW используется для защиты и сегментации облачной сети с выделением DMZ-зоны для размещения публичных приложений.
 
-В [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) доступно несколько вариантов NGFW. В данном сценарии используется решение [Смарт-Софт Traffic Inspector Next Generation (TING)]({{ link-cloud-marketplace }}/products/smartsoft/smart-soft-ting-ngfw-utm-fstek), предоставляющее следующие возможности:
+В [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}?categories=security) доступно несколько вариантов NGFW. В данном сценарии используется решение Смарт-Софт Traffic Inspector Next Generation (TING), предоставляющее следующие возможности:
 
 * межсетевой экран следующего поколения: защищает виртуальную сеть от несанкционированного доступа извне, обеспечивает NAT, проброс портов, перехват пакетов;
 * система обнаружения и предотвращения вторжений: IDS/IPS распознает источники атак и атакуемые устройства по определенным сигнатурам сетевого трафика и эффективно «очищает» его;
@@ -39,7 +39,7 @@ NGFW используется для защиты и сегментации об
 
 Смарт-Софт TING в данном руководстве настроен с базовыми правилами межсетевого экранирования и NAT-трансляций.
 
-Подробнее познакомиться с возможностями Смарт-Софт TING можно в [документации]({{ link-cloud-marketplace }}/products/smartsoft/smart-soft-ting-ngfw-utm-fstek#links).
+Подробнее познакомиться с возможностями Смарт-Софт TING можно в [Руководстве пользователя TING](https://ting-docs.smart-soft.ru/).
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
@@ -53,8 +53,7 @@ NGFW используется для защиты и сегментации об
 * плата за использование {{ alb-name }} (см. [тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md));
 * плата за использование {{ network-load-balancer-name }} (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
 * плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за использование функций (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
-* плата за использование [Смарт-Софт TING](/marketplace/products/smartsoft/smart-soft-ting-ngfw-utm-fstek).
+* плата за использование функций (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
 
 ### Необходимые квоты {#required-quotes}
 
