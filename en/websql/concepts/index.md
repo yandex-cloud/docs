@@ -2,19 +2,25 @@
 
 {{ websql-full-name }} is a {{ yandex-cloud }} service that allows you to connect to public databases and managed database clusters. 
 
-Once connected to a database, you will be able to view DB schemas, tables, and views, as well as run queries. It is a web-based tool that simplifies writing queries by suggesting prompts and commands.
+Once connected to a database, you will be able to view DB schemas, tables, and views, as well as run queries. A web-based tool, {{ websql-full-name }} simplifies writing queries with relevant suggestions.
+
 
 You can connect to managed database clusters from clouds and folders that belong to your {{ yandex-cloud }} [organization](../../organization/concepts/organization.md). If you [switch to a different organization](../../organization/operations/manage-organizations.md#switch-to-another-org), you will have access to clusters from other clouds and folders. The connections you added will be available while you are in the current {{ yandex-cloud }} organization.
 
+
+
+You can connect to {{ yandex-cloud }} managed database clusters from clouds belonging to your organization. If you switch to a different organization, you will have access to clusters from other clouds. The connections you added will be available while you are in the current organization.
+
+
 {{ websql-full-name }} supports the following DB versions:
 
-* {{ PG }}: 12 and higher
-* {{ MY }}: 5 and higher
-* {{ CH }}: 23 and higher
-* {{ RD }}/{{ VLK }} (non-sharded clusters only): 6 and higher
-* {{ SD }}: 6 and higher
-* [{{ mtr-full-name }}](../../managed-trino/) (currently at the [Preview](../../overview/concepts/launch-stages.md) stage): 454 and higher
-* {{ GP }}: 6 and higher
+* {{ PG }}: 12 or higher
+* {{ MY }}: 5 or higher
+* {{ CH }}: 23 or higher
+* {{ RD }}/{{ VLK }} (non-sharded clusters only): 6 or higher
+* {{ SD }}: 6 or higher
+* [{{ mtr-full-name }}](../../managed-trino/) (currently at the [Preview](../../overview/concepts/launch-stages.md) stage): 454 or higher
+* {{ GP }}: 6 or higher
 
 ## GUI {#user-interface}
 
@@ -24,26 +30,26 @@ To work with {{ websql-full-name }}, use:
 * _Connections_: Panel for viewing existing database connections and adding new ones.
 * _Data panel_: Far-right panel where you can build queries and view the results of their execution, as well as view connection settings and DB object information.
 
-In the {{ websql-full-name }} interface, the URL of the current page automatically includes the IDs of the {{ websql-full-name }} entities you open. This enables you to share a direct link to a cluster, connection, database, saved query, or historical query in {{ websql-full-name }} with other users.
+In the {{ websql-full-name }} interface, the URL of the current page is automatically appended with the IDs of the {{ websql-full-name }} entities you open. This enables you to share a direct link to a cluster, connection, database, saved query, or historical query in {{ websql-full-name }} with other users.
 
 > For example, while using {{ websql-full-name }}, you saved a query and want to share it with another user. To do this, go to the ![image](../../_assets/console-icons/floppy-disk.svg) **Saved queries** section, select the query you need, and copy its URL from the address bar. 
 > The URL will look like this:
 > ```
 > https://websql.yandex.cloud/folders/<your_folder_ID>/saved-queries/<saved_query_ID>`
 > ```
-> This link will take the user directly to the page with the saved query in {{ websql-full-name }}.
+> This link will take the user to the page with the saved query in {{ websql-full-name }}.
 
 ## Connections {#connection}
 
 In {{ websql-full-name }}, you can create, use, and manage DB connections. In the ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section, you can work with the following types of connections:
 * [Connections to {{ yandex-cloud }} clusters](../operations/create-connection.md#connect-cluster): Connections to databases in managed database clusters via the {{ yandex-cloud }} internal network. Such clusters do not necessarily have to be publicly available.
-* [External connections](../operations/create-connection.md#connect-db): Connections to public databases over the internet.
+* [External connections](../operations/create-connection.md#connect-db): Connections to custom DB installations over the internet.
 
 The **{{ yandex-cloud }} connections** subsection automatically displays {{ PG }}, {{ CH }}, {{ MY }}, {{ RD }}/{{ VLK }}, {{ SD }}, {{ mtr-full-name }}, and {{ GP }} clusters from the current folder if the user has access to them. You can select a different folder in the bar above the **Connections** section. The list of clusters will update automatically.
 
-Connections to databases within a single managed database cluster are grouped into an expandable list under the name of that cluster. You cannot change this name in {{ websql-full-name }} but you can update the cluster name in the managed database service. The ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section will automatically show this update. 
+For each cluster, all database connections are grouped into a drop-down list under the cluster name. You cannot change this name in {{ websql-full-name }} but you can update the cluster name in the managed database service. The ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section will automatically show this update. 
 
-External connections are not grouped together even if they share the same DB host address.
+External connections are not grouped together even if database hosts share the same address.
 
 {{ websql-full-name }} also supports integration with [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) at the user folder level. Connections created in {{ websql-full-name }} automatically appear in {{ metadata-hub-full-name }} {{ connection-manager-name }} and vice versa.
 

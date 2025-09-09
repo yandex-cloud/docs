@@ -10773,12 +10773,14 @@ default:
           label_rule-without-grouping: No grouping
           label_save-rule: Save rule
           section_rules: Rules
+        arlTitle_e3MD8: Advanced Rate Limiter
         attach-dialog:
           action_add-balancer: Add load balancer
           action_connect: Connect
           label_balancer: Load balancer
           label_http-router: HTTP router
           label_virtual-host: Virtual host
+        baseRulesTitle_xcJEe: Base rules
         CreateDomain:
           createDomain_b2Ykj: Add domain
         Domain:
@@ -10851,6 +10853,13 @@ default:
           createServer_sycVk: Create server
         ProxyServers:
           createProxyServer_jatYQ: Create proxy server
+        SecurityProfileForm:
+          LoggingSection:
+            allowPercentageTitle_3334: Percent of requests with ALLOW verdict
+            allowTitle_g6CLe: ALLOW
+            denyAndCaptchaTitle_tCthP: DENY and CAPTCHA
+            loggingEnable_6eK2x: Write logs
+            outputTitle_tw1oT: Send logs to
         title_default-template: From a preset template
         title_no-template: From scratch
         title_profiles: Security profiles

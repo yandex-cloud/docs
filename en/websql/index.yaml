@@ -3,18 +3,18 @@ description:
   - >-
     Yandex WebSQL is a Yandex Cloud service that allows you to connect to
     managed database clusters, work with DBs, tables, and schemas, and run
-    queries. It is a web-based tool that requires no additional authorization
-    and simplifies working with SQL commands by suggesting prompts.
+    queries. It is a web-based tool that simplifies working with SQL commands by
+    suggesting prompts.
   - >-
     Yandex WebSQL supports integration with Yandex MetaData Hub at the user
     folder level. Connections created in WebSQL automatically appear in MetaData
     Hub Connection Manager and vice versa.
   - >-
-    Yandex WebSQL supports the following DB versions: <ul> <li>PostgreSQL: 12
-    and higher</li> <li>MySQL: 5 and higher</li> <li>ClickHouse®: 23 and
-    higher</li> <li>Redis/Valkey™ (non-sharded clusters only): 6 and higher</li>
-    <li>Yandex StoreDoc: 6 and higher</li> <li>Yandex Managed Service for Trino:
-    454 and higher</li> <li>Greenplum®: 6 and higher</li> </ul>
+    Yandex WebSQL supports the following DB versions: <ul> <li>PostgreSQL: 12 or
+    higher</li> <li>MySQL: 5 or higher</li> <li>ClickHouse®: 23 or higher</li>
+    <li>Redis/Valkey™ (non-sharded clusters only): 6 or higher</li> <li>MongoDB:
+    6 or higher</li> <li>Yandex Managed Service for Trino: 454 or higher</li>
+    <li>Greenplum®: 6 or higher</li>     </ul>
 links:
   - title: Getting started
     description: Connect to a database
@@ -29,10 +29,10 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions to use the service
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
 meta:
   title: Yandex WebSQL

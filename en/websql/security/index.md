@@ -1,9 +1,10 @@
 ---
 title: Access management in {{ websql-name }}
-description: Access management in {{ websql-name }}, a service for working with queries to managed database clusters. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
+description: Access management in {{ websql-name }}, a service for working with queries to managed database clusters. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
 ---
 
 # Access management in {{ websql-name }}
+
 
 In this section, you will learn:
 
@@ -23,13 +24,13 @@ To assign a role for a resource, you need the `websql.admin` role or one of the 
 
 You can also assign roles in the [{{ websql-name }} interface]({{ websql-link }}) for [saved](../concepts/index.md#saved-queries) and [historical queries](../concepts/index.md#query-log) you published.
 
-## What roles exist in this service {#roles-list}
+## What roles this service has {#roles-list}
 
 You can use {{ websql-full-name }} roles (_service roles_) and {{ yandex-cloud }} roles (_primitive roles_) to manage query access permissions.
 
 ### Service roles {#service-roles}
 
-The list below shows {{ websql-name }} roles.
+The list below shows all roles used for access control in {{ websql-name }}.
 
 #### websql.executedQueries.auditor {#websql-executedQueries-auditor}
 
@@ -158,3 +159,5 @@ Running [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) queries (cu
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+
+

@@ -184,6 +184,8 @@ items:
         href: dataset/data-model.md
       - name: Настройки датасета
         href: dataset/settings.md
+      - name: Версионирование
+        href: dataset/versioning.md
       - name: Параметризация источников
         href: dataset/parametrization.md
       - name: Типы данных

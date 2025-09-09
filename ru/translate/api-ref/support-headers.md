@@ -14,4 +14,4 @@
 
 ## Заголовки ответов {#response-headers}
 
-{% include [response-headers](../../_includes/ai-common/response-headers.md) %}
+{% include [response-headers-translate](../../_includes/ai-common/response-headers-translate.md) %}

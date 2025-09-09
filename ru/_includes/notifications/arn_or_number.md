@@ -1,1 +1,0 @@
-ARN эндпоинта, который подписывается на топик, в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`. Для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`.

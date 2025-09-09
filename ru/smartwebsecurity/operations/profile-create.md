@@ -35,6 +35,20 @@ description: Следуя данной инструкции, вы сможете
         {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
 
   1. {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
+  
+  1. (Опционально) Включите **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** и настройте логирование:
+     1. В поле **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** выберите, какие логи будут записываться: **{{ cloud-logging-name }}**, **{{ at-name }}**.
+     1. Для {{ cloud-logging-name }} выберите или создайте [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи.
+     1. Для записи в логи можно выбрать только те запросы, для которых сработали:
+        * **{{ ui-key.yacloud.smart-web-security.baseRulesTitle_xcJEe }}**.
+        * Правила **{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}**.
+        * Правила **{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}**.
+        * Правила **{{ ui-key.yacloud.smart-web-security.arlTitle_e3MD8 }}**.
+        * Все выбранные правила применили действие (вердикт) **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.denyAndCaptchaTitle_tCthP }}**.
+        * Все выбранные правила применили действие **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}** (легитимные запросы).
+  
+     Подробнее о настройке логирования см. в разделе [{#T}](configure-logging.md).
+
   1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. В окне создания правила:
 

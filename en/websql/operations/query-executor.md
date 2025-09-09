@@ -8,12 +8,6 @@ To perform a database query, [establish](create-connection.md#connect-db) or [ac
 
 {% include notitle [execute-sql](../../_includes/websql/execute-sql.md) %}
 
-  {% note info %}
-
-  A table with multiple rows may be difficult to view. Use the `LIMIT` condition along with other filters to limit the number of rows to display. 
-
-  {% endnote %}
-
 You can view your executed queries [in query history](history.md) and [save them as templates](templates.md).
 
 ## Pagination {#pagination}
