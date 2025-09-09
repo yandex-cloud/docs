@@ -74,9 +74,6 @@ description: Следуя данной инструкции, вы сможете
         memory             = "<объем_RAM>"
         execution_timeout  = "<максимальное_время_выполнения>"
         service_account_id = "<идентификатор_сервисного_аккаунта>"
-        content {
-          zip_filename = "<путь_к_ZIP-архиву>"
-        }
 
         image {
           url = <путь_к_образу_контейнера>

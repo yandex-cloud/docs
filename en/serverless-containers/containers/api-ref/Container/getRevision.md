@@ -143,6 +143,9 @@ To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless-co
   "metadataOptions": {
     "gceHttpEndpoint": "string",
     "awsV1HttpEndpoint": "string"
+  },
+  "asyncInvocationConfig": {
+    "serviceAccountId": "string"
   }
 }
 ```
@@ -218,10 +221,13 @@ S3 mounts to be used by the revision. ||
 Mounts to be used by the revision. ||
 || runtime | **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime)**
 
-The container's execution mode ||
+The container's execution mode. ||
 || metadataOptions | **[MetadataOptions](#yandex.cloud.serverless.containers.v1.MetadataOptions)**
 
 Metadata options for the revision. ||
+|| asyncInvocationConfig | **[AsyncInvocationConfig](#yandex.cloud.serverless.containers.v1.AsyncInvocationConfig)**
+
+Config for asynchronous invocations of the revision. ||
 |#
 
 ## Image {#yandex.cloud.serverless.containers.v1.Image}
@@ -520,4 +526,13 @@ Enabled access to AWS flavored metadata (IMDSv1)
 - `METADATA_OPTION_UNSPECIFIED`: Option is default
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
+|#
+
+## AsyncInvocationConfig {#yandex.cloud.serverless.containers.v1.AsyncInvocationConfig}
+
+#|
+||Field | Description ||
+|| serviceAccountId | **string**
+
+Optional id of service account with permission to invoke container. ||
 |#

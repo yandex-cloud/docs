@@ -104,6 +104,9 @@ Deploys a revision for the specified container.
   "metadata_options": {
     "gce_http_endpoint": "MetadataOption",
     "aws_v1_http_endpoint": "MetadataOption"
+  },
+  "async_invocation_config": {
+    "service_account_id": "string"
   }
 }
 ```
@@ -162,10 +165,13 @@ S3 mounts to be used by the revision. ||
 Mounts to be used by the revision. ||
 || runtime | **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime)**
 
-The container's execution mode ||
+The container's execution mode. ||
 || metadata_options | **[MetadataOptions](#yandex.cloud.serverless.containers.v1.MetadataOptions)**
 
 Metadata options for the revision. ||
+|| async_invocation_config | **[AsyncInvocationConfig](#yandex.cloud.serverless.containers.v1.AsyncInvocationConfig)**
+
+Config for asynchronous invocations of the revision. ||
 |#
 
 ## Resources {#yandex.cloud.serverless.containers.v1.Resources}
@@ -477,6 +483,15 @@ Enabled access to AWS flavored metadata (IMDSv1)
 - `DISABLED`: Option is disabled ||
 |#
 
+## AsyncInvocationConfig {#yandex.cloud.serverless.containers.v1.AsyncInvocationConfig}
+
+#|
+||Field | Description ||
+|| service_account_id | **string**
+
+Optional id of service account with permission to invoke container. ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -586,6 +601,9 @@ Enabled access to AWS flavored metadata (IMDSv1)
     "metadata_options": {
       "gce_http_endpoint": "MetadataOption",
       "aws_v1_http_endpoint": "MetadataOption"
+    },
+    "async_invocation_config": {
+      "service_account_id": "string"
     }
   }
   // end of the list of possible fields
@@ -722,10 +740,13 @@ S3 mounts to be used by the revision. ||
 Mounts to be used by the revision. ||
 || runtime | **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime2)**
 
-The container's execution mode ||
+The container's execution mode. ||
 || metadata_options | **[MetadataOptions](#yandex.cloud.serverless.containers.v1.MetadataOptions2)**
 
 Metadata options for the revision. ||
+|| async_invocation_config | **[AsyncInvocationConfig](#yandex.cloud.serverless.containers.v1.AsyncInvocationConfig2)**
+
+Config for asynchronous invocations of the revision. ||
 |#
 
 ## Image {#yandex.cloud.serverless.containers.v1.Image}
@@ -1038,4 +1059,13 @@ Enabled access to AWS flavored metadata (IMDSv1)
 - `METADATA_OPTION_UNSPECIFIED`: Option is default
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
+|#
+
+## AsyncInvocationConfig {#yandex.cloud.serverless.containers.v1.AsyncInvocationConfig2}
+
+#|
+||Field | Description ||
+|| service_account_id | **string**
+
+Optional id of service account with permission to invoke container. ||
 |#

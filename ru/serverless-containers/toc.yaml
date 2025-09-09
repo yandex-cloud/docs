@@ -55,6 +55,8 @@ items:
         items:
           - name: Вызвать контейнер
             href: operations/invoke.md
+          - name: Вызвать контейнер асинхронно
+            href: operations/invoke-async.md
           - name: Получить ссылку для вызова
             href: operations/invocation-link.md
           - name: Аутентифицироваться при вызове приватного контейнера через HTTPS
@@ -159,6 +161,8 @@ items:
         href: concepts/container.md
       - name: Вызов контейнера
         href: concepts/invoke.md
+      - name: Асинхронный вызов контейнера
+        href: concepts/invoke-async.md
       - name: Среда выполнения
         href: concepts/runtime.md
       - name: Сетевое взаимодействие

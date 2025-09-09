@@ -31,6 +31,7 @@ description: Из статьи вы узнаете, как работать с �
 ## Вызов контейнера {#invoke-container}
 
 * [{#T}](./invoke.md)
+* [{#T}](./invoke-async.md)
 * [{#T}](./invocation-link.md)
 * [{#T}](./auth.md)
 

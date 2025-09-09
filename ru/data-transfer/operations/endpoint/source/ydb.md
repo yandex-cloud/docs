@@ -102,8 +102,7 @@ description: Из статьи вы узнаете, как задать наст
 
       * В параметрах эндпоинта-источника включите опцию **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.is_snapshot_sharded.title }}**.
 
-          
-
+      
       * В параметрах трансфера, в блоке **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.SnapshotSettings.parallel_settings.title }}**, задайте число воркеров и потоков в каждом воркере так, чтобы общее число потоков было равно числу партиций. Например, чтобы быстрее скопировать таблицу, разбитую на 6 партиций, можно задать 3 воркера и 2 потока внутри каждого воркера.
       
 
@@ -117,12 +116,13 @@ description: Из статьи вы узнаете, как задать наст
 
   Пример структуры конфигурационного файла (приведены не все параметры):
 
+  
   ```hcl
   resource "yandex_datatransfer_endpoint" "ydb-source" { 
     name = "<имя_эндпоинта>"
     settings {
       ydb_source {
-        database               = "<имя_БД_YDB>"        
+        database               = "<имя_БД_YDB>"
         service_account_id     = "<идентификатор_сервисного_аккаунта>"
         paths                  = ["<список_путей_к_переносимым_объектам_YDB>"]
         changefeed_custom_name = "<имя_потока_изменений>"
@@ -130,6 +130,7 @@ description: Из статьи вы узнаете, как задать наст
     }
   }
   ```
+
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
