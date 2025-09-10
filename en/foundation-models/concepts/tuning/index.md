@@ -1,5 +1,5 @@
 ---
-title: Model tuning in {{ foundation-models-full-name }}
+title: Model fine-tuning in {{ foundation-models-full-name }}
 description: With {{ foundation-models-full-name }}, you can tune {{ gpt-lite }} and {{ llama }} 8B text generation models and {{ gpt-lite }}-based classifiers using the {{ lora }} method.
 ---
 
@@ -16,13 +16,13 @@ _Model tuning in {{ foundation-models-full-name }} is at the [Preview](../../../
 
 ## Fine-tuning in {{ foundation-models-name }} {#fm-tuning}
 
-For more information on tuning data requirements, see [{#T}](../resources/dataset.md#generating) and [{#T}](../resources/dataset.md#classifier).
+For more information on tuning data requirements, see [{#T}](../resources/dataset.md#generating), [{#T}](../resources/dataset.md#classifier), and [{#T}](../resources/dataset.md#embeddings).
 
 You need to upload the prepared data to {{ yandex-cloud }} as a [_dataset_](../resources/dataset.md). By default, you can upload up to 5 GB of tuning data into one dataset. For all limitations, see [{#T}](../limits.md).
 
-After you upload a dataset, [start tuning](../../tuning/api-ref/grpc/Tuning/tune.md) by specifying its type and parameters (optional). Tuning can take from 1 to 24 hours depending on the amount of data and system workload.
+After you upload a dataset, start tuning by specifying its type and parameters (optional). Tuning can take from 1 to 24 hours depending on the amount of data and system workload.
 
-For a model tuning example, see [{#T}](../../operations/tuning/create.md).
+Model tuning examples are presented in [{#T}](../../operations/tuning/create.md), [{#T}](../../operations/tuning/tune-classifiers.md), and [{#T}](../../operations/tuning/create-embeddings.md).
 
 You will need an `ai.editor` [role](../../security/index.md) for model tuning in {{ foundation-models-name }}. This role allows you to upload data and start the tuning process.
 
@@ -43,6 +43,8 @@ To send API requests in [{{ ml-platform-name }}]({{ link-datasphere-main }}) not
 * [{#T}](../../operations/tuning/create.md)
 * [{#T}](../../operations/tuning/tune-classifiers.md)
 * [{#T}](../../tutorials/models-fine-tuning.md)
+* [{#T}](../../operations/resources/create-dataset-gpt.md)
+* [{#T}](../../operations/resources/create-dataset-classifier.md)
 
 
 ^1^ {{ meta-disclaimer }}

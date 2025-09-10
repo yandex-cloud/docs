@@ -1,9 +1,9 @@
 ---
-title: Getting information about a function
+title: Getting function info
 description: Follow this guide to get information about a function.
 ---
 
-# Getting information about a function
+# Getting function info
 
 {% list tabs group=instructions %}
 
@@ -43,8 +43,5 @@ description: Follow this guide to get information about a function.
 
     To get detailed information about a function, use the [get](../../functions/api-ref/Function/get.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Get](../../functions/api-ref/grpc/Function/get.md) gRPC API call.
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can get more information on a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}

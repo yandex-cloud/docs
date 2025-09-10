@@ -13,8 +13,8 @@ To allow any user to invoke your function, [make it public](../../functions/oper
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
-    1. Go to the ![CirclePlay](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
-    1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** field, specify `$latest` to invoke the latest function version.
+    1. Navigate to the ![CirclePlay](../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
+    1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** field, select `$latest` to invoke the latest function version.
     1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload-template }}** field, select `{{ ui-key.yacloud.serverless-functions.item.testing.value_empty }}`.
     1. In the **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** field, enter:
        ```
@@ -40,7 +40,7 @@ To allow any user to invoke your function, [make it public](../../functions/oper
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    To invoke a function, run the command:
+    To invoke a function, run this command:
 
     ```
     yc serverless function invoke <function_ID> -d '{"queryStringParameters": {"name": "Username"}}'
@@ -70,8 +70,5 @@ To allow any user to invoke your function, [make it public](../../functions/oper
 	Hello, Username!
 	```
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can invoke a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}

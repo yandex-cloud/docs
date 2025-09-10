@@ -10,7 +10,7 @@ Once a new version is created, it gets the default [tag](../../concepts/function
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To add a version tag, run the command:
+    To tag a version, run this command:
 
     ```
     yc serverless function version set-tag --id <version_ID> --tag <tag>
@@ -43,9 +43,9 @@ Once a new version is created, it gets the default [tag](../../concepts/function
 
     To add a version tag:
 
-    1. In the configuration file, add the `tags` section for the `yandex_function` resource and specify the list of tags in `tags = ["<tag_name>"]` format.
+    1. In the configuration file, add the `tags` section for `yandex_function` and list the tags you want to add in the following format: `tags = ["<tag_name>"]`.
 
-       Example function description in the {{ TF }} configuration:
+       Example of a function description in the {{ TF }} configuration:
       
         ```
         resource "yandex_function" "test-function" {
@@ -64,7 +64,7 @@ Once a new version is created, it gets the default [tag](../../concepts/function
         }
         ``` 
 
-        For more information about the `yandex_function` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
 
     1. Check the configuration using this command:
         
@@ -84,14 +84,14 @@ Once a new version is created, it gets the default [tag](../../concepts/function
        terraform plan
        ```
         
-       The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out. 
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
          
-    1. Apply the configuration changes:
+    1. Apply the changes:
 
        ```
        terraform apply
        ```
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Type `yes` and press **Enter** to confirm the changes.
       
     You can check the new tags using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
@@ -103,8 +103,5 @@ Once a new version is created, it gets the default [tag](../../concepts/function
 
     To add a function version tag, use the [setTag](../../functions/api-ref/Function/setTag.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetTag](../../functions/api-ref/grpc/Function/setTag.md) gRPC API call.
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can add a tag using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}

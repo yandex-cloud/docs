@@ -25,6 +25,13 @@ Soft and hard copies of a document are identical. To prepare your financial repo
 
   {% include [billing.accounts.account](../../_includes/billing/accountant-role.md) %}
 
+- Residents of Belarus {#belarus}
+
+  If you have used your personal account funds during the reporting period, here is how you will receive your [report](../concepts/act.md):
+  1. Copies of the documents will emailed to the address specified in the [Yandex Balance](../concepts/reporting-period.md) payer's card within seven (7) business days after the end of the [reporting period](https://balance.yandex.com).
+  1. The original hard copy will be mailed via Russian Post to the address you supplied when creating your account.
+  1. If you use the bank transfer payment method, you can [download a payment invoice](../operations/pay-the-bill.md) in {{ billing-name }}. It is also sent to your [contact email address]({{ link-console-main }}/settings). If you pay for resources with a credit or debit card, you will receive a payment receipt to your [contact email address]({{ link-console-main }}/settings).
+
 
 - Residents of Kazakhstan {#kazakhstan}
 

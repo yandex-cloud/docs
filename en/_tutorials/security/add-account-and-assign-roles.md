@@ -22,7 +22,7 @@ Sign up for {{ yandex-cloud }} and create a [billing account](../../billing/conc
 1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create a new account.
 1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, make sure you have a billing account linked and it has the `ACTIVE` or `TRIAL_ACTIVE` [status](../../billing/concepts/billing-account-statuses.md). If you do not have a billing account, [create one](../../billing/quickstart/index.md).
 
-## Set up your infrastructure {#prepare-infrastructure}
+## Set up the infrastructure {#prepare-infrastructure}
 
 [_Organization_](../../overview/roles-and-resources.md) is a workspace that consolidates various types of {{ yandex-cloud }} resources and users. Any Yandex user can create an organization in {{ org-full-name }}. After you create an organization, you become its [owner](../../organization/security/index.md#organization-manager-organizations-owner) and can manage its settings.
 

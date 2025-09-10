@@ -48,7 +48,7 @@ description: Follow this guide to create a function.
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-    1. In the {{ TF }} configuration file, define the parameters of the resources you want to create:
+    1. In the {{ TF }} configuration file, describe the resources you want to create:
 
         ```hcl
         resource "yandex_function" "my-function" {
@@ -66,7 +66,7 @@ description: Follow this guide to create a function.
         Where:
 
         * `name`: Function name.
-        * `user_hash`: Any string to identify the function version. When the function changes, update this string, too. The function will update when this string is updated.
+        * `user_hash`: Custom string to define the function version. When the function changes, update this string, too. The function will update when this string is updated.
         * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
         * `entrypoint`: Function name in the source code that will serve as an entry point to applications.
         * `memory`: Amount of memory allocated for the function, in MB.
@@ -79,7 +79,7 @@ description: Follow this guide to create a function.
 
         {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        {{ TF }} will create all the required resources. You can check the new resources in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
+        {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
         ```bash
         yc serverless function list
@@ -89,8 +89,5 @@ description: Follow this guide to create a function.
 
     To create a function, use the [create](../../functions/api-ref/Function/create.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Create](../../functions/api-ref/grpc/Function/create.md) gRPC API call.
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can create a list of function versions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}

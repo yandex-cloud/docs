@@ -43,11 +43,11 @@ items:
             href: operations/api-gw-migration.md
           - name: Deleting an API gateway
             href: operations/api-gw-delete.md
-      - name: Getting information about a trigger
+      - name: Getting trigger info
         items:
           - name: Getting a list of triggers
             href: operations/trigger/trigger-list.md
-          - name: Getting information about a trigger
+          - name: Getting trigger info
             href: operations/trigger/trigger-info.md
       - name: Creating a trigger
         items:
@@ -149,13 +149,13 @@ items:
         href: tutorials/deploy-app-container.md
       - name: URL shortener
         href: tutorials/serverless-url-shortener.md
-      - name: Entering data into storage systems
+      - name: Ingesting data into storage systems
         href: tutorials/data-ingestion.md
       - name: '{{ api-gw-name }} protection with {{ sws-name }}'
         href: tutorials/api-gw-sws-integration.md
   - name: Concepts
     items:
-      - name: Service resource interdependencies
+      - name: Resource relationships
         href: concepts/index.md
       - name: Networking
         href: concepts/networking.md
@@ -235,6 +235,8 @@ items:
         href: concepts/limits.md
   - name: Access management
     href: security/index.md
+  - name: Tools
+    href: tools.md
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference

@@ -323,6 +323,10 @@ items:
         href: dev/install-gitlab-runner.md
       - name: Comparing load test results
         href: testing/loadtesting-results-compare.md
+      - name: >-
+          AI-powered review of GitHub pull requests with {{ sw-full-name }} and
+          GitHub Actions
+        href: dev/ai-powered-github-pr-review.md
   - name: Basic infrastructure
     items:
       - name: All tutorials
@@ -868,7 +872,7 @@ items:
         href: dataplatform/airflow-test-smtp-notification.md
       - name: Adding data to a {{ CH }} DB
         href: dataplatform/insert-data-ch.md
-      - name: Migrating data to {{ mch-name }} using {{ CH }}
+      - name: Migrating data to {{ mch-name }} using {{ CH }} tools
         href: dataplatform/clickhouse-migration.md
       - name: Migrating data to {{ mch-name }} using {{ data-transfer-name }}
         href: dataplatform/ch-to-mch-migration.md
@@ -904,8 +908,6 @@ items:
         href: dataplatform/clickhouse-hybrid-storage.md
       - name: Sharding {{ mch-name }} tables
         href: dataplatform/clickhouse-sharding.md
-      - name: Data resharding in a {{ mch-name }} cluster
-        href: dataplatform/mch-mch-resharding.md
       - name: >-
           Loading data from {{ yandex-direct }} to a {{ mch-name }} data mart
           using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name
@@ -1418,6 +1420,8 @@ items:
         href: serverless/slack-bot-serverless.md
       - name: Developing a Telegram bot
         href: serverless/telegram-bot-serverless.md
+      - name: Developing a Telegram bot with AI agent support
+        href: serverless/telegram-ai-bot-workflows.md
       - name: Developing a custom integration in {{ api-gw-name }}
         href: serverless/api-gw-integration.md
       - name: Developing CRUD APIs for movie services
@@ -1426,6 +1430,8 @@ items:
         href: serverless/ci-cd-serverless.md
       - name: Configuring CI/CD between {{ sf-name }} and {{ src-name }}
         href: serverless/ci-cd-sourcecraft-functions.md
+      - name: Configuring CI/CD between {{ sf-name }} and GitHub
+        href: serverless/ci-cd-github-functions.md
       - name: Working with an API gateway via WebSocket
         href: serverless/api-gw-websocket.md
       - name: Building an interactive serverless application using WebSocket

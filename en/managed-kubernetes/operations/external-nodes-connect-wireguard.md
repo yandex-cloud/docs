@@ -9,6 +9,10 @@ With {{ managed-k8s-full-name }}, you can connect servers from outside {{ yandex
 
 Below is an example of establishing network connectivity over the [WireGuard](https://www.wireguard.com) protocol. Here, the external server is a VM residing in another {{ yandex-cloud }} cloud network.
 
+You can see the solution architecture in the diagram below:
+
+![external-nodes-connect](../../_assets/tutorials/external-nodes-connect/external-nodes-connect.svg)
+
 ## Getting started {#before-you-begin}
 
 1. [Create](../../vpc/operations/network-create.md) your main cloud network with three [subnets](../../vpc/concepts/network.md#subnet) in different availability zones.

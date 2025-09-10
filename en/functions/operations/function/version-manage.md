@@ -25,7 +25,7 @@ When creating a version, set the following parameters:
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select the function to create a version of.
+    1. Select the function whose version you want to create.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Select the [runtime environment](../../concepts/runtime/index.md). Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
@@ -173,7 +173,7 @@ When creating a version, set the following parameters:
 
     To create a function version, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
 
-    **Request example**
+    **Request examples**
 
     To use the examples, install [cURL](https://curl.haxx.se) and [authenticate](../../api-ref/functions/authentication.md) in the API.
 
@@ -301,9 +301,6 @@ When creating a version, set the following parameters:
     }
     ```
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the  [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 

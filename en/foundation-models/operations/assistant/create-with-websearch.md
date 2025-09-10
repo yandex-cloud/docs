@@ -1,6 +1,6 @@
 ---
 title: Creating an assistant with the WebSearch tool
-description: Follow this guide to create a personalized assistant in {{ assistant-api }} which generates responses based on information obtained from a search engine using WebSearch.
+description: Follow this guide to create a personalized assistant in {{ assistant-api }} to implement a generative response scenario with access to information obtained from a search engine using WebSearch.
 ---
 
 # Creating an assistant with the WebSearch tool
@@ -9,11 +9,11 @@ description: Follow this guide to create a personalized assistant in {{ assistan
 
 {{ assistant-api }} is a {{ foundation-models-name }} tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants, implement a generative response scenario with access to information from external sources (known as _retrieval augmented generation_, or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)), and save the model's request context.
 
-The WebSearch [tool](../../concepts/assistant/tools/web-search.md) enables AI assistants to retrieve information from internet sources.
+The WebSearch [tool](../../concepts/assistant/tools/web-search.md) enables AI assistants to get information from internet sources.
 
 {% note info %}
 
-Using WebSearch is billed as a [generative response](../../../search-api/pricing.md) in {{ search-api-full-name }}.
+WebSearch tool usage is billed as a [generative response](../../../search-api/pricing.md) in {{ search-api-full-name }}.
 
 {% endnote %}
 
@@ -37,9 +37,9 @@ To use the examples:
 
 - cURL {#curl}
 
-  This example shows how to create an [assistant](../../concepts/assistant/index.md) that relies on information from the internet for responses. In this example, we will use the basic algorithm for working with {{ assistant-api }} via the [gRPC API](../../assistants/api-ref/grpc/index.md) interface: creating an assistant and a thread and submitting a request to the assistant.
+  This example shows how to create an [assistant](../../concepts/assistant/index.md) that relies on information from the internet for responses. In this example, we will use the basic algorithm for working with {{ assistant-api }} via the [gRPC API](../../assistants/api-ref/grpc/index.md) interface: creating an assistant and a thread, and submitting a request to the assistant.
   
-  As the external information sources, we will use the Central Bank of Russia [official website](https://cbr.ru/) and the [Currency rates](https://yandex.ru/finance/currencies) portal by Yandex. For internet-wide search, leave the `options` field in WebSearch empty.
+  As the external information sources, we will use the Central Bank of Russia [official website](https://cbr.ru/) and the [Currency rates](https://yandex.ru/finance/currencies) service by Yandex. If you want to search information across the whole internet, leave the empty value in the WebSearch’s `options` field.
 
   1. Create an AI assistant:
 
@@ -51,7 +51,7 @@ To use the examples:
           {
             "folder_id": "<folder_ID>",
             "model_uri": "gpt://<folder_ID>/yandexgpt-lite/latest",
-            "instruction": "You are a smart assistant designed for a finance company. Answer politely. Use search to answer the questions. Do not make up your answer.",
+            "instruction": "You are a smart assistant of a financial company. Answer politely. Use the search tool to answer the questions. Do not make up the answer.",
             "tools": [
               {
                 "gen_search": {
@@ -62,9 +62,9 @@ To use the examples:
                         "https://yandex.ru/finance/currencies"
                       ]
                     },
-                    "enable_nrfm_docs": "true"
+                    "enable_nrfm_docs": true
                   },
-                  "description": "Tool to get information about official currency exchange rates."
+                  "description": "Tool for getting information about official currency rates."
                 }
               }
             ]
@@ -74,14 +74,14 @@ To use the examples:
           Where:
           * `folder_id`: [ID](../../../resource-manager/operations/folder/get-id.md) of the folder for which your account has the [roles](../../../iam/concepts/access-control/roles.md) [`ai.assistants.editor`](../../security/index.md#ai-assistants-editor) and [`{{ roles-yagpt-user }}`](../../security/index.md#languageModels-user) or higher.
           * `model_uri`: [URI](../../concepts/generation/models.md#generation) of the text generation model.
-          * `instruction`: Basic instruction that the AI assistant will use to run user queries.
-          * `tools`: Settings for the [tool](../../concepts/assistant/tools/index.md) the assistant will use:
+          * `instruction`: Basic instruction that the AI assistant will use to execute user queries.
+          * `tools`: Settings for a [tool](../../concepts/assistant/tools/index.md) that the assistant will use:
 
-              * `site`: Array of websites the assistant will access to search for information.
-              * `enable_nrfm_docs`: Parameter that determines whether search results will include documents which are not directly accessible from the websites’ home pages.
-              * `description`: Tool description the assistant will use to decide whether to use this tool when generating a response to a specific query.
+              * `site`: Array of websites the assistant will be able to search information on.
+              * `enable_nrfm_docs`: Parameter that determines whether search results will include documents which are not directly accessible from the home pages of the specified websites.
+              * `description`: Description of the tool to create that enables the assistant to understand whether it should use that tool when generating a response to a specific request.
 
-              To learn more about internet search settings available in WebSearch, see [{#T}](../../concepts/assistant/tools/web-search.md).
+              To learn more about Websearch tool settings for searching on the internet, see [{#T}](../../concepts/assistant/tools/web-search.md).
       1. Send a request to create an AI assistant by specifying the path to the new `assistant.json` request body file:
 
           ```bash
@@ -113,7 +113,7 @@ To use the examples:
             },
             "expires_at": "2025-08-12T08:26:24.145150Z",
             "model_uri": "gpt://b1gt6g8ht345********/yandexgpt-lite/latest",
-            "instruction": "You are a smart assistant designed for a finance company. Answer politely. Use search to answer the questions. Do not make up your answer.",
+            "instruction": "You are a smart assistant of a financial company. Answer politely. Use the search tool to answer the questions. Do not make up the answer.",
             "prompt_truncation_options": {
               "auto_strategy": {}
             },
@@ -130,7 +130,7 @@ To use the examples:
                     },
                     "enable_nrfm_docs": true
                   },
-                  "description": "Tool to get information about official currency exchange rates."
+                  "description": "Tool for getting information about official currency rates."
                 }
               }
             ]
@@ -139,10 +139,10 @@ To use the examples:
 
           {% endcut %}
 
-          In response, {{ assistant-api }} will return your new AI assistant's ID. Save the obtained `id`. You will need it when accessing the assistant.
+          In response, {{ assistant-api }} will return your new AI assistant's ID. Save the ID (`id` field value). You will need it when accessing the assistant.
   1. Create a thread:
 
-      1. Create a file named `thread.json` with the body of the request to create a thread and specify the folder ID:
+      1. Create a file named `thread.json` with the body of the request to create a thread, specifying the folder ID:
 
           **thread.json**
 
@@ -185,7 +185,7 @@ To use the examples:
           Save the obtained thread ID (`id` field value). You will need it later.
   1. Create a message in your thread:
 
-      1. Create a file named `message.json` with the body of the request to create a message and specify the previously obtained thread ID and request text:
+      1. Create a file named `message.json` with the body of the request to create a message by specifying the previously obtained thread ID and the request text:
 
           **message.json**
 
@@ -196,7 +196,7 @@ To use the examples:
               "content": [
                 {
                   "text": {
-                    "content": "What is today’s official USD rate?"
+                    "content": "What is the official US dollar rate for today?"
                   }
                 }
               ]
@@ -229,7 +229,7 @@ To use the examples:
               "content": [
                 {
                   "text": {
-                    "content": "What is today’s USD rate from the Bank of Russia?"
+                    "content": "What is the Bank of Russia USD rate for today?"
                   }
                 }
               ]
@@ -275,9 +275,9 @@ To use the examples:
           ```
 
           {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
-  1. Get the run output with the assistant's response:
+  1. Get the run outcome with the assistant's response:
 
-      1. Create a file named `get_result.json` with the body of the request to get a response from the AI assistant and specify the run ID you got earlier:
+      1. Create a file named `get_result.json` with the body of the request to get a response from the AI assistant, specifying the run ID you got earlier:
 
           **get_result.json**
 
@@ -287,7 +287,7 @@ To use the examples:
           }
           ```
 
-      1. Send a request to get a response by specifying the path to the new `get_result.json` request body file:
+      1. Send a request to get a response, specifying the path to the new `get_result.json` request body file:
 
           ```bash
           grpcurl \
@@ -321,7 +321,7 @@ To use the examples:
                   "content": [
                     {
                       "text": {
-                        "content": "Today’s official USD rate is RUB 79.6736 per USD. You can check this information on the Central Bank of Russia’s website (cbr.ru/currency_base/daily/)."
+                        "content": "Official USD rate for today is RUB 79.6736 per USD. You can verify this information on the Central Bank of Russia website (cbr.ru/currency_base/daily/)."
                       }
                     }
                   ]
@@ -339,7 +339,7 @@ To use the examples:
 
           {% endcut %}
 
-          In the `content` field, the AI assistant returned the model-generated response based on the data from websites specified in the assistant and thread settings.
+          In the `content` field, the AI assistant returned the model-generated response based on the data from the websites specified in the assistant and thread settings.
 
 {% endlist %}
 

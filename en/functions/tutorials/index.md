@@ -40,4 +40,5 @@ description: This section contains tutorials for {{ sf-name }}.
 * [{#T}](functions-framework-to-container.md)
 * [{#T}](forms-and-datalens-integration/index.md)
 * [{#T}](ci-cd-sourcecraft-functions.md)
+* [{#T}](ci-cd-github-functions.md)
 * [{#T}](create-ai-agent-function.md)

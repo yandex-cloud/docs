@@ -61,3 +61,4 @@ If a server is not restored for further use during the quarantine period, its qu
 #### See also {#see-also}
 
 * [{#T}](../../backup/tutorials/backup-baremetal.md)
+* [How to choose computing capacities for business and IT needs](https://yandex.cloud/ru/blog/dedicated-server-guide)

@@ -1,5 +1,6 @@
 # Public materials about Serverless in {{ yandex-cloud }}
 
+  * {{ sw-full-name }} visual constructor: No-code process orchestration, 2025. Read our [article](https://yandex.cloud/ru/blog/posts/2025/03/yandex-workflows).
   * How we make {{ yandex-cloud }}: Serverless, 2025. Watch the video on [YouTube](https://youtu.be/suaaiq4b4mI) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplvqccrlia7xaxa22nd).
   * Serverless technologies for educational and scientific projects, 2025. Watch the video on [YouTube](https://youtu.be/teZweGlLWEU) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplvvp3kcjgjo2puwdxa).
   * Serverless evolution in Russia and {{ yandex-cloud }}, 2023. Watch the video on [YouTube](https://youtu.be/5CSY-3o6g4Q) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplv34ci7pcgmlrxjpeu).
@@ -48,6 +49,8 @@
 
 ## {{ iot-full-name }} {#iot}
 
+  * Innovation in international insurance: Effective trends for the Russian market, 2025. Read our [article](https://yandex.cloud/ru/blog/innovations-in-insurance).
+  * How technology is driving change in the construction sector, 2025. Read our [article](https://yandex.cloud/ru/blog/posts/2025/04/technologies-in-construction).
   * Internet of Things: How digital technologies are transforming business and everyday life, 2025. Read our [article](https://yandex.cloud/ru/blog/posts/2025/04/iot-guide).
   * Data processing and analysis in {{ iot-full-name }}, 2024. Watch the video on [YouTube](https://youtu.be/bw5Sp4FQlFw) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplvsgxrh6zclsub733q) or read our [article](https://yandex.cloud/ru/blog/posts/2024/07/data-processing-in-yandex-iot-core).
   * Internet of Things in {{ yandex-cloud }}, 2020. Watch the video on [YouTube](https://youtu.be/A9ORCdSHv4Q) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplvxzjghhppi4xgvlrd).

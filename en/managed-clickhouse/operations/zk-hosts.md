@@ -39,7 +39,7 @@ Intel Broadwell is not available in the `{{ region-id }}-d` [availability zone](
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. Click the name of your cluster and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. At the top right, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}**.
   1. Specify the [host class](../concepts/instance-types.md).
   1. Set up the storage settings.
@@ -96,7 +96,7 @@ Intel Broadwell is not available in the `{{ region-id }}-d` [availability zone](
 
   1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-     For more information about creating this file, see [Creating clusters](cluster-create.md).
+     For more information about creating this file, see [this guide](cluster-create.md).
 
   1. Make sure the configuration file describes three subnets, one for each availability zone. Add the missing ones, if required:
 
@@ -174,7 +174,7 @@ Intel Broadwell is not available in the `{{ region-id }}-d` [availability zone](
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-mch }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
@@ -198,7 +198,7 @@ Intel Broadwell is not available in the `{{ region-id }}-d` [availability zone](
 
 ## Updating {{ ZK }} host settings {#update-zk-settings}
 
-After creating {{ ZK }} hosts, you can only change their class and storage size. We recommend changing the host class only when the cluster has no active workload.
+After creating {{ ZK }} hosts, you can only change their class and storage size. We recommend changing the host class only when your cluster has no active workload.
 
 The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. To learn more, see [Replication](../concepts/replication.md#zk).
 
@@ -220,7 +220,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   To update a {{ ZK }} host configuration:
 
-  1. View the description of the CLI command for updating the cluster:
+  1. View the description of the CLI command to update a cluster:
 
      ```bash
      {{ yc-mdb-ch }} cluster update --help
@@ -256,7 +256,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-     For more information about creating this file, see [Creating clusters](cluster-create.md).
+     For more information about creating this file, see [this guide](cluster-create.md).
 
   1. In the {{ ZK }} configuration section, specify the new host class and storage size.
 
@@ -286,13 +286,13 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-mch }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -307,7 +307,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
               --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/resourcePresets'
           ```
 
-      1. View the [server response](../api-ref/ResourcePreset/list.md#responses) to make sure the request was successful.
+      1. View the [server response](../api-ref/ResourcePreset/list.md#responses) to make sure your request was successful.
 
   1. Change the host class and storage size:
 
@@ -345,13 +345,13 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
           * `configSpec.zookeeper.resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID.
           * `configSpec.zookeeper.resources.diskSize`: Storage size in GB.
 
-          You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+          You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -372,7 +372,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
               yandex.cloud.mdb.clickhouse.v1.ResourcePresetService.List
           ```
 
-      1. View the [server response](../api-ref/grpc/ResourcePreset/list.md#yandex.cloud.mdb.clickhouse.v1.ListResourcePresetsResponse) to make sure the request was successful.
+      1. View the [server response](../api-ref/grpc/ResourcePreset/list.md#yandex.cloud.mdb.clickhouse.v1.ListResourcePresetsResponse) to make sure your request was successful.
 
   1. Change the host class and storage size:
 
@@ -419,9 +419,9 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
           * `config_spec.zookeeper.resources.resource_preset_id`: [Host class](../concepts/instance-types.md) ID.
           * `config_spec.zookeeper.resources.disk_size`: Storage size in GB.
 
-          You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). The list of available host classes with their IDs came to you earlier.
+          You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
-  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -475,7 +475,7 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
 
    1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-      For more information about creating this file, see [Creating clusters](cluster-create.md).
+      For more information about creating this file, see [this guide](cluster-create.md).
    1. Delete the `ZOOKEEPER` type `host` block from the {{ mch-name }} cluster description.
    1. Make sure the settings are correct.
 

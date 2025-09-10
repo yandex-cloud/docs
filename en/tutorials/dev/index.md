@@ -24,3 +24,4 @@ description: Various use cases for development and testing in {{ yandex-cloud }}
 * [Invoking a load test from {{ GL }} CI](../testing/loadtesting-gitlab-ci.md)
 * [{#T}](install-gitlab-runner.md)
 * [{#T}](../testing/loadtesting-results-compare.md)
+* [{#T}](ai-powered-github-pr-review.md)

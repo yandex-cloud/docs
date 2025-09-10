@@ -73,7 +73,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 * [{{ mch-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
-See also [tips for configuring an endpoint](#recommended-settings-queue) when [delivering data to {{ CH }} from queues](#scenarios).
+See also the [endpoint setup recommendations](#recommended-settings-queue) if [{{ CH }} gets data from queues](#scenarios).
 
 ### {{ mch-name }} cluster {#managed-service}
 
@@ -281,7 +281,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 
-## Tips for configuring endpoints {#recommended-settings-queue}
+## Endpoint setup recommendations {#recommended-settings-queue}
 
 To accelerate the delivery of large volumes of data to {{ CH }} from queues associated with{{ yds-name }} or {{ mkf-name }}, configure endpoints as follows:
 
