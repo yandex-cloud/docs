@@ -23,7 +23,7 @@ Reports are then used as a basis for generating [invoices](../concepts/invoice.m
 {% list tabs group=residents %}
 
 
-* Non-residents of Russia and Kazakhstan {#nonresidents}
+- Non-residents of Russia and Kazakhstan {#nonresidents}
 
   No report will be issued to non-residents of Russia and Kazakhstan.
 

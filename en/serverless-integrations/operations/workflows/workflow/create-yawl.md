@@ -83,7 +83,7 @@ steps:
 
           You can specify one or more labels separated by commas in `<key1>=<value1>,<key2>=<value2>` format.
 
-      * `--network-id`: ID of the cloud network the workflow will run in. This is an optional parameter.
+      * `--network-id`: ID of a cloud network where the workflow will run. This is an optional parameter.
       * `--service-account-id`: [Service account](../../../../iam/concepts/users/service-accounts.md) ID.
 
       Result:
@@ -107,6 +107,6 @@ steps:
 
 - API {#api}
 
-  To create a [workflow](../../../concepts/workflows/workflow.md), use the [Create](../../../../serverless-integrations/workflows/api-ref/Workflow/create.md) REST API method for the [Workflows](../../../../serverless-integrations/workflows/api-ref/Workflow/index.md) resource or the [workflow/Create](../../../../serverless-integrations/workflows/api-ref/grpc/Workflow/create.md) gRPC API call.
+  To create a [workflow](../../../concepts/workflows/workflow.md), use the [Create](../../../../serverless-integrations/workflows/api-ref/Workflow/create.md) REST API method for the [Workflows](../../../../serverless-integrations/workflows/api-ref/Workflow/index.md) resource or the [WorkflowService/Create](../../../../serverless-integrations/workflows/api-ref/grpc/Workflow/create.md) gRPC API call.
 
 {% endlist %}

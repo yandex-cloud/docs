@@ -14,3 +14,7 @@ All servers are connected to the [public](./network.md#public-network) internet 
 * [{#T}](./network.md)
 * [{#T}](./dhcp.md)
 * [{#T}](./network-restrictions.md)
+
+#### See also {#see-also}
+
+* [Bare metal: Full control and high performance](https://yandex.cloud/ru/blog/bare-metal-guide)

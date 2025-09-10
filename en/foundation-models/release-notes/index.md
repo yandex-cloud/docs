@@ -5,6 +5,11 @@ description: This page presents the {{ foundation-models-full-name }} release no
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 28/08/2025 {#280825}
+
+* The {{ gpt-pro }} 5.1 model is available for testing (`RC` branch). The new model does not support the reasoning mode.
+* Discontinued support for version 4 of the {{ gpt-pro }}, {{ gpt-pro }} 32k, {{ gpt-lite }} models, and models fine-tuned on {{ gpt-lite }} version 4.
+
 ## Release as of 06/08/2025 {#060825}
 
 The {{ openai }} gpt-oss-120b and gpt-oss-20b models are now available in synchronous mode via the {{ openai }} API. These models are good at reasoning, but do not yet support function calling.

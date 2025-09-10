@@ -53,7 +53,7 @@ description: Follow this guide to update a function description.
 
     1. Open the {{ TF }} configuration file and edit the `description` field in the function description fragment.
 
-        Example function description in the {{ TF }} configuration:
+        Example of a function description in the {{ TF }} configuration:
       
         ```
         resource "yandex_function" "test-function" {
@@ -72,7 +72,7 @@ description: Follow this guide to update a function description.
         }
         ``` 
 
-        For more information about the `yandex_function` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
 
     1. Check the configuration using this command:
         
@@ -92,14 +92,14 @@ description: Follow this guide to update a function description.
        terraform plan
        ```
         
-       The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
          
-    1. Apply the configuration changes:
+    1. Apply the changes:
 
        ```
        terraform apply
        ```
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Type `yes` and press **Enter** to confirm the changes.
       
     You can check the function description update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
@@ -111,8 +111,5 @@ description: Follow this guide to update a function description.
 
     To update a function description, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/Function/update.md) gRPC API call.
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can update the function description using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}

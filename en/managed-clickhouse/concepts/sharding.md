@@ -44,7 +44,7 @@ For example, you can set up the following shard configuration within a single {{
 - Group `A` comprised of two shards with `s2.small` [hosts](instance-types.md): Used as the main one for a distributed table with a low load. Data in the distributed table data is stored in the same shard group.
 - Group `B` comprised of two shards with `s2.medium` hosts: Used as the main one for a distributed table with a constant high load. The data in the distributed table is stored in another group, `C`, comprised of five shards with high-performance `m2.large` hosts.
 
-To learn more about operating distributed tables, see the [{{ CH }} documentation]({{ ch.docs }}/engines/table-engines/special/distributed/).
+To learn more about operating distributed tables, see the [documentation for {{ CH }}]({{ ch.docs }}/engines/table-engines/special/distributed/).
 
 ## Sharding management in {{ mch-name }} {#shard-management}
 

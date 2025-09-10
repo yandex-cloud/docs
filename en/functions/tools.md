@@ -1,8 +1,5 @@
 # Tools for operations with functions in {{ sf-name }}
 
-## {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-[{{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) is a plugin for the [JetBrains](https://www.jetbrains.com/) [IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) IDE family.
 
 ## Serverless Framework: {{ yandex-cloud }} {#serverless-plugin}
 

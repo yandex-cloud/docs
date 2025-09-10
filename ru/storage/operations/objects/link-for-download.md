@@ -1,9 +1,9 @@
 ---
-title: Получение ссылки на скачивание объекта из бакета в {{ objstorage-full-name }}
-description: Следуя данной инструкции, вы сможете получить ссылку на скачивание объекта из бакета в {{ objstorage-name }}.
+title: Получение подписанной ссылки на скачивание объекта из бакета в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете получить подписанную ссылку (pre-signed URL) на скачивание объекта из бакета в {{ objstorage-name }}.
 ---
 
-# Получение ссылки на скачивание
+# Получение подписанной ссылки (pre-signed URL) на скачивание объекта
 
 Если у вас публичный бакет, объекты доступны всегда, даже если для бакета не настроен [хостинг сайта](../../concepts/hosting.md). Ссылку можно получить по этой инструкции либо сформировать самостоятельно. [Подробнее про формат ссылки](../../concepts/object.md#object-url).
 
@@ -20,6 +20,10 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   {% include [storage-get-link-for-download](../../_includes_service/storage-get-link-for-download.md) %}
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [storage-get-link-for-download-cli](../../_includes_service/storage-get-link-for-download-cli.md) %}
 
 {% endlist %}
 

@@ -13,6 +13,8 @@ description: Следуя данной инструкции, вы сможете
 * [Статические ключи доступа](../../iam/concepts/authorization/access-key.md).
 * [OAuth-токен](../../iam/concepts/authorization/oauth-token.md).
 * [Серверные ключи {{ captcha-name }}](../../smartcaptcha/concepts/keys.md).
+* [Refresh-токены](../../iam/concepts/authorization/refresh-token.md).
+* [Секреты OIDC-приложений](../../organization/concepts/applications.md#oidc-secret).
 
 {{ yandex-cloud }} подключен к следующим программам поиска секретов:
 
@@ -108,6 +110,12 @@ description: Следуя данной инструкции, вы сможете
 
    ```regexp
    rt1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
+   ```
+
+* **Секреты OIDC-приложений**
+
+   ```regexp
+   yccs__[0-9a-f]{64}_[0-9a-f]{8}
    ```
 
 {% note info %}
@@ -277,6 +285,103 @@ description: Следуя данной инструкции, вы сможете
           return True
 
       print(is_valid_secret("ysc2_D0ur60kwXTL7rM52UzJ7Vi5D7a5Qu48zktqy0fE0********")) # True
+      ```
+
+    {% endlist %}
+
+* **Секреты OIDC-приложений**
+
+    {% list tabs group=programming_language %}
+
+    - Go {#go}
+
+      ```golang
+      package main
+
+      import (
+        "encoding/binary"
+        "encoding/hex"
+        "fmt"
+        "regexp"
+
+        "github.com/spaolacci/murmur3"
+      )
+
+      func ValidateOauthClientSecret(str string) bool {
+        re := regexp.MustCompile(`yccs__[0-9a-f]{64}_[0-9a-f]{8}`)
+        if !re.MatchString(str) {
+          return false
+        }
+
+        prefix := str[:71]
+        suffix := str[71:]
+
+        hash := murmur3.Sum32([]byte(prefix))
+
+        hashBytes := make([]byte, 4)
+        binary.BigEndian.PutUint32(hashBytes, hash)
+
+        expectedSuffix := hex.EncodeToString(hashBytes)
+        return suffix == expectedSuffix
+      }
+
+      func main() {
+        test := "<SECRET>"
+        isValid := ValidateOauthClientSecret(test)
+        if isValid {
+          fmt.Println("Secret is valid.")
+        } else {
+          fmt.Println("Secret isn't valid")
+        }
+      }
+      ```
+
+    - Java {#java}
+
+      ```java
+      package yandex.cloud.leakdetector.server.provider;
+
+      import org.apache.commons.codec.binary.Hex;
+      import org.apache.commons.codec.digest.MurmurHash3;
+      import java.nio.ByteBuffer;
+      import java.nio.ByteOrder;
+      import java.util.regex.Pattern;
+
+      public class Main {
+          private static final Pattern SECRET_PATTERN = Pattern.compile("yccs__[0-9a-f]{64}_[0-9a-f]{8}");
+
+          public static boolean validateOauthClientSecret(String str) {
+              if (!SECRET_PATTERN.matcher(str).matches()) {
+                  return false;
+              }
+
+              String prefix = str.substring(0, 71);
+              String suffix = str.substring(71);
+
+              String hashHex = hashStringMurmur3(prefix);
+              return suffix.equals(hashHex);
+          }
+
+          private static String hashStringMurmur3(String str) {
+              int intHashValue = MurmurHash3.hash32x86(str.getBytes());
+              return Hex.encodeHexString(
+                      ByteBuffer.allocate(4)
+                              .order(ByteOrder.BIG_ENDIAN)
+                              .putInt(intHashValue)
+                              .array()
+              );
+          }
+
+          public static void main(String[] args) {
+              String test = "<SECRET>";
+              boolean isValid = validateOauthClientSecret(test);
+              if (isValid) {
+                  System.out.println("Secret is valid.");
+              } else {
+                  System.out.println("Secret isn't valid");
+              }
+          }
+      }
       ```
 
     {% endlist %}

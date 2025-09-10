@@ -44,9 +44,6 @@ Create and run a user welcome [function](../../concepts/function.md) in Go.
 
     You can create a function using the [create](../../functions/api-ref/Function/create.md).
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can create a list of function versions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 
@@ -76,7 +73,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Go.
     }
     ```
 
-1. Add the `hello.go` file into the `hello-go.zip` archive.
+1. Add `hello.go` to the `hello-go.zip` archive.
 
 ### Create a function version {#create-version}
 
@@ -123,7 +120,7 @@ Create and run a user welcome [function](../../concepts/function.md) in Go.
     * `--runtime`: Runtime environment.
     * `entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before the timeout is reached.
+    * `--execution-timeout`: Maximum function running time before timeout.
     * `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:
@@ -149,9 +146,6 @@ Create and run a user welcome [function](../../concepts/function.md) in Go.
 
     You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md).
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 

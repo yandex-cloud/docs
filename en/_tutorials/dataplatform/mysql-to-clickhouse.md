@@ -6,7 +6,7 @@ With {{ data-transfer-name }}, you can migrate your database from a {{ MY }} sou
 To transfer data:
 
 1. [Prepare the source cluster](#prepare-source).
-1. [Set up and activate your transfer](#prepare-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 1. [Select the data from {{ CH }}](#working-with-data-ch).
 
@@ -15,17 +15,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mmy-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ mmy-name }} cluster fee: Covers the use of computational resources allocated to hosts and disk storage (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mch-name }} cluster fee: Covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Transfer fee: Based on computational resource consumption and the total number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -58,7 +58,7 @@ Set up your infrastructure:
         This file describes:
 
         * [Network](../../vpc/concepts/network.md#network).
-        * [Subnet](../../vpc/concepts/network.md#subnet).
+        * [Subnets](../../vpc/concepts/network.md#subnet).
         * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mmy-name }} cluster.
         * {{ mmy-name }} source cluster.
         * {{ mch-name }} target cluster.
@@ -66,25 +66,26 @@ Set up your infrastructure:
         * Target endpoint.
         * Transfer.
 
-    1. Specify the following in the `data-transfer-mmy-mch.tf` file:
+    1. In the `data-transfer-mmy-mch.tf` file, specify the following:
 
         * The {{ mmy-name }} source cluster parameters that will be used as the [source endpoint parameters](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
 
             * `source_mysql_version`: {{ MY }} version.
-            * `source_db_name`: {{ MY }} database name that will be used as the {{ mch-name }} database name.
+            * `source_db_name`: {{ MY }} database name.
             * `source_user` and `source_password`: Name and user password of the database owner.
 
         * The {{ mch-name }} target cluster parameters that will be used as the [target endpoint parameters](../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
 
+            * `target_db_name`: {{ CH }} database name.
             * `target_user` and `target_password`: Name and user password of the database owner.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -144,38 +145,38 @@ Set up your infrastructure:
 
             Select a target cluster from the list and specify its connection settings.
 
-    1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the endpoints you created.
+    1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
     1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
 - {{ TF }} {#tf}
 
     1. In the `data-transfer-mmy-mch.tf` file, set the `transfer_enabled` variable to `1`.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        Once created, your transfer will be activated automatically.
+        Once created, your transfer is activated automatically.
 
 {% endlist %}
 
 ## Test your transfer {#verify-transfer}
 
-1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. Make sure the data from the source {{ mmy-name }} cluster has been moved to the {{ mch-name }} database:
 
     1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
-    1. Run this request:
+    1. Run this query:
 
         ```sql
         SELECT * FROM <{{ CH }}_database_name>.x_tab
@@ -254,7 +255,7 @@ WHERE __data_transfer_delete_time == 0;
 
 {% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid paying for them, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 

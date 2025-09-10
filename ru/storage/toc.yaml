@@ -71,7 +71,9 @@ items:
             href: operations/objects/rename-move.md
           - name: Копирование объектов
             href: operations/objects/copy.md
-          - name: Получение публичной ссылки на объект
+          - name: >-
+              Получение подписанной ссылки (pre-signed URL) на скачивание
+              объекта
             href: operations/objects/link-for-download.md
           - name: Настройка блокировок версии объекта
             href: operations/objects/edit-object-lock.md

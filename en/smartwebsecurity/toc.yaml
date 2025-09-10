@@ -87,6 +87,8 @@ items:
         href: operations/alerting.md
       - name: Configuring logging
         href: operations/configure-logging.md
+      - name: Migrating to WAF with Yandex rule set
+        href: operations/waf-migration.md
   - name: Tutorials
     items:
       - name: All tutorials

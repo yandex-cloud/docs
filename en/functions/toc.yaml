@@ -39,15 +39,15 @@ items:
         href: operations/function-sa.md
       - name: Connecting to managed databases from functions
         href: operations/database-connection.md
-      - name: Getting information about a function
+      - name: Getting function info
         items:
           - name: Getting a list of functions
             href: operations/function/function-list.md
           - name: Getting a list of function versions
             href: operations/function/version-list.md
-          - name: Getting information about a function
+          - name: Getting function info
             href: operations/function/function-info.md
-          - name: Getting the function version information
+          - name: Getting function version info
             href: operations/function/version-info.md
           - name: Configuring metadata service parameters
             href: operations/function/metadata-options.md
@@ -135,11 +135,11 @@ items:
             href: operations/function/version-delete.md
           - name: Deleting a function
             href: operations/function/function-delete.md
-      - name: Getting information about a trigger
+      - name: Getting trigger info
         items:
           - name: Getting a list of triggers
             href: operations/trigger/trigger-list.md
-          - name: Getting information about a trigger
+          - name: Getting trigger info
             href: operations/trigger/trigger-info.md
       - name: Creating a trigger
         items:
@@ -484,7 +484,7 @@ items:
         href: tutorials/iot-emulation.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them using {{ datalens-full-name }}
+          analyzing them with {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
       - name: URL shortener
         href: tutorials/serverless-url-shortener.md
@@ -514,6 +514,8 @@ items:
             href: tutorials/forms-and-datalens-integration/terraform.md
       - name: Configuring CI/CD with {{ src-name }}
         href: tutorials/ci-cd-sourcecraft-functions.md
+      - name: Configuring CI/CD with GitHub
+        href: tutorials/ci-cd-github-functions.md
       - name: Creating an AI agent with {{ sf-name }}
         href: tutorials/create-ai-agent-function.md
   - name: Tools

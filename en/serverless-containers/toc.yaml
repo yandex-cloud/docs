@@ -21,15 +21,15 @@ items:
         href: operations/index.md
       - name: Getting an IAM token for a service account using a container
         href: operations/sa.md
-      - name: Getting information about a container
+      - name: Getting container info
         items:
           - name: Getting a list of containers
             href: operations/list.md
           - name: Getting a list of container revisions
             href: operations/revision-list.md
-          - name: Getting information about a container
+          - name: Getting container info
             href: operations/container-info.md
-          - name: Getting information about a container revision
+          - name: Getting container revision info
             href: operations/revision-info.md
           - name: Configuring metadata service parameters
             href: operations/metadata-options.md
@@ -111,11 +111,11 @@ items:
             href: operations/migration.md
           - name: Deleting a container
             href: operations/delete.md
-      - name: Getting information about a trigger
+      - name: Getting trigger info
         items:
           - name: Getting a list of triggers
             href: operations/trigger-list.md
-          - name: Getting information about a trigger
+          - name: Getting trigger info
             href: operations/trigger-info.md
       - name: Creating a trigger
         items:
@@ -225,6 +225,8 @@ items:
         href: tutorials/vision-ocrrecognizer-storage.md
   - name: Access management
     href: security/index.md
+  - name: Tools
+    href: tools.md
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference

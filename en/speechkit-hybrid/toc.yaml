@@ -27,7 +27,7 @@ items:
         href: tts/index.md
       - name: Performance testing
         href: tts/testing.md
-  - name: Admin {{ sk-hybrid-name }}
+  - name: '{{ sk-hybrid-name }} administration'
     items:
       - name: Service settings
         href: settings.md
@@ -39,10 +39,10 @@ items:
         href: operations/logging.md
       - name: TLS termination
         href: operations/tls-proxy.md
+  - name: API authentication
+    href: auth.md
   - name: gRPC API reference
     items:
-      - name: Authentication with the API
-        href: auth.md
       - name: Speech synthesis
         items:
           - name: Overview

@@ -10,3 +10,4 @@ description: Various {{ iam-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](sa-oslogin-ansible.md)
 * [{#T}](wlif-github-integration.md)
 * [{#T}](wlif-gitlab-integration.md)
+* [{#T}](ci-cd-github-functions.md)

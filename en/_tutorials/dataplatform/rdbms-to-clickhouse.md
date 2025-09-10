@@ -1,9 +1,8 @@
 
 
-You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}. Proceed as follows:
+You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}. To do this:
 
-1. [Set up your transfer](#prepare-transfer).
-1. [Activate the transfer](#activate-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test the replication process](#example-check-replication).
 1. [Select the data from the target](#working-with-data-ch).
 
@@ -12,9 +11,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster fee: Covers the use of computational resources allocated to hosts and disk storage (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * Transfer fee: Using computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
@@ -22,7 +21,7 @@ The support cost includes:
 
 ## Getting started {#before-you-begin}
 
-For clarity, we will create all required resources in {{ yandex-cloud }}. Set up your infrastructure:
+In our example, we will create all required resources in {{ yandex-cloud }}. Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -40,13 +39,13 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Set up
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`.
 
   
-  1. If you are using security groups in clusters, make sure they are set up correctly and allow connecting to the clusters:
+  1. If using security groups, make sure they are configured correctly and allow inbound connections to the clusters.
 
      * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
      * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
 
-  1. [Grant](../../managed-postgresql/operations/grant#grant-privilege) the `mdb_replication` role to `pg-user` in the {{ mpg-name }} cluster.
+  1. [Issue](../../managed-postgresql/operations/grant.md#grant-privilege) the `mdb_replication` role to `pg-user` in the {{ mpg-name }} cluster.
 
 - {{ TF }} {#tf}
 
@@ -69,13 +68,13 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Set up
         * Transfer.
 
     1. In the `postgresql-to-clickhouse.tf` file, specify the passwords of the {{ PG }} and {{ CH }} admin user.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -85,7 +84,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Set up
 
 {% endlist %}
 
-## Set up your transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Connect to the {{ mpg-name }} cluster](../../managed-postgresql/operations/connect.md).
 1. Create a table named `x_tab` in the `db1` database and populate it with data:
@@ -111,7 +110,7 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Set up
 
     - Manually {#manual}
 
-        1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/postgresql.md) of the `{{ PG }}` type and specify the cluster connection parameters in it:
+        1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/postgresql.md) of the `{{ PG }}` type and specify these cluster connection settings in it:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}**: `<source_{{ PG }}_cluster_name>` from the drop-down list.
@@ -128,29 +127,33 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Set up
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: `<user_password>`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.cleanup_policy.title }}**: `DROP`.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the [**{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}**](../../data-transfer/concepts/index.md#transfer-type) type that will use the created endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the [**{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}**](../../data-transfer/concepts/index.md#transfer-type) type that will use the created endpoints and [activate](../../data-transfer/operations/transfer.md#activate) it.
 
     - {{ TF }} {#tf}
 
         1. In the `postgresql-to-clickhouse.tf` file, set the `transfer_enabled` parameter to `1`.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+        {% include [terraform-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+        Once created, your transfer is activated automatically.
+
     {% endlist %}
 
-## Activate the transfer {#activate-transfer}
+## Test the replication process {#example-check-replication}
 
-1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. To check that the transfer has moved the replicated data to the target, connect to the target {{ mch-full-name }} cluster and make sure that the `x_tab` table in `db1` has the same columns as the `x_tab` table in the source database, as well as the [timestamp columns](#working-with-data-ch), `__data_transfer_commit_time` and `__data_transfer_delete_time`:
 
    ```sql
@@ -162,8 +165,6 @@ For clarity, we will create all required resources in {{ yandex-cloud }}. Set up
    │ 41 │  User2 │   1633417594957267000          │ 0                             │
    └────┴────────┴────────────────────────────────┴───────────────────────────────┘
    ```
-
-## Test the replication process {#example-check-replication}
 
 1. Connect to the source cluster.
 1. In the `x_tab` table of the source {{ PG }} database, delete the row with the `41` ID and update the one with the `42` ID:
@@ -218,7 +219,7 @@ Using the `FINAL` keyword in queries makes them much less efficient. Avoid it wh
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid paying for them, delete the resources you no longer need:
 
 * Make sure the transfer has the **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** status and [delete](../../data-transfer/operations/transfer.md#delete) it.
 * Delete the endpoints and clusters:

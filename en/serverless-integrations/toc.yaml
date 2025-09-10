@@ -18,11 +18,11 @@ items:
         href: operations/index.md
       - name: '{{ sw-name }}'
         items:
-          - name: Getting information about a workflow
+          - name: Getting workflow info
             items:
               - name: Getting a list of workflows
                 href: operations/workflows/workflow/get-list.md
-              - name: Getting information about a workflow
+              - name: Getting workflow info
                 href: operations/workflows/workflow/get-info.md
           - name: Managing a workflow
             items:
@@ -110,11 +110,11 @@ items:
                     href: operations/workflows/constructor/wait.md
               - name: Configuring a retry policy for a workflow
                 href: operations/workflows/constructor/setup-restart-policy.md
-          - name: Getting workflow execution information
+          - name: Getting workflow execution info
             items:
               - name: Getting a list of workflow executions
                 href: operations/workflows/execution/get-list.md
-              - name: Getting workflow execution information
+              - name: Getting workflow execution info
                 href: operations/workflows/execution/get-info.md
               - name: Getting information on the progress of each step
                 href: operations/workflows/execution/get-history.md
@@ -128,11 +128,11 @@ items:
                 href: operations/workflows/execution/terminate.md
       - name: '{{ er-name }}'
         items:
-          - name: Getting information about a bus
+          - name: Getting bus info
             items:
               - name: Getting a list of buses
                 href: operations/eventrouter/bus/get-list.md
-              - name: Getting information about a bus
+              - name: Getting bus info
                 href: operations/eventrouter/bus/get-info.md
           - name: Managing a bus
             items:
@@ -158,11 +158,11 @@ items:
                 href: operations/eventrouter/bus/data-put.md
               - name: Sending events using a connector
                 href: operations/eventrouter/bus/data-send.md
-          - name: Getting information about a connector
+          - name: Getting connector info
             items:
               - name: Getting a list of connectors
                 href: operations/eventrouter/connector/get-list.md
-              - name: Getting information about a connector
+              - name: Getting connector info
                 href: operations/eventrouter/connector/get-info.md
           - name: Managing a connector
             items:
@@ -192,11 +192,11 @@ items:
                 href: operations/eventrouter/connector/stop.md
               - name: Deleting a connector
                 href: operations/eventrouter/connector/delete.md
-          - name: Getting information about a rule
+          - name: Getting rule info
             items:
               - name: Getting a list of rules
                 href: operations/eventrouter/rule/get-list.md
-              - name: Getting information about a rule
+              - name: Getting rule info
                 href: operations/eventrouter/rule/get-info.md
           - name: Managing a rule
             items:
@@ -253,6 +253,8 @@ items:
         href: operations/operation-logs.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: >-
           Automatic data upload to {{ speechsense-full-name }} using {{ sw-name
           }}
@@ -261,6 +263,12 @@ items:
           Setting up {{ sw-name }} integration with {{ tracker-full-name }}, {{
           foundation-models-full-name }}, and {{ postbox-full-name }}
         href: tutorials/tracker-yandexgpt-postbox-integrations.md
+      - name: Developing a Telegram bot with AI agent support
+        href: tutorials/telegram-ai-bot-workflows.md
+      - name: >-
+          AI-powered review of GitHub pull requests with {{ sw-name }} and
+          GitHub Actions
+        href: tutorials/ai-powered-github-pr-review.md
   - name: Concepts
     items:
       - name: Overview
@@ -346,6 +354,8 @@ items:
         href: security/index.md
       - name: '{{ er-name }} roles'
         href: security/eventrouter.md
+      - name: '{{ sw-name }} roles'
+        href: security/workflows.md
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference

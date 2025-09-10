@@ -46,10 +46,10 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
 
      Where:
      * `--id`: ID of the API gateway you need to update.
-     * `--name`: New name for the API gateway. This is an optional parameter. The naming requirements are as follows:
+     * `--name`: New name for the API gateway. This is an optional parameter. Follow these naming requirements:
 
          {% include [name-format](../../_includes/name-format.md) %}
-     * `--execution-timeout`: Request execution timeout. The value is specified in seconds and must not exceed the set [limit](../concepts/limits.md#api-gw-limits). This is an optional parameter. The default value is `300` seconds.
+     * `--execution-timeout`: Request execution timeout. The value is specified in seconds and must not exceed the specified [limit](../concepts/limits.md#api-gw-limits). This is an optional parameter. The default value is `300` seconds.
      * `--spec`: Path to the file with the updated API gateway specification.
 
 - {{ TF }} {#tf}
@@ -110,7 +110,7 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
      ...
      ```
 
-     For more information about `yandex_api_gateway` properties in {{ TF }}, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
+     For more information about `yandex_api_gateway` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
   1. Check the configuration using this command:
 
      ```bash
@@ -129,7 +129,7 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
      terraform plan
      ```
 
-     The terminal will display a list of resources with their properties. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
   1. Apply the changes:
 
      ```bash
@@ -148,8 +148,5 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
 
   To change the API gateway name, description, or specification, use the [update](../apigateway/api-ref/ApiGateway/update.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Update](../apigateway/api-ref/grpc/ApiGateway/update.md) gRPC API call.
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-  To change a name, description, or specification for an API gateway, use the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}

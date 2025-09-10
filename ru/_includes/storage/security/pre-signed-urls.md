@@ -349,6 +349,10 @@ signature = Hex(sign(SigningKey, StringToSign))
   
   {% include [storage-get-link-for-download](../../../storage/_includes_service/storage-get-link-for-download.md) %}
 
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [storage-get-link-for-download-cli](../../../storage/_includes_service/storage-get-link-for-download-cli.md) %}
+
 - AWS CLI
 
     Ссылку на скачивание объекта можно сгенерировать с помощью AWS CLI. Для этого выполните команду:

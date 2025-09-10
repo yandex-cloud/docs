@@ -6,7 +6,7 @@ A {{ mch-name }} cluster can get data from {{ KF }} topics in real time. This da
 To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
 
 1. [Send test data to {{ mkf-name }} topic](#send-sample-data-to-kf).
-1. [Set up and activate your transfer](#prepare-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
 1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -23,7 +23,7 @@ The support cost includes:
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
-### Set up your infrastructure {#deploy-infrastructure}
+### Set up the infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -67,7 +67,7 @@ The support cost includes:
         * Target endpoint.
         * Transfer.
 
-    1. Specify the following in the `data-transfer-mkf-mch.tf` file:
+    1. In the `data-transfer-mkf-mch.tf` file, specify the following:
 
         * {{ mkf-name }} source cluster parameters:
 
@@ -80,13 +80,13 @@ The support cost includes:
             * `target_db_name`: {{ mch-name }} database name.
             * `target_user` and `target_password`: Name and user password of the database owner.
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -98,7 +98,7 @@ The support cost includes:
 
 ### Configure additional settings {#additional-settings}
 
-1. Install the utilities:
+1. Install these tools:
 
     * [kafkacat](https://github.com/edenhill/kcat): To read and write data to the {{ KF }} topic.
 
@@ -110,7 +110,7 @@ The support cost includes:
 
     * [clickhouse-client]({{ ch.docs }}/interfaces/cli/): To connect to the database in the {{ mch-name }} cluster.
 
-        1. Connect the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
+        1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) to your system:
 
             ```bash
             sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -125,13 +125,13 @@ The support cost includes:
             sudo apt update && sudo apt install --yes clickhouse-client
             ```
 
-        1. Download the configuration file for `clickhouse-client`:
+        1. Download the `clickhouse-client` configuration file:
 
             {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
         Check that you can use it to [connect to the {{ mch-name }} cluster over SSL](../../managed-clickhouse/operations/connect/clients.md).
 
-    * [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
+    * [jq](https://stedolan.github.io/jq/) for stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
@@ -234,14 +234,14 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}**: Enter the name of the topic in the {{ mkf-name }} cluster.
 
-        * (Optional) : **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**: `JSON`
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
-                Create and upload a `json_schema.json` data schema file:
+                Copy and paste the data schema in JSON format:
 
-                {% cut "json_schema.json" %}
+                {% cut "Data schema" %}
 
                 ```json
                 [
@@ -286,7 +286,7 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
 
                 {% endcut %}
 
-1. Create an endpoint for the target and the transfer:
+1. Create an endpoint for the target and transfer:
 
     {% list tabs group=instructions %}
 
@@ -304,11 +304,11 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
                         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}**: Select the source cluster from the list.
 
                     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}**: Enter the database name.
-                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the name and password of the user who has access to the database (for example, the database owner).
+                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** and **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}**: Enter the name and password of the user having access to the database, e.g., the database owner.
 
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.advanced_settings.title }}** → **Upload data in JSON format**: Enable this option if you enabled **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** in the advanced settings of the source endpoint.
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
 
     - {{ TF }} {#tf}
@@ -318,31 +318,31 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
             * The `source_endpoint_id` variable and set it to the value of the endpoint ID for the source created in the previous step.
             * `yandex_datatransfer_endpoint` and `yandex_datatransfer_transfer` resources.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            Once created, your transfer will be activated automatically.
+            Once created, your transfer is activated automatically.
 
     {% endlist %}
 
 ## Test your transfer {#verify-transfer}
 
-1. Wait until the transfer status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 1. Make sure the data from the source {{ mkf-name }} cluster has been moved to the {{ mch-name }} database:
 
     1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
-    1. Run this request:
+    1. Run this query:
 
         ```sql
         SELECT * FROM <{{ CH }}_database_name>.<Apache_Kafka_topic_name>
@@ -366,7 +366,7 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
 
     1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
-    1. Run this request:
+    1. Run this query:
 
         ```sql
         SELECT * FROM <{{ CH }}_database_name>.<Apache_Kafka_topic_name>
@@ -380,12 +380,12 @@ Before deleting the resources you created, [deactivate the transfer](../../data-
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 
-Delete the other resources depending on how they were created:
+Delete other resources using the method matching their creation method:
 
 {% list tabs group=instructions %}
 

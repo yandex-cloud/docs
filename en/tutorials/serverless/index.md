@@ -1,15 +1,17 @@
-# Tutorials for working with serverless technology in {{ yandex-cloud }}
+# Tutorials on the use of serverless technologies in {{ yandex-cloud }}
 
 * [URL shortener](serverless-url-shortener.md)
-* [Entering data into storage systems](data-ingestion.md)
+* [Ingesting data into storage systems](data-ingestion.md)
 * [Storing application runtime logs](log-ingestion.md)
 * [Deploying a web application using the Java Servlet API](java-servlet-todo-list.md)
 * [Developing a Slack bot](slack-bot-serverless.md)
 * [Developing a Telegram bot](telegram-bot-serverless.md)
+* [Developing a Telegram bot with AI agent support](telegram-ai-bot-workflows.md)
 * [Developing a custom integration in {{ api-gw-full-name }}](api-gw-integration.md)
 * [Developing CRUD APIs for movie services](movies-database.md)
 * [Building a CI/CD pipeline in {{ GL }}](ci-cd-serverless.md)
 * [{#T}](ci-cd-sourcecraft-functions.md)
+* [{#T}](ci-cd-github-functions.md)
 * [{#T}](api-gw-websocket.md)
 * [Creating an interactive serverless application using WebSocket](websocket-app.md)
 * [Automatically copying objects from one {{ objstorage-full-name }} bucket to another](bucket-to-bucket-copying.md)

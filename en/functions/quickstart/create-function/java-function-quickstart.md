@@ -44,9 +44,6 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 
     You can create a function using the [create](../../functions/api-ref/Function/create.md).
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can create a list of function versions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 
@@ -96,7 +93,7 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
     }
     ```
 
-1. Add the `Handler.java` file into the `hello-java.zip` archive.
+1. Add `Handler.java` to the `hello-java.zip` archive.
 
 ### Create a function version {#create-version}
 
@@ -143,7 +140,7 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
     * `--runtime`: Runtime environment.
     * `--entrypoint`: Entry point.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before the timeout is reached.
+    * `--execution-timeout`: Maximum function running time before timeout.
     * `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:
@@ -169,9 +166,6 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 
     You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md).
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 

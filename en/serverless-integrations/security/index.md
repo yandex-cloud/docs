@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ si-full-name }}
-description: Access management in {{ si-full-name }}. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
+description: Access management in {{ si-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
 ---
 
 # Access management in {{ si-name }}
@@ -31,6 +31,7 @@ You can use {{ si-name }} roles (_service roles_) and {{ yandex-cloud }} roles (
 {{ yandex-cloud }} supports a separate list of roles for each {{ si-name }} component. For more information, see:
 
 * [Roles to work with {{ er-full-name }}](./eventrouter.md).
+* [Roles to work with {{ sw-full-name }}](./workflows.md).
 * [Roles to work with {{ api-gw-full-name }}](../../api-gateway/security/index.md#service-roles).
 
 ### Primitive roles {#primitive-roles}

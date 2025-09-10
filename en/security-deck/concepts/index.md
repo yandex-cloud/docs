@@ -30,3 +30,7 @@ The {{ sd-name }} modules allow you to achieve a number of security objectives:
 Integration between modules simplifies the process of monitoring the actions of {{ yandex-cloud }} engineers and users, allowing you to quickly respond to possible security threats.
 
 Comprehensive use of modules helps reduce the risks associated with unauthorized access, data leaks, and non-compliance with regulatory requirements.
+
+#### See also {#see-also}
+
+* [Cloud security in Russia: Key trends and threats in 2025](https://yandex.cloud/ru/blog/posts/2025/04/cloud-protection)

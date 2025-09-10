@@ -75,3 +75,4 @@ Data logging may prove useful if synthesis errors occur. If you do not want to l
 * [{{ brand-voice-name }} API](../../tts-v3/api-ref/grpc/)
 * [{#T}](../templates.md)
 * [{#T}](../api/tts-templates.md)
+* [How AI helps with customer support: Case studies from banking, retail, and IT](https://yandex.cloud/ru/blog/ai-in-retail)

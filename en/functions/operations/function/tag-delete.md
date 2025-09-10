@@ -53,7 +53,7 @@ You cannot delete the `$latest` tag.
 
     1. Open the {{ TF }} configuration file and delete the string with the tag you no longer need from the `tags` section.
 
-       Example function description in the {{ TF }} configuration:
+       Example of a function description in the {{ TF }} configuration:
  
         ```
         resource "yandex_function" "test-function" {
@@ -72,7 +72,7 @@ You cannot delete the `$latest` tag.
         }
         ``` 
 
-        For more information about the `yandex_function` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
 
     1. Check the configuration using this command:
         
@@ -92,7 +92,7 @@ You cannot delete the `$latest` tag.
        terraform plan
        ```
         
-       The terminal will display a list of resources with their properties. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out. 
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
          
     1. Apply the changes:
 
@@ -111,8 +111,5 @@ You cannot delete the `$latest` tag.
 
     To remove a function version tag, use the [removeTag](../../functions/api-ref/Function/removeTag.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/RemoveTag](../../functions/api-ref/grpc/Function/removeTag.md) gRPC API call.
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can delete a tag using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
