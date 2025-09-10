@@ -8,7 +8,7 @@ editable: false
 
 {% note info %}
 
-Starting from September 15, 2025, you will be charged for using {{ metastore-full-name }} clusters according to the [pricing policy below](#metastore).
+Starting from September 22, 2025, you will be charged for using {{ metastore-full-name }} clusters according to the [pricing policy below](#metastore).
 
 {% endnote %}
 
@@ -26,7 +26,7 @@ Other {{ yandex-cloud }} resources you use (e.g., managed database or [{{ lockbo
 
 {% note info %}
 
-This pricing policy will take effect starting from September 15, 2025.
+This pricing policy will take effect starting from September 22, 2025.
 
 {% endnote %}
 
@@ -49,3 +49,4 @@ You don't pay for a stopped cluster.
 
 
 {% include [usd-prices](../_pricing/metastore/usd.md) %}
+

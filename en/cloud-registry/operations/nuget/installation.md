@@ -39,7 +39,7 @@ description: Follow this guide to set up NuGet.
 
           {% note info %}
 
-          When using the dotnet CLI, the configuration file is located at `~/.nuget/NuGet/NuGet.Config`, while for the NuGet CLI, at `~/.config/NuGet/NuGet.config`.
+          When using the dotnet CLI, the configuration file is located at `~/.nuget/NuGet/NuGet.Config`, while for the NuGet CLI, at `~/.config/NuGet/NuGet.Config`.
 
           {% endnote %}
       1. Update the configuration in the file as follows:

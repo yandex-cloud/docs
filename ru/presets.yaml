@@ -11445,9 +11445,6 @@ default:
                       transfer_to_shard:
                         array_item_label: Сопоставление
                         title: Сопоставление
-                    ClickHouseShardingSettings:
-                      sharding_settings_oneof:
-                        title: Шардирование
                     ClickHouseShardingSettingsOneof:
                       no_sharding:
                         title: Без шардирования

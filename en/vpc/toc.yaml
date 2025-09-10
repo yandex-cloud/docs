@@ -15,7 +15,7 @@ items:
             href: operations/network-delete.md
           - name: Updating a cloud network
             href: operations/network-update.md
-          - name: Getting information about a cloud network
+          - name: Getting cloud network info
             href: operations/network-get-info.md
           - name: Viewing a cloud network map
             href: operations/network-map.md
@@ -29,7 +29,7 @@ items:
             href: operations/subnet-delete.md
           - name: Updating a subnet
             href: operations/subnet-update.md
-          - name: Getting information about a subnet
+          - name: Getting subnet info
             href: operations/subnet-get-info.md
           - name: Moving a subnet between folders
             href: operations/subnet-move.md
@@ -47,7 +47,7 @@ items:
             href: operations/set-dynamic-ip.md
           - name: Moving an address between folders
             href: operations/address-move.md
-          - name: Getting information about an IP address
+          - name: Getting IP address info
             href: operations/address-get-info.md
           - name: Deleting a static public IP address
             href: operations/address-delete.md
@@ -58,11 +58,11 @@ items:
             href: operations/static-route-create.md
           - name: Creating and setting up a NAT gateway
             href: operations/create-nat-gateway.md
-          - name: Getting information about a NAT gateway
+          - name: Getting NAT gateway info
             href: operations/get-info-nat-gateway.md
           - name: Moving a route table between folders
             href: operations/static-route-move.md
-          - name: Getting information about a route table
+          - name: Getting route table info
             href: operations/route-table-get-info.md
           - name: Moving a NAT gateway between folders
             href: operations/static-gateway-move.md
@@ -74,7 +74,7 @@ items:
         items:
           - name: Creating a service connection
             href: operations/private-endpoint-create.md
-          - name: Getting information about a service connection
+          - name: Getting service connection info
             href: operations/private-endpoint-get-info.md
           - name: >-
               Assigning an access policy in Object Storage for a service
@@ -94,7 +94,7 @@ items:
             href: operations/security-group-update.md
           - name: Adding a new rule
             href: operations/security-group-add-rule.md
-          - name: Getting information about a security group
+          - name: Getting security group info
             href: operations/security-group-get-info.md
           - name: Deleting a rule
             href: operations/security-group-delete-rule.md
@@ -245,6 +245,10 @@ items:
             href: tutorials/storage-vpc-access.md
           - name: Connecting to {{ container-registry-name }} from {{ vpc-name }}
             href: tutorials/vpc-cr-access.md
+          - name: >-
+              Synchronizing {{ KF }} topics in {{ objstorage-name }} without
+              using the internet
+            href: tutorials/kafka-topic-s3-sync-private.md
       - name: Additional settings and tools
         items:
           - name: Installing the Cisco CSR 1000v virtual router
@@ -261,7 +265,7 @@ items:
             href: tutorials/terraform-modules.md
   - name: Concepts
     items:
-      - name: Service resource interdependencies
+      - name: Resource relationships
         href: concepts/index.md
       - name: '{{ yandex-cloud }} network overview'
         href: concepts/network-overview.md

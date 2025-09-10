@@ -24,7 +24,7 @@ The cost of resources to support a web application includes:
 
 * Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 * Fee for {{ ydb-short-name }} operations and data storage (see [{{ ydb-full-name }} pricing](../../ydb/pricing/serverless.md)).
-* Fee for function invocation count, computing resources allocated to run the function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
+* Fee for the number of function calls, computing resources allocated to a function, and outbound traffic (see [{{ sf-name }} pricing](../../functions/pricing.md)).
 
 ## Set up your environment {#prepare}
 
@@ -77,7 +77,7 @@ Create a [bucket](../../storage/concepts/bucket.md) and upload `index.html` into
 
      1. Under **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}**, select `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
      1. Click **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
-     1. Wait until the database is up and running. While being created, your database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
+     1. Wait until the database starts. While being created, your database will have the `Provisioning` status. Once it is ready for use, its status will change to `Running`.
      1. Select the created database.
      1. Under **{{ ui-key.yacloud.ydb.overview.section_connection }}**, find the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** field and save its value. You will need it when creating functions.
 
@@ -193,7 +193,7 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
      * `--runtime`: Runtime environment.
      * `entrypoint`: Entry point in `<function_file_name>`.`<handler_name>` format.
      * `--memory`: Amount of RAM.
-     * `--execution-timeout`: Maximum function running time before timeout.
+     * `--execution-timeout`: Maximum running time of the function until timeout.
      * `--source-path`: Path to the previously created `servlet.zip` archive with the function code and required dependencies.
      * `--environment`: Environment variables in `key=value` format.
 
@@ -226,11 +226,8 @@ Create a [function](../../functions/concepts/function.md) for each servlet:
 
 - API {#api}
 
-  Use the [create](../../functions/functions/api-ref/Function/create), [createVersion](../../functions/functions/api-ref/Function/createVersion), and [setAccessBindings](../../functions/functions/api-ref/Function/setAccessBindings) API methods for the [Function](../../functions/functions/api-ref/Function) resource.
+  Use the [create](../../functions/functions/api-ref/Function/create.md), [createVersion](../../functions/functions/api-ref/Function/createVersion.md), and [setAccessBindings](../../functions/functions/api-ref/Function/setAccessBindings.md) API methods for the [Function](../../functions/functions/api-ref/Function/index.md) resource.
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-  You can create a function and its version using [{{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the [JetBrains](https://www.jetbrains.com/) [IntelliJ](https://www.jetbrains.com/opensource/idea/) IDE family.
 
 {% endlist %}
 
@@ -363,9 +360,6 @@ To enable communication between the services, create an API gateway:
      log_group_id: ckg2hdmevnvc********
      ```
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-  You can create an API gateway using [{{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the [JetBrains](https://www.jetbrains.com/) [IntelliJ](https://www.jetbrains.com/opensource/idea/) IDE family.
 
 {% endlist %}
 

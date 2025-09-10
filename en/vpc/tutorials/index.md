@@ -59,6 +59,7 @@ description: Various {{ vpc-name }} use cases in {{ yandex-cloud }}.
 
 * [Connecting to {{ objstorage-name }} from {{ vpc-name }}](storage-vpc-access.md)
 * [Connecting to {{ container-registry-name }} from {{ vpc-name }}](vpc-cr-access.md)
+* [Transferring data from {{ KF }} topics to {{ objstorage-name }} without using the internet](kafka-topic-s3-sync-private.md)
 
 ## Additional settings and tools {#sec-tools}
 

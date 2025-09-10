@@ -106,13 +106,19 @@ items:
           data-transfer-full-name }}
         href: tutorials/mkf-mmy-data-transfer.md
       - name: >-
-          "Поставка данных в {{ mkf-full-name }} с помощью {{
-          data-transfer-full-name }}"
+          Поставка данных в {{ mkf-full-name }} с помощью {{
+          data-transfer-full-name }}
         href: tutorials/cdc-data-transfer.md
       - name: Поставка данных в {{ mkf-full-name }} с помощью Debezium
         href: tutorials/cdc-debezium.md
       - name: Сайт на WordPress с БД {{ MY }}
-        href: tutorials/wordpress-mysql.md
+        items:
+          - name: Обзор
+            href: tutorials/wordpress-mysql.md
+          - name: Консоль управления
+            href: tutorials/console.md
+          - name: '{{ TF }}'
+            href: tutorials/terraform.md
       - name: Создание сайта на базе «1С-Битрикс»
         items:
           - name: Обзор

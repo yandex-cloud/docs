@@ -15,7 +15,7 @@ Only a {{ yandex-cloud }} [user](../overview/roles-and-resources.md#users) can c
 
 ## Getting started {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 1. Open the {{ support-center-name }} [home page]({{ link-console-support }}).
 1. Select the [organization](../organization/quickstart.md) to work with {{ support-center-name }} in or [create a new one](../organization/operations/enable-org.md).
 

@@ -44,9 +44,6 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
 
     You can create a function using the [create](../../functions/api-ref/Function/create.md).
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can create a list of function versions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 
@@ -71,7 +68,7 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
         }
     ```
 
-1. Add the `hello.py` file into the `hello-py.zip` archive.
+1. Add `hello.py` to the `hello-py.zip` archive.
 
     {% include [macos-zip-error](../../../_includes/functions/macos-zip-error.md) %}
 
@@ -118,9 +115,9 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
 
     * `--function-name`: Name of the function whose version you want to create.
     * `--runtime`: Runtime environment.
-    * `entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
+    * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum running time of the function until timeout.
+    * `--execution-timeout`: Maximum function running time before timeout.
     * `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:
@@ -146,9 +143,6 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
 
     You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md).
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 

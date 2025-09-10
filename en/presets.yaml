@@ -11436,9 +11436,6 @@ default:
                       transfer_to_shard:
                         array_item_label: Mapping
                         title: Mapping
-                    ClickHouseShardingSettings:
-                      sharding_settings_oneof:
-                        title: Sharding
                     ClickHouseShardingSettingsOneof:
                       no_sharding:
                         title: No sharding

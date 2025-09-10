@@ -25,7 +25,7 @@ grpcurl \
 
 ### Text generation requests {#text-requests}
 
-Datasets with only the texts of requests in them can be used to run text generation models in [batch mode](../index.md#working-mode). Each line contains a separate JSON request to initiate text generation. A request can contain either a single message with the `user` role or a dialogue with `user` and `assistant` roles, and, optionally, also an instruction for the model:
+Datasets with only the texts of requests in them can be used to run text generation models in [batch mode](../index.md#working-mode). Each line contains a separate JSON request to initiate text generation. A request can contain either a single message with the `user` role or a dialog with the `user` and `assistant` roles and, optionally, also an instruction for the model:
 
 ```json
 {"request": [{"role": "user", "text": "<Question>"}]}
@@ -61,7 +61,7 @@ When creating datasets for text classification, try to give meaningful names to 
 
 The following limits apply when tuning a classifier model based on {{ yagpt-name }}:
 
-| Type of limitation | Minimum value | Maximum value |
+| Type of limit | Minimum value | Maximum value |
 |---|---|---|
 | Number of examples per dataset | 100 | 50,000 |
 | Number of classes | 1 | 100 |
@@ -134,7 +134,7 @@ Embedding tuning datasets may contain pairs of semantically related texts or tri
 
 ## Vision language datasets {#vlm-datasets}
 
-You need vision language datasets when working with multimodal models in batch mode. {{ foundation-models-name }} supports two types of datasets.
+You need vision language datasets when working with [multimodal models](../generation/models.md) in batch mode. {{ foundation-models-name }} supports two types of datasets.
 
 ### Request datasets {#vlm-requests}
 
@@ -157,6 +157,5 @@ Response datasets for vision language models contain request texts, Base64-encod
 * [{#T}](../../operations/tuning/create.md)
 * [{#T}](../../operations/tuning/tune-classifiers.md)
 * [{#T}](../../tutorials/models-fine-tuning.md)
-* [{#T}](../../operations/tuning/tune-classifiers.md)
 * [{#T}](../../operations/resources/create-dataset-gpt.md)
 * [{#T}](../../operations/resources/create-dataset-classifier.md)

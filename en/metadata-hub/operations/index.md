@@ -63,6 +63,7 @@ description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yan
   * [{#T}](data-catalog/create-ingestion.md)
   * [{#T}](data-catalog/start-ingestion.md)
   * [{#T}](data-catalog/update-ingestion.md)
+  * [{#T}](data-catalog/get-info-ingestion.md)
   * [{#T}](data-catalog/delete-ingestion.md)
 * Classifications:
   * [{#T}](data-catalog/list-classifications.md)

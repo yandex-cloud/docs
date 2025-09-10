@@ -105,7 +105,7 @@ description: Follow this guide to delete an API gateway.
      terraform plan
      ```
 
-     The terminal will display a list of resources with their properties. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
   1. Apply the changes:
 
      ```bash
@@ -124,8 +124,5 @@ description: Follow this guide to delete an API gateway.
 
   To delete an [API gateway](../concepts/index.md), use the [delete](../apigateway/api-ref/ApiGateway/delete.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Delete](../apigateway/api-ref/grpc/ApiGateway/delete.md) gRPC API call.
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-  You can delete an [API gateway](../concepts/index.md) using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}

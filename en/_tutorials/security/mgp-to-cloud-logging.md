@@ -2,7 +2,7 @@
 
 You can set up regular collection of {{ mgp-name }} cluster performance logs. Logs will be delivered to a [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}. You can choose between these two types of log groups:
 
-* [Default log group of the cluster's folder](#default)
+* [Default log group of the cluster folder](#default)
 * [Custom log group](#custom)
 
 ## Getting started {#before-you-begin}
@@ -49,7 +49,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
           {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-      * `--log-command-center-enabled`: Transferring Yandex Command Center logs.
+      * `--log-command-center-enabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
 
           {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
@@ -115,19 +115,19 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
               {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-          * `command-center-enabled`: Transferring Yandex Command Center logs.
+          * `command-center-enabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
 
               {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
           * `folder-id`: Specify the ID of the folder whose log group you want to use.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Validate your {{ TF }} configuration files using this command:
 
           ```bash
           terraform validate
           ```
 
-          {{ TF }} will show any errors found in your configuration files.
+          {{ TF }} will display any configuration errors detected in your files.
 
       1. Create the required infrastructure:
 
@@ -159,7 +159,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
           {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-      * `commandCenterEnabled`: Transferring Yandex Command Center logs.
+      * `commandCenterEnabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
 
           {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
@@ -167,21 +167,21 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
    {% endlist %}
 
-1. Test the transfer of cluster logs to the log group.
+1. Test the transfer of cluster logs to the log group:
 
    {% list tabs group=instructions %}
 
    * Management console {#console}
 
-      1. In the management console, go to the relevant folder.
+      1. In the management console, navigate to the relevant folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `default` log group.
 
-      The page that opens will show the log group records.
+      The page that opens will show the log group entries.
 
    * CLI {#cli}
 
-      To view the records in JSON format, run this command:
+      To view the entries in JSON format, run this command:
 
       ```bash
       yc logging read --group-name=default --format=json
@@ -264,7 +264,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
           {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-      * `--log-command-center-enabled`: Transferring Yandex Command Center logs.
+      * `--log-command-center-enabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
 
           {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
@@ -330,19 +330,19 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
               {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-          * `command-center-enabled`: Transferring Yandex Command Center logs.
+          * `command-center-enabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
 
               {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
           * `log_group_id`: ID of the log group to write logs to.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Validate your {{ TF }} configuration files using this command:
 
           ```bash
           terraform validate
           ```
 
-          {{ TF }} will show any errors found in your configuration files.
+          {{ TF }} will display any configuration errors detected in your files.
 
       1. Create the required infrastructure:
 
@@ -374,7 +374,7 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
           {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
-      * `commandCenterEnabled`: Transferring Yandex Command Center logs.
+      * `commandCenterEnabled`: Transferring [Command Center](../../managed-greenplum/concepts/command-center.md) logs.
 
           {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
@@ -382,21 +382,21 @@ You can set up regular collection of {{ mgp-name }} cluster performance logs. Lo
 
    {% endlist %}
 
-1. Test the transfer of cluster logs to the log group.
+1. Test the transfer of cluster logs to the log group:
 
    {% list tabs group=instructions %}
 
    * Management console {#console}
 
-      1. In the management console, go to the relevant folder.
+      1. In the management console, navigate to the relevant folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `greenplum-log-group` log group.
 
-      The page that opens will show the log group records.
+      The page that opens will show the log group entries.
 
    * CLI {#cli}
 
-      To view the records in JSON format, run this command:
+      To view the entries in JSON format, run this command:
 
       ```bash
       yc logging read --group-name=greenplum-log-group --format=json

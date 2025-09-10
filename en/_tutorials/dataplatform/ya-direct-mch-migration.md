@@ -1,7 +1,7 @@
 # Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{ data-transfer-full-name }}
 
 
-You can transfer data from {{ yandex-direct }} to {{ mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. Proceed as follows:
+You can transfer data from {{ yandex-direct }} to {{ mch-name }} using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name }}. To do this:
 
 1. [Transfer your data from {{ yandex-direct }} to {{ objstorage-name }} using {{ sf-name }}](#direct-objstorage).
 1. [Transfer your data from {{ objstorage-name }} to {{ mch-name }} using {{ data-transfer-name }}](#objstorage-mch).
@@ -11,12 +11,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
+The support cost for this solution includes:
 
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* Fee for function calls (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Secret storage and request fees (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
-* {{ mch-name }} cluster fee: Using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for function invocations (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
+* Fee for storing the secret and requests to the secret (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
+* {{ mch-name }} cluster fee: Covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Fee for using public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -96,7 +96,7 @@ The support cost includes:
 
         1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-short-name }}.
         1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
-        1. If using security groups in your {{ mch-name }} cluster, make sure they are [configured correctly](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) and allow connecting to the cluster.
+        1. If using security groups, make sure they are [configured correctly](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) and allow inbound connections to your {{ mch-name }} cluster.
 
     - {{ TF }} {#tf}
 
@@ -123,18 +123,18 @@ The support cost includes:
 
         1. In the `ya-direct-to-mch.tf` file, specify these variables:
 
-            * `folder_id`: Cloud folder ID, same as in the provider settings.
+            * `folder_id`: Cloud folder ID matching the one in your provider settings.
             * `app_token`: Application debug token.
             * `bucket_name`: {{ objstorage-short-name }} bucket name. The name must be unique within the service.
             * `ch_password`: {{ mch-name }} cluster admin user password.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -198,13 +198,13 @@ The support cost includes:
             * `path_to_zip_cf`: Path to the ZIP archive file with the function code.
             * `create_function`: `1` to create a function.
 
-        1. Make sure the {{ TF }} configuration files are correct using this command:
+        1. Validate your {{ TF }} configuration files using this command:
 
             ```bash
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -212,7 +212,7 @@ The support cost includes:
 
     {% endlist %}
 
-1. Open the function you created in the management console. Select **{{ ui-key.yacloud.serverless-functions.switch_list }}** in the left-hand panel.
+1. Open the function you created in the management console. Select **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** in the left-hand panel.
 1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** and wait for the function to complete.
 
 You will see a Parquet file in the bucket.
@@ -221,10 +221,9 @@ You will see a Parquet file in the bucket.
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create) with the following parameters:
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Object Storage`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `Yandex Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}**: Bucket name in {{ objstorage-name }}.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}**: Public part of the service account static key. You may [copy it from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}**: Private part of the service account static key. You may [copy it from the {{ lockbox-name }} secret](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.service_account_id.title }}**: Select the service account [you created earlier](#before-you-begin) from the list.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}**: `https://{{ s3-storage-host }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}**: `{{ region-id }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.parquet.title }}`.
@@ -235,9 +234,9 @@ You will see a Parquet file in the bucket.
         * `Id`: `Int64`
         * `Name`: `String`
 
-    For the other properties, leave the default values.
+    Leave the default values for the other properties.
 
-1. Create an endpoint for the target and the transfer:
+1. Create an endpoint for the target and transfer:
 
     {% list tabs group=resources %}
 
@@ -260,7 +259,7 @@ You will see a Parquet file in the bucket.
             terraform validate
             ```
 
-            If there are any errors in the configuration files, {{ TF }} will point them out.
+            {{ TF }} will display any configuration errors detected in your files.
 
         1. Create the required infrastructure:
 
@@ -268,13 +267,13 @@ You will see a Parquet file in the bucket.
 
     {% endlist %}
 
-1. Activate the transfer and wait until its status switches to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. Activate the transfer and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 
 1. Make sure the {{ objstorage-name }} source data was transferred to the {{ mch-name }} database:
 
     1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) using `clickhouse-client`.
 
-    1. Run this request:
+    1. Run this query:
 
         ```sql
         SELECT * FROM ac05e4fe818e463f88a8a299d290734d_snappy_parquet;
@@ -296,13 +295,13 @@ You will see a Parquet file in the bucket.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid unnecessary charges, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
 
-Delete the other resources depending on how they were created:
+Delete other resources using the method matching their creation method:
 
 {% list tabs group=resources %}
 

@@ -7,7 +7,13 @@ description: Следуя данной инструкции, вы сможете
 
 Сервис {{ managed-k8s-full-name }} позволяет подключать в качестве узлов [кластера {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) серверы, расположенные вне {{ yandex-cloud }}. Для подключения необходимо организовать сетевую связность между удаленной сетью, в которой расположен внешний сервер, и [облачной сетью](../../vpc/concepts/network.md#network), в которой находится кластер {{ managed-k8s-name }}. Это можно сделать с помощью [VPN](../../glossary/vpn.md).
 
-Ниже рассматривается пример организации сетевой связности с помощью протокола [IPSec](../../glossary/ipsec.md). В роли внешнего сервера выступает виртуальная машина, расположенная в другой облачной сети {{ yandex-cloud }}.
+Ниже рассматривается пример организации сетевой связности с помощью протокола [IPSec](../../glossary/ipsec.md).
+
+Схема решения:
+
+![external-nodes-connect](../../_assets/tutorials/external-nodes-connect/external-nodes-connect.svg)
+
+{% include [external-nodes-connect-image-description](../../_includes/managed-kubernetes/external-nodes-connect-image-description.md) %}
 
 ## Перед началом работы {#before-you-begin}
 

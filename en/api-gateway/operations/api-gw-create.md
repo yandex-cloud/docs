@@ -54,7 +54,7 @@ paths:
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. Enter a name for the API gateway in the **{{ ui-key.yacloud.common.name }}** field.
   1. Optionally, in the **{{ ui-key.yacloud.common.description }}** field, enter a description for the API gateway.
-  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_execution-timeout }}** field, specify the execution timeout. The value must not exceed the set [limit](../concepts/limits.md#api-gw-limits).
+  1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.label_execution-timeout }}** field, specify the execution timeout. The value must not exceed the specified [limit](../concepts/limits.md#api-gw-limits).
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the text of the [OpenAPI specifications](https://en.wikipedia.org/wiki/OpenAPI_Specification).
 
       {% include [add-extentions-constructor](../../_includes/api-gateway/add-extentions-constructor.md) %}
@@ -88,7 +88,7 @@ paths:
      * `--name`: API gateway name:
 
          {% include [name-format](../../_includes/name-format.md) %}
-     * `--execution-timeout`: Request execution timeout. The value is specified in seconds and must not exceed the set [limit](../concepts/limits.md#api-gw-limits). This is an optional parameter. The default value is `300` seconds.
+     * `--execution-timeout`: Request execution timeout. The value is specified in seconds and must not exceed the specified [limit](../concepts/limits.md#api-gw-limits). This is an optional parameter. The default value is `300` seconds.
      * `--spec`: Path to the specification file you created earlier.
 
 - {{ TF }} {#tf}
@@ -103,8 +103,5 @@ paths:
 
   To create an [API gateway](../concepts/index.md), use the [create](../apigateway/api-ref/ApiGateway/create.md) REST API method for the [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) resource or the [ApiGatewayService/Create](../apigateway/api-ref/grpc/ApiGateway/create.md) gRPC API call.
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-  You can create an [API gateway](../concepts/index.md) using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}

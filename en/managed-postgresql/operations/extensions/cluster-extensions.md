@@ -136,7 +136,7 @@ Enabling a shared library will cause {{ PG }} to restart on the master host.
 
   1. Open the current {{ TF }} configuration file that defines your infrastructure.
 
-     For more information about creating this file, see [Creating clusters](../cluster-create.md).
+     For more information about creating this file, see [this guide](../cluster-create.md).
 
      For a complete list of editable {{ mpg-name }} cluster database configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 

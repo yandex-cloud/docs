@@ -890,6 +890,8 @@ items:
                     href: tuning/api-ref/grpc/Tuning/enableBilling.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: >-
           Implementing an AI assistant with search capabilities for PDF files
           with complex formatting
@@ -902,6 +904,14 @@ items:
         href: tutorials/qwen-vsc-integration.md
       - name: Creating an AI assistant for Telegram
         href: tutorials/tg-bot-assistant.md
+      - name: >-
+          Developing a Telegram bot with AI agent support using {{ sw-full-name
+          }}
+        href: tutorials/telegram-ai-bot-workflows.md
+      - name: >-
+          AI-powered review of GitHub pull requests with {{ sw-full-name }} and
+          GitHub Actions
+        href: tutorials/ai-powered-github-pr-review.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

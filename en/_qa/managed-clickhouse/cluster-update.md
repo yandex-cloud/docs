@@ -4,7 +4,7 @@ To add a host, follow [this guide](../../managed-clickhouse/operations/hosts.md#
 
 #### Can I set join_use_nulls to 1 using the CLI? {#join-use-nulls}
 
-Yes. To do this, when creating a user or updating user settings, pass the desired `join_use_nulls` setting value in the `--settings` parameter. For example:
+Yes. To do this, when creating a user or updating user settings, provide the required `join_use_nulls` value in `--settings`. Here is an example:
 
 ```bash
 yc managed-clickhouse user update <username> \
@@ -14,21 +14,21 @@ yc managed-clickhouse user update <username> \
 
 For more information, see the [documentation](../../managed-clickhouse/operations/cluster-users.md#update-settings).
 
-#### Is a cluster available when being updated? {#update-availability}
+#### Will my cluster be unavailable during an update? {#update-availability}
 
 If it is a multi-host cluster, there is no downtime while updating it, since the hosts are updated one by one. Only individual hosts are unavailable when the cluster is being restarted.
 
 #### How do I change the time zone? {#timezone}
 
-Change the [timezone]({{ ch.docs }}/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone) or [session_timezone]({{ ch.docs }}/operations/settings/settings#session_timezone) setting for {{ CH }} by following [this guide](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces).
+Change the {{ CH }} [timezone]({{ ch.docs }}/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone) or [session_timezone]({{ ch.docs }}/operations/settings/settings#session_timezone) setting. Learn how to do this in [this tutorial](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces).
 
 #### Is a cluster unavailable when adding replicas? {#add-replica-availability}
 
 Yes, there is a short downtime when restarting a cluster.
 
-#### How do I grant a user read-only permissions? {#readonly}
+#### How do I grant read-only permissions to a user? {#readonly}
 
-To do this, when creating or editing a user via the CLI, pass `readonly=1` in the `--settings` parameter. For example:
+To do this, when creating or editing a user via the CLI, specify `readonly=1` in `--settings`. Here is an example:
 
 ```bash
 yc managed-clickhouse user update <username> \
@@ -40,7 +40,7 @@ For more information, see the [documentation](../../managed-clickhouse/operation
 
 #### How do I increase the memory limit? {#memory-limit}
 
-[Update the user settings](../../managed-clickhouse/operations/cluster-users.md#update-settings) and set the desired `Max memory usage` parameter value.
+[Update the user settings](../../managed-clickhouse/operations/cluster-users.md#update-settings) and set the required `Max memory usage` value.
 
 #### Can I change the disk type? {#disk-type}
 

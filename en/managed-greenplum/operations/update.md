@@ -95,7 +95,7 @@ After creating a cluster, you can:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -120,11 +120,11 @@ After creating a cluster, you can:
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -157,7 +157,7 @@ After creating a cluster, you can:
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -198,7 +198,7 @@ After creating a cluster, you can:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -230,11 +230,11 @@ After creating a cluster, you can:
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -274,7 +274,7 @@ After creating a cluster, you can:
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -438,10 +438,10 @@ If you enabled public access to the cluster but cannot access it from the inter
         * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters):
 
             * `type`: Maintenance type. The possible values include:
-                * `ANYTIME`: Anytime.
+                * `ANYTIME`: Any time.
                 * `WEEKLY`: On a schedule.
-            * `day`: Day of the week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
-            * `hour`: UTC hour in `HH` format for the `WEEKLY` type, e.g., `21`.
+            * `day`: Day of week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
+            * `hour`: Time of day (UTC) in `HH` format for the `WEEKLY` type, e.g., `21`.
 
         
         * `access.data_lens`: Access to the cluster from [{{ datalens-full-name }}](../../datalens/concepts/index.md), `true` or `false`.
@@ -482,11 +482,11 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Create a file named `body.json` and add the following contents to it:
+    1. Create a file named `body.json` and paste the following code into it:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -558,7 +558,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
                 * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: Hour of day (UTC), from `1` to `24`.
+                * `hour`: Time of day (UTC), from `1` to `24`.
 
         * `deletionProtection`: Cluster protection from accidental deletion, `true` or `false`.
 
@@ -591,17 +591,17 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Create a file named `body.json` and add the following contents to it:
+    1. Create a file named `body.json` and paste the following code into it:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -686,7 +686,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
 
                 * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-                * `hour`: Hour of day (UTC), from `1` to `24`.
+                * `hour`: Time of day (UTC), from `1` to `24`.
 
         * `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
 
@@ -723,7 +723,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -745,7 +745,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -789,11 +789,11 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -848,7 +848,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -948,7 +948,7 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -987,11 +987,11 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1043,7 +1043,7 @@ For a full list of settings, see the [{{ GP }} documentation](https://techdocs.b
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1056,7 +1056,7 @@ You can change the host class for both master hosts and segment hosts. When chan
 
 Changing the segment host class [affects](../concepts/instance-types.md#select-class-segment-hosts) the maximum amount of memory allocated to each {{ GP }} server process.
 
-We recommend changing the host class only when the cluster has no active workload.
+We recommend changing the host class only when your cluster has no active workload.
 
 {% list tabs group=instructions %}
 
@@ -1073,7 +1073,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the [host class](../concepts/instance-types.md) for the cluster:
+  To change the [host class](../concepts/instance-types.md) for a cluster:
 
   1. View the description of the CLI command to update a cluster:
 
@@ -1156,7 +1156,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1193,11 +1193,11 @@ We recommend changing the host class only when the cluster has no active workloa
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1245,7 +1245,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1261,7 +1261,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-  1. Select the appropriate cluster.
+  1. Select the cluster you need.
   1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
 
@@ -1276,7 +1276,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To increase the cluster storage size:
+  To increase your cluster storage size:
 
   1. View the description of the CLI command to update a cluster:
 
@@ -1334,7 +1334,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1376,11 +1376,11 @@ We recommend changing the host class only when the cluster has no active workloa
 
         You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1435,7 +1435,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
         You can request  the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1443,6 +1443,15 @@ We recommend changing the host class only when the cluster has no active workloa
 ## Changing service account settings {#change-service-account}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Select the cluster you need.
+    1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** field, select a service account from the list or [create a new one](../../iam/operations/sa/create.md).
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -1494,7 +1503,7 @@ We recommend changing the host class only when the cluster has no active workloa
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1522,13 +1531,13 @@ We recommend changing the host class only when the cluster has no active workloa
 
         * `serviceAccountId`: Service account ID.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1564,9 +1573,9 @@ We recommend changing the host class only when the cluster has no active workloa
 
         * `service_account_id`: Service account ID.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1575,6 +1584,25 @@ We recommend changing the host class only when the cluster has no active workloa
 You can change the settings for [transferring cluster logs to {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md).
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
+    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Select the cluster you need.
+    1. At the top of the page, click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_additional}}**, enable or disable logging using the **{{ ui-key.yacloud.logging.field_logging }}** option. If you turn logging on, configure it:
+
+        * Specify logging destination:
+
+          * **{{ ui-key.yacloud.common.folder }}**: Log to the default log group for the selected folder.
+          * **{{ ui-key.yacloud.logging.label_group }}**: Log either to a new [log group](../../logging/concepts/log-group.md) or one selected from the list.
+
+        * Select the logs you need:
+
+          * **Command Center logs**: Enables [Command Center](../concepts/command-center.md) logs.
+          * **Greenplum logs**: Enables {{ GP }} logs.
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -1603,8 +1631,8 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         Where:
 
-        * `--log-enabled`: Enables transferring logs.
-        * `--log-command-center-enabled`: Transferring Yandex Command Center logs.
+        * `--log-enabled`: Enables log transfer.
+        * `--log-command-center-enabled`: Transferring [Command Center](../concepts/command-center.md) logs.
         * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
         * `--log-pooler-enabled`: Transferring [connection pooler](../concepts/pooling.md) logs.
         * `--log-folder-id`: Specify the ID of the folder whose log group you want to use.
@@ -1637,10 +1665,10 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         Where:
 
-        * `enabled`: Enables transferring logs: `true` or `false`.
-        * `command_center_enabled`: Transferring Yandex Command Center logs: `true` or `false`.
-        * `greenplum_enabled`: Transferring {{ GP }} logs: `true` or `false`.
-        * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs: `true` or `false`.
+        * `enabled`: Enables log transfer, `true` or `false`.
+        * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
+        * `greenplum_enabled`: Transferring {{ GP }} logs, `true` or `false`.
+        * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
         * `folder_id`: Specify the ID of the folder whose log group you want to use.
         * `log_group_id`: ID of the log group to write logs to.
 
@@ -1658,7 +1686,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1690,22 +1718,22 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         * `logging`: Logging settings:
 
-            * `enabled`: Enables transferring logs: `true` or `false`.
-            * `commandCenterEnabled`: Transferring Yandex Command Center logs: `true` or `false`.
-            * `greenplumEnabled`: Transferring {{ GP }} logs: `true` or `false`.
-            * `poolerEnabled`: Transferring [connection pooler](../concepts/pooling.md) logs: `true` or `false`.
+            * `enabled`: Enables log transfer, `true` or `false`.
+            * `commandCenterEnabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
+            * `greenplumEnabled`: Transferring {{ GP }} logs, `true` or `false`.
+            * `poolerEnabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
             * `folderId`: Specify the ID of the folder whose log group you want to use.
             * `logGroupId`: ID of the log group to write logs to.
 
                 Specify either `folderId` or `logGroupId`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1750,18 +1778,18 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         * `logging`: Logging settings:
 
-            * `enabled`: Enables transferring logs: `true` or `false`.
-            * `command_center_enabled`: Transferring Yandex Command Center logs: `true` or `false`.
-            * `greenplum_enabled`: Transferring {{ GP }} logs: `true` or `false`.
-            * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs: `true` or `false`.
+            * `enabled`: Enables log transfer, `true` or `false`.
+            * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
+            * `greenplum_enabled`: Transferring {{ GP }} logs, `true` or `false`.
+            * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
             * `folder_id`: Specify the ID of the folder whose log group you want to use.
             * `log_group_id`: ID of the log group to write logs to.
 
                 Specify either `folder_id` or `log_group_id`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

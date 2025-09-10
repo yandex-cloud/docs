@@ -1,6 +1,6 @@
 ---
 title: Public materials about {{ foundation-models-name }}
-description: '{{ foundation-models-name }} conference and webinar recordings.'
+description: Videos of conferences and webinars dedicated to {{ foundation-models-name }}.
 ---
 
 # Public materials about {{ foundation-models-name }}
@@ -40,6 +40,22 @@ description: '{{ foundation-models-name }} conference and webinar recordings.'
 ## Articles {#articles}
 
 ### 2025 {#2025-articles}
+
+* Writing prompts for neural networks: Guide, examples, and tips. [Read our article](https://yandex.cloud/ru/blog/gpt-prompting-guide).
+
+* How Yandex’s neural networks have helped doctors speed up new treatment method development. [Read our article](https://yandex.cloud/ru/blog/local-ethics-committee).
+
+* RAG: Training AI to process new data. [Read our article](https://yandex.cloud/ru/blog/posts/2025/05/retrieval-augmented-generation-basics).
+
+* HR Tech: Using neural networks and cloud solutions to manage recruitment and retain employees. [Read our article](https://yandex.cloud/ru/blog/posts/2025/05/hr-tech).
+
+* How technology is driving change in the construction sector. [Read our article](https://yandex.cloud/ru/blog/posts/2025/04/technologies-in-construction).
+
+* How AI helps with customer support: Case studies from banking, retail, and IT. [Read our article](https://yandex.cloud/ru/blog/posts/2025/04/ai-and-support).
+
+* Neural networks for text: Business use cases. [Read our article](https://yandex.cloud/ru/blog/posts/2025/03/ai-for-texts).
+
+* Fine-tuning language models: Adapting AI to special-purpose tasks. [Read our article](https://yandex.cloud/ru/blog/posts/2025/03/fine-tuning).
 
 * Meet {{ yagpt-name }} 5 in Alice, cloud, and open source. [Read our article](https://habr.com/ru/companies/yandex/articles/885218/).
 

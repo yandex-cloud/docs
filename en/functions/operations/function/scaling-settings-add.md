@@ -32,13 +32,13 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
         * Any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
             1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, hover over the version tag (e.g., ![image](../../../_assets/console-icons/gear.svg) or `$latest`) of the function you want to add scaling settings for.
             1. In the pop-up window, click **{{ ui-key.yacloud.common.add }}**.
-            1. In the window that opens, specify:
+            1. In the window that opens, specify the following:
                 * **zone_instances_limit**: Number of function instances in an availability zone.
                 * **zone_requests_limit**: Number of concurrent function calls in an availability zone.
                 * **provisioned_instances_count**: Number of provisioned instances.
             1. Click **{{ ui-key.yacloud.common.save }}**.
         * [Number of calls processed concurrently by a single function instance](../../concepts/function.md#concurrency) (`concurrency`):
-            1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
+            1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
             1. Under **Additional settings**, in the **Concurrent function instance calls** section, check **Enable** and enter the number of concurrent function instance calls.
             1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -95,7 +95,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
         * `--entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
         * `--memory`: Amount of RAM.
         * `--concurrency`: Maximum number of calls processed concurrently by a single function instance.
-        * `--execution-timeout`: Maximum function running time before the timeout is reached.
+        * `--execution-timeout`: Maximum function running time before timeout.
         * `--source-path`: ZIP archive with the function code and required dependencies.
 
         Result:
@@ -127,17 +127,17 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
     To add scaling settings:
 
-    1. In the configuration file, define the parameters of the resources you want to create:
+    1. In the configuration file, describe the parameters of resources you want to create:
 
        * `yandex_function`: Description of the function being created and its source code.
          * `name`: Function name.
-         * `user_hash`: Any string to identify the function version. When the function changes, update this string, too. The function will update when this string is updated.
+         * `user_hash`: Custom string to define the function version. When the function changes, update this string, too. The function will update when this string is updated.
          * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
          * `entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
          * `memory`: Amount of memory allocated for the function, in MB.
          * `concurrency`: [Maximum number of calls processed concurrently by a single function instance](../../concepts/function.md#concurrency).
-         * `execution_timeout`: Maximum function running time before the timeout is reached.
-         * `service_account_id`: ID of the service account to call the function under.
+         * `execution_timeout`: Maximum function running time before timeout.
+         * `service_account_id`: ID of the service account you want to use to invoke the function.
          * `content`: Function source code.
            * `content.0.zip_filename`: Name of the ZIP archive containing the function source code.
        * `yandex_function_scaling_policy`: Description of function scaling settings.
@@ -200,14 +200,14 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
        terraform plan
        ```
 
-       The terminal will display a list of resources with their parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-    1. Apply the configuration changes:
+    1. Apply the changes:
 
        ```
        terraform apply
        ```
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Type `yes` and press **Enter** to confirm the changes.
 
     You can check that the scaling settings are added using the [management console]({{ link-console-main }}) or these [CLI](../../../cli/quickstart.md) commands:
     
@@ -223,9 +223,6 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
     To set the number of calls processed concurrently by a single function instance (`concurrency`), create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md) gRPC API call. Add the `concurrency` field to the request body.
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can configure any function scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`) using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 

@@ -11,6 +11,7 @@ description: Из статьи вы узнаете про СУБД {{ ydb-short-
 
 * [{#T}](resources.md).
 * [{#T}](serverless-and-dedicated.md).
+* [{#T}](autoscaling.md).
 * [{#T}](dynamodb-tables.md).
 * [{#T}](limits.md).
 

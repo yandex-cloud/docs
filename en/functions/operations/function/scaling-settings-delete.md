@@ -42,7 +42,7 @@ description: Follow this guide to delete function scaling settings.
 
     To delete any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
 
-    1. In the configuration file, describe the resources you want to create:
+    1. In the configuration file, describe the parameters of resources you want to create:
 
        * `yandex_function_scaling_policy`: Description of function scaling settings.
          * `function_id`: Function ID.
@@ -64,7 +64,7 @@ description: Follow this guide to delete function scaling settings.
         }
         ```
       
-        For more information about the `yandex_function_scaling_policy` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function_scaling_policy).
+        For more information about `yandex_function_scaling_policy` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function_scaling_policy).
       
     1. Check the configuration using this command:
         
@@ -84,7 +84,7 @@ description: Follow this guide to delete function scaling settings.
        terraform plan
        ```
         
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
          
     1. Apply the changes:
 
@@ -103,9 +103,6 @@ description: Follow this guide to delete function scaling settings.
 
     To delete any function scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`), use the [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/RemoveScalingPolicy](../../functions/api-ref/grpc/Function/removeScalingPolicy.md) gRPC API call.
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can delete any function scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`) using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 
