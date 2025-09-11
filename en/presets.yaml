@@ -2282,6 +2282,20 @@ default:
       subscription:
         v1|number: 350000
         v1|string: ₸350000.00
+    dspm:
+      scanned:
+        files:
+          v1|number: 750
+          v1|string: ₸750.00
+        text:
+          v1|number: 2304
+          v1|pricingRate:
+            10|string: ₸1980.00
+            100|string: ₸1800.00
+            1024|string: ₸1440.00
+            10240|string: ₸1080.00
+            102400|string: ₸1008.00
+          v1|string: ₸2304.00
   sku|KZT|serverless:
     containers:
       compute:
@@ -4222,6 +4236,20 @@ default:
       subscription:
         v1|number: 70000
         v1|string: ₽70000.00
+    dspm:
+      scanned:
+        files:
+          v1|number: 150
+          v1|string: ₽150.00
+        text:
+          v1|number: 460.8
+          v1|pricingRate:
+            10|string: ₽396.00
+            100|string: ₽360.00
+            1024|string: ₽288.00
+            10240|string: ₽216.00
+            102400|string: ₽201.60
+          v1|string: ₽460.80
   sku|RUB|serverless:
     containers:
       compute:
@@ -6141,6 +6169,20 @@ default:
       subscription:
         v1|number: 583.3331
         v1|string: $583.333100
+    dspm:
+      scanned:
+        files:
+          v1|number: 1.25
+          v1|string: $1.250000
+        text:
+          v1|number: 3.839998
+          v1|pricingRate:
+            10|string: $3.299999
+            100|string: $2.999999
+            1024|string: $2.399999
+            10240|string: $1.799999
+            102400|string: $1.679999
+          v1|string: $3.839998
   sku|USD|serverless:
     containers:
       compute:
@@ -10362,6 +10404,7 @@ default:
             action_import: Import
         field_metastore-endpoint-ip: IP address
         label_metastore: Metastore
+        label_resource-preset: Metastore
       mongodb:
         cluster:
           shards:
@@ -10426,8 +10469,10 @@ default:
         button_create-configuration-set: Create configuration
         button_create-identity: Create address
         button_validate: Verify address
+        field_secure-connection: Deliver emails only over a secure connection
         label_address: Domain
         label_configuration-sets: Configurations
+        label_delivery-options: Delivery settings
         label_dns-record-name: Name
         label_dns-record-value: Value
         label_event-destinations: Subscriptions

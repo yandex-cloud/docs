@@ -2,7 +2,7 @@
 subcategory: Managed Service for Redis
 page_title: 'Yandex: yandex_mdb_redis_cluster_v2'
 description: Manages a Redis cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_redis_cluster_v2.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_redis_cluster_v2.md
 ---
 
 # yandex_mdb_redis_cluster_v2 (Resource)
@@ -129,6 +129,7 @@ resource "yandex_vpc_subnet" "baz" {
 - `auth_sentinel` (Boolean) Allows to use ACL users to auth in sentinel
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.
+- `disk_encryption_key_id` (String) ID of the symmetric encryption key used to encrypt the disk of the cluster.
 - `disk_size_autoscaling` (Attributes) Disk size autoscaling settings. (see [below for nested schema](#nestedatt--disk_size_autoscaling))
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
@@ -136,6 +137,7 @@ resource "yandex_vpc_subnet" "baz" {
 - `persistence_mode` (String) Persistence mode.
 - `security_group_ids` (Set of String) The list of security groups applied to resource or their components.
 - `sharded` (Boolean) Redis sharded mode. Can be either true or false.
+- `timeouts` (Attributes) (see [below for nested schema](#nestedatt--timeouts))
 - `tls_enabled` (Boolean) TLS port and functionality. Can be either true or false.
 
 ### Read-Only
@@ -253,6 +255,16 @@ Optional:
 
 - `day` (String) Day of week for maintenance window if window type is weekly.
 - `hour` (Number) Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
+
+
+<a id="nestedatt--timeouts"></a>
+### Nested Schema for `timeouts`
+
+Optional:
+
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+- `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import
 

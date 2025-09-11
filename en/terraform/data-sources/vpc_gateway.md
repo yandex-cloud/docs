@@ -11,7 +11,12 @@ Get information about a Yandex VPC gateway. For more information, see [Yandex Cl
 
 This data source is used to define [VPC Gateways](https://yandex.cloud/docs/vpc/concepts/gateways) that can be used by other resources.
 
-~> One of `gateway_id` or `name` should be specified.
+{% note warning %}
+
+One of `gateway_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

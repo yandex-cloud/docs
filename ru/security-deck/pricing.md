@@ -71,3 +71,39 @@ editable: false
 {% endlist %}
 
 
+
+#### Сканирование по количеству файлов {#scan-by-amount}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub-scan-by-amount.md](../_pricing/security-deck/dspm/rub-scan-by-amount.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt-scan-by-amount.md](../_pricing/security-deck/dspm/kzt-scan-by-amount.md) %}
+
+{% endlist %}
+
+
+
+#### Пример расчета стоимости {#amount-example}
+
+Например, вы настроили сканирование бакета, в котором хранится 50 текстовых файлов общим объемом 5 ГБ. Все файлы были просканированы. Итоговая стоимость одного сканирования составит:
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-scan-by-amount](../_pricing_examples/security-deck/rub-scan-by-amount.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-scan-by-amount](../_pricing_examples/security-deck/kzt-scan-by-amount.md) %}
+
+{% endlist %}
+
+

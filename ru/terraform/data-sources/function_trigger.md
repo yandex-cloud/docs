@@ -2,7 +2,7 @@
 subcategory: Serverless Cloud Functions
 page_title: 'Yandex: yandex_function_trigger'
 description: Get information about a Yandex Cloud Functions Trigger.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/function_trigger.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/function_trigger.md
 ---
 
 # yandex_function_trigger (Data Source)
@@ -11,7 +11,12 @@ Get information about a Yandex Cloud Function Trigger. For more information abou
 
 This data source is used to define [Yandex Cloud Functions Trigger](https://yandex.cloud/docs/functions/concepts/trigger) that can be used by other resources.
 
-~> Either `trigger_id` or `name` must be specified.
+{% note warning %}
+
+Either `trigger_id` or `name` must be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

@@ -8,8 +8,6 @@ title: Как изменить квоты
 
 Потенциально значения квот можно изменить до значений лимитов — ограничений облачной платформы.
 
-{% include [request-quota-restriction](../../_includes/quota-manager/request-quota-restriction.md) %}
-
 {% include [request-quota-roles](../../_includes/quota-manager/request-quota-roles.md) %}
 
 ## Запросить изменение квоты {#request-quota-change}
@@ -19,6 +17,10 @@ title: Как изменить квоты
 - Консоль управления {#console}
 
   {% include [request-quota](../../_includes/quota-manager/request-quota.md) %}
+
+- CLI {#cli}
+
+  {% include [request-quota-cli](../../_includes/quota-manager/request-quota-cli.md) %}
 
 - API {#api}
 
@@ -44,6 +46,16 @@ title: Как изменить квоты
   1. Раскройте секцию **{{ ui-key.yacloud.iam.cloud.quotas.label_pending-requests-title }}**.
   1. Выберите нужный запрос и посмотрите ответы службы поддержки и операции с запросом.
 
+- CLI {#cli}
+
+  1. Посмотрите статус запроса на изменение квот:
+      
+      {% include [list-quota-requests-cli](../../_includes/quota-manager/list-quota-requests-cli.md) %}
+
+  1. Посмотрите список операций с запросом:
+
+      {% include [list-oper-quota-request-cli](../../_includes/quota-manager/list-oper-quota-request-cli.md) %}
+
 - API {#api}
 
   Чтобы посмотреть статус запроса на изменение квот, воспользуйтесь методом REST API [get](../api-ref/QuotaRequest/get.md) для ресурса [QuotaRequest](../api-ref/QuotaRequest/) или вызовом gRPC API [QuotaRequest/Get](../api-ref/grpc/QuotaRequest/get.md).
@@ -61,6 +73,10 @@ title: Как изменить квоты
   1. В разделе [технической поддержки]({{ link-console-support }}) выберите **{{ ui-key.yacloud_org.support.switch_tickets }}**.
   1. В списке фильтров **{{ ui-key.yacloud_org.support.tickets.table.label_column_ticket_type }}** выберите **{{ ui-key.support-center.search.common.title_suggestion-quotas }}**.
 
+- CLI {#cli}
+
+  {% include [list-quota-requests-cli](../../_includes/quota-manager/list-quota-requests-cli.md) %}
+
 - API {#api}
 
   Чтобы посмотреть список запросов на изменение квот, воспользуйтесь методом REST API [List](../api-ref/QuotaRequest/list.md) для ресурса [QuotaRequest](../api-ref/QuotaRequest/) или вызовом gRPC API [QuotaRequest/list](../api-ref/grpc/QuotaRequest/list.md).
@@ -77,6 +93,10 @@ title: Как изменить квоты
   1. На панели справа выберите раздел **{{ ui-key.yacloud.iam.cloud.switch_quotas }}**.
   1. Раскройте секцию **{{ ui-key.yacloud.iam.cloud.quotas.label_pending-requests-title }}**.
   1. Выберите нужный запрос и нажмите кнопку **{{ ui-key.yacloud_components.helpfeedbackdialog.button_close }}**.
+
+- CLI {#cli}
+      
+  {% include [cancel-quota-requests-cli](../../_includes/quota-manager/cancel-quota-requests-cli.md) %}
 
 - API {#api}
 

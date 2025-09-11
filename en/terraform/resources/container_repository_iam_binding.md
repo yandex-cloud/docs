@@ -50,7 +50,12 @@ resource "yandex_container_repository_iam_binding" "puller" {
   * **system:allAuthenticatedUsers**: All authenticated users.
   * **system:allUsers**: All users, including unauthenticated ones.
 
-~> for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `repository_id` (String) The [Yandex Container Repository](https://yandex.cloud/docs/container-registry/concepts/repository) ID to apply a binding to.
 - `role` (String) The role that should be applied. See [roles catalog](https://yandex.cloud/docs/iam/roles-reference).
 

@@ -10,7 +10,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/iot_core_broker.md
 Get information about a Yandex IoT Core Broker. For more information IoT Core, see [Yandex Cloud IoT Broker](https://yandex.cloud/docs/iot-core/quickstart).
 This data source is used to define [Yandex Cloud IoT Broker](https://yandex.cloud/docs/iot-core/quickstart) that can be used by other resources.
 
-~> Either `broker_id` or `name` must be specified.
+{% note warning %}
+
+Either `broker_id` or `name` must be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

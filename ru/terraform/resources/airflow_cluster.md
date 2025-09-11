@@ -2,7 +2,7 @@
 subcategory: Managed Service for Apache Airflow
 page_title: 'Yandex: yandex_airflow_cluster'
 description: Manages an Apache Airflow cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/airflow_cluster.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/airflow_cluster.md
 ---
 
 # yandex_airflow_cluster (Resource)

@@ -11,7 +11,12 @@ Get information about a Yandex Application Load Balancer. For more information, 
 
 This data source is used to define [Application Load Balancer](https://yandex.cloud/docs/application-load-balancer/concepts/application-load-balancer) that can be used by other resources.
 
-~> One of `load_balancer_id` or `name` should be specified.
+{% note warning %}
+
+One of `load_balancer_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

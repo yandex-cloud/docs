@@ -70,7 +70,12 @@ resource "yandex_vpc_subnet" "foo" {
 - `deletion_protection` (String) The `true` value means that resource is protected from accidental deletion.
 - `generate_password` (Boolean) Generate password using Connection Manager. Allowed values: true or false. It's used only during user creation and is ignored during updating.
 
-~> **Must specify either password or generate_password**.
+{% note warning %}
+
+**Must specify either password or generate_password**.
+
+{% endnote %}
+
 - `grants` (List of String) List of the user's grants.
 - `login` (Boolean) User's ability to login.
 - `password` (String, Sensitive) The password of the user.

@@ -2,7 +2,7 @@
 subcategory: Managed Service for Trino
 page_title: 'Yandex: yandex_trino_cluster'
 description: Manages Trino cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/trino_cluster.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/trino_cluster.md
 ---
 
 # yandex_trino_cluster (Resource)
@@ -72,6 +72,7 @@ resource "yandex_trino_cluster" "trino" {
 - `retry_policy` (Attributes) Configuration for retry policy, specifying the spooling storage destination and other settings. (see [below for nested schema](#nestedatt--retry_policy))
 - `security_group_ids` (Set of String) The list of security groups applied to resource or their components.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
+- `version` (String) Trino version. Format: "Number".
 
 ### Read-Only
 

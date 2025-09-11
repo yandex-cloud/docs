@@ -2,7 +2,7 @@
 subcategory: Key Management Service (KMS)
 page_title: 'Yandex: yandex_kms_asymmetric_encryption_key'
 description: Get data from Yandex KMS asymmetric encryption key.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/kms_asymmetric_encryption_key.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/kms_asymmetric_encryption_key.md
 ---
 
 # yandex_kms_asymmetric_encryption_key (Data Source)

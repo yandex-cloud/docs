@@ -1,0 +1,1 @@
+5 × {{ sku|RUB|security_deck.dspm.scanned.text.v1|string }} × ({{ sku|RUB|security_deck.dspm.scanned.files.v1|string }} × 50 / 10 000) = {% calc [currency=RUB] 5 × {{ sku|RUB|security_deck.dspm.scanned.text.v1|number }} × ({{ sku|RUB|security_deck.dspm.scanned.files.v1|number }} × 50 / 10 000) %}

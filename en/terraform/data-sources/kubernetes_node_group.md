@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/kubernetes_node_group.
 
 Get information about a Yandex Kubernetes Node Group. For more information, see [the official documentation](https://yandex.cloud/docs/managed-kubernetes/concepts/#node-group).
 
-~> One of `node_group_id` or `name` should be specified.
+{% note warning %}
+
+One of `node_group_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

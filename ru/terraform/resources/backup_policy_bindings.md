@@ -2,7 +2,7 @@
 subcategory: Cloud Backup
 page_title: 'Yandex: yandex_backup_policy_bindings'
 description: Allows to bind compute instance with backup policy.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/backup_policy_bindings.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/backup_policy_bindings.md
 ---
 
 # yandex_backup_policy_bindings (Resource)

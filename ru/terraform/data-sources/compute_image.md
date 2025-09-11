@@ -2,16 +2,26 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_image'
 description: Get information about a Yandex Compute image.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/compute_image.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/compute_image.md
 ---
 
 # yandex_compute_image (Data Source)
 
 Get information about a Yandex Compute image. For more information, see [the official documentation](https://yandex.cloud/docs/compute/concepts/image).
 
-~> Either `image_id`, `family` or `name` must be specified.
+{% note warning %}
 
-~> If you specify `family` without `folder_id` then lookup takes place in the 'standard-images' folder.
+Either `image_id`, `family` or `name` must be specified.
+
+{% endnote %}
+
+
+{% note warning %}
+
+If you specify `family` without `folder_id` then lookup takes place in the 'standard-images' folder.
+
+{% endnote %}
+
 
 ## Example usage
 

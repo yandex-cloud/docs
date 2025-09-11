@@ -2,7 +2,7 @@
 subcategory: Smart Web Security (SWS)
 page_title: 'Yandex: yandex_sws_security_profile'
 description: Get information about SmartWebSecurity Profile.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/sws_security_profile.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/sws_security_profile.md
 ---
 
 # yandex_sws_security_profile (Data Source)
@@ -11,7 +11,12 @@ Get information about SecurityProfile. For more information, see [the official d
 
 This data source is used to define SecurityProfile that can be used by other resources.
 
-~> One of `security_profile_id` or `name` should be specified.
+{% note warning %}
+
+One of `security_profile_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -41,13 +46,23 @@ data "yandex_sws_security_profile" "by-name" {
 ### Read-Only
 
 - `advanced_rate_limiter_profile_id` (String) Advanced rate limiter profile ID to use with this security profile. Set empty to use default.
+- `analyze_request_body` (List of Object) (see [below for nested schema](#nestedatt--analyze_request_body))
 - `captcha_id` (String) Captcha ID to use with this security profile. Set empty to use default.
 - `created_at` (String) The creation timestamp of the resource.
 - `default_action` (String) Action to perform if none of rules matched. Possible values: `ALLOW` or `DENY`.
 - `description` (String) The resource description.
 - `id` (String) The ID of this resource.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
-- `security_rule` (List of Object) (see [below for nested schema](#nestedatt--security_rule))
+- `security_rule` (List of Object) List of security rules. (see [below for nested schema](#nestedatt--security_rule))
+
+<a id="nestedatt--analyze_request_body"></a>
+### Nested Schema for `analyze_request_body`
+
+Read-Only:
+
+- `size_limit` (Number)
+- `size_limit_action` (String)
+
 
 <a id="nestedatt--security_rule"></a>
 ### Nested Schema for `security_rule`

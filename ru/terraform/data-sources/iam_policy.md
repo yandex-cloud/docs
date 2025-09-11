@@ -2,7 +2,7 @@
 subcategory: Identity and Access Management (IAM)
 page_title: 'Yandex: yandex_iam_policy'
 description: Generates an IAM policy that can be referenced by other resources and applied to them.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/iam_policy.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/iam_policy.md
 ---
 
 # yandex_iam_policy (Data Source)
@@ -63,5 +63,10 @@ Required:
 * **system:allAuthenticatedUsers**: All authenticated users.
 * **system:allUsers**: All users, including unauthenticated ones.
 
-~> For more information about system groups, see the [documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+For more information about system groups, see the [documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `role` (String) The role/permission that will be granted to the members. See the [IAM Roles](https://yandex.cloud/docs/iam/concepts/access-control/roles) documentation for a complete list of roles.

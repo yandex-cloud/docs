@@ -86,7 +86,12 @@ resource "yandex_vpc_subnet" "foo" {
 - `connection_limits` (Block List, Max: 1) User's connection limits. If the attribute is not specified there will be no changes. Default value is `-1`. When these parameters are set to `-1`, backend default values will be actually used. (see [below for nested schema](#nestedblock--connection_limits))
 - `generate_password` (Boolean) Generate password using Connection Manager. Allowed values: `true` or `false`. It's used only during user creation and is ignored during updating.
 
-~> **Must specify either password or generate_password**.
+{% note warning %}
+
+**Must specify either password or generate_password**.
+
+{% endnote %}
+
 - `global_permissions` (Set of String) List user's global permissions. Allowed permissions: `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `PROCESS` for clear list use empty list. If the attribute is not specified there will be no changes.
 - `password` (String, Sensitive) The password of the user.
 - `permission` (Block Set) Set of permissions granted to the user. (see [below for nested schema](#nestedblock--permission))

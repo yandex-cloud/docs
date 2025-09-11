@@ -2,7 +2,7 @@
 subcategory: Container Registry
 page_title: 'Yandex: yandex_container_registry_iam_binding'
 description: Allows management of a single IAM binding for a Yandex Container Registry.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/container_registry_iam_binding.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/container_registry_iam_binding.md
 ---
 
 # yandex_container_registry_iam_binding (Resource)
@@ -46,7 +46,12 @@ resource "yandex_container_registry_iam_binding" "puller" {
   * **system:allAuthenticatedUsers**: All authenticated users.
   * **system:allUsers**: All users, including unauthenticated ones.
 
-~> for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `registry_id` (String) The [Yandex Container Registry](https://yandex.cloud/docs/container-registry/) ID to apply a binding to.
 - `role` (String) The role that should be applied. See [roles catalog](https://yandex.cloud/docs/iam/roles-reference).
 

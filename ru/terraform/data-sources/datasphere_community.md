@@ -2,7 +2,7 @@
 subcategory: Datasphere
 page_title: 'Yandex: yandex_datasphere_community'
 description: Get information about a Yandex Cloud Datasphere Community.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/datasphere_community.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/datasphere_community.md
 ---
 
 # yandex_datasphere_community (Data Source)

@@ -4,7 +4,7 @@ page_title: 'Yandex: yandex_alb_load_balancer'
 description: |-
   A Load Balancer is used for receiving incoming traffic and transmitting it to the backend endpoints
   specified in the ALB Target Groups.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/alb_load_balancer.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/alb_load_balancer.md
 ---
 
 # yandex_alb_load_balancer (Resource)

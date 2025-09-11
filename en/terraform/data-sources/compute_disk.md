@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/compute_disk.md
 
 Get information about a Yandex Compute disk. For more information, see [the official documentation](https://yandex.cloud/docs/compute/concepts/disk).
 
-~> One of `disk_id` or `name` should be specified.
+{% note warning %}
+
+One of `disk_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

@@ -1,6 +1,6 @@
 # Создание конфигурации
 
-Создайте [конфигурацию](../concepts/glossary.md#configuration), чтобы получать [уведомления о доставке писем](../concepts/notification.md).
+Создайте [конфигурацию](../concepts/glossary.md#configuration), чтобы получать [уведомления об операциях с письмами](../concepts/notification.md).
 
 {% list tabs group=instructions %}
 
@@ -13,10 +13,18 @@
     1. Введите имя и (опционально) описание конфигурации.
     1. В блоке **{{ ui-key.yacloud.postbox.label_event-destinations }}** нажмите **{{ ui-key.yacloud.common.add }}**:
         1. Введите название [подписки](../concepts/glossary.md#subscription).
-        1. Выберите [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}, в который будут отправляться уведомления о доставке писем. Если у вас нет потока данных, [создайте его](../../data-streams/operations/manage-streams.md#create-data-stream).
+        1. Выберите [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}, в который будут отправляться уведомления об операциях с письмами. Если у вас нет потока данных, [создайте его](../../data-streams/operations/manage-streams.md#create-data-stream).
+        1. Выберите типы уведомлений, которые хотите получать.
         1. Выберите опцию **{{ ui-key.yacloud.common.enabled }}**, чтобы активировать подписку.
 
         Можно добавить несколько подписок.
+    1. В блоке **{{ ui-key.yacloud.postbox.label_delivery-options }}** включите опцию **{{ ui-key.yacloud.postbox.field_secure-connection }}** и укажите минимальную версию TLS, чтобы отправлять письма от {{ postbox-name }} до серверов получателя только с использованием TLS-шифрования.
+
+        {% note warning %}
+
+        Если сервер получателя не поддерживает указанную версию TLS, письмо не будет доставлено.
+
+        {% endnote %}
 
     1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
 

@@ -2,7 +2,7 @@
 subcategory: Lockbox (Secret Management)
 page_title: 'Yandex: yandex_lockbox_secret_version'
 description: Get information about Yandex Cloud Lockbox secret version.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/lockbox_secret_version.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/lockbox_secret_version.md
 ---
 
 # yandex_lockbox_secret_version (Data Source)

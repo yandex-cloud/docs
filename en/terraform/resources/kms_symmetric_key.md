@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/kms_symmetric_key.md
 
 Creates a Yandex KMS symmetric key that can be used for cryptographic operation.
 
-~> When Terraform destroys this key, any data previously encrypted with these key will be irrecoverable. For this reason, it is strongly recommended that you add lifecycle hooks to the resource to prevent accidental destruction.
+{% note warning %}
+
+When Terraform destroys this key, any data previously encrypted with these key will be irrecoverable. For this reason, it is strongly recommended that you add lifecycle hooks to the resource to prevent accidental destruction.
+
+{% endnote %}
+
 
 For more information, see [the official documentation](https://yandex.cloud/docs/kms/concepts/).
 

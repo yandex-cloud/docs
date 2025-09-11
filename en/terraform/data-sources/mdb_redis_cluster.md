@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_redis_cluster.md
 
 Get information about a Yandex Managed Redis cluster. For more information, see [the official documentation](https://yandex.cloud/docs/managed-redis/concepts).
 
-~> Either `cluster_id` or `name` should be specified.
+{% note warning %}
+
+Either `cluster_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -33,6 +38,7 @@ output "network_id" {
 
 - `cluster_id` (String) The ID of the Redis cluster.
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
+- `disk_encryption_key_id` (String) ID of the KMS key for cluster disk encryption.
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `name` (String) The name of the Redis cluster.
 

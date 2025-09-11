@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/compute_snapshot_sched
 
 Get information about a Yandex Compute snapshot schedule. For more information, see [the official documentation](https://yandex.cloud/docs/compute/concepts/snapshot-schedule).
 
-~> One of `snapshot_schedule_id` or `name` should be specified.
+{% note warning %}
+
+One of `snapshot_schedule_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

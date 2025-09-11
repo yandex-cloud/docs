@@ -2,7 +2,7 @@
 subcategory: Smart Captcha
 page_title: 'Yandex: yandex_smartcaptcha_captcha'
 description: Allows management of a Yandex Cloud SmartCaptcha.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/smartcaptcha_captcha.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/smartcaptcha_captcha.md
 ---
 
 # yandex_smartcaptcha_captcha (Resource)

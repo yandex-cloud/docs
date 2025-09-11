@@ -95,6 +95,7 @@ resource "yandex_vpc_subnet" "foo" {
 - `database` (Block Set, Deprecated) A database of the MongoDB cluster. (see [below for nested schema](#nestedblock--database))
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.
+- `disk_encryption_key_id` (String) ID of the KMS key for cluster disk encryption.
 - `disk_size_autoscaling_mongocfg` (Block List, Max: 1) Disk size autoscaling settings for mongocfg. (see [below for nested schema](#nestedblock--disk_size_autoscaling_mongocfg))
 - `disk_size_autoscaling_mongod` (Block List, Max: 1) Disk size autoscaling settings for mongod. (see [below for nested schema](#nestedblock--disk_size_autoscaling_mongod))
 - `disk_size_autoscaling_mongoinfra` (Block List, Max: 1) Disk size autoscaling settings for mongoinfra. (see [below for nested schema](#nestedblock--disk_size_autoscaling_mongoinfra))
@@ -294,7 +295,7 @@ Optional:
 
 - `block_compressor` (String) Specifies the default compression for collection data. You can override this on a per-collection basis when creating collections. Available compressors are: none, snappy, zlib, zstd. This setting available only on `mongod` hosts. For more information, see the [storage.wiredTiger.collectionConfig.blockCompressor](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.collectionConfig.blockCompressor) description in the official documentation.
 - `cache_size_gb` (Number) Defines the maximum size of the internal cache that WiredTiger will use for all data. For more information, see the [storage.wiredTiger.engineConfig.cacheSizeGB](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizeGB) description in the official documentation.
-- `prefix_compression` (Boolean) Enables or disables prefix compression for index data. Can be either true or false. For more information, see the [storage.wiredTiger.indexConfig.prefixCompression](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.indexConfig.prefixCompression) description in the official documentation.
+- `prefix_compression` (Boolean) Enables or disables prefix compression for index data. Сan be either true or false. For more information, see the [storage.wiredTiger.indexConfig.prefixCompression](https://www.mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.indexConfig.prefixCompression) description in the official documentation.
 
 
 

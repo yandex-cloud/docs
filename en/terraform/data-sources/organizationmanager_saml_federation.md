@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_sa
 
 Get information about a Yandex SAML Federation. For more information, see [the official documentation](https://yandex.cloud/docs/organization/add-federation).
 
-~> One of `federation_id` or `name` should be specified.
+{% note warning %}
+
+One of `federation_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

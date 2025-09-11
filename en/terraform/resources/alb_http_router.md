@@ -87,7 +87,12 @@ Optional:
 
 - `value` (Block List, Max: 1) The `path` and `fqmn` blocks.
 
-~> Exactly one type of string matches `exact`, `prefix` or `regex` should be specified. (see [below for nested schema](#nestedblock--route_options--rbac--principals--and_principals--header--value))
+{% note warning %}
+
+Exactly one type of string matches `exact`, `prefix` or `regex` should be specified. (see [below for nested schema](#nestedblock--route_options--rbac--principals--and_principals--header--value))
+
+{% endnote %}
+
 
 <a id="nestedblock--route_options--rbac--principals--and_principals--header--value"></a>
 ### Nested Schema for `route_options.rbac.principals.and_principals.header.value`

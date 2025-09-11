@@ -71,7 +71,12 @@ resource "yandex_lockbox_secret_version" "my_version" {
 - `description` (String) The resource description.
 - `entries` (Block List) List of entries in the Yandex Cloud Lockbox secret version. Must be omitted for secrets with a payload specification.
 
-~> One either `text_value` or `command` is required. (see [below for nested schema](#nestedblock--entries))
+{% note warning %}
+
+One either `text_value` or `command` is required. (see [below for nested schema](#nestedblock--entries))
+
+{% endnote %}
+
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
@@ -115,4 +120,9 @@ Optional:
 
 ## Import
 
-~> Import for this resource is not implemented yet.
+{% note warning %}
+
+Import for this resource is not implemented yet.
+
+{% endnote %}
+

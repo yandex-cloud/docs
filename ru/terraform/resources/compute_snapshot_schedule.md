@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_snapshot_schedule'
 description: Creates a new snapshot schedule.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/compute_snapshot_schedule.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_snapshot_schedule.md
 ---
 
 # yandex_compute_snapshot_schedule (Resource)

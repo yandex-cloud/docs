@@ -2,7 +2,7 @@
 subcategory: Object Storage (S3)
 page_title: 'Yandex: yandex_storage_bucket_iam_binding'
 description: Allows management of a single IAM binding for a Object Storage (S3) bucket.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/storage_bucket_iam_binding.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/storage_bucket_iam_binding.md
 ---
 
 # yandex_storage_bucket_iam_binding (Resource)
@@ -42,7 +42,12 @@ resource "yandex_storage_bucket_iam_binding" "bucket-iam" {
  * **system:allAuthenticatedUsers**: All authenticated users.
  * **system:allUsers**: All users, including unauthenticated ones.
 
-~> for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `role` (String) The role that should be assigned. Only one yandex_storage_bucket_iam_binding can be used per role.
 
 ## Import

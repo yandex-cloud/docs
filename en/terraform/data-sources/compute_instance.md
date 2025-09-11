@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/compute_instance.md
 
 Get information about a Yandex Compute instance. For more information, see [the official documentation](https://yandex.cloud/docs/compute/concepts/vm).
 
-~> One of `instance_id` or `name` should be specified.
+{% note warning %}
+
+One of `instance_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

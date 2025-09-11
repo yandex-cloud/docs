@@ -2,7 +2,7 @@
 subcategory: Managed Service for YDB
 page_title: 'Yandex: yandex_ydb_table_index'
 description: Manage a YDB Table Index.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/ydb_table_index.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/ydb_table_index.md
 ---
 
 # yandex_ydb_table_index (Resource)

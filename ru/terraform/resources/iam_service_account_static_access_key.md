@@ -2,7 +2,7 @@
 subcategory: Identity and Access Management (IAM)
 page_title: 'Yandex: yandex_iam_service_account_static_access_key'
 description: Allows management of a Yandex Cloud IAM service account static access key.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/iam_service_account_static_access_key.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/iam_service_account_static_access_key.md
 ---
 
 # yandex_iam_service_account_static_access_key (Resource)
@@ -58,4 +58,8 @@ Required:
 
 ## Import
 
-~> Import for this resource is not implemented yet.
+{% note warning %}
+
+Import for this resource is not implemented yet.
+
+{% endnote %}

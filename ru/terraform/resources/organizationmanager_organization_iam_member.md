@@ -2,16 +2,26 @@
 subcategory: Cloud Organization
 page_title: 'Yandex: yandex_organizationmanager_organization_iam_member'
 description: Allows management of a single member for a single IAM binding on a Yandex Cloud Organization Manager organization.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/organizationmanager_organization_iam_member.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_organization_iam_member.md
 ---
 
 # yandex_organizationmanager_organization_iam_member (Resource)
 
 Allows creation and management of a single member for a single binding within the IAM policy for an existing Yandex Organization Manager organization.
 
-~> Roles controlled by `yandex_organizationmanager_organization_iam_binding` should not be assigned using `yandex_organizationmanager_organization_iam_member`.
+{% note warning %}
 
-~> When you delete `yandex_organizationmanager_organization_iam_binding` resource, the roles can be deleted from other users within the organization as well. Be careful!
+Roles controlled by `yandex_organizationmanager_organization_iam_binding` should not be assigned using `yandex_organizationmanager_organization_iam_member`.
+
+{% endnote %}
+
+
+{% note warning %}
+
+When you delete `yandex_organizationmanager_organization_iam_binding` resource, the roles can be deleted from other users within the organization as well. Be careful!
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -42,7 +52,12 @@ resource "yandex_organizationmanager_organization_iam_member" "editor" {
   * **system:allAuthenticatedUsers**: All authenticated users.
   * **system:allUsers**: All users, including unauthenticated ones.
 
-~> for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `organization_id` (String) The ID of the organization to attach the policy to.
 - `role` (String) The role that should be applied. See [roles catalog](https://yandex.cloud/docs/iam/roles-reference).
 

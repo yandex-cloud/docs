@@ -11,7 +11,12 @@ Get information about a Yandex Application Load Balancer HTTP Router. For more i
 
 This data source is used to define [Application Load Balancer HTTP Router](https://yandex.cloud/docs/application-load-balancer/concepts/http-router) that can be used by other resources.
 
-~> One of `http_router_id` or `name` should be specified.
+{% note warning %}
+
+One of `http_router_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

@@ -2,16 +2,26 @@
 subcategory: Certificate Manager
 page_title: 'Yandex: yandex_cm_certificate_iam_binding'
 description: Allows management of a single IAM binding for a Certificate Manager.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/cm_certificate_iam_binding.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/cm_certificate_iam_binding.md
 ---
 
 # yandex_cm_certificate_iam_binding (Resource)
 
 Allows creation and management of a single binding within IAM policy for an existing Certificate.
 
-~> Roles controlled by `yandex_cm_certificate_iam_binding` should not be assigned using `yandex_cm_certificate_iam_member`.
+{% note warning %}
 
-~> When you delete `yandex_cm_certificate_iam_binding` resource, the roles can be deleted from other users within the folder as well. Be careful!
+Roles controlled by `yandex_cm_certificate_iam_binding` should not be assigned using `yandex_cm_certificate_iam_member`.
+
+{% endnote %}
+
+
+{% note warning %}
+
+When you delete `yandex_cm_certificate_iam_binding` resource, the roles can be deleted from other users within the folder as well. Be careful!
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -54,7 +64,12 @@ resource "yandex_cm_certificate_iam_binding" "viewer_binding" {
   * **system:allAuthenticatedUsers**: All authenticated users.
   * **system:allUsers**: All users, including unauthenticated ones.
 
-~> for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `role` (String) The role that should be applied. See [roles catalog](https://yandex.cloud/docs/iam/roles-reference).
 
 ### Optional

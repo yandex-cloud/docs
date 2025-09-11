@@ -2,14 +2,19 @@
 subcategory: Resource Manager
 page_title: 'Yandex: yandex_resourcemanager_cloud'
 description: Retrieve Yandex RM Cloud details.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/resourcemanager_cloud.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/resourcemanager_cloud.md
 ---
 
 # yandex_resourcemanager_cloud (Data Source)
 
 Use this data source to get cloud details. For more information, see [the official documentation](https://yandex.cloud/docs/resource-manager/concepts/resources-hierarchy#cloud).
 
-~> Either `cloud_id` or `name` must be specified.
+{% note warning %}
+
+Either `cloud_id` or `name` must be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

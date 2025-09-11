@@ -2,7 +2,7 @@
 subcategory: Resource Manager
 page_title: 'Yandex: yandex_resourcemanager_cloud_iam_binding'
 description: Allows management of a single IAM binding for a Yandex Resource Manager cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/resourcemanager_cloud_iam_binding.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/resourcemanager_cloud_iam_binding.md
 ---
 
 # yandex_resourcemanager_cloud_iam_binding (Resource)
@@ -47,7 +47,12 @@ resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
   * **system:allAuthenticatedUsers**: All authenticated users.
   * **system:allUsers**: All users, including unauthenticated ones.
 
-~> for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `role` (String) The role that should be applied. See [roles catalog](https://yandex.cloud/docs/iam/roles-reference).
 
 ### Optional

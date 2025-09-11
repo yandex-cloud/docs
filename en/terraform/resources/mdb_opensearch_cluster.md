@@ -178,7 +178,7 @@ resource "yandex_vpc_subnet" "es-subnet-d" {
 ### Required
 
 - `name` (String) Name of the OpenSearch cluster. The name must be unique within the folder.
-- `network_id` (String) ID of the network, to which the OpenSearch cluster belongs. It is not possible to change this value after cluster creation.
+- `network_id` (String) The `VPC Network ID` of subnets which resource attached to.
 
 ### Optional
 
@@ -187,11 +187,12 @@ resource "yandex_vpc_subnet" "es-subnet-d" {
 - `config` (Block, Optional) Configuration of the OpenSearch cluster. (see [below for nested schema](#nestedblock--config))
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.
+- `disk_encryption_key_id` (String) ID of the KMS key for cluster disk encryption.
 - `environment` (String) Deployment environment of the OpenSearch cluster. Can be either `PRESTABLE` or `PRODUCTION`. Default: `PRODUCTION`. **It is not possible to change this value after cluster creation**.
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `maintenance_window` (Block, Optional) (see [below for nested schema](#nestedblock--maintenance_window))
-- `security_group_ids` (Set of String) A set of security groups IDs which assigned to hosts of the cluster.
+- `security_group_ids` (Set of String) The list of security groups applied to resource or their components.
 - `service_account_id` (String) ID of the service account authorized for this cluster.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 

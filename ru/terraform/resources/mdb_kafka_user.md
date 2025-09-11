@@ -2,7 +2,7 @@
 subcategory: Managed Service for Apache Kafka
 page_title: 'Yandex: yandex_mdb_kafka_user'
 description: Manages a user of a Kafka cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_kafka_user.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_kafka_user.md
 ---
 
 # yandex_mdb_kafka_user (Resource)

@@ -2,7 +2,7 @@
 subcategory: Application Load Balancer (ALB)
 page_title: 'Yandex: yandex_alb_virtual_host'
 description: Virtual hosts combine routes belonging to the same set of domains.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/alb_virtual_host.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/alb_virtual_host.md
 ---
 
 # yandex_alb_virtual_host (Resource)
@@ -43,14 +43,29 @@ resource "yandex_alb_virtual_host" "my-vhost" {
 - `authority` (Set of String) A list of domains (host/authority header) that will be matched to this virtual host. Wildcard hosts are supported in the form of '*.foo.com' or '*-bar.foo.com'. If not specified, all domains will be matched.
 - `modify_request_headers` (Block List) Apply the following modifications to the Request/Response header.
 
-~> Only one type of actions `append` or `replace` or `remove` should be specified. (see [below for nested schema](#nestedblock--modify_request_headers))
+{% note warning %}
+
+Only one type of actions `append` or `replace` or `remove` should be specified. (see [below for nested schema](#nestedblock--modify_request_headers))
+
+{% endnote %}
+
 - `modify_response_headers` (Block List) Apply the following modifications to the Request/Response header.
 
-~> Only one type of actions `append` or `replace` or `remove` should be specified. (see [below for nested schema](#nestedblock--modify_response_headers))
+{% note warning %}
+
+Only one type of actions `append` or `replace` or `remove` should be specified. (see [below for nested schema](#nestedblock--modify_response_headers))
+
+{% endnote %}
+
 - `rate_limit` (Block List, Max: 1) Rate limit configuration applied for a whole virtual host (see [below for nested schema](#nestedblock--rate_limit))
 - `route` (Block List) A Route resource. Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused.
 
-~> Exactly one type of routes `http_route` or `grpc_route` should be specified. (see [below for nested schema](#nestedblock--route))
+{% note warning %}
+
+Exactly one type of routes `http_route` or `grpc_route` should be specified. (see [below for nested schema](#nestedblock--route))
+
+{% endnote %}
+
 - `route_options` (Block List, Max: 1) Route options for the virtual host. (see [below for nested schema](#nestedblock--route_options))
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
@@ -118,12 +133,23 @@ Optional:
 
 Optional:
 
+- `disable_security_profile` (Boolean) Disables security profile for the route
 - `grpc_route` (Block List, Max: 1) gRPC route resource.
 
-~> Exactly one type of actions `grpc_route_action` or `grpc_status_response_action` should be specified. (see [below for nested schema](#nestedblock--route--grpc_route))
+{% note warning %}
+
+Exactly one type of actions `grpc_route_action` or `grpc_status_response_action` should be specified. (see [below for nested schema](#nestedblock--route--grpc_route))
+
+{% endnote %}
+
 - `http_route` (Block List, Max: 1) HTTP route resource.
 
-~> Exactly one type of actions `http_route_action` or `redirect_action` or `direct_response_action` should be specified. (see [below for nested schema](#nestedblock--route--http_route))
+{% note warning %}
+
+Exactly one type of actions `http_route_action` or `redirect_action` or `direct_response_action` should be specified. (see [below for nested schema](#nestedblock--route--http_route))
+
+{% endnote %}
+
 - `name` (String) Name of the route.
 - `route_options` (Block List, Max: 1) Route options for the virtual host. (see [below for nested schema](#nestedblock--route--route_options))
 
@@ -135,7 +161,12 @@ Optional:
 - `grpc_match` (Block List) Checks `/` prefix by default. (see [below for nested schema](#nestedblock--route--grpc_route--grpc_match))
 - `grpc_route_action` (Block List, Max: 1) gRPC route action resource.
 
-~> Only one type of host rewrite specifiers `host_rewrite` or `auto_host_rewrite` should be specified. (see [below for nested schema](#nestedblock--route--grpc_route--grpc_route_action))
+{% note warning %}
+
+Only one type of host rewrite specifiers `host_rewrite` or `auto_host_rewrite` should be specified. (see [below for nested schema](#nestedblock--route--grpc_route--grpc_route_action))
+
+{% endnote %}
+
 - `grpc_status_response_action` (Block List, Max: 1) gRPC status response action resource. (see [below for nested schema](#nestedblock--route--grpc_route--grpc_status_response_action))
 
 <a id="nestedblock--route--grpc_route--grpc_match"></a>
@@ -145,7 +176,12 @@ Optional:
 
 - `fqmn` (Block List, Max: 1) The `path` and `fqmn` blocks.
 
-~> Exactly one type of string matches `exact`, `prefix` or `regex` should be specified. (see [below for nested schema](#nestedblock--route--grpc_route--grpc_match--fqmn))
+{% note warning %}
+
+Exactly one type of string matches `exact`, `prefix` or `regex` should be specified. (see [below for nested schema](#nestedblock--route--grpc_route--grpc_match--fqmn))
+
+{% endnote %}
+
 
 <a id="nestedblock--route--grpc_route--grpc_match--fqmn"></a>
 ### Nested Schema for `route.grpc_route.grpc_match.fqmn`
@@ -219,10 +255,20 @@ Optional:
 - `http_match` (Block List) Checks `/` prefix by default. (see [below for nested schema](#nestedblock--route--http_route--http_match))
 - `http_route_action` (Block List, Max: 1) HTTP route action resource.
 
-~> Only one type of host rewrite specifiers `host_rewrite` or `auto_host_rewrite` should be specified. (see [below for nested schema](#nestedblock--route--http_route--http_route_action))
+{% note warning %}
+
+Only one type of host rewrite specifiers `host_rewrite` or `auto_host_rewrite` should be specified. (see [below for nested schema](#nestedblock--route--http_route--http_route_action))
+
+{% endnote %}
+
 - `redirect_action` (Block List, Max: 1) Redirect action resource.
 
-~> Only one type of paths `replace_path` or `replace_prefix` should be specified. (see [below for nested schema](#nestedblock--route--http_route--redirect_action))
+{% note warning %}
+
+Only one type of paths `replace_path` or `replace_prefix` should be specified. (see [below for nested schema](#nestedblock--route--http_route--redirect_action))
+
+{% endnote %}
+
 
 <a id="nestedblock--route--http_route--direct_response_action"></a>
 ### Nested Schema for `route.http_route.direct_response_action`
@@ -241,7 +287,12 @@ Optional:
 - `http_method` (Set of String) List of methods (strings).
 - `path` (Block List, Max: 1) The `path` and `fqmn` blocks.
 
-~> Exactly one type of string matches `exact`, `prefix` or `regex` should be specified. (see [below for nested schema](#nestedblock--route--http_route--http_match--path))
+{% note warning %}
+
+Exactly one type of string matches `exact`, `prefix` or `regex` should be specified. (see [below for nested schema](#nestedblock--route--http_route--http_match--path))
+
+{% endnote %}
+
 
 <a id="nestedblock--route--http_route--http_match--path"></a>
 ### Nested Schema for `route.http_route.http_match.path`
@@ -370,7 +421,12 @@ Optional:
 
 - `value` (Block List, Max: 1) The `path` and `fqmn` blocks.
 
-~> Exactly one type of string matches `exact`, `prefix` or `regex` should be specified. (see [below for nested schema](#nestedblock--route--route_options--rbac--principals--and_principals--header--value))
+{% note warning %}
+
+Exactly one type of string matches `exact`, `prefix` or `regex` should be specified. (see [below for nested schema](#nestedblock--route--route_options--rbac--principals--and_principals--header--value))
+
+{% endnote %}
+
 
 <a id="nestedblock--route--route_options--rbac--principals--and_principals--header--value"></a>
 ### Nested Schema for `route.route_options.rbac.principals.and_principals.header.value`
@@ -434,7 +490,12 @@ Optional:
 
 - `value` (Block List, Max: 1) The `path` and `fqmn` blocks.
 
-~> Exactly one type of string matches `exact`, `prefix` or `regex` should be specified. (see [below for nested schema](#nestedblock--route_options--rbac--principals--and_principals--header--value))
+{% note warning %}
+
+Exactly one type of string matches `exact`, `prefix` or `regex` should be specified. (see [below for nested schema](#nestedblock--route_options--rbac--principals--and_principals--header--value))
+
+{% endnote %}
+
 
 <a id="nestedblock--route_options--rbac--principals--and_principals--header--value"></a>
 ### Nested Schema for `route_options.rbac.principals.and_principals.header.value`

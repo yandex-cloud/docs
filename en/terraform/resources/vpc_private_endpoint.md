@@ -65,7 +65,12 @@ resource "yandex_vpc_subnet" "lab-subnet-a" {
 - `dns_options` (Block List, Max: 1) Private endpoint DNS options block. (see [below for nested schema](#nestedblock--dns_options))
 - `endpoint_address` (Block List, Max: 1) Private endpoint address specification block.
 
-~> Only one of `address_id` or `subnet_id` + `address` arguments can be specified. (see [below for nested schema](#nestedblock--endpoint_address))
+{% note warning %}
+
+Only one of `address_id` or `subnet_id` + `address` arguments can be specified. (see [below for nested schema](#nestedblock--endpoint_address))
+
+{% endnote %}
+
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `name` (String) The resource name.

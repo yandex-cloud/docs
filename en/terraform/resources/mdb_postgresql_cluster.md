@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_postgresql_cluster.md
 
 Manages a PostgreSQL cluster within the Yandex Cloud. For more information, see [the official documentation](https://yandex.cloud/docs/managed-postgresql/). [How to connect to the DB](https://yandex.cloud/docs/managed-postgresql/quickstart#connect). To connect, use port 6432. The port number is not configurable.
 
-~> Historically, `user` and `database` blocks of the `yandex_mdb_postgresql_cluster` resource were used to manage users and databases of the PostgreSQL cluster. However, this approach has many disadvantages. In particular, adding and removing a resource from the terraform recipe worked wrong because terraform misleads the user about the planned changes. Now, the recommended way to manage databases and users is using `yandex_mdb_postgresql_user` and `yandex_mdb_postgresql_database` resources.
+{% note warning %}
+
+Historically, `user` and `database` blocks of the `yandex_mdb_postgresql_cluster` resource were used to manage users and databases of the PostgreSQL cluster. However, this approach has many disadvantages. In particular, adding and removing a resource from the terraform recipe worked wrong because terraform misleads the user about the planned changes. Now, the recommended way to manage databases and users is using `yandex_mdb_postgresql_user` and `yandex_mdb_postgresql_database` resources.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -235,9 +240,16 @@ resource "yandex_vpc_subnet" "foo" {
 
 ### Optional
 
-- `database` (Block List, Deprecated) ~> Deprecated! To manage databases, please switch to using a separate resource type `yandex_mdb_postgresql_database`. (see [below for nested schema](#nestedblock--database))
+- `database` (Block List, Deprecated) 
+
+     {% note warning %}
+
+     Deprecated! To manage databases, please switch to using a separate resource type `yandex_mdb_postgresql_database`. (see [below for nested schema](#nestedblock--database))
+
+     {% endnote %}
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.
+- `disk_encryption_key_id` (String) ID of the KMS key for cluster disk encryption. Restoring without an encryption key will disable encryption if any exists.
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `host_group_ids` (Set of String) Host Group IDs.
 - `host_master_name` (String, Deprecated) Deprecated field. Will be removed in future versions.
@@ -246,7 +258,13 @@ resource "yandex_vpc_subnet" "foo" {
 - `restore` (Block List, Max: 1) The cluster will be created from the specified backup. (see [below for nested schema](#nestedblock--restore))
 - `security_group_ids` (Set of String) The list of security groups applied to resource or their components.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
-- `user` (Block List, Deprecated) ~> Deprecated! To manage users, please switch to using a separate resource type `yandex_mdb_postgresql_user`. (see [below for nested schema](#nestedblock--user))
+- `user` (Block List, Deprecated) 
+
+    {% note warning %}
+
+    Deprecated! To manage users, please switch to using a separate resource type `yandex_mdb_postgresql_user`. (see [below for nested schema](#nestedblock--user))
+
+    {% endnote %}
 
 ### Read-Only
 
@@ -261,7 +279,7 @@ resource "yandex_vpc_subnet" "foo" {
 Required:
 
 - `resources` (Block List, Min: 1, Max: 1) Resources allocated to hosts of the PostgreSQL cluster. (see [below for nested schema](#nestedblock--config--resources))
-- `version` (String) Version of the PostgreSQL cluster. (allowed versions are: 10, 10-1c, 11, 11-1c, 12, 12-1c, 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 17).
+- `version` (String) Version of the PostgreSQL cluster. (allowed versions are: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 17).
 
 Optional:
 
@@ -304,7 +322,7 @@ Optional:
 Optional:
 
 - `hours` (Number) The hour at which backup will be started (UTC).
-- `minutes` (Number) The hour at which backup will be started (UTC).
+- `minutes` (Number) The minute at which backup will be started.
 
 
 <a id="nestedblock--config--disk_size_autoscaling"></a>
@@ -312,12 +330,12 @@ Optional:
 
 Required:
 
-- `disk_size_limit` (Number) Limit of disk size after autoscaling (GiB).
+- `disk_size_limit` (Number) The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-postgresql/concepts/storage#auto-rescale) for details.
 
 Optional:
 
-- `emergency_usage_threshold` (Number) Immediate autoscaling disk usage (percent).
-- `planned_usage_threshold` (Number) Maintenance window autoscaling disk usage (percent).
+- `emergency_usage_threshold` (Number) Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+- `planned_usage_threshold` (Number) Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
 
 
 <a id="nestedblock--config--performance_diagnostics"></a>
@@ -325,8 +343,8 @@ Optional:
 
 Required:
 
-- `sessions_sampling_interval` (Number) Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
-- `statements_sampling_interval` (Number) Interval (in seconds) for pg_stat_statements sampling Acceptable values are 1 to 86400, inclusive.
+- `sessions_sampling_interval` (Number) Interval (in seconds) for pg_stat_activity sampling. Acceptable values are 1 to 86400, inclusive.
+- `statements_sampling_interval` (Number) Interval (in seconds) for pg_stat_statements sampling. Acceptable values are 1 to 86400, inclusive.
 
 Optional:
 
@@ -352,7 +370,7 @@ Required:
 
 Optional:
 
-- `assign_public_ip` (Boolean) Sets whether the host should get a public IP address on creation. It can be changed on the fly only when `name` is set.
+- `assign_public_ip` (Boolean) Whether the host should get a public IP address.
 - `name` (String) Host state name. It should be set for all hosts or unset for all hosts. This field can be used by another host, to select which host will be its replication source. Please see `replication_source_name` parameter.
 - `priority` (Number, Deprecated) Host priority in HA group. It works only when `name` is set.
 - `replication_source_name` (String) Host replication source name points to host's `name` from which this host should replicate. When not set then host in HA group. It works only when `name` is set.
@@ -447,18 +465,17 @@ Optional:
 - `permission` (Block Set) Set of permissions granted to the user. (see [below for nested schema](#nestedblock--user--permission))
 - `settings` (Map of String) Map of user settings. [Full description](https://yandex.cloud/docs/managed-postgresql/api-ref/grpc/Cluster/create#yandex.cloud.mdb.postgresql.v1.UserSettings).
 
-* `default_transaction_isolation` - defines the default isolation level to be set for all new SQL transactions. One of:  - 0: `unspecified`
+* `default_transaction_isolation` - defines the default isolation level to be set for all new SQL transactions. One of:
   - 1: `read uncommitted`
   - 2: `read committed`
   - 3: `repeatable read`
   - 4: `serializable`
 
-* `lock_timeout` - The maximum time (in milliseconds) for any statement to wait for acquiring a lock on an table, index, row or other database object (default 0)
+* `lock_timeout` - The maximum time (in milliseconds) for any statement to wait for acquiring a lock on an table, index, row or other database object (default 0).
 
-* `log_min_duration_statement` - This setting controls logging of the duration of statements. (default -1 disables logging of the duration of statements.)
+* `log_min_duration_statement` - This setting controls logging of the duration of statements. Default -1 disables logging of the duration of statements.
 
 * `synchronous_commit` - This setting defines whether DBMS will commit transaction in a synchronous way. One of:
-  - 0: `unspecified`
   - 1: `on`
   - 2: `off`
   - 3: `local`
@@ -468,7 +485,6 @@ Optional:
 * `temp_file_limit` - The maximum storage space size (in kilobytes) that a single process can use to create temporary files.
 
 * `log_statement` - This setting specifies which SQL statements should be logged (on the user level). One of:
-  - 0: `unspecified`
   - 1: `none`
   - 2: `ddl`
   - 3: `mod`
@@ -483,11 +499,11 @@ Optional:
 
 * `catchup_timeout` - The connection pooler setting. It determines the maximum allowed replication lag (in seconds). Pooler will reject connections to the replica with a lag above this threshold. Default value is 0, which disables this feature. Integer.
 
-* `wal_sender_timeout` - The maximum time (in milliseconds) to wait for WAL replication (can be set only for PostgreSQL 12+). Terminate replication connections that are inactive for longer than this amount of time. Integer.
+* `wal_sender_timeout` - The maximum time (in milliseconds) to wait for WAL replication. Terminate replication connections that are inactive for longer than this amount of time. Integer.
 
 * `idle_in_transaction_session_timeout` - Sets the maximum allowed idle time (in milliseconds) between queries, when in a transaction. Value of 0 (default) disables the timeout. Integer.
 
-* `statement_timeout` - The maximum time (in milliseconds) to wait for statement. Value of 0 (default) disables the timeout. Integer
+* `statement_timeout` - The maximum time (in milliseconds) to wait for statement. Value of 0 (default) disables the timeout. Integer.
 
 <a id="nestedblock--user--permission"></a>
 ### Nested Schema for `user.permission`

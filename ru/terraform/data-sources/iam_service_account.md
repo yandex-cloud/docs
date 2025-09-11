@@ -2,14 +2,19 @@
 subcategory: Identity and Access Management (IAM)
 page_title: 'Yandex: yandex_iam_service_account'
 description: Get information about a Yandex IAM service account.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/iam_service_account.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/iam_service_account.md
 ---
 
 # yandex_iam_service_account (Data Source)
 
 Get information about a Yandex IAM service account. For more information about accounts, see [Yandex Cloud IAM accounts](https://yandex.cloud/docs/iam/concepts/#accounts).
 
-~> One of `service_account_id` or `name` should be specified.
+{% note warning %}
+
+One of `service_account_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

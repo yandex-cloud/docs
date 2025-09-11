@@ -2,7 +2,7 @@
 subcategory: Yandex Query
 page_title: 'Yandex: yandex_yq_ydb_connection'
 description: Manages Object Storage connection.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/yq_ydb_connection.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/yq_ydb_connection.md
 ---
 
 # yandex_yq_ydb_connection (Resource)

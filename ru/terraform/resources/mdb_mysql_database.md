@@ -2,7 +2,7 @@
 subcategory: Managed Service for MySQL
 page_title: 'Yandex: yandex_mdb_mysql_database'
 description: Manages a MySQL database within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_mysql_database.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_mysql_database.md
 ---
 
 # yandex_mdb_mysql_database (Resource)

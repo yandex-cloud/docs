@@ -52,3 +52,19 @@ When performing [data scan](operations/dspm/create-scan.md), {{ dspm-name }} sen
 
 {% include notitle [usd.md](../_pricing/security-deck/dspm/usd.md) %}
 
+
+#### Scanning by the number of files {#scan-by-amount}
+
+
+
+{% include notitle [usd-scan-by-amount.md](../_pricing/security-deck/dspm/usd-scan-by-amount.md) %}
+
+
+#### Cost calculation example {#amount-example}
+
+Let’s assume you set up scanning a bucket with 50 text files, their overall size being 5 GB. All files were successfully scanned. The total cost per scan is:
+
+
+
+{% include [usd-scan-by-amount](../_pricing_examples/security-deck/usd-scan-by-amount.md) %}
+

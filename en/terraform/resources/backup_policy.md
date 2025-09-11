@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/backup_policy.md
 
 Allows management of [Yandex Cloud Backup Policy](https://yandex.cloud/docs/backup/concepts/policy).
 
-~> Cloud Backup Provider must be activated in order to manipulate with policies. Active it either by UI Console or by `yc` command.
+{% note warning %}
+
+Cloud Backup Provider must be activated in order to manipulate with policies. Active it either by UI Console or by `yc` command.
+
+{% endnote %}
+
 
 ## Defined types
 

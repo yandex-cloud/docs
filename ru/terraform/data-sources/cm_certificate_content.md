@@ -2,14 +2,19 @@
 subcategory: Certificate Manager
 page_title: 'Yandex: yandex_cm_certificate_content'
 description: Get content from a Yandex Certificate Manager Certificate.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/cm_certificate_content.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/cm_certificate_content.md
 ---
 
 # yandex_cm_certificate_content (Data Source)
 
 Get content (certificate, private key) from a Yandex Certificate Manager Certificate. For more information, see [the official documentation](https://yandex.cloud/docs/certificate-manager/concepts/).
 
-~> One of `certificate_id` or `name` should be specified.
+{% note warning %}
+
+One of `certificate_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

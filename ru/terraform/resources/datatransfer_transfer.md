@@ -2,7 +2,7 @@
 subcategory: Data Transfer
 page_title: 'Yandex: yandex_datatransfer_transfer'
 description: Manages a Data Transfer transfer within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/datatransfer_transfer.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/datatransfer_transfer.md
 ---
 
 # yandex_datatransfer_transfer (Resource)

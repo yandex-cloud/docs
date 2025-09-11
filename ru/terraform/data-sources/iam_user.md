@@ -2,7 +2,7 @@
 subcategory: Identity and Access Management (IAM)
 page_title: 'Yandex: yandex_iam_user'
 description: Get information about a Yandex IAM user account.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/iam_user.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/iam_user.md
 ---
 
 # yandex_iam_user (Data Source)
@@ -11,7 +11,12 @@ Get information about a Yandex IAM user account. For more information about acco
 
 This data source is used to define [IAM User](https://yandex.cloud/docs/iam/concepts/#passport) that can be used by other resources.
 
-~> Either `login` or `user_id` must be specified.
+{% note warning %}
+
+Either `login` or `user_id` must be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

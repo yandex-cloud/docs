@@ -2,7 +2,7 @@
 subcategory: Message Queue
 page_title: 'Yandex: yandex_message_queue'
 description: Allows management of a Yandex Cloud Message Queue.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/message_queue.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/message_queue.md
 ---
 
 # yandex_message_queue (Resource)

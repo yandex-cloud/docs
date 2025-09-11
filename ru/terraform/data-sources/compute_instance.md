@@ -2,14 +2,19 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_instance'
 description: Get information about a Yandex Compute Instance.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/compute_instance.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/compute_instance.md
 ---
 
 # yandex_compute_instance (Data Source)
 
 Get information about a Yandex Compute instance. For more information, see [the official documentation](https://yandex.cloud/docs/compute/concepts/vm).
 
-~> One of `instance_id` or `name` should be specified.
+{% note warning %}
+
+One of `instance_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

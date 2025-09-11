@@ -2,14 +2,19 @@
 subcategory: Key Management Service (KMS)
 page_title: 'Yandex: yandex_kms_asymmetric_encryption_key'
 description: Creates a Yandex KMS asymmetric encryption key that can be used for cryptographic operation.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/kms_asymmetric_encryption_key.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/kms_asymmetric_encryption_key.md
 ---
 
 # yandex_kms_asymmetric_encryption_key (Resource)
 
 Creates a Yandex KMS asymmetric encryption key that can be used for cryptographic operation.
 
-~> When Terraform destroys this key, any data previously encrypted with this key will be irrecoverable. For this reason, it is strongly recommended that you add lifecycle hooks to the resource to prevent accidental destruction.
+{% note warning %}
+
+When Terraform destroys this key, any data previously encrypted with this key will be irrecoverable. For this reason, it is strongly recommended that you add lifecycle hooks to the resource to prevent accidental destruction.
+
+{% endnote %}
+
 
 For more information, see [the official documentation](https://yandex.cloud/docs/kms/concepts/).
 

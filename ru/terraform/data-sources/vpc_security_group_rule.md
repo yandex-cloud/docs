@@ -2,7 +2,7 @@
 subcategory: Virtual Private Cloud (VPC)
 page_title: 'Yandex: yandex_vpc_security_group_rule'
 description: Get information about a Yandex VPC Security Group Rule.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/vpc_security_group_rule.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/vpc_security_group_rule.md
 ---
 
 # yandex_vpc_security_group_rule (Data Source)

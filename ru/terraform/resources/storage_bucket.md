@@ -2,23 +2,48 @@
 subcategory: Object Storage (S3)
 page_title: 'Yandex: yandex_storage_bucket'
 description: Allows management of a Yandex Cloud Storage Bucket.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/storage_bucket.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/storage_bucket.md
 ---
 
 # yandex_storage_bucket (Resource)
 
 Allows management of [Yandex Cloud Storage Bucket](https://yandex.cloud/docs/storage/concepts/bucket).
 
-~> By default, for authentication, you need to use [IAM token](https://yandex.cloud/docs/iam/concepts/authorization/iam-token) with the necessary permissions.
+{% note warning %}
 
-~> Alternatively, you can provide [static access keys](https://yandex.cloud/docs/iam/concepts/authorization/access-key) (Access and Secret). To generate these keys, you will need a Service Account with the appropriate permissions.
+By default, for authentication, you need to use [IAM token](https://yandex.cloud/docs/iam/concepts/authorization/iam-token) with the necessary permissions.
 
-~> For extended API usage, such as setting the `max_size`, `folder_id`, `anonymous_access_flags`, `default_storage_class`, and `https` parameters for a bucket, only the default authorization method will be used. This means the `IAM` token from the `provider` block will be applied.
+{% endnote %}
+
+
+{% note warning %}
+
+Alternatively, you can provide [static access keys](https://yandex.cloud/docs/iam/concepts/authorization/access-key) (Access and Secret). To generate these keys, you will need a Service Account with the appropriate permissions.
+
+{% endnote %}
+
+
+{% note warning %}
+
+For extended API usage, such as setting the `max_size`, `folder_id`, `anonymous_access_flags`, `default_storage_class`, and `https` parameters for a bucket, only the default authorization method will be used. This means the `IAM` token from the `provider` block will be applied.
+
+{% endnote %}
+
 This can be confusing in cases where a separate service account is used for managing buckets because, in such scenarios,buckets may be accessed by two different accounts, each with potentially different permissions for the buckets.
 
-~> In case you are using IAM token from UserAccount, you are needed to explicitly specify `folder_id` in the resource, as it cannot be identified from such type of account. In case you are using IAM token from ServiceAccount or static access keys, `folder_id` does not need to be specified unless you want to create the resource in a different folder than the account folder.
+{% note warning %}
 
-~> Terraform will import this resource with `force_destroy` set to `false` in state. If you've set it to `true` in config, run `terraform apply` to update the value set in state. If you delete this resource before updating the value, objects in the bucket will not be destroyed.
+In case you are using IAM token from UserAccount, you are needed to explicitly specify `folder_id` in the resource, as it cannot be identified from such type of account. In case you are using IAM token from ServiceAccount or static access keys, `folder_id` does not need to be specified unless you want to create the resource in a different folder than the account folder.
+
+{% endnote %}
+
+
+{% note warning %}
+
+Terraform will import this resource with `force_destroy` set to `false` in state. If you've set it to `true` in config, run `terraform apply` to update the value set in state. If you delete this resource before updating the value, objects in the bucket will not be destroyed.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -409,7 +434,12 @@ resource "yandex_storage_bucket" "all_settings" {
 - `access_key` (String) The access key to use when applying changes. This value can also be provided as `storage_access_key` specified in provider config (explicitly or within `shared_credentials_file`) is used.
 - `acl` (String, Deprecated) The [predefined ACL](https://yandex.cloud/docs/storage/concepts/acl#predefined_acls) to apply. Defaults to `private`. Conflicts with `grant`.
 
-~> To change ACL after creation, service account with `storage.admin` role should be used, though this role is not necessary to create a bucket with any ACL.
+{% note warning %}
+
+To change ACL after creation, service account with `storage.admin` role should be used, though this role is not necessary to create a bucket with any ACL.
+
+{% endnote %}
+
 - `anonymous_access_flags` (Block Set, Max: 1) Provides various access to objects. See [Bucket Availability](https://yandex.cloud/docs/storage/operations/buckets/bucket-availability) for more information. (see [below for nested schema](#nestedblock--anonymous_access_flags))
 - `bucket` (String) The name of the bucket. If omitted, Terraform will assign a random, unique name.
 - `bucket_prefix` (String) Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`.
@@ -417,11 +447,21 @@ resource "yandex_storage_bucket" "all_settings" {
 - `default_storage_class` (String) Storage class which is used for storing objects by default. Available values are: "STANDARD", "COLD", "ICE". Default is `"STANDARD"`. See [Storage Class](https://yandex.cloud/docs/storage/concepts/storage-class) for more information.
 - `folder_id` (String) Allow to create bucket in different folder. In case you are using IAM token from UserAccount, you are needed to explicitly specify folder_id in the resource, as it cannot be identified from such type of account. In case you are using IAM token from ServiceAccount or static access keys, folder_id does not need to be specified unless you want to create the resource in a different folder than the account folder.
 
-~> It will try to create bucket using `IAM-token`, not using `access keys`.
+{% note warning %}
+
+It will try to create bucket using `IAM-token`, not using `access keys`.
+
+{% endnote %}
+
 - `force_destroy` (Boolean) A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are *not* recoverable. Default is `false`.
 - `grant` (Block Set, Deprecated) An [ACL policy grant](https://yandex.cloud/docs/storage/concepts/acl#permissions-types). Conflicts with `acl`.
 
-~> To manage `grant` argument, service account with `storage.admin` role should be used. (see [below for nested schema](#nestedblock--grant))
+{% note warning %}
+
+To manage `grant` argument, service account with `storage.admin` role should be used. (see [below for nested schema](#nestedblock--grant))
+
+{% endnote %}
+
 - `https` (Block Set, Max: 1) Manages https certificates for bucket. See [https](https://yandex.cloud/docs/storage/operations/hosting/certificate) for more information. (see [below for nested schema](#nestedblock--https))
 - `lifecycle_rule` (Block List) A configuration of [object lifecycle management](https://yandex.cloud/docs/storage/concepts/lifecycles). (see [below for nested schema](#nestedblock--lifecycle_rule))
 - `logging` (Block Set) A settings of [bucket logging](https://yandex.cloud/docs/storage/concepts/server-logs). (see [below for nested schema](#nestedblock--logging))
@@ -433,7 +473,12 @@ resource "yandex_storage_bucket" "all_settings" {
 - `tags` (Map of String) The `tags` object for setting tags (or labels) for bucket. See [Tags](https://yandex.cloud/docs/storage/concepts/tags) for more information.
 - `versioning` (Block List, Max: 1) A state of [versioning](https://yandex.cloud/docs/storage/concepts/versioning).
 
-~> To manage `versioning` argument, service account with `storage.admin` role should be used. (see [below for nested schema](#nestedblock--versioning))
+{% note warning %}
+
+To manage `versioning` argument, service account with `storage.admin` role should be used. (see [below for nested schema](#nestedblock--versioning))
+
+{% endnote %}
+
 - `website` (Block List, Max: 1) A [Website Object](https://yandex.cloud/docs/storage/concepts/hosting) (see [below for nested schema](#nestedblock--website))
 - `website_domain` (String) The domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string.
 - `website_endpoint` (String) The website endpoint, if the bucket is configured with a website. If not, this will be an empty string.

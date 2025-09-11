@@ -2,7 +2,7 @@
 subcategory: Virtual Private Cloud (VPC)
 page_title: 'Yandex: yandex_vpc_subnet'
 description: A VPC network is a virtual version of the traditional physical networks that exist within and between physical data centers.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/vpc_subnet.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/vpc_subnet.md
 ---
 
 # yandex_vpc_subnet (Resource)

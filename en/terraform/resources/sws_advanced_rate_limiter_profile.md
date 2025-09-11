@@ -47,7 +47,12 @@ resource "yandex_sws_advanced_rate_limiter_profile" "demo-profile" {
 
 - `advanced_rate_limiter_rule` (Block List) List of rules.
 
-~> Exactly one rule specifier: `static_quota` or `dynamic_quota` should be specified. (see [below for nested schema](#nestedblock--advanced_rate_limiter_rule))
+{% note warning %}
+
+Exactly one rule specifier: `static_quota` or `dynamic_quota` should be specified. (see [below for nested schema](#nestedblock--advanced_rate_limiter_rule))
+
+{% endnote %}
+
 - `cloud_id` (String) The `Cloud ID` which resource belongs to. If it is not provided, the default provider `cloud-id` is used.
 - `description` (String) The resource description.
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
@@ -80,7 +85,12 @@ Optional:
 - `action` (String) Action in case of exceeding this quota. Possible values: `DENY`.
 - `characteristic` (Block List) List of characteristics.
 
-~> Exactly one characteristic specifier: `simple_characteristic` or `key_characteristic` should be specified. (see [below for nested schema](#nestedblock--advanced_rate_limiter_rule--dynamic_quota--characteristic))
+{% note warning %}
+
+Exactly one characteristic specifier: `simple_characteristic` or `key_characteristic` should be specified. (see [below for nested schema](#nestedblock--advanced_rate_limiter_rule--dynamic_quota--characteristic))
+
+{% endnote %}
+
 - `condition` (Block List, Max: 1) The condition for matching the rule. You can find all possibilities of condition in [gRPC specs](https://github.com/yandex-cloud/cloudapi/blob/master/yandex/cloud/smartwebsecurity/v1/security_profile.proto). (see [below for nested schema](#nestedblock--advanced_rate_limiter_rule--dynamic_quota--condition))
 - `limit` (Number) Desired maximum number of requests per period.
 - `period` (Number) Period of time in seconds.

@@ -2,7 +2,7 @@
 subcategory: Serverless Cloud Functions
 page_title: 'Yandex: yandex_function_scaling_policy'
 description: Get information about a Yandex Cloud Functions Scaling Policy.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/function_scaling_policy.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/function_scaling_policy.md
 ---
 
 # yandex_function_scaling_policy (Data Source)

@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_mysql_cluster.md
 
 Get information about a Yandex Managed MySQL cluster. For more information, see [the official documentation](https://yandex.cloud/docs/managed-mysql/).
 
-~> Either `cluster_id` or `name` should be specified.
+{% note warning %}
+
+Either `cluster_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -31,33 +36,35 @@ output "network_id" {
 
 ### Optional
 
-- `access` (Block List, Max: 1) (see [below for nested schema](#nestedblock--access))
+- `access` (Block List, Max: 1) Access policy to the MySQL cluster. (see [below for nested schema](#nestedblock--access))
 - `cluster_id` (String) The ID of the MySQL cluster.
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.
+- `disk_encryption_key_id` (String) ID of the KMS key for cluster disk encryption. Restoring without an encryption key will disable encryption if any exists.
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
-- `mysql_config` (Map of String)
+- `mysql_config` (Map of String) MySQL cluster config block.
 - `name` (String) The resource name.
 
 ### Read-Only
 
 - `backup_retain_period_days` (Number) The period in days during which backups are stored.
-- `backup_window_start` (List of Object) (see [below for nested schema](#nestedatt--backup_window_start))
+- `backup_window_start` (List of Object) Time to start the daily backup, in the UTC. (see [below for nested schema](#nestedatt--backup_window_start))
 - `created_at` (String) The creation timestamp of the resource.
-- `database` (Set of Object) (see [below for nested schema](#nestedatt--database))
+- `database` (Set of Object) To manage databases, please switch to using a separate resource type `yandex_mdb_mysql_databases`. (see [below for nested schema](#nestedatt--database))
+- `disk_size_autoscaling` (List of Object) Cluster disk size autoscaling settings. (see [below for nested schema](#nestedatt--disk_size_autoscaling))
 - `environment` (String) Deployment environment of the MySQL cluster.
 - `health` (String) Aggregated health of the cluster.
-- `host` (List of Object) (see [below for nested schema](#nestedatt--host))
-- `host_group_ids` (Set of String)
+- `host` (List of Object) A host of the MySQL cluster. (see [below for nested schema](#nestedatt--host))
+- `host_group_ids` (Set of String) A list of host group IDs to place VMs of the cluster on.
 - `id` (String) The ID of this resource.
-- `maintenance_window` (List of Object) (see [below for nested schema](#nestedatt--maintenance_window))
+- `maintenance_window` (List of Object) Maintenance policy of the MySQL cluster. (see [below for nested schema](#nestedatt--maintenance_window))
 - `network_id` (String) The `VPC Network ID` of subnets which resource attached to.
-- `performance_diagnostics` (List of Object) (see [below for nested schema](#nestedatt--performance_diagnostics))
-- `resources` (List of Object) (see [below for nested schema](#nestedatt--resources))
+- `performance_diagnostics` (List of Object) Cluster performance diagnostics settings. [YC Documentation](https://yandex.cloud/docs/managed-mysql/api-ref/grpc/cluster_service#PerformanceDiagnostics). (see [below for nested schema](#nestedatt--performance_diagnostics))
+- `resources` (List of Object) Resources allocated to hosts of the MySQL cluster. (see [below for nested schema](#nestedatt--resources))
 - `security_group_ids` (Set of String) The list of security groups applied to resource or their components.
 - `status` (String) Status of the cluster.
-- `user` (List of Object) (see [below for nested schema](#nestedatt--user))
+- `user` (List of Object) To manage users, please switch to using a separate resource type `yandex_mdb_mysql_user`. (see [below for nested schema](#nestedatt--user))
 - `version` (String) Version of the MySQL cluster. (allowed versions are: 5.7, 8.0).
 
 <a id="nestedblock--access"></a>
@@ -65,11 +72,11 @@ output "network_id" {
 
 Optional:
 
-- `data_lens` (Boolean) Allow access for [Yandex DataLens](https://yandex.cloud/services/datalens).
+- `data_lens` (Boolean) Allow access for [Yandex DataLens](https://yandex.cloud/services/datalens). Allow access for [Yandex DataLens](https://yandex.cloud/services/datalens).
 
-- `data_transfer` (Boolean) Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer).
+- `data_transfer` (Boolean) Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer). Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer).
 
-- `web_sql` (Boolean) Allows access for [SQL queries in the management console](https://yandex.cloud/docs/managed-mysql/operations/web-sql-query).
+- `web_sql` (Boolean) Allows access for [SQL queries in the management console](https://yandex.cloud/docs/managed-mysql/operations/web-sql-query). Allows access for [SQL queries in the management console](https://yandex.cloud/docs/managed-mysql/operations/web-sql-query).
 
 
 
@@ -78,9 +85,9 @@ Optional:
 
 Read-Only:
 
-- `hours` (Number) The hour at which backup will be started.
+- `hours` (Number) The hour at which backup will be started (UTC).
 
-- `minutes` (Number) The minute at which backup will be started.
+- `minutes` (Number) The minute at which backup will be started (UTC).
 
 
 
@@ -90,6 +97,19 @@ Read-Only:
 Read-Only:
 
 - `name` (String) The name of the database.
+
+
+
+<a id="nestedatt--disk_size_autoscaling"></a>
+### Nested Schema for `disk_size_autoscaling`
+
+Read-Only:
+
+- `disk_size_limit` (Number) Limit of disk size after autoscaling (GiB).
+
+- `emergency_usage_threshold` (Number) Immediate autoscaling disk usage (percent).
+
+- `planned_usage_threshold` (Number) Maintenance window autoscaling disk usage (percent).
 
 
 
@@ -158,11 +178,11 @@ Read-Only:
 
 Read-Only:
 
-- `authentication_plugin` (String) Authentication plugin. Allowed values: `MYSQL_NATIVE_PASSWORD`, `CACHING_SHA2_PASSWORD`, `SHA256_PASSWORD` (for version 5.7 `MYSQL_NATIVE_PASSWORD`, `SHA256_PASSWORD`).
+- `authentication_plugin` (String) Authentication plugin. Allowed values: `MYSQL_NATIVE_PASSWORD`, `CACHING_SHA2_PASSWORD`, `SHA256_PASSWORD`, `MYSQL_NO_LOGIN`, `MDB_IAMPROXY_AUTH` (for version 5.7 `MYSQL_NATIVE_PASSWORD`, `SHA256_PASSWORD`, `MYSQL_NO_LOGIN`, `MDB_IAMPROXY_AUTH`).
 
 - `connection_limits` (Block List, Max: 1) User's connection limits. If not specified there will be no changes. Default value is -1. When these parameters are set to -1, backend default values will be actually used. (see [below for nested schema](#nestedobjatt--user--connection_limits))
 
-- `global_permissions` (Set of String) List user's global permissions. Allowed permissions: `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `PROCESS` for clear list use empty list. If the attribute is not specified there will be no changes.
+- `global_permissions` (Set of String) List user's global permissions. Allowed permissions: `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `PROCESS`, `FLUSH OPTIMIZER COSTS`, `SHOW ROUTINE`, `MDB ADMIN` for clear list use empty list. If the attribute is not specified there will be no changes.
 
 - `name` (String) The name of the user.
 

@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/resourcemanager_folder
 
 Use this data source to get information about a Yandex Resource Manager Folder. For more information, see [the official documentation](https://yandex.cloud/docs/resource-manager/concepts/resources-hierarchy#folder).
 
-~> Either `folder_id` or `name` must be specified.
+{% note warning %}
+
+Either `folder_id` or `name` must be specified.
+
+{% endnote %}
+
 
 ## Example usage
 
