@@ -2,7 +2,7 @@
 subcategory: Serverless Integrations
 page_title: 'Yandex: yandex_serverless_eventrouter_bus'
 description: Get information about Serverless Event Router Bus.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/serverless_eventrouter_bus.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/serverless_eventrouter_bus.md
 ---
 
 # yandex_serverless_eventrouter_bus (Data Source)

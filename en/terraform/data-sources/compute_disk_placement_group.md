@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/compute_disk_placement
 
 Get information about a Yandex Compute Disk Placement group. For more information, see [the official documentation](https://yandex.cloud/docs/compute/concepts/disk#nr-disks).
 
-~> One of `group_id` or `name` should be specified.
+{% note warning %}
+
+One of `group_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

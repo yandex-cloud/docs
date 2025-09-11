@@ -61,6 +61,7 @@ resource "yandex_metastore_cluster" "my_metastore_cluster" {
 - `maintenance_window` (Attributes) Configuration of window for maintenance operations. (see [below for nested schema](#nestedatt--maintenance_window))
 - `security_group_ids` (Set of String) The list of security groups applied to resource or their components.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
+- `version` (String) Metastore server version.
 
 ### Read-Only
 

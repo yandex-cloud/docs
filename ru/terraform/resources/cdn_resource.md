@@ -2,14 +2,19 @@
 subcategory: Cloud Content Delivery Network (CDN)
 page_title: 'Yandex: yandex_cdn_resource'
 description: Allows management of a Yandex Cloud CDN Resource.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/cdn_resource.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/cdn_resource.md
 ---
 
 # yandex_cdn_resource (Resource)
 
 Allows management of [Yandex Cloud CDN Resource](https://yandex.cloud/docs/cdn/concepts/resource).
 
-~> CDN provider must be activated prior usage of CDN resources, either via UI console or via yc cli command: `yc cdn provider activate --folder-id <folder-id> --type gcore`.
+{% note warning %}
+
+CDN provider must be activated prior usage of CDN resources, either via UI console or via yc cli command: `yc cdn provider activate --folder-id <folder-id> --type gcore`.
+
+{% endnote %}
+
 
 ## Example usage
 

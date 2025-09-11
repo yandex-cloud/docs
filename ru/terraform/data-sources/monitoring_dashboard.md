@@ -2,14 +2,19 @@
 subcategory: Monitoring
 page_title: 'Yandex: yandex_monitoring_dashboard'
 description: Get information about a Yandex Monitoring dashboard.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/monitoring_dashboard.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/monitoring_dashboard.md
 ---
 
 # yandex_monitoring_dashboard (Data Source)
 
 Get information about a Yandex Monitoring dashboard.
 
-~> One of `dashboard_id` or `name` should be specified.
+{% note warning %}
+
+One of `dashboard_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

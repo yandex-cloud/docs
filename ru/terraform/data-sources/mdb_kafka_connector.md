@@ -2,7 +2,7 @@
 subcategory: Managed Service for Apache Kafka
 page_title: 'Yandex: yandex_mdb_kafka_connector'
 description: Get information about a connector of the Yandex Managed Kafka cluster.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_kafka_connector.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_kafka_connector.md
 ---
 
 # yandex_mdb_kafka_connector (Data Source)

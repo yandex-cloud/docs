@@ -2,7 +2,7 @@
 subcategory: Virtual Private Cloud (VPC)
 page_title: 'Yandex: yandex_vpc_address'
 description: Manages a VPC address within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/vpc_address.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/vpc_address.md
 ---
 
 # yandex_vpc_address (Resource)
@@ -52,11 +52,26 @@ resource "yandex_vpc_address" "vpnaddr" {
 - `dns_record` (Block List) DNS record specification of address. (see [below for nested schema](#nestedblock--dns_record))
 - `external_ipv4_address` (Block List, Max: 1) Specification of IPv4 address.
 
-~> Either one `address` or `zone_id` arguments can be specified.
+{% note warning %}
 
-~> Either one `ddos_protection_provider` or `outgoing_smtp_capability` arguments can be specified.
+Either one `address` or `zone_id` arguments can be specified.
 
-~> Change any argument in `external_ipv4_address` will cause an address recreate. (see [below for nested schema](#nestedblock--external_ipv4_address))
+{% endnote %}
+
+
+{% note warning %}
+
+Either one `ddos_protection_provider` or `outgoing_smtp_capability` arguments can be specified.
+
+{% endnote %}
+
+
+{% note warning %}
+
+Change any argument in `external_ipv4_address` will cause an address recreate. (see [below for nested schema](#nestedblock--external_ipv4_address))
+
+{% endnote %}
+
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `name` (String) The resource name.

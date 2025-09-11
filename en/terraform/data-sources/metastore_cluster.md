@@ -13,14 +13,14 @@ Managed Metastore cluster.
 
 ```terraform
 //
-// Get information about Hive Metastore cluster by name
+// Get information about Metastore Cluster by name
 //
 data "yandex_metastore_cluster" "metastore_cluster_by_name" {
   name = "metastore-created-with-terraform"
 }
 
 //
-// Get information about Hive Metastore cluster by id
+// Get information about Metastore Cluster by id
 //
 data "yandex_metastore_cluster" "metastore_cluster_by_id" {
   id = "<metastore-cluster-id>"
@@ -35,6 +35,7 @@ data "yandex_metastore_cluster" "metastore_cluster_by_id" {
 - `id` (String) The resource identifier.
 - `name` (String) The resource name.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
+- `version` (String) Metastore server version.
 
 ### Read-Only
 

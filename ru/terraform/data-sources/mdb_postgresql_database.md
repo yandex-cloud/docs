@@ -2,7 +2,7 @@
 subcategory: Managed Service for PostgreSQL
 page_title: 'Yandex: yandex_mdb_postgresql_database'
 description: Get information about a Yandex Managed PostgreSQL database.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_postgresql_database.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_postgresql_database.md
 ---
 
 # yandex_mdb_postgresql_database (Data Source)

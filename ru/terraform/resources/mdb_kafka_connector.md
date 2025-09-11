@@ -2,7 +2,7 @@
 subcategory: Managed Service for Apache Kafka
 page_title: 'Yandex: yandex_mdb_kafka_connector'
 description: Manages a connectors of a Kafka cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_kafka_connector.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_kafka_connector.md
 ---
 
 # yandex_mdb_kafka_connector (Resource)
@@ -51,7 +51,7 @@ resource "yandex_mdb_kafka_connector" "connector" {
     "value.converter"                = "org.apache.kafka.connect.json.JsonConverter"
     "value.converter.schemas.enable" = "false"
     "format.output.type"             = "jsonl"
-    "file.name.template"             = "dir1/dir2/\{\{topic\}\}-\{\{partition:padding=true\}\}-\{\{start_offset:padding=true\}\}.gz"
+    "file.name.template"             = "dir1/dir2/not_var{{topic}}-not_var{{partition:padding=true}}-not_var{{start_offset:padding=true}}.gz"
     "timestamp.timezone"             = "Europe/Moscow"
   }
   connector_config_s3_sink {

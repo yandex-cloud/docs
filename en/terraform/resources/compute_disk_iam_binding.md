@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_disk_iam_binding.
 
 # yandex_compute_disk_iam_binding (Resource)
 
-Allows creation and management of a single binding within IAM policy for an existing `Disk`.
+Allows creation and management of a single binding within IAM policy for an existing `disk`.
 
 ## Example usage
 
@@ -42,7 +42,7 @@ resource "yandex_compute_disk_iam_binding" "editor" {
 
 ### Required
 
-- `disk_id` (String) The ID of the compute Disk to attach the policy to.
+- `disk_id` (String) The ID of the compute `disk` to attach the policy to.
 - `members` (Set of String) An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
  * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.
  * **serviceAccount:{service_account_id}**: A unique service account ID.
@@ -54,9 +54,19 @@ resource "yandex_compute_disk_iam_binding" "editor" {
  * **system:allAuthenticatedUsers**: All authenticated users.
  * **system:allUsers**: All users, including unauthenticated ones.
 
-~> for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `role` (String) The role that should be assigned. Only one yandex_compute_disk_iam_binding can be used per role.
 
 ## Import
 
-~> Import for this resource is not implemented yet.
+{% note warning %}
+
+Import for this resource is not implemented yet.
+
+{% endnote %}
+

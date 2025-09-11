@@ -43,7 +43,6 @@ data "yandex_spark_cluster" "spark_cluster_by_id" {
 - `created_at` (String) The timestamp when the cluster was created.
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) Description of the cluster. 0-256 characters long.
-- `health` (String) Aggregated health of the cluster.
 - `labels` (Map of String) Cluster labels as key/value pairs.
 - `logging` (Attributes) Cloud Logging configuration. (see [below for nested schema](#nestedatt--logging))
 - `maintenance_window` (Attributes) Configuration of the window for maintenance operations. (see [below for nested schema](#nestedatt--maintenance_window))

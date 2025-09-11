@@ -9,9 +9,19 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/resourcemanager_folder_ia
 
 Allows creation and management of a single binding within IAM policy for an existing Yandex Resource Manager folder.
 
-~> This resource *must not* be used in conjunction with `yandex_resourcemanager_folder_iam_policy` or they will conflict over what your policy should be.
+{% note warning %}
 
-~> When you delete `yandex_resourcemanager_folder_iam_binding` resource, the roles can be deleted from other users within the folder as well. Be careful!
+This resource *must not* be used in conjunction with `yandex_resourcemanager_folder_iam_policy` or they will conflict over what your policy should be.
+
+{% endnote %}
+
+
+{% note warning %}
+
+When you delete `yandex_resourcemanager_folder_iam_binding` resource, the roles can be deleted from other users within the folder as well. Be careful!
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -51,7 +61,12 @@ resource "yandex_resourcemanager_folder_iam_binding" "admin" {
   * **system:allAuthenticatedUsers**: All authenticated users.
   * **system:allUsers**: All users, including unauthenticated ones.
 
-~> for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `role` (String) The role that should be applied. See [roles catalog](https://yandex.cloud/docs/iam/roles-reference).
 
 ### Optional

@@ -9,13 +9,28 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/vpc_security_group.md
 
 Manages a Default Security Group within the Yandex Cloud. For more information, see the official documentation of [security group](https://yandex.cloud/docs/vpc/concepts/security-groups) or [default security group](https://yandex.cloud/docs/vpc/concepts/security-groups#default-security-group).
 
-~> This resource is not intended for managing security group in general case. To manage normal security group use [yandex_vpc_security_group](vpc_security_group.html)
+{% note warning %}
+
+This resource is not intended for managing security group in general case. To manage normal security group use [yandex_vpc_security_group](vpc_security_group.html)
+
+{% endnote %}
+
 
 When [network](https://yandex.cloud/docs/vpc/concepts/network) is created, a non-removable security group, called a *default security group*, is automatically attached to it. Life time of default security group cannot be controlled, so in fact the resource `yandex_vpc_default_security_group` does not create or delete any security groups, instead it simply takes or releases control of the default security group.
 
-~> When Terraform takes over management of the default security group, it **deletes** all info in it (including security group rules) and replace it with specified configuration. When Terraform drops the management (i.e. when resource is deleted from statefile and management), the state of the security group **remains the same** as it was before the deletion.
+{% note warning %}
 
-~> Duplicating a resource (specifying same `network_id` for two different default security groups) will cause errors in the apply stage of your's configuration.
+When Terraform takes over management of the default security group, it **deletes** all info in it (including security group rules) and replace it with specified configuration. When Terraform drops the management (i.e. when resource is deleted from statefile and management), the state of the security group **remains the same** as it was before the deletion.
+
+{% endnote %}
+
+
+{% note warning %}
+
+Duplicating a resource (specifying same `network_id` for two different default security groups) will cause errors in the apply stage of your's configuration.
+
+{% endnote %}
+
 
 ## Example Usage
 
@@ -72,9 +87,9 @@ resource "yandex_vpc_network" "lab-net" {
 ### Optional
 
 - `description` (String) The resource description.
-- `egress` (Block Set) A list of egress rules. (see [below for nested schema](#nestedblock--egress))
+- `egress` (Set of Object) A list of egress rules. (see [below for nested schema](#nestedatt--egress))
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `ingress` (Block Set) A list of ingress rules. (see [below for nested schema](#nestedblock--ingress))
+- `ingress` (Set of Object) A list of ingress rules. (see [below for nested schema](#nestedatt--ingress))
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `name` (String) The resource name.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
@@ -85,52 +100,40 @@ resource "yandex_vpc_network" "lab-net" {
 - `id` (String) The ID of this resource.
 - `status` (String) Status of this security group.
 
-<a id="nestedblock--egress"></a>
+<a id="nestedatt--egress"></a>
 ### Nested Schema for `egress`
 
-Required:
-
-- `protocol` (String) One of `ANY`, `TCP`, `UDP`, `ICMP`, `IPV6_ICMP`.
-
 Optional:
 
-- `description` (String) Description of the rule.
-- `from_port` (Number) Minimum port number.
-- `labels` (Map of String) Labels to assign to this rule.
-- `port` (Number) Port number (if applied to a single port).
-- `predefined_target` (String) Special-purpose targets. `self_security_group` refers to this particular security group. `loadbalancer_healthchecks` represents [loadbalancer health check nodes](https://yandex.cloud/docs/network-load-balancer/concepts/health-check).
-- `security_group_id` (String) Target security group ID for this rule.
-- `to_port` (Number) Maximum port number.
-- `v4_cidr_blocks` (List of String) The blocks of IPv4 addresses for this rule.
-- `v6_cidr_blocks` (List of String) The blocks of IPv6 addresses for this rule. `v6_cidr_blocks` argument is currently not supported. It will be available in the future.
-
-Read-Only:
-
-- `id` (String) The resource identifier.
+- `description` (String)
+- `from_port` (Number)
+- `id` (String)
+- `labels` (Map of String)
+- `port` (Number)
+- `predefined_target` (String)
+- `protocol` (String)
+- `security_group_id` (String)
+- `to_port` (Number)
+- `v4_cidr_blocks` (List of String)
+- `v6_cidr_blocks` (List of String)
 
 
-<a id="nestedblock--ingress"></a>
+<a id="nestedatt--ingress"></a>
 ### Nested Schema for `ingress`
 
-Required:
-
-- `protocol` (String) One of `ANY`, `TCP`, `UDP`, `ICMP`, `IPV6_ICMP`.
-
 Optional:
 
-- `description` (String) Description of the rule.
-- `from_port` (Number) Minimum port number.
-- `labels` (Map of String) Labels to assign to this rule.
-- `port` (Number) Port number (if applied to a single port).
-- `predefined_target` (String) Special-purpose targets. `self_security_group` refers to this particular security group. `loadbalancer_healthchecks` represents [loadbalancer health check nodes](https://yandex.cloud/docs/network-load-balancer/concepts/health-check).
-- `security_group_id` (String) Target security group ID for this rule.
-- `to_port` (Number) Maximum port number.
-- `v4_cidr_blocks` (List of String) The blocks of IPv4 addresses for this rule.
-- `v6_cidr_blocks` (List of String) The blocks of IPv6 addresses for this rule. `v6_cidr_blocks` argument is currently not supported. It will be available in the future.
-
-Read-Only:
-
-- `id` (String) The resource identifier.
+- `description` (String)
+- `from_port` (Number)
+- `id` (String)
+- `labels` (Map of String)
+- `port` (Number)
+- `predefined_target` (String)
+- `protocol` (String)
+- `security_group_id` (String)
+- `to_port` (Number)
+- `v4_cidr_blocks` (List of String)
+- `v6_cidr_blocks` (List of String)
 
 
 <a id="nestedblock--timeouts"></a>

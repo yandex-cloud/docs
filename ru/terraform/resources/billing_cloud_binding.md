@@ -2,7 +2,7 @@
 subcategory: Cloud Billing
 page_title: 'Yandex: yandex_billing_cloud_binding'
 description: Bind cloud to billing account.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/billing_cloud_binding.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/billing_cloud_binding.md
 ---
 
 # yandex_billing_cloud_binding (Resource)

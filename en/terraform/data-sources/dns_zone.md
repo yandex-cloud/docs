@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/dns_zone.md
 
 Get information about a DNS Zone.
 
-~> One of `dns_zone_id` or `name` should be specified.
+{% note warning %}
+
+One of `dns_zone_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

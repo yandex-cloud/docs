@@ -2,7 +2,7 @@
 subcategory: Identity and Access Management (IAM)
 page_title: 'Yandex: yandex_iam_service_agent'
 description: Get information about a Yandex Cloud Service Agent.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/iam_service_agent.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/iam_service_agent.md
 ---
 
 # yandex_iam_service_agent (Data Source)

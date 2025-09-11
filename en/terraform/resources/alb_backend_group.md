@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/alb_backend_group.md
 
 Creates a backend group in the specified folder and adds the specified backends to it. For more information, see [the official documentation](https://yandex.cloud/docs/application-load-balancer/concepts/backend-group).
 
-~> Only one type of backends `http_backend` or `grpc_backend` or `stream_backend` should be specified.
+{% note warning %}
+
+Only one type of backends `http_backend` or `grpc_backend` or `stream_backend` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -59,12 +64,22 @@ resource "yandex_alb_backend_group" "my_alb_bg" {
 - `grpc_backend` (Block List) gRPC backend specification that will be used by the ALB Backend Group. (see [below for nested schema](#nestedblock--grpc_backend))
 - `http_backend` (Block List) HTTP backend specification that will be used by the ALB Backend Group.
 
-~> Only one of `target_group_ids` or `storage_bucket` should be specified. (see [below for nested schema](#nestedblock--http_backend))
+{% note warning %}
+
+Only one of `target_group_ids` or `storage_bucket` should be specified. (see [below for nested schema](#nestedblock--http_backend))
+
+{% endnote %}
+
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `name` (String) The resource name.
 - `session_affinity` (Block List, Max: 1) Session affinity mode determines how incoming requests are grouped into one session.
 
-~> Only one type(`connection` or `cookie` or `header`) of session affinity should be specified. (see [below for nested schema](#nestedblock--session_affinity))
+{% note warning %}
+
+Only one type(`connection` or `cookie` or `header`) of session affinity should be specified. (see [below for nested schema](#nestedblock--session_affinity))
+
+{% endnote %}
+
 - `stream_backend` (Block List) Stream backend specification that will be used by the ALB Backend Group. (see [below for nested schema](#nestedblock--stream_backend))
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
@@ -85,12 +100,22 @@ Optional:
 
 - `healthcheck` (Block List, Max: 1) Healthcheck specification that will be used by this backend.
 
-~> Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` should be specified. (see [below for nested schema](#nestedblock--grpc_backend--healthcheck))
+{% note warning %}
+
+Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` should be specified. (see [below for nested schema](#nestedblock--grpc_backend--healthcheck))
+
+{% endnote %}
+
 - `load_balancing_config` (Block List, Max: 1) Load Balancing Config specification that will be used by this backend. (see [below for nested schema](#nestedblock--grpc_backend--load_balancing_config))
 - `port` (Number) Port for incoming traffic.
 - `tls` (Block List, Max: 1) TLS specification that will be used by this backend.
 
-~> Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified. (see [below for nested schema](#nestedblock--grpc_backend--tls))
+{% note warning %}
+
+Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified. (see [below for nested schema](#nestedblock--grpc_backend--tls))
+
+{% endnote %}
+
 - `weight` (Number) Weight of the backend. Traffic will be split between backends of the same BackendGroup according to their weights.
 
 <a id="nestedblock--grpc_backend--healthcheck"></a>
@@ -184,7 +209,12 @@ Optional:
 
 - `healthcheck` (Block List, Max: 1) Healthcheck specification that will be used by this backend.
 
-~> Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` should be specified. (see [below for nested schema](#nestedblock--http_backend--healthcheck))
+{% note warning %}
+
+Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` should be specified. (see [below for nested schema](#nestedblock--http_backend--healthcheck))
+
+{% endnote %}
+
 - `http2` (Boolean) Enables HTTP2 for upstream requests. If not set, HTTP 1.1 will be used by default.
 - `load_balancing_config` (Block List, Max: 1) Load Balancing Config specification that will be used by this backend. (see [below for nested schema](#nestedblock--http_backend--load_balancing_config))
 - `port` (Number) Port for incoming traffic.
@@ -192,7 +222,12 @@ Optional:
 - `target_group_ids` (List of String) References target groups for the backend.
 - `tls` (Block List, Max: 1) TLS specification that will be used by this backend.
 
-~> Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified. (see [below for nested schema](#nestedblock--http_backend--tls))
+{% note warning %}
+
+Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified. (see [below for nested schema](#nestedblock--http_backend--tls))
+
+{% endnote %}
+
 - `weight` (Number) Weight of the backend. Traffic will be split between backends of the same BackendGroup according to their weights.
 
 <a id="nestedblock--http_backend--healthcheck"></a>
@@ -326,13 +361,23 @@ Optional:
 - `enable_proxy_protocol` (Boolean)
 - `healthcheck` (Block List, Max: 1) Healthcheck specification that will be used by this backend.
 
-~> Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` should be specified. (see [below for nested schema](#nestedblock--stream_backend--healthcheck))
+{% note warning %}
+
+Only one of `stream_healthcheck` or `http_healthcheck` or `grpc_healthcheck` should be specified. (see [below for nested schema](#nestedblock--stream_backend--healthcheck))
+
+{% endnote %}
+
 - `keep_connections_on_host_health_failure` (Boolean) If set, when a backend host becomes unhealthy (as determined by the configured health checks), keep connections to the failed host.
 - `load_balancing_config` (Block List, Max: 1) Load Balancing Config specification that will be used by this backend. (see [below for nested schema](#nestedblock--stream_backend--load_balancing_config))
 - `port` (Number) Port for incoming traffic.
 - `tls` (Block List, Max: 1) TLS specification that will be used by this backend.
 
-~> Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified. (see [below for nested schema](#nestedblock--stream_backend--tls))
+{% note warning %}
+
+Only one of `validation_context.0.trusted_ca_id` or `validation_context.0.trusted_ca_bytes` should be specified. (see [below for nested schema](#nestedblock--stream_backend--tls))
+
+{% endnote %}
+
 - `weight` (Number) Weight of the backend. Traffic will be split between backends of the same BackendGroup according to their weights.
 
 <a id="nestedblock--stream_backend--healthcheck"></a>

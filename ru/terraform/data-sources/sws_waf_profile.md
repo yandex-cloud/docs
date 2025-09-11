@@ -2,7 +2,7 @@
 subcategory: Smart Web Security (SWS)
 page_title: 'Yandex: yandex_sws_waf_profile'
 description: Get information about SmartWebSecurity WAF Profile.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/sws_waf_profile.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/sws_waf_profile.md
 ---
 
 # yandex_sws_waf_profile (Data Source)
@@ -10,7 +10,12 @@ sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/sws_waf_profile.md
 Get information about WAF Profile. For more information, see [the official documentation](https://yandex.cloud/docs/smartwebsecurity/quickstart#waf).
 This data source is used to define WAF Profile that can be used by other resources.
 
-~> One of `waf_profile_id` or `name` should be specified.
+{% note warning %}
+
+One of `waf_profile_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -34,19 +39,21 @@ data "yandex_sws_waf_profile" "by-name" {
 
 - `cloud_id` (String) The `Cloud ID` which resource belongs to. If it is not provided, the default provider `cloud-id` is used.
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `name` (String) The resource name.
+- `name` (String) Name of waf profile.
 - `waf_profile_id` (String) ID of the WAF profile.
 
 ### Read-Only
 
-- `analyze_request_body` (List of Object) (see [below for nested schema](#nestedatt--analyze_request_body))
-- `core_rule_set` (List of Object) (see [below for nested schema](#nestedatt--core_rule_set))
+- `analyze_request_body` (List of Object) Analyze request body. (see [below for nested schema](#nestedatt--analyze_request_body))
+- `core_rule_set` (List of Object) Core rule set. (see [below for nested schema](#nestedatt--core_rule_set))
 - `created_at` (String) The creation timestamp of the resource.
 - `description` (String) The resource description.
 - `exclusion_rule` (List of Object) (see [below for nested schema](#nestedatt--exclusion_rule))
 - `id` (String) The ID of this resource.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
-- `rule` (List of Object) (see [below for nested schema](#nestedatt--rule))
+- `match_all_rule_sets` (Boolean) Match all rule sets.
+- `rule` (List of Object) List of rules. (see [below for nested schema](#nestedatt--rule))
+- `rule_set` (List of Object) (see [below for nested schema](#nestedatt--rule_set))
 
 <a id="nestedatt--analyze_request_body"></a>
 ### Nested Schema for `analyze_request_body`
@@ -70,15 +77,21 @@ Read-Only:
 
 - `paranoia_level` (Number) Paranoia level. Enter an integer within the range of 1 and 4. Paranoia level classifies rules according to their aggression. The higher the paranoia level, the better your protection, but also the higher the probability of WAF false positives. See [Rules](https://yandex.cloud/en/docs/smartwebsecurity/concepts/waf#paranoia) for more details. NOTE: this option has no effect on enabling or disabling rules, it is used only as recommendation for user to enable all rules with paranoia_level <= this value.
 
-- `rule_set` (List of Object) (see [below for nested schema](#nestedobjatt--core_rule_set--rule_set))
+- `rule_set` (Block List, Min: 1, Max: 1) Rule set settings. See [Basic rule set](https://yandex.cloud/en/docs/smartwebsecurity/concepts/waf#rules-set) for details. (see [below for nested schema](#nestedobjatt--core_rule_set--rule_set))
+
 
 <a id="nestedobjatt--core_rule_set--rule_set"></a>
 ### Nested Schema for `core_rule_set.rule_set`
 
 Read-Only:
 
-- `name` (String)
-- `version` (String)
+- `id` (String)
+- `name` (String) Name of the rule set.
+
+- `type` (String) Type of the rule set.
+
+- `version` (String) Version of the rule set.
+
 
 
 
@@ -106,7 +119,8 @@ Read-Only:
 - `headers` (List of Object) (see [below for nested schema](#nestedobjatt--exclusion_rule--condition--headers))
 - `http_method` (List of Object) (see [below for nested schema](#nestedobjatt--exclusion_rule--condition--http_method))
 - `request_uri` (List of Object) (see [below for nested schema](#nestedobjatt--exclusion_rule--condition--request_uri))
-- `source_ip` (List of Object) (see [below for nested schema](#nestedobjatt--exclusion_rule--condition--source_ip))
+- `source_ip` (Block List, Max: 1) Source IP. (see [below for nested schema](#nestedobjatt--exclusion_rule--condition--source_ip))
+
 
 <a id="nestedobjatt--exclusion_rule--condition--authority"></a>
 ### Nested Schema for `exclusion_rule.condition.authority`
@@ -221,17 +235,22 @@ Read-Only:
 
 Read-Only:
 
-- `geo_ip_match` (List of Object) (see [below for nested schema](#nestedobjatt--exclusion_rule--condition--source_ip--geo_ip_match))
-- `geo_ip_not_match` (List of Object) (see [below for nested schema](#nestedobjatt--exclusion_rule--condition--source_ip--geo_ip_not_match))
-- `ip_ranges_match` (List of Object) (see [below for nested schema](#nestedobjatt--exclusion_rule--condition--source_ip--ip_ranges_match))
-- `ip_ranges_not_match` (List of Object) (see [below for nested schema](#nestedobjatt--exclusion_rule--condition--source_ip--ip_ranges_not_match))
+- `geo_ip_match` (Block List, Max: 1) Locations to include. (see [below for nested schema](#nestedobjatt--exclusion_rule--condition--source_ip--geo_ip_match))
+
+- `geo_ip_not_match` (Block List, Max: 1) Locations to exclude. (see [below for nested schema](#nestedobjatt--exclusion_rule--condition--source_ip--geo_ip_not_match))
+
+- `ip_ranges_match` (Block List, Max: 1) IP ranges to include. (see [below for nested schema](#nestedobjatt--exclusion_rule--condition--source_ip--ip_ranges_match))
+
+- `ip_ranges_not_match` (Block List, Max: 1) IP ranges to exclude. (see [below for nested schema](#nestedobjatt--exclusion_rule--condition--source_ip--ip_ranges_not_match))
+
 
 <a id="nestedobjatt--exclusion_rule--condition--source_ip--geo_ip_match"></a>
 ### Nested Schema for `exclusion_rule.condition.source_ip.geo_ip_match`
 
 Read-Only:
 
-- `locations` (List of String)
+- `locations` (List of String) Locations to include.
+
 
 
 <a id="nestedobjatt--exclusion_rule--condition--source_ip--geo_ip_not_match"></a>
@@ -239,7 +258,8 @@ Read-Only:
 
 Read-Only:
 
-- `locations` (List of String)
+- `locations` (List of String) Locations to exclude.
+
 
 
 <a id="nestedobjatt--exclusion_rule--condition--source_ip--ip_ranges_match"></a>
@@ -247,7 +267,8 @@ Read-Only:
 
 Read-Only:
 
-- `ip_ranges` (List of String)
+- `ip_ranges` (List of String) IP ranges to include.
+
 
 
 <a id="nestedobjatt--exclusion_rule--condition--source_ip--ip_ranges_not_match"></a>
@@ -255,7 +276,8 @@ Read-Only:
 
 Read-Only:
 
-- `ip_ranges` (List of String)
+- `ip_ranges` (List of String) IP ranges to exclude.
+
 
 
 
@@ -283,3 +305,127 @@ Read-Only:
 
 - `rule_id` (String) Rule ID.
 
+
+
+<a id="nestedatt--rule_set"></a>
+### Nested Schema for `rule_set`
+
+Read-Only:
+
+- `action` (String) Action of the rule set.
+
+- `core_rule_set` (Block List, Max: 1) Core rule set. (see [below for nested schema](#nestedobjatt--rule_set--core_rule_set))
+
+- `is_enabled` (Boolean) Determines is it rule set enabled or not.
+
+- `ml_rule_set` (Block List, Max: 1) List of ML rule sets. (see [below for nested schema](#nestedobjatt--rule_set--ml_rule_set))
+
+- `priority` (Number) Priority of the rule set.
+
+- `ya_rule_set` (Block List, Max: 1) Yandex rule set. (see [below for nested schema](#nestedobjatt--rule_set--ya_rule_set))
+
+
+<a id="nestedobjatt--rule_set--core_rule_set"></a>
+### Nested Schema for `rule_set.core_rule_set`
+
+Read-Only:
+
+- `inbound_anomaly_score` (Number) Inbound anomaly score of the rule set.
+
+- `paranoia_level` (Number) Paranoia level of the rule set.
+
+- `rule_set` (Block List, Min: 1, Max: 1) Rule set. (see [below for nested schema](#nestedobjatt--rule_set--core_rule_set--rule_set))
+
+
+<a id="nestedobjatt--rule_set--core_rule_set--rule_set"></a>
+### Nested Schema for `rule_set.core_rule_set.rule_set`
+
+Read-Only:
+
+- `name` (String) Name of the rule set.
+
+- `type` (String) Type of the rule set.
+
+- `version` (String) Version of the rule set.
+
+- `waf_profile_id` (String)
+
+
+
+<a id="nestedobjatt--rule_set--ml_rule_set"></a>
+### Nested Schema for `rule_set.ml_rule_set`
+
+Read-Only:
+
+- `rule_group` (Block List) List of rule groups. (see [below for nested schema](#nestedobjatt--rule_set--ml_rule_set--rule_group))
+
+- `rule_set` (Block List, Min: 1, Max: 1) Rule set of the ML rule set. (see [below for nested schema](#nestedobjatt--rule_set--ml_rule_set--rule_set))
+
+
+<a id="nestedobjatt--rule_set--ml_rule_set--rule_group"></a>
+### Nested Schema for `rule_set.ml_rule_set.rule_group`
+
+Read-Only:
+
+- `action` (String) Action of the rule group.
+
+- `id` (String) ID of the rule group.
+
+- `inbound_anomaly_score` (Number) Inbound anomaly score.
+
+- `is_enabled` (Boolean) Is the rule group enabled.
+
+
+
+<a id="nestedobjatt--rule_set--ml_rule_set--rule_set"></a>
+### Nested Schema for `rule_set.ml_rule_set.rule_set`
+
+Read-Only:
+
+- `name` (String) Name of the rule set.
+
+- `type` (String) Type of the rule set.
+
+- `version` (String) Version of the rule set.
+
+- `waf_profile_id` (String)
+
+
+
+<a id="nestedobjatt--rule_set--ya_rule_set"></a>
+### Nested Schema for `rule_set.ya_rule_set`
+
+Read-Only:
+
+- `rule_group` (Block List) List of rule groups. (see [below for nested schema](#nestedobjatt--rule_set--ya_rule_set--rule_group))
+
+- `rule_set` (Block List, Min: 1, Max: 1) Rule set of the Yandex rule set. (see [below for nested schema](#nestedobjatt--rule_set--ya_rule_set--rule_set))
+
+
+<a id="nestedobjatt--rule_set--ya_rule_set--rule_group"></a>
+### Nested Schema for `rule_set.ya_rule_set.rule_group`
+
+Read-Only:
+
+- `action` (String) Action of the rule group.
+
+- `id` (String) ID of the rule group.
+
+- `inbound_anomaly_score` (Number) Inbound anomaly score.
+
+- `is_enabled` (Boolean) Is the rule group enabled.
+
+
+
+<a id="nestedobjatt--rule_set--ya_rule_set--rule_set"></a>
+### Nested Schema for `rule_set.ya_rule_set.rule_set`
+
+Read-Only:
+
+- `name` (String) Name of the rule set.
+
+- `type` (String) Type of the rule set.
+
+- `version` (String) Version of the rule set.
+
+- `waf_profile_id` (String)

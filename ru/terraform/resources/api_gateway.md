@@ -2,7 +2,7 @@
 subcategory: Yandex API Gateway
 page_title: 'Yandex: yandex_api_gateway'
 description: Allows management of a Yandex API Gateway.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/api_gateway.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/api_gateway.md
 ---
 
 # yandex_api_gateway (Resource)
@@ -114,7 +114,13 @@ EOT
 - `id` (String) The ID of this resource.
 - `log_group_id` (String) ID of the log group for the Yandex Cloud API Gateway.
 - `status` (String) Status of the Yandex Cloud API Gateway.
-- `user_domains` (Set of String, Deprecated) ~> **DEPRECATED** Use `custom_domains` instead. Set of user domains attached to Yandex Cloud API Gateway.
+- `user_domains` (Set of String, Deprecated) 
+
+    {% note warning %}
+
+    **DEPRECATED** Use `custom_domains` instead. Set of user domains attached to Yandex Cloud API Gateway.
+
+    {% endnote %}
 
 <a id="nestedblock--canary"></a>
 ### Nested Schema for `canary`
@@ -168,4 +174,9 @@ Optional:
 
 ## Import
 
-~> Import for this resource is not implemented yet.
+{% note warning %}
+
+Import for this resource is not implemented yet.
+
+{% endnote %}
+

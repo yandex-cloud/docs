@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/kubernetes_cluster.md
 
 Get information about a Yandex Cloud Managed Kubernetes Cluster. For more information, see [the official documentation](https://yandex.cloud/docs/managed-kubernetes/concepts/#kubernetes-cluster).
 
-~> One of `cluster_id` or `name` should be specified.
+{% note warning %}
+
+One of `cluster_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

@@ -1,4 +1,4 @@
-## Model lifecycle {#model-lifecycle}
+### Model lifecycle {#model-lifecycle}
 
 Each model has certain lifecycle characteristics, such as the model name, branch, and release date. These characteristics allow you to precisely identify the model version. Below, you can see our rules for updating models. Refer to these rules to adjust your solutions to a new version as apporpriate. 
 

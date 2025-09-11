@@ -11,7 +11,12 @@ Get information about a Yandex Application Load Balancer Backend Group. For more
 
 This data source is used to define [Application Load Balancer Backend Groups](https://yandex.cloud/docs/application-load-balancer/concepts/backend-group) that can be used by other resources.
 
-~> One of `backend_group_id` or `name` should be specified.
+{% note warning %}
+
+One of `backend_group_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

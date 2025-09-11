@@ -2,7 +2,7 @@
 subcategory: Network Load Balancer (NLB)
 page_title: 'Yandex: yandex_lb_network_load_balancer'
 description: Get information about a Yandex Load Balancer network load balancer.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/lb_network_load_balancer.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/lb_network_load_balancer.md
 ---
 
 # yandex_lb_network_load_balancer (Data Source)
@@ -11,7 +11,12 @@ Get information about a Yandex Load Balancer network load balancer. For more inf
 
 This data source is used to define [Load Balancer Network Load Balancers](https://yandex.cloud/docs/load-balancer/concepts/) that can be used by other resources.
 
-~> One of `network_load_balancer_id` or `name` should be specified.
+{% note warning %}
+
+One of `network_load_balancer_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

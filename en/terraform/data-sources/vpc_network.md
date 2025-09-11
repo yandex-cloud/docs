@@ -11,7 +11,12 @@ Get information about a Yandex VPC network. For more information, see [Yandex Cl
 
 This data source is used to define [VPC Networks](https://yandex.cloud/docs/vpc/concepts/network) that can be used by other resources.
 
-~> One of `network_id` or `name` should be specified.
+{% note warning %}
+
+One of `network_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

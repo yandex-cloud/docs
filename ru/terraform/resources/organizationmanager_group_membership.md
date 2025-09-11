@@ -2,14 +2,19 @@
 subcategory: Cloud Organization
 page_title: 'Yandex: yandex_organizationmanager_group_membership'
 description: Allows management of members of Yandex Cloud Organization Manager Group.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/organizationmanager_group_membership.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_group_membership.md
 ---
 
 # yandex_organizationmanager_group_membership (Resource)
 
 Allows members management of a single Yandex Cloud Organization Manager Group. For more information, see [the official documentation](https://yandex.cloud/docs/organization/manage-groups#add-member).
 
-~> Multiple `yandex_organizationmanager_group_iam_binding` resources with the same group id will produce inconsistent behavior!
+{% note warning %}
+
+Multiple `yandex_organizationmanager_group_iam_binding` resources with the same group id will produce inconsistent behavior!
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -53,4 +58,8 @@ Optional:
 
 ## Import
 
-~> Import for this resource is not implemented yet.
+{% note warning %}
+
+Import for this resource is not implemented yet.
+
+{% endnote %}

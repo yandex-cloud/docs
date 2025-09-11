@@ -2,14 +2,19 @@
 subcategory: Key Management Service (KMS)
 page_title: 'Yandex: yandex_kms_secret_ciphertext'
 description: Encrypts given plaintext with the specified Yandex KMS key and provides access to the ciphertext.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/kms_secret_ciphertext.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/kms_secret_ciphertext.md
 ---
 
 # yandex_kms_secret_ciphertext (Resource)
 
 Encrypts given plaintext with the specified Yandex KMS key and provides access to the **CipherText**.
 
-~> Using this resource will allow you to conceal secret data within your resource definitions, but it does not take care of protecting that data in the logging output, plan output, or state output. Please take care to secure your secret data outside of resource definitions.
+{% note warning %}
+
+Using this resource will allow you to conceal secret data within your resource definitions, but it does not take care of protecting that data in the logging output, plan output, or state output. Please take care to secure your secret data outside of resource definitions.
+
+{% endnote %}
+
 For more information, see [the official documentation](https://yandex.cloud/docs/kms/concepts/).
 
 ## Example usage
@@ -59,4 +64,8 @@ Optional:
 
 ## Import
 
-~> Import for this resource is not implemented yet.
+{% note warning %}
+
+Import for this resource is not implemented yet.
+
+{% endnote %}

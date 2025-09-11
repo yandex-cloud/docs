@@ -2,7 +2,7 @@
 subcategory: Cloud Organization
 page_title: 'Yandex: yandex_organizationmanager_organization_iam_binding'
 description: Allows management of a single IAM binding for a Yandex Organization Manager organization.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/organizationmanager_organization_iam_binding.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_organization_iam_binding.md
 ---
 
 # yandex_organizationmanager_organization_iam_binding (Resource)
@@ -42,7 +42,12 @@ resource "yandex_organizationmanager_organization_iam_binding" "editor" {
   * **system:allAuthenticatedUsers**: All authenticated users.
   * **system:allUsers**: All users, including unauthenticated ones.
 
-~> for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `organization_id` (String) The ID of the organization to attach the policy to.
 - `role` (String) The role that should be applied. See [roles catalog](https://yandex.cloud/docs/iam/roles-reference).
 

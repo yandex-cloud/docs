@@ -2,7 +2,7 @@
 subcategory: Managed Service for Apache Airflow
 page_title: 'Yandex: yandex_airflow_cluster'
 description: Get information about Apache Airflow cluster.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/airflow_cluster.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/airflow_cluster.md
 ---
 
 # yandex_airflow_cluster (Data Source)

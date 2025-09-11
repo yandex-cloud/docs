@@ -2,7 +2,7 @@
 subcategory: Message Queue
 page_title: 'Yandex: yandex_message_queue'
 description: Get information about a Yandex Message Queue.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/message_queue.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/message_queue.md
 ---
 
 # yandex_message_queue (Data Source)

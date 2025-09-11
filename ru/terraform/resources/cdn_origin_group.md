@@ -2,14 +2,19 @@
 subcategory: Cloud Content Delivery Network (CDN)
 page_title: 'Yandex: yandex_cdn_origin_group'
 description: Allows management of a Yandex Cloud CDN Origin Groups.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/cdn_origin_group.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/cdn_origin_group.md
 ---
 
 # yandex_cdn_origin_group (Resource)
 
 Allows management of [Yandex Cloud CDN Origin Groups](https://yandex.cloud/docs/cdn/concepts/origins).
 
-~> CDN provider must be activated prior usage of CDN resources, either via UI console or via yc cli command: `yc cdn provider activate --folder-id <folder-id> --type gcore`.
+{% note warning %}
+
+CDN provider must be activated prior usage of CDN resources, either via UI console or via yc cli command: `yc cdn provider activate --folder-id <folder-id> --type gcore`.
+
+{% endnote %}
+
 
 ## Example usage
 

@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/smartcaptcha_captcha.m
 
 Get information about Yandex SmartCaptcha. For more information, see [the official documentation](https://yandex.cloud/docs/smartcaptcha/).This data source is used to define Captcha that can be used by other resources.
 
-~> One of `captcha_id` or `name` should be specified.
+{% note warning %}
+
+One of `captcha_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example Usage
 

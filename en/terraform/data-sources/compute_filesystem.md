@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/compute_filesystem.md
 
 Get information about a Yandex Compute filesystem. For more information, see [the official documentation](https://yandex.cloud/docs/compute/concepts/filesystem).
 
-~> One of `filesystem_id` or `name` should be specified.
+{% note warning %}
+
+One of `filesystem_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

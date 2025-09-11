@@ -2,7 +2,7 @@
 subcategory: Application Load Balancer (ALB)
 page_title: 'Yandex: yandex_alb_http_router'
 description: The HTTP router defines the routing rules for HTTP requests to backend groups.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/alb_http_router.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/alb_http_router.md
 ---
 
 # yandex_alb_http_router (Resource)
@@ -87,7 +87,12 @@ Optional:
 
 - `value` (Block List, Max: 1) The `path` and `fqmn` blocks.
 
-~> Exactly one type of string matches `exact`, `prefix` or `regex` should be specified. (see [below for nested schema](#nestedblock--route_options--rbac--principals--and_principals--header--value))
+{% note warning %}
+
+Exactly one type of string matches `exact`, `prefix` or `regex` should be specified. (see [below for nested schema](#nestedblock--route_options--rbac--principals--and_principals--header--value))
+
+{% endnote %}
+
 
 <a id="nestedblock--route_options--rbac--principals--and_principals--header--value"></a>
 ### Nested Schema for `route_options.rbac.principals.and_principals.header.value`

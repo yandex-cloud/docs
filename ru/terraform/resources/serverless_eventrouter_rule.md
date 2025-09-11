@@ -2,7 +2,7 @@
 subcategory: Serverless Integrations
 page_title: 'Yandex: yandex_serverless_eventrouter_rule'
 description: Allows management of a Yandex Cloud Serverless Event Router Rule.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/serverless_eventrouter_rule.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/serverless_eventrouter_rule.md
 ---
 
 # yandex_serverless_eventrouter_rule (Resource)

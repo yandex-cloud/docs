@@ -41,6 +41,8 @@ description: Управление доступом в сервисе API-шлю�
 
 ### Сервисные роли {#service-roles}
 
+{% include [api-gateway](../../_mermaid/roles/api-gateway.md) %}
+
 #### api-gateway.auditor {#api-gateway-auditor}
 
 {% include [api-gateway.auditor](../../_roles/api-gateway/auditor.md) %}

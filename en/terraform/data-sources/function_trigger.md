@@ -11,7 +11,12 @@ Get information about a Yandex Cloud Function Trigger. For more information abou
 
 This data source is used to define [Yandex Cloud Functions Trigger](https://yandex.cloud/docs/functions/concepts/trigger) that can be used by other resources.
 
-~> Either `trigger_id` or `name` must be specified.
+{% note warning %}
+
+Either `trigger_id` or `name` must be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

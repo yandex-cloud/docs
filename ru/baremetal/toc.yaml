@@ -280,7 +280,6 @@ items:
               - name: List
                 href: api-ref/grpc/Zone/list.md
       - name: REST (англ.)
-        hidden: true
         items:
           - name: Overview
             href: api-ref/index.md

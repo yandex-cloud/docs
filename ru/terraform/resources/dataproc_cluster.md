@@ -2,7 +2,7 @@
 subcategory: Data Processing
 page_title: 'Yandex: yandex_dataproc_cluster'
 description: Manages a Data Processing cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/dataproc_cluster.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/dataproc_cluster.md
 ---
 
 # yandex_dataproc_cluster (Resource)
@@ -163,7 +163,7 @@ resource "yandex_storage_bucket" "foo" {
 
 ### Optional
 
-- `autoscaling_service_account_id` (String) Service account to be used by the Instance Groups service.
+- `autoscaling_service_account_id` (String) Service account to be used for managing hosts in an autoscaled subcluster.
 - `bucket` (String) Name of the Object Storage bucket to use for Yandex Data Processing jobs. Yandex Data Processing Agent saves output of job driver's process to specified bucket. In order for this to work service account (specified by the `service_account_id` argument) should be given permission to create objects within this bucket.
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.

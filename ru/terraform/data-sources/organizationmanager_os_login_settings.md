@@ -2,7 +2,7 @@
 subcategory: Cloud Organization
 page_title: 'Yandex: yandex_organizationmanager_os_login_settings'
 description: Get information about a Yandex Cloud OS Login Settings.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_os_login_settings.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_os_login_settings.md
 ---
 
 # yandex_organizationmanager_os_login_settings (Data Source)

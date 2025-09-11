@@ -1,0 +1,1 @@
+5 × {{ sku|USD|security_deck.dspm.scanned.text.v1|string }} × ({{ sku|USD|security_deck.dspm.scanned.files.v1|string }} × 50 / 10,000) = {% calc [currency=USD] 5 × {{ sku|USD|security_deck.dspm.scanned.text.v1|number }} × ({{ sku|USD|security_deck.dspm.scanned.files.v1|number }} × 50 / 10,000) %}

@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/serverless_container.m
 
 Get information about a Yandex Cloud Serverless Container. This data source is used to define Yandex Cloud Container that can be used by other resources.
 
-~> Either `container_id` or `name` must be specified.
+{% note warning %}
+
+Either `container_id` or `name` must be specified.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -39,6 +44,7 @@ data "yandex_serverless_container" "my-container" {
 
 ### Read-Only
 
+- `async_invocation` (List of Object) (see [below for nested schema](#nestedatt--async_invocation))
 - `concurrency` (Number) Concurrency of Yandex Cloud Serverless Container.
 - `core_fraction` (Number) Core fraction (**0...100**) of the Yandex Cloud Serverless Container.
 - `cores` (Number) Cores (**1+**) of the Yandex Cloud Serverless Container.
@@ -159,6 +165,15 @@ Optional:
 - `prefix` (String) Prefix within the bucket. If you leave this field empty, the entire bucket will be mounted.
 
 - `read_only` (Boolean) Mount the bucket in read-only mode.
+
+
+
+<a id="nestedatt--async_invocation"></a>
+### Nested Schema for `async_invocation`
+
+Read-Only:
+
+- `service_account_id` (String) Service account used for async invocation.
 
 
 

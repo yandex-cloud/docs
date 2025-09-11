@@ -2,14 +2,19 @@
 subcategory: Cloud Organization
 page_title: 'Yandex: yandex_organizationmanager_group'
 description: Get information about a Yandex Cloud Group.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_group.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_group.md
 ---
 
 # yandex_organizationmanager_group (Data Source)
 
 Get information about a Yandex Cloud Organization Manager Group. For more information, see [the official documentation](https://yandex.cloud/docs/organization/manage-groups).
 
-~> One of `group_id` or `name` should be specified.
+{% note warning %}
+
+One of `group_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

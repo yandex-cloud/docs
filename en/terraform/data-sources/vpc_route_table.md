@@ -11,7 +11,12 @@ Get information about a Yandex VPC route table. For more information, see [Yande
 
 This data source is used to define [VPC Route Table](https://yandex.cloud/docs/vpc/concepts/) that can be used by other resources.
 
-~> One of `route_table_id` or `name` should be specified.
+{% note warning %}
+
+One of `route_table_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

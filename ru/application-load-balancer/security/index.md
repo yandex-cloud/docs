@@ -92,6 +92,12 @@ description: Управление доступом в сервисе для ра
 **Управление доступом к ресурсам** | |
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
 
+{% note info %}
+
+При [создании](../quickstart-wizard.md) балансировщика с помощью визарда на этапе создания группы бэкендов возможна ошибка обращения к бакету. Чтобы избежать этого, вам нужна роль `storage.viewer`.
+
+{% endnote %}
+
 #### Что дальше
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).

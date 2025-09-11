@@ -2,7 +2,7 @@
 subcategory: Serverless Cloud Functions
 page_title: 'Yandex: yandex_function'
 description: Get information about a Yandex Cloud Function.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/function.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/function.md
 ---
 
 # yandex_function (Data Source)
@@ -10,7 +10,12 @@ sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/function.md
 Get information about a Yandex Cloud Function. For more information about Yandex Cloud Functions, see [Yandex Cloud Functions](https://yandex.cloud/docs/functions).
 This data source is used to define [Yandex Cloud Function](https://yandex.cloud/docs/functions/concepts/function) that can be used by other resources.
 
-~> Either `function_id` or `name` must be specified.
+{% note warning %}
+
+Either `function_id` or `name` must be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

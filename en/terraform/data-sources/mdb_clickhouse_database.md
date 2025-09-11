@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_clickhouse_databas
 
 # yandex_mdb_clickhouse_database (Data Source)
 
-
+Get information about a Yandex Managed ClickHouse database.
 
 ## Example usage
 
@@ -30,9 +30,21 @@ output "dbname" {
 - `cluster_id` (String) ID of the ClickHouse cluster. Provided by the client when the database is created.
 - `name` (String) The name of the database.
 
+### Optional
+
+- `timeouts` (Attributes) (see [below for nested schema](#nestedatt--timeouts))
+
 ### Read-Only
 
 - `id` (String) The resource identifier.
+
+<a id="nestedatt--timeouts"></a>
+### Nested Schema for `timeouts`
+
+Optional:
+
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 
 ## Import
 

@@ -2,7 +2,7 @@
 subcategory: Container Registry
 page_title: 'Yandex: yandex_container_repository'
 description: Creates a new Container Repository.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/container_repository.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/container_repository.md
 ---
 
 # yandex_container_repository (Resource)

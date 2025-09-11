@@ -2285,6 +2285,20 @@ default:
       subscription:
         v1|number: 350000
         v1|string: "350\_000,00\_₸"
+    dspm:
+      scanned:
+        files:
+          v1|number: 750
+          v1|string: "750,00\_₸"
+        text:
+          v1|number: 2304
+          v1|pricingRate:
+            10|string: "1\_980,00\_₸"
+            100|string: "1\_800,00\_₸"
+            1024|string: "1\_440,00\_₸"
+            10240|string: "1\_080,00\_₸"
+            102400|string: "1\_008,00\_₸"
+          v1|string: "2\_304,00\_₸"
   sku|KZT|serverless:
     containers:
       compute:
@@ -4225,6 +4239,20 @@ default:
       subscription:
         v1|number: 70000
         v1|string: "70\_000,00\_₽"
+    dspm:
+      scanned:
+        files:
+          v1|number: 150
+          v1|string: "150,00\_₽"
+        text:
+          v1|number: 460.8
+          v1|pricingRate:
+            10|string: "396,00\_₽"
+            100|string: "360,00\_₽"
+            1024|string: "288,00\_₽"
+            10240|string: "216,00\_₽"
+            102400|string: "201,60\_₽"
+          v1|string: "460,80\_₽"
   sku|RUB|serverless:
     containers:
       compute:
@@ -6144,6 +6172,20 @@ default:
       subscription:
         v1|number: 583.3331
         v1|string: "583,333100\_$"
+    dspm:
+      scanned:
+        files:
+          v1|number: 1.25
+          v1|string: "1,250000\_$"
+        text:
+          v1|number: 3.839998
+          v1|pricingRate:
+            10|string: "3,299999\_$"
+            100|string: "2,999999\_$"
+            1024|string: "2,399999\_$"
+            10240|string: "1,799999\_$"
+            102400|string: "1,679999\_$"
+          v1|string: "3,839998\_$"
   sku|USD|serverless:
     containers:
       compute:
@@ -10371,6 +10413,7 @@ default:
             action_import: Импортировать
         field_metastore-endpoint-ip: IP-адрес
         label_metastore: Metastore-сервер
+        label_resource-preset: Metastore
       mongodb:
         cluster:
           shards:
@@ -10435,8 +10478,10 @@ default:
         button_create-configuration-set: Создать конфигурацию
         button_create-identity: Создать адрес
         button_validate: Проверить адрес
+        field_secure-connection: Доставлять письмо только по защищенному соединению
         label_address: Домен
         label_configuration-sets: Конфигурации
+        label_delivery-options: Настройки доставки
         label_dns-record-name: Имя
         label_dns-record-value: Значение
         label_event-destinations: Подписки

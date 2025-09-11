@@ -53,7 +53,12 @@ resource "yandex_lb_network_load_balancer" "my_nlb" {
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `listener` (Block Set) Listener specification that will be used by a network load balancer.
 
-~> One of `external_address_spec` or `internal_address_spec` should be specified. (see [below for nested schema](#nestedblock--listener))
+{% note warning %}
+
+One of `external_address_spec` or `internal_address_spec` should be specified. (see [below for nested schema](#nestedblock--listener))
+
+{% endnote %}
+
 - `name` (String) The resource name.
 - `region_id` (String) ID of the availability zone where the network load balancer resides. If omitted, default region is being used.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
@@ -71,7 +76,12 @@ Required:
 
 - `healthcheck` (Block List, Min: 1) A HealthCheck resource.
 
-~> One of `http_options` or `tcp_options` should be specified. (see [below for nested schema](#nestedblock--attached_target_group--healthcheck))
+{% note warning %}
+
+One of `http_options` or `tcp_options` should be specified. (see [below for nested schema](#nestedblock--attached_target_group--healthcheck))
+
+{% endnote %}
+
 - `target_group_id` (String) ID of the target group.
 
 <a id="nestedblock--attached_target_group--healthcheck"></a>

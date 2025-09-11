@@ -2,16 +2,26 @@
 subcategory: Cloud Backup
 page_title: 'Yandex: yandex_backup_policy'
 description: Get information about Yandex Cloud Backup Policy.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/backup_policy.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/backup_policy.md
 ---
 
 # yandex_backup_policy (Data Source)
 
 Get information about a Yandex Backup Policy. For more information, see [the official documentation](https://yandex.cloud/docs/backup/concepts/policy).
 
-~> One of `policy_id` or `name` should be specified.
+{% note warning %}
 
-~> In case you use `name`, an error will occur if two policies with the same name exist. In this case, rename the policy or use the `policy_id`.
+One of `policy_id` or `name` should be specified.
+
+{% endnote %}
+
+
+{% note warning %}
+
+In case you use `name`, an error will occur if two policies with the same name exist. In this case, rename the policy or use the `policy_id`.
+
+{% endnote %}
+
 
 ## Example usage
 

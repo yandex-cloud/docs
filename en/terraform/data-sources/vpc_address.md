@@ -11,7 +11,12 @@ Get information about a Yandex VPC address. For more information, see [the offic
 
 This data source is used to define [VPC Address](https://yandex.cloud/docs/vpc/concepts/address) that can be used by other resources.
 
-~> One of `address_id` or `name` should be specified.
+{% note warning %}
+
+One of `address_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

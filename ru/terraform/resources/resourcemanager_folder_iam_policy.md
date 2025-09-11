@@ -2,7 +2,7 @@
 subcategory: Resource Manager
 page_title: 'Yandex: yandex_resourcemanager_folder_iam_policy'
 description: Allows management of the IAM policy for a Yandex Resource Manager folder.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/resourcemanager_folder_iam_policy.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/resourcemanager_folder_iam_policy.md
 ---
 
 # yandex_resourcemanager_folder_iam_policy (Resource)

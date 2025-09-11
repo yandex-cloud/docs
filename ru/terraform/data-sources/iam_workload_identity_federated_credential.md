@@ -2,7 +2,7 @@
 subcategory: Identity and Access Management (IAM)
 page_title: 'Yandex: yandex_iam_workload_identity_federated_credential'
 description: Get information about a Yandex IAM federated credential.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/iam_workload_identity_federated_credential.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/iam_workload_identity_federated_credential.md
 ---
 
 # yandex_iam_workload_identity_federated_credential (Data Source)

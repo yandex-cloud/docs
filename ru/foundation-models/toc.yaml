@@ -107,7 +107,7 @@ items:
             hidden: true
       - name: Разработка AI-ассистентов
         items:
-          - name: Что такое AI-асситенты
+          - name: Что такое AI-ассистенты
             href: concepts/assistant/index.md
           - name: Инструменты
             items:

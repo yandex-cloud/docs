@@ -2,7 +2,7 @@
 subcategory: Monitoring
 page_title: 'Yandex: yandex_monitoring_dashboard'
 description: Allows management of a Yandex Cloud Monitoring Dashboard.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/monitoring_dashboard.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/monitoring_dashboard.md
 ---
 
 # yandex_monitoring_dashboard (Resource)

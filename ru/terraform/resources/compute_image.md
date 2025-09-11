@@ -2,14 +2,19 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_image'
 description: Creates a VM image for the Yandex Compute service from an existing tarball.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/compute_image.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_image.md
 ---
 
 # yandex_compute_image (Resource)
 
 Creates a virtual machine image resource for the Yandex Compute Cloud service from an existing tarball. For more information, see [the official documentation](https://yandex.cloud/docs/compute/concepts/image).
 
-~> One of `source_family`, `source_image`, `source_snapshot`, `source_disk` or `source_url` must be specified.
+{% note warning %}
+
+One of `source_family`, `source_image`, `source_snapshot`, `source_disk` or `source_url` must be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

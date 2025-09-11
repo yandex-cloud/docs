@@ -63,7 +63,12 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
         * **Имя** — `chserver`;
         * **Driver** — `com.clickhouse.jdbc.ClickHouseDriver`;
-        * **Url** — `jdbc:clickhouse:http://c-<идентификатор_кластера>.rw.{{ dns-zone }}:8123/db1`;
+        * **Url** — `jdbc:clickhouse:http://c-<идентификатор_кластера>.rw.{{ dns-zone }}:8123/db1`, где:
+
+            * `c-<идентификатор_кластера>.rw.{{ dns-zone }}` — [особый FQDN](../../../managed-clickhouse/operations/connect/fqdn.md#auto), который всегда указывает на доступный хост кластера {{ mch-name }}.
+            * `8123` — порт для [подключения](../../../managed-clickhouse/operations/connect/index.md) к кластеру {{ mch-name }}.
+            * `db1` — имя БД в кластере {{ mch-name }}.
+
         * **User** — `chuser`.
 
         Идентификатор кластера можно [получить со списком кластеров](../../../managed-clickhouse/operations/cluster-list.md#list-clusters) в каталоге.
@@ -149,7 +154,12 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
         * **Имя** — `mysqlserver`;
         * **Driver** — `com.mysql.jdbc.Driver`;
-        * **Url** — `jdbc:mysql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mmy }}/db1`;
+        * **Url** — `jdbc:mysql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mmy }}/db1`, где:
+
+            * `c-<идентификатор_кластера>.rw.{{ dns-zone }}` — [особый FQDN](../../../managed-mysql/operations/connect.md#fqdn-master), который всегда указывает на текущий хост-мастер в кластере {{ mmy-name }}.
+            * `{{ port-mmy }}` — порт для [подключения](../../../managed-mysql/operations/connect.md) к кластеру {{ mmy-name }}.
+            * `db1` — имя БД в кластере {{ mmy-name }}.
+
         * **User** — `mysqluser`.
 
         Идентификатор кластера можно [получить со списком кластеров](../../../managed-mysql/operations/cluster-list.md#list-clusters) в каталоге.
@@ -218,7 +228,12 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
         * **Имя** — `pgserver`;
         * **Driver** — `org.postgresql.Driver`;
-        * **Url** — `jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/db1`;
+        * **Url** — `jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/db1`, где:
+
+            * `c-<идентификатор_кластера>.rw.{{ dns-zone }}` — [особый FQDN](../../../managed-postgresql/operations/connect.md#fqdn-master), который всегда указывает на текущий хост-мастер в кластере {{ mpg-name }}.
+            * `{{ port-mpg }}` — порт для [подключения](../../../managed-postgresql/operations/connect.md) к кластеру {{ mpg-name }}.
+            * `db1` — имя БД в кластере {{ mpg-name }}.
+
         * **User** — `pguser`.
 
         Идентификатор кластера можно [получить со списком кластеров](../../../managed-postgresql/operations/cluster-list.md#list-clusters) в каталоге.

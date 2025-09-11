@@ -2,7 +2,7 @@
 subcategory: Identity and Access Management (IAM)
 page_title: 'Yandex: yandex_iam_role'
 description: Generates an IAM role that can be referenced by other resources, applying the role to them.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/iam_role.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/iam_role.md
 ---
 
 # yandex_iam_role (Data Source)

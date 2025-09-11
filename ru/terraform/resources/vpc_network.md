@@ -2,7 +2,7 @@
 subcategory: Virtual Private Cloud (VPC)
 page_title: 'Yandex: yandex_vpc_network'
 description: Manages a network within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/vpc_network.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/vpc_network.md
 ---
 
 # yandex_vpc_network (Resource)

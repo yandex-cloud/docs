@@ -2,14 +2,19 @@
 subcategory: Cloud Content Delivery Network (CDN)
 page_title: 'Yandex: yandex_cdn_origin_group'
 description: Get information about a Yandex CDN Origin Group.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/cdn_origin_group.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/cdn_origin_group.md
 ---
 
 # yandex_cdn_origin_group (Data Source)
 
 Get information about a Yandex CDN Origin Group. For more information, see [the official documentation](https://yandex.cloud/docs/cdn/concepts/origins).
 
-~> One of `origin_group_id` or `name` should be specified.
+{% note warning %}
+
+One of `origin_group_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

@@ -11,7 +11,12 @@ Get information about a Yandex ALB Virtual Host. For more information, see [Yand
 
 This data source is used to define [Application Load Balancer Virtual Host](https://yandex.cloud/docs/application-load-balancer/concepts/http-router) that can be used by other resources.
 
-~> One of `virtual_host_id` or `name` with `http_router_id` should be specified.
+{% note warning %}
+
+One of `virtual_host_id` or `name` with `http_router_id` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -40,14 +45,29 @@ data "yandex_alb_virtual_host" "my-vhost" {
 - `id` (String) The ID of this resource.
 - `modify_request_headers` (List of Object) Apply the following modifications to the Request/Response header.
 
-~> Only one type of actions `append` or `replace` or `remove` should be specified. (see [below for nested schema](#nestedatt--modify_request_headers))
+{% note warning %}
+
+Only one type of actions `append` or `replace` or `remove` should be specified. (see [below for nested schema](#nestedatt--modify_request_headers))
+
+{% endnote %}
+
 - `modify_response_headers` (List of Object) Apply the following modifications to the Request/Response header.
 
-~> Only one type of actions `append` or `replace` or `remove` should be specified. (see [below for nested schema](#nestedatt--modify_response_headers))
+{% note warning %}
+
+Only one type of actions `append` or `replace` or `remove` should be specified. (see [below for nested schema](#nestedatt--modify_response_headers))
+
+{% endnote %}
+
 - `rate_limit` (List of Object) Rate limit configuration applied for a whole virtual host (see [below for nested schema](#nestedatt--rate_limit))
 - `route` (List of Object) A Route resource. Routes are matched *in-order*. Be careful when adding them to the end. For instance, having http '/' match first makes all other routes unused.
 
-~> Exactly one type of routes `http_route` or `grpc_route` should be specified. (see [below for nested schema](#nestedatt--route))
+{% note warning %}
+
+Exactly one type of routes `http_route` or `grpc_route` should be specified. (see [below for nested schema](#nestedatt--route))
+
+{% endnote %}
+
 - `route_options` (List of Object) (see [below for nested schema](#nestedatt--route_options))
 
 <a id="nestedatt--modify_request_headers"></a>
@@ -117,6 +137,8 @@ Read-Only:
 ### Nested Schema for `route`
 
 Read-Only:
+
+- `disable_security_profile` (Boolean) Disables security profile for the route
 
 - `grpc_route` (Block List, Max: 1) gRPC route resource. (see [below for nested schema](#nestedobjatt--route--grpc_route))
 

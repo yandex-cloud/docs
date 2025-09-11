@@ -166,6 +166,7 @@ resource "yandex_sws_security_profile" "demo-profile-advanced" {
 ### Optional
 
 - `advanced_rate_limiter_profile_id` (String) Advanced rate limiter profile ID to use with this security profile. Set empty to use default.
+- `analyze_request_body` (Block List, Max: 1) Analyze request body. (see [below for nested schema](#nestedblock--analyze_request_body))
 - `captcha_id` (String) Captcha ID to use with this security profile. Set empty to use default.
 - `cloud_id` (String) The `Cloud ID` which resource belongs to. If it is not provided, the default provider `cloud-id` is used.
 - `default_action` (String) Action to perform if none of rules matched. Possible values: `ALLOW` or `DENY`.
@@ -175,13 +176,27 @@ resource "yandex_sws_security_profile" "demo-profile-advanced" {
 - `name` (String) The resource name.
 - `security_rule` (Block List) List of security rules.
 
-~> Exactly one rule specifier: `smart_protection` or `rule_condition` or `waf` should be specified. (see [below for nested schema](#nestedblock--security_rule))
+{% note warning %}
+
+Exactly one rule specifier: `smart_protection` or `rule_condition` or `waf` should be specified. (see [below for nested schema](#nestedblock--security_rule))
+
+{% endnote %}
+
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
 
 - `created_at` (String) The creation timestamp of the resource.
 - `id` (String) The ID of this resource.
+
+<a id="nestedblock--analyze_request_body"></a>
+### Nested Schema for `analyze_request_body`
+
+Optional:
+
+- `size_limit` (Number)
+- `size_limit_action` (String)
+
 
 <a id="nestedblock--security_rule"></a>
 ### Nested Schema for `security_rule`
