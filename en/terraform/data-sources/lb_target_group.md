@@ -10,7 +10,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/lb_target_group.md
 Get information about a Yandex Load Balancer target group. For more information, see [the official documentation](https://yandex.cloud/docs/load-balancer/quickstart).
 This data source is used to define [Load Balancer Target Groups](https://yandex.cloud/docs/load-balancer/concepts/target-resources) that can be used by other resources.
 
-~> One of `target_group_id` or `name` should be specified.
+{% note warning %}
+
+One of `target_group_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

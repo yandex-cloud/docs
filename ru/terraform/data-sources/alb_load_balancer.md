@@ -2,7 +2,7 @@
 subcategory: Application Load Balancer (ALB)
 page_title: 'Yandex: yandex_alb_load_balancer'
 description: Get information about a Yandex Application Load Balancer.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/alb_load_balancer.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/alb_load_balancer.md
 ---
 
 # yandex_alb_load_balancer (Data Source)
@@ -11,7 +11,12 @@ Get information about a Yandex Application Load Balancer. For more information, 
 
 This data source is used to define [Application Load Balancer](https://yandex.cloud/docs/application-load-balancer/concepts/application-load-balancer) that can be used by other resources.
 
-~> One of `load_balancer_id` or `name` should be specified.
+{% note warning %}
+
+One of `load_balancer_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

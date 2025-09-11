@@ -7,8 +7,6 @@ description: In this tutorial, you will learn about the text generation models a
 
 {{ foundation-models-full-name }} provides access to large text models from different vendors. If an out-of-the-box model is not enough, you can [fine-tune](../tuning/index.md) some models to respond to your requests more accurately.
 
-{% include [release-cycle](../../../_includes/foundation-models/release-cycle.md) %}
-
 ## Models available in common instance {#generation}
 
 All basic models are subject to the update rules described in [Model lifecycle](#model-lifecycle). When updating models, generations available in different branches (`/latest`, `/rc`, and `/deprecated` segments) may change. Modified models share usage [quotas](../limits.md#quotas) with their basic models.
@@ -19,19 +17,21 @@ All basic models are subject to the update rules described in [Model lifecycle](
 || **{{ gpt-pro }}** </br>`gpt://<folder_ID>/yandexgpt` | Deprecated 5</br>Latest 5</br>RC 5.1 | 32,000 | Asynchronous, synchronous ||
 || **{{ llama }} 8B**^1^ </br>`gpt://<folder_ID>/llama-lite` | Deprecated 3.1</br>Latest 3.1</br>RC 3.1 | 8,192 | Asynchronous, synchronous ||
 || **{{ llama }} 70B**^1^ </br>`gpt://<folder_ID>/llama` | Deprecated 3.3</br>Latest 3.3</br>RC 3.3 | 8,192 | Asynchronous, synchronous ||
-|| **Qwen3 235B** </br>`gpt://<folder ID>/qwen3-235b-a22b-fp8/latest` | — | 256,000 | [{{ openai }} API](../openai-compatibility.md) ||
-|| **gpt-oss-120b** </br>`gpt://<folder ID>/gpt-oss-120b/latest` | — | 128,000 | [{{ openai }} API](../openai-compatibility.md) ||
-|| **gpt-oss-20b** </br>`gpt://<folder ID>/gpt-oss-20b/latest` | — | 128,000 | [{{ openai }} API](../openai-compatibility.md) ||  
+|| **Qwen3 235B** </br>`gpt://<folder_ID>/qwen3-235b-a22b-fp8/latest` | — | 256,000 | [{{ openai }} API](../openai-compatibility.md) ||
+|| **gpt-oss-120b** </br>`gpt://<folder_ID>/gpt-oss-120b/latest` | — | 128,000 | [{{ openai }} API](../openai-compatibility.md) ||
+|| **gpt-oss-20b** </br>`gpt://<folder_ID>/gpt-oss-20b/latest` | — | 128,000 | [{{ openai }} API](../openai-compatibility.md) ||  
 || [**Fine-tuned models**](../tuning/index.md) </br>`gpt://<folder_ID>/<basic_model>/<version>@<suffix>` | Depends on the basic model | Depends on the basic model | Asynchronous, synchronous ||
 || **Gemma3 27B**
 `gpt://<folder ID>/gemma-3-27b-it/latest`
 [Gemma Terms of Use]({{ license-gemma }}) | — | 128 000 | [{{ openai }} API](../openai-compatibility.md) ||
-|| **{{ yandexart-name }}** </br>`art://<<older ID>/yandex-art/latest` | | | Asynchronous |
+|| **{{ yandexart-name }}** </br>`art://<folder_ID>/yandex-art/latest` | — | — | Asynchronous ||
 |#
 
 ^1^ {{ meta-disclaimer }}
 
 The Gemma 3 27B model is designed to process Base64-encoded images of any aspect ratio. An adaptive algorithm scales images up to 896 pixels on the largest side, ensuring that important visual details are preserved. Each image requires 256 [tokens](./tokens.md) for processing.
+
+{% include [release-cycle](../../../_includes/foundation-models/release-cycle.md) %}
 
 ## Models available in batch mode {#batch}
 

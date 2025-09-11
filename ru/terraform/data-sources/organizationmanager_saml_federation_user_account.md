@@ -2,14 +2,19 @@
 subcategory: Cloud Organization
 page_title: 'Yandex: yandex_organizationmanager_saml_federation_user_account'
 description: Get information about a user of a Yandex SAML Federation.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_saml_federation_user_account.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/organizationmanager_saml_federation_user_account.md
 ---
 
 # yandex_organizationmanager_saml_federation_user_account (Data Source)
 
 Get information about a user of Yandex SAML Federation. For more information, see [the official documentation](https://yandex.cloud/docs/organization/operations/federations/integration-common).
 
-~> If terraform user had sufficient access and user specified in data source did not exist, it would be created. This behavior will was **fixed**. Use resource `yandex_organizationmanager_saml_federation_user_account` to manage account lifecycle.
+{% note warning %}
+
+If terraform user had sufficient access and user specified in data source did not exist, it would be created. This behavior will was **fixed**. Use resource `yandex_organizationmanager_saml_federation_user_account` to manage account lifecycle.
+
+{% endnote %}
+
 
 ## Example usage
 

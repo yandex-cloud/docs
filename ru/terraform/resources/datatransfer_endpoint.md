@@ -2,7 +2,7 @@
 subcategory: Data Transfer
 page_title: 'Yandex: yandex_datatransfer_endpoint'
 description: Manages a Data Transfer endpoint within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/datatransfer_endpoint.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/datatransfer_endpoint.md
 ---
 
 # yandex_datatransfer_endpoint (Resource)

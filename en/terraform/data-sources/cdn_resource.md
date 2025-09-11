@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/cdn_resource.md
 
 Allows management of [Yandex Cloud CDN Resource](https://yandex.cloud/docs/cdn/concepts/resource).
 
-~> CDN provider must be activated prior usage of CDN resources, either via UI console or via yc cli command: `yc cdn provider activate --folder-id <folder-id> --type gcore`.
+{% note warning %}
+
+CDN provider must be activated prior usage of CDN resources, either via UI console or via yc cli command: `yc cdn provider activate --folder-id <folder-id> --type gcore`.
+
+{% endnote %}
+
 
 ## Example usage
 

@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/ydb_database_serverles
 
 Get information about a Yandex Database serverless cluster. For more information, see [the official documentation](https://yandex.cloud/docs/ydb/concepts/serverless_and_dedicated).
 
-~> If `database_id` is not specified `name` and `folder_id` will be used to designate Yandex Database serverless cluster.
+{% note warning %}
+
+If `database_id` is not specified `name` and `folder_id` will be used to designate Yandex Database serverless cluster.
+
+{% endnote %}
+
 
 ## Example usage
 

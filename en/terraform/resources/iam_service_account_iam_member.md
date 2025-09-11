@@ -15,9 +15,19 @@ There are three different resources that help you manage your IAM policy for a s
 * [yandex_iam_service_account_iam_binding](iam_service_account_iam_binding.html): Authoritative for a given role. Updates the IAM policy to grant a role to a list of members. Other roles within the IAM policy for the service account are preserved.
 * [yandex_iam_service_account_iam_member](iam_service_account_iam_member.html): Non-authoritative. Updates the IAM policy to grant a role to a new member. Other members for the role of the service account are preserved.
 
-~> `yandex_iam_service_account_iam_policy` **cannot** be used in conjunction with `yandex_iam_service_account_iam_binding` and `yandex_iam_service_account_iam_member` or they will conflict over what your policy should be.
+{% note warning %}
 
-~> `yandex_iam_service_account_iam_binding` resources **can be** used in conjunction with `yandex_iam_service_account_iam_member` resources **only if** they do not grant privileges to the same role.
+`yandex_iam_service_account_iam_policy` **cannot** be used in conjunction with `yandex_iam_service_account_iam_binding` and `yandex_iam_service_account_iam_member` or they will conflict over what your policy should be.
+
+{% endnote %}
+
+
+{% note warning %}
+
+`yandex_iam_service_account_iam_binding` resources **can be** used in conjunction with `yandex_iam_service_account_iam_member` resources **only if** they do not grant privileges to the same role.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -48,7 +58,12 @@ resource "yandex_iam_service_account_iam_member" "admin-account-iam" {
   * **system:allAuthenticatedUsers**: All authenticated users.
   * **system:allUsers**: All users, including unauthenticated ones.
 
-~> for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `role` (String) The role that should be applied. See [roles catalog](https://yandex.cloud/docs/iam/roles-reference).
 - `service_account_id` (String) The service account ID to apply a binding to.
 

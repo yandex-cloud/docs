@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_gpu_cluster'
 description: GPU Cluster connects multiple Compute GPU Instances in the same availability zone with high-speed low-latency network.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/compute_gpu_cluster.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_gpu_cluster.md
 ---
 
 # yandex_compute_gpu_cluster (Resource)

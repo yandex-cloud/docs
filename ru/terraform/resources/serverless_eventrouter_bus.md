@@ -2,7 +2,7 @@
 subcategory: Serverless Integrations
 page_title: 'Yandex: yandex_serverless_eventrouter_bus'
 description: Allows management of a Yandex Cloud Serverless Event Router Bus.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/serverless_eventrouter_bus.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/serverless_eventrouter_bus.md
 ---
 
 # yandex_serverless_eventrouter_bus (Resource)

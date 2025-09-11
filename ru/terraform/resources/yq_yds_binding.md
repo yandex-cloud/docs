@@ -2,7 +2,7 @@
 subcategory: Yandex Query
 page_title: 'Yandex: yandex_yq_yds_binding'
 description: Manages Yandex DataStream binding.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/yq_yds_binding.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/yq_yds_binding.md
 ---
 
 # yandex_yq_yds_binding (Resource)

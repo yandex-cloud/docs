@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_placement_group'
 description: Manages a Placement group resource.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/compute_placement_group.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_placement_group.md
 ---
 
 # yandex_compute_placement_group (Resource)

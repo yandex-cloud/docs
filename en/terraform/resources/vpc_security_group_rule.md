@@ -9,14 +9,39 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/vpc_security_group_rule.m
 
 Manages `Security Group Rule` within the Yandex Cloud. For more information, see [Documentation](https://yandex.cloud/docs/vpc/concepts/security-groups).
 
-~> There is another way to manage security group rules by `ingress` and `egress` arguments in `yandex_vpc_security_group` resource. Both ways are similar but not compatible with each other. Using `Security Group Rule` at the same time with `yandex_vpc_security_group` resource will cause a conflict of rules configuration and it's not recommended!
+{% note warning %}
 
-~> Either one `port` argument or both `from_port` and `to_port` arguments can be specified.
+There is another way to manage security group rules by `ingress` and `egress` arguments in `yandex_vpc_security_group` resource. Both ways are similar but not compatible with each other. Using `Security Group Rule` at the same time with `yandex_vpc_security_group` resource will cause a conflict of rules configuration and it's not recommended!
 
-~> If `port` or `from_port`/`to_port` aren't specified or set by -1, ANY port will be sent.
-~> Can't use specified port if protocol is one of `ICMP` or `IPV6_ICMP`.
+{% endnote %}
 
-~> One of arguments `v4_cidr_blocks`/`v6_cidr_blocks` or `predefined_target` or `security_group_id` must be specified.
+
+{% note warning %}
+
+Either one `port` argument or both `from_port` and `to_port` arguments can be specified.
+
+{% endnote %}
+
+
+{% note warning %}
+
+If `port` or `from_port`/`to_port` aren't specified or set by -1, ANY port will be sent.
+
+{% endnote %}
+
+{% note warning %}
+
+Can't use specified port if protocol is one of `ICMP` or `IPV6_ICMP`.
+
+{% endnote %}
+
+
+{% note warning %}
+
+One of arguments `v4_cidr_blocks`/`v6_cidr_blocks` or `predefined_target` or `security_group_id` must be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

@@ -1,8 +1,8 @@
 | Объем сканируемых данных | Стоимость за ГБ,<br/>вкл. НДС |
 | --- | --- |
-| От 1 до 10 ГБ      | 2 304,00 ₸ |
-| От 10 до 100 ГБ    | 1 980,00 ₸ |
-| От 100 до 1 000 ГБ | 1 800,00 ₸ |
-| От 1 до 10 ТБ      | 1 440,00 ₸ |
-| От 10 до 100 ТБ    | 1 080,00 ₸ |
-| От 100 до 1 000 ТБ | 1 008,00 ₸ |
+| От 1 до 10 ГБ      | {{ sku|KZT|security_deck.dspm.scanned.text.v1|string }} |
+| От 10 до 100 ГБ    | {{ sku|KZT|security_deck.dspm.scanned.text.v1|pricingRate.10|string }} |
+| От 100 до 1 000 ГБ | {{ sku|KZT|security_deck.dspm.scanned.text.v1|pricingRate.100|string }} |
+| От 1 до 10 ТБ      | {{ sku|KZT|security_deck.dspm.scanned.text.v1|pricingRate.1024|string }} |
+| От 10 до 100 ТБ    | {{ sku|KZT|security_deck.dspm.scanned.text.v1|pricingRate.10240|string }} |
+| От 100 до 1 000 ТБ | {{ sku|KZT|security_deck.dspm.scanned.text.v1|pricingRate.102400|string }} |

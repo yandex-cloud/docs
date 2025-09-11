@@ -83,7 +83,6 @@ resource "yandex_spark_cluster" "my_spark_cluster" {
 ### Read-Only
 
 - `created_at` (String) The timestamp when the cluster was created.
-- `health` (String) Aggregated health of the cluster.
 - `id` (String) Unique ID of the cluster.
 - `status` (String) Status of the cluster.
 

@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/api_gateway.md
 
 Get information about a Yandex Cloud API Gateway. For more information, see the official documentation [Yandex Cloud API Gateway](https://yandex.cloud/docs/api-gateway/).
 
-~> Either `api_gateway_id` or `name` must be specified.
+{% note warning %}
+
+Either `api_gateway_id` or `name` must be specified.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -46,7 +51,13 @@ data "yandex_api_gateway" "my-api-gateway" {
 - `log_group_id` (String) ID of the log group for the Yandex Cloud API Gateway.
 - `log_options` (List of Object) (see [below for nested schema](#nestedatt--log_options))
 - `status` (String) Status of the Yandex Cloud API Gateway.
-- `user_domains` (Set of String, Deprecated) ~> **DEPRECATED** Use `custom_domains` instead. Set of user domains attached to Yandex Cloud API Gateway.
+- `user_domains` (Set of String, Deprecated) 
+
+    {% note warning %}
+
+    **DEPRECATED** Use `custom_domains` instead. Set of user domains attached to Yandex Cloud API Gateway.
+
+    {% endnote %}
 
 <a id="nestedblock--canary"></a>
 ### Nested Schema for `canary`

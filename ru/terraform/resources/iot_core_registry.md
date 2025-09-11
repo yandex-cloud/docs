@@ -2,7 +2,7 @@
 subcategory: IoT Core
 page_title: 'Yandex: yandex_iot_core_registry'
 description: Allows management of a Yandex Cloud IoT Core Registry.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/iot_core_registry.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/iot_core_registry.md
 ---
 
 # yandex_iot_core_registry (Resource)
@@ -80,4 +80,9 @@ Optional:
 
 ## Import
 
-~> Import for this resource is not implemented yet.
+{% note warning %}
+
+Import for this resource is not implemented yet.
+
+{% endnote %}
+

@@ -11,7 +11,12 @@ Get information about a Yandex VPC Private Endpoint. For more information, see [
 
 This data source is used to define [VPC Private Endpoint](https://yandex.cloud/docs/vpc/concepts/private-endpoint) that can be used by other resources.
 
-~> One of `private_endpoint_id` or `name` should be specified.
+{% note warning %}
+
+One of `private_endpoint_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

@@ -10,7 +10,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/iot_core_registry.md
 Get information about a Yandex IoT Core Registry. For more information IoT Core, see [Yandex Cloud IoT Registry](https://yandex.cloud/docs/iot-core/quickstart).
 This data source is used to define [Yandex Cloud IoT Registry](https://yandex.cloud/docs/iot-core/quickstart) that can be used by other resources.
 
-~> Either `registry_id` or `name` must be specified.
+{% note warning %}
+
+Either `registry_id` or `name` must be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

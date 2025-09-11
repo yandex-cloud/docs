@@ -2,7 +2,7 @@
 subcategory: Managed Service for Redis
 page_title: 'Yandex: yandex_mdb_redis_cluster'
 description: Manages a Redis cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_redis_cluster.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_redis_cluster.md
 ---
 
 # yandex_mdb_redis_cluster (Resource)
@@ -129,6 +129,7 @@ resource "yandex_vpc_subnet" "baz" {
 - `auth_sentinel` (Boolean) Allows to use ACL users to auth in sentinel
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.
+- `disk_encryption_key_id` (String) ID of the KMS key for cluster disk encryption.
 - `disk_size_autoscaling` (Block List, Max: 1) Disk size autoscaling settings. (see [below for nested schema](#nestedblock--disk_size_autoscaling))
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.

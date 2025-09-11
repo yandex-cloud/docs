@@ -51,7 +51,7 @@ resource "yandex_mdb_kafka_connector" "connector" {
     "value.converter"                = "org.apache.kafka.connect.json.JsonConverter"
     "value.converter.schemas.enable" = "false"
     "format.output.type"             = "jsonl"
-    "file.name.template"             = "dir1/dir2/\{\{topic\}\}-\{\{partition:padding=true\}\}-\{\{start_offset:padding=true\}\}.gz"
+    "file.name.template"             = "dir1/dir2/not_var{{topic}}-not_var{{partition:padding=true}}-not_var{{start_offset:padding=true}}.gz"
     "timestamp.timezone"             = "Europe/Moscow"
   }
   connector_config_s3_sink {

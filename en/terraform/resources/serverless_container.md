@@ -124,6 +124,7 @@ resource "yandex_storage_bucket" "my-bucket" {
 
 ### Optional
 
+- `async_invocation` (Block List, Max: 1) Config for asynchronous invocations of Yandex Cloud Serverless Container. (see [below for nested schema](#nestedblock--async_invocation))
 - `concurrency` (Number) Concurrency of Yandex Cloud Serverless Container.
 - `connectivity` (Block List, Max: 1) Network access. If specified the revision will be attached to specified network. (see [below for nested schema](#nestedblock--connectivity))
 - `core_fraction` (Number) Core fraction (**0...100**) of the Yandex Cloud Serverless Container.
@@ -163,6 +164,14 @@ Optional:
 - `digest` (String) Digest of image that will be deployed as Yandex Cloud Serverless Container. If presented, should be equal to digest that will be resolved at server side by URL. Container will be updated on digest change even if `image.0.url` stays the same. If field not specified then its value will be computed.
 - `environment` (Map of String) A set of key/value environment variable pairs for Yandex Cloud Serverless Container. Each key must begin with a letter (A-Z, a-z).
 - `work_dir` (String) Working directory for Yandex Cloud Serverless Container.
+
+
+<a id="nestedblock--async_invocation"></a>
+### Nested Schema for `async_invocation`
+
+Optional:
+
+- `service_account_id` (String) Service account used for async invocation.
 
 
 <a id="nestedblock--connectivity"></a>

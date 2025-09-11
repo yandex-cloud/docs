@@ -23,10 +23,7 @@ description: Следуя данной инструкции, вы сможете
 
 ![image](../_assets/quota-manager/quotas-limits.svg)
 
-Для работы с квотами доступны интерфейсы: 
-
-* [Консоль]({{ link-console-quotas }}) и [API](api-ref/authentication.md) — получение информации и запрос на изменение квот.
-* [CLI](cli-ref/index.md) — получение информации о квотах, позднее появится возможность создавать запросы на изменение квот.
+Для работы с квотами доступны интерфейсы: [консоль]({{ link-console-quotas }}), [API](api-ref/authentication.md) и [CLI](cli-ref/index.md).
 
 Управление квотами через CLI и API выполняется по идентификатору квоты. Список идентификаторов см. в разделе [{#T}](../overview/concepts/quotas-limits.md).
 
@@ -360,8 +357,6 @@ description: Следуя данной инструкции, вы сможете
 
 ## Запросить изменение квот {#request-quota-change}
 
-{% include [request-quota-restriction](../_includes/quota-manager/request-quota-restriction.md) %}
-
 {% include [request-quota-roles](../_includes/quota-manager/request-quota-roles.md) %}
 
 {% list tabs group=instructions %}
@@ -370,13 +365,45 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [request-quota](../_includes/quota-manager/request-quota.md) %}
 
+- CLI {#cli}
+
+  1. **Создайте запрос на изменение квоты.**
+
+      {% include [request-quota-cli](../_includes/quota-manager/request-quota-cli.md) %}
+
+      **Пример команды**
+
+      {% include [request-quota-change-cli](../_includes/quota-manager/request-quota-change-cli.md) %}
+
+      **Пример ответа**
+
+      {% include [request-quota-change-cli-response](../_includes/quota-manager/request-quota-change-cli-response.md) %}
+
+  1. **Посмотрите список запросов на изменение квот.**
+
+      {% include [list-quota-requests-cli](../_includes/quota-manager/list-quota-requests-cli.md) %}
+      
+      **Пример команды**
+
+      {% include [list-quota-requests-cli-example](../_includes/quota-manager/list-quota-requests-cli-example.md) %}
+
+      **Пример ответа**
+
+      {% include [list-quota-requests-cli-response](../_includes/quota-manager/list-quota-requests-cli-response.md) %}
+
+  1. **Посмотрите статус запроса на изменение квоты.**
+
+      {% include [get-quota-request-cli](../_includes/quota-manager/get-quota-request-cli.md) %}
+
+      **Пример команды**
+
+      {% include [get-quota-request-cli-example](../_includes/quota-manager/get-quota-request-cli-example.md) %}
+
+      **Пример ответа**
+
+      {% include [get-quota-request-cli-response](../_includes/quota-manager/get-quota-request-cli-response.md) %}
+
 - REST API {#api}
-
-  1. **Настройте работу с API.**
-
-      1. Чтобы проверить работу с квотами через [REST API](./api-ref/index.md), установите утилиту [cURL](https://curl.haxx.se).
-      1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роль](./security/index.md#quota-manager-requestoperator) `quota-manager.requestOperator`.
-      1. [Получите IAM-токен](../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
 
   1. **Создайте запрос на изменение квоты.**
 
@@ -457,12 +484,6 @@ description: Следуя данной инструкции, вы сможете
       {% include [view-request-status-response-curl](../_includes/quota-manager/view-request-status-response-curl.md) %}
 
 - gRPC API {#grpc-api}
-
-  1. **Настройте работу с API.**
-
-      1. Чтобы проверить работу с квотами через [gRPC API](./api-ref/grpc/index.md), установите утилиту [gRPCurl](https://github.com/fullstorydev/grpcurl).
-      1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роль](./security/index.md#quota-manager-requestoperator) `quota-manager.requestOperator`.
-      1. [Получите IAM-токен](../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
 
   1. **Создайте запрос на изменение квоты.**
 

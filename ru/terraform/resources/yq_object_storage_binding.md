@@ -2,7 +2,7 @@
 subcategory: Yandex Query
 page_title: 'Yandex: yandex_yq_object_storage_binding'
 description: Manages Object Storage binding.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/yq_object_storage_binding.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/yq_object_storage_binding.md
 ---
 
 # yandex_yq_object_storage_binding (Resource)

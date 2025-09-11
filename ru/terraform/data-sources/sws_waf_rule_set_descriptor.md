@@ -2,7 +2,7 @@
 subcategory: Smart Web Security (SWS)
 page_title: 'Yandex: yandex_sws_waf_rule_set_descriptor'
 description: Get information about SmartWebSecurity WAF rule sets.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/sws_waf_rule_set_descriptor.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/sws_waf_rule_set_descriptor.md
 ---
 
 # yandex_sws_waf_rule_set_descriptor (Data Source)

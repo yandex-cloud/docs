@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/iam_service_account.md
 
 Get information about a Yandex IAM service account. For more information about accounts, see [Yandex Cloud IAM accounts](https://yandex.cloud/docs/iam/concepts/#accounts).
 
-~> One of `service_account_id` or `name` should be specified.
+{% note warning %}
+
+One of `service_account_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/compute_snapshot.md
 
 Get information about a Yandex Compute snapshot. For more information, see [the official documentation](https://yandex.cloud/docs/compute/concepts/snapshot).
 
-~> One of `snapshot_id` or `name` should be specified.
+{% note warning %}
+
+One of `snapshot_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

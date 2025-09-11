@@ -11,7 +11,12 @@ Get information about a Yandex VPC subnet. For more information, see [Yandex Clo
 
 This data source is used to define [VPC Subnets](https://yandex.cloud/docs/vpc/concepts/network#subnet) that can be used by other resources.
 
-~> One of `subnet_id` or `name` should be specified.
+{% note warning %}
+
+One of `subnet_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

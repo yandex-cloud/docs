@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/resourcemanager_cloud.
 
 Use this data source to get cloud details. For more information, see [the official documentation](https://yandex.cloud/docs/resource-manager/concepts/resources-hierarchy#cloud).
 
-~> Either `cloud_id` or `name` must be specified.
+{% note warning %}
+
+Either `cloud_id` or `name` must be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

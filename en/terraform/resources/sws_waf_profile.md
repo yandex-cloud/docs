@@ -88,8 +88,10 @@ resource "yandex_sws_waf_profile" "default" {
 - `exclusion_rule` (Block List) List of exclusion rules. See [Rules](https://yandex.cloud/en/docs/smartwebsecurity/concepts/waf#exclusion-rules). (see [below for nested schema](#nestedblock--exclusion_rule))
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
+- `match_all_rule_sets` (Boolean)
 - `name` (String) The resource name.
 - `rule` (Block List) Settings for each rule in rule set. (see [below for nested schema](#nestedblock--rule))
+- `rule_set` (Block List) Rule set. (see [below for nested schema](#nestedblock--rule_set))
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only
@@ -112,7 +114,7 @@ Optional:
 
 Required:
 
-- `rule_set` (Block List, Min: 1, Max: 1) (see [below for nested schema](#nestedblock--core_rule_set--rule_set))
+- `rule_set` (Block List, Min: 1, Max: 1) Rule set settings. See [Basic rule set](https://yandex.cloud/en/docs/smartwebsecurity/concepts/waf#rules-set) for details. (see [below for nested schema](#nestedblock--core_rule_set--rule_set))
 
 Optional:
 
@@ -124,11 +126,12 @@ Optional:
 
 Required:
 
-- `version` (String)
+- `version` (String) Version of the rule set.
 
 Optional:
 
-- `name` (String)
+- `name` (String) Name of the rule set.
+- `type` (String) Type of the rule set.
 
 
 
@@ -164,7 +167,7 @@ Optional:
 - `headers` (Block List) (see [below for nested schema](#nestedblock--exclusion_rule--condition--headers))
 - `http_method` (Block List, Max: 1) (see [below for nested schema](#nestedblock--exclusion_rule--condition--http_method))
 - `request_uri` (Block List, Max: 1) (see [below for nested schema](#nestedblock--exclusion_rule--condition--request_uri))
-- `source_ip` (Block List, Max: 1) (see [below for nested schema](#nestedblock--exclusion_rule--condition--source_ip))
+- `source_ip` (Block List, Max: 1) Source IP. (see [below for nested schema](#nestedblock--exclusion_rule--condition--source_ip))
 
 <a id="nestedblock--exclusion_rule--condition--authority"></a>
 ### Nested Schema for `exclusion_rule.condition.authority`
@@ -282,17 +285,17 @@ Optional:
 
 Optional:
 
-- `geo_ip_match` (Block List, Max: 1) (see [below for nested schema](#nestedblock--exclusion_rule--condition--source_ip--geo_ip_match))
-- `geo_ip_not_match` (Block List, Max: 1) (see [below for nested schema](#nestedblock--exclusion_rule--condition--source_ip--geo_ip_not_match))
-- `ip_ranges_match` (Block List, Max: 1) (see [below for nested schema](#nestedblock--exclusion_rule--condition--source_ip--ip_ranges_match))
-- `ip_ranges_not_match` (Block List, Max: 1) (see [below for nested schema](#nestedblock--exclusion_rule--condition--source_ip--ip_ranges_not_match))
+- `geo_ip_match` (Block List, Max: 1) Locations to include. (see [below for nested schema](#nestedblock--exclusion_rule--condition--source_ip--geo_ip_match))
+- `geo_ip_not_match` (Block List, Max: 1) Locations to exclude. (see [below for nested schema](#nestedblock--exclusion_rule--condition--source_ip--geo_ip_not_match))
+- `ip_ranges_match` (Block List, Max: 1) IP ranges to include. (see [below for nested schema](#nestedblock--exclusion_rule--condition--source_ip--ip_ranges_match))
+- `ip_ranges_not_match` (Block List, Max: 1) IP ranges to exclude. (see [below for nested schema](#nestedblock--exclusion_rule--condition--source_ip--ip_ranges_not_match))
 
 <a id="nestedblock--exclusion_rule--condition--source_ip--geo_ip_match"></a>
 ### Nested Schema for `exclusion_rule.condition.source_ip.geo_ip_match`
 
 Optional:
 
-- `locations` (List of String)
+- `locations` (List of String) Locations to include.
 
 
 <a id="nestedblock--exclusion_rule--condition--source_ip--geo_ip_not_match"></a>
@@ -300,7 +303,7 @@ Optional:
 
 Optional:
 
-- `locations` (List of String)
+- `locations` (List of String) Locations to exclude.
 
 
 <a id="nestedblock--exclusion_rule--condition--source_ip--ip_ranges_match"></a>
@@ -308,7 +311,7 @@ Optional:
 
 Optional:
 
-- `ip_ranges` (List of String)
+- `ip_ranges` (List of String) IP ranges to include.
 
 
 <a id="nestedblock--exclusion_rule--condition--source_ip--ip_ranges_not_match"></a>
@@ -316,7 +319,7 @@ Optional:
 
 Optional:
 
-- `ip_ranges` (List of String)
+- `ip_ranges` (List of String) IP ranges to exclude.
 
 
 
@@ -333,6 +336,117 @@ Optional:
 
 - `is_blocking` (Boolean) Determines is it rule blocking or not.
 - `is_enabled` (Boolean) Determines is it rule enabled or not.
+
+
+<a id="nestedblock--rule_set"></a>
+### Nested Schema for `rule_set`
+
+Optional:
+
+- `action` (String) Action of the rule set.
+- `core_rule_set` (Block List, Max: 1) Core rule set. (see [below for nested schema](#nestedblock--rule_set--core_rule_set))
+- `is_enabled` (Boolean) Determines is it rule set enabled or not.
+- `ml_rule_set` (Block List, Max: 1) List of ML rule sets. (see [below for nested schema](#nestedblock--rule_set--ml_rule_set))
+- `priority` (Number) Priority of the rule set.
+- `ya_rule_set` (Block List, Max: 1) Yandex rule set. (see [below for nested schema](#nestedblock--rule_set--ya_rule_set))
+
+<a id="nestedblock--rule_set--core_rule_set"></a>
+### Nested Schema for `rule_set.core_rule_set`
+
+Required:
+
+- `rule_set` (Block List, Min: 1, Max: 1) Rule set. (see [below for nested schema](#nestedblock--rule_set--core_rule_set--rule_set))
+
+Optional:
+
+- `inbound_anomaly_score` (Number) Inbound anomaly score of the rule set.
+- `paranoia_level` (Number) Paranoia level of the rule set.
+
+<a id="nestedblock--rule_set--core_rule_set--rule_set"></a>
+### Nested Schema for `rule_set.core_rule_set.rule_set`
+
+Required:
+
+- `version` (String) Version of the rule set.
+
+Optional:
+
+- `name` (String) Name of the rule set.
+- `type` (String) Type of the rule set.
+
+
+
+<a id="nestedblock--rule_set--ml_rule_set"></a>
+### Nested Schema for `rule_set.ml_rule_set`
+
+Required:
+
+- `rule_set` (Block List, Min: 1, Max: 1) Rule set of the ML rule set. (see [below for nested schema](#nestedblock--rule_set--ml_rule_set--rule_set))
+
+Optional:
+
+- `rule_group` (Block List) List of rule groups. (see [below for nested schema](#nestedblock--rule_set--ml_rule_set--rule_group))
+
+<a id="nestedblock--rule_set--ml_rule_set--rule_set"></a>
+### Nested Schema for `rule_set.ml_rule_set.rule_set`
+
+Required:
+
+- `version` (String) Version of the rule set.
+
+Optional:
+
+- `name` (String) Name of the rule set.
+- `type` (String) Type of the rule set.
+
+
+<a id="nestedblock--rule_set--ml_rule_set--rule_group"></a>
+### Nested Schema for `rule_set.ml_rule_set.rule_group`
+
+Optional:
+
+- `action` (String) Action of the rule group.
+- `id` (String) ID of the rule group.
+- `inbound_anomaly_score` (Number) Inbound anomaly score.
+- `is_enabled` (Boolean) Is the rule group enabled.
+
+
+
+<a id="nestedblock--rule_set--ya_rule_set"></a>
+### Nested Schema for `rule_set.ya_rule_set`
+
+Required:
+
+- `rule_set` (Block List, Min: 1, Max: 1) Rule set of the Yandex rule set. (see [below for nested schema](#nestedblock--rule_set--ya_rule_set--rule_set))
+
+Optional:
+
+- `rule_group` (Block List) List of rule groups. (see [below for nested schema](#nestedblock--rule_set--ya_rule_set--rule_group))
+
+<a id="nestedblock--rule_set--ya_rule_set--rule_set"></a>
+### Nested Schema for `rule_set.ya_rule_set.rule_set`
+
+Required:
+
+- `version` (String) Version of the rule set.
+
+Optional:
+
+- `name` (String) Name of the rule set.
+- `type` (String) Type of the rule set.
+
+
+<a id="nestedblock--rule_set--ya_rule_set--rule_group"></a>
+### Nested Schema for `rule_set.ya_rule_set.rule_group`
+
+Optional:
+
+- `action` (String) Action of the rule group.
+- `id` (String) ID of the rule group.
+- `inbound_anomaly_score` (Number) Inbound anomaly score.
+- `is_enabled` (Boolean) Is the rule group enabled.
+
+
 
 
 <a id="nestedblock--timeouts"></a>

@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/lockbox_secret.md
 
 Get information about Yandex Cloud Lockbox secret. For more information, see [the official documentation](https://yandex.cloud/docs/lockbox/).
 
-~> One of `secret_id` or `name` should be specified.
+{% note warning %}
+
+One of `secret_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

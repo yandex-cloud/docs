@@ -6,14 +6,14 @@ OLTP is focused on quick execution of a large stream of transactions, each of wh
 
 ## Analytics β {#beta-analytics}
 
-{{ ydb-full-name }} Serverless OLTP capabilities are utilized in the production phase by large numbers of users. The OLAP scenario's capabilities are currently at the {{ preview-stage }} stage. To reduce the mutual influence of workload types, a separate database type for OLAP workloads is deployed called `Analytics β`.
+{{ ydb-full-name }} Serverless OLTP capabilities are utilized in the production phase by large numbers of users. The OLAP scenario's capabilities are currently at the {{ preview-stage }} stage. To reduce the mutual influence of workload types, a separate database type, `Analytics β`, is deployed for OLAP workloads.
 
 `Analytics β` databases are fully managed ([serverless](serverless-and-dedicated.md)) {{ ydb-short-name }} databases designed for analytical data processing. With their help, you can conveniently address periodic data analysis tasks, build data marts, or perform any other types of analysis.
 
 
 {% note info %}
 
-There is currently no charge for using `Analytics β` databases. You only pay for using data storage space based on [{{ ydb-full-name }} Serverless](../pricing/serverless.md#rules-storage) pricing plans.
+There is currently no charge for using `Analytics β` databases. You only pay for the space used to store data based on [{{ ydb-full-name }} serverless](../pricing/serverless.md#rules-storage) pricing plans.
 
 {% endnote %}
 
@@ -30,7 +30,7 @@ When operating within the same database, OLAP and OLTP workloads share common da
 
 ## Column-oriented tables {#column_table}
 
-It is recommended to store the data used in OLAP workloads in [column tables]({{ ydb.docs }}/concepts/datamodel/table#column-tables).
+We recommend you use [column tables]({{ ydb.docs }}/concepts/datamodel/table#column-oriented-tables) to store data used in OLAP workloads.
 
 {{ ydb-short-name }} column tables store the data of each column separately (independently) from other columns. This data storage principle is optimized for use in OLAP scenarios, as oftentimes only a few columns of source data are used to build analytical reports, and columnar storage allows reading from disks only the columns directly involved in the request. Another benefit of this approach lies in the high degree of data compression, since columns often store repetitive or similar data. The downside is that operations on full rows become costlier due to the need to reconstruct them on the fly from individual cells.
 
@@ -38,11 +38,11 @@ The current basic use case of {{ ydb-short-name }} column tables is writing data
 
 {% note info %}
 
-Currently, managing column table data through `INSERT INTO`, `UPSERT`, `UPDATE`, `REPLACE`, `DELETE` SQL constructions is not supported. To record data, use data delivery from external systems ([ydb import]({{ ydb.docs }}/reference/ydb-cli/export-import/import-file), [Data Transfer](../../data-transfer/transfer-matrix.md), [Fluent Bit]({{ ydb.docs }}/integrations/fluent-bit), [Logstash](https://github.com/ydb-platform/ydb-logstash-plugins)), or the [BulkUpsert]({{ ydb.docs }}/reference/ydb-sdk/recipes/bulk-upsert) SDK API method. To delete data, use [TTL]({{ ydb.docs }}/concepts/ttl).
+Currently, managing column table data with `INSERT INTO`, `UPSERT`, `UPDATE`, `REPLACE`, or `DELETE` SQL statements is not supported. To write data, use data delivery from external systems ([ydb import]({{ ydb.docs }}/reference/ydb-cli/export-import/import-file), [Data Transfer](../../data-transfer/transfer-matrix.md), [Fluent Bit]({{ ydb.docs }}/integrations/fluent-bit), [Logstash](https://github.com/ydb-platform/ydb-logstash-plugins)), or the [BulkUpsert]({{ ydb.docs }}/reference/ydb-sdk/recipes/bulk-upsert) SDK API method. To delete data, use [TTL]({{ ydb.docs }}/concepts/ttl).
 
 {% endnote %}
 
 ## See also {#see-also}
 
-* [Description of column tables]({{ ydb.docs }}/concepts/datamodel/table#column-tables)
-* [Selecting a primary key of a column table]({{ ydb.docs }}/best_practices/pk-olap-scalability)
+* [Description of column-oriented tables]({{ ydb.docs }}/concepts/datamodel/table#column-tables)
+* [Selecting a primary key of a column-oriented table]({{ ydb.docs }}/best_practices/pk-olap-scalability)

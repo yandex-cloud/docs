@@ -2,7 +2,7 @@
 subcategory: Managed Service for OpenSearch
 page_title: 'Yandex: yandex_mdb_opensearch_cluster'
 description: Get information about a Yandex Managed OpenSearch cluster.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_opensearch_cluster.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_opensearch_cluster.md
 ---
 
 # yandex_mdb_opensearch_cluster (Data Source)
@@ -32,7 +32,12 @@ The following arguments are supported:
 
 * `name` - (Optional) The name of the OpenSearch cluster.
 
-~> Either `cluster_id` or `name` should be specified.
+{% note warning %}
+
+Either `cluster_id` or `name` should be specified.
+
+{% endnote %}
+
 
 * `folder_id` - (Optional) The ID of the folder that the resource belongs to. If it is not provided, the default provider folder is used.
 

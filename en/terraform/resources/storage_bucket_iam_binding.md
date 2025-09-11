@@ -42,7 +42,12 @@ resource "yandex_storage_bucket_iam_binding" "bucket-iam" {
  * **system:allAuthenticatedUsers**: All authenticated users.
  * **system:allUsers**: All users, including unauthenticated ones.
 
-~> for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `role` (String) The role that should be assigned. Only one yandex_storage_bucket_iam_binding can be used per role.
 
 ## Import

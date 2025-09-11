@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_instance'
 description: Manages a VM instance resource.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/compute_instance.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_instance.md
 ---
 
 # yandex_compute_instance (Resource)
@@ -71,7 +71,12 @@ resource "yandex_vpc_subnet" "foo" {
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `local_disk` (Block List) List of local disks that are attached to the instance.
 
-~> Local disks are not available for all users by default. (see [below for nested schema](#nestedblock--local_disk))
+{% note warning %}
+
+Local disks are not available for all users by default. (see [below for nested schema](#nestedblock--local_disk))
+
+{% endnote %}
+
 - `maintenance_grace_period` (String) Time between notification via metadata service and maintenance. E.g., `60s`.
 - `maintenance_policy` (String) Behavior on maintenance events. Can be: `unspecified`, `migrate`, `restart`. The default is `unspecified`.
 - `metadata` (Map of String) Metadata key/value pairs to make available from within the instance.
@@ -83,7 +88,12 @@ resource "yandex_vpc_subnet" "foo" {
 - `scheduling_policy` (Block List, Max: 1) Scheduling policy configuration. (see [below for nested schema](#nestedblock--scheduling_policy))
 - `secondary_disk` (Block Set) A set of disks to attach to the instance. The structure is documented below.
 
-~> The [`allow_stopping_for_update`](#allow_stopping_for_update) property must be set to `true` in order to update this structure. (see [below for nested schema](#nestedblock--secondary_disk))
+{% note warning %}
+
+The [`allow_stopping_for_update`](#allow_stopping_for_update) property must be set to `true` in order to update this structure. (see [below for nested schema](#nestedblock--secondary_disk))
+
+{% endnote %}
+
 - `service_account_id` (String) [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 - `zone` (String) The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
@@ -249,7 +259,12 @@ Optional:
 
 - `host_affinity_rules` (List of Object) List of host affinity rules.
 
-~> Due to terraform limitations, simply deleting the `placement_policy` fields does not work. To reset the values of these fields, you need to set them empty:
+{% note warning %}
+
+Due to terraform limitations, simply deleting the `placement_policy` fields does not work. To reset the values of these fields, you need to set them empty:
+
+{% endnote %}
+
 
 placement_policy {
     placement_group_id = ""

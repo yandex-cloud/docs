@@ -2,14 +2,19 @@
 subcategory: Lockbox (Secret Management)
 page_title: 'Yandex: yandex_lockbox_secret_iam_member'
 description: Allows management of a single member for a single IAM binding for a Lockbox Secret.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/lockbox_secret_iam_member.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/lockbox_secret_iam_member.md
 ---
 
 # yandex_lockbox_secret_iam_member (Resource)
 
 Allows creation and management of a single member for a single binding within the IAM policy for an existing Yandex Lockbox Secret.
 
-~> Roles controlled by `yandex_lockbox_secret_iam_binding` should not be assigned using `yandex_lockbox_secret_iam_member`.
+{% note warning %}
+
+Roles controlled by `yandex_lockbox_secret_iam_binding` should not be assigned using `yandex_lockbox_secret_iam_member`.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -45,7 +50,12 @@ resource "yandex_lockbox_secret_iam_member" "viewer" {
   * **system:allAuthenticatedUsers**: All authenticated users.
   * **system:allUsers**: All users, including unauthenticated ones.
 
-~> for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `role` (String) The role that should be applied. See [roles catalog](https://yandex.cloud/docs/iam/roles-reference).
 - `secret_id` (String) The [Yandex Lockbox Secret](https://yandex.cloud/docs/lockbox/) Secret ID to apply a binding to.
 

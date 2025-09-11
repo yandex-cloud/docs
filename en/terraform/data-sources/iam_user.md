@@ -11,7 +11,12 @@ Get information about a Yandex IAM user account. For more information about acco
 
 This data source is used to define [IAM User](https://yandex.cloud/docs/iam/concepts/#passport) that can be used by other resources.
 
-~> Either `login` or `user_id` must be specified.
+{% note warning %}
+
+Either `login` or `user_id` must be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

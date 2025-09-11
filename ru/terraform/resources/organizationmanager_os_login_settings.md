@@ -2,7 +2,7 @@
 subcategory: Cloud Organization
 page_title: 'Yandex: yandex_organizationmanager_os_login_settings'
 description: Allows management of OsLogin Settings within an existing Yandex Cloud Organization.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/organizationmanager_os_login_settings.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_os_login_settings.md
 ---
 
 # yandex_organizationmanager_os_login_settings (Resource)

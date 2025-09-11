@@ -2,7 +2,7 @@
 subcategory: Cloud Domain Name System (DNS)
 page_title: 'Yandex: yandex_dns_recordset'
 description: Manages a DNS RecordSet within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/dns_recordset.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/dns_recordset.md
 ---
 
 # yandex_dns_recordset (Resource)

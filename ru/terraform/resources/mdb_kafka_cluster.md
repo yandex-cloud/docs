@@ -2,14 +2,19 @@
 subcategory: Managed Service for Apache Kafka
 page_title: 'Yandex: yandex_mdb_kafka_cluster'
 description: Manages a Kafka cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_kafka_cluster.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_kafka_cluster.md
 ---
 
 # yandex_mdb_kafka_cluster (Resource)
 
 Manages a Kafka cluster within the Yandex Cloud. For more information, see [the official documentation](https://yandex.cloud/docs/managed-kafka/concepts).
 
-~> Historically, `topic` blocks of the `yandex_mdb_kafka_cluster` resource were used to manage topics of the Kafka cluster. However, this approach has a number of disadvantages. In particular, when adding and removing topics from the tf recipe, terraform generates a diff that misleads the user about the planned changes. Also, this approach turned out to be inconvenient when managing topics through the Kafka Admin API. Therefore, topic management through a separate resource type `yandex_mdb_kafka_topic` was implemented and is now recommended.
+{% note warning %}
+
+Historically, `topic` blocks of the `yandex_mdb_kafka_cluster` resource were used to manage topics of the Kafka cluster. However, this approach has a number of disadvantages. In particular, when adding and removing topics from the tf recipe, terraform generates a diff that misleads the user about the planned changes. Also, this approach turned out to be inconvenient when managing topics through the Kafka Admin API. Therefore, topic management through a separate resource type `yandex_mdb_kafka_topic` was implemented and is now recommended.
+
+{% endnote %}
+
 
 ## Example usage
 

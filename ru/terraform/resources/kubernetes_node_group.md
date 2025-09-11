@@ -2,7 +2,7 @@
 subcategory: Managed Service for Kubernetes (MK8S)
 page_title: 'Yandex: yandex_kubernetes_node_group'
 description: Allows management of Yandex Kubernetes Node Group.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/kubernetes_node_group.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/kubernetes_node_group.md
 ---
 
 # yandex_kubernetes_node_group (Resource)

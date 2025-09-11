@@ -51,28 +51,17 @@ data "yandex_vpc_security_group" "group1" {
 
 Read-Only:
 
-- `description` (String) Description of the rule.
-
-- `from_port` (Number) Minimum port number.
-
-- `id` (String) The resource identifier.
-
-- `labels` (Map of String) Labels to assign to this rule.
-
-- `port` (Number) Port number (if applied to a single port).
-
-- `predefined_target` (String) Special-purpose targets. `self_security_group` refers to this particular security group. `loadbalancer_healthchecks` represents [loadbalancer health check nodes](https://yandex.cloud/docs/network-load-balancer/concepts/health-check).
-
-- `protocol` (String) One of `ANY`, `TCP`, `UDP`, `ICMP`, `IPV6_ICMP`.
-
-- `security_group_id` (String) Target security group ID for this rule.
-
-- `to_port` (Number) Maximum port number.
-
-- `v4_cidr_blocks` (List of String) The blocks of IPv4 addresses for this rule.
-
-- `v6_cidr_blocks` (List of String) The blocks of IPv6 addresses for this rule. `v6_cidr_blocks` argument is currently not supported. It will be available in the future.
-
+- `description` (String)
+- `from_port` (Number)
+- `id` (String)
+- `labels` (Map of String)
+- `port` (Number)
+- `predefined_target` (String)
+- `protocol` (String)
+- `security_group_id` (String)
+- `to_port` (Number)
+- `v4_cidr_blocks` (List of String)
+- `v6_cidr_blocks` (List of String)
 
 
 <a id="nestedatt--ingress"></a>
@@ -80,25 +69,14 @@ Read-Only:
 
 Read-Only:
 
-- `description` (String) Description of the rule.
-
-- `from_port` (Number) Minimum port number.
-
-- `id` (String) The resource identifier.
-
-- `labels` (Map of String) Labels to assign to this rule.
-
-- `port` (Number) Port number (if applied to a single port).
-
-- `predefined_target` (String) Special-purpose targets. `self_security_group` refers to this particular security group. `loadbalancer_healthchecks` represents [loadbalancer health check nodes](https://yandex.cloud/docs/network-load-balancer/concepts/health-check).
-
-- `protocol` (String) One of `ANY`, `TCP`, `UDP`, `ICMP`, `IPV6_ICMP`.
-
-- `security_group_id` (String) Target security group ID for this rule.
-
-- `to_port` (Number) Maximum port number.
-
-- `v4_cidr_blocks` (List of String) The blocks of IPv4 addresses for this rule.
-
-- `v6_cidr_blocks` (List of String) The blocks of IPv6 addresses for this rule. `v6_cidr_blocks` argument is currently not supported. It will be available in the future.
-
+- `description` (String)
+- `from_port` (Number)
+- `id` (String)
+- `labels` (Map of String)
+- `port` (Number)
+- `predefined_target` (String)
+- `protocol` (String)
+- `security_group_id` (String)
+- `to_port` (Number)
+- `v4_cidr_blocks` (List of String)
+- `v6_cidr_blocks` (List of String)

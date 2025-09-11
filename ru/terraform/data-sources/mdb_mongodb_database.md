@@ -2,7 +2,7 @@
 subcategory: Managed Service for MongoDB
 page_title: 'Yandex: yandex_mdb_mongodb_database'
 description: Get information about a Yandex Managed MongoDB database.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_mongodb_database.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_mongodb_database.md
 ---
 
 # yandex_mdb_mongodb_database (Data Source)

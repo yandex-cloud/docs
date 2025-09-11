@@ -84,7 +84,12 @@ resource "yandex_compute_instance_group" "group1" {
 - `instance_template` (Block List, Min: 1, Max: 1) The template for creating new instances. (see [below for nested schema](#nestedblock--instance_template))
 - `scale_policy` (Block List, Min: 1, Max: 1) The scaling policy of the instance group.
 
-~> Either `fixed_scale` or `auto_scale` must be specified. (see [below for nested schema](#nestedblock--scale_policy))
+{% note warning %}
+
+Either `fixed_scale` or `auto_scale` must be specified. (see [below for nested schema](#nestedblock--scale_policy))
+
+{% endnote %}
+
 - `service_account_id` (String) [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource.
 
 ### Optional
@@ -189,7 +194,12 @@ Optional:
 - `disk_id` (String) The ID of the existing disk (such as those managed by yandex_compute_disk) to attach as a boot disk.
 - `initialize_params` (Block List, Max: 1) Parameters for creating a disk alongside the instance.
 
-~> `image_id` or `snapshot_id` must be specified. (see [below for nested schema](#nestedblock--instance_template--boot_disk--initialize_params))
+{% note warning %}
+
+`image_id` or `snapshot_id` must be specified. (see [below for nested schema](#nestedblock--instance_template--boot_disk--initialize_params))
+
+{% endnote %}
+
 - `mode` (String) The access mode to the disk resource. By default a disk is attached in `READ_WRITE` mode.
 - `name` (String) When set can be later used to change DiskSpec of actual disk.
 
@@ -338,7 +348,12 @@ Optional:
 - `disk_id` (String) ID of the existing disk. To set use variables.
 - `initialize_params` (Block List, Max: 1) Parameters used for creating a disk alongside the instance.
 
-~> `image_id` or `snapshot_id` must be specified. (see [below for nested schema](#nestedblock--instance_template--secondary_disk--initialize_params))
+{% note warning %}
+
+`image_id` or `snapshot_id` must be specified. (see [below for nested schema](#nestedblock--instance_template--secondary_disk--initialize_params))
+
+{% endnote %}
+
 - `mode` (String) The access mode to the disk resource. By default a disk is attached in `READ_WRITE` mode.
 - `name` (String) When set can be later used to change DiskSpec of actual disk.
 

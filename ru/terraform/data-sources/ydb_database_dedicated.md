@@ -2,14 +2,19 @@
 subcategory: Managed Service for YDB
 page_title: 'Yandex: yandex_ydb_database_dedicated'
 description: Get information about a Yandex Database dedicated cluster.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/ydb_database_dedicated.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/ydb_database_dedicated.md
 ---
 
 # yandex_ydb_database_dedicated (Data Source)
 
 Get information about a Yandex Database (dedicated) cluster. For more information, see [the official documentation](https://yandex.cloud/docs/ydb/concepts/serverless_and_dedicated).
 
-~> If `database_id` is not specified `name` and `folder_id` will be used to designate Yandex Database cluster.
+{% note warning %}
+
+If `database_id` is not specified `name` and `folder_id` will be used to designate Yandex Database cluster.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -89,7 +94,7 @@ Read-Only:
 
 Read-Only:
 
-- `fixed_scale` (Block List, Min: 1, Max: 1) Fixed scaling policy for the Yandex Database cluster. (see [below for nested schema](#nestedobjatt--scale_policy--fixed_scale))
+- `fixed_scale` (Block List, Max: 1) Fixed scaling policy for the Yandex Database cluster. (see [below for nested schema](#nestedobjatt--scale_policy--fixed_scale))
 
 
 <a id="nestedobjatt--scale_policy--fixed_scale"></a>

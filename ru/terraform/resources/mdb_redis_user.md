@@ -2,7 +2,7 @@
 subcategory: Managed Service for Redis
 page_title: 'Yandex: yandex_mdb_redis_user'
 description: Manages a Redis user within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_redis_user.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_redis_user.md
 ---
 
 # yandex_mdb_redis_user (Resource)
@@ -70,6 +70,7 @@ resource "yandex_vpc_subnet" "foo" {
 
 - `enabled` (Boolean) Is redis user enabled.
 - `permissions` (Attributes) Set of permissions granted to the user. (see [below for nested schema](#nestedatt--permissions))
+- `timeouts` (Attributes) (see [below for nested schema](#nestedatt--timeouts))
 
 ### Read-Only
 
@@ -86,6 +87,16 @@ Optional:
 - `patterns` (String) Keys patterns user has permission to.
 - `pub_sub_channels` (String) Channel patterns user has permissions to.
 - `sanitize_payload` (String) SanitizePayload parameter.
+
+
+<a id="nestedatt--timeouts"></a>
+### Nested Schema for `timeouts`
+
+Optional:
+
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+- `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import
 

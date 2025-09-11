@@ -7,6 +7,45 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.164.0 (11.09.25) {#version0.164.0}
+
+####  Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ managed-k8s-name }}
+
+Добавлен параметр `--enable-workload-identity-federation`, который позволяет включать [федерацию сервисных аккаунтов](../iam/concepts/workload-identity.md) (Workload Identity Federation).
+
+Параметр добавлен в команды:
+* `yc managed-kubernetes cluster create`;
+* `yc managed-kubernetes cluster update`.
+
+##### {{ org-name }}
+
+Добавлены новые группы команд:
+
+* `yc organization-manager idp userpool` — для управления [пулами пользователей](../organization/concepts/user-pools.md); 
+* `yc organization-manager idp user` — для управления [локальными пользователями](../iam/concepts/users/accounts.md#local).
+
+##### {{ iam-short-name }}
+
+Для управления OAuth-клиентами добавлена группа команд `yc iam oauth-client`:
+* `yc iam oauth-client get`;
+* `yc iam oauth-client list`;
+* `yc iam oauth-client create`;
+* `yc iam oauth-client update`;
+* `yc iam oauth-client delete`.
+
+##### {{ mmy-name }}
+
+Добавлены параметры `maintenance-window` и `performance-diagnostics` в команды создания и восстановления кластера. Для параметра `disk-size-autoscaler.disk-size-limit` изменена единица измерения с байтов на гигабайты.
+
+Обновленные команды:
+* `yc managed-mysql cluster create`;
+* `yc managed-mysql cluster update`;
+* `yc managed-mysql cluster restore`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.163.0 (08.09.25) {#version0.163.0}
 
 ####  Изменения в сервисах {{ yandex-cloud }}
@@ -18,8 +57,6 @@ description: На странице представлены релизы CLI, а
 ##### {{ mes-name }}
 
 * Удалена поддержка `managed-elasticsearch`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.162.0 (04.09.25) {#version0.162.0}
 

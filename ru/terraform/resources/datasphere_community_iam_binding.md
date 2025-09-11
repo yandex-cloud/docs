@@ -2,7 +2,7 @@
 subcategory: Datasphere
 page_title: 'Yandex: yandex_datasphere_community_iam_binding'
 description: Allows management of a single IAM binding for a Yandex Datasphere Community.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/datasphere_community_iam_binding.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/datasphere_community_iam_binding.md
 ---
 
 # yandex_datasphere_community_iam_binding (Resource)
@@ -51,9 +51,19 @@ resource "yandex_datasphere_community_iam_binding" "community-iam" {
  * **system:allAuthenticatedUsers**: All authenticated users.
  * **system:allUsers**: All users, including unauthenticated ones.
 
-~> for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `role` (String) The role that should be assigned. Only one yandex_datasphere_community_iam_binding can be used per role.
 
 ## Import
 
-~> Import for this resource is not implemented yet.
+{% note warning %}
+
+Import for this resource is not implemented yet.
+
+{% endnote %}
+

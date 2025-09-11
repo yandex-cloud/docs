@@ -9,9 +9,19 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/storage_bucket_grant.md
 
 Allows management of grants on an existing [Yandex Cloud Storage Bucket](https://yandex.cloud/docs/storage/concepts/bucket).
 
-~> By default, for authentication, you need to use [IAM token](https://yandex.cloud/docs/iam/concepts/authorization/iam-token) with the necessary permissions.
+{% note warning %}
 
-~> Alternatively, you can provide [static access keys](https://yandex.cloud/docs/iam/concepts/authorization/access-key) (Access and Secret). To generate these keys, you will need a Service Account with the appropriate permissions.
+By default, for authentication, you need to use [IAM token](https://yandex.cloud/docs/iam/concepts/authorization/iam-token) with the necessary permissions.
+
+{% endnote %}
+
+
+{% note warning %}
+
+Alternatively, you can provide [static access keys](https://yandex.cloud/docs/iam/concepts/authorization/access-key) (Access and Secret). To generate these keys, you will need a Service Account with the appropriate permissions.
+
+{% endnote %}
+
 
 This resource should be used for managing [Primitive roles](https://yandex.cloud/docs/storage/security/#primitive-roles) only.
 
@@ -86,11 +96,21 @@ resource "yandex_storage_bucket_grant" "my_bucket_grant" {
 - `access_key` (String) The access key to use when applying changes. This value can also be provided as `storage_access_key` specified in provider config (explicitly or within `shared_credentials_file`) is used.
 - `acl` (String) The [predefined ACL](https://yandex.cloud/docs/storage/concepts/acl#predefined_acls) to apply. Defaults to `private`. Conflicts with `grant`.
 
-~> To change ACL after creation, service account with `storage.admin` role should be used, though this role is not necessary to create a bucket with any ACL.
-- `grant` (Block List) An [ACL policy grant](https://yandex.cloud/docs/storage/concepts/acl#permissions-types). Conflicts with `acl`.
+{% note warning %}
+
+To change ACL after creation, service account with `storage.admin` role should be used, though this role is not necessary to create a bucket with any ACL.
+
+{% endnote %}
+
+- `grant` (Block Set) An [ACL policy grant](https://yandex.cloud/docs/storage/concepts/acl#permissions-types). Conflicts with `acl`.
 All permissions for a single grantee must be specified in a single `grant` block.
 
-~> To manage `grant` argument, service account with `storage.admin` role should be used. (see [below for nested schema](#nestedblock--grant))
+{% note warning %}
+
+To manage `grant` argument, service account with `storage.admin` role should be used. (see [below for nested schema](#nestedblock--grant))
+
+{% endnote %}
+
 - `secret_key` (String, Sensitive) The secret key to use when applying changes. This value can also be provided as `storage_secret_key` specified in provider config (explicitly or within `shared_credentials_file`) is used.
 
 <a id="nestedblock--grant"></a>
@@ -98,7 +118,7 @@ All permissions for a single grantee must be specified in a single `grant` block
 
 Required:
 
-- `permissions` (List of String) List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `FULL_CONTROL`.
+- `permissions` (Set of String) List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `FULL_CONTROL`.
 - `type` (String) Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`.
 
 Optional:

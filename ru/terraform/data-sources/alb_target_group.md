@@ -2,7 +2,7 @@
 subcategory: Application Load Balancer (ALB)
 page_title: 'Yandex: yandex_alb_target_group'
 description: Get information about a Yandex Application Load Balancer target group.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/alb_target_group.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/alb_target_group.md
 ---
 
 # yandex_alb_target_group (Data Source)
@@ -11,7 +11,12 @@ Get information about a Yandex Application Load Balancer target group. For more 
 
 This data source is used to define [Application Load Balancer Target Groups](https://yandex.cloud/docs/application-load-balancer/concepts/target-group) that can be used by other resources.
 
-~> One of `target_group_id` or `name` should be specified.
+{% note warning %}
+
+One of `target_group_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/monitoring_dashboard.m
 
 Get information about a Yandex Monitoring dashboard.
 
-~> One of `dashboard_id` or `name` should be specified.
+{% note warning %}
+
+One of `dashboard_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

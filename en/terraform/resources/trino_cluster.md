@@ -72,6 +72,7 @@ resource "yandex_trino_cluster" "trino" {
 - `retry_policy` (Attributes) Configuration for retry policy, specifying the spooling storage destination and other settings. (see [below for nested schema](#nestedatt--retry_policy))
 - `security_group_ids` (Set of String) The list of security groups applied to resource or their components.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
+- `version` (String) Trino version. Format: "Number".
 
 ### Read-Only
 

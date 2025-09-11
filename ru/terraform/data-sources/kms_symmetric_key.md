@@ -2,7 +2,7 @@
 subcategory: Key Management Service (KMS)
 page_title: 'Yandex: yandex_kms_symmetric_key'
 description: Get data from Yandex KMS symmetric key.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/kms_symmetric_key.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/kms_symmetric_key.md
 ---
 
 # yandex_kms_symmetric_key (Data Source)

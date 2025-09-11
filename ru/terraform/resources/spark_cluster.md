@@ -2,7 +2,7 @@
 subcategory: Managed Service for Apache Spark
 page_title: 'Yandex: yandex_spark_cluster'
 description: Manages an Apache Spark cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/spark_cluster.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/spark_cluster.md
 ---
 
 # yandex_spark_cluster (Resource)
@@ -83,7 +83,6 @@ resource "yandex_spark_cluster" "my_spark_cluster" {
 ### Read-Only
 
 - `created_at` (String) The timestamp when the cluster was created.
-- `health` (String) Aggregated health of the cluster.
 - `id` (String) Unique ID of the cluster.
 - `status` (String) Status of the cluster.
 

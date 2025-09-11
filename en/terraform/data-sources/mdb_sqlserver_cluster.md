@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_sqlserver_cluster.
 
 Get information about a Yandex Managed SQLServer cluster. For more information, see [the official documentation](https://yandex.cloud/docs/managed-sqlserver/).
 
-~> Either `cluster_id` or `name` should be specified.
+{% note warning %}
+
+Either `cluster_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

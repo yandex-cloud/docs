@@ -2,7 +2,7 @@
 subcategory: Managed Service for MySQL
 page_title: 'Yandex: yandex_mdb_mysql_database'
 description: Get details from MySQL database at MySQL Cluster.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_mysql_database.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_mysql_database.md
 ---
 
 # yandex_mdb_mysql_database (Data Source)

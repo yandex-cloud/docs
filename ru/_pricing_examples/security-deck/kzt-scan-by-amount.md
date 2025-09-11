@@ -1,0 +1,1 @@
+5 × {{ sku|KZT|security_deck.dspm.scanned.text.v1|string }} × ({{ sku|KZT|security_deck.dspm.scanned.files.v1|string }} × 50 / 10 000) = {% calc [currency=KZT] 5 × {{ sku|KZT|security_deck.dspm.scanned.text.v1|number }} × ({{ sku|KZT|security_deck.dspm.scanned.files.v1|number }} × 50 / 10 000) %}

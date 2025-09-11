@@ -17,7 +17,12 @@ For more information about disks in Yandex Cloud, see:
   * [Attach and detach a disk](https://yandex.cloud/docs/compute/concepts/disk#attach-detach)
   * [Backup operation](https://yandex.cloud/docs/compute/concepts/disk#backup)
 
-~> Only one of `image_id` or `snapshot_id` can be specified.
+{% note warning %}
+
+Only one of `image_id` or `snapshot_id` can be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

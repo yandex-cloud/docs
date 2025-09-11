@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/sws_advanced_rate_limi
 
 Get information about ARL Profile. For more information, see [the official documentation](https://yandex.cloud/docs/smartwebsecurity/quickstart#arl).This data source is used to define [ARL Profile](https://yandex.cloud/docs/smartwebsecurity/concepts/profiles) that can be used by other resources.
 
-~> One of `advanced_rate_limiter_profile_id` or `name` should be specified.
+{% note warning %}
+
+One of `advanced_rate_limiter_profile_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

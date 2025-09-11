@@ -38,9 +38,9 @@ items:
     items:
       - name: Обзор
         href: tf-ref/yandex-cloud/index.md
-      - name: История изменений
+      - name: История изменений (англ.)
         href: release-notes.md
-      - name: Ресурсы
+      - name: Ресурсы (англ.)
         expanded: true
         items:
           - name: Application Load Balancer (ALB)
@@ -279,6 +279,27 @@ items:
                     title: ''
                 title: ''
             title: ''
+          - name: Cloud Registry
+            items:
+              - name: Data Sources
+                items:
+                  - name: cloudregistry_registry
+                    href: data-sources/cloudregistry_registry.md
+                    title: ''
+                  - name: cloudregistry_registry_ip_permission
+                    href: data-sources/cloudregistry_registry_ip_permission.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: cloudregistry_registry_iam_binding
+                    href: resources/cloudregistry_registry_iam_binding.md
+                    title: ''
+                  - name: cloudregistry_registry_ip_permission
+                    href: resources/cloudregistry_registry_ip_permission.md
+                    title: ''
+                title: ''
+            title: ''
           - name: Compute Cloud
             items:
               - name: Data Sources
@@ -394,6 +415,9 @@ items:
                 title: ''
               - name: Resources
                 items:
+                  - name: cloudregistry_registry
+                    href: resources/cloudregistry_registry.md
+                    title: ''
                   - name: container_registry
                     href: resources/container_registry.md
                     title: ''
@@ -748,21 +772,6 @@ items:
                     title: ''
                 title: ''
             title: ''
-          - name: Managed Service for Elasticsearch
-            items:
-              - name: Data Sources
-                items:
-                  - name: mdb_elasticsearch_cluster
-                    href: data-sources/mdb_elasticsearch_cluster.md
-                    title: ''
-                title: ''
-              - name: Resources
-                items:
-                  - name: mdb_elasticsearch_cluster
-                    href: resources/mdb_elasticsearch_cluster.md
-                    title: ''
-                title: ''
-            title: ''
           - name: Managed Service for GitLab
             items:
               - name: Data Sources
@@ -785,11 +794,23 @@ items:
                   - name: mdb_greenplum_cluster
                     href: data-sources/mdb_greenplum_cluster.md
                     title: ''
+                  - name: mdb_greenplum_resource_group
+                    href: data-sources/mdb_greenplum_resource_group.md
+                    title: ''
+                  - name: mdb_greenplum_user
+                    href: data-sources/mdb_greenplum_user.md
+                    title: ''
                 title: ''
               - name: Resources
                 items:
                   - name: mdb_greenplum_cluster
                     href: resources/mdb_greenplum_cluster.md
+                    title: ''
+                  - name: mdb_greenplum_resource_group
+                    href: resources/mdb_greenplum_resource_group.md
+                    title: ''
+                  - name: mdb_greenplum_user
+                    href: resources/mdb_greenplum_user.md
                     title: ''
                 title: ''
             title: ''
@@ -824,14 +845,14 @@ items:
                   - name: kubernetes_cluster
                     href: resources/kubernetes_cluster.md
                     title: ''
-                  - name: kubernetes_node_group
-                    href: resources/kubernetes_node_group.md
-                    title: ''
                   - name: kubernetes_cluster_iam_binding
                     href: resources/kubernetes_cluster_iam_binding.md
                     title: ''
                   - name: kubernetes_cluster_iam_member
                     href: resources/kubernetes_cluster_iam_member.md
+                    title: ''
+                  - name: kubernetes_node_group
+                    href: resources/kubernetes_node_group.md
                     title: ''
                 title: ''
             title: ''
@@ -979,6 +1000,24 @@ items:
                     title: ''
                 title: ''
             title: ''
+          - name: Managed Service for Sharded PostgreSQL
+            items:
+              - name: Resources
+                items:
+                  - name: mdb_sharded_postgresql_cluster
+                    href: resources/mdb_sharded_postgresql_cluster.md
+                    title: ''
+                  - name: mdb_sharded_postgresql_database
+                    href: resources/mdb_sharded_postgresql_database.md
+                    title: ''
+                  - name: mdb_sharded_postgresql_shard
+                    href: resources/mdb_sharded_postgresql_shard.md
+                    title: ''
+                  - name: mdb_sharded_postgresql_user
+                    href: resources/mdb_sharded_postgresql_user.md
+                    title: ''
+                title: ''
+            title: ''
           - name: Managed Service for Trino
             items:
               - name: Data Sources
@@ -1033,6 +1072,21 @@ items:
                     title: ''
                   - name: ydb_topic
                     href: resources/ydb_topic.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Managed YTsaurus
+            items:
+              - name: Data Sources
+                items:
+                  - name: ytsaurus_cluster
+                    href: data-sources/ytsaurus_cluster.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: ytsaurus_cluster
+                    href: resources/ytsaurus_cluster.md
                     title: ''
                 title: ''
             title: ''

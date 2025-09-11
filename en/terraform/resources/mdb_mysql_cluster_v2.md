@@ -92,7 +92,7 @@ resource "yandex_vpc_security_group" "test-sgroup" {
 - `environment` (String) Deployment environment of the MySQL cluster.
 - `hosts` (Attributes Map) A host configuration of the MySQL cluster. (see [below for nested schema](#nestedatt--hosts))
 - `name` (String) Name of the MySQL cluster. Provided by the client when the cluster is created.
-- `network_id` (String) ID of the network that the cluster belongs to.
+- `network_id` (String) The `VPC Network ID` of subnets which resource attached to.
 - `version` (String) Version of the MySQL cluster.
 
 ### Optional
@@ -100,15 +100,19 @@ resource "yandex_vpc_security_group" "test-sgroup" {
 - `access` (Attributes) Access policy to the MySQL cluster. (see [below for nested schema](#nestedatt--access))
 - `backup_retain_period_days` (Number) The period in days during which backups are stored.
 - `backup_window_start` (Attributes) Time to start the daily backup, in the UTC timezone. (see [below for nested schema](#nestedatt--backup_window_start))
-- `deletion_protection` (Boolean) Inhibits deletion of the cluster. Can be either true or false.
+- `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) Description of the MySQL cluster.
+- `disk_encryption_key_id` (String) ID of the symmetric encryption key used to encrypt the disk of the cluster.
+- `disk_size_autoscaling` (Attributes) Cluster disk size autoscaling settings. (see [below for nested schema](#nestedatt--disk_size_autoscaling))
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `maintenance_window` (Attributes) Maintenance policy of the MySQL cluster. (see [below for nested schema](#nestedatt--maintenance_window))
 - `mysql_config` (Map of String) MySQL cluster config.
 - `performance_diagnostics` (Attributes) Cluster performance diagnostics settings. The structure is documented below. (see [below for nested schema](#nestedatt--performance_diagnostics))
 - `resources` (Block, Optional) Resources allocated to hosts of the MySQL cluster. (see [below for nested schema](#nestedblock--resources))
-- `security_group_ids` (Set of String) A set of ids of security groups assigned to hosts of the cluster.
+- `restore` (Attributes) The cluster will be created from the specified backup. (see [below for nested schema](#nestedatt--restore))
+- `security_group_ids` (Set of String) The list of security groups applied to resource or their components.
+- `timeouts` (Attributes) (see [below for nested schema](#nestedatt--timeouts))
 
 ### Read-Only
 
@@ -151,6 +155,19 @@ Optional:
 - `minutes` (Number) The minute at which backup will be started (UTC).
 
 
+<a id="nestedatt--disk_size_autoscaling"></a>
+### Nested Schema for `disk_size_autoscaling`
+
+Required:
+
+- `disk_size_limit` (Number) Limit of disk size after autoscaling (GiB).
+
+Optional:
+
+- `emergency_usage_threshold` (Number) Immediate autoscaling disk usage (percent).
+- `planned_usage_threshold` (Number) Maintenance window autoscaling disk usage (percent).
+
+
 <a id="nestedatt--maintenance_window"></a>
 ### Nested Schema for `maintenance_window`
 
@@ -182,6 +199,28 @@ Required:
 - `disk_size` (Number) Size of the disk in bytes.
 - `disk_type_id` (String) ID of the disk type that determines the disk performance characteristics.
 - `resource_preset_id` (String) ID of the resource preset that determines the number of CPU cores and memory size for the host.
+
+
+<a id="nestedatt--restore"></a>
+### Nested Schema for `restore`
+
+Required:
+
+- `backup_id` (String) Backup ID. The cluster will be created from the specified backup. [How to get a list of MySQL backups](https://yandex.cloud/docs/managed-mysql/operations/cluster-backups).
+
+Optional:
+
+- `time` (String) Timestamp of the moment to which the MySQL cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). When not set, current time is used.
+
+
+<a id="nestedatt--timeouts"></a>
+### Nested Schema for `timeouts`
+
+Optional:
+
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+- `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import
 

@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/cm_certificate_content
 
 Get content (certificate, private key) from a Yandex Certificate Manager Certificate. For more information, see [the official documentation](https://yandex.cloud/docs/certificate-manager/concepts/).
 
-~> One of `certificate_id` or `name` should be specified.
+{% note warning %}
+
+One of `certificate_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 

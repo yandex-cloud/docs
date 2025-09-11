@@ -2,18 +2,28 @@
 subcategory: Certificate Manager
 page_title: 'Yandex: yandex_cm_certificate'
 description: A TLS certificate signed by a certification authority confirming that it belongs to the owner of the domain name.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/cm_certificate.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/cm_certificate.md
 ---
 
 # yandex_cm_certificate (Resource)
 
 Creates or requests a TLS certificate in the specified folder. For more information, see [the official documentation](https://yandex.cloud/docs/certificate-manager/concepts/).
 
-~> At the moment, a resource may not work correctly if it declares the use of a DNS challenge, but the certificate is confirmed using an HTTP challenge. And vice versa.
+{% note warning %}
+
+At the moment, a resource may not work correctly if it declares the use of a DNS challenge, but the certificate is confirmed using an HTTP challenge. And vice versa.
+
+{% endnote %}
+
 
 In this case, the service does not provide the parameters of the required type of challenges.
 
-~> Only one type `managed` or `self_managed` should be specified.
+{% note warning %}
+
+Only one type `managed` or `self_managed` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -111,10 +121,20 @@ resource "yandex_cm_certificate" "example" {
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `managed` (Block List, Max: 1) Managed specification.
 
-~> Resource creation awaits getting challenges from issue provider. (see [below for nested schema](#nestedblock--managed))
+{% note warning %}
+
+Resource creation awaits getting challenges from issue provider. (see [below for nested schema](#nestedblock--managed))
+
+{% endnote %}
+
 - `self_managed` (Block List, Max: 1) Self-managed specification.
 
-~> Only one type `private_key` or `private_key_lockbox_secret` should be specified. (see [below for nested schema](#nestedblock--self_managed))
+{% note warning %}
+
+Only one type `private_key` or `private_key_lockbox_secret` should be specified. (see [below for nested schema](#nestedblock--self_managed))
+
+{% endnote %}
+
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 
 ### Read-Only

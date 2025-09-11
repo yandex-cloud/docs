@@ -2,7 +2,7 @@
 subcategory: Cloud Organization
 page_title: 'Yandex: yandex_organizationmanager_group'
 description: Allows management of a single Group within an existing Yandex Cloud Organization.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/organizationmanager_group.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/organizationmanager_group.md
 ---
 
 # yandex_organizationmanager_group (Resource)

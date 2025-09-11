@@ -2,7 +2,7 @@
 subcategory: Managed Service for MySQL
 page_title: 'Yandex: yandex_mdb_mysql_cluster'
 description: Manages a MySQL cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_mysql_cluster.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_mysql_cluster.md
 ---
 
 # yandex_mdb_mysql_cluster (Resource)
@@ -335,8 +335,10 @@ Regenerate hosts after changing the assign_public_ip parameter.
 - `database` (Block Set, Deprecated) To manage databases, please switch to using a separate resource type `yandex_mdb_mysql_databases`. (see [below for nested schema](#nestedblock--database))
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.
+- `disk_encryption_key_id` (String) ID of the KMS key for cluster disk encryption. Restoring without an encryption key will disable encryption if any exists.
+- `disk_size_autoscaling` (Block List, Max: 1) Cluster disk size autoscaling settings. (see [below for nested schema](#nestedblock--disk_size_autoscaling))
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `host_group_ids` (Set of String)
+- `host_group_ids` (Set of String) A list of host group IDs to place VMs of the cluster on.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `maintenance_window` (Block List, Max: 1) Maintenance policy of the MySQL cluster. (see [below for nested schema](#nestedblock--maintenance_window))
 - `mysql_config` (Map of String) MySQL cluster config block.
@@ -400,8 +402,8 @@ Optional:
 
 Optional:
 
-- `hours` (Number) The hour at which backup will be started.
-- `minutes` (Number) The minute at which backup will be started.
+- `hours` (Number) The hour at which backup will be started (UTC).
+- `minutes` (Number) The minute at which backup will be started (UTC).
 
 
 <a id="nestedblock--database"></a>
@@ -410,6 +412,19 @@ Optional:
 Required:
 
 - `name` (String) The name of the database.
+
+
+<a id="nestedblock--disk_size_autoscaling"></a>
+### Nested Schema for `disk_size_autoscaling`
+
+Required:
+
+- `disk_size_limit` (Number) Limit of disk size after autoscaling (GiB).
+
+Optional:
+
+- `emergency_usage_threshold` (Number) Immediate autoscaling disk usage (percent).
+- `planned_usage_threshold` (Number) Maintenance window autoscaling disk usage (percent).
 
 
 <a id="nestedblock--maintenance_window"></a>
@@ -470,9 +485,9 @@ Required:
 
 Optional:
 
-- `authentication_plugin` (String) Authentication plugin. Allowed values: `MYSQL_NATIVE_PASSWORD`, `CACHING_SHA2_PASSWORD`, `SHA256_PASSWORD` (for version 5.7 `MYSQL_NATIVE_PASSWORD`, `SHA256_PASSWORD`).
+- `authentication_plugin` (String) Authentication plugin. Allowed values: `MYSQL_NATIVE_PASSWORD`, `CACHING_SHA2_PASSWORD`, `SHA256_PASSWORD`, `MYSQL_NO_LOGIN`, `MDB_IAMPROXY_AUTH` (for version 5.7 `MYSQL_NATIVE_PASSWORD`, `SHA256_PASSWORD`, `MYSQL_NO_LOGIN`, `MDB_IAMPROXY_AUTH`).
 - `connection_limits` (Block List, Max: 1) User's connection limits. If not specified there will be no changes. Default value is -1. When these parameters are set to -1, backend default values will be actually used. (see [below for nested schema](#nestedblock--user--connection_limits))
-- `global_permissions` (Set of String) List user's global permissions. Allowed permissions: `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `PROCESS` for clear list use empty list. If the attribute is not specified there will be no changes.
+- `global_permissions` (Set of String) List user's global permissions. Allowed permissions: `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `PROCESS`, `FLUSH OPTIMIZER COSTS`, `SHOW ROUTINE`, `MDB ADMIN` for clear list use empty list. If the attribute is not specified there will be no changes.
 - `permission` (Block Set) Set of permissions granted to the user. (see [below for nested schema](#nestedblock--user--permission))
 
 <a id="nestedblock--user--connection_limits"></a>

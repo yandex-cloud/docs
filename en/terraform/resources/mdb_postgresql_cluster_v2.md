@@ -42,9 +42,11 @@ resource "yandex_mdb_postgresql_cluster_v2" "my_v2_cluster" {
     hour = 12
   }
 
-  host {
-    zone      = "ru-central1-d"
-    subnet_id = yandex_vpc_subnet.foo.id
+  hosts = {
+    "host1d" = {
+      zone      = "ru-central1-d"
+      subnet_id = yandex_vpc_subnet.foo.id
+    }
   }
 }
 
@@ -66,17 +68,20 @@ resource "yandex_vpc_subnet" "foo" {
 - `environment` (String) Deployment environment of the PostgreSQL cluster.
 - `hosts` (Attributes Map) A host configuration of the PostgreSQL cluster. (see [below for nested schema](#nestedatt--hosts))
 - `name` (String) Name of the PostgreSQL cluster. Provided by the client when the cluster is created.
-- `network_id` (String) ID of the network that the cluster belongs to.
+- `network_id` (String) The `VPC Network ID` of subnets which resource attached to.
 
 ### Optional
 
 - `config` (Block, Optional) Configuration of the PostgreSQL cluster. (see [below for nested schema](#nestedblock--config))
-- `deletion_protection` (Boolean) Inhibits deletion of the cluster. Can be either true or false.
+- `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) Description of the PostgreSQL cluster.
+- `disk_encryption_key_id` (String) ID of the KMS key for cluster disk encryption.
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `maintenance_window` (Attributes) Maintenance policy of the PostgreSQL cluster. (see [below for nested schema](#nestedatt--maintenance_window))
-- `security_group_ids` (Set of String) A set of ids of security groups assigned to hosts of the cluster.
+- `restore` (Attributes) The cluster will be created from the specified backup. (see [below for nested schema](#nestedatt--restore))
+- `security_group_ids` (Set of String) The list of security groups applied to resource or their components.
+- `timeouts` (Attributes) (see [below for nested schema](#nestedatt--timeouts))
 
 ### Read-Only
 
@@ -91,7 +96,7 @@ Required:
 
 Optional:
 
-- `assign_public_ip` (Boolean) Assign a public IP address to the host.
+- `assign_public_ip` (Boolean) Whether the host should get a public IP address.
 - `replication_source` (String) FQDN of the host that is used as a replication source.
 - `subnet_id` (String) ID of the subnet where the host is located.
 
@@ -136,7 +141,7 @@ Optional:
 Optional:
 
 - `hours` (Number) The hour at which backup will be started (UTC).
-- `minutes` (Number) The minute at which backup will be started (UTC).
+- `minutes` (Number) The minute at which backup will be started.
 
 
 <a id="nestedatt--config--disk_size_autoscaling"></a>
@@ -144,12 +149,12 @@ Optional:
 
 Required:
 
-- `disk_size_limit` (Number) Limit of disk size after autoscaling, GiB.
+- `disk_size_limit` (Number) The overall maximum for disk size that limit all autoscaling iterations. See the [documentation](https://yandex.cloud/en/docs/managed-postgresql/concepts/storage#auto-rescale) for details.
 
 Optional:
 
-- `emergency_usage_threshold` (Number) Threshold for an immediate increase, in percent.
-- `planned_usage_threshold` (Number) Threshold for planned increase, in percent.
+- `emergency_usage_threshold` (Number) Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+- `planned_usage_threshold` (Number) Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
 
 
 <a id="nestedatt--config--performance_diagnostics"></a>
@@ -157,8 +162,8 @@ Optional:
 
 Required:
 
-- `sessions_sampling_interval` (Number) Interval (in seconds) for pg_stat_activity sampling Acceptable values are 1 to 86400, inclusive.
-- `statements_sampling_interval` (Number) Interval (in seconds) for pg_stat_statements sampling Acceptable values are 60 to 86400, inclusive.
+- `sessions_sampling_interval` (Number) Interval (in seconds) for pg_stat_activity sampling. Acceptable values are 1 to 86400, inclusive.
+- `statements_sampling_interval` (Number) Interval (in seconds) for pg_stat_statements sampling. Acceptable values are 60 to 86400, inclusive.
 
 Optional:
 
@@ -193,6 +198,31 @@ Optional:
 - `day` (String) Day of the week (in DDD format). Allowed values: "MON", "TUE", "WED", "THU", "FRI", "SAT","SUN"
 - `hour` (Number) Hour of the day in UTC (in HH format). Allowed value is between 1 and 24.
 - `type` (String) Type of maintenance window. Can be either ANYTIME or WEEKLY. A day and hour of window need to be specified with weekly window.
+
+
+<a id="nestedatt--restore"></a>
+### Nested Schema for `restore`
+
+Required:
+
+- `backup_id` (String) Backup ID. The cluster will be created from the specified backup. [How to get a list of PostgreSQL backups](https://yandex.cloud/docs/managed-postgresql/operations/cluster-backups).
+
+Optional:
+
+- `time` (String) Timestamp of the moment to which the PostgreSQL cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). When not set, current time is used.
+- `time_inclusive` (Boolean) Flag that indicates whether a database should be restored to the first backup point available just after the timestamp specified in the [time] field instead of just before. Possible values:
+* `false` (default) — the restore point refers to the first backup moment before [time].
+* `true` — the restore point refers to the first backup point after [time].
+
+
+<a id="nestedatt--timeouts"></a>
+### Nested Schema for `timeouts`
+
+Optional:
+
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+- `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import
 

@@ -2,7 +2,7 @@
 subcategory: Compute Cloud
 page_title: 'Yandex: yandex_compute_snapshot_schedule_iam_binding'
 description: Allows management of a single IAM binding for the Snapshot Schedule.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/compute_snapshot_schedule_iam_binding.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_snapshot_schedule_iam_binding.md
 ---
 
 # yandex_compute_snapshot_schedule_iam_binding (Resource)
@@ -56,10 +56,20 @@ resource "yandex_compute_snapshot_schedule_iam_binding" "editor" {
  * **system:allAuthenticatedUsers**: All authenticated users.
  * **system:allUsers**: All users, including unauthenticated ones.
 
-~> for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
 - `role` (String) The role that should be assigned. Only one yandex_compute_snapshot_schedule_iam_binding can be used per role.
 - `snapshot_schedule_id` (String) The ID of the compute Snapshot Schedule to attach the policy to.
 
 ## Import
 
-~> Import for this resource is not implemented yet.
+{% note warning %}
+
+Import for this resource is not implemented yet.
+
+{% endnote %}
+

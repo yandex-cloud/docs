@@ -2,7 +2,7 @@
 subcategory: Managed Service for ClickHouse
 page_title: 'Yandex: yandex_mdb_clickhouse_user'
 description: Manages a Database user in Clickhouse cluster within Yandex Cloud.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/resources/mdb_clickhouse_user.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/mdb_clickhouse_user.md
 ---
 
 # yandex_mdb_clickhouse_user (Resource)
@@ -94,12 +94,17 @@ resource "yandex_mdb_clickhouse_user" "foo" {
 
 - `generate_password` (Boolean) Generate password using Connection Manager. Allowed values: `true` or `false`. It's used only during user creation and is ignored during updating.
 
-~> **Must specify either password or generate_password**.
+{% note warning %}
+
+**Must specify either password or generate_password**.
+
+{% endnote %}
+
 - `password` (String, Sensitive) Password of the ClickHouse user. Provided by the client when the user is created.
 - `permission` (Block Set) Block represents databases that are permitted to user. (see [below for nested schema](#nestedblock--permission))
 - `quota` (Block Set) ClickHouse quota representation. Each quota associated with an user and limits it resource usage for an interval. For more information, see [the official documentation](https://clickhouse.com/docs/en/operations/quotas) (see [below for nested schema](#nestedblock--quota))
 - `settings` (Block, Optional) Block represents ClickHouse user settings. For more information, see [the official documentation](https://clickhouse.com/docs/ru/operations/settings/settings) (see [below for nested schema](#nestedblock--settings))
-- `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
+- `timeouts` (Attributes) (see [below for nested schema](#nestedatt--timeouts))
 
 ### Read-Only
 
@@ -145,24 +150,32 @@ Optional:
 - `async_insert_max_data_size` (Number) The maximum size of the unparsed data in bytes collected per query before being inserted. If the parameter is set to 0, asynchronous insertions are disabled. Default value: 100000.
 - `async_insert_stale_timeout` (Number) The maximum timeout in milliseconds since the last INSERT query before dumping collected data. If enabled, the settings prolongs the async_insert_busy_timeout with every INSERT query as long as async_insert_max_data_size is not exceeded.
 - `async_insert_threads` (Number) The maximum number of threads for background data parsing and insertion. If the parameter is set to 0, asynchronous insertions are disabled. Default value: 16.
+- `async_insert_use_adaptive_busy_timeout` (Boolean) If it is set to true, use adaptive busy timeout for asynchronous inserts.
 - `cancel_http_readonly_queries_on_client_close` (Boolean) Cancels HTTP read-only queries (e.g. SELECT) when a client closes the connection without waiting for the response. Default value: false.
 - `compile_expressions` (Boolean) Enable or disable compilation of some scalar functions and operators to native code.
 - `connect_timeout` (Number) Connection timeout in milliseconds.
 - `connect_timeout_with_failover` (Number) The timeout in milliseconds for connecting to a remote server for a Distributed table engine.  Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
 - `count_distinct_implementation` (String) Specifies which of the uniq* functions should be used to perform the COUNT(DISTINCT …) construction.
+- `data_type_default_nullable` (Boolean) Allows data types without explicit modifiers NULL or NOT NULL in column definition will be Nullable.
 - `date_time_input_format` (String) Allows choosing a parser of the text representation of date and time, one of: `best_effort`, `basic`, `best_effort_us`. Default value: `basic`. Cloud default value: `best_effort`.
 - `date_time_output_format` (String) Allows choosing different output formats of the text representation of date and time, one of: `simple`, `iso`, `unix_timestamp`. Default value: `simple`.
 - `deduplicate_blocks_in_dependent_materialized_views` (Boolean) Enables or disables the deduplication check for materialized views that receive data from Replicated* tables.
 - `distinct_overflow_mode` (String) Sets behaviour on overflow when using DISTINCT.
 - `distributed_aggregation_memory_efficient` (Boolean) Enables of disables memory saving mode when doing distributed aggregation.
+- `distributed_ddl_output_mode` (String) Determines the format of distributed DDL query result.
 - `distributed_ddl_task_timeout` (Number) Timeout for DDL queries, in milliseconds.
 - `distributed_product_mode` (String) Determine the behavior of distributed subqueries.
+- `do_not_merge_across_partitions_select_final` (Boolean) Enable or disable independent processing of partitions for **SELECT** queries with **FINAL**.
 - `empty_result_for_aggregation_by_empty_set` (Boolean) Allows to retunr empty result.
+- `enable_analyzer` (Boolean) Enable new query analyzer.
 - `enable_http_compression` (Boolean) Enables or disables data compression in the response to an HTTP request.
+- `enable_reads_from_query_cache` (Boolean) If turned on, results of SELECT queries are retrieved from the query cache.
+- `enable_writes_to_query_cache` (Boolean) If turned on, results of SELECT queries are stored in the query cache.
 - `fallback_to_stale_replicas_for_distributed_queries` (Boolean) Enables or disables query forcing to a stale replica in case the actual data is unavailable. If enabled, ClickHouse will choose the most up-to-date replica and force the query to use the data in this replica.
 - `flatten_nested` (Boolean) Sets the data format of a nested columns.
 - `force_index_by_date` (Boolean) Disable query execution if the index cannot be used by date.
 - `force_primary_key` (Boolean) Disable query execution if indexing by the primary key is not possible.
+- `format_avro_schema_registry_url` (String) Avro schema registry URL.
 - `format_regexp` (String) Regular expression (for Regexp format).
 - `format_regexp_skip_unmatched` (Boolean) Skip lines unmatched by regular expression.
 - `group_by_overflow_mode` (String) Sets behaviour on overflow while GROUP BY operation.
@@ -171,9 +184,12 @@ Optional:
 - `hedged_connection_timeout_ms` (Number) Connection timeout for establishing connection with replica for Hedged requests. Default value: 50 milliseconds.
 - `http_connection_timeout` (Number) Timeout for HTTP connection in milliseconds.
 - `http_headers_progress_interval` (Number) Sets minimal interval between notifications about request process in HTTP header X-ClickHouse-Progress.
+- `http_max_field_name_size` (Number) Maximum length of field name in HTTP header.
+- `http_max_field_value_size` (Number) Maximum length of field value in HTTP header.
 - `http_receive_timeout` (Number) Timeout for HTTP connection in milliseconds.
 - `http_send_timeout` (Number) Timeout for HTTP connection in milliseconds.
 - `idle_connection_timeout` (Number) Timeout to close idle TCP connections after specified number of seconds. Default value: 3600 seconds.
+- `ignore_materialized_views_with_dropped_target_table` (Boolean) Ignore materialized views with dropped target table during pushing to views.
 - `input_format_defaults_for_omitted_fields` (Boolean) When performing INSERT queries, replace omitted input column values with default values of the respective columns.
 - `input_format_import_nested_json` (Boolean) Enables or disables the insertion of JSON data with nested objects.
 - `input_format_null_as_default` (Boolean) Enables or disables the initialization of NULL fields with default values, if data type of these fields is not nullable.
@@ -195,7 +211,10 @@ Optional:
 * 'pread' - abort query execution, return an error.  
 * 'pread_threadpool' - stop query execution, return partial result. 
 If the parameter is set to 0 (default), no hops is allowed.
+- `log_processors_profiles` (Boolean) Enabled or disable logging of processors level profiling data to the the system.log_processors_profiles table.
+- `log_queries_probability` (Number) Log queries with the specified probability.
 - `log_query_threads` (Boolean) Setting up query threads logging. Query threads log into the system.query_thread_log table. This setting has effect only when log_queries is true. Queries’ threads run by ClickHouse with this setup are logged according to the rules in the query_thread_log server configuration parameter. Default value: true.
+- `log_query_views` (Boolean) Enables or disables query views logging to the the system.query_views_log table.
 - `low_cardinality_allow_in_native_format` (Boolean) Allows or restricts using the LowCardinality data type with the Native format.
 - `max_ast_depth` (Number) Limits the maximum depth of query syntax tree.
 - `max_ast_elements` (Number) Limits the maximum size of query syntax tree in number of nodes.
@@ -258,6 +277,15 @@ If the parameter is set to 0 (default), no hops is allowed.
 - `output_format_json_quote_denormals` (Boolean) Enables +nan, -nan, +inf, -inf outputs in JSON output format.
 - `prefer_localhost_replica` (Boolean) Enables/disables preferable using the localhost replica when processing distributed queries. Default value: true.
 - `priority` (Number) Priority of the query.
+- `query_cache_max_entries` (Number) The maximum number of query results the current user may store in the query cache. 0 means unlimited.
+- `query_cache_max_size_in_bytes` (Number) The maximum amount of memory (in bytes) the current user may allocate in the query cache. 0 means unlimited.
+- `query_cache_min_query_duration` (Number) Minimum duration in milliseconds a query needs to run for its result to be stored in the query cache.
+- `query_cache_min_query_runs` (Number) Minimum number of times a SELECT query must run before its result is stored in the query cache.
+- `query_cache_nondeterministic_function_handling` (String) Controls how the query cache handles **SELECT** queries with non-deterministic functions like rand() or now().
+- `query_cache_share_between_users` (Boolean) If turned on, the result of SELECT queries cached in the query cache can be read by other users. It is not recommended to enable this setting due to security reasons.
+- `query_cache_system_table_handling` (String) Controls how the query cache handles **SELECT** queries against system tables.
+- `query_cache_tag` (String) A string which acts as a label for query cache entries. The same queries with different tags are considered different by the query cache.
+- `query_cache_ttl` (Number) After this time in seconds entries in the query cache become stale.
 - `quota_mode` (String) Quota accounting mode.
 - `read_overflow_mode` (String) Sets behaviour on overflow while read. Possible values: * throw - abort query execution, return an error.  * break - stop query execution, return partial result.
 - `readonly` (Number) Restricts permissions for non-DDL queries.
@@ -265,6 +293,7 @@ If the parameter is set to 0 (default), no hops is allowed.
 - `remote_filesystem_read_method` (String) Method of reading data from remote filesystem, one of: `read`, `threadpool`.
 - `replication_alter_partitions_sync` (Number) Wait mode for asynchronous actions in ALTER queries on replicated tables.
 - `result_overflow_mode` (String) Sets behaviour on overflow in result.
+- `s3_use_adaptive_timeouts` (Boolean) Enables or disables adaptive timeouts for S3 requests.
 - `select_sequential_consistency` (Boolean) Determines the behavior of SELECT queries from replicated tables. If enabled, ClickHouse will terminate a query with error message in case the replica does not have a chunk written with the quorum and will not read the parts that have not yet been written with the quorum.
 - `send_progress_in_http_headers` (Boolean) Enables or disables X-ClickHouse-Progress HTTP response headers in clickhouse-server responses.
 - `send_timeout` (Number) Send timeout in milliseconds.
@@ -276,17 +305,18 @@ If the parameter is set to 0 (default), no hops is allowed.
 - `transfer_overflow_mode` (String) Sets behaviour on overflow.
 - `transform_null_in` (Boolean) Enables equality of NULL values for IN operator.
 - `use_hedged_requests` (Boolean) Enables hedged requests logic for remote queries. It allows to establish many connections with different replicas for query. New connection is enabled in case existent connection(s) with replica(s) were not established within hedged_connection_timeout or no data was received within receive_data_timeout. Query uses the first connection which send non empty progress packet (or data packet, if allow_changing_replica_until_first_data_packet); other connections are cancelled. Queries with max_parallel_replicas > 1 are supported. Default value: true.
+- `use_query_cache` (Boolean) If turned on, SELECT queries may utilize the query cache.
 - `use_uncompressed_cache` (Boolean) Whether to use a cache of uncompressed blocks.
 - `wait_for_async_insert` (Boolean) Enables waiting for processing of asynchronous insertion. If enabled, server returns OK only after the data is inserted.
 - `wait_for_async_insert_timeout` (Number) The timeout (in seconds) for waiting for processing of asynchronous insertion. Value must be at least 1000 (1 second).
 
 
-<a id="nestedblock--timeouts"></a>
+<a id="nestedatt--timeouts"></a>
 ### Nested Schema for `timeouts`
 
 Optional:
 
-- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `create` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `delete` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
 - `update` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 

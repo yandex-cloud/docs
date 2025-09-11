@@ -2,7 +2,7 @@
 subcategory: Managed Service for MongoDB
 page_title: 'Yandex: yandex_mdb_mongodb_user'
 description: Get information about a Yandex Managed MongoDB User.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_mongodb_user.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_mongodb_user.md
 ---
 
 # yandex_mdb_mongodb_user (Data Source)

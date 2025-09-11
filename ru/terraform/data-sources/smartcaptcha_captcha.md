@@ -2,14 +2,19 @@
 subcategory: Smart Captcha
 page_title: 'Yandex: yandex_smartcaptcha_captcha'
 description: Get information about Yandex SmartCaptcha.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/smartcaptcha_captcha.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/smartcaptcha_captcha.md
 ---
 
 # yandex_smartcaptcha_captcha (Data Source)
 
 Get information about Yandex SmartCaptcha. For more information, see [the official documentation](https://yandex.cloud/docs/smartcaptcha/).This data source is used to define Captcha that can be used by other resources.
 
-~> One of `captcha_id` or `name` should be specified.
+{% note warning %}
+
+One of `captcha_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example Usage
 

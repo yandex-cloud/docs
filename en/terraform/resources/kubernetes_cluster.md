@@ -9,7 +9,12 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/kubernetes_cluster.md
 
 Creates a Yandex Cloud Managed Kubernetes Cluster. For more information, see [the official documentation](https://yandex.cloud/docs/managed-kubernetes/concepts/#kubernetes-cluster).
 
-~>When access rights for `service_account_id` or `node_service_account_id` are provided using terraform resources, it is necessary to add dependency on these access resources to cluster config - see Example #3.
+{% note warning %}
+
+When access rights for `service_account_id` or `node_service_account_id` are provided using terraform resources, it is necessary to add dependency on these access resources to cluster config - see Example #3.
+
+{% endnote %}
+
 
 Without it, on destroy, terraform will delete cluster and remove access rights for service account(s) simultaneously, that will cause problems for cluster and related node group deletion.
 
@@ -269,7 +274,12 @@ Optional:
 - `cluster_autoscaler_enabled` (Boolean) Boolean flag that specifies if cluster-autoscaler logs should be sent to Yandex Cloud Logging.
 - `enabled` (Boolean) Boolean flag that specifies if master components logs should be sent to [Yandex Cloud Logging](https://yandex.cloud/docs/logging/). The exact components that will send their logs must be configured via the options described below.
 
-~> Only one of `log_group_id` or `folder_id` (or none) may be specified. If `log_group_id` is specified, logs will be sent to this specific Log group. If `folder_id` is specified, logs will be sent to **default** Log group of this folder. If none of two is specified, logs will be sent to **default** Log group of the **same** folder as Kubernetes cluster.
+{% note warning %}
+
+Only one of `log_group_id` or `folder_id` (or none) may be specified. If `log_group_id` is specified, logs will be sent to this specific Log group. If `folder_id` is specified, logs will be sent to **default** Log group of this folder. If none of two is specified, logs will be sent to **default** Log group of the **same** folder as Kubernetes cluster.
+
+{% endnote %}
+
 - `events_enabled` (Boolean) Boolean flag that specifies if kubernetes cluster events should be sent to Yandex Cloud Logging.
 - `folder_id` (String) ID of the folder default Log group of which should be used to collect logs.
 - `kube_apiserver_enabled` (Boolean) Boolean flag that specifies if kube-apiserver logs should be sent to Yandex Cloud Logging.

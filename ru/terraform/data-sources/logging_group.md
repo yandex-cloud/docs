@@ -2,14 +2,19 @@
 subcategory: Cloud Logging
 page_title: 'Yandex: yandex_logging_group'
 description: Get information about a Yandex Cloud Logging group.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/logging_group.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/logging_group.md
 ---
 
 # yandex_logging_group (Data Source)
 
 Get information about a Yandex Cloud Logging group. For more information, see [the official documentation](https://yandex.cloud/docs/logging/concepts/log-group).
 
-~> If `group_id` is not specified `name` and `folder_id` will be used to designate Yandex Cloud Logging group.
+{% note warning %}
+
+If `group_id` is not specified `name` and `folder_id` will be used to designate Yandex Cloud Logging group.
+
+{% endnote %}
+
 
 ## Example usage
 

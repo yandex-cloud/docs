@@ -2,14 +2,19 @@
 subcategory: Managed Service for MongoDB
 page_title: 'Yandex: yandex_mdb_mongodb_cluster'
 description: Get information about a Yandex Managed MongoDB cluster.
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/mdb_mongodb_cluster.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/mdb_mongodb_cluster.md
 ---
 
 # yandex_mdb_mongodb_cluster (Data Source)
 
 Get information about a Yandex Managed MongoDB cluster. For more information, see [the official documentation](https://yandex.cloud/docs/managed-mongodb/concepts).
 
-~> Either `cluster_id` or `name` should be specified.
+{% note warning %}
+
+Either `cluster_id` or `name` should be specified.
+
+{% endnote %}
+
 
 ## Example usage
 
@@ -37,6 +42,7 @@ output "network_id" {
 - `database` (Block Set, Deprecated) A database of the MongoDB cluster. (see [below for nested schema](#nestedblock--database))
 - `deletion_protection` (Boolean) The `true` value means that resource is protected from accidental deletion.
 - `description` (String) The resource description.
+- `disk_encryption_key_id` (String) ID of the KMS key for cluster disk encryption.
 - `disk_size_autoscaling_mongocfg` (Block List, Max: 1) Disk size autoscaling settings for mongocfg. (see [below for nested schema](#nestedblock--disk_size_autoscaling_mongocfg))
 - `disk_size_autoscaling_mongod` (Block List, Max: 1) Disk size autoscaling settings for mongod. (see [below for nested schema](#nestedblock--disk_size_autoscaling_mongod))
 - `disk_size_autoscaling_mongoinfra` (Block List, Max: 1) Disk size autoscaling settings for mongoinfra. (see [below for nested schema](#nestedblock--disk_size_autoscaling_mongoinfra))

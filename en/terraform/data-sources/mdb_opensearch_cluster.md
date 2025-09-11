@@ -32,7 +32,12 @@ The following arguments are supported:
 
 * `name` - (Optional) The name of the OpenSearch cluster.
 
-~> Either `cluster_id` or `name` should be specified.
+{% note warning %}
+
+Either `cluster_id` or `name` should be specified.
+
+{% endnote %}
+
 
 * `folder_id` - (Optional) The ID of the folder that the resource belongs to. If it is not provided, the default provider folder is used.
 

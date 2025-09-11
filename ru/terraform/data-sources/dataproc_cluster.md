@@ -2,7 +2,7 @@
 subcategory: Data Processing
 page_title: 'Yandex: yandex_dataproc_cluster'
 description: Get information about a Yandex Data Processing cluster
-sourcePath: ru/terraform/tf-ref/yandex-cloud/data-sources/dataproc_cluster.md
+sourcePath: en/terraform/tf-ref/yandex-cloud/data-sources/dataproc_cluster.md
 ---
 
 # yandex_dataproc_cluster (Data Source)
@@ -34,7 +34,7 @@ output "service_account_id" {
 
 ### Read-Only
 
-- `autoscaling_service_account_id` (String) Service account to be used by the Instance Groups service.
+- `autoscaling_service_account_id` (String) Service account to be used for managing hosts in an autoscaled subcluster.
 - `bucket` (String) Name of the Object Storage bucket to use for Yandex Data Processing jobs. Yandex Data Processing Agent saves output of job driver's process to specified bucket. In order for this to work service account (specified by the `service_account_id` argument) should be given permission to create objects within this bucket.
 - `cluster_config` (List of Object) Configuration and resources for hosts that should be created with the cluster. (see [below for nested schema](#nestedatt--cluster_config))
 - `created_at` (String) The creation timestamp of the resource.
