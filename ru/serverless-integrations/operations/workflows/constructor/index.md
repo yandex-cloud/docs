@@ -41,3 +41,4 @@ description: Из статьи вы узнаете, как работать с �
 ## Общие настройки {#general-settings}
 
 * [{#T}](./setup-restart-policy.md)
+* [{#T}](./setup-catch-rule.md)

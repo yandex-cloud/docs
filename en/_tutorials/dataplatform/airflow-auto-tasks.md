@@ -1,8 +1,8 @@
-# Automating {{ yq-full-name }} tasks using {{ maf-full-name }}
+# Automating {{ yq-full-name }} tasks with {{ maf-full-name }}
 
 {{ maf-short-name }} is a popular tool for automating data operations. {{ yq-full-name }} supports integration with {{ maf-short-name }} using the [`apache-airflow-providers-yandex`](https://pypi.org/project/apache-airflow-providers-yandex/) pip package.
 
-To create an infrastructure for automation of {{ yq-full-name }} tasks using {{ maf-short-name }}, follow these steps:
+To create an infrastructure for automation of {{ yq-full-name }} tasks with {{ maf-short-name }}, follow these steps:
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a service account](#create-service-account).
@@ -59,7 +59,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       name: airflow-sa
       ```
 
-      Save the `id` of the `airflow-sa` service account and the folder where you created it (`folder_id`).
+      Save the ID of the `airflow-sa` service account (`id`) and the ID of the folder where you created it (`folder_id`).
 
   1. Assign the `editor` role for the folder to the service account by specifying the folder and service account IDs you previously saved:
 
@@ -79,7 +79,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a cloud network and subnets {#create-network}
 
-All resources you create in the tutorial will belong to the same [cloud network](../../vpc/concepts/network.md).
+All resources you create in this tutorial will belong to the same [cloud network](../../vpc/concepts/network.md).
 
 {% list tabs group=instructions %}
 
@@ -183,7 +183,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
 
   {% include [aws-cli-install](../../_includes/aws-cli-install.md) %}
 
-  1. Create a bucket by specifying a [unique name](../../storage/concepts/bucket.md#naming) for it:
+  1. Create a bucket with a [unique name](../../storage/concepts/bucket.md#naming):
 
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \

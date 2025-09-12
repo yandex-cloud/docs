@@ -1211,6 +1211,12 @@ default:
         12_month|string: "1\_133\_900,00\_₸"
         3_month|string: "1\_267\_300,00\_₸"
         6_month|string: "1\_240\_620,00\_₸"
+      ba-i217-s-1-10g:
+        1_day|string: "183\_000,00\_₸"
+        1_month|string: "177\_510,00\_₸"
+        12_month|string: "155\_550,00\_₸"
+        3_month|string: "173\_850,00\_₸"
+        6_month|string: "170\_190,00\_₸"
       ba-i523-nh-2x25g:
         1_day|string: "2\_380\_500,00\_₸"
         1_month|string: "2\_309\_085,00\_₸"
@@ -1725,29 +1731,6 @@ default:
           ram|month|string: "1\_827,36\_₸"
           ram|number: 2.538
           ram|string: "2,5380\_₸"
-      elasticsearch:
-        v2:
-          cpu:
-            c100|month|string: "6\_531,84\_₸"
-            c100|string: "9,0720\_₸"
-          ram:
-            basic|month|string: "8\_164,80\_₸"
-            basic|string: "11,34\_₸"
-            gold|month|string: "9\_564,48\_₸"
-            gold|string: "13,2840\_₸"
-            platinum|month|string: "11\_003,04\_₸"
-            platinum|string: "15,2820\_₸"
-        v3:
-          cpu:
-            c100|month|string: "6\_531,84\_₸"
-            c100|string: "9,0720\_₸"
-          ram:
-            basic|month|string: "8\_164,80\_₸"
-            basic|string: "11,34\_₸"
-            gold|month|string: "9\_564,48\_₸"
-            gold|string: "13,2840\_₸"
-            platinum|month|string: "11\_003,04\_₸"
-            platinum|string: "15,2820\_₸"
       greenplum:
         highfreq-v3:
           cpu:
@@ -1810,7 +1793,6 @@ default:
           ram|string: "2,16\_₸"
       local-nvme:
         ch|month|string: "70,2540\_₸"
-        elasticsearch|month|string: "70,2540\_₸"
         greenplum:
           dedicated|month|string: "22,7340\_₸"
         greenplum|month|number: 70.254
@@ -1915,7 +1897,6 @@ default:
       network-hdd:
         ch|month|number: 17.28
         ch|month|string: "17,28\_₸"
-        elasticsearch|month|string: "17,28\_₸"
         greenplum|month|number: 17.28
         greenplum|month|string: "17,28\_₸"
         kafka|month|number: 17.28
@@ -1929,7 +1910,6 @@ default:
       network-nvme:
         ch|month|number: 70.254
         ch|month|string: "70,2540\_₸"
-        elasticsearch|month|string: "70,2540\_₸"
         greenplum|month|string: "70,2540\_₸"
         kafka|month|number: 70.254
         kafka|month|string: "70,2540\_₸"
@@ -1950,7 +1930,6 @@ default:
         redis|month|string: "117,6120\_₸"
       network-ssd-nonreplicated:
         ch|month|string: "47,52\_₸"
-        elasticsearch|month|string: "47,52\_₸"
         greenplum|month|string: "47,52\_₸"
         kafka|month|string: "47,52\_₸"
         mongodb|month|string: "47,52\_₸"
@@ -3161,6 +3140,12 @@ default:
         12_month|string: "226\_780,00\_₽"
         3_month|string: "253\_460,00\_₽"
         6_month|string: "248\_124,00\_₽"
+      ba-i217-s-1-10g:
+        1_day|string: "36\_600,00\_₽"
+        1_month|string: "35\_502,00\_₽"
+        12_month|string: "31\_110,00\_₽"
+        3_month|string: "34\_770,00\_₽"
+        6_month|string: "34\_038,00\_₽"
       ba-i523-nh-2x25g:
         1_day|string: "476\_100,00\_₽"
         1_month|string: "461\_817,00\_₽"
@@ -3679,29 +3664,6 @@ default:
           ram|month|string: "365,4720\_₽"
           ram|number: 0.5076
           ram|string: "0,5076\_₽"
-      elasticsearch:
-        v2:
-          cpu:
-            c100|month|string: "1\_306,3680\_₽"
-            c100|string: "1,8144\_₽"
-          ram:
-            basic|month|string: "1\_632,96\_₽"
-            basic|string: "2,2680\_₽"
-            gold|month|string: "1\_912,8960\_₽"
-            gold|string: "2,6568\_₽"
-            platinum|month|string: "2\_200,6080\_₽"
-            platinum|string: "3,0564\_₽"
-        v3:
-          cpu:
-            c100|month|string: "1\_306,3680\_₽"
-            c100|string: "1,8144\_₽"
-          ram:
-            basic|month|string: "1\_632,96\_₽"
-            basic|string: "2,2680\_₽"
-            gold|month|string: "1\_912,8960\_₽"
-            gold|string: "2,6568\_₽"
-            platinum|month|string: "2\_200,6080\_₽"
-            platinum|string: "3,0564\_₽"
       greenplum:
         highfreq-v3:
           cpu:
@@ -3764,7 +3726,6 @@ default:
           ram|string: "0,4320\_₽"
       local-nvme:
         ch|month|string: "14,0508\_₽"
-        elasticsearch|month|string: "14,0508\_₽"
         greenplum:
           dedicated|month|string: "4,5468\_₽"
         greenplum|month|number: 14.0508
@@ -3869,7 +3830,6 @@ default:
       network-hdd:
         ch|month|number: 3.456
         ch|month|string: "3,4560\_₽"
-        elasticsearch|month|string: "3,4560\_₽"
         greenplum|month|number: 3.456
         greenplum|month|string: "3,4560\_₽"
         kafka|month|number: 3.456
@@ -3883,7 +3843,6 @@ default:
       network-nvme:
         ch|month|number: 14.0508
         ch|month|string: "14,0508\_₽"
-        elasticsearch|month|string: "14,0508\_₽"
         greenplum|month|string: "14,0508\_₽"
         kafka|month|number: 14.0508
         kafka|month|string: "14,0508\_₽"
@@ -3904,7 +3863,6 @@ default:
         redis|month|string: "23,5224\_₽"
       network-ssd-nonreplicated:
         ch|month|string: "9,5040\_₽"
-        elasticsearch|month|string: "9,5040\_₽"
         greenplum|month|string: "9,5040\_₽"
         kafka|month|string: "9,5040\_₽"
         mongodb|month|string: "9,5040\_₽"
@@ -5106,6 +5064,12 @@ default:
         12_month|string: "1\_889,832577\_$"
         3_month|string: "2\_112,165822\_$"
         6_month|string: "2\_067,699173\_$"
+      ba-i217-s-1-10g:
+        1_day|string: "304,999878\_$"
+        1_month|string: "295,849882\_$"
+        12_month|string: "259,249896\_$"
+        3_month|string: "289,749884\_$"
+        6_month|string: "283,649887\_$"
       ba-i523-nh-2x25g:
         1_day|string: "3\_967,498413\_$"
         1_month|string: "3\_848,473461\_$"
@@ -7522,7 +7486,7 @@ default:
           repeatByParam: Повторение по параметру
           repeatSettings: Повторение графиков
         group-by:
-          charts-count: Кол-во графиков в ряд
+          charts-count: 'Графиков в ряд:'
           execute: Выполнить
           label-field-title: Разбить по метке
           limit-field-title: Показать
@@ -8282,7 +8246,7 @@ default:
         field_needed-public-ip: Публичный адрес
         field_network-id: Виртуальный сетевой сегмент (VRF)
         field_password: Пароль
-        field_server-count: Число серверов
+        field_server-count: Количество серверов
         field_server-lease-duration: Период аренды
         field_server-pool: Пул
         field_server-private-ip: Приватный IP-адрес
@@ -9607,7 +9571,7 @@ default:
             label_managed-greenplum: Managed Service for&nbsp;Greenplum
             label_managed-kafka: Managed Service for&nbsp;Kafka
             label_managed-kubernetes: Managed Service for&nbsp;Kubernetes
-            label_managed-mongodb: Managed Service for&nbsp;MongoDB
+            label_managed-mongodb: Yandex StoreDoc
             label_managed-mysql: Managed Service for&nbsp;MySQL
             label_managed-opensearch: Managed Service for&nbsp;OpenSearch
             label_managed-postgresql: Managed Service for&nbsp;PostgreSQL
@@ -10488,8 +10452,10 @@ default:
         label_identities: Адреса
         label_mail-statuses: Статусы писем
         label_private-key: Приватный ключ
+        label_restrict-senders: Ограничить список отправителей
         label_selector: Селектор
         label_signature-verification: Подтверждение подписи
+        section_restrictions: Ограничения
       postgresql:
         cluster:
           additional-field-pooling_mode: Режим работы менеджера подключений
@@ -10790,6 +10756,10 @@ default:
         spec-editor-type_label_text-editor: YaML-спецификация
         spec-editor-type_label_visual-editor: Конструктор
         workflow-editor_backoff-rate-field: Скорость изменения задержки
+        workflow-editor_catch-rule-error-list-label: Ошибки
+        workflow-editor_catch-rule-error-list-mode-label: Режим выбора ошибок
+        workflow-editor_catch-rule-label: Правило перехода по ошибкам
+        workflow-editor_catch-rule-output-field: Шаблон ошибки
         workflow-editor_error-list-field: Ошибки
         workflow-editor_error-list-mode-field: Режим выбора ошибок
         workflow-editor_foreach-step-concurrency-field: Количество одновременно обрабатываемых элементов входных данных
@@ -11310,7 +11280,7 @@ default:
             field_name: Имя
             field_network: Сеть
             field_ntp-servers: NTP-серверы
-            field_zone: Зона
+            field_zone: Зона доступности
             section_dhcp-options: Настройки DHCP
           switch_ip-addresses: IP-Адреса
           update:

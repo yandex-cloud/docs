@@ -1,5 +1,6 @@
 * [{{ alb-full-name }}](../../audit-trails/concepts/events-data-plane.md#alb)
 * [{{ certificate-manager-full-name }}](../../audit-trails/concepts/events-data-plane.md#certificate-manager)
+* [{{ cloud-desktop-full-name }}](../../audit-trails/concepts/events-data-plane.md#clouddesktop)
 * [{{ dns-full-name }}](../../audit-trails/concepts/events-data-plane.md#dns)
 * [{{ compute-full-name }}](../../audit-trails/concepts/events-data-plane.md#compute)
 * [{{ foundation-models-full-name }}](../../audit-trails/concepts/events-data-plane.md#foundation-models)

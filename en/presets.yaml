@@ -1208,6 +1208,12 @@ default:
         12_month|string: ₸1133900.00
         3_month|string: ₸1267300.00
         6_month|string: ₸1240620.00
+      ba-i217-s-1-10g:
+        1_day|string: ₸183000.00
+        1_month|string: ₸177510.00
+        12_month|string: ₸155550.00
+        3_month|string: ₸173850.00
+        6_month|string: ₸170190.00
       ba-i523-nh-2x25g:
         1_day|string: ₸2380500.00
         1_month|string: ₸2309085.00
@@ -1722,29 +1728,6 @@ default:
           ram|month|string: ₸1827.36
           ram|number: 2.538
           ram|string: ₸2.5380
-      elasticsearch:
-        v2:
-          cpu:
-            c100|month|string: ₸6531.84
-            c100|string: ₸9.0720
-          ram:
-            basic|month|string: ₸8164.80
-            basic|string: ₸11.34
-            gold|month|string: ₸9564.48
-            gold|string: ₸13.2840
-            platinum|month|string: ₸11003.04
-            platinum|string: ₸15.2820
-        v3:
-          cpu:
-            c100|month|string: ₸6531.84
-            c100|string: ₸9.0720
-          ram:
-            basic|month|string: ₸8164.80
-            basic|string: ₸11.34
-            gold|month|string: ₸9564.48
-            gold|string: ₸13.2840
-            platinum|month|string: ₸11003.04
-            platinum|string: ₸15.2820
       greenplum:
         highfreq-v3:
           cpu:
@@ -1807,7 +1790,6 @@ default:
           ram|string: ₸2.16
       local-nvme:
         ch|month|string: ₸70.2540
-        elasticsearch|month|string: ₸70.2540
         greenplum:
           dedicated|month|string: ₸22.7340
         greenplum|month|number: 70.254
@@ -1912,7 +1894,6 @@ default:
       network-hdd:
         ch|month|number: 17.28
         ch|month|string: ₸17.28
-        elasticsearch|month|string: ₸17.28
         greenplum|month|number: 17.28
         greenplum|month|string: ₸17.28
         kafka|month|number: 17.28
@@ -1926,7 +1907,6 @@ default:
       network-nvme:
         ch|month|number: 70.254
         ch|month|string: ₸70.2540
-        elasticsearch|month|string: ₸70.2540
         greenplum|month|string: ₸70.2540
         kafka|month|number: 70.254
         kafka|month|string: ₸70.2540
@@ -1947,7 +1927,6 @@ default:
         redis|month|string: ₸117.6120
       network-ssd-nonreplicated:
         ch|month|string: ₸47.52
-        elasticsearch|month|string: ₸47.52
         greenplum|month|string: ₸47.52
         kafka|month|string: ₸47.52
         mongodb|month|string: ₸47.52
@@ -3158,6 +3137,12 @@ default:
         12_month|string: ₽226780.00
         3_month|string: ₽253460.00
         6_month|string: ₽248124.00
+      ba-i217-s-1-10g:
+        1_day|string: ₽36600.00
+        1_month|string: ₽35502.00
+        12_month|string: ₽31110.00
+        3_month|string: ₽34770.00
+        6_month|string: ₽34038.00
       ba-i523-nh-2x25g:
         1_day|string: ₽476100.00
         1_month|string: ₽461817.00
@@ -3676,29 +3661,6 @@ default:
           ram|month|string: ₽365.4720
           ram|number: 0.5076
           ram|string: ₽0.5076
-      elasticsearch:
-        v2:
-          cpu:
-            c100|month|string: ₽1306.3680
-            c100|string: ₽1.8144
-          ram:
-            basic|month|string: ₽1632.96
-            basic|string: ₽2.2680
-            gold|month|string: ₽1912.8960
-            gold|string: ₽2.6568
-            platinum|month|string: ₽2200.6080
-            platinum|string: ₽3.0564
-        v3:
-          cpu:
-            c100|month|string: ₽1306.3680
-            c100|string: ₽1.8144
-          ram:
-            basic|month|string: ₽1632.96
-            basic|string: ₽2.2680
-            gold|month|string: ₽1912.8960
-            gold|string: ₽2.6568
-            platinum|month|string: ₽2200.6080
-            platinum|string: ₽3.0564
       greenplum:
         highfreq-v3:
           cpu:
@@ -3761,7 +3723,6 @@ default:
           ram|string: ₽0.4320
       local-nvme:
         ch|month|string: ₽14.0508
-        elasticsearch|month|string: ₽14.0508
         greenplum:
           dedicated|month|string: ₽4.5468
         greenplum|month|number: 14.0508
@@ -3866,7 +3827,6 @@ default:
       network-hdd:
         ch|month|number: 3.456
         ch|month|string: ₽3.4560
-        elasticsearch|month|string: ₽3.4560
         greenplum|month|number: 3.456
         greenplum|month|string: ₽3.4560
         kafka|month|number: 3.456
@@ -3880,7 +3840,6 @@ default:
       network-nvme:
         ch|month|number: 14.0508
         ch|month|string: ₽14.0508
-        elasticsearch|month|string: ₽14.0508
         greenplum|month|string: ₽14.0508
         kafka|month|number: 14.0508
         kafka|month|string: ₽14.0508
@@ -3901,7 +3860,6 @@ default:
         redis|month|string: ₽23.5224
       network-ssd-nonreplicated:
         ch|month|string: ₽9.5040
-        elasticsearch|month|string: ₽9.5040
         greenplum|month|string: ₽9.5040
         kafka|month|string: ₽9.5040
         mongodb|month|string: ₽9.5040
@@ -5103,6 +5061,12 @@ default:
         12_month|string: $1889.832577
         3_month|string: $2112.165822
         6_month|string: $2067.699173
+      ba-i217-s-1-10g:
+        1_day|string: $304.999878
+        1_month|string: $295.849882
+        12_month|string: $259.249896
+        3_month|string: $289.749884
+        6_month|string: $283.649887
       ba-i523-nh-2x25g:
         1_day|string: $3967.498413
         1_month|string: $3848.473461
@@ -7519,7 +7483,7 @@ default:
           repeatByParam: Repeat by parameter
           repeatSettings: Repeat graphs
         group-by:
-          charts-count: Number of graphs in a row
+          charts-count: 'Graphs in a row:'
           execute: Execute
           label-field-title: Split by label
           limit-field-title: Display
@@ -9598,7 +9562,7 @@ default:
             label_managed-greenplum: Managed Service for&nbsp;Greenplum
             label_managed-kafka: Managed Service for&nbsp;Kafka
             label_managed-kubernetes: Managed Service for&nbsp;Kubernetes
-            label_managed-mongodb: Managed Service for&nbsp;MongoDB
+            label_managed-mongodb: Yandex StoreDoc
             label_managed-mysql: Managed Service for&nbsp;MySQL
             label_managed-opensearch: Managed Service for&nbsp;OpenSearch
             label_managed-postgresql: Managed Service for&nbsp;PostgreSQL
@@ -10479,8 +10443,10 @@ default:
         label_identities: Addresses
         label_mail-statuses: Mail statuses
         label_private-key: Private key
+        label_restrict-senders: Restrict sender list
         label_selector: Selector
         label_signature-verification: Signature verification
+        section_restrictions: Restrictions
       postgresql:
         cluster:
           additional-field-pooling_mode: Pooling mode
@@ -10781,6 +10747,10 @@ default:
         spec-editor-type_label_text-editor: YaML specification
         spec-editor-type_label_visual-editor: Constructor
         workflow-editor_backoff-rate-field: Backoff rate
+        workflow-editor_catch-rule-error-list-label: Errors
+        workflow-editor_catch-rule-error-list-mode-label: Error selection mode
+        workflow-editor_catch-rule-label: Transition rule for errors
+        workflow-editor_catch-rule-output-field: Error template
         workflow-editor_error-list-field: Errors
         workflow-editor_error-list-mode-field: Error selection mode
         workflow-editor_foreach-step-concurrency-field: Number of input data elements processed concurrently
@@ -11301,7 +11271,7 @@ default:
             field_name: Name
             field_network: Network
             field_ntp-servers: NTP servers
-            field_zone: Zone
+            field_zone: Availability zone
             section_dhcp-options: DHCP settings
           switch_ip-addresses: IP addresses
           update:

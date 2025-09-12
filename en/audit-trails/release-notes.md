@@ -458,9 +458,9 @@ description: This section contains {{ at-name }} release notes.
 
   Event | Description
   --- | ---
-  `CreateReservedInstancePool` | Creating a pool of reserved VMs
-  `DeleteReservedInstancePool` | Deleting a pool of reserved VMs
-  `UpdateReservedInstancePool` | Updating a pool of reserved VMs
+  `CreateReservedInstancePool` | Creating a reserved instance pool
+  `DeleteReservedInstancePool` | Deleting a reserved instance pool
+  `UpdateReservedInstancePool` | Updating a reserved instance pool
 
   {% endcut %}
 
@@ -533,10 +533,10 @@ description: This section contains {{ at-name }} release notes.
   `apiserver.ApiServerDelete` | Deleting a resource
   `apiserver.ApiServerDeleteCollection` | Deleting a resource collection
   `apiserver.ApiServerEscalate` | Escalating privileges
-  `apiserver.ApiServerGet` | Getting information about a resource
+  `apiserver.ApiServerGet` | Getting resource info
   `apiserver.ApiServerHead` | Getting resource metadata
   `apiserver.ApiServerImpersonate` | Impersonation
-  `apiserver.ApiServerList` | Getting information about a resource collection
+  `apiserver.ApiServerList` | Getting resource collection info
   `apiserver.ApiServerNonstandardVerb` | The event is generated if the {{ managed-k8s-name }} audit log contains a non-standard value in the `verb` field
   `apiserver.ApiServerOptions` | Configuring a resource
   `apiserver.ApiServerPatch` | Changing a resource

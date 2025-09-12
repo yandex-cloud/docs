@@ -23,7 +23,6 @@ description: Из статьи вы узнаете, как задать наст
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     * [Миграция кластера {{ OS }}](../../../tutorials/os-to-mos.md);
-    * [Миграция со сменой хранилища: из {{ ES }} в {{ OS }}](../../../tutorials/mes-to-mos.md);
     * [Миграция со сменой хранилища: из {{ PG }} в {{ OS }}](../../../tutorials/postgresql-to-opensearch.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
@@ -35,7 +34,6 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ PG }}](../source/postgresql.md);
 * [{{ DS }}](../source/data-streams.md);
 * [{{ KF }}](../source/kafka.md);
-* [{{ ES }}](../source/elasticsearch.md);
 * [{{ OS }}](../source/opensearch.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).

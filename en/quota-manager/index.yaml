@@ -7,6 +7,9 @@ links:
   - title: Getting started
     description: View service quotas
     href: quickstart
+  - title: Use cases
+    description: See examples of quota management requests
+    href: requests-examples
   - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
@@ -17,10 +20,10 @@ links:
     description: HTTP API method descriptions
     href: api-ref/
   - title: Access management
-    description: Configure access permissions to use the service
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
 meta:
   title: Yandex Cloud Quota Manager

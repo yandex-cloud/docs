@@ -1,0 +1,1 @@
+To work with requests, make sure your [account]({{ link-console-iam-users }}) has the `quota-manager.requestOperator` [role](../../iam/roles-reference.md#quota-manager-requestoperator) or higher (`{{ roles-editor }}` or `{{ roles-admin }}`).

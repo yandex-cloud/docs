@@ -9,7 +9,7 @@ With a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), y
 
 ## Getting started {#before-begin}
 
-1. [Create a {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) cluster with the following parameters:
+1. [Create a {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with the following parameters:
    * **DB name**: `default`
    * **Username**: `admin`
    * **Password**: `admin-password`
@@ -22,11 +22,11 @@ With a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), y
    1. Under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, add the `airflow-clickhouse-plugin` pip package.
    1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select the {{ objstorage-name }} bucket you created earlier. Your DAG file will be fetched from it.
 
-1. Issue the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to your service account.
+1. Grant the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to your service account.
 
    {% note info }
 
-   There is no need to assign the `lockbox.payloadViewer` role for the whole folder. It is enough to [assign it for a specific {{ lockbox-name }}](../../lockbox/operations/secret-access.md) secret once you [create it](#create-lockbox-secret).
+   There is no need to assign the `lockbox.payloadViewer` role for the whole folder. It is enough to [assign it for a specific {{ lockbox-name }} secret](../../lockbox/operations/secret-access.md) once you [create it](#create-lockbox-secret).
 
    {% endnote %}
 

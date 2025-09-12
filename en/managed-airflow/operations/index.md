@@ -1,5 +1,5 @@
 ---
-title: Guides on using {{ maf-full-name }}
+title: How to work with {{ maf-full-name }}
 description: In this article, you will learn how to work with {{ maf-full-name }} in {{ yandex-cloud }}.
 ---
 

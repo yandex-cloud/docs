@@ -1,0 +1,1 @@
+ARN of the endpoint subscribing to the topic, in `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>` format. For SMS, enter a phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format, e.g., `+79991112233`.

@@ -67,7 +67,7 @@ items:
             href: tutorials/airflow-auto-tasks.md
           - name: '{{ msp-name }}: Automating operations'
             href: tutorials/spark-automation.md
-      - name: Other guides
+      - name: Other tutorials
         items:
           - name: Configuring an SMTP server to send e-mail notifications
             href: tutorials/test-smtp-notification.md

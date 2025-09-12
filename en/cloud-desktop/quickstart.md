@@ -95,7 +95,7 @@ Follow this guide to create a desktop group based on pre-installed `Ubuntu 20.04
   1. Under **Desktop users**, click **Add users** and specify those the desktops will be available to:
      * [User groups](../iam/concepts/access-control/public-group.md).
      * [Individual users](../iam/concepts/users/accounts.md).
-     * Any user's mail address. The user will be sent an invitation to your organization and assigned a role for desktop access.
+     * Any user's email address. The user will get an invitation to your organization and a role for desktop access.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -109,7 +109,7 @@ Follow this guide to create a desktop group based on pre-installed `Ubuntu 20.04
 - Management console {#console}
 
   1. To the right of the desktop group you created earlier, click ![image](../_assets/console-icons/ellipsis.svg) and select **Configure ACL**.
-  1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window, select the user group you created earlier, specify the `vdi.viewer` [role](./security/index.md#vdi-viewer) for it, and click **{{ ui-key.yacloud.common.add }}**.
+  1. In the **{{ ui-key.yacloud.component.acl-dialog.label_title }}** window, select the user group you created earlier, specify the `vdi.desktopGroups.user` [role](./security/index.md#vdi-desktopGroups-user) or the `vdi.desktopGroups.maintainer` [role](./security/index.md#vdi-desktopGroups-maintainer) for it, and click **{{ ui-key.yacloud.common.add }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}

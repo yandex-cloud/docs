@@ -218,7 +218,6 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ objstorage-full-name }}](../target/object-storage.md);
 * [{{ KF }}](../target/kafka.md);
 * [{{ DS }}](../target/data-streams.md);
-* [{{ ES }}](../target/elasticsearch.md);
 * [{{ OS }}](../target/opensearch.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).

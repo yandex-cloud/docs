@@ -36,7 +36,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
     1. In the settings sections of {{ maf-name }} [components](../concepts/index.md#components), i.e., **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, and **{{ ui-key.yacloud.airflow.section_workers }}**, specify the number of instances and [computing resource configuration](../concepts/index.md#presets).
 
-    1. Under **{{ ui-key.yacloud.airflow.section_triggerer }}**, enable or disable the `Triggerer` service. If it is enabled, specify the number of instances and resources.
+    1. Under **{{ ui-key.yacloud.airflow.section_triggerer }}**, enable or disable the triggerer. If it is enabled, specify the number of instances and resources.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, delete or add names of pip and deb packages.
 
@@ -51,7 +51,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         * Add, edit, or delete [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), e.g., the `api.maximum_page_limit` key with `150` for its value.
 
-            Populate the fields manually or import a configuration from a file (see [sample configuration file](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+            Fill in the fields manually or import the settings from a configuration file (see [a configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
         * Enable or disable the **{{ ui-key.yacloud.airflow.field_lockbox }}** option allowing you to use secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration).
 
@@ -110,7 +110,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters-part-2.md) %}
 
-        You can request the cluster ID and name with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+        You can get the cluster ID and name with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
@@ -200,7 +200,7 @@ After creating a cluster, you can edit its basic and advanced settings.
               "debPackages": [ <list_of_deb_packages> ]
             },
             "lockbox": {
-              "enabled": <usage_of_secrets>
+              "enabled": <use_of_logging>
             }
           },
           "codeSync": {
@@ -242,7 +242,7 @@ After creating a cluster, you can edit its basic and advanced settings.
         * `labels`: List of labels provided in `"<key>": "<value>"` format.
         * `config`: Cluster configuration:
 
-            * `airflow.config`: [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) provided in `"<configuration_section>.<key>": "<value>"` format, e.g.:
+            * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) provided in `"<configuration_section>.<key>": "<value>"` format, e.g.:
 
                 ```json
                 "airflow": {
@@ -254,9 +254,9 @@ After creating a cluster, you can edit its basic and advanced settings.
 
             * `webserver`, `scheduler`, `triggerer`, `worker`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
 
-                * `count`: Number of instances in the cluster for the web server, scheduler, and Triggerer.
+                * `count`: Number of instances in the cluster for the web server, scheduler, and triggerer.
                 * `minCount`, `maxCount`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, worker, and Triggerer. The possible values are:
+                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, worker, and triggerer. The possible values are:
 
                     * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM
@@ -323,7 +323,7 @@ After creating a cluster, you can edit its basic and advanced settings.
             --data '@body.json'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -380,7 +380,7 @@ After creating a cluster, you can edit its basic and advanced settings.
               "deb_packages": [ <list_of_deb_packages> ]
             },
             "lockbox": {
-              "enabled": <usage_of_secrets>
+              "enabled": <use_of_logging>
             }
           },
           "code_sync": {
@@ -450,9 +450,9 @@ After creating a cluster, you can edit its basic and advanced settings.
 
             * `webserver`, `scheduler`, `triggerer`, `worker`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
 
-                * `count`: Number of instances in the cluster for the web server, scheduler, and Triggerer.
+                * `count`: Number of instances in the cluster for the web server, scheduler, and triggerer.
                 * `min_count`, `max_count`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, worker, and Triggerer. The possible values are:
+                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, worker, and triggerer. The possible values are:
 
                     * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM

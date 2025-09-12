@@ -4,8 +4,8 @@
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ maf-name }}:
+{{ maf-name }} supports the following {{ TF }} provider resources:
 
-| **{{ TF }}** resource | **{{ yandex-cloud }}** resource |
+| **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_airflow_cluster]({{ tf-provider-maf }}) | [Cluster](./concepts/index.md#cluster) |

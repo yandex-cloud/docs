@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ AF }} cluster fee: Computing resources of the cluster components (see [{{ maf-full-name }} pricing](../../../managed-airflow/pricing.md)).
+* {{ AF }} cluster fee: computing resources of the cluster components (see [{{ maf-full-name }} pricing](../../../managed-airflow/pricing.md)).
 * Fee for the {{ metastore-name }} cluster computing resources (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).
 * {{ objstorage-name }} bucket fee: storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 * Fee for collecting and storing logs (see [{{ cloud-logging-name }} pricing](../../../logging/pricing.md)).
@@ -512,7 +512,7 @@ To prepare a DAG:
 
      It may take a few minutes to load a DAG file from the bucket.
 
-  1. To run a DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
+  1. To run the DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
 {% endlist %}
 

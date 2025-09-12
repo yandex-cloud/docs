@@ -1,8 +1,8 @@
 # Sending requests to the {{ yandex-cloud }} API via the {{ yandex-cloud }} Python SDK
 
-When working with {{ maf-name }}, you can use the [{{ yandex-cloud }} Python SDK](https://github.com/yandex-cloud/python-sdk) to make requests to the {{ yandex-cloud }} API. The service supports sending requests to any type of cloud resources. You do not need to set up authentication in the cloud manually. {{ yandex-cloud }} Python SDK authenticates via the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account linked to the {{ AF }} cluster.
+When working with {{ maf-name }}, you can use the [{{ yandex-cloud }} Python SDK](https://github.com/yandex-cloud/python-sdk) to make requests to the {{ yandex-cloud }} API. The service supports sending requests to any type of cloud resources. You do not need to set up authentication in the cloud manually. The {{ yandex-cloud }} Python SDK gets authenticated via the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account attached to the {{ AF }} cluster.
 
-As an example, we use a [directed acyclic graph (DAG)](../../managed-airflow/concepts/index.md#about-the-service) which submits a request to the {{ yandex-cloud }} API. The request returns a list of virtual machines in the folder where the {{ AF }} cluster is created.
+As an example, we use a [directed acyclic graph (DAG)](../../managed-airflow/concepts/index.md#about-the-service) to send a request to the {{ yandex-cloud }} API. The request returns a list of virtual machines in the folder where the {{ AF }} cluster was created.
 
 To use the {{ yandex-cloud }} Python SDK to send requests to the {{ yandex-cloud }} API:
 
@@ -17,10 +17,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ maf-name }} cluster fee: Computing resources of the cluster components and the amount of outgoing traffic (see [{{ AF }} pricing](../../managed-airflow/pricing.md)).
+* {{ maf-name }} cluster fee: computing resources of the cluster components and the amount of outgoing traffic (see [{{ AF }} pricing](../../managed-airflow/pricing.md)).
 * Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* VM fee: Using computing resources, storage, OS (for specific operating systems), and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for an {{ objstorage-name }} bucket: data storage and operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* VM fee: using computing resources, storage, OS (for specific operating systems), and, optionally, public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Set up your infrastructure {#create-infrastructure}
@@ -30,7 +30,7 @@ The support cost includes:
    * `compute.viewer`
    * `{{ roles.maf.integrationProvider }}`
 
-1. [Create an {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) bucket in any configuration.
+1. [Create a {{ objstorage-full-name }} bucket](../../storage/operations/buckets/create.md) in any configuration.
 
 1. {% include [aiflow-sa-bucket-acl](../../_includes/managed-airflow/aiflow-sa-bucket-acl.md) %}
 
@@ -43,7 +43,7 @@ The support cost includes:
 
 ## Prepare the DAG file and run the graph {#dag}
 
-1. Create a local file named `test_python_sdk.py` and copy the following script to it:
+1. Create a local file named `test_python_sdk.py` and paste the following script to it:
 
    {% cut "test_python_sdk.py" %}
 
@@ -82,7 +82,7 @@ The support cost includes:
 
    {% endcut %}
 
-   To authenticate in the cloud, the IAM token of the service account attached to the {{ AF }} cluster is used. The `yandexcloud.SDK()` object is created with default parameters and automatically populated with the data required to authenticate with the IAM token.
+   You get authenticated in the cloud using the IAM token of the service account attached to the {{ AF }} cluster. The `yandexcloud.SDK()` object with default parameters is automatically populated with the data required to get authenticated using the IAM token.
 
 1. [Upload](../../storage/operations/objects/upload.md) the `test_python_sdk.py` DAG file to the bucket you created earlier. This will automatically create a graph with the same name in the {{ AF }} web interface.
 
@@ -90,7 +90,7 @@ The support cost includes:
 
 1. Make sure a new graph named `test_python_sdk` has appeared in the **DAGs** section.
 
-   It may take a few minutes to upload a DAG file from the bucket.
+   It may take a few minutes to load a DAG file from the bucket.
 
 1. To run the graph, click ![image](../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
@@ -100,9 +100,9 @@ To check the result in the {{ AF }} web interface:
 
 1. In the **DAGs** section, open the `test_python_sdk` graph.
 1. Go to the **Grid** section.
-1. Select the **list_instances** task.
+1. Select **list_instances**.
 1. Go to **Logs**.
-1. Make sure the logs list the virtual machines from the folder where the {{ AF }} cluster is created. This means the query was successful.
+1. Make sure the logs list the virtual machines from the folder where the {{ AF }} cluster was created. This means the query was successful.
 
 ## Delete the resources you created {#clear-out}
 

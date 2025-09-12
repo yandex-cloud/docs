@@ -12,7 +12,7 @@ Event name | Description
 `CreateHostGroup` | Creating a group of dedicated hosts
 `CreateImage` | Creating a disk image
 `CreateInstance` | Creating a VM instance
-`CreateReservedInstancePool` | Creating a pool of reserved VMs
+`CreateReservedInstancePool` | Creating a reserved instance pool
 `CreateSnapshot` | Creating a disk snapshot
 `CreateSnapshotSchedule` | Creating a disk snapshot schedule
 `DecommissionHost` | Withdrawing a dedicated host for [maintenance](../../../compute/concepts/dedicated-host.md#maintenance)
@@ -22,7 +22,7 @@ Event name | Description
 `DeleteHostGroup` | Deleting a group of dedicated hosts
 `DeleteImage` | Deleting a disk image
 `DeleteInstance` | Deleting a VM
-`DeleteReservedInstancePool` | Deleting a pool of reserved VMs
+`DeleteReservedInstancePool` | Deleting a reserved instance pool
 `DeleteSnapshot` | Deleting a disk snapshot
 `DeleteSnapshotSchedule` | Deleting a disk snapshot schedule
 `DetachInstanceDisk` | Detaching a disk from a VM instance
@@ -45,7 +45,7 @@ Event name | Description
 `UpdateInstance` | Updating a VM instance
 `UpdateInstanceMetadata` | Updating VM instance metadata
 `UpdateInstanceNetworkInterface` | Updating VM network settings
-`UpdateReservedInstancePool` | Updating a pool of reserved VMs
+`UpdateReservedInstancePool` | Updating a reserved instance pool
 `UpdateSnapshot` | Updating a disk snapshot
 `UpdateSnapshotSchedule` | Updating disk snapshot schedule parameters
 `UpdateSnapshotScheduleDisks` | Updating disk snapshot schedule parameters

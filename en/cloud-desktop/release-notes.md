@@ -5,6 +5,22 @@ description: This section contains {{ cloud-desktop-name }} release notes.
 
 # {{ cloud-desktop-name }} release notes
 
+## Q2 2025 {#q2-2025}
+
+* Implemented adding a Windows image for desktop deployment. Creating a custom Windows image requires a Windows image licensed to you.
+
+   For more information, see [{#T}](operations/images/create-from-windows.md).
+
+* Added new [quotas](concepts/limits.md):
+  * Maximum number of desktop images per cloud: 8. 
+  * Maximum total size of desktop images per cloud: 1 TB.
+* Increased the following quota values:
+  * Maximum number of desktops per cloud: 5 → 10.
+  * Maximum total number of vCPUs per cloud: 10 → 40.
+  * Maximum total amount of RAM per cloud: 20 GB → 80 GB.
+  * Maximum total HDD space per cloud: 500 GB → 600 GB.
+  * Maximum total SSD space per cloud: 500 GB → 600 GB.
+
 ## Q1 2025 {#q1-2025}
 
 * Implemented adding a custom Linux image for desktop deployment. You can configure the image and install extra packages.

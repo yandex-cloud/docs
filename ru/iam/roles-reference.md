@@ -1463,8 +1463,6 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../managed-clickhouse/security.md).
 
 
-
-
 ## {{ mgl-full-name }} {#managed-gitlab-roles}
 
 #### gitlab.auditor {#gitlab-auditor}

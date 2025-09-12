@@ -423,6 +423,9 @@ These metrics show processor core workload.
 | `opensearch_active_primary_shards`<br/>`DGAUGE`, count | Number of active [primary shards](../../../managed-opensearch/concepts/scalability-and-resilience.md) and total active shards in the cluster | 
 | `opensearch_active_shards`<br/>`DGAUGE`, count | Number of active shards | 
 | `opensearch_active_shards_percent_as_number`<br/>`DGAUGE`, count | Percentage of active shards | 
+| `opensearch_backup_incremental_size`<br/>`DGAUGE`, bytes | Size of files created during the incremental backup |
+| `opensearch_backup_total_size`<br/>`DGAUGE`, bytes | Size of files referenced by the backup |
+| `opensearch_backup_free_space_required`<br/>`DGAUGE`, bytes | Storage size required to restore a cluster from a backup. |
 | `opensearch_delayed_unassigned_shards`<br/>`DGAUGE`, count | Number of shards pending assignment |
 | `opensearch_initializing_shards`<br/>`DGAUGE`, count | Number of shards being initialized | 
 | `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if it is not. | 
