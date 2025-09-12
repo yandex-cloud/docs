@@ -16,7 +16,7 @@ The table below describes possible log contents (`json_payload`).
 * `client_error`: Not sent due to a request or data error.
 * `server_error`: Not sent due to a server error. ||
 
-|| `error` | Description of the `client error` status when sending a message:
+|| `error` | Description of the `client_error` status when sending a message:
 * `rate_limit`: Too many send requests.
 * `misconfigured_channel`: Invalid channel configuration, e.g., invalid mobile app secret.
 * `invalid_or_revoked_endpoint`: Endpoint is invalid or rejected by the message sending platform.
@@ -26,4 +26,6 @@ The table below describes possible log contents (`json_payload`).
 || `channel_name` | Channel name ||
 || `message_type` | Message type ||
 || `platform` | Mobile notification platform name ||
+|| `topic_name` | Topic name (only logged when sending notifications via a [topic](topics.md)) ||
+|| `subscription_id` | Topic subscription ID (only logged when sending notifications via a topic) ||
 |#

@@ -270,3 +270,7 @@ Possible rules:
 * [{#T}](../tutorials/custom-health-checks.md)
 * [{#T}](../tutorials/logging.md)
 * [{#T}](../tutorials/alb-ingress-controller-log-options.md)
+
+#### See also {#see-also}
+
+* [Cloud load balancers: Enhancing availability and fault tolerance](https://yandex.cloud/ru/blog/posts/2025/04/load-balancers-guide)

@@ -1,1 +1,0 @@
-Идентификатор кластера можно получить со [списком кластеров в каталоге](../../managed-elasticsearch/operations/cluster-list.md#list-clusters).

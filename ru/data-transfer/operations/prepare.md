@@ -35,11 +35,6 @@ description: Из статьи вы узнаете, как подготовит�
 
 {% include [prepare clickhouse db](../../_includes/data-transfer/endpoints/sources/clickhouse-prepare.md) %}
 
-### Источник {{ ES }} {#source-es}
-
-
-{% include [prepare elasticsearch db](../../_includes/data-transfer/endpoints/sources/elasticsearch-prepare.md) %}
-
 ### Источник {{ GP }} {#source-gp}
 
 
@@ -84,11 +79,6 @@ description: Из статьи вы узнаете, как подготовит�
 ### Приемник {{ CH }} {#target-ch}
 
 {% include [prepare clickhouse db](../../_includes/data-transfer/endpoints/targets/clickhouse-prepare.md) %}
-
-### Приемник {{ ES }} {#target-es}
-
-
-{% include [prepare elastic db](../../_includes/data-transfer/endpoints/targets/elasticsearch-prepare.md) %}
 
 ### Приемник {{ GP }} {#target-gp}
 

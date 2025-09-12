@@ -12,7 +12,7 @@
       * **{{ ui-key.yacloud.vdi.value_type-session }}**: Desktops are automatically assigned to users with each new login and released upon logout (feature coming soon).
   1. Under **{{ ui-key.yacloud.vdi.section_desktop }}**, specify:
      1. **{{ ui-key.yacloud.vdi.field_max-desktops-amount }}**: Maximum number of desktops per group.
-     1. **{{ ui-key.yacloud.vdi.field_min-ready-desktops }}**: Number of desktops kept always loaded for quick user access.
+     1. **{{ ui-key.yacloud.vdi.field_min-ready-desktops }}**: Number of desktops always kept ready for quick user access.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * To select a standard configuration, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-standard }}** tab and click:
         * **Basic**: 2 vCPUs, 4 GB RAM. You can use it for tasks involving office apps, simple documents, and web browsing.
@@ -25,9 +25,9 @@
        * Amount of RAM.
   1. Select a preinstalled or custom OS [image](../../cloud-desktop/concepts/images.md).
   1. Under **{{ ui-key.yacloud.vdi.section_disks }}**:
-      * Select the boot and working [disk](../../cloud-desktop/concepts/disks.md) [types](../../compute/concepts/disk.md#disks-types).
-      * Specify the boot and working disk size.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet) to host desktops.
+      * Select the boot and data [disk](../../cloud-desktop/concepts/disks.md) [types](../../compute/concepts/disk.md#disks-types).
+      * Specify the boot and data disk size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select the [cloud network](../../vpc/concepts/network.md#network) and [subnets](../../vpc/concepts/network.md#subnet) where your desktops will reside.
    
       {% note info %}
 
@@ -38,13 +38,13 @@
   1. Under **Desktop users**, click **Add users** and specify the following:
      * [User groups](../../iam/concepts/access-control/public-group.md).
      * [Individual users](../../iam/concepts/users/accounts.md).
-     * Any user's mail address. The user will be sent an invitation to your organization and assigned a role for desktop access.
+     * Any user's email address. The user will get an invitation to your organization and a role for desktop access.
 
       You can update the user list at any time after creating the desktop group.
 
       {% note warning %}
 
-      Users from the list will see the desktops of this group in their [showcase](../../cloud-desktop/concepts/showcase.md). To enable users to connect to desktops, [assign](../../iam/operations/roles/grant.md) them the `vdi.viewer` role.
+      Users from the list will see the desktops of this group in their [showcase](../../cloud-desktop/concepts/showcase.md). To enable users to connect to desktops, [assign](../../iam/operations/roles/grant.md) them the `vdi.desktopGroups.user` or `vdi.desktopGroups.maintainer` role.
 
       {% endnote %}
   

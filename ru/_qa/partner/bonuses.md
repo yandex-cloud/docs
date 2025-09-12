@@ -22,7 +22,6 @@
 * к потреблению сервисов:
 
   * [{{ marketplace-full-name }}](/marketplace)
-  * [{{ mes-full-name }}](../../managed-elasticsearch/)
   * [{{ mmg-full-name }}](../../storedoc/)
   * [{{ interconnect-full-name }}](../../interconnect/)
 

@@ -52,6 +52,7 @@ description: Из статьи вы узнаете, как работать с {
 * [Success](workflows/constructor/success.md)
 * [Wait](workflows/constructor/wait.md)
 * [{#T}](workflows/constructor/setup-restart-policy.md)
+* [{#T}](workflows/constructor/setup-catch-rule.md)
 
 ### Получение информации о запуске рабочего процесса {#execution-get-info}
 

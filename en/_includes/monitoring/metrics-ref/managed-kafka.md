@@ -99,7 +99,10 @@ These metrics show processor core workload.
 | `kafka_controller_KafkaController_OfflinePartitionsCount`<br/>`DGAUGE`, count | Number of offline partitions |
 | `kafka_controller_KafkaController_PreferredReplicaImbalanceCount`<br/>`DGAUGE`, count | Imbalance count in the preferred replica. In a normal state, it is `0`. |
 | `kafka_group_topic_partition_lag`<br/>`DGAUGE`, count | Message lag: Difference between the consumer offset and the partition's latest offset. |
-| `kafka_group_topic_partition_offset`<br/>`DGAUGE`, count | Partition offset |
+| `kafka_group_topic_partition_offset`<br/>`DGAUGE`, count | Partition's current consumer group offset. |
+| `kafka_log_Log_LogStartOffset`<br/>`DGAUGE`, count | Partition's first offset. |
+| `kafka_log_Log_LogEndOffset`<br/>`DGAUGE`, count | Partition's last offset. |
+| `kafka_log_Log_Size`<br/>`DGAUGE`, bytes | Disk’s partition size. |
 | `kafka_host_count`<br/>`DGAUGE`, count | Number of hosts in the cluster |
 | `kafka_is_alive`<br/>`DGAUGE`, 0/1 | Broker health indicator.<br/>It can be either `1` if a broker is alive or `0` if it is not. |
 | `kafka_network_RequestChannel_RequestQueueSize`<br/>`DGAUGE`, count | Number of enqueued requests |
@@ -130,3 +133,9 @@ These metrics show processor core workload.
 | `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, count | Number of partitions with ISR count below the replication factor |
 | `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, milliseconds | Request latency in {{ ZK }}.<br/>Additional labels: `quantile`. |
 | `kafka_shard_count`<br/>`DGAUGE`, count | Number of active shards |
+
+{% note info %}
+
+This section lists only basic {{ mkf-name }} metrics delivered to {{ monitoring-name }}. For information on all {{ mkf-name }} metrics, see the [official documentation](https://kafka.apache.org/documentation.html#monitoring).
+
+{% endnote %}

@@ -8,7 +8,7 @@ editable: false
 
 
 
-In this section, you can find the {{ maf-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using the service are charged based on their pricing plans.
+In this section, you can find the {{ maf-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using {{ maf-name }} are charged based on their pricing plans.
 
 {% note tip %}
 
@@ -33,15 +33,15 @@ When using {{ maf-name }}, you pay for:
 * Computing resources of cluster components.
 * Amount of outgoing traffic.
 
-Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 90 minutes (1.5 hours).
+Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 1.5 hours.
 
-Using {{ objstorage-full-name }} for storing [DAG files](operations/upload-dags.md) is charged according to the [{{ objstorage-name }}](../storage/pricing.md) pricing policy.
+Using {{ objstorage-full-name }} for [storing DAG files](operations/upload-dags.md) is charged according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 ### Example of cluster cost calculation {#example}
 
-This is an example of calculating the cost of using a cluster with the following properties for 30 days:
+Let’s calculate the cost of using a cluster with the following properties for 30 days:
 
 * **Web server**: One `standard` configuration instance: 1 × 100% vCPU, 4 GB RAM.
 * **Scheduler**: One `standard` configuration instance: 1 × 100% vCPU, 4 GB RAM.

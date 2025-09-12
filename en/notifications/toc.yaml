@@ -13,6 +13,8 @@ items:
         href: quickstart-browser.md
       - name: Getting started with SMS
         href: quickstart-sms.md
+      - name: Getting started with topics
+        href: quickstart-topics.md
   - name: Step-by-step operations
     items:
       - name: All guides
@@ -59,6 +61,18 @@ items:
             href: operations/sms/send.md
           - name: Exiting the sandbox
             href: operations/sms/exit-sandbox.md
+      - name: Topics
+        items:
+          - name: Create topic
+            href: operations/topics/topic-create.md
+          - name: Creating a subscription to a topic
+            href: operations/topics/subscription-create.md
+          - name: Sending a notification to a topic
+            href: operations/topics/send.md
+          - name: Managing a topic
+            href: operations/topics/topic-manage.md
+          - name: Managing a subscription
+            href: operations/topics/subscription-manage.md
       - name: Configuring logging
         href: operations/configure-logging.md
   - name: Concepts
@@ -72,6 +86,8 @@ items:
         href: concepts/browser.md
       - name: SMS
         href: concepts/sms.md
+      - name: Topics
+        href: concepts/topics.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Tools

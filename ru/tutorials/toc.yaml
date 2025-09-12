@@ -1001,8 +1001,6 @@ items:
             href: dataplatform/run-spark-job.md
           - name: Запуск заданий с удаленного хоста
             href: dataplatform/remote-run-job.md
-      - name: Миграция в {{ mes-name }} с помощью снапшотов
-        href: dataplatform/migration-via-snapshots.md
       - name: Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
       - name: Миграция данных в {{ mmg-name }}
@@ -1060,8 +1058,6 @@ items:
         href: dataplatform/mmy-to-mgp.md
       - name: Настройка политики индексов в {{ mos-name }}
         href: dataplatform/opensearch-index-policy.md
-      - name: Миграция данных из {{ ES }} в {{ mos-name }}
-        href: dataplatform/elasticsearch-to-opensearch.md
       - name: >-
           Миграция данных в {{ mos-name }} из стороннего кластера {{ OS }} с
           помощью {{ data-transfer-name }}

@@ -76,11 +76,6 @@ description: На странице представлен список прак�
 * [{#T}](opensearch-to-greenplum.md)
 * [{#T}](mgp-config-server-for-s3.md)
 
-## {{ ES }} {#elasticsearch}
-
-* [{#T}](elasticsearch-to-opensearch.md)
-* [{#T}](migration-via-snapshots.md)
-
 ## {{ MG }}/{{ SD }} {#mongodb}
 
 * [{#T}](mongodb-migration-with-data-transfer.md)
@@ -113,7 +108,6 @@ description: На странице представлен список прак�
 ## {{ OS }} {#opensearch}
 
 * [{#T}](opensearch-index-policy.md)
-* [{#T}](elasticsearch-to-opensearch.md)
 * [{#T}](data-transfer-mkf-mos.md)
 * [{#T}](mos-migration-from-standalone.md)
 * [{#T}](opensearch-to-object-storage.md)

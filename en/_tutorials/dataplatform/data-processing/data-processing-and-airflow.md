@@ -1,7 +1,7 @@
 # Automating operations with {{ dataproc-full-name }} using {{ maf-full-name }}
 
 
-With {{ maf-full-name }}, you can create a [Directed Acyclic Graphs (DAG)](../../../managed-airflow/concepts/index.md) to automate your operations with [{{ dataproc-full-name }}](../../../data-proc/index.yaml). Below is an example of a DAG that includes multiple tasks:
+In {{ maf-full-name }}, you can create a [directed acyclic graph (DAG)](../../../managed-airflow/concepts/index.md) to automate your operations in [{{ dataproc-full-name }}](../../../data-proc/index.yaml). Below is an example of a DAG that includes a number of tasks:
 
 1. Create a {{ dataproc-name }} cluster.
 1. Create and run a [PySpark job](../../../data-proc/concepts/jobs.md).
@@ -25,7 +25,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ maf-name }} cluster fee: Computing resources of the cluster components (see [{{ AF }} pricing](../../../managed-airflow/pricing.md)).
+* {{ maf-name }} cluster fee: computing resources of the cluster components (see [{{ AF }} pricing](../../../managed-airflow/pricing.md)).
 * Fee for the {{ metastore-name }} cluster computing resources (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).
 * Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * {{ objstorage-name }} bucket fee: storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
@@ -38,7 +38,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
 * **High security level**. This is a recommended scenario, as it respects the [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access). This scenario entails the following:
 
-   * Splitting access permissions across different service accounts. You have to create a separate service account for each cluster and assign it only those roles required for this account's cluster to function.
+   * Splitting access permissions across different service accounts. You have to create a separate service account for each cluster and assign to it only the roles required for this account's cluster to operate.
    * Using multiple buckets for different tasks and storing different data in separate buckets. For example, the results of running a PySpark job get written to one bucket, and logs, to another.
    * Setting up security groups. This way, you can restrict traffic and grant access only to authorized resources.
 
@@ -59,12 +59,12 @@ The example below illustrates two scenarios. Select the one you find most releva
       #|
       || **Service account** | **Roles** ||
       || `airflow-agent` for an {{ AF }} cluster |
-      * [dataproc.editor](../../../iam/roles-reference.md#dataproc-editor): To manage a {{ dataproc-name }} cluster from a DAG.
-      * [{{ roles-vpc-user }}](../../../iam/roles-reference.md#vpc-user): To use the [{{ vpc-full-name }} subnet](../../../vpc/concepts/network.md#subnet) in the {{ AF }} cluster.
-      * [{{ roles.maf.integrationProvider }}](../../../iam/roles-reference.md#managed-airflow-integrationProvider): To enable the {{ AF }} cluster to [interact with other resources](../../../managed-airflow/concepts/impersonation.md).
-      * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user): To specify the `data-processing-agent` service account when creating a {{ dataproc-name }} cluster. ||
+      * [dataproc.editor](../../../iam/roles-reference.md#dataproc-editor) to manage a {{ dataproc-name }} cluster from a DAG.
+      * [{{ roles-vpc-user }}](../../../iam/roles-reference.md#vpc-user) to use the [{{ vpc-full-name }} subnet](../../../vpc/concepts/network.md#subnet) in the {{ AF }} cluster.
+      * [{{ roles.maf.integrationProvider }}](../../../iam/roles-reference.md#managed-airflow-integrationProvider) to enable the {{ AF }} cluster to [interact with other resources](../../../managed-airflow/concepts/impersonation.md).
+      * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user) to specify the `data-processing-agent` service account when creating a {{ dataproc-name }} cluster. ||
       || `metastore-agent` for a {{ metastore-name }} cluster |
-      * [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider): To enable the {{ metastore-name }} cluster to [interact with other resources](../../../metadata-hub/concepts/metastore-impersonation.md). ||
+      * [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider) to enable the {{ metastore-name }} cluster to [interact with other resources](../../../metadata-hub/concepts/metastore-impersonation.md). ||
       || `data-processing-agent` for a {{ dataproc-name }} cluster |
       {% include [sa-roles](../../../_includes/data-processing/sa-roles.md) %}
       ||
@@ -91,7 +91,7 @@ The example below illustrates two scenarios. Select the one you find most releva
       This will automatically create three subnets in different availability zones.
 
    1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the `data-processing-network-{{ region-id }}-a` subnet.
-   1. For the {{ metastore-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `metastore-sg` in `data-processing-network`. Add the following rules to the group:
+   1. For the {{ metastore-name }} cluster, [create a security group](../../../vpc/operations/security-group-create.md) named `metastore-sg` in `data-processing-network`. Add the following rules to it:
 
       * For incoming client traffic:
 
@@ -106,7 +106,7 @@ The example below illustrates two scenarios. Select the one you find most releva
          * Protocol: `Any`
          * Source: `Load balancer health checks`
 
-   1. For the {{ maf-name }} and {{ dataproc-name }} clusters, create a security group named `airflow-sg` in `data-processing-network`. Add the following rules to the group:
+   1. For the {{ maf-name }} and {{ dataproc-name }} clusters, create a security group named `airflow-sg` in `data-processing-network`. Add the following rules to it:
 
       * For incoming service traffic:
 
@@ -158,8 +158,8 @@ The example below illustrates two scenarios. Select the one you find most releva
 
    1. [Create a service account](../../../iam/operations/sa/create.md) named `my-editor` with the following roles:
 
-      * [dataproc.editor](../../../iam/roles-reference.md#dataproc-editor): To manage a {{ dataproc-name }} cluster from a DAG.
-      * [editor](../../../iam/roles-reference.md#editor): To perform other operations.
+      * [dataproc.editor](../../../iam/roles-reference.md#dataproc-editor) to manage a {{ dataproc-name }} cluster from a DAG.
+      * [editor](../../../iam/roles-reference.md#editor) to perform other operations.
 
    1. [Create a bucket](../../../storage/operations/buckets/create.md) named `<bucket_for_jobs_and_data>`.
 
@@ -264,7 +264,7 @@ For a PySpark job, we will use a Python script that creates a table and is store
 
 ## Prepare and run a DAG file {#dag}
 
-A DAG will have multiple vertices that form a sequence of consecutive actions:
+A DAG will have multiple vertices that form a sequence of actions:
 
 1. {{ maf-name }} creates a temporary lightweight {{ dataproc-name }} cluster whose settings are set in the DAG. This cluster automatically connects to the previously created {{ metastore-name }} cluster.
 1. When the {{ dataproc-name }} cluster is ready, a PySpark job is run.
@@ -342,7 +342,7 @@ To prepare a DAG:
               main_python_file_uri=f's3a://{YC_SOURCE_BUCKET}/scripts/create-table.py',
           )
 
-          # Step 3: Deleting a {{ dataproc-name }} cluster
+          # Step 3: Deleting the {{ dataproc-name }} cluster
           delete_spark_cluster = DataprocDeleteClusterOperator(
               task_id='dp-cluster-delete-task',
               trigger_rule=TriggerRule.ALL_DONE,
@@ -368,7 +368,7 @@ To prepare a DAG:
    1. Open the {{ AF }} web interface.
    1. Make sure the **DAGs** section now contains the new DAG named `DATA_INGEST` and tagged as `data-processing-and-airflow`.
 
-      It may take a few minutes to upload a DAG file from the bucket.
+      It may take a few minutes to load a DAG file from the bucket.
 
    1. To run the DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
@@ -439,7 +439,7 @@ To prepare a DAG:
               main_python_file_uri=f's3a://{YC_BUCKET}/scripts/create-table.py',
           )
 
-          # Step 3: Deleting a {{ dataproc-name }} cluster
+          # Step 3: Deleting the {{ dataproc-name }} cluster
           delete_spark_cluster = DataprocDeleteClusterOperator(
               task_id='dp-cluster-delete-task',
               trigger_rule=TriggerRule.ALL_DONE,
@@ -464,7 +464,7 @@ To prepare a DAG:
    1. Open the {{ AF }} web interface.
    1. Make sure the **DAGs** section now contains the new DAG named `DATA_INGEST` and tagged as `data-processing-and-airflow`.
 
-      It may take a few minutes to upload a DAG file from the bucket.
+      It may take a few minutes to load a DAG file from the bucket.
 
    1. To run the DAG, click ![image](../../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
@@ -478,14 +478,14 @@ To prepare a DAG:
 
    1. To monitor task execution results, click the DAG name. You can find the results in the **Grid** tab.
    1. Wait until the status of all the three tasks in the DAG changes to **Success**. Simultaneously, you can check that a {{ dataproc-name }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
-   1. Make sure your `<bucket_for_PySpark_job_output_data>` now contains a folder named `countries` with the `part-00000-...` file. The data from the created table is now stored in the {{ objstorage-name }} bucket and the table metadata is stored in the {{ metastore-name }} cluster.
+   1. Make sure your `<bucket_for_PySpark_job_output_data>` now contains the `countries` folder with the `part-00000-...` file. The data from the created table is now stored in the {{ objstorage-name }} bucket and the table metadata is stored in the {{ metastore-name }} cluster.
    1. Make sure there are PySpark job logs in `<bucket_for_collecting_Spark_logs>`.
 
 * Simplified setup
 
    1. To monitor task execution results, click the DAG name. You can find the results in the **Grid** tab.
    1. Wait until the status of all the three tasks in the DAG changes to **Success**. Simultaneously, you can check that a {{ dataproc-name }} cluster is being created, the PySpark job is running, and the same cluster is being deleted in the [management console]({{ link-console-main }}).
-   1. Make sure there is a folder named `countries` with the `part-00000-...` file in `<bucket_for_jobs_and_data>`. The data from the created table is now stored in the {{ objstorage-name }} bucket and the table metadata is stored in the {{ metastore-name }} cluster.
+   1. Make sure `<bucket_for_jobs_and_data>` now contains the `countries` folder with the `part-00000-...` file. The data from the created table is now stored in the {{ objstorage-name }} bucket and the table metadata is stored in the {{ metastore-name }} cluster.
    1. Make sure there are PySpark job logs in `<bucket_for_jobs_and_data>`. These logs are written to the `dataproc`, `user`, and `var` folders.
 
 {% endlist %}
@@ -499,9 +499,9 @@ Some resources are not free of charge. Delete the resources you no longer need t
 * High security level
 
    1. [Service accounts](../../../iam/operations/sa/delete.md).
-   1. [{{ objstorage-name }}](../../../storage/operations/buckets/delete.md) buckets.
-   1. [{{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-delete.md) cluster.
-   1. [{{ maf-name }}](../../../managed-airflow/operations/cluster-delete.md) cluster.
+   1. [{{ objstorage-name }} buckets](../../../storage/operations/buckets/delete.md).
+   1. [{{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md).
+   1. [{{ maf-name }} cluster](../../../managed-airflow/operations/cluster-delete.md).
    1. [Route table](../../../vpc/operations/delete-route-table.md).
    1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
    1. [Security groups](../../../vpc/operations/security-group-delete.md).
@@ -511,9 +511,9 @@ Some resources are not free of charge. Delete the resources you no longer need t
 * Simplified setup
 
    1. [Service account](../../../iam/operations/sa/delete.md).
-   1. [{{ objstorage-name }}](../../../storage/operations/buckets/delete.md) bucket.
-   1. [{{ metastore-name }}](../../../metadata-hub/operations/metastore/cluster-delete.md) cluster.
-   1. [{{ maf-name }}](../../../managed-airflow/operations/cluster-delete.md) cluster.
+   1. [{{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md).
+   1. [{{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md).
+   1. [{{ maf-name }} cluster](../../../managed-airflow/operations/cluster-delete.md).
    1. [Route table](../../../vpc/operations/delete-route-table.md).
    1. [NAT gateway](../../../vpc/operations/delete-nat-gateway.md).
    1. [Security group](../../../vpc/operations/security-group-delete.md) created in `data-processing-network` by default.

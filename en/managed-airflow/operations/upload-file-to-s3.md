@@ -14,7 +14,7 @@ Use a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service) to 
 
 ## Prepare the DAG file and run the graph {#dag}
 
-1. Create a local file named `upload_file_to_s3.py` and copy the following script to it:
+1. Create a local file named `upload_file_to_s3.py` and paste the following script to it:
 
    ```python
    from airflow.decorators import dag, task
@@ -63,14 +63,14 @@ Use a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service) to 
 
    ```
 
-1. Upload the `upload_file_to_s3.py` DAG file to the first created bucket. This will automatically create a graph with the same name in the {{ AF }} web interface.
+1. Upload the `upload_file_to_s3.py` DAG file to the first bucket you created. This will automatically create a graph with the same name in the {{ AF }} web interface.
 1. [Open the {{ AF }} web interface](af-interfaces.md#web-gui).
 1. Make sure a new graph named `upload_file_to_s3` has appeared in the **DAGs** section.
 
-   It may take a few minutes to upload a DAG file from the bucket.
+   It may take a few minutes to load a DAG file from the bucket.
 
 1. To run the graph, click ![image](../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
 ## Check the result {#check-result}
 
-Using the {{ objstorage-name }} interface, [check](../../storage/operations/objects/info.md) that the file is in the `username-airflow` bucket.
+Using the {{ objstorage-name }} web interface, [check](../../storage/operations/objects/info.md) that the file is in the `username-airflow` bucket.

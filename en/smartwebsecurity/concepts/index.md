@@ -22,6 +22,12 @@
 
 {% include [user-data-to-ml](../../_includes/smartwebsecurity/user-data-to-ml.md)%}
 
-## {{ alb-name }} coniguration recommendations {#alb-settings-recommendation}
+## {{ alb-name }} setup recommendations {#alb-settings-recommendation}
 
 {% include [alb-settings-recommendation](../../_includes/smartwebsecurity/alb-settings-recommendation.md) %}
+
+#### See also {#see-also}
+
+* [Cloud security in Russia: Key trends and threats in 2025](https://yandex.cloud/ru/blog/posts/2025/04/cloud-protection)
+* [How to set up web app security with {{ sws-full-name }}](https://yandex.cloud/ru/blog/smart-web-security-how-to)
+* [Yandex SWS and CDN: Website protection and acceleration for businesses of any size](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)

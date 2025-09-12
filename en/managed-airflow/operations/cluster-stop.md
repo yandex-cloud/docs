@@ -1,6 +1,6 @@
 ---
 title: Stopping and starting an {{ AF }} cluster
-description: You can stop and restart a {{ AF }} DB cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
+description: You can stop and restart an {{ AF }} DB cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
 ---
 
 # Stopping and starting an {{ AF }} cluster
@@ -13,7 +13,7 @@ You can stop and restart an {{ AF }} cluster as needed. When stopped, a cluster 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the relevant folder.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. Find the cluster you need in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
     1. In the dialog box that opens, confirm that you want to stop the cluster and click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
@@ -24,7 +24,7 @@ You can stop and restart an {{ AF }} cluster as needed. When stopped, a cluster 
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To stop a cluster, run the command:
+    To stop a cluster, run this command:
 
     ```bash
     {{ yc-mdb-af }} cluster stop <cluster_name_or_ID>
@@ -32,7 +32,7 @@ You can stop and restart an {{ AF }} cluster as needed. When stopped, a cluster 
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -45,13 +45,13 @@ You can stop and restart an {{ AF }} cluster as needed. When stopped, a cluster 
             --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<cluster_ID>:stop'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -73,9 +73,9 @@ You can stop and restart an {{ AF }} cluster as needed. When stopped, a cluster 
             yandex.cloud.airflow.v1.ClusterService.Stop
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -87,10 +87,10 @@ You can restart clusters with the `Stopped` status.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the relevant folder.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. Find the stopped cluster you need in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
-    1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
+    1. In the dialog box that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
 
 - CLI {#cli}
 
@@ -98,7 +98,7 @@ You can restart clusters with the `Stopped` status.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To start a cluster, run the command:
+    To start a cluster, run this command:
 
     ```bash
     {{ yc-mdb-af }} cluster start <cluster_name_or_ID>
@@ -106,7 +106,7 @@ You can restart clusters with the `Stopped` status.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -119,13 +119,13 @@ You can restart clusters with the `Stopped` status.
             --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<cluster_ID>:start'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -147,8 +147,8 @@ You can restart clusters with the `Stopped` status.
             yandex.cloud.airflow.v1.ClusterService.Start
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

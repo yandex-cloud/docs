@@ -7,7 +7,6 @@ editable: false
 # Правила тарификации для {{ backup-full-name }}
 
 
-
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -50,7 +49,11 @@ editable: false
 
 Объем резервных копий защищаемого ресурса может быть как меньше размера диска самого ресурса, например, при малой заполненности диска и хорошей сжимаемости данных, так и больше, например, когда резервных копий много, а данные на них постоянно меняются и плохо сжимаются.
 
+
+
 ## Цены для региона Россия {#prices}
+
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
@@ -73,6 +76,7 @@ editable: false
 
 
 
+
 ### Хранение резервных копий {#prices-backups}
 
 
@@ -87,6 +91,7 @@ editable: false
   {% include [kzt-backup-size](../_pricing/backup/kzt-backup-size.md) %}
 
 {% endlist %}
+
 
 
 
