@@ -110,6 +110,8 @@ items:
                     href: operations/workflows/constructor/wait.md
               - name: Настроить политику повторных попыток для рабочего процесса
                 href: operations/workflows/constructor/setup-restart-policy.md
+              - name: Настроить правило перехода по ошибкам
+                href: operations/workflows/constructor/setup-catch-rule.md
           - name: Получение информации о запуске рабочего процесса
             items:
               - name: Получить список запусков рабочего процесса

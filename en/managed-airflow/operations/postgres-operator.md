@@ -15,7 +15,7 @@ You can use a [directed acyclic graph (DAG)](../concepts/index.md#about-the-serv
 
 ## Getting started {#before-begin}
 
-1. [Create a {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md#create-cluster) cluster with the following parameters:
+1. [Create a {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-create.md#create-cluster) with the following parameters:
    * **DB name**: `db1`
    * **Username**: `user1`
    * **Password**: `user1-password`
@@ -27,12 +27,11 @@ You can use a [directed acyclic graph (DAG)](../concepts/index.md#about-the-serv
    1. Enable **{{ ui-key.yacloud.airflow.field_lockbox }}** to use [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) secrets to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration).
 
    1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select the {{ objstorage-name }} bucket you created earlier. Your DAG file will be fetched from it.
-
-1. Issue the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to your service account.
+1. Grant the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to your service account.
 
    {% note info }
 
-   There is no need to assign the `lockbox.payloadViewer` role for the whole folder. It is enough to [assign it for a specific {{ lockbox-name }}](../../lockbox/operations/secret-access.md) secret once you [create it](#create-lockbox-secret).
+   There is no need to assign the `lockbox.payloadViewer` role for the whole folder. It is enough to [assign it for a specific {{ lockbox-name }} secret](../../lockbox/operations/secret-access.md) once you [create it](#create-lockbox-secret).
 
    {% endnote %}
 

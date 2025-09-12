@@ -5,7 +5,7 @@
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the notification channel.
-    1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
     1. Select a channel.
     1. At the top right, click ![image](../../_assets/edit.svg) **{{ ui-key.yacloud.common.edit }}**.
     1. Under **{{ ui-key.yacloud.cns.section_logging }}**, enable the **{{ ui-key.yacloud.cns.field_logging }}** option.

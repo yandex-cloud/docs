@@ -60,7 +60,6 @@ _Метка_ — это пара ключ-значение в формате `<�
 * [{{ maf-full-name }}](../../managed-airflow/index.yaml)
 * [{{ mkf-full-name }}](../../managed-kafka/index.yaml)
 * [{{ mch-full-name }}](../../managed-clickhouse/index.yaml)
-* [{{ mes-full-name }}](../../managed-elasticsearch/index.yaml)
 * [{{ mgp-full-name }}](../../managed-greenplum/index.yaml)
 * [{{ mmg-full-name }}](../../storedoc/index.yaml)
 * [{{ mmy-full-name }}](../../managed-mysql/index.yaml)

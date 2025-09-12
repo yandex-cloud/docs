@@ -1,11 +1,11 @@
 ---
 title: Information about clusters in {{ maf-name }}
-description: You can request detailed information about each {{ maf-name }} cluster you created. To get a list of database clusters in a folder, go to the folder dashboard and select {{ maf-name }}.
+description: You can get detailed information about each {{ maf-name }} cluster you created. To get a list of database clusters in a folder, go to the folder dashboard and select {{ maf-name }}.
 ---
 
 # Information about existing clusters in {{ maf-name }}
 
-You can request detailed information about each {{ maf-name }} cluster you created.
+You can get detailed information about each {{ maf-name }} cluster you created.
 
 ## Getting a list of clusters in a folder {#list-clusters}
 
@@ -13,7 +13,7 @@ You can request detailed information about each {{ maf-name }} cluster you creat
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the relevant folder.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
 
 - CLI {#cli}
@@ -22,7 +22,7 @@ You can request detailed information about each {{ maf-name }} cluster you creat
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To request a list of {{ AF }} clusters in the default folder, run the command:
+    To get a list of {{ AF }} clusters in the default folder, run this command:
 
     ```
     {{ yc-mdb-af }} cluster list
@@ -41,7 +41,7 @@ You can request detailed information about each {{ maf-name }} cluster you creat
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -55,13 +55,13 @@ You can request detailed information about each {{ maf-name }} cluster you creat
             --url-query folderId=<folder_ID>
         ```
 
-        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
-    1. View the [server response](../api-ref/Cluster/list.md#yandex.cloud.airflow.v1.ListClustersResponse) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/list.md#yandex.cloud.airflow.v1.ListClustersResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -83,9 +83,9 @@ You can request detailed information about each {{ maf-name }} cluster you creat
             yandex.cloud.airflow.v1.ClusterService.List
         ```
 
-        You can request the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+        You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
 
-    1. View the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.airflow.v1.ListClustersResponse) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.airflow.v1.ListClustersResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -95,7 +95,7 @@ You can request detailed information about each {{ maf-name }} cluster you creat
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the relevant folder.
+    1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. Click the cluster name.
 
@@ -111,11 +111,11 @@ You can request detailed information about each {{ maf-name }} cluster you creat
     {{ yc-mdb-af }} cluster get <cluster_name_or_ID>
     ```
 
-    You can request the cluster ID and name with the [list of clusters in the folder](#list-clusters).
+    You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -128,13 +128,13 @@ You can request detailed information about each {{ maf-name }} cluster you creat
             --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<cluster_ID>'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.airflow.v1.Cluster) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.airflow.v1.Cluster) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -156,9 +156,9 @@ You can request detailed information about each {{ maf-name }} cluster you creat
             yandex.cloud.airflow.v1.ClusterService.Get
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.airflow.v1.Cluster) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.airflow.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
@@ -177,7 +177,7 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
     1. In the [management console]({{ link-console-main }}), open the folder with the cluster.
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
-    1. Select the appropriate cluster.
+    1. Select the cluster you need.
     1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
 
         You will see a list of operations with the cluster you selected.
@@ -194,11 +194,11 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
     {{ yc-mdb-af }} cluster list-operations <cluster_name_or_ID>
     ```
 
-    You can request the cluster ID and name with the [list of clusters in the folder](#list-clusters).
+    You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -211,13 +211,13 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
             --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<cluster_ID>/operations'
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.airflow.v1.ListClusterOperationsResponse) to make sure the request was successful.
+    1. View the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.airflow.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -239,9 +239,9 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
             yandex.cloud.airflow.v1.ClusterService.ListOperations
         ```
 
-        You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.airflow.v1.ListClusterOperationsResponse) to make sure the request was successful.
+    1. View the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.airflow.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -249,7 +249,7 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
 
 1. [Get a list of operations](#get-operations) for a cluster.
 1. Copy the operation ID.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 
@@ -284,7 +284,7 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
 
     - REST API {#api}
 
-        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -297,11 +297,11 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
                 --url 'https://{{ api-host-operation }}/operations/<operation_ID>'
             ```
 
-        1. View the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+        1. View the [server response](../api-ref/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
     - gRPC API {#grpc-api}
 
-        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into the environment variable:
+        1. [Get an IAM token for API authentication](../api-ref/authentication.md) and save it as an environment variable:
 
             {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -323,7 +323,7 @@ All actions with {{ maf-name }} clusters are logged as a list of operations. Eac
                 yandex.cloud.operation.OperationService.Get
             ```
 
-        1. View the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure the request was successful.
+        1. View the [server response](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
     {% endlist %}
 

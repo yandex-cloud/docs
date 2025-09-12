@@ -1,5 +1,5 @@
 ---
-title: Guides on using {{ cns-full-name }}
+title: How to work with {{ cns-full-name }}
 description: Step-by-step guides on using push notifications and SMS in {{ cns-full-name }}.
 ---
 
@@ -15,6 +15,14 @@ description: Step-by-step guides on using push notifications and SMS in {{ cns-f
 * [{#T}](push/endpoint-delete.md)
 * [{#T}](push/send.md)
 
+## In-browser push notifications {#browser}
+
+* [{#T}](browser/channel-create.md)
+* [{#T}](browser/channel-manage.md)
+* [{#T}](browser/endpoint-create.md)
+* [{#T}](browser/endpoint-manage.md)
+* [{#T}](browser/send.md)
+
 ## SMS notifications {#sms}
 
 * [{#T}](sms/channel-create.md)
@@ -23,6 +31,14 @@ description: Step-by-step guides on using push notifications and SMS in {{ cns-f
 * [{#T}](sms/test-number-delete.md)
 * [{#T}](sms/send.md)
 * [{#T}](sms/exit-sandbox.md)
+
+## Topics {#topics}
+
+* [{#T}](topics/topic-create.md)
+* [{#T}](topics/subscription-create.md)
+* [{#T}](topics/send.md)
+* [{#T}](topics/topic-manage.md)
+* [{#T}](topics/subscription-manage.md)
 
 ## Other {#other}
 

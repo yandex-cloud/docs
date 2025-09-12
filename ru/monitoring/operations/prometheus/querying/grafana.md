@@ -33,6 +33,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Текущие ограничения {#restrictions}
 
+{{ managed-prometheus-name }} работает на порту TCP 443. Его публичный IP-адрес — 158.160.59.216. Со временем адрес может измениться. Чтобы не потерять доступ к сервису, рекомендуем использовать дополнительные адреса [из списка доступных](../../../../overview/concepts/public-ips).
+
 В реализации {{ prometheus-name }} [HTTP API](https://prometheus.io/docs/prometheus/latest/querying/api/) поддерживаются только следующие эндпоинты:
 
 * `/api/v1/query`

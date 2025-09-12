@@ -19,5 +19,7 @@ Maximum rate of requests to create or update notification channel attributes per
 Maximum rate of requests to send an SMS message per cloud | 20 requests per second
 Maximum number of SMS messages to verify one test number | 5 per day for one number
 Maximum number of SMS messages to verify test numbers per cloud | 20 per day
+Maximum number of topics per cloud | 1,000
+Maximum number of subscriptions per topic | 1,000
 
 ^1^ Moving forward, the limit on the maximum number of SMS messages per cloud will become a [quota](#quotas). You will be able to increase it by contacting support.

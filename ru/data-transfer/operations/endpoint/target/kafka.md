@@ -42,7 +42,6 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ AB }}](../../../transfer-matrix.md#airbyte);
 * [{{ DS }}](../source/data-streams.md);
 * [{{ ydb-name }}](../source/ydb.md);
-* [{{ ES }}](../source/elasticsearch.md);
 * [{{ OS }}](../source/opensearch.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).

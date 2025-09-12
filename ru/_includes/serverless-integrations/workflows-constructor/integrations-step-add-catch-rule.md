@@ -1,0 +1,1 @@
+(Опционально) [Добавьте](../../../serverless-integrations/operations/workflows/constructor/setup-catch-rule.md) для создаваемого шага [правило перехода по ошибкам](../../../serverless-integrations/concepts/workflows/yawl/index.md#catchrule), которые могут возникать во время выполнения этого шага.

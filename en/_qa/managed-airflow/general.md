@@ -28,6 +28,6 @@ ModuleNotFoundError: No module named 'airflow.providers.postgres.operators'
 
 `apache-airflow-providers-postgres` 5.13.1 is used by default. The error may occur if using `PostgresOperator` with newer provider versions.
 
-**Solution:**
+**Solution**:
 
 If using a newer provider version, use SQLExecuteQueryOperator instead of PostgresOperator. For more information, see [the official documentation](https://airflow.apache.org/docs/apache-airflow-providers-postgres/6.0.0/operators/postgres_operator_howto_guide.html).

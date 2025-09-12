@@ -11,9 +11,9 @@ keywords:
 
 To work with {{ maf-name }}, you can use the [web interface](#web-gui) or the [{{ AF }} API](#rest-api).
 
-To open a web interface or send an API request, users need the [{{ roles.maf.user }}](../security/index.md#managed-airflow-user) role or higher. The API checks the role via the [IAM token](../../iam/concepts/authorization/iam-token.md) used for authentication.
+Only users with the [{{ roles.maf.user }}](../security/index.md#managed-airflow-user) role or higher can open the web interface or send an API request. The API checks the role via the [IAM token](../../iam/concepts/authorization/iam-token.md) used for authentication.
 
-{{ AF }} interfaces are accessible via the internet, so the role check is required for added security. Even if an attacker has the link to the web interface and the `admin` user's password to get authenticated with, they will not have the required role to access the interface.
+{{ AF }} interfaces can be accessed from the internet, so the role check provides additional security. Even if an attacker has a link to the web interface and the `admin` password to get authenticated with, they will not have the role required to access the interface.
 
 ## Working with the web interface {#web-gui}
 
@@ -23,15 +23,15 @@ To open a web interface or send an API request, users need the [{{ roles.maf.use
 
 You can make [{{ AF }} API](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html) requests from VMs located in your {{ maf-name }} cluster cloud network.
 
-1. In the cloud network hosting the {{ maf-name }} cluster, create a [Linux](../../compute/quickstart/quick-create-linux.md) VM.
+1. In the cloud network hosting the {{ maf-name }} cluster, create a [Linux-based](../../compute/quickstart/quick-create-linux.md) VM.
 1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) to connect to the VM.
-1. Get an IAM token for a subject with the `{{ roles.maf.user }}` role or higher. The process of getting a token depends on the subject type:
+1. Get an IAM token for a user account with the `{{ roles.maf.user }}` role or higher. The way you get a token depends on your account type:
 
    * [Yandex account](../../iam/operations/iam-token/create.md)
    * [Service account](../../iam/operations/iam-token/create-for-sa.md)
    * [Federated account](../../iam/operations/iam-token/create-for-federation.md)
 
-1. Make an API request, for example, using cURL. In the authorization parameters, enter your username and password.
+1. Make an API request, e.g., using cURL. In the authorization parameters, enter your username and password.
 
     Request example:
 
@@ -44,10 +44,10 @@ You can make [{{ AF }} API](https://airflow.apache.org/docs/apache-airflow/stabl
         --header 'X-Cloud-Authorization: Bearer <IAM_token>'
     ```
 
-    The request returns a list of DAG files. For an example of the response, refer to the [{{ AF }} API documentation](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html#operation/get_dags).
+    The request returns a list of DAG files. Check an example of the response in the [{{ AF }} API documentation](https://airflow.apache.org/docs/apache-airflow/stable/stable-rest-api-ref.html#operation/get_dags).
 
 {% note warning %}
 
-To use basic authentication with the {{ AF }} API as in the example above, set the value of the `api.auth_backends` **:** `airflow.api.auth.backend.basic_auth` property in the **{{ ui-key.yacloud.airflow.section_airflow-configuration }}** section when [creating](cluster-create.md) or [updating](cluster-update.md) the cluster. For more information about authentication with the API, see the [{{ AF }} documentation](https://airflow.apache.org/docs/apache-airflow/stable/security/api.html).
+To use basic authentication with the {{ AF }} API as in the example above, set the value of the `api.auth_backends` **:** `airflow.api.auth.backend.basic_auth` property in the **{{ ui-key.yacloud.airflow.section_airflow-configuration }}** section when [creating](cluster-create.md) or [updating](cluster-update.md) the cluster. Learn more about the API authentication in the [{{ AF }} documentation](https://airflow.apache.org/docs/apache-airflow/stable/security/api.html).
 
 {% endnote %}

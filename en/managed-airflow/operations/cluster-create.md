@@ -22,7 +22,7 @@ To create a {{ maf-name }} cluster, your {{ yandex-cloud }} account needs the fo
 
 Make sure to grant the `managed-airflow.integrationProvider` role to the cluster service account. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
 
-For more information about assigning roles, see the [{{ iam-full-name }}](../../iam/operations/roles/grant.md) documentation.
+For more information about assigning roles, see the [{{ iam-full-name }} documentation](../../iam/operations/roles/grant.md).
 
 ## Creating a cluster {#create-cluster}
 
@@ -122,9 +122,9 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
   1. Optionally, under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**:
   
-      * Specify [{{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) additional properties, e.g., `api.maximum_page_limit` as a key and `150` as its value.
+      * Specify [{{ AF }} additional properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html), e.g., `api.maximum_page_limit` as a key and `150` as its value.
 
-        Fill in the fields manually or import the settings from a configuration file (see [configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
+        Fill in the fields manually or import the settings from a configuration file (see [a configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
       * Enable the **{{ ui-key.yacloud.airflow.field_lockbox }}** option to use secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration).
 
@@ -248,7 +248,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
           "description": "<cluster_description>",
           "labels": { <label_list> },
           "config": {
-            "versionId": "<{{ AF }}>_version",
+            "versionId": "<{{ AF }}_version>",
             "airflow": {
               "config": { <list_of_properties> }
             },
@@ -282,7 +282,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
               "debPackages": [ <list_of_deb_packages> ]
             },
             "lockbox": {
-              "enabled": <usage_of_secrets>
+              "enabled": <use_of_logging>
             }
           },
           "network": {
@@ -332,9 +332,9 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * `webserver`, `scheduler`, `triggerer`, `worker`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
 
-                * `count`: Number of instances in the cluster for the web server, scheduler, and Triggerer.
+                * `count`: Number of instances in the cluster for the web server, scheduler, and triggerer.
                 * `minCount`, `maxCount`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, worker, and Triggerer. The possible values are:
+                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, worker, and triggerer. The possible values are:
 
                     * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM
@@ -435,7 +435,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
           "description": "<cluster_description>",
           "labels": { <label_list> },
           "config": {
-            "version_id": "<{{ AF }}>_version",
+            "version_id": "<{{ AF }}_version>",
             "airflow": {
               "config": { <list_of_properties> }
             },
@@ -469,7 +469,7 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
               "deb_packages": [ <list_of_deb_packages> ]
             },
             "lockbox": {
-              "enabled": <usage_of_secrets>
+              "enabled": <use_of_logging>
             }
           },
           "network": {
@@ -519,9 +519,9 @@ For more information about assigning roles, see the [{{ iam-full-name }}](../../
 
             * `webserver`, `scheduler`, `triggerer`, `worker`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
 
-                * `count`: Number of instances in the cluster for the web server, scheduler, and Triggerer.
+                * `count`: Number of instances in the cluster for the web server, scheduler, and triggerer.
                 * `min_count`, `max_count`: Minimum and maximum number of instances in the cluster for the worker.
-                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, worker, and Triggerer. The possible values are:
+                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, worker, and triggerer. The possible values are:
 
                     * `c1-m2`: 1 vCPU, 2 GB RAM
                     * `c1-m4`: 1 vCPU, 4 GB RAM

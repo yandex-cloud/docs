@@ -5,6 +5,8 @@ items:
     href: quickstart.md
   - name: Concepts
     href: concepts/index.md
+  - name: Request examples
+    href: requests-examples.md
   - name: Step-by-step guides
     expanded: true
     items:
@@ -51,7 +53,7 @@ items:
   - name: API reference
     expanded: true
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

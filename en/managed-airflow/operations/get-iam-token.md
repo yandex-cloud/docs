@@ -9,7 +9,7 @@ Using a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), 
 
 ## Prepare the DAG file and run the graph {#dag}
 
-1. Create a local file named `get_iam_token.py` and copy the following script to it:
+1. Create a local file named `get_iam_token.py` and paste the following script to it:
 
    ```python
    from airflow.decorators import dag, task
@@ -34,7 +34,7 @@ Using a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), 
 1. [Open the {{ AF }} web interface](af-interfaces.md#web-gui).
 1. Make sure a new graph named `get_iam_token` has appeared in the **DAGs** section.
 
-   It may take a few minutes to upload a DAG file from the bucket.
+   It may take a few minutes to load a DAG file from the bucket.
 
 1. To run the graph, click ![image](../../_assets/managed-airflow/trigger-dag.png =18x) in the line with its name.
 
@@ -44,6 +44,6 @@ To check the result in the {{ AF }} web interface:
 
 1. In the **DAGs** section, open the `get_iam_token` graph.
 1. Go to the **Graph** section.
-1. Select the **print_iam_token** job.
+1. Select **print_iam_token**.
 1. Go to **Logs**.
-1. Make sure the logs contain the `"token: ", iam_token` string. This means the query was successful.
+1. Make sure the logs contain the `"token: ", iam_token` line. This means the query was successful.

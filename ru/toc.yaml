@@ -87,8 +87,6 @@ items:
     href: managed-spark/index.yaml
   - name: Managed Service for ClickHouse®
     href: managed-clickhouse/index.yaml
-  - name: Managed Service for Elasticsearch
-    href: managed-elasticsearch/index.yaml
   - name: Managed Service for GitLab
     href: managed-gitlab/index.yaml
   - name: Managed Service for Greenplum®

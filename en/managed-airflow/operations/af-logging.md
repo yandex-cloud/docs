@@ -7,13 +7,13 @@ description: Follow this guide to set up the transfer of {{ maf-name }} cluster 
 
 You can set up regular collection of {{ maf-name }} cluster performance logs. Logs will be delivered to a [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}. You can choose between these two types of log groups:
 
-* Log group used by default in the cluster folder.
+* Default log group of the cluster folder.
 * Custom log group.
 
 ## Transferring data to the default log group {#default}
 
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `managed-airflow.integrationProvider` [role](../../iam/roles-reference.md#managed-airflow-integrationProvider) to the cluster service account.
-1. Specify logging settings in the {{ maf-name }} cluster:
+1. Configure logging in the {{ maf-name }} cluster:
 
    {% list tabs group=instructions %}
 
@@ -23,10 +23,10 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
       1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
       1. Under **{{ ui-key.yacloud.logging.label_title }}**, enable **{{ ui-key.yacloud.logging.field_logging }}**.
       1. To write logs to the default log group, select **{{ ui-key.yacloud.common.folder }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
-      1. Specify the folder whose log group you want to be using.
+      1. Specify the folder whose log group you want to use.
       1. Select the minimum logging level.
 
-         Logs of the specified level and higher will be written to the execution log. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default level is `INFO`.
+         The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
 
    * CLI {#cli}
 
@@ -40,9 +40,9 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
          --log-min-level <logging_level>
       ```
 
-      Specify the folder whose log group you want to be using.
+      Specify the folder whose log group you want to use.
 
-      Logs of the specified level and higher will be written to the execution log. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default level is `INFO`.
+      The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
 
    * {{ TF }} {#tf}
 
@@ -59,9 +59,9 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
       }
       ```
 
-      Specify the folder whose log group you want to be using.
+      Specify the folder whose log group you want to use.
 
-      Logs of the specified level and higher will be written to the execution log. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default level is `INFO`.
+      The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
 
    * API {#api}
 
@@ -78,27 +78,27 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
       }
       ```
 
-      Specify the folder whose log group you want to be using.
+      Specify the folder whose log group you want to use.
 
-      Logs of the specified level and higher will be written to the execution log. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default level is `INFO`.
+      The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
 
    {% endlist %}
 
-1. Test the transfer of cluster logs to the log group.
+1. Test the transfer of cluster logs to the log group:
 
    {% list tabs group=instructions %}
 
    * Management console {#console}
 
-      1. In the management console, go to the relevant folder.
+      1. In the management console, navigate to the relevant folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `default` log group.
 
-      The page that opens will show the log group records.
+      The page that opens will show the log group entries.
 
    * CLI {#cli}
 
-      To view the records in JSON format, run this command:
+      To view the entries in JSON format, run this command:
 
       ```bash
       yc logging read --group-name=default --format=json
@@ -134,7 +134,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    * API {#api}
 
-      To view log group records, use the [LogReadingService.Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
+      To view log group entries, use the [LogReadingService.Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
    {% endlist %}
 
@@ -144,7 +144,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
 1. [Create a log group](../../logging/operations/create-group.md) named `airflow-log-group`.
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `managed-airflow.integrationProvider` [role](../../iam/roles-reference.md#managed-airflow-integrationProvider) to the cluster service account.
-1. Specify logging settings in the {{ maf-name }} cluster:
+1. Configure logging in the {{ maf-name }} cluster:
 
    {% list tabs group=instructions %}
 
@@ -154,10 +154,10 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
       1. Select the cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
       1. Under **{{ ui-key.yacloud.logging.label_title }}**, enable **{{ ui-key.yacloud.logging.field_logging }}**.
       1. To write logs to a custom log group, select **{{ ui-key.yacloud.logging.label_loggroup }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
-      1. Specify the log group, `airflow-log-group`.
+      1. Specify the `airflow-log-group` log group.
       1. Select the minimum logging level.
 
-         Logs of the specified level and higher will be written to the execution log. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default level is `INFO`.
+         The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
 
    * CLI {#cli}
 
@@ -171,7 +171,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
          --log-min-level <logging_level>
       ```
 
-      Logs of the specified level and higher will be written to the execution log. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default level is `INFO`.
+      The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
 
    * {{ TF }} {#tf}
 
@@ -188,7 +188,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
       }
       ```
 
-      Logs of the specified level and higher will be written to the execution log. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default level is `INFO`.
+      The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
 
    * API {#api}
 
@@ -205,25 +205,25 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
       }
       ```
 
-      Logs of the specified level and higher will be written to the execution log. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default level is `INFO`.
+      The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
 
    {% endlist %}
 
-1. Test the transfer of cluster logs to the log group.
+1. Test the transfer of cluster logs to the log group:
 
    {% list tabs group=instructions %}
 
    * Management console {#console}
 
-      1. In the management console, go to the relevant folder.
+      1. In the management console, navigate to the relevant folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `airflow-log-group` log group.
 
-      The page that opens will show the log group records.
+      The page that opens will show the log group entries.
 
    * CLI {#cli}
 
-      To view the records in JSON format, run this command:
+      To view the entries in JSON format, run this command:
 
       ```bash
       yc logging read --group-name=airflow-log-group --format=json
@@ -259,7 +259,7 @@ You can set up regular collection of {{ maf-name }} cluster performance logs. Lo
 
    * API {#api}
 
-      To view log group records, use the [LogReadingService.Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
+      To view log group entries, use the [LogReadingService.Read](../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
    {% endlist %}
 
