@@ -118,9 +118,6 @@ links:
   - title: Managed Service for ClickHouse
     description: ClickHouse database management
     href: managed-clickhouse/
-  - title: Managed Service for Elasticsearch
-    description: Elasticsearch cluster management
-    href: managed-elasticsearch/
   - title: Managed Service for GitLab
     description: GitLab instance management
     href: managed-gitlab/

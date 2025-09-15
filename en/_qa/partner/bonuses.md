@@ -22,7 +22,6 @@ The discount does not apply to:
 * Consumption of the following services:
 
   * [{{ marketplace-full-name }}](/marketplace)
-  * [{{ mes-full-name }}](../../managed-elasticsearch/)
   * [{{ mmg-full-name }}](../../storedoc/)
   * [{{ interconnect-full-name }}](../../interconnect/)
 

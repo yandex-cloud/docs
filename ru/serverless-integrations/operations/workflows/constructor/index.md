@@ -11,6 +11,8 @@ description: Из статьи вы узнаете, как работать с �
 
 ## Интеграционные шаги {#integration-steps}
 
+* [{{ foundation-models-name }}](./foundationmodelscall.md)
+* [AI-агент](./aiagent.md)
 * [{{ sf-short-name }}](./functioncall.md)
 * [{{ serverless-containers-name }}](./containercall.md)
 * [{{ postbox-short-name }}](./postbox.md)
@@ -18,13 +20,11 @@ description: Из статьи вы узнаете, как работать с �
 * [HTTP](./httpcall.md)
 * [gRPC](./grpccall.md)
 * [{{ objstorage-name }}](./objectstorage.md)
-* [{{ foundation-models-name }}](./foundationmodelscall.md)
 * [{{ ydb-name }}](./ydbdocument.md)
 * [{{ yds-name }}](./yds.md)
 * [{{ message-queue-name }}](./ymq.md)
 * [Яндекс Диск](./yadisk.md)
 * [{{ sw-name }}](./workflow.md)
-* [AI-агент](./aiagent.md)
 * [Telegram-бот](./telegrambot.md)
 
 ## Управляющие шаги {control-steps}

@@ -36,6 +36,12 @@ Syntax:
 	- [yc iam key delete](key/delete.md) — Delete the specified IAM key
 	- [yc iam key get](key/get.md) — Show information about the specified IAM key
 	- [yc iam key list](key/list.md) — List IAM keys for authenticated account or the specified service account
+- [yc iam oauth-client](oauth-client/index.md) — Manage oauth-clients
+	- [yc iam oauth-client create](oauth-client/create.md) — Create an oauth-client in the specified folder
+	- [yc iam oauth-client delete](oauth-client/delete.md) — Delete the specified oauth-client
+	- [yc iam oauth-client get](oauth-client/get.md) — Show information about state of a specified oauth-client
+	- [yc iam oauth-client list](oauth-client/list.md) — List oauth-clients in the specified folder
+	- [yc iam oauth-client update](oauth-client/update.md) — Update the specified oauth-client
 - [yc iam refresh-token](refresh-token/index.md) — Manage refresh tokens
 	- [yc iam refresh-token list](refresh-token/list.md) — List subjects Refresh Tokens
 	- [yc iam refresh-token revoke](refresh-token/revoke.md) — Revoke subjects Refresh Tokens. Refresh Tokens can be revoked by refresh token, refresh token id, or a group of subject id, client id and client instance info. If none of the flags are set, all Refresh Tokens for the authenticated user will be revoked.

@@ -42,7 +42,6 @@ Syntax:
 - [yc logging](logging/cli-ref/index.md) — Yandex Cloud Logging
 - [yc managed-airflow](managed-airflow/cli-ref/index.md) — Manage Airflow clusters.
 - [yc managed-clickhouse](managed-clickhouse/cli-ref/index.md) — Manage ClickHouse clusters, hosts, databases, backups, users and ml-models.
-- [yc managed-elasticsearch](managed-elasticsearch/cli-ref/index.md) — Manage ElasticSearch clusters, hosts, indexes and backups.
 - [yc managed-gitlab](managed-gitlab/cli-ref/index.md) — Manage Gitlab resources.
 - [yc managed-greenplum](managed-greenplum/cli-ref/index.md) — Manage Greenplum clusters and hosts.
 - [yc managed-kafka](managed-kafka/cli-ref/index.md) — Manage Apache Kafka clusters, brokers, topics, users and connectors.

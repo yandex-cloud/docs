@@ -23,9 +23,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. (Опционально) Нажмите кнопку ![image](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_title }}** и укажите:
 
-      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_visibility_timeout_title }}** — [время](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) в часах, на которое сообщения скрываются из очереди после того, как один из получателей принял сообщение. Допустимые значения от 0 до 12 часов, значение по умолчанию — 0.
-      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_batch_size_title }}** — максимальное количество сообщений, которые {{ er-name }} группирует перед отправкой из источника в [правило](../../../concepts/eventrouter/rule.md). Допустимые значения от 0 до 12, значение по умолчанию — 10.
-      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_polling_timeout_title }}** — максимальное время в миллисекундах, в течение которого {{ er-name }} группирует сообщения перед отправкой из источника в правило. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд.
+      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_visibility_timeout_title }}** — [время](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout) в секундах, на которое сообщения скрываются из очереди после того, как один из получателей принял сообщение. Допустимые значения от 0 до 43 200 секунд, значение по умолчанию — 43 200 секунд.
+      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_batch_size_title }}** — максимальное количество сообщений, которые {{ er-name }} группирует перед отправкой из источника в [правило](../../../concepts/eventrouter/rule.md). Допустимые значения от 0 до 10, значение по умолчанию — 10.
+      * **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_batch_options_polling_timeout_title }}** — максимальное время в миллисекундах, в течение которого {{ er-name }} группирует сообщения перед отправкой из источника в правило. Допустимые значения от 0 до 20 000 миллисекунд, значение по умолчанию — 10 000 миллисекунд.
 
           {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 
@@ -65,9 +65,9 @@ description: Следуя данной инструкции, вы сможете
       * `--bus-id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) {{ er-name }}.
       * `--queue-arn` — ARN [очереди](../../../../message-queue/concepts/queue.md) {{ message-queue-full-name }}.
       * `--service-account-id` — идентификатор [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), у которого есть права на чтение из очереди сообщений.
-      * `--visibility-timeout` — [время](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout), на которое сообщения скрываются из очереди после того, как один из получателей принял сообщение. Допустимые значения от 0 до 12 часов, значение по умолчанию — 0. Необязательный параметр.
-      * `--batch-size` — максимальное количество сообщений, которые {{ er-name }} группирует перед отправкой из источника в [правило](../../../concepts/eventrouter/rule.md). Допустимые значения от 0 до 12, значение по умолчанию — 10. Необязательный параметр.
-      * `--polling-timeout` — максимальное время, в течение которого {{ er-name }} группирует сообщения перед отправкой из источника в правило. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд. Необязательный параметр.
+      * `--visibility-timeout` — [время](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout), на которое сообщения скрываются из очереди после того, как один из получателей принял сообщение. Допустимые значения от 0 до 43 200 секунд, значение по умолчанию — 43 200 секунд. Необязательный параметр.
+      * `--batch-size` — максимальное количество сообщений, которые {{ er-name }} группирует перед отправкой из источника в [правило](../../../concepts/eventrouter/rule.md). Допустимые значения от 0 до 10, значение по умолчанию — 10. Необязательный параметр.
+      * `--polling-timeout` — максимальное время, в течение которого {{ er-name }} группирует сообщения перед отправкой из источника в правило. Допустимые значения от 0 до 20 000 миллисекунд, значение по умолчанию — 10 000 миллисекунд. Необязательный параметр.
 
           {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 
@@ -152,9 +152,9 @@ description: Следуя данной инструкции, вы сможете
       * `labels` — список меток. Метки задаются в формате `<ключ> = "<значение>"`. Необязательный параметр.
       * `queue_arn` — ARN [очереди](../../../../message-queue/concepts/queue.md) {{ message-queue-full-name }}.
       * `service-account-id` — идентификатор [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), у которого есть права на чтение из очереди сообщений.
-      * `visibility_timeout` — [время](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout), на которое сообщения скрываются из очереди после того, как один из получателей принял сообщение. Допустимые значения от 0 до 12 часов, значение по умолчанию — 0. Необязательный параметр.
-      * `batch_size` — максимальное количество сообщений, которые {{ er-name }} группирует перед отправкой из источника в [правило](../../../concepts/eventrouter/rule.md). Допустимые значения от 0 до 12, значение по умолчанию — 10. Необязательный параметр.
-      * `polling_timeout` — максимальное время, в течение которого {{ er-name }} группирует сообщения перед отправкой из источника в правило. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд. Необязательный параметр.
+      * `visibility_timeout` — [время](https://yandex.cloud/ru/docs/message-queue/concepts/visibility-timeout), на которое сообщения скрываются из очереди после того, как один из получателей принял сообщение. Допустимые значения от 0 до 43 200 секунд, значение по умолчанию — 43 200 секунд. Необязательный параметр.
+      * `batch_size` — максимальное количество сообщений, которые {{ er-name }} группирует перед отправкой из источника в [правило](../../../concepts/eventrouter/rule.md). Допустимые значения от 0 до 10, значение по умолчанию — 10. Необязательный параметр.
+      * `polling_timeout` — максимальное время, в течение которого {{ er-name }} группирует сообщения перед отправкой из источника в правило. Допустимые значения от 0 до 20 000 миллисекунд, значение по умолчанию — 10 000 миллисекунд. Необязательный параметр.
 
           {% include [connector-about-grouping](../../../../_includes/serverless-integrations/connector-about-grouping.md) %}
 

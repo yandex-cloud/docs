@@ -18,7 +18,6 @@ Here is an example of setting up {{ monitoring-name }} metric collection in {{ p
    - `kms`: {{ kms-name }}.
    - `logging`: {{ cloud-logging-name }}.
    - `managed-clickhouse`: {{ mch-name }}.
-   - `managed-elasticsearch`: {{ mes-name }}.
    - `managed-gitlab`: {{ mgl-name }}.
    - `managed-greenplum`: {{ mgp-name }}.
    - `managed-kafka`: {{ mkf-name }}.

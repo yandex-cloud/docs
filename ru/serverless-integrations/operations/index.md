@@ -28,6 +28,8 @@ description: Из статьи вы узнаете, как работать с {
 
 ### Конструктор шагов рабочего процесса {#constructor}
 
+* [{{ foundation-models-name }}](workflows/constructor/foundationmodelscall.md)
+* [AI-агент](workflows/constructor/aiagent.md)
 * [{{ sf-short-name }}](workflows/constructor/functioncall.md)
 * [{{ serverless-containers-name }}](workflows/constructor/containercall.md)
 * [{{ postbox-short-name }}](workflows/constructor/postbox.md)
@@ -35,13 +37,11 @@ description: Из статьи вы узнаете, как работать с {
 * [HTTP](workflows/constructor/httpcall.md)
 * [gRPC](workflows/constructor/grpccall.md)
 * [{{ objstorage-name }}](workflows/constructor/objectstorage.md)
-* [{{ foundation-models-name }}](workflows/constructor/foundationmodelscall.md)
 * [{{ ydb-name }}](workflows/constructor/ydbdocument.md)
 * [{{ yds-name }}](workflows/constructor/yds.md)
 * [{{ message-queue-name }}](workflows/constructor/ymq.md)
 * [Яндекс Диск](workflows/constructor/yadisk.md)
 * [{{ sw-name }}](workflows/constructor/workflow.md)
-* [AI-агент](workflows/constructor/aiagent.md)
 * [Telegram-бот](workflows/constructor/telegrambot.md)
 * [Switch](workflows/constructor/switch.md)
 * [Foreach](workflows/constructor/foreach.md)

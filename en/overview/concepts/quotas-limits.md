@@ -208,8 +208,6 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 {% include [mch-limits.md](../../_includes/mdb/mch-limits.md) %}
 
 
-
-
 ### {{ mgl-full-name }} {#mgl}
 
 {% include [mgl-limits](../../_includes/managed-gitlab/limits.md) %}

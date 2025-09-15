@@ -19,7 +19,6 @@
 * Targets:
     * [{{ KF }}](../../data-transfer/operations/endpoint/target/kafka.md)
     * [{{ CH }}](../../data-transfer/operations/endpoint/target/clickhouse.md)
-    * [{{ ES }}](../../data-transfer/operations/endpoint/target/elasticsearch.md)
     * [{{ GP }}](../../data-transfer/operations/endpoint/target/greenplum.md)
     * [{{ MG }}](../../data-transfer/operations/endpoint/target/mongodb.md)
     * [{{ MY }}](../../data-transfer/operations/endpoint/target/mysql.md)

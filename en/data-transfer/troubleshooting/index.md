@@ -9,7 +9,6 @@ This section describes typical problems that may arise during [transfer](../conc
 * [API errors](#api)
 * [Network](#network)
 * [{{ CH }}](#clickhouse)
-* [{{ ES }}](#elasticsearch)
 * [{{ MG }}](#mongodb)
 * [{{ MY }}](#mysql)
 * [{{ objstorage-name }}](#object-storage)
@@ -145,15 +144,6 @@ Error example:
 {% include [no-tables-found](../../_includes/data-transfer/troubles/clickhouse/no-tables.md) %}
 
 {% include [ch-ch-no-sharding](../../_includes/data-transfer/troubles/clickhouse/ch-ch-no-sharding.md) %}
-
-## {{ ES }} {#elasticsearch}
-
-
-{% include [ambiguous-object-resolution-es](../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-es.md) %}
-
-{% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
-
-{% include [elastic-version](../../_includes/data-transfer/troubles/elastic-opensearch/elastic-version.md) %}
 
 
 ## {{ MG }} {#mongodb}

@@ -257,7 +257,7 @@ default:
   k8s-decomission-timeout: 7 minutes
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.30, 1.31, 1.32, 1.33
+  k8s-versions-rapid: 1.30, 1.31, 1.32
   k8s-versions-regular: 1.30, 1.31, 1.32
   k8s-versions-stable: 1.30, 1.31, 1.32
   k8s-vpa: Vertical Pod Autoscaler
@@ -342,8 +342,6 @@ default:
   links:
     es:
       docs: https://www.elastic.co/guide/en
-      reindex-api: >-
-        https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html
     helm:
       install: https://helm.sh/docs/intro/install/
   llama: Llama
@@ -701,10 +699,6 @@ default:
       admin: managed-clickhouse.admin
       editor: managed-clickhouse.editor
       viewer: managed-clickhouse.viewer
-    mes:
-      admin: managed-elasticsearch.admin
-      editor: managed-elasticsearch.editor
-      viewer: managed-elasticsearch.viewer
     metastore:
       admin: managed-metastore.admin
       auditor: managed-metastore.auditor
@@ -840,8 +834,6 @@ default:
   tf-provider-link: https://terraform-provider.yandexcloud.net/
   tf-provider-maf: https://terraform-provider.yandexcloud.net/resources/airflow_cluster
   tf-provider-mch: https://terraform-provider.yandexcloud.net/resources/mdb_clickhouse_cluster
-  tf-provider-mes: >-
-    https://terraform-provider.yandexcloud.net/resources/mdb_elasticsearch_cluster
   tf-provider-mgp: https://terraform-provider.yandexcloud.net/resources/mdb_greenplum_cluster
   tf-provider-mkf: https://terraform-provider.yandexcloud.net/resources/mdb_kafka_cluster
   tf-provider-mmg: https://terraform-provider.yandexcloud.net/resources/mdb_mongodb_cluster
@@ -5579,29 +5571,6 @@ default:
           ram|month|string: $3.045599
           ram|number: 0.00423
           ram|string: $0.004230
-      elasticsearch:
-        v2:
-          cpu:
-            c100|month|string: $10.886396
-            c100|string: $0.015120
-          ram:
-            basic|month|string: $13.607994
-            basic|string: $0.018900
-            gold|month|string: $15.940794
-            gold|string: $0.022140
-            platinum|month|string: $18.338393
-            platinum|string: $0.025470
-        v3:
-          cpu:
-            c100|month|string: $10.886396
-            c100|string: $0.015120
-          ram:
-            basic|month|string: $13.607994
-            basic|string: $0.018900
-            gold|month|string: $15.940794
-            gold|string: $0.022140
-            platinum|month|string: $18.338393
-            platinum|string: $0.025470
       greenplum:
         highfreq-v3:
           cpu:
@@ -5664,7 +5633,6 @@ default:
           ram|string: $0.003600
       local-nvme:
         ch|month|string: $0.117090
-        elasticsearch|month|string: $0.117090
         greenplum:
           dedicated|month|string: $0.037890
         greenplum|month|number: 0.11709
@@ -5769,7 +5737,6 @@ default:
       network-hdd:
         ch|month|number: 0.0288
         ch|month|string: $0.028800
-        elasticsearch|month|string: $0.028800
         greenplum|month|number: 0.0288
         greenplum|month|string: $0.028800
         kafka|month|number: 0.0288
@@ -5783,7 +5750,6 @@ default:
       network-nvme:
         ch|month|number: 0.11709
         ch|month|string: $0.117090
-        elasticsearch|month|string: $0.117090
         greenplum|month|string: $0.117090
         kafka|month|number: 0.11709
         kafka|month|string: $0.117090
@@ -5804,7 +5770,6 @@ default:
         redis|month|string: $0.196020
       network-ssd-nonreplicated:
         ch|month|string: $0.079200
-        elasticsearch|month|string: $0.079200
         greenplum|month|string: $0.079200
         kafka|month|string: $0.079200
         mongodb|month|string: $0.079200
@@ -6572,54 +6537,6 @@ default:
             ram:
               v2|month|string: $2.577743
               v2|string: $0.003580
-      y1:
-        mdb:
-          elasticsearch:
-            cpu:
-              c100:
-                v2|month|string: $4.859998
-                v2|string: $0.006750
-                v3|month|string: $4.859998
-                v3|string: $0.006750
-            ram:
-              v2:
-                basic|month|string: $7.970397
-                basic|string: $0.011070
-                gold|month|string: $9.395996
-                gold|string: $0.013050
-                platinum|month|string: $10.821596
-                platinum|string: $0.015030
-              v3:
-                basic|month|string: $7.970397
-                basic|string: $0.011070
-                gold|month|string: $9.395996
-                gold|string: $0.013050
-                platinum|month|string: $10.821596
-                platinum|string: $0.015030
-      y3:
-        mdb:
-          elasticsearch:
-            cpu:
-              c100:
-                v2|month|string: $3.758399
-                v2|string: $0.005220
-                v3|month|string: $3.758399
-                v3|string: $0.005220
-            ram:
-              v2:
-                basic|month|string: $7.711197
-                basic|string: $0.010710
-                gold|month|string: $9.071996
-                gold|string: $0.012600
-                platinum|month|string: $10.432796
-                platinum|string: $0.014490
-              v3:
-                basic|month|string: $7.711197
-                basic|string: $0.010710
-                gold|month|string: $9.071996
-                gold|string: $0.012600
-                platinum|month|string: $10.432796
-                platinum|string: $0.014490
   sku|USD|video:
     cdn:
       traffic:
@@ -7463,7 +7380,6 @@ default:
           function: Aggregation function
       services:
         label_custom: Custom Metrics
-        label_managed-elasticsearch: Managed Service for Elasticsearch
         label_managed-kafka: Managed Service for Kafka
         label_mysql: Managed Service for MySQL
         label_postgresql: Managed Service for PostgreSQL
@@ -11587,39 +11503,6 @@ default:
                     GenericParserCommon:
                       unescape_string_values:
                         title: Unescape string values
-            elasticsearch:
-              console:
-                form:
-                  elasticsearch:
-                    ElasticSearchConnection:
-                      password:
-                        title: Password
-                      security_groups:
-                        title: Security groups
-                      user:
-                        title: User
-                    ElasticSearchSource:
-                      dump_index_with_mapping:
-                        title: Dump an index with type mapping
-                    ElasticSearchTarget:
-                      cleanup_policy:
-                        title: Cleanup policy
-                      sanitize_doc_keys:
-                        title: Sanitize documents keys
-                    OnPremiseElasticSearch:
-                      addresses:
-                        title: Data nodes
-                      ca_certificate:
-                        title: CA certificate
-                      ssl_enabled:
-                        title: SSL
-                      subnet_id:
-                        title: Subnet ID
-                    OnPremiseElasticSearchHostPort:
-                      host:
-                        title: Host
-                      port:
-                        title: Port
             greenplum:
               console:
                 form:
@@ -13365,8 +13248,8 @@ default:
         tag: 2.1.7-3
     yc_gatekeeper:
       helmChart:
-        name: cr.yandex/yc-marketplace/gatekeeper
-        tag: 3.12.0
+        name: cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/gatekeeper
+        tag: 3.20.1
     yc_gateway-api:
       helmChart:
         name: >-
@@ -13386,7 +13269,7 @@ default:
       helmChart:
         name: >-
           cr.yandex/yc-marketplace/yandex-cloud/ingress-nginx/chart/ingress-nginx
-        tag: 4.12.1
+        tag: 4.13.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio

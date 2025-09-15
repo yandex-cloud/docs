@@ -30,6 +30,7 @@ Syntax:
 	- [yc organization-manager group remove-members](group/remove-members.md) — Remove members from the specified group
 	- [yc organization-manager group set-access-bindings](group/set-access-bindings.md) — Set access bindings for the specified group and delete all existing access bindings if there were any
 	- [yc organization-manager group update](group/update.md) — Update the specified group
+- [yc organization-manager idp](idp/index.md) — Manage Identity Provider
 - [yc organization-manager organization](organization/index.md) — Manage organizations
 	- [yc organization-manager organization add-access-binding](organization/add-access-binding.md) — Add access binding for the specified organization
 	- [yc organization-manager organization add-labels](organization/add-labels.md) — Add labels to specified organization

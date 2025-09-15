@@ -32,6 +32,8 @@ description: Следуя данной инструкции, вы сможете
 
     {% include notitle [max-duration](../../../_includes/speechsense/data/max-duration.md) %}
 
+    {% include notitle [max-dialog-string](../../../_includes/speechsense/data/max-dialog-string.md) %}
+
     {% endnote %}
 
     После выбора файлов начнется их загрузка в промежуточный буфер. Дождитесь завершения этой операции.

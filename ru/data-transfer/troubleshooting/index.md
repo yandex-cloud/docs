@@ -9,7 +9,6 @@
 * [Ошибки в API](#api)
 * [Сеть](#network)
 * [{{ CH }}](#clickhouse)
-* [{{ ES }}](#elasticsearch)
 * [{{ MG }}](#mongodb)
 * [{{ MY }}](#mysql)
 * [{{ objstorage-name }}](#object-storage)
