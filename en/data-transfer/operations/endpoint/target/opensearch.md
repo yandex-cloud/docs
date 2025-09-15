@@ -23,7 +23,6 @@ description: In this tutorial, you will learn how to set up an {{ OS }} target e
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     * [Migrating an {{ OS }} cluster](../../../tutorials/os-to-mos.md).
-    * [Migration with change of storage from {{ ES }} to {{ OS }}](../../../tutorials/mes-to-mos.md).
     * [Migration with change of storage from {{ PG }} to {{ OS }}](../../../tutorials/postgresql-to-opensearch.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
@@ -35,7 +34,6 @@ Configure one of the supported data sources:
 * [{{ PG }}](../source/postgresql.md)
 * [{{ DS }}](../source/data-streams.md)
 * [{{ KF }}](../source/kafka.md)
-* [{{ ES }}](../source/elasticsearch.md)
 * [{{ OS }}](../source/opensearch.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).

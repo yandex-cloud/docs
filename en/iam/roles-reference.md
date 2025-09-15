@@ -1365,8 +1365,6 @@ For more information, see [{#T}](../managed-kafka/security/index.md).
 For more information, see [{#T}](../managed-clickhouse/security.md).
 
 
-
-
 ## {{ mgl-full-name }} {#managed-gitlab-roles}
 
 #### gitlab.auditor {#gitlab-auditor}

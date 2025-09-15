@@ -16,7 +16,7 @@ Scaling capabilities depend on the type of source database:
 
   {% endcut %}
 
-* The [{{ OS }}](../operations/endpoint/source/opensearch.md) and [{{ ES }}](../operations/endpoint/source/elasticsearch.md) sources support parallel copy of data from a single index.
+* [{{ OS }}](../operations/endpoint/source/opensearch.md) sources support parallel copy of data from a single index.
 * [{{ CH }}](../operations/endpoint/source/clickhouse.md) sources support parallel copying into partitions. For this, a table must have multiple partitions. A single-partition table will be copied in a single thread. Parallel copying is only available for {{ CH }}-to-{{ CH }} transfers.
 * The [{{ objstorage-full-name }}](../operations/endpoint/source/object-storage.md) source supports parallel copy of data from a single folder.
 * The [{{ ydb-name }}](../operations/endpoint/source/ydb.md) source supports automatic table partitioning and parallel copying into partitions.

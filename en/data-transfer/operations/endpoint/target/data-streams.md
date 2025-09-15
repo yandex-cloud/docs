@@ -40,7 +40,6 @@ Configure one of the supported data sources:
 * [{{ AB }}](../../../transfer-matrix.md#airbyte)
 * [{{ DS }}](../source/data-streams.md)
 * [{{ objstorage-full-name }}](../source/object-storage.md)
-* [{{ ES }}](../source/elasticsearch.md)
 * [{{ OS }}](../source/opensearch.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).

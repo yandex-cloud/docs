@@ -1897,6 +1897,20 @@ items:
                 href: cli-ref/iam/cli-ref/key/get.md
               - name: list
                 href: cli-ref/iam/cli-ref/key/list.md
+          - name: oauth-client
+            items:
+              - name: Overview
+                href: cli-ref/iam/cli-ref/oauth-client/index.md
+              - name: create
+                href: cli-ref/iam/cli-ref/oauth-client/create.md
+              - name: delete
+                href: cli-ref/iam/cli-ref/oauth-client/delete.md
+              - name: get
+                href: cli-ref/iam/cli-ref/oauth-client/get.md
+              - name: list
+                href: cli-ref/iam/cli-ref/oauth-client/list.md
+              - name: update
+                href: cli-ref/iam/cli-ref/oauth-client/update.md
           - name: refresh-token
             items:
               - name: Overview
@@ -2778,88 +2792,6 @@ items:
                 href: cli-ref/managed-clickhouse/cli-ref/version/index.md
               - name: list
                 href: cli-ref/managed-clickhouse/cli-ref/version/list.md
-      - name: managed-elasticsearch
-        items:
-          - name: Overview
-            href: cli-ref/managed-elasticsearch/cli-ref/index.md
-          - name: backup
-            items:
-              - name: Overview
-                href: cli-ref/managed-elasticsearch/cli-ref/backup/index.md
-              - name: get
-                href: cli-ref/managed-elasticsearch/cli-ref/backup/get.md
-              - name: list
-                href: cli-ref/managed-elasticsearch/cli-ref/backup/list.md
-          - name: cluster
-            items:
-              - name: Overview
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/index.md
-              - name: add-labels
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/add-labels.md
-              - name: backup
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/backup.md
-              - name: create
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/create.md
-              - name: delete
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/delete.md
-              - name: get
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/get.md
-              - name: list
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/list.md
-              - name: list-backups
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/list-backups.md
-              - name: list-logs
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/list-logs.md
-              - name: list-operations
-                href: >-
-                  cli-ref/managed-elasticsearch/cli-ref/cluster/list-operations.md
-              - name: remove-labels
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/remove-labels.md
-              - name: reschedule-maintenance
-                href: >-
-                  cli-ref/managed-elasticsearch/cli-ref/cluster/reschedule-maintenance.md
-              - name: restore
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/restore.md
-              - name: start
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/start.md
-              - name: stop
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/stop.md
-              - name: update
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/update.md
-              - name: update-config
-                href: cli-ref/managed-elasticsearch/cli-ref/cluster/update-config.md
-          - name: extension
-            items:
-              - name: Overview
-                href: cli-ref/managed-elasticsearch/cli-ref/extension/index.md
-              - name: create
-                href: cli-ref/managed-elasticsearch/cli-ref/extension/create.md
-              - name: delete
-                href: cli-ref/managed-elasticsearch/cli-ref/extension/delete.md
-              - name: get
-                href: cli-ref/managed-elasticsearch/cli-ref/extension/get.md
-              - name: list
-                href: cli-ref/managed-elasticsearch/cli-ref/extension/list.md
-              - name: update
-                href: cli-ref/managed-elasticsearch/cli-ref/extension/update.md
-          - name: hosts
-            items:
-              - name: Overview
-                href: cli-ref/managed-elasticsearch/cli-ref/hosts/index.md
-              - name: add
-                href: cli-ref/managed-elasticsearch/cli-ref/hosts/add.md
-              - name: delete
-                href: cli-ref/managed-elasticsearch/cli-ref/hosts/delete.md
-              - name: list
-                href: cli-ref/managed-elasticsearch/cli-ref/hosts/list.md
-          - name: resource-preset
-            items:
-              - name: Overview
-                href: cli-ref/managed-elasticsearch/cli-ref/resource-preset/index.md
-              - name: get
-                href: cli-ref/managed-elasticsearch/cli-ref/resource-preset/get.md
-              - name: list
-                href: cli-ref/managed-elasticsearch/cli-ref/resource-preset/list.md
       - name: managed-gitlab
         items:
           - name: Overview
@@ -4154,6 +4086,99 @@ items:
                   cli-ref/organization-manager/cli-ref/group/set-access-bindings.md
               - name: update
                 href: cli-ref/organization-manager/cli-ref/group/update.md
+          - name: idp
+            items:
+              - name: Overview
+                href: cli-ref/organization-manager/cli-ref/idp/index.md
+              - name: user
+                items:
+                  - name: Overview
+                    href: cli-ref/organization-manager/cli-ref/idp/user/index.md
+                  - name: convert-to-external
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/user/convert-to-external.md
+                  - name: create
+                    href: cli-ref/organization-manager/cli-ref/idp/user/create.md
+                  - name: delete
+                    href: cli-ref/organization-manager/cli-ref/idp/user/delete.md
+                  - name: generate-password
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/user/generate-password.md
+                  - name: get
+                    href: cli-ref/organization-manager/cli-ref/idp/user/get.md
+                  - name: get-password-metadata
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/user/get-password-metadata.md
+                  - name: list
+                    href: cli-ref/organization-manager/cli-ref/idp/user/list.md
+                  - name: reactivate
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/user/reactivate.md
+                  - name: resolve-external-ids
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/user/resolve-external-ids.md
+                  - name: set-own-password
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/user/set-own-password.md
+                  - name: set-password
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/user/set-password.md
+                  - name: set-password-hash
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/user/set-password-hash.md
+                  - name: suspend
+                    href: cli-ref/organization-manager/cli-ref/idp/user/suspend.md
+                  - name: update
+                    href: cli-ref/organization-manager/cli-ref/idp/user/update.md
+              - name: userpool
+                items:
+                  - name: Overview
+                    href: cli-ref/organization-manager/cli-ref/idp/userpool/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/userpool/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/userpool/delete.md
+                  - name: domain
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/idp/userpool/domain/index.md
+                      - name: add
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/idp/userpool/domain/add.md
+                      - name: delete
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/idp/userpool/domain/delete.md
+                      - name: get
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/idp/userpool/domain/get.md
+                      - name: list
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/idp/userpool/domain/list.md
+                      - name: validate
+                        href: >-
+                          cli-ref/organization-manager/cli-ref/idp/userpool/domain/validate.md
+                  - name: get
+                    href: cli-ref/organization-manager/cli-ref/idp/userpool/get.md
+                  - name: list
+                    href: cli-ref/organization-manager/cli-ref/idp/userpool/list.md
+                  - name: list-access-bindings
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/userpool/list-access-bindings.md
+                  - name: list-operations
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/userpool/list-operations.md
+                  - name: set-access-bindings
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/userpool/set-access-bindings.md
+                  - name: update
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/userpool/update.md
+                  - name: update-access-bindings
+                    href: >-
+                      cli-ref/organization-manager/cli-ref/idp/userpool/update-access-bindings.md
           - name: organization
             items:
               - name: Overview

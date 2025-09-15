@@ -38,7 +38,6 @@ Migration with data storage type changed.
 * [{{ MY }} to {{ PG }}](mmy-to-mpg.md)
 * [{{ PG }} to {{ MY }}](mpg-to-mmy.md)
 * [{{ MY }} to {{ GP }}](mmy-to-mgp.md)
-* [{{ ES }} to {{ OS }}](mes-to-mos.md)
 * [{{ OS }} to {{ ydb-short-name }}](opensearch-to-ydb.md)
 * [{{ OS }} to {{ GP }}](opensearch-to-greenplum.md)
 * [{{ PG }} to {{ OS }}](postgresql-to-opensearch.md)

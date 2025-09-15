@@ -15,7 +15,6 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, {{ msp-name }} is
 In this section, you can find the {{ msp-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using the service are charged based on their pricing plans.
 
 
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
