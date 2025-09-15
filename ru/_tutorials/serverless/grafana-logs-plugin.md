@@ -3,6 +3,12 @@
 
 [Плагин {{ cloud-logging-full-name }} для {{ grafana-name }}](https://github.com/yandex-cloud/grafana-logs-plugin/tree/master) — расширение для {{ grafana-name }}, с помощью которого можно добавить [{{ cloud-logging-name }}](https://yandex.cloud/ru/services/logging) в качестве источника данных.
 
+{% note info %}
+
+Плагин {{ cloud-logging-name }} работает с {{ grafana-name }} версии 11.2.0 и ниже. В разных версиях названия меню и элементы интерфейса могут отличаться.
+
+{% endnote %}
+
 Чтобы визуализировать логи:
 
 1. [Установите плагин](#install-plugin).

@@ -234,6 +234,20 @@ items:
             href: cli-ref/key/get.md
           - name: list
             href: cli-ref/key/list.md
+      - name: oauth-client
+        items:
+          - name: Overview
+            href: cli-ref/oauth-client/index.md
+          - name: create
+            href: cli-ref/oauth-client/create.md
+          - name: delete
+            href: cli-ref/oauth-client/delete.md
+          - name: get
+            href: cli-ref/oauth-client/get.md
+          - name: list
+            href: cli-ref/oauth-client/list.md
+          - name: update
+            href: cli-ref/oauth-client/update.md
       - name: refresh-token
         items:
           - name: Overview

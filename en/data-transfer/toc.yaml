@@ -37,12 +37,6 @@ items:
                 href: operations/endpoint/source/clickhouse.md
               - name: Target
                 href: operations/endpoint/target/clickhouse.md
-          - name: Elasticsearch
-            items:
-              - name: Source
-                href: operations/endpoint/source/elasticsearch.md
-              - name: Target
-                href: operations/endpoint/target/elasticsearch.md
           - name: Greenplum®
             items:
               - name: Source
@@ -159,8 +153,6 @@ items:
             href: tutorials/mpg-to-mmy.md
           - name: '{{ MY }} to {{ GP }}'
             href: tutorials/mmy-to-mgp.md
-          - name: '{{ ES }} to {{ OS }}'
-            href: tutorials/mes-to-mos.md
           - name: '{{ OS }} to {{ ydb-short-name }}'
             href: tutorials/opensearch-to-ydb.md
           - name: '{{ OS }} in {{ GP }}'

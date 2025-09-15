@@ -41,7 +41,6 @@ Configure one of the supported data sources:
 * [{{ DS }}](../source/data-streams.md)
 * [Oracle](../source/oracle.md)
 * [{{ ydb-name }}](../source/ydb.md)
-* [{{ ES }}](../source/elasticsearch.md)
 * [{{ OS }}](../source/opensearch.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).

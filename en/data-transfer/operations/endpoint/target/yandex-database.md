@@ -43,7 +43,6 @@ Configure one of the supported data sources:
 * [{{ DS }}](../source/data-streams.md)
 * [{{ objstorage-full-name }}](../source/object-storage.md)
 * [{{ PG }}](../source/postgresql.md)
-* [{{ ES }}](../source/elasticsearch.md)
 * [{{ OS }}](../source/opensearch.md).
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).

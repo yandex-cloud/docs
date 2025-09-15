@@ -979,8 +979,6 @@ items:
             href: dataplatform/run-spark-job.md
           - name: Running jobs from a remote host
             href: dataplatform/remote-run-job.md
-      - name: Migrating to {{ mes-name }} using snapshots
-        href: dataplatform/migration-via-snapshots.md
       - name: >-
           Migrating collections from a third-party {{ MG }} cluster to {{
           mmg-name }}
@@ -1044,8 +1042,6 @@ items:
         href: dataplatform/mmy-to-mgp.md
       - name: Configuring an index policy in {{ mos-name }}
         href: dataplatform/opensearch-index-policy.md
-      - name: Migrating data from {{ ES }} to {{ mos-name }}
-        href: dataplatform/elasticsearch-to-opensearch.md
       - name: >-
           Migrating data from a third-party {{ OS }} cluster to {{ mos-name }}
           using {{ data-transfer-name }}

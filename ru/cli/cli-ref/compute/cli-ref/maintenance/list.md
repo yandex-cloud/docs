@@ -21,7 +21,7 @@ Syntax:
 |`--folder-id`|<b>`string`</b><br/>List by folder ID.|
 |`--resource-id`|<b>`string`</b><br/>List by resource ID.|
 |`--filter`|<b>`string`</b><br/>Filter by status, resource_type or resource_id.|
-|`--order`|<b>`string`</b><br/>Order by created_at, planned_at or started_at.|
+|`--order`|<b>`string`</b><br/>Order by created_at, start_scheduled_at or started_at.|
 
 #### Global Flags
 

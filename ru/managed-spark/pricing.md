@@ -12,18 +12,12 @@ editable: false
 
 {% endnote %}
 
-
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ msp-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы. За потребление других ресурсов {{ yandex-cloud }}, которые вы используете в процессе работы с сервисом, взимается плата в соответствии с их тарифами.
 
 
 
 
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
-
-
 {% include [vat](../_includes/vat.md) %}
-
-
 
 ## Статус кластера {#running-stopped}
 
@@ -51,7 +45,6 @@ editable: false
 * **Исполнитель**: четыре экземпляра конфигурации `standard`, класс хоста `c4-m16`, фиксированное количество: 4 vCPU, 16 ГБ RAM.
 
 
-
 {% list tabs group=pricing %}
 
 - Расчет в рублях {#prices-rub}
@@ -72,7 +65,6 @@ editable: false
 
 
 
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
@@ -86,7 +78,6 @@ editable: false
 {% endnote %}
 
 
-
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}
@@ -98,7 +89,6 @@ editable: false
   {% include [kzt-hosts](../_pricing/managed-spark/kzt-hosts.md) %}
 
 {% endlist %}
-
 
 
 

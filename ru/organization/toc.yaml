@@ -351,6 +351,78 @@ items:
             href: cli-ref/group/set-access-bindings.md
           - name: update
             href: cli-ref/group/update.md
+      - name: idp
+        items:
+          - name: Overview
+            href: cli-ref/idp/index.md
+          - name: user
+            items:
+              - name: Overview
+                href: cli-ref/idp/user/index.md
+              - name: convert-to-external
+                href: cli-ref/idp/user/convert-to-external.md
+              - name: create
+                href: cli-ref/idp/user/create.md
+              - name: delete
+                href: cli-ref/idp/user/delete.md
+              - name: generate-password
+                href: cli-ref/idp/user/generate-password.md
+              - name: get
+                href: cli-ref/idp/user/get.md
+              - name: get-password-metadata
+                href: cli-ref/idp/user/get-password-metadata.md
+              - name: list
+                href: cli-ref/idp/user/list.md
+              - name: reactivate
+                href: cli-ref/idp/user/reactivate.md
+              - name: resolve-external-ids
+                href: cli-ref/idp/user/resolve-external-ids.md
+              - name: set-own-password
+                href: cli-ref/idp/user/set-own-password.md
+              - name: set-password
+                href: cli-ref/idp/user/set-password.md
+              - name: set-password-hash
+                href: cli-ref/idp/user/set-password-hash.md
+              - name: suspend
+                href: cli-ref/idp/user/suspend.md
+              - name: update
+                href: cli-ref/idp/user/update.md
+          - name: userpool
+            items:
+              - name: Overview
+                href: cli-ref/idp/userpool/index.md
+              - name: create
+                href: cli-ref/idp/userpool/create.md
+              - name: delete
+                href: cli-ref/idp/userpool/delete.md
+              - name: domain
+                items:
+                  - name: Overview
+                    href: cli-ref/idp/userpool/domain/index.md
+                  - name: add
+                    href: cli-ref/idp/userpool/domain/add.md
+                  - name: delete
+                    href: cli-ref/idp/userpool/domain/delete.md
+                  - name: get
+                    href: cli-ref/idp/userpool/domain/get.md
+                  - name: list
+                    href: cli-ref/idp/userpool/domain/list.md
+                  - name: validate
+                    href: cli-ref/idp/userpool/domain/validate.md
+              - name: get
+                href: cli-ref/idp/userpool/get.md
+              - name: list
+                href: cli-ref/idp/userpool/list.md
+              - name: list-access-bindings
+                href: cli-ref/idp/userpool/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/idp/userpool/list-operations.md
+              - name: set-access-bindings
+                href: cli-ref/idp/userpool/set-access-bindings.md
+              - name: update
+                href: cli-ref/idp/userpool/update.md
+              - name: update-access-bindings
+                href: cli-ref/idp/userpool/update-access-bindings.md
       - name: organization
         items:
           - name: Overview

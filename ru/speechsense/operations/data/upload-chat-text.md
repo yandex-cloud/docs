@@ -34,6 +34,8 @@
 
 {% include [data-format](../../../_includes/speechsense/data/data-format.md) %}
 
+{% include notitle [max-dialog-string](../../../_includes/speechsense/data/max-dialog-string.md) %}
+
 {% endnote %}
 
 1. {% include [interface-code-generation](../../../_includes/speechsense/data/interface-code-generation.md) %}

@@ -14,8 +14,6 @@ There are three ways to migrate data from a source {{ ES }} cluster to a target 
 
     This method is good for any {{ ES }} cluster.
 
-    For an example of this migration type, see [Migrating data to {{ OS }} using {{ data-transfer-full-name }}](../../data-transfer/tutorials/mes-to-mos.md).
-
 * Snapshots
 
     This method is good for {{ ES }} cluster versions 7.11 or lower.

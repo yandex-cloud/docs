@@ -7,6 +7,20 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.165.0 (15.09.25) {#version0.165.0}
+
+####  Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ iam-name }} {#iam}
+
+Добавлена группа команд `yc iam oauth-client-service` для управления секретами OAuth-клиентов:
+* `yc iam oauth-client-secret get`;
+* `yc iam oauth-client-secret list`;
+* `yc iam oauth-client-secret create`;
+* `yc iam oauth-client-secret delete`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.164.0 (11.09.25) {#version0.164.0}
 
 ####  Изменения в сервисах {{ yandex-cloud }}
@@ -43,8 +57,6 @@ description: На странице представлены релизы CLI, а
 * `yc managed-mysql cluster create`;
 * `yc managed-mysql cluster update`;
 * `yc managed-mysql cluster restore`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.163.0 (08.09.25) {#version0.163.0}
 

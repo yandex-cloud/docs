@@ -35,11 +35,6 @@ description: In this tutorial, you will learn how to prepare for a transfer.
 
 {% include [prepare clickhouse db](../../_includes/data-transfer/endpoints/sources/clickhouse-prepare.md) %}
 
-### {{ ES }} source {#source-es}
-
-
-{% include [prepare elasticsearch db](../../_includes/data-transfer/endpoints/sources/elasticsearch-prepare.md) %}
-
 ### {{ GP }} source {#source-gp}
 
 
@@ -84,11 +79,6 @@ description: In this tutorial, you will learn how to prepare for a transfer.
 ### {{ CH }} target {#target-ch}
 
 {% include [prepare clickhouse db](../../_includes/data-transfer/endpoints/targets/clickhouse-prepare.md) %}
-
-### {{ ES }} target {#target-es}
-
-
-{% include [prepare elastic db](../../_includes/data-transfer/endpoints/targets/elasticsearch-prepare.md) %}
 
 ### {{ GP }} target {#target-gp}
 
