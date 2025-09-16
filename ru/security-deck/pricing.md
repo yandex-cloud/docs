@@ -74,6 +74,8 @@ editable: false
 
 #### Сканирование по количеству файлов {#scan-by-amount}
 
+Сканирование изображений тарифицируется отдельно.
+
 
 {% list tabs group=pricing %}
 
@@ -84,6 +86,29 @@ editable: false
 - Цены в тенге {#prices-kzt}
 
   {% include notitle [kzt-scan-by-amount.md](../_pricing/security-deck/dspm/kzt-scan-by-amount.md) %}
+
+{% endlist %}
+
+
+
+#### Сканирование по количеству изображений {#scan-by-image-amount}
+
+{% note warning %}
+
+Цены действуют с 22 сентября 2025 года.
+
+{% endnote %}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub.md](../_pricing/security-deck/dspm/rub-scan-by-image-amount.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt.md](../_pricing/security-deck/dspm/kzt-scan-by-image-amount.md) %}
 
 {% endlist %}
 

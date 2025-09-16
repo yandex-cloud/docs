@@ -117,7 +117,7 @@
 1. Создайте папку, в которой будет храниться конфигурация Docker-образа и все необходимые файлы, например `/home/docker-images`.
 1. Склонируйте [репозиторий на GitHub](https://github.com/yandex-cloud-examples/yc-datasphere-fastapi-service-deploy) и поместите файлы в созданную папку.
 1. Запустите [Docker Desktop](https://docs.docker.com/desktop/).
-1. В командной оболочке перейдите в папку, где хранится созданный вами Dockerfile.
+1. В командной оболочке перейдите в папку, где хранится склонированный репозиторий:
 
    ```bash
    cd docker-images

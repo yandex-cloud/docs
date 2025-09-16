@@ -6,10 +6,10 @@ description:
     13, 14, 15, 16, and 17, as well as PostgreSQL 13, 14, 15 and 16 for 1C.
   - >-
     The Yandex Cloud infrastructure is <a
-    href="/docs/security/conform">protected</a> pursuant to the following
-    standards: <ul> <li>Russian Federal Law No. 152-FZ on Personal Data</li>
-    <li>PCI DSS</li> <li>ISO 27001</li> <li>ISO 27017</li> <li>ISO 27018</li>
-    <li>GOST 57580.1-2017</li> </ul>
+    href="/docs/security/conform">secured</a> under the following standards:
+    <ul> <li>Russian Federal Law No. 152-FZ on Personal Data</li> <li>Payment
+    Card Industry Data Security Standard (PCI DSS)</li> <li>ISO 27001</li>
+    <li>ISO 27017</li> <li>ISO 27018</li> <li>GOST 57580.1-2017</li> </ul>
   - >-
     This service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
@@ -32,11 +32,11 @@ links:
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
-  - title: Identity and access management
-    description: Configure access permissions to use the service
+  - title: Security and access management
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
 meta:
   title: Yandex Managed Service for PostgreSQL

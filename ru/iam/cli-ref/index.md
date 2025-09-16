@@ -42,6 +42,11 @@ Syntax:
 	- [yc iam oauth-client get](oauth-client/get.md) — Show information about state of a specified oauth-client
 	- [yc iam oauth-client list](oauth-client/list.md) — List oauth-clients in the specified folder
 	- [yc iam oauth-client update](oauth-client/update.md) — Update the specified oauth-client
+- [yc iam oauth-client-secret](oauth-client-secret/index.md) — Manage oauth-client secrets
+	- [yc iam oauth-client-secret create](oauth-client-secret/create.md) — Create a secret for the specified oauth-client
+	- [yc iam oauth-client-secret delete](oauth-client-secret/delete.md) — Delete the specified oauth-client secret
+	- [yc iam oauth-client-secret get](oauth-client-secret/get.md) — Show information about state of a specified oauth-client secret
+	- [yc iam oauth-client-secret list](oauth-client-secret/list.md) — List secrets of the specified oauth-client
 - [yc iam refresh-token](refresh-token/index.md) — Manage refresh tokens
 	- [yc iam refresh-token list](refresh-token/list.md) — List subjects Refresh Tokens
 	- [yc iam refresh-token revoke](refresh-token/revoke.md) — Revoke subjects Refresh Tokens. Refresh Tokens can be revoked by refresh token, refresh token id, or a group of subject id, client id and client instance info. If none of the flags are set, all Refresh Tokens for the authenticated user will be revoked.

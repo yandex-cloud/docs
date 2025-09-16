@@ -131,7 +131,7 @@ There are no restrictions for non-sharded clusters.
 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
-      * In the **{{ ui-key.yacloud.mdb.forms.config_field_password }}** field, enter the user password.
+      * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field, enter the user password.
 
          {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 

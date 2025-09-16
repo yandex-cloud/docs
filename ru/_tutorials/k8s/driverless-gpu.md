@@ -41,6 +41,15 @@
 
 1. {% include [Настройка kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
+## Требования к версиям компонентов {#version-requirements}
+
+Начиная с версии {{ k8s }} 1.30 для корректной работы группы узлов с GPU без предустановленных драйверов требуются:
+
+* GPU Operator версии `24.9.0` или выше.
+* Драйвер NVIDIA версии `550.144.03` или выше
+
+При использовании компонентов более старых версий могут возникнуть ошибки компиляции драйверов.
+
 ## Установите GPU Operator {#install-gpu-operator}
 
 1. {% include [Установка Helm](../../_includes/managed-kubernetes/helm-install.md) %}
@@ -61,7 +70,11 @@
 
     {% note info %}
 
-    Для платформы группы узлов {{ managed-k8s-name }} `{{ a100-epyc }}` (`gpu-standard-v3`) используйте [версию драйвера `515.48.07`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-515-48-07/index.html).
+    Рекомендуемые версии драйверов:
+
+    * Для групп узлов версии {{ k8s }} 1.30 или выше — [версия `550.144.03`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-550-144-03/index.html) или выше.
+
+    * Для групп узлов на платформе {{ a100-epyc }} (`gpu-standard-v3`) — [версия `515.48.07`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-515-48-07/index.html).
 
     {% endnote %}
 
@@ -87,9 +100,9 @@ kubectl --namespace gpu-operator logs "${DRIVERS_POD_NAME}"
 ```text
 Defaulted container "nvidia-driver-ctr" out of: nvidia-driver-ctr, k8s-driver-manager (init)
 DRIVER_ARCH is x86_64
-Creating directory NVIDIA-Linux-x86_64-535.54.03
+Creating directory NVIDIA-Linux-x86_64-<версия_драйвера>
 Verifying archive integrity... OK
-Uncompressing NVIDIA Accelerated Graphics Driver for Linux-x86_64 535.54.03
+Uncompressing NVIDIA Accelerated Graphics Driver for Linux-x86_64 <версия_драйвера>
 
 ...
 
@@ -104,6 +117,27 @@ Done, now waiting for signal
 ```
 
 Теперь вы можете запускать рабочие нагрузки с GPU согласно руководству [Запуск рабочих нагрузок с GPU](../../managed-kubernetes/tutorials/running-pod-gpu.md).
+
+## Решение проблем {#troubleshooting}
+
+### Ошибки компиляции драйверов {#compilation-error}
+
+Если при установке драйверов возникают ошибки компиляции:
+
+1. Убедитесь, что установлен GPU Operator версии 24.9.0 или выше:
+
+    ```bash
+    helm list -n gpu-operator
+    ```
+
+1. Используйте предварительно скомпилированные драйверы:
+
+    ```bash
+    helm upgrade gpu-operator nvidia/gpu-operator \
+      --namespace gpu-operator \
+      --set driver.usePrecompiled=true \
+      --set driver.version=550.144.03
+    ```
 
 ## Удалите созданные ресурсы {#clear-out}
 

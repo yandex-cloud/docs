@@ -66,7 +66,7 @@ To create a cluster:
 
     * **{{ ui-key.yacloud.mdb.forms.section_host }}** → **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**: Make sure to disable this option, i.e., set its value to `No`, for all cluster hosts.
 
-    * **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **{{ ui-key.yacloud.mdb.forms.config_field_password }}**: User password.
+    * **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: User password.
 
         {% include [requirements-to-password](../_includes/mdb/mrd/requirements-to-password.md) %}
 

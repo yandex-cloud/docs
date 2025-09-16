@@ -23,9 +23,56 @@ description: Следуя данной инструкции, вы сможете
 
 ![image](../_assets/quota-manager/quotas-limits.svg)
 
-Для работы с квотами доступны интерфейсы: [консоль]({{ link-console-quotas }}), [API](api-ref/authentication.md) и [CLI](cli-ref/index.md).
+Для работы с квотами доступны интерфейсы: [консоль управления]({{ link-console-quotas }}), [API](api-ref/authentication.md) и [CLI](cli-ref/index.md).
 
 Управление квотами через CLI и API выполняется по идентификатору квоты. Список идентификаторов см. в разделе [{#T}](../overview/concepts/quotas-limits.md).
+
+## Перед началом работы {#before-you-begin}
+
+Чтобы начать работать в {{ yandex-cloud }}:
+
+1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. В сервисе [{{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md).
+1. В зависимости от интерфейса, который вы будете использовать, выполните дополнительные действия:
+
+    {% list tabs group=instructions %}
+
+    - Консоль управления {#console}
+
+      Убедитесь, что у пользователя есть следующие [роли](../iam/concepts/access-control/roles.md):
+
+      {% include [before-begin-api-assign-roles](../_includes/quota-manager/before-begin-api-assign-roles.md) %}
+
+    - CLI {#cli}
+
+      1. {% include [cli-install](../_includes/cli-install.md) %}
+
+          {% include [default-catalogue](../_includes/default-catalogue.md) %}
+
+      1. Убедитесь, что у пользователя или сервисного аккаунта, аутентифицированного в профиле CLI, есть следующие [роли](../iam/concepts/access-control/roles.md):
+
+          {% include [before-begin-api-assign-roles](../_includes/quota-manager/before-begin-api-assign-roles.md) %}
+
+    - REST API {#api}
+
+      1. Установите утилиту [cURL](https://curl.haxx.se).
+      1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роли](../iam/concepts/access-control/roles.md):
+
+          {% include [before-begin-api-assign-roles](../_includes/quota-manager/before-begin-api-assign-roles.md) %}
+
+      1. {% include [before-begin-api-get-iam-token](../_includes/quota-manager/before-begin-api-get-iam-token.md) %}
+
+    - gRPC API {#grpc-api}
+
+      1. Установите утилиту [gRPCurl](https://github.com/fullstorydev/grpcurl).
+      1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роли](../iam/concepts/access-control/roles.md):
+
+          {% include [before-begin-api-assign-roles](../_includes/quota-manager/before-begin-api-assign-roles.md) %}
+
+      1. {% include [before-begin-api-get-iam-token](../_includes/quota-manager/before-begin-api-get-iam-token.md) %}
+
+    {% endlist %}
 
 ## Получить информацию о квотах {#get-quota-info}
 
@@ -52,27 +99,23 @@ description: Следуя данной инструкции, вы сможете
 
 - CLI {#cli}
 
-  1. **Настройте работу с CLI.**
-
-      {% include [cli-install](../_includes/cli-install.md) %}
-
-      {% include [default-catalogue](../_includes/default-catalogue.md) %}
-
   1. **Посмотрите список сервисов с квотами.**
 
       ```bash
-      yc quota-manager quota-limit list-services --resource-type=<тип_ресурса>
+      yc quota-manager quota-limit list-services \
+        --resource-type <тип_ресурса>
       ```
 
       Где `--resource-type` — [тип ресурса](concepts/index.md#resources-types): 
-      * `resource-manager.cloud` — облако; 
-      * `organization-manager.organization` — организация; 
-      * `billing.account` — платежный аккаунт.
+      * `resource-manager.cloud` — [облако](../resource-manager/concepts/resources-hierarchy.md#cloud); 
+      * `organization-manager.organization` — [организация](../organization/concepts/organization.md); 
+      * `billing.account` — [платежный аккаунт](../billing/concepts/billing-account.md).
 
       **Пример команды**
 
       ```bash
-      yc quota-manager quota-limit list-services --resource-type=resource-manager.cloud
+      yc quota-manager quota-limit list-services \
+        --resource-type resource-manager.cloud
       ```
 
       Будет выведен список сервисов, которые находятся на уровне облака и для которых есть квоты.
@@ -81,9 +124,9 @@ description: Следуя данной инструкции, вы сможете
 
       ```bash
       yc quota-manager quota-limit list \
-         --service=<имя_сервиса> \
-         --resource-type=<тип_ресурса> \
-         --resource-id=<идентификатор_ресурса>
+         --service <имя_сервиса> \
+         --resource-type <тип_ресурса> \
+         --resource-id <идентификатор_ресурса>
       ```
 
       Где:
@@ -93,17 +136,15 @@ description: Следуя данной инструкции, вы сможете
 
       **Пример команды**
 
-      ```bash
-      yc quota-manager quota-limit list --service=iam --resource-type=resource-manager.cloud --resource-id=b1gflhy********
-      ``` 
+      {% include [get-quota-service-cli](../_includes/quota-manager/get-quota-service-cli.md) %}
 
-      Будут выведены идентификаторы квот, которые есть в сервисе {{ iam-short-name }} в облаке `b1gflhy********`, а также значения и потребление этих квот.
+      {% include [get-quota-service-cli-output](../_includes/quota-manager/get-quota-service-cli-output.md) %}
 
   1. **Посмотрите значение и потребление определенной квоты.**
 
       ```bash
       yc quota-manager quota-limit get \
-         --quota-id=<идентификатор_квоты> \
+         --quota-id <идентификатор_квоты> \
          --resource-id <идентификатор_ресурса> \
          --resource-type <тип_ресурса>
       ```
@@ -115,29 +156,11 @@ description: Следуя данной инструкции, вы сможете
 
       **Пример команды**
 
-      ```bash
-      yc quota-manager quota-limit get --quota-id=iam.apiKeys.count --resource-id=b1gflhy********  --resource-type=resource-manager.cloud
-      ```
+      {% include [get-quota-info-cli](../_includes/quota-manager/get-quota-info-cli.md) %}
 
-      Будут выведены значение и потребление квоты для количества API-ключей в облаке `b1gflhy********`:
-
-      ```bash
-      quota_id: iam.apiKeys.count
-      limit: 1000
-      usage: 27
-      ```
-
-      Где:
-      * `limit` — значение квоты;
-      * `usage` — потребление квоты.
+      {% include [get-quota-info-cli-output](../_includes/quota-manager/get-quota-info-cli-output.md) %}
 
 - REST API {#api}
-
-  1. **Настройте работу с API.**
-
-      1. Чтобы проверить работу с квотами через [REST API](./api-ref/index.md), установите утилиту [cURL](https://curl.haxx.se).
-      1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роль](./security/index.md#quota-manager-viewer) `quota-manager.viewer`.
-      1. [Получите IAM-токен](../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
 
   1. **Посмотрите список сервисов, для которых есть квоты.**
 
@@ -243,12 +266,6 @@ description: Следуя данной инструкции, вы сможете
       {% include [get-quota-info-response-curl](../_includes/quota-manager/get-quota-info-response-curl.md) %}
 
 - gRPC API {#grpc-api}
-
-  1. **Настройте работу с API.**
-
-      1. Чтобы проверить работу с квотами через [gRPC API](./api-ref/grpc/index.md), установите утилиту [gRPCurl](https://github.com/fullstorydev/grpcurl).
-      1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роль](./security/index.md#quota-manager-viewer) `quota-manager.viewer`.
-      1. [Получите IAM-токен](../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
 
   1. **Посмотрите список сервисов, для которых есть квоты.**
 
@@ -357,8 +374,6 @@ description: Следуя данной инструкции, вы сможете
 
 ## Запросить изменение квот {#request-quota-change}
 
-{% include [request-quota-roles](../_includes/quota-manager/request-quota-roles.md) %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -374,6 +389,8 @@ description: Следуя данной инструкции, вы сможете
       **Пример команды**
 
       {% include [request-quota-change-cli](../_includes/quota-manager/request-quota-change-cli.md) %}
+
+      {% include [request-quota-change-legend2](../_includes/quota-manager/request-quota-change-legend2.md) %}
 
       **Пример ответа**
 
@@ -394,10 +411,6 @@ description: Следуя данной инструкции, вы сможете
   1. **Посмотрите статус запроса на изменение квоты.**
 
       {% include [get-quota-request-cli](../_includes/quota-manager/get-quota-request-cli.md) %}
-
-      **Пример команды**
-
-      {% include [get-quota-request-cli-example](../_includes/quota-manager/get-quota-request-cli-example.md) %}
 
       **Пример ответа**
 

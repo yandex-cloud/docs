@@ -1,7 +1,10 @@
 [Посмотрите идентификатор квоты](../../overview/concepts/quotas-limits#quotas-limits-default) и создайте запрос на ее изменение:
 
 ```bash
-yc quota-manager quota-request create --resource-type=<тип_ресурса> --resource-id=<идентификатор_ресурса> --desired-limit quota-id=<идентификатор_квоты>,value=<новое_значение_квоты>
+yc quota-manager quota-request create \
+  --resource-type <тип_ресурса> \
+  --resource-id <идентификатор_ресурса> \
+  --desired-limit quota-id=<идентификатор_квоты>,value=<новое_значение_квоты>
 ```
 
 Где:

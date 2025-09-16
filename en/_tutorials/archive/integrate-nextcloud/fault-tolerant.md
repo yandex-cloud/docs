@@ -208,7 +208,7 @@ To create a {{ mmy-name }} cluster:
 
       * In the **{{ ui-key.yacloud.mdb.forms.database_field_name }}** field, enter `nextcloud`.
       * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** field, enter `user`.
-      * In the **{{ ui-key.yacloud.mdb.forms.config_field_password }}** field, select `{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}` and enter a password you will use to access the database.
+      * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field, select `{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}` and enter a password you will use to access the database.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select `nextcloud-network` and the `nextcloud-sg` security group.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, make sure the cluster is going to have one [host](../../../managed-mysql/concepts/instance-types.md) within the same [availability zone](../../../overview/concepts/geo-scope.md) you created the VM in.
 

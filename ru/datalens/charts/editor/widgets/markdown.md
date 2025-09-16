@@ -419,7 +419,7 @@ description: Из статьи вы узнаете про виджет Advanced-
 
 Синтаксис Markdown для встроенной ссылки состоит из `[текста ссылки] и `(URL-адреса)` :
 
-`[DataLens](https://datalens.yandex.cloud)`
+`[DataLens](https://datalens.ru)`
 
 [{{ datalens-short-name }}]({{ link-datalens-main }})
 

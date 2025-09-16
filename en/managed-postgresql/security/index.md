@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mpg-full-name }}
-description: Access management in the PostgreSQL database creation and management service. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
+description: Access management in the {{ PG }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
 ---
 
 # Access management in {{ mpg-name }}
@@ -9,12 +9,12 @@ description: Access management in the PostgreSQL database creation and managemen
 In this section, you will learn:
 
 * [What resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
+* [What roles exist in this service](#roles-list).
 * [What roles are required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users with the `mdb.admin`, `managed-postgresql.admin`, or one of the following roles for that resource:
+To assign a role for a resource, a user should have the `mdb.admin` role, `managed-postgresql.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -26,7 +26,7 @@ Roles for a resource can be assigned by users with the `mdb.admin`, `managed-pos
 
 ## What roles exist in this service {#roles-list}
 
-The chart below shows service’s roles and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find role descriptions below the chart.
+The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all the `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
 
 ![image](../../_assets/mdb/roles-managed-postgresql.svg)
 
@@ -70,9 +70,9 @@ The chart below shows service’s roles and their permission inheritance. For ex
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## Roles required {#required-roles}
+## What roles are required {#required-roles}
 
-To use the service, you need the [{{ roles.mpg.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. With the `{{ roles.mpg.viewer }}` role, one can only view the list of clusters.
+To use {{ maf-name }}, you need the [{{ roles.mpg.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.mpg.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mpg.editor }}` role or higher.
 

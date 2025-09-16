@@ -1,6 +1,6 @@
 ---
-title: '{{ mpg-name }}. Questions and answers'
-description: What is {{ mpg-name }}? Which tasks are best addressed using {{ mpg-name }}, and which using VMs with databases? What part of database management and maintenance is {{ mpg-name }} responsible for? Find the answers to these and other questions in this article.
+title: '{{ mpg-name }}. FAQ'
+description: What is {{ mpg-name }}? Not sure when to use {{ mpg-name }} or VMs with databases? Want to know the role of {{ mpg-name }} in database management and maintenance? Find answers to these and other questions in this article.
 ---
 
 # General questions about {{ mpg-name }}

@@ -127,7 +127,7 @@ Select the Fluent Bit installation option depending on what logs you want to col
   1. Download the `config.yaml` configuration file:
 
      ```bash
-     wget https://raw.githubusercontent.com/knpsh/yc-logging-fluent-bit-example/main/config.yaml
+     wget https://github.com/yandex-cloud-examples/yc-mk8s-fluent-bit-logging/blob/main/config.yaml
      ```
 
   1. Specify the ID of the log group [created earlier](#before-you-begin) and (optionally) the cluster ID in the `[OUTPUT]` section of the `config.yaml` file:
