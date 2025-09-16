@@ -127,7 +127,7 @@
   1. Скачайте конфигурационный файл `config.yaml`:
 
      ```bash
-     wget https://raw.githubusercontent.com/knpsh/yc-logging-fluent-bit-example/main/config.yaml
+     wget https://github.com/yandex-cloud-examples/yc-mk8s-fluent-bit-logging/blob/main/config.yaml
      ```
 
   1. Укажите идентификатор [созданной ранее](#before-you-begin) лог-группы и опционально идентификатор кластера в секции `[OUTPUT]` файла `config.yaml`:

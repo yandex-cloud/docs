@@ -1911,6 +1911,18 @@ items:
                 href: cli-ref/iam/cli-ref/oauth-client/list.md
               - name: update
                 href: cli-ref/iam/cli-ref/oauth-client/update.md
+          - name: oauth-client-secret
+            items:
+              - name: Overview
+                href: cli-ref/iam/cli-ref/oauth-client-secret/index.md
+              - name: create
+                href: cli-ref/iam/cli-ref/oauth-client-secret/create.md
+              - name: delete
+                href: cli-ref/iam/cli-ref/oauth-client-secret/delete.md
+              - name: get
+                href: cli-ref/iam/cli-ref/oauth-client-secret/get.md
+              - name: list
+                href: cli-ref/iam/cli-ref/oauth-client-secret/list.md
           - name: refresh-token
             items:
               - name: Overview

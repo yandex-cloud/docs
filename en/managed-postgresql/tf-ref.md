@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mpg-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ mpg-name }}.
+description: This page provides information about the {{ TF }} provider resources and data sources that {{ mpg-name }} supports.
 ---
 
 # {{ TF }} reference for {{ mpg-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ mpg-name }}:
+{{ mpg-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
@@ -25,4 +25,4 @@ The following {{ TF }} provider resources are supported for {{ mpg-name }}:
 | --- | --- |
 | [yandex_mdb_postgresql_cluster]({{ tf-provider-datasources-link }}/mdb_postgresql_cluster) | [{{ PG }} cluster](./concepts/index.md) information |
 | [yandex_mdb_postgresql_database]({{ tf-provider-datasources-link }}/mdb_postgresql_database) | {{ PG }} database information |
-| [yandex_mdb_postgresql_user]({{ tf-provider-datasources-link }}/mdb_postgresql_user) | User information |
+| [yandex_mdb_postgresql_user]({{ tf-provider-datasources-link }}/mdb_postgresql_user) | {{ PG }} user information |

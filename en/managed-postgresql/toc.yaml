@@ -43,7 +43,7 @@ items:
             href: operations/web-sql-query.md
           - name: Copying and populating a table
             href: operations/copy-write-data.md
-          - name: Database management
+          - name: Managing databases
             href: operations/databases.md
       - name: '{{ PG }} users'
         items:
@@ -94,16 +94,16 @@ items:
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
       - name: >-
-          Setting up a connection from a {{ serverless-containers-name }}
-          container
+          Setting up a connection from a container in {{
+          serverless-containers-name }}
         href: tutorials/container-connect.md
       - name: >-
-          Data delivery to {{ mkf-full-name }} using {{ data-transfer-full-name
-          }}
+          Delivering data to {{ mkf-full-name }} using {{
+          data-transfer-full-name }}
         href: tutorials/cdc-data-transfer.md
       - name: >-
-          Data delivery to {{ ydb-full-name }} using {{ data-transfer-full-name
-          }}
+          Delivering data to {{ ydb-full-name }} using {{
+          data-transfer-full-name }}
         href: tutorials/data-transfer-ydb.md
       - name: Delivering data to {{ mkf-full-name }} using Debezium
         href: tutorials/cdc-debezium.md
@@ -127,7 +127,7 @@ items:
             href: tutorials/joomla-postgresql/console.md
           - name: '{{ TF }}'
             href: tutorials/joomla-postgresql/terraform.md
-      - name: Status monitoring of geographically distributed devices
+      - name: Monitoring the status of geographically distributed devices
         href: tutorials/datalens.md
       - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md
@@ -139,11 +139,11 @@ items:
         href: tutorials/yq-federative-queries.md
       - name: Fixing string sorting issues after upgrading glibc
         href: tutorials/glibc-collation-issues.md
-      - name: Writing data from a device into a database
+      - name: Writing data from a device to a database
         href: tutorials/data-recording.md
       - name: Replication and migration
         items:
-          - name: Logical replication {{ PG }}
+          - name: Logical replication in {{ PG }}
             href: tutorials/replication-overview.md
           - name: Migrating a database to {{ mpg-name }}
             href: tutorials/data-migration.md
@@ -195,13 +195,13 @@ items:
             href: concepts/using-deprecated-instances.md
       - name: Planning a cluster topology
         href: concepts/planning-cluster-topology.md
-      - name: High availability cluster
+      - name: High availability clusters
         href: concepts/high-availability.md
       - name: Networking in {{ mpg-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: '{{ mpg-name }} storage'
+      - name: Storage in {{ mpg-name }}
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md
@@ -617,5 +617,5 @@ items:
         href: qa/monitoring.md
       - name: Error messages
         href: qa/errors.md
-      - name: All questions on a single page
+      - name: All questions on one page
         href: qa/all.md

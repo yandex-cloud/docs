@@ -6,7 +6,7 @@ description: This page covers FAQ about {{ mpg-short-name }}.
 # FAQ about {{ mpg-short-name }}
 
 
-### General questions about {#toc-general}
+### General questions {#toc-general}
 
 {% include [general-minitoc](../../_qa/managed-postgresql/minitoc/general.md) %}
 
@@ -42,7 +42,7 @@ description: This page covers FAQ about {{ mpg-short-name }}.
 
 {% include [errors-minitoc](../../_qa/managed-postgresql/minitoc/errors.md) %}
 
-## General questions about {#general}
+## General questions {#general}
 
 {% include [general](../../_qa/managed-postgresql/general.md) %}
 

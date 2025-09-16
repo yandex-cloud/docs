@@ -66,7 +66,7 @@ description: В этой инструкции вы научитесь созда
 
     * **{{ ui-key.yacloud.mdb.forms.section_host }}** → **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}** — убедитесь, что эта опция выключена (имеет значение `Нет`) для всех хостов кластера.
 
-    * **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **{{ ui-key.yacloud.mdb.forms.config_field_password }}** — пароль пользователя.
+    * **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — пароль пользователя.
 
         {% include [requirements-to-password](../_includes/mdb/mrd/requirements-to-password.md) %}
 

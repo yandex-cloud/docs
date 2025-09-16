@@ -1,7 +1,7 @@
 ```bash
 id: atdogfioseaq********
 resource:
-  id: b1gflhy********
+  id: b1gia87mbaom********
   type: resource-manager.cloud
 created_at: "2025-09-11T08:24:24.142277Z"
 status: PENDING

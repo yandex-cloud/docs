@@ -208,7 +208,7 @@ Nextcloud использует базу данных {{ MY }} для хране�
 
       * В поле **{{ ui-key.yacloud.mdb.forms.database_field_name }}** введите `nextcloud`.
       * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** введите `user`.
-      * В поле **{{ ui-key.yacloud.mdb.forms.config_field_password }}** выберите `{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}` и введите пароль, который вы будете использовать для доступа к БД.
+      * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** выберите `{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}` и введите пароль, который вы будете использовать для доступа к БД.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите сеть `nextcloud-network` и группу безопасности `nextcloud-sg`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** убедитесь, что в кластере создается один [хост](../../../managed-mysql/concepts/instance-types.md) в той же [зоне доступности](../../../overview/concepts/geo-scope.md), в которой вы создали виртуальную машину.
 

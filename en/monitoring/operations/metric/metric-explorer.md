@@ -104,7 +104,7 @@ To view the legend and statistics for a time interval:
    * **{{ ui-key.yacloud_monitoring.wizard.group-by.label-field-title }}**: Parameter for additional charts. These can be charts for different services, hosts, or processors, i.e., tokens selected in the query.
    * **{{ ui-key.yacloud_monitoring.wizard.group-by.limit-field-title }}**: Number of highest values and lowest values on the chart.
    * **{{ ui-key.yacloud_monitoring.wizard.group-by.sort-by }}**: Sorting by minimum, maximum, or average value of the selected parameter.
-   * **{{ ui-key.yacloud_monitoring.wizard.group-by.charts-count }}**: Number of charts on a single line.
+   * **{{ ui-key.yacloud_monitoring.wizard.select.charts-count.label }}**: Number of charts on a single line.
 1. Click **{{ ui-key.yacloud_monitoring.wizard.group-by.execute }}**.
 
 Select different parameter values and you will see the charts updated to reflect your selection.

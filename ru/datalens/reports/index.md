@@ -11,7 +11,7 @@ description: Из статьи вы узнаете, что такое отчет
 
 _Отчет_ — это многостраничный документ заданного формата, который можно использовать в качестве интерактивной презентации, а также экспортировать в PDF и распечатать. На страницы отчета можно добавлять [чарты](../concepts/chart/index.md), [текстовые блоки](../dashboard/widget.md#text), [заголовки](../dashboard/widget.md#title) и изображения.
 
-Чтобы посмотреть пример отчета, разверните [демонстрационный дашборд](https://datalens.yandex.cloud/marketplace/f2eui5ar8omalpcg1j3r) из {{ datalens-short-name }} {{ marketplace-short-name }}. В развернутом воркбуке будет доступен пример отчета. Для вдохновения готовыми отчетами присоединяйтесь к [сообществу](https://t.me/YandexDataLens/113821/117093) в Telegram.
+Чтобы посмотреть пример отчета, разверните [демонстрационный дашборд](https://datalens.ru/marketplace/f2eui5ar8omalpcg1j3r) из {{ datalens-short-name }} {{ marketplace-short-name }}. В развернутом воркбуке будет доступен пример отчета. Для вдохновения готовыми отчетами присоединяйтесь к [сообществу](https://t.me/YandexDataLens/113821/117093) в Telegram.
 
 ![report-page](../../_assets/datalens/report/demo_report.png)
 

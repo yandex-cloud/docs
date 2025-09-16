@@ -79,10 +79,14 @@ items:
         href: concepts/index.md
       - name: AI-модели
         items:
-          - name: Возможности генеративных моделей
+          - name: Обзор
             href: concepts/generation/index.md
-          - name: Доступные генеративные модели
+          - name: Модели базового инстанса
             href: concepts/generation/models.md
+          - name: Модели выделенного инстанса
+            href: concepts/generation/dedicated-instance.md
+          - name: Пакетная обработка данных
+            href: concepts/generation/batch-processing.md
           - name: Вызов функций
             href: concepts/generation/function-call.md
           - name: Режим рассуждений

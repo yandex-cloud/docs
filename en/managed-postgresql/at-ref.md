@@ -1,6 +1,6 @@
 ---
 title: '{{ mpg-full-name }} event reference in {{ at-full-name }}'
-description: This page gives a reference for {{ mpg-name }} events tracked in {{ at-name }}.
+description: This page provides a reference for {{ mpg-name }} events tracked in {{ at-name }}.
 ---
 
 # {{ at-full-name }} event reference
@@ -13,10 +13,10 @@ The general format of the `event_type` field value is as follows:
 {{ at-event-prefix }}.audit.mdb.postgresql.<event_name>
 ```
 
-## Management event reference {#control-plane-events}
+## Control plane event reference {#control-plane-events}
 
 {% include [mpg-events](../_includes/audit-trails/events/managed-postgresql-events.md) %}
 
-## Data event reference {#data-plane-events}
+## Data plane event reference {#data-plane-events}
 
 {% include [mpg-events-dp](../_includes/audit-trails/events/mpg-events-dp.md) %}

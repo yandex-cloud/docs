@@ -7,6 +7,17 @@
 
 #### Общие лимиты {#datalens-common-limits}
 
+
+
+
+{% note warning %}
+
+Максимальное количество экземпляров {{ datalens-short-name }} в одной [организации](../../organization/quickstart.md) или [облаке {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#cloud) — 1.
+
+{% endnote %}
+
+
+
 {% note info %}
 
 В {{ datalens-short-name }} нет ограничения на объем данных в источнике, к которому выполняется подключение.

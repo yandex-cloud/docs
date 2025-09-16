@@ -1,0 +1,1 @@
+[Получите IAM-токен](../../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.

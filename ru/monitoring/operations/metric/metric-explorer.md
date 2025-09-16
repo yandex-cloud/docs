@@ -104,7 +104,7 @@ description: С помощью инструкции вы сможете посм
    * **{{ ui-key.yacloud_monitoring.wizard.group-by.label-field-title }}** — параметр, по которому надо построить дополнительные графики. Это могут быть графики для разных сервисов, хостов, процессоров — токенов, которые выбраны в запросе.
    * **{{ ui-key.yacloud_monitoring.wizard.group-by.limit-field-title }}** — количество верхних или нижних значений на графике.
    * **{{ ui-key.yacloud_monitoring.wizard.group-by.sort-by }}** — сортировка по минимальному, максимальному или среднему значению выбранного параметра.
-   * **{{ ui-key.yacloud_monitoring.wizard.group-by.charts-count }}** — количество графиков на одной линии.
+   * **{{ ui-key.yacloud_monitoring.wizard.select.charts-count.label }}** — количество графиков на одной линии.
 1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.wizard.group-by.execute }}**.
 
 Выбирайте разные значения параметров — графики будут перестраиваться для выбранных значений.

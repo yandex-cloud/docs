@@ -77,7 +77,7 @@ To create a {{ MY }} DB cluster:
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**:
      * In the **{{ ui-key.yacloud.mdb.forms.database_field_name }}** field, enter `wp-mysql-tutorial-db`.
      * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** field, enter `wordpress`.
-     * In the **{{ ui-key.yacloud.mdb.forms.config_field_password }}** field, enter the password you will use to access the DB.
+     * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field, enter the password you will use to access the DB.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select the network your cluster will be connected to.
 
 
