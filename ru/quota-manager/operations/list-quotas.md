@@ -72,14 +72,14 @@ title: Как посмотреть список сервисов и квот
   yc quota-manager quota-limit list \
     --service=compute \
     --resource-type=resource-manager.cloud \
-    --resource-id=b1gflhy********
+    --resource-id=b1gia87mbaom********
   ```
 
-  Будет выведен список квот для сервиса {{ compute-name }} для облака с идентификатором `b1gflhy********`:
+  Будет выведен список квот для сервиса {{ compute-name }} для облака с идентификатором `b1gia87mbaom********`:
 
   ```bash
   resource:
-    id: b1gflhy********
+    id: b1gia87mbaom********
     type: resource-manager.cloud
   quota_limits:
     - quota_id: compute.dedicatedHosts.count

@@ -23,6 +23,8 @@ description: На этой странице приведен справочни�
 ||
 || [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant) | [Настройка](operations/buckets/edit-acl.md) прав доступа к бакету с помощью [ACL {{ objstorage-name }}](./concepts/acl.md).
 
+{% include [tf-iam-binding-warning](../_includes/storage/resource-matching.md) %}
+
 {% include [tf-iam-binding-warning](../_includes/storage/tf-bucket-grant-warning.md) %}
 
 ||

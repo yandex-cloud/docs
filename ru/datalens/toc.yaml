@@ -138,6 +138,8 @@ items:
             href: operations/connection/create-prometheus.md
           - name: Создание подключения к Snowflake
             href: operations/connection/create-snowflake.md
+          - name: Создание подключения к {{ TR }}
+            href: operations/connection/create-trino.md
       - name: Файлы и сервисы
         items:
           - name: Создание подключения к файлам

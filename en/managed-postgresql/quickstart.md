@@ -12,13 +12,13 @@ To get started:
 
 ## Getting started {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 
 1. If you do not have a folder yet, create one:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mpg.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mpg.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account to be able to create a cluster.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
@@ -48,7 +48,7 @@ To get started:
 1. In the management console, select the folder where you want to create a DB cluster.
 1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Specify your cluster settings and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
+1. Specify your cluster settings and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
 1. Wait until the cluster is ready: its status on the {{ mpg-short-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
 1. Optionally, [transfer data](../data-transfer/tutorials/managed-postgresql.md#quick-transfer) to the cluster database.
 
@@ -69,6 +69,6 @@ To get started:
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](concepts/index.md).
-* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to the database](operations/connect.md).
-* Read [questions and answers](qa/general.md).
+* Read about the [service concepts](concepts/index.md).
+* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a database](operations/connect.md).
+* Check [questions and answers](qa/general.md).

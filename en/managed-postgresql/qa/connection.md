@@ -1,4 +1,4 @@
-# Connecting to {{ PG }} clusters
+# Connecting to a {{ PG }} cluster
 
 {% include [connection-minitoc](../../_qa/managed-postgresql/minitoc/connection.md) %}
 

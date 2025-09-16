@@ -19,7 +19,7 @@ editable: false
 
 ## Из чего складывается стоимость использования {{ foundation-models-full-name }} {#rules}
 
-Использование сервиса {{ foundation-models-name }} [детализируется в {{ billing-name }}](../billing/operations/check-charges.md) в единицах тарификации — _тарифицирующих юнитах_. Стоимость одного тарифицирующего юнита различается для [генерации](concepts/generation/index.md) и [векторизации](./concepts/embeddings.md) текста.
+Использование сервиса {{ foundation-models-name }} [детализируется в {{ billing-name }}](../billing/operations/check-charges.md) в единицах тарификации — _тарифицирующих юнитах_. Стоимость одного тарифицирующего юнита различается для [генерации](concepts/generation/index.md), [векторизации](./concepts/embeddings.md) и [выделенных инстансов](concepts/generation/dedicated-instance.md).
 
 ### Генерация текста {#rules-generating}
 
@@ -46,6 +46,12 @@ editable: false
 * Работа дообученной модели {{ llama }} 8B тарифицируется по правилам {{ llama }} 8B^1^.
 
 ^1^ {{ meta-disclaimer }}
+
+### Выделенные инстансы {#rules-dedicated}
+
+Стоимость работы выделенного инстанса зависит от модели и выбранной конфигурации. Работа выделенного инстанса тарифицируется посекундно с округлением до тарифицирующего юнита в большую сторону. При этом время обслуживания оборудования и развертывания модели не тарифицируется.
+
+_{{ price-per-hour-count-per-second }}_
 
 ### Классификация текста {#rules-text-classifier}
 
@@ -127,6 +133,25 @@ editable: false
 - Цены в тенге {#prices-kzt}
 
   {% include [kzt-generating.md](../_pricing/yandexgpt/kzt-generating-batch.md) %}
+
+{% endlist %}
+
+
+
+#### Выделенные инстансы {#dedicated}
+
+_{{ price-per-hour-count-per-second }}_
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-generating.md](../_pricing/yandexgpt/rub-dedicated.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-generating.md](../_pricing/yandexgpt/kzt-dedicated.md) %}
 
 {% endlist %}
 

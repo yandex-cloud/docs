@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
 ## Разверните демо-воркбук {#create-template}
 
 
-1. [Разверните из маркетлейса](../../../operations/marketplace/add-marketplace-product.md) демо-воркбук с названием [Demo Dashboard](https://datalens.yandex.cloud/marketplace/f2eui5ar8omalpcg1j3r).
+1. [Разверните из маркетлейса](../../../operations/marketplace/add-marketplace-product.md) демо-воркбук с названием [Demo Dashboard](https://datalens.ru/marketplace/f2eui5ar8omalpcg1j3r).
 
 
 

@@ -48,6 +48,12 @@ At the [Preview](../overview/concepts/launch-stages.md) stage, you can fine-tune
 
 ^1^ {{ meta-disclaimer }}
 
+### Dedicated inctsnces {#rules-dedicated}
+
+The cost of running a dedicated instance depends on the model and the chosen configuration. The work of a dedicated instance is charged per second, rounded up to the billing unit. At the same time, the time of hardware maintenance and model deployment is not charged.
+
+_{{ price-per-hour-count-per-second }}_
+
 ### Text classification {#rules-text-classifier}
 
 The cost of text classification depends on the classification model you use and the number of [tokens](concepts/generation/tokens.md) you provide.
@@ -101,6 +107,15 @@ With models in batch mode, the minimum cost per run is 200,000 tokens.
 
 
 {% include [usd-generating.md](../_pricing/yandexgpt/usd-generating-batch.md) %}
+
+
+#### Dedicated instances {#dedicated}
+
+_{{ price-per-hour-count-per-second }}_
+
+
+
+{% include [usd-generating.md](../_pricing/yandexgpt/usd-dedicated.md) %}
 
 
 ### Text classification {#pricing-classifier}

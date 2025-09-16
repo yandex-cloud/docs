@@ -7399,13 +7399,15 @@ default:
           repeatByParam: Repeat by parameter
           repeatSettings: Repeat graphs
         group-by:
-          charts-count: 'Graphs in a row:'
           execute: Execute
           label-field-title: Split by label
           limit-field-title: Display
           sort-by: Sort by
         legend:
           copy-as-csv: Copy as CSV
+        select:
+          charts-count:
+            label: 'Graphs in row:'
         settings-select:
           show-legend: Show legend
         tab:
@@ -10182,7 +10184,6 @@ default:
           config_field_initialization-action: Custom scripts
           config_field_network: Network
           config_field_os-login: Access via OS Login
-          config_field_password: Password
           config_field_properties: Properties
           config_field_public-keys: SSH key
           config_field_services: Services
@@ -12431,14 +12432,14 @@ default:
         disk_properties_action_properties_upload_properties_content_view_spec_layout_title: File content
         disk_properties_oauth_token_view_spec_layout_title: OAuth token
         disk_properties_path_view_spec_layout_title: Path
+        foundation_models_properties_action_properties_few_shot_classify_properties_model_description_base_model: Base model
+        foundation_models_properties_action_properties_few_shot_classify_properties_model_description_custom: Fine-tuned model
         foundation_models_properties_action_properties_generate_properties_context_description_json: JSON string
         foundation_models_properties_action_properties_generate_properties_context_description_messages: Messages
         foundation_models_properties_action_properties_generate_properties_context_view_spec_layout_title: Context
         foundation_models_properties_action_properties_generate_properties_max_tokens_view_spec_layout_title: Number of tokens
         foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title: Temperature
-        foundation_models_properties_model_description_custom: Fine-tuned model
-        foundation_models_properties_model_description_yagpt_latest: YandexGPT
-        foundation_models_properties_model_properties_custom_view_spec_layout_title: Model ID
+        foundation_models_properties_model_properties_custom_view_spec_layout_title: Model URI
         foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title: Folder ID
         functions_integration_properties_serverless_function_view_spec_layout_title: Function
         grpc_integration_title: gRPC

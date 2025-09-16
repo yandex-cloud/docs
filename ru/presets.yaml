@@ -182,6 +182,7 @@ default:
   ds-inf: DataSphere Inference
   ds-jobs: DataSphere Jobs
   ds-nb: DataSphere Notebook
+  ds-node-endpoint: node-api.datasphere.yandexcloud.net
   dspm-name: DSPM
   dt-copy-regular: Периодическое
   dt-copy-regular-incremental: Периодическое инкрементальное
@@ -308,9 +309,9 @@ default:
   link-console-quotas: https://console.yandex.cloud/cloud?section=quotas
   link-console-settings: https://console.yandex.cloud/settings
   link-console-support: https://center.yandex.cloud/support
-  link-datalens-main: https://datalens.yandex.cloud
-  link-datalens-settings: https://datalens.yandex.cloud/settings
-  link-datalens-wizard: https://datalens.yandex.cloud/wizard
+  link-datalens-main: https://datalens.ru
+  link-datalens-settings: https://datalens.ru/settings
+  link-datalens-wizard: https://datalens.ru/wizard
   link-datasphere-main: https://datasphere.yandex.cloud
   link-docs: https://yandex.cloud/ru/docs
   link-forms-b2b: https://forms.yandex.ru/cloud/admin
@@ -7402,13 +7403,15 @@ default:
           repeatByParam: Повторение по параметру
           repeatSettings: Повторение графиков
         group-by:
-          charts-count: 'Графиков в ряд:'
           execute: Выполнить
           label-field-title: Разбить по метке
           limit-field-title: Показать
           sort-by: Сортировать по
         legend:
           copy-as-csv: Копировать CSV
+        select:
+          charts-count:
+            label: 'Графиков в ряд:'
         settings-select:
           show-legend: Показать легенду
         tab:
@@ -10191,7 +10194,6 @@ default:
           config_field_initialization-action: Пользовательские скрипты
           config_field_network: Сеть
           config_field_os-login: Доступ по OS Login
-          config_field_password: Пароль
           config_field_properties: Свойства
           config_field_public-keys: SSH-ключ
           config_field_services: Сервисы
@@ -12440,13 +12442,13 @@ default:
         disk_properties_action_properties_upload_properties_content_view_spec_layout_title: Содержимое файла
         disk_properties_oauth_token_view_spec_layout_title: OAuth-токен
         disk_properties_path_view_spec_layout_title: Путь
+        foundation_models_properties_action_properties_few_shot_classify_properties_model_description_base_model: Базовая модель
+        foundation_models_properties_action_properties_few_shot_classify_properties_model_description_custom: Дообученная модель
         foundation_models_properties_action_properties_generate_properties_context_description_json: JSON-строка
         foundation_models_properties_action_properties_generate_properties_context_description_messages: Сообщения
         foundation_models_properties_action_properties_generate_properties_context_view_spec_layout_title: Контекст
         foundation_models_properties_action_properties_generate_properties_max_tokens_view_spec_layout_title: Количество токенов
         foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title: Температура
-        foundation_models_properties_model_description_custom: Дообученная модель
-        foundation_models_properties_model_description_yagpt_latest: YandexGPT
         foundation_models_properties_model_properties_custom_view_spec_layout_title: Идентификатор модели
         foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title: Идентификатор каталога
         functions_integration_properties_serverless_function_view_spec_layout_title: Функция

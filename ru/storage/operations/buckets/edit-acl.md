@@ -283,6 +283,8 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [tf-iam-binding-warning](../../../_includes/storage/tf-bucket-grant-warning.md) %}
 
+  {% include [tf-iam-binding-warning](../../../_includes/storage/resource-matching.md) %}
+
   **yandex_storage_bucket_grant** {#tf-storage-bucket-grant}
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:

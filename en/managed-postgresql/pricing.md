@@ -42,9 +42,9 @@ The {{ mpg-name }} usage cost includes:
 
 ### DB host usage {#rules-hosts-uptime}
 
-Host operation cost is charged per hour based on host class. You can find detailed class specifications in the [Host classes](concepts/instance-types.md) section.
+The host operation cost is charged per hour based on the host class. You can find detailed class specifications in the [Host classes](concepts/instance-types.md) section.
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation cost is same as two minutes). You do not pay for the time when the {{ PG }} host is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation cost the same as two minutes). You do not pay for the time when the {{ PG }} host is unable to perform its main functions.
 
 
 ### Disk space usage {#rules-storage}
@@ -61,7 +61,7 @@ You are charged for the following:
 
 
 
-    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
+    * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
 
 * Space occupied by DB backups beyond the storage size specified for the cluster.
 
@@ -73,7 +73,7 @@ You are charged for the following:
 
     * Backups are stored free of charge as long as the combined size of the DB and all backups is smaller than the selected storage size.
 
-    * When performing automatic backups, {{ mpg-short-name }} does not create a new backup but saves the DB changes since the previous one. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
+    * Automatic backups in {{ mpg-short-name }} only include the data that has been changed since the previous backup rather than a full DB. It means the storage space used by automatic backups only increases in proportion to the amount of changed data.
 
     * Adding hosts increases the cluster's total storage size and, consequently, the free volume of backups.
 
@@ -82,9 +82,9 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 
 ### Example of cluster cost calculation {#example}
 
-This is an example of calculating the cost of using a cluster with the following properties for 30 days:
+Let's calculate the cost of using a cluster with the following properties for 30 days:
 
-* **{{ PG }}** hosts: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ PG }} hosts**: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of network HDD storage.
 
 Cost calculation for {{ PG }} hosts:
@@ -109,11 +109,11 @@ Calculation for the storage cost and total cost:
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{mpg-name}} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mpg-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage or web traffic this way.
+A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
 
@@ -127,7 +127,7 @@ CVoS discount is only available for certain resource types. For unsupported reso
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 
-### Host compute resources {#prices-hosts}
+### Host computing resources {#prices-hosts}
 
 
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
@@ -151,14 +151,14 @@ CVoS discount is only available for certain resource types. For unsupported reso
 
 Pricing for backup storage has the following specifics:
 
-* Backups are stored free of charge as long as the combined size of the database and all backups is less than the total storage size.
+* Backups are stored free of charge as long as the combined size of the database and all backups is smaller than the total storage size.
 
 * [Adding a host](./operations/hosts#add) increases the total cost per cluster. However, expenses for storing backups beyond the storage size will be lower due to the increased total storage size.
 
 * To reduce expenses for storing backups beyond the storage size:
 
-    * Reduce the retention period of automatic backups in the [advanced settings](./operations/update#change-additional-settings).
-    * [Delete backups](./operations/cluster-backups.md#delete) created manually.
+    * Reduce the retention period for automatic backups in the [advanced settings](./operations/update#change-additional-settings).
+    * [Delete the backups](./operations/cluster-backups.md#delete) created manually.
 
 * {% include [backup-wal](../_includes/mdb/mpg/backup-wal.md) %}
 

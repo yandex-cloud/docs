@@ -34,6 +34,13 @@ description: Используйте эти рекомендации, если в
 * Минимизируйте или исключите переподписку ресурсов (особенно RAM) на узлах.
 * Настраивайте корректные [проверки состояния](../../network-load-balancer/concepts/health-check.md) (Health Checks) для балансировщиков нагрузки.
 * Чтобы повысить надежность кластера, [создавайте группы узлов](../operations/node-group/node-group-create.md) с [автоматическим масштабированием](autoscale.md) в нескольких зонах доступности.
+
+  {% note tip %}
+
+  {{ managed-k8s-name }} использует в качестве групп узлов кластера [группы виртуальных машин](../../compute/concepts/instance-groups/index.md) {{ compute-full-name }}. Посмотрите [описание групп ВМ при зональном инциденте и рекомендации по предотвращению его последствий](../../compute/concepts/instance-groups/zonal-inc/overview.md).
+
+  {% endnote %}
+
 * Разворачивайте сервисы типа `Deployment` и `StatefulSet` в нескольких экземплярах в разных зонах доступности. Используйте стратегии [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) и [AntiAffinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity), чтобы обеспечить высокую доступность сервисов и эффективное потребление ресурсов кластера {{ k8s }}.
 
   Для всех стратегий используйте комбинации меток:

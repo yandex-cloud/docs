@@ -77,7 +77,7 @@
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}**:
      * В поле **{{ ui-key.yacloud.mdb.forms.database_field_name }}** введите `wp-mysql-tutorial-db`.
      * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** введите `wordpress`.
-     * В поле **{{ ui-key.yacloud.mdb.forms.config_field_password }}** введите пароль, который вы будете использовать для доступа к БД.
+     * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** введите пароль, который вы будете использовать для доступа к БД.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите сеть, к которой будет подключен кластер.
 
 

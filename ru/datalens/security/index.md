@@ -22,6 +22,7 @@ description: Из статьи вы узнаете, как регулирует�
 * `avatars.mds.yandex.net/*`
 * `mc.yandex.ru/*`
 * `*.yandex.ru/*`
+* `datalens.ru/*`
 
 
 

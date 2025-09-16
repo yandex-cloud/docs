@@ -70,6 +70,7 @@
 
 От количества ресурсных единиц зависит стоимость использования балансировщика. Подробнее см. в разделе [{#T}](../pricing.md).
 
+{% include [alb-ig-zonal-inc](../../_includes/application-load-balancer/alb-ig-zonal-inc.md) %}
 
 ### Настройки автомасштабирования {#lcu-scaling-settings}
 

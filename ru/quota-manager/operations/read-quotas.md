@@ -46,10 +46,10 @@ title: Как посмотреть квоты
     Пример:
 
     ```bash
-    yc quota-manager quota-limit get --quota-id=compute.disks.count --resource-id=b1gflhy********  --resource-type=resource-manager.cloud
+    yc quota-manager quota-limit get --quota-id=compute.disks.count --resource-id=b1gia87mbaom********  --resource-type=resource-manager.cloud
     ```
 
-    Будут выведены значение и потребление квоты на количество дисков в сервисе {{ compute-name }} в облаке `b1gflhy********`:
+    Будут выведены значение и потребление квоты на количество дисков в сервисе {{ compute-name }} в облаке `b1gia87mbaom********`:
 
     ```bash
     quota_id: compute.disks.count

@@ -14,7 +14,7 @@
 
 Отчеты доступны только в рамках [тарифного плана](../../datalens/pricing.md#service-plans) Business.
 
-Чтобы посмотреть пример отчета, разверните [DataLens Demo Dashboard](https://datalens.yandex.cloud/gallery/wcyljs3cf5mwi) из {{ datalens-gallery }}:
+Чтобы посмотреть пример отчета, разверните [DataLens Demo Dashboard](https://datalens.ru/gallery/wcyljs3cf5mwi) из {{ datalens-gallery }}:
 
 1. Нажмите **Использовать** → **Развернуть**. По умолчанию воркбук будет создан в корне [воркбуков и коллекций](../../datalens/workbooks-collections/index.md). Также вы можете выбрать коллекцию или создать новую коллекцию на этом этапе.
 1. Нажмите **Развернуть**. Название воркбука должно быть уникальным, поэтому при необходимости скорректируйте его.

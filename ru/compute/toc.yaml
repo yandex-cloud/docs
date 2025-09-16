@@ -692,6 +692,12 @@ items:
         items:
           - name: Обзор
             href: concepts/instance-groups/index.md
+          - name: Группы ВМ при зональном инциденте
+            items:
+              - name: Обзор
+                href: concepts/instance-groups/zonal-inc/overview.md
+              - name: Мультизональная группа с ВМ в зоне инцидента
+                href: concepts/instance-groups/zonal-inc/multi-zonal.md
           - name: Доступ
             href: concepts/instance-groups/access.md
           - name: YAML-спецификация

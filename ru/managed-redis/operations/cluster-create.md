@@ -134,7 +134,7 @@ description: Следуя данной инструкции, вы сможете
 
    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
-      * В поле **{{ ui-key.yacloud.mdb.forms.config_field_password }}** укажите пароль пользователя.
+      * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** укажите пароль пользователя.
 
          {% include [requirements-to-password](../../_includes/mdb/mrd/requirements-to-password.md) %}
 
