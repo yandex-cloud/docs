@@ -1398,6 +1398,8 @@ items:
             items:
               - name: Using parameters
                 href: datalens/data-from-ch-with-parameters.md
+              - name: Source parameterization
+                href: datalens/data-from-ch-dataset-parametrization.md
               - name: Examples of creating QL charts
                 href: datalens/data-from-ch-to-sql-chart.md
   - name: Serverless technologies

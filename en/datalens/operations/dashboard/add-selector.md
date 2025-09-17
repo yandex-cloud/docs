@@ -96,7 +96,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
      * **Required field**: Sets the selector value as a required parameter. When enabled, `*` is added to the end of the selector name. Not available for the **Checkbox** selector type.
      * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
-     * **Possible values**: List of values to select. Only available for the **List** selector type.
+     * **Possible values**: List of values to select. Only available for the **List** selector type. To add several values ​​at once, copy the list of values ​​to the clipboard, paste it into the input field and click **Add**. You can also remove a value by clicking ![image](../../../_assets/console-icons/xmark.svg), or swap values ​​by dragging them.
      * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.
      * **Time**: Allows specifying time. Only available for the **Calendar** selector type.
      * **Default value**: Displayed when you first open the dashboard. This field must be set for the **List** type; otherwise, no value will be available in the selector. This is a required field if the **Required field** option is enabled.
@@ -115,18 +115,18 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
    In [QL charts](../../concepts/chart/ql-charts.md), you can control [selector parameters](../chart/create-sql-chart.md#selector-parameters) from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query itself in `not_var{{variable}}` format.
 
-1. (Optional) Add another selector to the widget. To do this, on the left side under **Selectors**, click ![image](../../../_assets/console-icons/plus.svg) **Add selector** and repeat the actions from the previous step. You can also duplicate the new selector or copy it to the clipboard. To do this, under **Selectors**, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the selector and select:
+1. Optionally, add another selector to the widget. To do this, on the left side under **Selectors**, click ![image](../../../_assets/console-icons/plus.svg) **Add selector** and repeat the actions from the previous step. You can also duplicate the new selector or copy it to the clipboard. To do this, under **Selectors**, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the selector and select:
 
    * **Duplicate**: This will add a new selector with the same parameters to the widget.
    * **Copy to clipboard**: You can paste the selector you copied into a different widget using the **Paste** button in the **Selectors** section or to a dashboard using the **Insert** button on the bottom panel of the dashboard page.
 
-1. (Optional) Click ![image](../../../_assets/console-icons/gear.svg) **Advanced settings** and specify widget settings:
+1. Optionally, click ![image](../../../_assets/console-icons/gear.svg) **Advanced settings** and specify widget settings:
 
    * **Apply button**: Adds a widget button which applies the values of all selectors in the widget. The selector values are not applied until you click the button.
    * **Reset button**: Adds a widget button which resets the values of all the widget selectors to their defaults.
    * **Auto height**: Sets the automatic height for a widget on the dashboard. Available for widgets with multiple selectors.
    * **Dependent selector autoupdate**: Enables dependent selectors to influence one another before you click the **Apply** button. Available for widgets with multiple selectors and the **Apply button** option enabled.
-   * (Optional) For a widget with multiple selectors, customize the selector arrangement. To do this, arrange the selectors as needed by dragging them and adjust the width of each one:
+   * Optionally, for a widget with multiple selectors, customize the selector arrangement. To do this, arrange the selectors as needed by dragging them and adjust the width of each one:
 
       * `Auto`: Automatic selector width.
       * `%`: Selector width as a percentage of the widget's total width.

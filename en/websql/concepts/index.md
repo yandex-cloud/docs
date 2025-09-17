@@ -9,7 +9,7 @@ You can connect to managed database clusters from clouds and folders that belong
 
 
 
-You can connect to {{ yandex-cloud }} managed database clusters from clouds belonging to your organization. If you switch to a different organization, you will have access to clusters from other clouds. The connections you added will be available while you are in the current organization.
+You can connect to {{ yandex-cloud }} managed database clusters from {{ yandex-cloud }} clouds that belong to your organization. If you switch to a different organization, you will have access to clusters from other clouds. The connections you added will be available while you are in the current organization.
 
 
 {{ websql-full-name }} supports the following DB versions:
@@ -53,7 +53,7 @@ External connections are not grouped together even if database hosts share the s
 
 {{ websql-full-name }} also supports integration with [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) at the user folder level. Connections created in {{ websql-full-name }} automatically appear in {{ metadata-hub-full-name }} {{ connection-manager-name }} and vice versa.
 
-You can also [edit connection settings](../operations/connect.md#change-connection-settings) and [delete connections you no longer need](../operations/connect.md#delete-connection). After you connect to a DB, you can [monitor schemas, tables, and views](../operations/view-db-objects-info.md) (`VIEW`). Tables and views within one connection are grouped together. Grouping of views is available if there is at least one view in the DB.
+You can also [edit connection settings](../operations/connect.md#change-connection-settings) and [delete connections you no longer need](../operations/connect.md#delete-connection). After you connect to a DB, you can [view schemas, tables, and views](../operations/view-db-objects-info.md). Tables and views within one connection are grouped together. Grouping of views is available if there is at least one view in the DB.
 
 ## Queries {#queries}
 

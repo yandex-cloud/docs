@@ -34,15 +34,16 @@ description: This page presents a list of tutorials for data analysis and visual
   * [AppMetrica: data export, post-processing, and visualization](data-from-appmetrica-yc-visualization.md)
   * [Bitrix24: direct connection](data-from-bitrix24-visualization.md)
   * [{{ tracker-full-name }}: data export and visualization](data-from-tracker.md)
-   * [Analyzing {{ objstorage-name }} logs](storage-logs-analysis.md)
-   * [Yandex Music podcasts: statistics](data-from-podcasts.md)
-   * [Visualizing {{ yq-full-name }} data](data-from-yandex-query-visualization.md)
-   * [Visualizing {{ monitoring-full-name }} data](data-from-monitoring-visualization.md)
+  * [Analyzing {{ objstorage-name }} logs](storage-logs-analysis.md)
+  * [Yandex Music podcasts: statistics](data-from-podcasts.md)
+  * [Visualizing {{ yq-full-name }} data](data-from-yandex-query-visualization.md)
+  * [Visualizing {{ monitoring-full-name }} data](data-from-monitoring-visualization.md)
   * [Visualizing {{ ytsaurus-name }} CHYT data](data-from-ch-over-yt.md)
 
 * Functional
 
-  * [Using parameters](data-from-ch-with-parameters.md)
+  * [Using parameters in calculated fields](data-from-ch-with-parameters.md)
+  * [Source parameterization](data-from-ch-dataset-parametrization.md)
   * [Examples of creating QL charts](data-from-ch-to-sql-chart.md)
 
 

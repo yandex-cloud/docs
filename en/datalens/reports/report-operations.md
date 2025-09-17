@@ -124,6 +124,7 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
 
      * Enter title text.
      * Select one of the size presets: `XS`, `S`, `M`, `L`, `XL`. Or click ![icon](../../_assets/console-icons/pencil-to-line.svg) and specify font size in pixels.
+     * Optionally, set the text color. You can select one from the palette or specify a custom color.
      * Optionally, set a [background for your widget](#widget-background).
      * Optionally, enable **Tooltip** and enter the tooltip text. The input field supports [Markdown](../dashboard/markdown.md).
 

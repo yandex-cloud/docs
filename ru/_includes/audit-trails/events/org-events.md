@@ -18,6 +18,7 @@
 `DeleteOsLoginProfile` | Удаление профиля {{ oslogin }}
 `DeleteUserSshKey` | Удаление SSH-ключа пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
+`idp.ChangeOneTimePassword` | Изменение одноразового пароля
 `idp.CreateUser` | Создание локального пользователя
 `idp.CreateUserpool` | Создание пула пользователей
 `idp.DeleteUser` | Удаление локального пользователя

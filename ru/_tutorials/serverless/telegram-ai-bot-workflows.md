@@ -345,6 +345,10 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
 
 Настройте рабочий процесс, который обеспечит чтение и сохранение истории чата, вызов AI-агента и отправку ответов в Telegram.
 
+{% include [workflow-constructor-tip](../../_includes/serverless-integrations/workflow-constructor-tip.md) %}
+
+![telegram-ai-bot-workflows-workflow](../../_assets/tutorials/telegram-ai-bot-workflows-workflow.png)
+
 
 ### Подготовьте YaWL-спецификацию {#prepare-spec-wf}
 

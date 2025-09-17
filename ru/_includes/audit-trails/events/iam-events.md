@@ -17,6 +17,9 @@
 `DetectLeakedCredential` | Обнаружение секрета в открытом источнике
 `DisableService` | Отзыв у сервиса доступа к ресурсам других сервисов в облаке
 `EnableService` | Выдача сервису доступа к ресурсам других сервисов в облаке
+`mfa.CreateUserCredential` | Создание учетных данных пользователя в процессе проверки дополнительных [факторов MFA](../../../organization/concepts/mfa.md)
+`mfa.DeleteUserCredential` | Удаление учетных данных пользователя в процессе проверки дополнительных [факторов MFA](../../../organization/concepts/mfa.md)
+`mfa.UpdateUserCredential` | Изменение учетных данных пользователя в процессе проверки дополнительных [факторов MFA](../../../organization/concepts/mfa.md)
 `oauthclient.CreateOAuthClient` | Создание OAuth-клиента
 `oauthclient.CreateOAuthClientSecret` | Создание секрета для OAuth-клиента
 `oauthclient.DeleteOAuthClient` | Удаление OAuth-клиента

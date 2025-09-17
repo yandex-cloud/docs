@@ -5,11 +5,17 @@ description: This section contains {{ websql-name }} release notes.
 
 # {{ websql-full-name }} release notes: 2025
 
+## August {#august-2025}
 
 
-## July {#july}
 
-### New features {#new-features-july}
+### Fixed issues {#fixes-august-2025}
+
+Fixed incorrect autocompletion of queries when the editor text contained emoji.
+
+## July {#july-2025}
+
+### New features {#new-features-july-2025}
 
 1. Added a notification with a link to a survey that collects {{ websql-name }} feedback. Please, complete [it](https://forms.yandex.ru/cloud/686f7470eb614649fe8f8cb2/).
 
@@ -19,7 +25,7 @@ description: This section contains {{ websql-name }} release notes.
 
 1. Added the automatic substitution of the default CA certificate for external connections.
 
-### Improvements {#improvements-july}
+### Improvements {#improvements-july-2025}
 
 1. Improved the query performance reliability.
 
@@ -27,7 +33,7 @@ description: This section contains {{ websql-name }} release notes.
 
 ## June {#june}
 
-### New features {#new-features-june}
+### New features {#new-features-june-2025}
 
 1. Added support for {{ GP }} connections.
 
@@ -35,7 +41,7 @@ description: This section contains {{ websql-name }} release notes.
 
 1. Added an option to share a query link from the editor.
 
-### Improvements {#improvements-june}
+### Improvements {#improvements-june-2025}
 
 1. Added support for materialized views and partitioned tables in {{ PG }} connections.
 
@@ -43,15 +49,15 @@ description: This section contains {{ websql-name }} release notes.
 
 1. Improved command autocompletion in {{ SD }} connections.
 
-## May {#may}
+## May {#may-2025}
 
-### Improvements {#improvements-may}
+### Improvements {#improvements-may-2025}
 
 1. The editor now features improved query formatting.
 
 1. In multi-queries, metadata is now displayed separately for each subquery.
 
-### Fixed issues {#fixes-may}
+### Fixed issues {#fixes-may-2025}
 
 1. Fixed an issue with the connection creation dialog rendering.
 
@@ -59,39 +65,41 @@ description: This section contains {{ websql-name }} release notes.
 
 1. Fixed incorrect editor fonts in Windows.
 
-## April {#april}
+## April {#april-2025}
 
-### New features {#new-features-apr}
+### New features {#new-features-apr-2025}
 
 1. You can now resize the columns in the query output section.
 
 1. Added the **Open support chat** item to the **Support center** menu.
 
-### Fixed issues {#fixes-apr}
+### Fixed issues {#fixes-apr-2025}
 
 1. Fixed timestamp operations for all databases: the database time zone is now used.
 
 1. After a query is run, the cursor focuses on the query editor.
 
-## March {#march}
+## March {#march-2025}
+
+### New features {#new-features-march-2025}
 
 1. Now you can run subqueries within a [muli-query](../operations/query-executor.md#multiple-queries) in all available database types.
 
 1. Added support for {{ SD }} and {{ mtr-full-name }} connections ({{ mtr-full-name }} is currently at the [Preview](../../overview/concepts/launch-stages.md) stage).
 
-## February {#february}
+## February {#february-2025}
 
-### New features {#new-features-feb}
+### New features {#new-features-feb-2025}
 
 Now you can run [multi-queries](../operations/query-executor.md#multiple-queries) for {{ CH }} databases.
 
-### Fixed issues {#fixes-feb}
+### Fixed issues {#fixes-feb-2025}
 
 Fixed an issue where certain authors were shown as unknown users in the query history.
 
-## January {#january}
+## January {#january-2025}
 
-### New features {#new-features-jan}
+### New features {#new-features-jan-2025}
 
 1. Added an option to export query results in XLS format.
 1. Added an option to attach a screenshot when creating a support ticket.
@@ -99,15 +107,15 @@ Fixed an issue where certain authors were shown as unknown users in the query hi
 1. Added query formatting to the query editor.
 1. Migrated {{ yandex-cloud }} connections to {{ RD }} managed database clusters to {{ VLK }}.
 
-### Improvements {#improvements-jan}
+### Improvements {#improvements-jan-2025}
 
-1. Fixed the behavior of the **Share query** button where it appeared before running a query.
+Fixed the behavior of the **Share query** button where it appeared before running a query.
 
-## 2024 {#2024}
+## 2024 {#2024-2025}
 
-### November {#november}
+### November {#november-2024}
 
-#### Improvements {#improvements-nov}
+#### Improvements {#improvements-nov-2024}
 
 1. Added an icon to the list of connections to indicate the connection control type, automatic ![](../../_assets/console-icons/person-nut-hex.svg) or manual ![](../../_assets/console-icons/person.svg).
 
@@ -117,7 +125,7 @@ Fixed an issue where certain authors were shown as unknown users in the query hi
 
 1. In {{ CH }}, supported autocompletion of the `GRANT` and `REVOKE` commands and improved autocompletion of the `SELECT`, `CREATE`, `DELETE`, `ALTER`, and `INSERT` commands.
 
-#### Fixed issues {#fixes-nov}
+#### Fixed issues {#fixes-nov-2024}
 
 1. Fixed an issue when working with tables whose names begin with a capital letter in {{ PG }}.
 
@@ -125,21 +133,23 @@ Fixed an issue where certain authors were shown as unknown users in the query hi
 
 1. Fixed the duplication of {{ RD }} in the **Database type** list when creating an external connection.
 
-### October {#october}
+### October {#october-2024}
+
+#### Improvements {#improvements-october-2024}
 
 1. You can now share the result right after the query was executed.
 
 1. Reduced processing time for fast queries.
 
-### September {#september}
+### September {#september-2024}
 
-#### New features {#new-features-september}
+#### New features {#new-features-september-2024}
 
 1. Now you can [connect](../quickstart.md) to non-sharded {{ RD }} clusters.
 
 1. Added the [`websql.auditor`](../security/index.md#websql-auditor), [`websql.executedQueries.auditor`](../security/index.md#websql-executedqueries-auditor), and [`websql.savedQueries.auditor`](../security/index.md#websql-savedqueries-auditor) roles to view query metadata and related access permissions.
 
-#### Improvements {#improvements-september}
+#### Improvements {#improvements-september-2024}
 
 1. Added the experiment of displaying connections as database users.
 
@@ -147,13 +157,13 @@ Fixed an issue where certain authors were shown as unknown users in the query hi
 
 1. Added the display of empty {{ PG }} schemas to the list of database objects.
 
-#### Fixed issues {#fixes-september}
+#### Fixed issues {#fixes-september-2024}
 
 The backend query timeout was set to 25 seconds.
 
-### August {#august}
+### August {#august-2024}
 
-#### Improvements {#improvements-august}
+#### Improvements {#improvements-august-2024}
 
 1. Added [access permission management](../security/index.md) interfaces for completed and saved queries.
 
@@ -165,13 +175,13 @@ The backend query timeout was set to 25 seconds.
 
 1. Added statistics for completed queries.
 
-#### Fixed issues {#fixes-august}
+#### Fixed issues {#fixes-august-2024}
 
 Fixed the filter workflow on the completed queries page.
 
-### July {#july}
+### July {#july-2024}
 
-#### Improvements {#improvements-july}
+#### Improvements {#improvements-july-2024}
 
 1. The query history displays authors of completed queries.
 
@@ -181,15 +191,15 @@ Fixed the filter workflow on the completed queries page.
 
 1. Added information about databases and certificates to the connection card.
 
-#### Fixed issues {#fixes-july}
+#### Fixed issues {#fixes-july-2024}
 
 1. Fixed an error when running all DML queries in a {{ CH }} cluster.
 
 1. Fixed the query editor issue for Safari version 15.
 
-### June {#june}
+### June {#june-2024}
 
-#### New features {#new-features-june}
+#### New features {#new-features-june-2024}
 
 1. The **Connections** tab now displays the {{ yandex-cloud }} managed database clusters from the selected folder available to the user. This speeds up the process of creating connections to these clusters, as most of the cluster information is populated automatically. Also updates were made to the forms for [creating connections](../operations/create-connection.md).
 
@@ -199,37 +209,37 @@ Fixed the filter workflow on the completed queries page.
 
 1. The {{ websql-name }} interface now allows you to share links to various entities. For example, you can send a link to a connection, saved query you published, or page with access permissions for a published query to your colleague.
 
-#### Fixed issues {#fixes-june}
+#### Fixed issues {#fixes-june-2024}
 
 Improved user query storage mechanism: queries are now linked to the user's account. No matter what device or browser was used to access {{ websql-name }}, the user will see all their previous queries.
 
-### May {#may}
+### May {#may-2024}
 
-#### Improvements {#improvements-may}
+#### Improvements {#improvements-may-2024}
 
 Updated the service favicon ![](../../_assets/websql/favicon.svg).
 
-#### Fixed issues {#fixes-may}
+#### Fixed issues {#fixes-may-2024}
 
 Fixed an error on connection to a database in which no tables or schemas (for {{ PG }}) had been created.
 
-### April {#april}
+### April {#april-2024}
 
-#### Fixed issues {#fixes-april}
+#### Fixed issues {#fixes-april-2024}
 
 Fixed a bug that caused the interface to become unavailable when selecting a high-contrast theme in the management console.
 
-### March {#mar}
+### March {#mar-2024}
 
-#### New features {#new-features-mar}
+#### New features {#new-features-mar-2024}
 
 1. Added viewing sequence information in {{ PG }} database [schemas](../operations/view-db-objects-info.md#view-schema).
 
 1. In the [query editor](../operations/query-executor.md), added role tips for [{{ PG }}](https://www.postgresql.org/) databases.
 
-### February {#feb}
+### February {#feb-2024}
 
-#### New features {#new-features-feb}
+#### New features {#new-features-feb-2024}
 
 1. New improved autocompletion feature for SQL queries in the [query editor](../operations/query-executor.md).
 
@@ -237,13 +247,13 @@ Fixed a bug that caused the interface to become unavailable when selecting a hig
 
 1. The autocompletion feature provides information about indexes and triggers.
 
-#### Fixed issues {#problems-solved-feb}
+#### Fixed issues {#problems-solved-feb-2024}
 
 Fixed the incorrect display of variables when opening [saved queries](../operations/history.md).
 
-### January {#jan}
+### January {#jan-2024}
 
-#### New features {#new-features-jan}
+#### New features {#new-features-jan-2024}
 
 1. Grouping by date in the [query history](../operations/history.md).
 

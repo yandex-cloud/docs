@@ -1267,6 +1267,11 @@ default:
       c50:
         v1|number: 4.15
         v1|string: "4,15\_₸"
+  sku|KZT|cloud_registry:
+    used_space:
+      v1|month|string: Не тарифицируется
+      v1|pricingRate:
+        720|month|string: "25,0020\_₸"
   sku|KZT|compute_gpu:
     vm:
       cpu:
@@ -1835,6 +1840,7 @@ default:
           ram|number: 4.86
           ram|string: "4,86\_₸"
       mysql:
+        backup|month|string: "10,3680\_₸"
         highfreq-v3:
           cpu:
             c100:
@@ -3196,6 +3202,11 @@ default:
       c50:
         v1|number: 0.83
         v1|string: "0,83\_₽"
+  sku|RUB|cloud_registry:
+    used_space:
+      v1|month|string: Не тарифицируется
+      v1|pricingRate:
+        720|month|string: "5,0004\_₽"
   sku|RUB|compute_gpu:
     vm:
       cpu:
@@ -3768,6 +3779,7 @@ default:
           ram|number: 0.972
           ram|string: "0,9720\_₽"
       mysql:
+        backup|month|string: "2,0736\_₽"
         highfreq-v3:
           cpu:
             c100:
@@ -5120,6 +5132,11 @@ default:
       c50:
         v1|number: 0.006917
         v1|string: "0,006917\_$"
+  sku|USD|cloud_registry:
+    used_space:
+      v1|month|string: Не тарифицируется
+      v1|pricingRate:
+        720|month|string: "0,041670\_$"
   sku|USD|compute_gpu:
     vm:
       cpu:
@@ -5686,6 +5703,7 @@ default:
           ram|number: 0.0081
           ram|string: "0,008100\_$"
       mysql:
+        backup|month|string: "0,017280\_$"
         highfreq-v3:
           cpu:
             c100:

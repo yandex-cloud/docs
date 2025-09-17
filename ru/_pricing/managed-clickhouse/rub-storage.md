@@ -6,4 +6,4 @@
 | Сверхбыстрое сетевое хранилище с тремя репликами (SSD)    | {{ sku|RUB|mdb.cluster.network-ssd-io-m3.ch|month|string }}                   |
 | Хранилище на локальных SSD-дисках                         | {{ sku|RUB|mdb.cluster.local-nvme.ch|month|string }}                          |
 | Холодные данные гибридного хранилища и их резервные копии | {{ sku|RUB|storage.bucket.used_space.standard|pricingRate.720|month|string }} |
-| Резервные копии сверх размера хранилища   | {{ sku|RUB|mdb.cluster.clickhouse.backup|month|string }}                                                                        |
+| Резервные копии сверх размера хранилища                   | {{ sku|RUB|mdb.cluster.clickhouse.backup|month|string }}                      |
