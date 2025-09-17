@@ -1,23 +1,23 @@
-# {{ yandex-cloud }} infrastructure security standard {{ security-standard-current-version }}
+# {{ yandex-cloud }} infrastructure security standard, version {{ security-standard-current-version }}
 
 ## Introduction {#intro}
 
-This document provides recommendations for technical protection measures and helps you choose information security measures when deploying information systems in {{ yandex-cloud }}.
+This document offers recommendations for means of technical protection and helps you choose adequate information security measures when deploying information systems in {{ yandex-cloud }}.
 
 {{ yandex-cloud }} ensures the physical security of data centers. See a [detailed description of its physical security measures](../../../security/standarts.md). If critical data is transmitted outside {{ yandex-cloud }}, the customer is responsible for managing physical access at all data processing locations.
 
-The recommendations and security measures described in the standard have links to the **Guides and solutions for setting up** secure resource configurations with standard and additional information security tools available to {{ yandex-cloud }} users.
+The recommendations and security measures mentioned in the standard come with links to the **Guides and solutions for setting up** secure resource configurations using standard and additional information security tools available to {{ yandex-cloud }} users.
 
-The standard also describes different methods and tools for verifying recommendation compliance, such as:
+The standard also describes the methods and means of verifying compliance with the recommendations, including:
 
-* Using the management console UI
-* Using the {{ yandex-cloud }} CLI
+* Management console UI
+* {{ yandex-cloud }} CLI
 * Manually
 
 ### Scope {#application}
 
 
-The recommendations are designed for solution architects, technical specialists, and information security experts who use the following services when developing secure cloud systems and security policies to work with the cloud platform:
+These recommendations are addressed to architects, technical specialists, and information security experts who employ the following services to develop protected cloud systems and security policies for the cloud platform:
 
 * [{{ alb-full-name }}](../../../application-load-balancer/)
 * [{{ at-full-name }}](../../../audit-trails/)
@@ -71,9 +71,9 @@ You can automate the audit of compliance with all the recommendations using avai
 * [Cloud Advisor](/marketplace/products/cloudadvisor/cloudadvisor): Agentless CNAPP that provides vulnerability scanning, malware detection, configuration auditing, asset inventory, and compliance validation for VMs and containers.
 * [Neocat](/marketplace/products/neoflex/neocat): Cloud security management product by Neoflex. Operates as an isolated installation within the user's cloud perimeter and requires no administrator privileges.
 
-### Responsibility limitation {#liability-limit}
+### Limitation of responsibility {#liability-limit}
 
-{{ yandex-cloud }} uses the [Shared responsibility](/security/shared-responsibility) concept. Where the lines are drawn for who is responsible for security depends on the services used by the system in the cloud, their usage model, i.e., infrastructure as a service (IaaS), platform as a service (PaaS), or software as a service (SaaS), and the security tools and policies the cloud provider has in place.
+{{ yandex-cloud }} uses the [shared responsibility](/security/shared-responsibility) concept. Where the lines are drawn for who is responsible for security depends on the services used by the system in the cloud, their usage model, i.e., infrastructure as a service (IaaS), platform as a service (PaaS), or software as a service (SaaS), and the security tools and policies the cloud provider has in place.
 
 ### Terms and abbreviations {#terms}
 

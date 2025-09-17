@@ -148,7 +148,7 @@ description: Из статьи вы узнаете, как задать наст
 
 - Консоль управления {#console}
 
-    {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse-target.md) %}
 
 - CLI {#cli}
 

@@ -52,7 +52,7 @@ items:
           - name: Visualizing data using Heat Maps
             hidden: true
             href: tutorials/data-on-heat-map-dashboard.md
-          - name: Status monitoring of geographically distributed devices
+          - name: Monitoring the status of geographically distributed devices
             href: tutorials/datalens.md
       - name: Service analytics
         items:
@@ -68,7 +68,7 @@ items:
             href: tutorials/data-from-bitrix24-visualization.md
           - name: '{{ tracker-full-name }}: data export and visualization'
             href: tutorials/data-from-tracker.md
-          - name: Analyzing {{ objstorage-name }} logs using {{ datalens-name }}
+          - name: Analyzing {{ objstorage-name }} logs with {{ datalens-name }}
             href: tutorials/storage-logs-analysis.md
           - name: 'Yandex Music podcasts: Statistics'
             href: tutorials/data-from-podcasts.md
@@ -97,8 +97,10 @@ items:
             href: tutorials/bigquery-to-clickhouse.md
       - name: Functional
         items:
-          - name: Using parameters
+          - name: Using parameters in calculated fields
             href: tutorials/data-from-ch-with-parameters.md
+          - name: Source parameterization
+            href: tutorials/data-from-ch-dataset-parametrization.md
           - name: Examples of creating QL charts
             href: tutorials/data-from-ch-to-sql-chart.md
   - name: Connections

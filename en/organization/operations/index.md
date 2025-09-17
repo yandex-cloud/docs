@@ -86,6 +86,7 @@ description: In this article, you will learn how to work with {{ org-full-name }
 ## Authorization and authentication {#auths}
 
 * [{#T}](./add-ssh.md)
+* [{#T}](./delete-ssh.md)
 * [{#T}](./enable-refresh-tokens.md)
 * [{#T}](./enable-2fa-access.md)
 

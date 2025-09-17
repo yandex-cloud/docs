@@ -57,3 +57,4 @@ A dataset page consists of several tabs:
 * [{#T}](./data-model.md)
 * [{#T}](./data-types.md)
 * [{#T}](./settings.md)
+* [{#T}](../tutorials/data-from-ch-dataset-parametrization.md)

@@ -211,7 +211,7 @@ You can add fields to a dataset from data source tables or create [calculated fi
 
 ### Duplicating fields {#dublicate-fields}
 
-You can duplicate any dataset field, including the calculated field you previously created. To do this:
+You can duplicate any dataset field, including the calculated field you previously created. Proceed as follows:
 
 1. On the right side of the field row, click ![image](../../_assets/console-icons/ellipsis.svg) (the icon appears when you hover over the row) and select **Duplicate**. In the list on the left, you will see a new field with the same type and settings as the original one.
 1. Optionally, rename the duplicated field, change its type or formula.
@@ -283,7 +283,7 @@ You can select multiple dataset fields at once to delete, hide, or display them,
 
 ![screenshot](../../_assets/datalens/dataset/dataset-fields-bulk-changes-2.png)
 
-To select the field range, hold the **Shift** key and set the beginning and end of the range with your mouse.
+To select the field range, hold the **Shift** key and set the beginning and end of the range with your mouse. You can select multiple ranges. To select each of the field ranges, hold **Ctrl** and click the first field in the range, then hold **Shift** and click the last field in the range.
 
 ## Adding parameters {#add-parameters}
 
@@ -316,6 +316,8 @@ Parameters added at the dataset level are available in all charts created based 
 1. Click **Add**.
 
 You can also create parameters at the [chart level](../operations/chart/add-parameter-chart.md).
+
+For an example of using parameters in a source, see [{#T}](../tutorials/data-from-ch-dataset-parametrization.md).
 
 ## Adding filters {#add-filters}
 

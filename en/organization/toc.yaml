@@ -142,6 +142,8 @@ items:
         items:
           - name: Adding an SSH key
             href: operations/add-ssh.md
+          - name: Deleting an SSH key
+            href: operations/delete-ssh.md
           - name: Enabling refresh tokens
             href: operations/enable-refresh-tokens.md
           - name: >-

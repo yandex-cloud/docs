@@ -40,7 +40,8 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
 
 * Functional
 
-  * [Using parameters](data-from-ch-with-parameters.md)
+  * [Using parameters in calculated fields](data-from-ch-with-parameters.md)
+  * [Source parameterization](data-from-ch-dataset-parametrization.md)
   * [Examples of creating QL charts](data-from-ch-to-sql-chart.md)
 
 

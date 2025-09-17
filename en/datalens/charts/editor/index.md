@@ -30,6 +30,10 @@ The chart creation page user interface consists of the following sections:
 
 ![image](../../../_assets/datalens/editor/interface.png)
 
+If the Editor is opened with parameters specified in the URL, a panel with overridden parameters will appear below the controls panel.
+
+![image](../../../_assets/datalens/release-notes/editor-url-parameters-panel.png =726x46)
+
 #### What's next {#see-also}
 
 * [{#T}](./quickstart/index.md)

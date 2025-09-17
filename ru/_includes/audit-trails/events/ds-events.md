@@ -5,6 +5,7 @@
 `CancelJob` | Отмена задания
 `CloneJob` | Клонирование задания
 `CloseProject` | Закрытие проекта
+`CreateCluster` | Создание кластера Apache Spark™
 `CreateCommunity` | Создание сообщества
 `CreateDataset` | Создание датасета
 `CreateDocker` | Создание Docker-образа
@@ -19,6 +20,7 @@
 `CreateYandexDataProcessing` | Создание [шаблона {{ dataproc-name }}](../../../datasphere/concepts/data-processing-template.md)
 `DeactivateDataset` | Деактивация датасета
 `DeleteAllJobData` | Удаление данных всех заданий
+`DeleteCluster` | Удаление кластера Apache Spark™
 `DeleteCommunity` | Удаление сообщества
 `DeleteDataset` | Удаление датасета
 `DeleteDocker` | Удаление Docker-образа
@@ -29,14 +31,17 @@
 `DeleteProject` | Удаление проекта
 `DeleteS3Connector` | Удаление коннектора S3
 `DeleteSecret` | Удаление секрета
-`DeleteSparkConnector` | Удаление коннектора Spark
+`DeleteSparkConnector` | Удаление коннектора Apache Spark™
 `DeleteYandexDataProcessing` | Удаление шаблона {{ dataproc-name }}
 `ExecuteJob` | Запуск выполнения задания
 `OpenProject` | Открытие проекта
 `ResumeNode` | Возобновление работы ноды
 `SetCommunityAccessBindings` | Назначение прав доступа для сообщества
 `SetProjectAccessBindings` | Назначение прав доступа для проекта
+`StartCluster` | Запуск кластера Apache Spark™
+`StopCluster` | Остановка кластера Apache Spark™
 `SuspendNode` | Приостановка работы ноды
+`UpdateCluster` | Изменение кластера Apache Spark™
 `UpdateCommunity` | Изменение сообщества
 `UpdateCommunityAccessBindings` | Изменение прав доступа для сообщества
 `UpdateFilestore` | Изменение файлового хранилища

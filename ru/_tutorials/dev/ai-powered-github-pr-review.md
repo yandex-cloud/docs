@@ -221,6 +221,10 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
 
 Создайте [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-name }} на стороне {{ yandex-cloud }}.
 
+{% include [workflow-constructor-tip](../../_includes/serverless-integrations/workflow-constructor-tip.md) %}
+
+![ai-powered-github-pr-review-workflow](../../_assets/tutorials/ai-powered-github-pr-review-workflow.png)
+
 1. Создайте файл `yawl-spec.yaml` со следующей [YaWL-спецификацией](../../serverless-integrations/concepts/workflows/yawl/index.md) рабочего процесса:
 
     **yawl-spec.yaml**

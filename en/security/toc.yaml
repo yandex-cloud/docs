@@ -26,7 +26,7 @@ items:
           without internet access
         href: domains/architecture-isolated.md
   - name: >-
-      Cloud infrastructure security standard {{
+      Cloud infrastructure security standard, version {{
       security-standard-current-version }}
     items:
       - name: All sections on one page
@@ -49,6 +49,24 @@ items:
         href: standard/kubernetes-security.md
       - name: Versions
         href: standard/versions.md
+  - name: >-
+      {{ yandex-360 }} protection and safe use standard, version {{
+      360-standard-current-version }}
+    items:
+      - name: All sections on one page
+        href: standard-360/all.md
+      - name: Introduction
+        href: standard-360/index.md
+      - name: Authentication and access management
+        href: standard-360/authentication.md
+      - name: Session and cookie security
+        href: standard-360/session-security.md
+      - name: Monitoring and audit
+        href: standard-360/monitoring.md
+      - name: Data encryption and protection
+        href: standard-360/encryption-data-protection.md
+      - name: Integrations and third-party services
+        href: standard-360/integrations.md
   - name: Tutorials
     items:
       - name: All tutorials

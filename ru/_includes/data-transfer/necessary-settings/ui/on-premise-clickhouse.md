@@ -1,4 +1,5 @@
 * {% include [Field Shards](../../fields/clickhouse/ui/shards.md) %}
+* **Кластер** — укажите имя кластера, из которого будут передаваться данные. Если параметр не указан, будут передаваться данные из кластера по умолчанию (макрос `{cluster}`).
 * {% include [Field HTTP-port](../../fields/clickhouse/ui/http-port.md) %}
 * {% include [Field Native Port](../../fields/clickhouse/ui/native-port.md) %}
 * {% include [Field SSL connect](../../fields/clickhouse/ui/ssl-connect.md) %}

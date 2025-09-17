@@ -12,9 +12,9 @@ description:
   - >-
     Yandex WebSQL supports the following DB versions: <ul> <li>PostgreSQL: 12 or
     higher</li> <li>MySQL: 5 or higher</li> <li>ClickHouse®: 23 or higher</li>
-    <li>Redis/Valkey™ (non-sharded clusters only): 6 or higher</li> <li>MongoDB:
-    6 or higher</li> <li>Yandex Managed Service for Trino: 454 or higher</li>
-    <li>Greenplum®: 6 or higher</li>     </ul>
+    <li>Redis/Valkey™ (non-sharded clusters only): 6 or higher</li> <li>Yandex
+    StoreDoc: 6 or higher</li> <li>Yandex Managed Service for Trino: 454 or
+    higher</li> <li>Greenplum®: 6 or higher</li>     </ul>
 links:
   - title: Getting started
     description: Connect to a database
