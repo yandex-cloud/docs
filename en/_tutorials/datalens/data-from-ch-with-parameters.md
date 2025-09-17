@@ -1,4 +1,4 @@
-# Using parameters
+# Using parameters in calculated fields
 
 
 A parameter is a variable that can substitute constant values in calculated fields.
@@ -42,7 +42,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
    ![image](../../_assets/datalens/solution-parameters/add-table.png)
 
-1. Go to the **Fields** tab.
+1. Navigate to the **Fields** tab.
 
    ![image](../../_assets/datalens/solution-parameters/dataset-field-tab.png)
 
@@ -159,7 +159,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Create a dashboard {#create-dashboard}
 
-Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts to.
+Create a [dashboard](../../datalens/concepts/dashboard.md) for the charts.
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. Click **Create dashboard**.

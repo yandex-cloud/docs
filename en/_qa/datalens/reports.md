@@ -16,7 +16,8 @@ Reports are only available with the Business [service plan](../../datalens/prici
 
 To view a report example, deploy the [DataLens demo dashboard](https://datalens.yandex.cloud/gallery/wcyljs3cf5mwi) from {{ datalens-gallery }}:
 
-1. Click **Use** → **Deploy**. The workbook will be created in the root of workbooks and collections. Its name must be unique, so edit the name if you need to.
+1. Click **Use** → **Deploy**. By default, the workbook will be created in the root of [workbooks and collections](../../datalens/workbooks-collections/index.md). You can also select an existing collection or create a new one at this step.
+1. Click **Deploy**. The workbook name must be unique, so edit the name if you need to.
 1. Click **Create**. You will see the report example in the created workbook.
 
 

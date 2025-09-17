@@ -237,6 +237,10 @@
 
     - Вариант 1
 
+      {% include [workflow-constructor-tip](../../_includes/serverless-integrations/workflow-constructor-tip.md) %}
+
+      ![tracker-yandexgpt-postbox-integrations-first-workflow](../../_assets/tutorials/tracker-yandexgpt-postbox-integrations-first-workflow.png)
+
       Предлагаемый рабочий процесс анализирует задачи {{ tracker-name }} в указанной очереди, формирует и публикует отчет о прогрессе работы в этих задачах:
 
       1. Анализ задач с нужным тегом в заданной очереди {{ tracker-name }}:
@@ -369,6 +373,10 @@
       Рабочий процесс включает в себя следующие шаги: `fetch_tickets`, `summarize_texts`, `send_report_via_postbox` и `write_report_to_tracker`.
 
     - Вариант 2
+
+      {% include [workflow-constructor-tip](../../_includes/serverless-integrations/workflow-constructor-tip.md) %}
+
+      ![tracker-yandexgpt-postbox-integrations-second-workflow](../../_assets/tutorials/tracker-yandexgpt-postbox-integrations-second-workflow.png)
 
       Предлагаемый рабочий процесс анализирует закрытые задачи {{ tracker-name }} за последнюю неделю, формирует и публикует отчет о проделанной в этих задачах работе:
       1. Анализ задач, закрытых за последнюю неделю:

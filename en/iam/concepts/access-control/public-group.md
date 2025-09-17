@@ -12,7 +12,7 @@ It is unsafe to assign roles with extensive permissions, such as `editor` or `ad
 
 ### All authenticated users {#allAuthenticatedUsers}
 
-The `All authenticated users` public group includes all the [authenticated](../authorization/index.md) users, i.e., all users or service accounts registered in {{ yandex-cloud }} from both your clouds and other users' clouds. Using this group is unsafe. Instead, use [system groups](./system-group.md), such as `All users in organization X` and `All users in federation N`, or your own custom groups.
+The `All authenticated users` public group includes all [authenticated](../authorization/index.md) users, i.e., all registered {{ yandex-cloud }} users or service accounts, both from your clouds and other users' clouds. Using this group is unsafe. Instead, use [system groups](./system-group.md), such as `All users in organization X` and `All users in federation N`, or your own custom groups.
 
 > For example, let's say you have an OS disk image that you want to share with all {{ yandex-cloud }} users. To do this, assign the `compute.images.user` role to the `All authenticated users` subject for the folder containing the image.
 
@@ -34,8 +34,6 @@ When assigning a role to `All users` via the [CLI](../../../cli/quickstart.md), 
 
 {% note info %}
 
-Currently, `All users` is only supported for the following services: {{ objstorage-name }} (when using [ACL-based access management](../../../storage/concepts/acl.md)), {{ container-registry-name }}, and {{ sf-name }}.
-
-For other services, assigning a role to the `All users` group is equivalent to assigning a role to `All authenticated users`.
+`All users` is only supported in {{ objstorage-name }} when using [ACL-based access management](../../../storage/concepts/acl.md).
 
 {% endnote %}
