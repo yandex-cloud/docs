@@ -15,7 +15,7 @@ Within each security group, you must configure:
   * For the load balancer, see [{#T}](../../concepts/application-load-balancer.md#security-groups). The final outbound rule for [backend](../../concepts/backend-group.md) VMs must allow connections to either the CIDR range of your cluster’s [node group](../../../managed-kubernetes/concepts/index.md#node-group) [subnet](../../../vpc/concepts/network.md#subnet) or the security group associated with your node groups.
 * Backend health check rules, allowing:
   * The load balancer to send TCP traffic to port 10501 on cluster nodes, targeting either the node groups’ subnet CIDR ranges or their security groups.
-  * Node groups to receive this traffic (traffic originates in the load balancer subnets or security group).
+  * Node groups to receive TCP traffic on port 10501 from either the load balancer’s subnet CIDR ranges or its security group.
 
 Security groups for both the cluster and node groups are specified in their respective configurations. For more information, see the guides below:
 * [Creating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [updating](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md#update-cluster) a cluster.
@@ -27,13 +27,16 @@ Security group IDs are specified in the following configuration locations:
 
 ## Configuration example {#example}
 
-Consider an example for the following conditions:
+Let's assume you need to create rules for the following conditions:
+
 * You need to deploy a load balancer with a [public IP address](../../../vpc/concepts/address.md#public-addresses) to accept HTTPS traffic in three subnets with `10.128.0.0/24`, `10.129.0.0/24`, and `10.130.0.0/24` CIDR blocks (\[B\]).
 * The cluster’s CIDR block is `10.96.0.0/16` (\[C\]), and the service CIDR block is `10.112.0.0/16` (\[S\]).
 * The cluster's node group resides in a subnet with the CIDR block `10.140.0.0/24` (\[Nod\]).
 * SSH [access](../../../managed-kubernetes/operations/node-connect-ssh.md) to nodes and cluster management (via API, `kubectl`, etc.) are restricted to CIDR `203.0.113.0/24` (\[Con\]).
 
-To meet these conditions, you need to create the following rules in the security groups:
+### Management console {#example-console}
+
+Create the following security groups and rules:
 
 * [Load balancer security group](../../concepts/application-load-balancer.md#security-groups):
 
@@ -149,3 +152,7 @@ To meet these conditions, you need to create the following rules in the security
   {% endlist %}
 
 For details on cluster and node group’s security groups, see the [{#T}](../../../managed-kubernetes/operations/connect/security-groups.md) section of the {{ managed-k8s-name }} guides.
+
+### {{ TF }} {#example-terraform}
+
+{% include [terraform-security-groups-example](../../../_includes/application-load-balancer/tf-security-groups-example.md) %}

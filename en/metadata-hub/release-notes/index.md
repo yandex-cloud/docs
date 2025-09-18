@@ -7,6 +7,18 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 ## 2025 {#2025}
 
+### August 
+
+
+#### New features {#new-features-august25}
+
+* In [{{ connection-manager-name }}](../concepts/connection-manager.md), added the ability to manage connections with custom {{ KF }} installations and {{ mkf-name }} clusters; added support of [sharded clusters](../../managed-clickhouse/concepts/sharding.md) in {{ CH }}.
+
+#### Fixed issues {#problems-solved-august25}
+
+* Improved stability of connections in [{{ connection-manager-name }}](../concepts/connection-manager.md).
+
+
 ### July {#july25}
 
 #### New features {#new-features-july25}
@@ -54,7 +66,7 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 #### New features {#new-features-february25}
 
-* Implemented access control in the list of connections. Users will only see connections they have access to (they have the [`connection-manager.auditor` role](../security/connection-manager-roles.md#connection-manager-auditor) or [`connection-manager.viewer` role](../security/connection-manager-roles.md#connection-manager-viewer)). A user with access to a folder will see all connections in that folder.
+* Implemented access control in the list of connections. Users will only see connections they have access to (they have the [`connection-manager.auditor`](../security/connection-manager-roles.md#connection-manager-auditor) role or [`connection-manager.viewer`](../security/connection-manager-roles.md#connection-manager-viewer) role). A user with access to a folder will see all connections in that folder.
 * Improved stability when providing passwords to {{ data-transfer-full-name }}, {{ websql-full-name }}, and {{ datalens-name }}.
 
 ### January {#january25}

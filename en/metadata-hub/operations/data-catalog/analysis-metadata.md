@@ -16,7 +16,7 @@ You can analyze links between tables from all sources of the selected metadata c
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog.
-  1. Navigate to the ![image](../../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
   1. Select the line with the **Dataset** type from the list and go to the **Links** tab. The tab will display a graph with links between the selected table and source DB objects as well as `table` → `{{ data-transfer-full-name }}` → `table` links.
   
      Each graph node represents a table and contains an expanding list of table columns.

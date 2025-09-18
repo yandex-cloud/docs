@@ -1,7 +1,7 @@
 Event name | Description
 --- | ---
-`CopyDesktopImage` | Copying a desktop image
-`CopyDesktopImageFromDesktop` | Copying an image of an existing desktop
+`CopyDesktopImage` | Creating a desktop image by copying a {{ compute-name }} image
+`CopyDesktopImageFromDesktop` | Creating a desktop image by copying an image of an existing desktop
 `CreateDesktop` | Creating a desktop
 `CreateDesktopGroup` | Creating a desktop group
 `DeleteDesktop` | Deleting a desktop

@@ -16,3 +16,7 @@ All desktop and desktop group operations are [logged](../operations/logging.md).
 A desktop is available to organization users created in [{{ org-name }}](../../organization/).
 
 {% include [access-options](../../_includes/cloud-desktop/access-options.md) %}
+
+#### See also {#see-also}
+
+* [How to set up remote desktops with {{ cloud-desktop-full-name }}](https://yandex.cloud/ru/blog/remote-workplaces)

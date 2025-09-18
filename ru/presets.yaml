@@ -6923,7 +6923,6 @@ default:
         field_name: Имя аккаунта
         field_organization: Организация
         field_payment-type: Способ оплаты
-        field_person-id: Плательщик
         field_person-type: Тип аккаунта
         label_step-company_title: Данные о компании
         label_step-contacts_title: Контакты
@@ -12865,6 +12864,7 @@ default:
         apply: Применить
         bind: Привязать
         create: Создать
+        customize: Настроить
         delete-key-value: Удалить
         duplicate: Дублировать
         edit: Редактировать
@@ -12980,6 +12980,8 @@ default:
         error:
           billing:
             title: Пространство не привязано к платёжному аккаунту
+        gpt-learning:
+          title: Обучение YandexGPT
       statements:
         call_reasons: Причины звонка
         call_results: Итоги
@@ -13303,6 +13305,10 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
         tag: 1.21.2-1
+    yc_keda:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/keda/keda-external-scaler-yc
+        tag: 1.1.1
     yc_kruise:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/kruise/chart/kruise

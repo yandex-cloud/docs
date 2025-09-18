@@ -162,7 +162,7 @@ You can [configure](../operations/application-load-balancer-manage-logs.md) the 
 
 For more information on how to view logs, see [{#T}](../operations/application-load-balancer-get-logs.md).
 
-You can find the full list of logged parameters in the [log reference](../logs-ref.md).
+The [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) (XFF) header value is logged as per [RFC 7239](https://datatracker.ietf.org/doc/html/rfc7239). You can find the full list of logged parameters in the [log reference](../logs-ref.md).
 
 You can also [send load balancer logs to a PostgreSQL DB](../tutorials/logging.md).
 

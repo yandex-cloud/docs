@@ -1,42 +1,42 @@
 To create a billing account:
 
 1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
+1. {% include [create-ba-step2](../../billing/_includes/create-ba-step2.md) %}
+1. {% include [create-ba-step3](../../billing/_includes/create-ba-step3.md) %}
 
-1. Log in to your Yandex ID or Yandex 360 account. If you do not have an account yet, [sign up](https://yandex.ru/support/id/authorization/registration.html) and create an [organization](../../organization/quickstart.md) to work in [{{ org-full-name }}]({{ link-org-cloud-center }}). If using your social network profile to log in to Yandex, [create a username and password](https://passport.yandex.com/passport?mode=postregistration&create_login=1).
+   {% include [create-additional-ba-ui-notice](../../billing/_includes/create-additional-ba-ui-notice.md) %}
 
-1. On the **{{ ui-key.yacloud_billing.billing.title_accounts }}** page, click **Create billing account**. Fill in your information:
-  
-   * {% include [choose-name-step](../../billing/_includes/choose-name-step.md) %}
-   * {% include [choose-org-step](../../billing/_includes/choose-org-step.md) %}
-   * {% include [choose-country-step](../../billing/_includes/choose-country-step.md) %}
-  
-     {% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
+   In the window that opens:
 
-1. If you see a list of available payers in the **{{ ui-key.yacloud_billing_account.create-account-wizard.field_person-id }}** section, you can select one of them or add a new one. To add a payer:
+   1. {% include [choose-name-step](../../billing/_includes/choose-name-step.md) %}
+   1. {% include [choose-org-step](../../billing/_includes/choose-org-step.md) %}
+   1. {% include [choose-country-step](../../billing/_includes/choose-country-step.md) %}
   
-   * Select the payer type: **Individual**, and click **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
-   * Enter your first and last name.
-   * (Optional) Enter your middle name and mailing address.
-   * Click **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
-  
-1. Link your bank card.
+      {% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
+
+   1. In the **{{ ui-key.yacloud_billing_account.create-account-wizard.field_person-type }}** field, select `Individual` and click **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
+   1. On the **{{ ui-key.yacloud_billing_account.create-account-wizard.label_step-individual_title }}** page, enter your last name and first name and click **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
+   1. Optionally, on the **{{ ui-key.yacloud_billing_account.create-account-wizard.label_step-payment_title }}** page, link your bank card to the new billing account:
    
-   {% include [pin-card-data](pin-card-data.md) %}
+      {% include [pin-card-data](pin-card-data.md) %}
+
+      If the user account already has bank cards linked to it, you can select one of them without adding a new one.
   
-   {% include [payment-card-types](payment-card-types.md) %}
+      {% include [payment-card-types](payment-card-types.md) %}
   
-   {% include [payment-card-validation](payment-card-validation.md) %}
+      {% include [payment-card-validation](payment-card-validation.md) %}
 
-   Your account will be created as a paid one: after you have used up your initial grant, your card will be debited for the {{ yandex-cloud }} resources you are using. 
+      Your account will be created as a paid one: after you have used up your initial grant, your card will be debited for the {{ yandex-cloud }} resources you are using. 
 
-   {% include [no-card](create-ba-without-card.md) %}
+      Once you are done adding your bank card, click **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
 
-1. Enter your current email address and phone number. Contact details are required not only to reach you, but also to issue payment invoices and send financial documents. If you have already signed up for {{ yandex-cloud }}, check that your contact details are correct.
+      {% include [no-card](create-ba-without-card.md) %}
 
-1. Click **{{ ui-key.yacloud.common.create }}**.
+   1. {% include [create-ba-contacts-step](../../billing/_includes/create-ba-contacts-step.md) %}
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
-   {% note warning %}
+      {% note warning %}
 
-   Note that for individuals an established verification procedure applies, which may result in the account activation being declined.  
-   
-   {% endnote %} 
+      Note that for individuals an established verification procedure applies, which may result in the account activation being declined.
+      
+      {% endnote %} 

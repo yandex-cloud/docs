@@ -67,6 +67,8 @@ items:
             href: operations/project/delete.md
           - name: Удалить пользователя из проекта
             href: operations/project/delete-user-from-project.md
+          - name: Обучение {{ yagpt-name }}
+            href: operations/project/yandexgpt-training
       - name: Теги
         items:
           - name: Создать словарный тег

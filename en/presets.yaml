@@ -6919,7 +6919,6 @@ default:
         field_name: Account name
         field_organization: Organization
         field_payment-type: Payment type
-        field_person-id: Payer
         field_person-type: Account type
         label_step-company_title: Company information
         label_step-contacts_title: Contacts
@@ -12855,6 +12854,7 @@ default:
         apply: Apply
         bind: Link
         create: Create
+        customize: Customize
         delete-key-value: Delete
         duplicate: Duplicate
         edit: Edit
@@ -12970,6 +12970,8 @@ default:
         error:
           billing:
             title: Space is not linked to a billing account
+        gpt-learning:
+          title: Tuning YandexGPT
       statements:
         call_reasons: Call reasons
         call_results: Results
@@ -13293,6 +13295,10 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
         tag: 1.21.2-1
+    yc_keda:
+      helmChart:
+        name: cr.yandex/yc-marketplace/yandex-cloud/keda/keda-external-scaler-yc
+        tag: 1.1.1
     yc_kruise:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/kruise/chart/kruise

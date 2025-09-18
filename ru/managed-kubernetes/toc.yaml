@@ -71,6 +71,8 @@ items:
             href: operations/applications/istio.md
           - name: Установка Jaeger
             href: operations/applications/jaeger.md
+          - name: Установка KEDA
+            href: operations/applications/keda.md
           - name: Установка Kruise
             href: operations/applications/kruise.md
           - name: Установка Kyverno & Kyverno Policies
