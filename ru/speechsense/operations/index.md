@@ -45,6 +45,7 @@ description: Страница содержит все инструкции дл�
 * [{#T}](project/add-user-to-project.md)
 * [{#T}](project/delete.md)
 * [{#T}](project/delete-user-from-project.md)
+* [{#T}](project/yandexgpt-training.md)
 
 ## Теги {#tag}
 

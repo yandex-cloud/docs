@@ -1,4 +1,4 @@
-The metric name goes into the `name` label.
+The `name` label contains the metric name.
 
 Labels shared by all {{ mtr-name }} metrics: 
 
@@ -8,7 +8,7 @@ service | Service ID: `managed-trino`
 cluster_id | Cluster ID
 component | Component type: `coordinator`
 
-## Service metrics {#managed-kafka-metrics}
+## Service metrics {#managed-trino-metrics}
 
 #|
 || **Name**
@@ -31,7 +31,7 @@ The additional `status` label may take the following values:
 * **Started**: Queries in progress.
 * **Failed**: Queries that resulted in an error.
 * **Completed**: Completed queries, including failed ones.
-* **Cancelled**: Queries cancelled by the user.
+* **Canceled**: Queries canceled by the user.
 * **Abandoned**: Completed queries with unclaimed results. ||
 || `trino_execution_querymanager_failures_totalcount.gauge`<br/>`DGAUGE`, count | Number of errors.
 

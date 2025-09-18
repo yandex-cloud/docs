@@ -40,6 +40,7 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](applications/upgrade-alb-ingress-controller.md)
 * [{#T}](applications/istio.md)
 * [{#T}](applications/jaeger.md)
+* [{#T}](applications/keda.md)
 * [{#T}](applications/kruise.md)
 * [{#T}](applications/kyverno.md)
 * [{#T}](applications/loki.md)

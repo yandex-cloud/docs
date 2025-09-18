@@ -83,7 +83,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
             connection_options {
               mdb_cluster_id = "<cluster_ID>"
               auth_source    = "<DB_name>"
-              user           = "<user_name>"
+              user           = "<username>"
               password {
                 raw = "<user_password>"
               }
@@ -149,7 +149,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
                 }
               }
               auth_source = "<DB_name>"
-              user        = "<user_name>"
+              user        = "<username>"
               password {
                 raw = "<user_password>"
               }

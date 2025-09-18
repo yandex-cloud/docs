@@ -21,7 +21,7 @@ description: Follow this guide to update a glossary in a metadata catalog.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog containing the glossary you want to update.
-  1. Navigate to the ![image](../../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}** tab.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}**.
   1. In the glossary list, click ![image](../../../_assets/console-icons/ellipsis.svg) in the line with the glossary and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the glossary parameters:
 

@@ -1,0 +1,1 @@
+To create your first billing account, open the **{{ ui-key.yacloud_org.billing.account.switch_overview }}** tab and click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.billing.accounts.listing_button_create }}**.

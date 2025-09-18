@@ -91,7 +91,7 @@ description: Следуя данной инструкции, вы сможете
 1. Убедитесь, что под {{ GL }} Agent перешел в состояние `Running`:
 
    ```bash
-   kubectl get pods --namespace gitlab-agent
+   kubectl get pods --namespace=<пространство_имен>
    ```
 
 1. Откройте ваш инстанс {{ GL }} и перейдите на страницу **Infrastucture → {{ k8s }} clusters**. Убедитесь, что агент перешел в состояние `Connected`.

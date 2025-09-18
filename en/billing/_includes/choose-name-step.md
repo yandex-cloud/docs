@@ -1,2 +1,1 @@
-Enter the name of the billing account. The name is displayed in the list of your billing accounts and helps you select the one you need.
-
+In the **{{ ui-key.yc-ui-datasphere.data-proc.template-name }}** field, enter a name for the billing account. The name will be displayed in the list of your billing accounts and will help you select the right one.

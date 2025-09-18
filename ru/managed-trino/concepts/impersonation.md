@@ -2,7 +2,7 @@
 
 _Имперсонацией_ в {{ mtr-name }} называется выполнение кластером {{ TR }} действий с пользовательскими ресурсами от имени сервисного аккаунта.
 
-По умолчанию кластер {{ TR }} не имеет прав доступа к пользовательским ресурсам. Чтобы обеспечить доступ к ним, [создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с нужными ролями и привяжите его к кластеру {{ TR }} при [создании](../operations/cluster-create.md#create-cluster) или [изменении](../operations/cluster-update.md) кластера. После этого [координатор](index.md#coordinator) и [воркеры](index.md#workers) смогут аутентифицироваться от имени сервисного аккаунта. Например, аутентификация в хранилище {{ objstorage-name }} для [коннекторов](index.md#connector) Hive, Iceberg и Delta Lake выполняется от имени сервисного аккаунта кластера.
+По умолчанию кластер {{ TR }} не имеет прав доступа к пользовательским ресурсам. Чтобы обеспечить доступ к ним, [создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с нужными ролями и привяжите его к кластеру {{ TR }} при [создании](../operations/cluster-create.md#create-cluster) или [изменении](../operations/cluster-update.md#change-sa) кластера. После этого [координатор](index.md#coordinator) и [воркеры](index.md#workers) смогут аутентифицироваться от имени сервисного аккаунта. Например, аутентификация в хранилище {{ objstorage-name }} для [коннекторов](index.md#connector) Hive, Iceberg и Delta Lake выполняется от имени сервисного аккаунта кластера.
 
 Благодаря имперсонации кластер {{ TR }} поддерживает интеграцию с другими сервисами {{ yandex-cloud }}. Среди них [{{ cloud-logging-full-name }}](../../logging/index.yaml), [{{ monitoring-full-name }}](../../monitoring/concepts/index.md) и [{{ connection-manager-full-name }}](../../metadata-hub/concepts/connection-manager.md).
 
@@ -18,7 +18,7 @@ _Имперсонацией_ в {{ mtr-name }} называется выполн
 
 {{ cloud-logging-name }} — это сервис для хранения и чтения логов сервисов {{ yandex-cloud }}. Если в кластере {{ mtr-name }} включено логирование, логи кластера сохраняются в [лог-группу по умолчанию](../../logging/concepts/log-group.md) выбранного каталога или в пользовательскую лог-группу {{ cloud-logging-name }}.
 
-Включить логирование можно при [создании](../operations/cluster-create.md) или [изменении](../operations/cluster-update.md) кластера.
+Включить логирование можно при [создании](../operations/cluster-create.md) или [изменении](../operations/cluster-update.md#change-additional-settings) кластера.
 
 ### {{ monitoring-name }} {#monitoring-integration}
 

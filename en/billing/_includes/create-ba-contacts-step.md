@@ -1,0 +1,1 @@
+On the **{{ ui-key.yacloud_billing_account.create-account-wizard.label_step-contacts_title }}** page, provide your current email address and phone number. These contact details are not just for communication with you but also for payment invoices and reporting documents. If your contact details are already filled in, check if they are up to date.

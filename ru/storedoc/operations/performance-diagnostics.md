@@ -29,11 +29,11 @@
 1. Выберите:
 
    * Срез данных:
-       *  `FORM` – по типам запросов;
-       *  `HOSTNAME` – по [PRIMARY-хостам](../concepts/replication.md) шардов;
-       *  `NAMESPACE` – по именам коллекций;
-       *  `SHARD` – по [шардам](../concepts/sharding.md);
-       *  `USER` – по пользователям.
+       * `FORM` – по типам запросов;
+       * `HOSTNAME` – по [PRIMARY-хостам](../concepts/replication.md) шардов;
+       * `NAMESPACE` – по именам коллекций;
+       * `SHARD` – по [шардам](../concepts/sharding.md);
+       * `USER` – по пользователям.
    * Параметр группировки данных:
        * `COUNT` — число запросов;
        * `DOCUMENTS_EXAMINED` — число документов в коллекции, просканированных в ходе выполнения запроса;

@@ -79,10 +79,10 @@ description: На странице представлен список прак�
 ## {{ MG }}/{{ SD }} {#mongodb}
 
 * [{#T}](mongodb-migration-with-data-transfer.md)
-* [{#T}](storedoc-data-migration)
-* [{#T}](storedoc-versions)
-* [{#T}](storedoc-sharding)
-* [{#T}](storedoc-profiling)
+* [{#T}](storedoc-data-migration.md)
+* [{#T}](storedoc-versions.md)
+* [{#T}](storedoc-sharding.md)
+* [{#T}](storedoc-profiling.md)
 * [{#T}](data-transfer-mkf-mmg.md)
 
 

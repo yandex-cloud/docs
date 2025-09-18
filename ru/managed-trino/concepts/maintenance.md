@@ -12,6 +12,6 @@ description: Под техническим обслуживанием в {{ mtr-
 
 ## Окно обслуживания {#maintenance-window}
 
-Предпочтительное время технического обслуживания можно задать при [создании кластера](../operations/cluster-create.md) или [изменении его настроек](../operations/cluster-update.md):
+Предпочтительное время технического обслуживания можно задать при [создании кластера](../operations/cluster-create.md) или [изменении его настроек](../operations/cluster-update.md#change-additional-settings):
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}

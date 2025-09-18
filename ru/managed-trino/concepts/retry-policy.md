@@ -14,7 +14,7 @@
 
 {% include [connectors](../../_includes/managed-trino/retry-policy-connector-list.md) %}
 
-Чтобы включить Fault tolerant execution, при [создании](../operations/cluster-create.md) или [изменении](../operations/cluster-update.md) кластера выберите в блоке **Политика перезапросов** значение параметра **Тип объекта для перезапроса**:
+Чтобы включить Fault tolerant execution, при [создании](../operations/cluster-create.md) или [изменении](../operations/cluster-update.md#change-retry-policy) кластера выберите в блоке **Политика перезапросов** значение параметра **Тип объекта для перезапроса**:
 
 * **Задача** — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
 

@@ -25,7 +25,7 @@ You can assign [domains](../../concepts/data-catalog.md#domains-and-subdomains) 
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog.
-  1. Navigate to the ![image](../../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
   1. To assign a domain to a single object:
      1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the object and select **{{ ui-key.yacloud.data-catalog.action_set-domain }}**. If the domain is already assigned and you need to change it, click **{{ ui-key.yacloud.data-catalog.action_edit-domain }}**.
      1. Select the required domain from the list in the pop-up window and click **{{ ui-key.yacloud.common.save }}**.
@@ -50,7 +50,7 @@ You can change [terms](../../concepts/data-catalog.md#glossaries-and-terms) for 
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog.
-  1. Navigate to the ![image](../../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
   1. To add or change terms for a single object:
      1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the object and select **{{ ui-key.yacloud.data-catalog.label_add-terms }}**.
      1. Select the required terms from the list in the pop-up window and click **{{ ui-key.yacloud.common.save }}**.
@@ -75,7 +75,7 @@ You can change [tags](../../concepts/data-catalog.md#classifications-and-tags) f
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog.
-  1. Navigate to the ![image](../../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
   1. To add or change tags for a single object:
      1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the object and select **{{ ui-key.yacloud.data-catalog.label_add-tags }}**.
      1. Select the required tags from the list in the pop-up window and click **{{ ui-key.yacloud.common.save }}**.
@@ -98,7 +98,7 @@ You can change [tags](../../concepts/data-catalog.md#classifications-and-tags) f
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog.
-  1. Navigate to the ![image](../../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}** tab.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
   1. Click the object of interest in the list.
   1. To edit the description of an object with a type intended for metadata markup (tag, term, classification, glossary, domain), click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
 

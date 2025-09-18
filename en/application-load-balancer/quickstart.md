@@ -21,8 +21,8 @@ Below we explain how to create each component individually. Alternatively, you c
 
 ## Getting started {#before-begin}
 
-1. Log in to the [management console]({{ link-console-main }}) or sign up. If you have not signed up yet, navigate to the management console and follow the on-screen instructions.
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, check whether you have a [billing account](../billing/concepts/billing-account.md) with `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. Log in to the [management console]({{ link-console-main }}) or sign up. If not signed up yet, navigate to the management console and follow the on-screen instructions.
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../billing/concepts/billing-account.md) with the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
 
 
@@ -71,11 +71,11 @@ In our example, the target group will consist of a single VM.
 
   1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
-  1. Specify your backend group name: `test-backend-group`.
+  1. Specify the backend group name: `test-backend-group`.
   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**. Specify the backend settings:
       1. Specify the backend name: `backend-1`.
-      1. In the **{{ ui-key.yacloud.alb.label_target-group }}** list, select `test-target-group`.
-      1. Set **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
+      1. From the **{{ ui-key.yacloud.alb.label_target-group }}** list, select `test-target-group`.
+      1. Specify the port: `8080`.
   1. Expand **{{ ui-key.yacloud.alb.label_protocol-settings }}**:
       1. Select the `{{ ui-key.yacloud.alb.label_proto-http-plain }}` type.
   1. Click **{{ ui-key.yacloud.alb.button_add-healthcheck }}** and configure health checks:
@@ -83,6 +83,7 @@ In our example, the target group will consist of a single VM.
       1. **{{ ui-key.yacloud.alb.label_interval }}**: `3`.
       1. **{{ ui-key.yacloud.alb.label_healthy }}**: `2`.
       1. **{{ ui-key.yacloud.alb.label_unhealthy }}**: `2`.
+      1. **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
       1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_hc-type-http }}`.
       1. **{{ ui-key.yacloud.alb.label_path }}**: `/`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -123,7 +124,7 @@ In our example, the target group will consist of a single VM.
   1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
   1. Specify the host name: `test-virtual-host`.
   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
-  1. Set **{{ ui-key.yacloud.common.name }}** to `test-route`.
+  1. Enter `test-route` as the **{{ ui-key.yacloud.common.name }}**.
   1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select `{{ ui-key.yacloud.alb.label_match-prefix }}` and specify the `/` path.
   1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, keep `{{ ui-key.yacloud.alb.label_route-action-route }}`.
   1. From the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select `test-backend-group`.
@@ -157,7 +158,7 @@ In our example, the target group will consist of a single VM.
 
 ## Create an L7 load balancer {#create-load-balancer}
 
-A [load balancer](concepts/application-load-balancer.md) uses [listeners](concepts/application-load-balancer.md#listener) to receive incoming requests which it then distributes across target group VMs according to the rules specified in the HTTP router.
+A [load balancer](concepts/application-load-balancer.md) distributes incoming requests across target group VMs according to the rules specified in the HTTP router. Load balancers use [listeners](concepts/application-load-balancer.md#listener) to receive traffic.
 
 In the following example, we will deploy a load balancer and its backend node in the same subnet and availability zone.
 

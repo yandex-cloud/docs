@@ -56,7 +56,7 @@
                 _id: "<replica_set_name>",
                 members: [{
                     _id: 0,
-                    host: "<IP_address_listened_by_{{ MG }}>:<port>"
+                    host: "<IP_address_Yandex_StoreDoc_listens_on>:<port>"
                 }]
             });
             ```

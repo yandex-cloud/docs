@@ -1,6 +1,6 @@
 ---
 title: '{{ data-transfer-full-name }} tutorials'
-description: Various {{ data-transfer-name }} use cases in {{ yandex-cloud }}.
+description: Different use cases for {{ data-transfer-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ data-transfer-name }} tutorials
@@ -19,7 +19,7 @@ Migration is a task that involves transferring data from one data storage to ano
 * [Migrating {{ CH }} clusters](managed-clickhouse.md)
 * [Migrating {{ GP }} clusters](managed-greenplum.md)
 * [Migrating {{ MG }} clusters](storedoc.md)
-* [Migrating {{ SD }} cluster from 4.4 to 6.0](storedoc-versions.md)
+* [Migrating an {{ SD }} cluster from 4.4 to 6.0](storedoc-versions.md)
 * [Migrating data from AWS RDS for {{ PG }}](rds-to-mpg.md)
 * [Migrating {{ OS }} clusters](os-to-mos.md)
 
