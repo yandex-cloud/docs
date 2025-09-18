@@ -45,7 +45,6 @@ data "yandex_metastore_cluster" "metastore_cluster_by_id" {
 - `description` (String) The resource description.
 - `endpoint_ip` (String) IP address of Metastore server balancer endpoint.
 - `folder_id` (String) The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `health` (String) Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`.
 - `labels` (Map of String) A set of key/value label pairs which assigned to resource.
 - `logging` (Attributes) Cloud Logging configuration. (see [below for nested schema](#nestedatt--logging))
 - `maintenance_window` (Attributes) Configuration of window for maintenance operations. (see [below for nested schema](#nestedatt--maintenance_window))

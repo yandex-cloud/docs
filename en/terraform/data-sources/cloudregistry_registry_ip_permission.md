@@ -15,7 +15,7 @@ Creates a new Cloud Registry IP Permission. For more information, see [the offic
 //
 // Get information about existing IP Permission of specific Cloud Registry.
 //
-data "yandex_cloudregistry_registry_ip_permission" "my_ip_permission_by_id" {
+data "yandex_cloudregistry_registry_ip_permission" "my_ip_permission_by_registry_id" {
   registry_id = yandex_cloudregistry_registry.my_registry.id
 }
 ```

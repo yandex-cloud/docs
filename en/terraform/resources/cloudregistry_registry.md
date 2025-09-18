@@ -1,7 +1,7 @@
 ---
-subcategory: Container Registry
+subcategory: Cloud Registry
 page_title: 'Yandex: yandex_cloudregistry_registry'
-description: Creates a new container registry.
+description: Creates a new cloud registry.
 sourcePath: en/terraform/tf-ref/yandex-cloud/resources/cloudregistry_registry.md
 ---
 
@@ -22,6 +22,10 @@ resource "yandex_cloudregistry_registry" "default" {
   labels = {
     my-label = "my-label-value"
   }
+  kind      = "DOCKER"
+  type      = "LOCAL"
+
+  description = "Some desctiption"
 }
 ```
 

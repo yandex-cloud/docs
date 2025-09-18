@@ -42,7 +42,7 @@ output "permission" {
 - `authentication_plugin` (String) Authentication plugin. Allowed values: `MYSQL_NATIVE_PASSWORD`, `CACHING_SHA2_PASSWORD`, `SHA256_PASSWORD` (for version 5.7 `MYSQL_NATIVE_PASSWORD`, `SHA256_PASSWORD`)
 - `connection_limits` (List of Object) (see [below for nested schema](#nestedatt--connection_limits))
 - `connection_manager` (Map of String) Connection Manager connection configuration. Filled in by the server automatically.
-- `global_permissions` (Set of String) List user's global permissions. Allowed permissions: `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `PROCESS` for clear list use empty list. If the attribute is not specified there will be no changes.
+- `global_permissions` (Set of String) List user's global permissions. Allowed permissions: `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `PROCESS`, `FLUSH_OPTIMIZER_COSTS`, `SHOW_ROUTINE`, `MDB_ADMIN` for clear list use empty list. If the attribute is not specified there will be no changes.
 - `id` (String) The ID of this resource.
 
 <a id="nestedblock--permission"></a>

@@ -92,7 +92,7 @@ resource "yandex_vpc_subnet" "foo" {
 
 {% endnote %}
 
-- `global_permissions` (Set of String) List user's global permissions. Allowed permissions: `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `PROCESS` for clear list use empty list. If the attribute is not specified there will be no changes.
+- `global_permissions` (Set of String) List user's global permissions. Allowed permissions: `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `PROCESS`, `FLUSH_OPTIMIZER_COSTS`, `SHOW_ROUTINE`, `MDB_ADMIN` for clear list use empty list. If the attribute is not specified there will be no changes.
 - `password` (String, Sensitive) The password of the user.
 - `permission` (Block Set) Set of permissions granted to the user. (see [below for nested schema](#nestedblock--permission))
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))

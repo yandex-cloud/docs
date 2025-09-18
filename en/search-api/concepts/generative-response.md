@@ -53,7 +53,7 @@ Each query seeking a generative response must contain the following request body
         "<website_1_address_for_search>",
         "<website_2_address_for_search>",
         ...
-        "<website_n_address_for_search>"
+        "<website_5_address_for_search>"
       ]
     },
     "host": {
@@ -61,7 +61,7 @@ Each query seeking a generative response must contain the following request body
         "<host_1_for_search>",
         "<host_2_for_search>",
         ...
-        "<host_n_for_search>"
+        "<host_5_for_search>"
       ]
     },
     "url": {
@@ -69,7 +69,7 @@ Each query seeking a generative response must contain the following request body
         "<page_1_for_search>",
         "<page_2_for_search>",
         ...
-        "<page_n_for_search>"
+        "<page_10_for_search>"
       ]
     },
     "folderId": "<folder_ID>",
@@ -156,7 +156,7 @@ Each query seeking a generative response must contain the following request body
         "<website_1_address_for_search>",
         "<website_2_address_for_search>",
         ...
-        "<website_n_address_for_search>"
+        "<website_5_address_for_search>"
       ]
     },
     "host": {
@@ -164,7 +164,7 @@ Each query seeking a generative response must contain the following request body
         "<host_1_for_search>",
         "<host_2_for_search>",
         ...
-        "<host_n_for_search>"
+        "<host_5_for_search>"
       ]
     },
     "url": {
@@ -172,7 +172,7 @@ Each query seeking a generative response must contain the following request body
         "<page_1_for_search>",
         "<page_2_for_search>",
         ...
-        "<page_n_for_search>"
+        "<page_10_for_search>"
       ]
     },
     "folder_id": "<folder_ID>",
@@ -267,6 +267,8 @@ Each query seeking a generative response must contain the following request body
 ## Generative response {#response}
 
 {{ search-api-name }} returns a JSON format response with the following syntax:
+
+{% include [empty-response-notice](../../_includes/search-api/empty-response-notice.md) %}
 
 {% list tabs group=instructions %}
 

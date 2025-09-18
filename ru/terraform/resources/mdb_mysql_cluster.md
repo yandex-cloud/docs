@@ -487,7 +487,7 @@ Optional:
 
 - `authentication_plugin` (String) Authentication plugin. Allowed values: `MYSQL_NATIVE_PASSWORD`, `CACHING_SHA2_PASSWORD`, `SHA256_PASSWORD`, `MYSQL_NO_LOGIN`, `MDB_IAMPROXY_AUTH` (for version 5.7 `MYSQL_NATIVE_PASSWORD`, `SHA256_PASSWORD`, `MYSQL_NO_LOGIN`, `MDB_IAMPROXY_AUTH`).
 - `connection_limits` (Block List, Max: 1) User's connection limits. If not specified there will be no changes. Default value is -1. When these parameters are set to -1, backend default values will be actually used. (see [below for nested schema](#nestedblock--user--connection_limits))
-- `global_permissions` (Set of String) List user's global permissions. Allowed permissions: `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `PROCESS`, `FLUSH OPTIMIZER COSTS`, `SHOW ROUTINE`, `MDB ADMIN` for clear list use empty list. If the attribute is not specified there will be no changes.
+- `global_permissions` (Set of String) List user's global permissions. Allowed permissions: `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `PROCESS`, `FLUSH_OPTIMIZER_COSTS`, `SHOW_ROUTINE`, `MDB_ADMIN` for clear list use empty list. If the attribute is not specified there will be no changes.
 - `permission` (Block Set) Set of permissions granted to the user. (see [below for nested schema](#nestedblock--user--permission))
 
 <a id="nestedblock--user--connection_limits"></a>

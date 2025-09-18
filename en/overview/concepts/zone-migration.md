@@ -21,7 +21,7 @@ If among your services there are {{ objstorage-name }}, {{ cdn-name }}, {{ dns-n
 
 To migrate [VM instances](../../compute/operations/vm-control/vm-change-zone.md) and [disks](../../compute/operations/disk-control/disk-change-zone.md), we recommend using [snapshots](../../compute/operations/disk-control/create-snapshot.md) or [{{ backup-name }}](../../backup/).
 
-These solutions help you manage the migration process on your own. You can decide when to shut down the VM instance in the source availability zone and when to make it available in the target zone. The VM in the source availability zone may continue to run until you make sure that the VM you created from a snapshot works properly in the new availability zone.
+These solutions help you manage the migration process on your own. You can decide when to shut down the VM instance in the source availability zone and when to make it available in the target zone. You can keep the VM in the source availability zone running until you make sure the VM you created from the snapshot in the new zone works correctly. 
 
 If using snapshots as a migration tool is not an option, you can migrate VM instances and disks using the `yc compute disk relocate` or `yc compute instance relocate` command, respectively. In this case, you should still take a snapshot or make a backup in {{ backup-name }} before running the commands. This is because the migration process will change your VM's network environment, which may impact its performance. In addition, if something goes wrong during migration, you will be able to quickly restore your VM to the original availability zone from the snapshot or backup and attempt the migration again. You can delete the snapshots and backups once the `relocate` command is completed. 
 
@@ -48,7 +48,7 @@ In most cases, to migrate a managed database service host, you need to create a 
 Refer to service-specific migration guides:
 
 * [{{ dataproc-name }}](../../data-proc/operations/migration-to-an-availability-zone.md).
-* [HDFS-based {{ dataproc-name }}](../../data-proc/tutorials/hdfs-cluster-migration.md).
+* [{{ dataproc-name }} HDFS-based](../../data-proc/tutorials/hdfs-cluster-migration.md).
 * [{{ mkf-name }}](../../managed-kafka/operations/host-migration.md).
 * [{{ mch-name }}](../../managed-clickhouse/operations/host-migration.md).
 * [{{ mmg-name }}](../../storedoc/operations/host-migration.md).

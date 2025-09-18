@@ -41,6 +41,8 @@ In response to a text search query, {{ search-api }} returns a [UTF-8](https://e
 
 The XML file consists of [request](#request-el) (with summarized information about the request parameters) and [response](#response-el) (with search query processing results) grouping tags.
 
+{% include [empty-response-notice](../../_includes/search-api/empty-response-notice.md) %}
+
 #### Response example {#response-example}
 
 

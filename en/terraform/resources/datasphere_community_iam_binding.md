@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/datasphere_community_iam_
 
 # yandex_datasphere_community_iam_binding (Resource)
 
-Allows creation and management of a single binding within IAM policy for an existing `Community`.
+Allows creation and management of a single binding within IAM policy for an existing `community`.
 
 ## Example usage
 
@@ -39,7 +39,7 @@ resource "yandex_datasphere_community_iam_binding" "community-iam" {
 
 ### Required
 
-- `community_id` (String) The ID of the Datasphere Community to attach the policy to.
+- `community_id` (String) The ID of the compute `community` to attach the policy to.
 - `members` (Set of String) An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
  * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.
  * **serviceAccount:{service_account_id}**: A unique service account ID.
@@ -58,6 +58,10 @@ for more information about system groups, see [Cloud Documentation](https://yand
 {% endnote %}
 
 - `role` (String) The role that should be assigned. Only one yandex_datasphere_community_iam_binding can be used per role.
+
+### Optional
+
+- `sleep_after` (Number) For test purposes, to compensate IAM operations delay
 
 ## Import
 
