@@ -1,6 +1,6 @@
 ---
 title: Public materials about {{ foundation-models-name }}
-description: Videos of conferences and webinars dedicated to {{ foundation-models-name }}.
+description: Videos of conferences and webinars on {{ foundation-models-name }}.
 ---
 
 # Public materials about {{ foundation-models-name }}
@@ -9,9 +9,9 @@ description: Videos of conferences and webinars dedicated to {{ foundation-model
 
 ### 2025 {#2025}
 
-* From an AI assistant to multi-agent systems. [Click here to watch the video](https://www.youtube.com/watch?v=yYMoc6RTxls).
+* From an AI assistant to multi-agent systems. Click [here](https://www.youtube.com/watch?v=yYMoc6RTxls) to watch the video.
 
-* How to evaluate and improve responses from generative models. [Click here to watch the video](https://www.youtube.com/watch?v=sNWmI28FKTw).
+* How to evaluate and improve responses from generative models. Click [here](https://www.youtube.com/watch?v=sNWmI28FKTw) to watch the video.
 
 * Creating a Telegram bot based on an LLM with RAG and Function Calling. [Click here to watch the video](https://www.youtube.com/live/gQEpthYWN38).
 
@@ -41,54 +41,64 @@ description: Videos of conferences and webinars dedicated to {{ foundation-model
 
 ### 2025 {#2025-articles}
 
-* Writing prompts for neural networks: Guide, examples, and tips. [Read our article](https://yandex.cloud/ru/blog/gpt-prompting-guide).
+* {{ yagpt-name }} 5.1 Pro: Flagship model released for businesses. Read [our article](https://yandex.cloud/ru/blog/yandexgpt-5-1-pro).
 
-* How Yandex’s neural networks have helped doctors speed up new treatment method development. [Read our article](https://yandex.cloud/ru/blog/local-ethics-committee).
+* From product cards to employee training: How AI transforms modern retail. Read [our article](https://yandex.cloud/ru/blog/ai-in-retail).
 
-* RAG: Training AI to process new data. [Read our article](https://yandex.cloud/ru/blog/posts/2025/05/retrieval-augmented-generation-basics).
+* {{ ai-studio-full-name }} in kids’ smart watches. Read [our article](https://yandex.cloud/ru/blog/yandexgpt-speechkit-smart-watch).
 
-* HR Tech: Using neural networks and cloud solutions to manage recruitment and retain employees. [Read our article](https://yandex.cloud/ru/blog/posts/2025/05/hr-tech).
+* Vision language models: Architecture, applications, and prospects. Read [our article](https://yandex.cloud/ru/blog/vlm-visual-language-models).
 
-* How technology is driving change in the construction sector. [Read our article](https://yandex.cloud/ru/blog/posts/2025/04/technologies-in-construction).
+* How {{ yandex-cloud }} AI helped OTP Bank process customer requests 30 times faster. Read [our article](https://yandex.cloud/ru/blog/otp-yandexgpt).
 
-* How AI helps with customer support: Case studies from banking, retail, and IT. [Read our article](https://yandex.cloud/ru/blog/posts/2025/04/ai-and-support).
+* Writing prompts for neural networks: Guide, examples, and tips. Read [our article](https://yandex.cloud/ru/blog/gpt-prompting-guide).
 
-* Neural networks for text: Business use cases. [Read our article](https://yandex.cloud/ru/blog/posts/2025/03/ai-for-texts).
+* How Yandex’s neural networks have helped doctors speed up new treatment method development. Read [our article](https://yandex.cloud/ru/blog/local-ethics-committee).
 
-* Fine-tuning language models: Adapting AI to special-purpose tasks. [Read our article](https://yandex.cloud/ru/blog/posts/2025/03/fine-tuning).
+* RAG: Training AI to process new data. Read [our article](https://yandex.cloud/ru/blog/posts/2025/05/retrieval-augmented-generation-basics).
 
-* Meet {{ yagpt-name }} 5 in Alice, cloud, and open source. [Read our article](https://habr.com/ru/companies/yandex/articles/885218/).
+* HR Tech: Using neural networks and cloud solutions to manage recruitment and retain employees. Read [our article](https://yandex.cloud/ru/blog/posts/2025/05/hr-tech).
+
+* How technology is driving change in the construction sector. Read [our article](https://yandex.cloud/ru/blog/posts/2025/04/technologies-in-construction).
+
+* How AI helps with customer support: Case studies from banking, retail, and IT. Read [our article](https://yandex.cloud/ru/blog/posts/2025/04/ai-and-support).
+
+* Neural networks for text: Business use cases. Read [our article](https://yandex.cloud/ru/blog/posts/2025/03/ai-for-texts).
+
+* Fine-tuning language models: Adapting AI to special-purpose tasks. Read [our article](https://yandex.cloud/ru/blog/posts/2025/03/fine-tuning).
+
+* Meet {{ yagpt-name }} 5 in Alice, cloud, and open source. Read [our article](https://habr.com/ru/companies/yandex/articles/885218/).
 
 ### 2024 {#2024-articles}
 
-* How to create prompts for a neural network: an example of a Golden Apple gift card service. [Read our article](https://vc.ru/ai/1699310-kak-sostavlyat-promty-dlya-neiroseti-primer-servisa-dlya-sozdaniya-sertifikatov-zolotogo-yabloka).
+* How to create prompts for a neural network: an example of a Golden Apple gift card service. Read [our article](https://vc.ru/ai/1699310-kak-sostavlyat-promty-dlya-neiroseti-primer-servisa-dlya-sozdaniya-sertifikatov-zolotogo-yabloka).
 
-* How to use {{ yagpt-name }} to automatically answer 60% of questions and product reviews: Ralf Ringer's experience. [Read our article](https://vc.ru/services/1659960-kak-s-pomoshyu-yandexgpt-avtomaticheski-otvechat-na-60-voprosov-i-otzyvov-opyt-ralf-ringer).
+* How to use {{ yagpt-name }} to automatically answer 60% of questions and product reviews: Ralf Ringer's experience. Read [our article](https://vc.ru/services/1659960-kak-s-pomoshyu-yandexgpt-avtomaticheski-otvechat-na-60-voprosov-i-otzyvov-opyt-ralf-ringer).
 
-* More powerful family of {{ yagpt-name }} 4 models: improved answers, long context, stepwise reasoning. [Read our article](https://habr.com/ru/companies/yandex/articles/852968/).
+* More powerful family of {{ yagpt-name }} 4 models: improved answers, long context, stepwise reasoning. Read [our article](https://habr.com/ru/companies/yandex/articles/852968/).
 
-* Creatives, subtitling, and voice-overs: what tasks media companies are handing over to AI. [Read our article](https://vc.ru/future/1162468-sozdanie-kreativov-podgotovka-subtitrov-i-ozvuchivanie-tekstov-kakie-zadachi-mediakompanii-peredayut-ii).
+* Creatives, subtitling, and voice-overs: what tasks media companies are handing over to AI. Read [our article](https://vc.ru/future/1162468-sozdanie-kreativov-podgotovka-subtitrov-i-ozvuchivanie-tekstov-kakie-zadachi-mediakompanii-peredayut-ii).
 
-* How we were teaching {{ yandexart-name }} to create likeable images. [Read our article](https://habr.com/ru/companies/yandex/articles/805745/).
+* How we were teaching {{ yandexart-name }} to create likeable images. Read [our article](https://habr.com/ru/companies/yandex/articles/805745/).
 
-* Personalized learning and automatic assessment of students' works: how EdTech projects use AI. [Read our article](https://vc.ru/education/1084748-personalizirovat-obuchenie-i-avtomaticheski-proveryat-raboty-studentov-kak-edtech-proekty-ispolzuyut-ii).
+* Personalized learning and automatic assessment of students' works: how EdTech projects use AI. Read [our article](https://vc.ru/education/1084748-personalizirovat-obuchenie-i-avtomaticheski-proveryat-raboty-studentov-kak-edtech-proekty-ispolzuyut-ii).
 
 ### 2023 {#2023-articles}
 
-* Feedback analysis, chat assistance, and creatives: {{ yagpt-full-name }}'s skillset. [Read our article](https://vc.ru/services/945084-analiz-otzyvov-pomosh-v-chate-i-kreativy-chto-umeet-yandexgpt-api).
+* Feedback analysis, chat assistance, and creatives: {{ yagpt-full-name }}'s skillset. Read [our article](https://vc.ru/services/945084-analiz-otzyvov-pomosh-v-chate-i-kreativy-chto-umeet-yandexgpt-api).
 
-* How to ditch servers, get your business analytics going, and give {{ yagpt-name }} a test. [Read our article](https://vc.ru/offline/845622-oboitis-bez-serverov-nastroit-biznes-analitiku-i-protestirovat-yandexgpt).
+* How to ditch servers, get your business analytics going, and give {{ yagpt-name }} a test. Read [our article](https://vc.ru/offline/845622-oboitis-bez-serverov-nastroit-biznes-analitiku-i-protestirovat-yandexgpt).
 
 ## Conferences and webinars {#conf-and-webinars}
 
 ### 2024: Yandex Scale {#yandex-scale-2024}
 
-* From a bunch of Ml services to a single platform for creating AI solutions. [Click here to watch the recording](https://www.youtube.com/watch?v=70kXmv9GL8s).
+* From a bunch of Ml services to a single platform for creating AI solutions. Click [here](https://www.youtube.com/watch?v=70kXmv9GL8s) for the video.
 
 ### 2023: Yandex Scale {#yandex-scale-2023}
 
-* ML in {{ yandex-cloud }}: past, present, and future. [Click here to watch the recording](https://www.youtube.com/watch?v=90jIHP2F-zA).
+* ML in {{ yandex-cloud }}: Past, present, and future. Click [here](https://www.youtube.com/watch?v=90jIHP2F-zA) for the video.
 
 ### 2023: Webinar {#webinar-2023}
 
-* {{ yagpt-name }} generative text model. [Click here to watch the recording](https://www.youtube.com/watch?v=sdzcjygd_EQ).
+* {{ yagpt-name }} generative text model. Click [here](https://www.youtube.com/watch?v=sdzcjygd_EQ) for the video.

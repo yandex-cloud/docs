@@ -56,11 +56,15 @@ for more information about system groups, see [Cloud Documentation](https://yand
 
 - `role` (String) The role that should be assigned. Only one yandex_cm_certificate_iam_member can be used per role.
 
+### Optional
+
+- `sleep_after` (Number) For test purposes, to compensate IAM operations delay
+
 ## Import
 
 The resource can be imported by using their `resource ID`. For getting the resource ID you can use Yandex Cloud [Web Console](https://console.yandex.cloud) or [YC CLI](https://yandex.cloud/docs/cli/quickstart).
 
 ```bash
-# terraform import yandex_cm_certificate_iam_member.<resource Name> "<resource Id> <role Id> <subject id>"
-terraform import yandex_cm_certificate_iam_member.viewer_member "... viewer foo@example.com"
+# terraform import yandex_cm_certificate_iam_member.<resource Name> "<resource Id>,<role Id>,<subject id>"
+terraform import yandex_cm_certificate_iam_member.viewer_member "...,viewer,foo@example.com"
 ```

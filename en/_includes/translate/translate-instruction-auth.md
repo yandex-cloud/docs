@@ -2,9 +2,9 @@ To authenticate under a [service account](../../iam/concepts/users/service-accou
 
 Get your account details for authentication in the {{ translate-name }} API:
 
-{% list tabs %}
+{% list tabs group=auth_keys %}
 
-- API key
+- API key {#api-key}
 
   1. If you do not have a service account, [create](../../iam/operations/sa/create.md) one.
   1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-translate-user }}` [role](../../translate/security/index.md#translate-user) for the folder to the service account.
@@ -17,7 +17,7 @@ Get your account details for authentication in the {{ translate-name }} API:
       Authorization: Api-Key <API_key>
       ```
 
-- IAM token
+- IAM token {#iam-token}
 
   1. [Get the ID of any folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-translate-user }}` [role](../../translate/security/index.md#translate-user) or higher. Make sure to include the folder ID in the `folderId` field in the body of each request.
   1. Get an IAM token for your [Yandex account](../../iam/operations/iam-token/create.md), [federated account](../../iam/operations/iam-token/create-for-federation.md) or [service account](../../iam/operations/iam-token/create-for-sa.md).

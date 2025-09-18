@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/resourcemanager_cloud_iam
 
 # yandex_resourcemanager_cloud_iam_binding (Resource)
 
-Allows creation and management of a single binding within IAM policy for an existing Yandex Resource Manager cloud.
+Allows creation and management of a single binding within IAM policy for an existing `cloud`.
 
 ## Example usage
 
@@ -35,17 +35,17 @@ resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
 
 ### Required
 
-- `cloud_id` (String) The ID of the cloud to attach the policy to.
+- `cloud_id` (String) The ID of the compute `cloud` to attach the policy to.
 - `members` (Set of String) An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
-  * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.
-  * **serviceAccount:{service_account_id}**: A unique service account ID.
-  * **federatedUser:{federated_user_id}**: A unique federated user ID.
-  * **federatedUser:{federated_user_id}:**: A unique SAML federation user account ID.
-  * **group:{group_id}**: A unique group ID.
-  * **system:group:federation:{federation_id}:users**: All users in federation.
-  * **system:group:organization:{organization_id}:users**: All users in organization.
-  * **system:allAuthenticatedUsers**: All authenticated users.
-  * **system:allUsers**: All users, including unauthenticated ones.
+ * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.
+ * **serviceAccount:{service_account_id}**: A unique service account ID.
+ * **federatedUser:{federated_user_id}**: A unique federated user ID.
+ * **federatedUser:{federated_user_id}:**: A unique SAML federation user account ID.
+ * **group:{group_id}**: A unique group ID.
+ * **system:group:federation:{federation_id}:users**: All users in federation.
+ * **system:group:organization:{organization_id}:users**: All users in organization.
+ * **system:allAuthenticatedUsers**: All authenticated users.
+ * **system:allUsers**: All users, including unauthenticated ones.
 
 {% note warning %}
 
@@ -53,29 +53,17 @@ for more information about system groups, see [Cloud Documentation](https://yand
 
 {% endnote %}
 
-- `role` (String) The role that should be applied. See [roles catalog](https://yandex.cloud/docs/iam/roles-reference).
+- `role` (String) The role that should be assigned. Only one yandex_resourcemanager_cloud_iam_binding can be used per role.
 
 ### Optional
 
-- `sleep_after` (Number)
-- `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
-
-### Read-Only
-
-- `id` (String) The ID of this resource.
-
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
-
-Optional:
-
-- `default` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `sleep_after` (Number) For test purposes, to compensate IAM operations delay
 
 ## Import
 
 The resource can be imported by using their `resource ID`. For getting the resource ID you can use Yandex Cloud [Web Console](https://console.yandex.cloud) or [YC CLI](https://yandex.cloud/docs/cli/quickstart).
 
 ```shell
-# terraform import yandex_resourcemanager_cloud_iam_binding.<resource Name> "<resource Id> <resource Role>"
-terraform import yandex_resourcemanager_cloud_iam_binding.admin "b1g3a**********qc5df admin"
+# terraform import yandex_resourcemanager_cloud_iam_binding.<resource Name> "<resource Id>,<resource Role>"
+terraform import yandex_resourcemanager_cloud_iam_binding.admin "b1g3a**********qc5df,admin"
 ```

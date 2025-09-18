@@ -5,6 +5,8 @@ description: This article describes the XML format of {{ search-api-name }}'s re
 
 # XML format of response to a text search query
 
+{% include [empty-response-notice](../../_includes/search-api/empty-response-notice.md) %}
+
 In response to a text search query, {{ search-api-name }} can return a [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoded XML file with search results. The service returns an XML response for text queries processed both via [API v2](./index.md#api-v2) and API v1.
 
 {% include [api-v1](../../_includes/search-api/api-v1.md) %}
@@ -103,7 +105,7 @@ The `request` group provides aggregate information about request parameters. It 
 #|
 || **Request group tags** | **Description** | **Attributes** ||
 || query | Search query text | None ||
-|| page | Number of returned search results page. Page numbering starts from zero (`0` stands for page 1). | None ||
+|| page | Number of returned search results page. Page numbering starts from zero (`0` stands for page one). | None ||
 || sortby | 
 Result sorting parameters. The possible values are:
 
@@ -278,7 +280,7 @@ The value being provided must be used when generating search results.
 
 | None
 ||
-|| page | Number of returned search results page. Page numbering starts from zero (`0` stands for page 1).
+|| page | Number of returned search results page. Page numbering starts from zero (`0` stands for page one).
 | 
 * `first`: Sequence number of the first search results group displayed on the page.
 * `last`: Sequence number of the last search results group displayed on the page.

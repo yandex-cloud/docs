@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/datasphere_project_iam_bi
 
 # yandex_datasphere_project_iam_binding (Resource)
 
-Allows creation and management of a single binding within IAM policy for an existing `Project`.
+Allows creation and management of a single binding within IAM policy for an existing `project`.
 
 ## Example usage
 
@@ -61,8 +61,12 @@ for more information about system groups, see [Cloud Documentation](https://yand
 
 {% endnote %}
 
-- `project_id` (String) The ID of the Datasphere Project to attach the policy to.
+- `project_id` (String) The ID of the compute `project` to attach the policy to.
 - `role` (String) The role that should be assigned. Only one yandex_datasphere_project_iam_binding can be used per role.
+
+### Optional
+
+- `sleep_after` (Number) For test purposes, to compensate IAM operations delay
 
 ## Import
 

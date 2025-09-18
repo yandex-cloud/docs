@@ -43,7 +43,7 @@ If a sentence contains words in different languages, the language may be detecte
 
 {% endlist %}
 
-The language is recognized for each sentence. If a sentence has phrases in different languages, all of them will be transcribed in the most probable language.
+The language is recognized for each phrase. If a sentence has phrases in several languages, all of them will most likely be transcribed in the same language.
 
 **Examples**
 

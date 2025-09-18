@@ -25,7 +25,7 @@ The infrastructure support cost for fine-tuning a model includes:
 * Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
 * Fee for [text generation](../../foundation-models/pricing.md) by the model.
 
-## Set up your infrastructure {#infra}
+## Set up the infrastructure {#infra}
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
@@ -104,7 +104,7 @@ To get the API key and folder ID from the notebook, create [secrets](../../datas
 
 ## Fine-tune the model {#fine-tuning}
 
-You will run the fine-tuning code from the {{ ml-platform-name }} notebook. [Fine-tuning data](../../foundation-models/concepts/resources/dataset.md#generating) is stored in [JSON Lines](https://jsonlines.org/) format.
+You will run the fine-tuning code from the {{ ml-platform-name }} notebook. The [fine-tuning data](../../foundation-models/concepts/resources/dataset.md#generating) is stored in [JSON Lines](https://jsonlines.org/) format.
 
 1. Open the notebook with the code by following the link below:
 
@@ -132,7 +132,7 @@ You will run the fine-tuning code from the {{ ml-platform-name }} notebook. [Fin
    import zipfile   
    ```
 
-1. Run [TensorBoard](https://www.tensorflow.org/tensorboard?hl={{ lang }}). You will need it to view fine-tuning metrics:
+1. Download [TensorBoard](https://www.tensorflow.org/tensorboard?hl={{ lang }}). You will need it to view the training metrics:
 
    ```python
    def download_tensorboard(url):
@@ -141,7 +141,7 @@ You will run the fine-tuning code from the {{ ml-platform-name }} notebook. [Fin
            zip_ref.extractall("tensorboard")
    ```
 
-1. Upload the data for model fine-tuning:
+1. Download the fine-tuning data:
 
    ```python
    def local_path(path: str) -> pathlib.Path:
@@ -163,7 +163,7 @@ You will run the fine-tuning code from the {{ ml-platform-name }} notebook. [Fin
    )
    ```
 
-1. Create a dataset for fine-tuning and initiate its loading and validation:
+1. Create a fine-tuning dataset and initiate its loading and validation:
 
    ```python
    dataset_draft = sdk.datasets.draft_from_path(

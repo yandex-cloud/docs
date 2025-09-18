@@ -1,6 +1,6 @@
 ---
 title: Creating an assistant with the WebSearch tool
-description: Follow this guide to create a personalized assistant in {{ assistant-api }} to implement a generative response scenario with access to information obtained from a search engine using WebSearch.
+description: Follow this guide to create a personalized assistant in {{ assistant-api }} which generates responses based on information obtained from a search engine using WebSearch.
 ---
 
 # Creating an assistant with the WebSearch tool
@@ -9,11 +9,11 @@ description: Follow this guide to create a personalized assistant in {{ assistan
 
 {{ assistant-api }} is a {{ foundation-models-name }} tool for creating [AI assistants](../../concepts/assistant/index.md). It can be used to create personalized assistants, implement a generative response scenario with access to information from external sources (known as _retrieval augmented generation_, or [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)), and save the model's request context.
 
-The WebSearch [tool](../../concepts/assistant/tools/web-search.md) enables AI assistants to get information from internet sources.
+The WebSearch [tool](../../concepts/assistant/tools/web-search.md) enables AI assistants to retrieve information from internet sources.
 
 {% note info %}
 
-WebSearch tool usage is billed as a [generative response](../../../search-api/pricing.md) in {{ search-api-full-name }}.
+Using WebSearch is billed as a [generative response](../../../search-api/pricing.md) in {{ search-api-full-name }}.
 
 {% endnote %}
 
@@ -27,7 +27,7 @@ To use the examples:
 
   {% include notitle [ai-before-beginning](../../../_includes/foundation-models/yandexgpt/ai-before-beginning.md) %}
 
-  Install [gRPCurl](https://github.com/fullstorydev/grpcurl) and [jq](https://stedolan.github.io/jq).
+  To use the examples, install the [cURL](https://curl.haxx.se) and [jq](https://stedolan.github.io/jq) utilities.
 
 {% endlist %}
 
@@ -37,9 +37,9 @@ To use the examples:
 
 - cURL {#curl}
 
-  This example shows how to create an [assistant](../../concepts/assistant/index.md) that relies on information from the internet for responses. In this example, we will use the basic algorithm for working with {{ assistant-api }} via the [gRPC API](../../assistants/api-ref/grpc/index.md) interface: creating an assistant and a thread, and submitting a request to the assistant.
+  This example shows how to create an [assistant](../../concepts/assistant/index.md) that relies on information from the internet for responses. In this example, we will use the basic algorithm for working with {{ assistant-api }} via the [REST API](../../assistants/api-ref/index.md) interface: creating an assistant and a thread and submitting a request to the assistant.
   
-  As the external information sources, we will use the Central Bank of Russia [official website](https://cbr.ru/) and the [Currency rates](https://yandex.ru/finance/currencies) service by Yandex. If you want to search information across the whole internet, leave the empty value in the WebSearch’s `options` field.
+  As the external information sources, we will use the Central Bank of Russia [official website](https://cbr.ru/) and the [Currency rates](https://yandex.ru/finance/currencies) portal by Yandex. For internet-wide search, leave the `options` field in WebSearch empty.
 
   1. Create an AI assistant:
 
@@ -49,12 +49,12 @@ To use the examples:
 
           ```json
           {
-            "folder_id": "<folder_ID>",
-            "model_uri": "gpt://<folder_ID>/yandexgpt-lite/latest",
-            "instruction": "You are a smart assistant of a financial company. Answer politely. Use the search tool to answer the questions. Do not make up the answer.",
+            "folderId": "<folder_ID>",
+            "modelUri": "gpt://<folder_ID>/yandexgpt-lite/latest",
+            "instruction": "You are a smart assistant designed for a finance company. Answer politely. Use search to answer the questions. Do not make up your answer.",
             "tools": [
               {
-                "gen_search": {
+                "genSearch": {
                   "options": {
                     "site": {
                       "site": [
@@ -62,9 +62,9 @@ To use the examples:
                         "https://yandex.ru/finance/currencies"
                       ]
                     },
-                    "enable_nrfm_docs": true
+                    "enableNrfmDocs": true
                   },
-                  "description": "Tool for getting information about official currency rates."
+                  "description": "Tool to get information about official currency exchange rates."
                 }
               }
             ]
@@ -73,23 +73,25 @@ To use the examples:
 
           Where:
           * `folder_id`: [ID](../../../resource-manager/operations/folder/get-id.md) of the folder for which your account has the [roles](../../../iam/concepts/access-control/roles.md) [`ai.assistants.editor`](../../security/index.md#ai-assistants-editor) and [`{{ roles-yagpt-user }}`](../../security/index.md#languageModels-user) or higher.
-          * `model_uri`: [URI](../../concepts/generation/models.md#generation) of the text generation model.
-          * `instruction`: Basic instruction that the AI assistant will use to execute user queries.
-          * `tools`: Settings for a [tool](../../concepts/assistant/tools/index.md) that the assistant will use:
+          * `modelUri`: [URI](../../concepts/generation/models.md#generation)of the text generation model.
+          * `instruction`: Basic instruction that the AI assistant will use to run user queries.
+          * `tools`: Settings for the [tool](../../concepts/assistant/tools/index.md) the assistant will use:
 
-              * `site`: Array of websites the assistant will be able to search information on.
-              * `enable_nrfm_docs`: Parameter that determines whether search results will include documents which are not directly accessible from the home pages of the specified websites.
-              * `description`: Description of the tool to create that enables the assistant to understand whether it should use that tool when generating a response to a specific request.
+              * `site`: Array of websites the assistant will access to search for information.
+              * `enableNrfmDocs`: Parameter that determines whether search results will include documents which are not directly accessible from the websites’ home pages.
+              * `description`: Tool description the assistant will use to decide whether to use this tool when generating a response to a specific query.
 
-              To learn more about Websearch tool settings for searching on the internet, see [{#T}](../../concepts/assistant/tools/web-search.md).
+              To learn more about internet search settings available in WebSearch, see [{#T}](../../concepts/assistant/tools/web-search.md).
       1. Send a request to create an AI assistant by specifying the path to the new `assistant.json` request body file:
 
           ```bash
           export IAM_TOKEN=<IAM_token>
-          grpcurl \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d @ < <path_to_request_body> \
-            assistant.{{ api-host }}:443 yandex.cloud.ai.assistants.v1.AssistantService/Create |
+          curl \
+            --request POST \
+            --header "Authorization: Bearer ${IAM_TOKEN}" \
+            --silent \
+            --data "@<path_to_request_body>" \
+            "https://rest-assistant.{{ api-host }}/assistants/v1/assistants" | \
             jq
           ```
 
@@ -101,23 +103,30 @@ To use the examples:
 
           ```json
           {
-            "id": "fvt1m68ugu04********",
+            "id": "fvthd7m0d6up********",
             "folder_id": "b1gt6g8ht345********",
+            "name": "",
+            "description": "",
             "created_by": "ajeol2afu1js********",
-            "created_at": "2025-08-05T08:26:24.145150Z",
+            "created_at": "2025-08-27T11:07:37.532517Z",
             "updated_by": "ajeol2afu1js********",
-            "updated_at": "2025-08-05T08:26:24.145150Z",
+            "updated_at": "2025-08-27T11:07:37.532517Z",
             "expiration_config": {
               "expiration_policy": "SINCE_LAST_ACTIVE",
               "ttl_days": "7"
             },
-            "expires_at": "2025-08-12T08:26:24.145150Z",
+            "expires_at": "2025-09-03T11:07:37.532517Z",
+            "labels": {},
             "model_uri": "gpt://b1gt6g8ht345********/yandexgpt-lite/latest",
-            "instruction": "You are a smart assistant of a financial company. Answer politely. Use the search tool to answer the questions. Do not make up the answer.",
+            "instruction": "You are a smart assistant designed for a finance company. Answer politely. Use search to answer the questions. Do not make up your answer.",
             "prompt_truncation_options": {
+              "max_prompt_tokens": null,
               "auto_strategy": {}
             },
-            "completion_options": {},
+            "completion_options": {
+              "max_tokens": null,
+              "temperature": null
+            },
             "tools": [
               {
                 "gen_search": {
@@ -128,36 +137,40 @@ To use the examples:
                         "https://yandex.ru/finance/currencies"
                       ]
                     },
-                    "enable_nrfm_docs": true
+                    "enable_nrfm_docs": true,
+                    "search_filters": []
                   },
-                  "description": "Tool for getting information about official currency rates."
+                  "description": "Tool to get information about official currency exchange rates."
                 }
               }
-            ]
+            ],
+            "response_format": null
           }
           ```
 
           {% endcut %}
 
-          In response, {{ assistant-api }} will return your new AI assistant's ID. Save the ID (`id` field value). You will need it when accessing the assistant.
+          In response, {{ assistant-api }} will return your new AI assistant's ID. Save the obtained `id`. You will need it when accessing the assistant.
   1. Create a thread:
 
-      1. Create a file named `thread.json` with the body of the request to create a thread, specifying the folder ID:
+      1. Create a file named `thread.json` with the body of the request to create a thread and specify the folder ID:
 
           **thread.json**
 
           ```json
           {
-            "folder_id": "<folder_ID>"
+            "folderId": "<folder_ID>"
           }
           ```
       1. Send a request to create a thread by specifying the path to the new `thread.json` request body file:
 
           ```bash
-          grpcurl \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d @ < <path_to_request_body> \
-            assistant.{{ api-host }}:443 yandex.cloud.ai.assistants.v1.threads.ThreadService/Create |
+          curl \
+            --request POST \
+            --header "Authorization: Bearer ${IAM_TOKEN}" \
+            --silent \
+            --data "@<path_to_request_body>" \
+            "https://rest-assistant.{{ api-host }}/assistants/v1/threads" | \
             jq
           ```
 
@@ -165,18 +178,22 @@ To use the examples:
 
           ```json
           {
-            "id": "fvt8tf1c3beu********",
+            "id": "fvtfq63a134i********",
             "folder_id": "b1gt6g8ht345********",
-            "default_message_author_id": "fvt1qo9usone********",
+            "name": "",
+            "description": "",
+            "default_message_author_id": "fvtsnf3tqbhg********",
             "created_by": "ajeol2afu1js********",
-            "created_at": "2025-08-13T10:50:52.289620Z",
+            "created_at": "2025-08-27T11:22:28.999319Z",
             "updated_by": "ajeol2afu1js********",
-            "updated_at": "2025-08-13T10:50:52.289620Z",
+            "updated_at": "2025-08-27T11:22:28.999319Z",
             "expiration_config": {
               "expiration_policy": "SINCE_LAST_ACTIVE",
               "ttl_days": "7"
             },
-            "expires_at": "2025-08-20T10:50:52.289620Z"
+            "expires_at": "2025-09-03T11:22:28.999319Z",
+            "labels": {},
+            "tools": []
           }
           ```
 
@@ -185,18 +202,18 @@ To use the examples:
           Save the obtained thread ID (`id` field value). You will need it later.
   1. Create a message in your thread:
 
-      1. Create a file named `message.json` with the body of the request to create a message by specifying the previously obtained thread ID and the request text:
+      1. Create a file named `message.json` with the body of the request to create a message and specify the previously obtained thread ID and request text:
 
           **message.json**
 
           ```json
           {
-            "thread_id": "<thread_ID>",
+            "threadId": "<thread_ID>",
             "content": {
               "content": [
                 {
                   "text": {
-                    "content": "What is the official US dollar rate for today?"
+                    "content": "What is today’s official USD rate?"
                   }
                 }
               ]
@@ -206,10 +223,12 @@ To use the examples:
       1. Send a request to create a message by specifying the path to the new `message.json` request body file:
 
           ```bash
-          grpcurl \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d @ < <path_to_request_body> \
-            assistant.{{ api-host }}:443 yandex.cloud.ai.assistants.v1.threads.MessageService/Create |
+          curl \
+            --request POST \
+            --header "Authorization: Bearer ${IAM_TOKEN}" \
+            --silent \
+            --data "@<path_to_request_body>" \
+            "https://rest-assistant.{{ api-host }}/assistants/v1/messages" | \
             jq
           ```
 
@@ -217,24 +236,26 @@ To use the examples:
 
           ```json
           {
-            "id": "fvtfgeqhe4ct********",
-            "thread_id": "fvth2n5v4i7e********",
+            "id": "fvt6bpm6mbp5********",
+            "thread_id": "fvtfq63a134i********",
             "created_by": "ajeol2afu1js********",
-            "created_at": "2025-08-05T09:18:48.515453Z",
+            "created_at": "2025-08-27T11:24:46.312977Z",
             "author": {
-              "id": "fvtivd1j5ica********",
+              "id": "fvtsnf3tqbhg********",
               "role": "USER"
             },
+            "labels": {},
             "content": {
               "content": [
                 {
                   "text": {
-                    "content": "What is the Bank of Russia USD rate for today?"
+                    "content": "What is today’s official USD rate?"
                   }
                 }
               ]
             },
-            "status": "COMPLETED"
+            "status": "COMPLETED",
+            "citations": []
           }
           ```
   1. Run the assistant with the message you created earlier:
@@ -245,17 +266,19 @@ To use the examples:
 
           ```json
           {
-            "assistant_id": "<assistant_ID>",
-            "thread_id": "<thread_ID>"
+            "assistantId": "<assistant_ID>",
+            "threadId": "<thread_ID>"
           }
           ```
       1. Send a request to run the assistant by specifying the path to the new `run.json` request body file:
 
           ```bash
-          grpcurl \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d @ < <path_to_request_body> \
-            assistant.{{ api-host }}:443 yandex.cloud.ai.assistants.v1.runs.RunService/Create |
+          curl \
+            --request POST \
+            --header "Authorization: Bearer ${IAM_TOKEN}" \
+            --silent \
+            --data "@<path_to_request_body>" \
+            "https://rest-assistant.{{ api-host }}/assistants/v1/runs" | \
             jq
           ```
 
@@ -263,83 +286,85 @@ To use the examples:
 
           ```json
           {
-            "id": "fvtqms73nvkl********",
-            "assistant_id": "fvt1m68ugu04********",
-            "thread_id": "fvtv9ikd6lme********",
+            "id": "fvtar74rehg7********",
+            "assistant_id": "fvthd7m0d6up********",
+            "thread_id": "fvtfq63a134i********",
             "created_by": "ajeol2afu1js********",
-            "created_at": "2025-08-05T09:23:55.096007666Z",
+            "created_at": "2025-08-27T11:31:06.486275281Z",
+            "labels": {},
             "state": {
               "status": "PENDING"
-            }
+            },
+            "usage": null,
+            "custom_prompt_truncation_options": null,
+            "custom_completion_options": null,
+            "tools": [],
+            "custom_response_format": null
           }
           ```
 
           {{ assistant-api }} has returned the run information: the launch is in `PENDING` status. Save the run ID (`id` field value). You will need it in the next step.
-  1. Get the run outcome with the assistant's response:
+  1. Get the result of the run with the assistant's response. To do this, make a request by specifying the run ID you got earlier:
 
-      1. Create a file named `get_result.json` with the body of the request to get a response from the AI assistant, specifying the run ID you got earlier:
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --silent \
+        "https://rest-assistant.{{ api-host }}/assistants/v1/runs/<execution_ID>" | \
+        jq
+      ```
 
-          **get_result.json**
+      {% cut "Result" %}
 
-          ```json
-          {
-            "run_id": "<execution_ID>"
-          }
-          ```
-
-      1. Send a request to get a response, specifying the path to the new `get_result.json` request body file:
-
-          ```bash
-          grpcurl \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d @ < <path_to_request_body> \
-            assistant.{{ api-host }}:443 yandex.cloud.ai.assistants.v1.runs.RunService/Get |
-            jq
-          ```
-
-          {% cut "Result" %}
-
-          ```json
-          {
-            "id": "fvtr0r43s94a********",
-            "assistant_id": "fvtshcldmbcm********",
-            "thread_id": "fvth2n5v4i7e********",
+      ```json
+      {
+        "id": "fvtar74rehg7********",
+        "assistant_id": "fvthd7m0d6up********",
+        "thread_id": "fvtfq63a134i********",
+        "created_by": "ajeol2afu1js********",
+        "created_at": "2025-08-27T11:31:06.486275281Z",
+        "labels": {},
+        "state": {
+          "status": "COMPLETED",
+          "completed_message": {
+            "id": "fvt24upe31hh********",
+            "thread_id": "fvtfq63a134i********",
             "created_by": "ajeol2afu1js********",
-            "created_at": "2025-08-04T19:01:56.736924537Z",
-            "state": {
-              "status": "COMPLETED",
-              "completed_message": {
-                "id": "fvtlspo6k12e********",
-                "thread_id": "fvth2n5v4i7e********",
-                "created_by": "ajeol2afu1js********",
-                "created_at": "2025-08-04T19:01:58.960131555Z",
-                "author": {
-                  "id": "fvtshcldmbcm********",
-                  "role": "ASSISTANT"
-                },
-                "content": {
-                  "content": [
-                    {
-                      "text": {
-                        "content": "Official USD rate for today is RUB 79.6736 per USD. You can verify this information on the Central Bank of Russia website (cbr.ru/currency_base/daily/)."
-                      }
-                    }
-                  ]
-                },
-                "status": "COMPLETED"
-              }
+            "created_at": "2025-08-27T11:31:08.781561740Z",
+            "author": {
+              "id": "fvthd7m0d6up********",
+              "role": "ASSISTANT"
             },
-            "usage": {
-              "prompt_tokens": "376",
-              "completion_tokens": "59",
-              "total_tokens": "435"
-            }
+            "labels": {},
+            "content": {
+              "content": [
+                {
+                  "text": {
+                    "content": "Today's official USD to RUB exchange rate is 80.5268 RUB per USD."
+                  }
+                }
+              ]
+            },
+            "status": "COMPLETED",
+            "citations": []
           }
-          ```
+        },
+        "usage": {
+          "prompt_tokens": "390",
+          "completion_tokens": "44",
+          "total_tokens": "434"
+        },
+        "custom_prompt_truncation_options": null,
+        "custom_completion_options": null,
+        "tools": [],
+        "custom_response_format": null
+      }
+      ```
 
-          {% endcut %}
+      {% endcut %}
 
-          In the `content` field, the AI assistant returned the model-generated response based on the data from the websites specified in the assistant and thread settings.
+      In the `content` field, the AI assistant returned the model-generated response based on the data from websites specified in the assistant settings.
 
 {% endlist %}
 

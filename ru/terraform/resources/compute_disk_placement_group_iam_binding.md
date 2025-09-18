@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_disk_placement_gr
 
 # yandex_compute_disk_placement_group_iam_binding (Resource)
 
-Allows creation and management of a single binding within IAM policy for an existing `Disk Placement Group`.
+Allows creation and management of a single binding within IAM policy for an existing `disk_placement_group`.
 
 ## Example usage
 
@@ -37,7 +37,7 @@ resource "yandex_compute_disk_placement_group_iam_binding" "editor" {
 
 ### Required
 
-- `disk_placement_group_id` (String) The ID of the compute Disk Placement Group to attach the policy to.
+- `disk_placement_group_id` (String) The ID of the compute `disk_placement_group` to attach the policy to.
 - `members` (Set of String) An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
  * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.
  * **serviceAccount:{service_account_id}**: A unique service account ID.
@@ -56,6 +56,10 @@ for more information about system groups, see [Cloud Documentation](https://yand
 {% endnote %}
 
 - `role` (String) The role that should be assigned. Only one yandex_compute_disk_placement_group_iam_binding can be used per role.
+
+### Optional
+
+- `sleep_after` (Number) For test purposes, to compensate IAM operations delay
 
 ## Import
 

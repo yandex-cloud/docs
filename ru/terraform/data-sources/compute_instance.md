@@ -46,6 +46,7 @@ output "instance_external_ip" {
 - `metadata_options` (Block List, Max: 1) (see [below for nested schema](#nestedblock--metadata_options))
 - `name` (String) The resource name.
 - `placement_policy` (Block List, Max: 1) (see [below for nested schema](#nestedblock--placement_policy))
+- `service_account_id` (String) [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource.
 
 ### Read-Only
 
@@ -63,7 +64,6 @@ output "instance_external_ip" {
 - `resources` (List of Object) (see [below for nested schema](#nestedatt--resources))
 - `scheduling_policy` (List of Object) (see [below for nested schema](#nestedatt--scheduling_policy))
 - `secondary_disk` (Set of Object) (see [below for nested schema](#nestedatt--secondary_disk))
-- `service_account_id` (String) [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource.
 - `status` (String) The status of this instance.
 - `zone` (String) The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
 

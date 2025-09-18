@@ -22,6 +22,10 @@ resource "yandex_cloudregistry_registry" "my_registry" {
   labels = {
     my-label = "my-label-value"
   }
+  kind      = "DOCKER"
+  type      = "LOCAL"
+
+  description = "Some desctiption"
 }
 
 resource "yandex_cloudregistry_registry_ip_permission" "my_ip_permission" {

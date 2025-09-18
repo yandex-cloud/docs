@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/compute_snapshot_iam_bind
 
 # yandex_compute_snapshot_iam_binding (Resource)
 
-Allows creation and management of a single binding within IAM policy for an existing `Snapshot`.
+Allows creation and management of a single binding within IAM policy for an existing `snapshot`.
 
 ## Example usage
 
@@ -58,7 +58,11 @@ for more information about system groups, see [Cloud Documentation](https://yand
 {% endnote %}
 
 - `role` (String) The role that should be assigned. Only one yandex_compute_snapshot_iam_binding can be used per role.
-- `snapshot_id` (String) The ID of the compute Snapshot to attach the policy to.
+- `snapshot_id` (String) The ID of the compute `snapshot` to attach the policy to.
+
+### Optional
+
+- `sleep_after` (Number) For test purposes, to compensate IAM operations delay
 
 ## Import
 
