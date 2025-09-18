@@ -43,3 +43,7 @@ description: На странице представлены вопросы и о
 
 
 {% include [main-page-error](../../_qa/datalens/main-page-error.md) %}
+
+### Какие версии браузеров поддерживает {{ datalens-short-name }}? {#browser-versions}
+
+{{ datalens-short-name }} поддерживает последние две выпущенные мажорные версии браузера. Подробнее см. [список версий](https://browsersl.ist/#q=last+2+major+versions+and+last+2+years+and+fully+supports+es6+and+%3E+0.05%25%0Anot+dead%0Anot+op_mini+all%0Anot+and_qq+%3E+0%0Anot+and_uc+%3E+0%0AFirefox+ESR%0AChrome+%3E+0+and+last+2+years+and+%3E+0.05%25%0ASafari+%3E+0+and+last+2+years+and+%3E+0.05%25%0AFirefox+%3E+0+and+last+2+years+and+%3E+0.01%25).

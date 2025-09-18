@@ -7,7 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/cloudregistry_registry_ia
 
 # yandex_cloudregistry_registry_iam_binding (Resource)
 
-Manages an IAM binding for a Yandex Cloud Registry.
+Allows creation and management of a single binding within IAM policy for an existing `registry`.
 
 ## Example usage
 
@@ -16,13 +16,21 @@ Manages an IAM binding for a Yandex Cloud Registry.
 // Create a new Cloud Registry and new IAM Binding for it.
 //
 resource "yandex_cloudregistry_registry" "your-registry" {
-  folder_id = "your-folder-id"
-  name      = "registry-name"
+  name      = "test-registry"
+  folder_id = "test_folder_id"
+
+  labels = {
+    my-label = "my-label-value"
+  }
+  kind      = "DOCKER"
+  type      = "LOCAL"
+
+  description = "Some desctiption"
 }
 
 resource "yandex_cloudregistry_registry_iam_binding" "puller" {
   registry_id = yandex_cloudregistry_registry.your-registry.id
-  role        = "cloudregistry-registry.images.puller"
+  role        = "cloud-registry.artifacts.puller"
 
   members = [
     "system:allUsers",
@@ -35,13 +43,29 @@ resource "yandex_cloudregistry_registry_iam_binding" "puller" {
 
 ### Required
 
-- `members` (Set of String) Identities (users, service accounts, groups) to bind the role to.
-- `registry_id` (String) ID of the registry to apply the binding to.
-- `role` (String) The role to assign to the members.
+- `members` (Set of String) An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
+ * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.
+ * **serviceAccount:{service_account_id}**: A unique service account ID.
+ * **federatedUser:{federated_user_id}**: A unique federated user ID.
+ * **federatedUser:{federated_user_id}:**: A unique SAML federation user account ID.
+ * **group:{group_id}**: A unique group ID.
+ * **system:group:federation:{federation_id}:users**: All users in federation.
+ * **system:group:organization:{organization_id}:users**: All users in organization.
+ * **system:allAuthenticatedUsers**: All authenticated users.
+ * **system:allUsers**: All users, including unauthenticated ones.
 
-### Read-Only
+{% note warning %}
 
-- `id` (String) Computed identifier of the IAM binding.
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
+- `registry_id` (String) The ID of the compute `registry` to attach the policy to.
+- `role` (String) The role that should be assigned. Only one yandex_cloudregistry_registry_iam_binding can be used per role.
+
+### Optional
+
+- `sleep_after` (Number) For test purposes, to compensate IAM operations delay
 
 ## Import
 
@@ -50,6 +74,6 @@ The resource can be imported by using their `resource ID`. For getting the resou
 IAM binding imports use space-delimited identifiers; first the resource in question and then the role. These bindings can be imported using the `registry_id` and role.
 
 ```bash
-# terraform import yandex_cloudregistry_registry_iam_binding.<binding Name> "<registry_id> <resource Role>"
-terraform import yandex_cloudregistry_registry_iam_binding.puller "crps9**********k9psn cloudregistry-registry.images.puller"
+# terraform import yandex_cloudregistry_registry_iam_binding.<binding Name> "<registry_id>,<resource Role>"
+terraform import yandex_cloudregistry_registry_iam_binding.puller "crps9**********k9psn,cloudregistry-registry.images.puller"
 ```

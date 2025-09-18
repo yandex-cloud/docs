@@ -5,11 +5,13 @@
 
 ### 2025 {#2025}
 
-* Innovation in international insurance: Effective trends for the Russian market. [Read our article](https://yandex.cloud/ru/blog/innovations-in-insurance).
+* Machine learning basics: tasks, methods, stages, and tools. Read [our article](https://yandex.cloud/ru/blog/machine-learning-guide).
 
-* Neural network and X-ray spectra: How to speed up catalyst analyses. [Read our article](https://yandex.cloud/ru/blog/analysis-of-catalysts).
+* Innovation in international insurance: Effective trends for the Russian market. Read [our article](https://yandex.cloud/ru/blog/innovations-in-insurance).
 
-* AI-driven data analysis: Business opportunities. [Read our article](https://yandex.cloud/ru/blog/ai-data-analytics-guide).
+* Neural network and X-ray spectra: How to speed up catalyst analyses. Read [our article](https://yandex.cloud/ru/blog/analysis-of-catalysts).
+
+* AI-driven data analysis: Business opportunities. Read [our article](https://yandex.cloud/ru/blog/ai-data-analytics-guide).
 
 ### 2024 {#2024}
 
@@ -29,7 +31,7 @@
 
 ### 2023: Yandex Scale {#yandex-scale-2023}
 
-* ML in {{ yandex-cloud }}: Past, present, and future. Click [here](https://www.youtube.com/watch?v=90jIHP2F-zA) for the video.
+* ML in {{ yandex-cloud }}: Past, present, and future. Click [here](https://www.youtube.com/watch?v=90jIHP2F-zA) to watch the recording.
 
 * Model inference and hybrid approach in {{ ml-platform-full-name }}. Click [here](https://www.youtube.com/watch?v=8asQwGQdr0w) for the video.
 

@@ -292,6 +292,9 @@ items:
                 title: ''
               - name: Resources
                 items:
+                  - name: cloudregistry_registry
+                    href: resources/cloudregistry_registry.md
+                    title: ''
                   - name: cloudregistry_registry_iam_binding
                     href: resources/cloudregistry_registry_iam_binding.md
                     title: ''
@@ -415,9 +418,6 @@ items:
                 title: ''
               - name: Resources
                 items:
-                  - name: cloudregistry_registry
-                    href: resources/cloudregistry_registry.md
-                    title: ''
                   - name: container_registry
                     href: resources/container_registry.md
                     title: ''

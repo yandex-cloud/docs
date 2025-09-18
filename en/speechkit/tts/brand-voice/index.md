@@ -10,12 +10,12 @@ The {{ brand-voice-name }} technology allows you to create unique voices for you
 | | [{{ brand-voice-premium }}](#premium) | [{{ brand-voice-lite-name }}](#lite)   |  [{{ brand-voice-cc }}](#cc) |
 |---|---|---|---| 
 | Voice | Voice based on artist recordings | Voice based on artist recordings |  Voice copy from the pattern |
-| Usage | Full-text synthesis. Pattern-based synthesis. | Full-text synthesis. Pattern-based synthesis. |  Pattern-based synthesis. The variable part should not exceed 25% of the pattern. The same restriction applies to the duration of the variable part relative to the duration of the final audio. |
+| Usage | Full-text synthesis. Pattern-based synthesis. | Full-text synthesis. Pattern-based synthesis are not supported. |  Pattern-based synthesis. The variable part should not exceed 25% of the pattern. The same restriction applies to the duration of the variable part relative to the duration of the final audio. |
 | Emotions and roles | Copying emotions in pattern-based synthesis. </br>Developing additional [roles](../index.md#role). | Copying emotions in pattern-based synthesis. </br>Developing additional roles. |  Copying emotions in pattern-based synthesis.  |
 | Sampling frequency in source audio recordings | 48 kHz | 48 kHz |  {{ tts-cc-quality }} or higher. |
 | Sampling frequency in synthesized audio recordings | 22 kHz | 22 kHz |  {{ tts-cc-quality }} |
 
-To create a unique voice for your business, [fill out the form](#contact-form).
+To create a unique {{ brand-voice-premium }} voice for your business, [fill out this form](#contact-form).
 
 ## {{ brand-voice-premium-name }} {#premium}
 
@@ -75,4 +75,5 @@ Data logging may prove useful if synthesis errors occur. If you do not want to l
 * [{{ brand-voice-name }} API](../../tts-v3/api-ref/grpc/)
 * [{#T}](../templates.md)
 * [{#T}](../api/tts-templates.md)
-* [How AI helps with customer support: Case studies from banking, retail, and IT](https://yandex.cloud/ru/blog/ai-in-retail)
+* [How AI helps with customer support: Case studies from banking, retail, and IT](https://yandex.cloud/ru/blog/posts/2025/04/ai-and-support)
+* [From product cards to employee training: How AI transforms modern retail](https://yandex.cloud/ru/blog/ai-in-retail)

@@ -5,6 +5,10 @@ description: This page presents the {{ foundation-models-full-name }} release no
 
 # {{ foundation-models-full-name }} release notes
 
+## Release as of 03/09/2025 {#030925}
+
+The [basic instance](../concepts/generation/models.md#generation) now features the Gemma 3 27B visual-linguistic model. For text-to-text, access the model in AI Playground; for images, use the {{ openai }} API or ML SDK.
+
 ## Release as of 28/08/2025 {#280825}
 
 * The {{ gpt-pro }} 5.1 model is available for testing (`RC` branch). The new model does not support the reasoning mode.
@@ -47,7 +51,7 @@ Increased some limits for {{ assistant-api }}: now you can add up to 10,000 docu
 
 ## Release as of 25/02/2025 {#250225}
 
-The {{ yagpt-name }} 5th generation model is available for testing (`RC` branch). The 5th generation key upgrades include:
+The {{ gpt-pro }} 5th generation model is now available for testing in the `RC` branch. The 5th generation key upgrades include:
 * [Function calling](../concepts/generation/function-call.md) was significantly improved.
 * Added support for structured output. This feature enables you to set up the model to generate responses in random JSON format or according to the provided schema. For more information on structuring model output, see [Text generation overview](../concepts/generation/index.md#answers-formatting).
 * Increased the supported context to 32,000 tokens for all modes.

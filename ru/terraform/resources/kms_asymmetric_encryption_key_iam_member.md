@@ -7,14 +7,7 @@ sourcePath: en/terraform/tf-ref/yandex-cloud/resources/kms_asymmetric_encryption
 
 # yandex_kms_asymmetric_encryption_key_iam_member (Resource)
 
-Allows creation and management of a single member for a single binding within the IAM policy for an existing Yandex KMS Asymmetric Encryption Key.
-
-{% note warning %}
-
-Roles controlled by `yandex_kms_asymmetric_encryption_key_iam_binding` should not be assigned using `yandex_kms_asymmetric_encryption_key_iam_member`.
-
-{% endnote %}
-
+Allows creation and management of a single binding within IAM policy for an existing `asymmetric_encryption_key`.
 
 ## Example usage
 
@@ -39,17 +32,17 @@ resource "yandex_kms_asymmetric_encryption_key_iam_member" "viewer" {
 
 ### Required
 
-- `asymmetric_encryption_key_id` (String) The [Yandex Key Management Service](https://yandex.cloud/docs/kms/) Asymmetric Encryption Key ID to apply a binding to.
+- `asymmetric_encryption_key_id` (String) The ID of the compute `asymmetric_encryption_key` to attach the policy to.
 - `member` (String) An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
-  * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.
-  * **serviceAccount:{service_account_id}**: A unique service account ID.
-  * **federatedUser:{federated_user_id}**: A unique federated user ID.
-  * **federatedUser:{federated_user_id}:**: A unique SAML federation user account ID.
-  * **group:{group_id}**: A unique group ID.
-  * **system:group:federation:{federation_id}:users**: All users in federation.
-  * **system:group:organization:{organization_id}:users**: All users in organization.
-  * **system:allAuthenticatedUsers**: All authenticated users.
-  * **system:allUsers**: All users, including unauthenticated ones.
+ * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.
+ * **serviceAccount:{service_account_id}**: A unique service account ID.
+ * **federatedUser:{federated_user_id}**: A unique federated user ID.
+ * **federatedUser:{federated_user_id}:**: A unique SAML federation user account ID.
+ * **group:{group_id}**: A unique group ID.
+ * **system:group:federation:{federation_id}:users**: All users in federation.
+ * **system:group:organization:{organization_id}:users**: All users in organization.
+ * **system:allAuthenticatedUsers**: All authenticated users.
+ * **system:allUsers**: All users, including unauthenticated ones.
 
 {% note warning %}
 
@@ -57,23 +50,11 @@ for more information about system groups, see [Cloud Documentation](https://yand
 
 {% endnote %}
 
-- `role` (String) The role that should be applied. See [roles catalog](https://yandex.cloud/docs/iam/roles-reference).
+- `role` (String) The role that should be assigned. Only one yandex_kms_asymmetric_encryption_key_iam_member can be used per role.
 
 ### Optional
 
-- `sleep_after` (Number)
-- `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
-
-### Read-Only
-
-- `id` (String) The ID of this resource.
-
-<a id="nestedblock--timeouts"></a>
-### Nested Schema for `timeouts`
-
-Optional:
-
-- `default` (String) A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+- `sleep_after` (Number) For test purposes, to compensate IAM operations delay
 
 ## Import
 
@@ -82,6 +63,6 @@ The resource can be imported by using their `resource ID`. For getting the resou
 KMS Asymmetric Encryption Key IAM member resource can be imported using the `asymmetric_encryption_key_id` resource role and member ID (account).
 
 ```shell
-# terraform import yandex_kms_asymmetric_encryption_key_iam_member.<resource Name> "<asymmetric_encryption_key_id> <resource Role> <Member Id>"
-terraform import yandex_kms_asymmetric_encryption_key_iam_member.viewer "abj7u**********j38cd viewer foo@example.com"
+# terraform import yandex_kms_asymmetric_encryption_key_iam_member.<resource Name> "<asymmetric_encryption_key_id>,<resource Role>,<Member Id>"
+terraform import yandex_kms_asymmetric_encryption_key_iam_member.viewer "abj7u**********j38cd,viewer,foo@example.com"
 ```

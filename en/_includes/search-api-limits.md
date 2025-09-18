@@ -1,6 +1,6 @@
 #### Quotas {#search-api-quotas}
 
-| Limit type | Value |
+| Type of limit | Value |
 | ----- | ----- |
 | **[API v1](../search-api/concepts/index.md#api-v1)** | | 
 | Number of synchronous requests per day | 100,000</br></br>Daily limit resets at 00:00:00 [GMT](https://en.wikipedia.org/wiki/Greenwich_Mean_Time) (00:03:00 [UTC+3](https://en.wikipedia.org/wiki/UTC%2B03:00)) |
@@ -22,9 +22,13 @@
 
 #### Limits {#search-api-limits}
 
-| Limit type | Value |
+| Type of limit | Value |
 | ----- | ----- |
 | Number of results returned | Up to 250 |
 | Maximum request length | {{ search-api-request-ch }} |
 | Maximum number of words per request | {{ search-api-request-w }} |
 | Minimum processing time for a request in deferred mode | 5 minutes |
+| **Requests with [generative response](../search-api/concepts/generative-response.md)** | |
+| Maximum number of websites per request | 5 |
+| Maximum number of hosts per request | 5 |
+| Maximum number of pages per request | 10 |

@@ -116,7 +116,6 @@ To get started in {{ yandex-cloud }}:
      },
      "messages": [
        {
-         "weight": "1",
          "text": "a pattern of pastel-colored succulents of multiple varieties, hd full wallpaper, sharp focus, many intricate details, picture depth, top view"
        }
      ]

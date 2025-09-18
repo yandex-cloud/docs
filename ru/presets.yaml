@@ -46,6 +46,7 @@ default:
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-host-spark: spark.api.cloud.yandex.net
   api-host-trino: trino.api.cloud.yandex.net
+  api-host-ytsaurus: ytsaurus.api.cloud.yandex.net
   api-url-prefix: /docs
   art-freetier: 10
   assistant-api: AI Assistant API
@@ -847,6 +848,7 @@ default:
   tf-provider-msp: https://terraform-provider.yandexcloud.net/resources/spark_cluster
   tf-provider-mtr: https://terraform-provider.yandexcloud.net/resources/trino_cluster
   tf-provider-resources-link: https://terraform-provider.yandexcloud.net/resources
+  tf-provider-ytsaurus: https://terraform-provider.yandexcloud.net/resources/ytsaurus_cluster
   TF-version: '0.90'
   TR: Trino
   tr:

@@ -67,7 +67,6 @@ resource "yandex_metastore_cluster" "my_metastore_cluster" {
 
 - `created_at` (String) The creation timestamp of the resource.
 - `endpoint_ip` (String) IP address of Metastore server balancer endpoint.
-- `health` (String) Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`.
 - `id` (String) The resource identifier.
 - `network_id` (String) VPC network identifier which resource is attached.
 - `status` (String) Status of the cluster. Can be either `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`.

@@ -7,6 +7,52 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 0.166.0 (18.09.25) {#version0.166.0}
+
+#### Изменения в сервисах {{ yandex-cloud }}
+
+##### {{ cr-name }} {#cloud-routing}
+
+Добавлена команда для управления Routing Instance `yc cloudrouter routing-instance update-networks`.
+
+##### {{ compute-name }} {#compute}
+
+Исправлена ошибка вывода результата команды `yc compute maintenance list`.
+
+##### {{ msp-name }} {#msp}
+
+Добавлены команды для управления кластерами и заданиями {{ msp-name }}:
+* `yc managed-spark cluster get`;
+* `yc managed-spark cluster list`;
+* `yc managed-spark cluster create`;
+* `yc managed-spark cluster update`;
+* `yc managed-spark cluster delete`;
+* `yc managed-spark cluster start`;
+* `yc managed-spark cluster stop`;
+* `yc managed-spark cluster list-operations`;
+* `yc managed-spark job create-spark`;
+* `yc managed-spark job create-pyspark`;
+* `yc managed-spark job create-spark-connect`;
+* `yc managed-spark job get`;
+* `yc managed-spark job list`;
+* `yc managed-spark job cancel`.
+
+##### {{ mmy-name }} {#mmy}
+
+Добавлены плагины аутентификации `mysql_no_login` и `mdb_iamproxy_auth` в следующие команды:
+* `yc managed-mysql user create`;
+* `yc managed-mysql user update`.
+
+##### {{ mtr-name }} {#mtr}
+
+Добавлены команды для настройки контроля доступа к кластеру {{ mtr-name }}:
+* `yc managed-trino cluster create`;
+* `yc managed-trino cluster get-access-control`;
+* `yc managed-trino cluster set-access-control`;
+* `yc managed-trino cluster remove-access-control`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 0.165.0 (15.09.25) {#version0.165.0}
 
 ####  Изменения в сервисах {{ yandex-cloud }}
@@ -18,8 +64,6 @@ description: На странице представлены релизы CLI, а
 * `yc iam oauth-client-secret list`;
 * `yc iam oauth-client-secret create`;
 * `yc iam oauth-client-secret delete`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.164.0 (11.09.25) {#version0.164.0}
 
