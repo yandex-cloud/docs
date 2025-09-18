@@ -15,7 +15,7 @@ Below, you can see how to create an infrastructure using a [wizard](concepts/ind
 ## Getting started {#before-begin}
 
 1. Log in to the [management console]({{ link-console-main }}) or sign up. If not signed up yet, navigate to the management console and follow the on-screen instructions.
-1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, check whether you have a [billing account](../billing/concepts/billing-account.md) with `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
+1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../billing/concepts/billing-account.md) with the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
 
 
@@ -53,7 +53,7 @@ In our example, the target group will consist of a single VM.
 
 ### Backend group settings {#settings-backend-group}
 
-[Backend groups](concepts/backend-group.md) contain traffic distribution rules and health check configurations for targets. The wizard will automatically create one backend and one health check group. It will also use your previously created group as the target group.
+[Backend groups](concepts/backend-group.md) contain traffic distribution rules and health check configurations for targets. The wizard will automatically create one backend and one health check group. It will also use the group you created earlier as the target group.
 
 {% list tabs group=instructions %}
 
@@ -64,17 +64,21 @@ In our example, the target group will consist of a single VM.
   1. To open backend and health check group settings, toggle **{{ ui-key.yacloud.alb.label_detailed-settings }}** on.
 
   1. Specify the backend name: `backend-1`.
+
+  1. Specify the port: `8080`.
+
   1. Configure health check settings:
       1. **{{ ui-key.yacloud.alb.label_interval }}**: `3`.
       1. **{{ ui-key.yacloud.alb.label_healthy }}**: `2`.
+      1. **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
   
-  1. Do not change other settings. Click **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.
+  1. Do not change the other settings. Click **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.
 
 {% endlist %}
 
 ### HTTP router settings {#settings-http-router}
 
-[HTTP routers](concepts/http-router.md) implement rules for client-to-backend traffic and allow you to modify requests at the load balancer layer. The wizard will automatically create a virtual host and a routing rule. It will also use your previously created group as the backend group.
+[HTTP routers](concepts/http-router.md) implement rules for client-to-backend traffic and allow you to modify requests at the load balancer layer. The wizard will automatically create a virtual host and a routing rule. It will also use the group you created earlier as the backend group.
 
 {% list tabs group=instructions %}
 
@@ -85,13 +89,13 @@ In our example, the target group will consist of a single VM.
   1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, specify the following:
      1. Host name: `test-virtual-host`.
      1. Route name: `test-route`.
-  1. Do not change other settings. Click **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.
+  1. Do not change the other settings. Click **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.
 
 {% endlist %}
 
 ### L7 load balancer settings {#create-load-balancer}
 
-A [load balancer](concepts/application-load-balancer.md) uses [listeners](concepts/application-load-balancer.md#listener) to receive incoming requests which it then distributes across target group VMs according to the rules specified in the HTTP router. The wizard will create a listener automatically. It will also use your previously created router as the HTTP router in this configuration.
+A [load balancer](concepts/application-load-balancer.md) distributes incoming requests across target group VMs according to the rules specified in the HTTP router. Load balancers use [listeners](concepts/application-load-balancer.md#listener) to receive traffic. The wizard will create a listener automatically. It will also use your previously created router as the HTTP router in this configuration.
 
 In the following example, we will deploy a load balancer and its backend node in the same subnet and availability zone.
 
@@ -109,7 +113,7 @@ In the following example, we will deploy a load balancer and its backend node in
 
   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, specify the listener name: `test-listener`.
    
-  1. Do not change other settings. Click **{{ ui-key.yacloud.common.create }}**.
+  1. Do not change the other settings. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

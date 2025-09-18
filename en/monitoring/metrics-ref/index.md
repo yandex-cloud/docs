@@ -26,6 +26,7 @@ description: This page contains a list of references for {{ yandex-cloud }} metr
 * [{{ lockbox-full-name }}](lockbox-ref.md)
 * [{{ maf-full-name }}](managed-airflow-ref.md)
 * [{{ mkf-full-name }}](managed-kafka-ref.md)
+* [{{ msp-full-name }}](managed-spark-ref.md)
 * [{{ mch-full-name }}](managed-clickhouse-ref.md)
 * [{{ mgl-full-name }}](managed-gitlab-ref.md)
 * [{{ mgp-full-name }}](managed-greenplum-ref.md)

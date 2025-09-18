@@ -1,6 +1,6 @@
 Cost of video transcoding, `100 minutes` (charged once when you upload a video):
 
-> 100 × {{ sku|USD|video.transcoding.vod.v1|string }} = {% calc [currency=USD] 100  × {{ sku|USD|video.transcoding.vod.v1|number }} %}
+> 100 × {{ sku|USD|video.transcoding.vod.v1|string }} = {% calc [currency=USD] 100 × {{ sku|USD|video.transcoding.vod.v1|number }} %}
 
 Cost of storing the original video, `5 GB`, and streaming video, `8 GB`:
 

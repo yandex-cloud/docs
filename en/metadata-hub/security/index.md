@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ metadata-hub-full-name }}
-description: Access management in {{ metadata-hub-full-name }}. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
+description: Access management in {{ metadata-hub-full-name }}. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
 ---
 
 # Access management in {{ metadata-hub-name }}
@@ -29,7 +29,7 @@ You can use {{ metadata-hub-name }} roles (_service roles_) and {{ yandex-cloud 
 {{ yandex-cloud }} supports a separate list of roles for each service in {{ metadata-hub-name }}. For more information, see:
 
 * [Roles to manage connections using {{ connection-manager-name }}](connection-manager-roles.md).
-* [Roles to work with with metadata in a {{ metastore-full-name }} cluster](metastore-roles.md).
+* [Roles to work with metadata in a {{ metastore-full-name }} cluster](metastore-roles.md).
 * [Roles to work with {{ schema-registry-name }}](schema-registry-roles.md).
 * [Roles to work with {{ data-catalog-full-name }}](data-catalog-roles.md).
 

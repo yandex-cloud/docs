@@ -21,7 +21,7 @@ description: Follow this guide to update a metadata source in {{ data-catalog-fu
     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
     1. In the list that opens, select the metadata catalog containing the source you want to update.
-    1. Navigate to the ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}** tab.
+    1. In the left-hand panel, select ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}**.
     1. In the list of sources, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the source and select **{{ ui-key.yacloud.common.edit }}**.
     1. Update the parameters as needed:
 

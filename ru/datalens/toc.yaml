@@ -11,6 +11,9 @@ items:
         href: concepts/limits.md
       - name: Обучающие курсы
         href: training.md
+  - name: Нейроаналитик DataLens
+    href: concepts/neuroanalyst.md
+    hidden: true
   - name: Воркбуки и коллекции
     items:
       - name: Обзор
@@ -200,6 +203,9 @@ items:
         href: concepts/calculations/index.md
       - name: Синтаксис формул
         href: concepts/calculations/formula-syntax.md
+      - name: Нейроаналитик для создания вычисляемых полей
+        href: concepts/calculations/formulas-helper.md
+        hidden: true
       - name: Справочник функций
         items:
           - name: Все функции
@@ -686,6 +692,9 @@ items:
                 href: charts/editor/quickstart/from-database.md
               - name: Создание таблицы на основе API Connector
                 href: charts/editor/quickstart/from-api-connector.md
+          - name: Нейроаналитик в Editor
+            href: charts/editor/code-helper.md
+            hidden: true
           - name: Вкладки
             href: charts/editor/tabs.md
           - name: Источники
@@ -794,6 +803,9 @@ items:
         href: dashboard/versioning.md
       - name: Параметры
         href: dashboard/dashboard_parameters.md
+      - name: Нейроаналитик на дашборде
+        href: dashboard/insights.md
+        hidden: true
       - name: Markdown
         href: dashboard/markdown.md
       - name: Пошаговые инструкции
@@ -844,6 +856,9 @@ items:
         href: reports/add-selector.md
       - name: Версионирование
         href: reports/versioning.md
+      - name: Нейроаналитик в отчетах
+        href: reports/insights.md
+        hidden: true
   - name: Управление доступом
     items:
       - name: Обзор

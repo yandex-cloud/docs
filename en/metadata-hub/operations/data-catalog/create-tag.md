@@ -21,7 +21,7 @@ description: Follow this guide to create a tag for metadata in {{ data-catalog-f
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog where you want to create a tag.
-  1. Navigate to the ![image](../../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}** tab.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}**.
   1. Select the classification you want to create a tag in or create a new classification.
   1. Click **{{ ui-key.yacloud.data-catalog.label_create-tag-action }}**.
   1. Set the tag parameters:

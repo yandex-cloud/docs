@@ -1,0 +1,3 @@
+In the **{{ ui-key.yacloud_billing_account.create-account-wizard.field_payment-type }}** field, select `{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}` or `{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}`.
+
+You can [change your payment method](../../billing/operations/change-payment-method.md) at any time after you create your billing account.

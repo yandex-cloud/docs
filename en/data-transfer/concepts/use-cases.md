@@ -15,7 +15,7 @@ For example, using {{ data-transfer-name }}, you can connect copies of databases
 
 {{ data-transfer-name }} allows you to transfer your data from third-party services to {{ yandex-cloud }}. For more information about source and target compatibility, see [{#T}](./index.md#connectivity-matrix).
 
-## Creating backups {#backup}
+## Creating a backup {#backup}
 
 {{ data-transfer-name }} allows you to create and maintain an up-to-date copy of data from {{ yandex-cloud }} in local database. This copy can later be used for disaster recovery.
 

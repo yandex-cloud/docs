@@ -80,6 +80,10 @@ Check the stream specified in the [trail settings](../concepts/trail.md#trail-se
 
 Contact [support]({{ link-console-support }}) for additional information and recommendations.
 
+### YDS_THROTTLING {#database-throttling}
+
+Throttling on the {{ ydb-short-name }} database side causing delays or failures when sending event data. This error may be due to insufficient number of partitions, exhausted quotas, or other circumstances. Analyze the cause of this error on the [database](../../ydb/operations/monitoring.md) side. 
+
 ## {{ cloud-logging-name }} log group {#cloud-logging}
 
 ### ACCESS_DENIED {#logging-access-denied}

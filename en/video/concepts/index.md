@@ -25,3 +25,4 @@ A _channel_ is a way to arrange content in {{ video-name }}. For example, you ca
 * [{#T}](../security/index.md)
 * [{#T}](../hosting.md)
 * [{#T}](../streaming.md)
+* [AI tools and content monetization: What’s new in {{ video-full-name }}](https://yandex.cloud/ru/blog/cloud-video-update)

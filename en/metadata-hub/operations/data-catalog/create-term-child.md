@@ -16,7 +16,7 @@
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. In the list that opens, select the metadata catalog you want to create a term in.
-  1. Navigate to the ![image](../../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}** tab.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}**.
   1. Select the glossary containing the term you want to create a child term for.
   1. In the term list, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the term and select **{{ ui-key.yacloud.data-catalog.label_create-term-action }}**.
 

@@ -59,6 +59,8 @@ _Диалог_ — это объект {{ speechsense-name }}. Диалоги б
 * **{{ ui-key.yc-ui-talkanalytics.statements.operator_keywords }}** — ключевые слова сообщений оператора.
 * **{{ ui-key.yc-ui-talkanalytics.statements.theme }}** — о чем разговаривали клиент и оператор.
 
+Для более качественного анализа данных вы можете подключить к проекту [обучение {{ yagpt-name }}](../operations/project/yandexgpt-training.md).
+
 ## Фильтрация диалогов {#filters}
 
 Фильтры определяют условия, по которым выполняется [фильтрация диалогов](../operations/data/manage-dialogs.md#filters-dialogs).
