@@ -7,7 +7,6 @@
 * [How to back up a VM with rollback support](create-vm-backups.md)
 * [Creating VMs having multiple network interfaces](creating-instances-with-multiple-network-interfaces.md)
 * [What is the disk access speed for a VM](disk-access-speed.md)
-* [How to save snapshots and images locally](download-snapshots-and-images.md)
 * [Exporting disk images of Compute Cloud VM instances](export-disk-image.md)
 * [Monitoring incoming or outgoing VM traffic](incoming-and-outcoming-traffic-logs.md)
 * [Changing the boot disk for an instance to SSD](migrate-data-from-hdd-to-ssd.md)

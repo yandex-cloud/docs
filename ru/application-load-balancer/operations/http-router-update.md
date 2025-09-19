@@ -90,7 +90,8 @@ description: Следуя данной инструкции, вы сможете
        name           = "my-virtual-host"
        http_router_id = "${yandex_alb_http_router.tf-router.id}"
        route {
-         name = "my-route"
+         name                     = "my-route"
+         disable_security_profile = <отключение_профиля_безопасности>
          http_route {
            http_route_action {
              backend_group_id = "${yandex_alb_backend_group.backend-group.id}"
@@ -173,7 +174,8 @@ description: Следуя данной инструкции, вы сможете
            --backend-group-name <имя_группы_бэкендов> \
            --request-timeout <тайм-аут_запроса>s \
            --request-idle-timeout <тайм-аут_ожидания_запроса>s \
-           --rate-limit rps=<лимит_запросов>,requests-per-ip
+           --rate-limit rps=<лимит_запросов>,requests-per-ip \
+           --disable-security-profile=<отключение_профиля_безопасности>
          ```
 
          Подробную информацию о параметрах команды `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
@@ -196,6 +198,7 @@ description: Следуя данной инструкции, вы сможете
                backend_group_id: a5d3e9ko2qf0********
                timeout: 2s
                idle_timeout: 3s
+           disable_security_profile: true
          ```
 
       **Добавить маршрут в начало списка маршрутов хоста**
@@ -217,7 +220,8 @@ description: Следуя данной инструкции, вы сможете
            --backend-group-name <имя_группы_бэкендов> \
            --request-timeout <тайм-аут_запроса>s \
            --request-idle-timeout <тайм-аут_ожидания_запроса>s \
-           --rate-limit rps=<лимит_запросов>,requests-per-ip
+           --rate-limit rps=<лимит_запросов>,requests-per-ip \
+           --disable-security-profile=<отключение_профиля_безопасности>
          ```
 
          Подробную информацию о параметрах команды `yc alb virtual-host prepend-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-http-route.md).
@@ -240,6 +244,7 @@ description: Следуя данной инструкции, вы сможете
                backend_group_id: a5d3e9ko2qf0********
                timeout: 2s
                idle_timeout: 3s
+           disable_security_profile: true
          - name: test-route
          ...
          ```
@@ -264,7 +269,8 @@ description: Следуя данной инструкции, вы сможете
            --backend-group-name <имя_группы_бэкендов> \
            --request-timeout <тайм-аут_запроса>s \
            --request-idle-timeout <тайм-аут_ожидания_запроса>s \
-           --rate-limit rps=<лимит_запросов>,requests-per-ip
+           --rate-limit rps=<лимит_запросов>,requests-per-ip \
+           --disable-security-profile=<отключение_профиля_безопасности>
          ```
 
          Подробную информацию о параметрах команды `yc alb virtual-host insert-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
@@ -289,6 +295,7 @@ description: Следуя данной инструкции, вы сможете
                backend_group_id: a5d3e9ko2qf0********
                timeout: 2s
                idle_timeout: 3s
+           disable_security_profile: true
          - name: test-route
          ...
          ```
@@ -313,7 +320,8 @@ description: Следуя данной инструкции, вы сможете
              --backend-group-name <имя_группы_бэкендов> \
              --request-timeout <тайм-аут_запроса>s \
              --request-idle-timeout <тайм-аут_ожидания_запроса>s \
-             --rate-limit rps=<лимит_запросов>,requests-per-ip
+             --rate-limit rps=<лимит_запросов>,requests-per-ip \
+             --disable-security-profile=<отключение_профиля_безопасности>
            ```
 
            Подробную информацию о параметрах команды `yc alb virtual-host insert-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
@@ -337,6 +345,7 @@ description: Следуя данной инструкции, вы сможете
                  backend_group_id: a5d3e9ko2qf0********
                  timeout: 2s
                  idle_timeout: 3s
+             disable_security_profile: true
            ...
            ```
 
@@ -361,7 +370,8 @@ description: Следуя данной инструкции, вы сможете
            --prefix-fqmn-match /<первое_слово_названия_сервиса> \
            --backend-group-name <имя_группы_бэкендов> \
            --request-max-timeout <таймаут>s \
-           --rate-limit rps=<лимит_запросов>,requests-per-ip
+           --rate-limit rps=<лимит_запросов>,requests-per-ip \
+           --disable-security-profile=<отключение_профиля_безопасности>
          ```
 
          Подробную информацию о параметрах команды `yc alb virtual-host append-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
@@ -384,6 +394,7 @@ description: Следуя данной инструкции, вы сможете
                backend_group_id: ds7snban2dvn********
                max_timeout: 60s
                auto_host_rewrite: false
+           disable_security_profile: true
          ```
 
       **Добавить маршрут в начало списка маршрутов хоста**
@@ -403,7 +414,8 @@ description: Следуя данной инструкции, вы сможете
            --prefix-fqmn-match /<первое_слово_названия_сервиса> \
            --backend-group-name <имя_группы_бэкендов> \
            --request-max-timeout <таймаут>s \
-           --rate-limit rps=<лимит_запросов>,requests-per-ip
+           --rate-limit rps=<лимит_запросов>,requests-per-ip \
+           --disable-security-profile=<отключение_профиля_безопасности>
          ```
 
          Подробную информацию о параметрах команды `yc alb virtual-host prepend-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/prepend-grpc-route.md).
@@ -424,6 +436,7 @@ description: Следуя данной инструкции, вы сможете
                backend_group_id: ds7snban2dvn********
                max_timeout: 60s
                auto_host_rewrite: false
+           disable_security_profile: true
          - name: grpc-route
          ...
          ```
@@ -446,7 +459,8 @@ description: Следуя данной инструкции, вы сможете
            --prefix-fqmn-match /<первое_слово> \
            --backend-group-name <имя_группы_бэкендов> \
            --request-max-timeout <таймаут>s \
-           --rate-limit rps=<лимит_запросов>,requests-per-ip
+           --rate-limit rps=<лимит_запросов>,requests-per-ip \
+           --disable-security-profile=<отключение_профиля_безопасности>
          ```
 
           Где:
@@ -457,6 +471,7 @@ description: Следуя данной инструкции, вы сможете
           * `--prefix-fqmn-match` — первое слово названия сервиса.
           * `--backend-group-name` — имя группы бэкендов.
           * `--request-max-timeout` — таймаут, в секундах.
+          * `--disable-security-profile` — флаг отключения профиля безопасности.
 
          Подробную информацию о параметрах команды `yc alb virtual-host insert-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
 
@@ -477,6 +492,7 @@ description: Следуя данной инструкции, вы сможете
                backend_group_id: ds7snban2dvn********
                max_timeout: 60s
                auto_host_rewrite: false
+           disable_security_profile: true
          - name: grpc-route
          ...
          ```
@@ -499,7 +515,8 @@ description: Следуя данной инструкции, вы сможете
             --prefix-fqmn-match /<первое_слово> \
             --backend-group-name <имя_группы_бэкендов> \
             --request-max-timeout <таймаут>s \
-            --rate-limit rps=<лимит_запросов>,requests-per-ip
+            --rate-limit rps=<лимит_запросов>,requests-per-ip \
+            --disable-security-profile=<отключение_профиля_безопасности>
           ```
 
           Где:
@@ -510,6 +527,7 @@ description: Следуя данной инструкции, вы сможете
           * `--prefix-fqmn-match` — первое слово названия сервиса.
           * `--backend-group-name` — имя группы бэкендов.
           * `--request-max-timeout` — таймаут, в секундах.
+          * `--disable-security-profile` — флаг отключения профиля безопасности.
 
           Подробную информацию о параметрах команды `yc alb virtual-host insert-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
 
@@ -524,14 +542,15 @@ description: Следуя данной инструкции, вы сможете
           - name: grpc-route
           ...
           - name: grpc-route-after
-             grpc:
-            match:
-               fqmn:
-               prefix_match: /helloworld
-            route:
-               backend_group_id: ds7snban2dvn********
-               max_timeout: 60s
-               auto_host_rewrite: false
+            grpc:
+              match:
+                 fqmn:
+                 prefix_match: /helloworld
+              route:
+                 backend_group_id: ds7snban2dvn********
+                 max_timeout: 60s
+                 auto_host_rewrite: false
+            disable_security_profile: true
           ...
           ```
 
@@ -546,7 +565,8 @@ description: Следуя данной инструкции, вы сможете
        name           = "my-virtual-host"
        http_router_id = "${yandex_alb_http_router.tf-router.id}"
        route {
-         name = "my-route"
+         name                     = "my-route"
+         disable_security_profile = <отключение_профиля_безопасности>
          http_route {
            http_route_action {
              backend_group_id = "${yandex_alb_backend_group.backend-group.id}"

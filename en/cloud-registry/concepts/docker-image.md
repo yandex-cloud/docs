@@ -34,5 +34,6 @@ The Docker image and all its versions are stored in a registry.
 #### See also {#see-also}
 
 * [{#T}](./art-java.md)
-* [Node.js artifact](./art-nodejs.md)
+* [{#T}](./art-nodejs.md)
 * [{#T}](./art-nuget.md)
+* [{#T}](./art-python.md)

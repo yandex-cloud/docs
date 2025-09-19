@@ -29,6 +29,14 @@
 
 {% list tabs group=instructions %}
 
+- Вручную {#manual}
+
+    1. [Создайте кластер-источник {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе.
+    1. В той же [зоне доступности](../../../overview/concepts/geo-scope.md) [создайте кластер-приемник {{ mgp-name }}](../../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации. При создании кластера:
+        * Включите публичный доступ для хостов.
+        * Включите опцию **Доступ из Data Transfer**.
+    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
+    1. Убедитесь, что группы безопасности кластеров [{{ mos-name }}](../../../managed-opensearch/operations/connect.md#security-groups) и [{{ mgp-name }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups) разрешают подключение через интернет.
 
 - {{ TF }} {#tf}
 
@@ -129,6 +137,7 @@
          --header 'Content-Type: application/json' \
          --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:{{ port-mos }}/people/_search?pretty'
     ```
+
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
 1. [Создайте эндпоинт-источник](../../../data-transfer/operations/endpoint/index.md#create) для [созданного ранее](#before-you-begin) кластера {{ mos-name }} с настройками:

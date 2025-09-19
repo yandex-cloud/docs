@@ -342,6 +342,8 @@
 
     На вкладке **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** появится подключенный виртуальный хост.
 
+  {% include [disable-sp-route](../../_includes/smartwebsecurity/disable-sp-route.md) %}
+
 - API-шлюз {#api-gateway}
   
   Чтобы подключить API-шлюз:

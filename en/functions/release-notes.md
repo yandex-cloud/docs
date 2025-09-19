@@ -5,6 +5,12 @@ description: This section contains {{ sf-name }} release notes.
 
 # {{ sf-full-name }} release notes
 
+## July 2025 {#july-2025}
+
+### Updates {#updates}
+
+* Increased the default number of [user networks](concepts/networking.md#user-network) per cloud from 1 to 10. This is no longer a limit but a [quota](concepts/limits.md#functions-quotas), which can be changed through a request to support.
+
 ## June 2025 {#june-2025}
 
 ### Updates {#updates}
