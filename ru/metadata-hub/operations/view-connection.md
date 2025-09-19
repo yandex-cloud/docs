@@ -29,6 +29,44 @@ description: Пошаговые инструкции по работе с {{ con
   1. Выберите сервис **{{ metadata-hub-full-name }}**.
   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить список подключений:
+
+  1. Посмотрите описание команды CLI для получения списка подключений:
+
+      ```bash
+      yc connection-manager connection list --help
+      ```
+
+  1. Получите список подключений, выполнив команду:
+      
+      ```bash
+      yc connection-manager connection list
+      ```
+
+      Чтобы получить только нужные подключения, передайте в команде один или несколько флагов:
+
+      * `--db-type` — тип базы данных. Возможные значения: `postgresql`, `mysql`, `clickhouse`, `mongodb`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`.
+
+      * `--is-manual` — подключения, созданные вручную.
+
+      * `--mdb-cluster-id` — идентификатор кластера.
+
+      * `--is-on-premise` — подключения к пользовательским инсталляциям.
+      
+      Например, чтобы получить подключения к пользовательским инсталляциям базы данных `mysql`, выполните команду:
+      
+      ```bash
+      yc connection-manager connection list \
+        --db-type mysql \
+        --is-on-premise
+      ```
+
 - API {#api}
 
   Чтобы получить список подключений {{ connection-manager-name }} в каталоге по умолчанию, воспользуйтесь методом REST API [Connection.List](../api-ref/Connection/list.md) или методом gRPC API [ConnectionService.List](../api-ref/grpc/Connection/list.md).
@@ -47,6 +85,28 @@ description: Пошаговые инструкции по работе с {{ con
   1. Выберите сервис **{{ metadata-hub-full-name }}**.
   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Нажмите на строку подключения для просмотра детальной информации о нем.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить информацию о подключении:
+  
+  1. Посмотрите описание команды CLI для получения информации о подключении:
+
+      ```bash
+      yc connection-manager connection get --help
+      ```
+
+  1. Получите информацию о подключении, выполнив команду:
+      
+      ```bash
+      yc connection-manager connection get <идентификатор_подключения>
+      ```
+
+      Идентификатор подключения можно получить со [списком подключений](#connection-list) в каталоге.
 
 - API {#api}
   
@@ -68,6 +128,34 @@ description: Пошаговые инструкции по работе с {{ con
   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.connection-manager.label_dependences }}**.
 
      В списке зависимостей показываются кластеры управляемых баз данных и экземпляры сервисов, которые используют {{ connection-manager-name }} для хранения информации о подключениях. Нажмите на строку в списке зависимостей, чтобы перейти к кластеру или экземпляру сервиса.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить информацию о зависимостях подключения:
+  
+  1. Посмотрите описание команды CLI для получения информации о зависимостях подключения:
+
+      ```bash
+      yc connection-manager connection resolve-cluster --help
+      ```
+
+  1. Получите информацию о зависимостях подключения, выполнив команду:
+      
+      ```bash
+      yc connection-manager connection resolve-cluster <идентификатор_подключения>
+      ```
+
+      Идентификатор подключения можно получить со [списком подключений](#connection-list) в каталоге.
+
+      {% note info %}
+      
+      Для подключений к кластерам управляемых баз данных команда `resolve-cluster` возвращает топологию кластера. Для подключений к пользовательским инсталляциям баз данных команда возвращает ту же информацию, что и команда [get](#connection-get).
+      
+      {% endnote %}
 
 - API {#api}
   

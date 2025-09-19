@@ -306,8 +306,6 @@ items:
         href: compute/how-to/ssh-root-authorization.md
       - name: How to track memory usage
         href: compute/how-to/ram-monitoring.md
-      - name: How to save snapshots and images locally
-        href: compute/how-to/download-snapshots-and-images.md
       - name: How to change an internal IP address
         href: compute/how-to/change-ip-address.md
       - name: How to read the "Connections quota utilization" chart
@@ -617,8 +615,6 @@ items:
           managed-kubernetes/how-to/assign-static-ip-address-for-worker-nodes-mk8s.md
       - name: Granting internet access to Kubernetes nodes
         href: managed-kubernetes/how-to/providing-internet-access-for-mk8s-nodes.md
-      - name: How to change the network or subnet for an MDB cluster
-        href: managed-kubernetes/how-to/changing-net-or-subnet.md
       - name: How to create an internal Ingress controller
         href: managed-kubernetes/how-to/create-internal-ingress-balancer.md
   - name: Managed GitLab

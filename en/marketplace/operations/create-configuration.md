@@ -1,4 +1,4 @@
-# Creating a configuration for {{ cloud-apps-name }}
+# Creating a configuration for a {{ cloud-apps-name }} product
 
 ## Creating a configuration {#create}
 
@@ -40,10 +40,10 @@
             * {{ network-load-balancer-name }} + {{ ig-name }} + {{ objstorage-name }}
             * {{ network-load-balancer-name }} + {{ ig-name }}.
             
-        1. Select a folder to host your configuration. You need the `cloudapps.editor` role for that folder.
+        1. Select a folder to save your configuration. You need the `cloudapps.editor` role for that folder.
         1. Name the configuration.
         1. Optionally, provide a description for the configuration.
-        1. Optionally, under **Preset parameters**, specify default parameter values for the resources that will be created during application installation. Make sure the {{ ig-name }} VM [disk image](../../compute/concepts/image.md) meets the [requirements](create-image.md).
+        1. Optionally, under **Preset parameters**, specify default parameter values for the resources that will be created during application (product instance) installation. Make sure the {{ ig-name }} VM [disk image](../../compute/concepts/image.md) meets the [requirements](create-image.md).
 
     {% endlist %}
 
@@ -62,17 +62,23 @@ To add an artifact:
 
         * `Disk image`:
 
+            [Disk images](../../compute/concepts/image.md) are used to initialize disks of {{ compute-name }} [VM instances](../../compute/concepts/vm.md), including those in instance groups.
+
             1. Name the artifact.
             1. Select the {{ compute-full-name }} disk image. It must meet [these requirements](create-image.md).
             1. Click **Add**.
 
         * `Container image`:
 
+            [Container images](../../container-registry/concepts/docker-image.md) are used to create containerized applications with [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) or [{{ cos-full-name }}](../../cos/index.yaml).
+
             1. Name the artifact.
             1. Select the Docker image uploaded to {{ container-registry-full-name }}. It must meet [these requirements](create-container.md).
             1. Click **Add**.
 
         * `{{ objstorage-name }}`:
+
+            {{ objstorage-name }} [buckets](../../storage/concepts/bucket.md) are used to store static files of an application version, such as logos, global configuration files, executable code of functions from [{{ sf-full-name }}](../../functions/index.yaml), etc.
 
             1. Name the artifact.
             1. Select the {{ objstorage-full-name }} bucket that stores the files required for the application to function correctly.
@@ -118,6 +124,7 @@ To add a resource:
     * **Input field**: Value obtained from a form field the user fills out when installing the application.
     * **No value**: Empty value.
     * **Resource**: Selecting one of the resources you added.
+    * **Expression**: [Calculated expression](../concepts/expressions.md) allowing you to dynamically generate the field value based on other values, input parameters, and calculations.
 
     For descriptions of the resource parameters, see the [{{ TF }} provider documentation]({{ tf-docs-link }}). The options available when creating resources and those described in the documentation may differ.
 

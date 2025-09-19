@@ -22,6 +22,28 @@
      * `Update version references` — обновлены ссылки на версию подключения при создании или удалении бэкапа кластера MDB;
      * `Delete version` — удалена версия подключения после удаления последнего бэкапа кластера MDB.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы получить информацию о выполненных операциях конкретного подключения:
+  
+  1. Посмотрите описание команды CLI для получения информации о выполненных операциях:
+
+      ```bash
+      yc connection-manager connection list-operations --help
+      ```
+
+  1. Получите информацию о выполненных операциях, выполнив команду:
+      
+      ```bash
+      yc connection-manager connection list-operations <идентификатор_подключения>
+      ```
+
+      Идентификатор подключения можно получить со [списком подключений](#connection-list) в каталоге.
+
 - API {#api}
   
   Чтобы получить информацию о выполненных операциях конкретного подключения {{ connection-manager-name }}, воспользуйтесь методом REST API [Connection.ListOperations](../../metadata-hub/api-ref/Connection/listOperations.md) или методом gRPC API [ConnectionService.ListOperations](../../metadata-hub/api-ref/grpc/Connection/listOperations.md) и передайте в запросе идентификатор подключения.

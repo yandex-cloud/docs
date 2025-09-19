@@ -21,7 +21,7 @@ items:
         href: operations/create-configuration.md
       - name: Linking a configuration to an address
         href: operations/bind-configuration.md
-      - name: Write logs
+      - name: Writing logs
         href: operations/logs-write.md
   - name: Concepts
     items:
@@ -31,6 +31,8 @@ items:
         href: concepts/notification.md
       - name: Tracking email openings
         href: concepts/mail-opened.md
+      - name: Click tracking in emails
+        href: concepts/click-tracking.md
       - name: Unsubscribe mechanism
         href: concepts/unsubscribe.md
       - name: Terms and definitions
@@ -61,6 +63,10 @@ items:
             href: tutorials/send-emails-aws-sdk-js.md
           - name: Python
             href: tutorials/send-emails-aws-sdk-python.md
+      - name: Integration with mail servers
+        items:
+          - name: Postfix
+            href: tutorials/postfix-integration.md
   - name: Tools
     items:
       - name: AWS CLI

@@ -1,6 +1,6 @@
-# Creating a demo app in {{ cloud-apps-name }}
+# Creating a demo {{ cloud-apps-name }} product
 
-In this tutorial, you will create a basic app in {{ cloud-apps-name }} with a {{ mpg-full-name }} [cluster](../../managed-postgresql/concepts/index.md) and {{ compute-full-name }} [VM](../../compute/concepts/vm.md) connected to it, install the app, and test its behavior.
+In this tutorial, you will create a basic {{ cloud-apps-name }} product with a {{ mpg-full-name }} [cluster](../../managed-postgresql/concepts/index.md) and {{ compute-full-name }} [VM](../../compute/concepts/vm.md) connected to it, install the created _app_ (product instance), and test its behavior.
 
 ## Getting started {#before-you-begin}
 

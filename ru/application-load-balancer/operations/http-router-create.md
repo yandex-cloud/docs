@@ -154,8 +154,9 @@ description: Следуя данной инструкции, вы сможете
        --prefix-path-match / \
        --backend-group-name <имя_группы_бэкендов> \
        --request-timeout <тайм-аут_запроса>s \
-       --request-idle-timeout <тайм-аут_ожидания_запроса>s
-       --rate-limit rps=<лимит_запросов>,requests-per-ip
+       --request-idle-timeout <тайм-аут_ожидания_запроса>s \
+       --rate-limit rps=<лимит_запросов>,requests-per-ip \
+       --disable-security-profile=<отключение_профиля_безопасности>
      ```
 
      Где:
@@ -170,6 +171,7 @@ description: Следуя данной инструкции, вы сможете
      * `--request-timeout` — тайм-аут запроса, в секундах.
      * `--request-max-timeout` — максимальный тайм-аут ожидания запроса, в секундах.
      * `--rate-limit` — ограничение на скорость запросов.
+     * `--disable-security-profile` — флаг отключения профиля безопасности. Значение по умолчанию — `false`. Необязательный параметр.
 
      Подробную информацию о параметрах команды `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
@@ -190,6 +192,7 @@ description: Следуя данной инструкции, вы сможете
            backend_group_id: a5d4db973944********
            timeout: 2s
            idle_timeout: 3s
+         disable_security_profile: true
      modify_request_headers:
      - name: Accept-Language
        append: ru-RU
@@ -228,7 +231,8 @@ description: Следуя данной инструкции, вы сможете
        }
        
        route {
-         name = "<имя_маршрута>"
+         name                     = "<имя_маршрута>"
+         disable_security_profile = <отключение_профиля_безопасности>
          http_route {
            http_route_action {
              backend_group_id = "<идентификатор_группы_бэкендов>"
@@ -266,12 +270,13 @@ description: Следуя данной инструкции, вы сможете
            * `per_minute` — в минуту.
        * `route` — описание маршрута HTTP-роутера:
          * `name` — имя маршрута.
+         * `disable_security_profile` — (опционально) флаг отключения [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/). Значение по умолчанию — `false`.
          * `http_route_action` — параметр для указания действия с HTTP-трафиком.
            * `backend_group_id` — идентификатор [группы бэкендов](../concepts/backend-group.md).
            * `timeout` — максимальный тайм-аут ожидания запроса, в секундах.
        * `authority` — домены для заголовков `Host`для HTTP/1.1 или `authority` для HTTP/2, которые будут связаны с этим виртуальным хостом. Поддерживаются символы подстановки, например `*.foo.com` или `*-bar.foo.com`. Необязательный параметр.
        * `route_options` — (опционально) дополнительные параметры виртуального хоста:
-           * `security_profile_id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить WAF и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [{#T}](../../smartwebsecurity/concepts/profiles.md).
+           * `security_profile_id` — идентификатор профиля безопасности. Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить WAF и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [{#T}](../../smartwebsecurity/concepts/profiles.md).
   
 
      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:

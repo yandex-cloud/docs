@@ -18,6 +18,7 @@ POST /v2/email/outbound-emails HTTP/2
 
 ```json
 {
+  "ConfigurationSetName": "string",
   "FromEmailAddress": "<sender_address>",
   "FromEmailAddressIdentityArn": "<compatibility_parameter>",
   "Destination": {
@@ -77,6 +78,9 @@ POST /v2/email/outbound-emails HTTP/2
 
 #|
 || **Parameter** | **Description** ||
+|| `ConfigurationSetName` | **Type**: String.
+
+Name of the configuration used to send the email. If not specified, the system uses the configuration associated with the {{ postbox-name }} address. ||
 || `FromEmailAddress` | **Type**: String.
 
 Address the email is sent from. The address must be verified. ||
@@ -179,3 +183,4 @@ Possible errors:
 * [How to use the Amazon S3 API to work with {{ postbox-name }}](../index.md)
 * [Authentication with the {{ postbox-full-name }} API](../../api-ref/authentication.md)
 * [Templating an email in {{ postbox-full-name }}](../../operations/send-templated-email.md)
+

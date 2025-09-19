@@ -22,11 +22,11 @@ items:
             href: operations/create-trial-period.md
           - name: Integration with the {{ license-manager }} API
             href: operations/license-manager-integration.md
-          - name: Creating a configuration for {{ cloud-apps-name }}
+          - name: Creating a configuration for a {{ cloud-apps-name }} product
             href: operations/create-configuration.md
       - name: Tutorials
         items:
-          - name: Creating a demo app in {{ cloud-apps-name }}
+          - name: Creating a demo {{ cloud-apps-name }} product
             href: tutorials/demo-cloud-apps.md
       - name: Concepts
         items:
@@ -51,8 +51,12 @@ items:
             href: concepts/api-usage.md
           - name: Trial period
             href: concepts/trial-period.md
-          - name: Field reference for a {{ cloud-apps-name }} form
+          - name: '{{ cloud-apps-name }} product form field reference'
             href: concepts/form-fields-ref.md
+          - name: >-
+              Calculated expressions in a {{ cloud-apps-name }} product
+              configuration
+            href: concepts/expressions.md
       - name: Access management
         href: security/partners.md
       - name: Metering API reference

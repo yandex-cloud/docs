@@ -14,7 +14,6 @@
 * [Как создать бэкап виртуальной машины с возможностью отката](create-vm-backups.md)
 * [Как подключиться по SSH от root с паролем или ключом](ssh-root-authorization.md)
 * [Как отслеживать объем потребляемой памяти](ram-monitoring.md)
-* [Как сохранить снимки и образы локально](download-snapshots-and-images.md)
 * [Как сменить внутренний IP-адрес](change-ip-address.md)
 * [Как читать график `Connections quota utilization`](connections-quota-utilization.md)
 * [Как узнать скорость доступа к дискам виртуальной машины](disk-access-speed.md)

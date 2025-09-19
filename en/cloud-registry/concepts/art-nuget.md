@@ -11,6 +11,7 @@ NuGet artifacts are used to distribute libraries, tools, and components you can 
 
 #### See also {#see-also}
 
-* [{#T}](./art-java.md)
 * [Docker image](./docker-image.md)
+* [{#T}](./art-java.md)
 * [{#T}](./art-nodejs.md)
+* [{#T}](./art-python.md)

@@ -5,6 +5,17 @@ description: This section contains {{ postbox-name }} release notes.
 
 # {{ postbox-full-name }} release notes
 
+## July 2025 {#july-2025}
+
+### Updates {#updates}
+
+* Supported [authentication with an {{ iam-short-name }} token](api-ref/authentication.md#iam-ses-example).
+* Supported notifications about the following events:
+    * [Email opened](concepts/notification.md#open)
+    * [Email delivery delayed](concepts/notification.md#delayed-delivery)
+    * [Recipient unsubscribed](concepts/notification.md#subscription)
+* Supported [email delivery over a secure connection](aws-compatible-api/api-ref/put-configuration-set-delivery-options.md).
+
 ## May 2025 {#may-2025}
 
 ### Updates {#updates}
