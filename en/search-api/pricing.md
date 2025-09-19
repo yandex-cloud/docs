@@ -26,6 +26,8 @@ The cost of using {{ search-api-name }} is calculated based on the number of sea
 
 Free tier includes 1,000 synchronous queries per user per month using API v1 during night hours^1^ from 00:00:00 to 07:59:59. Queries in excess of this threshold are priced as detailed below. Free tier does not apply to queries run via [API v2](concepts/index.md#api-v2).
 
+{% include [api-v1](../_includes/search-api/api-v1.md) %}
+
 
 
 {% include [usd](../_pricing/search-api/usd.md) %}

@@ -22,6 +22,7 @@ For more information about npm, see the [relevant documentation](https://docs.np
 
 #### See also {#see-also}
 
-* [{#T}](./art-java.md)
 * [Docker image](./docker-image.md)
+* [{#T}](./art-java.md)
 * [{#T}](./art-nuget.md)
+* [{#T}](./art-python.md)

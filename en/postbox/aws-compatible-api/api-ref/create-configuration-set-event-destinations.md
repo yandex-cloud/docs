@@ -32,7 +32,8 @@ Configuration name. ||
       "IamRoleArn": "<role>",
       "DeliveryStreamArn": "<data_stream>"
     }
-  }
+  },
+  "MatchingEventTypes": [ "string" ]
 }
 ```
 
@@ -46,10 +47,10 @@ Subscription name. ||
 Object with subscription parameters. ||
 || `Enabled` | **Type**: Boolean.
 
-Subscription state: `true` for enabled, `false` for disabled. If the subscription is enabled, email delivery notifications are sent to the specified stream. ||
+Subscription status: `true` for enabled and `false` for disabled. If the subscription is enabled, email delivery notifications are sent to the specified stream. ||
 || `KinesisFirehoseDestination` | **Type**: Object.
 
-Object which sets the destination for notifications. ||
+Object that specifies the destination for notifications. ||
 || `IamRoleArn` | **Type**: String.
 
 This parameter is not used. It is provided for compatibility with AWS. ||
@@ -57,13 +58,24 @@ This parameter is not used. It is provided for compatibility with AWS. ||
 
 Data stream in {{ yds-full-name }} notifications are sent to.
 
-Format: `arn:yc:yds:<region>::<endpoint>:<stream name>`. You can copy the endpoint from the **{{ ui-key.yacloud.ydb.overview.label_kinesis-endpoint }}** field of the appropriate stream in {{ yds-name }}.
+It has the following format: `arn:yc:yds:<region>::<endpoint>:<stream_name>`. You can copy the endpoint from the **{{ ui-key.yacloud.ydb.overview.label_kinesis-endpoint }}** field of the appropriate stream in {{ yds-name }}.
 
 {% cut "Example" %}
 
 `arn:yc:yds:ru-central1::https://yds.serverless.yandexcloud.net/ru-central1/b1gkgm9daf9605nj****/etn5nuveugdr18ak****:postbox`
 
 {% endcut %} ||
+|| `MatchingEventTypes` | **Type**: Array.
+
+Array of event types that will prompt notifications. The possible values are:
+- `SEND`: Email sent.
+- `BOUNCE`: Email not delivered.
+- `SUBSCRIPTION`: Newsletter subscription.
+- `DELIVERY`: Email delivered.
+- `DELIVERY_DELAY`: Email delivery delayed.
+- `OPEN`: Email opened.
+- `CLICK`: Link in email clicked.
+||
 |#
 
 ## Responses {#responses}
@@ -84,6 +96,6 @@ Possible errors:
 || `404 NotFoundException` | The requested resource was not found. ||
 || `409 AlreadyExistsException` | A subscription with this name already exists. Specify a different name. ||
 || `409 ConcurrentModificationException` | There are conflicting operations. Wait for the previous operation to complete and repeat your request. ||
-|| `429 TooManyRequestsException` | The request exceeded the [quota](../../concepts/limits.md#postbox-quotas). ||
-|| `429 LimitExceededException` | The request exceeded the [limit](../../concepts/limits.md). ||
+|| `429 TooManyRequestsException` | The request [quota](../../concepts/limits.md#postbox-quotas) was exceeded. ||
+|| `429 LimitExceededException` | The request [limit](../../concepts/limits.md) was exceeded. ||
 |#

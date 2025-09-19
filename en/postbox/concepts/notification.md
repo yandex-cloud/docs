@@ -30,7 +30,7 @@ Notification example:
             ],
             "key2": [
                 "value2"
-            ],
+            ]
         }
     },
     "send": {  },
@@ -64,7 +64,7 @@ Notification example:
             ],
             "key2": [
                 "value2"
-            ],
+            ]
         }
     },
     "bounce": null,
@@ -105,7 +105,7 @@ Notification example:
             ],
             "key2": [
                 "value2"
-            ],
+            ]
         }
     },
     "bounce": {
@@ -152,13 +152,60 @@ Notification example:
             ],
             "key2": [
                 "value2"
-            ],
+            ]
         }
     },
     "open": {
         "ipAddress": "192.0.2.1",
         "timestamp": "2024-04-25T18:08:04.933666+03:00",
         "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60"
+    },
+    "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
+}
+```
+
+### Email click notification {#click}
+
+You get this type of notification when the recipient clicks the link in your email.
+
+Notification example:
+
+```json
+{
+    "eventType": "Click",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using {{ postbox-full-name }}"
+        },
+        "tags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "click": {
+        "ipAddress": "192.0.2.1",
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60",
+        "url": "https://example.com/some-link",
+        "linkTags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
     },
     "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
 }
@@ -190,7 +237,7 @@ Notification example:
             ],
             "key2": [
                 "value2"
-            ],
+            ]
         }
     },
     "deliveryDelay": {
@@ -232,7 +279,7 @@ Notification example:
             ],
             "key2": [
                 "value2"
-            ],
+            ]
         }
     },
     "subscription": {
@@ -301,6 +348,16 @@ Name | Type | Description
 `status` | String | Optional field. SMTP response code.
 `diagnosticCode` | String | Optional field. Extended error text. May contain error text from the recipient's email client.
 
+### Click object {#click-object}
+
+Name | Type | Description
+--- | --- | ---
+`ipAddress` | String | IP address of the recipient’s device used to open the link.
+`timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time when the recipient clicked the link.
+`userAgent` | String | Identification string (`User-Agent`) of the device or email the client used to open the link.
+`url` | String | Original URL the recipient opened.
+`linkTags` | Object | Object containing tags added to the link.
+
 ### Delivery object {#delivery-object}
 
 Name | Type | Description
@@ -335,13 +392,13 @@ Name | Type | Description
 
 Name | Type | Description
 --- | --- | ---
-`ipAddress` | String | Recipient IP address.
+`ipAddress` | String | IP address of the recipient’s device used to open the email.
 `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Email opening timestamp.
 `userAgent` | String | Identification string (`User-Agent`) of the device or email the client used to open the email.
 
 ## Quality of service (QoS) level {#qos}
 
-To deliver notifications, the service supports the `QoS 1: At least once` quality of service level, so it is possible to resend notifications. Identical notifications have the same `eventId`.
+When delivering notifications, {{ postbox-name }} supports the `QoS 1: At least once` service level, which means the notifications may be sent again. Identical notifications have the same `eventId`.
 
 If an address is linked to a [configuration](glossary.md#configuration) that has multiple [subscriptions](glossary.md#subscription.md) added to it, a separate notification will come for each assignment.
 

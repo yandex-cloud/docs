@@ -1,10 +1,22 @@
 
 
-In this tutorial, you will use {{ foundation-models-full-name }} [text generation capabilities](../../foundation-models/concepts/generation/models.md) to implement a scenario for automatic review of proposed code changes on [GitHub](https://github.com/).
+In this tutorial, you will use {{ foundation-models-full-name }} [text generation capabilities](../../foundation-models/concepts/generation/models.md) to implement the scenario of automatic [review](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) of proposed code changes on [GitHub](https://github.com/).
 
-When adding a [commit](https://docs.github.com/en/get-started/learning-about-github/github-glossary#commit) to a GitHub [pull request](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request), the proposed solution uses a [GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions) script to access a {{ sw-full-name }} [workflow](../../serverless-integrations/concepts/workflows/workflow.md). Once there is a request from GitHub Actions, the {{ sw-name }} workflow requests GitHub for information about the changes proposed in the pull request. Next, the workflow engages {{ foundation-models-name }} for its model to generate a detailed [review](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) of proposed changes and contribute comments and code improvement tips of its own. Once it gets the model-generated review, the {{ sw-name }} workflow publishes it in a pull request on GitHub.
+This solution uses a [GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions) script to request {{ yandex-cloud }} for an AI review of changes in the [pull request](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request). The steps of pulling the changes, requesting a review from the generative model, and publishing the review to GitHub are performed by a {{ sw-full-name }} [workflow](../../serverless-integrations/concepts/workflows/workflow.md).
 
-To access the repository, the workflow uses an [access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#about-personal-access-tokens) previously created by the user on GitHub and kept safe in a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md). The GitHub Actions script gets authenticated in the {{ yandex-cloud }} API as a [service account](../../iam/concepts/users/service-accounts.md) using a short-lived [IAM token](../../iam/concepts/authorization/iam-token.md). The script gets the IAM token using the service account’s [authorized key](../../iam/concepts/authorization/key.md) saved to the repository's [secret](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets) on GitHub.
+![ai-powered-github-pr-review](../../_assets/tutorials/ai-powered-github-pr-review.svg)
+
+On the diagram:
+
+1. User adds a [commit](https://docs.github.com/en/get-started/learning-about-github/github-glossary#commit) to a pull request on GitHub.
+1. When the new commit appears in the pull request, a GitHub Actions script is run.
+1. The GitHub Actions script gets the {{ yandex-cloud }} service account's [authorized key](../../iam/concepts/authorization/key.md) stored in a GitHub [repository secret](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
+1. The GitHub Actions script requests an [IAM token](../../iam/concepts/authorization/iam-token.md) in exchange for the [service account's](../../iam/concepts/users/service-accounts.md) authorized key in {{ iam-full-name }}. The IAM token is required for authentication in the {{ si-full-name }} API.
+1. The GitHub Actions script uses the IAM token to send an HTTP request to the {{ sw-full-name }} workflow to generate a review. The pull request number is at the same time provided to the {{ sw-name }} workflow.
+1. The {{ sw-name }} workflow gets the [access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#about-personal-access-tokens) named `personal access token (classic)` for access to the GitHub repository in a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md).
+1. The {{ sw-name }} workflow uses the access token to pull the changes proposed in the pull request from the GitHub repository.
+1. The {{ sw-name }} workflow requests the {{ foundation-models-full-name }} [model](../../foundation-models/concepts/generation/models.md) to review the changes proposed in the pull request. The model returns the review with its comments and tips on how to improve the code.
+1. The {{ sw-name }} workflow uses the access token to publish the review in the GitHub pull request.
 
 To set up automatic AI reviewing of GitHub pull requests:
 

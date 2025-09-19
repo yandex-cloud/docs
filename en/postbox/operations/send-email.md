@@ -53,17 +53,17 @@ In {{ postbox-name }}, you can send an email:
 
 ### SMTP {#smtp}
 
-{% list tabs %}
+{% list tabs group=auth_keys %}
 
-- API key
+- API key {#api-key}
 
     {% include [smtp-send-api](../../_includes/postbox/smtp-send-api.md) %}
 
-- Static access key
+- Static access key {#static-key}
 
     {% include [smtp-send-python](../../_includes/postbox/smtp-send-python.md) %}
 
-- IAM token
+- IAM token {#iam-token}
 
     {% include [smtp-send-iam-token](../../_includes/postbox/smtp-send-iam-token.md) %}
 
@@ -153,4 +153,4 @@ You can provide the [request](../../postbox/aws-compatible-api/api-ref/send-emai
 
 {% endcut %}
 
-To use [AWS Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html) to sign a request, specify the `--aws-sigv4` parameter. To learn how to create a signature yourself, see [{#T}](../../postbox/aws-compatible-api/signing-requests.md).
+To use [AWS Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html) to sign a request, specify the `--aws-sigv4` parameter. To learn how to create a signature by yourself, see [{#T}](../../postbox/aws-compatible-api/signing-requests.md).

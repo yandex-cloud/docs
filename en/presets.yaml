@@ -6912,8 +6912,6 @@ default:
         base_label_payer: Payer
         label_card-add: Add card
         label_wizard-next: Next
-        section_person-type: Payer type
-        section_persons: Payers
       create-account-wizard:
         field_country-code: Country
         field_name: Account name
@@ -7069,7 +7067,6 @@ default:
           button_bind: Bind
           column_cloud: Clouds
           column_status: Status
-          main-banner_button_create: Create a billing account
         cud:
           purchase:
             button_purchase: Purchase commitment

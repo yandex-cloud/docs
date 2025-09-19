@@ -102,3 +102,7 @@ description: Из статьи вы узнаете, как подключить�
   ![image](../../../_assets/datalens/operations/connection/connection-trino-yc-manwal-additional.png)
 
 {% endlist %}
+
+## Подключение внешней БД {#external-db-connection}
+
+{% include [connection-external](../../../_includes/datalens/datalens-connection-external.md) %}

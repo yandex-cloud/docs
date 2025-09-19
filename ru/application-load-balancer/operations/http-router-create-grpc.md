@@ -139,7 +139,8 @@ description: Следуя данной инструкции, вы сможете
        --prefix-fqmn-match / \
        --backend-group-name <имя_группы_бэкендов> \
        --request-max-timeout 60s \
-       --rate-limit rps=50,requests-per-ip
+       --rate-limit rps=50,requests-per-ip \
+       --disable-security-profile=<отключение_профиля_безопасности>
      ```
 
      Где:
@@ -153,6 +154,7 @@ description: Следуя данной инструкции, вы сможете
      * `--backend-group-name` — имя [группы бэкендов](../concepts/backend-group.md).
      * `--rate-limit` — ограничение на скорость запросов.
      * `--request-max-timeout` — максимальный тайм-аут ожидания запроса, в секундах. Клиент может указать в запросе HTTP-заголовок `grpc-timeout` с меньшим тайм-аутом.
+     * `--disable-security-profile` — флаг отключения профиля безопасности. Значение по умолчанию — `false`. Необязательный параметр.
 
      Подробную информацию о параметрах команды `yc alb virtual-host append-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-grpc-route.md).
 
@@ -172,6 +174,7 @@ description: Следуя данной инструкции, вы сможете
         route:
           backend_group_id: ds7snban2dvn********
           max_timeout: 60s
+       disable_security_profile: true
      ```
 
 - {{ TF }} {#tf}
@@ -207,7 +210,8 @@ description: Следуя данной инструкции, вы сможете
        }
        
        route {
-         name = "<имя_маршрута>"
+         name                     = "<имя_маршрута>"
+         disable_security_profile = <отключение_профиля_безопасности>
          grpc_route {
            grpc_route_action {
              backend_group_id = "<идентификатор_группы_бэкендов>"
@@ -244,12 +248,13 @@ description: Следуя данной инструкции, вы сможете
            * `per_minute` — в минуту.
        * `route` — описание маршрута HTTP-роутера:
          * `name` — имя маршрута.
+         * `disable_security_profile` — (опционально) флаг отключения [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/). Значение по умолчанию — `false`.
          * `grpc_route` — описание маршрута для gRPC-трафика:
            * `grpc_route_action` — параметр для указания действия с gRPC-трафиком.
              * `backend_group_id` — идентификатор [группы бэкендов](../concepts/backend-group.md).
              * `max_timeout` — максимальный тайм-аут ожидания запроса, в секундах. Клиент может указать в запросе HTTP-заголовок `grpc-timeout` с меньшим тайм-аутом.
        * `route_options` — (опционально) дополнительные параметры виртуального хоста:
-         * `security_profile_id` — идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) сервиса [{{ sws-full-name }}](../../smartwebsecurity/). Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить WAF и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [{#T}](../../smartwebsecurity/concepts/profiles.md).
+         * `security_profile_id` — идентификатор профиля безопасности. Профиль безопасности позволяет настроить фильтрацию входящих запросов, подключить WAF и установить лимиты на количество запросов для защиты от вредоносной активности. Подробнее см. [{#T}](../../smartwebsecurity/concepts/profiles.md).
 
 
      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:

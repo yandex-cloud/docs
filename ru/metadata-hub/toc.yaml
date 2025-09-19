@@ -10,16 +10,16 @@ items:
         href: quickstart/connection-manager.md
       - name: Пошаговые инструкции
         items:
-          - name: Создание подключения
-            href: operations/create-connection.md
           - name: Просмотр подключения
             href: operations/view-connection.md
+          - name: Создание подключения
+            href: operations/create-connection.md
           - name: Изменение подключения
             href: operations/update-connection.md
+          - name: Настройка прав доступа к подключению
+            href: operations/connection-access.md
           - name: Удаление подключения
             href: operations/delete-connection.md
-          - name: Настроить права доступа к подключению
-            href: operations/connection-access.md
           - name: Получение информации об операции
             href: operations/operation-connection.md
           - name: Отмена операции
@@ -32,6 +32,68 @@ items:
             href: concepts/secret.md
       - name: Сервисные роли для управления доступом
         href: security/connection-manager-roles.md
+      - name: Справочник CLI (англ.)
+        items:
+          - name: Overview
+            href: cli-ref/index.md
+          - name: connection
+            items:
+              - name: Overview
+                href: cli-ref/connection/index.md
+              - name: create
+                items:
+                  - name: Overview
+                    href: cli-ref/connection/create/index.md
+                  - name: clickhouse
+                    href: cli-ref/connection/create/clickhouse.md
+                  - name: greenplum
+                    href: cli-ref/connection/create/greenplum.md
+                  - name: mongodb
+                    href: cli-ref/connection/create/mongodb.md
+                  - name: mysql
+                    href: cli-ref/connection/create/mysql.md
+                  - name: opensearch
+                    href: cli-ref/connection/create/opensearch.md
+                  - name: postgresql
+                    href: cli-ref/connection/create/postgresql.md
+                  - name: redis
+                    href: cli-ref/connection/create/redis.md
+                  - name: trino
+                    href: cli-ref/connection/create/trino.md
+                  - name: valkey
+                    href: cli-ref/connection/create/valkey.md
+              - name: delete
+                href: cli-ref/connection/delete.md
+              - name: get
+                href: cli-ref/connection/get.md
+              - name: list
+                href: cli-ref/connection/list.md
+              - name: list-operations
+                href: cli-ref/connection/list-operations.md
+              - name: resolve-cluster
+                href: cli-ref/connection/resolve-cluster.md
+              - name: update
+                items:
+                  - name: Overview
+                    href: cli-ref/connection/update/index.md
+                  - name: clickhouse
+                    href: cli-ref/connection/update/clickhouse.md
+                  - name: greenplum
+                    href: cli-ref/connection/update/greenplum.md
+                  - name: mongodb
+                    href: cli-ref/connection/update/mongodb.md
+                  - name: mysql
+                    href: cli-ref/connection/update/mysql.md
+                  - name: opensearch
+                    href: cli-ref/connection/update/opensearch.md
+                  - name: postgresql
+                    href: cli-ref/connection/update/postgresql.md
+                  - name: redis
+                    href: cli-ref/connection/update/redis.md
+                  - name: trino
+                    href: cli-ref/connection/update/trino.md
+                  - name: valkey
+                    href: cli-ref/connection/update/valkey.md
       - name: Справочник API
         items:
           - name: Аутентификация в API

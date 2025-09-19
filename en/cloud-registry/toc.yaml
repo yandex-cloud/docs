@@ -46,6 +46,10 @@ items:
             items:
               - name: Setting up NuGet
                 href: operations/nuget/installation.md
+          - name: Python artifact
+            items:
+              - name: Setting up PyPI
+                href: operations/pypi/installation.md
   - name: Concepts
     items:
       - name: Overview
@@ -64,6 +68,8 @@ items:
             href: concepts/art-nodejs.md
           - name: NuGet artifact
             href: concepts/art-nuget.md
+          - name: Python artifact
+            href: concepts/art-python.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

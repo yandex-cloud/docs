@@ -6918,8 +6918,6 @@ default:
         base_label_payer: Плательщик
         label_card-add: Добавить карту
         label_wizard-next: Вперед
-        section_person-type: Тип плательщика
-        section_persons: Плательщики
       create-account-wizard:
         field_country-code: Страна
         field_name: Имя аккаунта
@@ -7075,7 +7073,6 @@ default:
           button_bind: Привязать
           column_cloud: Облака
           column_status: Статус
-          main-banner_button_create: Создать платёжный аккаунт
         cud:
           purchase:
             button_purchase: Зарезервировать потребление

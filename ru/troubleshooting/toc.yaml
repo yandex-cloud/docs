@@ -324,8 +324,6 @@ items:
         href: compute/how-to/ssh-root-authorization.md
       - name: Как отслеживать объем потребляемой памяти
         href: compute/how-to/ram-monitoring.md
-      - name: Как сохранить снимки и образы локально
-        href: compute/how-to/download-snapshots-and-images.md
       - name: Как сменить внутренний IP-адрес
         href: compute/how-to/change-ip-address.md
       - name: Как читать график `Connections quota utilization`
@@ -768,8 +766,6 @@ items:
           managed-kubernetes/how-to/assign-static-ip-address-for-worker-nodes-mk8s.md
       - name: Как выдать узлам {{ k8s }} доступа в интернет
         href: managed-kubernetes/how-to/providing-internet-access-for-mk8s-nodes.md
-      - name: Как изменить сеть или подсеть для MDB-кластера
-        href: managed-kubernetes/how-to/changing-net-or-subnet.md
       - name: Как создать внутренний Ingress-контроллер
         href: managed-kubernetes/how-to/create-internal-ingress-balancer.md
       - name: >-

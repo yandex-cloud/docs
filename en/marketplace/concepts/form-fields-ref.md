@@ -1,9 +1,9 @@
 ---
-title: Description of fields available for a {{ cloud-apps-name}} form
-description: In this guide, you will learn how to properly add fields to a form for a {{ cloud-apps-name }} application.
+title: Description of fields available for a {{ cloud-apps-name}} product form
+description: In this guide, you will learn how to correctly add fields to a {{ cloud-apps-name }} product form.
 ---
 
-# Field reference for a {{ cloud-apps-name }} form
+# {{ cloud-apps-name }} product form field reference
 
 ## Variable and field types {#types}
 
@@ -32,7 +32,7 @@ description: In this guide, you will learn how to properly add fields to a form 
 || {{ compute-name }} VM | Selecting a {{ compute-full-name }} [instance](../../compute/concepts/vm.md) from those available in the folder | ^ ||
 || Cron | Specifying a schedule as a cron expression | ^ ||
 || Editor | Providing a code in the specified language | **Language**: String indicating the highlighting language for the user-specified code.<br/>**Font size**: Code font size.<br/>For other settings, see [{#T}](#parameters). ||
-|| File | Uploading a file | <br/>**Available formats**: File formats.<br/>**Converter**: File reading method.<br/>**Ignore text**: If selected, shows a notification that the file was uploaded. If not, displays the file content.<br/>For other settings, see [{#T}](#parameters). ||
+|| File | Uploading a file | **Available formats**: File formats.<br/>**Converter**: File reading method.<br/>**Ignore text**: If selected, following the upload, notifies you that the file has been uploaded. Otherwise, displays the file content.<br/>For other settings, see [{#T}](#parameters). ||
 || {{ compute-name }} instance group | Selecting a {{ compute-full-name }} [instance group](../../compute/concepts/instance-groups/index.md) from those available in the folder | See [{#T}](#parameters). ||
 || {{ lockbox-short-name }} secret | Selecting a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md) from those available in the folder | ^ ||
 || {{ vpc-short-name }} network | Selecting a {{ vpc-full-name }} [network](../../vpc/concepts/network.md#network) from those available in the folder | ^ ||

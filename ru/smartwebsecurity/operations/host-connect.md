@@ -178,6 +178,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [auto-scaling-tip](../../_includes/smartwebsecurity/auto-scaling-tip.md) %}
 
+{% include [disable-sp-route](../../_includes/smartwebsecurity/disable-sp-route.md) %}
+
 ## Подключить к домену {#domain}
 
 {% list tabs group=instructions %}
