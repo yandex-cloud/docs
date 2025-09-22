@@ -185,6 +185,8 @@ items:
         href: dataset/data-model.md
       - name: Dataset settings
         href: dataset/settings.md
+      - name: Versioning
+        href: dataset/versioning.md
       - name: Source parameterization
         href: dataset/parametrization.md
       - name: Data types
@@ -901,8 +903,10 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
-      - name: July 2025
+      - name: August 2025
         href: release-notes/index.md
+      - name: July 2025
+        href: release-notes/2507.md
       - name: June 2025
         href: release-notes/2506.md
       - name: May 2025
@@ -911,10 +915,10 @@ items:
         href: release-notes/2504.md
       - name: March 2025
         href: release-notes/2503.md
-      - name: February 2025
-        href: release-notes/2502.md
       - name: Archive
         items:
+          - name: February 2025
+            href: release-notes/2502.md
           - name: January 2025
             href: release-notes/2501.md
           - name: December 2024

@@ -14,3 +14,5 @@ description: На этой странице приведен справочни�
 ```
 
 {% include [hive-metastore-events](../_includes/audit-trails/events/hive-metastore-events.md) %}
+
+{% include [metastore-trademark](../_includes/metadata-hub/metastore-trademark.md) %}

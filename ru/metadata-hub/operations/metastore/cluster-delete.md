@@ -26,4 +26,4 @@
 
 {% endlist %}
 
-
+{% include [metastore-trademark](../../../_includes/metadata-hub/metastore-trademark.md) %}

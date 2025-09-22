@@ -1,1 +1,1 @@
-Hive Metastore clusters are not charged.
+{{ metastore-name }} clusters are not charged.

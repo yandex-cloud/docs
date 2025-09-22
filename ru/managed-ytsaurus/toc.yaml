@@ -20,6 +20,8 @@ items:
         href: operations/cluster-delete.md
   - name: Концепции
     items:
+      - name: Аутентификация
+        href: concepts/authentication.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Конфигурации компонентов кластера

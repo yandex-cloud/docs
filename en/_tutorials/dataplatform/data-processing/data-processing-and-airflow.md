@@ -331,7 +331,7 @@ To prepare a DAG:
               computenode_max_hosts_count=5,  # The number of data-handling subclusters will automatically scale up if the load is high.
               services=['YARN', 'SPARK'],     # A lightweight cluster is being created.
               datanode_count=0,               # Without data storage subclusters.
-              properties={                    # With a reference to a remote Metastore cluster.
+              properties={                    # With a reference to a remote {{ metastore-name }} cluster.
                   'spark:spark.hive.metastore.uris': f'thrift://{YC_DP_METASTORE_URI}:9083',
               },
           )
@@ -428,7 +428,7 @@ To prepare a DAG:
               computenode_max_hosts_count=5,  # The number of data-handling subclusters will automatically scale up if the load is high.
               services=['YARN', 'SPARK'],     # A lightweight cluster is being created.
               datanode_count=0,               # Without data storage subclusters.
-              properties={                    # With a reference to a remote Metastore cluster.
+              properties={                    # With a reference to a remote {{ metastore-name }} cluster.
                   'spark:spark.hive.metastore.uris': f'thrift://{YC_DP_METASTORE_URI}:9083',
               },
           )

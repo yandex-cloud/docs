@@ -331,7 +331,7 @@ DAG будет состоять из нескольких вершин, кото
               computenode_max_hosts_count=5,  # Количество подкластеров для обработки данных будет автоматически масштабироваться в случае большой нагрузки.
               services=['YARN', 'SPARK'],     # Создается легковесный кластер.
               datanode_count=0,               # Без подкластеров для хранения данных.
-              properties={                    # С указанием на удаленный кластер Metastore.
+              properties={                    # С указанием на удаленный кластер {{ metastore-name }}.
                   'spark:spark.hive.metastore.uris': f'thrift://{YC_DP_METASTORE_URI}:9083',
               },
           )
@@ -428,7 +428,7 @@ DAG будет состоять из нескольких вершин, кото
               computenode_max_hosts_count=5,  # Количество подкластеров для обработки данных будет автоматически масштабироваться в случае большой нагрузки.
               services=['YARN', 'SPARK'],     # Создается легковесный кластер.
               datanode_count=0,               # Без подкластеров для хранения данных.
-              properties={                    # С указанием на удаленный кластер Metastore.
+              properties={                    # С указанием на удаленный кластер {{ metastore-name }}.
                   'spark:spark.hive.metastore.uris': f'thrift://{YC_DP_METASTORE_URI}:9083',
               },
           )

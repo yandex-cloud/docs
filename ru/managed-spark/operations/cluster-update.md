@@ -100,7 +100,7 @@ keywords:
               enabled = <использование_Apache_Spark_History_Server>
             } 
             metastore = {
-              cluster_id = "<идентификатор_кластера_Metastore>"
+              cluster_id = "<идентификатор_кластера_Apache_Hive™_Metastore>"
             }
             dependencies = {
               deb_packages = ["<список_deb-пакетов>"]
@@ -220,7 +220,7 @@ keywords:
               "deb_packages": [ <список_deb-пакетов> ]
             },
             "metastore": {
-              "cluster_id": "<идентификатор_кластера_Metastore>"
+              "cluster_id": "<идентификатор_кластера_Apache_Hive™_Metastore>"
             }
           },
           "network_spec": {

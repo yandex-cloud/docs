@@ -211,7 +211,7 @@ You can add fields to a dataset from data source tables or create [calculated fi
 
 ### Duplicating fields {#dublicate-fields}
 
-You can duplicate any dataset field, including the calculated field you previously created. Proceed as follows:
+You can duplicate any dataset field, including the calculated field you previously created. To do this:
 
 1. On the right side of the field row, click ![image](../../_assets/console-icons/ellipsis.svg) (the icon appears when you hover over the row) and select **Duplicate**. In the list on the left, you will see a new field with the same type and settings as the original one.
 1. Optionally, rename the duplicated field, change its type or formula.
@@ -308,16 +308,17 @@ Parameters added at the dataset level are available in all charts created based 
    * **Type**: Parameter [data type](./data-types.md).
    * **Default value**. This is a required value. It is used when no parameter value is set in the dashboard, chart URL, or chart settings.
 
-   
-   * **Allow use in source setting**. Enable it if you plan to use the parameter when accessing the [dataset source](./parametrization.md).
-   * **Value validation**. This setting will be available if you activate the **Allow to use in the source setting** option. Validation of default values: `^[a-zA-Z0-9а-яА-ЯёЁ_\s\(\)\.\'\=\-\+\*\/\,\<\>\!]+$`. You can customize your validation using Python regular expression.
+      * **Allow use in source settings**. Enable this option if you plan to use the parameter when accessing the [dataset source](./parametrization.md).
+   * **Value validation**. This setting will be available if you enable the **Allow use in source settings** option. The default value vallidation is as follows: `^[a-zA-Z0-9а-яА-ЯёЁ_\s\(\)\.\'\=\-\+\*\/\,\<\>\!]+$`. You can customize validation with a Python regular expression.
 
 
 1. Click **Add**.
 
 You can also create parameters at the [chart level](../operations/chart/add-parameter-chart.md).
 
+
 For an example of using parameters in a source, see [{#T}](../tutorials/data-from-ch-dataset-parametrization.md).
+
 
 ## Adding filters {#add-filters}
 

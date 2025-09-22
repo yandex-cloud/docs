@@ -38,3 +38,5 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 Пример использования {{ dataproc-name }} с подключенным кластером {{ metastore-name }} см. в практическом руководстве [{#T}](../../tutorials/sharing-tables.md).
+
+{% include [metastore-trademark](../../../_includes/metadata-hub/metastore-trademark.md) %}

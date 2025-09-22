@@ -18,3 +18,4 @@ description: Как исправить ошибку при создании БД
 
 {% include notitle [attach-sa-create-update](../../_qa/attach-sa-create-update.md) %}
 
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

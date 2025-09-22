@@ -183,7 +183,7 @@
 
 ### 2.0.49 {#2-0-49}
 
-* Устранена ошибка с игнорированием пользовательских настроек в Hive Metastore Server.
+* Устранена ошибка с игнорированием пользовательских настроек в {{ metastore-name }} Server.
 
 ### 2.0.48 {#2-0-48}
 
@@ -193,7 +193,7 @@
 ### 2.0.47 {#2-0-47}
 
 * Устранена утечка TCP-сессий с сервисом метаданных на высоконагруженных кластерах. Утечка могла приводить к ситуации, когда не обновлялся IAM-токен для авторизации в {{ objstorage-name }} и других сервисах.
-* Исправлена ошибка, из-за которой могли не подгружаться таблицы из Hive Metastore: `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider`.
+* Исправлена ошибка, из-за которой могли не подгружаться таблицы из {{ metastore-name }}: `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider`.
 
 ### 2.0.46 {#2-0-46}
 

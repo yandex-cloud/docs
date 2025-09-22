@@ -12,7 +12,7 @@ links:
     description: Automatically creating and managing database connection settings.
     href: concepts/connection-manager
   - title: '{{ metastore-full-name }}'
-    description: Creating and managing Hive Metastore clusters.
+    description: Creating and managing Apache Hive™ Metastore clusters.
     href: concepts/metastore
   - title: '{{ schema-registry-name }}'
     description: Centralized repository for managing and validating data schemas.

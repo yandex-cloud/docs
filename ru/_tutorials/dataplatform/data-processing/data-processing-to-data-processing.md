@@ -185,7 +185,7 @@
 
             spark.catalog.listDatabases()
 
-            # Получение информации о таблице countries из Metastore
+            # Получение информации о таблице countries из {{ metastore-name }}
             df = spark.sql("describe extended countries")
 
             # Запрос данных из таблицы countries
@@ -230,3 +230,5 @@
         {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}
+
+{% include [metastore-trademark](../../../_includes/metadata-hub/metastore-trademark.md) %}
