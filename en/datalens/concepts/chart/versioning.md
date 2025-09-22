@@ -1,6 +1,6 @@
 ---
 title: Chart versioning
-description: Chart versioning means storing the history of chart configuration changes through versions. A list of versions is available to users with the lowest level of {{ permission-read }} access to the chart.
+description: Chart versioning means storing the history of chart configuration changes through versions. A list of versions is available to users with the lowest level of {{ permission-write }} access to the chart.
 ---
 
 # Versioning
@@ -98,7 +98,7 @@ To view the differences between versions in Editor, in the list of versions, hov
 
 ![image](../../../_assets/datalens/concepts/editor-version-differences-select.png)
 
-Differences will be highlighted with a color.
+Differences will be highlighted with color.
 
 ![image](../../../_assets/datalens/concepts/editor-version-differences.png)
 
@@ -111,11 +111,11 @@ A new version is automatically created:
 * In the draft edit mode or non-current chart version edit mode, after you click **Save as draft** (which creates a new draft version) or ![chevron-down](../../../_assets/console-icons/chevron-down.svg) → **Save and make current** (which creates a new current version).
 * In draft or non-current chart version view mode, after you click **Make current**.
 
-You will also get a new version if you change chart configuration as follows:
+Below are chart configuration changes that create a new version once they are saved:
 
-* Edit the chart settings you can access by clicking ![image](../../../_assets/console-icons/gear.svg) at the top of the screen.
-* Add, rename, or delete chart fields.
-* Add, rename, or delete chart fields.
+* Editing the chart settings accessible by clicking ![image](../../../_assets/console-icons/gear.svg) at the top of the screen.
+* Adding, renaming, or deleting chart fields.
+* Adding or deleting fields in chart sections.
 
 ## Editing versions {#version-edit}
 

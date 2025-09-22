@@ -185,7 +185,7 @@ Upload the `countries` table metadata to the `dataproc-target` cluster and make 
 
             spark.catalog.listDatabases()
 
-            # Getting the countries table metadata from Metastore
+            # Getting the countries table metadata from {{ metastore-name }}
             df = spark.sql("describe extended countries")
 
             # Requesting data from the countries table

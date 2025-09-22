@@ -121,3 +121,5 @@ description: В сервисе {{ metadata-hub-name }} вы можете соз�
 * [Используйте {{ metastore-name }} для переноса данных между кластерами {{ dataproc-name }}](../tutorials/metastore-import.md).
 * [Храните в {{ metastore-name }} табличные данные при работе с {{ AF }}](../../data-proc/tutorials/airflow-automation.md).
 * [Экспортируйте или импортируйте метаданные Hive в кластере {{ metastore-name}}](../operations/metastore/export-and-import.md).
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

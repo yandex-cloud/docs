@@ -380,8 +380,8 @@ default:
     and its activities are prohibited in Russia.
   metadata-hub-full-name: Yandex MetaData Hub
   metadata-hub-name: Yandex MetaData Hub
-  metastore-full-name: Hive Metastore
-  metastore-name: Metastore
+  metastore-full-name: Apache Hive™ Metastore
+  metastore-name: Apache Hive™ Metastore
   metrika: Yandex Metrica
   metrika-endpoint: Metrica
   metrika-link: https://metrika.yandex.com/
@@ -1192,18 +1192,54 @@ default:
         12_month|string: ₸1286900.00
         3_month|string: ₸1438300.00
         6_month|string: ₸1408020.00
+      ba-a612-n-25g-p1:
+        1_day|string: ₸733700.00
+        1_month|string: ₸711689.00
+        12_month|string: ₸623645.00
+        3_month|string: ₸697015.00
+        6_month|string: ₸682341.00
       ba-a612-n-2x25g:
         1_day|string: ₸1334000.00
         1_month|string: ₸1293980.00
         12_month|string: ₸1133900.00
         3_month|string: ₸1267300.00
         6_month|string: ₸1240620.00
+      ba-i208-s-10g-p1:
+        1_day|string: ₸251625.00
+        1_month|string: ₸244076.25
+        12_month|string: ₸213881.25
+        3_month|string: ₸239043.75
+        6_month|string: ₸234011.25
+      ba-i209-ss-1-10g-p1:
+        1_day|string: ₸79750.00
+        1_month|string: ₸77357.50
+        12_month|int|string: ₸67788
+        3_month|string: ₸75762.50
+        6_month|string: ₸74167.50
       ba-i217-s-1-10g:
         1_day|string: ₸183000.00
         1_month|string: ₸177510.00
         12_month|string: ₸155550.00
         3_month|string: ₸173850.00
         6_month|string: ₸170190.00
+      ba-i507-nh-2x25g-p1:
+        1_day|string: ₸669900.00
+        1_month|string: ₸649803.00
+        12_month|string: ₸569415.00
+        3_month|string: ₸636405.00
+        6_month|string: ₸623007.00
+      ba-i512-nh-2x25g-p1:
+        1_day|string: ₸832700.00
+        1_month|string: ₸807719.00
+        12_month|string: ₸707795.00
+        3_month|string: ₸791065.00
+        6_month|string: ₸774411.00
+      ba-i523-nh-2x25g-p1:
+        1_day|string: ₸1309275.00
+        1_month|string: ₸1269996.75
+        12_month|string: ₸1112883.75
+        3_month|string: ₸1243811.25
+        6_month|string: ₸1217625.75
       ba-i523-nh-2x25g:
         1_day|string: ₸2380500.00
         1_month|string: ₸2309085.00
@@ -1216,6 +1252,12 @@ default:
         12_month|string: ₸390150.00
         3_month|string: ₸436050.00
         6_month|string: ₸426870.00
+      ha-i502-n-25g-gxl4-p1:
+        1_day|string: ₸600600.00
+        1_month|string: ₸582582.00
+        12_month|string: ₸510510.00
+        3_month|string: ₸570570.00
+        6_month|string: ₸558558.00
       ha-i502-n-25g-gxl4:
         1_day|string: ₸1092000.00
         1_month|string: ₸1059240.00
@@ -3127,18 +3169,54 @@ default:
         12_month|string: ₽257380.00
         3_month|string: ₽287660.00
         6_month|string: ₽281604.00
+      ba-a612-n-25g-p1:
+        1_day|string: ₽146740.00
+        1_month|string: ₽142337.80
+        12_month|string: ₽124729.00
+        3_month|string: ₽139403.00
+        6_month|string: ₽136468.20
       ba-a612-n-2x25g:
         1_day|string: ₽266800.00
         1_month|string: ₽258796.00
         12_month|string: ₽226780.00
         3_month|string: ₽253460.00
         6_month|string: ₽248124.00
+      ba-i208-s-10g-p1:
+        1_day|string: ₽50325.00
+        1_month|string: ₽48815.25
+        12_month|string: ₽42776.25
+        3_month|string: ₽47808.75
+        6_month|string: ₽46802.25
+      ba-i209-ss-1-10g-p1:
+        1_day|string: ₽15950.00
+        1_month|string: ₽15471.50
+        12_month|int|string: ₽13558
+        3_month|string: ₽15152.50
+        6_month|string: ₽14833.50
       ba-i217-s-1-10g:
         1_day|string: ₽36600.00
         1_month|string: ₽35502.00
         12_month|string: ₽31110.00
         3_month|string: ₽34770.00
         6_month|string: ₽34038.00
+      ba-i507-nh-2x25g-p1:
+        1_day|string: ₽133980.00
+        1_month|string: ₽129960.60
+        12_month|string: ₽113883.00
+        3_month|string: ₽127281.00
+        6_month|string: ₽124601.40
+      ba-i512-nh-2x25g-p1:
+        1_day|string: ₽166540.00
+        1_month|string: ₽161543.80
+        12_month|string: ₽141559.00
+        3_month|string: ₽158213.00
+        6_month|string: ₽154882.20
+      ba-i523-nh-2x25g-p1:
+        1_day|string: ₽261855.00
+        1_month|string: ₽253999.35
+        12_month|string: ₽222576.75
+        3_month|string: ₽248762.25
+        6_month|string: ₽243525.15
       ba-i523-nh-2x25g:
         1_day|string: ₽476100.00
         1_month|string: ₽461817.00
@@ -3151,6 +3229,12 @@ default:
         12_month|string: ₽78030.00
         3_month|string: ₽87210.00
         6_month|string: ₽85374.00
+      ha-i502-n-25g-gxl4-p1:
+        1_day|string: ₽120120.00
+        1_month|string: ₽116516.40
+        12_month|string: ₽102102.00
+        3_month|string: ₽114114.00
+        6_month|string: ₽111711.60
       ha-i502-n-25g-gxl4:
         1_day|string: ₽218400.00
         1_month|string: ₽211848.00

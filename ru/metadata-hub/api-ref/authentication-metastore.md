@@ -16,3 +16,5 @@ description: Для выполнения операций через API в се
 #### См. также {#see-also}
 
 [{#T}](../../iam/concepts/users/accounts.md)
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

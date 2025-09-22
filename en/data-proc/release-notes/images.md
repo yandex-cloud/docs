@@ -183,7 +183,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 
 ### 2.0.49 {#2-0-49}
 
-* Fixed an issue where user-defined settings were ignored in the Hive Metastore Server.
+* Fixed an issue where user-defined settings were ignored in the {{ metastore-name }} Server.
 
 ### 2.0.48 {#2-0-48}
 
@@ -193,7 +193,7 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 ### 2.0.47 {#2-0-47}
 
 * Fixed TCP connection leaks in the metadata service under high-load cluster conditions. These leaks could prevent IAM token updates, affecting authorization in {{ objstorage-name }} and other services.
-* Fixed the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error that prevented Hive Metastore tables from loading.
+* Fixed the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error that prevented {{ metastore-name }} tables from loading.
 
 ### 2.0.46 {#2-0-46}
 

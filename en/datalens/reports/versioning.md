@@ -73,13 +73,13 @@ A new version is automatically created:
 * In the current/outdated report version edit mode, after you click **Save** (which creates a new current version).
 * In outdated report version view mode, after you click **Make current**.
 
-You will also get a new version if you change report configuration as follows:
+Below are report configuration changes that create a new version once they are saved:
 
-* Edit [report settings](./report-operations.md#report-settings).
-* Edit report [page settings](./report-operations.md#page-settings).
-* [Add](./report-operations.md#add-widget), edit or [remove](./report-operations.md#delete-widget) widgets.
-* [Move](./report-operations.md#move-widget-front-or-back) a widget to the foreground or background.
-* Add, delete, or edit selector settings.
+* Editing [report settings](./report-operations.md#report-settings).
+* Editing report [page settings](./report-operations.md#page-settings).
+* [Adding](./report-operations.md#add-widget), editing, or [removing](./report-operations.md#delete-widget) widgets.
+* [Moving](./report-operations.md#move-widget-front-or-back) a widget to the foreground or background.
+* Adding, deleting, or editing selector settings.
 
 ## Editing versions {#version-edit}
 
@@ -95,6 +95,6 @@ To edit an outdated version, select it from the list of versions. To save your c
 
 ## Limitations {#restrictions}
 
-* The change history only contains a list of report versions and indicates the version type, save date and time, and the user who made the change.
+* The change history only contains a list of report versions and indicates the version type, save date and time, and user who made the change.
 * Report versions do not include changes to access permissions; this operation is performed separately from report edits.
 * Versions do not display a list of changes. You can only view the saved status of the report configuration.

@@ -12,3 +12,5 @@ _Имперсонация_ позволяет [кластеру {{ metastore-nam
 Набор ролей для сервисного аккаунта зависит от того, с каким сервисом вы планируете использовать {{ metastore-name }}. Например, чтобы настроить экспорт логов кластера в [{{ cloud-logging-full-name }}](../../logging/index.yaml), нужна роль `{{ roles-logging-writer }}`, а чтобы использовать дашборды [{{ monitoring-full-name }}](../../monitoring/index.yaml) — `{{ roles-monitoring-editor }}`.
 
 При создании сервисного аккаунта для {{ metastore-name }} рекомендуется использовать роль `{{ roles.metastore.integrationProvider}}`, так как она уже включает в себя роли `{{ roles-logging-writer }}` и `{{ roles-monitoring-editor }}`. Подробнее о возможностях роли см. в [справочнике](../security/metastore-roles.md#managed-metastore-integrationProvider).
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

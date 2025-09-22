@@ -44,3 +44,5 @@ description: Управление доступом в сервисе {{ metadata
 * [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

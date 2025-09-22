@@ -27,3 +27,5 @@ description: Следуя данной инструкции, вы сможете
 Вы можете задать более детальные правила для групп безопасности, например, разрешающие трафик только в определенных подсетях.
 
 {% endnote %}
+
+{% include [metastore-trademark](../../../_includes/metadata-hub/metastore-trademark.md) %}

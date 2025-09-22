@@ -30,3 +30,5 @@ description: В {{ metadata-hub-full-name }} действуют квоты на 
 {% include [data-registry-quotas](../../_includes/metadata-hub/data-catalog-quotas.md) %}
 
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

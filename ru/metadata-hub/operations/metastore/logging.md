@@ -249,3 +249,5 @@ description: Следуя данной инструкции, вы сможете
    {% endlist %}
 
    Подробнее см. в разделе [{#T}](../../../logging/operations/read-logs.md).
+
+{% include [metastore-trademark](../../../_includes/metadata-hub/metastore-trademark.md) %}

@@ -27,3 +27,5 @@ description: Из статьи вы узнаете, как создать пер
   * [управляющий метаданными](data-steward-quickstart.md)
   * [аналитик метаданных](data-analyst-quickstart.md).
 
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

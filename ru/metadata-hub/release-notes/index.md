@@ -162,3 +162,6 @@ description: В разделе представлена история изме�
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
+
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

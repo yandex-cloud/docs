@@ -318,3 +318,5 @@
         {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}
+
+{% include [metastore-trademark](../../../_includes/metadata-hub/metastore-trademark.md) %}

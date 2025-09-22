@@ -33,7 +33,7 @@ items:
         href: concepts/services.md
       - name: Стадии готовности сервисов
         href: concepts/launch-stages.md
-      - name: Инструменты мониторинга и логирования (observability)
+      - name: Observability-инструменты мониторинга и логирования
         href: concepts/monitoring-logging-tools.md
       - name: SLA
         href: sla.md

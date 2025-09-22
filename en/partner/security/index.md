@@ -1,6 +1,6 @@
 ---
 title: Managing access in the {{ yandex-cloud }} partner program
-description: In this article, you will learn about the service roles and primitive roles in the {{ yandex-cloud }} partner program as well as take a look at the operations available for each role type.
+description: In this article, you will learn what service and primitive roles are relevant to the {{ yandex-cloud }} partner program, as well as see what you can do with each role assigned.
 ---
 
 # Access management
@@ -8,7 +8,7 @@ description: In this article, you will learn about the service roles and primiti
 
 {% include [referral-program-closure](../../_includes/partner/referral-program-closure.md) %}
 
-## Roles existing in this service {#roles-list}
+## What roles this service has {#roles-list}
 
 ### Service roles {#service-roles}
 
@@ -72,7 +72,7 @@ description: In this article, you will learn about the service roles and primiti
 
 Primitive roles are aggregator roles that define user permissions to access services. In {{ billing-name }}, these roles match the following `billing.accounts.*` roles:
 
-* `auditor`: Same as `billing.accounts.viewer` with some limitations.
+* `auditor`: Same as `billing.accounts.viewer` (with some limitations).
 * `viewer`: Same as `billing.accounts.viewer`.
 * `editor`: Same as `billing.accounts.editor`.
 * `admin`: Same as `billing.accounts.admin`.
