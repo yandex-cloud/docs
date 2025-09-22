@@ -133,6 +133,8 @@ items:
         href: concepts/oltp-and-olap.md
       - name: Таблицы DynamoDB
         href: concepts/dynamodb-tables.md
+      - name: Трансфер
+        href: concepts/transfer.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
