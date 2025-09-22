@@ -1,11 +1,9 @@
 ---
-title: Information about clusters in {{ msp-name }}
-description: You can request detailed information about each {{ SPRK }} cluster you created. To get a list of clusters in a folder, go to the folder page and select {{ msp-name }}.
+title: Information about clusters in {{ msp-full-name }}
+description: You can request detailed information about each {{ SPRK }} cluster you created. To get a list of clusters in a folder, go to the folder page and select {{ msp-full-name }}.
 ---
 
 # Information about existing clusters
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
 
 You can request detailed information about each {{ SPRK }} cluster you created.
 

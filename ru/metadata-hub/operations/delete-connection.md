@@ -6,11 +6,6 @@ description: Пошаговые инструкции по работе с {{ con
 # Удаление подключения
 
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

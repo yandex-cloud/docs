@@ -47,7 +47,6 @@ default:
   api-host-spark: spark.api.cloud.yandex.net
   api-host-trino: trino.api.cloud.yandex.net
   api-url-prefix: /docs
-  art-freetier: 10
   assistant-api: AI Assistant API
   at-event-prefix: yandex.cloud
   at-full-name: Yandex Audit Trails
@@ -224,7 +223,6 @@ default:
     docs:
       broadcom: >-
         https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum
-  gpt-freetier: 10
   gpt-lite: YandexGPT Lite
   gpt-pro: YandexGPT Pro
   grafana-name: Grafana
@@ -257,7 +255,7 @@ default:
   k8s-decomission-timeout: 7 minutes
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.30, 1.31, 1.32
+  k8s-versions-rapid: 1.30, 1.31, 1.32, 1.33
   k8s-versions-regular: 1.30, 1.31, 1.32
   k8s-versions-stable: 1.30, 1.31, 1.32
   k8s-vpa: Vertical Pod Autoscaler
@@ -762,7 +760,7 @@ default:
   search-api-request-ch: 400 characters
   search-api-request-w: 40 words
   security-group: enp6saqnq4ie244g67sb
-  security-standard-current-version: 1.4.1
+  security-standard-current-version: 1.4.2
   serial-ssh-host: serialssh.cloud.yandex.net
   serverless-containers-full-name: Yandex Serverless Containers
   serverless-containers-host: containers.yandexcloud.net
@@ -7493,6 +7491,9 @@ default:
           entities:
             label_title: Clouds and services
             label_type: Type
+          exports:
+            field_bucket: Bucket
+            field_prefix: Path within the bucket
           proposals_page:
             type_Error: Application error
           proposals:
@@ -7899,6 +7900,8 @@ default:
         title_public-access-section: Access
         title_videos: Video
     yacloud:
+      ai-assistant:
+        label_ai-assistant-open: AI Assistant
       airflow:
         button_create-cluster: Create a cluster
         field_lockbox: Use Lockbox Secret Backend
@@ -8715,6 +8718,11 @@ default:
           network-select:
             button_create-network: Create network
             button_create-subnetwork: Create subnet
+      components:
+        ChatCommon:
+          ChatsMenuHeader:
+            action_create-chat_97ZqE: New chat
+            action_delete-all-chats_awFCg: Delete all chats
       compute:
         attach-disk:
           button_attach: Attach
@@ -11273,6 +11281,7 @@ default:
           label_document-endpoint: Document API endpoint
           label_endpoint: Endpoint
           label_kinesis-endpoint: Kinesis API endpoint
+          label_path: Path to database
           label_serverless-billing: Pricing
           label_serverless-limits: Limits
           section_connection: Connection

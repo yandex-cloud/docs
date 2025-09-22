@@ -1,10 +1,11 @@
 ---
 title: '{{ msp-full-name }} use cases'
-description: Various {{ msp-full-name }} use cases in {{ yandex-cloud }}.
+description: Different use cases for {{ msp-full-name }} in {{ yandex-cloud }}.
 ---
 
-# {{ msp-name }} tutorials
+# {{ msp-full-name }} tutorials
 
 ## Working with clusters {#clusters}
 
 * [{#T}](airflow-automation.md)
+* [{#T}](spark-objstorage-integration.md)

@@ -1,12 +1,10 @@
 # Справочник {{ TF }} для {{ msp-full-name }}
 
-{% include notitle [preview](../_includes/note-preview.md) %}
-
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
 
 ## Ресурсы {#resources}
 
-Для {{ msp-name }} поддерживаются следующие ресурсы провайдера {{ TF }}:
+Для {{ msp-full-name }} поддерживаются следующие ресурсы провайдера {{ TF }}:
 
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |

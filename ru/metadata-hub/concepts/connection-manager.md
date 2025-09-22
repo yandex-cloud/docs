@@ -6,11 +6,6 @@ description: С помощью {{ connection-manager-name }} вы можете �
 # Подключение
 
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
-
 {% include [connection](../../_includes/metadata-hub/connection-definition.md) %}
 
 

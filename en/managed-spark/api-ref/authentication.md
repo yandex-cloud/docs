@@ -5,6 +5,4 @@ description: To perform operations via the API in {{ msp-full-name }}, get an IA
 
 # {{ msp-name }} API authentication
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 {% include notitle [auth](../../_includes/authentication.md) %}

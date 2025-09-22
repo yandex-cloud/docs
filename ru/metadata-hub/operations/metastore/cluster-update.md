@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменение кластера {{ metastore-full-name }}
 
-{% include [Preview](../../../_includes/note-preview.md) %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

@@ -7,8 +7,6 @@ keywords:
 
 # Удаление кластера {{ SPRK }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 Вы можете удалить кластер {{ SPRK }}, если он вам больше не нужен.
 
 ## Удалить кластер {#delete}

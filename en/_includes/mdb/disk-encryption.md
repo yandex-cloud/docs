@@ -1,5 +1,3 @@
-{% include [preview-note](../note-preview-by-request.md) %}
-
 When creating or restoring a cluster from a backup, you can encrypt the storage disk with a [custom KMS key](../../kms/concepts/key.md). To encrypt a disk of an already created cluster, disable encryption, or encrypt a disk with a different key, create a backup of the cluster and restore it with the new settings.
 
 {% note warning %}

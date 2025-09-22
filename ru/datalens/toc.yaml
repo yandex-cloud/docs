@@ -781,6 +781,8 @@ items:
             href: operations/chart/add-parameter-chart.md
       - name: Версионирование
         href: concepts/chart/versioning.md
+      - name: Экспорт данных из чартов
+        href: concepts/chart/data-export.md
       - name: Инспектор чартов
         href: concepts/chart/inspector.md
       - name: Управление доступом

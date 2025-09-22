@@ -19,6 +19,10 @@ items:
         href: operations/crud.md
       - name: Мониторинг состояния базы данных
         href: operations/monitoring.md
+      - name: >-
+          Работа с {{ ydb-short-name }} через ydb-mcp сервер на примере IDE
+          Cursor
+        href: operations/ydb-mcp-cursor.md
   - name: Практические руководства
     items:
       - name: Все руководства

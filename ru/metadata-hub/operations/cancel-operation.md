@@ -5,20 +5,10 @@ description: Пошаговые инструкции по работе с {{ con
 
 # Отмена операции
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
 {% list tabs group=instructions %}
 
 - API {#api}
   
-  {% note alert %}
-
-  {{ objstorage-full-name }} не поддерживает отмену операций через API.
-  
-  {% endnote %}
-
   Чтобы отменить операцию для конкретного подключения, воспользуйтесь методом REST API [Operation.Cancel](../api-ref/Operation/cancel.md) или методом gRPC API [OperationService.Cancel](../api-ref/grpc/Operation/cancel.md) и передайте в запросе идентификатор операции.
 
   Идентификатор операции можно получить со [списком операций](operation-connection.md#operations-list) подключения.

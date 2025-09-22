@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Получение информации о кластерах {{ metastore-full-name }}
 
-{% include [Preview](../../../_includes/note-preview.md) %}
-
 ## Получение списка кластеров в каталоге {#list-clusters}
 
 {% list tabs group=instructions %}

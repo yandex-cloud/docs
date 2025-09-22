@@ -6,6 +6,15 @@ description: Управление доступом в {{ schema-registry-name }}
 # Сервисные роли для управления схемами данных с помощью {{ schema-registry-name }}
 
 
+
+{% note info %}
+
+{% include [preview-pp](../../_includes/preview-pp.md) %}
+
+{% endnote %}
+
+
+
 С помощью сервисных ролей {{ schema-registry-name }} вы сможете просматривать пространства имен, субъекты и схемы в реестре схем, а также создавать, редактировать и удалять пространства имен и схемы.
 
 ### schema-registry.auditor {#schema-registry-auditor}

@@ -6,11 +6,6 @@ description: Пошаговые инструкции по работе с {{ con
 # Создание подключения
 
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
-
 Вы можете создать подключения следующих типов:
 * [к кластеру с управляемой базой данных](#mdb-connection):
   * [{{ mpg-name }}](#mdb-postgresql)

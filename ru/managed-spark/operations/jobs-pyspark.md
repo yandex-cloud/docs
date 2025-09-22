@@ -5,8 +5,6 @@ description: Из статьи вы узнаете, как управлять з
 
 # Управление заданиями PySpark
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 ## Создать задание {#create}
 
 {% note warning %}

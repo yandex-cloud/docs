@@ -1,6 +1,12 @@
 # Плагины {{ OS }}
 
-{{ mos-name }} содержит ряд [предустановленных плагинов]({{ os.docs }}/install-and-configure/install-opensearch/plugins/#bundled-plugins). Также при создании или изменении кластера в {{ mos-short-name }} вы можете указать желаемый список [дополнительных плагинов](#opensearch), и они будут автоматически установлены в кластер.
+{{ mos-name }} содержит ряд [предустановленных плагинов]({{ os.docs }}/install-and-configure/plugins/#bundled-plugins). Также при создании или изменении кластера в {{ mos-short-name }} вы можете указать желаемый список [дополнительных плагинов](#opensearch), и они будут автоматически установлены в кластер.
+
+## Дополнительные предустановленные плагины {#extra-preinstalled}
+
+* repository-s3
+
+    Добавляет поддержку [AWS S3](https://aws.amazon.com/s3/) в качестве репозитория снапшотов.
 
 ## Дополнительные плагины {{ OS }} {#opensearch}
 
@@ -62,19 +68,15 @@
 
     Добавляет поддержку файловой системы HDFS в качестве репозитория снапшотов.
 
-* repository-s3
-
-    Добавляет поддержку [AWS S3](https://aws.amazon.com/s3/) в качестве репозитория снапшотов.
-
 * transport-nio
 
-    Серверно-клиентская неблокируемая сетевая библиотека, созданная с помощью Netty.
+    Серверно-клиентская неблокируемая сетевая библиотека, созданная с помощью Netty. Плагин поддерживает только [версии {{ OS }} 2.x]({{ os.docs }}/breaking-changes/#transport-nio-plugin).
 
 * yandex-lemmer
 
     Добавляет фильтр [yandex-lemmer](#yandex-lemmer), который улучшает поиск текста на русском языке по документам {{ OS }}.
 
-Подробнее см. в [документации {{ OS }}]({{ os.docs }}/install-and-configure/install-opensearch/plugins/#additional-plugins).
+Подробнее см. в [документации {{ OS }}]({{ os.docs }}/install-and-configure/plugins/#additional-plugins).
 
 ### Зачем использовать плагин yandex-lemmer {#yandex-lemmer}
 

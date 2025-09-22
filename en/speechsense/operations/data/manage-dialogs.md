@@ -126,7 +126,7 @@ Editing dialog metadata can be of use in some situations. For example, you can a
 
 You can update metadata values for keys that were added [when creating the connection](../connection/create.md). You cannot add metadata if there is none in the connection settings.
 
-You can edit dialog metadata via the {{ yandex-cloud }} gRPC API. To do this:
+You can edit dialog metadata via the {{ yandex-cloud }} gRPC API. Proceed as follows:
 
 1. [Get the dialog ID](#get-dialog-id).
 1. [Get your infrastructure ready for the {{ yandex-cloud }} gRPC API](#prepare-grpc-api).
@@ -246,7 +246,7 @@ The response contains the dialog metadata in the `talkFields` field:
 
 * `operator_name`: Agent name.
 * `operator_id`: Agent ID.
-* `client_name`: Customer name.
+* `client_name`: Client name.
 * `client_id`: Customer ID.
 * `date`: Dialog start date and time, in `YYYY-MM-DDTHH:MM:SSSZ` format.
 
@@ -330,3 +330,4 @@ Example of ranking dialogs depending on the found text fragments:
 #### See also {#see-also}
 
 * [How {{ speechsense-full-name }} automates the review of dialogs with customers](https://yandex.cloud/ru/blog/posts/2025/05/speechsense-and-dialogues)
+* [Using {{ speechsense-full-name }} to evaluate conversations in sales offices, stores, or restaurants](https://yandex.cloud/ru/blog/yandex-speechsense-update)

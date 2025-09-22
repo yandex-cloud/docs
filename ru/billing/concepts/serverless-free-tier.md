@@ -35,7 +35,6 @@ Free tier распространяется на сервисы:
 * [{{ yds-full-name }}](#yds)
 * [{{ data-transfer-full-name }}](#transfer)
 * [{{ datalens-full-name }}](#datalens)
-* [{{ foundation-models-full-name }}](#foundation-models)
 * [{{ iot-full-name }}](#iot)
 * [{{ load-testing-full-name }}](#load-testing)
 * [{{ ydb-full-name }}](#ydb)
@@ -145,12 +144,6 @@ Free tier распространяется на сервисы:
 [{{ datalens-full-name }}](../../datalens/quickstart.md) — это сервис для бизнес-аналитики. Сервис позволяет подключаться к различным источникам данных, строить визуализации, собирать дашборды и делиться полученными результатами.
 
 {% include [not-charged-datalens.md](../../_includes/pricing/price-formula/not-charged-datalens.md) %}
-
-## {{ foundation-models-full-name }} {#foundation-models}
-
-[{{ foundation-models-full-name }}](../../foundation-models/index.yaml) — это сервис больших генеративных моделей для бизнеса. {{ yandex-cloud }} предоставляет доступ к нейросетям {{ gpt-lite }}, {{ gpt-pro }} и {{ yandexart-name }} и позволяет применять их в ваших бизнес-приложениях и веб-сервисах.
-
-{% include [not-charged-foundation-models](../../_includes/pricing/price-formula/not-charged-foundation-models.md) %}
 
 ## {{ iot-full-name }} {#iot}
 

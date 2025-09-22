@@ -48,7 +48,6 @@ default:
   api-host-trino: trino.api.cloud.yandex.net
   api-host-ytsaurus: ytsaurus.api.cloud.yandex.net
   api-url-prefix: /docs
-  art-freetier: 10
   assistant-api: AI Assistant API
   at-event-prefix: yandex.cloud
   at-full-name: Yandex Audit Trails
@@ -228,7 +227,6 @@ default:
     docs:
       broadcom: >-
         https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum
-  gpt-freetier: 10
   gpt-lite: YandexGPT Lite
   gpt-pro: YandexGPT Pro
   grafana-name: Grafana
@@ -260,7 +258,7 @@ default:
   k8s-decomission-timeout: 5 минут
   k8s-docs: https://kubernetes.io/ru/docs
   k8s-hpa: Horizontal Pod Autoscaler
-  k8s-versions-rapid: 1.30, 1.31, 1.32
+  k8s-versions-rapid: 1.30, 1.31, 1.32, 1.33
   k8s-versions-regular: 1.30, 1.31, 1.32
   k8s-versions-stable: 1.30, 1.31, 1.32
   k8s-vpa: Vertical Pod Autoscaler
@@ -765,7 +763,7 @@ default:
   search-api-request-ch: 400 символов
   search-api-request-w: 40 слов
   security-group: enp6saqnq4ie********
-  security-standard-current-version: 1.4.1
+  security-standard-current-version: 1.4.2
   serial-ssh-host: serialssh.cloud.yandex.net
   serverless-containers-full-name: Yandex Serverless Containers
   serverless-containers-host: containers.yandexcloud.net
@@ -7499,6 +7497,9 @@ default:
           entities:
             label_title: Облака и сервисы
             label_type: Тип
+          exports:
+            field_bucket: Бакет
+            field_prefix: Путь внутри бакета
           proposals_page:
             type_Error: Ошибка применения
           proposals:
@@ -7905,6 +7906,8 @@ default:
         title_public-access-section: Доступ
         title_videos: Видео
     yacloud:
+      ai-assistant:
+        label_ai-assistant-open: AI Assistant
       airflow:
         button_create-cluster: Создать кластер
         field_lockbox: Использовать Lockbox Secret Backend
@@ -8725,6 +8728,11 @@ default:
           network-select:
             button_create-network: Создать сеть
             button_create-subnetwork: Создать подсеть
+      components:
+        ChatCommon:
+          ChatsMenuHeader:
+            action_create-chat_97ZqE: Новый чат
+            action_delete-all-chats_awFCg: Удалить все чаты
       compute:
         attach-disk:
           button_attach: Подключить
@@ -11285,6 +11293,7 @@ default:
           label_document-endpoint: Document API эндпоинт
           label_endpoint: Эндпоинт
           label_kinesis-endpoint: Kinesis API эндпоинт
+          label_path: Путь к базе данных
           label_serverless-billing: Тарификация
           label_serverless-limits: Ограничения
           section_connection: Соединение

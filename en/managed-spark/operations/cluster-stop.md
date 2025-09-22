@@ -5,8 +5,6 @@ description: You can stop and restart a {{ SPRK }} cluster as needed. When stopp
 
 # Stopping and starting a {{ SPRK }} cluster
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 You can stop and restart a {{ SPRK }} cluster as needed. When stopped, a cluster retains all its data. The data will be available again as soon as you restart the cluster.
 
 ## Stopping a cluster {#stop-cluster}

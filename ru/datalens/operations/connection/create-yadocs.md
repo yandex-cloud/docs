@@ -64,6 +64,9 @@ description: Следуя данной инструкции, вы сможете
 
 В созданное подключение вы можете добавить новые файлы, а также переименовать или удалить уже добавленные.
 
+## Дополнительные настройки {#additional-settings}
+
+{% include [datalens-file-connection-export-settings](../../../_includes/datalens/operations/datalens-file-connection-export-settings.md) %}
 
 ## Ограничения {#restrictions}
 

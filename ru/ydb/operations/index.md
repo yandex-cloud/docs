@@ -11,3 +11,4 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](schema.md)
 * [{#T}](crud.md)
 * [{#T}](monitoring.md)
+* [{#T}](ydb-mcp-cursor.md)

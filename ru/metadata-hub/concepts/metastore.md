@@ -5,8 +5,6 @@ description: В сервисе {{ metadata-hub-full-name }} вы можете с
 
 # Кластеры {{ metastore-full-name }}
 
-{% include [Preview](../../_includes/note-preview.md) %}
-
 {% include [connection](../../_includes/metadata-hub/metastore-definition.md) %}
 
 ## Назначение {{ metastore-full-name }} {#metastore-objectives}

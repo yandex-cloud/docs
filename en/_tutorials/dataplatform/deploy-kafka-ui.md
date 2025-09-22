@@ -1,9 +1,9 @@
-# Deploying the {{ KF }} web interface
+# Unassisted deployment of the {{ KF }} web interface
 
 
 {% note info %}
 
-{{ mkf-name }} has [built-in support for the {{ kafka-ui }} web UI](../../managed-kafka/concepts/kafka-ui.md). If this option does not suit you, use the information from this tutorial.
+{{ mkf-name }} has [native support for {{ kafka-ui }}](../../managed-kafka/concepts/kafka-ui.md). If this option does not suit you, proceed with this tutorial.
 
 {% endnote %}
 
@@ -31,14 +31,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ mkf-name }} cluster fee: using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster fee: Covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
 * VM fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for public IP addresses for VMs and cluster hosts if public access is enabled for them (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 
 
 ### Getting started {#before-you-begin-to-work-with-docker}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -67,20 +67,20 @@ Set up your infrastructure:
       * VM running Ubuntu 22.04.
 
       
-      * Default security group and rules required to connect to the cluster and VM from the internet.
+      * Default security group and inbound internet rules for your cluster and VM.
 
 
       * {{ mkf-name }} cluster.
       * {{ KF }} user.
 
    1. In the `kafka-ui-via-docker.tf` file, specify the values of variables.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
       ```
 
-      {{ TF }} will show any errors found in your configuration files.
+      {{ TF }} will display any configuration errors detected in your files.
 
    1. Create the required infrastructure:
 
@@ -188,15 +188,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost includes:
 
-* {{ mkf-name }} cluster fee: using computing resources allocated to hosts (including ZooKeeper hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* Fee for using the master and outbound traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for {{ managed-k8s-name }} cluster nodes (VMs), computing resources, OS, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ mkf-name }} cluster fee: Covers the use of computational resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* Fee for {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in {{ managed-k8s-name }} cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 * Fee for public IP addresses for {{ mkf-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes if public access is enabled for them (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ### Getting started {#before-you-begin-to-work-with-kubernetes}
 
-Set up your infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -236,13 +236,13 @@ Set up your infrastructure:
       * {{ managed-k8s-name }} node group.
 
    1. Specify the values of variables in the `kafka-ui-via-kubernetes.tf` file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
       ```
 
-      {{ TF }} will show any errors found in your configuration files.
+      {{ TF }} will display any configuration errors detected in your files.
 
    1. Create the required infrastructure:
 
@@ -398,7 +398,7 @@ When deploying {{ KF }} in a {{ managed-k8s-name }} cluster, TrustStore commands
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources incur charges. To avoid paying for them, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 

@@ -610,7 +610,7 @@ keywords:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+        {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
 
 - REST API {#api}
 
@@ -900,7 +900,7 @@ keywords:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [Terraform timeouts](../../_includes/mdb/mes/terraform/timeouts.md) %}
+        {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
 
 - REST API {#api}
 

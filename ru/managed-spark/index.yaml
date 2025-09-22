@@ -1,7 +1,7 @@
 title: '{{ msp-full-name }}'
 description:
   - >-
-    Сервис {{ msp-name }} помогает разворачивать кластеры {{ SPRK }} в
+    Сервис {{ msp-full-name }} помогает разворачивать кластеры {{ SPRK }} в
     инфраструктуре {{ yandex-cloud }} и позволяет запускать задания Spark.
   - "Инфраструктура {{ yandex-cloud }} <a href=\"/docs/security/conform\">защищена</a> в соответствии со следующими стандартами: <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI\_DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>"
   - >-
@@ -16,7 +16,7 @@ links:
     description: Инструкции по выполнению рутинных операций
     href: operations/
   - title: Практические руководства
-    description: Решайте типовые задачи по работе с {{ msp-name }}
+    description: Решайте типовые задачи по работе с {{ msp-full-name }}
     href: tutorials/
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
@@ -36,17 +36,17 @@ links:
 meta:
   title: '{{ msp-full-name }}'
   description: >-
-    Сервис {{ msp-name }} помогает разворачивать и поддерживать кластеры {{ SPRK
-    }} в инфраструктуре {{ yandex-cloud }}.
+    Сервис {{ msp-full-name }} помогает разворачивать и поддерживать кластеры {{
+    SPRK }} в инфраструктуре {{ yandex-cloud }}.
   keywords:
     - Apache Spark
     - кластер spark
     - кластеры {{ SPRK }}
-    - '{{ msp-name }}'
+    - '{{ msp-full-name }}'
     - Spark
     - кластеры серверов Apache Spark
-    - кластеры серверов {{ msp-name }}
+    - кластеры серверов {{ msp-full-name }}
     - spark в {{ yandex-cloud }}
     - Apache Spark в {{ yandex-cloud }}
-    - '{{ msp-name }} в {{ yandex-cloud }}'
-    - сервис {{ msp-name }}
+    - '{{ msp-full-name }} в {{ yandex-cloud }}'
+    - сервис {{ msp-full-name }}

@@ -5,8 +5,6 @@ description: In this tutorial, you will learn how to manage Spark jobs in {{ msp
 
 # Managing Spark jobs
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 ## Create a job {#create}
 
 {% note warning %}

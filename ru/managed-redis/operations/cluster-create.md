@@ -99,8 +99,6 @@ description: Следуя данной инструкции, вы сможете
      
      * (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-       {% include [preview-note](../../_includes/note-preview-by-request.md) %}
-
        * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 
        * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
@@ -191,12 +189,13 @@ description: Следуя данной инструкции, вы сможете
               `replica-priority=<приоритет_хоста> \
         --security-group-ids <список_идентификаторов_групп_безопасности> \
         --enable-tls \
-        --persistence-mode <режим_персистентности>
+        --persistence-mode <режим_персистентности> \
         --resource-preset <класс_хоста> \
         --disk-size <размер_хранилища_ГБ> \
         --disk-type-id <network-ssd|network-ssd-nonreplicated|local-ssd> \
         --password=<пароль_пользователя> \
         --backup-window-start <время> \
+        --disk-encryption-key-id <идентификатор_ключа_KMS> \
         --deletion-protection \
         --announce-hostnames <использование_FQDN_вместо_IP-адресов>
       ```
@@ -225,6 +224,14 @@ description: Следуя данной инструкции, вы сможете
       * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
         {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+      
+      * `--disk-encryption-key-id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
+
+        {% include [preview-note](../../_includes/note-preview-by-request.md) %}
+
+        Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
 
       * `--announce-hostnames` — настройка, определяющая, [использовать ли FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
 

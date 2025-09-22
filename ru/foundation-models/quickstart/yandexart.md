@@ -2,8 +2,6 @@
 
 В этом разделе вы научитесь использовать нейросеть {{ yandexart-name }} для генерации изображений.
 
-В [консоли управления]({{ link-console-main }}/link/foundation-models/yandexart) новым пользователям без [платежного аккаунта](../../billing/concepts/billing-account.md) доступно {{ art-freetier }} бесплатных запросов в сутки. Чтобы использовать API и иметь возможность увеличить [квоты](../concepts/limits.md) на потребление, [привяжите](../../billing/operations/pin-cloud.md) платежный аккаунт к облаку.
-
 ## Перед началом работы {#before-begin}
 
 Чтобы начать работать в {{ yandex-cloud }}:
