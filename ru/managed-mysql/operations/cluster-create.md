@@ -65,8 +65,6 @@ description: Следуя данной инструкции, вы сможете
      
      * (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-       {% include [preview-note](../../_includes/note-preview-by-request.md) %}
-
        * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 
        * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
@@ -208,6 +206,7 @@ description: Следуя данной инструкции, вы сможете
        ...
        --backup-window-start <время_начала_резервного_копирования> \
        --backup-retain-period-days=<срок_хранения_копий> \
+       --disk-encryption-key-id <идентификатор_ключа_KMS> \
        --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
        --websql-access=<разрешить_доступ_из_{{ websql-name }}> \
        --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
@@ -222,6 +221,15 @@ description: Следуя данной инструкции, вы сможете
 
      * `--backup-window-start` — время начала резервного копирования.
      * `--backup-retain-period-days` — срок хранения автоматических резервных копий в днях.
+
+     
+     * `--disk-encryption-key-id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
+
+       {% include [preview-note](../../_includes/note-preview-by-request.md) %}
+
+       Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
+
      * `--datalens-access` — разрешает доступ к кластеру из {{ datalens-full-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
      * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
      * `--yandexquery-access` — разрешает выполнять YQL-запросы к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.

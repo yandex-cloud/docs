@@ -5,8 +5,6 @@ description: In this tutorial, you will learn how to manage PySpark jobs in {{ m
 
 # Managing PySpark jobs
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 ## Creating a job {#create}
 
 {% note warning %}

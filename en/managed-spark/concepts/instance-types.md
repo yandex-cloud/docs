@@ -1,9 +1,9 @@
 ---
-title: '{{ msp-name }} host classes'
-description: The host class determines the computing power allocated for each host in a {{ msp-name }} cluster.
+title: '{{ msp-full-name }} host classes'
+description: The host class determines the computing power allocated for each host in a {{ msp-full-name }} cluster.
 ---
 
-# {{ msp-name }} host classes
+# {{ msp-full-name }} host classes
 
 The host class determines the computing power allocated for each host in a cluster.
 
@@ -11,7 +11,7 @@ For more information on limits, see [Quotas and limits](limits.md).
 
 ## Available host classes {#available-flavors}
 
-Hosts in {{ msp-name }} clusters are deployed on {{ compute-full-name }} VMs.
+Hosts in {{ msp-full-name }} clusters are deployed on {{ compute-full-name }} VMs.
 
 Configuration types:
 

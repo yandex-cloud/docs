@@ -58,7 +58,7 @@ items:
             href: operations/check-bill-history.md
           - name: Посмотреть детализацию в консоли
             href: operations/check-charges.md
-          - name: Получать детализацию расходов по каталогам
+          - name: Экспортировать расширенную детализацию
             href: operations/get-folder-report.md
           - name: Посмотреть детализацию в {{ datalens-full-name }}
             href: operations/dashboard.md

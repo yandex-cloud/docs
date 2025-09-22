@@ -1,7 +1,7 @@
 title: '{{ msp-full-name }}'
 description:
   - >-
-    With {{ msp-name }}, you can deploy {{ SPRK }} clusters in the {{
+    With {{ msp-full-name }}, you can deploy {{ SPRK }} clusters in the {{
     yandex-cloud }} infrastructure and run Spark jobs.
   - >-
     The {{ yandex-cloud }} infrastructure is <a
@@ -22,7 +22,7 @@ links:
     description: How to perform routine operations
     href: operations/
   - title: Tutorials
-    description: Address common {{ msp-name }} related tasks
+    description: Address common {{ msp-full-name }} related tasks
     href: tutorials/
   - title: API reference
     description: HTTP API method descriptions
@@ -42,17 +42,17 @@ links:
 meta:
   title: '{{ msp-full-name }}'
   description: >-
-    {{ msp-name }} helps you deploy and maintain {{ SPRK }} clusters in the {{
-    yandex-cloud }} infrastructure.
+    {{ msp-full-name }} helps you deploy and maintain {{ SPRK }} clusters in the
+    {{ yandex-cloud }} infrastructure.
   keywords:
     - Apache Spark
     - Spark cluster
     - '{{ SPRK }} clusters'
-    - '{{ msp-name }}'
+    - '{{ msp-full-name }}'
     - Spark
     - Apache Spark server cluster
-    - '{{ msp-name }} server clusters'
+    - '{{ msp-full-name }} server clusters'
     - Spark in {{ yandex-cloud }}
     - Apache Spark in {{ yandex-cloud }}
-    - '{{ msp-name }} in {{ yandex-cloud }}'
-    - '{{ msp-name }}'
+    - '{{ msp-full-name }} in {{ yandex-cloud }}'
+    - '{{ msp-full-name }}'

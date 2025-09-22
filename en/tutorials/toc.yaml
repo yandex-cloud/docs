@@ -453,7 +453,7 @@ items:
             items:
               - name: Solution architecture
                 href: routing/ipsec/index.md
-              - name: Unaided implementation with {{ yandex-cloud }}
+              - name: Unassisted implementation with {{ yandex-cloud }}
                 href: routing/ipsec/ipsec-vpn.md
               - name: SGW solution by the {{ yandex-cloud }} architect team
                 href: routing/ipsec/sgw.md
@@ -737,7 +737,7 @@ items:
             href: iot/c-sharp.md
           - name: Working with {{ iot-name }} in Java
             href: iot/java.md
-          - name: Status monitoring of geographically distributed devices
+          - name: Monitoring the status of geographically distributed devices
             href: iot/datalens.md
           - name: Sensor reading monitoring and event notifications
             href: iot/monitoring.md
@@ -745,7 +745,7 @@ items:
             href: iot/message-delivery-check.md
           - name: Emulating multiple IoT devices
             href: testing/iot-emulation.md
-          - name: Writing data from a device into a database
+          - name: Writing data from a device to a database
             href: iot/data-recording.md
       - name: Alice
         items:
@@ -772,7 +772,7 @@ items:
     items:
       - name: All tutorials
         href: dataplatform/index.md
-      - name: Deploying the {{ KF }} web interface
+      - name: Unassisted deployment of the {{ KF }} web interface
         href: dataplatform/deploy-kafka-ui.md
       - name: >-
           Upgrading a {{ mkf-name }} cluster to migrate from {{ ZK }} to {{
@@ -847,8 +847,8 @@ items:
       - name: Configuring Kafka Connect to work with a {{ mkf-name }} cluster
         href: dataplatform/kafka-connect.md
       - name: >-
-          Synchronizing {{ KF }} topics in {{ objstorage-name }} without using
-          the internet
+          Synchronizing {{ KF }} topics in {{ objstorage-name }} with no web
+          access
         href: dataplatform/kafka-topic-s3-sync-private.md
       - name: Using data format schemas with {{ mkf-name }}
         items:
@@ -1074,7 +1074,7 @@ items:
         href: dataplatform/mpg-performance-problems.md
       - name: '{{ mpg-name }} performance analysis and tuning'
         href: dataplatform/mpg-profiling.md
-      - name: Logical replication {{ PG }}
+      - name: Logical replication in {{ PG }}
         href: dataplatform/mpg-replication-overview.md
       - name: >-
           Migrating a database from a third-party {{ PG }} cluster to {{
@@ -1191,7 +1191,7 @@ items:
           mgp-name }} using {{ data-transfer-name }}
         href: dataplatform/managed-greenplum.md
       - name: Migrating {{ mmg-name }} clusters
-        href: dataplatform/managed-mongodb.md
+        href: dataplatform/storedoc.md
       - name: Migrating {{ MY }} clusters
         href: dataplatform/managed-mysql.md
       - name: Migrating to a third-party {{ MY }} cluster
@@ -1204,6 +1204,8 @@ items:
         href: dataplatform/schema-registry-cdc-debezium-kafka.md
       - name: Automating operations using {{ maf-full-name }}
         href: dataplatform/airflow-and-spark.md
+      - name: Using {{ objstorage-full-name }} in {{ msp-full-name }}
+        href: dataplatform/spark-objstorage-integration.md
   - name: Microsoft products in {{ yandex-cloud }}
     items:
       - name: All tutorials
@@ -1384,7 +1386,7 @@ items:
                 href: datalens/data-from-bitrix24-visualization.md
               - name: '{{ tracker-name }}: data export and visualization'
                 href: datalens/data-from-tracker.md
-              - name: Analyzing {{ objstorage-name }} logs using {{ datalens-name }}
+              - name: Analyzing {{ objstorage-name }} logs with {{ datalens-name }}
                 href: datalens/storage-logs-analysis.md
               - name: 'Yandex Music podcasts: Statistics'
                 href: datalens/data-from-podcasts.md
@@ -1396,7 +1398,7 @@ items:
                 href: datalens/data-from-ch-over-yt.md
           - name: Functional
             items:
-              - name: Using parameters
+              - name: Using parameters in calculated fields
                 href: datalens/data-from-ch-with-parameters.md
               - name: Source parameterization
                 href: datalens/data-from-ch-dataset-parametrization.md

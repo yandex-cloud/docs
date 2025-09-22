@@ -53,10 +53,10 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Deploying the {{ KF }} web interface
+      - name: Unassisted deployment of the {{ KF }} web interface
         href: tutorials/deploy-kafka-ui.md
       - name: >-
-          Upgrading a {{ mkf-name }} cluster from {{ ZK }} to {{
+          Upgrading a {{ mkf-name }} cluster to migrate from {{ ZK }} to {{
           kraft-short-name }}
         href: tutorials/zk-kraft-kafka-migration.md
       - name: Moving data from {{ KF }}
@@ -97,7 +97,7 @@ items:
             href: tutorials/yds-to-kafka.md
           - name: Delivering data from {{ KF }} to {{ GP }}
             href: tutorials/managed-kafka-to-greenplum.md
-          - name: Delivering data from {{ KF }} to {{ MG }}
+          - name: Delivering data from {{ KF }} to {{ SD }}
             href: tutorials/mkf-to-mmg-migration.md
           - name: Delivering data from {{ MY }} to {{ KF }}
             href: tutorials/cdc/cdc-mmy.md
@@ -139,19 +139,19 @@ items:
         href: concepts/account-roles.md
       - name: Managing data schemas
         href: concepts/managed-schema-registry.md
-      - name: '{{ KF }} web UI'
+      - name: Web interface for {{ KF }}
         href: concepts/kafka-ui.md
       - name: APIs in {{ mkf-name }}
         href: concepts/available-apis.md
       - name: Host classes
         href: concepts/instance-types.md
-      - name: High availability cluster
+      - name: High availability clusters
         href: concepts/ha-cluster.md
-      - name: '{{ mkf-name }} network'
+      - name: Networking in {{ mkf-name }}
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: '{{ mkf-name }} storage'
+      - name: Storage in {{ mkf-name }}
         href: concepts/storage.md
       - name: Connectors
         href: concepts/connectors.md

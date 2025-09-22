@@ -3,9 +3,7 @@ title: How to work with {{ msp-full-name }}
 description: In this article, you will learn how to work with {{ msp-full-name }} in {{ yandex-cloud }}.
 ---
 
-# Step-by-step guides for {{ msp-name }}
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
+# Step-by-step guides for {{ msp-full-name }}
 
 ## Clusters {#clusters}
 

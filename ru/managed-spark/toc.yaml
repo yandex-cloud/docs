@@ -1,6 +1,5 @@
 title: '{{ msp-full-name }}'
 href: index.yaml
-stage: preview
 items:
   - name: Начало работы
     href: quickstart.md
@@ -36,6 +35,8 @@ items:
         href: tutorials/spark-objstorage-integration.md
   - name: Концепции
     items:
+      - name: Взаимосвязь ресурсов сервиса
+        href: concepts/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Классы хостов

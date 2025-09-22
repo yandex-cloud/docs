@@ -74,8 +74,6 @@ keywords:
       
       1. (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-          {% include [preview-note](../../_includes/note-preview-by-request.md) %}
-
           * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 
           * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
@@ -159,6 +157,7 @@ keywords:
          --maintenance schedule=<тип_технического_обслуживания>,`
                       `weekday=<день_недели>,`
                       `hour=<час_дня> \
+         --disk-encryption-key-id <идентификатор_ключа_KMS> \
          --version <версия_{{ OS }}> \
          --read-admin-password \
          --data-transfer-access=<разрешить_доступ_из_Data_Transfer> \
@@ -204,6 +203,14 @@ keywords:
           * Чтобы указать предпочтительное время начала обслуживания, укажите в команде параметр `--maintenance schedule=weekly,weekday=<день_недели>,hour=<час_дня_по_UTC>`. Тогда техническое обслуживание будет проходить каждую неделю в обозначенный день и время.
 
           Операции по обслуживанию проводятся для включенных и выключенных кластеров. Во время обслуживания могут, например, применяться патчи или обновляться СУБД.
+
+      
+      * `--disk-encryption-key-id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
+
+          {% include [preview-note](../../_includes/note-preview-by-request.md) %}
+
+          Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
 
       * `--read-admin-password` — пароль пользователя `admin`. Если указать параметр в команде, после ее ввода будет предложено ввести пароль.
 

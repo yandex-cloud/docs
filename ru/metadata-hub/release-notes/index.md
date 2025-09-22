@@ -7,6 +7,18 @@ description: В разделе представлена история изме�
 
 ## 2025 год {#2025}
 
+### Сентябрь {#sep25}
+
+#### Новые возможности {#new-features-sep25}
+
+* [{{ connection-manager-name }}](../concepts/connection-manager.md) перешел в стадию [стадию General Availability](../../overview/concepts/launch-stages.md); поддержана работа с YC CLI.
+
+
+* [{{ metastore-full-name }}](../concepts/metastore.md) перешел в стадию [стадию General Availability](../../overview/concepts/launch-stages.md); использование кластеров стало [платным](../pricing.md).
+
+* [{{ data-catalog-name }}](../concepts/data-catalog.md) перешел в стадию [стадию Public Preview](../../overview/concepts/launch-stages.md); реализована [AI-разметка](../operations/data-catalog/markup-metadata.md) метаданных и [AI-поиск](../operations/data-catalog/search-metadata.md).
+
+
 ### Август {#august25}
 
 #### Новые возможности {#new-features-august25}

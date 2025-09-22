@@ -5,8 +5,6 @@ description: Follow this guide to create a {{ msp-full-name }} cluster and run j
 
 # Getting started with {{ msp-full-name }}
 
-{% include notitle [preview](../_includes/note-preview.md) %}
-
 To get started:
 
 * [Get your cloud ready](#prepare-cloud).
@@ -40,7 +38,7 @@ The cost of infrastructure support includes a fee for a {{ objstorage-full-name 
 
 1. [Create a service account](../iam/operations/sa/create.md#create-sa) and assign it the following roles:
 
-   * `managed-spark.integrationProvider`: For {{ msp-name }} to interact with other system components, e.g., for sending logs and metrics.
+   * `managed-spark.integrationProvider`: For {{ msp-full-name }} to interact with other system components, e.g., for sending logs and metrics.
    * [storage.editor](../storage/security/index.md#storage-editor): For accessing PySpark job files in your {{ objstorage-name }} bucket.
 
 1. [Create an {{ objstorage-name }}](../storage/operations/buckets/create.md) bucket.
@@ -80,7 +78,7 @@ The cost of infrastructure support includes a fee for a {{ objstorage-full-name 
      1. Select **{{ ui-key.yacloud.logging.label_minlevel }}**: **INFO**.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Wait until the cluster is ready: its status on the {{ msp-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
+  1. Wait until the cluster is ready: its status on the {{ msp-full-name }} dashboard will change to **Running** and its state, to **Alive**. This may take some time.
 
 {% endlist %}
 

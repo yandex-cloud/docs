@@ -5,7 +5,7 @@ description: На этой странице приведен справочни�
 
 # Справочник аудитных логов {{ at-full-name }}
 
-В {{ at-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane). Подробнее см. [{#T}](../audit-trails/concepts/format.md).
+В {{ at-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane). Подробнее см. [{#T}](../audit-trails/concepts/format.md).
 
 Общий вид значения поля `event_type` (_тип события_):
 
@@ -17,3 +17,6 @@ description: На этой странице приведен справочни�
 
 {% include [vpc-events](../_includes/audit-trails/events/vpc-events.md) %}
 
+## Справочник событий уровня сервисов {#data-plane-events}
+
+{% include [vpc-events-dp](../_includes/audit-trails/events/vpc-events-dp.md) %}

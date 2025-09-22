@@ -2,8 +2,6 @@
 
 В этом разделе вы научитесь использовать нейросеть {{ yagpt-name }} для генерации текста в [синхронном режиме](../concepts/index.md#working-mode) без дополнения контекста. Другие примеры см. в разделе [Инструкции для работы с {{ foundation-models-full-name }}](../operations/index.md#yandexgpt-api)
 
-В [консоли управления]({{ link-console-main }}/link/foundation-models/yandexgpt) новым пользователям без [платежного аккаунта](../../billing/concepts/billing-account.md) доступно {{ gpt-freetier }} бесплатных запросов в час, чтобы вы могли максимально быстро и просто познакомиться с возможностями модели. Чтобы использовать API и иметь возможность увеличить [квоты](../concepts/limits.md) на потребление, [привяжите](../../billing/operations/pin-cloud.md) платежный аккаунт к своему облаку.
-
 О стоимости использования {{ foundation-models-full-name }} читайте в разделе [{#T}](../pricing.md).
 
 ## Перед началом работы {#before-begin}

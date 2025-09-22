@@ -1,6 +1,5 @@
 title: '{{ msp-full-name }}'
 href: index.yaml
-stage: preview
 items:
   - name: Getting started
     href: quickstart.md
@@ -32,6 +31,8 @@ items:
         href: tutorials/index.md
       - name: Automating operations using {{ maf-full-name }}
         href: tutorials/airflow-automation.md
+      - name: Using {{ objstorage-full-name }} in {{ msp-name }}
+        href: tutorials/spark-objstorage-integration.md
   - name: Concepts
     items:
       - name: Quotas and limits
@@ -42,6 +43,8 @@ items:
     href: security.md
   - name: Pricing policy
     href: pricing.md
+  - name: '{{ monitoring-full-name }} metrics'
+    href: metrics.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

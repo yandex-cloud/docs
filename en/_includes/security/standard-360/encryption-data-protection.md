@@ -10,7 +10,7 @@ For added security, domain users must have a mobile phone number (**secure phone
 
 - Checking from the {{ yandex-360 }} console {#yandex-360-console}
 
-  1. Go to the [Phones](https://id.yandex.ru/profile/phones) page.
+  1. Go to the [Phones](https://id.yandex.com/security/phones) page.
    
       The page will display several numbers if a phone number different from main one was specified in a different Yandex service.
 

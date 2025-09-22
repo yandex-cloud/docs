@@ -9,8 +9,6 @@ keywords:
 
 # Создание кластера {{ SPRK }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 Каждый [кластер](../../glossary/cluster.md) {{ SPRK }} содержит вычислительные ресурсы, на которых запускаются Spark-приложения.
 
 ## Роли для создания кластера {#roles}
@@ -89,11 +87,11 @@ keywords:
 
     {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-    Чтобы создать кластер {{ msp-name }}:
+    Чтобы создать кластер {{ msp-full-name }}:
 
     1. Опишите в конфигурационном файле создаваемые ресурсы:
 
-        * Кластер {{ msp-name }} — описание кластера.
+        * Кластер {{ msp-full-name }} — описание кластера.
 
         * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -109,7 +107,7 @@ keywords:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Создайте кластер {{ msp-name }}.
+    1. Создайте кластер {{ msp-full-name }}.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

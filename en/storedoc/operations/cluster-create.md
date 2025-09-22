@@ -60,8 +60,6 @@ To create a {{ mmg-name }} cluster, you will need the [{{ roles-vpc-user }}](../
       
       * Optionally, select the **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** option to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
 
-        {% include [preview-note](../../_includes/note-preview-by-request.md) %}
-
         * To [create](../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 
         * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.

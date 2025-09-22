@@ -9,8 +9,6 @@ keywords:
 
 # Изменение кластера {{ SPRK }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 После создания кластера вы можете изменить его основные и дополнительные настройки.
 
 {% list tabs group=instructions %}

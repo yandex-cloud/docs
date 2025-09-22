@@ -11,6 +11,4 @@ You cannot get the history of requests to models from logs. Request data is [sto
 
 {% include [chat-history](../../_qa/chat-history.md) %}
 
-{% include [demo-yagpt](../../_qa/demo-yagpt.md) %}
-
 {% include [requests-ai-from-frontend](../../_qa/requests-ai-from-frontend.md) %}

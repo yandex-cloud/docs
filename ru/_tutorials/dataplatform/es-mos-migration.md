@@ -55,7 +55,7 @@
     1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом. Этот бакет будет использоваться в качестве репозитория снапшотов.
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`. Сервисный аккаунт необходим для доступа к бакету из кластера-источника и кластера-приемника.
 
-    1. Если вы переносите данные из стороннего кластера {{ ES }}, [создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для этого сервисного аккаунта.
+    1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для этого сервисного аккаунта.
 
         {% note warning %}
 
@@ -65,7 +65,6 @@
 
     1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации со следующими настройками:
 
-        * Плагин — `repository-s3`.
         * Публичный доступ к группе хостов с ролью `DATA`.
 
 - С помощью {{ TF }} {#tf}
@@ -118,9 +117,7 @@
 
 1. Настройте кластер-источник {{ ES }}:
 
-    
     {% include [source-3p](es-mos-migration/source-3p.md) %}
-
 
 1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect.md#ssl-certificate).
 
@@ -130,9 +127,7 @@
 
 1. Подключите бакет в качестве репозитория снапшотов на кластере-источнике:
 
-    
     {% include [connect-bucket-3p](es-mos-migration/connect-bucket-3p.md) %}
-
 
     Подробнее о подключении репозитория см. в [документации плагина]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html).
 
@@ -142,15 +137,11 @@
 
     Пример создания снапшота с именем `snapshot_1` для всего кластера:
 
-    
     {% include [create-snapshot-3p](es-mos-migration/create-snapshot-3p.md) %}
-
 
     Процесс создания снапшота может занять длительное время. Отслеживайте ход выполнения операции [с помощью инструментов {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), например:
 
-    
     {% include [track-snapshot-creation-3p](es-mos-migration/track-snapshot-creation-3p.md) %}
-
 
 ### Восстановите снапшот в кластере-приемнике {#restore-snapshot}
 

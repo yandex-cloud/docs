@@ -82,6 +82,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% endcut %}
 
+## Дополнительные настройки {#additional-settings}
+
+{% include [datalens-file-connection-export-settings](../../../_includes/datalens/operations/datalens-file-connection-export-settings.md) %}
 
 ## Ограничения {#restrictions}
 

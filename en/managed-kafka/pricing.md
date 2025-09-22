@@ -42,13 +42,13 @@ The {{ mkf-name }} usage cost includes:
 
 * Computing resources allocated to cluster hosts (including {{ ZK }} hosts) and the type of hosts.
 
-* Egress traffic from {{ yandex-cloud }}.
+* Outgoing traffic from {{ yandex-cloud }}.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-Host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
+The host operation cost is charged per hour based on what computing resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
 You can choose the host class for {{ KF }} broker hosts and {{ ZK }} hosts based on the expected replication load. The presence of {{ ZK }} hosts depends on the cluster configuration:
 
@@ -60,7 +60,7 @@ There are different ways to calculate the cost depending on the [host type](./co
 
 * Standard hosts
 
-    Host operation cost is charged per hour based on what computing resources you allocate for it.
+    The host operation cost is charged per hour based on what computing resources you allocate for it.
 
 
 * Dedicated hosts
@@ -69,7 +69,7 @@ There are different ways to calculate the cost depending on the [host type](./co
 
 
 
-The minimum billing unit is one minute (for example, 90 seconds of host operation cost is same as two minutes). You are not paying for the time when a broker host or {{ ZK }} is unable to perform its main functions.
+The minimum billing unit is one minute (for example, 90 seconds of host operation cost the same as two minutes). You are not paying for the time when a broker host or {{ ZK }} is unable to perform its main functions.
 
 ### Disk space usage {#rules-storage}
 
@@ -84,7 +84,7 @@ The price covers one month of use based on 720 hours per month. The minimum bill
 
 ### Example of cluster cost calculation {#example}
 
-This is an example of calculating the cost of using a cluster with the following properties for 30 days:
+Let's calculate the cost of using a cluster with the following properties for 30 days:
 
 * **{{ KF }} broker hosts**: Three `s3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **Storage for {{ KF }} broker hosts**: 100 GB of network HDD storage per broker host.
@@ -104,7 +104,7 @@ This is an example of calculating the cost of using a cluster with the following
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mkf-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mkf-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you intend to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 

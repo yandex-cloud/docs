@@ -16,8 +16,6 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
-{% include [not-charged-foundation-models](../_includes/pricing/price-formula/not-charged-foundation-models.md) %}
-
 ## What goes into the cost of using {{ foundation-models-full-name }} {#rules}
 
 [In {{ billing-name }}](../billing/operations/check-charges.md), {{ foundation-models-name }} usage is detailed in _billing units_. The billing unit value is different for text [generation](concepts/generation/index.md) and [vectorization](./concepts/embeddings.md).
