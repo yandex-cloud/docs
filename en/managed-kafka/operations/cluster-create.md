@@ -121,7 +121,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
 
 
   1. If you are creating a cluster with {{ KF }} version 3.5 and have specified more than one broker host, under **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**, specify the characteristics of the [{{ ZK }} hosts](../concepts/index.md) to place in each of the selected availability zones.
-  1. Configure additional {{ mkf-name }} cluster settings, if required:
+  1. Specify additional {{ mkf-name }} cluster settings, if required:
 
      {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
 

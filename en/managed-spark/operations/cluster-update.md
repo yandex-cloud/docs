@@ -9,8 +9,6 @@ keywords:
 
 # Updating an {{ SPRK }} cluster
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 After creating a cluster, you can edit its basic and advanced settings.
 
 {% list tabs group=instructions %}

@@ -6,11 +6,6 @@ description: Пошаговые инструкции по работе с {{ con
 # Просмотр информации о подключении
 
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
-
 ## Получить список подключений {#connection-list}
 
 

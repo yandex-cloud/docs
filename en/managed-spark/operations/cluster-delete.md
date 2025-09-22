@@ -7,8 +7,6 @@ keywords:
 
 # Deleting a {{ SPRK }} cluster
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 You can delete an {{ SPRK }} cluster if you no longer need it.
 
 ## Deleting a cluster {#delete}

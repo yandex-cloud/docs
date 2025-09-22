@@ -5,8 +5,6 @@ description: В {{ metadata-hub-full-name }} действуют квоты на 
 
 # Квоты в {{ metadata-hub-full-name }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 Для сервиса {{ metadata-hub-full-name }} действуют следующие ограничения:
 
 * [_Квоты_]({{ link-console-quotas }}) — организационные ограничения, которые можно изменить по запросу в техническую поддержку.
@@ -21,9 +19,13 @@ description: В {{ metadata-hub-full-name }} действуют квоты на 
 
 ## Квоты {{ schema-registry-name }} {#schema-registry-quota}
 
+{% include [preview-pp](../../_includes/preview-pp.md) %}
+
 {% include [schema-registry-quotas](../../_includes/metadata-hub/schema-registry-quotas.md) %}
 
 ## Квоты {{ data-catalog-name }} {#data-catalog-quota}
+
+{% include [preview-pp](../../_includes/preview-pp.md) %}
 
 {% include [data-registry-quotas](../../_includes/metadata-hub/data-catalog-quotas.md) %}
 

@@ -9,8 +9,6 @@ keywords:
 
 # Creating a {{ SPRK }} cluster
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 Each {{ SPRK }} cluster contains computing resources to run Spark applications.
 
 ## Roles for creating a cluster {#roles}
@@ -89,11 +87,11 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
     {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-    To create a {{ msp-name }} cluster:
+    To create a {{ msp-full-name }} cluster:
 
     1. In the configuration file, describe the resources you are creating:
 
-        * {{ msp-name }} cluster: Cluster description.
+        * {{ msp-full-name }} cluster: Cluster description.
 
         * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -109,7 +107,7 @@ For more information about assigning roles, see the [{{ iam-full-name }} documen
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Create a {{ msp-name }} cluster.
+    1. Create a {{ msp-full-name }} cluster.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

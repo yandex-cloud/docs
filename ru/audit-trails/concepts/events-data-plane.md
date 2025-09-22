@@ -151,6 +151,11 @@ description: В данном разделе приведены описания 
 
 {% include [translate-events-dp](../../_includes/audit-trails/events/translate-events-dp.md) %}
 
+## {{ vpc-full-name }} {#vpc}
+
+Имя сервиса — `network`.
+
+{% include [vpc-events-dp](../../_includes/audit-trails/events/vpc-events-dp.md) %}
 
 ## {{ vision-full-name }} {#vision}
 

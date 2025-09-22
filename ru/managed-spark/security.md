@@ -3,9 +3,7 @@ title: Управление доступом в {{ msp-full-name }}
 description: Управление доступом в сервисе по созданию и управлению кластерами {{ SPRK }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
 ---
 
-# Управление доступом к {{ msp-name }}
-
-{% include notitle [preview](../_includes/note-preview.md) %}
+# Управление доступом к {{ msp-full-name }}
 
 
 В этом разделе вы узнаете:
@@ -26,7 +24,7 @@ description: Управление доступом в сервисе по соз
 
 {% include [basic-resources](../_includes/iam/basic-resources-for-access-control.md) %}
 
-Чтобы разрешить доступ к ресурсам сервиса {{ msp-name }} (кластеры, учетные записи), назначьте пользователю нужные роли на каталог, облако или организацию, в которых содержатся эти ресурсы.
+Чтобы разрешить доступ к ресурсам сервиса {{ msp-full-name }} (кластеры, учетные записи), назначьте пользователю нужные роли на каталог, облако или организацию, в которых содержатся эти ресурсы.
 
 ## Какие роли действуют в сервисе {#roles-list}
 
@@ -68,7 +66,7 @@ description: Управление доступом в сервисе по соз
 
 Чтобы пользоваться сервисом, необходима роль `managed-spark.editor` или выше на каталог, в котором создается кластер. Роль `managed-spark.viewer` позволит только просматривать список кластеров.
 
-Чтобы создать кластер {{ msp-name }}, нужны роли [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user), а также роль `managed-spark.admin` или выше.
+Чтобы создать кластер {{ msp-full-name }}, нужны роли [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user), а также роль `managed-spark.admin` или выше.
 
 Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `managed-spark.admin` вместо `managed-spark.editor`.
 

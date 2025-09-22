@@ -5,10 +5,6 @@ description: Пошаговые инструкции по работе с {{ con
 
 # Получение информации об операции
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
 ## Получить список операций для конкретного подключения {#operations-list}
 
 {% include [connection-manager-operations](../../_includes/metadata-hub/connection-manager-operations.md) %}

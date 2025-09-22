@@ -3,9 +3,7 @@ title: Access management in {{ msp-full-name }}
 description: Access management in {{ SPRK }}, a cluster creation and management service. This section covers the resources supporting role assignment, the roles this service has, and the required roles for specific actions.
 ---
 
-# Managing access to {{ msp-name }}
-
-{% include notitle [preview](../_includes/note-preview.md) %}
+# Managing access to {{ msp-full-name }}
 
 
 In this section, you will learn:
@@ -26,7 +24,7 @@ To assign a role for a resource, a user should have the `managed-spark.admin` ro
 
 {% include [basic-resources](../_includes/iam/basic-resources-for-access-control.md) %}
 
-To allow access to {{ msp-name }} resources, such as clusters and accounts, give the user the relevant roles for the folder, cloud, or organization containing those resources.
+To allow access to {{ msp-full-name }} resources, such as clusters and accounts, give the user the relevant roles for the folder, cloud, or organization containing those resources.
 
 ## What roles exist in this service {#roles-list}
 
@@ -68,7 +66,7 @@ Below is a list of all roles that are used to verify access rights in the servic
 
 To use the service, the user needs the `managed-spark.editor` role or higher for the folder in which the cluster is created. With the `managed-spark.viewer` role, one can only view the list of clusters.
 
-To create an {{ msp-name }} cluster, the following roles are required: [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user), [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user), and `managed-spark.admin` or higher.
+To create an {{ msp-full-name }} cluster, the following roles are required: [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user), [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user), and `managed-spark.admin` or higher.
 
 You can always assign a role with more permissions. For example, you can assign the `managed-spark.admin` role instead of `managed-spark.editor`.
 

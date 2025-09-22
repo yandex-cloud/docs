@@ -35,7 +35,6 @@ Free tier applies to the following services:
 * [{{ yds-full-name }}](#yds)
 * [{{ data-transfer-full-name }}](#transfer)
 * [{{ datalens-full-name }}](#datalens)
-* [{{ foundation-models-full-name }}](#foundation-models)
 * [{{ iot-full-name }}](#iot)
 * [{{ load-testing-full-name }}](#load-testing)
 * [{{ ydb-full-name }}](#ydb)
@@ -145,12 +144,6 @@ After you spend the free amount of services, you will be charged at the applicab
 [{{ datalens-full-name }}](../../datalens/quickstart.md) is a business analytics service. It allows you to connect to various data sources, visualize data, create dashboards, and share your results.
 
 {% include [not-charged-datalens.md](../../_includes/pricing/price-formula/not-charged-datalens.md) %}
-
-## {{ foundation-models-full-name }} {#foundation-models}
-
-[{{ foundation-models-full-name }}](../../foundation-models/index.yaml) provides large generative models for businesses. {{ yandex-cloud }} offers the {{ gpt-lite }}, {{ gpt-pro }}, and {{ yandexart-name }} neural networks for your business apps and web services.
-
-{% include [not-charged-foundation-models](../../_includes/pricing/price-formula/not-charged-foundation-models.md) %}
 
 ## {{ iot-full-name }} {#iot}
 

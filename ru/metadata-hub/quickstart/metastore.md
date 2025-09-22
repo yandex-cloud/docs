@@ -5,8 +5,6 @@ description: В сервисе {{ metadata-hub-name }} вы можете соз�
 
 # Начало работы с {{ metastore-full-name }}
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
 В сервисе {{ metadata-hub-name }} вы можете [создавать кластеры {{ metastore-full-name }}](#create-metastore-cluster) и [использовать их](#connect-metastore-to-dataproc) для работы с кластерами {{ dataproc-full-name }}.
 
 ## Перед началом работы {#before-you-begin}

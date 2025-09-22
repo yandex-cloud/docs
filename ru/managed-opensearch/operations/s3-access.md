@@ -57,7 +57,6 @@ description: Из статьи вы узнаете, как настроить д
 
 {% endnote %}
 
-1. [Установите плагин](plugins.md#update) `repository-s3`.
 1. [Подключитесь](connect.md) к кластеру.
 1. Зарегистрируйте бакет как репозиторий снапшотов, используя публичный [API {{ OS }}]({{ os.docs }}/opensearch/snapshot-restore/#register-repository):
 

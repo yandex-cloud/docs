@@ -60,8 +60,6 @@ description: Следуя данной инструкции, вы сможете
       
       * (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-        {% include [preview-note](../../_includes/note-preview-by-request.md) %}
-
         * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
 
         * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
@@ -151,6 +149,7 @@ description: Следуя данной инструкции, вы сможете
         --database name=<имя_БД> \
         --mongod-disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
         --mongod-disk-size <размер_хранилища_ГБ> \
+        --disk-encryption-key-id <идентификатор_ключа_KMS> \
         --performance-diagnostics=<включить_диагностику> \
         --deletion-protection
       ```
@@ -172,6 +171,11 @@ description: Следуя данной инструкции, вы сможете
          * `priority` — [приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
 
       * `--mongod-disk-type` — тип диска.
+      * `--disk-encryption-key-id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
+
+         {% include [preview-note](../../_includes/note-preview-by-request.md) %}
+
+         Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
 
       * `--performance-diagnostics` — включить диагностику производительности кластера: `true` или `false`.

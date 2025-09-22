@@ -5,10 +5,6 @@ description: Из статьи вы узнаете, как создать пер
 
 # Начало работы с сервисами {{ metadata-hub-full-name }}
 
-
-{% include notitle [preview](../../_includes/note-preview.md) %}
-
-
 {{ metadata-hub-full-name }} позволяет управлять данными в {{ yandex-cloud }}. Вы можете:
 
 * создавать подключения к базам данных и управлять параметрами этих подключений;
@@ -21,10 +17,10 @@ description: Из статьи вы узнаете, как создать пер
 
 * [{{ metastore-full-name }}](metastore.md). С его помощью вы можете управлять данными в приложениях, которые поддерживают интеграцию с {{ metastore-name }}. Подробнее о кластерах {{ metastore-name }} см. в [Концепциях](../concepts/metastore.md).
 
-* [{{ schema-registry-name }}](schema-registry.md). С его помощью вы сможете создать субъекты и схемы для управления, задавать параметры эволюции схем, добавлять референсы, сравнивать версии схем. Подробнее о реестре схем см. в [Концепциях](../concepts/schema-registry.md).
+* {{ preview-stage }} [{{ schema-registry-name }}](schema-registry.md). С его помощью вы сможете создавать субъекты и схемы для управления, задавать параметры эволюции схем, добавлять референсы, сравнивать версии схем. Подробнее о реестре схем см. в [Концепциях](../concepts/schema-registry.md).
 
 
-* Data Catalog. С его помощью вы можете собирать, искать и визуализировать метаданные об объектах {{ yandex-cloud }} и связях между ними. Подробнее о реестре схем см. в [Концепциях](../concepts/data-catalog.md).
+* {{ preview-stage }} {{ data-catalog-name }}. С его помощью вы можете [размечать](../quickstart/data-steward-quickstart.md) и [анализировать](../quickstart/data-analyst-quickstart.md) метаданные об объектах {{ yandex-cloud }} и связях между ними. Подробнее о каталоге данных см. в [Концепциях](../concepts/data-catalog.md).
 
   Вы можете работать с сервисом Data Catalog в следующих ролях:
 

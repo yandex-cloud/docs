@@ -15,8 +15,6 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
-{% include [not-charged-foundation-models](../_includes/pricing/price-formula/not-charged-foundation-models.md) %}
-
 ## Из чего складывается стоимость использования {{ foundation-models-full-name }} {#rules}
 
 Использование сервиса {{ foundation-models-name }} [детализируется в {{ billing-name }}](../billing/operations/check-charges.md) в единицах тарификации — _тарифицирующих юнитах_. Стоимость одного тарифицирующего юнита различается для [генерации](concepts/generation/index.md), [векторизации](./concepts/embeddings.md) и [выделенных инстансов](concepts/generation/dedicated-instance.md).

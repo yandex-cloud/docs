@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание кластера {{ metastore-full-name }}
 
-{% include [Preview](../../../_includes/note-preview.md) %}
-
 Подробнее о кластерах {{ metastore-name }} в сервисе {{ metadata-hub-name }} см. в разделе [{#T}](../../concepts/metastore.md).
 
 ## Перед началом работы {#before-you-begin}

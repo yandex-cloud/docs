@@ -5,8 +5,6 @@ description: В этой инструкции вы научитесь созда
 
 # Как начать работать с {{ msp-full-name }}
 
-{% include notitle [preview](../_includes/note-preview.md) %}
-
 Чтобы начать работу с сервисом:
 
 * [Подготовьте облако к работе](#prepare-cloud).
@@ -40,7 +38,7 @@ description: В этой инструкции вы научитесь созда
 
 1. [Создайте сервисный аккаунт](../iam/operations/sa/create.md#create-sa) и назначьте ему роли:
 
-   * `managed-spark.integrationProvider` — для взаимодействия {{ msp-name }} с другими сервисами (например для отправки логов и метрик).
+   * `managed-spark.integrationProvider` — для взаимодействия {{ msp-full-name }} с другими сервисами (например для отправки логов и метрик).
    * [storage.editor](../storage/security/index.md#storage-editor) — для доступа к файлам с PySpark-заданиями в бакете {{ objstorage-name }}.
 
 1. [Создайте бакет {{ objstorage-name }}](../storage/operations/buckets/create.md).
@@ -80,7 +78,7 @@ description: В этой инструкции вы научитесь созда
      1. Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** — **INFO**.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ msp-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
+  1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ msp-full-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
 
 {% endlist %}
 

@@ -206,7 +206,7 @@ description: This page provides a list of tutorials for building a data platform
 ## {{ data-transfer-full-name }} {#data-transfer}
 
 * [{#T}](managed-greenplum.md)
-* [{#T}](managed-mongodb.md)
+* [{#T}](storedoc.md)
 * [{#T}](managed-mysql.md)
 * [{#T}](managed-mysql-to-mysql.md)
 * [{#T}](managed-postgresql.md)
@@ -215,5 +215,6 @@ description: This page provides a list of tutorials for building a data platform
 ## {{ msp-full-name }} {#spark}
 
 * [{#T}](airflow-and-spark.md)
+* [{#T}](spark-objstorage-integration.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

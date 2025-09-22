@@ -5,8 +5,6 @@ description: Имперсонация позволяет кластеру {{ met
 
 # Имперсонация в {{ metastore-name }}
 
-{% include [Preview](../../_includes/note-preview.md) %}
-
 _Имперсонация_ позволяет [кластеру {{ metastore-name }}](metastore.md) взаимодействовать с ресурсами в облаке от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 
 По умолчанию кластер {{ metastore-name }} не имеет доступа к пользовательским ресурсам. Чтобы обеспечить доступ к таким ресурсам, [создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с нужными ролями и привяжите его к кластеру {{ metastore-name }} при [создании кластера](../operations/metastore/cluster-create.md#create-cluster). После этого {{ metastore-name }} сможет взаимодействовать с пользовательскими ресурсами, так как авторизация происходит от имени сервисного аккаунта.
