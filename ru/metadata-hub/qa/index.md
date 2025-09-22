@@ -25,3 +25,5 @@ description: Как исправить ошибку при создании БД
 ### Ошибка при добавлении и удалении опциональных параметров {#avoid-errors-while-evolving-schema}
 
 {% include notitle [optional-parameter-error](../../_qa/metadata-hub/optional-parameter-error.md) %}
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

@@ -1,6 +1,6 @@
 ---
 title: Dashboard versioning
-description: 'Dashboard versioning is the ability to store the history of dashboard configuration changes using versions. A list of versions is available to users with the lowest level of access to the dashboard: **View**.'
+description: Dashboard versioning is the ability to store the history of dashboard configuration changes using versions. A list of versions is available to users with the minimum {{ permission-write }} access permissions to the dashboard.
 ---
 
 # Versioning
@@ -46,7 +46,7 @@ All versions fall into the following types:
 
 ## Creating a new version {#version-create}
 
-A new version is automatically created when you click **Save** in dashboard edit mode. Dashboard configuration changes that result in a new version:
+A new version is automatically created when you click **Save** in dashboard edit mode. Below are dashboard configuration changes that create a new version once they are saved:
 
 * Changing dashboard settings accessible by clicking ![image](../../_assets/console-icons/gear.svg) at the top of the screen.
 * Adding, renaming, or deleting dashboard tabs.

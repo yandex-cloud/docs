@@ -23,3 +23,5 @@ description: В сервисе {{ metastore-full-name }} вы можете ра�
 ## Проверьте подключение {#check-connection}
 
 Чтобы проверить подключение к бакету {{ objstorage-name }}, [экспортируйте в него данные кластера {{ metastore-name }}](export-and-import.md#export). 
+
+{% include [metastore-trademark](../../../_includes/metadata-hub/metastore-trademark.md) %}

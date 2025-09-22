@@ -65,7 +65,7 @@
      * [logging.editor](../../../iam/roles-reference.md#logging-editor) — чтобы работать с лог-группами.
      * [logging.reader](../../../iam/roles-reference.md#logging-reader) — чтобы читать логи.
      * [mdb.viewer](../../../iam/roles-reference.md#mdb-viewer) — чтобы получать статусы операций.
-     * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer) — чтобы просматривать информацию о кластерах Hive Metastore. ||
+     * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer) — чтобы просматривать информацию о кластерах {{ metastore-name }}. ||
      || `metastore-agent` для кластера {{ metastore-name }}. |
      * [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider) — чтобы кластер {{ metastore-name }} мог [взаимодействовать с другими ресурсами](../../../metadata-hub/concepts/metastore-impersonation.md). ||
      || `spark-agent` для кластера {{ SPRK }}. |
@@ -158,7 +158,7 @@
      * [logging.editor](../../../iam/roles-reference.md#logging-editor) — чтобы работать с лог-группами.
      * [logging.reader](../../../iam/roles-reference.md#logging-reader) — чтобы читать логи.
      * [mdb.viewer](../../../iam/roles-reference.md#mdb-viewer) — чтобы получать статусы операций.
-     * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer) — чтобы просматривать информацию о кластерах Hive Metastore.
+     * [{{ roles.metastore.viewer }}](../../../iam/roles-reference.md#managed-metastore-viewer) — чтобы просматривать информацию о кластерах {{ metastore-name }}.
      * [{{ roles.metastore.integrationProvider }}](../../../iam/roles-reference.md#managed-metastore-integrationProvider) — чтобы кластер {{ metastore-name }} мог [взаимодействовать с другими ресурсами](../../../metadata-hub/concepts/metastore-impersonation.md).
      * [managed-spark.integrationProvider](../../../iam/roles-reference.md#managed-spark-integrationProvider) — чтобы кластер {{ SPRK }} мог взаимодействовать с другими ресурсами. 
 
@@ -259,7 +259,7 @@ DAG будет состоять из нескольких вершин, кото
      SERVICE_ACCOUNT_ID = '<идентификатор_сервисного_аккаунта_spark-agent>'
      SUBNET_IDS = [<идентификатор_подсети>]
      SECURITY_GROUP_IDS = [<идентификатор_группы_безопасности>]
-     METASTORE_CLUSTER_ID = '<идентификатор_кластера_Metastore>'
+     METASTORE_CLUSTER_ID = '<идентификатор_кластера_Apache_Hive™_Metastore>'
 
      JOB_NAME = 'job_with_table'
      JOB_SCRIPT = 's3a://<бакет_для_исходного_кода_PySpark_задания>/scripts/job_with_table.py'
@@ -398,7 +398,7 @@ DAG будет состоять из нескольких вершин, кото
      SERVICE_ACCOUNT_ID = '<идентификатор_сервисного_аккаунта_integration-agent>'
      SUBNET_IDS = [<идентификатор_подсети>]
      SECURITY_GROUP_IDS = [<идентификатор_группы_безопасности>]
-     METASTORE_CLUSTER_ID = '<идентификатор_кластера_Metastore>'
+     METASTORE_CLUSTER_ID = '<идентификатор_кластера_Apache_Hive™_Metastore>'
 
      JOB_NAME = 'job_with_table'
      JOB_SCRIPT = 's3a://<бакет_для_заданий_и_данных>/scripts/job_with_table.py'

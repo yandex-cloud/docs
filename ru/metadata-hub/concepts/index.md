@@ -61,3 +61,5 @@ description: Из статьи вы узнаете, что такое подкл
 * Поиска ответственных за данные, в том числе пассивно — через подписку.
 * Получения схемы для потребителя данных.
 
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

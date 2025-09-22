@@ -38,6 +38,32 @@ editable: false
 
 
 
+
+#### Цены на промо-конфигурации {#promo}
+
+{% note info %}
+
+Цены на промо-конфигурации действуют с 00:00 19.09.2025 по 23:59 31.12.2025.
+
+{% endnote %}
+
+
+Все цены указаны за 1 месяц.
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-servers.md](../_pricing/baremetal/rub-servers-promo.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-servers.md](../_pricing/baremetal/kzt-servers-promo.md) %}
+
+{% endlist %}
+
+
+
 {% note info %}
 
 Серверы, находящиеся на [карантине](./concepts/servers.md#quarantine), не тарифицируются. При этом, если в течение срока карантина сервер будет восстановлен для дальнейшего использования, то период времени, в течение которого этот сервер находился на карантине, будет включен в оплачиваемый срок аренды.

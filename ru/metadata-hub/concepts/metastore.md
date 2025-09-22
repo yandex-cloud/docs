@@ -104,3 +104,5 @@ description: В сервисе {{ metadata-hub-full-name }} вы можете с
 
 * [{#T}](../tutorials/metastore-import.md)
 * [{#T}](../tutorials/sharing-tables.md)
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}
