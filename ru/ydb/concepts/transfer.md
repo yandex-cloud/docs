@@ -1,7 +1,7 @@
 # Трансфер данных
 В [dedicated режиме работы](serverless-and-dedicated.md#dedicated) базы данных {{ ydb-name }} вы можете использовать [трансфер]({{ ydb.docs }}/concepts/transfer) для поставки данных из [топика]({{ ydb.docs }}/concepts/glossary#topic) в [таблицу]({{ ydb.docs }}/concepts/glossary#table). Трансфер запускается внутри базы данных, работает в фоновом режиме.
 Трансфер способен читать данные из топиков, расположенных как в [базе данных]({{ ydb.docs }}/concepts/glossary#database), где он создаётся, так и в другой базе {{ ydb-short-name }} или [кластере]({{ ydb.docs }}/concepts/glossary#cluster) {{ ydb-short-name }}. Для чтения топика из другой базы данных при создании трансфера необходимо указать параметры подключения к этой базе. Целевая таблица должна находиться в той же базе данных, где создаётся трансфер.
-[Создание]({{ ydb.docs }}/yql/reference/syntax/create-transfer.md) экземпляра трансфера, его [изменение]({{ ydb.docs }}/yql/reference/syntax/alter-transfer.md) и [удаление]({{ ydb.docs }}/yql/reference/syntax/drop-transfer.md) осуществляется с использованием YQL.
+[Создание]({{ ydb.docs }}/yql/reference/syntax/create-transfer) экземпляра трансфера, его [изменение]({{ ydb.docs }}/yql/reference/syntax/alter-transfer) и [удаление]({{ ydb.docs }}/yql/reference/syntax/drop-transfer) осуществляется с использованием YQL.
 Пример создания трансфера описан в  статье [Трансфер — быстрый старт]({{ ydb.docs }}/recipes/transfer/quickstart).
 ## Создание трансфера, читающего данные из другой базы данных {{ ydb-name }} в {{ yandex-cloud }} {#other-database}
 Для чтения топика из другой базы данных {{ ydb-name }} в {{ yandex-cloud }} поддержана авторизация через [{{ iam-name }}](../../iam/index.yaml).
