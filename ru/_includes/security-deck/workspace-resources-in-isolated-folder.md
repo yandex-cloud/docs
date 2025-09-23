@@ -1,0 +1,1 @@
+В целях безопасности ресурсы {{ sd-name }} рекомендуется хранить в отдельном [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), доступ к которым есть только у сотрудников, отвечающих за безопасность.

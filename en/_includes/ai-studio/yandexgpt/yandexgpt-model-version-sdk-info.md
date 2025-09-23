@@ -1,0 +1,1 @@
+For more information about accessing a specific model version, see [{#T}](../../../ai-studio/concepts/generation/models.md#addressing-models).

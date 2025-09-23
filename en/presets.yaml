@@ -208,8 +208,8 @@ default:
   folder-id-example: b1g86q4m5vej********
   forms-full-name: Yandex Forms
   forms-name: Forms
-  foundation-models-full-name: Yandex Foundation Models
-  foundation-models-name: Foundation Models
+  foundation-models-full-name: Yandex AI Studio
+  foundation-models-name: AI Studio
   GL: GitLab
   gl:
     docs: https://docs.gitlab.com
@@ -7567,8 +7567,13 @@ default:
       actions:
         add: Add
         delete: Delete
+        edit: Edit
         exclude: Remove
         save-changes: Save
+      app:
+        security:
+          control_rules_rWmUV: Control ruls
+          label_workspace_12Kax: Workspace
       application:
         overview:
           certificate_action_download_cert: Download certificate
@@ -7624,9 +7629,11 @@ default:
           table:
             column-active: Active
       common:
+        apply: Apply
         columns:
           column_id: Identifier
         confirm: Confirm
+        create: Create
         more: More
         overview: Overview
         resource-acl:
@@ -7764,6 +7771,9 @@ default:
           folders-create:
             button_create: Create
             field_description: Description
+      kspm:
+        TopClustersByErrorsWidget:
+          table_clusters: Tops clusters with warnings
       layout:
         organization: Identity Hub
       mfa-policy-audiences:
@@ -7875,6 +7885,126 @@ default:
         securitySettings: Security settings
         userpools: User pools
         users: Users
+      security-center:
+        alerts:
+          sink:
+            action_create: Create sink
+        kspm:
+          title_clusters: Clusters
+          title_dashboard: Dashboard
+        label_kspm: KSPM
+        label_settings: Security Deck parameters
+      security:
+        controls:
+          ControlExceptionForm:
+            allResources_2ax5E: All resources
+            ExceptionRulesSection:
+              action_select-rules: Select rules
+              rules-select_option_all: All rules
+              rules-select_option_selected: Selected rules
+              section-title: Excepted rules
+            scopeOfControl_aRkwB: Scope of control
+            section-title_3YcSF: Reason for exclusion
+            selectResources_bD5MC: Select resources
+          ControlsExceptionsPage:
+            action_create: Create exception
+            exceptions_header_qJD5D: KSPM
+            exceptions_header_vqsTb: KSPM
+            scope_filter_header_7CrSm: Configuration controls
+          ControlsPage:
+            exceptions_kw1u7: Exceptions
+            kubernetes_jRCmt: Kubernetes®
+            security_control_r4yn7: Security control
+          ControlsPageLayout:
+            configuration_w7Kw7: Configuration
+          ExceptionDrawer:
+            resources_field_id: ID
+          ExceptionOverview:
+            header_caption_cspm_9dTJt: Configuration control
+            info_type_1dxbZ: Exception type
+          rule-result:
+            controlRule_kr2Bv: Control rule
+            standards_iv6a5: Rule sets
+            verificationMethod_dS9B2: Verification method
+            violations_q7AcU: Violations
+          RulePageLayout:
+            tab_overview_s9riS: Overview
+            tab_recommendations_qq61Z: Recommendations
+            tab_violations_dkbdT: Violations
+          ScopeFilterTable:
+            field_author_8hf4z: Created
+            field_reason_qN8a7: Exception reason
+            field_rules_vBK4W: Rules
+            field_type_exclude_cigcD: Do not scan resource
+            field_type_kCG8J: Exception type
+            field_type_manual_mbKxp: Resource scanned
+        kspm:
+          TopControlsByErrorsWidget:
+            table_controls_rJ32E: Top controls with warnings
+        settings:
+          SettingsPageLayout:
+            alertSinkLabel_gvxBa: Alert Sink
+            connectorsLabel_2NoP9: Connectors
+            workspacesLabel_kZyU1: Workspaces
+        workspaces:
+          ConnectorAddField:
+            addNewConnector: New connector
+            addResourcesPlaceholder: Add resources
+          ConnectorDialog:
+            createConnectorButton: Create connector
+            labelDescriptionField: Description
+            labelNameField: Name
+            labelServiceAccountField: Service account
+          ServiceAccountResourceSelectDialog:
+            action_save: Save selection
+          WorkspaceEditPageLayout:
+            tabGeneralParams_xc2v2: Основные параметры
+            tabKubernetes_rC2uU: KSPM
+            tabResources_vJuSN: Ресурсы
+            tabStandards_wSeaW: Standards
+          WorkspaceGeneralParamsForm:
+            alert_sink_title_pvDBG: Alert sink
+            billing_account_title_sU1Tj: Payment for resources
+            folder_title_px1re: Resource storage folder
+            workspace_title_365xt: Workspace name
+          WorkspaceKspmResourcesForm:
+            section-title_iYCNY: Scope of control
+          WorkspaceOnboardingForm:
+            createAndContinue_1yfFr: Create and continue
+            finishOnboarding: Finish
+            generalParamsTitle_xzLoX: Main parameters
+            participantsTitle_1WfGq: Participants
+            resourcesTitle_fE6qp: Resources
+            saveAndContinue_9xKZY: Save and continue
+            standartsTitle_cxvJ8: Rule sets
+          WorkspaceOnboardingPageLayout:
+            pageTitle_ehdBw: Creating and configuring workspace
+          WorkspacePageLayout:
+            acl_tab: Access bindings
+            edit_action: Environment parameters
+            operations_tab: Operations
+            overview_tab: Dashboard
+          WorkspaceParticipantsForm:
+            action_add-user: Add participants
+            WorkspaceAclTable:
+              action_assign-roles: Assign roles
+              action_remove-user: Remove user
+          WorkspaceResourcesForm:
+            actionDelete: Delete
+            actionEditConnector: Edit connector
+            buttonSelectCloudCatalog: Select cloud/catalog
+            title: Environment resources
+          WorkspaceSelect:
+            create_action: Create workspace
+          WorkspaceStandardsForm:
+            modules_title_s8LDi: Module activation
+            standards_title_dBBXP: Security standards
+      shared:
+        components:
+          severity_high_cahHH: High severity
+          severity_info_biSRh: Remark
+          severity_low_tqf9A: Low severity
+          severity_medium_8LZ4w: Medium severity
       support:
         switch_tickets: Tickets
         tickets:
@@ -9731,6 +9861,8 @@ default:
             popup-confirm_button_delete: Delete
           overview:
             label_health: State
+            label_ident-and-access-management-issuer: Issuer URL
+            label_ident-and-access-management-jwks-uri: JWKS key set URL
             label_master-title: Master
             label_status: Status
             label_title: Overview
@@ -10555,6 +10687,7 @@ default:
         button_create-container: Create container
         button_deploy-revision: Create revision
         label_args: Arguments
+        label_async-enable: Enable
         label_aws_v1_http_endpoint: Access metadata using the AWS format (IMDSv1)
         label_command: Command
         label_containers: Containers
@@ -10571,6 +10704,7 @@ default:
         label_url: Link to invoke
         label_working-directory: Working directory
         popup-confirm-edit-active-revision_button_confirm: Confirm
+        section_async: Asynchronous call
         section_general: General information
         section_image: Image settings
         section_parameters: Settings
@@ -12574,12 +12708,34 @@ default:
         disk_properties_action_properties_upload_properties_content_view_spec_layout_title: File content
         disk_properties_oauth_token_view_spec_layout_title: OAuth token
         disk_properties_path_view_spec_layout_title: Path
+        foundation_models_properties_action_description_classify: Fine-tuned classification
+        foundation_models_properties_action_description_few_shot_classify: Classifcation by prompt
+        foundation_models_properties_action_description_generate: Text generation
+        foundation_models_properties_action_properties_few_shot_classify_properties_labels_description_labels_array: List
+        foundation_models_properties_action_properties_few_shot_classify_properties_labels_description_labels_json: JSON
+        foundation_models_properties_action_properties_few_shot_classify_properties_labels_properties_labels_json_view_spec_title: JSON object
+        foundation_models_properties_action_properties_few_shot_classify_properties_labels_view_spec_layout_title: Labels
+        foundation_models_properties_action_properties_few_shot_classify_properties_samples_description_samples_array: List
+        foundation_models_properties_action_properties_few_shot_classify_properties_samples_description_samples_json: JSON
+        foundation_models_properties_action_properties_few_shot_classify_properties_samples_properties_samples_json_view_spec_title: JSON object
+        foundation_models_properties_action_properties_few_shot_classify_properties_samples_view_spec_layout_title: Sample queries
+        foundation_models_properties_action_properties_few_shot_classify_properties_task_description_view_spec_layout_title: Task
+        foundation_models_properties_action_properties_few_shot_classify_properties_text_view_spec_layout_title: Text
         foundation_models_properties_action_properties_generate_properties_context_description_json: JSON string
         foundation_models_properties_action_properties_generate_properties_context_description_messages: Messages
         foundation_models_properties_action_properties_generate_properties_context_view_spec_layout_title: Context
         foundation_models_properties_action_properties_generate_properties_max_tokens_view_spec_layout_title: Number of tokens
         foundation_models_properties_action_properties_generate_properties_model_description_base_model: Base model
         foundation_models_properties_action_properties_generate_properties_model_description_custom: Fine-tuned model
+        foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_disabled: Disabled
+        foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_enabled_hidden: Enabled
+        foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_reasoning_mode_unspecified: Unspecified
+        foundation_models_properties_action_properties_generate_properties_reasoning_mode_view_spec_layout_title: Reasoning mode
+        foundation_models_properties_action_properties_generate_properties_structured_output_description_json_object: JSON object
+        foundation_models_properties_action_properties_generate_properties_structured_output_description_json_schema: JSON schema
+        foundation_models_properties_action_properties_generate_properties_structured_output_description_none: None
+        foundation_models_properties_action_properties_generate_properties_structured_output_properties_json_schema_view_spec_layout_title: JSON schema
+        foundation_models_properties_action_properties_generate_properties_structured_output_view_spec_layout_title: Structured output
         foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title: Temperature
         foundation_models_properties_model_properties_custom_view_spec_layout_title: Model URI
         foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title: Folder ID

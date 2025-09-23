@@ -13,6 +13,7 @@ C помощью {{ managed-k8s-name }} вы можете работать с [�
 * [{#T}](migration-to-an-availability-zone.md)
 * [{#T}](kms-k8s.md)
 * [{#T}](k8s-cluster-api-provider-yandex.md)
+* [{#T}](wlif-managed-k8s-integration.md)
 
 ### Создание проекта с помощью {{ TF }} {#terraform}
 

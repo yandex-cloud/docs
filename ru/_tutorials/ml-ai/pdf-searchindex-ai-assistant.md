@@ -1,12 +1,12 @@
 # Создать AI-ассистента с RAG по PDF-файлам со сложным форматированием
 
-{% include [assistants-preview-stage](../../_includes/foundation-models/assistants-preview-stage.md) %}
+{% include [assistants-preview-stage](../../_includes/ai-studio/assistants-preview-stage.md) %}
 
-В этом практическом руководстве приведен пример создания [AI-ассистента](../../foundation-models/concepts/assistant/index.md), который выполняет поиск по информации в источнике, содержащем сложное форматирование и табличные данные, и анализирует полученные данные с помощью [модели генерации текста](../../foundation-models/concepts/generation/models.md) {{ gpt-pro }} RC.
+В этом практическом руководстве приведен пример создания [AI-ассистента](../../ai-studio/concepts/assistant/index.md), который выполняет поиск по информации в источнике, содержащем сложное форматирование и табличные данные, и анализирует полученные данные с помощью [модели генерации текста](../../ai-studio/concepts/generation/models.md) {{ gpt-pro }} RC.
 
-В качестве примера исходного файла со сложным форматированием приведен файл в формате [PDF](https://ru.wikipedia.org/wiki/Portable_Document_Format). Исходный файл будет преобразован в формат [Markdown](https://ru.wikipedia.org/wiki/Markdown). Многие модели обучаются на данных в формате Markdown и лучше всего работают с ним, поэтому файлы этого формата эффективнее всего использовать в качестве источника для поискового индекса. Поисковые индексы, которые вы создадите из файла-источника, будут использовать два [варианта поиска](../../foundation-models/concepts/assistant/search-index.md#search-types) — текстовый и гибридный.
+В качестве примера исходного файла со сложным форматированием приведен файл в формате [PDF](https://ru.wikipedia.org/wiki/Portable_Document_Format). Исходный файл будет преобразован в формат [Markdown](https://ru.wikipedia.org/wiki/Markdown). Многие модели обучаются на данных в формате Markdown и лучше всего работают с ним, поэтому файлы этого формата эффективнее всего использовать в качестве источника для поискового индекса. Поисковые индексы, которые вы создадите из файла-источника, будут использовать два [варианта поиска](../../ai-studio/concepts/assistant/search-index.md#search-types) — текстовый и гибридный.
 
-Обращаться к [{{ assistant-api }}](../../foundation-models/assistants/api-ref/index.md) и [Text Generation API](../../foundation-models/text-generation/api-ref/index.md) вы будете через [{{ ml-sdk-full-name }}](../../foundation-models/sdk/index.md) для Python.
+Обращаться к [{{ assistant-api }}](../../ai-studio/assistants/api-ref/index.md) и [Text Generation API](../../ai-studio/text-generation/api-ref/index.md) вы будете через [{{ ml-sdk-full-name }}](../../ai-studio/sdk/index.md) для Python.
 
 
 ## Перед началом работы {#before-you-begin}
@@ -19,11 +19,11 @@
 
 {% endnote %}
 
-1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роли](../../foundation-models/security/index.md#service-roles) `ai.assistants.editor` и `ai.languageModels.user`.
-1. {% include [sdk-before-begin-step2](../../_includes/foundation-models/sdk-before-begin-step2.md) %}
-1. {% include [sdk-before-begin-step3](../../_includes/foundation-models/sdk-before-begin-step3.md) %}
-1. {% include [sdk-before-begin-step4](../../_includes/foundation-models/sdk-before-begin-step4.md) %}
-1. {% include [sdk-before-begin-step5](../../_includes/foundation-models/sdk-before-begin-step5.md) %}
+1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роли](../../ai-studio/security/index.md#service-roles) `ai.assistants.editor` и `ai.languageModels.user`.
+1. {% include [sdk-before-begin-step2](../../_includes/ai-studio/sdk-before-begin-step2.md) %}
+1. {% include [sdk-before-begin-step3](../../_includes/ai-studio/sdk-before-begin-step3.md) %}
+1. {% include [sdk-before-begin-step4](../../_includes/ai-studio/sdk-before-begin-step4.md) %}
+1. {% include [sdk-before-begin-step5](../../_includes/ai-studio/sdk-before-begin-step5.md) %}
 1. С помощью менеджера пакетов [pip](https://pypi.org/project/pip/) установите библиотеку [docling](https://github.com/DS4SD/docling) для преобразования документов из формата PDF в формат Markdown:
 
     ```bash
@@ -61,7 +61,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость использования AI-ассистента входит плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}](../../foundation-models/pricing.md)).
+В стоимость использования AI-ассистента входит плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}](../../ai-studio/pricing.md)).
 
 
 ## Создайте AI-ассистента и протестируйте его работу {#create-assistant}
@@ -73,9 +73,9 @@
 
 1. Создайте файл `assistant-text.py`, содержащий следующий код:
 
-    {% include [searchindex-ai-assistant-text](../../_includes/foundation-models/assistants/searchindex-ai-assistant-text.md) %}
+    {% include [searchindex-ai-assistant-text](../../_includes/ai-studio/assistants/searchindex-ai-assistant-text.md) %}
 
-    {% include [sdk-code-legend](../../_includes/foundation-models/assistants/sdk-code-legend.md) %}
+    {% include [sdk-code-legend](../../_includes/ai-studio/assistants/sdk-code-legend.md) %}
 
 1. Выполните файл `assistant-text.py`, чтобы создать ассистента и получить от него ответы на вопросы:
 
@@ -106,9 +106,9 @@
 
 1. Создайте файл `assistant-hybrid.py`, содержащий следующий код:
 
-    {% include [searchindex-ai-assistant-hybrid](../../_includes/foundation-models/assistants/searchindex-ai-assistant-hybrid.md) %}
+    {% include [searchindex-ai-assistant-hybrid](../../_includes/ai-studio/assistants/searchindex-ai-assistant-hybrid.md) %}
 
-    {% include [sdk-code-legend](../../_includes/foundation-models/assistants/sdk-code-legend.md) %}
+    {% include [sdk-code-legend](../../_includes/ai-studio/assistants/sdk-code-legend.md) %}
 
 1. Выполните файл `assistant-hybrid.py`, чтобы создать ассистента и получить от него ответы на вопросы:
 
@@ -141,9 +141,9 @@
 
 1. Создайте файл `assistant-analyst.py`, содержащий следующий код:
 
-    {% include [searchindex-ai-assistant-analyst](../../_includes/foundation-models/assistants/searchindex-ai-assistant-analyst.md) %}
+    {% include [searchindex-ai-assistant-analyst](../../_includes/ai-studio/assistants/searchindex-ai-assistant-analyst.md) %}
 
-    {% include [sdk-code-legend](../../_includes/foundation-models/assistants/sdk-code-legend.md) %}
+    {% include [sdk-code-legend](../../_includes/ai-studio/assistants/sdk-code-legend.md) %}
 
 1. Выполните файл `assistant-analyst.py`, чтобы создать ассистента и получить от него ответы на вопросы:
 

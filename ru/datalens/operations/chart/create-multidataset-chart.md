@@ -33,16 +33,4 @@ description: Следуя данной инструкции, вы сможете
 1. Перетащите измерение или показатель из датасета в секцию **Фильтры**. Поле может быть пустым, тогда фильтрация не будет применена.
 
 
-
-## Пример создания мультидатасетного чарта {#chart-example}
-
-{% include [datalens-multidataset-chart-example_presets](../../../_includes/datalens/datalens-multidataset-chart-example_presets.md) %}
-
-
-## Пример создания мультидатасетного чарта с SQL-запросами {#sql-example}
-
-
-{% include [datalens-multidataset-chart-example](../../../_includes/datalens/datalens-multidataset-chart-example.md) %}
-
-
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

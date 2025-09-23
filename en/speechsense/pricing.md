@@ -50,6 +50,13 @@ When analyzing text dialogs, the cost of using {{ speechsense-name }} depends on
 {% include [usd.md](../_pricing/speechsense/usd-text-dialogs.md) %}
 
 
+### Cost of model usage in the assistant {#price-model-assistant}
+
+
+
+{% include [usd-model.md](../_pricing/speechsense/usd-model-assistant.md) %}
+
+
 ### Example of calculating the cost of audio analysis {#price-example-speech}
 
 

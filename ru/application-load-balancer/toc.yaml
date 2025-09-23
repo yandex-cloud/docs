@@ -229,6 +229,42 @@ items:
     items:
       - name: Обзор
         href: tools/index.md
+      - name: Gwin
+        items:
+          - name: Обзор
+            href: tools/gwin/index.md
+          - name: Установка Gwin
+            href: tools/gwin/quickstart.md
+          - name: Политики Gwin
+            href: tools/gwin/policies.md
+          - name: Конфигурация ресурсов (англ.)
+            items:
+              - name: Gateway
+                href: gateway.md
+              - name: GatewayPolicy
+                href: gatewaypolicy.md
+              - name: GRPCRoute
+                href: grpcroute.md
+              - name: HTTPRoute
+                href: httproute.md
+              - name: Ingress
+                href: ingress.md
+              - name: IngressBackendGroup
+                href: ingressbackendgroup.md
+              - name: IngressPolicy
+                href: ingresspolicy.md
+              - name: RoutePolicy
+                href: routepolicy.md
+              - name: Service
+                href: service.md
+              - name: ServicePolicy
+                href: servicepolicy.md
+              - name: TLSRoute
+                href: tlsroute.md
+              - name: YCCertificate
+                href: yccertificate.md
+              - name: YCStorageBucket
+                href: ycstoragebucket.md
       - name: Ingress-контроллер
         items:
           - name: Обзор

@@ -10,6 +10,7 @@
 * [Разработка пользовательской интеграции в {{ api-gw-full-name }}](api-gw-integration.md)
 * [Разработка CRUD API для сервиса фильмов](movies-database.md)
 * [Построение пайплайна CI/CD в {{ GL }}](ci-cd-serverless.md)
+* [Запуск {{ GLR }} в {{ serverless-containers-name }}](serverless-gitlab-runner.md)
 * [{#T}](ci-cd-sourcecraft-functions.md)
 * [{#T}](ci-cd-github-functions.md)
 * [{#T}](api-gw-websocket.md)

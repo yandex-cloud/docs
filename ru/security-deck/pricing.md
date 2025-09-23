@@ -17,6 +17,9 @@ editable: false
 * [Модуль контроля данных ({{ dspm-name }})](concepts/dspm.md) — см. [Модуль контроля данных ({{ dspm-name }})](#dspm-rules) в разделе ниже.
 * [{{ atr-name }}](concepts/access-transparency.md) — см. [{{ atr-name }}](#atr-rules) в разделе ниже.
 * [{{ ycdr-full-name }}](concepts/ycdr.md) — по согласованию с вашим аккаунт-менеджером.
+* [KSPM](./concepts/kspm.md) — не тарифицируется на стадии [Preview](../overview/concepts/launch-stages.md).
+* [{{ cspm-name }}](./concepts/cspm.md) — не тарифицируется на стадии [Preview](../overview/concepts/launch-stages.md).
+* [AI-ассистент](./concepts/ai-assistant.md) — не тарифицируется на стадии [Preview](../overview/concepts/launch-stages.md).
 
 ## Из чего складывается стоимость использования {{ sd-name }} {#rules}
 

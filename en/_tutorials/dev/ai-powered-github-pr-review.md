@@ -1,6 +1,7 @@
 
 
-In this tutorial, you will use {{ foundation-models-full-name }} [text generation capabilities](../../foundation-models/concepts/generation/models.md) to implement the scenario of automatic [review](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) of proposed code changes on [GitHub](https://github.com/).
+
+In this tutorial, you will use {{ foundation-models-full-name }} [text generation capabilities](../../ai-studio/concepts/generation/models.md) to implement the scenario of automatic [review](https://docs.github.com/en/get-started/learning-about-github/github-glossary#review) of proposed code changes on [GitHub](https://github.com/).
 
 This solution uses a [GitHub Actions](https://docs.github.com/en/actions/get-started/understand-github-actions) script to request {{ yandex-cloud }} for an AI review of changes in the [pull request](https://docs.github.com/en/get-started/learning-about-github/github-glossary#pull-request). The steps of pulling the changes, requesting a review from the generative model, and publishing the review to GitHub are performed by a {{ sw-full-name }} [workflow](../../serverless-integrations/concepts/workflows/workflow.md).
 
@@ -15,7 +16,7 @@ On the diagram:
 1. The GitHub Actions script uses the IAM token to send an HTTP request to the {{ sw-full-name }} workflow to generate a review. The pull request number is at the same time provided to the {{ sw-name }} workflow.
 1. The {{ sw-name }} workflow gets the [access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#about-personal-access-tokens) named `personal access token (classic)` for access to the GitHub repository in a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md).
 1. The {{ sw-name }} workflow uses the access token to pull the changes proposed in the pull request from the GitHub repository.
-1. The {{ sw-name }} workflow requests the {{ foundation-models-full-name }} [model](../../foundation-models/concepts/generation/models.md) to review the changes proposed in the pull request. The model returns the review with its comments and tips on how to improve the code.
+1. The {{ sw-name }} workflow requests the {{ foundation-models-full-name }} [model](../../ai-studio/concepts/generation/models.md) to review the changes proposed in the pull request. The model returns the review with its comments and tips on how to improve the code.
 1. The {{ sw-name }} workflow uses the access token to publish the review in the GitHub pull request.
 
 To set up automatic AI reviewing of GitHub pull requests:
@@ -41,7 +42,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs for implementing a scenario for automatic AI review of pull requests include:
-* Text generation fee (see [{{ foundation-models-full-name }} pricing](../../foundation-models/pricing.md)).
+* Text generation fee (see [{{ foundation-models-full-name }} pricing](../../ai-studio/pricing.md)).
 * Fee for storing the secret and operations with it (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for data logging and storage in a [log group](../../logging/concepts/log-group.md) if using [{{ cloud-logging-name }}](../../logging/) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
 
@@ -110,7 +111,7 @@ Create two [service accounts](../../iam/concepts/users/service-accounts.md):
 * `workflow-sa`: This one will be used to run the {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflows/workflow.md).
 * `github-worker`: This one will be used to execute the workflow on a request from the GitHub Actions script.
 
-1. Create a service account named `workflow-sa` and assign the [`{{ roles-lockbox-payloadviewer }}`](../../lockbox/security/index.md#lockbox-payloadViewer) and [`ai.languageModels.user`](../../foundation-models/security/index.md#languageModels-user) [roles](../../iam/concepts/access-control/roles.md) to it.
+1. Create a service account named `workflow-sa` and assign the [`{{ roles-lockbox-payloadviewer }}`](../../lockbox/security/index.md#lockbox-payloadViewer) and [`ai.languageModels.user`](../../ai-studio/security/index.md#languageModels-user) [roles](../../iam/concepts/access-control/roles.md) to it.
 
     {% list tabs group=instructions %}
 
@@ -120,7 +121,7 @@ Create two [service accounts](../../iam/concepts/users/service-accounts.md):
         1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
         1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
         1. Specify the service account name: `workflow-sa`.
-        1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select the [`{{ roles-lockbox-payloadviewer }}`](../../lockbox/security/index.md#lockbox-payloadViewer) and [`ai.languageModels.user`](../../foundation-models/security/index.md#languageModels-user) roles.
+        1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select the [`{{ roles-lockbox-payloadviewer }}`](../../lockbox/security/index.md#lockbox-payloadViewer) and [`ai.languageModels.user`](../../ai-studio/security/index.md#languageModels-user) roles.
         1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
     - CLI {#cli}
@@ -282,7 +283,7 @@ Create a {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflo
     * `<organization_name_on_GitHub>`: Name of user or organization owning the GitHub repository.
     * `<repository_name>`: GitHub repository name.
     * `<secret_ID>`: {{ lockbox-name }} secret ID you saved earlier.
-    * `<model_name>`: [Name](../../foundation-models/concepts/generation/models.md#generation) of the {{ foundation-models-full-name }} text generation model, e.g., `qwen3-235b-a22b-fp8`.
+    * `<model_name>`: [Name](../../ai-studio/concepts/generation/models.md#generation) of the {{ foundation-models-full-name }} text generation model, e.g., `qwen3-235b-a22b-fp8`.
 
 1. Create a workflow:
 

@@ -214,8 +214,10 @@ items:
             href: security/wlif-github-integration.md
           - name: '{{ GL }}'
             href: security/wlif-gitlab-integration.md
-          - name: '{{ k8s }}'
+          - name: Пользовательская инсталляция {{ k8s }}
             href: security/wlif-k8s-integration.md
+          - name: '{{ managed-k8s-name }}'
+            href: security/wlif-managed-k8s-integration.md
       - name: Загрузка аудитных логов в {{ mos-name }}
         hidden: true
         href: security/trails-logs-opensearch.md
@@ -1460,6 +1462,8 @@ items:
         href: serverless/movies-database.md
       - name: Построение пайплайна CI/CD в {{ GL }}
         href: serverless/ci-cd-serverless.md
+      - name: Запуск {{ GLR }} в {{ serverless-containers-name }}
+        href: serverless/serverless-gitlab-runner.md
       - name: Настройка CI/CD между {{ sf-name }} и {{ src-name }}
         href: serverless/ci-cd-sourcecraft-functions.md
       - name: Настройка CI/CD между {{ sf-name }} и GitHub

@@ -1,6 +1,6 @@
 #### Я могу посмотреть историю чатов? {#chat-history}
 
-Вы можете посмотреть историю только тех чатов, которые вели в [{{ ai-playground }}]({{ link-console-main }}/link/foundation-models/). Для этого:
+Вы можете посмотреть историю только тех чатов, которые вели в [{{ ai-playground }}]({{ link-console-main }}/link/ai-studio/). Для этого:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы вели чат.
 1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_foundation-models }}**.

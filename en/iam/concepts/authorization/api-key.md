@@ -33,9 +33,9 @@ Additionally, when creating an API key, you can limit its validity period. You c
 Available scopes are listed below:
 
 
-* `yc.ai.foundationModels.execute`: To send requests to [{{ assistant-api }}](../../../foundation-models/assistants/api-ref/index.md), [Image Generation API](../../../foundation-models/image-generation/api-ref/index.md), [Text Generation API](../../../foundation-models/text-generation/api-ref/index.md), [{{ speechkit-name }} API](../../../speechkit/concepts/api.md), [{{ translate-full-name }} API](../../../translate/concepts/api.md), and [{{ vision-name }} API](../../../vision/ocr/api-ref/index.md).
-* `yc.ai.imageGeneration.execute`: To send requests to image generation models in {{ foundation-models-full-name }} via the [Image Generation API](../../../foundation-models/image-generation/api-ref/index.md).
-* `yc.ai.languageModels.execute`: To send requests to text generation models in {{ foundation-models-full-name }} via the [Text Generation API](../../../foundation-models/text-generation/api-ref/index.md).
+* `yc.ai.foundationModels.execute`: To send requests to [{{ assistant-api }}](../../../ai-studio/assistants/api-ref/index.md), [Image Generation API](../../../ai-studio/image-generation/api-ref/index.md), [Text Generation API](../../../ai-studio/text-generation/api-ref/index.md), [{{ speechkit-name }} API](../../../speechkit/concepts/api.md), [{{ translate-full-name }} API](../../../translate/concepts/api.md), and [{{ vision-name }} API](../../../vision/ocr/api-ref/index.md).
+* `yc.ai.imageGeneration.execute`: To send requests to image generation models in {{ foundation-models-full-name }} via the [Image Generation API](../../../ai-studio/image-generation/api-ref/index.md).
+* `yc.ai.languageModels.execute`: To send requests to text generation models in {{ foundation-models-full-name }} via the [Text Generation API](../../../ai-studio/text-generation/api-ref/index.md).
 * `yc.ai.speechkitStt.execute`: To [recognize speech](../../../speechkit/stt/index.md) via the [{{ speechkit-name }} API](../../../speechkit/concepts/api.md).
 * `yc.ai.speechkitTts.execute`: To [synthesize speech](../../../speechkit/tts/index.md) via the [{{ speechkit-name }} API](../../../speechkit/concepts/api.md).
 * `yc.ai.translate.execute`: To translate text via the [{{ translate-full-name }} API](../../../translate/concepts/api.md).

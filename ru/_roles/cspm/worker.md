@@ -1,0 +1,3 @@
+Роль `cspm.worker` позволяет просматривать информацию об [организации](../../organization/concepts/organization.md), просматривать список [облаков](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталогов](../../resource-manager/concepts/resources-hierarchy.md#folder), а также информацию о них в составе контролируемых ресурсов [окружения](../../security-deck/concepts/workspace.md) Security Deck.
+
+Роль выдается [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), от имени которого будет выполняться проверка на соответствие [стандартам безопасности](../../security-deck/concepts/cspm.md#standards), заданным в настройках [модуля CSPM](../../security-deck/concepts/cspm.md), и назначается на организацию, облако или каталог.

@@ -69,6 +69,14 @@ items:
             href: operations/project/delete-user-from-project.md
           - name: Обучение {{ yagpt-name }}
             href: operations/project/yandexgpt-training
+      - name: Ассистенты
+        items:
+          - name: Создать ассистента
+            href: operations/assistant/create.md
+          - name: Изменить ассистента
+            href: operations/assistant/edit.md
+          - name: Удалить ассистента
+            href: operations/assistant/delete.md
       - name: Теги
         items:
           - name: Создать словарный тег
@@ -118,6 +126,8 @@ items:
     items:
       - name: Иерархия ресурсов
         href: concepts/resources-hierarchy.md
+      - name: Ассистенты
+        href: concepts/assistants.md
       - name: Диалоги
         href: concepts/dialogs.md
       - name: Теги в диалогах

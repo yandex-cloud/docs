@@ -7,12 +7,69 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 0.162.0 (04/09/25) {#version0.162.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ baremetal-name }}
+
+Added the `--folder-id` parameter to these commands for getting configuration:
+  * `yc baremetal configuration get`
+  * `yc baremetal configuration list`
+
+##### {{ mmy-name }}
+
+Added the `MDB_ADMIN` role for the `--global-permissions` parameter to these commands:
+  * `yc managed-mysql user create`
+  * `yc managed-mysql user update`
+
+##### {{ quota-manager-name }}
+
+Added the `yc quota-manager quota-request` command group for managing quota requests:
+  * `yc quota-manager quota-request get`
+  * `yc quota-manager quota-request list`
+  * `yc quota-manager quota-request create`
+  * `yc quota-manager quota-request cancel`
+  * `yc quota-manager quota-request list-operations`
+
+##### {{ serverless-containers-name }}
+
+Added the `--async-service-account-id` parameter to the `yc serverless container revision deploy` command for specifying a service account for asynchronous calls.
+
+##### {{ objstorage-name }}
+
+Increased the maximum lifetime of signed links to 30 days in the `yc storage s3 presign` command.
+
+## Previous releases {#previous-release}
+
+### Version 0.161.0 (28/08/25) {#version0.161.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ connection-manager-name }}
+
+Added management commands for {{ connection-manager-full-name }}:
+* `yc connection-manager connection create`
+* `yc connection-manager connection update`
+* `yc connection-manager connection delete`
+* `yc connection-manager connection get`
+* `yc connection-manager connection resolve-cluster`
+* `yc connection-manager connection list`
+* `yc connection-manager connection list-operations`
+
+##### {{ sw-name }}
+
+Added support for {{ sw-full-name }} cron timers:
+* `yc serverless workflow create`
+* `yc serverless workflow update`
+
 ### Version 0.160.0 (25/08/25) {#version0.160.0}
 
 #### Changes in {{ yandex-cloud }} services
 
 ##### {{ mtr-name }}
-* Added the `--version` option to the following commands:
+
+Added the `--version` option to the following commands:
   * `yc managed-trino cluster create`
   * `yc managed-trino cluster update`
 
@@ -24,8 +81,6 @@ Added the `sharded` option to the `yc managed-redis cluster restore` command.
 
 * Added the `tags` option to the `yc storage bucket create` command.
 * Added the `yc storage s3 presign` command.
-
-## Previous releases {#previous-release}
 
 ### Version 0.159.0 (18/08/25) {#version0.159.0}
 
@@ -2167,7 +2222,7 @@ Added the following parameters to the `yc serverless function version create` co
 
 **{{ mpg-name }}**
 
-* The `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands: Added new `--postgresql-version string` parameter values `11-1c`, `12-1c`, `13-1c`, and `14-1c` to create a {{ PG }} cluster of versions 11-1c, 12-1c, 13-1c, and 14-1c.
+* The `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands: added new `--postgresql-version string` parameter values `11-1c`, `12-1c`, `13-1c`, and `14-1c` to create a {{ PG }} cluster of versions 11-1c, 12-1c, 13-1c, and 14-1c.
 
 
 ##### {{ iot-name }} {#iot}

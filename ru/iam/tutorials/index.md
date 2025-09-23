@@ -10,4 +10,6 @@ description: Различные сценарии использования {{ i
 * [{#T}](sa-oslogin-ansible.md)
 * [{#T}](wlif-github-integration.md)
 * [{#T}](wlif-gitlab-integration.md)
+* [{#T}](wlif-k8s-integration.md)
+* [{#T}](wlif-managed-k8s-integration.md)
 * [{#T}](ci-cd-github-functions.md)

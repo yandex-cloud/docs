@@ -102,7 +102,7 @@ description: Из статьи вы узнаете, какими материа�
 ### Машинное обучение {#ml-ai}
 
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
-* [{{ foundation-models-full-name }}](../foundation-models/qa/index.md)
+* [{{ foundation-models-full-name }}](../ai-studio/qa/index.md)
 * [{{ speechkit-full-name }}](../{{ speechkit-slug }}/qa/all.md)
 * [{{ speechsense-full-name }}](../speechsense/qa/index.md)
 * [{{ translate-full-name }}](../translate/qa/index.md)

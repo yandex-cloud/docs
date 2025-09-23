@@ -41,7 +41,7 @@
 
 * Новости и истории успеха доступны в [блоге {{ yandex-cloud }}](https://yandex.cloud/ru/blog?services=23).
 
-* [Демонстрационный дашборд]({{ link-datalens-main }}/marketplace/f2eui5ar8omalpcg1j3r) {{ datalens-short-name }}.
+* [Демонстрационный дашборд]({{ link-datalens-main }}/gallery/wcyljs3cf5mwi) {{ datalens-short-name }}.
 
 
 * Сообщество пользователей {{ datalens-short-name }} в [Telegram](https://t.me/YandexDataLens).

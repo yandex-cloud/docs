@@ -318,6 +318,8 @@ items:
           Setting up static website hosting in a {{ objstorage-full-name }}
           bucket with {{ cdn-full-name }} access
         href: tutorials/cdn-hosting.md
+      - name: Using {{ objstorage-name }} in {{ msp-full-name }}
+        href: tutorials/spark-objstorage-integration.md
   - name: Concepts
     items:
       - name: Overview

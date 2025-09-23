@@ -1238,7 +1238,31 @@ description: В статье приведен полный справочник 
 
 {% include [ai-models-admin](../_roles/ai/models/admin.md) %}
 
-Подробнее см. [{#T}](../foundation-models/security/index.md).
+#### serverless.mcpGateways.auditor {#serverless-mcpGateways-auditor}
+
+{% include [serverless-mcpGateways-auditor](../_roles/serverless/mcpGateways/auditor.md) %}
+
+#### serverless.mcpGateways.viewer {#serverless-mcpGateways-viewer}
+
+{% include [serverless-mcpGateways-viewer](../_roles/serverless/mcpGateways/viewer.md) %}
+
+#### serverless.mcpGateways.invoker {#serverless-mcpGateways-invoker}
+
+{% include [serverless-mcpGateways-invoker](../_roles/serverless/mcpGateways/invoker.md) %}
+
+#### serverless.mcpGateways.anonymousInvoker {#serverless-mcpGateways-anonymousInvoker}
+
+{% include [serverless-mcpGateways-anonymousInvoker](../_roles/serverless/mcpGateways/anonymousInvoker.md) %}
+
+#### serverless.mcpGateways.editor {#serverless-mcpGateways-editor}
+
+{% include [serverless-mcpGateways-editor](../_roles/serverless/mcpGateways/editor.md) %}
+
+#### serverless.mcpGateways.admin {#serverless-mcpGateways-admin}
+
+{% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
+
+Подробнее см. [{#T}](../ai-studio/security/index.md).
 
 
 ## {{ kms-full-name }} {#kms-roles}
@@ -1941,6 +1965,10 @@ description: В статье приведен полный справочник 
 
 ### Общие роли {{ sd-name }} {#general-sd-roles}
 
+#### security-deck.worker {#security-deck-worker}
+
+{% include [security-deck.worker](../_roles/security-deck/worker.md) %}
+
 #### security-deck.auditor {#security-deck-auditor}
 
 {% include [security-deck.auditor](../_roles/security-deck/auditor.md) %}
@@ -1958,30 +1986,6 @@ description: В статье приведен полный справочник 
 {% include [security-deck.admin](../_roles/security-deck/admin.md) %}
 
 Подробнее см. [Общие роли {{ sd-full-name }}](../security-deck/security/index.md).
-
-### Сервисные роли для анализа данных {{ atr-name }} {#access-transparency-roles}
-
-#### access-transparency.viewer {#access-transparency-viewer}
-
-{% include [access-transparency.viewer](../_roles/access-transparency/viewer.md) %}
-
-#### access-transparency.editor {#access-transparency-editor}
-
-{% include [access-transparency.editor](../_roles/access-transparency/editor.md) %}
-
-#### access-transparency.admin {#access-transparency-admin}
-
-{% include [access-transparency.admin](../_roles/access-transparency/admin.md) %}
-
-#### access-transparency.billingProvider {#access-transparency-billingProvider}
-
-{% include [access-transparency.billingProvider](../_roles/access-transparency/billingProvider.md) %}
-
-#### access-transparency.subscriptionManager {#access-transparency-subscriptionManager}
-
-{% include [access-transparency.subscriptionManager](../_roles/access-transparency/subscriptionManager.md) %}
-
-Подробнее см. [Управление доступом в {{ atr-name }}](../security-deck/security/access-transparency-roles.md).
 
 ### Сервисные роли для контроля данных ({{ dspm-name }}) {#dspm-roles}
 
@@ -2010,6 +2014,54 @@ description: В статье приведен полный справочник 
 {% include [dspm.admin](../_roles/dspm/admin.md) %}
 
 Подробнее см. [Управление доступом в {{ dspm-name }}](../security-deck/security/dspm-roles.md).
+
+### Сервисные роли для модуля Контроль конфигурации ({{ cspm-name }}) {#cspm-roles}
+
+#### cspm.worker {#cspm-worker}
+
+{% include [cspm.worker](../_roles/cspm/worker.md) %}
+
+#### cspm.auditor {#cspm-auditor}
+
+{% include [cspm.auditor](../_roles/cspm/auditor.md) %}
+
+#### cspm.viewer {#cspm-viewer}
+
+{% include [cspm.viewer](../_roles/cspm/viewer.md) %}
+
+#### cspm.editor {#cspm-editor}
+
+{% include [cspm.editor](../_roles/cspm/editor.md) %}
+
+#### cspm.admin {#cspm-admin}
+
+{% include [cspm.admin](../_roles/cspm/admin.md) %}
+
+Подробнее см. [Управление доступом в {{ cspm-name }}](../security-deck/security/cspm-roles.md).
+
+### Сервисные роли для анализа данных {{ atr-name }} {#access-transparency-roles}
+
+#### access-transparency.viewer {#access-transparency-viewer}
+
+{% include [access-transparency.viewer](../_roles/access-transparency/viewer.md) %}
+
+#### access-transparency.editor {#access-transparency-editor}
+
+{% include [access-transparency.editor](../_roles/access-transparency/editor.md) %}
+
+#### access-transparency.admin {#access-transparency-admin}
+
+{% include [access-transparency.admin](../_roles/access-transparency/admin.md) %}
+
+#### access-transparency.billingProvider {#access-transparency-billingProvider}
+
+{% include [access-transparency.billingProvider](../_roles/access-transparency/billingProvider.md) %}
+
+#### access-transparency.subscriptionManager {#access-transparency-subscriptionManager}
+
+{% include [access-transparency.subscriptionManager](../_roles/access-transparency/subscriptionManager.md) %}
+
+Подробнее см. [Управление доступом в {{ atr-name }}](../security-deck/security/access-transparency-roles.md).
 
 
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}
