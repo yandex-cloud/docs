@@ -12,7 +12,7 @@ You can create a [{{ ydb-short-name }}]({{ ydb.docs }}/concepts/databases#databa
 
 ### Serverless database {#serverless}
 
-Computing resources for serverless {{ ydb-short-name }} DBs in {{ ydb-name }} are provided automatically for running DB queries. 
+Computing resources for serverless {{ ydb-short-name }} DBs in {{ ydb-name }} are provided automatically for running DB queries.
 
 The payment amount depends on the CPU capacity actually used and the I/O operations required to run a database query. The amount of data stored in the database is paid additionally.
 
@@ -35,6 +35,8 @@ In {{ ydb-name }}, the following VM configurations are available:
 | **Intel Cascade Lake** | medium-m96 | 8 | 100% | 96 |
 | **Intel Cascade Lake** | large | 12 | 100% | 48 |
 | **Intel Cascade Lake** | xlarge | 16 | 100% | 64 |
+| **Intel Cascade Lake** | olap-c16-m128 | 16 | 100% | 128 |
+| **Intel Cascade Lake** | oltp-c16-m128 | 16 | 100% | 128 |
 
 Databases run on allocated computing resources are paid on an hourly basis. The amount of data storage for the database is paid additionally (see [Storage groups](#storage-groups) below).
 
@@ -51,6 +53,12 @@ For more information about {{ ydb-short-name }} clusters, see the [documentation
 {{ ydb-full-name }} uses three disks in each of the three availability zones, both for databases on dedicated resources and serverless databases. This configuration ensures fault tolerance if a zone or disk fails, as well as provides a redundancy factor of 3.
 
 For more information about storage groups in {{ ydb-short-name }}, see the [documentation]({{ ydb.docs }}/concepts/databases#storage-groups).
+
+## Temporary storage (spilling) {#spilling}
+
+OLAP databases in Yandex Managed Service for {{ ydb-full-name }} use **spilling**—a memory management mechanism that temporarily saves intermediate computation data to disk when the system runs out of RAM. Spilling enables execution of user queries that require processing large data volumes, which intermediate computation data exceeds available node memory.
+
+For more information about spilling in {{ ydb-short-name }}, see [the {{ ydb-short-name }} documentation]({{ ydb.docs }}/concepts/spilling).
 
 ## Regions and availability zones {#regions-az}
 

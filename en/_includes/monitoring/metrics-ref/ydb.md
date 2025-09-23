@@ -94,10 +94,12 @@ Metric name<br/>Type, unit | Description<br>Labels
 
 Metric name<br/>Type, unit | Description<br>Labels
 --- | ---
-`table.columnshard.bulk_upsert.bytes`<br>`RATE`, bytes per second | Size of data added through the `BulkUpsert` gRPC API call to all partitions of all DB tables over a certain period of time
-`table.columnshard.bulk_upsert.rows`<br>`RATE`, rows per second | Number of rows added through the `BulkUpsert` gRPC API call to all partitions of all DB tables over a certain period of time
-`table.columnshard.scan.bytes`<br>`RATE`, bytes per second | Size of data read through the `StreamExecuteScanQuery` or `StreamReadTable` gRPC API calls by all partitions of all DB tables over a certain period of time
-`table.columnshard.scan.rows`<br>`RATE`, rows per second | Number of rows read through the `StreamExecuteScanQuery` or `StreamReadTable` gRPC API calls by all partitions of all DB tables over a certain period of time
+`table.columnshard.bulk_upsert.bytes`<br>`RATE`, bytes per second | The rate of adding data to all partitions of all DB tables through the `BulkUpsert` gRPC API call
+`table.columnshard.bulk_upsert.rows`<br>`RATE`, rows per second | The rate of adding rows to all partitions of all DB tables through the `BulkUpsert` gRPC API call
+`table.columnshard.scan.bytes`<br>`RATE`, bytes per second | The rate of reading data by all partitions of all DB tables through the `StreamExecuteScanQuery` or `StreamReadTable` gRPC API calls
+`table.columnshard.scan.rows`<br>`RATE`, rows per second | The rate of reading rows by all partitions of all DB tables through the `StreamExecuteScanQuery` or `StreamReadTable` gRPC API calls
+`table.columnshard.write.bytes`<br>`RATE`, bytes per second | The rate of writing data to all partitions of all DB tables
+`table.columnshard.write.rows`<br>`RATE`, rows per second | The rate of writing rows to all partitions of all DB tables
 
 ## Resource usage metrics (for Dedicated mode only) {#ydb_dedicated_resources}
 

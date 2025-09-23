@@ -7,7 +7,7 @@ description: In this article, you will learn how to work with the managed servic
 
 * [Getting an IAM token for a service account using a container](./sa.md)
 
-## Getting information about a container {#get-container}
+## Getting container information {#get-container}
 
 * [{#T}](./list.md)
 * [{#T}](./revision-list.md)
@@ -31,6 +31,7 @@ description: In this article, you will learn how to work with the managed servic
 ## Invoking a container {#invoke-container}
 
 * [{#T}](./invoke.md)
+* [{#T}](./invoke-async.md)
 * [{#T}](./invocation-link.md)
 * [{#T}](./auth.md)
 
@@ -57,10 +58,10 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](./migration.md)
 * [{#T}](./delete.md)
 
-## Getting information about a trigger {#get-trigger}
+## Getting trigger information {#get-trigger}
 
 * [Getting a list of triggers](./trigger-list.md)
-* [Getting information about a trigger](./trigger-info.md)
+* [Getting trigger information](./trigger-info.md)
 
 ## Creating a trigger {#create-trigger}
 

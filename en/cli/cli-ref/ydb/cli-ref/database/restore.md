@@ -7,9 +7,15 @@ sourcePath: en/_cli-ref/cli-ref/ydb/cli-ref/database/restore.md
 
 Restore backup.
 
+{% note warning %}
+
+This command currently does not restore column-oriented tables. To import data from column-oriented tables, use [external data sources]({{ ydb.docs }}/concepts/datamodel/external_data_source). For more information, see [the documentation]({{ ydb.docs }}/concepts/federated_query/s3/import_and_export#import).
+
+{% endnote %}
+
 #### Command Usage
 
-Syntax: 
+Syntax:
 
 `yc ydb database restore <DATABASE-NAME>|<DATABASE-ID> [Flags...] [Global Flags...]`
 

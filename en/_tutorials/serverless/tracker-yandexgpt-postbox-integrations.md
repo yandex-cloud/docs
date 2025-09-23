@@ -28,7 +28,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     If you have an active billing account, you can navigate to the [cloud page]({{ link-console-cloud }}) to create or select a [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for your infrastructure.
 
-    [Learn more about clouds and folders](../../resource-manager/concepts/resources-hierarchy.md).
+    [Learn more about clouds and folders here](../../resource-manager/concepts/resources-hierarchy.md).
 1. Install [cURL](https://curl.haxx.se): you will need it to send a request for an OAuth token for the Yandex ID application.
 
 ### Required paid resources {#paid-resources}
@@ -133,7 +133,7 @@ On the new application's page, copy the **ClientID** and **Client secret** field
 
 ### Create a {{ lockbox-full-name }} secret {#create-secret}
 
-Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your OAuth token and assign access permissions for the new secret to the service account .
+Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your OAuth token and assign access permissions for the new secret to the service account.
 
 {% list tabs group=instructions %}
 

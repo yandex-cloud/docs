@@ -31,6 +31,7 @@ To calculate the cost of using the service, use [our calculator](https://yandex.
 When using {{ ydb-name }} in dedicated-instance mode, you pay for the following:
 * Type and size of [storage groups](../concepts/resources.md#storage-groups) allocated for the DB.
 * [Computing resources](../concepts/resources.md#resource-presets) allocated to the DB.
+* Disk space allocated for [temporary storage (spilling)](../concepts/resources.md#spilling).
 
 The following resources are paid additionally:
 * Space used in {{ objstorage-full-name }} to store on-demand backups.
@@ -47,14 +48,23 @@ The minimum billing unit is one hour; for example, you will be charged for two h
 ### Disk space usage {#rules-storage}
 
 You pay for the following:
+
 * Storage allocated for DB storage groups.
 * Space used by on-demand DB backups saved in {{ objstorage-name }}.
 
-  {% note info %}
+    {% note info %}
 
-  For each DB, {{ ydb-name }} automatically creates and stores two full backups for the last two days for free. No fee is charged for storing automatic backups.
+    For each DB, {{ ydb-name }} automatically creates and stores two full backups for the last two days for free. No fee is charged for storing automatic backups.
 
-  {% endnote %}
+    {% endnote %}
+
+* Disk space allocated for temporary storage (spilling).
+
+    {% note info %}
+
+    The cost of the temporary storage (spilling) is specified for one {{ ydb-short-name }} node.
+
+    {% endnote %}
 
 The price covers one month of use. The minimum billing unit is 1 GB/hr (e.g., storing 1 GB for 1.5 hours costs the same as for 2 hours).
 

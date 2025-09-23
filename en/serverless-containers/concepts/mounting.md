@@ -13,7 +13,7 @@ You can mount [buckets](../../storage/concepts/bucket.md) and one ephemeral disk
 
 Mounting buckets allows you to access them through the file system interface. In the container revision settings, the user can specify one or more mount paths. Use this path to access the directory the bucket will be mounted to. Do not use this path for anything other than an empty directory; otherwise, container initialization may result in an error, and the mounted buckets will become unavailable.
 
-You can mount the whole bucket or a specific [folder](../../storage/concepts/object#folder).
+You can mount the whole bucket or a specific [folder](../../storage/concepts/object.md#folder).
 
 The `/run/storage_sync_socket` path is reserved for the Unix socket. To avoid loss of information when reading/writing data from/to the bucket:
 * Do not put anything in the Unix socket path destination.
@@ -24,7 +24,7 @@ The `/run/storage_sync_socket` path is reserved for the Unix socket. To avoid lo
 
 ## Mounting an ephemeral disk {#mount-ephemeral-storage}
 
-{% include [preview-and-request](../../_includes/note-preview-by-request.md) %}
+{% include [preview](../../_includes/note-preview.md) %}
 
 To mount an ephemeral disk, you can specify a mount path. Use this path to access the directory the ephemeral disk will be mounted to. Do not use this path for anything other than an empty directory; otherwise, container initialization may result in an error, and the mounted ephemeral disk will become unavailable. To mount the ephemeral disk correctly, provide the full absolute path.
 

@@ -29,6 +29,7 @@ description: Из статьи вы узнаете, как работать с {
 ### Конструктор шагов рабочего процесса {#constructor}
 
 * [{{ foundation-models-name }}](workflows/constructor/foundationmodelscall.md)
+* [Vector Store](workflows/constructor/vectorstore.md)
 * [AI-агент](workflows/constructor/aiagent.md)
 * [{{ sf-short-name }}](workflows/constructor/functioncall.md)
 * [{{ serverless-containers-name }}](workflows/constructor/containercall.md)
@@ -43,6 +44,7 @@ description: Из статьи вы узнаете, как работать с {
 * [Яндекс Диск](workflows/constructor/yadisk.md)
 * [{{ sw-name }}](workflows/constructor/workflow.md)
 * [Telegram-бот](workflows/constructor/telegrambot.md)
+* [Database Query](workflows/constructor/databasequery.md)
 * [Switch](workflows/constructor/switch.md)
 * [Foreach](workflows/constructor/foreach.md)
 * [While](workflows/constructor/while.md)

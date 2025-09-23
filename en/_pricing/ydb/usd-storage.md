@@ -2,6 +2,7 @@
 | ----- | ----- |
 | Data storage in storage groups of SSD drives | {{ sku|USD|ydb.cluster.v1.ssd|month|string }} |
 | Storage of on-demand backups in {{ objstorage-full-name }} | {{ sku|USD|ydb.db.backup.v1|month|string }} |
+| YDB. Temporary storage (spilling) | $0.10719 |
 
 
 {% note info "Minimum group size" %}

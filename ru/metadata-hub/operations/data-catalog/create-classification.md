@@ -26,4 +26,6 @@
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+  {% include [ai-tags](../../../_includes/metadata-hub/data-catalog-ai-markup-tags.md) %}
+
 {% endlist %}

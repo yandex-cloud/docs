@@ -74,9 +74,6 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
         memory             = "<RAM_size>"
         execution_timeout  = "<execution_timeout>"
         service_account_id = "<service_account_ID>"
-        content {
-          zip_filename = "<path_to_ZIP_archive>"
-        }
 
         image {
           url = <container_image_path>
@@ -97,7 +94,7 @@ description: Follow this guide to mount an ephemeral disk to {{ serverless-conta
         * `mount_point_path`: Absolute mount path. Use this path to access the directory the disk will be mounted to. Do not use this path for anything other than an empty directory; otherwise, the container initialization may result in an error, and the mounted ephemeral disk will become unavailable. To mount the ephemeral disk correctly, provide the full absolute path to the mount point.
         * `size_gb`: Ephemeral disk size in GB, e.g., `size=5GB`.
 
-      For more information about the `yandex_serverless_container` resource parameters, see [this {{ TF }} article]({{ tf-provider-resources-link }}/serverless_container).
+      For more information about `yandex_serverless_container` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/serverless_container).
 
   1. Apply the changes:
 

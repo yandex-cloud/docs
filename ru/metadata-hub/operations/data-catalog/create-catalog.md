@@ -25,7 +25,10 @@ description: Следуя данной инструкции, вы сможете
 
        * В поле **{{ ui-key.yacloud.common.name }}** задайте уникальное имя каталога.
        * (Опционально) Добавьте описание каталога.
+       * (Опционально) Добавьте [метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md).
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+    {% include [ai-on](../../../_includes/metadata-hub/data-catalog-ai-markup-on.md) %}
 
 {% endlist %}

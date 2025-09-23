@@ -26,8 +26,8 @@ You can create these resources [automatically](#automatic-setup) or [manually](#
 
 An AI agent is an AI-powered software assistant which can follow instructions, give answers to questions, and interact with users or other systems within a given context. Unlike standard generative models, AI agents can:
 
-* Have personalized instructions and a "personality".
-* Use external sources and third-party tools to gather additional information.
+* Support personalized instructions and have a personality.
+* Use external sources and third-party tools to gather information.
 * Maintain conversation context.
 * Perform multi-step actions to solve complex tasks.
 
@@ -35,7 +35,7 @@ An AI agent is an AI-powered software assistant which can follow instructions, g
 
 Functions offered by {{ sf-name }} provide multiple benefits when deploying AI agents:
 
-* Scalability: Autoscaling to accommodate the load.
+* Scalability: Automatic scaling to accommodate the load.
 * Cost-effectiveness: You only pay for the actual execution time.
 * No infrastructure management required: You do not need to configure or maintain servers.
 * Fast deployment: AI agents are easy to create and update.
@@ -50,7 +50,7 @@ Functions offered by {{ sf-name }} provide multiple benefits when deploying AI a
 The infrastructure support cost for this tutorial includes:
 * Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Text generation fee (see [{{ foundation-models-full-name }} pricing](../../foundation-models/pricing.md)).
-* Fee for secret storage and operations (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
+* Fee for storing the secret and operations with it (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) when using [{{ cloud-logging-name }}](../../logging/).
 
 ## Creating an AI agent automatically {#automatic-setup}
@@ -233,7 +233,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       {% note alert %}
 
-      After you close this dialog, the key value will not be shown again.
+      After you close this dialog, the key value will no longer be available.
 
       {% endnote %}
 

@@ -21,7 +21,7 @@ Quotas are allocated and applied at the {{ yandex-cloud}} cloud level; they are 
 Currently, you can use the following quota management interfaces: 
 
 * [Console]({{ link-console-quotas }}) and [API](../../quota-manager/api-ref/authentication.md): Getting info and submitting a quota update request.
-* [CLI](cli-ref/): Getting quota info.
+* [CLI](../cli-ref/index.md): Getting quota info.
 
 Going forward, quotas will be updatable via the CLI.
 

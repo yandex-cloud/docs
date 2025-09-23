@@ -102,7 +102,7 @@ If you specify security group IDs when creating a {{ mkf-name }} cluster, you ma
         When choosing the number of hosts, keep in mind that:
         * In {{ KF }} versions 3.6 and higher the [number of broker hosts depends](#zk-vs-kraft) on the selected availability zones:
 
-           * One availability zone: one or three broker hosts. To use three broker hosts, enable the **{{ ui-key.yacloud.kafka.field_kraft-combined-mode }}** setting.
+           * One availability zone: one or three broker hosts. To use three broker hosts, enable the **{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}** setting.
            * Three availability zones: one broker host.
 
            You cannot set the number of broker hosts manually.
