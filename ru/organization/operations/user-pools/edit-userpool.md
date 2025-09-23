@@ -25,4 +25,35 @@ description: Следуя данной инструкции, вы сможете
   1. Добавьте или удалите метки.
   1. Нажмите **{{ ui-key.yacloud_org.actions.save-changes }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для редактирования [пула пользователей](../../concepts/user-pools.md):
+
+     ```bash
+     yc organization-manager idp userpool update --help
+     ```
+
+  1. Выполните команду:
+
+     ```bash
+     yc organization-manager idp userpool update <идентификатор_пула> \
+       --userpool-name <название_пула> \
+       --description <описание_пула> \
+       --default-subdomain <домен_по_умолчанию> \
+       --labels <ключ>=<значение>[,<ключ>=<значение>]
+     ```
+
+     Где:
+     
+     * `--userpool-name` — новое название пула пользователей. Название должно быть уникальным в рамках организации и соответствовать требованиям:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `--description` — новое описание пула пользователей.
+     * `--labels` — новый список [меток](../../../resource-manager/concepts/labels.md). Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
+
 {% endlist %}

@@ -132,7 +132,7 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. Enter a name for the bucket as per the [naming requirements](../../storage/concepts/bucket.md#naming).
+  1. Enter the bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
   1. Specify the maximum bucket size: `5 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
@@ -155,7 +155,7 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
 
       Where:
 
-      * `--name`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
+      * `--name`: Bucket name consistent with the following [naming conventions](../../storage/concepts/bucket.md#naming).
       * `--default-storage-class`: [Storage class](../../storage/concepts/storage-class.md).
       * `--max-size`: Maximum bucket size, in bytes.
 
@@ -189,7 +189,7 @@ Create a [bucket](../../storage/concepts/bucket.md) to store your chat history w
   Where:
 
   * `--endpoint-url`: {{ objstorage-name }} endpoint.
-  * `--bucket`: Bucket name consistent with the [naming conventions](../../storage/concepts/bucket.md#naming).
+  * `--bucket`: Bucket name consistent with the following [naming conventions](../../storage/concepts/bucket.md#naming).
 
 - API {#api}
 

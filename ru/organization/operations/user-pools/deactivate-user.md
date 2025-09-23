@@ -1,6 +1,6 @@
 ---
-title: Как деактивировать пользователя в пуле в {{ org-full-name }}
-description: Следуя данной инструкции, вы сможете деактивировать пользователя в пуле в {{ org-name }}.
+title: Как деактивировать пользователя пула в {{ org-full-name }}
+description: Следуя данной инструкции, вы сможете деактивировать пользователя пула в {{ org-name }}.
 ---
 
 # Деактивировать пользователя
@@ -18,6 +18,27 @@ description: Следуя данной инструкции, вы сможете
   1. На панели слева нажмите ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}** и выберите нужный [пул пользователей](../../concepts/user-pools.md).
   1. На вкладке **{{ ui-key.yacloud_org.organization.userpools.title_userpool_members }}** выберите нужного пользователя.
   1. В верхнем правом углу нажмите **Сделать неактивным**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для деактивации пользователя [пула](../../concepts/user-pools.md):
+
+     ```bash
+     yc organization-manager idp user suspend --help
+     ```
+
+  1. Выполните команду:
+
+     ```bash
+     yc organization-manager idp user suspend <идентификатор_пользователя> \
+       --reason <причина_деактивации>
+     ```
+
+     Где `--reason` — причина деактивации. Необязательный параметр.
 
 {% endlist %}
 

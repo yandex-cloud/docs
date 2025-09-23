@@ -46,19 +46,21 @@ API представлен набором REST-ресурсов, которые 
 
 ```yaml
 groups:
-  - name: CPU_Usage_Alerts
-    rules:
-      - alert: HighCPUUsage
-        expr: 100 * (1 - avg by(instance) (rat(node_cpu_seconds_total{mode="idle"}[5m]))) > 80
-        for: 5m
-        labels:
-          severity: critical
-        annotations:
-          summary: "High CPU usage detected on {{$labels.instance}}"
-          description: "CPU usage on instance {{$labels.instance}} has been above 80% for the last5 minutes."
+  - name: CPU_Usage_Alerts
+    rules:
+      - alert: HighCPUUsage
+        expr: 100 * (1 - avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))) > 80
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "High CPU usage detected on {{$labels.instance}}"
+          description: "CPU usage on instance {{$labels.instance}} has been above 80% for the last 5 minutes."
 ```
 
 В примере описано правило `CPU_Usage_Alerts` с алертом `HighCPUUsage`. Алерт срабатывает, когда загрузка процессора выше 80% сохраняется более 5 минут. Процент загрузки процессора вычисляется по формуле в поле `expr`.
+
+Для алерта задана метка `severity: critical`, которая используется для маршрутизации каналов уведомлений. В конфигурации Alert Manager можно сопоставить каналам определенные метки, чтобы уведомления по разным алертам отправлялись в разные каналы.
 
 ### Добавление и замена файла с правилами алертинга {#create}
 
@@ -75,7 +77,7 @@ groups:
 
 - API {#api}
 
-   1. Закодируйте содержимое файла в [Base64](https://en.wikipedia.org/wiki/Base64) согласно [RFC 4648](https://www.ietf.org/rfc/rfc4648.txt):
+   1. Создайте файл `host-cpu-usage-alert.yml` и закодируйте его содержимое в [Base64](https://en.wikipedia.org/wiki/Base64) согласно [RFC 4648](https://www.ietf.org/rfc/rfc4648.txt):
 
       ```bash
       # cat <<EOF > host-cpu-usage-alert.yml
@@ -83,8 +85,8 @@ groups:
       - name: CPU_Usage_Alerts
       rules:
           - alert: HighCPUUsage
-          expr: 100 * (1 - avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))) > 10
-          for: 2m
+          expr: 100 * (1 - avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m]))) > 80
+          for: 5m
           labels:
               severity: critical
           annotations:
@@ -129,28 +131,50 @@ groups:
 
 [Alert Manager](https://prometheus.io/docs/alerting/latest/alertmanager/) отвечает за отправку уведомлений и настраивается отдельно от правил алертинга. Для настройки можно использовать файлы [конфигурации](https://prometheus.io/docs/alerting/latest/configuration/), созданные для других ваших инсталляций {{ prometheus-name }}.
 
-### Особенности обработки правил {#rule-processing}
+### Особенности настройки каналов уведомлений {#rule-processing}
 
 * Каналы уведомлений из файла конфигурации сопоставляются с [каналами уведомлений](../../concepts/alerting/notification-channel.md) в {{ monitoring-full-name }}, которые заданы в каталоге воркспейса.
-* Поддерживается отправка в каналы [Email](https://prometheus.io/docs/alerting/latest/configuration/#email_config) и [Telegram](https://prometheus.io/docs/alerting/latest/configuration/#telegram_config). Остальные каналы будут проигнорированы без уведомлений об ошибках. В будущем планируется поддержка всех каналов уведомлений, доступных в {{ monitoring-full-name }}.
-* Канал выбирается согласно заданному типу, [динамическая маршрутизация](https://prometheus.io/docs/alerting/latest/configuration/#route) пока не поддерживается.
-* Если в конфигурации нет каналов, соответствующих каналам в каталоге, файл не будет принят.
+* Сейчас поддерживается отправка в каналы [Email](https://prometheus.io/docs/alerting/latest/configuration/#email_config), [Telegram](https://prometheus.io/docs/alerting/latest/configuration/#telegram_config), SMS и Push. Остальные каналы будут проигнорированы без уведомлений об ошибках.
+* Канал выбирается согласно [правилам маршрутизации](https://prometheus.io/docs/alerting/latest/configuration/#route) в конфигурации Alert Manager, в секции `routes`. В правилах маршрутизации каналы сопоставляются меткам, заданным в правилах алертинга в секции `labels`. Например `severity: critical`.
 
 ### Пример файла конфигурации {#config-example}
 
-Чтобы настроить отправку уведомлений, добавьте в пример ниже адрес вашей почты и аккаунт в Telegram.
+В этом примере настроена отправка уведомлений в Telegram, Email, SMS и Push.
 
 ```yaml
 global:
   resolve_timeout: 5m
+# Маршрутизация и группировка алертов
+route:
+  # Получатель по умолчанию
+  receiver: 'default-receiver'
+  routes:
+    # В этот канал отправляются уведомления по алертам с меткой severity="warning"
+    - receiver: 'warning-receiver'
+      matchers:
+        - severity="warning"
+    # В этот канал отправляются уведомления по алертам с меткой severity="critical"
+    - receiver: 'critical-receiver'
+      matchers:
+        - severity="critical"
+
 receivers:
-  - name: 'email'
-    email_configs:
-      - to: 'alerts@company.org'
-  - name: 'telegram'
-    telegram_configs:
-      - api_url: 'https://api.telegram.org'
+# Получатель по умолчанию, в этот канал отправляются уведомления по алертам, для которых нет совпадений в секции routes
+- name: 'default-receiver'
+  yandex_monitoring_configs:
+    # Каналы не указаны, алерты без меток не отправляются
+    - channel_names: []
+# Получатель для алертов с меткой severity="warning", вместо email укажите имя канала, заданного в каталоге воркспейса
+- name: 'warning-receiver'
+  yandex_monitoring_configs:
+    - channel_names: [ 'email', 'push-channel' ]
+# Получатель для алертов с меткой severity="critical", вместо telegram укажите имя канала, заданного в каталоге воркспейса
+- name: 'critical-receiver'
+  yandex_monitoring_configs:
+    - channel_names: [ 'telegram', 'sms-channel' ]
 ```
+
+Подробнее о настройке динамической маршрутизации уведомлений см. в [документации Prometheus](https://prometheus.io/docs/alerting/latest/configuration/#route).
 
 ### Добавление и замена файла конфигурации {#alert-manager-create}
 
@@ -167,26 +191,38 @@ receivers:
 
 - API {#api}
 
-   1. Закодируйте содержимое файла в [Base64](https://en.wikipedia.org/wiki/Base64) согласно [RFC 4648](https://www.ietf.org/rfc/rfc4648.txt):
+   1. Сохраните конфигурацию в файл `alertmanager.yml` и закодируйте в [Base64](https://en.wikipedia.org/wiki/Base64) согласно [RFC 4648](https://www.ietf.org/rfc/rfc4648.txt):
 
        ```bash
         # cat <<EOF > alertmanager.yml
         global:
-        resolve_timeout: 5m
+          resolve_timeout: 5m
+        route:
+          receiver: 'default-receiver'
+          routes:
+            - receiver: 'warning-receiver'
+              matchers:
+                - severity="warning"
+            - receiver: 'critical-receiver'
+              matchers:
+                - severity="critical"
 
-        receivers:
-        - name: email_receiver
-            email_configs:
-            - to: "alerts@monitoring.org"
-        - name: 'telegram'
-            telegram_configs:
-            - api_url: 'https://api.telegram.org'
+          receivers:
+          - name: 'default-receiver'
+            yandex_monitoring_configs:
+              - channel_names: []
+          - name: 'warning-receiver'
+            yandex_monitoring_configs:
+              - channel_names: [ 'email', 'push-channel' ]
+          - name: 'critical-receiver'
+            yandex_monitoring_configs:
+              - channel_names: [ 'telegram', 'sms-channel' ]
+
         EOF
 
         # base64 -iw0 alertmanager.yml
 
         # Z2xvYmFsOgogIHJlc29sdmVfdGltZW91******
-
        ```
 
    1. Сохраните результат в JSON-файл:

@@ -12,6 +12,7 @@ description: Из статьи вы узнаете, как работать с �
 ## Интеграционные шаги {#integration-steps}
 
 * [{{ foundation-models-name }}](./foundationmodelscall.md)
+* [Vector Store](./vectorstore.md)
 * [AI-агент](./aiagent.md)
 * [{{ sf-short-name }}](./functioncall.md)
 * [{{ serverless-containers-name }}](./containercall.md)
@@ -26,6 +27,7 @@ description: Из статьи вы узнаете, как работать с �
 * [Яндекс Диск](./yadisk.md)
 * [{{ sw-name }}](./workflow.md)
 * [Telegram-бот](./telegrambot.md)
+* [Database Query](./databasequery.md)
 
 ## Управляющие шаги {control-steps}
 

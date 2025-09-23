@@ -305,6 +305,7 @@ default:
   link-console-cloud: https://console.yandex.cloud/cloud
   link-console-iam-users: https://console.yandex.cloud/iam?section=users
   link-console-main: https://console.yandex.cloud
+  link-console-postbox-statistics: https://console.yandex.cloud/link/postbox/statistics
   link-console-quotas: https://console.yandex.cloud/cloud?section=quotas
   link-console-settings: https://console.yandex.cloud/settings
   link-console-support: https://center.yandex.cloud/support
@@ -2310,6 +2311,14 @@ default:
         files:
           v1|number: 750
           v1|string: "750,00\_₸"
+        image:
+          v1|pricingRate:
+            1000|string: "0,2034\_₸"
+            10000|string: "0,1740\_₸"
+            100000|string: "0,1530\_₸"
+            1000000|string: "0,1356\_₸"
+            10000000|string: "0,1218\_₸"
+          v1|string: "0,2436\_₸"
         text:
           v1|number: 2304
           v1|pricingRate:
@@ -4291,6 +4300,14 @@ default:
         files:
           v1|number: 150
           v1|string: "150,00\_₽"
+        image:
+          v1|pricingRate:
+            1000|string: "0,0407\_₽"
+            10000|string: "0,0348\_₽"
+            100000|string: "0,0306\_₽"
+            1000000|string: "0,0271\_₽"
+            10000000|string: "0,0244\_₽"
+          v1|string: "0,0487\_₽"
         text:
           v1|number: 460.8
           v1|pricingRate:
@@ -6209,6 +6226,14 @@ default:
         files:
           v1|number: 1.25
           v1|string: "1,250000\_$"
+        image:
+          v1|pricingRate:
+            1000|string: "0,000339\_$"
+            10000|string: "0,000290\_$"
+            100000|string: "0,000255\_$"
+            1000000|string: "0,000226\_$"
+            10000000|string: "0,000203\_$"
+          v1|string: "0,000406\_$"
         text:
           v1|number: 3.839998
           v1|pricingRate:
@@ -9176,6 +9201,7 @@ default:
         label_add-subdomain-action: Добавить поддомен
         label_add-tags: Изменить теги
         label_add-terms: Изменить термины
+        label_ai-label: AI
         label_asset-lineage-depth: Глубина
         label_asset-lineage-weak: Отображать дополнительные связи
         label_connected-terms: Связанные термины
@@ -9860,9 +9886,10 @@ default:
         field_connector-security-protocol: Протокол безопасности
         field_connector-ssl-truststore-certificates: Сертификат в формате PEM
         field_kafka-ui: Kafka UI
-        field_kraft-combined-mode: Комбинированный режим
         field_rest-api-config: Kafka Rest API
         field_schema-registry: Реестр схем данных
+        FormSections:
+          value_coordination-service-type-kraft-combined-mode_c1zke: KRaft (комбинированный режим)
         label_brokers-per-az: Количество брокеров в зоне
         label_connector-this-cluster: Использовать этот кластер
         label_connectors: Коннекторы
@@ -10167,7 +10194,7 @@ default:
             action_add-host: Создать хост
             action_delete-host: Удалить
             action_restart-host: Перезагрузить
-            button_add-zookeeper: Добавить хосты ZooKeeper
+            button_add-zookeeper: Создать хост ZooKeeper
             button_create-coordinator: Настроить сервис координации
             button_manual-failover: Переключить мастер
             button_rebalance-cluster: Ребалансировать кластер
@@ -11391,8 +11418,10 @@ default:
             button_update: Изменить таблицу
           form:
             button_add-split-point: Добавить ключ-границу шарда
+            column_default: Значение по умолчанию
             column_index-key: Ключ
             column_name: Имя
+            column_not-null: Ограничение NOT NULL
             column_primary-key: Первичный ключ
             column_shard: Ключ партицирования
             column_sort: Ключ сортировки
@@ -11404,8 +11433,14 @@ default:
             field_autopartition-min: Минимальное количество партиций
             field_key-bloom-filter: Фильтр Блума для первичного ключа
             field_name: Имя
+            field_partition-count: Количество партиций
+            field_partition-key: Ключ партицирования
+            field_ttl-column: Колонка
+            field_ttl-lifetime: Время жизни
+            field_ttl-unit: Единица измерения
             field_type: Тип таблицы
             field_uniform-partitions: Количество
+            label_column-table: Колоночная таблица
             label_columns: Колонки
             label_document-table: Документная таблица
             label_row-table: Строковая таблица
@@ -12551,12 +12586,12 @@ default:
         disk_properties_action_properties_upload_properties_content_view_spec_layout_title: Содержимое файла
         disk_properties_oauth_token_view_spec_layout_title: OAuth-токен
         disk_properties_path_view_spec_layout_title: Путь
-        foundation_models_properties_action_properties_few_shot_classify_properties_model_description_base_model: Базовая модель
-        foundation_models_properties_action_properties_few_shot_classify_properties_model_description_custom: Дообученная модель
         foundation_models_properties_action_properties_generate_properties_context_description_json: JSON-строка
         foundation_models_properties_action_properties_generate_properties_context_description_messages: Сообщения
         foundation_models_properties_action_properties_generate_properties_context_view_spec_layout_title: Контекст
         foundation_models_properties_action_properties_generate_properties_max_tokens_view_spec_layout_title: Количество токенов
+        foundation_models_properties_action_properties_generate_properties_model_description_base_model: Базовая модель
+        foundation_models_properties_action_properties_generate_properties_model_description_custom: Дообученная модель
         foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title: Температура
         foundation_models_properties_model_properties_custom_view_spec_layout_title: Идентификатор модели
         foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title: Идентификатор каталога

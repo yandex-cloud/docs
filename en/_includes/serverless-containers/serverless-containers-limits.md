@@ -29,6 +29,7 @@ Type of limit | Value
 ----- | -----
 Maximum size of the container image | 10 GB
 Maximum RAM per container instance | 8 GB
+Maximum [ephemeral disk](../../serverless-containers/concepts/mounting.md#mount-ephemeral-storage) space per container instance | 10 GB 
 Maximum size of an HTTP request to the container, including HTTP headers and the request body | 3.5 MB
 Maximum size of the container HTTP response, including HTTP headers and the response body | 3.5 MB
 Maximum size of temporary files | 512 MB

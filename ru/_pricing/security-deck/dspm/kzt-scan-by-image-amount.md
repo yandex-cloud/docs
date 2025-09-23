@@ -1,8 +1,8 @@
 | Количество изображений | Стоимость за изображение,<br/>вкл. НДС |
 | --- | --- |
-| От 1 до 1000                | 0,2436 ₸ |
-| От 1001 до 10 000           | 0,2034 ₸ |
-| От 10 001 до 100 000        | 0,1740 ₸ |
-| От 100 001 до 1 000 000     | 0,1530 ₸ |
-| От 1 000 001 до 10 000 000  | 0,1356 ₸ |
-| Более 10 000 000            | 0,1218 ₸ |
+| От 1 до 1000                | {{ sku|KZT|security_deck.dspm.scanned.image.v1|string }} |
+| От 1001 до 10 000           | {{ sku|KZT|security_deck.dspm.scanned.image.v1|pricingRate.1000|string }} |
+| От 10 001 до 100 000        | {{ sku|KZT|security_deck.dspm.scanned.image.v1|pricingRate.10000|string }} |
+| От 100 001 до 1 000 000     | {{ sku|KZT|security_deck.dspm.scanned.image.v1|pricingRate.100000|string }} |
+| От 1 000 001 до 10 000 000  | {{ sku|KZT|security_deck.dspm.scanned.image.v1|pricingRate.1000000|string }} |
+| Более 10 000 000            | {{ sku|KZT|security_deck.dspm.scanned.image.v1|pricingRate.10000000|string }} |

@@ -36,6 +36,8 @@
 
   {% include [search-tip](../../../_includes/metadata-hub/tip-search.md) %}
 
+  {% include [ai-domains](../../../_includes/metadata-hub/data-catalog-ai-markup-domains.md) %}
+
 {% endlist %}
 
 ## Изменение терминов {#change-terms}
@@ -60,6 +62,8 @@
      1. Выберите нужные термины из списка во всплывающем окне и нажмите **{{ ui-key.yacloud.common.save }}**.
 
   {% include [search-tip](../../../_includes/metadata-hub/tip-search.md) %}
+
+  {% include [ai-terms](../../../_includes/metadata-hub/data-catalog-ai-markup-terms.md) %}
 
 {% endlist %}
 
@@ -86,6 +90,8 @@
 
   {% include [search-tip](../../../_includes/metadata-hub/tip-search.md) %}
 
+  {% include [ai-tags](../../../_includes/metadata-hub/data-catalog-ai-markup-tags.md) %}
+
 {% endlist %}
 
 ## Изменение описания метаданных {#change-metadata-description}
@@ -106,5 +112,13 @@
 
      Чтобы изменить описание колонки таблицы (тип объекта **Набор данных**), перейдите на вкладку **Схема**, нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке с именем нужной колонки и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Введите описание и нажмите **{{ ui-key.yacloud.common.save-changes }}**.
+
+  {% note info %}
+
+  Если включена AI-разметка метаданных, AI-ассистент создает AI-описания автоматически. Предложенные ассистентом описания можно подтвердить, отредактировать или отклонить. Для этого наведите курсор на значок **{{ ui-key.yacloud.data-catalog.label_ai-label }}** рядом с предложенным описанием и выберите нужное действие.
+
+  Включить AI-разметку можно при [изменении](update-catalog.md) каталога метаданных или на его странице **{{ ui-key.yacloud.common.overview }}**.
+
+  {% endnote %}
 
 {% endlist %}

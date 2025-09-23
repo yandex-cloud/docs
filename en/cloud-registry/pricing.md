@@ -24,9 +24,9 @@ The {{ cloud-registry-name }} usage cost includes:
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-### Использование хранилища {#rules-storage}
+### Using the storage {#rules-storage}
 
-Storage usage is measured in GB per hour. The volume of data stored for a month is calculated as the average value based on granulated per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
+Storage usage is measured in GB per hour. The amount of data stored for a month is calculated as the average value based on granulated per-second data. The minimum billing unit is 1 hour of storing 1 MB of data.
 
 {% note warning %}
 

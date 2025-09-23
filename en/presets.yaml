@@ -302,6 +302,7 @@ default:
   link-console-cloud: https://console.yandex.cloud/cloud
   link-console-iam-users: https://console.yandex.cloud/iam?section=users
   link-console-main: https://console.yandex.cloud
+  link-console-postbox-statistics: https://console.yandex.cloud/link/postbox/statistics
   link-console-quotas: https://console.yandex.cloud/cloud?section=quotas
   link-console-settings: https://console.yandex.cloud/settings
   link-console-support: https://center.yandex.cloud/support
@@ -2304,6 +2305,14 @@ default:
         files:
           v1|number: 750
           v1|string: ₸750.00
+        image:
+          v1|pricingRate:
+            1000|string: ₸0.2034
+            10000|string: ₸0.1740
+            100000|string: ₸0.1530
+            1000000|string: ₸0.1356
+            10000000|string: ₸0.1218
+          v1|string: ₸0.2436
         text:
           v1|number: 2304
           v1|pricingRate:
@@ -4285,6 +4294,14 @@ default:
         files:
           v1|number: 150
           v1|string: ₽150.00
+        image:
+          v1|pricingRate:
+            1000|string: ₽0.0407
+            10000|string: ₽0.0348
+            100000|string: ₽0.0306
+            1000000|string: ₽0.0271
+            10000000|string: ₽0.0244
+          v1|string: ₽0.0487
         text:
           v1|number: 460.8
           v1|pricingRate:
@@ -6203,6 +6220,14 @@ default:
         files:
           v1|number: 1.25
           v1|string: $1.250000
+        image:
+          v1|pricingRate:
+            1000|string: $0.000339
+            10000|string: $0.000290
+            100000|string: $0.000255
+            1000000|string: $0.000226
+            10000000|string: $0.000203
+          v1|string: $0.000406
         text:
           v1|number: 3.839998
           v1|pricingRate:
@@ -9164,6 +9189,7 @@ default:
         label_add-subdomain-action: Add subdomain
         label_add-tags: Edit tags
         label_add-terms: Edit terms
+        label_ai-label: AI
         label_asset-lineage-depth: Depth
         label_asset-lineage-weak: Display additional connections
         label_connected-terms: Linked terms
@@ -9848,9 +9874,10 @@ default:
         field_connector-security-protocol: Security protocol
         field_connector-ssl-truststore-certificates: Certificate in PEM format
         field_kafka-ui: Kafka UI
-        field_kraft-combined-mode: Combined mode
         field_rest-api-config: Kafka Rest API
         field_schema-registry: Schema registry
+        FormSections:
+          value_coordination-service-type-kraft-combined-mode_c1zke: KRaft (combined mode)
         label_brokers-per-az: Number of brokers in zone
         label_connector-this-cluster: Use this cluster
         label_connectors: Connectors
@@ -10155,7 +10182,7 @@ default:
             action_add-host: Create host
             action_delete-host: Delete
             action_restart-host: Restart
-            button_add-zookeeper: Add ZooKeeper hosts
+            button_add-zookeeper: Create ZooKeeper host
             button_create-coordinator: Set up coordinator service
             button_manual-failover: Switch master
             button_rebalance-cluster: Rebalance cluster
@@ -11379,8 +11406,10 @@ default:
             button_update: Alter table
           form:
             button_add-split-point: Add split point
+            column_default: Default value
             column_index-key: Key
             column_name: Name
+            column_not-null: NOT NULL constraint
             column_primary-key: Primary key
             column_shard: Partition key
             column_sort: Sort key
@@ -11392,8 +11421,14 @@ default:
             field_autopartition-min: Minimum number of partitions
             field_key-bloom-filter: Bloom filter for primary key
             field_name: Name
+            field_partition-count: Partition count
+            field_partition-key: Partition key
+            field_ttl-column: Column
+            field_ttl-lifetime: Lifetime
+            field_ttl-unit: Unit
             field_type: Table type
             field_uniform-partitions: Count
+            label_column-table: Column table
             label_columns: Columns
             label_document-table: Document table
             label_row-table: Row table
@@ -12539,12 +12574,12 @@ default:
         disk_properties_action_properties_upload_properties_content_view_spec_layout_title: File content
         disk_properties_oauth_token_view_spec_layout_title: OAuth token
         disk_properties_path_view_spec_layout_title: Path
-        foundation_models_properties_action_properties_few_shot_classify_properties_model_description_base_model: Base model
-        foundation_models_properties_action_properties_few_shot_classify_properties_model_description_custom: Fine-tuned model
         foundation_models_properties_action_properties_generate_properties_context_description_json: JSON string
         foundation_models_properties_action_properties_generate_properties_context_description_messages: Messages
         foundation_models_properties_action_properties_generate_properties_context_view_spec_layout_title: Context
         foundation_models_properties_action_properties_generate_properties_max_tokens_view_spec_layout_title: Number of tokens
+        foundation_models_properties_action_properties_generate_properties_model_description_base_model: Base model
+        foundation_models_properties_action_properties_generate_properties_model_description_custom: Fine-tuned model
         foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title: Temperature
         foundation_models_properties_model_properties_custom_view_spec_layout_title: Model URI
         foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title: Folder ID

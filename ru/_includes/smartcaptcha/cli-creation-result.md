@@ -1,6 +1,6 @@
 Результат:
 
-```bash
+```text
 id: bpnd6cm6qpr5********
 folder_id: b1g0ijbfaqsn********
 cloud_id: b1gia87mbaom********
@@ -8,8 +8,8 @@ client_key: ysc1_2lla0Yn6dhlnEaTv2QNg2BhuA8Nqlyk4L7pZk3dz********
 created_at: "2025-03-02T21:38:48.830498Z"
 name: my-first-captcha
 allowed_sites:
-  - exmaple.com
-  - exmaple.net
+  - exmaple.ru
+  - exmaple.kz
 complexity: MEDIUM
 style_json: '{"focus-color":"rgb(250, 192, 0)","base-background-color":"#fff"}'
 turn_off_hostname_check: true
@@ -32,7 +32,7 @@ security_rules:
       geo_ip_match:
         locations:
           - ru
-          - es
+          - kz
     override_variant_uuid: variant-2
 override_variants:
   - uuid: variant-1
@@ -43,6 +43,6 @@ override_variants:
   - uuid: variant-2
     description: override variant 2
     complexity: HARD
-    pre_check_type: CHECKBOX
+    pre_check_type: SLIDER
     challenge_type: KALEIDOSCOPE
 ```

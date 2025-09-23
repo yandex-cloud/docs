@@ -76,12 +76,24 @@ items:
             href: operations/federation-group-mapping.md
           - name: Обновить SAML-сертификат {{ yandex-cloud }}
             href: operations/renew-yc-certificate.md
+          - name: Настроить домен в федерации удостоверений
+            href: operations/manage-domain-in-federation.md
       - name: Управление пулами пользователей
         items:
           - name: Создать пул пользователей
             href: operations/user-pools/create-userpool.md
           - name: Изменить пул пользователей
             href: operations/user-pools/edit-userpool.md
+          - name: Настроить домен в пуле пользователей
+            href: operations/user-pools/manage-domain.md
+          - name: Получить список пулов пользователей
+            href: operations/user-pools/get-list-userpools.md
+          - name: Получить информацию о пуле пользователей
+            href: operations/user-pools/get-userpool.md
+          - name: Получить список пользователей в пуле
+            href: operations/user-pools/get-list-users.md
+          - name: Настроить доступ к пулу пользователей
+            href: operations/user-pools/set-access-bindings-userpool.md
           - name: Удалить пул пользователей
             href: operations/user-pools/delete-userpool.md
           - name: Управление пользователями
@@ -94,16 +106,22 @@ items:
                 href: operations/user-pools/activate-user.md
               - name: Деактивировать пользователя
                 href: operations/user-pools/deactivate-user.md
-              - name: Сбросить пароль пользователя
+              - name: Изменить пароль пользователя
                 href: operations/user-pools/reset-user-password.md
+              - name: Получить информацию о пользователе пула
+                href: operations/user-pools/get-user.md
               - name: Удалить пользователя
                 href: operations/user-pools/delete-user.md
       - name: Управление доменами
         items:
-          - name: Добавить домен
+          - name: Привязать домен
             href: operations/user-pools/add-domain.md
           - name: Подтвердить домен
             href: operations/user-pools/validate-domain.md
+          - name: Получить список доменов
+            href: operations/user-pools/list-domain.md
+          - name: Посмотреть информацию о домене
+            href: operations/user-pools/get-domain.md
           - name: Удалить домен
             href: operations/user-pools/delete-domain.md
       - name: Управление приложениями
