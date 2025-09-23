@@ -15,6 +15,8 @@ items:
         href: operations/view-db-objects-info.md
       - name: Работа с редактором запросов
         href: operations/query-executor.md
+      - name: Аналитика и оптимизация с помощью AI-ассистента
+        href: operations/ai-assistant.md
       - name: Работа с сохраненными запросами
         href: operations/templates.md
       - name: Работа с историей запросов

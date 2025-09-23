@@ -17,7 +17,7 @@ The applicable {{ sd-name }} pricing depends on the module you are using:
 * [Cloud Infrastructure Entitlement Management ({{ ciem-name }}) module](concepts/ciem.md) is free of charge.
 * [For {{ dspm-name }})](concepts/dspm.md), see [below](#dspm-rules).
 * For [{{ atr-name }}](concepts/access-transparency.md), see [{{ atr-name }}](#atr-rules) below.
-* For [{{ ycdr-full-name }}](concepts/ycdr.md), upon agreement with your account manager, starting from ₽400,000.
+* For [{{ ycdr-full-name }}](concepts/ycdr.md), upon agreement with your account manager.
 
 ## What goes into the cost of using {{ sd-name }} {#rules}
 
@@ -63,12 +63,6 @@ Image scanning is charged separately.
 
 
 #### Scanning by the number of images {#scan-by-image-amount}
-
-{% note warning %}
-
-These prices apply starting September 22, 2025.
-
-{% endnote %}
 
 
 

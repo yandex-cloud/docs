@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
      * **{{ ui-key.yacloud.common.name }}** — имя экспорта.
      * **{{ ui-key.yacloud.iot.label_mqtt-topic-filter }}** — укажите топик, из которого будут экспортироваться сообщения, или фильтр с использованием [символов подстановки](../concepts/topic/usage.md#wildcards). Если поле пустое, экспортируются сообщения из всех топиков реестра и всех топиков устройств внутри реестра.
      * **{{ ui-key.yacloud.data-streams.label_data-stream }}** — укажите [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), в который будут отправляться сообщения из MQTT-топиков, или [создайте новый](../../data-streams/operations/manage-streams.md#create-data-stream). Если вы создали новый поток, нажмите кнопку **Обновить** для обновления списка потоков.
-     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — укажите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с ролью `yds-writer`.
+     * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — укажите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с ролью `yds.writer`.
 
   1. Нажмите кнопку **Добавить**.
 
@@ -72,7 +72,7 @@ description: Следуя данной инструкции, вы сможете
      * `--database` — [размещение базы данных]({{ ydb.docs }}/concepts/connect#database), в которой хранятся данные потока: вторая часть значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejf**********`.
      * `--stream` — имя [потока данных](../../data-streams/concepts/glossary.md#stream-concepts), в который будут отправляться сообщения из MQTT-топиков.
      * `--mqtt-topic-filter` — топик, из которого будут экспортироваться сообщения, или фильтр с использованием [символов подстановки](../concepts/topic/usage.md#wildcards). Если параметр не указан, экспортируются сообщения из всех топиков реестра и всех топиков устройств внутри реестра.
-     * `--stream-service-account-name` — имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с ролью `yds-writer`.
+     * `--stream-service-account-name` — имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с ролью `yds.writer`.
 
      Результат:
 

@@ -30,4 +30,6 @@ description: Следуя данной инструкции, вы сможете
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+  {% include [ai-terms](../../../_includes/metadata-hub/data-catalog-ai-markup-terms.md) %}
+
 {% endlist %}

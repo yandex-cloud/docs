@@ -1,8 +1,8 @@
 | Количество изображений | Стоимость за изображение,<br/>вкл. НДС |
 | --- | --- |
-| От 1 до 1000                | 0,04872 ₽ |
-| От 1001 до 10 000           | 0,04068 ₽ |
-| От 10 001 до 100 000        | 0,03480 ₽ |
-| От 100 001 до 1 000 000     | 0,03060 ₽ |
-| От 1 000 001 до 10 000 000  | 0,02712 ₽ |
-| Более 10 000 000            | 0,02436 ₽ |
+| От 1 до 1000                | {{ sku|RUB|security_deck.dspm.scanned.image.v1|string }} |
+| От 1001 до 10 000           | {{ sku|RUB|security_deck.dspm.scanned.image.v1|pricingRate.1000|string }} |
+| От 10 001 до 100 000        | {{ sku|RUB|security_deck.dspm.scanned.image.v1|pricingRate.10000|string }} |
+| От 100 001 до 1 000 000     | {{ sku|RUB|security_deck.dspm.scanned.image.v1|pricingRate.100000|string }} |
+| От 1 000 001 до 10 000 000  | {{ sku|RUB|security_deck.dspm.scanned.image.v1|pricingRate.1000000|string }} |
+| Более 10 000 000            | {{ sku|RUB|security_deck.dspm.scanned.image.v1|pricingRate.10000000|string }} |

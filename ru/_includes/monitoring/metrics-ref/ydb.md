@@ -94,10 +94,12 @@
 
 Имя метрики<br/>Тип, единицы измерения | Описание<br>Метки
 --- | ---
-`table.columnshard.bulk_upsert.bytes`<br>`RATE`, байты/с | Размер данных, которые добавлены через вызов gRPC API `BulkUpsert` во все партиции всех таблиц в базе в определенный период времени.
-`table.columnshard.bulk_upsert.rows`<br>`RATE`, строки/с | Количество строк, которые добавлены через вызов gRPC API `BulkUpsert` во все партиции всех таблиц в базе данных в определенный период времени.
-`table.columnshard.scan.bytes`<br>`RATE`, байты/с | Размер данных, которые прочитаны через вызов gRPC API `StreamExecuteScanQuery` или `StreamReadTable` всеми партициями всех таблиц в базе в определенный период времени.
-`table.columnshard.scan.rows`<br>`RATE`, строки/с | Количество строк, которые прочитаны через вызовы gRPC API `StreamExecuteScanQuery` или `StreamReadTable` всеми партициями всех таблиц в базе данных в определенный период времени.
+`table.columnshard.bulk_upsert.bytes`<br>`RATE`, байты/с | Скорость добавления данных через вызов gRPC API `BulkUpsert` во все партиции всех таблиц в базе.
+`table.columnshard.bulk_upsert.rows`<br>`RATE`, строки/с | Скорость добавления строк через вызов gRPC API `BulkUpsert` во все партиции всех таблиц в базе данных.
+`table.columnshard.scan.bytes`<br>`RATE`, байты/с | Скорость чтения данных через вызов gRPC API `StreamExecuteScanQuery` или `StreamReadTable` всеми партициями всех таблиц в базе.
+`table.columnshard.scan.rows`<br>`RATE`, строки/с | Скорость чтения строк через вызовы gRPC API `StreamExecuteScanQuery` или `StreamReadTable` всеми партициями всех таблиц в базе данных.
+`table.columnshard.write.bytes`<br>`RATE`, байты/с | Скорость записи данных во все партиции всех таблиц в базе.
+`table.columnshard.write.rows`<br>`RATE`, строки/с | Скорость записи строк во все партиции всех таблиц в базе.
 
 ## Метрики использования ресурсов (только для режима Dedicated) {#ydb_dedicated_resources}
 

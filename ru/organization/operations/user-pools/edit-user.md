@@ -22,4 +22,37 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud_org.organization.userpools.title_personal-info }}** измените полное имя и номер телефона пользователя.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для изменения данных пользователя в [пуле](../../concepts/user-pools.md):
+
+     ```bash
+     yc organization-manager idp user update --help
+     ```
+
+  1. Выполните команду:
+
+     ```bash
+     yc organization-manager idp user update <идентификатор_пользователя> \
+       --username <логин_и_домен_пользователя> \
+       --full-name <имя_и_фамилия_пользователя> \
+       --given-name <имя_пользователя> \
+       --family-name <фамилия_пользователя> \
+       --email <электронная_почта_пользователя> \
+       --phone-number <номер_телефона_пользователя>
+     ```
+
+     Где:     
+
+     * `--username` — новые логин и домен пользователя в формате `логин@домен`. Логин должен быть уникальным для данного пула пользователей.
+     * `--full-name` — новые имя и фамилия пользователя.
+     * `--given-name` — новое имя пользователя.
+     * `--family-name` — новая фамилия пользователя.
+     * `--email` — новая электронная почта пользователя.
+     * `--phone-number` — новый номер телефона пользователя.
+
 {% endlist %}

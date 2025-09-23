@@ -61,6 +61,8 @@
   1. Задайте **{{ ui-key.yacloud.common.description }}** каталога метаданных.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+    {% include [ai-on](../../_includes/metadata-hub/data-catalog-ai-markup-on.md) %}
+
 {% endlist %}
 
 ## Создайте источник и загрузку метаданных {#create-source}

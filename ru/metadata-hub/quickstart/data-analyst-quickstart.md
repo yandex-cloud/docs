@@ -78,6 +78,8 @@
 
      Более точный выбор типов может увеличить количество доступных фильтров.
 
+  {% include [ai-search-on](../../_includes/metadata-hub/data-catalog-ai-search.md) %}
+
 {% endlist %}
 
 ## Настройте фильтры для метаданных {#create-filters}

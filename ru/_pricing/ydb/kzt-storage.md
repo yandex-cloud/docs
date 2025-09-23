@@ -2,6 +2,7 @@
 | ----- | ----: |
 | Хранение данных на группах хранения из SSD-накопителей | {{ sku|KZT|ydb.cluster.v1.ssd|month|string }} |
 | Хранение резервных копий по требованию в {{ objstorage-full-name }} | {{ sku|KZT|ydb.db.backup.v1|month|string }} |
+| YDB. Временное хранилище (спиллинг) | 64,314 ₸ |
 
 {% note info "Минимальный размер группы" %}
 

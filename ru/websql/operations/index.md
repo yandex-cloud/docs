@@ -9,5 +9,6 @@ description: В этом разделе собраны пошаговые инс
 * [{#T}](connect.md)
 * [{#T}](view-db-objects-info.md)
 * [{#T}](query-executor.md)
+* [{#T}](ai-assistant.md)
 * [{#T}](templates.md)
 * [{#T}](history.md)

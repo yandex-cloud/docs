@@ -18,4 +18,22 @@ description: Следуя данной инструкции, вы сможете
   1. В строке с нужным пользователем нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **Удалить пользователя**.
   1. В открывшемся окне подтвердите удаление пользователя из пула.
 
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для удаления пользователя из [пула](../../concepts/user-pools.md):
+
+     ```bash
+     yc organization-manager idp user delete --help
+     ```
+
+  1. Выполните команду:
+
+     ```bash
+     yc organization-manager idp user delete <идентификатор_пользователя>
+     ```
+
 {% endlist %}

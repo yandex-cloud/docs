@@ -22,4 +22,6 @@
   1. (Опционально) Добавьте описание домена.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
+  {% include [ai-domains](../../../_includes/metadata-hub/data-catalog-ai-markup-domains.md) %}
+
 {% endlist %}

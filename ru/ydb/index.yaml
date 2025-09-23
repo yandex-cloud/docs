@@ -10,6 +10,10 @@ description:
     ACID-транзакций. Для запросов используется диалект SQL (<a
     href="https://ydb.tech/docs/ru/yql/reference/">YQL</a>).
   - >-
+    Данная документация описывает особенности работы YDB в инфраструктуре Yandex
+    Cloud. Основная документация YDB находится по адресу <a
+    href="https://ydb.tech/docs/">https://ydb.tech/docs/</a>.
+  - >-
     Инфраструктура Yandex Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с Федеральным законом Российской Федерации «О персональных
