@@ -1,7 +1,7 @@
 # How to create a Telegram bot with AI agent support using {{ sw-full-name }}
 
 
-With serverless technologies, you can create a Telegram bot with [text generation model](../../foundation-models/concepts/generation/models.md) support based on [{{ foundation-models-full-name }}](../../foundation-models/).
+With serverless technologies, you can create a Telegram bot with [text generation model](../../ai-studio/concepts/generation/models.md) support based on [{{ foundation-models-full-name }}](../../ai-studio/).
 
 In this tutorial, you will create a bot which provides movie recommendations based on user preferences. To do this, you will implement data storage in [{{ objstorage-full-name }}](../../storage/) and [{{ lockbox-full-name }}](../../lockbox/), configure bot logic in [{{ sw-full-name }}](../../serverless-integrations/) and set up a webhook using [{{ api-gw-full-name }}](../../api-gateway/).
 
@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The cost of Telegram bot support includes:
 
-* Text generation fee (see [{{ foundation-models-full-name }} pricing](../../foundation-models/pricing.md)).
+* Text generation fee (see [{{ foundation-models-full-name }} pricing](../../ai-studio/pricing.md)).
 * Fee for storing the secret and requests to the secret (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for the amount of stored data, number of data operations, and outbound traffic (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
@@ -445,7 +445,7 @@ Where:
 * `<bucket_name>`: Name of the bucket you [created earlier](#create-bucket).
 * `<secret_ID>`: ID of the secret you [created earlier](#create-secret).
 
-This example uses the {{ gpt-pro }} (`name: yandexgpt`) text model. You can use [another model](../../foundation-models/concepts/generation/models.md#generation) available in synchronous mode in {{ foundation-models-name }}.
+This example uses the {{ gpt-pro }} (`name: yandexgpt`) text model. You can use [another model](../../ai-studio/concepts/generation/models.md#generation) available in synchronous mode in {{ foundation-models-name }}.
 
 
 ### Create a workflow {#create-workflow}

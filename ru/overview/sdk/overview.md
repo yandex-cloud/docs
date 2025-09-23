@@ -20,7 +20,7 @@ SDK поддерживают работу с большинством серви
 ## Сервисные SDK {#service-sdks}
 
 Для некоторых сервисов доступны специальные SDK:
-* [{{ ml-sdk-full-name }}](../../foundation-models/sdk/index.md) — для сервисов [{{ ai-studio-full-name }}](/ai-studio).
+* [{{ ml-sdk-full-name }}](../../ai-studio/sdk/index.md) — для сервисов [{{ ai-studio-full-name }}](/ai-studio).
 * [Python SDK {{ speechkit-name }}](../../speechkit/sdk/python/index.md) — для [{{ speechkit-full-name }}](../../speechkit/).
 * [SDK видеоплеера](../../video/sdk/index.md) — для [{{ video-full-name }}](../../video/).
 * [YDB SDK](https://ydb.tech/docs/ru/reference/ydb-sdk/) — для [{{ ydb-full-name }}](../../ydb/) и [{{ yq-full-name }}](../../query/).

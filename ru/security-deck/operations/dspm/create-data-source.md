@@ -7,6 +7,8 @@ description: Следуя данной инструкции, вы узнаете
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
+{% include [sd-usage-security-disclaimer](../../../_includes/security-deck/sd-usage-security-disclaimer.md) %}
+
 [Источник данных](../../concepts/dspm.md#data-source) содержит информацию о [бакетах](../../../storage/concepts/bucket.md) {{ objstorage-full-name }}, в которых будет выполняться сканирование, а также дополнительные настройки.
 
 Прежде чем начать работать с {{ dspm-name }}, [настройте](../../quickstart-overview.md#configure-sd) каталог по умолчанию для хранения данных сервиса {{ sd-name }}.

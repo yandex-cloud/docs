@@ -102,7 +102,7 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
    ```
 
 1. Create a VM and connect it to `my-yc-subnet-a`:
-   1. [Prepare](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
+   1. [Create](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
    1. Create a Linux VM:
 
       

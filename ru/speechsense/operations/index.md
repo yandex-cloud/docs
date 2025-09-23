@@ -47,6 +47,12 @@ description: Страница содержит все инструкции дл�
 * [{#T}](project/delete-user-from-project.md)
 * [{#T}](project/yandexgpt-training.md)
 
+## Ассистенты {#assistant}
+
+* [{#T}](assistant/create.md)
+* [{#T}](assistant/edit.md)
+* [{#T}](assistant/delete.md)
+
 ## Теги {#tag}
 
 * [{#T}](project/tag/create-dictionary-tag.md)

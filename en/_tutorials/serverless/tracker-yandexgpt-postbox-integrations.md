@@ -3,7 +3,7 @@
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
-In this tutorial, you will create {{ sw-full-name }} [workflows](../../serverless-integrations/concepts/workflows/workflow.md) and configure their integration with [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ foundation-models-full-name }}](../../foundation-models/concepts/generation/index.md), and [{{ postbox-full-name }}](../../postbox/index.yaml).
+In this tutorial, you will create {{ sw-full-name }} [workflows](../../serverless-integrations/concepts/workflows/workflow.md) and configure their integration with [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ foundation-models-full-name }}](../../ai-studio/concepts/generation/index.md), and [{{ postbox-full-name }}](../../postbox/index.yaml).
 
 Your workflows will receive information about the issues in a given {{ tracker-name }} [queue]({{ link-tracker-cloudless }}about-tracker#ochered) and use {{ gpt-pro }} to analyze the workcompleted within these issues, their statuses, and evaluation. The results of the analysis and a brief progress report will be saved in a comment to one of the {{ tracker-name }} issues and also sent to the specified email address via {{ postbox-name }}.
 
@@ -36,7 +36,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The cost of support for the new infrastructure includes:
 
 * Fee for storing the [secret](../../lockbox/concepts/secret.md) and requests to the secret (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-* Fee for using {{ foundation-models-full-name }} (see [{{ foundation-models-full-name }} pricing](../../foundation-models/pricing.md)).
+* Fee for using {{ foundation-models-full-name }} (see [{{ foundation-models-full-name }} pricing](../../ai-studio/pricing.md)).
 * Fee for using {{ tracker-full-name }} (see [{{ tracker-name }} pricing]({{ link-tracker-cloudless }}pricing)).
 * Fee for using {{ postbox-full-name }} (see [{{ postbox-name }} pricing](../../postbox/pricing.md)).
 
@@ -51,7 +51,7 @@ The cost of support for the new infrastructure includes:
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**, and in the window that opens:
       1. Name the [service account](../../iam/concepts/users/service-accounts.md): `workflow-sa`.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select [`serverless.workflows.executor`](../../iam/concepts/access-control/roles.md).
-      1. Repeat the previous step to add the [`postbox.sender`](../../postbox/security/index.md#postbox-sender) and [`ai.languageModels.user`](../../foundation-models/security/index.md#languageModels-user) roles.
+      1. Repeat the previous step to add the [`postbox.sender`](../../postbox/security/index.md#postbox-sender) and [`ai.languageModels.user`](../../ai-studio/security/index.md#languageModels-user) roles.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}

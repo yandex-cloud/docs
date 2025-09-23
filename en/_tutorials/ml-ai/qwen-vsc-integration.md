@@ -9,7 +9,7 @@ To use Qwen3-235B-A22B as your Visual Studio Code assistant, proceed as followin
 1. [Connect to the model](#connection).
 1. [Test the model](#test).
 
-The infrastructure support fee for connecting Qwen3-235B-A22B from Visual Studio Code includes a text generation fee (see [{{ foundation-models-full-name }} pricing](../../foundation-models/pricing.md)).
+The infrastructure support fee for connecting Qwen3-235B-A22B from Visual Studio Code includes a text generation fee (see [{{ foundation-models-full-name }} pricing](../../ai-studio/pricing.md)).
 
 ## Set up your infrastructure {#infra}
 

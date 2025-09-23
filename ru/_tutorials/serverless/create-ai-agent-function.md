@@ -1,8 +1,8 @@
 
 
-Узнайте, как с помощью [функции](../../functions/concepts/function.md) {{ sf-name }} с использованием [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) создать [AI-агента](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — персонализированного помощника, реализующего сценарий генеративного ответа на основе [моделей генерации текста](../../foundation-models/concepts/generation/models.md) {{ foundation-models-full-name }}.
+Узнайте, как с помощью [функции](../../functions/concepts/function.md) {{ sf-name }} с использованием [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) создать [AI-агента](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — персонализированного помощника, реализующего сценарий генеративного ответа на основе [моделей генерации текста](../../ai-studio/concepts/generation/models.md) {{ foundation-models-full-name }}.
 
-В данном руководстве вы создадите простого AI-агента, который через функцию {{ sf-name }} будет получать информацию о погоде, взаимодействовать с [языковой моделью](../../foundation-models/concepts/generation/models.md) {{ foundation-models-full-name }} и, чтобы было интереснее, отвечать пользователю в форме [хайку](https://ru.wikipedia.org/wiki/Хайку).
+В данном руководстве вы создадите простого AI-агента, который через функцию {{ sf-name }} будет получать информацию о погоде, взаимодействовать с [языковой моделью](../../ai-studio/concepts/generation/models.md) {{ foundation-models-full-name }} и, чтобы было интереснее, отвечать пользователю в форме [хайку](https://ru.wikipedia.org/wiki/Хайку).
 
 ![create-ai-agent-function](../../_assets/tutorials/create-ai-agent-function.svg)
 
@@ -12,7 +12,7 @@
 1. Обработчик функции {{ sf-name }} создает и запускает AI-агента.
 1. AI-агент запрашивает дополнительные данные о погоде в нужном городе в пользовательской функции `get_weather()`.
 1. AI-агент отправляет расширенный дополнительным контекстом запрос пользователя в модель генерации текста {{ foundation-models-name }}.
-1. [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с помощью [API-ключа](../../iam/concepts/authorization/api-key.md) авторизует для AI-агента доступ к [Text Generation API](../../foundation-models/text-generation/api-ref/index.md) {{ foundation-models-name }}.
+1. [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с помощью [API-ключа](../../iam/concepts/authorization/api-key.md) авторизует для AI-агента доступ к [Text Generation API](../../ai-studio/text-generation/api-ref/index.md) {{ foundation-models-name }}.
 1. Сервисный аккаунт предоставляет функции {{ sf-name }} доступ к секрету [{{ lockbox-name }}](../../lockbox/index.yaml), в котором хранится API-ключ сервисного аккаунта.
 1. Функция {{ sf-name }} получает из секрета {{ lockbox-name }} API-ключ сервисного аккаунта.
 1. Модель {{ foundation-models-name }} передает AI-агенту сгенерированный ответ.
@@ -49,7 +49,7 @@ AI-агент — это программный помощник на базе �
 
 В стоимость поддержки инфраструктуры для этого практического руководства входят:
 * Плата за использование функции (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
-* Плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}](../../foundation-models/pricing.md)).
+* Плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}](../../ai-studio/pricing.md)).
 * Плата за хранение секрета и операции с ним (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md)).
 * Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)), если вы используете сервис [{{ cloud-logging-name }}](../../logging/).
 
@@ -155,7 +155,7 @@ AI-агент — это программный помощник на базе �
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта: `function-sa`.
-  1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../foundation-models/security/index.md#languageModels-user) `ai.languageModels.user`.
+  1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../ai-studio/security/index.md#languageModels-user) `ai.languageModels.user`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
@@ -185,7 +185,7 @@ AI-агент — это программный помощник на базе �
 
       Подробнее о команде `yc iam service-account create` читайте в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
-  1. Назначьте созданному сервисному аккаунту [роль](../../foundation-models/security/index.md#languageModels-user) `ai.languageModels.user` на каталог, указав сохраненные на предыдущем шаге идентификаторы каталога и сервисного аккаунта:
+  1. Назначьте созданному сервисному аккаунту [роль](../../ai-studio/security/index.md#languageModels-user) `ai.languageModels.user` на каталог, указав сохраненные на предыдущем шаге идентификаторы каталога и сервисного аккаунта:
 
       ```bash
       yc resource-manager folder add-access-binding <идентификатор_каталога> \
@@ -428,7 +428,7 @@ AI-агент — это программный помощник на базе �
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
          * **{{ ui-key.yacloud.forms.label_service-account-select }}** — выберите сервисный аккаунт `function-sa`.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-             * `MODEL_NAME` — [URI модели](../../foundation-models/concepts/generation/models.md#generation) генерации текста {{ foundation-models-full-name }}.
+             * `MODEL_NAME` — [URI модели](../../ai-studio/concepts/generation/models.md#generation) генерации текста {{ foundation-models-full-name }}.
 
                  Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`.
                 

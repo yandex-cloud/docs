@@ -199,7 +199,7 @@ To delete an object:
       Foreach($x in (aws s3api list-objects `
         --endpoint-url https://{{ s3-storage-host }} `
         --bucket <bucket_name> `
-        --query '<request>' `
+        --query '<query>' `
         --output text)) `
         {aws s3api delete-object --endpoint-url https://{{ s3-storage-host }} --bucket <bucket_name> --key $x}
       ```
@@ -267,7 +267,7 @@ To delete an object:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
   1. Apply the changes:
 
      ```bash

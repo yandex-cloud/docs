@@ -213,6 +213,8 @@ items:
           Построение пайплайна CI/CD в {{ GL }} с использованием
           serverless-продуктов
         href: tutorials/ci-cd-serverless.md
+      - name: Запуск {{ GLR }} в {{ serverless-containers-name }}
+        href: tutorials/serverless-gitlab-runner.md
       - name: >-
           Настройка подключения к {{ mpg-full-name }} из контейнера {{
           serverless-containers-name }}

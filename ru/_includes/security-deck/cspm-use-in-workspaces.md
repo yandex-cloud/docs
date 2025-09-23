@@ -1,0 +1,1 @@
+[Правила](../../security-deck/concepts/cspm.md#rules) контроля безопасности модуля {{ cspm-name }} используются в [окружениях](../../security-deck/concepts/workspace.md) {{ sd-name }}. Если у вас еще нет окружения, [создайте](../../security-deck/operations/workspaces/create.md) его.

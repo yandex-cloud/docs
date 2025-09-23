@@ -85,9 +85,9 @@ links:
   - title: Cloud Functions
     description: Run code as a function
     href: functions/
-  - title: Foundation Models
+  - title: '{{ foundation-models-name }}'
     description: Generative ML models
-    href: foundation-models/
+    href: ai-studio/
   - title: Identity and Access Management
     description: Identification and cloud resource access control
     href: iam/

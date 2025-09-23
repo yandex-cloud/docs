@@ -417,6 +417,8 @@ items:
             href: operations/gpu-cluster/test-infiniband-bandwidth.md
       - name: Viewing service resource operations
         href: operations/operation-logs.md
+      - name: Viewing metrics in {{ monitoring-name }}
+        href: operations/metrics-pull.md
   - name: '{{ cos-full-name }}'
     href: ../cos/
   - name: Tutorials
@@ -2071,5 +2073,5 @@ items:
         href: qa/licensing.md
       - name: Troubleshooting
         href: qa/troubleshooting.md
-      - name: All questions on a single page
+      - name: All questions on one page
         href: qa/all.md

@@ -20,7 +20,7 @@ For more information about integrating SDKs into your project, see [{#T}](./quic
 ## Service SDKs {#service-sdks}
 
 For some services, dedicated SDKs are available:
-* [{{ ml-sdk-full-name }}](../../foundation-models/sdk/index.md) for [{{ ai-studio-full-name }}](/ai-studio) services.
+* [{{ ml-sdk-full-name }}](../../ai-studio/sdk/index.md) for [{{ ai-studio-full-name }}](/ai-studio) services.
 * [{{ speechkit-name }} Python SDK](../../speechkit/sdk/python/index.md) for [{{ speechkit-full-name }}](../../speechkit/).
 * [Video player SDK](../../video/sdk/index.md) for [{{ video-full-name }}](../../video/).
 * [YDB SDK](https://ydb.tech/docs/en/reference/ydb-sdk/) for [{{ ydb-full-name }}](../../ydb/) and [{{ yq-full-name }}](../../query/).

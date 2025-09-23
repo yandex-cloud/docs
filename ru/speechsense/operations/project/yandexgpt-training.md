@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Обучение {{ yagpt-name }}
 
-[{{ yagpt-name }}](../../../foundation-models/concepts/generation/models.md) используется в [диалогах](../../concepts/dialogs.md) {{ speechsense-name }} для анализа данных. Чтобы анализ был более качественным (например, для разметки смысловыми тегами или для распознавания аудиоданных), модели {{ yagpt-name }} могут обучаться на данных вашего проекта.
+[{{ yagpt-name }}](../../../ai-studio/concepts/generation/models.md) используется в [диалогах](../../concepts/dialogs.md) {{ speechsense-name }} для анализа данных. Чтобы анализ был более качественным (например, для разметки смысловыми тегами или для распознавания аудиоданных), модели {{ yagpt-name }} могут обучаться на данных вашего проекта.
 
 С 1 сентября 2025 года при создании проекта обучение {{ yagpt-name }} включено по умолчанию. При необходимости его можно [отключить](#disable-yandexgpt-training). Для проектов, созданных до 1 сентября 2025 года, обучение {{ yagpt-name }} нужно [включить](#enable-yandexgpt-training) вручную.
 
@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note warning %}
 
-Подключая к проекту обучение [{{ yagpt-name }}](../../../foundation-models/concepts/generation/models.md), вы разрешаете использовать данные вашего проекта для обучения модели. [Подробнее об использовании данных](https://yandex.ru/legal/cloud_terms_speechsense/).
+Подключая к проекту обучение [{{ yagpt-name }}](../../../ai-studio/concepts/generation/models.md), вы разрешаете использовать данные вашего проекта для обучения модели. [Подробнее об использовании данных](https://yandex.ru/legal/cloud_terms_speechsense/).
 
 {% endnote %}
 

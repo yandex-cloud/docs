@@ -93,9 +93,9 @@ links:
   - title: Cloud Functions
     description: Запуск вашего кода в виде функции
     href: functions/
-  - title: Foundation Models
+  - title: '{{ foundation-models-name }}'
     description: Генеративные модели машинного обучения
-    href: foundation-models/
+    href: ai-studio/
   - title: Identity and Access Management
     description: Идентификация и контроль доступа к облачным ресурсам
     href: iam/

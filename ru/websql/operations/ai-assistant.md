@@ -7,7 +7,7 @@ description: В данной инструкции рассматриваются
 
 {% include [preview-pp](../../_includes/preview-pp.md) %}
 
-В {{ websql-name }} интегрирован [AI-ассистент](../../foundation-models/concepts/assistant/index.md), который поможет:
+В {{ websql-name }} интегрирован [AI-ассистент](../../ai-studio/concepts/assistant/index.md), который поможет:
 
 * формировать запросы к базам данных, основываясь на текстовом описании;
 * исправлять и оптимизировать запросы из редактора;

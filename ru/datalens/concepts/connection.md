@@ -43,6 +43,7 @@ _Подключение_ содержит информацию о парамет
   * [Экстрактор 1С](../operations/connection/create-extractor1c.md)
   * [Битрикс24](../operations/connection/create-bitrix24.md)
   * [Подкасты Аналитика](../operations/connection/create-podcasts.md)
+  * [Предложить свой партнерский коннектор](../operations/marketplace/create-connector-for-partners.md)
 
 
 
@@ -51,7 +52,7 @@ _Подключение_ содержит информацию о парамет
 
 
 
-Вы можете добавить дополнительные типы подключений из списка доступных в [{{ datalens-short-name }} Marketplace](marketplace.md).
+Вы можете добавить дополнительные типы подключений из [списка доступных в {{ marketplace-full-name }}](https://yandex.cloud/ru/marketplace?tab=datalens).
 
 ## Подключение внешней БД {#external-db-connection}
 

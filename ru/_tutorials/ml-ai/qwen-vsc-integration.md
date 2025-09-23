@@ -9,7 +9,7 @@
 1. [Подключитесь к модели](#connection).
 1. [Протестируйте модель](#test).
 
-В стоимость поддержки инфраструктуры для подключения к модели Qwen3-235B-A22B из Visual Studio Code входит плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}](../../foundation-models/pricing.md)).
+В стоимость поддержки инфраструктуры для подключения к модели Qwen3-235B-A22B из Visual Studio Code входит плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}](../../ai-studio/pricing.md)).
 
 ## Подготовьте инфраструктуру {#infra}
 

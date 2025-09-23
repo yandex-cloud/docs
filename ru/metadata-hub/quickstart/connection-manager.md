@@ -14,8 +14,8 @@ description: Управляйте подключениями к источник
 
 - Консоль управления {#console}
 
-  1. Создайте кластер [{{ mpg-short-name }}](../../managed-postgresql/operations/cluster-create.md), [{{ mmy-short-name }}](../../managed-mysql/operations/cluster-create.md) и [{{ mch-short-name }}](../../managed-clickhouse/operations/cluster-create.md).
-  1. Чтобы включить интеграцию сервиса с кластерами управляемых баз данных, в дополнительных настройках кластера выберите **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. После сохранения настроек кластера, его подключения будут создаваться автоматически.
+  1. Создайте кластер [{{ mpg-short-name }}](../../managed-postgresql/operations/cluster-create.md), [{{ mmy-short-name }}](../../managed-mysql/operations/cluster-create.md) и [{{ mch-short-name }}](../../managed-clickhouse/operations/cluster-create.md). Для новых кластеров интеграция с {{ connection-manager-name }} будет включена автоматически.
+  1. Чтобы включить интеграцию сервиса с существующими кластерами управляемых баз данных, в дополнительных настройках кластера выберите **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. После сохранения настроек кластера, все его подключения будут создаваться автоматически. Отменить настройку интеграции нельзя.
   1. Для проверки автоматически созданного подключения, перейдите в [{{ connection-manager-name }}]({{ link-console-main }}/link/metadata-hub/connection-manager) в консоли управления.
 
   В списке подключений вы можете просмотреть подключения, созданные для ваших кластеров, и [настроить доступ](../operations/connection-access.md) к ним. В списке [зависимостей](../operations/view-connection.md#dependencies) подключения вы сможете просмотреть, для каких кластеров управляемых баз данных используется это подключение. Вы также можете посмотреть список и статус [операций](../operations/operation-connection.md) для выбранного подключения.

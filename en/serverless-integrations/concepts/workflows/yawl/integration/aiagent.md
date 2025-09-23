@@ -34,7 +34,7 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- |--- | --- | --- | ---
-`name`| `string` | No | `yagpt` | No | Model name. [List of available models](../../../../../foundation-models/concepts/generation/models.md#generation).
+`name`| `string` | No | `yagpt` | No | Model name. [List of available models](../../../../../ai-studio/concepts/generation/models.md#generation).
 
 ## KnowledgeSource object {#KnowledgeSource}
 

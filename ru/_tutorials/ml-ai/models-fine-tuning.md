@@ -1,9 +1,9 @@
 
 # Дообучение моделей в {{ ml-platform-name }} Notebooks
 
-Вы можете [дообучать](../../foundation-models/concepts/tuning/index.md) языковые модели {{ foundation-models-full-name }}, чтобы они лучше понимали специфику ваших задач, через API или {{ ml-sdk-name }}. Дообучение удобно запускать в ноутбуках [{{ ml-platform-full-name }}](../../datasphere/).
+Вы можете [дообучать](../../ai-studio/concepts/tuning/index.md) языковые модели {{ foundation-models-full-name }}, чтобы они лучше понимали специфику ваших задач, через API или {{ ml-sdk-name }}. Дообучение удобно запускать в ноутбуках [{{ ml-platform-full-name }}](../../datasphere/).
 
-В этом руководстве вы дообучите модель в {{ ml-platform-name }} с помощью SDK. Вы также можете склонировать [репозиторий](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) и запустить ноутбук локально, изменив [параметры аутентификации](../../foundation-models/sdk/index.md).
+В этом руководстве вы дообучите модель в {{ ml-platform-name }} с помощью SDK. Вы также можете склонировать [репозиторий](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) и запустить ноутбук локально, изменив [параметры аутентификации](../../ai-studio/sdk/index.md).
 
 Чтобы дообучить модель:
 
@@ -23,7 +23,7 @@
 В стоимость поддержки инфраструктуры для дообучения модели входит:
 
 * плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../../datasphere/pricing.md);
-* плата за [генерацию текста](../../foundation-models/pricing.md) моделью.
+* плата за [генерацию текста](../../ai-studio/pricing.md) моделью.
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -104,7 +104,7 @@
 
 ## Дообучите модель {#fine-tuning}
 
-Код для дообучения запускается из ноутбука {{ ml-platform-name }}. [Данные для дообучения](../../foundation-models/concepts/resources/dataset.md#generating) хранятся в формате [JSON Lines](https://jsonlines.org/).
+Код для дообучения запускается из ноутбука {{ ml-platform-name }}. [Данные для дообучения](../../ai-studio/concepts/resources/dataset.md#generating) хранятся в формате [JSON Lines](https://jsonlines.org/).
 
 1. Откройте ноутбук с кодом по ссылке ниже:
 

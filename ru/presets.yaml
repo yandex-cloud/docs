@@ -4,8 +4,9 @@ default:
   AB: Airbyte®
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
+  agents-atelier-name: Agent Atelier
   ai-playground: AI Playground
-  ai-studio-full-name: Yandex Cloud AI Studio
+  ai-studio-full-name: Yandex AI Studio
   ai-studio-name: AI Studio
   airflow-service-address: 10.248.0.0/13
   alb-full-name: Yandex Application Load Balancer
@@ -152,6 +153,7 @@ default:
   crt-web-path-int: https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem
   crt-web-path-root: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
   CSI: Container Storage Interface
+  cspm-name: CSPM
   data-catalog-full-name: Yandex Data Catalog
   data-catalog-name: Data Catalog
   data-transfer-full-name: Yandex Data Transfer
@@ -212,8 +214,8 @@ default:
   folder-id-example: b1g86q4m5vej********
   forms-full-name: Yandex Forms
   forms-name: Forms
-  foundation-models-full-name: Yandex Foundation Models
-  foundation-models-name: Foundation Models
+  foundation-models-full-name: Yandex AI Studio
+  foundation-models-name: AI Studio
   GL: GitLab
   gl:
     docs: https://docs.gitlab.com
@@ -373,6 +375,7 @@ default:
   mch-full-name: Yandex Managed Service for ClickHouse®
   mch-name: Managed Service for ClickHouse®
   mch-short-name: Managed Service for ClickHouse®
+  mcp-hub-name: MCP Hub
   mes-full-name: Yandex Managed Service for Elasticsearch
   mes-name: Managed Service for Elasticsearch
   mes-short-name: Managed Service for Elasticsearch
@@ -434,6 +437,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL®
   mmy-name: Managed Service for MySQL®
   mmy-short-name: Managed Service for MySQL®
+  model-gallery-name: Model Gallery
   monitoring-doc-links: ../monitoring/concepts/index.md
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
@@ -549,6 +553,8 @@ default:
   quota-manager-full-name: Yandex Cloud Quota Manager
   quota-manager-name: Cloud Quota Manager
   RD: Redis
+  realtime-api: Realtime API
+  realtime-model: speech-realtime-250923
   region-id: ru-central1
   registry: cr.yandex
   resmgr-full-name: Yandex Resource Manager
@@ -7573,8 +7579,13 @@ default:
       actions:
         add: Добавить
         delete: Удалить
+        edit: Изменить
         exclude: Исключить
         save-changes: Сохранить
+      app:
+        security:
+          control_rules_rWmUV: Правила контроля
+          label_workspace_12Kax: Окружение
       application:
         overview:
           certificate_action_download_cert: Скачать сертификат
@@ -7630,9 +7641,11 @@ default:
           table:
             column-active: Активный
       common:
+        apply: Применить
         columns:
           column_id: Идентификатор
         confirm: Подтвердить
+        create: Создать
         more: Ещё
         overview: Обзор
         resource-acl:
@@ -7770,6 +7783,9 @@ default:
           folders-create:
             button_create: Создать
             field_description: Описание
+      kspm:
+        TopClustersByErrorsWidget:
+          table_clusters: Топ кластеров с нарушениями
       layout:
         organization: Identity Hub
       mfa-policy-audiences:
@@ -7881,6 +7897,126 @@ default:
         securitySettings: Настройки безопасности
         userpools: Пулы пользователей
         users: Пользователи
+      security-center:
+        alerts:
+          sink:
+            action_create: Создать приёмник
+        kspm:
+          title_clusters: Кластеры
+          title_dashboard: Дашборд
+        label_kspm: Контроль Kubernetes®
+        label_settings: Параметры Security Deck
+      security:
+        controls:
+          ControlExceptionForm:
+            allResources_2ax5E: Все ресурсы
+            ExceptionRulesSection:
+              action_select-rules: Выбрать правила
+              rules-select_option_all: Все правила
+              rules-select_option_selected: Выбранные правила
+              section-title: Исключённые правила
+            scopeOfControl_aRkwB: Область действия контроля
+            section-title_3YcSF: Причина исключения
+            selectResources_bD5MC: Выбрать ресурсы
+          ControlsExceptionsPage:
+            action_create: Создать исключение
+            exceptions_header_qJD5D: Контроль Kubernetes®
+            exceptions_header_vqsTb: Контроль Kubernetes®
+            scope_filter_header_7CrSm: Контроль конфигурации
+          ControlsPage:
+            exceptions_kw1u7: Исключения
+            kubernetes_jRCmt: Kubernetes®
+            security_control_r4yn7: Контроль безопасности
+          ControlsPageLayout:
+            configuration_w7Kw7: Конфигурация
+          ExceptionDrawer:
+            resources_field_id: Идентификатор
+          ExceptionOverview:
+            header_caption_cspm_9dTJt: Контроль конфигурации
+            info_type_1dxbZ: Тип исключения
+          rule-result:
+            controlRule_kr2Bv: Правило контроля
+            standards_iv6a5: Наборы требований
+            verificationMethod_dS9B2: Способ проверки
+            violations_q7AcU: Нарушения
+          RulePageLayout:
+            tab_overview_s9riS: Обзор
+            tab_recommendations_qq61Z: Рекомендации
+            tab_violations_dkbdT: Нарушения
+          ScopeFilterTable:
+            field_author_8hf4z: Создано
+            field_reason_qN8a7: Причина исключения
+            field_rules_vBK4W: Правила
+            field_type_exclude_cigcD: Не проверять ресурс
+            field_type_kCG8J: Тип исключения
+            field_type_manual_mbKxp: Ресурс проверен
+        kspm:
+          TopControlsByErrorsWidget:
+            table_controls_rJ32E: Топ правил с нарушениями
+        settings:
+          SettingsPageLayout:
+            alertSinkLabel_gvxBa: Приёмник алертов
+            connectorsLabel_2NoP9: Коннекторы
+            workspacesLabel_kZyU1: Окружения
+        workspaces:
+          ConnectorAddField:
+            addNewConnector: Новый коннектор
+            addResourcesPlaceholder: Добавить ресурсы
+          ConnectorDialog:
+            createConnectorButton: Создать коннектор
+            labelDescriptionField: Описание
+            labelNameField: Имя
+            labelServiceAccountField: Сервисный аккаунт
+          ServiceAccountResourceSelectDialog:
+            action_save: Сохранить выбор
+          WorkspaceEditPageLayout:
+            tabGeneralParams_xc2v2: Основные параметры
+            tabKubernetes_rC2uU: Контроль Kubernetes®
+            tabResources_vJuSN: Ресурсы
+            tabStandards_wSeaW: Стандарты
+          WorkspaceGeneralParamsForm:
+            alert_sink_title_pvDBG: Приёмник алертов
+            billing_account_title_sU1Tj: Оплата ресурсов
+            folder_title_px1re: Каталог для хранения ресурсов
+            workspace_title_365xt: Имя окружения
+          WorkspaceKspmResourcesForm:
+            section-title_iYCNY: Область действия контроля
+          WorkspaceOnboardingForm:
+            createAndContinue_1yfFr: Создать и продолжить
+            finishOnboarding: Завершить
+            generalParamsTitle_xzLoX: Основные параметры
+            participantsTitle_1WfGq: Участники
+            resourcesTitle_fE6qp: Ресурсы
+            saveAndContinue_9xKZY: Сохранить и продолжить
+            standartsTitle_cxvJ8: Наборы требований
+          WorkspaceOnboardingPageLayout:
+            pageTitle_ehdBw: Создание и настройка окружения
+          WorkspacePageLayout:
+            acl_tab: Права доступа
+            edit_action: Параметры окружения
+            operations_tab: Операции
+            overview_tab: Дашборд
+          WorkspaceParticipantsForm:
+            action_add-user: Добавить пользователей
+            WorkspaceAclTable:
+              action_assign-roles: Назначить роли
+              action_remove-user: Удалить пользователя
+          WorkspaceResourcesForm:
+            actionDelete: Удалить
+            actionEditConnector: Редактировать коннектор
+            buttonSelectCloudCatalog: Выбрать облако/каталог
+            title: Ресурсы окружения
+          WorkspaceSelect:
+            create_action: Создать окружение
+          WorkspaceStandardsForm:
+            modules_title_s8LDi: Активация модулей
+            standards_title_dBBXP: Стандарты безопасности
+      shared:
+        components:
+          severity_high_cahHH: Высокая критичность
+          severity_info_biSRh: Замечание
+          severity_low_tqf9A: Низкая критичность
+          severity_medium_8LZ4w: Средняя критичность
       support:
         switch_tickets: Обращения
         tickets:
@@ -9743,6 +9879,8 @@ default:
             popup-confirm_button_delete: Удалить
           overview:
             label_health: Состояние
+            label_ident-and-access-management-issuer: URL эмитента
+            label_ident-and-access-management-jwks-uri: URL набора ключей JWKS
             label_master-title: Мастер
             label_status: Статус
             label_title: Обзор
@@ -10567,6 +10705,7 @@ default:
         button_create-container: Создать контейнер
         button_deploy-revision: Создать ревизию
         label_args: Аргументы
+        label_async-enable: Включить
         label_aws_v1_http_endpoint: Доступ к метаданным с использованием формата AWS (IMDSv1)
         label_command: Команда
         label_containers: Контейнеры
@@ -10583,6 +10722,7 @@ default:
         label_url: Ссылка для вызова
         label_working-directory: Рабочая директория
         popup-confirm-edit-active-revision_button_confirm: Подтвердить
+        section_async: Асинхронный вызов
         section_general: Базовые параметры
         section_image: Параметры образа
         section_parameters: Настройки
@@ -12586,12 +12726,34 @@ default:
         disk_properties_action_properties_upload_properties_content_view_spec_layout_title: Содержимое файла
         disk_properties_oauth_token_view_spec_layout_title: OAuth-токен
         disk_properties_path_view_spec_layout_title: Путь
+        foundation_models_properties_action_description_classify: Дообученная классификация
+        foundation_models_properties_action_description_few_shot_classify: Классификация по промту
+        foundation_models_properties_action_description_generate: Генерация текста
+        foundation_models_properties_action_properties_few_shot_classify_properties_labels_description_labels_array: Список
+        foundation_models_properties_action_properties_few_shot_classify_properties_labels_description_labels_json: JSON
+        foundation_models_properties_action_properties_few_shot_classify_properties_labels_properties_labels_json_view_spec_title: JSON-объект
+        foundation_models_properties_action_properties_few_shot_classify_properties_labels_view_spec_layout_title: Классы
+        foundation_models_properties_action_properties_few_shot_classify_properties_samples_description_samples_array: Список
+        foundation_models_properties_action_properties_few_shot_classify_properties_samples_description_samples_json: JSON
+        foundation_models_properties_action_properties_few_shot_classify_properties_samples_properties_samples_json_view_spec_title: JSON-объект
+        foundation_models_properties_action_properties_few_shot_classify_properties_samples_view_spec_layout_title: Примеры запросов
+        foundation_models_properties_action_properties_few_shot_classify_properties_task_description_view_spec_layout_title: Задание
+        foundation_models_properties_action_properties_few_shot_classify_properties_text_view_spec_layout_title: Текст
         foundation_models_properties_action_properties_generate_properties_context_description_json: JSON-строка
         foundation_models_properties_action_properties_generate_properties_context_description_messages: Сообщения
         foundation_models_properties_action_properties_generate_properties_context_view_spec_layout_title: Контекст
         foundation_models_properties_action_properties_generate_properties_max_tokens_view_spec_layout_title: Количество токенов
         foundation_models_properties_action_properties_generate_properties_model_description_base_model: Базовая модель
         foundation_models_properties_action_properties_generate_properties_model_description_custom: Дообученная модель
+        foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_disabled: Выключен
+        foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_enabled_hidden: Включён
+        foundation_models_properties_action_properties_generate_properties_reasoning_mode_description_reasoning_mode_unspecified: Не задан
+        foundation_models_properties_action_properties_generate_properties_reasoning_mode_view_spec_layout_title: Режим рассуждений
+        foundation_models_properties_action_properties_generate_properties_structured_output_description_json_object: JSON-объект
+        foundation_models_properties_action_properties_generate_properties_structured_output_description_json_schema: JSON-схема
+        foundation_models_properties_action_properties_generate_properties_structured_output_description_none: Нет
+        foundation_models_properties_action_properties_generate_properties_structured_output_properties_json_schema_view_spec_layout_title: JSON-схема
+        foundation_models_properties_action_properties_generate_properties_structured_output_view_spec_layout_title: Структурированный вывод
         foundation_models_properties_action_properties_generate_properties_temperature_view_spec_layout_title: Температура
         foundation_models_properties_model_properties_custom_view_spec_layout_title: Идентификатор модели
         foundation_models_properties_model_properties_yagpt_latest_view_spec_layout_title: Идентификатор каталога
