@@ -1,8 +1,8 @@
 
 
-Language models can maintain conversation context and perform knowledge base search using {{ ml-sdk-full-name }}, [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation), and [{{ assistant-api }}](../../foundation-models/concepts/assistant/index.md).
+Language models can maintain conversation context and perform knowledge base search using {{ ml-sdk-full-name }}, [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation), and [{{ assistant-api }}](../../ai-studio/concepts/assistant/index.md).
 
-In this tutorial, you will create a wine sales chat assistant based on the {{ yagpt-name }} 5 model. The assistant relies on [function calling](../../foundation-models/concepts/generation/function-call.md) and RAG to access the database of wines and regions as well as the price list indicating wines in stock. You will configure the assistant in a {{ ml-platform-full-name }} notebook and interact with it via Telegram.
+In this tutorial, you will create a wine sales chat assistant based on the {{ yagpt-name }} 5 model. The assistant relies on [function calling](../../ai-studio/concepts/generation/function-call.md) and RAG to access the database of wines and regions as well as the price list indicating wines in stock. You will configure the assistant in a {{ ml-platform-full-name }} notebook and interact with it via Telegram.
 
 To create an AI assistant for Telegram:
 
@@ -24,7 +24,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 The infrastructure support cost for creating an AI assistant includes:
 
 * Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
-* Fee for [text generation](../../foundation-models/pricing.md) by the model.
+* Fee for [text generation](../../ai-studio/pricing.md) by the model.
 
 ## Set up your infrastructure {#infra}
 

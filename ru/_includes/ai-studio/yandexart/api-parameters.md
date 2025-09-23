@@ -1,0 +1,8 @@
+Где:
+
+* `modelUri` — идентификатор [модели](../../../ai-studio/concepts/generation/models.md) {{ yandexart-name }}, содержащий [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md) {{ yandex-cloud }}.
+* `seed` — [зерно генерации](../../../ai-studio/concepts/generation/index.md).
+* `text` — текстовое описание изображения, на основе которого будет происходить генерация.
+* `aspectRatio` — (опционально) соотношение сторон генерируемого изображения:
+	* `widthRatio` — ширина (по умолчанию 1).
+	* `heightRatio` — высота (по умолчанию 1).

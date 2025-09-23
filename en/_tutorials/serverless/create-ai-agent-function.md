@@ -1,8 +1,8 @@
 
 
-Learn how to use a [function](../../functions/concepts/function.md) from {{ sf-name }} with the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to create an [AI agent](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf), i.e., a personalized assistant integrated with {{ foundation-models-full-name }} [text generation models](../../foundation-models/concepts/generation/models.md) to provide generative responses.
+Learn how to use a [function](../../functions/concepts/function.md) from {{ sf-name }} with the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to create an [AI agent](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf), i.e., a personalized assistant integrated with {{ foundation-models-full-name }} [text generation models](../../ai-studio/concepts/generation/models.md) to provide generative responses.
 
-Follow this guide to create a simple AI agent that uses a function from {{ sf-name }} to get weather information, interact with the {{ foundation-models-full-name }} [language model](../../foundation-models/concepts/generation/models.md), and, to add a touch of fun, respond to the user in [haiku](https://en.wikipedia.org/wiki/Haiku) form.
+Follow this guide to create a simple AI agent that uses a function from {{ sf-name }} to get weather information, interact with the {{ foundation-models-full-name }} [language model](../../ai-studio/concepts/generation/models.md), and, to add a touch of fun, respond to the user in [haiku](https://en.wikipedia.org/wiki/Haiku) form.
 
 ![create-ai-agent-function](../../_assets/tutorials/create-ai-agent-function.svg)
 
@@ -12,7 +12,7 @@ On the diagram:
 1. The {{ sf-name }} handler creates and runs the AI agent.
 1. The AI agent requests additional weather data for a given city using the custom `get_weather()` function.
 1. The AI agent sends the user request together with the extra context to the {{ foundation-models-name }} text generation model.
-1. A [service account](../../iam/concepts/users/service-accounts.md) authorizes the AI agent to access the {{ foundation-models-name }} [Text Generation API](../../foundation-models/text-generation/api-ref/index.md) using an [API key](../../iam/concepts/authorization/api-key.md).
+1. A [service account](../../iam/concepts/users/service-accounts.md) authorizes the AI agent to access the {{ foundation-models-name }} [Text Generation API](../../ai-studio/text-generation/api-ref/index.md) using an [API key](../../iam/concepts/authorization/api-key.md).
 1. The service account grants access to the [{{ lockbox-name }}](../../lockbox/index.yaml) secret with the service account API key to the function in {{ sf-name }}.
 1. The function in {{ sf-name }} retrieves the service account API key from the {{ lockbox-name }} secret.
 1. The {{ foundation-models-name }} model sends the generated response to the AI agent.
@@ -49,7 +49,7 @@ Functions offered by {{ sf-name }} provide multiple benefits when deploying AI a
 
 The infrastructure support cost for this tutorial includes:
 * Fee for using the function (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
-* Text generation fee (see [{{ foundation-models-full-name }} pricing](../../foundation-models/pricing.md)).
+* Text generation fee (see [{{ foundation-models-full-name }} pricing](../../ai-studio/pricing.md)).
 * Fee for storing the secret and operations with it (see [{{ lockbox-full-name }} pricing](../../lockbox/pricing.md)).
 * Fee for logging operations and data storage in a [log group](../../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)) when using [{{ cloud-logging-name }}](../../logging/).
 
@@ -155,7 +155,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter the service account name: `function-sa`.
-  1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `ai.languageModels.user` [role](../../foundation-models/security/index.md#languageModels-user).
+  1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `ai.languageModels.user` [role](../../ai-studio/security/index.md#languageModels-user).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
@@ -185,7 +185,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
-  1. Assign the `ai.languageModels.user` [role](../../foundation-models/security/index.md#languageModels-user) for the folder to the created service account by specifying the folder and service account IDs you saved in the previous step:
+  1. Assign the `ai.languageModels.user` [role](../../ai-studio/security/index.md#languageModels-user) for the folder to the created service account by specifying the folder and service account IDs you saved in the previous step:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
@@ -428,7 +428,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Select the `function-sa` service account.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-             * `MODEL_NAME`: URI of the {{ foundation-models-full-name }} text generation [model](../../foundation-models/concepts/generation/models.md#generation).
+             * `MODEL_NAME`: URI of the {{ foundation-models-full-name }} text generation [model](../../ai-studio/concepts/generation/models.md#generation).
 
                  Example: `gpt://<folder_ID>/yandexgpt/latest`.
                 

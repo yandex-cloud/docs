@@ -1,12 +1,12 @@
 # Creating an AI assistant with RAG from PDF files with complex formatting
 
-{% include [assistants-preview-stage](../../_includes/foundation-models/assistants-preview-stage.md) %}
+{% include [assistants-preview-stage](../../_includes/ai-studio/assistants-preview-stage.md) %}
 
-This tutorial provides an example of creating an [AI assistant](../../foundation-models/concepts/assistant/index.md) which will search through information in a source with complex formatting and tabular data and analyze the results using the {{ gpt-pro }} RC [text generation model](../../foundation-models/concepts/generation/models.md).
+This tutorial provides an example of creating an [AI assistant](../../ai-studio/concepts/assistant/index.md) which will search through information in a source with complex formatting and tabular data and analyze the results using the {{ gpt-pro }} RC [text generation model](../../ai-studio/concepts/generation/models.md).
 
-In this tutorial, a [PDF](https://en.wikipedia.org/wiki/PDF) file serves as an example of a source file with complex formatting. We will convert this source file to [Markdown](https://en.wikipedia.org/wiki/Markdown) format. Many models are trained on and work best with Markdown data, so this format is the most efficient to use as a source for a search index. The search indexes you will create from the source file will employ two [search types](../../foundation-models/concepts/assistant/search-index.md#search-types): text and hybrid.
+In this tutorial, a [PDF](https://en.wikipedia.org/wiki/PDF) file serves as an example of a source file with complex formatting. We will convert this source file to [Markdown](https://en.wikipedia.org/wiki/Markdown) format. Many models are trained on and work best with Markdown data, so this format is the most efficient to use as a source for a search index. The search indexes you will create from the source file will employ two [search types](../../ai-studio/concepts/assistant/search-index.md#search-types): text and hybrid.
 
-You will use [{{ ml-sdk-full-name }}](../../foundation-models/sdk/index.md) for Python to access the [{{ assistant-api }}](../../foundation-models/assistants/api-ref/index.md) and [Text Generation API](../../foundation-models/text-generation/api-ref/index.md).
+You will use [{{ ml-sdk-full-name }}](../../ai-studio/sdk/index.md) for Python to access the [{{ assistant-api }}](../../ai-studio/assistants/api-ref/index.md) and [Text Generation API](../../ai-studio/text-generation/api-ref/index.md).
 
 
 ## Getting started {#before-you-begin}
@@ -19,10 +19,10 @@ It may take up to one hour to set up your environment.
 
 {% endnote %}
 
-1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `ai.assistants.editor` and `ai.languageModels.user` [roles](../../foundation-models/security/index.md#service-roles) to it.
+1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `ai.assistants.editor` and `ai.languageModels.user` [roles](../../ai-studio/security/index.md#service-roles) to it.
 1. [Get](../../iam/operations/authentication/manage-api-keys.md#create-api-key) the service account API key and save it.
 
-    {% include [sdk-auth-details-paragraph](../../_includes/foundation-models/sdk-auth-details-paragraph.md) %}
+    {% include [sdk-auth-details-paragraph](../../_includes/ai-studio/sdk-auth-details-paragraph.md) %}
 
 1. Install Python [3.10](https://www.python.org/downloads/release/python-3100/) or [3.11](https://www.python.org/downloads/release/python-3110/).
 1. Install Python [venv](https://docs.python.org/3/library/venv.html) to create isolated virtual environments in Python.
@@ -70,7 +70,7 @@ It may take up to one hour to set up your environment.
 
 ### Required paid resources {#paid-resources}
 
-The cost of using an AI assistant includes a text generation fee (see [{{ foundation-models-full-name }} pricing](../../foundation-models/pricing.md)).
+The cost of using an AI assistant includes a text generation fee (see [{{ foundation-models-full-name }} pricing](../../ai-studio/pricing.md)).
 
 
 ## Create an AI assistant and test it {#create-assistant}
@@ -82,9 +82,9 @@ You will create a search index, sourced from a Markdown file. You will then ask 
 
 1. Create a file named `assistant-text.py` containing the following code:
 
-    {% include [searchindex-ai-assistant-text](../../_includes/foundation-models/assistants/searchindex-ai-assistant-text.md) %}
+    {% include [searchindex-ai-assistant-text](../../_includes/ai-studio/assistants/searchindex-ai-assistant-text.md) %}
 
-    {% include [sdk-code-legend](../../_includes/foundation-models/assistants/sdk-code-legend.md) %}
+    {% include [sdk-code-legend](../../_includes/ai-studio/assistants/sdk-code-legend.md) %}
 
 1. Run `assistant-text.py` to create an assistant and use it to answer the questions below:
 
@@ -115,9 +115,9 @@ You will create a search index, sourced from a Markdown file. You will then ask 
 
 1. Create a file named `assistant-hybrid.py` containing the following code:
 
-    {% include [searchindex-ai-assistant-hybrid](../../_includes/foundation-models/assistants/searchindex-ai-assistant-hybrid.md) %}
+    {% include [searchindex-ai-assistant-hybrid](../../_includes/ai-studio/assistants/searchindex-ai-assistant-hybrid.md) %}
 
-    {% include [sdk-code-legend](../../_includes/foundation-models/assistants/sdk-code-legend.md) %}
+    {% include [sdk-code-legend](../../_includes/ai-studio/assistants/sdk-code-legend.md) %}
 
 1. Run `assistant-hybrid.py` to create an assistant and use it to answer the questions below:
 
@@ -150,9 +150,9 @@ Improve your assistant by turning it from a simple information source into a sma
 
 1. Create a file named `assistant-analyst.py` containing the following code:
 
-    {% include [searchindex-ai-assistant-analyst](../../_includes/foundation-models/assistants/searchindex-ai-assistant-analyst.md) %}
+    {% include [searchindex-ai-assistant-analyst](../../_includes/ai-studio/assistants/searchindex-ai-assistant-analyst.md) %}
 
-    {% include [sdk-code-legend](../../_includes/foundation-models/assistants/sdk-code-legend.md) %}
+    {% include [sdk-code-legend](../../_includes/ai-studio/assistants/sdk-code-legend.md) %}
 
 1. Run `assistant-analyst.py` to create an assistant and use it to answer the questions below:
 

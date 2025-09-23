@@ -7,7 +7,13 @@ noIndex: true
 # Справочник инструментов {{ alb-name }} для {{ managed-k8s-name }}
 
 
-{{ alb-name }} предоставляет инструменты, которые позволяют разворачивать L7-балансировщики нагрузки в кластерах {{ managed-k8s-full-name }}: [Ingress-контроллер](../../application-load-balancer/tools/k8s-ingress-controller/index.md) и [Gateway API](../../application-load-balancer/tools/k8s-gateway-api/index.md). В справочнике описаны конфигурации ресурсов {{ k8s }}, по которым Ingress-контроллер и Gateway API разворачивают инфраструктуру.
+{{ alb-name }} предоставляет инструменты, которые позволяют разворачивать L7-балансировщики нагрузки в кластерах {{ managed-k8s-full-name }}: [Ingress-контроллер](../../application-load-balancer/tools/k8s-ingress-controller/index.md), [Gateway API](../../application-load-balancer/tools/k8s-gateway-api/index.md) и контроллер [Gwin](gwin-quickstart.md). 
+
+В этом справочнике описаны конфигурации ресурсов {{ k8s }}, по которым Ingress-контроллер и Gateway API разворачивают инфраструктуру. Справочник ресурсов Gwin приведен на [обзорной странице](gwin-index.md) контроллера.
+
+## Ресурсы Gwin {#gwin}
+
+{% include [gwin-resources](../../_includes/managed-kubernetes/alb-ref/gwin-resources.md) %}
 
 ## Ресурсы Ingress-контроллера {#ingress}
 

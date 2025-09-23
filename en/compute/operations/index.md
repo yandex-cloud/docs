@@ -245,3 +245,4 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 ## Getting additional information {#get-additional-info}
 
 * [{#T}](operation-logs.md)
+* [{#T}](metrics-pull.md)

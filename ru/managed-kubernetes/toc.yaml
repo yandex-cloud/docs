@@ -59,6 +59,8 @@ items:
             href: operations/applications/gitlab-agent.md
           - name: Установка {{ GLR }}
             href: operations/applications/gitlab-runner.md
+          - name: Установка Gwin
+            href: alb-ref/gwin-quickstart.md
           - name: Установка HashiCorp Vault
             href: operations/applications/hashicorp-vault.md
           - name: Установка Ingress NGINX
@@ -196,6 +198,10 @@ items:
           Создание кластера {{ k8s }} с помощью провайдера {{ yandex-cloud }}
           для {{ k8s }} Cluster API
         href: tutorials/k8s-cluster-api-provider-yandex.md
+      - name: >-
+          Доступ к API {{ yandex-cloud }} из кластера {{ managed-k8s-name }} с
+          помощью федерации сервисных аккаунтов
+        href: tutorials/wlif-managed-k8s-integration.md
       - name: Настройка и тестирование масштабирования
         items:
           - name: Горизонтальное масштабирование приложения в кластере
@@ -670,6 +676,42 @@ items:
     items:
       - name: Обзор
         href: alb-ref/index.md
+      - name: Gwin
+        items:
+          - name: Обзор
+            href: alb-ref/gwin-index.md
+          - name: Политики Gwin
+            href: alb-ref/gwin-policies.md
+          - name: Установка Gwin
+            href: alb-ref/gwin-quickstart.md
+          - name: Конфигурация ресурсов (англ.)
+            items:
+              - name: Gateway
+                href: gateway.md
+              - name: GatewayPolicy
+                href: gatewaypolicy.md
+              - name: GRPCRoute
+                href: grpcroute.md
+              - name: HTTPRoute
+                href: httproute.md
+              - name: Ingress
+                href: ingress.md
+              - name: IngressBackendGroup
+                href: ingressbackendgroup.md
+              - name: IngressPolicy
+                href: ingresspolicy.md
+              - name: RoutePolicy
+                href: routepolicy.md
+              - name: Service
+                href: service.md
+              - name: ServicePolicy
+                href: servicepolicy.md
+              - name: TLSRoute
+                href: tlsroute.md
+              - name: YCCertificate
+                href: yccertificate.md
+              - name: YCStorageBucket
+                href: ycstoragebucket.md
       - name: Ingress-контроллер
         items:
           - name: Ingress

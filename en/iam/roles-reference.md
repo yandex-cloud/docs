@@ -1169,7 +1169,8 @@ For more information, see [{#T}](../iot-core/security/index.md).
 
 {% include [ai-models-admin](../_roles/ai/models/admin.md) %}
 
-For more information, see [{#T}](../foundation-models/security/index.md).
+
+For more information, see [{#T}](../ai-studio/security/index.md).
 
 
 ## {{ kms-full-name }} {#kms-roles}
@@ -1770,6 +1771,7 @@ For more information, see [{#T}](../search-api/security/index.md).
 
 ### General {{ sd-full-name }} roles {#general-sd-roles}
 
+
 #### security-deck.auditor {#security-deck-auditor}
 
 {% include [security-deck.auditor](../_roles/security-deck/auditor.md) %}
@@ -1788,31 +1790,7 @@ For more information, see [{#T}](../search-api/security/index.md).
 
 For more information, see [General {{ sd-full-name }} roles](../security-deck/security/index.md).
 
-### Access Transparency roles {#access-transparency-roles}
-
-#### access-transparency.viewer {#access-transparency-viewer}
-
-{% include [access-transparency.viewer](../_roles/access-transparency/viewer.md) %}
-
-#### access-transparency.editor {#access-transparency-editor}
-
-{% include [access-transparency.editor](../_roles/access-transparency/editor.md) %}
-
-#### access-transparency.admin {#access-transparency-admin}
-
-{% include [access-transparency.admin](../_roles/access-transparency/admin.md) %}
-
-#### access-transparency.billingProvider {#access-transparency-billingProvider}
-
-{% include [access-transparency.billingProvider](../_roles/access-transparency/billingProvider.md) %}
-
-#### access-transparency.subscriptionManager {#access-transparency-subscriptionManager}
-
-{% include [access-transparency.subscriptionManager](../_roles/access-transparency/subscriptionManager.md) %}
-
-For more information, see [Access management in Access Transparency](../security-deck/security/access-transparency-roles.md).
-
-### DSPM roles {#dspm-roles}
+### {{ dspm-name }} roles {#dspm-roles}
 
 #### dspm.worker {#dspm-worker}
 
@@ -1838,7 +1816,32 @@ For more information, see [Access management in Access Transparency](../security
 
 {% include [dspm.admin](../_roles/dspm/admin.md) %}
 
-For more information, see [Access management in DSPM](../security-deck/security/dspm-roles.md).
+For more information, see [Access management in {{ dspm-name }}](../security-deck/security/dspm-roles.md).
+
+
+### Access Transparency roles {#access-transparency-roles}
+
+#### access-transparency.viewer {#access-transparency-viewer}
+
+{% include [access-transparency.viewer](../_roles/access-transparency/viewer.md) %}
+
+#### access-transparency.editor {#access-transparency-editor}
+
+{% include [access-transparency.editor](../_roles/access-transparency/editor.md) %}
+
+#### access-transparency.admin {#access-transparency-admin}
+
+{% include [access-transparency.admin](../_roles/access-transparency/admin.md) %}
+
+#### access-transparency.billingProvider {#access-transparency-billingProvider}
+
+{% include [access-transparency.billingProvider](../_roles/access-transparency/billingProvider.md) %}
+
+#### access-transparency.subscriptionManager {#access-transparency-subscriptionManager}
+
+{% include [access-transparency.subscriptionManager](../_roles/access-transparency/subscriptionManager.md) %}
+
+For more information, see [Access management in Access Transparency](../security-deck/security/access-transparency-roles.md).
 
 
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}
@@ -1929,6 +1932,7 @@ For more information, see [Access management in {{ er-name }}](../serverless-int
 
 {% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
 
+For more information, see [Access management in {{ sw-name }}](../serverless-integrations/security/workflows.md).
 
 ## {{ captcha-full-name }} {#captcha-roles}
 

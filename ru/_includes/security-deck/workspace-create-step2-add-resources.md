@@ -1,0 +1,4 @@
+В появившемся блоке с коннектором нажмите кнопку ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.security.workspaces.WorkspaceResourcesForm.buttonSelectCloudCatalog }}**, чтобы выбрать ресурсы ([облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder)), безопасность в которых будет контролироваться в создаваемом окружении:
+
+1. Отметьте ресурсы, безопасность которых вы хотите контролировать в окружении. Для выбора доступны только те ресурсы, к которым есть доступ у выбранного ранее сервисного аккаунта.
+1. Нажмите кнопку **{{ ui-key.yacloud_org.security.workspaces.ServiceAccountResourceSelectDialog.action_save }}**.

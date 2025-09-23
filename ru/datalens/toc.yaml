@@ -11,9 +11,6 @@ items:
         href: concepts/limits.md
       - name: Обучающие курсы
         href: training.md
-  - name: Нейроаналитик DataLens
-    href: concepts/neuroanalyst.md
-    hidden: true
   - name: Воркбуки и коллекции
     items:
       - name: Обзор
@@ -28,6 +25,8 @@ items:
         href: workbooks-collections/export-import-notifications.md
       - name: Настройка доступа
         href: workbooks-collections/security.md
+  - name: Нейроаналитик DataLens
+    href: concepts/neuroanalyst.md
   - name: Практические руководства
     items:
       - name: Обзор
@@ -179,6 +178,8 @@ items:
             href: operations/connection/create-bitrix24.md
           - name: Создание подключения к подкастам Яндекс Музыки
             href: operations/connection/create-podcasts.md
+          - name: Предложить свой партнерский коннектор
+            href: operations/marketplace/create-connector-for-partners.md
   - name: Датасеты
     items:
       - name: Обзор
@@ -205,7 +206,6 @@ items:
         href: concepts/calculations/formula-syntax.md
       - name: Нейроаналитик для создания вычисляемых полей
         href: concepts/calculations/formulas-helper.md
-        hidden: true
       - name: Справочник функций
         items:
           - name: Все функции
@@ -694,7 +694,6 @@ items:
                 href: charts/editor/quickstart/from-api-connector.md
           - name: Нейроаналитик в Editor
             href: charts/editor/code-helper.md
-            hidden: true
           - name: Вкладки
             href: charts/editor/tabs.md
           - name: Источники
@@ -807,7 +806,6 @@ items:
         href: dashboard/dashboard_parameters.md
       - name: Нейроаналитик на дашборде
         href: dashboard/insights.md
-        hidden: true
       - name: Markdown
         href: dashboard/markdown.md
       - name: Пошаговые инструкции
@@ -860,7 +858,6 @@ items:
         href: reports/versioning.md
       - name: Нейроаналитик в отчетах
         href: reports/insights.md
-        hidden: true
   - name: Управление доступом
     items:
       - name: Обзор
@@ -901,14 +898,8 @@ items:
         href: settings/ui-customization.md
       - name: Отключение навигации по папкам
         href: settings/disable-folder-navigation.md
-  - name: Marketplace
-    items:
-      - name: Обзор
-        href: concepts/marketplace.md
-      - name: Добавление продукта из Marketplace
-        href: operations/marketplace/add-marketplace-product.md
-      - name: Создание партнерского коннектора
-        href: operations/marketplace/create-connector-for-partners.md
+  - name: DataLens Gallery
+    href: concepts/gallery.md
   - name: Правила тарификации
     items:
       - name: Действующие правила

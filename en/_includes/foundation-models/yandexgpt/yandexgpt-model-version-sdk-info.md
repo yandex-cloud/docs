@@ -1,1 +1,0 @@
-For more information about accessing a specific model version, see [{#T}](../../../foundation-models/concepts/generation/models.md#addressing-models).

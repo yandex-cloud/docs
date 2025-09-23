@@ -11,9 +11,9 @@ description: Из статьи вы узнаете, как работать с �
 
 ## Интеграционные шаги {#integration-steps}
 
-* [{{ foundation-models-name }}](./foundationmodelscall.md)
+* [Модели {{ ai-studio-name }}](./foundationmodelscall.md)
+* [Агент {{ ai-studio-name }}](./aistudioagent.md)
 * [Vector Store](./vectorstore.md)
-* [AI-агент](./aiagent.md)
 * [{{ sf-short-name }}](./functioncall.md)
 * [{{ serverless-containers-name }}](./containercall.md)
 * [{{ postbox-short-name }}](./postbox.md)
@@ -26,6 +26,7 @@ description: Из статьи вы узнаете, как работать с �
 * [{{ message-queue-name }}](./ymq.md)
 * [Яндекс Диск](./yadisk.md)
 * [{{ sw-name }}](./workflow.md)
+* [AI-агент](./aiagent.md)
 * [Telegram-бот](./telegrambot.md)
 * [Database Query](./databasequery.md)
 

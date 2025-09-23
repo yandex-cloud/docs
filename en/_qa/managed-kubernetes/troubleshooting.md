@@ -316,7 +316,7 @@ FATA[0000] rpc error: code = Unknown desc = error testing repository connectivit
 
 This error occurs if access to {{ GL }} over HTTP(S) is disabled.
 
-**Solution**: Enable access. To do this:
+**Solution**: Enable access. Proceed as follows:
 
   1. In {{ GL }}, on the left-hand panel, select **Admin → Settings → General**.
   1. Under **Visibility and access controls**, find the **Enabled Git access protocols** setting.
@@ -338,7 +338,7 @@ For more information, see [{#T}](../../application-load-balancer/concepts/best-p
 
 {{ managed-k8s-name }} cluster time may deviate from the time of other resources, e.g., a VM, if they use different clock sources for synchronization. For example, a {{ managed-k8s-name }} cluster synchronizes with a time server (by default), whereas a VM synchronizes with a private or public NTP server.
 
-**Solution**: Set up {{ managed-k8s-name }} cluster time synchronization with your private NTP server. To do this:
+**Solution**: Set up {{ managed-k8s-name }} cluster time synchronization with your private NTP server. Proceed as follows:
 
 1. Specify the NTP server's addresses in the [DHCP settings](../../vpc/concepts/dhcp-options.md) of the master subnets.
 
@@ -424,7 +424,7 @@ For more information, see [{#T}](../../application-load-balancer/concepts/best-p
 
 1. Enable connections from the cluster to NTP servers.
    
-   [Create a rule](../../vpc/operations/security-group-add-rule.md) in the [cluster and node groups security group](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-cluster):
+   [Create a rule](../../vpc/operations/security-group-add-rule.md) for outbound traffic in the [cluster and node group security group](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-cluster):
 
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`. If using any port other than port `123` on the NTP server, specify it.
    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.

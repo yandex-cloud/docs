@@ -1,1 +1,0 @@
-Подробнее о том, как обращаться к определенной версии модели, см. в разделе [{#T}](../../../foundation-models/concepts/generation/models.md#addressing-models).

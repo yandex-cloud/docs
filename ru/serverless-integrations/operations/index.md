@@ -28,9 +28,9 @@ description: Из статьи вы узнаете, как работать с {
 
 ### Конструктор шагов рабочего процесса {#constructor}
 
-* [{{ foundation-models-name }}](workflows/constructor/foundationmodelscall.md)
+* [Модели {{ ai-studio-name }}](workflows/constructor/foundationmodelscall.md)
+* [Агент {{ ai-studio-name }}](workflows/constructor/aistudioagent.md)
 * [Vector Store](workflows/constructor/vectorstore.md)
-* [AI-агент](workflows/constructor/aiagent.md)
 * [{{ sf-short-name }}](workflows/constructor/functioncall.md)
 * [{{ serverless-containers-name }}](workflows/constructor/containercall.md)
 * [{{ postbox-short-name }}](workflows/constructor/postbox.md)
@@ -43,6 +43,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{{ message-queue-name }}](workflows/constructor/ymq.md)
 * [Яндекс Диск](workflows/constructor/yadisk.md)
 * [{{ sw-name }}](workflows/constructor/workflow.md)
+* [AI-агент](workflows/constructor/aiagent.md)
 * [Telegram-бот](workflows/constructor/telegrambot.md)
 * [Database Query](workflows/constructor/databasequery.md)
 * [Switch](workflows/constructor/switch.md)
@@ -65,6 +66,7 @@ description: Из статьи вы узнаете, как работать с {
 ### Управление запуском рабочего процесса {#execution-control}
 
 * [{#T}](workflows/execution/start.md)
+* [{#T}](workflows/execution/start-by-timer.md)
 * [{#T}](workflows/execution/stop.md)
 * [{#T}](workflows/execution/terminate.md)
 

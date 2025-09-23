@@ -317,8 +317,14 @@ items:
             href: tutorials/kubernetes-security/sign-cr-with-cosign.md
           - name: Синхронизация с секретами {{ managed-k8s-name }}
             href: tutorials/kubernetes-security/kubernetes-lockbox-secrets.md
-          - name: Получение значения секрета {{ lockbox-name }} на стороне {{ k8s }}
+          - name: >-
+              Получение значения секрета {{ lockbox-name }} на стороне
+              пользовательской инсталляции {{ k8s }}
             href: tutorials/kubernetes-security/wlif-k8s-integration.md
+          - name: >-
+              Доступ к API {{ yandex-cloud }} из кластера {{ managed-k8s-name }}
+              с помощью федерации сервисных аккаунтов
+            href: tutorials/kubernetes-security/wlif-managed-k8s-integration.md
           - name: >-
               Создание L7-балансировщика с профилем безопасности {{ sws-name }}
               через Ingress-контроллер {{ alb-name }}

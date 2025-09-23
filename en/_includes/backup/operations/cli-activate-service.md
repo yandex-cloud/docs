@@ -16,6 +16,14 @@
 
    Where `--async` displays the operation progress info. This is an optional parameter.
 
+1. Once you execute the command, you will get the activation warning: `This command will activate backup provider for your folder. Do you confirm this action to be executed? [Yes/no][y/N]`. Confirm the activation by typing `yes` or `y` in the terminal.
+
+   {% note tip %}
+
+   Use the `--force` flag to activate the service without a confirmation.
+
+   {% endnote %}
+
    Result:
 
    ```text

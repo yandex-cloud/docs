@@ -93,6 +93,8 @@ items:
             href: operations/applications/thumbor.md
           - name: Installing Velero
             href: operations/applications/velero-yc-csi.md
+          - name: Installing VictoriaLogs
+            href: operations/applications/victoria-logs.md
       - name: Network scenarios
         items:
           - name: Granting access to an app running in a {{ k8s }} cluster
@@ -138,7 +140,7 @@ items:
               operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
           - name: Managing {{ k8s }} cluster access
             href: operations/kubernetes-cluster/kubernetes-cluster-access.md
-          - name: Monitoring cluster state {{ k8s }}
+          - name: Monitoring the cluster state {{ k8s }}
             href: operations/kubernetes-cluster/kubernetes-cluster-get-stats.md
           - name: Deleting a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
@@ -304,7 +306,7 @@ items:
             href: tutorials/marketplace/hashicorp-vault.md
   - name: Concepts
     items:
-      - name: Service resource interdependencies
+      - name: Resource relationships
         href: concepts/index.md
       - name: Release channels and updates
         href: concepts/release-channels-and-updates.md
@@ -326,7 +328,7 @@ items:
             href: concepts/node-group/allocatable-resources.md
           - name: Node groups with GPUs
             href: concepts/node-group/node-group-gpu.md
-      - name: '{{ managed-k8s-name }} network'
+      - name: Networking in {{ managed-k8s-name }}
         href: concepts/network.md
       - name: Network settings and cluster policies
         href: concepts/network-policy.md
@@ -718,5 +720,5 @@ items:
         href: qa/logs.md
       - name: Troubleshooting
         href: qa/troubleshooting.md
-      - name: All questions on a single page
+      - name: All questions on one page
         href: qa/all.md

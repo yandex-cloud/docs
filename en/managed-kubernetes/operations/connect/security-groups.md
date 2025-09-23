@@ -33,7 +33,7 @@ You can specify more detailed rules for your security groups, e.g., to allow tra
 
   {% note warning %}
 
-  Some products require applying additional rules in security groups. For more information, see guides for the relevant products.
+  Some products require applying additional rules in security groups. For more information, see guides for the products at hand.
 
   {% endnote %}
 
@@ -146,12 +146,21 @@ For the cluster to work correctly and to allow incoming [connections](./index.md
       * `85.23.23.22/32`: For an external network.
       * `192.168.0.0/24`: For an internal network.
 
-1. Add a rule for outgoing traffic that allows traffic transfer between the master and `metric-server` [pods](../../concepts/index.md#pod):
+1. Add rules for outgoing traffic that allow:
+   
+   * Traffic between the master and `metric-server` [pods](../../concepts/index.md#pod):
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `4443`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: Specify the cluster CIDR, e.g., `10.96.0.0/16`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `4443`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: Specify the cluster CIDR, e.g., `10.96.0.0/16`.
+   
+   * Master host connection to NTP servers for time syncing:
+
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `123`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
 ## Creating a rule for connecting to services from the internet {#rules-nodes}
 
@@ -188,6 +197,8 @@ Depending on the rules the security groups contain, these groups must be assigne
 | Group [allowing connection to nodes via SSH](#rules-nodes-ssh) | Node group |
 
 ## Examples of rules {#examples}
+
+### Security groups for a {{ managed-k8s-name }} cluster {#k8s-example}
 
 Let’s assume you want to create a {{ k8s }} cluster which:
 
@@ -245,7 +256,8 @@ To create such a cluster:
         --network-id <cloud_network_ID> \
         --rule "description=api-443,direction=ingress,protocol=tcp,port=443,v4-cidrs=[203.0.113.0/24]" \
         --rule "description=api-6443,direction=ingress,protocol=tcp,port=6443,v4-cidrs=[203.0.113.0/24]" \
-        --rule "description=metric-server,direction=egress,protocol=tcp,port=4443,v4-cidrs=[10.96.0.0/16]"
+        --rule "description=metric-server,direction=egress,protocol=tcp,port=4443,v4-cidrs=[10.96.0.0/16]" \
+        --rule "description=ntp-server,direction=egress,protocol=udp,port=123,v4-cidrs=[0.0.0.0/0]"
       ```
 
   1. Create a security group named `k8s-services-access` that allows connection to services from the internet:
@@ -402,6 +414,12 @@ To create such a cluster:
           protocol       = "TCP"
           v4_cidr_blocks = ["10.96.0.0/16"]
         }
+        egress {
+          description    = "Rule for outgoing traffic to allow master host connection to NTP servers for time syncing."
+          port           = 123
+          protocol       = "UDP"
+          v4_cidr_blocks = ["0.0.0.0/0"]
+        }
       }
       ```
 
@@ -463,5 +481,22 @@ To create such a cluster:
         }
       }
       ```
+
+{% endlist %}
+
+### Security groups for an {{ alb-name }} and {{ managed-k8s-name }} cluster {#alb-example}
+
+Let's assume you need to create rules for the following conditions:
+
+* You need to deploy a load balancer with a [public IP address](../../../vpc/concepts/address.md#public-addresses) accepting HTTPS traffic in three subnets. These subnets' CIDR blocks are `10.128.0.0/24`, `10.129.0.0/24`, and `10.130.0.0/24`.
+* The cluster's CIDR block is `10.96.0.0/16` and the service CIDR block is `10.112.0.0/16`. These were specified when creating the cluster.
+* The cluster's node group resides in a subnet with the `10.140.0.0/24` CIDR block.
+* SSH [access](../../../managed-kubernetes/operations/node-connect-ssh.md) to nodes and cluster management via API, `kubectl` and other utilities are restricted to `203.0.113.0/24`.
+
+{% list tabs group=instructions %}
+
+- {{ TF }} {#tf}
+
+    {% include [terraform-security-groups-example](../../../_includes/application-load-balancer/tf-security-groups-example.md) %}
 
 {% endlist %}

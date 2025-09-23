@@ -191,3 +191,9 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
     resources: ["nodes"]
     verbs: ["get", "list", "watch"]
   ```
+
+## Федерации сервисных аккаунтов {{ iam-full-name }}
+
+{% include [wlif-mk8s-description](../../_includes/managed-kubernetes/wlif-mk8s-description.md) %}
+
+Например, вы можете настроить [{#T}](../tutorials/wlif-managed-k8s-integration.md).

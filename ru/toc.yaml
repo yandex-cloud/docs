@@ -68,7 +68,7 @@ items:
   - name: Cloud Functions
     href: functions/index.yaml
   - name: '{{ foundation-models-name }}'
-    href: foundation-models/index.yaml
+    href: ai-studio/index.yaml
   - name: Identity and Access Management
     href: iam/index.yaml
   - name: IoT Core

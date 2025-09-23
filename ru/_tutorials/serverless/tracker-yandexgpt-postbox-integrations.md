@@ -3,7 +3,7 @@
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
-В данном руководстве вы создадите [рабочие процессы](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }} и настроите их интеграцию с [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ foundation-models-full-name }}](../../foundation-models/concepts/generation/index.md) и [{{ postbox-full-name }}](../../postbox/index.yaml).
+В данном руководстве вы создадите [рабочие процессы](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }} и настроите их интеграцию с [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ foundation-models-full-name }}](../../ai-studio/concepts/generation/index.md) и [{{ postbox-full-name }}](../../postbox/index.yaml).
 
 Созданные рабочие процессы будут получать информацию о задачах в указанной [очереди]({{ link-tracker-cloudless }}about-tracker#ochered) {{ tracker-name }}, с помощью модели {{ gpt-pro }} анализировать проделанную в этих задачах работу, статусы задач и выставленные оценки. Результаты анализа и краткий отчет о проделанной работе будут сохраняться в комментарии к одной из задач в {{ tracker-name }}, а также дублироваться письмом на заданный адрес электронной почты с помощью сервиса {{ postbox-name }}.
 
@@ -36,7 +36,7 @@
 В стоимость поддержки создаваемой инфраструктуры входят:
 
 * плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md));
-* плата за использование {{ foundation-models-full-name }} (см. [тарифы {{ foundation-models-full-name }}](../../foundation-models/pricing.md));
+* плата за использование {{ foundation-models-full-name }} (см. [тарифы {{ foundation-models-full-name }}](../../ai-studio/pricing.md));
 * плата за использование {{ tracker-full-name }} (см. [тарифы {{ tracker-name }}]({{ link-tracker-cloudless }}pricing));
 * плата за использование {{ postbox-full-name }} (см. [тарифы {{ postbox-name }}](../../postbox/pricing.md)).
 
@@ -51,7 +51,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}** и в открывшемся окне:
       1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md): `workflow-sa`.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../iam/concepts/access-control/roles.md) `serverless.workflows.executor`.
-      1. Повторите предыдущее действие, чтобы добавить роли [`postbox.sender`](../../postbox/security/index.md#postbox-sender) и [`ai.languageModels.user`](../../foundation-models/security/index.md#languageModels-user).
+      1. Повторите предыдущее действие, чтобы добавить роли [`postbox.sender`](../../postbox/security/index.md#postbox-sender) и [`ai.languageModels.user`](../../ai-studio/security/index.md#languageModels-user).
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}

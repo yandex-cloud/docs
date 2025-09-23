@@ -2,46 +2,51 @@
 
 Вид ограничения | Значение
 ----- | -----
-**[Векторизация текста](../foundation-models/concepts/embeddings.md)** |
+**[Векторизация текста](../ai-studio/concepts/embeddings.md)** |
 Количество запросов на векторизацию текста, в секунду | 10
-**[Генерация текста](../foundation-models/concepts/generation/index.md)** |
-Количество одновременных генераций в [синхронном режиме](../foundation-models/concepts/index.md#working-mode), модель {{ gpt-lite }} | 10
+**[Генерация текста](../ai-studio/concepts/generation/index.md)** |
+Количество одновременных генераций в [синхронном режиме](../ai-studio/concepts/generation/index.md#working-mode), модель {{ gpt-lite }} | 10
 Количество одновременных генераций в синхронном режиме, модель {{ gpt-pro }} | 10
-Количество одновременных генераций, модель [{{ gpt-pro }} 32k](../foundation-models/concepts/generation/models.md#generation) | 1
-Количество одновременных генераций в синхронном режиме, модель {{ llama }} 8b^1^ | 10
-Количество одновременных генераций, модель {{ llama }} 70b | 1
-Количество запросов в секунду, [асинхронный режим](../foundation-models/concepts/index.md#working-mode) (запрос) | 10
+Количество одновременных генераций в синхронном режиме, модель {{ llama }} 8B^1^ | 10
+Количество одновременных генераций, модель {{ llama }} 70B | 1
+Количество запросов в секунду, [асинхронный режим](../ai-studio/concepts/generation/index.md#working-mode) (запрос) | 10
 Количество запросов в секунду, асинхронный режим (получение ответа) | 50
 Количество запросов в час, асинхронный режим (запрос) | 5 000
-Количество запросов в секунду на [токенизацию](../foundation-models/text-generation/api-ref/grpc/Tokenizer/index.md) | 50
+Количество запросов в секунду на [токенизацию](../ai-studio/text-generation/api-ref/grpc/Tokenizer/index.md) | 50
 **Пакетный режим работы моделей**
 Количество запусков в час | 10
 Количество запусков в сутки | 100
-**[Классификация текста](../foundation-models/concepts/classifier/index.md)** |
+**[Классификация текста](../ai-studio/concepts/classifier/index.md)** |
 Количество запросов на классификацию текста в секунду | 1
-**[Генерация изображений](../foundation-models/concepts/generation/index.md)** |
+**[Генерация изображений](../ai-studio/concepts/generation/index.md)** |
 Количество запросов на генерацию в минуту | 500
 Количество запросов на генерацию в сутки | 5 000
 Количество запросов результата в секунду | 50
-**[Дообучение моделей](../foundation-models/concepts/tuning/index.md)** |
+**[Дообучение моделей](../ai-studio/concepts/tuning/index.md)** |
 Количество запусков дообучений в сутки | 10
 Количество запусков дообучений в час | 3
-**[Датасеты](../foundation-models/concepts/resources/dataset.md)** |
+**[Датасеты](../ai-studio/concepts/resources/dataset.md)** |
 Количество загруженных датасетов | 100 
 Максимальный размер одного датасета | 5 ГБ
 Общий объем датасетов | 300 ГБ
+**[MCP-серверы](../ai-studio/concepts/mcp-hub/index.md#servers)**
+Количество MCP-серверов в облаке | 30 
+Количество [инструментов](../ai-studio/concepts/assistant/tools/index.md) в одном сервере | 20
+**[Голосовые агенты](../ai-studio/concepts/agents/realtime.md)** ([модель](../ai-studio/concepts/agents/realtime.md#model) `{{ realtime-model }}`) |
+Количество одновременных сессий с моделью | 10
+Количество запросов на создание сессии в секунду | 10
 
 #### Лимиты {#yandexgpt-limits}
 
 Вид ограничения | Значение
 ----- | -----
 Срок хранения результатов асинхронных запросов на сервере | 3 суток
-**[Векторизация текста](../foundation-models/concepts/embeddings.md)** |
-Количество [токенов](../foundation-models/concepts/generation/tokens.md) на вход | 2 000
+**[Векторизация текста](../ai-studio/concepts/embeddings.md)** |
+Количество [токенов](../ai-studio/concepts/generation/tokens.md) на вход | 2 000
 Размерность выходного вектора | {{ emb-vector }}
-**[Генерация текста](../foundation-models/concepts/generation/index.md)** |
+**[Генерация текста](../ai-studio/concepts/generation/index.md)** |
 Максимальное количество токенов в ответе в [консоли управления]({{ link-console-main }}) | 1 000
-**[Ассистенты](../foundation-models/concepts/assistant/index.md)**|
+**[Ассистенты](../ai-studio/concepts/assistant/index.md)**|
 Максимальное количество ассистентов | 1 000
 Максимальное количество тредов | 10 000
 Максимальное количество пользователей | 10 000
@@ -52,8 +57,9 @@
 Максимальное количество сообщений в одном треде | 100 000
 Максимальное количество поисковых индексов | 1 000
 Максимальное количество запущенных операций индексации | 10
-**[Генерация изображений](../foundation-models/concepts/generation/index.md)** |
-Максимальная длина [промта](../foundation-models/concepts/index.md#prompt) | 500 символов
-
+**[Генерация изображений](../ai-studio/concepts/generation/index.md)** |
+Максимальная длина [промта](../ai-studio/concepts/index.md#prompt) | 500 символов
+**[MCP-серверы](../ai-studio/concepts/mcp-hub/index.md#servers)**
+Количество активных соединений в облаке на одну [зону доступности](../overview/concepts/geo-scope.md) | 500
 
 ^1^ {{ meta-disclaimer }}

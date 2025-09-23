@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
   1. В поле **{{ ui-key.yacloud.serverless-event-router.label_connector-source }}** выберите `{{ ui-key.yc-eventrouter.dynamic-forms.timer_name }}`.
   1. В блоке **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_base_options_title }}** укажите:
 
-      * в поле **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_cron_expression_title }}** — расписание генерации событий в формате [cron-выражения](../../../concepts/eventrouter/connector.md#cron-expression).
+      * в поле **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_cron_expression_title }}** — расписание генерации событий в формате [cron-выражения](../../../concepts/cron.md).
       * (Опционально) в поле **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_timezone_title }}** — часовой пояс в формате [tz database](https://ru.wikipedia.org/wiki/Tz_database).
       * (Опционально) в поле **{{ ui-key.yc-eventrouter.dynamic-forms.template_connector_timer_payload_title }}** — сообщение, которое будет передаваться в шину при срабатывании таймера в поле `payload`.
 
@@ -54,7 +54,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `--bus-id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) {{ er-name }}.
-      * `--cron-expression` — расписание генерации событий в формате [cron-выражения](../../../concepts/eventrouter/connector.md#cron-expression).
+      * `--cron-expression` — расписание генерации событий в формате [cron-выражения](../../../concepts/cron.md).
       * `--time-zone` — часовой пояс в формате [tz database](https://ru.wikipedia.org/wiki/Tz_database). Необязательный параметр.
       * `--payload` — сообщение, которое будет передаваться в шину при срабатывании таймера. Необязательный параметр.
       * `--name` — имя коннектора. Требования к имени:
@@ -130,7 +130,7 @@ description: Следуя данной инструкции, вы сможете
       * `description` — описание коннектора. Необязательный параметр.
       * `deletion_protection` — защита от удаления коннектора: `true` или `false`. Пока опция включена, удалить коннектор невозможно. Необязательный параметр.
       * `labels` — список меток. Метки задаются в формате `<ключ> = "<значение>"`. Необязательный параметр.
-      * `cron_expression` — расписание генерации событий в формате [cron-выражения](../../../concepts/eventrouter/connector.md#cron-expression).
+      * `cron_expression` — расписание генерации событий в формате [cron-выражения](../../../concepts/cron.md).
       * `timezone` — часовой пояс в формате [tz database](https://ru.wikipedia.org/wiki/Tz_database). Необязательный параметр.
       * `payload` — сообщение, которое будет передаваться в шину при срабатывании таймера. Необязательный параметр.
 

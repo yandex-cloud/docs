@@ -69,6 +69,23 @@ editable: false
 
 
 
+### Стоимость использования моделей в ассистенте {#price-model-assistant}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-model.md](../_pricing/speechsense/rub-model-assistant.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-model.md](../_pricing/speechsense/kzt-model-assistant.md) %}
+
+{% endlist %}
+
+
+
 ### Пример расчета стоимости анализа аудиозаписей {#price-example-speech}
 
 
@@ -140,6 +157,27 @@ editable: false
 - Расчет в тенге {#prices-kzt}
 
   {% include [kzt-speechsense-text-1M](../_pricing_examples/speechsense/kzt-speechsense-text-1M.md) %}
+
+{% endlist %}
+
+
+
+### Пример расчета стоимости анализа аудиозаписей с использованием ассистента {#price-example-assistant}
+
+В фильтр попали аудиозаписи общей длительностью 115 000 минут. Ассистент содержит 3 000 символов, символы подсчитываются в блоках **Инструкция** и **Результат**.
+
+Сервис {{ speechsense-name }} распознал и проанализировал аудиозаписи общей длительностью 115 000 минут. Инструкция, поля результата и аудиозаписи были отправлены в LLM-модель YandexGPT Pro. Одна минута аудио приблизительно равна 1 000 символов (значения зависят от скорости речи).
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-assistant](../_pricing_examples/speechsense/rub-assistant.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-assistant](../_pricing_examples/speechsense/kzt-assistant.md) %}
 
 {% endlist %}
 

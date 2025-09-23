@@ -21,6 +21,10 @@ description: Управление доступом в сервисе контр�
 
 ### Сервисные роли {#service-roles}
 
+#### security-deck.worker {#security-deck-worker}
+
+{% include [security-deck.worker](../../_roles/security-deck/worker.md) %}
+
 #### security-deck.auditor {#security-deck-auditor}
 
 {% include [security-deck.auditor](../../_roles/security-deck/auditor.md) %}
@@ -39,9 +43,10 @@ description: Управление доступом в сервисе контр�
 
 Кроме того, {{ yandex-cloud }} поддерживает свой список ролей для каждого модуля, включенного в состав {{ sd-name }}. Подробнее читайте в соответствующих разделах:
 
-* [Роли для анализа данных {{ atr-name }}](./access-transparency-roles.md).
 * [Роли для контроля данных (Data Security Posture Management)](./dspm-roles.md).
 * [Роли для диагностики доступов (Cloud Infrastructure Entitlement Management)](./ciem-roles.md).
+* [Роли для контроля безопасности с использованием модуля {{ cspm-name }}](./cspm-roles.md).
+* [Роли для анализа данных {{ atr-name }}](./access-transparency-roles.md).
 
 ### Примитивные роли {#primitive-roles}
 

@@ -1,12 +1,12 @@
-# Получение значения секрета {{ lockbox-full-name }} на стороне {{ k8s }}
+# Получение значения секрета {{ lockbox-full-name }} на стороне пользовательской инсталляции {{ k8s }}
 
 {% include [move-groups-api](../../_includes/iam/wlif-instructions-intro.md) %}
 
 В этом руководстве для примера показано, как получить значение [секрета](../../lockbox/concepts/secret) [{{ lockbox-full-name }}](../../lockbox/) со стороны {{ k8s }} от имени сервисного аккаунта в {{ yandex-cloud }}. Аналогичным образом можно выполнить любое действие через {{ yandex-cloud }} [CLI](../../cli/quickstart.md), [API](../../api-design-guide/index.yaml) или [{{ TF }}]({{ tf-provider-link }}).
 
-{% note warning %}
+{% note info %}
 
-В данный момент нельзя настроить связь между федерацией сервисных аккаунтов и кластером {{ managed-k8s-full-name }}. Поддерживается только работа с пользовательскими инсталляциями {{ k8s }}.
+В руководстве представлен пример интеграции пользовательской инсталляции {{ k8s }} с федерацией сервисных аккаунтов. Руководство по интеграции {{ managed-k8s-name }} см. на странице [Доступ к API {{ yandex-cloud }} из кластера {{ managed-k8s-name }} с помощью федерации сервисных аккаунтов {{ iam-name }}](../../tutorials/security/wlif-managed-k8s-integration.md).
 
 {% endnote %}
 
@@ -314,5 +314,7 @@
 
 ## Смотрите также {#see-also}
 
-* [{#T}](../../tutorials/security/wlif-gitlab-integration.md);
-* [{#T}](../../tutorials/security/wlif-github-integration.md).
+* [{#T}](../../iam/concepts/workload-identity.md)
+* [Доступ к API {{ yandex-cloud }} из кластера {{ managed-k8s-name }} с помощью федерации сервисных аккаунтов {{ iam-name }}](../../tutorials/security/wlif-managed-k8s-integration.md)
+* [{#T}](../../tutorials/security/wlif-gitlab-integration.md)
+* [{#T}](../../tutorials/security/wlif-github-integration.md)

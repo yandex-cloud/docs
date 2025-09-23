@@ -59,12 +59,26 @@ The option with simultaneous maximum configuration of all computing resources is
     Min         | 100%                          | 2    | 2                | 1
     Max        | 100%                          | 56   | 448              | 16
 
-* AMD Zen 3 platform (`amd-v1`)^1^:
+* AMD Zen 3 (`amd-v1`)^1^:
 
     Limit | Performance<br>level | vCPU | RAM, GB<br>total | RAM, GB<br>per core
     ----- | ----------------------------- | ---- | ---------------- | -----------------
     Min  | 20%                           | 2    | 1                | 0.5
     Max | 100%                          | 128  | 768              | 6
+
+* AMD Zen 4 (`standard-v4a`):
+
+    Limit | Performance<br>level | vCPU | RAM, GB<br>total | RAM, GB<br>per core
+    ----- | ----------------------------- | ---- | ---------------- | -----------------
+    Min  | 20%                           | 2    | 1                | 0.5
+    Max | 100%                          | 288  | 2304             | 8
+
+* AMD Zen 4 Compute-Optimized (`highfreq-v4a`):
+
+    Limit | Performance<br>level | vCPU | RAM, GB<br>total | RAM, GB<br>per core
+    ----- | ----------------------------- | ---- | ---------------- | -----------------
+    Min  | 20%                           | 2    | 1                | 0.5
+    Max | 100%                          | 80   | 960              | 12
 
 {% include [amd-platform-preview](../../_includes/compute/amd-platform-preview.md) %}
 
@@ -114,12 +128,28 @@ The option with simultaneous maximum configuration of all computing resources is
     --- | --- 
     2, 4, 6, 8, 10, 12, 14,<br> 16, 20, 24, 28, 32, 36,<br> 40, 44, 48, 52, 56 | 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,<br> 11, 12, 13, 14, 15, 16
 
-* AMD Zen 3 platform (`amd-v1`)^1^:
+* AMD Zen 3 (`amd-v1`)^1^:
 
     Performance<br>level | vCPU | RAM, GB<br>per core
     --- | --- | ---
     20% | 2, 4 | 0.5, 1, 1.5
     50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4
     100% | 2, 4, 8, 16, 32, 48, 64, 96, 128 | 1, 2, 3, 4, 5, 6
+
+* AMD Zen 4 (`standard-v4a`):
+
+    Performance<br>level | vCPU | RAM, GB<br>per core
+    --- | --- | ---
+    20% | 2, 4 | 0.5, 1, 1.5, 2
+    50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4
+    100% | 2, 4, 8, 16, 32, 48, 64, 96, 128, 224, 256, 288 | 1, 2, 4, 8
+
+* AMD Zen 4 Compute-Optimized (`highfreq-v4a`):
+
+    Performance<br>level | vCPU | RAM, GB<br>per core
+    --- | --- | ---
+    20% | 2, 4 | 0.5, 1, 1.5, 2
+    50% | 2, 4 | 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4
+    100% | 2, 4, 8, 16, 32, 48, 80 | 1, 2, 4, 8, 10, 12
 
 {% include [amd-platform-preview](../../_includes/compute/amd-platform-preview.md) %}

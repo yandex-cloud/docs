@@ -900,12 +900,12 @@ noIndex: true
 
 Перед составлением собственного промта можете ознакомиться с нашими общими рекомендациями по работе с LLM и промтами:
 
-- [Рекомендации по использованию {{ yagpt-name }}](../foundation-models/gpt-prompting-guide/popular-problems-solving.md)
-- [Параметры LLM](../foundation-models/gpt-prompting-guide/introduction/llm-settings.md)
-- [Основы работы с промтами](../foundation-models/gpt-prompting-guide/introduction/basics.md)
-- [Элементы промта](../foundation-models/gpt-prompting-guide/introduction/elements.md)
-- [Общие советы для создания промтов](../foundation-models/gpt-prompting-guide/introduction/general-tips.md)
-- [Примеры промтов](../foundation-models/gpt-prompting-guide/introduction/examples.md)
+- [Рекомендации по использованию {{ yagpt-name }}](../ai-studio/gpt-prompting-guide/popular-problems-solving.md)
+- [Параметры LLM](../ai-studio/gpt-prompting-guide/introduction/llm-settings.md)
+- [Основы работы с промтами](../ai-studio/gpt-prompting-guide/introduction/basics.md)
+- [Элементы промта](../ai-studio/gpt-prompting-guide/introduction/elements.md)
+- [Общие советы для создания промтов](../ai-studio/gpt-prompting-guide/introduction/general-tips.md)
+- [Примеры промтов](../ai-studio/gpt-prompting-guide/introduction/examples.md)
 
 
 ##### Скоринг {#api-scoring}
