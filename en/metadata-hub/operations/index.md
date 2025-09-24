@@ -21,7 +21,10 @@ description: Step-by-step guides on using {{ metadata-hub-full-name }} in {{ yan
 
 ## {{ metastore-full-name }} clusters {#metastore}
 
+* [{#T}](metastore/cluster-list.md)
 * [{#T}](metastore/cluster-create.md)
+* [{#T}](metastore/cluster-update.md)
+* [{#T}](metastore/cluster-stop.md)
 * [{#T}](metastore/configure-security-group.md)
 * [{#T}](metastore/data-processing-connect.md)
 * [{#T}](metastore/export-and-import.md)

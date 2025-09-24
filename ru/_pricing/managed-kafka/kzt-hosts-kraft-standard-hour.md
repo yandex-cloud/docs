@@ -11,3 +11,5 @@
 | **Intel Ice Lake (Compute Optimized)**                 |
 | 100% vCPU | {{ sku|KZT|mdb.kafka.kraft.highfreq-v3.cpu.c100|string }} | – | – |
 | RAM (за 1 ГБ) | {{ sku|KZT|mdb.kafka.kraft.highfreq-v3.ram|string }} | – | – |
+
+

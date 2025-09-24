@@ -1,6 +1,6 @@
 {% list tabs %}
 
-- {{ mmg-name }}
+- {{ mmg-name }} (Managed Service for MongoDB)
     
     1. [Create a database](../../../../storedoc/operations/databases.md#add-db).
     1. [Create a user](../../../../storedoc/operations/cluster-users.md#adduser) with the [`readWrite`](../../../../storedoc/concepts/users-and-roles.md#readWrite) role for the new database.

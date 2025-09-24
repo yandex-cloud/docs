@@ -103,6 +103,8 @@ items:
           Создание внешней таблицы на базе таблицы из бакета {{ objstorage-name
           }} с помощью конфигурационного файла
         href: tutorials/config-server-for-s3.md
+      - name: Получение данных из внешних источников с помощью именованных запросов
+        href: tutorials/pxf-named-queries.md
       - name: Миграция базы данных из {{ GP }} в {{ PG }}
         href: tutorials/greenplum-to-postgresql.md
       - name: Миграция базы данных из {{ GP }} в {{ CH }}
@@ -125,6 +127,8 @@ items:
             href: tutorials/managed-kafka-to-greenplum.md
   - name: Концепции
     items:
+      - name: Обзор СУБД {{ GP }} и сервиса {{ mgp-full-name }}
+        href: concepts/overview.md
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
       - name: Классы хостов

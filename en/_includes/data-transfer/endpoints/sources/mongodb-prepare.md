@@ -1,6 +1,6 @@
 {% list tabs %}
 
-- {{ mmg-name }}
+- {{ mmg-name }} (Managed Service for MongoDB)
 
 
     1. Estimate the total number of databases for transfer and the total {{ mmg-name }} workload. If the workload on the database exceeds 10,000 writes per second, create multiple endpoints and transfers. For more information, see [{#T}](../../../../data-transfer/operations/endpoint/source/mongodb.md).

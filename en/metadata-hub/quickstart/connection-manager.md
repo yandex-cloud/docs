@@ -11,7 +11,7 @@ description: Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, and {{ RD }}, a
 
 
 
-Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, and {{ TR }} data sources using {{ connection-manager-full-name }}.
+Manage connections to {{ PG }}, {{ MY }}, {{ CH }}, {{ RD }}, {{ VLK }}, {{ OS }}, {{ MG }}, {{ TR }}, and {{ KF }} data sources using {{ connection-manager-full-name }}.
 
 ## Integrating with managed database services {#mdb-integration}
 

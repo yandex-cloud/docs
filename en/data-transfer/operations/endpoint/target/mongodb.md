@@ -2,29 +2,29 @@
 title: How to set up a {{ MG }} target endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to set up a {{ MG }} target endpoint in {{ data-transfer-full-name }}.
 ---
-# Transferring data to a {{ MG }} target endpoint
+# Transferring data to a {{ MG }}/{{ SD }} (Managed Service for MongoDB) target endpoint
 
 
-{{ data-transfer-full-name }} enables you to migrate data to a {{ MG }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
+{{ data-transfer-full-name }} enables you to migrate data to a {{ MG }}/{{ SD }} (Managed Service for MongoDB) database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
 
 1. [Explore possible data transfer scenarios](#scenarios).
 1. [Configure one of the supported data sources](#supported-sources).
-1. [Prepare the {{ MG }}](#prepare) database for the transfer.
+1. [Prepare your {{ MG }}/{{ SD }} (Managed Service for MongoDB) database](#prepare) for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
 1. [Perform the required operations with the database](#db-actions) and [see how the transfer is going](../../monitoring.md).
 1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
 
-## Scenarios for transferring data to {{ MG }} {#scenarios}
+## Scenarios for transferring data to {{ MG }}/{{ SD }} (Managed Service for MongoDB) {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     
-    * [Migrating a {{ MG }}](../../../tutorials/storedoc.md) cluster.
-    * Migrating a [{{ SD }} cluster from 4.4 to 6.0](../../../tutorials/storedoc-versions.md).
+    * [Migrating a {{ MG }} cluster](../../../tutorials/storedoc.md)
+    * [Migrating a {{ SD }} (Managed Service for MongoDB) cluster from 4.4 to 6.0](../../../tutorials/storedoc-versions.md)
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     
-    * [Delivering data from {{ KF }} to {{ SD }}](../../../tutorials/mkf-to-mmg.md).
+    * [Delivering data from {{ KF }} to {{ SD }} (Managed Service for MongoDB)](../../../tutorials/mkf-to-mmg.md)
 
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -32,7 +32,7 @@ For a detailed description of possible {{ data-transfer-full-name }} scenarios, 
 
 Configure one of the supported data sources:
 
-* [{{ MG }}](../source/mongodb.md)
+* [{{ MG }}/{{ SD }}](../source/mongodb.md)
 * [{{ AB }}](../../../transfer-matrix.md#airbyte)
 * [{{ DS }}](../source/data-streams.md)
 * [{{ KF }}](../source/kafka.md)
@@ -43,7 +43,7 @@ For a complete list of supported sources and targets in {{ data-transfer-full-na
 
 {% include [prepare db](../../../../_includes/data-transfer/endpoints/targets/mongodb-prepare.md) %}
 
-## Configuring the {{ MG }} target endpoint {#endpoint-settings}
+## Configuring a {{ MG }}/{{ SD }} (Managed Service for MongoDB) target endpoint {#endpoint-settings}
 
 {% include [MongodDB Version](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
@@ -53,7 +53,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 * [Additional parameters](#additional-settings).
 
 
-### {{ mmg-name }} cluster {#managed-service}
+### {{ mmg-name }} (Managed Service for MongoDB) cluster {#managed-service}
 
 
 {% note warning %}
@@ -109,7 +109,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -176,7 +176,7 @@ Connecting to the database with explicitly specified network addresses and ports
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 

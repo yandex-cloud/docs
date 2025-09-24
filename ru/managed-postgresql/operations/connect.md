@@ -397,5 +397,3 @@ FQDN вида `c-<идентификатор_кластера>.ro.{{ dns-zone }}
 {% include [mpg-connection-strings](../../_includes/mdb/mpg-conn-strings.md) %}
 
 При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ PG }}. Исключение — [пример для фреймворка userver](#cpp-userver), в котором будет выполняться тестовый запрос `SELECT 1 as ping` для периодической проверки доступности кластера {{ PG }}.
-
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

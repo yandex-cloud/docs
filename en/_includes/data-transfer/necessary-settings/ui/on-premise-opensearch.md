@@ -26,7 +26,7 @@
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.authorization_connman.title }}**: Allows connecting to the database using [{{ connection-manager-full-name }}](../../../../metadata-hub/quickstart/connection-manager.md):
 
-        * Select the folder the {{ connection-manager-name }} connection was created in.
+        * Select the folder where the {{ connection-manager-name }} connection was created.
         * Select **Custom installation** as the installation type and configure these settings:
 
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConnmanConnection.connection_id.title }}**: Select or create a connection in {{ connection-manager-name }}.
@@ -42,4 +42,4 @@
 
 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.security_groups.title }}**: Select the cloud network to host the endpoint and security groups for network traffic.
 
-  This will allow you to apply the specified security group rules to VMs and DBs in the selected network without reconfiguring these VMs and DBs. For more information, see [{#T}](../../../../data-transfer/concepts/network.md).
+  Thus, you will be able to apply the specified security group rules to the VMs and DBs in the selected network without changing the settings of these VMs and DBs. For more information, see [{#T}](../../../../data-transfer/concepts/network.md).
