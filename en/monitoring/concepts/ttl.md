@@ -14,6 +14,8 @@ Metrics for which no new values have been received for 30 days are considered ex
 
 After you delete a resource, the collection of its metrics stops. The metrics data of deleted resources continues to be available for 30 days. After this period, metrics are automatically deleted.
 
+Custom metrics (`service: custom`) delivered through the Unified Agent are not deleted. If they are no longer being collected, contact [support]({{ link-console-support }}). Your storage quota will be increased or the retention period for such metrics will be reduced.
+
 Some services have special conditions:
 
 * For {{ managed-prometheus-name }}, there is a separate retention period [quota](../operations/prometheus/index.md#quotas-per-endpoint) for expired metrics.

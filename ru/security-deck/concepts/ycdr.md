@@ -7,8 +7,6 @@ description: '{{ ycdr-name }} — это модуль сервиса {{ sd-name 
 
 {% include [preview-by-request](../../_includes/note-preview-by-request.md) %}
 
-{% include [sd-usage-security-disclaimer](../../_includes/security-deck/sd-usage-security-disclaimer.md) %}
-
 {{ ycdr-full-name }} — это модуль {{ sd-full-name }} для мониторинга и реагирования на инциденты в {{ yandex-cloud }}. {{ ycdr-name }} разработан на базе собственного центра мониторинга безопасности (SOC) платформы {{ yandex-cloud }}. Модуль собирает данные с облачной инфраструктуры для выявления аномалий. При обнаружении аномалий {{ ycdr-name }} создает [алерты](./alerts.md), указывающие на потенциальный инцидент.
 
 Собранные данные анализируются с помощью SIEM-системы {{ yandex-cloud }}. В SIEM-систему события попадают через _коллектор_. Коллектор устанавливается в кластере {{ managed-k8s-name }}, что позволяет обеспечить его масштабируемость и отказоустойчивость.

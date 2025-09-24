@@ -1,9 +1,9 @@
 ---
-title: Configuring a WAF basic rule set
-description: Follow this guide to configure a basic rule set for a WAF profile.
+title: Configuring WAF rule sets
+description: Follow this guide to configure rule sets for a WAF profile.
 ---
 
-# Configuring a WAF basic rule set
+# Configuring WAF rule sets
 
 {% list tabs group=instructions %}
 
@@ -12,20 +12,42 @@ description: Follow this guide to configure a basic rule set for a WAF profile.
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [WAF profile](../concepts/waf.md).
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}**.
-  1. Select the profile where you want to configure a basic rule set.
-  1. Click **{{ ui-key.yacloud.smart-web-security.waf.label_action-edit-settings }}**.
-  1. Set the **{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-threshold }}**, which is the total [anomaly](../concepts/waf.md#anomaly) score of triggered rules that results in blocking the request.
+  1. Select the profile where you want to configure rule sets.
+  1. Next to the set, click ![image](../../_assets/console-icons/gear.svg) **Configure**.
+  
+  1. To configure your OWASP set:
+  
+     1. Set the **{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-threshold }}**, which is the total [anomaly](../concepts/waf.md#anomaly) score of triggered rules that results in blocking the request.
 
-      We recommend that you start with an anomaly threshold of `25` and gradually reduce it to `5`. To reduce the anomaly threshold, address WAF false positives triggered by legitimate requests. To do so, select rules from the basic set and [configure exclusion rules](exclusion-rule-add.md).
+        We recommend that you start with an anomaly threshold of `25` and gradually reduce it to `5`. To reduce the anomaly threshold, address WAF false positives triggered by legitimate requests. To do so, select rules from the basic set and [configure exclusion rules](exclusion-rule-add.md).
+      
+        Use **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** mode to test anomaly thresholds. The mode gets activated when you add a WAF rule to the security profile.
 
-      Use **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** mode to test anomaly thresholds. The mode gets activated when you add a WAF rule to the security profile.
+     1. Set the **{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-level }}**.
 
-  1. Set the **{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-level }}**.
+        The [paranoia level](../concepts/waf.md#paranoia) classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the greater the risk of WAF false positives.
+     
+     1. Check the rules you included in the set. Add or delete them as needed. When using rules, pay attention to their anomaly scores and paranoia levels.
 
-      The [paranoia level](../concepts/waf.md#paranoia) classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the greater the risk of WAF false positives.
-  1. Check the rules you included in the set. Add or delete them as needed. When using rules, pay attention to their anomaly values and paranoia levels.
+        You can configure any rule in the set to block requests. Requests matching such a rule get blocked regardless of the anomaly threshold you set. To turn a rule into a blocking one, click ![image](../../_assets/console-icons/ban.svg) on its right. Still, if you enabled **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** mode in the security profile, requests will not get blocked.
 
-      You can configure any rule in the set to block requests. Requests matching such a rule get blocked regardless of the anomaly threshold you set. To turn a rule into a blocking one, click ![image](../../_assets/console-icons/ban.svg) on its right. Still, if you enabled **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** mode in the security profile, requests will not get blocked.
+  1. To configure your Yandex Ruleset:
+     
+     1. Enable the [rule groups](../concepts/waf.md#yandex-ruleset) you want to apply as part of the set.
+      
+        In Yandex Ruleset, you can configure each rule group individually.
+     
+     1. Expand and specify the parameters for each rule group you enabled:
+        1. Optionally, change **Anomaly threshold** from `1` to `10,000`. The default value is `7`, since the Yandex Ruleset produces the fewest false positives.
+
+        1. Select the **When threshold is exceeded** action to perform on a request in this case. Currently, only request blocking is available.
+        1. Disable the rules you do not want to apply as part of the set.
+        1. If you want a rule to immediately block the request regardless of its total anomaly, click ![image](../../_assets/console-icons/ban.svg) to the right of the rule.
+
+  1. To configure your Yandex ML Ruleset:
+     1. Enable the rules you want to apply as part of the set.
+     1. Optionally, change **Anomaly threshold** from `1` to `100`. The default value is `90`. A low anomaly threshold may result in frequent false positives.
+     
   1. Click **{{ ui-key.yacloud.smart-web-security.waf.label_save-settings }}**.
 
 - {{ TF }}
@@ -64,7 +86,7 @@ description: Follow this guide to configure a basic rule set for a WAF profile.
           }
         }
 
-        # Turning the rule into a blocking one: the request will get blocked regardless of the anomaly threshold
+        # Turning the rule into a blocking one: the request will be blocked regardless of the anomaly threshold
         rule {
           rule_id     = "owasp-crs-v4.0.0-id942330-attack-sqli"
           is_enabled  = true
@@ -111,7 +133,7 @@ description: Follow this guide to configure a basic rule set for a WAF profile.
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the resource updates in the [management console]({{ link-console-main }}).
+  You can check the resource update in the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -119,8 +141,10 @@ description: Follow this guide to configure a basic rule set for a WAF profile.
 
 {% endlist %}
 
+Each time you update or add WAF profile rules, enable the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode. Activate a rule only after the logs confirm that it works correctly. This way you will avoid false positives and ensure stable operation of your website or web application.
 
 ### See also {#see-also}
 
 * [{#T}](exclusion-rule-add.md)
 * [{#T}](rule-add.md)
+* [{#T}](../tutorials/sws-basic-protection.md)

@@ -35,6 +35,20 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
         {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
 
   1. {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
+
+  1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** and configure logging:
+     1. In the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** field, select the logs to write: **{{ cloud-logging-name }}** and **{{ at-name }}**.
+     1. For {{ cloud-logging-name }}, select or create a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to store your logs.
+     1. For logging, you can choose only those requests that triggered:
+        * **{{ ui-key.yacloud.smart-web-security.baseRulesTitle_xcJEe }}**.
+        * **{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}** rules.
+        * **{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}** rules.
+        * **{{ ui-key.yacloud.smart-web-security.arlTitle_e3MD8 }}** rules.
+        * All selected rules applied the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.denyAndCaptchaTitle_tCthP }}** action (verdict).
+        * All selected rules applied the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}** action (legitimate requests).
+  
+     For more information on how to configure logging, see [this guide](configure-logging.md).
+
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. In the rule creation window:
 

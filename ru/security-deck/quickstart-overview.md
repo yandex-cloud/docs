@@ -18,13 +18,11 @@ description: В данном разделе описано, как начать 
 1. Если у вас еще нет [каталога](../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../resource-manager/operations/folder/create.md).
 1. Убедитесь, что у вас есть необходимые [права](./security/index.md) для работы с модулями {{ sd-name }}. Оптимальные роли для работы:
 
-    * [`security-deck.admin`](./security/index.md#security-deck-admin) на каталог, в котором будут храниться ресурсы {{ sd-name }} и его модули.
-    * [`auditor`](../iam/roles-reference.md#auditor) на [организацию](../organization/concepts/organization.md), [облако](../resource-manager/concepts/resources-hierarchy.md#cloud) или каталог, безопасность в которых будет контролироваться окружением.
+    * `security-deck.admin` на каталог, в котором будут храниться ресурсы {{ sd-name }} и его модули.
+    * `auditor` на [организацию](../organization/concepts/organization.md), [облако](../resource-manager/concepts/resources-hierarchy.md#cloud) или каталог, безопасность в которых будет контролироваться окружением.
 1. [Создайте](../iam/operations/sa/create.md) [сервисный аккаунт](../iam/concepts/users/service-accounts.md) и [назначьте](../iam/operations/sa/assign-role-for-sa.md) ему [роль](./security/index.md#security-deck-worker) `security-deck.worker` на организацию, облако или каталог, безопасность в которых будет контролироваться окружением.
 
 ## Создайте окружение {{ sd-name }} {#create-workspace}
-
-{% include [sd-usage-security-disclaimer](../_includes/security-deck/sd-usage-security-disclaimer.md) %}
 
 [Окружение](./concepts/workspace.md) — это контейнер, который содержит настройки и ресурсы модулей {{ sd-name }}, перечень контролируемых ресурсов, параметры контроля и другие настройки. Окружения позволяют более гранулярно управлять безопасностью инфраструктуры в {{ yandex-cloud }}.
 

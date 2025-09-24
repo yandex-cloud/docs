@@ -7,8 +7,6 @@ description: AI-ассистент в {{ sd-full-name }} позволяет по
 
 {% include [preview-by-request](../../_includes/note-preview-by-request.md) %}
 
-{% include [sd-usage-security-disclaimer](../../_includes/security-deck/sd-usage-security-disclaimer.md) %}
-
 AI-ассистент в {{ sd-name }} позволяет получить рекомендации по безопасной настройке сервисов {{ yandex-cloud }} и соответствию вашей инфраструктуры требованиям безопасности. AI-ассистент создан на базе дообученной [модели](../../ai-studio/concepts/generation/models.md) {{ yagpt-name }} и использует информацию из внутренней базы знаний и [документации](../../index.yaml) {{ yandex-cloud }}.
 
 ## Интеграция с алертами

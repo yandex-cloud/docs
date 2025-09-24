@@ -11,9 +11,10 @@ _Окружение {{ sd-name }}_ — это контейнер, который
 
 В качестве ресурсов, контролируемых окружением, можно выбирать [организации](../../organization/concepts/organization.md) {{ org-full-name }}, отдельные [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder) в них. Доступ окружения к контролируемым ресурсам осуществляется с использованием [коннекторов](#connectors).
 
-Создавать окружения и управлять ими может пользователь, которому на контролируемые ресурсы [назначены](../../iam/operations/roles/grant.md) роли [`security-deck.admin`](../security/index.md#security-deck-admin) и [`auditor`](../../iam/roles-reference.md#auditor).
+Создавать окружения и управлять ими может пользователь, которому назначены следующие роли:
 
-{% include [sd-usage-security-disclaimer](../../_includes/security-deck/sd-usage-security-disclaimer.md) %}
+* `security-deck.admin` на каталог, в котором будут храниться ресурсы {{ sd-name }} и его модули.
+* `auditor` на [организацию](../../organization/concepts/organization.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или каталог, безопасность в которых будет контролироваться окружением.
 
 ## Настройки окружения {#settings}
 

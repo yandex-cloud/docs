@@ -15,7 +15,13 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
   1. Name the profile.
   1. Optionally, provide a description.
   1. Optionally, add [labels](../../resource-manager/concepts/labels.md) to your profile.
-  1. By default, the WAF profile uses the [OWASP Core Rule Set](https://coreruleset.org/). Click the row with the rule set to view the rules it includes.
+  1. Enable one or multiple [rule sets](../concepts/waf.md#rules-set). [OWASP Core Rule Set](https://coreruleset.org/), Yandex Ruleset, Yandex ML Ruleset. Click the row with the rule set to view its rules.
+  1. For OWASP Core Rule Set, select a rule set version.
+  1. If multiple rule sets are enabled:
+     * Select the profile trigger conditions:
+       * **Verdict returned in at least one selected rule set**: At least one rule set has recognized the request as a threat.
+       * **Verdict returned in all rule sets**: All added rule sets have recognized the request as a threat.
+     * Arrange rule sets in the order of priority in which the rules will analyze the request. Top positions indicate higher priority.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - {{ TF }} {#tf}
@@ -67,12 +73,12 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
       ```
 
       Where:
-      * `waf_paranoia_level`: [Paranoia level](../concepts/waf.md#paranoia) classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the greater the risk of WAF false positives.
+      * `waf_paranoia_level`: [Paranoia level](../concepts/waf.md#paranoia) which classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the greater the risk of WAF false positives.
       * `data "yandex_sws_waf_rule_set_descriptor"`: {{ TF }} data source for the basic rule set. From the data source, you can get a list of rules and their IDs.
       * `resource "yandex_sws_waf_profile"`: {{ TF }} resource to manage the WAF profile.
          * `name`: WAF profile name.
          * `core_rule_set`: Basic rule set:
-            * `inbound_anomaly_score`: Anomaly threshold, which is the total [anomaly](../concepts/waf.md#anomaly) score of triggered rules that results in blocking the request. The possible values range from 2 to 10,000. The higher the value, the more likely it is that the request matching the rules is in fact an attack.
+            * `inbound_anomaly_score`: Anomaly threshold which is the total [anomaly](../concepts/waf.md#anomaly) score of triggered rules that results in blocking the request. The possible values range from 2 to 10,000. The higher the value, the more likely it is that the request matching the rules is in fact an attack.
             * `paranoia_level`: [Paranoia level](../concepts/waf.md#paranoia) which classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the greater the risk of false positives. The possible values range from 1 to 4.
 
               {% note info %}
@@ -109,4 +115,5 @@ description: Follow this guide to create a {{ sws-full-name }} WAF profile.
 * [{#T}](configure-set-rules.md)
 * [{#T}](rule-add.md)
 * [{#T}](profile-update.md)
+* [{#T}](../tutorials/sws-basic-protection.md)
 * [{#T}](waf-profile-delete.md)

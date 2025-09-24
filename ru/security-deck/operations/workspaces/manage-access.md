@@ -7,8 +7,6 @@ description: Из этой инструкции вы узнаете, как на
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
-{% include [sd-usage-security-disclaimer](../../../_includes/security-deck/sd-usage-security-disclaimer.md) %}
-
 Чтобы настроить доступ к [окружению](../../concepts/workspace.md) {{ sd-name }} для других пользователей:
 
 {% list tabs group=instructions %}
