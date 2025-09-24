@@ -12,6 +12,7 @@
 * Optionally, [create and connect a WAF profile](#waf).
 * Optionally, [create and connect an ARL profile](#arl).
 
+{{ sws-name }} provides security tools to configure step by step. Apply every change you make in **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}** mode and [analyze logs](operations/configure-logging.md). This will allow you to easily monitor and adjust your rules.
 
 ## Get your cloud ready {#before-you-begin}
 
@@ -207,7 +208,7 @@ For security profile configuration guidelines, see [{#T}](tutorials/sws-basic-pr
 
 ## Create and connect a WAF profile {#waf}
 
-WAF allows using rule sets to protect web applications against various cyber attacks.
+WAF allows using rule sets to protect web applications against various cyber attacks. We recommend configuring your WAF profile only after setting up and testing the basic rules and Smart Protection rules in the security profile.
 
 ### Create a WAF profile {#waf-create}
 
@@ -219,24 +220,24 @@ WAF allows using rule sets to protect web applications against various cyber att
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Go to the ![image](../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** tab and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `test-waf-profile-1`.
-  1. By default, the WAF profile uses the [OWASP Core Rule Set](https://coreruleset.org/). To view the rules it includes, click the row with its description.
+  1. Enable a rule set, e.g., the [OWASP Core Rule Set](https://coreruleset.org/), and make sure to use its latest version. To view the rules it includes, click the row with its description.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
 
-### Configure a basic rule set {#waf-configure-rules}
+### Configuring a rule set {#waf-configure-rules}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. On the WAF profile's overview page that opens, click **{{ ui-key.yacloud.smart-web-security.waf.action_setup-base-rules }}**.
-  1. Set the **{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-threshold }}**, which is the sum of [anomaly](concepts/waf.md#anomaly) scores of the triggered rules that will block the request, e.g., `{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-medium }}`.
+  1. On the WAF profile overview page that opens, click ![image](../_assets/console-icons/gear.svg) **Configure** next to the rule set you need.
+  1. Set the **{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-threshold }}**, which is the total [anomaly](concepts/waf.md#anomaly) score of triggered rules that results in blocking the request, e.g., `{{ ui-key.yacloud.smart-web-security.waf.label_anomaly-medium }}`.
 
       We recommend that you start with an anomaly threshold of `25` and gradually reduce it to `5`. To reduce the anomaly threshold, address WAF false positives triggered by legitimate requests. To do so, select rules from the basic set and configure [exclusion rules](#create-exclusion). You can use the **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry-run)** mode in the security profile to test various anomaly thresholds.
 
-  1. Set the required **{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-level }}**, e.g., `{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-option-2 }}`.
+  1. Set a **{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-level }}**, e.g., `{{ ui-key.yacloud.smart-web-security.waf.label_paranoia-option-1 }}`.
 
       The [paranoia level](concepts/waf.md#paranoia) classifies rules based on how aggressive they are. The higher the paranoia level, the better the protection, but also the greater the risk of WAF false positives.
 
@@ -367,3 +368,4 @@ ARL allows limiting the number of requests to the protected resource to prevent 
 #### See also {#see-also}
 
 * [{#T}](operations/profile-create.md)
+* [{#T}](tutorials/sws-basic-protection.md)

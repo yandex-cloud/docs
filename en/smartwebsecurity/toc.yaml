@@ -13,7 +13,7 @@ items:
             href: operations/profile-create.md
           - name: Editing basic profile settings
             href: operations/profile-update.md
-          - name: Getting information about a profile
+          - name: Getting profile information
             href: operations/profile-get.md
           - name: Deleting a profile
             href: operations/profile-delete.md
@@ -33,11 +33,11 @@ items:
             href: operations/waf-profile-create.md
           - name: Editing basic profile settings
             href: operations/waf-profile-update.md
-          - name: Getting information about a profile
+          - name: Getting profile information
             href: operations/waf-profile-get.md
           - name: Deleting a profile
             href: operations/waf-profile-delete.md
-          - name: Configuring a basic rule set
+          - name: Configuring rule sets
             href: operations/configure-set-rules.md
           - name: Adding an exclusion rule
             href: operations/exclusion-rule-add.md
@@ -51,7 +51,7 @@ items:
             href: operations/arl-profile-create.md
           - name: Editing basic profile settings
             href: operations/arl-profile-update.md
-          - name: Getting information about a profile
+          - name: Getting profile information
             href: operations/arl-profile-get.md
           - name: Deleting a profile
             href: operations/arl-profile-delete.md
@@ -85,9 +85,11 @@ items:
         href: operations/monitoring.md
       - name: Setting up alerts
         href: operations/alerting.md
-      - name: Configuring logging
+      - name: Configuring logs via {{ sws-name }}
         href: operations/configure-logging.md
-      - name: Migrating to WAF with Yandex rule set
+      - name: Configuring logs via {{ alb-name }}
+        href: operations/configure-logging-alb.md
+      - name: Migrating to WAF with support for Yandex rules
         href: operations/waf-migration.md
   - name: Tutorials
     items:
@@ -194,6 +196,8 @@ items:
         href: concepts/lists.md
       - name: Protecting domains
         href: concepts/domain-protect.md
+      - name: Logging
+        href: concepts/logging.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management

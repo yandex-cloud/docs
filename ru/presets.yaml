@@ -11085,7 +11085,6 @@ default:
           action_setup-base-rules: Настроить набор базовых правил
           field_analyze-request-body: "Анализировать тело запроса (макс. 8\_КБ)"
           field_logging: Запись логов
-          label_action-edit-settings: Настроить набор базовых правил
           label_analyze-request-body-action-deny: Блокировать запрос
           label_analyze-request-body-action-ignore: Не анализировать тело запроса
           label_anomaly-medium: Умеренный — 25 и выше
@@ -11095,7 +11094,6 @@ default:
           label_exclusion-rules: Правила-исключения
           label_paranoia-level: Уровень паранойи
           label_paranoia-option-1: Только 1
-          label_paranoia-option-2: 2 и ниже
           label_profiles: Профили WAF
           label_save-settings: Сохранить настройки
           title_exclusion-rule-condition-section: Условия на трафик

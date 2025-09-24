@@ -1,1 +1,3 @@
-To work with requests, make sure your [account]({{ link-console-iam-users }}) has the `quota-manager.requestOperator` [role](../../iam/roles-reference.md#quota-manager-requestoperator) or higher (`{{ roles-editor }}` or `{{ roles-admin }}`).
+To manage quota update requests, an [account]({{ link-console-iam-users }}) must have the following roles:
+* [Organization](../../resource-manager/concepts/resources-hierarchy.md#cloud) level: [quota-manager.requestOperator](../../quota-manager/security/index.md#quota-manager-requestoperator), [organization-manager.viewer](../../organization/security/index.md#organization-manager-viewer).
+* Cloud level: [resource-manager.viewer](../../resource-manager/security/index.md#resource-manager-viewer).

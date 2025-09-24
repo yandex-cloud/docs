@@ -131,6 +131,8 @@ items:
         href: concepts/autoscaling.md
       - name: Режимы работы OLTP или OLAP
         href: concepts/oltp-and-olap.md
+      - name: Трансфер
+        href: concepts/transfer.md
       - name: Таблицы DynamoDB
         href: concepts/dynamodb-tables.md
       - name: Квоты и лимиты

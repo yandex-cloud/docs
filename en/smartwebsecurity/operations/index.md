@@ -59,6 +59,7 @@ description: This page provides a list of step-by-step guides for {{ sws-name }}
 * [{#T}](monitoring.md)
 * [{#T}](alerting.md)
 * [{#T}](configure-logging.md)
+* [{#T}](configure-logging-alb.md)
 
 ## Getting additional information {#get-additional-info}
 

@@ -38,7 +38,7 @@ To update HTTP router parameters:
      ```
 
      Result:
-     
+
      ```text
      id: a5dld80l32ed********
      name: new-http-router
@@ -103,39 +103,17 @@ To update HTTP router parameters:
 
      For more information about `yandex_alb_virtual_host` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_virtual_host).
 
-  1. Check the configuration using this command:
-
-     ```bash
-     terraform validate
-     ```
-     
-     If the configuration is correct, you will get this message:
-     
-     ```bash
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```bash
-     terraform plan
-     ```
-  
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
-
   1. Apply the changes:
 
-     ```bash
-     terraform apply
-     ```
-     
-  1. Type `yes` and press **Enter** to confirm changes.
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the HTTP router update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+     {{ TF }} will update all required resources. You can check the HTTP router update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc alb http-router get <HTTP_router_ID>
      ```
+
+
 
 - API {#api}
 
@@ -164,26 +142,26 @@ To add a new route to your HTTP router's virtual host:
    {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
- 
+
    See the description of the CLI command for managing virtual hosts:
- 
+
    ```bash
    yc alb virtual-host --help
    ```
 
    * **HTTP**
 
-    
+
       You can add a new route at the beginning, end, or any position within the route list.
-    
+
       **Add a route at the end of the list**
-    
+
       1. See the description of the CLI command for adding a route at the end of the route list:
 
          ```bash
          yc alb virtual-host append-http-route --help
          ```
-    
+
       1. Run this command:
 
          ```bash
@@ -219,15 +197,15 @@ To add a new route to your HTTP router's virtual host:
                timeout: 2s
                idle_timeout: 3s
          ```
-    
+
       **Add a route at the beginning of the list**
-    
+
       1. See the description of the CLI command for adding a route at the beginning of the route list:
 
          ```bash
          yc alb virtual-host prepend-http-route --help
          ```
-    
+
       1. Run this command:
 
          ```bash
@@ -265,15 +243,15 @@ To add a new route to your HTTP router's virtual host:
          - name: test-route
          ...
          ```
-    
+
       **Add a route before another route**
-    
+
       1. See the description of the CLI command for adding a route before another route:
 
          ```bash
          yc alb virtual-host insert-http-route --help
          ```
-    
+
       1. Run this command:
 
          ```bash
@@ -314,15 +292,15 @@ To add a new route to your HTTP router's virtual host:
          - name: test-route
          ...
          ```
-    
+
       **Add a route after another route**
-    
+
        1. See the description of the CLI command for adding a new route after another route:
 
           ```bash
           yc alb virtual-host insert-http-route --help
           ```
-    
+
        1. Run this command:
 
            ```bash
@@ -339,9 +317,9 @@ To add a new route to your HTTP router's virtual host:
            ```
 
            For more information about `yc alb virtual-host insert-http-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route.md).
-    
+
            Result:
-    
+
            ```text
            done (2s)
            name: test-virtual-host
@@ -365,15 +343,15 @@ To add a new route to your HTTP router's virtual host:
    * **gRPC**
 
       You can add a new route at the beginning, end, or any position within the route list.
-      
+
       **Add a route at the end of the list**
-      
+
       1. See the description of the CLI command for adding a route at the end of the route list:
 
          ```bash
          yc alb virtual-host append-grpc-route --help
          ```
-      
+
       1. Run this command:
 
          ```bash
@@ -407,15 +385,15 @@ To add a new route to your HTTP router's virtual host:
                max_timeout: 60s
                auto_host_rewrite: false
          ```
-      
+
       **Add a route at the beginning of the list**
-      
+
       1. See the description of the CLI command for adding a route at the beginning of the route list:
 
          ```bash
          yc alb virtual-host prepend-grpc-route --help
          ```
-      
+
       1. Run this command:
 
          ```bash
@@ -449,15 +427,15 @@ To add a new route to your HTTP router's virtual host:
          - name: grpc-route
          ...
          ```
-      
+
       **Add a route before another route**
-      
+
       1. See the description of the CLI command for adding a route before another route:
 
          ```bash
          yc alb virtual-host insert-grpc-route --help
          ```
-      
+
       1. Run this command:
 
          ```bash
@@ -502,15 +480,15 @@ To add a new route to your HTTP router's virtual host:
          - name: grpc-route
          ...
          ```
-      
+
       **Add a route after another route**
-      
+
       1. See the description of the CLI command for adding a new route after another route:
 
           ```bash
           yc alb virtual-host insert-grpc-route --help
           ```
-      
+
       1. Run this command:
 
           ```bash
@@ -536,7 +514,7 @@ To add a new route to your HTTP router's virtual host:
           For more information about `yc alb virtual-host insert-grpc-route` options, see this [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-grpc-route.md).
 
           Result:
-      
+
           ```text
           name: grpc-host
           authority:
@@ -583,35 +561,11 @@ To add a new route to your HTTP router's virtual host:
 
      The order of routes in the list matters. For more information, see [this article](../../application-load-balancer/concepts/http-router.md#virtual-host).
 
-  1. Check the configuration using this command:
-
-     ```bash
-     terraform validate
-     ```
-     
-     If the configuration is correct, you will get this message:
-     
-     ```text
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```bash
-     terraform plan
-     ```
-  
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
-
   1. Apply the changes:
 
-     ```bash
-     terraform apply
-     ```
-     
-  1. Type `yes` and press **Enter** to confirm changes.
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check virtual host updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+     {{ TF }} will update all required resources. You can check virtual host updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc alb virtual-host get <virtual_host_ID>
@@ -640,44 +594,146 @@ To change route order in the HTTP router:
   1. In the window that opens, drag your route to a new position in the list.
   1. Click **{{ ui-key.yacloud.common.save }}**.
   1. Once you finish edits, click **{{ ui-key.yacloud.common.save }}**.
-  
+
 - CLI {#cli}
 
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
    * **HTTP**
-   
+
       1. See the description of the CLI command for deleting a route:
 
           ```bash
           yc application-load-balancer virtual-host remove-http-route --help
           ```
-       
-      1. Delete a route:   
+
+      1. Delete a route:
 
           ```bash
           yc alb virtual-host remove-http-route <route_name> \
             --virtual-host-name <virtual_host_name> \
             --http-router-name <router_name>
           ```
-      
-      1. Add your route at a required position as described above.   
+
+      1. Add your route at a required position as described above.
 
    * **gRPC**
-   
+
       1. See the description of the CLI command for deleting a route:
 
           ```bash
           yc application-load-balancer virtual-host remove-gRPC-route --help
           ```
-       
-      1. Delete a route:   
+
+      1. Delete a route:
 
           ```bash
           yc alb virtual-host remove-grpc-route <route_name> \
             --virtual-host-name <virtual_host_name> \
             --http-router-name  <router_name>
           ```
-      
+
       1. Add your route at a required position as described above.
+
+- API {#api}
+
+  Use the [update](../api-ref/VirtualHost/update.md) REST API method for the [VirtualHost](../api-ref/VirtualHost/index.md) resource or the [VirtualHostService/Update](../api-ref/grpc/VirtualHost/update.md) gRPC API call.
+
+{% endlist %}
+
+
+## Changing a route timeout {#route-timeout}
+
+You can only change the timeout for routes with the `{{ ui-key.yacloud.alb.label_route-action-route }}` action type.
+
+To change the route timeout for an HTTP router:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder with your HTTP router.
+  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. Click your router name.
+  1. Click **{{ ui-key.yacloud.common.edit }}**.
+  1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, change the **{{ ui-key.yacloud.alb.label_timeout }}** field value for the route you need.
+  1. Click **{{ ui-key.yacloud.common.save }}** at the bottom of the page.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for changing a route:
+
+      ```bash
+        yc alb virtual-host update-http-route --help
+      ```
+
+  1. Run this command:
+
+      ```bash
+      yc alb virtual-host remove-http-route <route_name> \
+        --virtual-host-name <virtual_host_name> \
+        --http-router-name <router_name> \
+        --request-timeout <timeout>
+      ```
+
+      Where `--request-timeout` is the new timeout value with the time unit, e.g., `120s`.
+
+      Result:
+
+      ```text
+      name: host-one
+      routes:
+        - name: route-one
+          http:
+            match:
+              path:
+                prefix_match: /
+            route:
+              backend_group_id: ds7d6hg1dg24********
+              timeout: 120s
+              auto_host_rewrite: false
+      ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and edit the value of the `timeout` parameter for the route in question:
+
+     ```hcl
+     resource "yandex_alb_virtual_host" "my-virtual-host" {
+       name           = "my-virtual-host"
+       http_router_id = "${yandex_alb_http_router.tf-router.id}"
+       route {
+         name = "my-route"
+         http_route {
+           http_route_action {
+             backend_group_id = "${yandex_alb_backend_group.backend-group.id}"
+             timeout          = "3s"
+           }
+         }
+       }
+     }
+     ```
+
+     For more information about `yandex_alb_virtual_host` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_virtual_host).
+
+  1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will update all required resources. You can check virtual host updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+
+      ```bash
+      yc alb virtual-host get <virtual_host_ID>
+      ```
 
 - API {#api}
 

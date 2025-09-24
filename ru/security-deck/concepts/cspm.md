@@ -7,8 +7,6 @@ description: Контроль конфигурации ({{ cspm-name }}) кон�
 
 {% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
 
-{% include [sd-usage-security-disclaimer](../../_includes/security-deck/sd-usage-security-disclaimer.md) %}
-
 {% include [cspm-basic-intro](../../_includes/security-deck/cspm-basic-intro.md) %}
 
 ## Стандарты {#standards}
