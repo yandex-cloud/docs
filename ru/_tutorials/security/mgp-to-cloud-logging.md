@@ -15,6 +15,33 @@
 
    {% list tabs group=instructions %}
 
+   * Консоль управления {#console}
+
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
+      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+      1. Введите имя кластера.
+      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
+
+         * Облачную сеть.
+         * Группу безопасности.
+         * Зону доступности и подсеть.
+
+      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_user }}** укажите реквизиты пользователя-администратора:
+
+         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
+         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — длина от 8 до 128 символов.
+
+      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+
+         * Выберите сервисный аккаунт с ролью `logging.writer`.
+         * Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
+         * Чтобы логи записывались в лог-группу по умолчанию, выберите значение **{{ ui-key.yacloud.common.folder }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
+         * Выберите каталог, лог-группу которого нужно использовать.
+         * Включите опции **{{ ui-key.yacloud.greenplum.LoggingSection.greenplum_pN6jU }}** и **{{ ui-key.yacloud.greenplum.LoggingSection.commandCenter_e9fKV }}**. Уровень логирования можно задать с помощью параметра [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
    * CLI {#cli}
 
       ```bash
@@ -229,6 +256,33 @@
 1. Создайте кластер {{ mgp-name }} с включенными настройками логирования и [созданным ранее](#before-you-begin) сервисным аккаунтом:
 
    {% list tabs group=instructions %}
+
+   * Консоль управления {#console}
+
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
+      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+      1. Введите имя кластера.
+      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
+
+         * Облачную сеть.
+         * Группу безопасности.
+         * Зону доступности и подсеть.
+
+      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_user }}** укажите реквизиты пользователя-администратора:
+
+         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
+         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — длина от 8 до 128 символов.
+
+      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+
+         * Выберите сервисный аккаунт с ролью `logging.writer`.
+         * Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
+         * Чтобы логи записывались в пользовательскую лог-группу, выберите значение **{{ ui-key.yacloud.logging.label_loggroup }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
+         * Выберите лог-группу `greenplum-log-group`.
+         * Включите опции **{{ ui-key.yacloud.greenplum.LoggingSection.greenplum_pN6jU }}** и **{{ ui-key.yacloud.greenplum.LoggingSection.commandCenter_e9fKV }}**. Уровень логирования можно задать с помощью параметра [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    * CLI {#cli}
 

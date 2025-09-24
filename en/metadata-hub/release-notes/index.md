@@ -7,12 +7,11 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 ## 2025 {#2025}
 
-### August 
-
+### August {#august25}
 
 #### New features {#new-features-august25}
 
-* In [{{ connection-manager-name }}](../concepts/connection-manager.md), added the ability to manage connections with custom {{ KF }} installations and {{ mkf-name }} clusters; added support of [sharded clusters](../../managed-clickhouse/concepts/sharding.md) in {{ CH }}.
+* In [{{ connection-manager-name }}](../concepts/connection-manager.md), added the option to manage connections with custom [{{ KF }}](../operations/create-connection.md#kafka) installations and [{{ mkf-name }} clusters](../operations/create-connection.md#mdb-kafka); added support for [sharded clusters](../../managed-clickhouse/concepts/sharding.md) in {{ CH }}.
 
 #### Fixed issues {#problems-solved-august25}
 
@@ -60,7 +59,7 @@ description: This section contains {{ metadata-hub-name }} release notes.
 #### New features {#new-features-march25}
 
 * Added a button to upload a schema to an existing {{ schema-registry-name }} [subject](../concepts/schema-registry.md#subject).
-* Added [{#T}](../public-talks.md) to the {{ metadata-hub-name }} documentaition.
+* Added [{#T}](../public-talks.md) to the {{ metadata-hub-name }} documentation.
 
 ### February {#february25}
 
@@ -87,7 +86,7 @@ description: This section contains {{ metadata-hub-name }} release notes.
 
 #### New features {#new-features-december}
 
-Added the ability to manage connections to the following databases:
+Now you can manage connections to the following databases:
 * [{{ TR }}](../operations/create-connection.md#trino-on-premise) custom installation
 * [{{ OS }}](../operations/create-connection.md#opensearch-on-premise) custom installation
 * [{{ mos-name }}](../operations/create-connection.md#mdb-opensearch) cluster

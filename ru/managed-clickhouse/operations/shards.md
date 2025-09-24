@@ -332,7 +332,13 @@
 
 ## Изменить шард {#shard-update}
 
-Вы можете изменить вес шарда, а также [класс хоста](../concepts/instance-types.md) и размер хранилища.
+Вы можете изменить вес шарда, а также [класс хоста](../concepts/instance-types.md), [тип диска](../concepts/storage.md) и размер хранилища.
+
+{% note info %}
+
+Чтобы изменить тип диска на `local-ssd`, обратитесь в [техническую поддержку]({{ link-console-support }}).
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -349,28 +355,33 @@
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   Чтобы изменить шард в кластере:
+
   1. Посмотрите описание команды CLI для изменения шарда:
 
      ```bash
      {{ yc-mdb-ch }} shards update --help
      ```
 
-  1. Запустите операцию, например, изменения веса для шарда:
+  1. Передайте в команде параметры, которые вы хотите изменить:
 
      ```bash
      {{ yc-mdb-ch }} shards update <имя_шарда> \
-       --cluster-name=<имя_кластера> \
-       --weight=<вес_шарда>
+       --cluster-name <имя_кластера> \
+       --weight <вес_шарда> \
+       --clickhouse-resource-preset <класс_хостов> \
+       --clickhouse-disk-size <размер_хранилища> \
+       --clickhouse-disk-type <тип_диска>
      ```
 
      Где:
-     * `<имя_шарда>` — можно запросить со [списком шардов в кластере](#list-shards).
-     * `--cluster-name` — имя кластера.
 
-       Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     * `--cluster-name` — имя кластера. Его можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
      * `--weight` — вес шарда. Минимальное значение — `0`.
+     * `--clickhouse-resource-preset` — [класс хостов](../concepts/instance-types.md).
+     * `--clickhouse-disk-size` — размер хранилища в гигабайтах.
+     * `--clickhouse-disk-type` — [тип диска](../concepts/storage.md).
 
-     После успешного завершения операции CLI выведет информацию об измененном шарде.
+     Имя шарда можно запросить со [списком шардов в кластере](#list-shards).
 
 - REST API {#api}
 

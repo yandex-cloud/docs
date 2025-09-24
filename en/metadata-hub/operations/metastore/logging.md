@@ -7,13 +7,13 @@ description: Follow this guide to set up the transfer of {{ metastore-name }} cl
 
 You can set up regular collection of {{ metastore-name }} cluster performance logs. Logs will be delivered to a [log group](../../../logging/concepts/log-group.md) in {{ cloud-logging-full-name }}. You can choose between these two types of log groups:
 
-* Log group used by default in the cluster folder.
+* Default log group of the cluster folder.
 * Custom log group.
 
 ## Getting started {#before-you-begin}
 
 1. [Create a service account](../../../iam/operations/sa/create.md) named `metastore-logging-sa`.
-1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles.metastore.integrationProvider }}` role to the service account.
+1. [Assign the `{{ roles.metastore.integrationProvider }}` role](../../../iam/operations/sa/assign-role-for-sa.md) to the service account.
 1. [Set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) in the subnet the cluster will connect to. This will enable the cluster to work with {{ yandex-cloud }} services.
 1. [Configure the security group](configure-security-group.md).
 
@@ -25,7 +25,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+      1. In the [management console]({{ link-console-main }}), select the folder you need.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
       1. In the left-hand panel, select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
@@ -36,30 +36,63 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
          1. Enable **{{ ui-key.yacloud.logging.field_logging }}**.
          1. To write logs to the default log group, select **{{ ui-key.yacloud.common.folder }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
-         1. Specify the folder whose log group you want to be using.
+         1. Specify the folder whose log group you want to use.
          1. Select the minimum logging level.
 
-            Logs of the specified level and higher will be written to the execution log. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default level is `INFO`.
+            The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
 
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
+   - CLI {#cli}
+
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+      Run this command:
+
+      ```bash
+      {{ yc-metastore }} cluster create \
+         --name metastore-cluster \
+         --service-account-id <service_account_ID> \
+         --version <version> \
+         --subnet-ids <subnet_IDs> \
+         --security-group-ids <security_group_IDs> \
+         --resource-preset-id <ID_of_computing_resources> \
+         --log-enabled \
+         --log-folder-id <folder_ID> \
+         --log-min-level <logging_level>
+      ```
+
+      Where:
+
+      * `--service-account-id`: ID of the `metastore-logging-sa` service account you created [earlier](#before-you-begin).
+      * `--subnet-ids`: ID of the subnet where you set up the NAT gateway.
+      * `--security-group-ids`: ID of the security group you configured [earlier](#before-you-begin).
+      * `--log-folder-id`: Specify the ID of the folder whose log group you want to use.
+      * `--log-min-level`: Logging level. The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
+
    {% endlist %}
 
-1. Test the transfer of cluster logs to the log group.
+1. Test the transfer of cluster logs to the log group:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      1. In the management console, go to the relevant folder.
+      1. In the management console, navigate to the relevant folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `default` log group.
 
-      The page that opens will show the log group records.
+      The page that opens will show the log group entries.
 
    - CLI {#cli}
 
-      To view the records in JSON format, run the command:
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+      To view the entries in JSON format, run this command:
 
       ```bash
       yc logging read --group-name=default --format=json
@@ -94,7 +127,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
    - API {#api}
 
-      To view log group records, use the [LogReadingService.Read](../../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
+      To view log group entries, use the [LogReadingService.Read](../../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
    {% endlist %}
 
@@ -109,7 +142,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the appropriate folder.
+      1. In the [management console]({{ link-console-main }}), select the folder you need.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
       1. In the left-hand panel, select the ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}** page.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
@@ -120,30 +153,63 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
          1. Enable **{{ ui-key.yacloud.logging.field_logging }}**.
          1. To write logs to a custom log group, select **{{ ui-key.yacloud.logging.label_loggroup }}** in the **{{ ui-key.yacloud.logging.label_destination }}** field.
-         1. Specify the log group, `metastore-log-group`.
+         1. Specify the `metastore-log-group` log group.
          1. Select the minimum logging level.
 
-            Logs of the specified level and higher will be written to the execution log. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default level is `INFO`.
+            The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
 
       1. Click **{{ ui-key.yacloud.common.create }}**.
 
+   - CLI {#cli}
+
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+      Run this command:
+
+      ```bash
+      {{ yc-metastore }} cluster create \
+         --name metastore-cluster \
+         --service-account-id <service_account_ID> \
+         --version <version> \
+         --subnet-ids <subnet_IDs> \
+         --security-group-ids <security_group_IDs> \
+         --resource-preset-id <ID_of_computing_resources> \
+         --log-enabled \
+         --log-group-id <log_group_ID> \
+         --log-min-level <logging_level>
+      ```
+
+      Where:
+
+      * `--service-account-id`: ID of the `metastore-logging-sa` service account you created [earlier](#before-you-begin).
+      * `--subnet-ids`: ID of the subnet where you set up the NAT gateway.
+      * `--security-group-ids`: ID of the security group you configured [earlier](#before-you-begin).
+      * `--log-group-id`: `metastore-log-group` log group ID.
+      * `--log-min-level`: Logging level. The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
+
    {% endlist %}
 
-1. Test the transfer of cluster logs to the log group.
+1. Test the transfer of cluster logs to the log group:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      1. In the management console, go to the relevant folder.
+      1. In the management console, navigate to the relevant folder.
       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `metastore-log-group` log group.
 
-      The page that opens will show the log group records.
+      The page that opens will show the log group entries.
 
    - CLI {#cli}
 
-      To view the records in JSON format, run the command:
+      {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+      To view the entries in JSON format, run this command:
 
       ```bash
       yc logging read --group-name=metastore-log-group --format=json
@@ -178,7 +244,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
    - API {#api}
 
-      To view log group records, use the [LogReadingService.Read](../../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
+      To view log group entries, use the [LogReadingService.Read](../../../logging/api-ref/grpc/LogReading/read.md) gRPC API call.
 
    {% endlist %}
 

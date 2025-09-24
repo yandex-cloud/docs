@@ -11,3 +11,5 @@ description: В этом разделе собраны обучающие кур
 * {% include [training-managed-greenplum](../_includes/training/training-mgp.md) %}
 
 {% include [training-courses](../_includes/training/training-courses.md) %}
+
+{% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

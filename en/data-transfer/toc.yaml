@@ -51,7 +51,7 @@ items:
             items:
               - name: Source
                 href: operations/endpoint/source/mssql.md
-          - name: MongoDB
+          - name: '{{ MG }}/{{ SD }}'
             items:
               - name: Source
                 href: operations/endpoint/source/mongodb.md
@@ -121,7 +121,9 @@ items:
             href: tutorials/managed-mysql-to-mysql.md
           - name: '{{ MG }} cluster'
             href: tutorials/storedoc.md
-          - name: Migrating {{ SD }} cluster from 4.4 to 6.0
+          - name: >-
+              Migrating a {{ mmg-name }} (Managed Service for MongoDB) cluster
+              from 4.4 to 6.0
             href: tutorials/storedoc-versions.md
           - name: '{{ CH }} cluster'
             href: tutorials/managed-clickhouse.md
@@ -268,7 +270,7 @@ items:
         href: concepts/delivery-configuration.md
       - name: Operations on transfers
         href: concepts/operations.md
-      - name: '{{ data-transfer-full-name }} network'
+      - name: Networking in {{ data-transfer-full-name }}
         href: concepts/network.md
       - name: Speed for copying data in {{ data-transfer-full-name }}
         href: concepts/copy-speed.md

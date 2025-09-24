@@ -22,3 +22,5 @@ description: На этой странице приведен справочни�
 | **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
 | [yandex_mdb_greenplum_cluster]({{ tf-provider-datasources-link }}/mdb_greenplum_cluster) | Информация о [кластере](./concepts/index.md) |
+
+{% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

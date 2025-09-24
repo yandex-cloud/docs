@@ -906,6 +906,7 @@ default:
   yc-mdb-pg: yc managed-postgresql
   yc-mdb-rd: yc managed-redis
   yc-mdb-tr: yc managed-trino
+  yc-metastore: yc managed-metastore
   yc-serverless: yc serverless
   yc-windows-path: /yandexcloud-yc/install.ps1
   yc-ydb: yc ydb
@@ -9644,6 +9645,9 @@ default:
         label-analyze-timeout: ANALYZE timeout
         label-start-time: Start time (UTC)
         label-vacuum-timeout: VACUUM timeout
+        LoggingSection:
+          commandCenter_e9fKV: Command Center logs
+          greenplum_pN6jU: Greenplum logs
         section_background-activities: Managing background processes
         section_cloud-storage: Hybrid storage
         section_resource-master: Master

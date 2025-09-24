@@ -12,7 +12,7 @@ editable: false
 
 
 
-To calculate the cost of using the service, use [our calculator](https://yandex.cloud/en/prices?state=a1e4dbe0c722#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
+To calculate the cost of using the service, use the [calculator](https://yandex.cloud/en/prices?state=a1e4dbe0c722#calculator) on the {{ yandex-cloud }} website or check out the pricing below.
 
 
 {% endnote %}
@@ -42,11 +42,7 @@ Service plan | Basic           | Business                       | Premium
  **Cost** | Free of charge | {{ sku|USD|support.organization.business.fixed_consumption.v1|string }} per month from the billing account selected at the time of service plan activation and 5% of the organization's resource consumption cost, regardless of which billing account the organization's resources are linked to. | Upon request
 
 
-{% note info %}
-
 The cost of support is calculated based on the [cost of paid resources consumed](../billing/pricing.md). If a billing account is awarded a [grant](../billing/concepts/bonus-account.md), it will be counted towards payment for the support plan.
-
-{% endnote %}
 
 ### Basic {#base}
 
@@ -67,7 +63,7 @@ The price is calculated based on the amount of resources consumed over the curre
 
 {% note warning %}
 
-Effective October 1, 2025, the 5% support rate will include adjustments, subscriptions, and discounts for committed volumes of services (CVoS) of the billing account linked to the organization that pays for support. See [the example of calculating](#business-example-one-ba-cvos).
+Starting October 1, 2025, calculating the support fee (5% of the cost of consumed resources) will include your adjustments, subscriptions, and a committed volume of services under the billing account linked to your organization and paying for support services. See [this example of cost calculation](#business-example-one-ba-cvos).
 
 {% endnote %}
 
@@ -89,15 +85,20 @@ If an organization with an activated support service plan uses resources paid fr
 {% include [usd-support-two-ba](../_pricing_examples/support/usd-two-ba.md) %}
 
 
-#### Example of calculating the cost for an organization whose resources are paid from a single billing account with CVoS {#business-example-one-ba-cvos}
+
+#### Example of calculating the cost for an organization whose resources are paid from a single billing account, with a committed volume of services included {#business-example-one-ba-cvos}
 
 {% note warning %}
 
-CVoS will be taken into account when calculating the support tariff from October 1, 2025.
+Starting October 1, 2025, calculating the support fee will include a committed volume of services.
 
 {% endnote %}
 
+
+
+
 {% include [usd-support-one-ba](../_pricing_examples/support/usd-one-ba-cvos.md) %}
+
 
 
 ### Premium {#premium}

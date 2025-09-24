@@ -77,8 +77,23 @@ You can configure auto-sending of messages to specified URLs upon certain events
 
 To configure webhooks:
 
-1. In the bottom left corner of the [management console]({{ link-console-main }}) or [{{ support-center-name }}]({{ link-console-support }}), click ![image](../../_assets/console-icons/gear.svg) **Settings** and go to the **{{ ui-key.yacloud_components.settings.label_title_communications }}** tab.
+1. Set up a webhook in a messenger. For Mattermost, follow [this guide](https://developers.mattermost.com/integrate/webhooks/incoming/) and specify the webhook name, message channel, and `yc-notify_bot` as the user to send {{ yandex-cloud }} messages.
+1. Copy the URL of the webhook you created in `https://<mattermost.com_server>/hooks/<generated_key>` format.
+1. Navigate to the [management console]({{ link-console-main }}) or [{{ support-center-name }}]({{ link-console-support }}). In the bottom-left corner, click ![image](../../_assets/console-icons/gear.svg) **Settings** and go to the **{{ ui-key.yacloud_components.settings.label_title_communications }}** tab.
 1. Click **{{ ui-key.yacloud_components.settings.button_add-empty }}** in the **{{ ui-key.yacloud_components.settings.label_add-empty-webhookOutgoing }}** section under **{{ ui-key.yacloud_components.settings.section_transports }}**.
-1. In the window that opens, specify the webhook name and URL, then click **{{ ui-key.yacloud_components.settings.button_send-code }}**.
-1. After the webhook receives the code in `your confirmation code <code>` format, enter it in the [management console]({{ link-console-main }}) or [{{ support-center-name }}]({{ link-console-support }}) confirmation window. 
-After confirmation, the URL and specified webhook name will be displayed in the **{{ ui-key.yacloud_components.settings.section_transports }}** section.
+1. In the window that opens, specify the webhook name and URL configured in the messenger, then click **{{ ui-key.yacloud_components.settings.button_send-code }}**.
+1. After clicking the button, you will receive a confirmation code in the messenger channel specified when setting up the webhook. Copy and paste it to the clipboard.
+1. Paste the confirmation code from the clipboard into the field in the confirmation window in the [management console]({{ link-console-main }}) or [{{ support-center-name }}]({{ link-console-support }}). After confirmation, the URL and specified webhook name will be displayed in the **{{ ui-key.yacloud_components.settings.section_transports }}** section.
+
+Your webhook is configured. From now on, you will receive notifications about maintenance and other activities in {{ yandex-cloud }} in the specified channel of your messenger installation. They will have this format:
+
+```json
+{
+	"title": "<header>",
+	"text": "<notification_text>"
+	"props": {
+		"event": "maintenance",
+		...
+	}
+}
+```

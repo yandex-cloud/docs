@@ -9,7 +9,7 @@ description: Следуя данной инструкции, вы сможете
 
 * [Изменить настройки сервисного аккаунта](#change-service-account).
 * [Изменить класс хостов](#change-resource-preset).
-* [Увеличить размер хранилища](#change-disk-size).
+* [Изменить тип диска и увеличить размер хранилища](#change-disk-size).
 * [Включить управление пользователями и базами данных через SQL](#SQL-management).
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
 * [Переместить кластер](#move-cluster) в другой каталог.
@@ -58,7 +58,7 @@ description: Следуя данной инструкции, вы сможете
 * В кластере из нескольких хостов каждый хост по очереди будет остановлен и обновлен. Остановленный хост будет недоступен несколько минут.
 * Подключение по [особому FQDN](connect/fqdn.md#auto) не гарантирует стабильность соединения с БД: пользовательские сессии могут быть прерваны.
 
-Рекомендуется изменять класс хостов только во время отсутствия рабочей нагрузки на кластер.
+{% include [instance-type-change](../../_includes/mdb/mch/instance-type-change.md) %}
 
 Класс хостов влияет на количество оперативной памяти, доступной для использования {{ CH }}. Подробнее см. в разделе [Управление памятью](../concepts/memory-management.md).
 
@@ -161,7 +161,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Запросите список доступных классов хостов:
 
-        1. Воспользуйтесь методом [ResourcePreset.List](../api-ref/ResourcePreset/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+        1. Воспользуйтесь методом [ResourcePreset.List](../api-ref/ResourcePreset/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
@@ -174,7 +174,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Измените класс хостов на нужный:
 
-        1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+        1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
             {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -209,7 +209,7 @@ description: Следуя данной инструкции, вы сможете
                 * `configSpec.clickhouse.resources.resourcePresetId` — если нужно изменить класс хостов {{ CH }}.
                 * `configSpec.zookeeper.resources.resourcePresetId` — если нужно изменить класс хостов {{ ZK }}.
 
-                В примере запроса изменяется как класс хостов {{ CH }}, так и класс хостов {{ ZK }}.
+                В примере запроса класс хостов изменяется и для хостов {{ CH }}, и для хостов {{ ZK }}.
 
             * `configSpec.clickhouse.resources.resourcePresetId` — идентификатор класса хостов {{ CH }}.
             * `configSpec.zookeeper.resources.resourcePresetId` — идентификатор класса хостов {{ ZK }}.
@@ -228,7 +228,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Запросите список доступных классов хостов:
 
-        1. Воспользуйтесь вызовом [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+        1. Воспользуйтесь вызовом [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -245,7 +245,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Измените класс хостов на нужный:
 
-        1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+        1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
             {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -289,7 +289,7 @@ description: Следуя данной инструкции, вы сможете
                 * `config_spec.clickhouse.resources.resource_preset_id` — если нужно изменить класс хостов {{ CH }}.
                 * `config_spec.zookeeper.resources.resource_preset_id` — если нужно изменить класс хостов {{ ZK }}.
 
-                В примере запроса изменяется как класс хостов {{ CH }}, так и класс хостов {{ ZK }}.
+                В примере запроса класс хостов изменяется и для хостов {{ CH }}, и для хостов {{ ZK }}.
 
             * `config_spec.clickhouse.resources.resource_preset_id` — идентификатор класса хостов {{ CH }}.
             * `config_spec.zookeeper.resources.resource_preset_id` — идентификатор класса хостов {{ ZK }}.
@@ -300,7 +300,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Увеличить размер хранилища {#change-disk-size}
+## Изменить тип диска и увеличить размер хранилища {#change-disk-size}
 
 {% note info %}
 
@@ -310,15 +310,22 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
+{% note info %}
+
+Чтобы изменить тип диска на `local-ssd`, обратитесь в [техническую поддержку]({{ link-console-support }}).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Чтобы увеличить размер хранилища для кластера:
+  Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** укажите необходимое значение.
+  1. Чтобы изменить тип диска и увеличить размер хранилища для хостов {{ CH }}, выберите нужное значение в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
+  1. Чтобы изменить тип диска и увеличить размер хранилища для хостов {{ ZK }}, выберите нужное значение в блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -327,7 +334,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы увеличить размер хранилища для кластера:
+  Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
   1. Посмотрите описание команды CLI для изменения кластера:
 
@@ -335,24 +342,31 @@ description: Следуя данной инструкции, вы сможете
      {{ yc-mdb-ch }} cluster update --help
      ```
 
-  1. Укажите нужный размер хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
+  1. Укажите нужный [тип диска](../concepts/storage.md) и размер хранилища в команде изменения кластера:
 
      ```bash
      {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
-       --clickhouse-disk-size <размер_хранилища_ГБ>
+       --clickhouse-disk-size <размер_хранилища_ГБ> \
+       --clickhouse-disk-type <тип_диска>
      ```
 
-  1. Чтобы увеличить размер хранилища хостов {{ ZK }}, передайте нужное значение в параметре `--zookeeper-disk-size`.
+          
+     Новый размер хранилища должен быть не меньше, чем значение `disk_size` в свойствах кластера.
+
+
+     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+  1. Чтобы изменить тип диска и увеличить размер хранилища хостов {{ ZK }}, передайте нужные значения в параметре `--zookeeper-disk-size`.
 
 - {{ TF }} {#tf}
 
-  Чтобы увеличить размер хранилища:
+  Чтобы изменить [тип диска](../concepts/storage.md) и увеличить размер хранилища:
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mch-name }} значение параметра `disk_size` в блоках `clickhouse.resources` и `zookeeper.resources` для хостов {{ CH }} и {{ ZK }} соответственно:
+    1. Измените в описании кластера {{ mch-name }} значения параметров `disk_size` и `disk_type_id` в блоках `clickhouse.resources` и `zookeeper.resources` для хостов {{ CH }} и {{ ZK }} соответственно:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
@@ -360,12 +374,14 @@ description: Следуя данной инструкции, вы сможете
           clickhouse {
             resources {
               disk_size = <размер_хранилища_ГБ>
+              disk_type_id = "<тип_диска>"
               ...
             }
           }
           zookeeper {
             resources {
               disk_size = <размер_хранилища_ГБ>
+              disk_type_id = "<тип_диска>"
               ...
             }
           }
@@ -390,7 +406,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -401,16 +417,18 @@ description: Следуя данной инструкции, вы сможете
             --header "Content-Type: application/json" \
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
             --data '{
-                      "updateMask": "configSpec.clickhouse.resources.diskSize,configSpec.zookeeper.resources.diskSize",
+                      "updateMask": "configSpec.clickhouse.resources.diskSize,configSpec.clickhouse.resources.diskTypeId,configSpec.zookeeper.resources.diskSize,configSpec.zookeeper.resources.diskTypeId",
                       "configSpec": {
                         "clickhouse": {
                           "resources": {
-                            "diskSize": "<размер_хранилища_в_байтах>"
+                            "diskSize": "<размер_хранилища_в_байтах>",
+                            "diskTypeId": "<тип_диска>"
                           }
                         },
                         "zookeeper": {
                           "resources": {
-                            "diskSize": "<размер_хранилища_в_байтах>"
+                            "diskSize": "<размер_хранилища_в_байтах>",
+                            "diskTypeId": "<тип_диска>"
                           }
                         }
                       }
@@ -423,13 +441,15 @@ description: Следуя данной инструкции, вы сможете
 
             Укажите нужные параметры:
 
-            * `configSpec.clickhouse.resources.diskSize` — если нужно увеличить размер хранилища хостов {{ CH }}.
-            * `configSpec.zookeeper.resources.diskSize` — если нужно увеличить размер хранилища хостов {{ ZK }}.
+            * `configSpec.clickhouse.resources.diskSize,configSpec.clickhouse.resources.diskTypeId` — если нужно изменить тип диска и увеличить размер хранилища хостов {{ CH }}.
+            * `configSpec.zookeeper.resources.diskSize,configSpec.zookeeper.resources.diskTypeId` — если нужно изменить тип диска и увеличить размер хранилища хостов {{ ZK }}.
 
-            В примере запроса размер хранилища увеличивается как для хостов {{ CH }}, так и для хостов {{ ZK }}.
+            В примере запроса размер хранилища и тип диска изменяются и для хостов {{ CH }}, и для хостов {{ ZK }}.
 
         * `configSpec.clickhouse.resources.diskSize` — размер хранилища хостов {{ CH }} в байтах.
+        * `configSpec.clickhouse.resources.diskTypeId` — [тип диска](../concepts/storage.md) хостов {{ CH }}.
         * `configSpec.zookeeper.resources.diskSize` — размер хранилища хостов {{ ZK }} в байтах.
+        * `configSpec.zookeeper.resources.diskTypeId` — тип диска хостов {{ ZK }}.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
@@ -443,7 +463,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -459,18 +479,22 @@ description: Следуя данной инструкции, вы сможете
                   "update_mask": {
                     "paths": [
                       "config_spec.clickhouse.resources.disk_size",
-                      "config_spec.zookeeper.resources.disk_size"
+                      "config_spec.clickhouse.resources.disk_type_id",
+                      "config_spec.zookeeper.resources.disk_size",
+                      "config_spec.zookeeper.resources.disk_type_id"
                     ]
                   },
                   "config_spec": {
                     "clickhouse": {
                       "resources": {
-                        "disk_size": "<размер_хранилища_в_байтах>"
+                        "disk_size": "<размер_хранилища_в_байтах>",
+                        "disk_type_id": "<тип_диска>"
                       }
                     },
                     "zookeeper": {
                       "resources": {
-                        "disk_size": "<размер_хранилища_в_байтах>"
+                        "disk_size": "<размер_хранилища_в_байтах>",
+                        "disk_type_id": "<тип_диска>"
                       }
                     }
                   }
@@ -485,12 +509,16 @@ description: Следуя данной инструкции, вы сможете
             Укажите нужные параметры:
 
             * `config_spec.clickhouse.resources.disk_size` — если нужно увеличить размер хранилища хостов {{ CH }}.
+            * `config_spec.clickhouse.resources.disk_type_id` — если нужно изменить тип диска хостов {{ CH }}.
             * `config_spec.zookeeper.resources.disk_size` — если нужно увеличить размер хранилища хостов {{ ZK }}.
+            * `config_spec.zookeeper.resources.disk_type_id` — если нужно изменить тип диска хостов {{ ZK }}.
 
-            В примере запроса размер хранилища увеличивается как для хостов {{ CH }}, так и для хостов {{ ZK }}.
+            В примере запроса размер хранилища и тип диска изменяются и для хостов {{ CH }}, и для хостов {{ ZK }}.
 
         * `config_spec.clickhouse.resources.disk_size` — размер хранилища хостов {{ CH }} в байтах.
+        * `config_spec.clickhouse.resources.disk_type_id` — [тип диска](../concepts/storage.md) хостов {{ CH }}.
         * `config_spec.zookeeper.resources.disk_size` — размер хранилища хостов {{ ZK }} в байтах.
+        * `config_spec.zookeeper.resources.disk_type_id` — тип диска хостов {{ ZK }}.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
@@ -580,7 +608,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -628,7 +656,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -846,7 +874,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -950,7 +978,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1145,7 +1173,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.Move](../api-ref/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Move](../api-ref/Cluster/move.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -1172,7 +1200,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService.Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -1262,7 +1290,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -1308,7 +1336,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1409,7 +1437,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -1453,7 +1481,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 

@@ -19,6 +19,7 @@ You can create connections of the following types:
   * [{{ mrd-name }}](#mdb-redis)
   * [{{ mos-name }}](#mdb-opensearch)
   * [{{ mmg-name }}](#mdb-mongodb)
+  * [{{ mkf-name }}](#mdb-kafka)
 * [To a custom database installation](#on-premise-connection):
   * [{{ PG }}](#postgresql-on-premise)
   * [{{ CH }}](#clickhouse-on-premise)
@@ -28,6 +29,7 @@ You can create connections of the following types:
   * [{{ TR }}](#trino-on-premise)
   * [{{ OS }}](#opensearch-on-premise)
   * [{{ MG }}](#mongodb-on-premise)
+  * [{{ KF }}](#kafka)
 
 ## Connecting to a cluster with a managed database {#mdb-connection}
 
@@ -206,6 +208,39 @@ You can create connections of the following types:
   To create a connection to a {{ mmg-name }} cluster, use the [Connection.Create](../api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../api-ref/grpc/Connection/create.md) gRPC API method.
 
   For more information about the available request parameters, see the [REST API](../api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) and [gRPC API](../api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) reference.
+
+{% endlist %}
+
+### {{ mkf-name }} {#mdb-kafka}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
+   1. Select **{{ metadata-hub-full-name }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+   1. Specify the connection name.
+   1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+   1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
+   1. Under **Connection to {{ KF }}**, select **Managed Service for Kafka cluster** as the connection type and specify the cluster you need.
+   1. When using authentication:
+
+       * Specify the **Username** for the connection.
+       * Set a password in one of the following ways:
+         
+         * **Enter manually**: Enter the password in the input field.
+         * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+       
+       * Optionally, in the **Authentication mechanisms** list, select the required options:
+         
+         * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
+         * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
+         * `SCRAM_SHA256`: Authentication with SHA-512 hashing.
+
+
+   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -489,5 +524,44 @@ You can create connections of the following types:
 
 {% endlist %}
 
+### {{ KF }} {#kafka}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
+   1. Select **{{ metadata-hub-full-name }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
+   1. Specify the connection name.
+   1. Optionally, add a description and [label](../../resource-manager/concepts/labels.md) for the connection.
+   1. Select **{{ ui-key.yacloud.connection-manager.label_connection-type }}**.
+   1. Under **Connection to {{ KF }}**, specify the connection parameters:
+       
+       * In the **{{ ui-key.yacloud.connection-manager.label_connection-type }}** list, select **Custom installation**.
+       * In the **Hosts** field, specify the host address and port for the connection.
+       * Optionally, enable TLS.
+           
+           If your company has a certification authority (CA), the certificate issued by that CA will be used by default. If the company has no CA, upload the server's TLS certificate.
+   
+   1. When using authentication:
+
+       * Specify the **Username** for the connection.
+       * Set a password in one of the following ways:
+         
+         * **Enter manually**: Enter the password in the input field.
+         * **Generate**: Password will be generated automatically. You can configure [{{ lockbox-short-name }}](../../lockbox/quickstart.md) password generation rules or leave the default ones.
+       
+       * Optionally, in the **Authentication mechanisms** list, select the required options:
+         
+         * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
+         * `SCRAM_SHA256`: Authentication with SHA-256 hashing.
+         * `SCRAM_SHA256`: Authentication with SHA-512 hashing.
+
+
+   1. Click **{{ ui-key.yacloud.common.create }}**.
+
+{% endlist %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

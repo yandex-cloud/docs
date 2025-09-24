@@ -1150,6 +1150,10 @@ items:
           Создание внешней таблицы на базе таблицы из бакета {{ objstorage-name
           }} с помощью конфигурационного файла
         href: dataplatform/mgp-config-server-for-s3.md
+      - name: >-
+          Получение данных из внешних источников с помощью именованных запросов
+          в {{ GP }}
+        href: dataplatform/pxf-named-queries.md
       - name: Миграция БД из стороннего кластера {{ VLK }} в {{ mrd-name }}
         href: dataplatform/redis-data-migration.md
       - name: Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP

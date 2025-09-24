@@ -81,7 +81,7 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
       
       {% note info %}
 
-      If a consumer is specified, the `ydb.viewer` role is enough for the service account specified in the endpoint settings to connect the transfer to {{ ydb-short-name }}. If no consumer is specified, the service account must have the `ydb.editor` role to create the default consumer.
+      If a data consumer is specified, the `ydb.viewer` role is enough for the service account specified in the endpoint settings to connect the transfer to {{ ydb-short-name }}. If no data consumer is specified, the service account must have the `ydb.editor` role to create the default consumer.
 
       {% endnote %}
       
@@ -95,7 +95,7 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.copy_folder.title }}**: Specify the name of the directory to store the copies of the tables during the copying stage. The directory is created in the root directory of the source base and gets the default name of `data-transfer`. The copies of tables in the directory contain only metadata, so they do not take up much memory. As soon as the copying stage is over, the directory will be deleted.
     
     
-    To control parallel copying, the service account specified in the endpoint settings must have the [`ydb.editor` role](../../../../ydb/security/index.md#ydb-editor).
+    To control parallel copying, the service account specified in the endpoint settings must have the [`ydb.editor`](../../../../ydb/security/index.md#ydb-editor) role.
 
 
     To maximize the parallel copying speed:
@@ -116,12 +116,13 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
 
   Here is an example of the configuration file structure (not all parameters are given):
 
+  
   ```hcl
   resource "yandex_datatransfer_endpoint" "ydb-source" { 
     name = "<endpoint_name>"
     settings {
       ydb_source {
-        database               = "<YDB_database_name>"        
+        database               = "<YDB_database_name>"
         service_account_id     = "<service_account_ID>"
         paths                  = ["<list_of_paths_to_transferrable_YDB_objects>"]
         changefeed_custom_name = "<changefeed_name>"
@@ -130,7 +131,8 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
   }
   ```
 
-  For more information, see the [{{ TF }}]({{ tf-provider-dt-endpoint }}) provider documentation.
+
+  For more information, see [this {{ TF }} provider article]({{ tf-provider-dt-endpoint }}).
 
 {% endlist %}
 

@@ -70,3 +70,5 @@ description: Видеозаписи конференций и вебинаров
 * Базы данных в облаках.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=xyMN1EA9p5Y).
+
+{% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

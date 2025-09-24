@@ -88,7 +88,7 @@ The [billing threshold](../../billing/concepts/billing-threshold.md) gets enable
 
 #### How do I change the billing account owner? {#account-owner}
 
-You cannot change the billing account owner. If you still need this, a new owner may [create a billing account](../../billing/operations/create-new-account.md) and [link](../../billing/operations/pin-cloud.md) clouds with all their resources to this billing account.
+Any user with the `billing.accounts.owner` role can remove this role from the billing account creator and change the owner. To learn more, see [Access management](../../billing/security/index.md).
 
 #### Where can add a bank account? {#checking-account}
 

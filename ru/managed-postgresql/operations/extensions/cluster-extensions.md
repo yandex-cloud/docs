@@ -14,14 +14,15 @@
 
 {{ mpg-short-name }} поддерживает подключение библиотек:
 
+* `age` — необходима для работы [расширения age](https://age.apache.org);
+* `anon` — необходима для работы [расширения postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/).
 * `auto_explain` — необходима для работы [расширения auto_explain]({{ pg-docs }}/auto-explain.html);
 * `pgaudit` — необходима для работы [расширения pgaudit](https://www.pgaudit.org/);
 * `pg_cron` — необходима для работы [расширения pg_cron](https://github.com/citusdata/pg_cron);
 * `pg_hint_plan` — необходима для работы [расширения pg_hint_plan](https://github.com/ossc-db/pg_hint_plan);
 * `pg_qualstats` — необходима для работы [расширения pg_qualstats](https://github.com/powa-team/pg_qualstats);
 * `pg_stat_query_plans` — необходима для работы [расширения pg_stat_query_plans](https://github.com/postgredients/pg_stat_query_plans);
-* `timescaledb` — необходима для использования [расширения TimescaleDB](https://github.com/timescale/timescaledb);
-* `anon` — необходима для использования [расширения postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/).
+* `timescaledb` — необходима для работы [расширения TimescaleDB](https://github.com/timescale/timescaledb).
 
 {% note warning %}
 
@@ -268,6 +269,12 @@
 || **Расширение** \ **Версия {{ PG }}** | **11** | **12** | **13** | **14** | **15** | **16** | **17** ||
 || <p>[address_standardizer](https://postgis.net/docs/manual-3.1/postgis_installation.html#installing_pagc_address_standardizer)</p><p>Содержит функции для нормализации почтовых адресов, переданных в виде строки.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 | 3.4.3 ||
 || <p>[address_standardizer_data_us](https://postgis.net/docs/manual-3.1/postgis_installation.html#make_install_postgis_extensions)</p><p>Содержит правила нормализации почтовых адресов США и Канады для расширения `address_standardizer`.</p> | 2.5.2 | 3.0.0 | 3.1.4 | 3.1.4 | 3.3.2 | 3.4.0 | 3.4.3 ||
+|| <p>[age](https://age.apache.org)</p><p>Добавляет поддержку [графовых баз данных](https://en.wikipedia.org/wiki/Graph_database), в том числе:
+* хранение графовых БД;
+* управление графовыми БД;  
+* операции над графами.</p>
+
+Требует [подключения библиотеки общего пользования](#libraries-connection) `age`. | - | - | - | - | - | 1.5.0 | 1.5.0 ||
 || <p>[amcheck]({{ pg-docs }}/amcheck.html)</p><p>Содержит функции проверки логической согласованности реляционной структуры баз данных.</p><p>Для использования расширения необходима [роль `mdb_admin`](../../concepts/roles.md#mdb-admin) или [роль `mdb_superuser`](../../concepts/roles.md#mdb-superuser).</p> | 1.1 | 1.2 | 1.2 | 1.3 | 1.3 | 1.3 | 1.4 ||
 || <p>[autoinc]({{ pg-docs }}/contrib-spi.html#id-1.11.7.47.6)</p><p>Содержит функцию `autoinc()`. Она возвращает следующее значение для последовательности, хранящейся в поле целочисленного типа. В отличие от встроенных типов, управляющих последовательностями, `autoinc()`:
 * блокирует попытки вставить в поле значение из запроса;
