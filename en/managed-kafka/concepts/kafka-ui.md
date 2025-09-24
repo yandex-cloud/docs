@@ -39,6 +39,6 @@ Main web UI features:
    * Data and configuration export.
    * Light and dark UI themes.
 
-For more information on using the web UI, see the [{{ kafka-ui }} for {{ KF }} documentation](https://docs.kafka-ui.provectus.io).
+For more information on using the web UI, see the [{{ kafka-ui }} for {{ KF }} documentation](https://ui.docs.kafbat.io).
 
 For a step-by-step guide on how to enable {{ kafka-ui }}, see [{#T}](../operations/kafka-ui-enable.md).
